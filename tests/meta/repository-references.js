@@ -27,8 +27,6 @@ const PUBLIC_REPOS = new Set([
   'codeql-action-sync-tool',
   'codeql-action',
   'codeql-cli-binaries',
-  'codeql-go',
-  'codeql',
   'codeql',
   'codespaces-precache',
   'codespaces-jupyter',

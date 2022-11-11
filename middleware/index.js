@@ -267,7 +267,7 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(currentProductTree, './contextualizers/current-product-tree')))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(instrument(breadcrumbs, './contextualizers/breadcrumbs'))
-  app.use(instrument(features, './contextualizers/features'))
+  app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
   app.use(instrument(glossaries, './contextualizers/glossaries'))

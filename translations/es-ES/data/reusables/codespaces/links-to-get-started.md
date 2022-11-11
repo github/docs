@@ -1,1 +1,9 @@
-To get started with {% data variables.product.prodname_github_codespaces %}, see "[Quickstart for {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/quickstart)." For more information on creating or reopening a codespace, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)" and "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)." To learn more about how {% data variables.product.prodname_github_codespaces %} works, see "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
+---
+ms.openlocfilehash: 6d1607f3c2d1c775f5328d13ff4cb458d82037a0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109945"
+---
+Para empezar a trabajar con {% data variables.product.prodname_github_codespaces %}, consulta "[Inicio rápido de {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/quickstart)". Para obtener más información sobre cómo crear o volver a abrir un codespace, consulta "[Creación de un codespace](/codespaces/developing-in-codespaces/creating-a-codespace)" y "[Apertura de un codespace existente](/codespaces/developing-in-codespaces/opening-an-existing-codespace)". Para obtener más información sobre cómo funciona {% data variables.product.prodname_github_codespaces %}, consulta "[Profundización en {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)".

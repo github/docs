@@ -1,6 +1,6 @@
 ---
-title: 'Adding an outside collaborator to a {% data variables.product.prodname_project_v1 %} in your organization'
-intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can add an outside collaborator and customize their permissions to a {% data variables.projects.projects_v1_board %}.'
+title: 'Adición de un colaborador externo a una instancia de {% data variables.product.prodname_project_v1 %} en la organización'
+intro: 'Como propietario de la organización o administrador de {% data variables.projects.projects_v1_board %}, puedes agregar un colaborador externo a una instancia de {% data variables.projects.projects_v1_board %} y personalizar sus permisos.'
 redirect_from:
   - /articles/adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-an-outside-collaborator-to-a-project-board-in-your-organization
@@ -14,21 +14,18 @@ topics:
   - Teams
 shortTitle: Add a collaborator
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 517e0c6f71d1b70eb19dc85dfe3334ff0144c814
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148110137'
 ---
-
 {% data reusables.projects.project_boards_old %}
 
-An outside collaborator is a person who isn't explicitly a member of your organization, but who has permissions to a {% data variables.projects.projects_v1_board %} in your organization.
+Un colaborador externo es alguien que no es explícitamente un miembro de tu organización, pero que tiene permisos para una instancia de {% data variables.projects.projects_v1_board %} en tu organización.
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.collaborator-option %}
-9. Under "Search by username, full name or email address", type the outside collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
-   ![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/projects/org-project-collaborators-find-name.png)
-{% data reusables.project-management.add-collaborator %}
-{% data reusables.project-management.collaborator-permissions %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Haz clic en **Proyectos (clásico)** {% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %}
+9. Debajo de "Search by username, full name or email address" (Buscar por nombre de usuario, nombre completo o dirección de correo electrónico), escribe el nombre, nombre de usuario o correo electrónico del colaborador externo {% data variables.product.prodname_dotcom %}.
+   ![La sección Collaborators (Colaboradores) con el nombre de usuario de Octocat escrito en el campo de búsqueda](/assets/images/help/projects/org-project-collaborators-find-name.png) {% data reusables.project-management.add-collaborator %} {% data reusables.project-management.collaborator-permissions %}
