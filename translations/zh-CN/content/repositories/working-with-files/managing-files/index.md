@@ -20,11 +20,12 @@ children:
   - /renaming-a-file
   - /deleting-files-in-a-repository
   - /customizing-how-changed-files-appear-on-github
-ms.openlocfilehash: 2557443afe3b3d76b2738dfcfaafbf51e47b680e
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+  - /navigating-files-with-the-new-code-view
+ms.openlocfilehash: 4c2a28474175d11d29f78d41a281f4072485eb62
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147881467'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159430'
 ---
 

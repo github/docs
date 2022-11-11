@@ -15,12 +15,12 @@ versions:
 topics:
   - Pages
 shortTitle: Test site locally with Jekyll
-ms.openlocfilehash: 68123d7bc2849881fc60fdd89dc4177e6701f5d4
-ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.openlocfilehash: 9db3a964ee38afa191f7fed31cfa032128460f48
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147876038'
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111303'
 ---
 任何拥有仓库读取权限的人都可以在本地测试 {% data variables.product.prodname_pages %} 站点。
 
@@ -52,13 +52,14 @@ ms.locfileid: '147876038'
   >    Server address: http://127.0.0.1:4000/
   >  Server running... press ctrl-c to stop.
   ```
+  {% note %}
+
+  注意：如果已安装 Ruby 3.0 或更高版本（如果通过 Homebrew 安装了默认版本，则表示可能已经安装），你可能会在此步骤中遇到错误。 这是因为这些版本的 Ruby 不再附带安装 `webrick`。
+  
+  要修复错误，请尝试运行 `bundle add webrick`，然后重新运行 `bundle exec jekyll serve`。
+  {% endnote %}
+
 3. 若要预览网站，请在 Web 浏览器中导航到 `http://localhost:4000`。
-
-{% note %}
-
-注意：如果使用 Ruby 3.0 和 Jekyll 4.2.x 或更低版本，则需要在运行 `bundle install` 之前将 `webrick` gem 添加到项目的 Gemfile 中。
-
-{% endnote %}
 
 ## 更新 {% data variables.product.prodname_pages %} gem
 

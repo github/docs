@@ -1,7 +1,7 @@
 ---
-title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
+title: '使用 Actions 自动化 {% data variables.product.prodname_projects_v2 %}'
 shortTitle: Automating with Actions
-intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
+intro: '可以使用 {% data variables.product.prodname_actions %} 自动化你的项目。'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -11,44 +11,48 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: c21e201e538d09826bd0d00f22fe60508c9d6a61
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106843'
 ---
+## {% data variables.product.prodname_actions %} 工作流程
 
+本节说明如何使用 GraphQL API 和 {% data variables.product.prodname_actions %} 向组织项目添加拉取请求。 在示例工作流程中，当拉取请求标记为“准备审核”时，项目中会添加一项“状态”字段设置为“待办”的新任务，并且当前日期添加到自定义的“发布日期”字段中。
 
-## {% data variables.product.prodname_actions %} workflows
+您可以复制以下工作流程之一，并按照下表中的说明对其进行修改，以满足您的需求。
 
-This section demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to an organization project. In the example workflows, when the pull request is marked as "ready for review", a new task is added to the project with a "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
+项目可以跨越多个仓库，但工作流是特定于仓库的。 将工作流添加到希望项目跟踪的每个存储库。有关创建工作流文件的详细信息，请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
-You can copy one of the workflows below and modify it as described in the table below to meet your needs.
+本文假设您基本了解 {% data variables.product.prodname_actions %}。 有关 {% data variables.product.prodname_actions %} 的详细信息，请参阅“[{% data variables.product.prodname_actions %}](/actions)”。
 
-A project can span multiple repositories, but a workflow is specific to a repository. Add the workflow to each repository that you want your project to track. For more information about creating workflow files, see "[Quickstart for {% data variables.product.prodname_actions %}](/actions/quickstart)."
+有关可以通过 API 对项目进行的其他更改的详细信息，请参阅“[使用 API 管理项目](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)”。
 
-This article assumes that you have a basic understanding of {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)."
-
-For more information about other changes you can make to your project through the API, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
-
-You may also want to use the **actions/add-to-project** workflow, which is maintained by {% data variables.product.company_short %} and will add the current issue or pull request to the project specified. For more information, see the [actions/add-to-project](https://github.com/actions/add-to-project) repository and README.
+你可能还希望使用 actions/add-to-project 工作流，该工作流由 {% data variables.product.company_short %} 维护，并将当前问题或拉取请求添加到指定的项目。 有关详细信息，请参阅 [actions/add-to-project](https://github.com/actions/add-to-project) 存储库和自述文件。
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a {% data variables.product.pat_generic %} (recommended for user projects). Workflow examples for both approaches are shown below.
+注意：`GITHUB_TOKEN` 的范围限定为存储库级别，并且无法访问 {% data variables.projects.projects_v2 %}。 若要访问 {% data variables.projects.projects_v2 %}，可以创建 {% data variables.product.prodname_github_app %}（建议用于组织项目）或者 {% data variables.product.pat_generic %}（建议用于用户项目）。 下面显示了这两种方法的工作流程示例。
 
 {% endnote %}
 
-### Example workflow authenticating with a {% data variables.product.prodname_github_app %}
+### 使用 {% data variables.product.prodname_github_app %} 进行身份验证的示例工作流程
 
-1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[Creating a {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)."
-2. Give your {% data variables.product.prodname_github_app %} read and write permissions to organization projects. For more information, see "[Editing a {% data variables.product.prodname_github_app %}'s permissions](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)."
+1. 创建 {% data variables.product.prodname_github_app %} 或选择组织拥有的现有 {% data variables.product.prodname_github_app %}。 有关详细信息，请参阅“[创建 {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)”。
+2. 授予 {% data variables.product.prodname_github_app %} 对组织项目的读取和写入权限。 有关详细信息，请参阅“[编辑 {% data variables.product.prodname_github_app %} 的权限](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)”。
 
    {% note %}
 
-   **Note:** You can control your app's permission to organization projects and to repository projects. You must give permission to read and write organization projects; permission to read and write repository projects will not be sufficient.
+   注意：你可以控制应用对组织项目和存储库项目的权限。 您必须授予读取和写入组织项目的权限；读取和写入存储库项目的权限是不够的。
 
    {% endnote %}
 
-3. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see "[Installing {% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
-4. Store your {% data variables.product.prodname_github_app %}'s ID as a secret in your repository or organization. In the following workflow, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/reference/apps#get-an-app)."
-5. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-6. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
+3. 在组织中安装 {% data variables.product.prodname_github_app %}。 为项目需要访问的所有存储库安装它。 有关详细信息，请参阅“[安装{% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)”。
+4. 将 {% data variables.product.prodname_github_app %} 的 ID 作为机密存储在存储库或组织中。 在以下工作流中，将 `APP_ID` 替换为机密的名称。 您可以在应用的设置页面上或通过应用 API 找到应用 ID。 有关详细信息，请参阅“[应用](/rest/reference/apps#get-an-app)”。
+5. 为应用生成私钥。 将生成的文件的内容作为机密存储在存储库或组织中。 （存储文件的全部内容，包括 `-----BEGIN RSA PRIVATE KEY-----` 和 `-----END RSA PRIVATE KEY-----`。）在以下工作流中，将 `APP_PEM` 替换为机密的名称。 有关详细信息，请参阅“[使用 {% data variables.product.prodname_github_apps %} 进行身份验证](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)”。
+6. 在以下工作流中，将 `YOUR_ORGANIZATION` 替换为组织的名称。 例如 `octo-org`。 将 `YOUR_PROJECT_NUMBER` 替换为项目编号。 要查找项目编号，请查看项目 URL。 例如，`https://github.com/orgs/octo-org/projects/5` 的项目编号为 5。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -167,11 +171,11 @@ jobs:
 
 ```
 
-### Example workflow authenticating with a {% data variables.product.pat_generic %}
+### 使用 {% data variables.product.pat_generic %} 进行身份验证的示例工作流程
 
-1. Create a {% data variables.product.pat_v1 %} with the `project` and `repo` scopes. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-2. Save the {% data variables.product.pat_generic %} as a secret in your repository or organization.
-3. In the following workflow, replace `YOUR_TOKEN` with the name of the secret. Replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
+1. 使用 `project` 和 `repo` 范围创建 {% data variables.product.pat_v1 %}。 有关详细信息，请参阅“[创建 {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+2. 将 {% data variables.product.pat_generic %} 保存为存储库或组织中的机密。
+3. 在以下工作流中，将 `YOUR_TOKEN` 替换为机密的名称。 将 `YOUR_ORGANIZATION` 替换为组织的名称。 例如，`octo-org`。 将 `YOUR_PROJECT_NUMBER` 替换为项目编号。 要查找项目编号，请查看项目 URL。 例如，`https://github.com/orgs/octo-org/projects/5` 的项目编号为 5。
 
 ```yaml{:copy}
 name: Add PR to project
@@ -279,9 +283,9 @@ jobs:
 
 ```
 
-### Workflow explanation
+### 工作流程说明
 
-The following table explains sections of the example workflows and shows you how to adapt the workflows for your own use.
+下表说明了示例工作流程的各个部分，并向您展示了如何调整工作流程以供自己使用。
 
 <table class="table-fixed">
 
@@ -297,14 +301,14 @@ on:
 
 </td>
 <td>
-This workflow runs whenever a pull request in the repository is marked as "ready for review".
+当仓库中的拉取请求标记为“准备审核”时，此工作流程将运行。
 </td>
 </tr>
 
 <tr>
 <td>
 
-{% data variables.product.prodname_github_app %} only:
+仅限 {% data variables.product.prodname_github_app %}：
 
 ```yaml
 - name: Generate token
@@ -317,20 +321,20 @@ This workflow runs whenever a pull request in the repository is marked as "ready
 
 </td>
 <td>
-Uses the <a href="https://github.com/tibdex/github-app-token">tibdex/github-app-token action</a> to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as <code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code>.
+使用 <a href="https://github.com/tibdex/github-app-token">tibdex/github-app-token 操作</a>从应用 ID 和私钥为应用生成安装访问令牌。 稍后在工作流中以 <code>{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}</code> 的形式访问安装访问令牌。
 <br>
 <br>
-Replace <code>APP_ID</code> with the name of the secret that contains your app ID.
+将 <code>APP_ID</code> 替换为包含应用 ID 的机密的名称。
 <br>
 <br>
-Replace <code>APP_PEM</code> with the name of the secret that contains your app private key.
+将 <code>APP_PEM</code> 替换为包含应用私钥的机密的名称。
 </td>
 </tr>
 
 <tr>
 <td>
 
-{% data variables.product.prodname_github_app %}:
+{% data variables.product.prodname_github_app %}：
 
 ```yaml
 env:
@@ -350,16 +354,16 @@ env:
 
 </td>
 <td>
-Sets environment variables for this step.
+为此步骤设置环境变量。
 <br>
 <br>
-If you are using a {% data variables.product.pat_generic %}, replace <code>YOUR_TOKEN</code> with the name of the secret that contains your {% data variables.product.pat_generic %}.
+如果使用 {% data variables.product.pat_generic %}，请将 <code>YOUR_TOKEN</code> 替换为包含 {% data variables.product.pat_generic %} 的机密的名称。
 <br>
 <br>
-Replace <code>YOUR_ORGANIZATION</code> with the name of your organization. For example, <code>octo-org</code>.
+将 <code>YOUR_ORGANIZATION</code> 替换为组织的名称。 例如，<code>octo-org</code>。
 <br>
 <br>
-Replace <code>YOUR_PROJECT_NUMBER</code> with your project number. To find the project number, look at the project URL. For example, <code>https://github.com/orgs/octo-org/projects/5</code> has a project number of 5.
+将 <code>YOUR_PROJECT_NUMBER</code> 替换为项目编号。 要查找项目编号，请查看项目 URL。 例如，<code>https://github.com/orgs/octo-org/projects/5</code> 的项目编号为 5。
 </td>
 </tr>
 
@@ -395,9 +399,9 @@ gh api graphql -f query='
 
 </td>
 <td>
-<p>Uses <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. <code>fields</code> returns a union and the query uses inline fragments (<code>... on</code>) to return information about any <code>ProjectV2Field</code> and <code>ProjectV2SingleSelectField</code> fields.</p>
+<p>使用 <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> 查询项目的 ID 的 API，并返回项目中前 20 个字段的名称和 ID。 <code>fields</code> 会返回一个联合，查询使用内联片段 (<code>... on</code>) 返回任何 <code>ProjectV2Field</code> 和 <code>ProjectV2SingleSelectField</code> 字段的相关信息。</p>
 
-<p>The response is stored in a file called <code>project_data.json</code>.</p>
+<p>响应存储在名为 <code>project_data.json</code> 的文件中。</p>
 </td>
 </tr>
 
@@ -413,19 +417,19 @@ echo 'TODO_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select
 
 </td>
 <td>
-Parses the response from the API query and stores the relevant IDs as environment variables. Modify this to get the ID for different fields or options. For example:
+解析 API 查询的响应，并将相关 ID 存储为环境变量。 修改此选项以获取不同字段或选项的 ID。 例如：
 <ul>
-<li>To get the ID of a field called <code>Team</code>, add <code>echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV</code>.</li>
-<li>To get the ID of an option called <code>Octoteam</code> for the <code>Team</code> single select field, add <code>echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV</code></li>
-</ul>
-<strong>Note: </strong>This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
+<li>若要获取名为 <code>Team</code> 的字段的 ID，请添加 <code>echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV</code>。</li>
+<li>若要获取 <code>Team</code> 单选字段的名为 <code>Octoteam</code> 的选项的 ID，请添加 <code>echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV</code></li>
+</ul>注意：此工作流程假定你有一个项目，其中包含一个名为“状态”的单选字段、一个名为“待办”的选项和一个名为“发布日期”的日期字段
+<strong></strong>。 您必须修改此部分以匹配表中存在的字段。
 </td>
 </tr>
 
 <tr>
 <td>
 
-{% data variables.product.prodname_github_app %}:
+{% data variables.product.prodname_github_app %}：
 
 ```yaml
 env:
@@ -443,7 +447,7 @@ env:
 
 </td>
 <td>
-Sets environment variables for this step. <code>GITHUB_TOKEN</code> is described above. <code>PR_ID</code> is the ID of the pull request that triggered this workflow.
+为此步骤设置环境变量。 <code>GITHUB_TOKEN</code> 如上所述。 <code>PR_ID</code> 是触发此工作流的拉取请求的 ID。
 
 </td>
 </tr>
@@ -464,7 +468,7 @@ item_id="$( gh api graphql -f query='
 
 </td>
 <td>
-Uses <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> and the API to add the pull request that triggered this workflow to the project. The <code>jq</code> flag parses the response to get the ID of the created item.
+使用 <a href="https://cli.github.com/manual/">{% data variables.product.prodname_cli %}</a> 和 API 将触发此工作流的拉取请求添加到项目。 <code>jq</code> 标志解析响应以获取所创建项目的 ID。
 </td>
 </tr>
 
@@ -477,7 +481,7 @@ echo 'ITEM_ID='$item_id >> $GITHUB_ENV
 
 </td>
 <td>
-Stores the ID of the created item as an environment variable.
+将已创建项的 ID 存储为环境变量。
 </td>
 </tr>
 
@@ -490,14 +494,14 @@ echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
 
 </td>
 <td>
-Saves the current date as an environment variable in <code>yyyy-mm-dd</code> format.
+以 <code>yyyy-mm-dd</code> 格式将当前日期保存为环境变量。
 </td>
 </tr>
 
 <tr>
 <td>
 
-{% data variables.product.prodname_github_app %}:
+{% data variables.product.prodname_github_app %}：
 
 ```yaml
 env:
@@ -513,7 +517,7 @@ env:
 
 </td>
 <td>
-Sets environment variables for this step. <code>GITHUB_TOKEN</code> is described above.
+为此步骤设置环境变量。 <code>GITHUB_TOKEN</code> 如上所述。
 
 </td>
 </tr>
@@ -560,7 +564,7 @@ gh api graphql -f query='
 
 </td>
 <td>
-Sets the value of the <code>Status</code> field to <code>Todo</code>. Sets the value of the <code>Date posted</code> field.
+将 <code>Status</code> 字段的值设置为 <code>Todo</code>。 设置 <code>Date posted</code> 字段的值。
 </td>
 </tr>
 

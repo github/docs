@@ -1,7 +1,6 @@
 ---
 title: Managing GPG verification for GitHub Codespaces
 intro: 'You can allow {% data variables.product.company_short %} to automatically use GPG to sign commits you make in your codespaces, so other people can be confident that the changes come from a trusted source.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -27,8 +26,8 @@ Once you enable GPG verification, it will immediately take effect for all your c
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "GPG verification", select the setting you want for GPG verification.
   ![Radio buttons to manage GPG verification](/assets/images/help/settings/codespaces-gpg-verification-radio-buttons.png) 
-1. If you chose "Selected repositories", select the drop-down menu, then click a repository you want enable GPG verification for. Repeat for all repositories you want to enable GPG verification for.
-  !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png) 
+1. If you chose "Selected repositories", select the dropdown menu, then click a repository you want enable GPG verification for. Repeat for all repositories you want to enable GPG verification for.
+  !["Selected repositories" dropdown menu](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png) 
 
 
 {% note %}

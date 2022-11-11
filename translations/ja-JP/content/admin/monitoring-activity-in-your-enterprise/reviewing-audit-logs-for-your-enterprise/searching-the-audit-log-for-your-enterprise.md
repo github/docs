@@ -1,6 +1,6 @@
 ---
-title: エンタープライズの監査ログの検索
-intro: Enterprise で監査されたアクションの広範なリストを検索できます。
+title: Searching the audit log for your enterprise
+intro: You can search an extensive list of audited actions in your enterprise.
 shortTitle: Search audit logs
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
 redirect_from:
@@ -19,78 +19,76 @@ topics:
   - Enterprise
   - Logging
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 6289b83d40aecf5208ae377be953ca65baba4a7d
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147879144'
 ---
-## エンタープライズの監査ログの検索について
 
-**[フィルター]** ドロップダウンを使用するか、検索クエリを入力して、ユーザー インターフェイスからエンタープライズの監査ログを直接検索できます。
+## About search for the enterprise audit log
 
-  ![Search query (検索クエリ)](/assets/images/enterprise/site-admin-settings/search-query.png)
+You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
 
-エンタープライズの監査ログの表示の詳細については、「[エンタープライズ監査ログへのアクセス](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)」を参照してください。 
+  ![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
+
+For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)." 
 
 {% data reusables.audit_log.git-events-not-in-search-results %}
 
-API を使用して監査ログ イベントを取得することもできます。 詳細については、「[エンタープライズでの監査ログ API の使用](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)」を参照してください。
+You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 
-テキストを使用してエントリを検索することはできません。 ただし、さまざまなフィルターを使用すれば検索クエリを作成できます。 ログを検索するときに使用される多くの演算子 (`-`、`>`、`<` など) は、{% data variables.product.product_name %} 全体で検索するものと同じ形式です。 詳細については、「[{% data variables.product.prodname_dotcom %} 上での検索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
+You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% note %}
 
-**注**: {% data reusables.audit_log.retention-periods %}
+**Note**: {% data reusables.audit_log.retention-periods %}
 
 {% endnote %}
 
-## 検索クエリ フィルター
+## Search query filters
 
-Assert| 説明
+Filter| Description
 --------------:| -----------
-`Yesterday's activity` | 過去 1 日に作成されたすべてのアクション。
-`Enterprise account management` | `business` カテゴリ内のすべてのアクション。
-`Organization membership` | 新しいユーザーが組織に参加するように招待されたときのすべてのアクション。
-`Team management` | チーム管理に関連するすべてのアクション。<br/>- ユーザー アカウントまたはリポジトリがチームに追加またはチームから削除されたとき<br/>- チームの保守担当者が昇格または降格されたとき<br/>- チームが削除されたとき
-`Repository management` | リポジトリ管理のすべてのアクション。<br/>- リポジトリが作成または削除されたとき<br/>- リポジトリの可視性が変更されたとき<br/>- チームがリポジトリに追加または削除されたとき{% ifversion ghec %}
-`Billing updates` | {% data variables.product.prodname_dotcom %} と請求先の電子メール アドレスが変更された場合のエンタープライズの支払い方法に関するすべてのアクション。{% endif %}
-`Hook activity` | Webhook と pre-receive フックのすべてのアクション。
-`Security management` | SSH キー、デプロイ キー、セキュリティ キー、2FA、SAML シングル サインオン資格情報の承認、リポジトリの脆弱性アラートに関するすべてのアクション。
+`Yesterday's activity` | All actions created in the past day.
+`Enterprise account management` | All actions in the `business` category.
+`Organization membership` | All actions for when a new user was invited to join an organization.
+`Team management` | All actions related to team management.<br/>- When a user account or repository was added or removed from a team<br/>- When a team maintainer was promoted or demoted<br/>-  When a team was deleted
+`Repository management` | All actions for repository management.<br/>- When a repository was created or deleted<br/>- When the repository visibility was changed<br/>- When a team was added or removed from a repository{% ifversion ghec %}
+`Billing updates` | All actions concerning how your enterprise pays for {% data variables.product.prodname_dotcom %} and for when your billing email address was changed.{% endif %}
+`Hook activity` | All actions for webhooks and pre-receive hooks.
+`Security management` | All actions concerning SSH keys, deploy keys, security keys, 2FA, and SAML single sign-on credential authorization, and vulnerability alerts for repositories.
 
-## 検索クエリ構文
+## Search query syntax
 
-AND/OR の論理演算子で区切られた 1 つ以上の `key:value` のペアから検索クエリを構成できます。 たとえば、2017 年の初めからリポジトリ `octocat/Spoon-Knife` に影響を与えたすべてのアクションを確認するには、次のようにします。
+You can compose a search query from one or more `key:value` pairs, separated by AND/OR logical operators. For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
 
   `repo:"octocat/Spoon-Knife" AND created:>=2017-01-01`
 
-検索クエリで使用できる `key:value` ペアは次のとおりです。
+The `key:value` pairs that can be used in a search query are:
 
-キー            | 値
+Key            | Value
 --------------:| --------------------------------------------------------
-`actor_id`     | アクションを開始したユーザアカウントの ID
-`actor`        | アクションを開始したユーザアカウントの名前
-`oauth_app_id` | アクションに関連付けられている OAuth アプリケーションの ID
-`action`       | 監査されたアクションの名前
-`user_id`      | アクションによって影響を受けたユーザの ID
-`user`         | アクションによって影響を受けたユーザの名前
-`repo_id`      | アクションによって影響を受けたリポジトリの ID （妥当な場合）
-`repo`         | アクションによって影響を受けたリポジトリの名前 （妥当な場合）
-`actor_ip`     | アクション元の IP アドレス
-`created`      | アクションが発生した時刻{% ifversion ghes %}。 サイト管理者ダッシュボードから監査ログを照会する場合は、代わりに `created_at` を使用します{% endif %}
-`from`         | アクション元の View
-`note`         | イベント固有の他の情報（プレーンテキストまたは JSON フォーマット）
-`org`          | アクションによって影響を受けたOrganizationの名前（該当する場合）
-`org_id`       | アクションによって影響を受けたOrganizationの ID（該当する場合）
-`business` | アクションによって影響を受けたリポジトリの名前 (該当する場合)
-`business_id` | アクションによって影響を受けたエンタープライズの ID (該当する場合)
+`actor_id`     | ID of the user account that initiated the action
+`actor`        | Name of the user account that initiated the action
+`oauth_app_id` | ID of the OAuth application associated with the action
+`action`       | Name of the audited action
+`user_id`      | ID of the user affected by the action
+`user`         | Name of the user affected by the action
+`repo_id`      | ID of the repository affected by the action (if applicable)
+`repo`         | Name of the repository affected by the action (if applicable)
+`actor_ip`     | IP address from which the action was initiated
+`created`      | Time at which the action occurred{% ifversion ghes %}. If querying the audit log from the site admin dashboard, use `created_at` instead{% endif %}
+`from`         | View from which the action was initiated
+`note`         | Miscellaneous event-specific information (in either plain text or JSON format)
+`org`          | Name of the organization affected by the action (if applicable)
+`org_id`       | ID of the organization affected by the action (if applicable)
+`business` | Name of the enterprise affected by the action (if applicable)
+`business_id` | ID of the enterprise affected by the action (if applicable)
+{%- ifversion token-audit-log %}
+`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)")
+{%- endif %}
 
-カテゴリ別にグループ化されたアクションを表示するには、アクション修飾子を `key:value` ペアとして使用することもできます。 詳細については、「[実行されたアクションに基づく検索](#search-based-on-the-action-performed)」を参照してください。
+To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
-エンタープライズの監査ログのアクションの完全な一覧については、「[エンタープライズの監査ログ アクション](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)」を参照してください。
+For a full list of actions in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
-## Audit log を検索する
+## Searching the audit log
 
 {% data reusables.audit_log.audit-log-search-by-operation %}
 
@@ -98,40 +96,46 @@ AND/OR の論理演算子で区切られた 1 つ以上の `key:value` のペア
 
 {% data reusables.audit_log.audit-log-search-by-user %}
 
-### 実行されたアクションに基づく検索
+### Search based on the action performed
 
-特定のイベントを検索するには、クエリで `action` 修飾子を使用します。 次に例を示します。
+To search for specific events, use the `action` qualifier in your query. For example:
 
-  * `action:team` は、チーム カテゴリ内でグループ化されたすべてのイベントを検索します。
-  * `-action:hook` は、Webhook カテゴリのすべてのイベントを除外します。
+  * `action:team` finds all events grouped within the team category.
+  * `-action:hook` excludes all events in the webhook category.
 
-各カテゴリには、フィルタできる一連の関連アクションがあります。 次に例を示します。
+Each category has a set of associated actions that you can filter on. For example:
 
-  * `action:team.create` は、チームが作成されたすべてのイベントを検索します。
-  * `-action:hook.events_changed` は、Webhook 上のイベントが変更されたすべてのイベントを除外します。
+  * `action:team.create` finds all events where a team was created.
+  * `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
-エンタープライズの監査ログで検出できるアクションは、次のカテゴリにグループ化されます。
+Actions that can be found in your enterprise audit log are grouped within the following categories:
 
 {% data reusables.audit_log.audit-log-action-categories %}
-### アクション時間に基づく検索
+### Search based on time of action
 
-`created` 修飾子を使用して、発生した日時に基づいて監査ログ内のイベントをフィルター処理します。
+Use the `created` qualifier to filter events in the audit log based on when they occurred.
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-次に例を示します。
+For example:
 
-  * `created:2014-07-08` は、2014 年 7 月 8 日に発生したすべてのイベントを検索します。
-  * `created:>=2014-07-08` は、2014 年 7 月 8 日またはそれ以降に発生したすべてのイベントを検索します。
-  * `created:<=2014-07-08` は、2014 年 7 月 8 日またはそれより前に発生したすべてのイベントを検索します。
-  * `created:2014-07-01..2014-07-31` は、2014 年 7 月の月に発生したすべてのイベントを検索します。
+  * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+  * `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+  * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+  * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
-### 場所に基づく検索
+### Search based on location
 
-修飾子 `country` を使用すると、発信元の国に基づいて監査ログ内のイベントをフィルター処理できます。 国の 2 文字の短いコードまたはフル ネームを使用できます。 名前に空白がある国は引用符で囲む必要があります。 次に例を示します。
+Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or full name. Countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-  * `country:de` は、ドイツで発生したすべてのイベントを検索します。
-  * `country:Mexico` は、メキシコで発生したすべてのイベントを検索します。
-  * `country:"United States"` は、米国で発生したすべてのイベントを検索します。
+  * `country:de` finds all events that occurred in Germany.
+  * `country:Mexico` finds all events that occurred in Mexico.
+  * `country:"United States"` all finds events that occurred in the United States.
+
+{% ifversion token-audit-log %}
+### Search based on the token that performed the action
+
+Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+{% endif %}

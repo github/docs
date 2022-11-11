@@ -1,7 +1,6 @@
 ---
-title: 既存の codespace を開く
-intro: 終了または停止した codespace をもう一度開いて、作業に戻ることができます。
-product: '{% data reusables.gated-features.codespaces %}'
+title: Opening an existing codespace
+intro: 'You can reopen a codespace that you have closed or stopped and return to your work.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,25 +10,46 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Open an existing codespace
-ms.openlocfilehash: 37eff72e5384ec5eda55708f7672cfe6832864c1
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109579'
 ---
-{% data variables.product.prodname_dotcom_the_website %} や {% data variables.product.prodname_vscode %} で、または {% data variables.product.prodname_cli %} を使って、アクティブな codespace または停止している codespace をもう一度開くことができます。 削除された codespace を開き直すことはできません。 詳しくは、「[{% data variables.product.prodname_codespaces %} のライフサイクル](/codespaces/developing-in-codespaces/codespaces-lifecycle)」をご覧ください。
 
-## 既存の codespace を開く
+{% jetbrains %}
+
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
+
+{% endjetbrains %}
+
+You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)."
+
+You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
+
+- Open, stop, or delete your codespaces.
+- See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+- Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+
+## Opening an existing codespace
 
 {% webui %}
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. 既定のエディターで codespace を開くには、codespace の名前をクリックします。 {% data reusables.codespaces.about-changing-default-editor %}詳しくは、「[{% data variables.product.prodname_github_codespaces %} の既定のエディターを設定する](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)」をご覧ください。
+1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
    
-   既定以外のエディターで codespace を開くには、codespace の右側にある省略記号 **[...]** を選んで、 **[<アプリケーション> で開く]** をクリックします。
+   To open the codespace in an editor other than your default:
+   
+   1. Click the ellipsis (**...**) to the right of the codespace you want to open.
+   1. Click **Open in**.
+   1. Click **Open in APPLICATION**.
 
-   ![[Visual Studio Code で開く] が強調されている "自分の codespace" ページのスクリーンショット](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
+   ![Screenshot of the "Open in" dialog box, with "Open in Visual Studio Code" highlighted](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
+
+   You can open the codespace in:
+   * Your browser
+   * {% data variables.product.prodname_vscode %}
+   * JetBrains Gateway
+   * JupyterLab
+
+   {% data reusables.codespaces.application-installed-locally %}
+
+   If you choose **JupyterLab**, the JupyterLab application must be installed in the codespace. {% data reusables.codespaces.jupyterlab-in-default-image %}
 
 {% endwebui %}
 
@@ -37,42 +57,67 @@ ms.locfileid: '148109579'
 
 {% note %}
 
-**注:** {% data reusables.codespaces.using-codespaces-in-vscode %}詳しくは、「[{% data variables.product.prodname_vscode %} で {% data variables.product.prodname_github_codespaces %} を使用する](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)」をご覧ください。
+**Note:** {% data reusables.codespaces.using-codespaces-in-vscode %} For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
 
 {% endnote %}
 
-1. {% data variables.product.prodname_vscode_shortname %} デスクトップ アプリケーションで、<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Mac) または <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux) を使ってコマンド パレットを開きます。
-1. 「Codespaces」と入力して、次のいずれかのコマンドを選びます。
-   - {% data variables.product.prodname_vscode_shortname %} の新しいウィンドウで codespace を開くには、 **[Codespaces: 新しいウィンドウで codespace を開く]** を選びます
-   - Web エディターで codespace を開くには、 **[Codespaces: ブラウザーで開く]** を選びます
-1. 開く codespace をクリックします。
+1. In the {% data variables.product.prodname_vscode_shortname %} desktop application, open the Command Palette with <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+1. Type "Codespaces" and select one of the following commands.
+   - To open a codespace in a new window of {% data variables.product.prodname_vscode_shortname %}, select **Codespaces: Open Codespace in New Window**
+   - To open a codespace in the web editor, select **Codespaces: Open in Browser**
+1. Click the codespace that you want to open.
    
-   ![Visual Studio Code での codespace の一覧のスクリーンショット](/assets/images/help/codespaces/open-codespace-from-vscode.png)
+   ![Screenshot of a list of codespaces in Visual Studio Code](/assets/images/help/codespaces/open-codespace-from-vscode.png)
 
-{% data variables.product.prodname_vscode_shortname %} のリモート エクスプローラー ビューに移動し、開く codespace を右クリックすることで、上記のコマンドにアクセスすることもできます。
+You can also access the commands listed above by navigating to the Remote Explorer view in {% data variables.product.prodname_vscode_shortname %} and right-clicking the codespace that you want to open.
 
-![[ブラウザーで開く] が強調されている、リモート エクスプローラーで選ばれた codespace のスクリーンショット](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
+![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
 
-{% data reusables.codespaces.remote-explorer %} {% endvscode %}
+{% data reusables.codespaces.remote-explorer %}
+{% endvscode %}
 
 {% cli %}
 
-1. ターミナルで、次のいずれかの {% data variables.product.prodname_cli %} コマンドを入力します。
-   - {% data variables.product.prodname_vscode_shortname %} で codespace を開くには、次のように入力します。
+1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
+   - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
 
      ```shell{:copy}
      gh codespace code
      ```
+     
+     {% note %}
 
-   - ブラウザーで codespace を開くには、次のように入力します。
+     **Note**: You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+
+     {% endnote %}
+     
+   - To open a codespace in the browser, enter:
   
      ```shell{:copy}
      gh codespace code --web
      ```
 
-1. 方向キーを使って、開きたい codespace に移動します。
-1. codespace を開くには、<kbd>Enter</kbd> キーを押します。
+   - To open a codespace in JupyterLab, enter:
+  
+     ```shell{:copy}
+     gh codespace code --jupyter
+     ```
+     
+     {% note %}
 
-詳しくは、{% data variables.product.prodname_cli %} のマニュアルで [`gh codespace code`](https://cli.github.com/manual/gh_codespace_code) をご覧ください。
+     **Note**: {% data reusables.codespaces.jupyterlab-installed-in-codespace %}
+
+     {% endnote %}
+     
+1. Using the arrow keys, navigate to the codespace that you want to open.
+1. To open the codespace, press <kbd>Enter</kbd>.
+
+For more information, see [`gh codespace code`](https://cli.github.com/manual/gh_codespace_code) in the {% data variables.product.prodname_cli %} manual.
 
 {% endcli %}
+
+{% jetbrains %}
+
+{% data reusables.codespaces.opening-codespace-in-jetbrains %}
+
+{% endjetbrains %}

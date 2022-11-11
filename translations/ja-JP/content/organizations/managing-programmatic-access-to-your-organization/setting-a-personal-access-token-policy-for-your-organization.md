@@ -1,6 +1,6 @@
 ---
 title: Organization の個人用アクセス トークン ポリシーを設定する
-intro: 'Organization 所有者は、{% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %} を許可するかどうかを制御することができ、{% data variables.product.pat_v2 %} に対する承認を要求できます。'
+intro: 'Organization 所有者は、{% data variables.product.pat_v2 %} and {% data variables.product.pat_v1_plural %} を許可するかどうかを制御することができ、{% data variables.product.pat_v2 %} に対する承認を要求できます。'
 versions:
   feature: pat-v2
 shortTitle: Set a token policy

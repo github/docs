@@ -9,14 +9,13 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
-ms.openlocfilehash: c88433a59ca297f419aec787f9cff1b6c3013c89
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 0186078525944587bc4344e0a7d6a32468ce1cd7
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107321'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158793'
 ---
 Predeterminadamente, el flujo de trabajo de {% data variables.product.prodname_actions %} para una configuración de compilación previa solo puede acceder al contenido de su propio repositorio. Es posible que el proyecto use recursos adicionales, ubicados en otro lugar, para compilar el entorno de desarrollo.
 
@@ -30,7 +29,7 @@ Puedes configurar el acceso de lectura a otros repositorios de {% data variables
 
 {% endnote %}
 
-Al crear o editar una configuración de precompilación para un archivo `devcontainer.json` que configura el acceso de lectura a otros repositorios con el mismo propietario del repositorio, se te pedirá que concedas estos permisos al hacer clic en **Crear** o **Actualizar**. Para obtener más información, consulta "[Configuración de precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
+Al crear o editar una configuración de precompilación para un archivo `devcontainer.json` que configura el acceso de lectura a otros repositorios con el mismo propietario del repositorio, se te pedirá que concedas estos permisos al hacer clic en **Crear** o **Actualizar**. Para obtener más información, consulta "[Configuración de precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)".
 
 ## Permiso para que una precompilación tenga acceso de escritura a recursos externos
 
