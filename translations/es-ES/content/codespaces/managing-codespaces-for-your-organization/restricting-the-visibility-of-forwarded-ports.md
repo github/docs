@@ -2,7 +2,6 @@
 title: Restricting the visibility of forwarded ports
 shortTitle: Restrict port visibility
 intro: You can set constraints on the visibility options users can choose when they forward ports from codespaces in your organization.
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'

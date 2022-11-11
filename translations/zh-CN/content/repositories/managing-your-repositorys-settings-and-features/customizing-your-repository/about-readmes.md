@@ -1,6 +1,6 @@
 ---
-title: About READMEs
-intro: 'You can add a README file to your repository to tell other people why your project is useful, what they can do with your project, and how they can use it.'
+title: 关于自述文件
+intro: 您可以将自述文件添加到仓库，告知其他人您的项目为什么有用，他们可以对您的项目做什么，以及他们可以如何使用。
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages
   - /articles/relative-links-in-readmes
@@ -14,25 +14,31 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 7a18ed7051b0babdb5408821ce44a728968869d5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108763'
 ---
-## About READMEs
+## 关于自述文件
 
-You can add a README file to a repository to communicate important information about your project. A README, along with a repository license, citation file{% ifversion fpt or ghec %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+您可以将 README 文件添加到仓库来交流有关您项目的重要信息。 自述文件以及存储库许可证、引文文件{% ifversion fpt or ghec %}、贡献指南、行为准则{% elsif ghes %}以及贡献指南{% endif %}传达了对项目的期望，并有助于管理贡献。
 
-For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+有关为项目提供指南的详细信息，请参阅{% ifversion fpt or ghec %}“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和{% endif %}“[设置健康贡献的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
-A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
-- What the project does
-- Why the project is useful
-- How users can get started with the project
-- Where users can get help with your project
-- Who maintains and contributes to the project
+自述文件通常是访问者在访问仓库时看到的第一个项目。 自述文件通常包含以下信息：
+- 项目做什么
+- 项目为什么有用
+- 用户如何使用项目
+- 用户能从何处获取项目的帮助
+- 谁维护和参与项目
 
-If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
+如果将自述文件放在存储库隐藏的 `.github` 目录、根目录或 `docs` 目录中，{% data variables.product.product_name %} 将识别自述文件并自动向存储库访问者显示。
 
-If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+如果存储库包含多个自述文件，则按以下顺序从各位置中选择显示的文件：`.github` 目录，然后是存储库的根目录，最后是 `docs` 目录。
 
-![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
+![Github/scientist 仓库的主页面及其自述文件](/assets/images/help/repository/repo-with-readme.png)
 
 {% ifversion fpt or ghes or ghec %}
 
@@ -40,30 +46,28 @@ If a repository contains more than one README file, then the file shown is chose
 
 {% endif %}
 
-![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
+![用户名/用户名仓库上的自述文件](/assets/images/help/repository/username-repo-with-readme.png)
 
-## Auto-generated table of contents for README files
+## 为 README 文件自动生成的目录
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
+对于仓库中任何 Markdown 文件（包括 README 文件）的视图，{% data variables.product.product_name %} 将自动生成基于章节标题的目录。 您可以通过单击渲染页面左上侧的 {% octicon "list-unordered" aria-label="The unordered list icon" %}  菜单图标来查看 README 文件的目录。
 
-![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
+![自动生成目录的自述文件](/assets/images/help/repository/readme-automatic-toc.png)
 
-## Section links in README files and blob pages
+## 自述文件和 blob 页面中的章节链接
 
 {% data reusables.repositories.section-links %}
 
-## Relative links and image paths in README files
+## 自述文件中的相对链接和图像路径
 
 {% data reusables.repositories.relative-links %}
 
-## Wikis
+## Wiki
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
+自述文件应仅包含开发人员开始使用和参与项目的必要信息。 较长的文档最适合维基。 有关详细信息，请参阅“[关于 Wikis](/communities/documenting-your-project-with-wikis/about-wikis)”。
 
-## Further reading
+## 延伸阅读
 
-- "[Adding a file to a repository](/articles/adding-a-file-to-a-repository)"
-- 18F's "[Making READMEs readable](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)"
-{%- ifversion fpt or ghec %} 
-- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"
-{%- endif %}   
+- [添加文件到存储库](/articles/adding-a-file-to-a-repository)
+- 18F 的“[将自述文件设为可读](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)”{%- ifversion fpt or ghec %} 
+- “[添加‘在 GitHub Codespaces 中打开’锁屏提醒](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)”{%- endif %}   

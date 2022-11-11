@@ -4,6 +4,28 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'LinkProjectV2ToTeamInput' was added</p>",
+          "<p>Type 'LinkProjectV2ToTeamPayload' was added</p>",
+          "<p>Type 'ProjectV2Filters' was added</p>",
+          "<p>Type 'ProjectV2State' was added</p>",
+          "<p>Type 'UnlinkProjectV2FromTeamInput' was added</p>",
+          "<p>Type 'UnlinkProjectV2FromTeamPayload' was added</p>",
+          "<p>Field 'linkProjectV2ToTeam<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'unlinkProjectV2FromTeam<code>was added to object type</code>Mutation'</p>",
+          "<p>Argument 'filterBy: ProjectV2Filters<code>added to field</code>Team.projectsV2'</p>",
+          "<p>Argument <code>query: String</code> added to field 'Team.projectsV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>since: DateTime</code> added to field <code>Organization.sponsorsActivities</code></p>",
           "<p>Argument <code>until: DateTime</code> added to field <code>Organization.sponsorsActivities</code></p>",
           "<p>Argument <code>since: DateTime</code> added to field <code>Sponsorable.sponsorsActivities</code></p>",

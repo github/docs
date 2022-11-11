@@ -1,7 +1,6 @@
 ---
 title: Espaços de código
 intro: 'A API {% data variables.product.prodname_github_codespaces %} permite que você gerencie os codespaces usando a API REST.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,11 +16,11 @@ children:
   - /secrets
 redirect_from:
   - /rest/reference/codespaces
-ms.openlocfilehash: b830df4e746553c419dd33ffd9331a568af7b82a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c632b85d7e44e225a7dea2669a28a79a220f90a7
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110570'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159401'
 ---
 

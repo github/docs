@@ -1,7 +1,7 @@
 ---
-title: GitHub Actions への Enterprise の移行
+title: Migrating your enterprise to GitHub Actions
 shortTitle: Migrate to Actions
-intro: '別のプロバイダーから Enterprise の {% data variables.product.prodname_actions %} への移行を計画する方法について学びます。'
+intro: 'Learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -10,83 +10,78 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: db41434eae8bd3cf9036510705ee996f365f3fa1
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145116686'
 ---
-## {% data variables.product.prodname_actions %} への Enterprise の移行について
 
-既存のシステムから {% data variables.product.prodname_actions %} に Enterprise を移行するために、移行を計画し、移行を完了し、既存のシステムを廃止します。
+## About enterprise migrations to {% data variables.product.prodname_actions %}
 
-このガイドでは、移行に関する具体的な考慮事項について説明します。 {% data variables.product.prodname_actions %} を Enterprise に導入する方法の詳細については、「[Enterprise への {% data variables.product.prodname_actions %} の導入](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)」を参照してください。
+To migrate your enterprise to {% data variables.product.prodname_actions %} from an existing system, you can plan the migration, complete the migration, and retire existing systems.
 
-## 移行を計画する
+This guide addresses specific considerations for migrations. For additional information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
 
-Enterprise を {% data variables.product.prodname_actions %} に移行する前に、移行するワークフローとその移行がチームにどのように影響するかを特定し、移行を完了する方法とタイミングを計画する必要があります。
+## Planning your migration
 
-### 移行スペシャリストの活用
+Before you begin migrating your enterprise to {% data variables.product.prodname_actions %}, you should identify which workflows will be migrated and how those migrations will affect your teams, then plan how and when you will complete the migrations.
 
-{% data variables.product.company_short %} が移行に役立つ場合があります。また、{% data variables.product.prodname_professional_services %} を購入する利点が得られる場合もあります。 詳細については、専任の担当者または {% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
+### Leveraging migration specialists
 
-### 移行ターゲットの特定とインベントリ作成
+{% data variables.product.company_short %} can help with your migration, and you may also benefit from purchasing {% data variables.product.prodname_professional_services %}. For more information, contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %}.
 
-{% data variables.product.prodname_actions %} に移行する前に、既存のシステムで Enterprise によって使用されているワークフローを完全に理解しておく必要があります。
+### Identifying and inventorying migration targets
 
-まず、Enterprise 内の既存のビルドおよびリリース ワークフローのインベントリを作成し、どのワークフローがアクティブに使用されていて移行する必要があるかと、取り残されている可能性があるのはどれかに関する情報を収集します。
+Before you can migrate to {% data variables.product.prodname_actions %}, you need to have a complete understanding of the workflows being used by your enterprise in your existing system.
 
-次に、現在のプロバイダーと {% data variables.product.prodname_actions %} の違いを確認します。 これは、各ワークフローの移行に関する問題や、Enterprise で機能の違いが生じる可能性がある場所を評価するのに役立ちます。 詳細については、「[{% data variables.product.prodname_actions %} への移行](/actions/migrating-to-github-actions)」を参照してください。
+First, create an inventory of the existing build and release workflows within your enterprise, gathering information about which workflows are being actively used and need to migrated and which can be left behind.
 
-この情報を使用すると、{% data variables.product.prodname_actions %} への移行が可能で必要であるワークフローを判断できます。
+Next, learn the differences between your current provider and {% data variables.product.prodname_actions %}. This will help you assess any difficulties in migrating each workflow, and where your enterprise might experience differences in features. For more information, see "[Migrating to {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)."
 
-### 移行によるチームへの影響を特定する
+With this information, you'll be able to determine which workflows you can and want to migrate to {% data variables.product.prodname_actions %}.
 
-Enterprise 内で使用されているツールを変更すると、チームの作業に影響します。 既存のシステムから {% data variables.product.prodname_actions %} にワークフローを移行すると、開発者の日常業務にどのような影響を与えるかを考える必要があります。
+### Determine team impacts from migrations
 
-移行の影響を受けるプロセス、統合、サード パーティ製のツールを特定し、行う必要がある更新の計画を立てます。
+When you change the tools being used within your enterprise, you influence how your team works. You'll need to consider how moving a workflow from your existing systems to {% data variables.product.prodname_actions %} will affect your developers' day-to-day work.
 
-移行がコンプライアンスに関する問題にどのように影響するかを考えます。 たとえば、既存の資格情報スキャンとセキュリティ分析ツールは {% data variables.product.prodname_actions %} で動作しますか? それとも、新しいツールを使用する必要がありますか?
+Identify any processes, integrations, and third-party tools that will be affected by your migration, and make a plan for any updates you'll need to make.
 
-既存のシステムのゲートとチェックを特定し、{% data variables.product.prodname_actions %} で実装できることを確認します。
+Consider how the migration may affect your compliance concerns. For example, will your existing credential scanning and security analysis tools work with {% data variables.product.prodname_actions %}, or will you need to use new tools?
 
-### 移行ツールの特定と検証
+Identify the gates and checks in your existing system and verify that you can implement them with {% data variables.product.prodname_actions %}.
 
-自動移行ツールを使用すると、Enterprise のワークフローを既存のシステムの構文から、{% data variables.product.prodname_actions %} で必要な構文に変換できます。 サードパーティ製のツールを特定するか、専任の担当者または {% data variables.contact.contact_enterprise_sales %} に問い合わせて、{% data variables.product.company_short %} が提供できるツールについて確認します。
+### Identifying and validating migration tools
 
-移行を自動化するツールを特定した後、一部のテスト ワークフローでツールを実行し、結果が期待どおりであることを確認することで、ツールを検証します。
+Automated migration tools can translate your enterprise's workflows from the existing system's syntax to the syntax required by {% data variables.product.prodname_actions %}. Identify third-party tooling or contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %} to ask about tools that {% data variables.product.company_short %} can provide. For example, you can use the {% data variables.product.prodname_actions_importer %} to plan, scope, and migrate your CI pipelines to {% data variables.product.prodname_actions %} from various supported services. For more information, see "[Automating migration with {% data variables.product.prodname_actions_importer %}](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)."
 
-自動化されたツールではほとんどのワークフローを移行できるはずですが、少なくともごく一部は手動で書き換える必要がある可能性があります。 完了する必要がある手動の作業量を見積もります。
+After you've identified a tool to automate your migrations, validate the tool by running the tool on some test workflows and verifying that the results are as expected.
 
-### 移行アプローチの決定
+Automated tooling should be able to migrate the majority of your workflows, but you'll likely need to manually rewrite at least a small percentage. Estimate the amount of manual work you'll need to complete.
 
-Enterprise に最適な移行アプローチを決定します。 小規模なチームでは、"完全な置き換え" アプローチを使用して、すべてのワークフローを一度に移行できる場合があります。 大規模な Enterprise では、反復的なアプローチの方がより現実的な場合があります。 移行全体を中央で管理することも、個々のチームに独自のワークフローを移行してセルフ サービスを依頼することもできます。
+### Deciding on a migration approach
 
-アクティブな管理とセルフ サービスを組み合わせた反復的なアプローチをお勧めします。 内部チャンピオンとしての役割を果たせる早期導入者の小規模なグループから始めます。 ビジネスの幅を表すのに十分に包括的な一部のワークフローを特定します。 早期導入者と協力して、これらのワークフローを {% data variables.product.prodname_actions %} に移行し、必要に応じて反復処理します。 これにより、他のチームもワークフローを移行できることを確信できます。
+Determine the migration approach that will work best for your enterprise. Smaller teams may be able to migrate all their workflows at once, with a "rip-and-replace" approach. For larger enterprises, an iterative approach may be more realistic. You can choose to have a central body manage the entire migration or you can ask individual teams to self serve by migrating their own workflows.
 
-その後、より大規模な Organization で {% data variables.product.prodname_actions %} を使用できるようにします。 これらのチームが独自のワークフローを {% data variables.product.prodname_actions %} に移行するのに役立つリソースを提供し、既存のシステムが廃止されるタイミングをチームに知らせます。 
+We recommend an iterative approach that combines active management with self service. Start with a small group of early adopters that can act as your internal champions. Identify a handful of workflows that are comprehensive enough to represent the breadth of your business. Work with your early adopters to migrate those workflows to {% data variables.product.prodname_actions %}, iterating as needed. This will give other teams confidence that their workflows can be migrated, too.
 
-最後に、特定の期間内に移行を完了するために古いシステムをまだ使用しているチームに知らせます。 他のチームの成功を示し、移行が可能で望ましいことを伝えて安心させます。
+Then, make {% data variables.product.prodname_actions %} available to your larger organization. Provide resources to help these teams migrate their own workflows to {% data variables.product.prodname_actions %}, and inform the teams when the existing systems will be retired. 
 
-### 移行スケジュールの定義
+Finally, inform any teams that are still using your old systems to complete their migrations within a specific timeframe. You can point to the successes of other teams to reassure them that migration is possible and desirable.
 
-移行アプローチを決定した後、各チームがワークフローを {% data variables.product.prodname_actions %} に移行するタイミングを示すスケジュールを作成します。
+### Defining your migration schedule
 
-まず、移行を完了する日付を決定します。 たとえば、現在のプロバイダーとの契約が終了するまでに移行を完了することを計画できます。
+After you decide on a migration approach, build a schedule that outlines when each of your teams will migrate their workflows to {% data variables.product.prodname_actions %}.
 
-その後、チームと協力して、チームの目標を犠牲にすることなく、期限に間に合うスケジュールを作成します。 移行を求める個々のチームのビジネスの周期とワークロードを確認します。 各チームと連携して、配信スケジュールを理解し、チームが配信能力に影響を与えない時間帯にワークフローを移行できるようにする計画を作成します。
+First, decide the date you'd like your migration to be complete. For example, you can plan to complete your migration by the time your contract with your current provider ends.
 
-## {% data variables.product.prodname_actions %} への移行
+Then, work with your teams to create a schedule that meets your deadline without sacrificing their team goals. Look at your business's cadence and the workload of each individual team you're asking to migrate. Coordinate with each team to understand their delivery schedules and create a plan that allows the team to migrate their workflows at a time that won't impact their ability to deliver.
 
-移行を開始する準備ができたら、上記で計画した自動ツールと手動書き換えを使用して、既存のワークフローを {% data variables.product.prodname_actions %} に変換します。
+## Migrating to {% data variables.product.prodname_actions %}
 
-また、おそらく成果物をアーカイブするスクリプト化されたプロセスを記述することで、既存のシステムからの古いビルド成果物を維持することもできます。
+When you're ready to start your migration, translate your existing workflows to {% data variables.product.prodname_actions %} using the automated tooling and manual rewriting you planned for above.
 
-## 既存のシステムの廃止
+You may also want to maintain old build artifacts from your existing system, perhaps by writing a scripted process to archive the artifacts.
 
-移行が完了した後、既存のシステムの廃止について考えることができます。
+## Retiring existing systems
 
-一定期間、両方のシステムをサイド バイ サイドで実行しながら、{% data variables.product.prodname_actions %} 構成が安定しており、開発者のエクスペリエンスを低下させていないことを確認できます。
+After your migration is complete, you can think about retiring your existing system.
 
-最終的に、古いシステムの使用を停止して切り離し、確実に Enterprise 内の誰も古いシステムを再び有効にできないようにします。
+You may want to run both systems side-by-side for some period of time, while you verify that your {% data variables.product.prodname_actions %} configuration is stable, with no degradation of experience for developers.
+
+Eventually, decommission and shut off the old systems, and ensure that no one within your enterprise can turn the old systems back on.

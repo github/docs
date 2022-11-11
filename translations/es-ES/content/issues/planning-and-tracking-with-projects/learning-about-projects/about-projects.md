@@ -1,6 +1,6 @@
 ---
-title: 'Acerca de {% data variables.product.prodname_projects_v2 %}'
-intro: '{% data variables.product.prodname_projects_v2 %} es una herramienta adaptable y flexible para la planificación y el seguimiento del trabajo en {% data variables.product.company_short %}.'
+title: 'About {% data variables.product.prodname_projects_v2 %}'
+intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,45 +10,52 @@ redirect_from:
 type: overview
 topics:
   - Projects
-ms.openlocfilehash: 4de4e96b6e445a29377c63188f6529c5b2023a5e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109891'
 ---
-## Acerca de {% data variables.product.prodname_projects_v2 %}
 
-Un proyecto es una hoja de cálculo adaptable que se integra con las incidencias y solicitudes de incorporación de cambios en {% data variables.product.company_short %} para ayudarte a planear y realizar el seguimiento del trabajo de forma eficaz. Puedes crear y personalizar varias vistas mediante el filtrado, la ordenación y la agrupación de las incidencias y solicitudes de incorporación de cambios, la adición de campos personalizados para realizar el seguimiento de metadatos específicos del equipo y visualizar el trabajo con gráficos configurables. En lugar de aplicar una metodología específica, un proyecto proporciona características flexibles que puedes personalizar en función de las necesidades y los procesos del equipo.
+## About {% data variables.product.prodname_projects_v2 %}
 
-### Mantenerse actualizado
+A project is an adaptable spreadsheet that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests, adding custom fields to track metadata specific to your team, and visualize work with configurable charts. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
 
-Los proyectos se crean a partir de las incidencias y las solicitudes de incorporación de cambios que agregas, lo que crea referencias directas entre el proyecto y el trabajo. La información se sincroniza automáticamente con el proyecto a medida que realizas cambios, y se actualizan las vistas y los gráficos. Esta integración es bidireccional, por lo que, cuando cambies la información sobre una solicitud de incorporación de cambios o incidencia del proyecto, la solicitud de incorporación de cambios o la incidencia reflejará la información. Por ejemplo, si cambias un usuario asignado en el proyecto, ese cambio se muestra en la incidencia. Puedes ampliar aún más esta integración, agrupar el proyecto por usuario asignado y realizar cambios en la asignación de incidencias si las arrastras a los distintos grupos.
+### Staying up-to-date
 
-### Agregar metadatos a tus tareas
+Your projects are built from the issues and pull requests you add, creating direct references between your project and your work. Information is synced automatically to your project as you make changes, updating your views and charts. This integration works both ways, so that when you change information about a pull request or issue in your project, the pull request or issue reflects that information. For example, change an assignee in your project and that change is shown in your issue. You can take this integration even further, group your project by assignee, and make changes to issue assignment by dragging issues into the different groups.
 
-Puedes usar campos personalizados para agregar metadatos a las tareas y crear una vista más completa de los atributos de elemento. No estás limitado a los metadatos integrados (usuarios asignados, hitos, etiquetas, etc.) que existen actualmente para las incidencias y las solicitudes de incorporación de cambios. Por ejemplo, puedes agregar los siguientes metadatos como campos personalizados:
+### Adding metadata to your items
 
-- Campo de fecha para realizar un seguimiento de las fechas de envío de destino.
-- Campo numérico para realizar un seguimiento de la complejidad de una tarea.
-- Un único campo de selección para realizar un seguimiento de si una tarea es baja, media o alta prioridad.
-- Un campo de texto para agregar una nota rápida.
-- Un campo de iteración para planear el trabajo semana a semana, incluida la compatibilidad con interrupciones.
+You can use custom fields to add metadata to your issues, pull requests, and draft issues and build a richer view of item attributes. You’re not limited to the built-in metadata (assignee, milestone, labels, etc.) that currently exists for issues and pull requests. For example, you can add the following metadata as custom fields:
 
-### Visualizar tu proyecto desde perspectivas diferentes
+- A date field to track target ship dates.
+- A number field to track the complexity of a task.
+- A single select field to track whether a task is Low, Medium, or High priority.
+- A text field to add a quick note.
+- An iteration field to plan work week-by-week, including support for breaks.
 
-Responde rápidamente a las preguntas más urgentes mediante la adaptación de la vista del proyecto para que proporcione la información que necesitas. Puedes guardar estas vistas, lo que te permite volver rápidamente a ellas según sea necesario y ponerlas a disposición del equipo. Las vistas no solo permiten limitar el ámbito de los elementos enumerados, sino que también ofrecen dos opciones de diseño diferentes.
+{% ifversion projects-v2-tasklists %}
 
-Puedes ver tu proyecto como un diseño de tabla de densidad alta:
+### Exploring the relationships between issues
 
-![Tabla de proyectos](/assets/images/help/issues/projects_table.png)
+{% data reusables.projects.tasklists-release-stage %}
 
-O como un tablero:
+You can use Tasklists to build hierarchies of issues, dividing your issues into smaller subtasks, and creating new relationships between your issues. For more information, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
 
-![Tablero de proyectos](/assets/images/help/issues/projects_board.png)
+These relationships are displayed on the issue, as well as the Tracked-by and Tracks fields in your projects. You can filter by issues which are tracked by another issue, and you can also group your table views by the Tracked-by field to show all parent issues with a list of their subtasks.
 
-Para ayudar a que te enfoques en aspectos específicos de tu proyecto, puedes agrupar, clasificar o filtrar elementos:
+{% endif %}
 
-![Vista de proyecto](/assets/images/help/issues/project_view.png)
+### Viewing your project from different perspectives
 
-Para más información, consulta "[Personalización de una vista](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)".
+Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
+
+You can view your project as a high density table layout:
+
+![Project table](/assets/images/help/issues/projects_table.png)
+
+Or as a board:
+
+![Project board](/assets/images/help/issues/projects_board.png)
+
+To help you focus on specific aspects of your project, you can group, sort, or filter items:
+
+![Project view](/assets/images/help/issues/project_view.png)
+
+For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."

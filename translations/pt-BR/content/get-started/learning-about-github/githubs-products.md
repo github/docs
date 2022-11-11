@@ -1,6 +1,6 @@
 ---
-title: Produtos do GitHub
-intro: 'Uma visão geral dos produtos e planos de preços de {% data variables.product.prodname_dotcom %}.'
+title: GitHub’s products
+intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
@@ -17,111 +17,110 @@ topics:
   - Mobile
   - Desktop
   - Security
-ms.openlocfilehash: e8e78b3c2cf86369b53b063cdbcded6f7a048834
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389944'
 ---
-## Sobre os produtos de {% data variables.product.prodname_dotcom %}
+## About {% data variables.product.prodname_dotcom %}'s products
 
-{% data variables.product.prodname_dotcom %} oferece produtos gratuitos e pagos para armazenar e colaborar no código. Alguns produtos aplicam-se apenas a contas pessoais, enquanto outros planos aplicam-se apenas às contas de organização e corporativas. Para obter mais informações sobre contas, confira "[Tipos de contas do {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
+{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to personal accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
-Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
+You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
-Ao ler {% data variables.product.prodname_docs %}, certifique-se de selecionar a versão que reflete seu produto. Para obter mais informações, confira "[Sobre as versões do {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
+When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-## {% data variables.product.prodname_free_user %} para contas pessoais
+## {% data variables.product.prodname_free_user %} for personal accounts
 
-Com o {% data variables.product.prodname_free_team %} para contas pessoais, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados com um conjunto completo de recursos e em repositórios privados ilimitados com um conjunto de recursos limitado.
+With {% data variables.product.prodname_free_team %} for personal accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
 
-Com o {% data variables.product.prodname_free_user %}, sua conta pessoal inclui:
+With {% data variables.product.prodname_free_user %}, your personal account includes:
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
-- Imposição da autenticação de dois fatores
-- 2\.000 {% data variables.product.prodname_actions %} minutos
-- 500MB {% data variables.product.prodname_registry %} de armazenamento
+- Two-factor authentication enforcement
+- 2,000 {% data variables.product.prodname_actions %} minutes per month 
+- 500 MB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
+- 120 {% data variables.product.prodname_github_codespaces %} core hours per month
+- 15 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
 
 ## {% data variables.product.prodname_pro %}
 
-Além dos recursos disponíveis no {% data variables.product.prodname_free_user %} para contas pessoais, o {% data variables.product.prodname_pro %} inclui:
-- {% data variables.contact.github_support %} via e-mail
-- 3\.000 {% data variables.product.prodname_actions %} minutos
-- 2GB {% data variables.product.prodname_registry %} de armazenamento
-- Ferramentas avançadas e insights em repositórios privados:
-  - Revisores de solicitação de pull obrigatórios
-  - Vários revisores de solicitação de pull
-  - Branches protegidos
-  - Proprietários de código
-  - Referências autovinculadas
+In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
+- {% data variables.contact.github_support %} via email
+- 3,000 {% data variables.product.prodname_actions %} minutes per month 
+- 2 GB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
+- 180 {% data variables.product.prodname_github_codespaces %} core hours per month
+- 20 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
+- Advanced tools and insights in private repositories:
+  - Required pull request reviewers
+  - Multiple pull request reviewers
+  - Protected branches
+  - Code owners
+  - Auto-linked references
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Gráficos de informações de repositório: Pulse, contribuidores, tráfego, commits, frequência de códigos, rede e bifurcações
+  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
 
-## {% data variables.product.prodname_free_team %} para organizações
+## {% data variables.product.prodname_free_team %} for organizations
 
-Com o {% data variables.product.prodname_free_team %} para organizações, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados com um conjunto completo de recursos ou em repositórios privados ilimitados com um conjunto de recursos limitado.
+With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
 
-Além dos recursos disponíveis no {% data variables.product.prodname_free_user %} para contas pessoais, o {% data variables.product.prodname_free_team %} para organizações inclui:
+In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
 - {% data variables.product.prodname_gcf %}
-- Discussões em equipe
-- Controles de acesso da equipe para gerenciamento de grupos
-- 2\.000 {% data variables.product.prodname_actions %} minutos
-- 500MB {% data variables.product.prodname_registry %} de armazenamento
+- Team discussions
+- Team access controls for managing groups
+- 2,000 {% data variables.product.prodname_actions %} minutes per month 
+- 500 MB {% data variables.product.prodname_registry %} storage 
 
 ## {% data variables.product.prodname_team %}
 
-Além dos recursos disponíveis no {% data variables.product.prodname_free_team %} para organizações, o {% data variables.product.prodname_team %} inclui:
-- {% data variables.contact.github_support %} via e-mail
-- 3\.000 {% data variables.product.prodname_actions %} minutos
-- 2GB {% data variables.product.prodname_registry %} de armazenamento
-- Ferramentas avançadas e insights em repositórios privados:
-  - Revisores de solicitação de pull obrigatórios
-  - Vários revisores de solicitação de pull
-  - Solicitação de pull de rascunho
-  - Revisores de solicitação de pull da equipe
-  - Branches protegidos
-  - Proprietários de código
-  - Lembretes agendados
+In addition to the features available with {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %} includes:
+- {% data variables.contact.github_support %} via email
+- 3,000 {% data variables.product.prodname_actions %} minutes per month 
+- 2 GB {% data variables.product.prodname_registry %} storage 
+- Advanced tools and insights in private repositories:
+  - Required pull request reviewers
+  - Multiple pull request reviewers
+  - Draft pull requests
+  - Team pull request reviewers
+  - Protected branches
+  - Code owners
+  - Scheduled reminders
   - {% data variables.product.prodname_pages %}
   - Wikis
-  - Grafos de insights do repositório: Pulse, colaboradores, tráfego, commits, frequência de código, rede e forks {%- ifversion fpt or ghec %}
-- A opção para habilitar {% data variables.product.prodname_github_codespaces %}
-  - Os proprietários da organização podem habilitar {% data variables.product.prodname_github_codespaces %} para a organização definindo um limite de gastos e concedendo permissões de usuário aos integrantes da sua organização. Para obter mais informações, confira "[Como habilitar o {% data variables.product.prodname_github_codespaces %} para sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)".
+  - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
+{%- ifversion fpt or ghec %}
+- The option to enable {% data variables.product.prodname_github_codespaces %}
+  - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
 {%- endif %}
 
-{% data variables.product.company_short %} realiza a cobrança para {% data variables.product.prodname_team %} por usuário. Para obter mais informações, confira "[Sobre os preços por usuário]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}".{% else %}" na documentação da versão Gratuita, do Pro e do Team.{% endif %}
+{% data variables.product.company_short %} bills for {% data variables.product.prodname_team %} on a per-user basis. For more information, see "[About per-user pricing]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}."{% else %}" in the Free, Pro, & Team documentation.{% endif %}
 
 {% data reusables.actions.actions-billing %}
 
 ## {% data variables.product.prodname_enterprise %}
 
-O {% data variables.product.prodname_enterprise %} inclui duas opções de implementação: hospedagem em nuvem e auto-hospedagem. 
+{% data variables.product.prodname_enterprise %} includes two deployment options: cloud-hosted and self-hosted. 
 
-Além dos recursos disponíveis no {% data variables.product.prodname_team %}, o {% data variables.product.prodname_enterprise %} inclui:
+In addition to the features available with {% data variables.product.prodname_team %}, {% data variables.product.prodname_enterprise %} includes:
 - {% data variables.contact.enterprise_support %}
-- Segurança adicional, conformidade e controles de instalação
-- Autenticação com o logon único do SAML
-- Provisionamento de acesso com SAML ou SCIM
+- Additional security, compliance, and deployment controls
+- Authentication with SAML single sign-on
+- Access provisioning with SAML or SCIM
 - {% data variables.product.prodname_github_connect %}
-- A opção de comprar {% data variables.product.prodname_GH_advanced_security %}. Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)".
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
 
-O {% data variables.product.prodname_ghe_cloud %} também inclui:
-- {% data variables.contact.enterprise_support %}. Para obter mais informações, confira "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">Suporte do {% data variables.product.prodname_ghe_cloud %}</a>" e "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">Adendo do {% data variables.product.prodname_ghe_cloud %}</a>".
-- 50.000 {% data variables.product.prodname_actions %} minutos
-- 50GB {% data variables.product.prodname_registry %} de armazenamento
-- Controle de acesso para sites de {% data variables.product.prodname_pages %}. Para obter mais informações, confira "[Como alterar a visibilidade do seu site do {% data variables.product.prodname_pages %}](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)".
-- Um contrato de nível de serviço de tempo de atividade mensal de 99,9%
-- A opção de configurar sua empresa para {% data variables.product.prodname_emus %}, para que você possa fornecer e gerenciar integrantes com o seu provedor de identidade e restringir as contribuições dos integrantes para apenas a sua empresa. Para obter mais informações, confira "[Sobre os {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
-- A opção de gerenciar de forma centralizada a política e cobrança para várias organizações {% data variables.product.prodname_dotcom_the_website %} com uma conta corporativa. Para obter mais informações, confira "[Sobre as contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
+{% data variables.product.prodname_ghe_cloud %} also includes:
+- {% data variables.contact.enterprise_support %}. For more information, see "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} support</a>" and "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Addendum</a>."
+- 50,000 {% data variables.product.prodname_actions %} minutes per month 
+- 50 GB {% data variables.product.prodname_registry %} storage 
+- Access control for {% data variables.product.prodname_pages %} sites. For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+- A service level agreement for 99.9% monthly uptime
+- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+- The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
 
 {% data reusables.enterprise.about-github-for-enterprises %}
 
-Você pode configurar uma versão para avaliar o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, confira "[Como configurar uma avaliação do {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/articles/setting-up-a-trial-of-github-enterprise-cloud)".
+You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/articles/setting-up-a-trial-of-github-enterprise-cloud)."
 
-Para obter mais informações sobre como hospedar sua própria instância de dados do {% data variables.product.prodname_ghe_server %}, incluindo como configurar uma avaliação, confira "[Sobre {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)".
+For more information about hosting your own instance of {% data variables.product.prodname_ghe_server %}, including setting up a trial, see "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)."
 
-## Leitura adicional
+## Further reading
 
-- "[Sobre os preços por usuário]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %}" na documentação do {% data variables.product.prodname_ghe_cloud %}{% endif %}
+- "[About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

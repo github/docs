@@ -65,7 +65,7 @@ Once you have decided on the secret types, you can do the following:
   
   {% ifversion not ghae %}
   
-  You can use the security overview to collect this information. For more information about using the security overview, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
+  You can use the security overview to collect this information. For more information about using the security overview, see "[Filtering alerts in security overviews](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
   
   {% endif %}
   

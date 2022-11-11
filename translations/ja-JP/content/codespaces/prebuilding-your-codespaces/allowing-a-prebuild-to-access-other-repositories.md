@@ -9,14 +9,13 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with admin access to a repository can configure prebuilds for the repository.
-ms.openlocfilehash: c88433a59ca297f419aec787f9cff1b6c3013c89
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 0186078525944587bc4344e0a7d6a32468ce1cd7
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107318'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158790'
 ---
 既定では、事前ビルド構成の {% data variables.product.prodname_actions %} ワークフローは、それ自身のリポジトリ コンテンツにのみアクセスできます。 プロジェクトで、他の場所にある追加のリソースを使って、開発環境を構築できます。
 
@@ -30,7 +29,7 @@ ms.locfileid: '148107318'
 
 {% endnote %}
 
-リポジトリ所有者が同じである他のリポジトリへの読み取りアクセスを設定する `devcontainer.json` ファイルに対してプレビルド構成を作成または編集するとき、 **[作成]** または **[更新]** をクリックすると、これらのアクセス許可を付与するように求められます。 詳しくは、「[事前ビルドを構成する](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)」をご覧ください。
+リポジトリ所有者が同じである他のリポジトリへの読み取りアクセスを設定する `devcontainer.json` ファイルに対してプレビルド構成を作成または編集するとき、 **[作成]** または **[更新]** をクリックすると、これらのアクセス許可を付与するように求められます。 詳しくは、「[事前ビルドを構成する](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)」をご覧ください。
 
 ## プレビルドに外部リソースの書き込みアクセスを許可する
 

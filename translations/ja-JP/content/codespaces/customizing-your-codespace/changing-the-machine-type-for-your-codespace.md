@@ -1,8 +1,7 @@
 ---
-title: codespace のマシンの種類を変更する
+title: Changing the machine type for your codespace
 shortTitle: Change the machine type
-intro: codespace を実行しているマシンの種類を変更し、実行している作業に適したリソースを使用できます。
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'You can change the type of machine that''s running your codespace, so that you''re using resources appropriate for the work you''re doing.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,30 +10,21 @@ redirect_from:
 topics:
   - Codespaces
 type: how_to
-ms.openlocfilehash: 618b031ce0c23c2b4eba52157fca2a6625fe3dfd
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108839'
 ---
-## マシンの種類について
+
+## About machine types
+
+{% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace. 
+
+For information on choosing a machine type when you create a codespace, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+
+## Changing the machine type
 
 {% note %}
 
-**注:** {% data variables.product.prodname_github_codespaces %} を使用する Organization のメンバーであり、その Organization が所有するリポジトリで codespace を作成している場合にのみ、マシンの種類を選んだり、変えたりできます。
-
-{% endnote %}
-
-{% data reusables.codespaces.codespaces-machine-types %} codespace を作るときは、あるいは codespace の作成後はいつでも、代替マシンの種類を選べます。 
-
-codespace の作成時にマシンの種類を選ぶ方法については、「[codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」を参照してください。
-
-## マシンの種類の変更
-
-{% note %}
-
-**注**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% endnote %}
 
@@ -42,18 +32,18 @@ codespace の作成時にマシンの種類を選ぶ方法については、「[
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
-   各 codespace の現在のコンピューターの種類が表示されます。
+   The current machine type for each of your codespaces is displayed.
 
-   !["あなたの codespace" リスト](/assets/images/help/codespaces/your-codespaces-list.png)
+   !['Your codespaces' list](/assets/images/help/codespaces/your-codespaces-list.png)
 
-1. 変更する codespace の右側にある省略記号 ( **...** ) をクリックします。
-1. **[マシンの種類を変更する]** をクリックします。
+{% data reusables.codespaces.ellipsis-settings %}
+1. Click **Change machine type**.
 
-   ![[マシンの種類の変更] メニュー オプション](/assets/images/help/codespaces/change-machine-type-menu-option.png)
-1. codespace で複数のコンピューターの種類を使える場合、使うマシンの種類を選びます。
+   !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
+1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
 
-   ![選べるマシンの種類を示すダイアログ ボックス](/assets/images/help/codespaces/change-machine-type-choice.png)
-1. **[codespace の更新]** をクリックします。 
+   ![Dialog box showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
+1. Click **Update codespace**. 
 
 {% endwebui %}
 
@@ -65,39 +55,39 @@ codespace の作成時にマシンの種類を選ぶ方法については、「[
 
 {% cli %}
 
-`gh codespace edit --machine MACHINE-TYPE-NAME` {% data variables.product.prodname_cli %} コマンドを使用して、codespace のマシンの種類を変更できます。 このコマンドを使用するには、まず codespace で使用可能なマシンの種類を確認する必要があります。
+You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variables.product.prodname_cli %} command to change the machine type of a codespace. To use this command, you'll first need to find out the available machine types for your codespace.
 
-1. codespaces の一覧を表示するには、ターミナルで次のコマンドを入力します。
+1. To view your list of codespaces, in a terminal, enter the following command.
    
    ```
    gh codespace list
    ```
-1. 必要に応じて、codespace 用の現在のマシンの種類を検索するには、次のコマンドを入力します。
+1. Optionally, to find the current machine type for a codespace, enter the following command.
    
    ```
    gh api /user/codespaces/CODESPACE-NAME
    ```
 
-   `CODESPACE-NAME` を codespace の永続的な名前に置き換えます (例: `octocat-myrepo-gmc7`)。 永続的な名前は、`gh codespace list` によって返される一覧の **NAME** 列の下に一覧表示されます。
+   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`. The permanent names are listed under the **NAME** column in the list returned by `gh codespace list`.
 
-   `codespace` スコープを要求するように求められた場合は、ターミナルの指示に従います。
+   If you're prompted to request the `codespace` scope, follow the instructions in the terminal.
 
-   現在のマシンについて詳しくは、`machine` フィールドの下に一覧表示されます。
-1. codespace で使用可能なマシンの種類を見つけるには、次のコマンドを入力します。
+   Details for the current machine are listed under the `machine` field.
+1. To find the available machine types for a codespace, enter the following command.
    
    ```
    gh api /user/codespaces/CODESPACE-NAME/machines
    ```
 
-   `CODESPACE-NAME` を codespace の永続的な名前に置き換えます (例: `octocat-myrepo-gmc7`)。
-1. codespace 用のマシンの種類を変更するには、次のコマンドを入力します。
+   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`.
+1. To change the machine type for a codespace, enter the following command.
 
    ```
    gh codespace edit --machine MACHINE-TYPE-NAME
    ```
 
-   `MACHINE-TYPE-NAME` を codespace で使用できるマシンの種類の名前に置き換えます (例: `standardLinux32gb`)。 
-1. 方向キーを使用して、変更する codespace に移動して、<kbd>Enter</kbd> キーを押します。
+   Replace `MACHINE-TYPE-NAME` with the name of an available machine type for your codespace, for example `standardLinux32gb`. 
+1. Using the arrow keys, navigate to the codespace you want to change, then press <kbd>Enter</kbd>.
 
 {% endcli %}
 
@@ -105,9 +95,9 @@ codespace の作成時にマシンの種類を選ぶ方法については、「[
 
 {% cli %}
 
-## 参考資料
+## Further reading
 
-- REST API ドキュメント内の「[codespaces マシン](/rest/codespaces/machines)」
-- {% data variables.product.prodname_cli %} マニュアル内の「[`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit)」
+- "[Codespaces machines](/rest/codespaces/machines)" in the REST API documentation
+- [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
 
 {% endcli %}

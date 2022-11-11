@@ -51,16 +51,16 @@ Both the {% data variables.product.prodname_serverless %} and {% data variables.
 
 || {% data variables.product.prodname_serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
-| **Cost** | Free.      | Costs for compute and storage. For information on pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)."|
-| **Availability** | Available to everyone on GitHub.com. | Available for organizations using GitHub Team or GitHub Enterprise Cloud. |
-| **Start up** | The {% data variables.product.prodname_serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[Creating a Codespace](/codespaces/developing-in-codespaces/creating-a-codespace)." |
-| **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of dedicated VM on which you can run and debug your application.|
+| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)."|
+| **Availability** | Available to everyone on GitHub.com. | Available to everyone on GitHub.com. |
+| **Start up** | The {% data variables.product.prodname_serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)." |
+| **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
 | **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
 | **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. For more information, see "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
 
 ### Continue working on {% data variables.product.prodname_codespaces %}
 
-You can start your workflow in the {% data variables.product.prodname_serverless %} and continue working on a codespace, provided you have [access to {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces). If you try to access the Run and Debug View or the Terminal, you'll be notified that they are not available in the {% data variables.product.prodname_serverless %}.
+You can start your workflow in the {% data variables.product.prodname_serverless %} and continue working on a codespace. If you try to access the Run and Debug View or the Terminal, you'll be notified that they are not available in the {% data variables.product.prodname_serverless %}.
 
 To continue your work in a codespace, click **Continue Working on…** and select **Create New Codespace** to create a codespace on your current branch. Before you choose this option, you must commit any changes.
 

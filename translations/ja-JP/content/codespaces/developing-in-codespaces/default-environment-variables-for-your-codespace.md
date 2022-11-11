@@ -1,7 +1,6 @@
 ---
 title: codespace の既定の環境変数
 shortTitle: Default environment variables
-product: '{% data reusables.gated-features.codespaces %}'
 intro: '{% data variables.product.prodname_dotcom %} は、codespace ごとに既定の環境変数を設定します。'
 versions:
   fpt: '*'
@@ -11,12 +10,12 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-ms.openlocfilehash: e9034fb566c8245fff6d610ff456084dc9818f0b
-ms.sourcegitcommit: 43a959b8faf78d9c5b3deadffa079d24cd11650b
+ms.openlocfilehash: 1a57445bbffb3e1112299414e29796b716f2d801
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2022
-ms.locfileid: '148134772'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158926'
 ---
 ## 既定の環境変数について
 
@@ -32,7 +31,7 @@ ms.locfileid: '148134772'
 
 | 環境変数 | 説明 |
 | ---------------------|------------ |
-| `CODESPACE_NAME` | codespace の名前 (`monalisa-github-hello-world-2f2fsdf2e` など) |
+| `CODESPACE_NAME` | codespace の名前 (`octocat-literate-space-parakeet-mld5` など) |
 | `CODESPACES` | codespace にいる間は常に `true` |
 | `GIT_COMMITTER_EMAIL` | 将来の `git` コミットの [作成者] フィールドのメール アドレス。 |
 | `GIT_COMMITTER_NAME` | 将来の `git` コミットの [コミッター] フィールドの名前。 |

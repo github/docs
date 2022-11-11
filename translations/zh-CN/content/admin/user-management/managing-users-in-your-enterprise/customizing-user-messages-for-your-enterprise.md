@@ -1,12 +1,12 @@
 ---
-title: Customizing user messages for your enterprise
+title: 自定义企业的用户消息
 shortTitle: Customizing user messages
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
-intro: 'You can create custom messages that users will see on {% data variables.location.product_location %}.'
+intro: '你可以创建用户将在 {% data variables.location.product_location %}上看到的自定义消息。'
 versions:
   ghes: '*'
   ghae: '*'
@@ -14,118 +14,98 @@ type: how_to
 topics:
   - Enterprise
   - Maintenance
+ms.openlocfilehash: b767a651f19b6200abfc67696d98147ebf65bd9a
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106427'
 ---
-## About user messages
+## 关于用户消息
 
-There are several types of user messages.
-- Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page{% ifversion ghes or ghae %}
-- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes or ghae %}
-- Announcement banners, which appear at the top of every page{% endif %}
+有几种类型的用户消息。
+- 出现在{% ifversion ghes %}登录或{% endif %}退出登录{% ifversion ghes or ghae %}页面上的消息
+- 必须忽略在弹出窗口中出现一次的强制性消息{% endif %}{% ifversion ghes or ghae %}
+- 公告横幅，出现在每个页面的顶部{% endif %}
 
-{% ifversion ghes %}
-{% note %}
+{% ifversion ghes %} {% note %}
 
-**Note:** If you are using SAML for authentication, the sign in page is presented by your identity provider and is not customizable via {% data variables.product.prodname_ghe_server %}.
+注意：如果使用 SAML 进行身份验证，登录页面将由标识提供者呈现，无法通过 {% data variables.product.prodname_ghe_server %} 进行自定义。
 
 {% endnote %}
 
-You can use Markdown to format your message. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github/)."
+您可以使用 Markdown 格式化消息。 有关详细信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github/)”。
 
-## Creating a custom sign in message
+## 创建自定义登录消息
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.messages-tab %}
-5. {% ifversion ghes %}To the right of{% else %}Under{% endif %} "Sign in page", click **Add message** or **Edit message**.
-![{% ifversion ghes %}Add{% else %}Edit{% endif %} message button](/assets/images/enterprise/site-admin-settings/edit-message.png)
-6. Under **Sign in message**, type the message you'd like users to see.
-![Sign in message](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
-{% data reusables.enterprise_site_admin_settings.click-preview %}
-  ![Preview button](/assets/images/enterprise/site-admin-settings/sign-in-message-preview-button.png)
-8. Review the rendered message.
-![Sign in message rendered](/assets/images/enterprise/site-admin-settings/sign-in-message-rendered.png)
-{% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
-{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
+5. {% ifversion ghes %}在“登录页面”的右侧{% else %}下方{% endif %}，单击“添加消息”或“编辑消息” 。
+![{% ifversion ghes %}添加{% else %}编辑{% endif %}消息按钮](/assets/images/enterprise/site-admin-settings/edit-message.png)
+6. 在“登录消息”下，输入想要用户看到的消息。
+![登录消息](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% ifversion ghes %} {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %} {% data reusables.enterprise_site_admin_settings.click-preview %} ![预览按钮](/assets/images/enterprise/site-admin-settings/sign-in-message-preview-button.png)
+8. 预览显示的消息。
+![呈现的登录消息](/assets/images/enterprise/site-admin-settings/sign-in-message-rendered.png) {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %} {% endif %}
 
-## Creating a custom sign out message
+## 创建自定义退出消息
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.messages-tab %}
-5. {% ifversion ghes or ghae %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**.
-![Add message button](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
-6. Under **Sign out message**, type the message you'd like users to see.
-![Sign two_factor_auth_header message](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% ifversion ghes or ghae %}
-{% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
-{% data reusables.enterprise_site_admin_settings.click-preview %}
-  ![Preview button](/assets/images/enterprise/site-admin-settings/sign-out-message-preview-button.png)
-8. Review the rendered message.
-![Sign out message rendered](/assets/images/enterprise/site-admin-settings/sign-out-message-rendered.png)
-{% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
+5. {% ifversion ghes or ghae %}在“退出登录页面”的右侧{% else %}下方{% endif %}，单击“添加消息”或“编辑消息” 。
+![“添加消息”按钮](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
+6. 在“退出登录消息”下，输入想要用户看到的消息。
+![签名 two_factor_auth_header 消息](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% ifversion ghes or ghae %} {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %} {% data reusables.enterprise_site_admin_settings.click-preview %} ![预览按钮](/assets/images/enterprise/site-admin-settings/sign-out-message-preview-button.png)
+8. 预览显示的消息。
+![呈现的退出登录消息](/assets/images/enterprise/site-admin-settings/sign-out-message-rendered.png) {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 
 {% ifversion ghes or ghae %}
-## Creating a mandatory message
+## 创建必读消息
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before using {% data variables.location.product_location %}.
+您可以创建必读消息，保存后，{% data variables.product.product_name %} 将在所有用户首次登录时显示该消息。 该消息出现在弹出窗口中，用户必须忽略后才能使用 {% data variables.location.product_location %}。
 
-Mandatory messages have a variety of uses.
+必读消息有多种用途。
 
-- Providing onboarding information for new employees
-- Telling users how to get help with {% data variables.location.product_location %}
-- Ensuring that all users read your terms of service for using {% data variables.location.product_location %}
+- 为新员工提供入职信息
+- 告诉用户如何获得 {% data variables.location.product_location %}的相关帮助
+- 确保所有用户阅读有关使用 {% data variables.location.product_location %}的服务条款
 
-If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
+如果消息中包含 Markdown 复选框，则用户必须选中所有复选框才能忽略消息。 例如，如果您在必读消息中包含服务条款，您可以要求每个用户选中复选框以确认他们阅读了这些条款。
 
-Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+每次用户看到必读消息时，都会创建审核日志事件。 该事件包括用户看到的消息的版本。 有关详细信息，请参阅“[企业的审核日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
 
-{% ifversion display-mandatory-message-again %} {% else %}
-{% note %}
+{% ifversion display-mandatory-message-again %} {% else %} {% note %}
 
-**Note:** If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message. 
+注意：如果你更改了 {% data variables.location.product_location %}的强制性消息，已经确认该消息的用户将不会看到新消息。 
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.messages-tab %}
-1. To the right of "Mandatory message", click **Add message**.
-  ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
-1. Under "Mandatory message", in the text box, type your message.
-  ![Screenshot of the mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
-{%- ifversion display-mandatory-message-again %} 
-1. Optionally, select **Show updated message to all users even if they dismissed the previous one**.
-![Screenshot of checkbox that when selected pushes mandatory messages to all users](/assets/images/enterprise/site-admin-settings/push-mandatory-message-checkbox.png)
-   {% endif %}
-{% data reusables.enterprise_site_admin_settings.message-preview-save %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
+1. 在“必读消息”的右侧，单击“添加消息”。
+  ![添加必须消息按钮](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
+1. 在“Mandatory message（必读消息）”下面的文本框中输入消息。
+  ![强制性消息文本框的屏幕截图](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png) {%- ifversion display-mandatory-message-again %} 
+1. （可选）选择“向所有用户显示更新后的消息，即使他们忽略了之前的消息”。
+![已选中该复选框的屏幕截图，这会将强制性消息推送给所有用户](/assets/images/enterprise/site-admin-settings/push-mandatory-message-checkbox.png) {% endif %} {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}
 
 {% ifversion ghes or ghae %}
-## Creating a global announcement banner
+## 创建全局公告横幅
 
-You can set a global announcement banner to be displayed to all users at the top of every page.
+您可以设置全局公告横幅，以便在每个页面顶部向所有用户显示。
 
-{% ifversion ghae or ghes %}
-You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% ifversion ghes %}"[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" and {% endif %}"[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+{% ifversion ghae or ghes %} 你也可以使用命令行实用工具或{% ifversion ghes %}使用 API 在管理 shell 中{% endif %}设置公告横幅。 有关详细信息，请参阅{% ifversion ghes %}“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”和{% endif %}“[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)”。
 {% else %}
 
-You can also set an announcement banner in the administrative shell using a command line utility. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)."
+您还可以使用命令行工具在管理 shell 中设置公告横幅。 有关详细信息，请参阅“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”。
 
 {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.messages-tab %}
-1. {% ifversion ghes or ghae %}To the right of{% else %}Under{% endif %} "Announcement", click **Add announcement**.
-  ![Add announcement button](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
-1. Under "Announcement", in the text field, type the announcement you want displayed in a banner.
-  ![Text field to enter announcement](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
-1. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date.
-  ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png){% ifversion ghe-announce-dismiss %}
-1. Optionally, to allow each user to dismiss the announcement, select **User dismissible**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.messages-tab %}
+1. {% ifversion ghes or ghae %}在“公告”的右侧{% else %}下方{% endif %}，单击“添加公告”。
+  ![“添加公告”按钮](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
+1. 在“Announcement（公告）”下的在文本字段中键入要显示在横幅中的公告。
+  ![用于输入公告的文本字段](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
+1. （可选）在“Expires on（到期日）”下，选择日历下拉菜单并单击一个到期日。
+  ![用于选择到期日期的日历下拉菜单](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png){% ifversion ghe-announce-dismiss %}
+1. （可选）若要允许每个用户关闭公告，请选择“用户可关闭”。
 
-   ![Screenshot of the "User dismissible" checkbox](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png){% endif %}
-{% data reusables.enterprise_site_admin_settings.message-preview-save %}
-{% endif %}
+   ![“用户可关闭”复选框的屏幕截图](/assets/images/enterprise/site-admin-settings/user-dismissible-checkbox.png){% endif %} {% data reusables.enterprise_site_admin_settings.message-preview-save %} {% endif %}
