@@ -8,12 +8,14 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 2ef01bbd4ec13e37fdcd95e2a536e73c6da2304d
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+redirect_from:
+  - /issues/planning-and-tracking-with-projects/understanding-field-types/about-text-and-number-fields
+ms.openlocfilehash: 531931f74afd1d4fdc206002742d8d27bca67dc4
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107914'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159356'
 ---
 Você pode usar campos de texto para incluir observações ou qualquer outro texto de forma livre em seu projeto.
 

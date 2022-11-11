@@ -14,12 +14,12 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Identify & authorize users
-ms.openlocfilehash: 19977ba3df74e002f1fa9f0af55cd4d6c43e6e3e
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 302e7a25931c3af2957dae7a67e0ca080fc5bd50
+ms.sourcegitcommit: f54d01e643f994ce48f0774dbc680ad77dd6193f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147717650'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160577'
 ---
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
@@ -92,7 +92,6 @@ Nome | Tipo | Descrição
 `client_secret` | `string`   | **Necessário.** O segredo do cliente do Aplicativo do GitHub.
 `code` | `string`   | **Necessário.** O código que você recebeu como resposta à Etapa 1.
 `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Isso precisa ser uma correspondência exata com {% ifversion fpt or ghes or ghec %} uma das URLs fornecidas como uma **URL de retorno de chamada** {% else %} com a URL fornecida no campo **URL de retorno de chamada de autorização do usuário**{% endif %} quando o Aplicativo do GitHub é configurado e não pode conter nenhum parâmetro adicional.
-`state` | `string` | A string aleatória inexplicável que você forneceu na etapa 1.
 
 #### Resposta
 
