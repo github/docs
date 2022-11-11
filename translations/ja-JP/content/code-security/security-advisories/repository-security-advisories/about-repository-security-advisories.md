@@ -16,12 +16,12 @@ topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
-ms.openlocfilehash: a9f411a28812edadb810861a6b4d5239db1722a5
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.openlocfilehash: 562969ec29feda0901b79f8b6e2cb9cdb390ea56
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148114160'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158822'
 ---
 {% data reusables.repositories.security-advisory-admin-permissions %}
 
@@ -29,7 +29,7 @@ ms.locfileid: '148114160'
 
 ## リポジトリ セキュリティ アドバイザリについて
 
-{% data reusables.security-advisory.disclosing-vulnerabilities %} 詳細については、「[セキュリティ脆弱性の調整された開示について](/code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)」を参照してください。
+{% data reusables.security-advisory.disclosing-vulnerabilities %} 詳細については、「[セキュリティ脆弱性の調整された開示について](/code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities)」を参照してください。
 
 {% data reusables.security-advisory.security-advisory-overview %}
 

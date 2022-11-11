@@ -1,6 +1,6 @@
 ---
-title: About code owners
-intro: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
+title: Acerca de los propietarios de código
+intro: Puedes usar un archivo CODEOWNERS para definir individuos o equipos que sean responsables del código en un repositorio.
 redirect_from:
   - /articles/about-codeowners
   - /articles/about-code-owners
@@ -14,59 +14,63 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 3b6822be6551d43b3af55220ac8f39deec8be1df
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106841'
 ---
-People with admin or owner permissions can set up a CODEOWNERS file in a repository.
+Las personas con permisos administrativos o de propietario pueden configurar un archivo CODEOWNERS en un repositorio.
 
-The people you choose as code owners must have write permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
+Las personas que elijas como propietarios del código deben tener permisos de escritura para el repositorio. Cuando el propietario del código es un equipo, ese equipo debe ser visible y tener permisos de escritura, incluso si todos los miembros individuales del equipo ya tienen permisos de escritura, a través de la membresía de la organización o a través de la membresía de otro equipo.
 
-## About code owners
+## Acerca de los propietarios de código
 
-Code owners are automatically requested for review when someone opens a pull request that modifies code that they own. Code owners are not automatically requested to review draft pull requests. For more information about draft pull requests, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)." When you mark a draft pull request as ready for review, code owners are automatically notified. If you convert a pull request to a draft, people who are already subscribed to notifications are not automatically unsubscribed. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)."
+Cuando alguien abre una solicitud de extracción que modifica el código que pertenece a alguien, automáticamente se les solicita una revisión a los propietarios del mismo. Lo que no se solicita automáticamente a estos propietarios es la revisión de los borradores de solicitudes de extracción. Para más información sobre el borrador de solicitudes de incorporación de cambios, vea "[Acerca de las solicitudes de incorporación de cambios](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)". Se notificará automáticamente a los dueños del código cuando marques un borrador de solicitud de extracción como listo para revisión. Si conviertes una solicitud de extracción en borrador, las personas que ya estén suscritas a las notificaciones no se darán de baja automáticamente. Para más información, vea "[Cambio de la fase de una solicitud de incorporación de cambios](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)".
 
-When someone with admin or owner permissions has enabled required reviews, they also can optionally require approval from a code owner before the author can merge a pull request in the repository. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+Cuando alguien con permisos administrativos o de propietario ha activado las revisiones requeridas, opcionalmente, también pueden solicitar aprobación de un propietario del código antes de que el autor pueda fusionar una solicitud de extracción en el repositorio. Para más información, vea "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
-If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over {% octicon "shield-lock" aria-label="The edit icon" %}.
+Si un archivo tiene un propietario del código, puedes ver quién es éste antes de que abras una solicitud de extracción. Puede buscar el archivo en el repositorio y pasar el puntero por {% octicon "shield-lock" aria-label="The edit icon" %}.
 
-![Code owner for a file in a repository](/assets/images/help/repository/code-owner-for-a-file.png)
+![Dueño del código de un archivo en un repositorio](/assets/images/help/repository/code-owner-for-a-file.png)
 
-## CODEOWNERS file location
+## Ubicación del archivo CODEOWNERS
 
-To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `docs/`, or `.github/` directory of the repository, in the branch where you'd like to add the code owners.
+Para usar un archivo CODEOWNERS, cree un nuevo archivo denominado `CODEOWNERS` en el directorio raíz, `docs/`, o `.github/` del repositorio, en la rama donde desea agregar los propietarios del código.
 
-Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
+Cada archivo CODEOWNERS asigna los propietarios del código para una única rama en el repositorio. Por lo tanto, puede asignar diferentes propietarios de código para diferentes ramas, como `@octo-org/codeowners-team` para una base de código en la rama predeterminada y `@octocat` para un sitio de {% data variables.product.prodname_pages %} en la rama `gh-pages`.
 
-For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
+Para que los propietarios del código reciban las solicitudes de revisión, el archivo CODEOWNERS debe estar en la rama base de la solicitud de extracción. Por ejemplo, si asigna `@octocat` como propietario del código para los archivos *.js* en la rama `gh-pages` del repositorio, `@octocat` recibirá solicitudes de revisión cuando se abra una solicitud de incorporación de cambios con cambios en los archivos *.js* archivos entre la rama principal y `gh-pages`.
 
-## CODEOWNERS file size
+## Tamaño de archivo de CODEOWNERS
 
-CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
+Los archivos de CODEOWNERS deben ser de menos de 3 MB. Un archivo de CODEOWNERS que sobrepase este límite no se cargará, lo cual significa que la información de los propietarios de código no se mostrará y que no se solicitará que los propietarios de código adecuados revisen los cambios en una solicitud de cambios.
 
-To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry.
+Para reducir el tamaño de tu archivo de CODEOWNERS, considera utilizar patrones de comodín para consolidar varias entradas en una.
 
-## CODEOWNERS syntax
+## Sintáxis de CODEOWNERS
 
 {% warning %}
 
-**Warning:** There are some syntax rules for gitignore files that *do not work* in CODEOWNERS files:
-- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-- Using `!` to negate a pattern
-- Using `[ ]` to define a character range
+**Advertencia:** Hay algunas reglas de sintaxis para los archivos de gitignore que *no funcionan* con los archivos de CODEOWNERS:
+- Agregar un carácter de escape a un patrón que comience por `#` utilizando `\` para que se le trate como un patrón y no como un comentario
+- Usar `!` para negar un patrón
+- Usar `[ ]` para definir un intervalo de caracteres
 
 {% endwarning %}
 
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
+Un archivo CODEOWNERS usa un patrón que sigue casi todas las mismas reglas que se usan en los archivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format). El patrón va seguido de uno o varios nombres de usuario o de equipo de {% data variables.product.prodname_dotcom %} con el formato estándar `@username` o `@org/team-name`. Los usuarios y los equipos deben tener acceso explícito de `write` al repositorio aunque los miembros del equipo ya tengan acceso.
 
-{% ifversion fpt or ghec%}In most cases, you{% else %}You{% endif %} can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, for example `user@example.com`. {% ifversion fpt or ghec %} You cannot use an email address to refer to a {% data variables.enterprise.prodname_managed_user %}. For more information about {% data variables.enterprise.prodname_managed_users %}, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+{% ifversion fpt or ghec%}En la mayoría de los casos, {% else %}{% endif %} también puedes hacer referencia a un usuario por la dirección de correo electrónico que se ha agregado a su cuenta en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, por ejemplo `user@example.com`. {% ifversion fpt or ghec %} No puedes usar una dirección de correo electrónico para hacer referencia a una {% data variables.enterprise.prodname_managed_user %}. Para obtener más información sobre las {% data variables.enterprise.prodname_managed_users %}, consulta "[Acerca de los {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}{% endif %}
 
-CODEOWNERS paths are case sensitive, because {% data variables.product.prodname_dotcom %} uses a case sensitive file system. Since CODEOWNERS are evaluated by {% data variables.product.prodname_dotcom %}, even systems that are case insensitive (for example, macOS) must use paths and files that are cased correctly in the CODEOWNERS file.
+Las rutas de CODEOWNERS distinguen entre mayúsculas y minúsculas, ya que {% data variables.product.prodname_dotcom %} utiliza un sistema de archivos que también lo hace. Ya que {% data variables.product.prodname_dotcom %} evalúa a los CODEOWNERS, incluso los sistemas que distinguen entre mayúsculas y minúsculas (por ejemplo, macOS) deben utilizar rutas y archivos que utilicen mayúsculas y minúsculas correctamente en el archivo de CODEOWNERS.
 
-{% ifversion codeowners-errors %}
-If any line in your CODEOWNERS file contains invalid syntax, that line will be skipped. When you navigate to the CODEOWNERS file in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can see any errors highlighted. A list of errors in a repository's CODEOWNERS file is also accessible via the API. For more information, see "[Repositories](/rest/reference/repos#list-codeowners-errors)" in the REST API documentation.
-{% else %}
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
+{% ifversion codeowners-errors %} Si alguna línea del archivo CODEOWNERS contiene una sintaxis inválida, dicha línea se omitirá. Cuando navegas al archivo de CODEOWNERS en tu repositorio en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, puedes ver todos los errores resaltados. También se puede acceder a una lista de los errores del archivo CODEOWNERS de cualquier repositorio a través de la API. Para obtener más información, consulte "[Repositorios](/rest/reference/repos#list-codeowners-errors)" en la documentación de la API de REST.
+{% else %} Si cualquier línea del archivo CODEOWNERS contiene una sintaxis inválida, el archivo no se detectará y no se utilizará para solicitar revisiones.
 {% endif %}
 
-### Example of a CODEOWNERS file
+### Ejemplo de un archivo CODEOWNERS
 ```
 # This is a comment.
 # Each line is a file pattern followed by one or more owners.
@@ -124,13 +128,13 @@ apps/ @octocat
 /apps/github
 ```
 
-## CODEOWNERS and branch protection
-Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+## Protección de rama y de CODEOWNERS
+Los propietarios de los repositorios pueden agregar reglas de protección de rama para asegurarse de que los propietarios de los archivos que se modificaron revisen el código que cambió. Para más información, vea "[Acerca de las ramas protegidas](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)".
 
-## Further reading
+## Información adicional
 
-- "[Creating new files](/articles/creating-new-files)"
-- "[Inviting collaborators to a personal repository](/articles/inviting-collaborators-to-a-personal-repository)"
-- "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Viewing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
+- "[Creación de archivos](/articles/creating-new-files)"
+- "[Invitación a colaboradores a un repositorio personal](/articles/inviting-collaborators-to-a-personal-repository)"
+- "[Administración del acceso de un individuo a un repositorio de la organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+- "[Administración del acceso de equipo a un repositorio de la organización](/articles/managing-team-access-to-an-organization-repository)"
+- "[Ver una revisión de solicitud de incorporación de cambios](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

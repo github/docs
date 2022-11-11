@@ -47,7 +47,7 @@ Before you can configure {% data variables.product.prodname_code_scanning %} for
 
 {% data reusables.code-scanning.edit-workflow %}
 
-{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-label="The shield symbol" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.product.prodname_codeql_workflow %} file.
+{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-label="The shield symbol" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
 
 ## Editing a {% data variables.product.prodname_code_scanning %} workflow
 
@@ -63,13 +63,13 @@ For more information about editing workflow files, see "[Learn {% data variables
 
 ## Configuring frequency
 
-You can configure the {% data variables.product.prodname_codeql_workflow %} to scan code on a schedule or when specific events occur in a repository.
+You can configure the {% data variables.code-scanning.codeql_workflow %} to scan code on a schedule or when specific events occur in a repository.
 
 Scanning code when someone pushes a change, and whenever a pull request is created, prevents developers from introducing new vulnerabilities and errors into the code. Scanning code on a schedule informs you about the latest vulnerabilities and errors that {% data variables.product.company_short %}, security researchers, and the community discover, even when developers aren't actively maintaining the repository.
 
 ### Scanning on push
 
-By default, the {% data variables.product.prodname_codeql_workflow %} uses the `on.push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)."
+By default, the {% data variables.code-scanning.codeql_workflow %} uses the `on.push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#on)."
 
 If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
@@ -77,7 +77,7 @@ Additionally, when an `on:push` scan returns results that can be mapped to an op
 
 ### Scanning pull requests
 
-The default {% data variables.product.prodname_codeql_workflow %} uses the `pull_request` event to trigger a code scan on pull requests targeted against the default branch. {% ifversion ghes %}The `pull_request` event is not triggered if the pull request was opened from a private fork.{% else %}If a pull request is from a private fork, the `pull_request` event will only be triggered if you've selected the "Run workflows from fork pull requests" option in the repository settings. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+The default {% data variables.code-scanning.codeql_workflow %} uses the `pull_request` event to trigger a code scan on pull requests targeted against the default branch. {% ifversion ghes %}The `pull_request` event is not triggered if the pull request was opened from a private fork.{% else %}If a pull request is from a private fork, the `pull_request` event will only be triggered if you've selected the "Run workflows from fork pull requests" option in the repository settings. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
 
 For more information about the `pull_request` event, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#pull_request)."
 
@@ -123,7 +123,7 @@ For more information about using `on:pull_request:paths-ignore` and `on:pull_req
 
 ### Scanning on a schedule
 
-If you use the default {% data variables.product.prodname_codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value in the workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onschedule)."
+If you use the default {% data variables.code-scanning.codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value in the workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onschedule)."
 
 {% note %}
 
@@ -133,7 +133,7 @@ If you use the default {% data variables.product.prodname_codeql_workflow %}, th
 
 ### Example
 
-The following example shows a {% data variables.product.prodname_codeql_workflow %} for a particular repository that has a default branch called `main` and one protected branch called `protected`.
+The following example shows a {% data variables.code-scanning.codeql_workflow %} for a particular repository that has a default branch called `main` and one protected branch called `protected`.
 
 ``` yaml
 on:
@@ -152,7 +152,7 @@ This workflow scans:
 
 ## Specifying an operating system
 
-If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.product.prodname_codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
+If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.code-scanning.codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 
 ``` yaml
 jobs:
@@ -178,7 +178,7 @@ For recommended specifications (RAM, CPU cores, and disk) for running {% data va
 
 ## Specifying the location for {% data variables.product.prodname_codeql %} databases
 
-In general, you do not need to worry about where the {% data variables.product.prodname_codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
+In general, you do not need to worry about where the {% data variables.code-scanning.codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
 
 ``` yaml
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -186,9 +186,9 @@ In general, you do not need to worry about where the {% data variables.product.p
     db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
 ```
 
-The {% data variables.product.prodname_codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
+The {% data variables.code-scanning.codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
-If this parameter is not used, the {% data variables.product.prodname_codeql_workflow %} will create databases in a temporary location of its own choice.
+If this parameter is not used, the {% data variables.code-scanning.codeql_workflow %} will create databases in a temporary location of its own choice.
 
 ## Changing the languages that are analyzed
 
@@ -196,7 +196,7 @@ If this parameter is not used, the {% data variables.product.prodname_codeql_wor
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
-The default {% data variables.product.prodname_codeql_workflow %} file contains a matrix called `language` which lists the languages in your repository that are analyzed. {% data variables.product.prodname_codeql %} automatically populates this matrix when you add {% data variables.product.prodname_code_scanning %} to a repository. Using the `language` matrix optimizes {% data variables.product.prodname_codeql %} to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+The default {% data variables.code-scanning.codeql_workflow %} file contains a matrix called `language` which lists the languages in your repository that are analyzed. {% data variables.product.prodname_codeql %} automatically populates this matrix when you add {% data variables.product.prodname_code_scanning %} to a repository. Using the `language` matrix optimizes {% data variables.product.prodname_codeql %} to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
@@ -223,7 +223,7 @@ If your workflow does not contain a matrix called `language`, then {% data varia
 {% ifversion fpt or ghec %}
 ## Analyzing Python dependencies
 
-For GitHub-hosted runners that use Linux only, the {% data variables.product.prodname_codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
+For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
 
 -  If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
 

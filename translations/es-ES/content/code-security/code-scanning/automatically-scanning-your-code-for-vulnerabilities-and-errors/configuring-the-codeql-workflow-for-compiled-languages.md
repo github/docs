@@ -1,7 +1,7 @@
 ---
 title: Configuring the CodeQL workflow for compiled languages
 shortTitle: Configure compiled languages
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.product.prodname_codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.code-scanning.codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
@@ -31,9 +31,9 @@ topics:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## About the {% data variables.product.prodname_codeql_workflow %} and compiled languages
+## About the {% data variables.code-scanning.codeql_workflow %} and compiled languages
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.product.prodname_codeql_workflow %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
 {% data reusables.code-scanning.edit-workflow %} 
 For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."

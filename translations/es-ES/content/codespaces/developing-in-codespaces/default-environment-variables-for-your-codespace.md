@@ -1,7 +1,6 @@
 ---
 title: Variables de ambiente predeterminadas para tu codespace
 shortTitle: Default environment variables
-product: '{% data reusables.gated-features.codespaces %}'
 intro: '{% data variables.product.prodname_dotcom %} configura variables de ambiente predeterminadas para cada codespace.'
 versions:
   fpt: '*'
@@ -11,12 +10,12 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-ms.openlocfilehash: e9034fb566c8245fff6d610ff456084dc9818f0b
-ms.sourcegitcommit: 43a959b8faf78d9c5b3deadffa079d24cd11650b
+ms.openlocfilehash: 1a57445bbffb3e1112299414e29796b716f2d801
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2022
-ms.locfileid: '148134771'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158929'
 ---
 ## Acerca de las variables de ambiente predeterminadas
 
@@ -32,7 +31,7 @@ ms.locfileid: '148134771'
 
 | Variable de entorno | Descripción |
 | ---------------------|------------ |
-| `CODESPACE_NAME` | Nombre del codespace, por ejemplo, `monalisa-github-hello-world-2f2fsdf2e` |
+| `CODESPACE_NAME` | Nombre del codespace, por ejemplo, `octocat-literate-space-parakeet-mld5` |
 | `CODESPACES` | Siempre `true` en un codespace |
 | `GIT_COMMITTER_EMAIL` | Correo electrónico del campo de "creador" de las confirmaciones de `git` futuras. |
 | `GIT_COMMITTER_NAME` | Nombre del campo de "responsable de la confirmación" de las confirmaciones de `git` futuras. |
