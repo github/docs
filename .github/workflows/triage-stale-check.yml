@@ -6,7 +6,7 @@ name: Public Repo Stale Check
 
 on:
   schedule:
-    - cron: '45 16 * * *' # Run each day at 16:45 UTC / 8:45 PST
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   issues: write

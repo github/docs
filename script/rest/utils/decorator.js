@@ -24,7 +24,7 @@ export async function decorate(schemas) {
 }
 
 async function getRestOperations(restSchemas) {
-  console.log('⏭️  Start generating static REST files\n')
+  console.log('\n⏭️  Start generating static REST files\n')
   const restSchemaData = await getDereferencedFiles(restSchemas)
   const restOperations = {}
   for (const [schemaName, schema] of Object.entries(restSchemaData)) {
@@ -48,7 +48,7 @@ async function getRestOperations(restSchemas) {
 
 async function getWebhookOperations(webhookSchemas) {
   console.log('⏭️  Start generating static webhook files\n')
-  const webhookSchemaData = getDereferencedFiles(webhookSchemas)
+  const webhookSchemaData = await getDereferencedFiles(webhookSchemas)
   const webhookOperations = {}
   for (const [schemaName, schema] of Object.entries(webhookSchemaData)) {
     try {
@@ -174,7 +174,6 @@ async function createStaticWebhookFiles(webhookSchemas) {
     )
     return
   }
-  rimraf.sync(`${WEBHOOK_DECORATED_DIR}/*`)
   // Create a map of webhooks (e.g. check_run, issues, release) to the
   // webhook's actions (e.g. created, deleted, etc.).
   //

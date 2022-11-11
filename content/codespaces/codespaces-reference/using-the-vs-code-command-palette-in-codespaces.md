@@ -8,7 +8,6 @@ type: reference
 topics:
   - Codespaces
   - Visual Studio Code
-product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -35,7 +34,7 @@ You can access the {% data variables.product.prodname_vscode_command_palette_sho
 
 To see all commands related to {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "Codespaces".
 
-![A list of all commands that relate to Codespaces](/assets/images/help/codespaces/codespaces-command-palette.png)
+![A list of all commands that relate to {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/codespaces-command-palette.png)
 
 ### Suspending or stopping a codespace
 
@@ -45,9 +44,9 @@ To suspend or stop your codespace's container, [access the {% data variables.pro
 
 ![Command to stop a codespace](/assets/images/help/codespaces/codespaces-stop.png)
 
-### Adding a dev container from a template
+### Adding a predefined dev container configuration
 
-To add a dev container from a template, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**
+To add a predefined dev container configuration, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**
 
 ![Command to add a dev container](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
@@ -66,3 +65,7 @@ You can use the {% data variables.product.prodname_vscode_command_palette_shortn
 To retrieve the logs for {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_github_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
 
 ![Command to access logs](/assets/images/help/codespaces/codespaces-logs.png)
+
+## Further reading
+
+- "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"

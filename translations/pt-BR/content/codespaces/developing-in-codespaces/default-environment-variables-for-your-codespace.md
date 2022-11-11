@@ -1,8 +1,8 @@
 ---
-title: Default environment variables for your codespace
+title: Variáveis de ambiente padrão para seu codespace
 shortTitle: Default environment variables
 product: '{% data reusables.gated-features.codespaces %}'
-intro: '{% data variables.product.prodname_dotcom %} sets default environment variables for each codespace.'
+intro: 'O {% data variables.product.prodname_dotcom %} define variáveis de ambiente padrão para cada codespace.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,30 +11,35 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+ms.openlocfilehash: e9034fb566c8245fff6d610ff456084dc9818f0b
+ms.sourcegitcommit: 43a959b8faf78d9c5b3deadffa079d24cd11650b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148134754'
 ---
+## Sobre as variáveis de ambiente padrão
 
-## About default environment variables
-
-{% data variables.product.prodname_dotcom %} sets default environment variables for every codespace. Commands run in codespaces can create, read, and modify environment variables.
+O {% data variables.product.prodname_dotcom %} define variáveis de ambiente padrão para cada codespace. Os comandos executados nos codespaces podem criar, ler e modificar as variáveis de ambiente.
 
 {% note %}
 
-**Note**: Environment variables are case-sensitive.
+**Observação**: as variáveis de ambiente diferenciam maiúsculas de minúsculas.
 
 {% endnote %}
 
-## List of default environment variables
+## Lista de variáveis de ambiente padrão
 
-| Environment variable | Description |
+| Variável de ambiente | Descrição |
 | ---------------------|------------ |
-| `CODESPACE_NAME` | The name of the codespace For example, `monalisa-github-hello-world-2f2fsdf2e` |
-| `CODESPACES` | Always `true` while in a codespace |
-| `GIT_COMMITTER_EMAIL` | The email for the "author" field of future `git` commits. |
-| `GIT_COMMITTER_NAME` | The name for the "committer" field of future `git` commits. |
-| `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN`| Returns the domain of the {% data variables.product.prodname_github_codespaces %} forwarded port. For example, `preview.app.github.dev`. |
-| `GITHUB_API_URL` | Returns the API URL. For example, `{% data variables.product.api_url_code %}`. |
-| `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example, `{% data variables.product.graphql_url_code %}`. |
-| `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
-| `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example, `https://{% data variables.product.product_url %}`. |
-| `GITHUB_TOKEN` | A signed auth token representing the user in the codespace. You can use this to make authenticated calls to the GitHub API. For more information, see "[Authentication](/codespaces/codespaces-reference/security-in-codespaces#authentication)."  |
-| `GITHUB_USER` | The name of the user that initiated the codespace. For example, `octocat`. |
+| `CODESPACE_NAME` | O nome do codespace Por exemplo, `monalisa-github-hello-world-2f2fsdf2e` |
+| `CODESPACES` | Sempre `true` em um codespace |
+| `GIT_COMMITTER_EMAIL` | O email para o campo "autor" de commits `git` futuros. |
+| `GIT_COMMITTER_NAME` | O nome do campo "autor do commit" de commits `git` futuros. |
+| `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN`| Retorna o domínio da porta encaminhada de {% data variables.product.prodname_github_codespaces %}. Por exemplo, `preview.app.github.dev`. |
+| `GITHUB_API_URL` | Retorna a URL da API. Por exemplo, `{% data variables.product.api_url_code %}`. |
+| `GITHUB_GRAPHQL_URL` | Retorna a URL API do GraphQL. Por exemplo, `{% data variables.product.graphql_url_code %}`. |
+| `GITHUB_REPOSITORY` | Nome do repositório e o proprietário. Por exemplo, `octocat/Hello-World`. |
+| `GITHUB_SERVER_URL`| Retorna a URL do servidor {% data variables.product.product_name %}. Por exemplo, `https://{% data variables.product.product_url %}`. |
+| `GITHUB_TOKEN` | Um token de autenticação assinado que representa o usuário no codespace. Você pode usar isso para fazer chamadas autenticadas para a API do GitHub. Para obter mais informações, confira "[Autenticação](/codespaces/codespaces-reference/security-in-codespaces#authentication)".  |
+| `GITHUB_USER` | O nome do usuário que iniciou o codespace. Por exemplo, `octocat`. |

@@ -17,9 +17,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/11/2022
 ms.locfileid: '145125869'
 ---
-{% for term in site.data.glossaries.external %}
-  ### {% data glossaries.external[forloop.index0].term %}
-  {% data glossaries.external[forloop.index0].description %}
+{% for glossary in glossaries %}
+  ### {{ glossary.term }}
+  {{ glossary.description}}
   ---
 {% endfor %}
 

@@ -748,20 +748,6 @@ Creates Elasticsearch index, populates from records, moves the index alias, dele
 ---
 
 
-### [`search/lunr-get-index-names.js`](search/lunr-get-index-names.js)
-
-
-
----
-
-
-### [`search/lunr-search-index.js`](search/lunr-search-index.js)
-
-
-
----
-
-
 ### [`search/parse-page-sections-into-records.js`](search/parse-page-sections-into-records.js)
 
 
@@ -778,23 +764,6 @@ Creates Elasticsearch index, populates from records, moves the index alias, dele
 
 ### [`search/search-index-records.js`](search/search-index-records.js)
 
-
-
----
-
-
-### [`search/search-qa-data.json`](search/search-qa-data.json)
-
-
-
----
-
-
-### [`search/search-qa-test.js`](search/search-qa-test.js)
-
-This script is a quality assurance test for the Lunr search configuration. This test runs example queries and expects a specific page to land in the top 3 results.
-
-The data source used by this script is a JSON file `script/search/search-qa-data.json`, which is populated from spreadsheet data here: https://docs.google.com/spreadsheets/d/1Dt5JRVcmyAGWKBwGjwmXxi7Ww_vdfYLfZ-EFpu2S2CQ/edit?usp=sharing
 
 ---
 

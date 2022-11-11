@@ -10,14 +10,15 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
 ---
 
 ## Overview
 
-Each codespace that you create is hosted on a separate virtual machine, and you can usually choose from different types of virtual machines. Each machine type has different resources (processor cores, memory, storage) and, by default, the machine type with the least resources is used. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+Each codespace that you create is hosted on a separate virtual machine. When you create a codespace from a repository, you can usually choose from different types of virtual machines. Each machine type has different resources (processor cores, memory, storage) and, by default, the machine type with the least resources is used. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
 
 If your project needs a certain level of compute power, you can configure {% data variables.product.prodname_github_codespaces %} so that only machine types that meet these requirements can be used by default, or selected by users. You configure this in a `devcontainer.json` file.
+
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %}
 
 {% note %}
 
@@ -40,7 +41,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 
    You can specify any or all of the options: `cpus`, `memory`, and `storage`.
    
-   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
+   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
    
 1. Save the file and commit your changes to the required branch of the repository.
 
