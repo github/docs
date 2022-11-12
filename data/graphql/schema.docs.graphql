@@ -6993,6 +6993,11 @@ input CreateProjectV2Input {
   ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "OrganizationOrUser")
 
   """
+  The repository to link the project to.
+  """
+  repositoryId: ID @possibleTypes(concreteTypes: ["Repository"])
+
+  """
   The title of the project.
   """
   title: String!
