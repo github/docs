@@ -607,7 +607,7 @@ translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/explorin
 translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise.md,broken liquid tags
-translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise.md,broken liquid tags
+translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise.md,rendering error
 translations/pt-BR/content/admin/overview/about-data-residency.md,broken liquid tags
@@ -713,7 +713,7 @@ translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scannin
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
-translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system.md,broken liquid tags
+translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts.md,rendering error
 translations/pt-BR/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,rendering error
@@ -864,7 +864,7 @@ translations/pt-BR/content/get-started/importing-your-projects-to-github/importi
 translations/pt-BR/content/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer.md,broken liquid tags
 translations/pt-BR/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/pt-BR/content/get-started/learning-about-github/access-permissions-on-github.md,broken liquid tags
-translations/pt-BR/content/get-started/learning-about-github/githubs-products.md,broken liquid tags
+translations/pt-BR/content/get-started/learning-about-github/githubs-products.md,rendering error
 translations/pt-BR/content/get-started/learning-about-github/types-of-github-accounts.md,broken liquid tags
 translations/pt-BR/content/get-started/onboarding/getting-started-with-github-ae.md,broken liquid tags
 translations/pt-BR/content/get-started/onboarding/getting-started-with-github-enterprise-cloud.md,rendering error
@@ -1119,7 +1119,7 @@ translations/pt-BR/data/reusables/code-scanning/codeql-context-for-actions-and-t
 translations/pt-BR/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
 translations/pt-BR/data/reusables/code-scanning/codeql-languages-keywords.md,rendering error
 translations/pt-BR/data/reusables/code-scanning/codeql-runner-analyze-example.md,broken liquid tags
-translations/pt-BR/data/reusables/code-scanning/deprecation-codeql-runner.md,broken liquid tags
+translations/pt-BR/data/reusables/code-scanning/deprecation-codeql-runner.md,rendering error
 translations/pt-BR/data/reusables/code-scanning/edit-workflow.md,broken liquid tags
 translations/pt-BR/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/pt-BR/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags
