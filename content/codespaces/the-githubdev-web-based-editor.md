@@ -104,7 +104,7 @@ Extensions that can run in the {% data variables.product.prodname_serverless %} 
 
 If you have issues opening the {% data variables.product.prodname_serverless %}, try the following:
 
-- Make sure you are signed in to {% data variables.product.prodname_dotcom %}.
+- Make sure you are signed into the {% data variables.product.prodname_dotcom %}.
 - Disable any ad blockers.
 - Use a non-incognito window in your browser to open the {% data variables.product.prodname_serverless %}.
 
