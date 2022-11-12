@@ -51,7 +51,9 @@ describe('footer', () => {
   describe('test redirects for non-product landing community links pages', () => {
     test('leads to https://github.community/ when clicking on the community link', async () => {
       const $ = await getDOM(`/en/github/authenticating-to-github`)
-      expect($('a#ask-community').attr('href')).toBe('https://github.community/')
+      expect($('a#ask-community').attr('href')).toBe(
+        'https://github.com/orgs/community/discussions'
+      )
     })
   })
 })

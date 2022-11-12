@@ -10,16 +10,18 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
-ms.openlocfilehash: d0ef8c345039047a01b6b88a4b9d3f8300ef11c1
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 39fb5e8eb74518dc4614d5494ec04427b5e12399
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107186'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135676'
 ---
 ## Sobre o gráfico de dependências
 
 {% data reusables.dependabot.about-the-dependency-graph %} Para obter mais informações, confira "[Sobre o grafo de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+
+{% data reusables.dependency-review.dependency-review-enabled-ghes %}
 
 Depois de habilitar o grafo de dependência da empresa, você pode habilitar o {% data variables.product.prodname_dependabot %} para detectar as dependências vulneráveis no repositório{% ifversion ghes %} e corrigir as vulnerabilidades automaticamente{% endif %}. Para obter mais informações, confira "[Como habilitar o {% data variables.product.prodname_dependabot %} para sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 

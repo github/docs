@@ -39,7 +39,11 @@ export default class Webhook {
         null
       )
     }
-    this.category = webhook['x-github'].subcategory
+
+    // The OpenAPI uses hyphens for the webhook names, but the webhooks
+    // are sent using underscores (e.g. `branch_protection_rule` instead
+    // of `branch-protection-rule`)
+    this.category = webhook['x-github'].subcategory.replaceAll('-', '_')
     return this
   }
 

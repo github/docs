@@ -4,18 +4,18 @@ intro: '本部分包含使你能够成功使用 {% data variables.product.prodna
 versions:
   fpt: '*'
   ghec: '*'
-product: '{% data reusables.gated-features.codespaces %}'
 children:
   - /allowing-your-codespace-to-access-a-private-image-registry
   - /using-github-copilot-in-github-codespaces
+  - /using-the-github-codespaces-plugin-for-jetbrains
   - /using-the-vs-code-command-palette-in-codespaces
   - /security-in-github-codespaces
   - /disaster-recovery-for-github-codespaces
-ms.openlocfilehash: 3e3ebc7b7222afcb9505e1f535975feadb9515a7
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 87692cd862e791f3e6ffa2be2b07f34c6158e617
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110840'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159195'
 ---
 

@@ -7,7 +7,7 @@ name: Translations tests
 on:
   workflow_dispatch:
   schedule:
-    - cron: '35 16 * * *' # Run once per day at 16:35 UTC / 9:35 PST
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 9:20 PST
 
 permissions:
   contents: read

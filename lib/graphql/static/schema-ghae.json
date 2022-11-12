@@ -8004,7 +8004,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -46055,7 +46055,7 @@
         },
         {
           "name": "hasDiscussionsEnabled",
-          "description": "<p>Are discussions available on this repository?.</p>",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -60142,6 +60142,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasIssuesEnabled",
           "description": "<p>Indicates if the repository has issues feature enabled.</p>",
           "type": "Boolean!",
@@ -67843,7 +67851,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -72672,7 +72680,7 @@
         },
         {
           "name": "requireLastPushApproval",
-          "description": "<p>Whether someone other than the person who last pushed to the branch must approve this pull request.</p>",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

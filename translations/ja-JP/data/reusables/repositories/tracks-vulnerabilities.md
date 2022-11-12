@@ -1,13 +1,12 @@
----
-ms.openlocfilehash: 76df31da97bc29eefed3ce3fd57aa61b8802338c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "146455282"
----
-アドバイザリは、以下のソースから {% data variables.product.prodname_advisory_database %} に追加されます。
-- [National Vulnerability Database](https://nvd.nist.gov/)
-- {% data variables.product.prodname_dotcom %}上のパブリックなコミット内の脆弱性の検出に、機械学習と人間によるレビューの組み合わせ
-- {% data variables.product.prodname_dotcom %}で報告されたセキュリティアドバイザリ
-- [npm セキュリティ アドバイザリ](https://www.npmjs.com/advisories) データベース
+We add advisories to the {% data variables.product.prodname_advisory_database %} from the following sources:
+- Security advisories reported on {% data variables.product.prodname_dotcom %}
+- The [National Vulnerability database](https://nvd.nist.gov/)
+- The [npm Security advisories database](https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm)
+- The [FriendsOfPHP database](https://github.com/FriendsOfPHP/security-advisories) 
+- The [Go Vulncheck database](https://pkg.go.dev/golang.org/x/vuln/vulncheck) 
+- The [Python Packaging Advisory database](https://github.com/pypa/advisory-database) 
+- The [Ruby Advisory database](https://rubysec.com/)
+- The [RustSec Advisory database](https://rustsec.org/)
+- Community contributions. For more information, see [https://github.com/github/advisory-database/pulls](https://github.com/github/advisory-database/pulls).
+
+If you know of another database we should be importing advisories from, tell us about it by opening an issue in [https://github.com/github/advisory-database](https://github.com/github/advisory-database).
