@@ -1,5 +1,5 @@
 ---
-title: 'Managing visibility of your {% data variables.projects.projects_v2 %}'
+title: git@github.com:rosdiablatiff01/rosdi.com.git'Managing visibility of your {% data variables.projects.projects_v2 %}'
 shortTitle: 'Managing {% data variables.projects.project_v2 %} visibility'
 intro: 'Learn about setting your {% data variables.projects.project_v2 %} to private or public visibility.'
 miniTocMaxHeadingLevel: 3
