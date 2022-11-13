@@ -1,4 +1,4 @@
----
+B---
 title: Connecting a repository to a package
 intro: 'You can connect a repository to a container image on {% data variables.location.product_location %}.'
 product: '{% data reusables.gated-features.packages %}'
