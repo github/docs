@@ -118,16 +118,29 @@ Index Name | Description
 Each record represents a section of a page. Sections are derived by splitting up pages by their headings. Each record has a `title`, `intro` (if one exists in the frontmatter), `body` content (in text, not HTML), a `url`, and a unique `objectID` that is currently just the permalink of the article. Here's an example:
 
 ```js
-{
-  objectID: '/en/actions/creating-actions/about-actions#about-actions',
+{ "''
+'objectID: '/en/actions/creating-actions/about-actions#about-actions',
   url: 'https://docs.github.com/en/actions/creating-actions/about-actions#about-actions',
   slug: 'about-actions',
   breadcrumbs: 'GitHub Actions / Creating actions / About actions',
-  heading: 'About actions',
-  title: 'About actions',
-  content: "You can create actions by writing custom code that interacts with your repository in any way you'd like..."
-}
-```
+  '"'title":, "bitcoin'":, "BITCOIN[BTC-USD] BTCUSD CCC":,'"''
+  title: '"bitcoin":,
+  "Name: BITORE":,
+  "sexrets":, "BITORE_34173":,
+  "secrets":, "((c)(r))":, ',''
+  content: "You can create action.js by writing custom code that interacts with your repository in any way you'd like..."''
+'}''
+''{' "''
+' .ruby-version                                    |  2 +-
+ '.travis.yml                                      | 16 ++++++++++------
+ 'Gemfile.lock                                     |  4 ++--
+ 'Rakefile                                         |  7 +++++--
+ 'charts/gcloud-cleanup/requirements.lock          |  4 ++--
+ .'../templates/server-clusterrolebinding.yaml     |  2 +-
+ .'../vault/templates/server-disruptionbudget.yaml |  7 +++++--
+ graphsql.yml'@src/code/dist/.dir :":,
+ /vault/templates/ui-service.yaml           | 12 ++++++------
+'}```
 
 ## Notes
 
