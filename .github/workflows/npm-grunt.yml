@@ -1,0 +1,224 @@
+name: NodeJS with Grunt
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+Runs:
+-From 1744b0f9fdb1473dc80f226dfc99130e29d819e1 Mon Sep 17 00:00:00 2001
+From: Cesar Souto <cesar@travis-ci.org>
+Date: Thu, 8 Oct 2020 20:32:21 -0300
+Subject: [PATCH] Fixing tests
+
+---
+ .ruby-version                                    |  2 +-
+ .travis.yml                                      | 16 ++++++++++------
+ Gemfile.lock                                     |  4 ++--
+ Rakefile                                         |  7 +++++--
+ charts/gcloud-cleanup/requirements.lock          |  4 ++--
+ .../templates/server-clusterrolebinding.yaml     |  2 +-
+ .../vault/templates/server-disruptionbudget.yaml |  7 +++++--
+ charts/vault/templates/ui-service.yaml           | 12 ++++++------
+ charts/worker-operator/templates/crd.yaml        |  2 +-
+ 9 files changed, 33 insertions(+), 23 deletions(-)
+
+diff --git a/.ruby-version b/.ruby-version
+index d4bcea9584..bff6ce5c12 100644
+--- a/.ruby-version
++++ b/.ruby-version
+@@ -1 +1 @@
+-ruby-2.5.3
++ruby-2.7.1
+diff --git a/.travis.yml b/.travis.yml
+index afb080dfd2..d9b03c2035 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -1,24 +1,28 @@
+ language: ruby
+-dist: xenial
++dist: bionic
+ addons:
+   snaps:
+   - name: helm
+     classic: true
+     channel: 3.2/stable
+ 
+-before_deploy:
+-- ls dist
++before_install:
+ - openssl aes-256-cbc -K $encrypted_8a2a23268e29_key -iv $encrypted_8a2a23268e29_iv
+   -in gcs-credentials.json.enc -out gcs-credentials.json -d
+ 
++before_deploy:
++- ls dist
++
+ deploy:
+   provider: gcs
+   edge:
+-    branch: master
+-  key_file: gcs-credentials.json
++    branch: gcs-ng
++  project_id: eco-emissary-99515
++  credentials: gcs-credentials.json
+   bucket: travis-ci-helm-charts
+   local_dir: dist
+-  acl: public-read
++  skip_cleanup: true
++  acl: publicRead
+   on:
+     repo: travis-ci/kubernetes-config
+ 
+diff --git a/Gemfile.lock b/Gemfile.lock
+index f44a18a31f..e60268f303 100644
+--- a/Gemfile.lock
++++ b/Gemfile.lock
+@@ -1,7 +1,7 @@
+ GEM
+   remote: https://rubygems.org/
+   specs:
+-    rake (12.3.0)
++    rake (13.0.1)
+ 
+ PLATFORMS
+   ruby
+@@ -10,4 +10,4 @@ DEPENDENCIES
+   rake
+ 
+ BUNDLED WITH
+-   1.16.6
++   2.1.4
+diff --git a/Rakefile b/Rakefile
+index fd8c917e71..e77c1779bf 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -31,13 +31,16 @@ RELEASES = FileList["releases/**/*.yaml"]
+ 
+ task :validate do
+   RELEASES.each do |release|
+-    validate_release(release)
++    next if validate_release(release) == 'skip'
+   end
+ end
+ 
+ def validate_release(release)
+   r = YAML.safe_load(File.read(release))
+-  return unless r['spec']['chart']['git'] == 'git@github.com:travis-ci/kubernetes-config.git'
++  if r['kind'] != "HelmRelease" || r['spec']['chart']['git'] != "git@github.com:travis-ci/kubernetes-config.git"
++    puts "==> Skipping \`helm template\` for file #{release}"
++    return 'skip'
++  end 
+ 
+   namespace = r['metadata']['namespace']
+   release_name = r['spec']['releaseName']
+diff --git a/charts/gcloud-cleanup/requirements.lock b/charts/gcloud-cleanup/requirements.lock
+index 75a7fde4f3..08c3b61bde 100644
+--- a/charts/gcloud-cleanup/requirements.lock
++++ b/charts/gcloud-cleanup/requirements.lock
+@@ -2,5 +2,5 @@ dependencies:
+ - name: redis
+   repository: https://kubernetes-charts.storage.googleapis.com/
+   version: 8.0.13
+-digest: sha256:7585b1894ebb75ba58aad929d725fe673e2e0dbac3f9ee3b38b5d192b555a5f6
+-generated: 2019-06-28T13:47:32.320609+02:00
++digest: sha256:a69c64fe9c223bb4749d9eb98310a441086777b32f18b8de22cf71789c3c7904
++generated: "2020-10-08T19:37:14.724146-03:00"
+diff --git a/charts/vault/templates/server-clusterrolebinding.yaml b/charts/vault/templates/server-clusterrolebinding.yaml
+index ac60cd7193..1aefa269ed 100644
+--- a/charts/vault/templates/server-clusterrolebinding.yaml
++++ b/charts/vault/templates/server-clusterrolebinding.yaml
+@@ -1,6 +1,6 @@
+ {{ template "vault.mode" . }}
+ {{- if and (ne .mode "") (and (eq (.Values.global.enabled | toString) "true") (eq (.Values.server.authDelegator.enabled | toString) "true")) }}
+-apiVersion: rbac.authorization.k8s.io/v1beta1
++apiVersion: rbac.authorization.k8s.io/v1
+ kind: ClusterRoleBinding
+ metadata:
+   name: {{ template "vault.fullname" . }}-server-binding
+diff --git a/charts/vault/templates/server-disruptionbudget.yaml b/charts/vault/templates/server-disruptionbudget.yaml
+index f41aedd608..8f32cf0227 100644
+--- a/charts/vault/templates/server-disruptionbudget.yaml
++++ b/charts/vault/templates/server-disruptionbudget.yaml
+@@ -1,7 +1,9 @@
+-# PodDisruptionBudget to prevent degrading the server cluster through
+-# voluntary cluster changes.
++  
+ {{ template "vault.mode" . }}
++{{- if ne .mode "external" -}}
+ {{- if and (and (eq (.Values.global.enabled | toString) "true") (eq .mode "ha")) (eq (.Values.server.ha.disruptionBudget.enabled | toString) "true") -}}
++# PodDisruptionBudget to prevent degrading the server cluster through
++# voluntary cluster changes.
+ apiVersion: policy/v1beta1
+ kind: PodDisruptionBudget
+ metadata:
+@@ -20,3 +22,4 @@ spec:
+       app.kubernetes.io/instance: {{ .Release.Name }}
+       component: server
+ {{- end -}}
++{{- end -}}
+\ No newline at end of file
+diff --git a/charts/vault/templates/ui-service.yaml b/charts/vault/templates/ui-service.yaml
+index 00bab47064..88a58ec724 100644
+--- a/charts/vault/templates/ui-service.yaml
++++ b/charts/vault/templates/ui-service.yaml
+@@ -1,10 +1,6 @@
+ {{ template "vault.mode" . }}
++{{- if ne .mode "external" }}
+ {{- if and (ne .mode "") (eq (.Values.global.enabled | toString) "true") }}
+-# Headless service for Vault server DNS entries. This service should only
+-# point to Vault servers. For access to an agent, one should assume that
+-# the agent is installed locally on the node and the NODE_IP should be used.
+-# If the node can't run a Vault agent, then this service can be used to
+-# communicate directly to a server agent.
+ {{- if eq (.Values.ui.enabled | toString) "true" }}
+ apiVersion: v1
+ kind: Service
+@@ -22,6 +18,9 @@ spec:
+     app.kubernetes.io/name: {{ include "vault.name" . }}
+     app.kubernetes.io/instance: {{ .Release.Name }}
+     component: server
++    {{- if and (.Values.ui.activeVaultPodOnly) (eq .mode "ha") }}
++    vault-active: "true"
++    {{- end }}
+   publishNotReadyAddresses: true
+   ports:
+     - name: http
+@@ -42,4 +41,5 @@ spec:
+   {{- end }}
+ {{- end -}}
+ 
+-{{ end }}
++{{- end }}
++{{- end }}
+\ No newline at end of file
+diff --git a/charts/worker-operator/templates/crd.yaml b/charts/worker-operator/templates/crd.yaml
+index 55ef8b0e93..43c006bd9c 100644
+--- a/charts/worker-operator/templates/crd.yaml
++++ b/charts/worker-operator/templates/crd.yaml
+@@ -1,4 +1,4 @@
+-apiVersion: apiextensions.k8s.io/v1beta1
++apiVersion: apiextensions.k8s.io/v1
+ kind: CustomResourceDefinition
+ metadata:
+   name: workerclusters.travisci.com
+   :Build ::|
+        npm install
+        grunt
