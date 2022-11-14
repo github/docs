@@ -2,6 +2,8 @@ The table below summarizes whether dependency scope is supported for various eco
 
 | **Language** | **Ecosystem** | **Manifest file** | **Dependency scope supported** |
 |:---|:---:|:---:|:---|
+| Dart | pub | pubspec.yaml |  ✔ |
+| Dart | pub | pubspec.lock |  ✔ |
 | Go | Go modules | go.mod | No, defaults to runtime |
 | Go | Go modules |	go.sum | No, defaults to runtime |
 | Java | Maven | pom.xml | ✔ `test` maps to development, else scope defaults to runtime |
