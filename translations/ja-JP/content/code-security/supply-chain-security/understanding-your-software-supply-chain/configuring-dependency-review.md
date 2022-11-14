@@ -1,6 +1,7 @@
 ---
-title: 依存関係レビューの構成
-intro: 依存関係レビューを使用して、脆弱性がプロジェクトに追加される前に捕捉できます。
+title: Configuring dependency review
+intro: You can use dependency review to catch vulnerabilities before they are added to your project.
+miniTocMaxHeadingLevel: 3
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
@@ -14,90 +15,201 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
-ms.openlocfilehash: e7fae5d42e4f7c14098414c28e5b5eb857c39687
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107502'
 ---
-## 依存関係の確認について
+
+## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}   
 
-詳細については、「[依存関係レビューについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)」と「[pull request 内の依存関係の変更をレビューする](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。
+For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
-## 依存関係レビューの構成について
+## About configuring dependency review
 
-{% ifversion fpt %}依存関係レビューは、すべての製品のすべてのパブリック リポジトリで使用できます。また、無効にすることはできません。 依存関係レビューは、GitHub Enterprise Cloud を使い、[{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) のライセンスを持つ組織が所有するプライベート リポジトリで利用できます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)を参照してください。
+{% ifversion fpt %}
+Dependency review is available in all public repositories in all products and cannot be disabled. Dependency review is available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
 
-{% elsif ghec %}依存関係レビューは、パブリック リポジトリの {% data variables.product.product_name %} に含まれています。 組織が所有するプライベート リポジトリで依存関係レビューを使うには、[{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) のライセンスがあり、依存関係グラフを有効にする必要があります。
+{% elsif ghec %}
+Dependency review is included in {% data variables.product.product_name %} for public repositories. To use dependency review in private repositories owned by organizations, you must have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) and have the dependency graph enabled.
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
-1. まだ "{% data variables.product.prodname_GH_advanced_security %}" が有効になっていない場合は、機能の横にある **[Enable]\(有効にする\)** をクリックします。
-   ![[Enable]\(有効にする\) ボタンが強調表示された GitHub Advanced Security 機能のスクリーンショット](/assets/images/help/security/enable-ghas-private-repo.png)
+1. If "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature.
+   ![Screenshot of GitHub Advanced Security feature with "Enable" button emphasized](/assets/images/help/security/enable-ghas-private-repo.png)
 
 {% elsif ghes or ghae %}
 
-依存関係の確認は、{% data variables.location.product_location %}に対して依存関係グラフが有効になっており、{% data variables.product.prodname_advanced_security %} が組織またはリポジトリで有効になっている場合に使用できます。{% ifversion ghes %}詳細については、「[エンタープライズで {% data variables.product.prodname_GH_advanced_security %} を有効にする](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)」を参照してください。{% endif %}
+Dependency review is available when dependency graph is enabled for {% data variables.location.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.{% ifversion ghes %} For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."{% endif %}
 
-### 依存関係グラフが有効になっているかどうかを確認する
+### Checking if the dependency graph is enabled
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. [Configure security and analysis features]\(セキュリティと分析機能の構成\) で、依存関係グラフが有効になっているかどうかを確認します。 
-1. 依存関係グラフが有効である場合は、"{% data variables.product.prodname_GH_advanced_security %}" の横にある **[Enable]\(有効にする\)** をクリックして、依存関係レビューを含む {% data variables.product.prodname_advanced_security %} を有効にします。 エンタープライズに {% data variables.product.prodname_advanced_security %} に使用できるライセンスがない場合、[有効にする] ボタンは無効です。{% ifversion ghes %}!["コードのセキュリティと分析" 機能のスクリーンショット](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "Configure security and analysis features", check if the dependency graph is enabled. 
+1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes %}
+    ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## {% data variables.product.prodname_dependency_review_action %} の構成
+## About configuring the {% data variables.product.prodname_dependency_review_action %}
 
-{% data reusables.dependency-review.dependency-review-action-beta-note %} {% data reusables.dependency-review.dependency-review-action-overview %}
+{% data reusables.dependency-review.dependency-review-action-overview %}
 
-次の構成オプションを使用できます。
+The following configuration options are available.
 
-| オプション | 必須 | 使用法 |
+| Option | Required | Usage |
 |------------------|-------------------------------|--------|
-| `fail-on-severity` | オプション | 重大度レベル (`low`、`moderate`、`high`、`critical`) のしきい値を定義します。</br>アクションは、指定した重大度レベル以上の脆弱性を引き起こす pull request で失敗します。 |
-{%- ifversion dependency-review-action-licenses %} | `allow-licenses` | 省略可能 | 許可されているライセンスの一覧が含まれています。 このパラメーターに使用できる値は、API ドキュメントの「[ライセンス](/rest/licenses)」のページで確認できます。</br>このアクションは、list.| と一致しないライセンスを持つ依存関係を導入するプル要求で失敗します。{% endif %} {%- ifversion dependency-review-action-licenses %} | `deny-licenses` |省略可能な|禁止されているライセンスの一覧が含まれています。 このパラメーターに使用できる値は、API ドキュメントの「[ライセンス](/rest/licenses)」のページで確認できます。</br>アクションは、リストに一致するライセンスを持つ依存関係を導入する pull request で失敗します。|{% endif %}
+| `fail-on-severity` | Optional | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
+{%- ifversion dependency-review-action-licenses %}
+| `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
+{%- ifversion dependency-review-action-licenses %}
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
+| `fail-on-scopes` | Optional | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilites in the scopes that match the list.|{% endif %}
+| `allow-ghsas` | Optional | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
+| `config-file` | Optional | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
+| `external-repo-token` | Optional | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
 
-{% ifversion dependency-review-action-licenses %} {% tip %}
-
-**ヒント:** オプション `allow-licenses` と `deny-licenses` は同時に指定できません。
-
-{% endtip %} {% endif %}
-
-この {% data variables.product.prodname_dependency_review_action %} サンプル ファイルは、これらの構成オプションを使用する方法を示しています。 この例では、アクションに対して、semver リリース番号 (`v2.0.8` など) ではなく、短いバージョン番号 (`v2`) が使われています。 これにより、アクションの最新のマイナー バージョンを使うことができます。
-
-```yaml{:copy}
-name: 'Dependency Review'
-on: [pull_request]
-
-permissions:
-  contents: read
-
-jobs:
-  dependency-review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout Repository'
-        uses: {% data reusables.actions.action-checkout %}
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v2
-        with:
-          # Possible values: "critical", "high", "moderate", "low" 
-          fail-on-severity: critical
 {% ifversion dependency-review-action-licenses %}
-          # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
-          # ([String]). Only allow these licenses (optional)
-          # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # allow-licenses: GPL-3.0, BSD-3-Clause, MIT
+{% tip %}
 
-          # ([String]). Block the pull request on these licenses (optional)
-          # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # deny-licenses: LGPL-2.0, BSD-2-Clause
+**Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
+
+{% endtip %}
 {% endif %}
-```
 
-構成オプションの詳細については、「[`dependency-review-action`](https://github.com/actions/dependency-review-action#readme)」を参照してください。
+## Configuring the {% data variables.product.prodname_dependency_review_action %}
+
+There are two methods of configuring the {% data variables.product.prodname_dependency_review_action %}: 
+- Inlining the configuration options in your workflow file. 
+- Referencing a configuration file in your workflow file.
+
+Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
+### Using inline configuration to set up the {% data variables.product.prodname_dependency_review_action %}
+
+1. Add a new YAML workflow to your `.github/workflows` folder.   
+   
+   {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
+  ```yaml{:copy}
+  name: 'Dependency Review'
+  on: [pull_request]
+
+  permissions:
+    contents: read
+
+  jobs:
+    dependency-review:
+     {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+   ```
+1. Specify your settings.   
+
+   This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use the available configuration options.
+   ```yaml{:copy}
+   name: 'Dependency Review'
+   on: [pull_request]
+
+   permissions:
+     contents: read
+
+   jobs:
+     dependency-review:
+     {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+           with:
+           # Possible values: "critical", "high", "moderate", "low" 
+           fail-on-severity: critical
+  {% ifversion dependency-review-action-licenses %}
+           # You can only include one of these two options: `allow-licenses` and `deny-licences`
+           # ([String]). Only allow these licenses (optional)
+           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+           allow-licenses: GPL-3.0, BSD-3-Clause, MIT
+           # ([String]). Block the pull request on these licenses (optional)
+           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+           deny-licenses: LGPL-2.0, BSD-2-Clause
+  {% endif %}
+           # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
+           # Possible values: Any valid {% data variables.product.prodname_advisory_database %} ID from https://github.com/advisories  
+           allow-ghsas: GHSA-abcd-1234-5679, GHSA-efgh-1234-5679
+  {% ifversion dependency-review-action-fail-on-scopes %}
+           # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
+           # Possible values: "development", "runtime", "unknown"
+           fail-on-scopes: development, runtime
+  {% endif %}
+   ```
+### Using a configuration file to set up {% data variables.product.prodname_dependency_review_action %}
+
+1. Add a new YAML workflow to your `.github/workflows` folder and use `config-file` to specify that you are using a configuration file.
+
+   {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
+   ```yaml{:copy}
+   name: 'Dependency Review'
+   on: [pull_request]
+
+   permissions:
+    contents: read
+
+   jobs:
+     dependency-review:
+       {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+           with:
+            # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
+            # Possible values: An absolute path to a local file or an external file.
+            config-file: './.github/dependency-review-config.yml'   
+            # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
+            config-file: 'github/octorepo/dependency-review-config.yml@main'
+
+            # ([Token]) Use if your configuration file resides in a private external repository.
+            # Possible values: Any GitHub token with read access to the private external repository.  
+            external-repo-token: 'ghp_123456789abcde'
+   ```
+1. Create the configuration file in the path you have specified.   
+
+   This YAML example file illustrates how you can use the available configuration options. 
+   ```yaml{:copy}
+     # Possible values: "critical", "high", "moderate", "low" 
+     fail-on-severity: critical
+   {% ifversion dependency-review-action-licenses %}
+     # You can only include one of these two options: `allow-licenses` and `deny-licences`
+     # ([String]). Only allow these licenses (optional)
+     # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+     allow-licenses: 
+       - GPL-3.0
+       - BSD-3-Clause
+       - MIT
+      # ([String]). Block the pull request on these licenses (optional)
+      # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+     deny-licenses: 
+       - LGPL-2.0
+       - BSD-2-Clause
+   {% endif %}
+      # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
+      # Possible values: Any valid {% data variables.product.prodname_advisory_database %} ID from https://github.com/advisories  
+     allow-ghsas: 
+       - GHSA-abcd-1234-5679 
+       - GHSA-efgh-1234-5679
+   {% ifversion dependency-review-action-fail-on-scopes %}
+      # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
+      # Possible values: "development", "runtime", "unknown"
+     fail-on-scopes: 
+       - development 
+       - runtime
+  {% endif %}
+  ```
+For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}
