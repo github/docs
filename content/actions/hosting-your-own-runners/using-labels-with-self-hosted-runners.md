@@ -66,35 +66,24 @@ The custom label is created and assigned to the self-hosted runner. Custom label
 1. Click on the assigned label to remove it from your self-hosted runner. {% data reusables.actions.actions-unused-labels %}
 {% endif %}
 
-## Programmatically assign labels
+## Using the configuration script to create and assign labels
 
-You can programmatically assign labels to a self-hosted runner after the runner is created, or during its initial configuration.
+You can use the configuration script on the self-hosted runner to create and assign custom labels. For example, this command assigns a label named `gpu` to the self-hosted runner. 
 
-* To programmatically assign labels to an existing self-hosted runner, you must use the REST API. For more information, see the "[Self-hosted runners](/rest/actions/self-hosted-runners)" REST API.
-* To programmatically assign labels to a self-hosted runner during the initial runner configuration, you can pass label names to the `config` script using the `labels` parameter.
+```shell
+./config.sh --labels gpu
+```
 
-  {% note %}
-  
-  **Note:** You cannot use the `config` script to assign labels to an existing self-hosted runner.
-  
-  {% endnote %}
+The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
 
-  For example, this command assigns a label named `gpu` when configuring a new self-hosted runner:
+You can use comma separation to assign multiple labels. For example:
 
-  ```
-  ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu
-  ```
+```shell
+./config.sh --labels gpu,x64,linux
+```
 
-  The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
+{% note %}
 
-  You can use comma separation to assign multiple labels. For example:
+** Note:** If you replace an existing runner, then you must reassign any custom labels.
 
-  ```
-  ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu,x64,linux
-  ```
-
-  {% note %}
-
-  ** Note:** If you replace an existing runner, then you must reassign any custom labels.
-
-  {% endnote %}
+{% endnote %}
