@@ -1,134 +1,135 @@
 ---
-title: About custom repository roles
-intro: You can more granularly control access to your organization's repositories with custom repository roles.
+title: Acerca de los roles de repositorio personalizados
+intro: Puedes controlar el acceso a los repositorios de tu organización de forma más granular con roles de repositorio personalizados.
 versions:
   feature: custom-repository-roles
 topics:
   - Organizations
   - Teams
 shortTitle: About custom roles
+ms.openlocfilehash: c4e7f791b9402b45160b31aab2653bf80150ddee
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160692'
 ---
-
 {% data reusables.organizations.custom-repo-roles-ghec-only %}
 
-## About custom repository roles
+## Acerca de los roles de repositorio personalizados
 
-To perform any actions on {% data variables.product.product_name %}, such as creating a pull request in a repository or changing an organization's billing settings, a person must have sufficient access to the relevant account or resource. This access is controlled by permissions. A permission is the ability to perform a specific action. For example, the ability to delete an issue is a permission. A role is a set of permissions you can assign to individuals or teams.
+Para llevar a cabo cualquier acción en {% data variables.product.product_name %}, tal como crear una solicitud de cambios en un repositorio o cambiar los ajustes de facturación de una organización, los individuos deben tener acceso suficiente a la cuenta o recurso relevante. Los permisos son los que controlan este tipo de acceso. Un permiso es la capacidad de llevar a cabo una acción específica. Por ejemplo, la capacidad de borrar una propuesta constituye un permiso. Un rol es un conjunto de permisos que puedes asignar a los individuos o equipos.
 
-Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Dentro de una organización, puedes asignar roles a nivel de repositorio, equipo u organización. Para obtener más información acerca de los distintos niveles de roles, vea "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+Puede tener un control más pormenorizado sobre los permisos que concede en el nivel de repositorio. Para ello, cree hasta tres roles de repositorio personalizados. {% data reusables.organizations.about-custom-repo-roles %} Para obtener más información, consulte "[Administración de roles de repositorio personalizados para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
 
-After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+Después de que creas un rol personalizado, cualquiera con acceso administrativo a un repositorio puede asignar el rol a un individuo o equipo. Para obtener más información, consulta "[Administración del acceso de una persona a un repositorio de la organización](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" y "[Administración del acceso de equipo a un repositorio de la organización](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
 
 {% ifversion custom-repo-role-api %}
 
-You can also use the REST API to create and manage custom repository roles. For more information, see "[Custom Repository Roles](/rest/orgs/custom-roles)."
+También puedes usar la API de REST para crear y administrar roles de repositorio personalizados. Para obtener más información, consulta "[Roles de repositorio personalizados](/rest/orgs/custom-roles)".
 
 {% else %}
 
-You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[Custom Repository Roles API](/rest/orgs/custom-roles)."
+También puedes usar la API de REST para enumerar los roles de repositorio personalizados disponibles en tu organización. Para obtener más información, consulta "[API de roles de repositorio personalizados](/rest/orgs/custom-roles)".
 
 {% endif %}
 
-## About the inherited role
+## Acerca del rol heredado
 
-When you create a custom repository role, you start by choosing an inherited role from a set of pre-defined options. The inherited role determines the initial set of permissions included in the custom role. Then, you can further customize the role by choosing additional permissions to give the role. For the full list of available permissions, see "[Additional permissions for custom roles](#additional-permissions-for-custom-roles)."
+Cuando creas un rol de repositorio personalizado, comenzarás eligiendo un rol heredado de un conjunto de opciones predefinidas. El rol heredado determinará el conjunto inicial de permisos que se incluyen en el rol personalizado. Entonces, podrás seguir personalizando el rol si eliges permisos adicionales para asignarle a este. Para obtener la lista completa de permisos disponibles, vea "[Permisos adicionales para roles personalizados](#additional-permissions-for-custom-roles)".
 
-Your options for the inherited role are standardized for different types of contributors in your repository.
+Tus opciones para escoger el rol heredado se estandarizan para tipos diferentes de contribuyentes en tu repositorio.
 
-| Inherited role | Designed for |
+| Rol heredado | Diseñada para |
 |----|----|
-| **Read** | Non-code contributors who want to view or discuss your project |
-| **Triage** | Contributors who need to proactively manage issues and pull requests without write access |
-| **Write** | Organization members and collaborators who actively push to your project |
-| **Maintain** | Project managers who need to manage the repository without access to sensitive or destructive actions |
+| **Lectura** | Contribuyentes sin código que quieren ver o debatir en tu proyecto |
+| **Evaluación de errores** | Contribuyentes que necesitan administrar propuestas y solicitudes de cambio proactivamente sin acceso de escritura |
+| **Escritura** | Miembros de la organización y colaboradores que suben información a tu proyecto activamente |
+| **Mantenimiento** | Administradores de proyectos que necesitan administrar el repositorio sin acceso a las acciones destructivas o sensibles |
 
-## Custom role examples
+## Roles personalizados de ejemplo
 
-Here are some examples of custom repository roles you can configure.
+Aquí te mostramos ejemplos de los roles de repositorio personalizados que puedes configurar.
 
-| Custom repository role | Summary | Inherited role | Additional permissions |
+| Rol de repositorio personalizado | Resumen | Rol heredado | Permisos adicionales |
 |----|----|----|----|
-| Security engineer | Able to contribute code and maintain the security pipeline | **Maintain** | Delete code scanning results |
-| Contractor | Able to develop webhooks integrations | **Write** | Manage webhooks |
-| Community manager | Able to handle all the community interactions without being able to contribute code | **Read** | - Mark an issue as duplicate <br> - Manage GitHub Page settings <br> - Manage wiki settings <br> - Set the social preview <br> - Edit repository metadata <br> - Triage discussions |
+| Ingeniero de seguridad | Puede contribuir con código y mantener el mapa de seguridad | **Mantenimiento** | Borrar los resultados del escaneo de código |
+| Contractor | Puede desarrollar integraciones de webhooks | **Escritura** | Administrar webhooks |
+| Adminsitrador de comunidad | Puede manejar todas las interacciones de la comunidad sin poder contribuir con código | **Lectura** | - Marcar una incidencia como duplicada <br> - Administrar la configuración de la página de GitHub <br> - Administrar la configuración de la wiki <br> - Establecer la versión preliminar social <br> - Editar metadatos del repositorio <br> - Discusiones de evaluación de prioridades |
 
-## Additional permissions for custom roles
+## Permisos adicionales para los roles personalizados
 
-After choosing an inherited role, you can select additional permissions for your custom role.
+Después de haber elegido un rol heredado, puedes seleccionar los permisos adicionales para tu rol personalizado.
 
-You can only choose an additional permission if it's not already included in the inherited role. For example, if the inherited role offers **Write** access to a repository, then the "Close a pull request" permission will already be included in the inherited role.
+Solo puedes elegir un permiso adicional si no se ha incluido ya en el rol heredado. Por ejemplo, si el rol heredado ofrece acceso de **Escritura** en un repositorio, el permiso de "Cerrar una solicitud de incorporación de cambios" ya se habrá incluido en el rol heredado.
 
 {% ifversion discussions %}
-### Discussions
+### Debates
 
-- Create a discussion category
-- Edit a discussion category
-- Delete a discussion category 
-- Mark or unmark discussion answers 
-- Hide or unhide discussion comments 
-- Convert issues to discussions 
+- Crear una categoría de debate
+- Editar una categoría de debate
+- Eliminar una categoría de debate 
+- Marcar o desmarcar respuestas de debate 
+- Ocultar o mostrar comentarios de debate 
+- Convertir incidencias en debates 
 
-For more information, see "[{% data variables.product.prodname_discussions %}](/discussions)."
+Para más información, vea "[{% data variables.product.prodname_discussions %}](/discussions)".
 {% endif %}
 
-### Issue and Pull Requests
+### Propuestas y solicitudes de cambios
 
-- Assign or remove a user 
-- Add or remove a label 
+- Asignar o quitar un usuario 
+- Adición o eliminación de etiquetas 
 
-### Issue
+### Problema
 
-- Close an issue
-- Reopen a closed issue
-- Delete an issue
-- Mark an issue as a duplicate
+- Cerrar una incidencia
+- Volver a abrir una incidencia que se había cerrado
+- Eliminar una incidencia
+- Marcar una incidencia como duplicada
 
-### Pull Request
+### Solicitud de incorporación de cambios
 
-- Close a pull request
-- Reopen a closed pull request
-- Request a pull request review
+- Cerrar una solicitud de incorporación de cambios
+- Volver a abrir una solicitud de incorporación de cambios
+- Solicitar una revisión de solicitud de extracción
 
-### Repository
+### Repositorio
 
-- Set milestones
-- Manage wiki settings 
-- Manage project settings
-- Manage pull request merging settings 
-- Manage {% data variables.product.prodname_pages %} settings (see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
-- Manage webhooks 
-- Manage deploy keys 
-- Edit repository metadata
-{%- ifversion ghec %}
-- Set interaction limits
-{%- endif %}
-- Set the social preview 
-- Push commits to protected branches (branch protection rules will still apply)
-- Create protected tags
-- Delete protected tags
-{%- ifversion bypass-branch-protections %}
-- Bypass branch protections
-{%- endif %}
+- Establecer hitos
+- Administrar la configuración de la wiki 
+- Administrar la configuración del proyecto
+- Administrar la configuración de combinación de solicitudes de incorporación de cambios 
+- Administrar la configuración de {% data variables.product.prodname_pages %} (consulte "[Configuración de un origen de publicación para el sitio de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
+- Administrar webhooks 
+- Administrar las claves de implementación 
+- Editar metadatos del repositorio {%- ifversion ghec %}
+- Establecer límites de interacción {%- endif %}
+- Establecer la versión preliminar social 
+- Confirmaciones de inserción en ramas protegidas (se seguirán aplicando reglas de protección de ramas)
+- Crear etiquetas protegidas
+- Eliminar etiquetas protegidas {%- ifversion bypass-branch-protections %}
+- Omitir protecciones de rama {%- endif %}
 
-### Security
+### Seguridad
 
-- View {% data variables.product.prodname_code_scanning %} results 
-- Dismiss or reopen {% data variables.product.prodname_code_scanning %} results
-- Delete {% data variables.product.prodname_code_scanning %} results 
-- View {% data variables.product.prodname_dependabot_alerts %} 
-- Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %} 
-- View {% data variables.product.prodname_secret_scanning %} results 
-- Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results 
+- Ver {% data variables.product.prodname_code_scanning %} results 
+- Descartar o volver a abrir los resultados de {% data variables.product.prodname_code_scanning %}
+- Eliminar {% data variables.product.prodname_code_scanning %} results 
+- Ver {% data variables.product.prodname_dependabot_alerts %} 
+- Descartar o volver a abrir {% data variables.product.prodname_dependabot_alerts %} 
+- Ver los resultados de {% data variables.product.prodname_secret_scanning %} 
+- Descartar o volver a abrir los resultados de {% data variables.product.prodname_secret_scanning %} 
 
-## Precedence for different levels of access
+## Precedencia de los distintos niveles de acceso
 
-If a person is given different levels of access through different avenues, such as team membership and the base permissions for an organization, the highest access overrides the others. For example, if an organization owner gives an organization member a custom role that uses the "Read" inherited role, and then an organization owner sets the organization's base permission to "Write", then this custom role will have write access, along with any additional permissions included in the custom role.
+Si se otorga a una persona los diferentes niveles de acceso mediante vías diferentes, tales como la membrecía de equipo y los permisos base de una organización, el acceso superior anulará a los otros. Por ejemplo, si un propietario de una organización otorga a los miembros organizacionales un rol personalizado que utilice el rol heredado de "Lectura" y luego el propietario configura el permiso base de la organización en "Escritura", entonces este rol personalizado tendrá el acceso de escritura en conjunto con cualquier permiso adicional que se incluya en dicho rol personalizado.
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-To resolve conflicting access, you can adjust your organization's base permissions or the team's access, or edit the custom role. For more information, see:
-  - "[Setting base permissions for an organization](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
-  - "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-  - "[Editing a repository role](#editing-a-repository-role)"
+Para resolver el acceso que ocasiona el conflicto, puedes ajustar los permisos básicos de tu organización o el acceso del equipo o editar el rol personalizado. Para más información, consulte:
+  - "[Definición de permisos base para una organización](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
+  - "[Administración del acceso de equipo a un repositorio de la organización](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
+  - "[Edición de un rol de repositorio](#editing-a-repository-role)"

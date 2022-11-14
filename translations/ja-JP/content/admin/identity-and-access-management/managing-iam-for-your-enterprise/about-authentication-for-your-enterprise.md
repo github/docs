@@ -1,7 +1,7 @@
 ---
-title: Enterprise の認証について
+title: About authentication for your enterprise
 shortTitle: About authentication
-intro: '{% ifversion ghec %}{% data variables.product.product_name %} 上にある Enterprise のリソース{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %} 上にある Enterprise {% endif %}にユーザーがアクセスできるように{% ifversion ghae %} SAML シングル サインオン (SSO) を構成する必要があります{% else %}ユーザーを認証する方法を選ぶことができます{% data variables.product.product_name %}{% endif %}。'
+intro: 'You {% ifversion ghae %}must configure SAML single sign-on (SSO) so people can{% else %}can choose how people{% endif %} authenticate to access {% ifversion ghec %}your enterprise''s resources on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -13,140 +13,136 @@ topics:
   - Enterprise
   - Identity
   - SSO
-ms.openlocfilehash: 9931a13150ff98d7ab113d37df9622b43367fa1b
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107022'
 ---
-## Enterprise の認証について
+
+## About authentication for your enterprise
 
 {% ifversion ghec %}
 
-{% data variables.product.product_name %} の Enterprise 所有者は、Enterprise のリソースに対する認証とアクセスに関する要件を制御できます。 
+Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources. 
 
-メンバーがユーザー アカウントを作成して管理できるようにするか、Enterprise で {% data variables.product.prodname_emus %} を使用してメンバーのアカウントを作成、管理できるようにするかを選ぶことができます。 メンバーが自分のアカウントを管理できるようにする場合は、SAML 認証を構成して、チームで使用される Web アプリケーションのセキュリティを強化し、ID とアクセスを一元化することもできます。
+{% data reusables.enterprise.ghec-authentication-options %}
 
-これらのオプションの詳しい情報を学習した後、Enterprise に最適な方法を決定するには、「[Enterprise に最適な認証方法を特定する](#identifying-the-best-authentication-method-for-your-enterprise)」を参照してください。
+After learning more about these options, to determine which method is best for your enterprise, see "[Identifying the best authentication method for your enterprise](#identifying-the-best-authentication-method-for-your-enterprise)."
 
-## {% data variables.product.product_name %} の認証方法
+## Authentication methods for {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} のアカウント管理と認証には、次のオプションを使用できます。
+The following options are available for account management and authentication on {% data variables.product.product_name %}.
 
-- [{% data variables.location.product_location %} による認証](#authentication-through-githubcom)
-- [追加の SAML アクセス制限を使用した {% data variables.location.product_location %} による認証](#authentication-through-githubcom-with-additional-saml-access-restriction)
-- [{% data variables.product.prodname_emus %} とフェデレーションを使用した認証](#authentication-with-enterprise-managed-users-and-federation)
+- [Authentication through {% data variables.location.product_location %}](#authentication-through-githubcom)
+- [Authentication through {% data variables.location.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction)
+- [Authentication with {% data variables.product.prodname_emus %} and federation](#authentication-with-enterprise-managed-users-and-federation)
 
-### {% data variables.location.product_location %} による認証
+### Authentication through {% data variables.location.product_location %}
 
-既定では、各メンバーは {% data variables.location.product_location %} に個人アカウントを作成する必要があります。 Enterprise へのアクセス権を付与すると、メンバーは {% data variables.location.product_location %} のアカウントにサインインした後、Enterprise のリソースにアクセスできます。 メンバーはアカウントを管理し、{% data variables.location.product_location %} の他の Enterprise、Organization、リポジトリに投稿できます。
+By default, each member must create a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after signing into the account on {% data variables.location.product_location %}. The member manages the account, and can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %}.
 
-### 追加の SAML アクセス制限を使用した {% data variables.location.product_location %} による認証
+### Authentication through {% data variables.location.product_location %} with additional SAML access restriction
 
-追加の SAML アクセス制限を構成する場合は、各メンバーが {% data variables.location.product_location %} の個人アカウントを作成して管理する必要があります。 Enterprise へのアクセス権を付与すると、メンバーは {% data variables.location.product_location %} のアカウントにサインインし、SAML ID プロバイダー (IdP) で正常に認証した後に、Enterprise のリソースにアクセスできます。 メンバーは個人アカウントを使用して、{% data variables.location.product_location %} の他の Enterprise、Organization、リポジトリに投稿できます。 Enterprise のリソースへのすべてのアクセスに SAML 認証を要求する方法について詳しくは、「[Enterprise IAM の SAML について](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)」を参照してください。
+If you configure additional SAML access restriction, each member must create and manage a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after both signing into the account on {% data variables.location.product_location %} and successfully authenticating with your SAML identity provider (IdP). The member can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %} using their personal account. For more information about requiring SAML authentication for all access your enterprise's resources, see "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
 
-{% data variables.product.product_name %} でスタンドアロン Organization を使用する場合、または Enterprise 内のすべての Organization に対して SAML 認証を使用しない場合は、個々の Organization に対して SAML を構成できます。 詳細については、「[SAML シングル サインオンを使うアイデンティティおよびアクセス管理について](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)」を参照してください。
+If you use a standalone organization with {% data variables.product.product_name %}, or if you don't want to use SAML authentication for every organization in your enterprise, you can configure SAML for an individual organization. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
 
-### {% data variables.product.prodname_emus %} とフェデレーションを使用した認証
+### Authentication with {% data variables.product.prodname_emus %} and federation
 
-{% data variables.location.product_location %} の Enterprise メンバーのアカウントをより細かく制御する必要がある場合は、{% data variables.product.prodname_emus %} を使用できます。 {% data variables.product.prodname_emus %} では、IdP を使用し、{% data variables.location.product_location %} の Enterprise メンバーのアカウントをプロビジョニングして管理します。 作成されたアカウントに各メンバーがサインインすると、Enterprise でそのアカウントが管理されます。 {% data variables.product.prodname_dotcom_the_website %} の残りの部分への投稿は制限されています。 詳細については、「[{% data variables.product.prodname_emus %} について](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)」を参照してください。
+If you need more control of the accounts for your enterprise members on {% data variables.location.product_location %}, you can use {% data variables.product.prodname_emus %}. With {% data variables.product.prodname_emus %}, you provision and manage accounts for your enterprise members on {% data variables.location.product_location %} using your IdP. Each member signs into an account that you create, and your enterprise manages the account. Contributions to the rest of {% data variables.product.prodname_dotcom_the_website %} are restricted. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
 
-## Enterprise に最適な認証方法を特定する
+## Identifying the best authentication method for your enterprise
 
-SAML SSO と {% data variables.product.prodname_emus %} の両方で、Enterprise のリソースのセキュリティが強化されます。 さらに、{% data variables.product.prodname_emus %} を使用すると、Enterprise メンバーのユーザー アカウントを管理し、アカウントで実行できる操作を制限できます。 ただし、これらの制限によって開発者のワークフローが妨げられる場合、Enterprise ではそれらを受け入れられないことがあります。
+Both SAML SSO and {% data variables.product.prodname_emus %} increase security for your enterprise's resources. {% data variables.product.prodname_emus %} additionally allows you to control the user accounts for your enterprise members and restricts what the accounts are able to do. However, those restrictions may be unacceptable for your enterprise if they obstruct your developers' workflows.
 
-Enterprise が SAML SSO と {% data variables.product.prodname_emus %} のどちらから、より多くのメリットを得られるかを判断するには、これらの質問を自問してください。
+To determine whether your enterprise would benefit more from SAML SSO or {% data variables.product.prodname_emus %}, ask yourself these questions.
 
-- [ユーザーのユーザー アカウントを自分で管理したいか?](#do-you-want-to-control-the-user-accounts-for-your-users)
-- [Enterprise でどの ID プロバイダーを使用するか?](#which-identity-provider-does-your-enterprise-use)
-- [開発者はパブリック リポジトリ、gist、{% data variables.product.prodname_pages %} サイトのどれで作業するか?](#do-your-developers-work-in-public-repositories-gists-or-github-pages-sites)
-- [開発者は Enterprise 外部のコラボレーションに依存しているか?](#do-your-developers-rely-on-collaboration-outside-of-your-enterprise)
-- [Enterprise は外部のコラボレーターに依存しているか?](#does-your-enterprise-rely-on-outside-collaborators)
-- [会社が移行コストを許容できるか?](#can-your-enterprise-tolerate-migration-costs)
+- [Do you want to control the user accounts for your users?](#do-you-want-to-control-the-user-accounts-for-your-users)
+- [Which identity provider does your enterprise use?](#which-identity-provider-does-your-enterprise-use)
+- [Do your developers work in public repositories, gists, or {% data variables.product.prodname_pages %} sites?](#do-your-developers-work-in-public-repositories-gists-or-github-pages-sites)
+- [Do your developers rely on collaboration outside of your enterprise?](#do-your-developers-rely-on-collaboration-outside-of-your-enterprise)
+- [Does your enterprise rely on outside collaborators?](#does-your-enterprise-rely-on-outside-collaborators)
+- [Can your enterprise tolerate migration costs?](#can-your-enterprise-tolerate-migration-costs)
 
-### ユーザーのユーザー アカウントを自分で管理したいか?
+### Do you want to control the user accounts for your users?
 
-{% data variables.product.prodname_emus %} は、Enterprise メンバーが {% data variables.product.prodname_dotcom_the_website %} で自分の個人アカウントを使って Enterprise のリソースにアクセスすることを望まない場合に、適している可能性があります。 
+{% data variables.product.prodname_emus %} may be right for your enterprise if you don't want enterprise members to use their own personal accounts on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources. 
 
-SAML SSO を使用すると、開発者は自分の個人アカウントを作成して管理でき、各アカウントは IdP の SAML ID にリンクされます。 {% data variables.product.prodname_emus %} は、ご自身でユーザーのアカウントをプロビジョニングするため、他の使い慣れた SSO ソリューションと同様に機能します。 また、ユーザー名とアカウントに関連付けられるメール アドレスを管理することで、ユーザー アカウントが会社の ID に準拠していることを確実にすることもできます。 
+With SAML SSO, developers create and manage their own personal accounts, and each account is linked to a SAML identity in your IdP. {% data variables.product.prodname_emus %} functions more like other familiar SSO solutions, as you will provision the accounts for your users. You can also ensure user accounts conform with your company identity, by controlling usernames and the email addresses associated with the accounts. 
 
-現在、ユーザーに対して、{% data variables.product.prodname_dotcom_the_website %} で新しいアカウントを作成して Enterprise でのみ使用するように要求している場合は、{% data variables.product.prodname_emus %} が適している可能性があります。 ただし、IdP をユーザー向けの信頼できるソースとして使用し、アクセス管理が複雑すぎる場合は、SAML SSO の方が適切なオプションである可能性があります。 たとえば、IdP で新しいユーザーをオンボードするための確立されたプロセスが Enterprise にない場合があります。
+If you currently require your users to create a new account on {% data variables.product.prodname_dotcom_the_website %} to use with your enterprise only, {% data variables.product.prodname_emus %} might be right for you. However, SAML SSO may be a better option if using your IdP as the source of truth for your user and access management would add too much complexity. For example, perhaps your enterprise does not have an established process for onboarding new users in your IdP.
 
-### Enterprise でどの ID プロバイダーを使用するか?
+### Which identity provider does your enterprise use?
 
-{% data variables.product.prodname_emus %} がサポートされている IdP の数は限られています。SAML SSO を使用すると、多数の IdP に対する完全なサポートと、SAML 2.0 標準を実装しているすべての IdP に対する制限付きサポートが提供されます。 各オプションでサポートされている IdP の一覧については、「[{% data variables.product.prodname_emus %} について](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#identity-provider-support)」および「[Enterprise IAM の SAML について](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam#supported-idps)」を参照してください。
+{% data variables.product.prodname_emus %} is supported for a limited number of IdPs, while SAML SSO offers full support for a larger number of IdPs, plus limited support for all IdPs that implement the SAML 2.0 standard. For the list of supported IdPs for each option, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#identity-provider-support)" and "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam#supported-idps)."
 
-サポートされていない IdP で {% data variables.product.prodname_emus %} を使用できるのは、サポートされていない IdP をサポートされている IdP にフェデレーションして統合ポイントとして使用する場合のみです。 このような余分な複雑さを避けたい場合は、SAML SSO の方が優れたソリューションになる可能性があります。
+You can use {% data variables.product.prodname_emus %} with an unsupported IdP only if you federate the unsupported IdP to a supported IdP to use as an integration point. If you wish to avoid this extra complexity, SAML SSO may be a better solution for you.
 
-### 開発者はパブリック リポジトリ、gist、{% data variables.product.prodname_pages %} サイトのどれで作業するか?
+### Do your developers work in public repositories, gists, or {% data variables.product.prodname_pages %} sites?
 
-Enterprise メンバーが誤って {% data variables.product.prodname_dotcom_the_website %} で Enterprise 所有のコンテンツを一般に漏洩させることがないように、{% data variables.product.prodname_emus %} では、ユーザーが実行できる操作に対して強力な制限が課されます。 たとえば、{% data variables.enterprise.prodname_managed_users %} では、パブリック リポジトリ、任意の可視性を持つ gist、または Enterprise 外部で閲覧できる {% data variables.product.prodname_pages %} サイトを作成することはできません。 制限の完全な一覧については、「[{% data variables.enterprise.prodname_managed_users %} の機能と制限](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-users)」を参照してください。
+To prevent enterprise members from accidentally leaking corporate-owned content to the public on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_emus %} imposes strong restrictions on what users can do. For example, {% data variables.enterprise.prodname_managed_users %} cannot create public repositories, gists of any visibility, or {% data variables.product.prodname_pages %} sites that are visible outside the enterprise. For a full list of restrictions, see "[Abilities and restrictions of {% data variables.enterprise.prodname_managed_users %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-users)."
 
-これらの制限が受け入れらない Enterprise もあります。 {% data variables.product.prodname_emus %} がご自身に適しているかどうかを判断するには、開発者と共に制限事項を確認し、いずれかの制限によって既存のワークフローが妨げられるかどうかを確認します。 該当する場合は、お使いの Enterprise には SAML SSO が適している可能性があります。
+These restrictions are unacceptable for some enterprises. To determine whether {% data variables.product.prodname_emus %} will work for you, review the restrictions with your developers, and confirm whether any of the restrictions will hinder your existing workflows. If so, SAML SSO may be a better choice for your enterprise.
 
-### 開発者は Enterprise 外部のコラボレーションに依存しているか?
+### Do your developers rely on collaboration outside of your enterprise?
 
-{% data variables.enterprise.prodname_managed_users_caps %} では、Enterprise 内部のリポジトリにのみ投稿できます。 開発者がプライベート リポジトリを含め、エンタープライズ内と外部の両方のリポジトリに投稿する必要がある場合、{% data variables.product.prodname_emus %}はエンタープライズに適していない可能性があります。 SAML SSO の方が優れたソリューションになる可能性があります。
+{% data variables.enterprise.prodname_managed_users_caps %} can only contribute to repositories within your enterprise. If your developers must contribute to both repositories within and outside of your enterprise, including private repositories, {% data variables.product.prodname_emus %} may not be right for your enterprise. SAML SSO may be a better solution.
 
-一部の会社では、{% data variables.location.product_location %} に SAML SSO を使用して既存の Enterprise 内のリポジトリを保持し、{% data variables.enterprise.prodname_emu_enterprise %}も作成します。 1 つのワークステーションから両方の Enterprise によって所有されるリポジトリに投稿する開発者は、1 つのブラウザー内で {% data variables.location.product_location %} のアカウントを切り替えるか、アカウントごとに異なるブラウザーを使用する必要があります。 開発者は、2 つのアカウントに対応するようにワークステーションの Git 構成をカスタマイズする必要がある場合もあります。 このワークフローの複雑さは、内部コードを誤って一般に漏洩させるリスクを高める可能性があります。
+Some companies maintain repositories within an existing enterprise using SAML SSO on {% data variables.location.product_location %}, and also create an {% data variables.enterprise.prodname_emu_enterprise %}. Developers who contribute to repositories owned by both enterprises from a single workstation must switch between the accounts on {% data variables.location.product_location %} within a single browser, or use a different browser for each account. The developer may also need to customize the workstation's Git configuration to accommodate the two accounts. The complexity of this workflow can increase the risk of mistakenly leaking internal code to the public.
 
-{% data variables.enterprise.prodname_emu_enterprise %}を作成する場合に、開発者が 1 つのワークステーションから Enterprise 外のリソースに投稿する必要がある場合は、開発者のローカル Git 構成でアカウントを切り替えるためのサポートを提供できます。 詳細については、「[{% data variables.product.prodname_emus %} について](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom)」を参照してください。
+If you decide to create an {% data variables.enterprise.prodname_emu_enterprise %} but require that developers contribute to resources outside of the enterprise from a single workstation, you can provide support for switching between the accounts in a developer's local Git configuration. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#supporting-developers-with-multiple-user-accounts-on-githubcom)."
 
-### Enterprise は外部のコラボレーターに依存しているか?
+### Does your enterprise rely on outside collaborators?
 
-SAML SSO を使用すると、外部コラボレーター ロールを使用して、IdP のディレクトリのメンバーではないユーザーに特定のリポジトリへのアクセスを許可できます。 これは、社外のコラボレーター (請負業者など) に対して特に役立ちます。 詳しい情報については、「[外部のコラボレーターを Organization のリポジトリに追加する](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)」を参照してください。
+With SAML SSO, you can give access to specific repositories to people who are not members of your IdP's directory, by using the outside collaborator role. This can be especially useful for collaborators that are external to your business, such as contractors. For more information, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
 
-{% data variables.product.prodname_emus %} の場合、外部コラボレーター ロールは存在しません。 Enterprise のリソースには、常に IdP によってプロビジョニングされる {% data variables.enterprise.prodname_managed_users %} のみがアクセスできます。 外部コラボレーターに Enterprise へのアクセスを許可するには、IdP でゲスト アカウントを使用する必要があります。 {% data variables.product.prodname_emus %} に関心がある場合は、開発者に、これによって既存のワークフローが妨げられるかどうかを確認してください。 該当する場合は、SAML SSO の方が優れたソリューションになる可能性があります。
+With {% data variables.product.prodname_emus %}, the outside collaborator role does not exist. Your enterprise's resources can only be accessed by {% data variables.enterprise.prodname_managed_users %}, which are always provisioned by your IdP. To give external collaborators access to your enterprise, you would have to use guest accounts in your IdP. If you're interested in {% data variables.product.prodname_emus %}, confirm with your developers whether this will hinder any of their existing workflows. If so, SAML SSO may be a better solution.
 
-### 会社が移行コストを許容できるか?
+### Can your enterprise tolerate migration costs?
 
-会社で {% data variables.product.prodname_dotcom_the_website %} を初めて使用する場合、SAML SSO と {% data variables.product.prodname_emus %} は同じように簡単に導入できます。
+If your enterprise is new to {% data variables.product.prodname_dotcom_the_website %}, SAML SSO and {% data variables.product.prodname_emus %} are equally easy to adopt.
 
-既に {% data variables.product.prodname_dotcom_the_website %} を使用していて、開発者が各自のユーザー アカウントを管理している場合は、{% data variables.product.prodname_emus %} を導入するには、新しい Enterprise アカウントに移行する必要があります。 詳しい情報については、「[{% data variables.enterprise.prodname_managed_users %} を含む Enterprise について](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#about-enterprises-with-managed-users)」を参照してください。
+If you're already using {% data variables.product.prodname_dotcom_the_website %} with developers managing their own user accounts, adopting {% data variables.product.prodname_emus %} requires migrating to a new enterprise account. For more information, see "[About enterprises with {% data variables.enterprise.prodname_managed_users %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users#about-enterprises-with-managed-users)."
 
-{% data variables.product.prodname_emus %} は無料ですが、移行プロセスにはチームの時間またはコストが必要になる場合があります。 この移行プロセスが、ご自身のビジネスと開発者に許容されることを確認してください。 そうでない場合は、SAML SSO が適している可能性があります。
+Although {% data variables.product.prodname_emus %} is free, the migration process may require time or cost from your team. Confirm that this migration process is acceptable to your business and your developers. If not, SAML SSO may be the better choice for you.
 
 {% elsif ghes %}
 
-サイト管理者は、ユーザーが {% data variables.product.product_name %} インスタンスにアクセスするための認証方法を決定できます。 {% data variables.product.product_name %} のビルトイン認証を使用することができます。チームで使用される Web アプリケーションの ID とアクセス管理を一元化する場合は、外部認証方法を構成できます。
+Site administrators can decide how people authenticate to access a {% data variables.product.product_name %} instance. You can use {% data variables.product.product_name %}'s built-in authentication, or, if you want to centralize identity and access management for the web applications that your team uses, you can configure an external authentication method.
 
-## {% data variables.product.product_name %} の認証方法
+## Authentication methods for {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} では、次の認証方法を使用できます。
+The following authentication methods are available for {% data variables.product.product_name %}.
 
-- [ビルトイン認証](#built-in-authentication)
-- [外部認証](#external-authentication)
+- [Built-in authentication](#built-in-authentication)
+- [External authentication](#external-authentication)
 
-### ビルトイン認証
+### Built-in authentication
 
-{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} インスタンスにアクセスするために、ユーザーはアカウントの資格情報を使用して認証します。 詳しくは、「[ビルトイン認証の設定](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)」を参照してください。
+{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} To access your instance, people authenticate with the credentials for the account. For more information, see "[Configuring built-in authentication](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
 
-### 外部認証
+### External authentication
 
-外部ディレクトリまたは ID プロバイダー (IdP) を使用して複数の Web アプリケーションへのアクセスを一元化する場合は、{% data variables.location.product_location %} の外部認証を構成できる可能性があります。 詳細については、次の記事を参照してください。
+If you use an external directory or identity provider (IdP) to centralize access to multiple web applications, you may be able to configure external authentication for {% data variables.location.product_location %}. For more information, see the following articles.
 
-- [Enterprise IAM での CAS の使用](/admin/identity-and-access-management/using-cas-for-enterprise-iam)
-- 「[Enterprise IAM での LDAP の使用](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)」
-- [Enterprise IAM での SAML の使用](/admin/identity-and-access-management/using-saml-for-enterprise-iam)
+- "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
+- "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
+- "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 
-外部認証を使用することにした場合は、外部認証プロバイダーにアカウントを持っていないユーザーのフォールバック認証を構成することもできます。 たとえば、請負業者またはコンピューター ユーザーにアクセス権を付与できます。 詳しくは、「[プロバイダー外のユーザーのためのビルトイン認証の許可](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)」を参照してください。
+If you choose to use external authentication, you can also configure fallback authentication for people who don't have an account on your external authentication provider. For example, you may want to grant access to a contractor or machine user. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
 
 {% ifversion scim-for-ghes %}
 
-認証に SAML SSO を使用する場合は、SCIM を使用してユーザーをプロビジョニングし、IdP グループをチームにマップすることもできます。 詳しくは、「[Enterprise 用の SCIM を使用したユーザーのプロビジョニングを構成する](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)」を参照してください。
+If you use SAML SSO for authentication, you can also provision users and map IdP groups to teams using SCIM. For more information, see "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
 
 {% endif %}
 
 {% elsif ghae %}
 
-{% data variables.product.product_name %}では認証に SAML SSO が使用されます。 Enterprise 所有者は、初期化中に SAML ID プロバイダー (IdP) で SAML SSO を構成する必要があります。 詳しくは、「[Enterprise IAM の SAML について](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)」を参照してください。
+{% data variables.product.product_name %} uses SAML SSO for authentication. Enterprise owners must configure SAML SSO with a SAML identity provider (IdP) during initialization. For more information, see "[About SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
 
 {% endif %}
 
-## 参考資料
+## Further reading
 
-- [{% data variables.product.company_short %} アカウントの種類](/get-started/learning-about-github/types-of-github-accounts)
-- [Enterprise アカウントについて](/admin/overview/about-enterprise-accounts){%- ifversion ghec %}
-- [私の Organization に所属する人のためにアカウントを作成できますか?](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)
+- "[Types of {% data variables.product.company_short %} accounts](/get-started/learning-about-github/types-of-github-accounts)"
+- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+{%- ifversion ghec %}
+- "[Can I create accounts for people in my organization?](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)"
 {% endif %}

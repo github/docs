@@ -23,12 +23,6 @@ type EnabledAppCategoryT = {
   [category: string]: OperationT[]
 }
 
-type AppDataT = {
-  [version: string]: EnabledAppCategoryT
-}
-
-let enabledForApps: AppDataT | null = null
-
 type Props = {
   mainContext: MainContextT
   currentVersion: string
@@ -91,25 +85,17 @@ export default function Category({
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as object
   const res = context.res as object
-  const currentVersion = context.query.versionId as string
   const mainContext = await getMainContext(req, res)
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
+  const currentVersion = context.query.versionId as string
 
-  if (!enabledForApps) {
-    enabledForApps = (await getEnabledForApps()) as AppDataT
-  }
-
-  // One off edge case where secret-scanning should be removed from FPT. Docs Content #6637
-  const noSecretScanning = { ...enabledForApps[currentVersion] }
-  delete noSecretScanning['secret-scanning']
-  const overrideEnabledForApps =
-    currentVersion === 'free-pro-team@latest' ? noSecretScanning : enabledForApps[currentVersion]
+  const enabledForApps = await getEnabledForApps(currentVersion)
 
   return {
     props: {
       mainContext,
       currentVersion,
-      enabledForApps: overrideEnabledForApps,
+      enabledForApps,
       automatedPageContext,
       categoriesWithoutSubcategories,
     },

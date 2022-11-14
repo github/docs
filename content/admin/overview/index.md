@@ -16,6 +16,7 @@ children:
   - /about-enterprise-accounts
   - /system-overview
   - /about-the-github-enterprise-api
+  - /best-practices-for-enterprises
   - /creating-an-enterprise-account
   - /accessing-compliance-reports-for-your-enterprise
 ---
