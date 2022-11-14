@@ -64,6 +64,10 @@ This example pushes the `2.5` version of the image.
 
 When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
+Also if you push a container image without the proper labels, GitHub will not connect the package to the repository. This results in the "[GITHUB_TOKEN](/actions/security-guides/automatic-token-authentication)" not having the appropriate permissions for this package.
+
+See "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
+
 ## Pulling container images
 
 ### Pull by digest
