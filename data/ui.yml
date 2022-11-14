@@ -32,6 +32,7 @@ search:
   no_results: No results found
   search_results_for: Search results for
   no_content: No content
+  matches_found: Results found
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Documentation.
