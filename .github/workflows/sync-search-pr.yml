@@ -29,7 +29,7 @@ env:
   ELASTICSEARCH_URL: http://localhost:9200
 
 jobs:
-  lint:
+  dryRunElasticsearchIndexes:
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
