@@ -129,7 +129,7 @@ You can define a default platform in the frontmatter. For more information, see 
 
 ## Tool tags
 
-We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, Visual Studio Code, JetBrains IDEs, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
 
 On rare occasions, we will add new tools. Before adding a new tool, read the [tool switcher content model](./tool-switcher.md). To add a new tool, add an entry to the `allTools` object in [`lib/all-tools.js`](../lib/all-tools.js) as a key-value pair. The key is the tag you'll use to refer to the tool in the article, the value is how the tool will be identified on the tool picker at the top of the article.
 
@@ -183,6 +183,14 @@ These instructions are pertinent to Codespaces users. They are mostly used outsi
 These instructions are pertinent to VS Code users.
 
 {% endvscode %}
+```
+
+```
+{% jetbrains %}
+
+These instructions are pertinent to users of JetBrains IDEs.
+
+{% endjetbrains %}
 ```
 
 ```

@@ -6,7 +6,7 @@ name: Stale
 
 on:
   schedule:
-    - cron: '40 16 * * *' # Run each day at 16:40 UTC / 8:40 PST
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   issues: write

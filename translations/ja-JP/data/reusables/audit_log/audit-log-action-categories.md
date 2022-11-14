@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 42464c33b7846422a3a8bd4f1102b8111f7000a7
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
+ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107470"
+ms.lasthandoff: 10/31/2022
+ms.locfileid: "148120535"
 ---
 | カテゴリ名 | 説明
 |------------------|-------------------
@@ -23,7 +23,7 @@ ms.locfileid: "148107470"
 {%- ifversion fpt or ghec %} | `codespaces` | Organization の codespace に関連するアクティビティが含まれます。
 {%- endif %} | `commit_comment` | コミット コメントの更新または削除に関連するアクティビティが含まれます。
 {%- ifversion ghes %} | `config_entry` | 構成設定に関連するアクティビティが含まれます。 これらのイベントは、サイト管理者の監査ログにのみ表示されます。
-{%- endif %} | | `dependabot_alerts`  | 既存のリポジトリの {% data variables.product.prodname_dependabot_alerts %}に対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
+{%- endif %} | `dependabot_alerts`  | 既存のリポジトリの {% data variables.product.prodname_dependabot_alerts %} に対する組織レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)」を参照してください。
 | `dependabot_alerts_new_repos`   | Organization 内に作成された新しいリポジトリ内の {% data variables.product.prodname_dependabot_alerts %} に対する Organization レベルの構成アクティビティが含まれます。
 | `dependabot_repository_access` | Organization {% data variables.product.prodname_dependabot %} 内のどのプライベート リポジトリへのアクセスが許可されているかに関連するアクティビティが含まれます。
 {%- ifversion fpt or ghec or ghes %} | `dependabot_security_updates`   | 既存のリポジトリの {% data variables.product.prodname_dependabot_security_updates %} に対する Organization レベルの構成アクティビティが含まれます。 詳細については、「[{% data variables.product.prodname_dependabot_security_updates %} の構成](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。

@@ -1,6 +1,6 @@
 ---
-title: Differences between GitHub Apps and OAuth Apps
-intro: 'Understanding the differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} will help you decide which app you want to create. An {% data variables.product.prodname_oauth_app %} acts as a GitHub user, whereas a {% data variables.product.prodname_github_app %} uses its own identity when installed on an organization or on repositories within an organization.'
+title: GitHub 应用和 OAuth 应用之间的差异
+intro: '了解 {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %} 之间的差异可帮助您决定要创建哪个应用程序。 在组织或组织内的仓库上安装时，{% data variables.product.prodname_oauth_app %} 代表 GitHub 用户，而 {% data variables.product.prodname_github_app %} 使用它自己的身份。'
 redirect_from:
   - /early-access/integrations/integrations-vs-oauth-applications
   - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type
@@ -15,102 +15,107 @@ topics:
   - GitHub Apps
   - OAuth Apps
 shortTitle: GitHub Apps & OAuth Apps
+ms.openlocfilehash: d70304b71de11a4a24f2acc6c2545e78cbd19b0c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148007899'
 ---
-## Who can install GitHub Apps and authorize OAuth Apps?
+## 谁可以安装 GitHub 应用程序并授权 OAuth 应用程序？
 
-You can install GitHub Apps in your personal account or organizations you own. If you have admin permissions in a repository, you can install GitHub Apps on organization accounts. If a GitHub App is installed in a repository and requires organization permissions, the organization owner must approve the application.
+您可以在您的个人帐户或您拥有的组织中安装 GitHub 应用程序。 如果拥有仓库管理员权限，您可以在组织帐户上安装 GitHub 应用程序。 如果 GitHub 应用程序安装在仓库中，并且需要组织权限，则组织所有者必须批准该应用程序。
 
 {% data reusables.apps.app_manager_role %}
 
-By contrast, users authorize OAuth Apps, which gives the app the ability to act as the authenticated user. For example, you can authorize an OAuth App that finds all notifications for the authenticated user. You can always revoke permissions from an OAuth App.
+相比之下，用户向 OAuth 应用授权，使应用能够以经过身份验证的用户身份执行操作。 例如，您可以授权 OAuth 应用程序查找经身份验证用户的所有通知。 您可以随时撤销 OAuth 应用程序的权限。
 
-{% ifversion limit-app-access-requests %}
-{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+{% ifversion limit-app-access-requests %} {% data reusables.organizations.restricted-app-access-requests %}{% endif %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 
-| GitHub Apps | OAuth Apps |
+| GitHub 应用 | OAuth 应用 |
 | ----- | ------ |
-| You must be an organization owner or have admin permissions in a repository to install a GitHub App on an organization. If a GitHub App is installed in a repository and requires organization permissions, the organization owner must approve the application. | You can authorize an OAuth app to have access to resources. |
-| You can install a GitHub App on your personal repository. | You can authorize an OAuth app to have access to resources.|
-| You must be an organization owner, personal repository owner, or have admin permissions in a repository to uninstall a GitHub App and remove its access. | You can delete an OAuth access token to remove access. |
-| You must be an organization owner or have admin permissions in a repository to request a GitHub App installation. | If an organization application policy is active, any organization member can request to install an OAuth App on an organization. An organization owner must approve or deny the request. |
+| 您必须是组织所有者或者具有仓库管理员权限才能在组织上安装 GitHub 应用程序。 如果 GitHub 应用程序安装在仓库中，并且需要组织权限，则组织所有者必须批准该应用程序。 | 您可以授权 OAuth 应用程序访问资源。 |
+| 您可以在个人仓库上安装 GitHub 应用程序。 | 您可以授权 OAuth 应用程序访问资源。|
+| 您必须是组织所有者、个人仓库所有者或者拥有仓库的管理员权限才能卸载 GitHub 应用程序和删除其访问权限。 | 您可以删除 OAuth 访问令牌以删除访问权限。 |
+| 您必须是组织所有者或者具有仓库管理员权限才能请求安装 GitHub 应用程序。 | 如果组织应用程序策略已激活，则任何组织成员都可以请求在组织上安装 OAuth 应用程序。 组织所有者必须批准或拒绝请求。 |
 
-## What can GitHub Apps and OAuth Apps access?
+## GitHub 应用程序和 OAuth 应用程序可以访问什么？
 
-Account owners can use a {% data variables.product.prodname_github_app %} in one account without granting access to another. For example, you can install a third-party build service on your employer's organization, but decide not to grant that build service access to repositories in your personal account. A GitHub App remains installed if the person who set it up leaves the organization.
+帐户所有者可以在一个帐户中使用 {% data variables.product.prodname_github_app %} ，而不授予对其他帐户的访问权限。 例如，您可以在您的雇主组织中安装第三方构建服务，但决定不授权该构建服务访问您个人帐户中的仓库。 即使安装者离开组织，GitHub 应用程序仍然存在。
 
-An _authorized_ OAuth App has access to all of the user's or organization owner's accessible resources.
+授权的 OAuth 应用程序有权访问用户或组织所有者可访问的所有资源。
 
-| GitHub Apps | OAuth Apps |
+| GitHub 应用 | OAuth 应用 |
 | ----- | ------ |
-| Installing a GitHub App grants the app access to a user or organization account's chosen repositories. | Authorizing an OAuth App grants the app access to the user's accessible resources. For example, repositories they can access. |
-| The installation token from a GitHub App loses access to resources if an admin removes repositories from the installation. | An OAuth access token loses access to resources when the user loses access, such as when they lose write access to a repository. |
-| Installation access tokens are limited to specified repositories with the permissions chosen by the creator of the app. | An OAuth access token is limited via scopes. |
-| GitHub Apps can request separate access to issues and pull requests without accessing the actual contents of the repository. | OAuth Apps need to request the `repo` scope to get access to issues, pull requests, or anything owned by the repository. |
-| GitHub Apps aren't subject to organization application policies. A GitHub App only has access to the repositories an organization owner has granted. | If an organization application policy is active, only an organization owner can authorize the installation of an OAuth App. If installed, the OAuth App gains access to anything visible to the token the organization owner has within the approved organization. |
-| A GitHub App receives a webhook event when an installation is changed or removed. This tells the app creator when they've received more or less access to an organization's resources. | OAuth Apps can lose access to an organization or repository at any time based on the granting user's changing access. The OAuth App will not inform you when it loses access to a resource. |
+| 安装 GitHub 应用会授予应用对用户或组织帐户所选存储库的访问权限。 | 为 OAuth 应用授权会授予应用访问用户可访问资源的权限。 例如，它们可以访问的存储库。 |
+| 如果管理员从安装中删除仓库，则 GitHub 应用程序的安装令牌将失去对资源的访问权限。 | 当用户失去对资源的访问权限时，例如失去对仓库的写入权限，OAuth 访问令牌也会失去相应的访问权限。 |
+| 安装访问令牌仅限于具有应用创建者所选权限的指定存储库。 | OAuth 访问令牌通过作用域进行限制。 |
+| GitHub Apps 可以请求单独访问议题和拉取请求，而不访问仓库的实际内容。 | OAuth 应用需要请求 `repo` 范围才能访问问题、拉取请求或存储库拥有的任何内容。 |
+| GitHub 应用不受组织应用程序策略约束。 GitHub 应用仅有权访问组织所有者已授予的存储库。 | 如果组织应用程序策略处于活动状态，则只有组织所有者才能授权安装 OAuth 应用。 如果已安装，OAuth 应用可以访问组织所有者在批准的组织中拥有的令牌可见的任何内容。 |
+| 当安装被更改或删除时，GitHub 应用程序会收到 web 挂钩事件。 当它们对组织资源的访问权限扩大或缩小时，这将告诉应用程序创建者。 | 根据授予用户访问权限的变化，OAuth 应用程序可能会随时失去对组织或仓库的访问权限。 OAuth 应用程序在失去对资源的访问权限时不会通知您。 |
 
-## Token-based identification
+## 基于令牌的识别
 
 {% note %}
 
-**Note:** GitHub Apps can also use a user-based token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+注意：GitHub 应用也可以使用基于用户的令牌。 有关详细信息，请参阅“[标识和授权 GitHub 应用用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
 
 {% endnote %}
 
-| GitHub Apps | OAuth Apps |
+| GitHub 应用 | OAuth 应用 |
 | ----- | ----------- |
-| A GitHub App can request an installation access token by using a private key with a JSON web token format out-of-band. | An OAuth app can exchange a request token for an access token after a redirect via a web request. |
-| An installation token identifies the app as the GitHub Apps bot, such as @jenkins-bot. | An access token identifies the app as the user who granted the token to the app, such as @octocat. |
-| Installation tokens expire after a predefined amount of time (currently 1 hour). | OAuth tokens remain active until they're revoked by the customer. |
-| {% data variables.product.prodname_github_apps %} installed on organizations or repositories are subject to rate limits for server-to-server requests. For more information, see "[Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/rate-limits-for-github-apps)." | OAuth tokens use the user's rate limit of {% ifversion fpt or ghec or ghes %}5,000{% elsif ghae %}15,000{% endif %} requests per hour. |
-| Rate limit increases can be granted both at the GitHub Apps level (affecting all installations) and at the individual installation level. | Rate limit increases are granted per OAuth App. Every token granted to that OAuth App gets the increased limit. |
-| {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user, which is called a user-to-server request. The flow to authorize is the same as the OAuth App authorization flow. User-to-server tokens can expire and be renewed with a refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)" and "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)." | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used in {% data variables.product.prodname_github_app %} user-to-server authorization. |
+| GitHub 应用可以使用带外 JSON Web 令牌格式的私钥请求安装访问令牌。 | OAuth 应用程序可以通过 Web 请求在重定向后将请求令牌交换为访问令牌。 |
+| 安装令牌将应用标识为 GitHub 应用机器人，例如 @jenkins-bot。 | 访问令牌将应用标识为向应用授予令牌的用户，例如 @octocat。 |
+| 安装令牌在预定义的时间（当前为 1 小时）后过期。 | OAuth 令牌在被客户撤销之前一直保持活动状态。 |
+| 安装在组织或仓库上的 {% data variables.product.prodname_github_apps %} 受服务器到服务器请求的速率限制。 有关详细信息，请参阅“[{% data variables.product.prodname_github_apps %} 的速率限制](/developers/apps/building-github-apps/rate-limits-for-github-apps)”。 | OAuth 令牌使用用户的速率限制，即每小时 {% ifversion fpt or ghec or ghes %}5,000{% elsif ghae %}15,000{% endif %} 个请求。 |
+| 可以在 GitHub 应用级别（影响所有安装）和单个安装级别授予速率限制增加。 | 针对每个 OAuth 应用授予速率限制增加。 授予该 OAuth 应用的每一个令牌都会获得增加的限制。 |
+| {% data variables.product.prodname_github_apps %} 可以代表用户进行身份验证，这称为用户到服务器请求。 授权流与 OAuth 应用授权流相同。 用户到服务器令牌可能过期，可以使用刷新令牌进行续订。 有关详细信息，请参阅“[刷新用户到服务器访问令牌](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)”和“[标识和授权 GitHub 应用用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。 | {% data variables.product.prodname_oauth_apps %} 使用的 OAuth 流程代表用户授权 {% data variables.product.prodname_oauth_app %}。 这与用于 {% data variables.product.prodname_github_app %} 用户到服务器授权中使用的流程相同。 |
 
-## Requesting permission levels for resources
+## 请求资源的权限级别
 
-Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to request access only to what they need. For example, a Continuous Integration (CI) GitHub App can request read access to repository content and write access to the status API. Another GitHub App can have no read or write access to code but still have the ability to manage issues, labels, and milestones. OAuth Apps can't use granular permissions.
+与 OAuth 应用程序不同，GitHub 应用程序具有针对性的权限，只允许它们请求访问所需的资源。 例如，持续集成 (CI) GitHub 应用程序可以请求对仓库内容的读取权限和对状态 API 的写入权限。 另一个 GitHub 应用程序可能没有对代码的读取或写入权限，但仍能管理议题、标签和里程碑。 OAuth 应用无法使用精细权限。
 
-| Access | GitHub Apps (`read` or `write` permissions) | OAuth Apps |
+| Access | GitHub 应用（`read` 或 `write` 权限） | OAuth 应用 |
 | ------ | ----- | ----------- |
-| **For access to public repositories** | Public repository needs to be chosen during installation. | `public_repo` scope. |
-| **For access to repository code/contents** | Repository contents | `repo` scope. |
-| **For access to issues, labels, and milestones** | Issues | `repo` scope. |
-| **For access to pull requests, labels, and milestones** | Pull requests | `repo` scope. |
-| **For access to commit statuses (for CI builds)** | Commit statuses | `repo:status` scope. |
-| **For access to deployments and deployment statuses** | Deployments | `repo_deployment` scope. |
-| **To receive events via a webhook** | A GitHub App includes a webhook by default. | `write:repo_hook` or `write:org_hook` scope. |
+| **访问公共存储库** | 需要在安装过程中选择公共仓库。 | `public_repo` 范围。 |
+| **访问存储库代码/内容** | 仓库内容 | `repo` 范围。 |
+| **获取问题、标签和里程碑** | 问题 | `repo` 范围。 |
+| **获取拉取请求、标签和里程碑** | 拉取请求 | `repo` 范围。 |
+| **访问提交状态（对于 CI 构建）** | 提交状态 | `repo:status` 范围。 |
+| **访问部署和部署状态** | 部署 | `repo_deployment` 范围。 |
+| **通过 Webhook 接收事件** | GitHub 应用程序默认包含一个 web 挂钩。 | `write:repo_hook` 或 `write:org_hook` 范围。 |
 
-## Repository discovery
+## 仓库发现
 
-| GitHub Apps | OAuth Apps |
+| GitHub 应用 | OAuth 应用 |
 | ----- | ----------- |
-| GitHub Apps can look at `/installation/repositories` to see repositories the installation can access. | OAuth Apps can look at `/user/repos` for a user view or `/orgs/:org/repos` for an organization view of accessible repositories. |
-| GitHub Apps receive webhooks when repositories are added or removed from the installation. | OAuth Apps create organization webhooks for notifications when a new repository is created within an organization. |
+| GitHub 应用可在 `/installation/repositories` 处查看可以访问的存储库。 | OAuth 应用可在 `/user/repos` 处查看可访问存储库的用户视图，或在 `/orgs/:org/repos` 处查看可访问存储库的组织视图。 |
+| 当从安装中添加或删除仓库时，GitHub 应用程序会接收 web 挂钩。 | 在组织内创建新仓库时，OAuth 应用程序为通知创建组织 web 挂钩。 |
 
-## Webhooks
+## Webhook
 
-| GitHub Apps | OAuth Apps |
+| GitHub 应用 | OAuth 应用 |
 | ----- | ----------- |
-| By default, GitHub Apps have a single webhook that receives the events they are configured to receive for every repository they have access to. | OAuth Apps request the webhook scope to create a repository webhook for each repository they need to receive events from. |
-| GitHub Apps receive certain organization-level events with the organization member's permission. | OAuth Apps request the organization webhook scope to create an organization webhook for each organization they need to receive organization-level events from. |
-| Webhooks are automatically disabled when the GitHub App is uninstalled. | Webhooks are not automatically disabled if an OAuth App's access token is deleted, and there is no way to clean them up automatically. You will have to ask users to do this manually.|
+| 默认情况下，GitHub 应用程序有一个 web 挂钩，可根据配置接收它们有权访问的每个仓库中的事件。 | OAuth 应用程序请求 web 挂钩作用域为它们需要接收其事件的每个仓库创建仓库 web 挂钩。 |
+| GitHub 应用程序使用组织成员的权限接收某些组织级别的事件。 | OAuth 应用程序请求组织 web 挂钩作用域为它们需要接收其组织级别事件的每个组织创建组织 web 挂钩。 |
+| 卸载 GitHub 应用时，会自动禁用 Webhook。 | 如果删除 OAuth 应用的访问令牌，则不会自动禁用 Webhook，并且无法自动清理它们。 必须要求用户手动执行此操作。|
 
-## Git access
+## Git 访问
 
-| GitHub Apps | OAuth Apps |
+| GitHub 应用 | OAuth 应用 |
 | ----- | ----------- |
-| GitHub Apps ask for repository contents permission and use your installation token to authenticate via [HTTP-based Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation). | OAuth Apps ask for `write:public_key` scope and [Create a deploy key](/rest/reference/deployments#create-a-deploy-key) via the API. You can then use that key to perform Git commands. |
-| The token is used as the HTTP password. | The token is used as the HTTP username. |
+| GitHub 应用请求存储库内容权限，并使用安装令牌通过[基于 HTTP 的 Git](/apps/building-github-apps/authenticating-with-github-apps/#http-based-git-access-by-an-installation) 进行身份验证。 | OAuth 应用请求 `write:public_key` 作用域，并通过 API [创建部署密钥](/rest/reference/deployments#create-a-deploy-key)。 然后，可以使用该密钥执行 Git 命令。 |
+| 令牌用作 HTTP 密码。 | 令牌用作 HTTP 用户名。 |
 
-## Machine vs. bot accounts
+## 机器与机器人帐户
 
-Machine user accounts are OAuth-based personal accounts that segregate automated systems using GitHub's user system.
+机器用户帐户是基于 OAuth 的个人帐户，它使用 GitHub 的用户系统隔离自动系统。
 
-Bot accounts are specific to GitHub Apps and are built into every GitHub App.
+机器人帐户特定于 GitHub 应用，并内置于每个 GitHub 应用程序中。
 
-| GitHub Apps | OAuth Apps |
+| GitHub 应用 | OAuth 应用 |
 | ----- | ----------- |
-| GitHub App bots do not consume a {% data variables.product.prodname_enterprise %} seat. | A machine user account consumes a {% data variables.product.prodname_enterprise %} seat. |
-| Because a GitHub App bot is never granted a password, a customer can't sign into it directly. | A machine user account is granted a username and password to be managed and secured by the customer. |
+| GitHub 应用程序机器人不占用 {% data variables.product.prodname_enterprise %} 席位。 | 机器用户帐户占用 {% data variables.product.prodname_enterprise %} 席位。 |
+| 由于 GitHub 应用程序机器人永远不会被授予密码，因此客户无法直接登录它。 | 机器用户帐户被授予由客户管理和保护的用户名和密码。 |

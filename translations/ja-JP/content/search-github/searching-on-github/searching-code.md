@@ -1,6 +1,6 @@
 ---
-title: コードの検索
-intro: '{% data variables.product.product_name %} 上のコードを検索することができます。そして、これらのコードを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
+title: Searching code
+intro: 'You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -14,105 +14,108 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
-ms.openlocfilehash: 52b88aee79dd9597b64bee803c1b8e42760533f3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145118910'
 ---
-{% data reusables.search.you-can-search-globally %} 詳細については、「[GitHub での検索について](/search-github/getting-started-with-searching-on-github/about-searching-on-github)」を参照してください。
 
-これらのコード検索の修飾子を使わなければ、コードを検索できません。 リポジトリ、ユーザまたはコミットの特定の修飾子での検索は、コードを検索する場合、うまくいきません。
+{% ifversion github-code-search %}
+  {% note %}
+
+  **Note:** {% data reusables.search.classic-search-code-search-note %}
+
+  {% endnote %}
+{% endif %}
+
+{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+
+You can only search code using these code search qualifiers. Search qualifiers specifically for repositories, users, or commits, will not work when searching for code.
 
 {% data reusables.search.syntax_tips %}
 
-## コード検索での留意点
+## Considerations for code search
 
-コードの検索は複雑なため、検索の実行には一定の制限があります。
+Due to the complexity of searching code, there are some restrictions on how searches are performed:
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- [フォーク](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)内のコードは、フォークの星の数が親リポジトリよりも多い場合にのみ検索できます。 親リポジトリより星の数が少ないフォークは、コード検索ではインデックス **されません**。 検索結果に親よりも星の数が多いフォークを含めるには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細については、「[フォーク内を検索する](/search-github/searching-on-github/searching-in-forks)」を参照してください。
-- コード検索用にインデックスが作成されるのは "_既定のブランチ_" だけです。{% ifversion fpt or ghec %}
-- 384 KB より小さいファイルのみ検索可能です。{% else %}* 5 MB より小さいファイルのみ検索可能です。
-- 各ファイルの最初の 500 KB のみ検索可能です。{% endif %}
-- 最大 4,000 個のプライベート {% ifversion ghec or ghes or ghae %}リポジトリと内部{% endif %} リポジトリが検索可能です。 これら 4,000 個のリポジトリは、アクセス権がある最初の 10,000 個のプライベート {% ifversion ghec or ghes or ghae %}リポジトリと内部{% endif %}リポジトリのうち、最近更新されたものです。
-- ファイル数が 500,000 未満のリポジトリのみ検索可能です。{% ifversion fpt or ghec %}
-- 昨年アクティビティがあった、または検索結果に返されたリポジトリのみが検索可能です。{% endif %}
-- [`filename`](#search-by-filename) で検索する場合を除き、ソースコードを検索する際には、必ず 1 つ以上の検索用語を含めなければなりません。 たとえば、[`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) という検索は無効ですが、[`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) は有効です。
-- 検索結果では、同一ファイルから取り出される部分は 2 つまでです。そのファイルはさらに多くの部分でヒットしている可能性があります。
-- 検索クエリの一部として次のワイルドカード文字を用いることはできません: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>。 検索では、これらのシンボルは単に無視されます。
+- Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/search-github/searching-on-github/searching-in-forks)."
+- Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
+- Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
+- Only the first 500 KB of each file is searchable.{% endif %}
+- Up to 4,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories that you have access to.
+- Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt or ghec %}
+- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
+- Except with [`filename`](#search-by-filename) searches, you must always include at least one search term when searching source code. For example, searching for [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) is not valid, while [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) is.
+- At most, search results can show two fragments from the same file, but there may be more results within the file.
+- You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. The search will simply ignore these symbols.
 
-## ファイルの内容またはファイルパスで検索
+## Search by the file contents or file path
 
-`in` 修飾子によって、ソースコード ファイル、ファイル パスまたはその両方の内容に検索を限定することができます。 この修飾子を省略した場合、ファイルの内容だけが検索されます。
+With the `in` qualifier you can restrict your search to the contents of the source code file, the file path, or both. When you omit this qualifier, only the file contents are searched.
 
-| 修飾子  | 例
+| Qualifier  | Example
 | ------------- | -------------
-| `in:file` | [**octocat in:file**](https://github.com/search?q=octocat+in%3Afile&type=Code) は、ファイルの内容に「octocat」が表示されるコードとマッチします。
-| `in:path` | [**octocat in:path**](https://github.com/search?q=octocat+in%3Apath&type=Code) は、ファイル パスに「octocat」が表示されるコードとマッチします。
-| | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) は、ファイルの内容またはパスに「octocat」が表示されるコードとマッチします。
+| `in:file` | [**octocat in:file**](https://github.com/search?q=octocat+in%3Afile&type=Code) matches code where "octocat" appears in the file contents.
+| `in:path` | [**octocat in:path**](https://github.com/search?q=octocat+in%3Apath&type=Code) matches code where "octocat" appears in the file path.
+| | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) matches code where "octocat" appears in the file contents or the file path.
 
-## ユーザまたは Organization のリポジトリ内の検索
+## Search within a user's or organization's repositories
 
-特定のユーザーまたは組織が所有するすべてのリポジトリのコードを検索するには、`user` 修飾子または `org` 修飾子を使います。 特定のリポジトリのコードを検索するには、`repo` 修飾子を使います。
+To search the code in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
 
-| 修飾子  | 例
+| Qualifier  | Example
 | ------------- | -------------
-| <code>user:<em>USERNAME</em></code> | [**user:defunkt extension:rb**](https://github.com/search?q=user%3Agithub+extension%3Arb&type=Code) は、<em>.rb</em> で終わる @defunkt のコードとマッチします。
-| <code>org:<em>ORGNAME</em></code> |[**org:github extension:js**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+extension%3Ajs&type=Code) は、<em>.js</em> で終わる GitHub のコードとマッチします。
-| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) は、<em>.as</em> で終わる @mozilla の shumway プロジェクトのコードとマッチします。
+| <code>user:<em>USERNAME</em></code> | [**user:defunkt extension:rb**](https://github.com/search?q=user%3Agithub+extension%3Arb&type=Code) matches code from @defunkt that ends in <em>.rb</em>.
+| <code>org:<em>ORGNAME</em></code> |[**org:github extension:js**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+extension%3Ajs&type=Code) matches code from GitHub that ends in <em>.js</em>.
+| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) matches code from @mozilla's shumway project that ends in <em>.as</em>.
 
-## ファイルの場所での検索
+## Search by file location
 
-リポジトリの特定の場所に表示されているソースコードを探すには、`path` 修飾子を使います。 リポジトリのルート レベルにあるファイルを検索するには、`path:/` を使います。 または、ディレクトリやそのサブディレクトリ内に存在しているファイルを検索するには、ディレクトリ名もしくはディレクトリへのパスを明示してください。
+You can use the `path` qualifier to search for source code that appears at a specific location in a repository. Use `path:/` to search for files that are located at the root level of a repository. Or specify a directory name or the path to a directory to search for files that are located within that directory or any of its subdirectories.
 
-| 修飾子  | 例
+| Qualifier  | Example
 | ------------- | -------------
-| <code>path:/</code> | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) は、リポジトリのルート レベルにある「octocat」という単語を含む _readme_ ファイルとマッチします。
-| <code>path:<em>DIRECTORY</em></code> | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) は、<em>cgi-bin</em> ディレクトリまたはそのサブディレクトリ内の「form」という単語を含む Perl ファイルとマッチします。
-| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [ **`console path:app/public language:javascript`**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) は、<em>app/public</em> ディレクトリまたはそのサブディレクトリ (<em>app/public/js/form-validators</em> を含む) 内の「console」という単語を含む JavaScript ファイルとマッチします。
+| <code>path:/</code> | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) matches _readme_ files with the word "octocat" that are located at the root level of a repository.
+| <code>path:<em>DIRECTORY</em></code> | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in the <em>cgi-bin</em> directory, or in any of its subdirectories.
+| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**`console path:app/public language:javascript`**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in the <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>).
 
-## 言語で検索
+## Search by language
 
-コードが書かれた言語で検索することができます。 `language` 修飾子には、言語名またはエイリアスを指定できます。 サポートされている言語とその名前とエイリアスの完全な一覧については、[github/linguist リポジトリ](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)を参照してください。
+You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-| 修飾子  | 例
+| Qualifier  | Example
 | ------------- | -------------
-| <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/search?q=element+language%3Axml+size%3A100&type=Code) は、XML としてマークされ、ぴったり 100 バイトの「element」という単語を含むコードとマッチします。
-| | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) は、SCSS としてマークされ、「display」という単語を含むコードとマッチします。
-| | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) は、Markdown としてマークされているすべての @mozilla のリポジトリのコードとマッチします。
+| <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/search?q=element+language%3Axml+size%3A100&type=Code) matches code with the word "element" that's marked as being XML and has exactly 100 bytes.
+| | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) matches code with the word "display," that's marked as being SCSS.
+| | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) matches code from all @mozilla's repositories that's marked as Markdown.
 
-## ファイルサイズで検索
+## Search by file size
 
-コードが存在するファイルのサイズによってソースコードを検索するには、`size` 修飾子を使います。 `size` 修飾子は[より大きい修飾子、より小さい修飾子、および範囲の修飾子](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)を使用して、コードが見つかったファイルのバイト サイズに基づいて結果をフィルタリングします。
+You can use the `size` qualifier to search for source code based on the size of the file where the code exists. The `size` qualifier uses [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to filter results based on the byte size of the file in which the code is found.
 
-| 修飾子  | 例
+| Qualifier  | Example
 | ------------- | -------------
-| <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/search?q=function+size%3A%3E10000+language%3Apython&type=Code) は、10 KB を超えるファイル内の Python で記述された「function」という単語を含むコードとマッチします。
+| <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/search?q=function+size%3A%3E10000+language%3Apython&type=Code) matches code with the word "function," written in Python, in files that are larger than 10 KB.
 
-## ファイル名で検索
+## Search by filename
 
-`filename` 修飾子は、特定のファイル名を持つコード ファイルとマッチします。 ファイルファインダーを使ってリポジトリにあるファイルを表示できます。 詳細については、「[GitHub でのファイルの検索](/search-github/searching-on-github/finding-files-on-github)」を参照してください。
+The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/search-github/searching-on-github/finding-files-on-github)."
 
-| 修飾子  | 例
+| Qualifier  | Example
 | ------------- | -------------
-| <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) は、「linguist」という名前のファイルとマッチします。
-| | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) は、「commands」という単語を含む *.vimrc* ファイルとマッチします。
-| | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) は、*test* ディレクトリ内の *test_helper* という名前の Ruby ファイルとマッチします。
+| <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) matches files named "linguist."
+| | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
+| | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
 
-## ファイルの拡張子で検索
+## Search by file extension
 
-`extension` 修飾子は、特定のファイル拡張子を持つコード ファイルとマッチします。
+The `extension` qualifier matches code files with a certain file extension.
 
-| 修飾子  | 例
+| Qualifier  | Example
 | ------------- | -------------
-| <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) は、<em>cgi-bin</em> の下の「form」という単語を含み <em>.pm</em> というファイル拡張子を持つコードとマッチします。
-| | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) は、.css で終わり「icon」という単語を含む 200 KB を超えるファイルとマッチします。
+| <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) matches code with the word "form," under <em>cgi-bin</em>, with the <em>.pm</em> file extension.
+| | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) matches files larger than 200 KB that end in .css and have the word "icon."
 
-## 参考資料
+## Further reading
 
-- 「[検索結果をソートする](/search-github/getting-started-with-searching-on-github/sorting-search-results/)」
-- 「[フォーク内を検索する](/search-github/searching-on-github/searching-in-forks)」{% ifversion fpt or ghec %}
-- 「[{% data variables.product.prodname_dotcom %} のナビゲーション コード](/github/managing-files-in-a-repository/navigating-code-on-github)」{% endif %}
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[Searching in forks](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
+- "[Navigating code on {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

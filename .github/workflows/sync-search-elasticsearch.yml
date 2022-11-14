@@ -13,7 +13,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '23 */4 * * *' # Run every 4 hours at 23 minutes past the hour
+    - cron: '20 */4 * * *' # Run every 4 hours at 20 minutes after
 
 permissions:
   contents: read
@@ -101,8 +101,7 @@ jobs:
           mkdir /tmp/records
           npm run sync-search-indices -- \
             --language ${{ matrix.language }} \
-            --out-directory /tmp/records \
-            --no-compression --no-lunr-index
+            /tmp/records
 
           ls -lh /tmp/records
 
@@ -118,7 +117,8 @@ jobs:
           VERSION: ${{ github.event.inputs.version }}
         run: |
           ./script/search/index-elasticsearch.js \
-            --language ${{ matrix.language }} -- /tmp/records
+            --language ${{ matrix.language }} \
+            /tmp/records
 
       - name: Check created indexes and aliases
         run: |

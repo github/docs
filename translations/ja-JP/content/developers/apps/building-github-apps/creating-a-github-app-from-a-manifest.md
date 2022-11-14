@@ -12,12 +12,12 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: App creation manifest flow
-ms.openlocfilehash: 8dd917a5b08605b995a7ecf8321b5cd61c50a681
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9ff6fa93e0f31de16e6ee2d96f1d7665742151d3
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145117262'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135722'
 ---
 ## GitHub App Manifest について
 
@@ -61,13 +61,14 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 #### GitHub App Manifest のパラメータ
 
- 名前 | 型 | 説明
+ 名前 | Type | 説明
 -----|------|-------------
 `name` | `string` | GitHub App の名前。
 `url` | `string` | **必須。** GitHub アプリのホームページ。
 `hook_attributes` | `object` | GitHub App の webhook の構成。
 `redirect_url` | `string` | ユーザーがマニフェストから GitHub アプリの作成を開始した後にリダイレクトする完全な URL。
 `callback_urls` | `array of strings` | インストールの承認後にリダイレクトする完全な URL。 最大 10 個のコールバック URL を指定できます。
+`setup_url` | `string` | 追加設定が必要な場合、GitHub アプリをインストールした後にユーザーをリダイレクトする先の完全な URL。
 `description` | `string` | GitHub App の説明。
 `public` | `boolean` | GitHub アプリを公開する場合は `true` に設定し、アプリの所有者のみがアクセスできるようにするには `false` に設定します。
 `default_events` | `array` | GitHub アプリがサブスクライブする[イベント](/webhooks/event-payloads)のリスト。
@@ -75,14 +76,14 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 `hook_attributes` オブジェクトには、次のキーがあります。
 
-名前 | 型 | 説明
+名前 | Type | 説明
 -----|------|-------------
 `url` | `string` | **必須。** Webhook の `POST` 要求を受け取るサーバーの URL。
 `active` | `boolean` | フックがトリガーされた時に、イベントの内容が配信される (デフォルトはtrue)。
 
 #### パラメーター
 
- 名前 | 型 | 説明
+ 名前 | Type | 説明
 -----|------|-------------
 `state`| `string` | {% data reusables.apps.state_description %}
 

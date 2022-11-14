@@ -12,12 +12,12 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: App creation manifest flow
-ms.openlocfilehash: 8dd917a5b08605b995a7ecf8321b5cd61c50a681
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9ff6fa93e0f31de16e6ee2d96f1d7665742151d3
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145095114'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135702'
 ---
 ## Sobre os manifestos do aplicativo GitHub
 
@@ -68,6 +68,7 @@ A pessoa que está criando o aplicativo será redirecionada para uma página do 
 `hook_attributes` | `object` | A configuração do webhook do aplicativo GitHub.
 `redirect_url` | `string` | O URL completo para o qual fazer o redirecionamento após um usuário iniciar a criação de um aplicativo GitHub a partir de um manifesto.
 `callback_urls` | `array of strings` | Uma URL completa para a qual redirecionar após alguém autorizar uma instalação. Você pode fornecer até 10 URLs de retorno de chamada.
+`setup_url` | `string` | Uma URL completa para redirecionar os usuários após a instalação do aplicativo GitHub, caso seja necessária uma configuração adicional.
 `description` | `string` | Uma descrição do aplicativo GitHub.
 `public` | `boolean` | Defina-o como `true` quando seu Aplicativo do GitHub estiver disponível para o público ou `false` quando ele só estiver acessível ao proprietário do aplicativo.
 `default_events` | `array` | A lista de [eventos](/webhooks/event-payloads) nos quais o Aplicativo do GitHub se inscreveu.

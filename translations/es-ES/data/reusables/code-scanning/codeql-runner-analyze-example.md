@@ -1,12 +1,4 @@
----
-ms.openlocfilehash: b20ef3a51f3bf2b4bfbb89ad078bf221ce838904
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145115570"
----
-1. Rellene las bases de datos de {% data variables.product.prodname_codeql %}, analícelas y cargue los resultados a {% data variables.product.product_name %}. Los resultados aparecerán en la pestaña **Security** del repositorio.
+1. Populate the {% data variables.product.prodname_codeql %} databases, analyze them, and upload the results to {% data variables.product.product_name %}. The results will appear in the **Security** tab for your repository.
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
@@ -17,7 +9,7 @@ ms.locfileid: "145115570"
     > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
     > Successfully uploaded results
     ```
-2. Para cargar los resultados de {% data variables.product.prodname_code_scanning %} como comprobaciones de solicitudes de incorporación de cambios, especifique la solicitud de incorporación de cambios mediante la marca <nobr>`--ref`</nobr>. Se recomienda configurar {% data variables.product.prodname_codeql_runner %} para que se ejecute en el evento de webhook [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request).
+2. To upload {% data variables.product.prodname_code_scanning %} results as pull request checks, specify the pull request using the <nobr>`--ref`</nobr> flag. We recommend setting up the {% data variables.code-scanning.codeql_runner %} so that it runs on the [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) webhook event.
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
@@ -29,4 +21,4 @@ ms.locfileid: "145115570"
     > Successfully uploaded results
     ```
 
-Para más información sobre cómo ver las alertas de {% data variables.product.prodname_code_scanning %}, vea "[Evaluación de prioridades de alertas de examen de código en solicitudes de incorporación de cambios](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)" y "[Administración de alertas de análisis de código para el repositorio](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)".
+For more information about viewing {% data variables.product.prodname_code_scanning %} alerts, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)" and "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."

@@ -30,7 +30,8 @@ export const HeaderNotifications = () => {
 
   const translationNotices: Array<Notif> = []
   if (router.locale === 'en') {
-    if (userLanguage && userLanguage !== 'en') {
+    // 92BD1212-61B8-4E7A: Remove ` && languages[userLanguage]?.wip === false` for the public ship of ko, fr, de, ru
+    if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
       let href = `/${userLanguage}`
       if (currentPathWithoutLanguage !== '/') {
         href += currentPathWithoutLanguage
@@ -46,7 +47,8 @@ export const HeaderNotifications = () => {
         type: NotificationType.TRANSLATION,
         content: data.reusables.policies.translation,
       })
-    } else if (router.locale) {
+      // 92BD1212-61B8-4E7A: Remove ` && languages[router.locale]?.wip !== true` for the public ship of ko, fr, de, ru
+    } else if (router.locale && languages[router.locale]?.wip !== true) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_complete'),
