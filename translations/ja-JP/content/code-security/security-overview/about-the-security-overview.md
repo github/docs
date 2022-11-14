@@ -28,7 +28,7 @@ shortTitle: About the security overview
 
 ## About the security overview
 
-The security overview provides high-level summaries of the security status of an organization or enterprise and make it easy to identify problematic repositories that require intervention. You can also use the security overview to see which repositories have enabled specific security features and to configure any available security features that are not currently in use. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
+{% data reusables.security-overview.about-the-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 The security overview shows which security features are enabled for repositories and consolidate alerts for each feature. 

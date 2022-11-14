@@ -1,134 +1,135 @@
 ---
-title: About custom repository roles
-intro: You can more granularly control access to your organization's repositories with custom repository roles.
+title: カスタムリポジトリロールについて
+intro: カスタムのリポジトリロールを作成することで、Organization のリポジトリへのアクセスをよりきめ細かく制御できます。
 versions:
   feature: custom-repository-roles
 topics:
   - Organizations
   - Teams
 shortTitle: About custom roles
+ms.openlocfilehash: c4e7f791b9402b45160b31aab2653bf80150ddee
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160689'
 ---
-
 {% data reusables.organizations.custom-repo-roles-ghec-only %}
 
-## About custom repository roles
+## カスタムリポジトリロールについて
 
-To perform any actions on {% data variables.product.product_name %}, such as creating a pull request in a repository or changing an organization's billing settings, a person must have sufficient access to the relevant account or resource. This access is controlled by permissions. A permission is the ability to perform a specific action. For example, the ability to delete an issue is a permission. A role is a set of permissions you can assign to individuals or teams.
+リポジトリでのPull Requestの作成やOrganizationの支払い設定の変更など、{% data variables.product.product_name %}でなんらかのアクションを行うためには、ユーザは関連するアカウントやリソースに対する十分なアクセス権を持っていなければなりません。 このアクセスは、権限によって制御されます。 権限は、特定のアクションを行える能力です。 たとえばIssueを削除する能力は権限です。 ロールは、個人やTeamに割り当てることができる権限のセットです。
 
-Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Organization内では、ロールをOrganization、Team、リポジトリのレベルで割り当てることができます。 さまざまなレベルのロールについて詳しくは、「[Organization 内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
-You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+最大 3 つのカスタム リポジトリ ロールを作成することで、リポジトリ レベルで付与するアクセス許可をより細かく制御できます。 {% data reusables.organizations.about-custom-repo-roles %} 詳しくは、「[Organization のカスタム リポジトリ ロールの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」を参照してください。
 
-After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+カスタムロールを作成すると、リポジトリへの管理アクセスを持つユーザはそのロールを個人やTeamに割り当てることができます。 詳細については、「[組織のリポジトリに対する個人のアクセスを管理する](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)」と「[組織のリポジトリに対するチームのアクセスを管理する](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)」を参照してください。
 
 {% ifversion custom-repo-role-api %}
 
-You can also use the REST API to create and manage custom repository roles. For more information, see "[Custom Repository Roles](/rest/orgs/custom-roles)."
+REST API を使って、カスタム リポジトリ ロールを作成して管理することもできます。 詳細については、「[カスタム リポジトリ ロール](/rest/orgs/custom-roles)」を参照してください。
 
 {% else %}
 
-You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[Custom Repository Roles API](/rest/orgs/custom-roles)."
+REST API を使って、組織で使用できるカスタム リポジトリ ロールを一覧表示することもできます。 詳細については、[カスタム リポジトリ ロールの API](/rest/orgs/custom-roles) を参照してください。
 
 {% endif %}
 
-## About the inherited role
+## 継承されたロールについて
 
-When you create a custom repository role, you start by choosing an inherited role from a set of pre-defined options. The inherited role determines the initial set of permissions included in the custom role. Then, you can further customize the role by choosing additional permissions to give the role. For the full list of available permissions, see "[Additional permissions for custom roles](#additional-permissions-for-custom-roles)."
+カスタムリポジトリロールを作成する際は、事前設定された選択肢のセットから継承されたロールを選択することから始めます。 継承されたロールは、カスタムロールに含まれる権限の初期セットを決定します。 そして、そのロールは付与する追加権限を選択することによって、さらにカスタマイズできます。 使用可能なアクセス許可の完全なリストについては、「[カスタム ロールの追加のアクセス許可](#additional-permissions-for-custom-roles)」を参照してください。
 
-Your options for the inherited role are standardized for different types of contributors in your repository.
+継承されたロールの選択肢については、リポジトリの様々な種類のコントリビューターに対して標準化されています。
 
-| Inherited role | Designed for |
+| 継承されたロール | 対象 |
 |----|----|
-| **Read** | Non-code contributors who want to view or discuss your project |
-| **Triage** | Contributors who need to proactively manage issues and pull requests without write access |
-| **Write** | Organization members and collaborators who actively push to your project |
-| **Maintain** | Project managers who need to manage the repository without access to sensitive or destructive actions |
+| **読み取り** | プロジェクトの表示やディスカッションを行いたい、コードを書かないコントリビューターにお勧めします |
+| **トリアージ** | 書き込みアクセスなしで、積極的に Issue や Pull Request を管理する必要があるコントリビューター |
+| **書き込み** | 積極的にプロジェクトに対してプッシュを行う Organization のメンバーとコントリビューター。 |
+| **管理** | 機密の、あるいは破壊的なアクションへのアクセスなしにリポジトリを管理する必要があるプロジェクトマネージャー |
 
-## Custom role examples
+## カスタム ロールの例
 
-Here are some examples of custom repository roles you can configure.
+以下は、設定できるカスタムリポジトリロールの例です。
 
-| Custom repository role | Summary | Inherited role | Additional permissions |
+| カスタムリポジトリロール | まとめ | 継承されたロール | 追加の権限 |
 |----|----|----|----|
-| Security engineer | Able to contribute code and maintain the security pipeline | **Maintain** | Delete code scanning results |
-| Contractor | Able to develop webhooks integrations | **Write** | Manage webhooks |
-| Community manager | Able to handle all the community interactions without being able to contribute code | **Read** | - Mark an issue as duplicate <br> - Manage GitHub Page settings <br> - Manage wiki settings <br> - Set the social preview <br> - Edit repository metadata <br> - Triage discussions |
+| セキュリティ エンジニア | コードをコントリビュートし、セキュリティパイプラインをメンテナンスできる | **管理** | Code scanningの結果の削除 |
+| Contractor | webhookのインテグレーションを開発できる | **書き込み** | webhookの管理 |
+| Community manager | コードをコントリビュートすることなく、コミュニティのすべてのやりとりを扱える | **読み取り** | - issue を複製としてマークする <br> - GitHub ページの設定を管理する <br> - Wiki 設定を管理する <br> - ソーシャル プレビューを設定する <br> - リポジトリのメタデータを編集する <br> - ディスカッションをトリアージする |
 
-## Additional permissions for custom roles
+## カスタムロールの追加権限
 
-After choosing an inherited role, you can select additional permissions for your custom role.
+継承されたロールを選択した後、カスタムロールの追加権限を選択できます。
 
-You can only choose an additional permission if it's not already included in the inherited role. For example, if the inherited role offers **Write** access to a repository, then the "Close a pull request" permission will already be included in the inherited role.
+継承されたロールにまだ含まれていない場合にのみ、追加の権限を選択できます。 たとえば、継承されたロールでリポジトリへの **書き込み** アクセスが提供されている場合は、"pull request をクローズする" 権限は継承されたロールに既に含まれています。
 
 {% ifversion discussions %}
-### Discussions
+### ディスカッション
 
-- Create a discussion category
-- Edit a discussion category
-- Delete a discussion category 
-- Mark or unmark discussion answers 
-- Hide or unhide discussion comments 
-- Convert issues to discussions 
+- ディスカッション カテゴリを作成する
+- ディスカッション カテゴリを編集する
+- ディスカッション カテゴリを削除する 
+- ディスカッションの回答をマークまたはマーク解除する 
+- ディスカッション コメントを非表示または非表示解除する 
+- issue をディスカッションに変換する 
 
-For more information, see "[{% data variables.product.prodname_discussions %}](/discussions)."
+詳しくは、「[{% data variables.product.prodname_discussions %}](/discussions)」を参照してください。
 {% endif %}
 
-### Issue and Pull Requests
+### IssueとPull Request
 
-- Assign or remove a user 
-- Add or remove a label 
+- ユーザーの割り当てまたは削除 
+- ラベルの追加または削除 
 
-### Issue
+### 問題
 
-- Close an issue
-- Reopen a closed issue
-- Delete an issue
-- Mark an issue as a duplicate
+- issue をクローズする
+- クローズされた issue を再オープンする
+- issue を削除する
+- issue を複製としてマークする
 
 ### Pull Request
 
-- Close a pull request
-- Reopen a closed pull request
-- Request a pull request review
+- pull request をクローズする
+- クローズされた pull request を再オープンする
+- pull request レビューを要求する
 
-### Repository
+### リポジトリ
 
-- Set milestones
-- Manage wiki settings 
-- Manage project settings
-- Manage pull request merging settings 
-- Manage {% data variables.product.prodname_pages %} settings (see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
-- Manage webhooks 
-- Manage deploy keys 
-- Edit repository metadata
-{%- ifversion ghec %}
-- Set interaction limits
-{%- endif %}
-- Set the social preview 
-- Push commits to protected branches (branch protection rules will still apply)
-- Create protected tags
-- Delete protected tags
-{%- ifversion bypass-branch-protections %}
-- Bypass branch protections
-{%- endif %}
+- マイルストーンを設定する
+- wiki 設定を管理する 
+- プロジェクト設定を管理する
+- pull request のマージ設定を管理する 
+- {% data variables.product.prodname_pages %} 設定を管理する (「[{% data variables.product.prodname_pages %} サイトの公開元を設定する](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)」を参照してください)
+- webhookの管理 
+- デプロイキーの管理 
+- リポジトリ メタデータの編集 {%- ifversion ghec %}
+- 相互作用の制限を設定する {%- endif %}
+- ソーシャル プレビューを設定する 
+- 保護されたブランチにコミットをプッシュする (ブランチ保護規則は引き続き適用されます)
+- 保護されたタグを作成する
+- 保護されたタグを削除する {%- ifversion bypass-branch-protections %}
+- ブランチ保護をバイパスする {%- endif %}
 
-### Security
+### セキュリティ
 
-- View {% data variables.product.prodname_code_scanning %} results 
-- Dismiss or reopen {% data variables.product.prodname_code_scanning %} results
-- Delete {% data variables.product.prodname_code_scanning %} results 
-- View {% data variables.product.prodname_dependabot_alerts %} 
-- Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %} 
-- View {% data variables.product.prodname_secret_scanning %} results 
-- Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results 
+- {% data variables.product.prodname_code_scanning %} の結果を表示する 
+- {% data variables.product.prodname_code_scanning %} を閉じる、またはもう一度開く
+- {% data variables.product.prodname_code_scanning %} の結果を削除する 
+- {% data variables.product.prodname_dependabot_alerts %}を表示する 
+- {% data variables.product.prodname_dependabot_alerts %}を閉じる、またはもう一度開く 
+- {% data variables.product.prodname_secret_scanning %} の結果を表示する 
+- {% data variables.product.prodname_secret_scanning %} を閉じる、またはもう一度開く 
 
-## Precedence for different levels of access
+## 様々なアクセスレベルの優先順位
 
-If a person is given different levels of access through different avenues, such as team membership and the base permissions for an organization, the highest access overrides the others. For example, if an organization owner gives an organization member a custom role that uses the "Read" inherited role, and then an organization owner sets the organization's base permission to "Write", then this custom role will have write access, along with any additional permissions included in the custom role.
+TeamのメンバーシップやOrganizationの基本権限など、様々な方法を通じて様々なレベルのアクセスを与えられている場合、最上位のアクセスが他よりも優先されます。 たとえば、OrganizationのオーナーがOrganizationのメンバーに継承ロールの"Read"を使うカスタムロールを与え、そしてOrganizationのオーナーがOrganizationの基本権限を"Write"にした場合、このカスタムロールはカスタムロールに含まれている追加の権限とともに、書き込みアクセスを持つことになります。
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-To resolve conflicting access, you can adjust your organization's base permissions or the team's access, or edit the custom role. For more information, see:
-  - "[Setting base permissions for an organization](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
-  - "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-  - "[Editing a repository role](#editing-a-repository-role)"
+競合するアクセスを解決するには、Organizationの基本アクセスあるいはTeamのアクセスを調整するか、カスタムロールを編集してください。 詳細については、次を参照してください。
+  - [Organization の基本レベルの権限の設定](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)
+  - [Organization のリポジトリに対するチームのアクセスを管理する](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)
+  - [リポジトリ ロールの編集](#editing-a-repository-role)
