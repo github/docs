@@ -133,4 +133,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions/workflows/sync-search-elasticsearch.yml?query=workflow%3A%22sync+search%22
