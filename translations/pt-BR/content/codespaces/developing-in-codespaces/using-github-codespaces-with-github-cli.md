@@ -42,7 +42,7 @@ You can work with {% data variables.product.prodname_github_codespaces %} in the
 
 If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account. 
 
-To use `gh` to work with {% data variables.product.prodname_github_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
+To use `gh` to work with {% data variables.product.prodname_github_codespaces %}, type `gh codespace SUBCOMMAND` or its alias `gh cs SUBCOMMAND`.
 
 As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could: 
 
@@ -51,15 +51,15 @@ As an example of a series of commands you might use to work with {% data variabl
 * Create a new codespace for the required repository branch:<br>
   `gh codespace create -r github/docs -b main`
 * SSH into the new codespace:<br>
-  `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
+  `gh codespace ssh -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
 * Forward a port to your local machine:<br>
-  `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
+  `gh codespace ports forward 8000:8000 -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
 
 ## `gh` commands for {% data variables.product.prodname_github_codespaces %}
 
 The sections below give example commands for each of the available operations.
 
-For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for "[gh codespace](https://cli.github.com/manual/gh_codespace)." Alternatively, use `gh codespace [<SUBCOMMAND>...] --help` on the command line.
+For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for "[gh codespace](https://cli.github.com/manual/gh_codespace)." Alternatively, on the command line, use `gh codespace --help` for general help or `gh codespace SUBCOMMAND --help` for help with a specific subcommand.
 
 {% note %}
 
@@ -163,7 +163,7 @@ The location of files and directories on the codespace is relative to the home d
 
 * Copy a file to the directory in which a repository is checked out in a codespace:
 
-   `gh codespace cp myfile.txt remote:/workspaces/<REPOSITORY-NAME>`
+   `gh codespace cp myfile.txt remote:/workspaces/REPOSITORY-NAME`
 
 * Copy a file from a codespace to the current directory on the local machine:
 
@@ -233,7 +233,7 @@ You can use the {% data variables.product.prodname_cli %} extension to create a 
 ### Change the machine type of a codespace
 
 ```shell
-gh codespace edit -m <em>machine-type-name</em>
+gh codespace edit -m MACHINE-TYPE-NAME
 ```
 
 For more information, see the "{% data variables.product.prodname_cli %}" tab of "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
