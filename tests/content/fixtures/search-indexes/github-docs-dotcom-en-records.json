@@ -3,7 +3,7 @@
         "objectID": "/en/foo",
         "breadcrumbs": "fooing",
         "title": "Foo",
-        "headings": "",
+        "headings": "Heading 1",
         "content": "This is a fixture with the silly foo word.",
         "topics": ["Test", "Fixture"],
         "popularity": 0.5
@@ -12,7 +12,7 @@
         "objectID": "/en/bar",
         "breadcrumbs": "baring",
         "title": "Bar",
-        "headings": "",
+        "headings": "Sub-heading This Sub-heading That",
         "content": "Can't have foo if you don't also have bar.",
         "topics": ["Test", "Fixture", "Get started"],
         "popularity": 0.6
@@ -21,7 +21,7 @@
         "objectID": "/en/bar",
         "breadcrumbs": "",
         "title": "Breadcrumbless",
-        "headings": "",
+        "headings": "Introduction",
         "content": "Not all pages have a breadcrumb. Fact of life.",
         "topics": [],
         "popularity": 0.1
