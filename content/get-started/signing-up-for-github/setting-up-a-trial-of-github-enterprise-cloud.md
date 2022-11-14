@@ -62,6 +62,8 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
+{% data reusables.enterprise.best-practices %}
+
 {% data reusables.products.product-roadmap %}
 
 ## Finishing your trial
