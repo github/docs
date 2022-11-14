@@ -182,7 +182,8 @@ const validationMiddleware = (req, res, next) => {
       validate: (v) => v >= 1 && v <= 10,
     },
     { key: 'sort', default_: DEFAULT_SORT, validate: (v) => POSSIBLE_SORTS.includes(v) },
-    { key: 'debug', default_: Boolean(process.env.NODE_ENV === 'development' || req.query.debug) },
+    { key: 'autocomplete', default_: false, cast: toBoolean },
+    { key: 'debug', default_: process.env.NODE_ENV === 'development', cast: toBoolean },
   ]
 
   const search = {}
@@ -221,11 +222,16 @@ const validationMiddleware = (req, res, next) => {
   return next()
 }
 
+function toBoolean(value) {
+  if (value === 'true' || value === '1') return true
+  return false
+}
+
 router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function search(req, res) {
-    const { indexName, query, page, size, debug, sort } = req.search
+    const { indexName, query, autocomplete, page, size, debug, sort } = req.search
 
     // The getSearchResults() function is a mix of preparing the search,
     // sending & receiving it, and post-processing the response from the
@@ -236,7 +242,7 @@ router.get(
     const tags = ['version:v1', `indexName:${indexName}`]
     const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
 
-    const options = { indexName, query, page, size, debug, sort }
+    const options = { indexName, query, page, size, debug, sort, usePrefixSearch: autocomplete }
     try {
       const { meta, hits } = await timed(options)
 

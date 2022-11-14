@@ -83,6 +83,36 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(hit.es_url).toBeTruthy()
   })
 
+  test('search with and without autocomplete on', async () => {
+    // *Without* autocomplete=true
+    {
+      const sp = new URLSearchParams()
+      sp.set('query', 'sill')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(200)
+      const results = JSON.parse(res.text)
+      // Fixtures contains no word called 'sill'. It does contain the term
+      // 'silly' which, in English, becomes 'silli` when stemmed.
+      // Because we don't use `&autocomplete=true` this time, we expect
+      // to find nothing.
+      expect(results.meta.found.value).toBe(0)
+    }
+
+    // *With* autocomplete=true
+    {
+      const sp = new URLSearchParams()
+      sp.set('query', 'sill')
+      sp.set('autocomplete', 'true')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(200)
+      const results = JSON.parse(res.text)
+      expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+      const hit = results.hits[0]
+      const contentHighlights = hit.highlights.content
+      expect(contentHighlights[0]).toMatch('<mark>silly</mark>')
+    }
+  })
+
   test('find nothing', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'xojixjoiwejhfoiuwehjfioweufhj')
