@@ -156,7 +156,7 @@ Follow one of the procedures below to enable {% data variables.product.prodname_
 {%- ifversion actions-ghes-gcp-storage %}
 * [Enabling GitHub Actions with Google Cloud Storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage)
 {%- endif %}
-* [Enabling GitHub Actions with MinIO storage](/admin/github-actions/enabling-github-actions-with-minio-storage)
+* [Enabling GitHub Actions with MinIO storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-storage)
 
 ## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
 
