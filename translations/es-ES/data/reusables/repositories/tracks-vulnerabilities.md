@@ -1,12 +1,20 @@
-We add advisories to the {% data variables.product.prodname_advisory_database %} from the following sources:
-- Security advisories reported on {% data variables.product.prodname_dotcom %}
-- The [National Vulnerability database](https://nvd.nist.gov/)
-- The [npm Security advisories database](https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm)
-- The [FriendsOfPHP database](https://github.com/FriendsOfPHP/security-advisories) 
-- The [Go Vulncheck database](https://pkg.go.dev/golang.org/x/vuln/vulncheck) 
-- The [Python Packaging Advisory database](https://github.com/pypa/advisory-database) 
-- The [Ruby Advisory database](https://rubysec.com/)
-- The [RustSec Advisory database](https://rustsec.org/)
-- Community contributions. For more information, see [https://github.com/github/advisory-database/pulls](https://github.com/github/advisory-database/pulls).
+---
+ms.openlocfilehash: d077bcd717f353297cf908b1261c821a4e759b78
+ms.sourcegitcommit: f0ae3d979782cb532427c0df026d25bfd0d0db80
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2022
+ms.locfileid: "148160464"
+---
+Agregamos asesorías a la {% data variables.product.prodname_advisory_database %} desde los siguientes orígenes:
+- Asesorías de seguridad que se reportan en {% data variables.product.prodname_dotcom %}
+- La [base de datos de vulnerabilidades nacional](https://nvd.nist.gov/)
+- La [base de datos de advertencias de seguridad de npm](https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm)
+- La [base de datos FriendsOfPHP](https://github.com/FriendsOfPHP/security-advisories) 
+- La [base de datos Go Vulncheck](https://pkg.go.dev/golang.org/x/vuln/vulncheck) 
+- La [base de datos de asesoramiento de empaquetado de Python](https://github.com/pypa/advisory-database) 
+- La [base de datos de asesoramiento de Ruby](https://rubysec.com/)
+- La [base de datos de asesoramiento de RustSec](https://rustsec.org/)
+- Aportaciones de la comunidad. Para más información, vea [https://github.com/github/advisory-database/pulls](https://github.com/github/advisory-database/pulls).
 
-If you know of another database we should be importing advisories from, tell us about it by opening an issue in [https://github.com/github/advisory-database](https://github.com/github/advisory-database).
+Si conoce otra base de datos de la que deberíamos importar avisos, háganoslo saber si abre un problema en [https://github.com/github/advisory-database](https://github.com/github/advisory-database).

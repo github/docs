@@ -382,6 +382,7 @@ translations/pt-BR/data/reusables/codespaces/review-pr.md,file deleted because i
 translations/pt-BR/data/reusables/codespaces/unsupported-repos.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/codespaces/vscode-settings-order.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/dependabot/create-dependabot-yml.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/dependency-review/dependency-review-api-beta-note.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/desktop/paste-email-git-config.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/dotcom_billing/codespaces-minutes.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/dotcom_billing/monthly-spending-limit-codespaces.md,file deleted because it no longer exists in main
@@ -572,6 +573,7 @@ translations/pt-BR/content/admin/github-actions/getting-started-with-github-acti
 translations/pt-BR/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions.md,broken liquid tags
 translations/pt-BR/content/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/index.md,broken liquid tags
+translations/pt-BR/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/changing-authentication-methods.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/index.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication.md,rendering error
@@ -747,6 +749,7 @@ translations/pt-BR/content/code-security/supply-chain-security/end-to-end-supply
 translations/pt-BR/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
+translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,broken liquid tags
 translations/pt-BR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/disaster-recovery-for-github-codespaces.md,broken liquid tags
 translations/pt-BR/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
@@ -877,6 +880,8 @@ translations/pt-BR/content/get-started/quickstart/create-a-repo.md,broken liquid
 translations/pt-BR/content/get-started/quickstart/fork-a-repo.md,rendering error
 translations/pt-BR/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
 translations/pt-BR/content/get-started/quickstart/github-glossary.md,rendering error
+translations/pt-BR/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md,broken liquid tags
+translations/pt-BR/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server.md,broken liquid tags
 translations/pt-BR/content/get-started/signing-up-for-github/verifying-your-email-address.md,rendering error
 translations/pt-BR/content/get-started/using-git/about-git-rebase.md,broken liquid tags
 translations/pt-BR/content/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository.md,broken liquid tags
@@ -906,6 +911,7 @@ translations/pt-BR/content/issues/organizing-your-work-with-project-boards/manag
 translations/pt-BR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
 translations/pt-BR/content/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects.md,broken liquid tags
 translations/pt-BR/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
+translations/pt-BR/content/organizations/collaborating-with-groups-in-organizations/about-organizations.md,broken liquid tags
 translations/pt-BR/content/organizations/collaborating-with-groups-in-organizations/about-your-organizations-news-feed.md,broken liquid tags
 translations/pt-BR/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on.md,broken liquid tags
 translations/pt-BR/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization.md,broken liquid tags
@@ -984,6 +990,7 @@ translations/pt-BR/content/repositories/creating-and-managing-repositories/creat
 translations/pt-BR/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,rendering error
 translations/pt-BR/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,rendering error
 translations/pt-BR/content/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors.md,broken liquid tags
+translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,rendering error
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository.md,rendering error
@@ -1002,6 +1009,7 @@ translations/pt-BR/content/rest/activity/notifications.md,broken liquid tags
 translations/pt-BR/content/rest/apps/oauth-applications.md,broken liquid tags
 translations/pt-BR/content/rest/codespaces/codespaces.md,broken liquid tags
 translations/pt-BR/content/rest/dependabot/index.md,broken liquid tags
+translations/pt-BR/content/rest/dependency-graph/dependency-review.md,broken liquid tags
 translations/pt-BR/content/rest/enterprise-admin/admin-stats.md,broken liquid tags
 translations/pt-BR/content/rest/enterprise-admin/announcement.md,broken liquid tags
 translations/pt-BR/content/rest/enterprise-admin/billing.md,broken liquid tags
