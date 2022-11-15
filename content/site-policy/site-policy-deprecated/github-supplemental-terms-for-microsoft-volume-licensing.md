@@ -10,7 +10,7 @@ versions:
   fpt: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 
 The following GitHub Supplemental Terms (including any applicable Order Forms) supplement Customer's Microsoft volume licensing agreement ("**Microsoft Customer Agreement**") and, together with the Microsoft Customer Agreement, govern Customer's use of the Products (as defined below). The Microsoft Customer Agreement is incorporated herein by this reference.  Capitalized terms used but not defined in these supplemental terms have the meanings assigned to them in the Microsoft Customer Agreement.
 

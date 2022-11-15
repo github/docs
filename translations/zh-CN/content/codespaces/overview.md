@@ -1,7 +1,7 @@
 ---
-title: GitHub Codespaces overview
+title: GitHub Codespaces 概述
 shortTitle: Overview
-intro: 'This guide introduces {% data variables.product.prodname_github_codespaces %} and provides details on how it works and how to use it.'
+intro: '本指南介绍了 {% data variables.product.prodname_github_codespaces %}，并详细介绍了它的工作原理和使用方法。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/about-codespaces
@@ -15,52 +15,57 @@ versions:
 type: overview
 topics:
   - Codespaces
+ms.openlocfilehash: a1618c86671bc5b06474c41803c6b34576a897aa
+ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160798'
 ---
+## 什么是代码空间？
 
-## What is a codespace?
+代码空间是托管在云中的开发环境。 可通过将[配置文件](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)提交到存储库（通常称为“配置即代码”）来为 {% data variables.product.prodname_github_codespaces %} 自定义项目，这将为项目的所有用户创建可重复的 codespace 配置。
 
-A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_github_codespaces %} by committing [configuration files](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
+每个 codespace 都在由 {% data variables.product.prodname_dotcom %} 托管的虚拟机上运行。 可以根据需要的资源选择要使用的计算机类型。 有各种类型的计算机可供选择，从 2 核处理器、4 GB RAM 和 32 GB 存储开始。 
 
-Each codespace runs on a virtual machine hosted by {% data variables.product.prodname_dotcom %}. You can choose the type of machine you want to use, depending on the resources you need. Various types of machine are available, starting with a 2-core processor, 4 GB of RAM, and 32 GB of storage. 
+可以从浏览器、{% data variables.product.prodname_vscode %}、JetBrains Gateway 应用程序或使用 {% data variables.product.prodname_cli %} 连接到 codespaces。
 
-You can connect to your codespaces from your browser, from {% data variables.product.prodname_vscode %}, from the JetBrains Gateway application, or by using {% data variables.product.prodname_cli %}.
+![显示 {% data variables.product.prodname_github_codespaces %} 工作原理的示意图](/assets/images/help/codespaces/codespaces-diagram.png)
 
-![A diagram showing how {% data variables.product.prodname_github_codespaces %} works](/assets/images/help/codespaces/codespaces-diagram.png)
+## 使用 {% data variables.product.prodname_github_codespaces %}
 
-## Using {% data variables.product.prodname_github_codespaces %}
-
-To begin developing using cloud-based compute resources, you can create a codespace from a template or from any branch or commit in a repository. When you create a codespace from a template, you can start from a blank template or choose a template suitable for the work you're doing.
+要开始使用基于云的计算资源进行开发，可以通过模板或存储库中的任何分支或提交创建 codespace。 通过模板创建 codespace 时，可以从空白模板开始，也可以选择适合你正在做的工作的模板。
 
 {% data reusables.codespaces.links-to-get-started %}
 
-### Using codespaces owned by your personal account
+### 使用个人帐户拥有的 codespaces
 
-All personal {% data variables.product.prodname_dotcom_the_website %} accounts have a monthly quota of free use of {% data variables.product.prodname_github_codespaces %} included in the Free or Pro plan. You can get started using {% data variables.product.prodname_github_codespaces %} on your personal account without changing any settings or providing payment details.
+所有个人 {% data variables.product.prodname_dotcom_the_website %} 帐户都有免费或专业版计划中包含的 {% data variables.product.prodname_github_codespaces %} 的每月免费使用配额。 无需更改任何设置或提供付款详细信息，即可在个人帐户上开始使用 {% data variables.product.prodname_github_codespaces %}。
 
-You can create and use a codespace for any repository you can clone. You can also use a template to create codespaces that are not initially associated with a repository. If you create a codespace from an organization-owned repository, use of the codespace will either be charged to the organization (if the organization is configured for this), or to your personal account. Codespaces created from templates are always charged to your personal account. 
+可为可以克隆的任何存储库创建和使用 codespace。 还可以使用模板来创建最初不与存储库关联的 codespaces。 如果通过组织拥有的存储库创建 codespace，则 codespace 的使用按照组织（如果组织对此进行了配置）或个人帐户进行计费。 通过模板创建的 codespaces 始终按照个人帐户进行计费。 
 
 {% data reusables.codespaces.codespaces-continue-by-paying %} 
 
-### Using organization-owned codespaces
+### 使用组织拥有的 codespaces
 
-Organization owners can enable use of {% data variables.product.prodname_github_codespaces %}, billable to the organization or enterprise account. This applies to codespaces created from repositories owned by the organization. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." You can set a spending limit for use of {% data variables.product.prodname_github_codespaces %} on your organization or enterprise account. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+组织所有者可以启用 {% data variables.product.prodname_github_codespaces %}，后者可按照组织或企业帐户计费。 这适用于通过组织拥有的存储库创建的 codespaces。 有关详细信息，请参阅“[为组织启用 {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)”。 可以对组织或企业帐户上的 {% data variables.product.prodname_github_codespaces %} 使用设置支出限制。 有关详细信息，请参阅“[管理 {% data variables.product.prodname_github_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)”。
 
-If use of a codespace will be billed to an organization or enterprise, this is shown when the codespace is created. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)." Codespaces that are billed to an organization, or its parent enterprise, are owned by the organization and can be deleted an organization owner. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)." 
+如果按照组织或企业对 codespace 的使用进行计费，则会在创建 codespace 时显示。 有关详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。 按照组织或其父企业计费的 codespaces 归组织所有，且可被组织所有者删除。 有关详细信息，请参阅“[删除 codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)”。 
 
-### Customizing {% data variables.product.prodname_github_codespaces %}
+### 自定义 {% data variables.product.prodname_github_codespaces %}
 
-To customize the runtimes and tools in your codespace, you can create one or more dev container configurations for your repository. Adding dev container configurations to your repository allows you to define a choice of different development environments that are appropriate for the work people will do in your repository. 
+若要自定义 codespace 中的运行时和工具，可以为存储库创建一个或多个开发容器配置。 将开发容器配置添加到存储库后，可以定义适合用户将在存储库中执行的工作的不同开发环境选择。 
 
-If you create a codespace from a repository without any dev container configurations, {% data variables.product.prodname_github_codespaces %} will clone your repository into an environment with the default codespace image that includes many tools, languages, and runtime environments. If you create a codespace from a template, you might start with some initial configuration on top of the default image. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+如果通过没有任何开发容器配置的存储库创建 codespace，{% data variables.product.prodname_github_codespaces %} 会将存储库克隆到具有默认 codespace 映像的环境中，该映像包含许多工具、语言和运行时环境。 如果通过模板创建 codespace，则可以从默认映像之上的一些初始配置开始。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。
 
-You can personalize aspects of your codespace environment by using a public [dotfiles](https://dotfiles.github.io/tutorials/) repository. You can use dotfiles to set shell aliases and preferences, or to install your personal preference of the tools you like to use. If you use {% data variables.product.prodname_github_codespaces %} in the browser, or in {% data variables.product.prodname_vscode %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to give your codespace editor the same settings, keyboard shortcuts, snippets, and extensions that you have set up in your local installation of {% data variables.product.prodname_vscode %}. 
+可使用公共[点文件](https://dotfiles.github.io/tutorials/)存储库对 codespace 环境的各个方面进行个性化设置。 可使用点文件设置 shell 别名和首选项，也可安装喜欢使用的工具的个人首选项。 如果在浏览器或 {% data variables.product.prodname_vscode %} 中使用 {% data variables.product.prodname_github_codespaces %}，则可以使用[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)为 codespace 编辑器提供在本地安装 {% data variables.product.prodname_vscode %} 中设置的相同设置、键盘快捷方式、片段和扩展。 
 
-For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)".
+有关详细信息，请参阅“[自定义代码空间](/codespaces/customizing-your-codespace)”。
 
-## Billing for {% data variables.product.prodname_codespaces %}
+## {% data variables.product.prodname_codespaces %} 的计费
 
-For information on pricing, storage, and usage for {% data variables.product.prodname_github_codespaces %}, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+有关 {% data variables.product.prodname_github_codespaces %} 的定价、存储和使用情况的信息，请参阅“[有关 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
-{% data reusables.codespaces.codespaces-monthly-billing %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an organization, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
+{% data reusables.codespaces.codespaces-monthly-billing %} 有关组织所有者和计费管理员如何管理组织的 {% data variables.product.prodname_github_codespaces %} 的支出限制的信息，请参阅“[管理 {% data variables.product.prodname_github_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)”。
