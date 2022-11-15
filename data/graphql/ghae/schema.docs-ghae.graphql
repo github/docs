@@ -33480,6 +33480,9 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   Whether a squash merge commit can use the pull request title as default.
   """
   squashPrTitleUsedAsDefault: Boolean!
+    @deprecated(
+      reason: "`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle` instead. Removal on 2023-04-01 UTC."
+    )
 
   """
   The SSH URL to clone this repository

@@ -144,7 +144,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can inter
 
 {% else %}
 
-You can interact with the audit log using the GraphQL API{% ifversion fpt or ghec %} or the REST API{% endif %}.
+You can interact with the audit log using the GraphQL API{% ifversion fpt or ghec %} or the REST API{% endif %}.{% ifversion read-audit-scope %} You can use the `read:audit_log` scope to access the audit log via the APIs.{% endif %}
 
 {% ifversion ghec %}
 

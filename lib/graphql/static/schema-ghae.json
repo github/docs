@@ -47438,7 +47438,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "sshUrl",
