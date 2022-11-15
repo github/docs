@@ -49,19 +49,24 @@ For more information on workflow run artifacts, see "[Persisting workflow data u
 
 ## Restrictions for accessing a cache
 
-A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `main`). For example, a cache created on the default branch would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`main`), `feature-a`, and `feature-b`.
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. 
+Workflow runs can restore caches created in either the current branch or the default branch (usually `main`). If a workflow run is triggered for a pull request, it can also restore caches created in the base branch, including base branches of forked repositories. For example, if the branch `feature-b` has the base branch `feature-a`, a workflow run triggered on a pull request would have access to caches created in the default `main` branch, the base `feature-a` branch, and the current `feature-b` branch.
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-c` (with the base `main`). On similar lines, a cache created for the tag `release-a` (from the base `main`) would not be accessible to a workflow triggered for the tag `release-b` (with the base `main`).
+Workflow runs cannot restore caches created for child branches or sibling branches. For example, a cache created for the child `feature-b` branch would not be accessible to a workflow run triggered on the parent `main` branch. Similarly, a cache created for the `feature-a` branch with the base `main` would not be accessible to its sibling `feature-c` branch with the base `main`. Workflow runs also cannot restore caches created for different tag names. For example, a cache created for the tag `release-a` with the base `main` would not be accessible to a workflow run triggered for the tag `release-b` with the base `main`.
 
-Multiple workflows within a repository share cache entries. A cache created for a branch within a workflow can be accessed and restored from another workflow for the same repository and branch.
+When a cache is created by a workflow run triggered on a pull request, the cache is created for the merge ref (`refs/pull/.../merge`). Because of this, the cache will have a limited scope and can only be restored by re-runs of the pull request. It cannot be restored by the base branch or other pull requests targeting that base branch.
+
+Multiple workflow runs in a repository can share caches. A cache created for a branch in a workflow run can be accessed and restored from another workflow run for the same repository and branch.
 
 ## Using the `cache` action
 
-The [`cache` action](https://github.com/actions/cache) will attempt to restore a cache based on the `key` you provide. When the action finds a cache, the action restores the cached files to the `path` you configure.
+The [`cache` action](https://github.com/actions/cache) will attempt to restore a cache based on the `key` you provide. When the action finds a cache that _exactly_ matches the key, the action restores the cached files to the `path` you configure.
+You can optionally provide a list of `restore-keys` to use in case the `key` doesn't match an existing cache. A list of `restore-keys` is useful when you are restoring a cache from another branch because `restore-keys` can _partially_ match cache keys. For more information about matching `restore-keys`, see "[Matching a cache key](#matching-a-cache-key)."
 
-If there is no exact match, the action automatically creates a new cache if the job completes successfully. The new cache will use the `key` you provided and contains the files you specify in `path`.
+If there is an exact match to the provided `key`, this is considered a cache hit. If no cache exactly matches the provided `key`, this is considered a cache miss. On a cache miss, the action automatically creates a new cache if the job completes successfully. The new cache will use the `key` you provided and contains the files you specify in `path`. For more information about how this is handled, see "[Cache hits and misses](#cache-hits-and-misses)."
 
-You can optionally provide a list of `restore-keys` to use when the `key` doesn't match an existing cache. A list of `restore-keys` is useful when you are restoring a cache from another branch because `restore-keys` can partially match cache keys. For more information about matching `restore-keys`, see "[Matching a cache key](#matching-a-cache-key)."
+You cannot change the contents of an existing cache. Instead, you can create a new cache with a new key.
+
 
 ### Input parameters for the `cache` action
 
@@ -93,6 +98,21 @@ You can optionally provide a list of `restore-keys` to use when the `key` doesn'
 ### Output parameters for the `cache` action
 
 - `cache-hit`: A boolean value to indicate an exact match was found for the key.
+
+### Cache hits and misses
+When `key` exactly matches an existing cache, it's called a _cache hit_, and the action restores the cached files to the `path` directory.
+
+When `key` doesn't match an existing cache, it's called a _cache miss_, and a new cache is automatically created if the job completes successfully.
+
+When a cache miss occurs, the action also searches your specified `restore-keys` for any matches:
+
+1. If you provide `restore-keys`, the `cache` action sequentially searches for any caches that match the list of `restore-keys`.
+   - When there is an exact match, the action restores the files in the cache to the `path` directory.
+   - If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
+1. The `cache` action completes and the next step in the job runs.
+1. If the job completes successfully, the action automatically creates a new cache with the contents of the `path` directory.
+
+For a more detailed explanation of the cache matching process, see "[Matching a cache key](#matching-a-cache-key)."
 
 ### Example using the `cache` action
 
@@ -136,20 +156,6 @@ jobs:
         run: npm test
 ```
 
-When `key` matches an existing cache, it's called a _cache hit_, and the action restores the cached files to the `path` directory.
-
-When `key` doesn't match an existing cache, it's called a _cache miss_, and a new cache is automatically created if the job completes successfully.
-
-When a cache miss occurs, the action also searches your specified `restore-keys` for any matches:
-
-1. If you provide `restore-keys`, the `cache` action sequentially searches for any caches that match the list of `restore-keys`.
-   - When there is an exact match, the action restores the files in the cache to the `path` directory.
-   - If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
-1. The `cache` action completes and the next step in the job runs.
-1. If the job completes successfully, the action automatically creates a new cache with the contents of the `path` directory.
-
-For a more detailed explanation of the cache matching process, see "[Matching a cache key](#matching-a-cache-key)." Once you create a cache, you cannot change the contents of an existing cache but you can create a new cache with a new key.
-
 ### Using contexts to create cache keys
 
 A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Contexts](/actions/learn-github-actions/contexts)" and "[Expressions](/actions/learn-github-actions/expressions)."
@@ -185,7 +191,9 @@ In the example workflow above, there is a step that lists the state of the Node 
 
 ## Matching a cache key
 
-The `cache` action first searches for cache hits for `key` and `restore-keys` in the branch containing the workflow run. If there are no hits in the current branch, the `cache` action searches for `key` and `restore-keys` in the parent branch and upstream branches.
+The `cache` action first searches for cache hits for `key` and the cache _version_ in the branch containing the workflow run. If there is no hit, it searches for `restore-keys` and the _version_. If there are still no hits in the current branch, the `cache` action retries same steps on the default branch. Please note that the scope restrictions apply during the search. For more information, see "[Restrictions for accessing a cache](#restrictions-for-accessing-a-cache)."
+
+Cache version is a way to stamp a cache with metadata of the `path` and the compression tool used while creating the cache. This ensures that the consuming workflow run uniquely matches a cache it can actually decompress and use. For more information, see [Cache Version](https://github.com/actions/cache#cache-version) in the Actions Cache documentation.
 
 `restore-keys` allows you to specify a list of alternate restore keys to use when there is a cache miss on `key`. You can create multiple restore keys ordered from the most specific to least specific. The `cache` action searches the `restore-keys` in sequential order. When a key doesn't match directly, the action searches for keys prefixed with the restore key. If there are multiple partial matches for a restore key, the action returns the most recently created cache.
 
