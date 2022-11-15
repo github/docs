@@ -1,10 +1,7 @@
----
-ms.openlocfilehash: 3def1c7efad50b8bfda097251abf28dd4a5f46df
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145084881"
----
-1. 在“复刻拉取请求工作流”下，选择选项。 例如：![启用、禁用或限制此存储库的操作](/assets/images/help/settings/actions-fork-pull-request-workflows.png)
-1. 单击“保存”以应用设置。
+1. Under **Fork pull request workflows**, select your options. For example:
+  {% ifversion actions-private-fork-workflow-approvals %}
+   ![Enable, disable, or limits actions for this repository](/assets/images/help/settings/actions-fork-pull-request-workflows-require-approval.png){% else %}
+
+   ![Enable, disable, or limits actions for this repository](/assets/images/help/settings/actions-fork-pull-request-workflows.png){% endif %}
+
+1. Click **Save** to apply the settings.
