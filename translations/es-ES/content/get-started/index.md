@@ -23,7 +23,7 @@ versions:
   ghec: '*'
 layout: product-landing
 introLinks:
-  quickstart: /github/getting-started-with-github/quickstart
+  quickstart: /get-started/quickstart
 featuredLinks:
   guides:
     - /github/getting-started-with-github/githubs-products
