@@ -26,11 +26,11 @@ children:
   - /deleting-a-repository
   - /restoring-a-deleted-repository
 shortTitle: Create & manage repositories
-ms.openlocfilehash: ec9aa9879765356ab7a1ba0f74017f55b18425a6
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 06a0bfa43ca81b6b1feb2e796cacac051fb11749
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145129369'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163553'
 ---
 

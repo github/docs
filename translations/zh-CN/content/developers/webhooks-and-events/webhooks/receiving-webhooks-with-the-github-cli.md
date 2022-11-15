@@ -6,12 +6,12 @@ versions:
 topics:
   - Webhooks
 shortTitle: Receiving webhooks with the GitHub CLI
-ms.openlocfilehash: 2772a9d4208d0afe77871255ad6510b7f39de8d5
-ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
+ms.openlocfilehash: 11bc5b476a191a61594cb73f1e6ce1be5bb6cf9b
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2022
-ms.locfileid: '148132961'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160662'
 ---
 ## 关于使用 {% data variables.product.prodname_cli %} 接收 Webhook
 

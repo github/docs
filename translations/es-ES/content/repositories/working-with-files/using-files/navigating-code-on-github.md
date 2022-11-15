@@ -32,6 +32,7 @@ Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sit
 | PHP        | ✅                           |                         |
 | Python     | ✅                           | ✅                      |
 | Ruby       | ✅                           |                         |
+| Rust       | ✅                           |                         |
 | TypeScript | ✅                           |                         |
 
 

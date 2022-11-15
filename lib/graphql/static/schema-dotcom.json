@@ -58189,7 +58189,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "sshUrl",
@@ -61708,6 +61710,14 @@
           "href": "/graphql/reference/objects#sponsorsgoal"
         },
         {
+          "name": "billingCountryOrRegion",
+          "description": "<p>The name of the country or region with the maintainer's bank account or fiscal\nhost. Will only return a value when queried by the maintainer themselves, or\nby an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -61770,6 +61780,14 @@
           "id": "date",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "residenceCountryOrRegion",
+          "description": "<p>The name of the country or region where the maintainer resides. Will only\nreturn a value when queried by the maintainer themselves, or by an admin of\nthe sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "resourcePath",
@@ -84739,6 +84757,15 @@
         {
           "name": "repositoryId",
           "description": "<p>The repository to link the project to.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The team to link the project to. The team will be granted read permissions.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
