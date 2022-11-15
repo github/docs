@@ -76,6 +76,7 @@ childGroups:
     children:
       - code-security
       - code-security/supply-chain-security
+      - code-security/security-advisories
       - code-security/dependabot
       - code-security/code-scanning
       - code-security/secret-scanning
@@ -128,11 +129,11 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
-ms.openlocfilehash: 09ad193360503125adce9c659a465cfae32dd54e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c76f5cd822d9b7bed7129626283552892366b57a
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107627'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158867'
 ---
 

@@ -13,16 +13,16 @@ topics:
   - API
 ---
 
-<div class="jumbotron libraries-jumbotron">
-  <img src="/assets/images/gundamcat.png" class="gundamcat" alt="The Gundamcat" />
-  <h2>Octokit comes in many flavors</h2>
-  <p class="lead">Use the official Octokit library, or choose between any of the available third party libraries.</p>
-  <div class="octokit-links"><br/>
-     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
-     <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
-  </div>
-</div>
+![The Gundamcat](/assets/images/gundamcat.png)
+
+## Octokit comes in many flavors
+
+Use the official Octokit library, or choose between any of the available third party libraries.
+
+- **Python** → [octokit.py](https://github.com/khornberg/octokit.py)
+- **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
+- **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
+- **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
 
 ## Third-party libraries
 
@@ -125,6 +125,7 @@ topics:
 |**octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)|
 |**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
+|**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
 
 ### Ruby
 

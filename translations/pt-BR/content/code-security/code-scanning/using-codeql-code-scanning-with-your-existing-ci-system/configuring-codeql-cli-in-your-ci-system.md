@@ -57,7 +57,7 @@ You can display the command-line help for any command using the <nobr>`--help`</
 4. Run `codeql database create` from the checkout root of your repository and build the codebase.
 
   ```shell
-  # Single supported language - create one CodeQL databsae
+  # Single supported language - create one CodeQL database
   codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt;
 
   # Multiple supported languages - create one CodeQL database per language

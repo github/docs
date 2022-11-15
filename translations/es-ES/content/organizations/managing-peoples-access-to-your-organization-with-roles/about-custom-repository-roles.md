@@ -7,12 +7,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: About custom roles
-ms.openlocfilehash: 48c6fe2ee78d2d28d11093d0b50a472c46266959
-ms.sourcegitcommit: ca040a1871ab5e929b596686ef955b02c5afa051
+ms.openlocfilehash: c4e7f791b9402b45160b31aab2653bf80150ddee
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2022
-ms.locfileid: '148131028'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160692'
 ---
 {% data reusables.organizations.custom-repo-roles-ghec-only %}
 
@@ -68,60 +68,60 @@ Solo puedes elegir un permiso adicional si no se ha incluido ya en el rol hereda
 {% ifversion discussions %}
 ### Debates
 
-- **Crear una categoría de discusión**: capacidad para crear una nueva categoría de discusión. Para obtener más información, consulta "[Crear una nueva categoría de discusión](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".
-- **Editar una categoría de discusión**: capacidad para editar una categoría de discusión. Para obtener más información, consulta «[Editar una categoría de discusión](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)».
-- **Eliminar una categoría de discusión**: capacidad para eliminar una categoría de discusión. Para obtener más información, consulta «[Eliminar una categoría de discusión](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)».
-- **Marcar o desmarcar respuestas de discusión**: capacidad de marcar respuestas a una discusión si la categoría de la discusión acepta respuestas. Para obtener más información, consulta "[Marcar o desmarcar comentarios en una discusión como la respuesta](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)".
-- **Ocultar o mostrar comentarios de discusión**: capacidad de ocultar y mostrar comentarios en una discusión.  Para más información, vea "[Moderación de debates](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)".
-- **Convertir problemas en discusiones**: capacidad para convertir un problema en una discusión.  Para obtener más información, consulta «[Conversión de problemas en discusiones](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)».
+- Crear una categoría de debate
+- Editar una categoría de debate
+- Eliminar una categoría de debate 
+- Marcar o desmarcar respuestas de debate 
+- Ocultar o mostrar comentarios de debate 
+- Convertir incidencias en debates 
+
+Para más información, vea "[{% data variables.product.prodname_discussions %}](/discussions)".
 {% endif %}
 
 ### Propuestas y solicitudes de cambios
 
-- **Asignar o eliminar a un usuario**: asigna un usuario a una solicitud o solicitud de incorporación de cambios, o lo elimina de ellas.
-- **Agregar o eliminar etiqueta**: agrega una etiqueta a una incidencia o solicitud de incorporación de cambios, o la elimina de ellas.
+- Asignar o quitar un usuario 
+- Adición o eliminación de etiquetas 
 
 ### Problema
 
-- **Cerrar una incidencia**
-- **Volver a abrir una incidencia que se había cerrado**
-- **Eliminar una incidencia**
-- **Marcar una incidencia como duplicada**
+- Cerrar una incidencia
+- Volver a abrir una incidencia que se había cerrado
+- Eliminar una incidencia
+- Marcar una incidencia como duplicada
 
 ### Solicitud de incorporación de cambios
 
-- **Cerrar una solicitud de incorporación de cambios**
-- **Volver a abrir una solicitud de incorporación de cambios**
-- **Solicitar una revisión de solicitud de incorporación de cambios**: solicite una revisión de un usuario o equipo.
+- Cerrar una solicitud de incorporación de cambios
+- Volver a abrir una solicitud de incorporación de cambios
+- Solicitar una revisión de solicitud de extracción
 
 ### Repositorio
 
-- **Establecer hitos**: agregue hitos a una incidencia o solicitud de incorporación de cambios.
-- **Administrar la configuración de wiki**: active wikis para un repositorio.
-- **Administrar la configuración del proyecto**: activar proyectos para un repositorio.
-- **Administrar la configuración de combinación de solicitudes de incorporación de cambios**: elija el tipo de confirmaciones de combinación que se permiten en su repositorio, tales como la fusión mediante combinación, fusión mediante combinación con "squash" o fusión mediante combinación de base.
-- **Administrar la configuración de {% data variables.product.prodname_pages %}** : habilite {% data variables.product.prodname_pages %} para el repositorio y seleccione la rama que quiera publicar. Para más información, vea "[Configuración de un origen de publicación para el sitio de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
-- **Administrar webhooks**: agregue webhooks al repositorio.
-- **Administrar claves de implementación**: agregue claves de implementación al repositorio.
-- **Editar metadatos del repositorio**: actualice la descripción del repositorio, así como sus temas.
-{%- ifversion ghec %}
-- **Establecer límites de interacción**: restrinja temporalmente a usuarios determinados para que no puedan comentar, abrir incidencias o crear solicitudes de incorporación de cambios en el repositorio público y oblíguelos a pasar un periodo de tiempo con actividad limitada. Para más información, vea "[Limitación de las interacciones en el repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
-{%- endif %}
-- **Establecer la vista previa social**: agregue una imagen de identificación a su repositorio que aparezca en las plataformas de redes sociales cuando se vincule a este. Para obtener más información, vea "[Personalización de la versión preliminar de redes sociales del repositorio](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)".
-- **Insertar confirmaciones en ramas protegidas**: inserte en una rama marcada como rama protegida. Las reglas de protección de rama se seguirán aplicando y podrían dar lugar a que se rechace una inserción.
-- **Crear etiquetas protegidas**: cree etiquetas que coincidan con una regla de protección de etiquetas. Para obtener más información, vea "[Configuración de reglas de protección de etiquetas](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)".
-- **Eliminar etiquetas protegidas**: elimine etiquetas que coincidan con una regla de protección de etiquetas. Para obtener más información, consulta "[Configuración de reglas de protección de etiquetas](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)". {% ifversion bypass-branch-protections %}
-- **Omitir protecciones de rama**: realizar la inserción en una rama protegida sin necesidad de cumplir con las reglas de protección de rama. {% endif %}
+- Establecer hitos
+- Administrar la configuración de la wiki 
+- Administrar la configuración del proyecto
+- Administrar la configuración de combinación de solicitudes de incorporación de cambios 
+- Administrar la configuración de {% data variables.product.prodname_pages %} (consulte "[Configuración de un origen de publicación para el sitio de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
+- Administrar webhooks 
+- Administrar las claves de implementación 
+- Editar metadatos del repositorio {%- ifversion ghec %}
+- Establecer límites de interacción {%- endif %}
+- Establecer la versión preliminar social 
+- Confirmaciones de inserción en ramas protegidas (se seguirán aplicando reglas de protección de ramas)
+- Crear etiquetas protegidas
+- Eliminar etiquetas protegidas {%- ifversion bypass-branch-protections %}
+- Omitir protecciones de rama {%- endif %}
 
 ### Seguridad
 
-- **Ver los resultados de {% data variables.product.prodname_code_scanning %}** : capacidad para ver las alertas de {% data variables.product.prodname_code_scanning %}.
-- **Descartar o volver a abrir los resultados de {% data variables.product.prodname_code_scanning %}** : capacidad para descartar o volver a abrir las alertas de {% data variables.product.prodname_code_scanning %}.
-- **Eliminar los resultados de {% data variables.product.prodname_code_scanning %}** : capacidad para eliminar las alertas de {% data variables.product.prodname_code_scanning %}.
-- **Ver {% data variables.product.prodname_dependabot_alerts %}** : capacidad para ver {% data variables.product.prodname_dependabot_alerts %}.
-- **Descartar o volver a abrir {% data variables.product.prodname_dependabot_alerts %}** : capacidad para descartar o volver a abrir {% data variables.product.prodname_dependabot_alerts %}.
-- **Ver los resultados de {% data variables.product.prodname_secret_scanning %}** : capacidad para ver las alertas de {% data variables.product.prodname_secret_scanning %}.
-- **Descartar o volver a abrir los resultados de {% data variables.product.prodname_secret_scanning %}** : capacidad para descartar o volver a abrir las alertas de {% data variables.product.prodname_secret_scanning %}.
+- Ver {% data variables.product.prodname_code_scanning %} results 
+- Descartar o volver a abrir los resultados de {% data variables.product.prodname_code_scanning %}
+- Eliminar {% data variables.product.prodname_code_scanning %} results 
+- Ver {% data variables.product.prodname_dependabot_alerts %} 
+- Descartar o volver a abrir {% data variables.product.prodname_dependabot_alerts %} 
+- Ver los resultados de {% data variables.product.prodname_secret_scanning %} 
+- Descartar o volver a abrir los resultados de {% data variables.product.prodname_secret_scanning %} 
 
 ## Precedencia de los distintos niveles de acceso
 

@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Codespaces in Visual Studio Code
+shortTitle: Visual Studio Code
 intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your account on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
@@ -15,9 +15,7 @@ topics:
   - Codespaces
   - Visual Studio Code
   - Developer
-shortTitle: Visual Studio Code
 ---
-
  
 ## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}
 
@@ -37,9 +35,9 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 {% mac %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Click **Sign in to view {% data variables.product.prodname_dotcom %}...**.
+1. Click **Sign in to {% data variables.product.prodname_dotcom %}...**.
 
-   ![Signing in to view {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode-mac.png)
+   ![Signing in to {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode-mac.png)
 
 2. To authorize {% data variables.product.prodname_vscode_shortname %} to access your account on {% data variables.product.product_name %}, click **Allow**.
 3. Sign in to {% data variables.product.product_name %} to approve the extension.
@@ -53,7 +51,7 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 
    ![The {% data variables.product.prodname_github_codespaces %} header](/assets/images/help/codespaces/codespaces-header-vscode.png)
 
-1. Click **Sign in to view {% data variables.product.prodname_codespaces %}...**.
+1. Click **Sign in to view {% data variables.product.prodname_codespaces %}**.
 
    ![Signing in to view {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
 
@@ -100,4 +98,10 @@ You can use the [Insiders Build of {% data variables.product.prodname_vscode_sho
 2. From the list, select "Switch to Insiders Version".
 
    ![Clicking on "Insiders Build" in {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
+
 3. Once selected, {% data variables.product.prodname_github_codespaces %} will continue to open in Insiders Version.
+
+## Further reading
+
+- "[Using the {% data variables.product.prodname_vscode_command_palette %} in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)"
+- "[Using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces)"

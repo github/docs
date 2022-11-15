@@ -14,15 +14,16 @@ children:
   - /configuring-the-audit-log-for-your-enterprise
   - /displaying-ip-addresses-in-the-audit-log-for-your-enterprise
   - /searching-the-audit-log-for-your-enterprise
+  - /identifying-audit-log-events-performed-by-an-access-token
   - /exporting-audit-log-activity-for-your-enterprise
   - /streaming-the-audit-log-for-your-enterprise
   - /using-the-audit-log-api-for-your-enterprise
   - /audit-log-events-for-your-enterprise
-ms.openlocfilehash: 8724cfa0bb5b5b98e209981cd717ab4a5b17e712
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: c7e0a9231e74b94f80bb4048d9854cdade2f556a
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147424798'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159410'
 ---
 

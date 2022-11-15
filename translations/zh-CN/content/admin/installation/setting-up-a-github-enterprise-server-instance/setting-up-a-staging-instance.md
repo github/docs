@@ -1,6 +1,6 @@
 ---
-title: Setting up a staging instance
-intro: 'You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
+title: 设置暂存实例
+intro: '可在单独的隔离环境中设置 {% data variables.product.product_name %} 实例，并使用该实例来验证和测试更改。'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
@@ -13,103 +13,107 @@ topics:
   - Upgrades
 shortTitle: Set up a staging instance
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: ce7d9dde9f86ea5159657203e13d9d191b6b7466
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106859'
 ---
+## 关于暂存实例
 
-## About staging instances
+{% data variables.product.company_short %} 建议将单独的环境设置为测试对 {% data variables.location.product_location %} 的配置的备份、更新或更改。 此环境应与生产系统隔离，称为过渡环境。
 
-{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.location.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
-
-For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.product_name %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.product_name %}.
+例如，为了防止数据丢失，可以定期验证生产实例的备份。 可以定期在过渡环境中将生产数据的备份还原到单独的 {% data variables.product.product_name %} 实例。 在此暂存实例上，还可以测试是否升级到 {% data variables.product.product_name %} 的最新功能版。
 
 {% tip %}
 
-**Tip:** You may reuse your existing {% data variables.product.prodname_enterprise %} license file as long as the staging instance is not used in a production capacity.
+提示：只要暂存实例未用于生产容量，便可以重复使用现有 {% data variables.product.prodname_enterprise %} 许可证文件。
 
 {% endtip %}
 
-## Considerations for a staging environment
+## 过渡环境的注意事项
 
-To thoroughly test {% data variables.product.product_name %} and recreate an environment that's as similar to your production environment as possible, consider the external systems that interact with your instance. For example, you may want to test the following in your staging environment.
+若要完全测试 {% data variables.product.product_name %} 并尽可能重新创建与生产环境类似的环境，请考虑与实例交互的外部系统。 例如，你可能想要在过渡环境中测试以下内容。
 
-- Authentication, especially if you use an external authentication provider like SAML
-- Integration with an external ticketing system
-- Integration with a continuous integration server
-- External scripts or software that use the {% data variables.product.prodname_enterprise_api %}
-- External SMTP server for email notifications
+- 身份验证，特别是在使用外部身份验证提供程序（如 SAML）的情况下
+- 与外部事件单记录系统的集成
+- 与持续集成服务器的集成
+- 使用 {% data variables.product.prodname_enterprise_api %} 的外部脚本或软件
+- 用于发送电子邮件通知的外部 SMTP 服务器
 
-## Setting up a staging instance
+## 设置暂存实例
 
-You can set up a staging instance from scratch and configure the instance however you like. For more information, see "[Setting up a {% data variables.product.product_name %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)" and "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+可以从头开始设置暂存实例并根据需要配置实例。 有关详细信息，请参阅“[设置 {% data variables.product.product_name %} 实例](/admin/installation/setting-up-a-github-enterprise-server-instance)”和“[配置企业](/admin/configuration/configuring-your-enterprise)”。
 
-Alternatively, you can create a staging instance that reflects your production configuration by restoring a backup of your production instance to the staging instance.
+也可以创建反映生产配置的暂存实例，方法是将生产实例的备份还原到暂存实例。
 
-1. [Back up your production instance](#1-back-up-your-production-instance).
-2. [Set up a staging instance](#2-set-up-a-staging-instance).
-3. [Configure {% data variables.product.prodname_actions %}](#3-configure-github-actions).
-4. [Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
-5. [Restore your production backup](#5-restore-your-production-backup).
-6. [Review the instance's configuration](#6-review-the-instances-configuration).
-7. [Apply the instance's configuration](#7-apply-the-instances-configuration).
+1. [备份生产实例](#1-back-up-your-production-instance)。
+2. [设置暂存实例](#2-set-up-a-staging-instance)。
+3. [配置 {% data variables.product.prodname_actions %}](#3-configure-github-actions)。
+4. [配置 {% data variables.product.prodname_registry %}](#4-configure-github-packages)。
+5. [还原生产备份](#5-restore-your-production-backup)。
+6. [查看实例的配置](#6-review-the-instances-configuration)。
+7. [实例的配置](#7-apply-the-instances-configuration)。
 
-### 1. Back up your production instance
+### 1. 备份生产实例
 
-If you want to test changes on an instance that contains the same data and configuration as your production instance, back up the data and configuration from the production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+如果要在某个实例上测试更改（该实例所包含的数据和配置与生产实例相同），请使用 {% data variables.product.prodname_enterprise_backup_utilities %} 在生产实例中备份数据和配置。 有关详细信息，请参阅“[在设备上配置备份](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)”。
 
 {% warning %}
 
-**Warning**: If you use {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} in production, your backup will include your production configuration for external storage. To avoid potential loss of data by writing to your production storage from your staging instance, you must configure each feature in steps 3 and 4 before you restore your backup.
+警告：如果在生产中使用 {% data variables.product.prodname_actions %} 或 {% data variables.product.prodname_registry %}，备份将包括外部存储的生产配置。 为避免从暂存实例写入生产存储而导致数据丢失，必须在还原备份之前配置步骤 3 和 4 中的每个功能。
 
 {% endwarning %}
 
-### 2. Set up a staging instance
+### 2. 设置暂存实例
 
-Set up a new instance to act as your staging environment. You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)."
+设置新实例作为暂存环境。 配置和安装暂存实例的方法与生产实例所用方法相同。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)”。
 
-If you plan to restore a backup of your production instance, continue to the next step. Alternatively, you can configure the instance manually and skip the following steps.
+如果计划还原生产实例的备份，请继续执行下一步。 也可以手动配置实例，并跳过以下步骤。
 
-### 3. Configure {% data variables.product.prodname_actions %}
+### 3. 配置 {% data variables.product.prodname_actions %}
 
-Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to "[4. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages)."
+（可选）如果在生产实例上使用 {% data variables.product.prodname_actions %}，请在还原生产备份之前在暂存实例上配置该功能。 如果不使用 {% data variables.product.prodname_actions %}，请跳到“[4. 配置 {% data variables.product.prodname_registry %}](#4-configure-github-packages)”。
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see "[Using a staging environment](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)."
+警告：如果在还原生产备份之前未在暂存实例上配置 {% data variables.product.prodname_actions %}，暂存实例将使用生产实例的外部存储，这可能会导致数据丢失。 强烈建议为暂存实例使用不同的外部存储。 有关详细信息，请参阅“[使用过渡环境](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)”。
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
-{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
-{% data reusables.actions.configure-storage-provider %}
-1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
+1. 若要将暂存实例配置为对 {% data variables.product.prodname_actions %} 使用外部存储提供程序，请输入以下命令之一。
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %} {% data reusables.actions.configure-storage-provider %}
+1. 若要准备在暂存实例上启用 {% data variables.product.prodname_actions %}，请输入以下命令。
 
    ```shell{:copy}
    ghe-config app.actions.enabled true
    ```
 
-### 4. Configure {% data variables.product.prodname_registry %}
+### 4. 配置 {% data variables.product.prodname_registry %}
 
-Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to "[5. Restore your production backup](#5-restore-your-production-backup)."
+（可选）如果在生产实例上使用 {% data variables.product.prodname_registry %}，请在还原生产备份之前在暂存实例上配置该功能。 如果不使用 {% data variables.product.prodname_registry %}，请跳到“[5. 还原生产备份](#5-restore-your-production-backup)”。
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
+警告：如果在还原生产备份之前未在暂存实例上配置 {% data variables.product.prodname_registry %}，暂存实例将使用生产实例的外部存储，这可能会导致数据丢失。 强烈建议为暂存实例使用不同的外部存储。
 
 {% endwarning %}
 
-1. Review the backup you will restore to the staging instance.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 or later, the backup includes the configuration for {% data variables.product.prodname_registry %}. Continue to the next step.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 or earlier, configure {% data variables.product.prodname_registry %} on the staging instance. For more information, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+1. 查看将还原到暂存实例的备份。
+   - 如果使用 {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 或更高版本进行备份，备份将包括 {% data variables.product.prodname_registry %} 的配置。 继续执行下一步。
+   - 如果使用 {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 或更早版本进行备份，请在暂存实例上配置 {% data variables.product.prodname_registry %}。 有关详细信息，请参阅“[企业的 {% data variables.product.prodname_registry %} 入门指南](/admin/packages/getting-started-with-github-packages-for-your-enterprise)”。
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
-   - Azure Blob Storage:
+1. 通过输入以下命令配置外部存储连接，将占位符值替换为连接的实际值。
+   - Azure Blob 存储：
 
      ```shell{:copy}
      ghe-config secrets.packages.blob-storage-type "azure"
      ghe-config secrets.packages.azure-container-name "AZURE CONTAINER NAME"
      ghe-config secrets.packages.azure-connection-string "CONNECTION STRING"
      ```
-   - Amazon S3:
+   - Amazon S3：
 
      ```shell{:copy}
      ghe-config secrets.packages.blob-storage-type "s3"
@@ -118,40 +122,40 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
      ghe-config secrets.packages.aws-access-key "S3 ACCESS KEY ID"
      ghe-config secrets.packages.aws-secret-key "S3 ACCESS SECRET"
      ```
-1. To prepare to enable {% data variables.product.prodname_registry %} on the staging instance, enter the following command.
+1. 若准备在暂存实例上启用 {% data variables.product.prodname_registry %}，请输入以下命令。
 
    ```shell{:copy}
    ghe-config app.packages.enabled true
    ```
 
-### 5. Restore your production backup
+### 5. 还原生产备份
 
-Use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
+使用 `ghe-restore` 命令从备份中还原其余数据。 有关详细信息，请参阅“[还原备份](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)”。
 
-If the staging instance is already configured and you want to overwrite settings, certificate, and license data, add the `-c` option to the command. For more information about the option, see [Using the backup and restore commands](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) in the {% data variables.product.prodname_enterprise_backup_utilities %} documentation.
+如果暂存实例已配置并且你想要覆盖设置、证书和许可证数据，请将 `-c` 选项添加到命令中。 有关该选项的详细信息，请参阅 {% data variables.product.prodname_enterprise_backup_utilities %} 文档中的[使用备份和还原命令](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license)。
 
-### 6. Review the instance's configuration
+### 6. 查看实例的配置
 
-To access the staging instance using the same hostname, update your local hosts file to resolve the staging instance's hostname by IP address by editing the `/etc/hosts` file in macOS or Linux, or the `C:\Windows\system32\drivers\etc` file in Windows.
+若要使用相同的主机名访问暂存实例，请通过编辑 macOS 或 Linux 中的 `/etc/hosts` 文件或 Windows 中的 `C:\Windows\system32\drivers\etc` 文件，更新本地 hosts 文件以通过 IP 地址解析暂存实例的主机名。
 
 {% note %}
 
-**Note**: Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.location.product_location %} is not supported. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+注意：暂存实例必须可通过与生产实例相同的主机名进行访问。 不支持更改 {% data variables.location.product_location %} 的主机名。 有关详细信息，请参阅“[配置主机名](/admin/configuration/configuring-network-settings/configuring-a-hostname)”。
 
 {% endnote %}
 
-Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see "[Accessing the  {% data variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+然后，在 {% data variables.enterprise.management_console %} 中查看暂存实例的配置。 有关详细信息，请参阅“[访问 {% data variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)”。
 
 {% warning %}
 
-**Warning**: If you configured {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for the staging instance, to avoid overwriting production data, ensure that the external storage configuration in the {% data variables.enterprise.management_console %} does not match your production instance.
+警告：如果为暂存实例配置了 {% data variables.product.prodname_actions %} 或 {% data variables.product.prodname_registry %}，为避免覆盖生产数据，请确保 {% data variables.enterprise.management_console %} 中的外部存储配置与生产实例不匹配。
 
 {% endwarning %}
 
-### 7. Apply the instance's configuration
+### 7. 应用实例的配置
 
-To apply the configuration from the {% data variables.enterprise.management_console %}, click **Save settings**.
+若要在 {% data variables.enterprise.management_console %} 中应用配置，请单击“保存设置”。
 
-## Further reading
+## 延伸阅读
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+- “[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)”

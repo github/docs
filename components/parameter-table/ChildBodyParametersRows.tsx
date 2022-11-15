@@ -25,11 +25,7 @@ export function ChildBodyParametersRows({
     <tr className={cx(styles.childBodyParametersRows, 'color-bg-subtle border-top-0')}>
       <td colSpan={4} className="has-nested-table">
         <details className="box px-3 ml-1 mb-0">
-          <summary
-            role="button"
-            aria-expanded="false"
-            className="mb-2 keyboard-focus color-fg-muted"
-          >
+          <summary role="button" aria-expanded="false" className="mb-2 keyboard-focus">
             <span id={`${slug}-${parentName}-${parentType}`}>Properties of {parentName}</span>
           </summary>
           <table id={`${parentName}-object`} className="mb-4 mt-2 color-bg-subtle">

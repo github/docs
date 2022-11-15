@@ -1,7 +1,7 @@
 ---
-title: CIシステムでのCodeQLランナーのトラブルシューティング
+title: Troubleshooting CodeQL runner in your CI system
 shortTitle: Troubleshoot CodeQL runner
-intro: '{% data variables.product.prodname_codeql_runner %} で問題が生じている場合、ここに掲載されているヒントを使ってトラブルを解決できます。'
+intro: 'If you''re having problems with the {% data variables.code-scanning.codeql_runner %}, you can troubleshoot by using these tips.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning-in-your-ci-system
@@ -19,53 +19,51 @@ topics:
   - Troubleshooting
   - Integration
   - CI
-ms.openlocfilehash: bd641d59d56a0d0b6ce518d3d2ef41494413b8df
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145116054'
 ---
-{% data reusables.code-scanning.deprecation-codeql-runner %} {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.not-available %}
 
-## `init` コマンドの所要時間が長すぎる
 
-{% data variables.product.prodname_codeql_runner %} は、コードのビルドと解析を行う前に、{% data variables.product.prodname_codeql %} CLI と {% data variables.product.prodname_codeql %} ライブラリを含んでいる {% data variables.product.prodname_codeql %} バンドルへのアクセス権が必要です。
+{% data reusables.code-scanning.deprecation-codeql-runner %}
+{% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.not-available %}
 
-お使いのコンピューターで {% data variables.product.prodname_codeql_runner %} を初めて使用する際、`init` コマンドは {% data variables.product.prodname_codeql %} バンドルをコンピューターにダウンロードします。 ダウンロードには数分かかります。
-{% data variables.product.prodname_codeql %} バンドルは次の実行の前にキャッシュされるので、{% data variables.product.prodname_codeql_runner %} を同じマシンで再度使用する際は、{% data variables.product.prodname_codeql %} バンドルを再ダウンロードすることはありません。
+## The `init` command takes too long
 
-この自動ダウンロードを回避するには、{% data variables.product.prodname_codeql %} バンドルをコンピューターに手動でダウンロードし、`init` コマンドの `--codeql-path` フラグを使用してパスを指定します。
+Before the {% data variables.code-scanning.codeql_runner %} can build and analyze code, it needs access to the {% data variables.product.prodname_codeql %} bundle, which contains the {% data variables.product.prodname_codeql %} CLI and the {% data variables.product.prodname_codeql %} libraries.
 
-## ビルド中にコードが見つからない
+When you use the {% data variables.code-scanning.codeql_runner %} for the first time on your machine, the `init` command downloads the {% data variables.product.prodname_codeql %} bundle to your machine. This download can take a few minutes.
+The {% data variables.product.prodname_codeql %} bundle is cached between runs, so if you use the {% data variables.code-scanning.codeql_runner %} again on the same machine, it won't download the {% data variables.product.prodname_codeql %} bundle again.
 
-{% data variables.product.prodname_codeql_runner %} の `analyze` コマンドがエラー `No source code was seen during the build` で失敗した場合は、{% data variables.product.prodname_codeql %} がコードを監視できなかったことを示します。 このようなエラーが発生する理由として、次のようなものがあります。
+To avoid this automatic download, you can manually download the {% data variables.product.prodname_codeql %} bundle to your machine and specify the path using the `--codeql-path` flag of the `init` command.
 
-1. 自動言語検出により、サポートされている言語が特定されたが、リポジトリにその言語の分析可能なコードがない。 一般的な例としては、言語検出サービスが `.h` ファイルや `.gyp` ファイルなどの特定のプログラミング言語に関連付けられたファイルを見つけたが、対応する実行可能コードがリポジトリに存在しない場合です。 この問題を解決するには、`init` コマンドの `--languages` フラグを使用して、分析する言語を手動で定義できます。 詳細については、「[CI システムでの {% data variables.product.prodname_codeql_runner %} の構成](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system)」を参照してください。
+## No code found during the build
 
-1. `autobuild` コマンドを使用せずにコンパイル済み言語を分析していて、`init` ステップの後にビルド ステップを自分で実行します。 ビルドが機能するには、{% data variables.product.prodname_codeql_runner %} がビルドのプロセスをモニターできるように環境をセットアップする必要があります。 `init` コマンドは、必要な環境変数をエクスポートする方法についての説明を生成するので、それをコピーして `init` コマンドの実行後にスクリプトを実行できます。
-   - macOS および Linux:
+If the `analyze` command for the {% data variables.code-scanning.codeql_runner %} fails with an error `No source code was seen during the build`, this indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code. Several reasons can explain such a failure.
+
+1. Automatic language detection identified a supported language, but there is no analyzable code of that language in the repository. A typical example is when our language detection service finds a file associated with a particular programming language like a `.h`, or `.gyp` file, but no corresponding executable code is present in the repository. To solve the problem, you can manually define the languages you want to analyze by using the `--languages` flag of the `init` command. For more information, see "[Configuring {% data variables.code-scanning.codeql_runner %} in your CI system](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system)."
+
+1. You're analyzing a compiled language without using the `autobuild` command and you run the build steps yourself after the `init` step. For the build to work, you must set up the environment such that the {% data variables.code-scanning.codeql_runner %} can monitor the build process. The `init` command generates instructions for how to export the required environment variables, so you can copy and run the script after you've run the `init` command.
+   - On macOS and Linux:
      ```shell
       $ . codeql-runner/codeql-env.sh
      ```
-   - Windows では、コマンド シェル (`cmd`) またはバッチ ファイル (`.bat`) を使用します。
+   - On Windows, using the Command shell (`cmd`) or a batch file (`.bat`):
      ```shell
      > call codeql-runner\codeql-env.bat
      ```
-   - Windows で、PowerShell を使用する場合:
+   - On Windows, using PowerShell:
      ```shell
      > cat codeql-runner\codeql-env.sh | Invoke-Expression
      ```
 
-   環境変数もファイル `codeql-runner/codeql-env.json` に格納されます。 このファイルには、環境変数キーを値にマッピングする単一の JSON オブジェクトが含まれています。 `init` コマンドで生成されたスクリプトを実行できない場合、JSON 形式のデータを代わりに使用できます。
+   The environment variables are also stored in the file `codeql-runner/codeql-env.json`. This file contains a single JSON object which maps environment variable keys to values. If you can't run the script generated by the `init` command, then you can use the data in JSON format instead.
 
    {% note %}
 
-   **注:** `init` コマンドの `--temp-dir` フラグを使用して一時ファイルのカスタム ディレクトリを指定した場合、`codeql-env` ファイルへのパスが異なる場合があります。
+   **Note:** If you used the `--temp-dir` flag of the `init` command to specify a custom directory for temporary files, the path to the `codeql-env` files might be different.
 
    {% endnote %}
 
-1. `autobuild` コマンドを使用せずに macOS でコンパイル済み言語を分析していて、`init` ステップの後にビルド ステップを自分で実行します。 SIP (システム整合性保護) が有効になっている場合、解析は失敗することがあります。OSX の最近のバージョンでは、SIP はデフォルトで有効になっています。 修正するには、ビルド コマンドの前に `$CODEQL_RUNNER` 環境変数を付ける必要があります。 
-   たとえば、ビルド コマンドが `cmd arg1 arg2` である場合は、`$CODEQL_RUNNER cmd arg1 arg2` を実行する必要があります。
+1. You're analyzing a compiled language on macOS without using the `autobuild` command and you run the build steps yourself after the `init` step. If SIP (System Integrity Protection) is enabled, which is the default on recent versions of OSX, analysis might fail. To fix this, prefix the build command with the `$CODEQL_RUNNER` environment variable. 
+   For example, if your build command is `cmd arg1 arg2`, you should run `$CODEQL_RUNNER cmd arg1 arg2`.
 
-1. コードがコンテナまたは別のマシンでビルドされている。 コンテナ化されたビルドを使用しているか、ビルドを別のマシンに委託している場合は、必ず {% data variables.product.prodname_codeql_runner %} をコンテナまたはビルドタスクを実行するマシンで実行してください。 詳細については、「[Running CodeQL code scanning in a container](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)」(コンテナーでの CodeQL コード スキャンの実行) を参照してください。
+1. The code is built in a container or on a separate machine. If you use a containerized build or if you outsource the build to another machine, make sure to run the {% data variables.code-scanning.codeql_runner %} in the container or on the machine where your build task takes place. For more information, see "[Running CodeQL code scanning in a container](/code-security/secure-coding/running-codeql-code-scanning-in-a-container)."

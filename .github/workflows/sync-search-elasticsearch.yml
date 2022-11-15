@@ -13,7 +13,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '23 */4 * * *' # Run every 4 hours at 23 minutes past the hour
+    - cron: '20 */4 * * *' # Run every 4 hours at 20 minutes after
 
 permissions:
   contents: read
@@ -99,10 +99,8 @@ jobs:
 
         run: |
           mkdir /tmp/records
-          npm run sync-search-indices -- \
-            --language ${{ matrix.language }} \
-            --out-directory /tmp/records \
-            --no-compression --no-lunr-index
+          npm run sync-search-indices -- /tmp/records \
+            --language ${{ matrix.language }}
 
           ls -lh /tmp/records
 
@@ -117,8 +115,8 @@ jobs:
           # not exist.
           VERSION: ${{ github.event.inputs.version }}
         run: |
-          ./script/search/index-elasticsearch.js \
-            --language ${{ matrix.language }} -- /tmp/records
+          ./script/search/index-elasticsearch.js /tmp/records \
+            --language ${{ matrix.language }} \
 
       - name: Check created indexes and aliases
         run: |
@@ -135,4 +133,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions/workflows/sync-search-elasticsearch.yml?query=workflow%3A%22sync+search%22

@@ -1,7 +1,7 @@
 ---
 title: Managing team memberships with identity provider groups
 shortTitle: Manage teams with your IdP
-intro: 'You can manage team membership on {% data variables.product.product_name %} through your identity provider (IdP) by connecting IdP groups with your {% data variables.enterprise.prodname_emu_enterprise %}.'
+intro: 'You can manage team and organization membership on {% data variables.product.product_name %} through your identity provider (IdP) by connecting IdP groups with teams within your {% data variables.enterprise.prodname_emu_enterprise %}.'
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
@@ -20,19 +20,29 @@ topics:
 
 ## About team management with {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, you can manage team membership within your enterprise through your IdP. When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts. 
+With {% data variables.product.prodname_emus %}, you can manage team and organization membership within your enterprise through your IdP by connecting {% data variables.product.prodname_dotcom %} teams with IdP groups. When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts. 
 
-When a change to an IdP group or a new team connection results in a {% data variables.enterprise.prodname_managed_user %} joining a team in an organization they were not already a member of, the {% data variables.enterprise.prodname_managed_user %} will automatically be added to the organization. Organization owners can also manage organization membership manually. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
+When a change to an IdP group or a new team connection results in a {% data variables.enterprise.prodname_managed_user %} joining a team in an organization they were not already a member of, the {% data variables.enterprise.prodname_managed_user %} will automatically be added to the organization. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
 
-You can connect a team in your enterprise to one IdP group. You can assign the same IdP group to multiple teams in your enterprise.
+{% note %}
 
-If you are connecting an existing team to an IdP group, you must first remove any members that were added manually. After you connect a team in your enterprise to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.prodname_dotcom_the_website %}.
+**Note:** Organization owners can also add {% data variables.enterprise.prodname_managed_users %} to organizations manually, as long as the accounts have already been provisioned via SCIM.
+
+{% endnote %}
 
 When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.prodname_dotcom_the_website %} according to the schedule determined by your IdP, so change may not be immediate. Any requests that change team or organization membership will register in the audit log as changes made by the account used to configure user provisioning.
 
 Teams connected to IdP groups cannot be parents of other teams nor a child of another team. If the team you want to connect to an IdP group is a parent or child team, we recommend creating a new team or removing the nested relationships that make your team a parent team.
 
 To manage repository access for any team in your enterprise, including teams connected to an IdP group, you must make changes on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
+
+## Requirements for connecting IdP groups with teams
+
+Before you can connect an IdP group with a team on {% data variables.product.prodname_dotcom %}, you must assign the group to the {% data variables.product.prodname_emu_idp_application %} application in your IdP. For more information, see "[About SCIM provisioning for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
+
+You can connect a team in your enterprise to one IdP group. You can assign the same IdP group to multiple teams in your enterprise.
+
+If you are connecting an existing team to an IdP group, you must first remove any members that were added manually. After you connect a team in your enterprise to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.prodname_dotcom_the_website %}.
 
 ## Creating a new team connected to an IdP group
 
