@@ -1,6 +1,6 @@
 ---
-title: Organization からのユーザのブロック
-intro: Organization のオーナーとモデレーターは、Organization のメンバーではないユーザーが Organization のリポジトリで共同作業を行うことをブロックできます。
+title: Blocking a user from your organization
+intro: Organization owners and moderators can block anyone who is not a member of the organization from collaborating on the organization's repositories.
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
@@ -10,71 +10,68 @@ versions:
 topics:
   - Community
 shortTitle: Block from your org
-ms.openlocfilehash: 3264bb71f157c2ec34f42b859857eed4253379f3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145090298'
 ---
-組織の設定内、もしくはユーザーが作成した特定のコメントから、メンバー以外の人をブロックできます。 コメント内でユーザをブロックした場合、そのユーザに、ブロックされたこととその理由を説明する通知を送信できます。 そうしない場合、ブロックされたことはユーザには直接通知されません。 ユーザは、ブロックされても既存のコンテンツを削除できます。
 
-ユーザをブロックする際には、無期限にブロックするか、一定の期間だけブロックするかを選択できます。 誰かを一定の期間だけブロックした場合、その期間が過ぎると自動的にブロックは解除されます。 無期限にブロックした場合、ブロックはいつでも手動で解除できます。 詳細については、「[組織からユーザーのブロックを解除する](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)」を参照してください。
+You can block non-members from within your organization's settings or from a specific comment made by a user. When you block a user in a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
+
+{% data reusables.organizations.blocking-a-user %}
 
 {% tip %}
 
-**ヒント:** 過熱した会話を鎮めるためにユーザーをブロックする場合、会話をロックすることにより、コラボレーターだけがコメントできるようになります。 詳細については、[会話のロック](/communities/moderating-comments-and-conversations/locking-conversations)に関するページを参照してください。
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
 
 {% endtip %}
 
-ユーザを Organization からブロックすると、以下のようになります:
-- そのユーザによる Organization のリポジトリの Watch は停止します。
-- そのユーザによる Star 付けや Issue 割り当てはリポジトリから削除されます。
-- Organization のリポジトリ内のディスカッションまたはコメントに対するユーザの投票が削除されます
-- そのユーザは、Organization のリポジトリのコラボレーターではなくなります。
-- Organization のリポジトリへのユーザのコントリビューションがカウントされなくなります
-- ブロックされたユーザへの保留中のリポジトリまたは Organization の招待はキャンセルされます
+At the time that you block a user from your organization:
+- The user stops watching your organization's repositories
+- The user's stars and issue assignments are removed from your repositories
+- The user's votes on discussions or comments in your organization's repositories are deleted
+- The user is removed as a collaborator on your organization's repositories
+- The user's contributions to your organization's repositories are no longer counted as contributions for them
+- Any pending repository or organization invitations to the blocked user are cancelled
 
-ユーザを Organization からブロックすると、そのユーザは以下のことができなくなります:
-- Organization のリポジトリをコメント中でクロス参照すること
-- Organization のリポジトリのフォーク、Watch、ピン留め、Star 付け
+After you've blocked a user from your organization, they cannot:
+- Cross-reference your organization's repositories in comments
+- Fork, watch, pin, or star your organization's repositories
 
-また、ブロックされたユーザは Organization のリポジトリで以下のことができません:
-- Issue のオープン
-- プルリクエストの送信、クローズ、マージ
-- Issue、プルリクエスト、あるいはコメントにコメントする
-- ウィキページを追加または編集する
+In your organization's repositories, blocked users also cannot:
+- Open issues
+- Send, close, or merge pull requests
+- Comment on issues, pull requests, or commits
+- Add or edit wiki pages
 
-## コメントでユーザをブロックする
+## Blocking a user in a comment
 
-1. ブロックしたい作者のコメントへ移動します。
-2. コメントの右上で {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、次に **[Block user]** をクリックします。
-![ユーザー ブロックのオプションを表示する水平の kebab アイコンとコメント調整メニュー](/assets/images/help/repository/comment-menu-block-user.png)
-3. ブロックに期限を設定したい場合には、[Block user] ドロップダウンメニューを使い、ユーザをブロックしたい期間を選択します。
-![ユーザーのブロック ドロップダウン メニュー内のブロック期間制限](/assets/images/help/organizations/org-block-options-menu-from-comment.png)
-4. 組織内でそのユーザーが書いたすべてのコメントを隠したい場合は、 **[Hide this user's comments]\(このユーザーのコメントを隠す\)** を選択し、理由を選択します。
-![ユーザーのブロック ドロップダウン メニュー内の通知の送信](/assets/images/help/organizations/org-block-options-menu-hide-user-comments.png)
-5. ブロックする理由をユーザーに通知したい場合は、 **[Send a notification to this user]\(このユーザーに通知を送信\)** を選択します。
-![ユーザーのブロック ドロップダウン メニュー内の通知の送信](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
-6. ユーザーをブロックするには、 **[Block user from organization]\(Organization からユーザーをブロック\)** または **[Block user from organization and send message]\(Organization からユーザーをブロックしてメッセージを送信\)** をクリックします。
-![[ユーザーのブロック] ボタン](/assets/images/help/organizations/org-block-user-button-in-comment.png)
+1. Navigate to the comment whose author you would like to block.
+2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Block user**.
+![The horizontal kebab icon and comment moderation menu showing the block user option](/assets/images/help/repository/comment-menu-block-user.png)
+3. If you'd like to set a time limit for the block, use the Block user drop-down menu, and select the amount of time you'd like to block the user.
+![Block time limit in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-from-comment.png)
+4. If you'd like to hide all of the comments the user has made in the organization, select **Hide this user's comments** and choose a reason.
+![Send a notification in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-hide-user-comments.png)
+5. If you'd like to notify the user why they're being blocked, select **Send a notification to this user**.
+![Send a notification in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
+6. To block the user, click **Block user from organization** or **Block user from organization and send message**.
+![Block user button](/assets/images/help/organizations/org-block-user-button-in-comment.png)
 
-## Organization 設定でユーザをブロックする
+## Blocking a user in the organization settings
 
-1. 組織メンバーをブロックするにはまず、組織から[ユーザーを削除](/articles/removing-a-member-from-your-organization)します。
+1. To block an organization member, first [remove the user](/articles/removing-a-member-from-your-organization) from the organization.
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.block_users %}
-6. [Block a user] の下で、ブロックしたいユーザ名を入力します。
-![ユーザー名フィールド](/assets/images/help/organizations/org-block-username-field.png)
-7. ブロックに期限を設定したい場合には、[Block option] ドロップダウンメニューを使い、ユーザをブロックする期間を選択します。
-![ブロック オプションのドロップダウン メニュー](/assets/images/help/organizations/org-block-options-menu.png)
-8. **[Block user]** をクリックします。
-![ブロック ボタン](/assets/images/help/organizations/org-block-user-button.png)
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.block_users %}
+6. Under "Block a user", type the username of the user you'd like to block.
+![Username field](/assets/images/help/organizations/org-block-username-field.png)
+7. If you'd like to set a time limit for the block, use the Block options drop-down menu, and select the amount of time you'd like to block the user.
+![Block options drop-down menu](/assets/images/help/organizations/org-block-options-menu.png)
+8. Click **Block user**.
+![Block button](/assets/images/help/organizations/org-block-user-button.png)
 
-## 参考資料
+## Further reading
 
-- "[組織からブロックされているユーザーの表示](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
-- "[組織からユーザーのブロックを解除する](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[個人アカウントからのユーザーのブロック](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-- "[個人アカウントからユーザーのブロックを解除する](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[悪用あるいはスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[Viewing users who are blocked from your organization](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
+- "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
+- "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
+- "[Unblocking a user from your personal account](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
+- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

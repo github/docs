@@ -1,6 +1,6 @@
 ---
-title: Dependency review
-intro: 'The Dependency review API allows you to understand dependency changes, and the security impact of these changes, before you add them to your environment.'
+title: 依存関係の確認
+intro: 依存関係の確認 API を使用すると、依存関係の変更やこの変更がセキュリティに及ぼす影響を把握したうえで、この変更を環境に追加することができます。
 versions:
   fpt: '*'
   ghes: '>=3.6'
@@ -10,8 +10,13 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 9988c87ed4b0dcbe9c8a0694ebe0ca43d5bc336e
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164231'
 ---
+## 依存関係の確認 API について
 
-## About the Dependency review API
-
-The Dependency Review API allows you to understand dependency changes, and the security impact of these changes, before you add them to your environment. You can view the diff of dependencies between two commits of a repository, including vulnerability data for any version updates with known vulnerabilities. For more information about dependency review, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+依存関係レビュー API を使用すると、依存関係の変更やこの変更がセキュリティに及ぼす影響を把握したうえで、この変更を環境に追加することができます。 既知の脆弱性を含むすべてのバージョン アップデートの脆弱性データを含め、リポジトリの 2 つのコミット間の依存関係の差分を確認することができます。 依存関係レビューの詳細については、「[依存関係のレビューについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)」を参照してください。
