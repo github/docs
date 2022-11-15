@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 3e175aefd9a243a098b5c35ca6d4068a651d2f61
-ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.openlocfilehash: 63effb67d8f26ba954127db629134b36b40d8552
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147878484"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109870"
 ---
-Las API REST de webhook permiten administrar webhooks de repositorio, organización y aplicación.{% ifversion fpt or ghes > 3.2 or ghae or ghec %} Puede usar esta API para enumerar las entregas de webhook para un webhook, o bien obtener y volver a realizar una entrega individual para uno de ellos, lo que se puede integrar en una aplicación o servicio externo.{% endif %}. También puede usar la API REST para cambiar la configuración del webhook. Por ejemplo, puedes modificar la URL de la carga útil, el tipo de contenido, la verificación de SSL, y el secreto. Para más información, consulte:
+Las API REST de webhook permiten administrar repositorios, organizaciones y webhooks de aplicaciones. Puedes usar esta API a fin de enumerar las entregas de webhook para un webhook, o bien obtener y volver a entregar una entrega individual para un webhook, que se puede integrar en una aplicación o servicio externo. También puedes usar la API REST para cambiar la configuración del webhook. Por ejemplo, puedes modificar la URL de la carga útil, el tipo de contenido, la verificación de SSL, y el secreto. Para más información, consulte:
 
 - [API REST de webhook de repositorio](/rest/reference/webhooks#repository-webhooks)
 - [API REST de webhook de organización](/rest/reference/orgs#webhooks)

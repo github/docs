@@ -1,5 +1,5 @@
 ---
-title: Accessing the management console
+title: Acessar o console de gerenciamento
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
   - /enterprise/admin/articles/about-the-management-console
@@ -18,48 +18,53 @@ topics:
   - Enterprise
   - Fundamentals
 shortTitle: Access the management console
+ms.openlocfilehash: 60cd45e9e33dfbd037c831b96bed806dddcf6a21
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107122'
 ---
-## About the {% data variables.enterprise.management_console %}
+## Sobre o {% data variables.enterprise.management_console %}
 
-Use the {% data variables.enterprise.management_console %} for basic administrative activities:
-- **Initial setup**: Walk through the initial setup process when first launching {% data variables.location.product_location %} by visiting {% data variables.location.product_location %}'s IP address in your browser.
-- **Configuring basic settings for your instance**: Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.
-- **Scheduling maintenance windows**: Take {% data variables.location.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
-- **Troubleshooting**: Generate a support bundle or view high level diagnostic information.
-- **License management**: View or update your {% data variables.product.prodname_enterprise %} license.
+Use o {% data variables.enterprise.management_console %} para atividades administrativas básicas:
+- **Configuração inicial**: siga o processo de instalação inicial ao iniciar {% data variables.location.product_location %} pela primeira vez acessando o endereço IP de {% data variables.location.product_location %} no navegador.
+- **Como configurar políticas de autenticação para o {% data variables.enterprise.management_console %}** : defina limites de taxa para tentativas de logon e a duração do bloqueio se alguém exceder o limite de taxa. 
+- **Definição das configurações básicas da sua instância**: configure o DNS, o nome do host, o SSL, a autenticação do usuário, o email, os serviços de monitoramento e o encaminhamento de log na página Configurações.
+- **Agendamento de janelas de manutenção**: coloque a {% data variables.location.product_location %} offline ao executar a manutenção usando o {% data variables.enterprise.management_console %} ou o shell administrativo.
+- **Solução de problemas**: gere um pacote de suporte ou veja informações de diagnóstico de alto nível.
+- **Gerenciamento de licenças**: veja ou atualize sua licença do {% data variables.product.prodname_enterprise %}.
 
-You can always reach the {% data variables.enterprise.management_console %} using {% data variables.location.product_location %}'s IP address, even when the instance is in maintenance mode, or there is a critical application failure or hostname or SSL misconfiguration.
+Você pode acessar o {% data variables.enterprise.management_console %} usando o endereço IP de {% data variables.location.product_location %}, mesmo quando a instância está no modo de manutenção ou quando há uma falha de aplicativo crítica, um erro no nome do host ou uma configuração incorreta de SSL.
 
-To access the {% data variables.enterprise.management_console %}, you must use the administrator password established during initial setup of {% data variables.location.product_location %}. You must also be able to connect to the virtual machine host on port 8443. If you're having trouble reaching the {% data variables.enterprise.management_console %}, please check intermediate firewall and security group configurations.
+Para acessar o {% data variables.enterprise.management_console %}, você precisa usar a senha de administrador estabelecida durante a instalação inicial de {% data variables.location.product_location %}. Você também deve poder se conectar ao host da máquina virtual na porta 8443. Se tiver problemas para chegar ao {% data variables.enterprise.management_console %}, verifique as configurações intermediárias de firewall e grupo de segurança. 
 
-The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`, and that file is automatically synced from the primary appliance to any high-availability replicas. Any change to the primary's password will automatically be replicated to high-availability replicas. For more information about high availability, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+O hash de senha do {% data variables.enterprise.management_console %} é armazenado em `/data/user/common/secrets.conf`, e esse arquivo é sincronizado automaticamente do dispositivo primário com todas as réplicas de alta disponibilidade. Qualquer alteração na senha principal será automaticamente replicada em réplicas de alta disponibilidade. Para obter mais informações sobre alta disponibilidade, confira "[Sobre a configuração de alta disponibilidade](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)".
 
-## Accessing the {% data variables.enterprise.management_console %} as a site administrator
+## Acessar o {% data variables.enterprise.management_console %} como administrador do site
 
-The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
+A primeira vez que você acessar o {% data variables.enterprise.management_console %} como administrador do site, você deve enviar seu arquivo de licença do {% data variables.product.prodname_enterprise %} para efetuar a autenticação no aplicativo. Para obter mais informações, confira "[Como gerenciar sua licença do {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)".
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.type-management-console-password %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.type-management-console-password %}
 
-## Accessing the {% data variables.enterprise.management_console %} as an unauthenticated user
+## Acessar o {% data variables.enterprise.management_console %} como usuário não autenticado
 
-1. Visit this URL in your browser, replacing `hostname` with your actual {% data variables.product.prodname_ghe_server %} hostname or IP address:
+1. Acesse essa URL no navegador, substituindo `hostname` pelo nome do host ou pelo endereço IP real do {% data variables.product.prodname_ghe_server %}:
   ```shell
   http(s)://HOSTNAME/setup
   ```
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-## Unlocking the {% data variables.enterprise.management_console %} after failed login attempts
+## Desbloquear o {% data variables.enterprise.management_console %} após tentativas de login com falha
 
-The {% data variables.enterprise.management_console %} locks after ten failed login attempts are made in the span of ten minutes. You must wait for the login screen to automatically unlock before attempting to log in again. The login screen automatically unlocks as soon as the previous ten minute period contains fewer than ten failed login attempts. The counter resets after a successful login occurs.
+O {% data variables.enterprise.management_console %} é bloqueado após {% ifversion enterprise-authentication-rate-limits %}o número de tentativas de logon com falha configurado pelas políticas de autenticação. Para obter mais informações, confira "[Como configurar limites de taxa de política de autenticação](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits)".{% else %}dez tentativas de logon com falha são feitas no período de dez minutos. Antes de tentar novamente, aguarde o desbloqueio automático da tela de login, que ocorrerá após um período de dez minutos. A contagem é redefinida depois de um logon bem-sucedido.{% endif %}
 
-To immediately unlock the {% data variables.enterprise.management_console %}, use the `ghe-reactivate-admin-login` command via the administrative shell. For more information, see "[Command line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-reactivate-admin-login)" and "[Accessing the administrative shell (SSH)](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
+{% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
 
-## Troubleshooting failed connections to the {% data variables.enterprise.management_console %}
+## Solução de problemas de conexões com falha no {% data variables.enterprise.management_console %}
 
-If you cannot connect to the {% data variables.enterprise.management_console %} on {% data variables.location.product_location %}, you can review the following information to troubleshoot the problem.
+Se você não puder se conectar ao {% data variables.enterprise.management_console %} em {% data variables.location.product_location %}, examine as informações a seguir para solucionar o problema.
 
-### Error: "Your session has expired" for connections through a load balancer
+### Erro: "Sua sessão expirou" de conexões por meio de um balanceador de carga
 
-If you access {% data variables.location.product_location %} through a load balancer and connections to the {% data variables.enterprise.management_console %} fail with a message that your session has expired, you may need to reconfigure your load balancer. For more information, see "[Using {% data variables.product.product_name %} with a load balancer](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
+Se você acessar a {% data variables.location.product_location %} por meio de um balanceador de carga e as conexões com o {% data variables.enterprise.management_console %} falharem com uma mensagem de que a sessão expirou, poderá ser necessário reconfigurar o balanceador de carga. Para obter mais informações, confira "[Como usar o {% data variables.product.product_name %} com um balanceador de carga](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)".

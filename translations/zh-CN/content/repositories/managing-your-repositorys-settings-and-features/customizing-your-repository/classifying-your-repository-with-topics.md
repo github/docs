@@ -14,12 +14,12 @@ versions:
 topics:
   - Repositories
 shortTitle: Classify with topics
-ms.openlocfilehash: 68bd754ac6c50968961c61e533cb6b9de26e4cc4
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 26f51423140c086bbea019666b8d569419da3b38
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145129349'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108051'
 ---
 ## 关于主题
 
@@ -38,6 +38,12 @@ ms.locfileid: '145129349'
 您可以搜索与公共仓库关联的仓库。 有关详细信息，请参阅“[搜索存储库](/search-github/searching-on-github/searching-for-repositories#search-by-topic)”。 您也可以搜索 {% data variables.product.product_name %} 中的主题列表。 有关详细信息，请参阅“[搜索主题](/search-github/searching-on-github/searching-topics)”。
 
 ## 添加主题到仓库
+
+{% note %}
+
+注意：主题名称始终是公共的，即使从专用存储库中创建主题也是如此。
+
+{% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. 在“关于”右侧，单击 {% octicon "gear" aria-label="The Gear icon" %}。

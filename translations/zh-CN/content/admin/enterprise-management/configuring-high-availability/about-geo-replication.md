@@ -11,12 +11,12 @@ type: overview
 topics:
   - Enterprise
   - High availability
-ms.openlocfilehash: 0e4e2feb161dd897172385bf25cf997268527fd3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d24b222ee411d6e8d06366dd78da6b0001280c4d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332806'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108090'
 ---
 多个活动副本可以提供到达最近副本的较短距离。 举例来说，一个在旧金山、纽约和伦敦均设有办事处的组织可以在靠近纽约的数据中心运行主设备，在靠近旧金山和伦敦的数据中心运行两个副本。 利用地理位置感知 DNS，用户可以转到距离最近的可用服务器，并更快地访问仓库数据。 如果将靠近旧金山的设备指定为主设备，则与伦敦的延迟会比较大，相比而言，将靠近纽约的设备指定为主设备有助于减小主机之间的延迟。
 
@@ -28,7 +28,7 @@ Git 请求和特定的文件服务器请求（例如 LFS 和文件上传）可�
 
 ## 限制
 
-将请求写入副本需要将数据发送到主设备和所有副本。 这意味着所有写入操作的性能都受限于最慢的副本，虽然新的地理副本可以从现有共同位置地理副本（而不是从主设备）播种大部分数据。 {% ifversion ghes > 3.2 %}若要在不影响写入吞吐量的情况下减少分布式团队和大型 CI 服务器场导致的延迟和带宽，可以改为配置存储库缓存。 有关详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。{% endif %}
+将请求写入副本需要将数据发送到主设备和所有副本。 这意味着所有写入操作的性能都受限于最慢的副本，虽然新的地理副本可以从现有共同位置地理副本（而不是从主设备）播种大部分数据。 要在不影响写入吞吐量的情况下减少分布式团队和大型 CI 服务器场导致的延迟和带宽，可以改为配置存储库缓存。 有关详细信息，请参阅“[关于存储库缓存](/admin/enterprise-management/caching-repositories/about-repository-caching)”。
 
 Geo-replication 不会增大 {% data variables.product.prodname_ghe_server %} 实例的容量，也不会解决与 CPU 或内存资源不足相关的性能问题。 如果主设备处于脱机状态，则活动副本将无法满足任何读取或写入请求。 
 

@@ -72,7 +72,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.3 %}2.6.3{% elsif ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% endif %}
+  {% ifversion ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% endif %}
 
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -88,6 +88,7 @@ prodname_project_v1_caps: >-
 # Personal access tokens
 pat_generic: 'personal access token'
 pat_generic_caps: 'Personal access token'
+pat_generic_title_case: 'Personal Access Token'
 pat_v2: 'fine-grained personal access token'
 pat_v2_caps: 'Fine-grained personal access token'
 pat_v1: >-
@@ -175,12 +176,15 @@ support_ticket_priority_low: 'Low'
 prodname_professional_services: 'GitHub Professional Services'
 prodname_professional_services_team: 'Professional Services'
 
-# Security features / code scanning platform / Security Lab
+# GitHub Security Lab
 prodname_security: 'GitHub Security Lab'
 prodname_security_link: 'https://securitylab.github.com/'
-prodname_security_advisories: 'GitHub Security Advisories'
 
-# Security features and code scanning platform
+# GitHub Security Advisories
+prodname_security_advisories: 'GitHub Security Advisories'
+prodname_advisory_database: 'GitHub Advisory Database'
+
+# Secret scanning
 prodname_secret_scanning: 'secret scanning' # Overall feature name and name for GHES and GHAE
 prodname_secret_scanning_caps: 'Secret scanning'
 prodname_secret_scanning_partner: 'secret scanning for partner patterns' # GitHub.com feature for public repos only
@@ -191,20 +195,14 @@ prodname_secret_scanning_GHAS:
 prodname_secret_scanning_GHAS_caps: >-
   {% ifversion fpt or ghec %}Secret scanning for advanced security{% else %}Secret scanning{% endif %}
 
+# Code scanning
 prodname_code_scanning: 'code scanning'
 prodname_code_scanning_capc: 'Code scanning'
-prodname_codeql_runner: 'CodeQL runner'
-prodname_advisory_database: 'GitHub Advisory Database'
-prodname_codeql_workflow: 'CodeQL analysis workflow'
-prodname_dependency_review_action: 'dependency review action'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
-prodname_vs_subscriber: '{% data variables.product.prodname_vs %} subscriber'
-prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
-prodname_vss_admin_portal_with_url: 'the [administrator portal for Visual Studio subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'
 prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
 prodname_vscode_command_palette: 'Visual Studio Code Command Palette'
 prodname_vscode_marketplace: 'Visual Studio Code Marketplace'
@@ -216,6 +214,9 @@ prodname_dependabot_alerts: 'Dependabot alerts'
 prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_dependabot_updates: 'Dependabot updates'
+
+# Dependency review action
+prodname_dependency_review_action: 'dependency review action'
 
 # GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
@@ -230,6 +231,9 @@ prodname_command_palette: 'GitHub Command Palette'
 
 # Server Statistics
 prodname_server_statistics: 'Server Statistics'
+
+# GitHub Actions Importer
+prodname_actions_importer: 'GitHub Actions Importer'
 
 # Links
 product_url: >-

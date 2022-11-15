@@ -23,11 +23,11 @@ children:
   - /tax-information-for-github-sponsors
   - /disabling-your-github-sponsors-account
   - /unpublishing-your-github-sponsors-profile
-ms.openlocfilehash: 7f7a6e7a1f46dadaac3cf75b8387bf18dd22e0d0
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d7d3b8f98e7acf74ee24e7cf705f0ddb3c5d4b26
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145149674'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108029'
 ---
 

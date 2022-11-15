@@ -16,12 +16,12 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
-ms.openlocfilehash: 51a1da4eff062263aeca52de02b764385e7e1184
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 30c4830c125e9b20ada59e0e0e29fa0eb5c6c649
+ms.sourcegitcommit: a9af58ef52d8d109186053d184d9b1e52e5f0323
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146458241'
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148128901'
 ---
 {% data reusables.dependabot.result-discrepancy %}
 
@@ -53,7 +53,7 @@ Sim, o gráfico de dependências tem duas categorias de limites:
 
     Manifestos com tamanho superior a 0.5 MB são processados apenas para contas corporativas. Para outras contas, manifestos acima de 0,5 MB são ignorados e não criarão {% data variables.product.prodname_dependabot_alerts %}.
 
-    Por padrão, o {% data variables.product.prodname_dotcom %} não processará mais de 20 manifestos por repositório. {% data variables.product.prodname_dependabot_alerts %} não foi criado para manifestos acima deste limite. Se você precisar aumentar o limite, entre em contato com {% data variables.contact.contact_support %}. 
+    Por padrão, o {% data variables.product.prodname_dotcom %} não processará mais de {% ifversion fpt %}150{% else %}600{% endif %} manifestos por repositório. {% data variables.product.prodname_dependabot_alerts %} não foi criado para manifestos acima deste limite. Se você precisar aumentar o limite, entre em contato com {% data variables.contact.contact_support %}. 
 
 2. **Limites de visualização**
 
@@ -67,5 +67,5 @@ Sim, o gráfico de dependências tem duas categorias de limites:
 
 - "[Sobre o grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
 - "[Como gerenciar as configurações de segurança e de análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[Solução de problemas de detecção de dependências vulneráveis](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %}
+- "[Solução de problemas de detecção de dependências vulneráveis](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
 - "[Solução de problemas de erros do {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

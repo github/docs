@@ -4,12 +4,12 @@ shortTitle: Manage your submissions
 intro: '可在 {% data variables.product.prodname_community_exchange %} 库中管理分配给每个存储库的用途、主题和产品/服务，也可删除存储库提交。'
 versions:
   fpt: '*'
-ms.openlocfilehash: 70dc65ccb387817d5b4a78c1fc27085f67dcfc6e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a7da6f3bede47700658fe81a1f0ec3e4e33ef316
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409736'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108221'
 ---
 ## 关于提交
 

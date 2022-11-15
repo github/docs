@@ -8,12 +8,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 22d80acf06957a3ab617e51d0051c75cf42db988
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 6c956f5453941bdd6b9fbe89191737b1b7f59cec
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147423744'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107841'
 ---
 ## Converter rascunhos de problemas no layout de tabela
 

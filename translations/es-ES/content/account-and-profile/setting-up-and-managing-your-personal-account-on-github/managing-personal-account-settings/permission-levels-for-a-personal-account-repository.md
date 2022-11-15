@@ -14,12 +14,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Repository permissions
-ms.openlocfilehash: e7c7a542204c7b1ce69bc19ac326fb248bbbff12
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dd2124c23054fa7bd44bb6501dae4363e59bab75
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066310'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113877'
 ---
 ## Acerca de los niveles de permisos para un repositorio de una cuenta personal
 
@@ -56,9 +56,10 @@ El propietario del repositorio tiene control completo del repositorio. Adicional
 | Administrar el uso de datos para un repositorio privado | "[Administración de la configuración de uso de datos para el repositorio privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"|{% endif %}
 | Definir propietarios del código para un repositorio | "[Acerca de los propietarios de código](/github/creating-cloning-and-archiving-repositories/about-code-owners)" |
 | Archivar el repositorio | "[Archivado de repositorios](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
-| Creación de avisos de seguridad | "[Acerca de {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)" |
+| Creación de avisos de seguridad | "[Acerca de las asesorías de seguridad de repositorio](/github/managing-security-vulnerabilities/about-github-security-advisories)" |
 | Representación de un botón de patrocinador | "[Representación de un botón de patrocinador en el repositorio](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}
 | Permitir o dejar de permitir la fusión automática para las solicitudes de cambios | "[Administración de la combinación automática para las solicitudes de incorporación de cambios en el repositorio](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | 
+| Administrar webhooks y desplegar llaves   | "[Administración de claves de implementación](/developers/overview/managing-deploy-keys#deploy-keys)" |
 
 ## Acceso de colaboradores a un repositorio propiedad de una cuenta personal
 

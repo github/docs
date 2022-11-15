@@ -11,7 +11,6 @@ on:
 
 permissions:
   contents: read
-  # Needed for the 'trilom/file-changes-action' action
   pull-requests: read
 
 # This allows a subsequently queued workflow run to interrupt previous runs
@@ -37,17 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group:
-          [
-            content,
-            graphql,
-            meta,
-            rendering,
-            routing,
-            unit,
-            linting,
-            translations,
-          ]
+        test-group: [content, graphql, meta, rendering, routing, unit, linting]
     steps:
       - name: Install a local Elasticsearch for testing
         # For the sake of saving time, only run this step if the test-group
@@ -77,35 +66,22 @@ jobs:
           # ->> Do we really need this? actions/checkout doesn't use it for the nested example:
           # https://github.com/actions/checkout#checkout-multiple-repos-nested
 
+      - name: Setup node
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.17.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
         id: check-early-access
-        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-        with:
-          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          result-encoding: string
-          script: |
-            // If being run from a PR, this becomes 'my-cool-branch'.
-            // If run on main, with the `workflow_dispatch` action for
-            // example, the value becomes 'main'.
-            const { BRANCH_NAME } = process.env
-            try {
-              const response = await github.rest.repos.getBranch({
-                owner: 'github',
-                repo: 'docs-early-access',
-                branch: BRANCH_NAME,
-              })
-              console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)
-              return BRANCH_NAME
-            } catch (err) {
-              if (err.status === 404) {
-                console.log(`There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`)
-                return 'main'
-              }
-              throw err
-            }
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: node .github/actions-scripts/what-docs-early-access-branch.js
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
@@ -114,15 +90,13 @@ jobs:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
           path: docs-early-access
-          ref: ${{ steps.check-early-access.outputs.result }}
+          ref: ${{ steps.check-early-access.outputs.branch }}
 
       - name: Merge docs-early-access repo's folders
         if: ${{ github.repository == 'github/docs-internal' }}
         run: |
-          mv docs-early-access/assets assets/images/early-access
-          mv docs-early-access/content content/early-access
-          mv docs-early-access/data data/early-access
-          rm -r docs-early-access
+          .github/actions-scripts/merge-early-access.sh
+          rm -fr docs-early-access
 
       # This is necessary when LFS files where cloned but does nothing
       # if actions/checkout was run with `lfs:false`.
@@ -161,15 +135,6 @@ jobs:
           # in a repo-sync when there are lots of translation files involved.
           echo __ format, write to get_diff_files.txt __
           echo $DIFF | tr '\n' ' ' > get_diff_files.txt
-
-      - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Cache nextjs build
         uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09

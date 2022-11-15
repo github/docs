@@ -8,12 +8,12 @@ type: tutorial
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
-ms.openlocfilehash: 4fffa6ebd196419dc08de7abaf5d85349bd38737
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dd8f97ac69beb90a511c36ddd0a51f0e16b2d4b3
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423944'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108119'
 ---
 {% ifversion fpt %}
 

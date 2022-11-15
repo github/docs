@@ -14,12 +14,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Repository permissions
-ms.openlocfilehash: e7c7a542204c7b1ce69bc19ac326fb248bbbff12
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dd2124c23054fa7bd44bb6501dae4363e59bab75
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066307'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113874'
 ---
 ## 個人アカウント リポジトリのアクセス許可レベルについて
 
@@ -56,9 +56,10 @@ ms.locfileid: '147066307'
 | プライベートリポジトリのデータ利用の管理 | 「[プライベート リポジトリ用のデータ利用設定の管理](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)」|{% endif %}
 | リポジトリのコードオーナーを定義する | 「[コード オーナーについて](/github/creating-cloning-and-archiving-repositories/about-code-owners)」 |
 | リポジトリのアーカイブ | 「[リポジトリのアーカイブ](/repositories/archiving-a-github-repository/archiving-repositories)」 |{% ifversion fpt or ghec %}
-| セキュリティアドバイザリの作成 | 「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」 |
+| セキュリティアドバイザリの作成 | 「[リポジトリ セキュリティ アドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 |
 | スポンサーボタンの表示 | 「[リポジトリにスポンサーボタンを表示する](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)」 |{% endif %}
 | プルリクエストの自動マージを許可または禁止 | 「[リポジトリ内のプル リクエストの自動マージを管理する](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)」 | 
+| Webhookおよびデプロイキーの管理   | 「[デプロイ キーの管理](/developers/overview/managing-deploy-keys#deploy-keys)」 |
 
 ## 個人アカウントが所有しているリポジトリに対するコラボレーター アクセス権
 

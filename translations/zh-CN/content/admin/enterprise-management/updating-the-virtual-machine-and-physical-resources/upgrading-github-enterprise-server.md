@@ -23,7 +23,6 @@ topics:
 shortTitle: Upgrading GHES
 ---
 
-{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
 
 ## Preparing to upgrade
 
@@ -70,8 +69,7 @@ There are two types of snapshots:
 | Azure | VM | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
 | Hyper-V | VM | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
 | Google Compute Engine | Disk | <https://cloud.google.com/compute/docs/disks/create-snapshots>
-| VMware | VM | <https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html>{% ifversion ghes < 3.3 %}
-| XenServer | VM | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>{% endif %}
+| VMware | VM | <https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html>
 
 ## Upgrading with a hotpatch
 

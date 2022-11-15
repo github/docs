@@ -14,12 +14,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Repository permissions
-ms.openlocfilehash: e7c7a542204c7b1ce69bc19ac326fb248bbbff12
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dd2124c23054fa7bd44bb6501dae4363e59bab75
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066303'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113870'
 ---
 ## Sobre os níveis de permissões para um repositório de conta pessoal
 
@@ -56,9 +56,10 @@ O proprietário do repositório tem controle total do repositório. Além das a�
 | Gerenciar o uso de dados para um repositório privado | "[Como gerenciar configurações de uso de dados para seu repositório privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"|{% endif %}
 | Definir os proprietários do código do repositório | "[Sobre os proprietários de código](/github/creating-cloning-and-archiving-repositories/about-code-owners)" |
 | Arquivar o repositório | "[Como arquivar repositórios](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
-| Criar avisos de segurança | "[Sobre os {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)" |
+| Criar avisos de segurança | "[Sobre os avisos de segurança do repositório](/github/managing-security-vulnerabilities/about-github-security-advisories)" |
 | Exibir um botão de patrocinador | "[Como exibir um botão de patrocinador no seu repositório](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}
 | Permitir ou negar merge automático para pull requests | "[Como gerenciar a mesclagem automática para solicitações de pull no seu repositório](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | 
+| Gerenciar webhooks e chaves de implantação   | "[Gerenciar chaves de implantação](/developers/overview/managing-deploy-keys#deploy-keys)" |
 
 ## Acesso colaborador para um repositório de propriedade de uma conta pessoal
 

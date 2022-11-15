@@ -1,11 +1,11 @@
 ---
-title: Setting up a staging instance
-intro: 'You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
+title: ステージングインスタンスのセットアップ
+intro: '別の分離された環境に {% data variables.product.product_name %} インスタンスを設定し、そのインスタンスを使って変更の検証とテストを行うことができます。'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
 versions:
-  ghes: "*"
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -13,103 +13,107 @@ topics:
   - Upgrades
 shortTitle: Set up a staging instance
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: ce7d9dde9f86ea5159657203e13d9d191b6b7466
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106862'
 ---
+## ステージング インスタンスについて
 
-## About staging instances
+{% data variables.product.company_short %} では、{% data variables.location.product_location %}の構成のバックアップ、更新、または変更をテストするために個別の環境を設定することを推奨しています。 運用システムから分離する必要があるこの環境は、ステージング環境と呼ばれます。
 
-{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.location.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
-
-For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.product_name %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.product_name %}.
+たとえば、データの損失から保護するために、運用インスタンスのバックアップを定期的に検証できます。 ステージング環境の別の {% data variables.product.product_name %} インスタンスに、運用データのバックアップを定期的に復元できます。 このステージング インスタンスでは、{% data variables.product.product_name %} の最新の機能リリースへのアップグレードをテストすることもできます。
 
 {% tip %}
 
-**Tip:** You may reuse your existing {% data variables.product.prodname_enterprise %} license file as long as the staging instance is not used in a production capacity.
+**ヒント:** ステージング インスタンスを本番容量で使用しない限り、既存の {% data variables.product.prodname_enterprise %} ライセンス ファイルを再利用できます。
 
 {% endtip %}
 
-## Considerations for a staging environment
+## ステージング環境に関する考慮事項
 
-To thoroughly test {% data variables.product.product_name %} and recreate an environment that's as similar to your production environment as possible, consider the external systems that interact with your instance. For example, you may want to test the following in your staging environment.
+{% data variables.product.product_name %} を十分にテストし、運用環境とできるだけ似た環境を再作成するには、インスタンスと対話する外部システムを検討してください。 たとえば、ステージング環境では次をテストできます。
 
-- Authentication, especially if you use an external authentication provider like SAML
-- Integration with an external ticketing system
-- Integration with a continuous integration server
-- External scripts or software that use the {% data variables.product.prodname_enterprise_api %}
-- External SMTP server for email notifications
+- 認証 (特に SAML などの外部認証プロバイダーを使用する場合)
+- 外部のチケットシステムとの統合
+- 継続的インテグレーションサーバとの統合
+- {% data variables.product.prodname_enterprise_api %} を利用する外部のスクリプトあるいはソフトウェア
+- メール通知のための外部のSMTPサーバ
 
-## Setting up a staging instance
+## ステージングインスタンスのセットアップ
 
-You can set up a staging instance from scratch and configure the instance however you like. For more information, see "[Setting up a {% data variables.product.product_name %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)" and "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+ステージング インスタンスを最初からセットアップしたり、必要に応じてインスタンスを設定したりすることができます。 詳しい情報については、「[{% data variables.product.product_name %} インスタンスをセットアップする](/admin/installation/setting-up-a-github-enterprise-server-instance)」および「[Enterprise を設定する](/admin/configuration/configuring-your-enterprise)」を参照してください。
 
-Alternatively, you can create a staging instance that reflects your production configuration by restoring a backup of your production instance to the staging instance.
+または、運用インスタンスのバックアップをステージング インスタンスに復元することで、運用構成を反映するステージング インスタンスを作成することもできます。
 
-1. [Back up your production instance](#1-back-up-your-production-instance).
-2. [Set up a staging instance](#2-set-up-a-staging-instance).
-3. [Configure {% data variables.product.prodname_actions %}](#3-configure-github-actions).
-4. [Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
-5. [Restore your production backup](#5-restore-your-production-backup).
-6. [Review the instance's configuration](#6-review-the-instances-configuration).
-7. [Apply the instance's configuration](#7-apply-the-instances-configuration).
+1. [運用インスタンスをバックアップします](#1-back-up-your-production-instance)。
+2. [ステージング インスタンスをセットアップします](#2-set-up-a-staging-instance)。
+3. [{% data variables.product.prodname_actions %} を設定します](#3-configure-github-actions)。
+4. [{% data variables.product.prodname_registry %} を設定します](#4-configure-github-packages)。
+5. [運用バックアップを復元します](#5-restore-your-production-backup)。
+6. [インスタンスの設定を確認します](#6-review-the-instances-configuration)。
+7. [インスタンスの構成を適用します](#7-apply-the-instances-configuration)。
 
-### 1. Back up your production instance
+### 1. 運用インスタンスをバックアップする
 
-If you want to test changes on an instance that contains the same data and configuration as your production instance, back up the data and configuration from the production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+運用インスタンスと同じデータと設定を含むインスタンスで変更をテストする場合は、{% data variables.product.prodname_enterprise_backup_utilities %} を使用して運用インスタンスからデータと設定をバックアップします。 詳細については、「[アプライアンスでのバックアップの設定](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)」を参照してください。
 
 {% warning %}
 
-**Warning**: If you use {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} in production, your backup will include your production configuration for external storage. To avoid potential loss of data by writing to your production storage from your staging instance, you must configure each feature in steps 3 and 4 before you restore your backup.
+**警告**: 運用環境で {% data variables.product.prodname_actions %} または {% data variables.product.prodname_registry %} を使用する場合、バックアップには外部ストレージの運用設定が含まれます。 ステージング インスタンスから運用ストレージに書き込むことでデータが失われる可能性を回避するには、バックアップを復元する前に、手順 3 と 4 の各機能を設定する必要があります。
 
 {% endwarning %}
 
-### 2. Set up a staging instance
+### 2. ステージング インスタンスをセットアップする
 
-Set up a new instance to act as your staging environment. You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)."
+新しいインスタンスをステージング環境として動作するようにセットアップしてください。 ステージングインスタンスのプロビジョニングとインストールについては、本番インスタンスと同じガイドが利用できます。 詳細については、「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)」を参照してください。
 
-If you plan to restore a backup of your production instance, continue to the next step. Alternatively, you can configure the instance manually and skip the following steps.
+運用インスタンスのバックアップを復元する場合は、次の手順に進みます。 または、インスタンスを手動で設定し、以降の手順にスキップすることもできます。
 
-### 3. Configure {% data variables.product.prodname_actions %}
+### 3. {% data variables.product.prodname_actions %} を設定する
 
-Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to "[4. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages)."
+必要に応じて、運用インスタンスで {% data variables.product.prodname_actions %} を使用する場合、運用バックアップを復元する前にステージング インスタンスで機能を設定します。 {% data variables.product.prodname_actions %} を使用しない場合は、「[4. {% data variables.product.prodname_registry %} を設定する](#4-configure-github-packages)」にスキップします。
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see "[Using a staging environment](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)."
+**警告**: 運用バックアップを復元する前にステージング インスタンスで {% data variables.product.prodname_actions %} を設定しないと、ステージング インスタントで運用インスタンスの外部ストレージが使用され、データが失われる可能性があります。 ステージング インスタンスには別の外部ストレージを使用することを強くお勧めします。 詳細については、「[ステージング環境を使用する](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)」を参照してください。
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
-{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
-{% data reusables.actions.configure-storage-provider %}
-1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
+1. {% data variables.product.prodname_actions %} の外部ストレージ プロバイダーを使用するようにステージング インスタンスを設定するには、次のコマンドのいずれかを入力します。
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %} {% data reusables.actions.configure-storage-provider %}
+1. ステージング インスタンスで {% data variables.product.prodname_actions %} を有効にする準備をするには、次のコマンドを入力します。
 
    ```shell{:copy}
    ghe-config app.actions.enabled true
    ```
 
-### 4. Configure {% data variables.product.prodname_registry %}
+### 4. {% data variables.product.prodname_registry %} を設定する
 
-Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to "[5. Restore your production backup](#5-restore-your-production-backup)."
+必要に応じて、運用インスタンスで {% data variables.product.prodname_registry %} を使用する場合、運用バックアップを復元する前にステージング インスタンスで機能を設定します。 {% data variables.product.prodname_registry %} を使用しない場合は、「[5. 運用バックアップを復元する](#5-restore-your-production-backup)」にスキップします。
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
+**警告**: 運用バックアップを復元する前にステージング インスタンスで {% data variables.product.prodname_registry %} を設定しないと、ステージング インスタントで運用インスタンスの外部ストレージが使用され、データが失われる可能性があります。 ステージング インスタンスには別の外部ストレージを使用することを強くお勧めします。
 
 {% endwarning %}
 
-1. Review the backup you will restore to the staging instance.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 or later, the backup includes the configuration for {% data variables.product.prodname_registry %}. Continue to the next step.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 or earlier, configure {% data variables.product.prodname_registry %} on the staging instance. For more information, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+1. ステージング インスタンスに復元するバックアップを確認します。
+   - {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 以降を使用してバックアップを作成した場合、バックアップには、{% data variables.product.prodname_registry %} の設定が含まれます。 次の手順に進みます。
+   - {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 以前を使用してバックアップを作成した場合、ステージング インスタンスで {% data variables.product.prodname_registry %} を設定します。 詳しい情報については、「[Enterprise の {% data variables.product.prodname_registry %} の概要](/admin/packages/getting-started-with-github-packages-for-your-enterprise)」を参照してください。
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
-   - Azure Blob Storage:
+1. 次のコマンドを入力して外部ストレージ接続を設定し、プレースホルダーの値を接続の実際の値に置き換えます。
+   - Azure Blob Storage: 
 
      ```shell{:copy}
      ghe-config secrets.packages.blob-storage-type "azure"
      ghe-config secrets.packages.azure-container-name "AZURE CONTAINER NAME"
      ghe-config secrets.packages.azure-connection-string "CONNECTION STRING"
      ```
-   - Amazon S3:
+   - Amazon S3: 
 
      ```shell{:copy}
      ghe-config secrets.packages.blob-storage-type "s3"
@@ -118,40 +122,40 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
      ghe-config secrets.packages.aws-access-key "S3 ACCESS KEY ID"
      ghe-config secrets.packages.aws-secret-key "S3 ACCESS SECRET"
      ```
-1. To prepare to enable {% data variables.product.prodname_registry %} on the staging instance, enter the following command.
+1. ステージング インスタンスで {% data variables.product.prodname_registry %} を有効にする準備をするには、次のコマンドを入力します。
 
    ```shell{:copy}
    ghe-config app.packages.enabled true
    ```
 
-### 5. Restore your production backup
+### 5. 運用バックアップを復元する
 
-Use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
+`ghe-restore` コマンドを使用して残りのデータをバックアップから復元します。 詳しくは、「[バックアップの復元](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)」を参照してください。
 
-If the staging instance is already configured and you want to overwrite settings, certificate, and license data, add the `-c` option to the command. For more information about the option, see [Using the backup and restore commands](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) in the {% data variables.product.prodname_enterprise_backup_utilities %} documentation.
+ステージング インスタンスが既に設定されており、設定、証明書、ライセンス データを上書きする場合は、コマンドに `-c` オプションを追加します。 このオプションの詳しい情報については、{% data variables.product.prodname_enterprise_backup_utilities %} ドキュメントの「[バックアップおよび復元コマンドの使用](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license)」を参照してください。
 
-### 6. Review the instance's configuration
+### 6. インスタンスの設定を確認する
 
-To access the staging instance using the same hostname, update your local hosts file to resolve the staging instance's hostname by IP address by editing the `/etc/hosts` file in macOS or Linux, or the `C:\Windows\system32\drivers\etc` file in Windows.
+同じホスト名を使用してステージング インスタンスにアクセスするには、macOS または Linux の `/etc/hosts` ファイル、または Windows の `C:\Windows\system32\drivers\etc` ファイルを編集して、ステージング インスタンスのホスト名を IP アドレスで解決するようにローカル ホスト ファイルを更新します。
 
 {% note %}
 
-**Note**: Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.location.product_location %} is not supported. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+**注**: ステージング インスタンスには、運用インスタンスと同じホスト名からアクセスできる必要があります。 {% data variables.location.product_location %}のホスト名の変更はサポートされていません。 詳しくは、「[ホスト名の設定](/admin/configuration/configuring-network-settings/configuring-a-hostname)」をご覧ください。
 
 {% endnote %}
 
-Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see "[Accessing the  {% data variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+次に、{% data variables.enterprise.management_console %} でステージング インスタンスの設定を確認します。 詳しい情報については、「[{% data variables.enterprise.management_console %} へのアクセス](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)」を参照してください。
 
 {% warning %}
 
-**Warning**: If you configured {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for the staging instance, to avoid overwriting production data, ensure that the external storage configuration in the {% data variables.enterprise.management_console %} does not match your production instance.
+**警告**: ステージング インスタンスの {% data variables.product.prodname_actions %} または {% data variables.product.prodname_registry %} を設定した場合、運用データが上書きされるのを回避するために、{% data variables.enterprise.management_console %} の外部ストレージの設定が運用インスタンスと一致していないことを確認してください。
 
 {% endwarning %}
 
-### 7. Apply the instance's configuration
+### 7. インスタンスの構成を適用する
 
-To apply the configuration from the {% data variables.enterprise.management_console %}, click **Save settings**.
+{% data variables.enterprise.management_console %} から設定を適用するには、 **[設定の保存]** をクリックします。
 
-## Further reading
+## 参考資料
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」

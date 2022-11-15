@@ -1,6 +1,6 @@
 ---
 title: SCIM
-intro: 'You can automate user creation and team memberships using the SCIM API.'
+intro: You can automate user creation and team memberships using the SCIM API.
 versions:
   ghes: '>=3.6'
 topics:

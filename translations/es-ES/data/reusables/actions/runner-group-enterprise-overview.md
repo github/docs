@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3e11d726bb45f2a291ea7fbae4d10770cd505eaf
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 761cee3710852bda8e1f36d47da475e2c6d6b130
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147764107"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148110113"
 ---
 Los grupos de ejecutores se utilizan para controlar el acceso a los ejecutores a nivel de empresas y organizaciones. Los propietarios de la empresa pueden configurar directivas de acceso que controlen qué organizaciones {% ifversion restrict-groups-to-workflows %}y flujos de trabajo {% endif %}de una empresa tienen acceso al grupo de ejecutores. Los propietarios de las organizaciones pueden configurar directivas de acceso que controlen qué repositorios{% ifversion restrict-groups-to-workflows %} y flujos de trabajo{% endif %} de una organización tienen acceso al grupo de ejecutores.
 

@@ -16,24 +16,33 @@ import { Link } from 'components/Link'
 
 import styles from './Search.module.scss'
 
-// The search endpoint used prior to using /api/search/legacy was
-// just /search, which used middleware/search.js. We are leaving that
-// middleware in tact to allow folks that previously used the /search
-// endpoint to continue doing so. But, we changed the endpoint used by
-// the search input on docs.github.com to use the new /api/search/legacy
-// endpoint.
-// Eventually, we will deprecate the /search and /api/search/legacy
-// endpoints and use the /api/search/v1 endpoint, which has
-// a different response JSON format.
-const SEARCH_API_ENDPOINT = '/api/search/legacy'
+const SEARCH_API_ENDPOINT = '/api/search/v1'
 
-type SearchResult = {
+type Hit = {
+  id: string
   url: string
-  breadcrumbs: string
   title: string
-  content: string
-  score: number
-  popularity: number
+  breadcrumbs: string
+  highlights: {
+    title: Array<string>
+    content: Array<string>
+  }
+  score?: number
+  popularity?: number
+  es_url?: string
+}
+
+// Note, the JSON will contain other keys too, but since we don't use
+// them in this component, we don't need to specify them.
+type Meta = {
+  found: {
+    value: number
+  }
+}
+
+type Data = {
+  hits: Hit[]
+  meta: Meta
 }
 
 type Props = {
@@ -73,10 +82,14 @@ export function Search({
         language,
         version,
         query,
+        // In its current state, can't with confidence know if the user
+        // initiated a search because of the input debounce or if the
+        // user has finished typing.
+        autocomplete: 'true',
       })}`
     : null
 
-  const { data: results, error: searchError } = useSWR<SearchResult[], Error>(
+  const { data, error: searchError } = useSWR<Data, Error>(
     fetchURL,
     async (url: string) => {
       const response = await fetch(url)
@@ -102,14 +115,14 @@ export function Search({
     }
   )
 
-  const [previousResults, setPreviousResults] = useState<SearchResult[] | undefined>()
+  const [previousData, setPreviousData] = useState<Data | undefined>()
   useEffect(() => {
-    if (results) {
-      setPreviousResults(results)
+    if (data) {
+      setPreviousData(data)
     } else if (!query) {
-      setPreviousResults(undefined)
+      setPreviousData(undefined)
     }
-  }, [results, query])
+  }, [data, query])
 
   // The `isLoading` boolean will become false every time the useSWR hook
   // fires off a new XHR. So it toggles from false/true often.
@@ -124,7 +137,7 @@ export function Search({
   // mean saying "Loading..." is a lie!
   // That's why we combine them into a final one. We're basically doing
   // this to favor *NOT* saying "Loading...".
-  const isLoadingRaw = Boolean(query && !results && !searchError)
+  const isLoadingRaw = Boolean(query && !data && !searchError)
   const [isLoadingDebounced] = useDebounce<boolean>(isLoadingRaw, 500)
   const isLoading = isLoadingRaw && isLoadingDebounced
 
@@ -216,7 +229,7 @@ export function Search({
             isHeaderSearch={isHeaderSearch}
             isMobileSearch={isMobileSearch}
             isLoading={isLoading}
-            results={previousResults}
+            results={previousData}
             closeSearch={closeSearch}
             debug={debug}
             query={query}
@@ -342,7 +355,7 @@ function ShowSearchResults({
   isHeaderSearch: boolean
   isMobileSearch: boolean
   isLoading: boolean
-  results: SearchResult[] | undefined
+  results: Data | undefined
   closeSearch: () => void
   debug: boolean
   query: string
@@ -461,11 +474,33 @@ function ShowSearchResults({
           {t('search_results_for')}: {query}
         </h1>
         <p className="ml-4 mb-4 text-normal f5">
-          {t('matches_displayed')}: {results.length === 0 ? t('no_results') : results.length}
+          {results.meta.found.value === 0 ? (
+            t('no_results')
+          ) : (
+            <span>
+              {t('matches_found')}: {results.meta.found.value.toLocaleString()}
+            </span>
+          )}
+          .{' '}
+          {results.meta.found.value > results.hits.length && (
+            <span>
+              {t('matches_displayed')}:{' '}
+              {results.meta.found.value === 0 ? t('no_results') : results.hits.length}
+            </span>
+          )}
         </p>
 
         <ActionList variant="full">
-          {results.map(({ url, breadcrumbs, title, content, score, popularity }, index) => {
+          {results.hits.map((hit, index) => {
+            const { url, breadcrumbs, title, highlights, score, popularity } = hit
+
+            const contentHTML =
+              highlights.content && highlights.content.length > 0
+                ? highlights.content.join('<br>')
+                : ''
+            const titleHTML =
+              highlights.title && highlights.title.length > 0 ? highlights.title[0] : title
+
             return (
               <ActionList.Item className="width-full" key={url}>
                 <Link
@@ -476,8 +511,8 @@ function ShowSearchResults({
                       type: EventType.searchResult,
                       search_result_query: Array.isArray(query) ? query[0] : query,
                       search_result_index: index,
-                      search_result_total: results.length,
-                      search_result_rank: (results.length - index) / results.length,
+                      search_result_total: results.hits.length,
+                      search_result_rank: (results.hits.length - index) / results.hits.length,
                       search_result_url: url,
                     })
                   }}
@@ -487,17 +522,10 @@ function ShowSearchResults({
                     className={cx('list-style-none', styles.resultsContainer)}
                   >
                     <div className={cx('py-2 px-3')}>
-                      {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
                       <Label size="small" variant="accent">
-                        {breadcrumbs.length === 0
-                          ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
-                          : breadcrumbs
-                              .split(' / ')
-                              .slice(0, 1)
-                              .join(' ')
-                              .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
+                        {breadcrumbs ? breadcrumbs.split(' / ')[0] : title}
                       </Label>
-                      {debug && (
+                      {debug && score !== undefined && popularity !== undefined && (
                         <small className="float-right">
                           score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
                         </small>
@@ -505,13 +533,13 @@ function ShowSearchResults({
                       <h2
                         className={cx('mt-2 text-normal f3 d-block')}
                         dangerouslySetInnerHTML={{
-                          __html: title,
+                          __html: titleHTML,
                         }}
                       />
                       <div
                         className={cx(styles.searchResultContent, 'mt-1 d-block overflow-hidden')}
                         style={{ maxHeight: '2.5rem' }}
-                        dangerouslySetInnerHTML={{ __html: content }}
+                        dangerouslySetInnerHTML={{ __html: contentHTML }}
                       />
                       <div
                         className={'d-block mt-2 opacity-70 text-small'}

@@ -12,7 +12,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
-intro: 'Las organizaciones son ideales para crear grupos diferentes de usuarios dentro de tu empresa, como divisiones o grupos trabajando en proyectos similares. Los repositorios {% ifversion ghae %}internos{% else %}Los repositorios públicos e internos{% endif %} que pertenecen a una organización son accesibles para los miembros de otras organizaciones en la empresa, mientras que los repositorios privados no son accesibles para nadie mas que los miembros de la organización que cuenta con este acceso.'
+intro: 'Puedes usar organizaciones para agrupar usuarios dentro de tu empresa, como departamentos o grupos que trabajen en proyectos similares, y administrar el acceso a los repositorios.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -33,11 +33,11 @@ children:
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
-ms.openlocfilehash: 5d1430bc4efff03e6cddfe81f3c018d4f2064155
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: e2fade6385a690d1ca91b587f2d7ca3e081bd23b
+ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147884249'
+ms.lasthandoff: 11/01/2022
+ms.locfileid: '148127615'
 ---
 

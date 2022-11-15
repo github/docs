@@ -6,7 +6,7 @@ import {
   isGitHubOrgMember,
   findFieldID,
   findSingleSelectID,
-  generateUpdateProjectNextItemFieldMutation,
+  generateUpdateProjectV2ItemFieldMutation,
 } from './projects.js'
 
 async function run() {
@@ -15,13 +15,22 @@ async function run() {
     `
       query ($organization: String!, $projectNumber: Int!, $id: ID!) {
         organization(login: $organization) {
-          projectNext(number: $projectNumber) {
+          projectV2(number: $projectNumber) {
             id
-            fields(first: 20) {
+            fields(first: 100) {
               nodes {
-                id
-                name
-                settings
+                ... on ProjectV2Field {
+                  id
+                  name
+                }
+                ... on ProjectV2SingleSelectField {
+                  id
+                  name
+                  options {
+                    id
+                    name
+                  }
+                }
               }
             }
           }
@@ -46,13 +55,12 @@ async function run() {
       projectNumber: parseInt(process.env.PROJECT_NUMBER),
       headers: {
         authorization: `token ${process.env.TOKEN}`,
-        'GraphQL-Features': 'projects_next_graphql',
       },
     }
   )
 
   // Get the project ID
-  const projectID = data.organization.projectNext.id
+  const projectID = data.organization.projectV2.id
 
   // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', data)
@@ -168,7 +176,7 @@ async function run() {
   }
   const turnaround = process.env.REPO === 'github/docs' ? 3 : 2
   // Generate a mutation to populate fields for the new project item
-  const updateProjectNextItemMutation = generateUpdateProjectNextItemFieldMutation({
+  const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
     item: newItemID,
     author: firstTimeContributor ? 'first time contributor' : process.env.AUTHOR_LOGIN,
     turnaround,
@@ -190,7 +198,7 @@ async function run() {
 
   console.log(`Populating fields for item: ${newItemID}`)
 
-  await graphql(updateProjectNextItemMutation, {
+  await graphql(updateProjectV2ItemMutation, {
     project: projectID,
     statusID,
     statusValueID: readyForReviewID,

@@ -1747,6 +1747,40 @@
       ]
     },
     {
+      "name": "archiveProjectV2Item",
+      "kind": "mutations",
+      "id": "archiveprojectv2item",
+      "href": "/graphql/reference/mutations#archiveprojectv2item",
+      "description": "<p>Archives a ProjectV2Item.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ArchiveProjectV2ItemInput!",
+          "id": "archiveprojectv2iteminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#archiveprojectv2iteminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "item",
+          "type": "ProjectV2Item",
+          "id": "projectv2item",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2item",
+          "description": "<p>The item archived from the project.</p>"
+        }
+      ]
+    },
+    {
       "name": "archiveRepository",
       "kind": "mutations",
       "id": "archiverepository",
@@ -4171,6 +4205,74 @@
       ]
     },
     {
+      "name": "linkProjectV2ToRepository",
+      "kind": "mutations",
+      "id": "linkprojectv2torepository",
+      "href": "/graphql/reference/mutations#linkprojectv2torepository",
+      "description": "<p>Links a project to a repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "LinkProjectV2ToRepositoryInput!",
+          "id": "linkprojectv2torepositoryinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#linkprojectv2torepositoryinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository",
+          "description": "<p>The repository the project is linked to.</p>"
+        }
+      ]
+    },
+    {
+      "name": "linkProjectV2ToTeam",
+      "kind": "mutations",
+      "id": "linkprojectv2toteam",
+      "href": "/graphql/reference/mutations#linkprojectv2toteam",
+      "description": "<p>Links a project to a team.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "LinkProjectV2ToTeamInput!",
+          "id": "linkprojectv2toteaminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#linkprojectv2toteaminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "team",
+          "type": "Team",
+          "id": "team",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#team",
+          "description": "<p>The team the project is linked to.</p>"
+        }
+      ]
+    },
+    {
       "name": "linkRepositoryToProject",
       "kind": "mutations",
       "id": "linkrepositorytoproject",
@@ -5551,6 +5653,40 @@
       ]
     },
     {
+      "name": "unarchiveProjectV2Item",
+      "kind": "mutations",
+      "id": "unarchiveprojectv2item",
+      "href": "/graphql/reference/mutations#unarchiveprojectv2item",
+      "description": "<p>Unarchives a ProjectV2Item.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnarchiveProjectV2ItemInput!",
+          "id": "unarchiveprojectv2iteminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unarchiveprojectv2iteminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "item",
+          "type": "ProjectV2Item",
+          "id": "projectv2item",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2item",
+          "description": "<p>The item unarchived from the project.</p>"
+        }
+      ]
+    },
+    {
       "name": "unarchiveRepository",
       "kind": "mutations",
       "id": "unarchiverepository",
@@ -5649,6 +5785,74 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#user",
           "description": "<p>The user that was unfollowed.</p>"
+        }
+      ]
+    },
+    {
+      "name": "unlinkProjectV2FromRepository",
+      "kind": "mutations",
+      "id": "unlinkprojectv2fromrepository",
+      "href": "/graphql/reference/mutations#unlinkprojectv2fromrepository",
+      "description": "<p>Unlinks a project from a repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnlinkProjectV2FromRepositoryInput!",
+          "id": "unlinkprojectv2fromrepositoryinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unlinkprojectv2fromrepositoryinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository",
+          "description": "<p>The repository the project is no longer linked to.</p>"
+        }
+      ]
+    },
+    {
+      "name": "unlinkProjectV2FromTeam",
+      "kind": "mutations",
+      "id": "unlinkprojectv2fromteam",
+      "href": "/graphql/reference/mutations#unlinkprojectv2fromteam",
+      "description": "<p>Unlinks a project to a team.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnlinkProjectV2FromTeamInput!",
+          "id": "unlinkprojectv2fromteaminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unlinkprojectv2fromteaminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "team",
+          "type": "Team",
+          "id": "team",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#team",
+          "description": "<p>The team the project is unlinked from.</p>"
         }
       ]
     },
@@ -9568,6 +9772,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "matchingRefs",
           "description": "<p>Repository refs that are protected by this rule.</p>",
           "type": "RefConnection!",
@@ -9692,6 +9912,14 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -37222,12 +37450,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -56224,6 +56472,14 @@
           "href": "/graphql/reference/objects#fundinglink"
         },
         {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasIssuesEnabled",
           "description": "<p>Indicates if the repository has issues feature enabled.</p>",
           "type": "Boolean!",
@@ -63775,6 +64031,16 @@
               }
             },
             {
+              "name": "filterBy",
+              "description": "<p>Filtering options for projects returned from this connection.</p>",
+              "type": {
+                "name": "ProjectV2Filters",
+                "id": "projectv2filters",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2filters"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -63802,6 +64068,17 @@
                 "id": "projectv2order",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#projectv2order"
+              }
+            },
+            {
+              "name": "query",
+              "defaultValue": "",
+              "description": "<p>The query to search projects by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             }
           ]
@@ -69659,12 +69936,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -73515,6 +73812,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasIssuesEnabled",
           "description": "<p>Indicates if the repository has issues feature enabled.</p>",
           "type": "Boolean!",
@@ -74239,12 +74544,32 @@
             {
               "name": "period",
               "defaultValue": "MONTH",
-              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity occurred.</p>",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
               "type": {
                 "name": "SponsorsActivityPeriod",
                 "id": "sponsorsactivityperiod",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -77303,6 +77628,10 @@
           "description": "<p>Title.</p>"
         },
         {
+          "name": "TRACKED_BY",
+          "description": "<p>Tracked by.</p>"
+        },
+        {
           "name": "TRACKS",
           "description": "<p>Tracks.</p>"
         }
@@ -77473,6 +77802,10 @@
           "description": "<p>Title.</p>"
         },
         {
+          "name": "TRACKED_BY",
+          "description": "<p>Tracked by.</p>"
+        },
+        {
           "name": "TRACKS",
           "description": "<p>Tracks.</p>"
         }
@@ -77551,6 +77884,23 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>The project's date and time of update.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2State",
+      "kind": "enums",
+      "id": "projectv2state",
+      "href": "/graphql/reference/enums#projectv2state",
+      "description": "<p>The possible states of a project v2.</p>",
+      "values": [
+        {
+          "name": "CLOSED",
+          "description": "<p>A project v2 that has been closed.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>A project v2 that is still open.</p>"
         }
       ]
     },
@@ -82231,6 +82581,41 @@
       ]
     },
     {
+      "name": "ArchiveProjectV2ItemInput",
+      "kind": "inputObjects",
+      "id": "archiveprojectv2iteminput",
+      "href": "/graphql/reference/input-objects#archiveprojectv2iteminput",
+      "description": "<p>Autogenerated input type of ArchiveProjectV2Item.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "itemId",
+          "description": "<p>The ID of the ProjectV2Item to archive.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to archive the item from.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "ArchiveRepositoryInput",
       "kind": "inputObjects",
       "id": "archiverepositoryinput",
@@ -83274,6 +83659,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "pattern",
           "description": "<p>The glob-like pattern used to determine matching branches.</p>",
           "type": "String!",
@@ -83297,6 +83698,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -84322,6 +84731,15 @@
           "name": "ownerId",
           "description": "<p>The owner ID to create the project under.</p>",
           "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The repository to link the project to.</p>",
+          "type": "ID",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
@@ -86468,6 +86886,76 @@
       ]
     },
     {
+      "name": "LinkProjectV2ToRepositoryInput",
+      "kind": "inputObjects",
+      "id": "linkprojectv2torepositoryinput",
+      "href": "/graphql/reference/input-objects#linkprojectv2torepositoryinput",
+      "description": "<p>Autogenerated input type of LinkProjectV2ToRepository.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to link to the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to link to the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "LinkProjectV2ToTeamInput",
+      "kind": "inputObjects",
+      "id": "linkprojectv2toteaminput",
+      "href": "/graphql/reference/input-objects#linkprojectv2toteaminput",
+      "description": "<p>Autogenerated input type of LinkProjectV2ToTeam.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to link to the team.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The ID of the team to link to the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "LinkRepositoryToProjectInput",
       "kind": "inputObjects",
       "id": "linkrepositorytoprojectinput",
@@ -87189,6 +87677,23 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2Filters",
+      "kind": "inputObjects",
+      "id": "projectv2filters",
+      "href": "/graphql/reference/input-objects#projectv2filters",
+      "description": "<p>Ways in which to filter lists of projects.</p>",
+      "inputFields": [
+        {
+          "name": "state",
+          "description": "<p>List project v2 filtered by the state given.</p>",
+          "type": "ProjectV2State",
+          "id": "projectv2state",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2state"
         }
       ]
     },
@@ -89006,6 +89511,41 @@
       ]
     },
     {
+      "name": "UnarchiveProjectV2ItemInput",
+      "kind": "inputObjects",
+      "id": "unarchiveprojectv2iteminput",
+      "href": "/graphql/reference/input-objects#unarchiveprojectv2iteminput",
+      "description": "<p>Autogenerated input type of UnarchiveProjectV2Item.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "itemId",
+          "description": "<p>The ID of the ProjectV2Item to unarchive.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to archive the item from.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "UnarchiveRepositoryInput",
       "kind": "inputObjects",
       "id": "unarchiverepositoryinput",
@@ -89075,6 +89615,76 @@
         {
           "name": "userId",
           "description": "<p>ID of the user to unfollow.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UnlinkProjectV2FromRepositoryInput",
+      "kind": "inputObjects",
+      "id": "unlinkprojectv2fromrepositoryinput",
+      "href": "/graphql/reference/input-objects#unlinkprojectv2fromrepositoryinput",
+      "description": "<p>Autogenerated input type of UnlinkProjectV2FromRepository.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to unlink from the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to unlink from the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UnlinkProjectV2FromTeamInput",
+      "kind": "inputObjects",
+      "id": "unlinkprojectv2fromteaminput",
+      "href": "/graphql/reference/input-objects#unlinkprojectv2fromteaminput",
+      "description": "<p>Autogenerated input type of UnlinkProjectV2FromTeam.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to unlink from the team.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The ID of the team to unlink from the project.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -89398,6 +90008,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "pattern",
           "description": "<p>The glob-like pattern used to determine matching branches.</p>",
           "type": "String",
@@ -89412,6 +90038,14 @@
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -91684,6 +92318,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository should have the discussions feature enabled.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "hasIssuesEnabled",

@@ -1,9 +1,16 @@
 ---
-ms.openlocfilehash: bbc3a414d8a29780d8df51bd14b9f8a5843a6c4b
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 8f48fb502f949942b6a0796f03b0b9afb9c538f9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145114161"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148110120"
 ---
-| Parámetro | Valor | | :- | :- |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `title` | Título personalizado |{% endif %} | `file` | Nombre de archivo | | `col` | Número de columna, empezando en 1 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endColumn` | Número de columna final |{% endif %} | `line` | Número de línea, empezando en 1 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endLine` | Número de línea final |{% endif %}
+| Parámetro | Value |
+| :- | :- |
+| `title` | Título personalizado |
+| `file` | Filename |
+| `col` | Número de columna, a partir de 1 |
+| `endColumn` | Número de columna final |
+| `line` | Número de línea, a partir de 1 |
+| `endLine` | Número de línea final |

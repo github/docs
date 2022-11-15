@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a78a08bd4cdf72ca732b4c2a664164d0f69f1815
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8fef95ca781a57606206a89a8408bcd4774402e2
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147424219"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109508"
 ---
 1. 項目を選びます。 複数のアイテムを選択するには、以下のいずれかのようにしてください。
      - <kbd>command</kbd> (Mac) または <kbd>Ctrl</kbd> (Windows または Linux) キーを押しながら各項目をクリックします。

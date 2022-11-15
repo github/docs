@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 94e76ae2e8580c87d4493d454e4921f777da810c
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 77c9b4b73d2d839bc9c0bdaa73ffc148f0eda6ca
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: "147717782"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109228"
 ---
 この構成ファイルは、コードのスキャン時に {% data variables.product.prodname_codeql %} によって実行されるクエリのリストに `security-and-quality` クエリ スイートを追加します。 使用できるクエリ スイートの詳細については、「[追加のクエリを実行する](#running-additional-queries)」を参照してください。
 

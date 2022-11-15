@@ -1,7 +1,6 @@
 ---
 title: Guías de codespaces
 shortTitle: Guides
-product: '{% data reusables.gated-features.codespaces %}'
 intro: Aprende cómo sacar el mayor provecho de GitHub
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -15,17 +14,21 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines
+  - /codespaces/setting-up-your-project-for-codespaces/automatically-opening-files-in-the-codespaces-for-a-repository
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
-  - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
+  - /codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
-  - /codespaces/developing-in-codespaces/creating-a-codespace
+  - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+  - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
   - /codespaces/developing-in-codespaces/developing-in-a-codespace
   - /codespaces/developing-in-codespaces/deleting-a-codespace
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
   - /codespaces/developing-in-codespaces/opening-an-existing-codespace
   - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
-  - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
-  - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
+  - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+  - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
+  - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli
   - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
   - /codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace
@@ -53,11 +56,11 @@ includeGuides:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
   - /codespaces/codespaces-reference/security-in-codespaces
-ms.openlocfilehash: 54ba7cc4fbacd536f0438626281d1b59252eb3f1
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: e11e89910b01bc3656cfc2982f13d48f99ee72b6
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147783115'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159193'
 ---
 

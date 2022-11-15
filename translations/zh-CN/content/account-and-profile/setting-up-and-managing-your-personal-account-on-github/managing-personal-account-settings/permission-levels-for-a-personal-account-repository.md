@@ -14,12 +14,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Repository permissions
-ms.openlocfilehash: e7c7a542204c7b1ce69bc19ac326fb248bbbff12
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dd2124c23054fa7bd44bb6501dae4363e59bab75
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147066304'
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113871'
 ---
 ## 关于个人帐户存储库的权限级别
 
@@ -56,9 +56,10 @@ ms.locfileid: '147066304'
 | 管理私有仓库的数据使用 | [管理专用存储库的数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)|{% endif %}
 | 定义仓库的代码所有者 | “[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)” |
 | 存档仓库 | [存档存储库](/repositories/archiving-a-github-repository/archiving-repositories) |{% ifversion fpt or ghec %}
-| 创建安全通告 | [关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories) |
+| 创建安全通告 | “[关于存储库安全公告](/github/managing-security-vulnerabilities/about-github-security-advisories)” |
 | 显示赞助按钮 | [在存储库中显示赞助者按钮](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository) |{% endif %}
 | 允许或禁止自动合并拉取请求 | [管理存储库中拉取请求的自动合并](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository) | 
+| 管理 web 挂钩和部署密钥   | “[管理部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)” |
 
 ## 协作者对个人帐户拥有的存储库的权限
 

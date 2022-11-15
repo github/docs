@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 0f621e8e83d20f58e208fd9285082441fe29aa74
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8f78a77c83ea498d8d41a0deff20903062542479
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147682894"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108928"
 ---
 IP 許可リストのエントリを編集できます。 有効なエントリを編集すると、変更がすぐに適用されます。 
 

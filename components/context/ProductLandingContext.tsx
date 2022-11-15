@@ -110,7 +110,7 @@ export const getProductLandingContextFromRequest = async (
     hasGuidesPage,
     product: {
       href: productTree.href,
-      title: productTree.renderedShortTitle || productTree.renderedFullTitle,
+      title: productTree.page.shortTitle || productTree.page.title,
     },
     whatsNewChangelog: req.context.whatsNewChangelog || [],
     changelogUrl: req.context.changelogUrl || [],

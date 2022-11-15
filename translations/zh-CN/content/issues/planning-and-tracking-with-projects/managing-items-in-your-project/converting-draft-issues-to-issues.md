@@ -8,12 +8,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 22d80acf06957a3ab617e51d0051c75cf42db988
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 6c956f5453941bdd6b9fbe89191737b1b7f59cec
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423806'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108095'
 ---
 ## 在表格布局中转换草稿问题
 

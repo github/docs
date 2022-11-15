@@ -16,12 +16,12 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
-ms.openlocfilehash: 51a1da4eff062263aeca52de02b764385e7e1184
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 30c4830c125e9b20ada59e0e0e29fa0eb5c6c649
+ms.sourcegitcommit: a9af58ef52d8d109186053d184d9b1e52e5f0323
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146458248'
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148128908'
 ---
 {% data reusables.dependabot.result-discrepancy %}
 
@@ -53,7 +53,7 @@ Sí, la gráfica de dependencias tiene dos categorías de límites:
 
     Los manifiestos mayores a 0.5 MB solo se procesan para las cuentas empresariales. En el caso de otras cuentas, los manifiestos mayores a 0.5 MB se ingoran y no crearán {% data variables.product.prodname_dependabot_alerts %}.
 
-    Predeterminadamente, {% data variables.product.prodname_dotcom %} no procesará más de 20 manifiestos por repositorio. Las {% data variables.product.prodname_dependabot_alerts %} no se crean para los manifiestos más allá de este límite. Si necesitas incrementar el límite, contacta a {% data variables.contact.contact_support %}. 
+    De manera predeterminada, {% data variables.product.prodname_dotcom %} no procesará más de {% ifversion fpt %}150{% else %}600{% endif %} manifiestos por repositorio. Las {% data variables.product.prodname_dependabot_alerts %} no se crean para los manifiestos más allá de este límite. Si necesitas incrementar el límite, contacta a {% data variables.contact.contact_support %}. 
 
 2. **Límites de visualización**
 
@@ -67,5 +67,5 @@ Sí, la gráfica de dependencias tiene dos categorías de límites:
 
 - "[Acerca del gráfico de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
 - "[Administración de la configuración de seguridad y análisis para el repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[Solución de problemas de detección de dependencias vulnerables](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %}
+- "[Solución de problemas de detección de dependencias vulnerables](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
 - "[Solución de errores de {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}

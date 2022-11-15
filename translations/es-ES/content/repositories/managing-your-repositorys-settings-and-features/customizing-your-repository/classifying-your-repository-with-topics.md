@@ -14,12 +14,12 @@ versions:
 topics:
   - Repositories
 shortTitle: Classify with topics
-ms.openlocfilehash: 68bd754ac6c50968961c61e533cb6b9de26e4cc4
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 26f51423140c086bbea019666b8d569419da3b38
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145136813'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109843'
 ---
 ## Acerca de los temas
 
@@ -38,6 +38,12 @@ Los administradores del repositorio pueden agregar los temas que deseen a un rep
 Puedes buscar los repositorios que están asociados con un tema en particular. Para más información, vea "[Búsqueda de repositorios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)". También puedes buscar un listado de temas en {% data variables.product.product_name %}. Para más información, vea "[Búsqueda de temas](/search-github/searching-on-github/searching-topics)".
 
 ## Agregar temas a tu repositorio
+
+{% note %}
+
+**Nota**: Los nombres de los temas siempre son públicos, aunque el tema se cree desde un repositorio privado.
+
+{% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. A la derecha de "Acerca de", haga clic en {% octicon "gear" aria-label="The Gear icon" %}.

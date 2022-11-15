@@ -12,12 +12,12 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Git Large File Storage
-ms.openlocfilehash: af198fe13f69fc4768178aea74a03f27a82ec20b
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: f0ab54791645dc5c36cce2880ba3ae5c9b705f35
+ms.sourcegitcommit: 06726d24e73f1175f10749d6fdcf143d6094c9a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145131946'
+ms.lasthandoff: 10/28/2022
+ms.locfileid: '148118751'
 ---
 ## {% data variables.large_files.product_name_long %}について
 
@@ -32,7 +32,9 @@ ms.locfileid: '145131946'
 | {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
 {% data variables.large_files.product_name_short %} を使うと、最大 5 GB までのファイルをリポジトリに格納できます。
-{% endif %}  
+{% endif %} 
+
+{% data reusables.repositories.git-lfs %}
 
 {% data variables.large_files.product_name_short %}を{% data variables.product.prodname_desktop %}と共に使うこともできます。 {% data variables.product.prodname_desktop %} での Git FLS リポジトリのクローンについて詳しくは、「[GitHub からの GitHub Desktop へのリポジトリのクローン方法](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)」をご覧ください。
 

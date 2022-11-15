@@ -12,12 +12,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 60ef610d4134eaddee3f40c5d50d72e463fedd27
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 7ac423a27fe8b1c145efa3c135d88f08487f153a
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145129063'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132981'
 ---
 [部署 API][deploy API] 让 {% data variables.product.product_name %} 上托管的项目能够在你所拥有的服务器上启动这些部署。 结合 [状态 API][status API]，你将能够在代码登陆默认分支的那一刻协调部署。
 
@@ -30,7 +30,13 @@ ms.locfileid: '145129063'
 
 我们的 CI 系统和主机服务器将是我们想象中的虚拟物。 它们可能是 Heroku、Amazon 或其他完全不同的东西。 本指南的重点是设置和配置负责管理通信的服务器。
 
-如果尚未下载，请务必[下载 ngrok][ngrok]，并了解如何[使用它][using ngrok]。 我们发现它在暴露本地连接方面是一款非常有用的工具。
+如果尚未下载，请务必[下载 `ngrok`][ngrok]，并了解如何[使用它][using ngrok]。 我们发现它在将本地应用程序公开给 Internet 方面是一款非常有用的工具。
+
+{% ifversion cli-webhook-forwarding %} {% note %}
+
+注意：或者，可以使用 Webhook 转发来设置本地环境以接收 Webhook。 有关详细信息，请参阅“[使用 GitHub CLI 接收 Webhook](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)”。
+
+{% endnote %} {% endif %}
 
 注意：可以在 [platform-samples][platform samples] 存储库中下载此项目的完整源代码。
 
@@ -51,12 +57,12 @@ end
 
 （如果你不熟悉 Sinatra 的工作原理，建议你阅读 [Sinatra 指南][Sinatra]。）
 
-启动此服务器。 默认情况下，Sinatra 在端口 `4567` 上启动，因此你还需要配置 ngrok 开始监听。
+启动此服务器。 默认情况下，Sinatra 在端口 `4567` 上启动，因此你还需要配置 `ngrok` 以开始监听。
 
 为了使此服务器正常工作，我们需要使用 web 挂钩来设置一个仓库。
 Web 挂钩应配置为在创建或合并拉取请求时触发。
 继续创建一个您可以自由支配的仓库。 我们可以推荐 [@octocat 的 Spoon/Knife 存储库](https://github.com/octocat/Spoon-Knife)吗？
-之后，你将在自己的存储库中创建新的 web 挂钩，向其馈送 ngrok 给你的 URL，并选择 `application/x-www-form-urlencoded` 作为内容类型：
+之后，你将在自己的存储库中创建新的 Webhook，向其馈送 `ngrok` 提供给你的 URL，并选择 `application/x-www-form-urlencoded` 作为内容类型：
 
 ![新的 ngrok URL](/assets/images/webhook_sample_url.png)
 

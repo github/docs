@@ -21,7 +21,7 @@ topics:
 
 Enterprise owners on {% data variables.product.product_name %} can control the requirements for authentication and access to the enterprise's resources. 
 
-You can choose to allow members to create and manage user accounts, or your enterprise can create and manage accounts for members with {% data variables.product.prodname_emus %}. If you allow members to manage their own accounts, you can also configure SAML authentication to both increase security and centralize identity and access for the web applications that your team uses.
+{% data reusables.enterprise.ghec-authentication-options %}
 
 After learning more about these options, to determine which method is best for your enterprise, see "[Identifying the best authentication method for your enterprise](#identifying-the-best-authentication-method-for-your-enterprise)."
 
@@ -119,13 +119,19 @@ The following authentication methods are available for {% data variables.product
 
 ### External authentication
 
-If you use an external directory or identity provider (IdP) to centralize access to multiple web applications, you may be able to configure external authentication for {% data variables.location.product_location %}. For more information, see the following.
+If you use an external directory or identity provider (IdP) to centralize access to multiple web applications, you may be able to configure external authentication for {% data variables.location.product_location %}. For more information, see the following articles.
 
 - "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
 - "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
 - "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 
 If you choose to use external authentication, you can also configure fallback authentication for people who don't have an account on your external authentication provider. For example, you may want to grant access to a contractor or machine user. For more information, see "[Allowing built-in authentication for users outside your provider](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+
+{% ifversion scim-for-ghes %}
+
+If you use SAML SSO for authentication, you can also provision users and map IdP groups to teams using SCIM. For more information, see "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
+
+{% endif %}
 
 {% elsif ghae %}
 

@@ -8,8 +8,8 @@ name: Sync search - PR
 on:
   pull_request:
     paths:
-      - script/search/parse-page-sections-into-records.js
-      - script/search/popular-pages.js
+      - 'script/search/**'
+      - 'package*.json'
       - lib/search/popular-pages.json
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
@@ -29,7 +29,7 @@ env:
   ELASTICSEARCH_URL: http://localhost:9200
 
 jobs:
-  lint:
+  dryRunElasticsearchIndexes:
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
@@ -95,11 +95,9 @@ jobs:
 
         run: |
           mkdir /tmp/records
-          npm run sync-search-indices -- \
+          npm run sync-search-indices -- /tmp/records \
             --language en \
-            --version dotcom \
-            --out-directory /tmp/records \
-            --no-compression --no-lunr-index
+            --version dotcom
 
           ls -lh /tmp/records
 
@@ -109,9 +107,9 @@ jobs:
 
       - name: Index into Elasticsearch
         run: |
-          ./script/search/index-elasticsearch.js \
+          ./script/search/index-elasticsearch.js /tmp/records \
             --language en \
-            --version dotcom -- /tmp/records
+            --version dotcom
 
       - name: Check created indexes and aliases
         run: |

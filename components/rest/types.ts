@@ -15,6 +15,7 @@ export interface Operation {
 }
 
 export interface Parameter {
+  exampleName?: string
   in: string
   name: string
   description: string

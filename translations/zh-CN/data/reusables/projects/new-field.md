@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: daf5b47c71e8cbde44c6dab38eabf7c6d922be9a
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 3acee6d785e2b633f979e7edb8f80544dfa09ced
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147882873"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108205"
 ---
 1. 在表视图中，单击最右侧字段标题中的 {% octicon "plus" aria-label="the plus icon" %}。
    ![显示“新建字段”按钮的屏幕截图](/assets/images/help/projects-v2/new-field-button.png)

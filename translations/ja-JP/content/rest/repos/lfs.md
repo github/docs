@@ -1,36 +1,41 @@
 ---
 title: Git LFS
-intro: 'You can enable or disable {% data variables.large_files.product_name_long %} (LFS) for a repository.'
+intro: 'リポジトリの {% data variables.large_files.product_name_long %} (LFS) を有効または無効にすることができます。'
 versions:
   fpt: '*'
-  ghes: '>=3.3'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: e8a08167bb966b1dd397d8cfa7b4a9e9952946ca
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109769'
 ---
+## {% data variables.large_files.product_name_short %} API について
 
-## About the {% data variables.large_files.product_name_short %} API
+{% data variables.large_files.product_name_short %} を使って、Git リポジトリに大きなファイルを格納することができます。 {% data variables.large_files.product_name_short %} API を使用すると、個々のリポジトリの機能を有効または無効にすることができます。 {% data variables.large_files.product_name_short %} について詳しくは、「[{% data variables.large_files.product_name_short %} について](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)」を参照してください。
 
-You can use {% data variables.large_files.product_name_short %} to store large files in a Git repository. The {% data variables.large_files.product_name_short %} API allows you to enable or disable the feature for an individual repository. For more information about  {% data variables.large_files.product_name_short %}, see "[About {% data variables.large_files.product_name_short %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
-
-People with admin access to a repository can use the {% data variables.large_files.product_name_short %} API.
+リポジトリへの管理者アクセス権を持つユーザーは、{% data variables.large_files.product_name_short %} API を使うことができます。
 
 {% ifversion fpt or ghec %}
 
-Usage of {% data variables.large_files.product_name_short %} is subject to billing. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)."
+{% data variables.large_files.product_name_short %} の使用は課金対象です。 詳細については、「[ {% data variables.large_files.product_name_long %} の課金について](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)」を参照してください。
 
-If you want to use the {% data variables.large_files.product_name_short %} API for a repository that belongs to an organization, your role must provide you with access to the organization's{% ifversion ghec %} or enterprise's{% endif %} billing.{% ifversion fpt %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)."{% endif %}
+Organization に属するリポジトリに {% data variables.large_files.product_name_short %} API を使用する場合は、Organization の {% ifversion ghec %} または Enterprise の {% endif %} 課金へのアクセス権がご自分のロールで提供されている必要があります。{% ifversion fpt %}詳しくは、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)」を参照してください。{% endif %}
 
 {% ifversion ghec %}
 
-| Repository ownership | Required repository access | Required role | More information |
+| リポジトリの所有権 | 必要なリポジトリ アクセス | 必要なロール | 詳細情報 |
 | :- | :- | :- | :- |
-| Personal account | Admin | N/A | N/A |
-| <ul><li>Organization on {% data variables.product.prodname_team %}</li><li>Organization on {% data variables.product.product_name %}, but not in an enterprise</li></ul> | Admin, which is inherited if you are an organization owner | Organization owner or billing manager | "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)" |
-| Organization in an enterprise | Admin, which can be inherited if you are an organization owner | Enterprise owner or billing manager | "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)" |
+| 個人用アカウント | [Admin] | 該当なし | 該当なし |
+| <ul><li>{% data variables.product.prodname_team %} の Organization</li><li>{% data variables.product.product_name %} の Organization ですが、Enterprise 内には含まれない</li></ul> | 管理者。Organization の所有者である場合に継承される | Organization の所有者または支払いマネージャー | 「[組織のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)」 |
+| Enterprise 内の Organization | 管理者。Organization の所有者である場合に継承できる | Enterprise の所有者または支払いマネージャー | "[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)" |
 
 {% endif %}
 

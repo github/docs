@@ -9,15 +9,13 @@ type: overview
 topics:
   - Enterprise
   - Upgrades
-ms.openlocfilehash: 196745ee4ededaf78bd5afe876e4afa09141e930
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: b3a2d340ef73ffe92f2117caf38a84e76ba0c8d1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145120202'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109831'
 ---
-{% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
-
 {% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} es un servicio totalmente administrado, de manera que {% data variables.product.company_short %} completa el proceso de actualización automáticamente para la empresa.{% endif %}
 
 Los lanzamientos de características incluyen mejoras de funcionalidades y características y, habitualmente, suceden cada trimestre. {% ifversion ghae %}{% data variables.product.company_short %} actualizará tu empresa al lanzamiento de características más reciente. Se te notificará previamente sobre cualquier tiempo de inactividad que se planee para tu empresa.{% endif %}

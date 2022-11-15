@@ -11,12 +11,12 @@ topics:
   - Pull requests
 shortTitle: 'Archive cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: de1d0a4981a46c4ceddd73b5d1f49b74f111601f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: bef90f56a55d6d087c21603586def91ec2f1c9ed
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423586'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108706'
 ---
 {% data reusables.projects.project_boards_old %}
 

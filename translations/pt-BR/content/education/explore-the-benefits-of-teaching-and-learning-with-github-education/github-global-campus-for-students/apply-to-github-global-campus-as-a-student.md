@@ -1,6 +1,6 @@
 ---
-title: 'Apply to GitHub Global Campus as a student'
-intro: 'As a student, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the student resources and benefits offered by {% data variables.product.prodname_education %}'
+title: Candidatar-se para o GitHub Global Campus como aluno
+intro: 'Como aluno, você poderá candidatar-se para ingressar no {% data variables.product.prodname_global_campus %} e receber acesso aos recursos e benefícios para alunos oferecidos pelo {% data variables.product.prodname_education %}'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
@@ -10,54 +10,55 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Apply to Global Campus
+ms.openlocfilehash: 7c2026b0aa692c632e29a0b4e866575faa6fa0d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107178'
 ---
 {% data reusables.education.about-github-education-link %}
 
-## Requirements
+## Requisitos
 
-To be eligible for {% data variables.product.prodname_global_campus %}, including {% data variables.product.prodname_student_pack %} and other benefits, you must:
-- Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
-- Have a verifiable school-issued email address or upload documents that prove your current student status
-- Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
-- Be at least 13 years old
+Para ser qualificado para o {% data variables.product.prodname_global_campus %}, incluindo {% data variables.product.prodname_student_pack %} e outros benefícios, você precisa:
+- Estar atualmente matriculado em um curso superior ou curso que conceda um diploma, tal como ensino médio, ensino secundário, faculdade, universidade, educação domiciliar ou instituição de ensino similar
+- Ter um endereço de e-mail verificável concedido pela instituição de ensino ou fazer upload de documentos que comprovem seu status de estudante
+- Ter uma [conta pessoal do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
+- Ter pelo menos 13 anos
 
-Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
+Documentos que provam o seu estado atual do aluno incluem uma foto do seu ID da escola com a data atual de matrícula. cronograma de aula, histórico escolar e carta de verificação de afiliação ou inscrição.
 
-During your tenure as a student, you may be prompted to periodically re-verify your current academic status.
+Durante o período como estudante, pode ser que você seja solicitado a verificar periodicamente seu status acadêmico atual.
 
 {% note %}
 
-**Note:** You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/articles/merging-multiple-user-accounts) your personal accounts and [renaming](/articles/changing-your-github-username) the retained account if desired.
+**Observação:** não é possível transferir descontos acadêmicos de uma conta para outra. Para aplicar o desconto a mais de uma conta, considere [mesclar](/articles/merging-multiple-user-accounts) suas contas pessoais e [renomear](/articles/changing-your-github-username) a conta retida, se desejar.
 
 {% endnote %}
 
-For information about renewing your {% data variables.product.prodname_global_campus %} access, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)."
+Para obter informações sobre como renovar seu {% data variables.product.prodname_global_campus %}, confira "[Vencimento e renovações](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student/#expiration-and-renewals)".
 
-## Applying to {% data variables.product.prodname_global_campus %}
+## Candidatar-se para o {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-1. Under "Individuals", click **Get student benefits**.
-  !["Get student benefits" on {% data variables.product.prodname_education %} homepage](/assets/images/help/education/click-get-student-benefits.png)
-1. Under "Select the academic status", select **Student**.
-  ![Select academic status](/assets/images/help/education/academic-status-student.png)
-{% data reusables.education.select-email-address %}
-{% data reusables.education.school-name %}
-{% data reusables.education.plan-to-use-github %}
-{% data reusables.education.upload-proof-status %}
-{% data reusables.education.submit-application %}
+1. Em "Indivíduos", clique em **Obter benefícios para estudantes**.
+  !["Obter benefícios para estudantes" na home page do {% data variables.product.prodname_education %}](/assets/images/help/education/click-get-student-benefits.png)
+1. Em "Selecionar o status acadêmico", escolha **Estudante**.
+  ![Selecionar o status acadêmico](/assets/images/help/education/academic-status-student.png) {% data reusables.education.select-email-address %} {% data reusables.education.school-name %} {% data reusables.education.plan-to-use-github %} {% data reusables.education.upload-proof-status %} {% data reusables.education.submit-application %}
 
-## Expiration and renewals
+## Vencimento e renovações
 
-Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+Assim que seu acesso ao {% data variables.product.prodname_global_campus %} expirar, você poderá se recandidatar se ainda estiver qualificado, embora algumas das nossas ofertas de parceiro para o {% data variables.product.prodname_student_pack %} não possam ser renovadas. A maioria das ofertas com tempo limitado de nossos parceiros entra em vigor assim que você as configura. Para fazer uma nova solicitação, basta retornar https://education.github.com, clicar na sua imagem de perfil e clicar em **Verificar sua afiliação acadêmica novamente**.
 
-![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+![Opção do menu para verificar novamente a sua afiliação acadêmica](/assets/images/help/education/reverify-academic-affiliation.png)
 
-For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
+Para obter mais informações, confira a página [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
 
-To see when your free access to the {% data variables.product.prodname_student_pack %} expires, visit your account's [billing settings](https://github.com/settings/billing).
+Para ver quando vence o seu acesso gratuito ao {% data variables.product.prodname_student_pack %}, acesse as [configurações de cobrança](https://github.com/settings/billing) da sua conta.
 
-## Further reading
+## Leitura adicional
 
-- "[Why wasn't my application for a {% data variables.product.prodname_student_pack %} approved?](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
-- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
+- "[Por que meu aplicativo para um {% data variables.product.prodname_student_pack %} não foi aprovado?](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
+- "[Como se inscrever em uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)

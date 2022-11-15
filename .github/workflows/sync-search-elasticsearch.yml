@@ -7,8 +7,13 @@ name: Sync search Elasticsearch
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.7', 'ghae'"
+        required: false
+        default: ''
   schedule:
-    - cron: '23 */4 * * *' # Run every 4 hours at 23 minutes past the hour
+    - cron: '20 */4 * * *' # Run every 4 hours at 20 minutes after
 
 permissions:
   contents: read
@@ -88,12 +93,14 @@ jobs:
           # let's just accept an empty string instead.
           THROW_ON_EMPTY: false
 
+          # Note that by default, this is '' (empty string) and that means
+          # the same as not set within the script.
+          VERSION: ${{ github.event.inputs.version }}
+
         run: |
           mkdir /tmp/records
-          npm run sync-search-indices -- \
-            --language ${{ matrix.language }} \
-            --out-directory /tmp/records \
-            --no-compression --no-lunr-index
+          npm run sync-search-indices -- /tmp/records \
+            --language ${{ matrix.language }}
 
           ls -lh /tmp/records
 
@@ -102,9 +109,14 @@ jobs:
           curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
 
       - name: Index into Elasticsearch
+        env:
+          # Must match what we used when scraping (npm run sync-search-indices)
+          # otherwise the script will seek other versions from disk that might
+          # not exist.
+          VERSION: ${{ github.event.inputs.version }}
         run: |
-          ./script/search/index-elasticsearch.js \
-            --language ${{ matrix.language }} -- /tmp/records
+          ./script/search/index-elasticsearch.js /tmp/records \
+            --language ${{ matrix.language }} \
 
       - name: Check created indexes and aliases
         run: |
@@ -121,4 +133,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions/workflows/sync-search-elasticsearch.yml?query=workflow%3A%22sync+search%22

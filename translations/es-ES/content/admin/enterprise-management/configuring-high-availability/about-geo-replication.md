@@ -11,12 +11,12 @@ type: overview
 topics:
   - Enterprise
   - High availability
-ms.openlocfilehash: 0e4e2feb161dd897172385bf25cf997268527fd3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: d24b222ee411d6e8d06366dd78da6b0001280c4d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332812'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109882'
 ---
 Contar con múltiples réplicas puede permitir una menor distancia a la réplica más cercana. Por ejemplo, una organización con oficinas en San Francisco, Nueva York y Londres podrían ejecutar el aparato principal en un centro de datos cercano a Nueva York y dos réplicas en centros de datos cercanos a San Francisco y Londres. Al usar DNS con información de geolocalización, se puede dirigir a los usuarios al servidor disponible más cercano para que accedan a los datos más rápido. Designar como principal el aparato cercano a Nueva York ayuda a reducir la latencia entre los hosts, a diferencia de si se designa como principal el aparato cercano a San Francisco, que tiene mayor latencia con Londres.
 
@@ -28,7 +28,7 @@ El DNS geográfico, como el [servicio Route 53 de Amazon](http://docs.aws.amazon
 
 ## Limitaciones
 
-Escribir solicitudes para la réplica exige que se envíen los datos al principal y a todas las réplicas. Esto significa que el rendimiento de todos los escritos se limita de acuerdo con la replica más lenta, aunque las geo-replicas nuevas pueden poblar la mayoría de sus datos desde geo-replicas existentes co-ubicadas, en vez de desde el primario. {% ifversion ghes > 3.2 %}Para reducir la latencia y el ancho de banda ocasionado por la distribución de equipos y granjas grandes de IC sin afectar a la arquitectura de rendimiento de escritura, una mejor opción consiste en configurar el almacenamiento en caché del repositorio. Para obtener más información, consulta "[Acerca del almacenamiento en caché del repositorio](/admin/enterprise-management/caching-repositories/about-repository-caching)".{% endif %}
+Escribir solicitudes para la réplica exige que se envíen los datos al principal y a todas las réplicas. Esto significa que el rendimiento de todos los escritos se limita de acuerdo con la replica más lenta, aunque las geo-replicas nuevas pueden poblar la mayoría de sus datos desde geo-replicas existentes co-ubicadas, en vez de desde el primario. Para reducir la latencia y el ancho de banda que ocasiona la distribución de equipos y granjas grandes de CI sin afectar a la arquitectura de rendimiento de escritura, una mejor opción consiste en configurar el almacenamiento en caché del repositorio. Para más información, vea "[Acerca del almacenamiento en caché del repositorio](/admin/enterprise-management/caching-repositories/about-repository-caching)".
 
 La replicación geográfica no le agregará capacidad a una instancia de {% data variables.product.prodname_ghe_server %} ni resolverá problemas de rendimiento relacionados con recursos de CPU o de memoria insuficientes. Si el aparato principal está fuera de línea, las réplicas activas no podrán atender ninguna solicitud de lectura o escritura. 
 

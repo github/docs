@@ -1,7 +1,7 @@
 ---
-title: コードセキュリティ
+title: Code security
 shortTitle: Code security
-intro: 'コードベースからシークレットや脆弱性を排除{% ifversion not ghae %}し、ソフトウェアサプライチェーンを管理{% endif %}する機能で、{% data variables.product.prodname_dotcom %}ワークフローにセキュリティを組み込んでください。'
+intro: 'Build security into your {% data variables.product.prodname_dotcom %} workflow with features to keep secrets and vulnerabilities out of your codebase{% ifversion not ghae %}, and to maintain your software supply chain{% endif %}.'
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
@@ -23,7 +23,7 @@ featuredLinks:
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
-    - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot
@@ -53,16 +53,10 @@ children:
   - /adopting-github-advanced-security-at-scale
   - /secret-scanning
   - /code-scanning
-  - /repository-security-advisories
+  - /security-advisories
   - /supply-chain-security
   - /dependabot
   - /security-overview
   - /guides
-ms.openlocfilehash: 90d3ad046a6531849edd8e783db265866f118d90
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147145240'
 ---
 

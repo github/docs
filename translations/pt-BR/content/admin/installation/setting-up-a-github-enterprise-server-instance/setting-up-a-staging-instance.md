@@ -1,11 +1,11 @@
 ---
-title: Setting up a staging instance
-intro: 'You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
+title: Configurar uma instância de preparo
+intro: 'Você pode configurar uma instância do {% data variables.product.product_name %} em um ambiente separado e isolado e usá-la para validar e testar alterações.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
 versions:
-  ghes: "*"
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -13,96 +13,100 @@ topics:
   - Upgrades
 shortTitle: Set up a staging instance
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: ce7d9dde9f86ea5159657203e13d9d191b6b7466
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106858'
 ---
+## Sobre instâncias de preparo
 
-## About staging instances
+O {% data variables.product.company_short %} recomenda que você configure um ambiente separado para testar backups, atualizações ou alterações na configuração do {% data variables.location.product_location %}. Esse ambiente, que você deve isolar de seus sistemas de produção, é chamado de ambiente de preparo.
 
-{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.location.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
-
-For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.product_name %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.product_name %}.
+Por exemplo, para proteger contra perda de dados, você pode validar regularmente o backup da sua instância de produção. Você pode restaurar regularmente o backup de seus dados de produção em uma instância separada do {% data variables.product.product_name %} em um ambiente de preparo. Nesta instância de preparo, você também pode testar a atualização para a versão mais recente do recurso do {% data variables.product.product_name %}.
 
 {% tip %}
 
-**Tip:** You may reuse your existing {% data variables.product.prodname_enterprise %} license file as long as the staging instance is not used in a production capacity.
+**Dica:** talvez seja interessante reutilizar seu arquivo de licença do {% data variables.product.prodname_enterprise %}, desde que a instância de preparo não seja usada em uma capacidade de produção.
 
 {% endtip %}
 
-## Considerations for a staging environment
+## Considerações sobre um ambiente de preparo
 
-To thoroughly test {% data variables.product.product_name %} and recreate an environment that's as similar to your production environment as possible, consider the external systems that interact with your instance. For example, you may want to test the following in your staging environment.
+Para testar minuciosamente o {% data variables.product.product_name %} e recriar um ambiente com a maior semelhança possível com o ambiente de produção, considere os sistemas externos que interagem com sua instância. Por exemplo, faça os testes a seguir em seu ambiente de preparo.
 
-- Authentication, especially if you use an external authentication provider like SAML
-- Integration with an external ticketing system
-- Integration with a continuous integration server
-- External scripts or software that use the {% data variables.product.prodname_enterprise_api %}
-- External SMTP server for email notifications
+- Autenticação, principalmente se você usa um provedor de autenticação externo, como o SAML
+- Integração com um sistema externo de geração de tíquetes;
+- Integração com um servidor de integração contínua;
+- Software ou scripts externos que usam a {% data variables.product.prodname_enterprise_api %}
+- Servidor externo SMTP para notificações de e-mail.
 
-## Setting up a staging instance
+## Configurar uma instância de preparo
 
-You can set up a staging instance from scratch and configure the instance however you like. For more information, see "[Setting up a {% data variables.product.product_name %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)" and "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+Você pode instalar uma instância de preparo do zero e configurá-la como quiser. Para obter mais informações, confira "[Como configurar uma instância do {% data variables.product.product_name %}](/admin/installation/setting-up-a-github-enterprise-server-instance) e "[Como configurar a empresa](/admin/configuration/configuring-your-enterprise)".
 
-Alternatively, you can create a staging instance that reflects your production configuration by restoring a backup of your production instance to the staging instance.
+Como alternativa, você pode criar uma instância de preparo que reflita a configuração de produção restaurando um backup da instância de produção para a instância de preparo.
 
-1. [Back up your production instance](#1-back-up-your-production-instance).
-2. [Set up a staging instance](#2-set-up-a-staging-instance).
-3. [Configure {% data variables.product.prodname_actions %}](#3-configure-github-actions).
-4. [Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
-5. [Restore your production backup](#5-restore-your-production-backup).
-6. [Review the instance's configuration](#6-review-the-instances-configuration).
-7. [Apply the instance's configuration](#7-apply-the-instances-configuration).
+1. [Faça backup da instância de produção](#1-back-up-your-production-instance).
+2. [Configure uma instância de teste](#2-set-up-a-staging-instance).
+3. [Configure o {% data variables.product.prodname_actions %}](#3-configure-github-actions).
+4. [Configure o {% data variables.product.prodname_registry %}](#4-configure-github-packages).
+5. [Restaure o backup de produção](#5-restore-your-production-backup).
+6. [Examine a configuração da instância](#6-review-the-instances-configuration).
+7. [Aplique a configuração da instância](#7-apply-the-instances-configuration).
 
-### 1. Back up your production instance
+### 1. Fazer backup da instância de produção
 
-If you want to test changes on an instance that contains the same data and configuration as your production instance, back up the data and configuration from the production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+Se você quiser testar alterações em uma instância que contenha os mesmos dados e configuração que a instância de produção, faça backup dos dados e da configuração da instância de produção usando {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, confira "[Como configurar backups no seu dispositivo](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)".
 
 {% warning %}
 
-**Warning**: If you use {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} in production, your backup will include your production configuration for external storage. To avoid potential loss of data by writing to your production storage from your staging instance, you must configure each feature in steps 3 and 4 before you restore your backup.
+**Aviso**: se você usa o {% data variables.product.prodname_actions %} ou o {% data variables.product.prodname_registry %} em produção, o backup incluirá a configuração de produção do armazenamento externo. Para evitar uma possível perda de dados gravando no armazenamento de produção da instância de preparo, configure cada recurso nas etapas 3 e 4 antes de restaurar o backup.
 
 {% endwarning %}
 
-### 2. Set up a staging instance
+### 2. Configurar uma instância de preparo
 
-Set up a new instance to act as your staging environment. You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)."
+Configure uma nova instância para funcionar como ambiente de preparo. Você pode usar os mesmos guias para provisionar e instalar sua instância de preparo, assim como fez na instância de produção. Para obter mais informações, confira "[Como configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)".
 
-If you plan to restore a backup of your production instance, continue to the next step. Alternatively, you can configure the instance manually and skip the following steps.
+Se você planeja restaurar um backup da instância de produção, prossiga para a próxima etapa. Como alternativa, você pode configurar a instância manualmente e ignorar as etapas a seguir.
 
-### 3. Configure {% data variables.product.prodname_actions %}
+### 3. Configurar o {% data variables.product.prodname_actions %}
 
-Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to "[4. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages)."
+Opcionalmente, se você usa o {% data variables.product.prodname_actions %} na instância de produção, configure o recurso na instância de preparo antes de restaurar o backup de produção. Se você não usa o {% data variables.product.prodname_actions %}, pule para "[4. Configurar o {% data variables.product.prodname_registry %}](#4-configure-github-packages)".
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see "[Using a staging environment](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)."
+**Aviso**: se você não configurar o {% data variables.product.prodname_actions %} na instância de preparo antes de restaurar o backup de produção, a instância de preparo usará o armazenamento externo da instância de produção, o que poderá resultar em perda de dados. É altamente recomendável que você use um armazenamento externo diferente para a instância de preparo. Para obter mais informações, veja "[Como usar um ambiente de preparo](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)".
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
-{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
-{% data reusables.actions.configure-storage-provider %}
-1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
+1. A fim de configurar a instância de preparo para usar um provedor de armazenamento externo para o {% data variables.product.prodname_actions %}, insira um dos comandos a seguir.
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %} {% data reusables.actions.configure-storage-provider %}
+1. Como preparação para habilitar o {% data variables.product.prodname_actions %} na instância de preparo, insira o comando a seguir.
 
    ```shell{:copy}
    ghe-config app.actions.enabled true
    ```
 
-### 4. Configure {% data variables.product.prodname_registry %}
+### 4. Configurar o {% data variables.product.prodname_registry %}
 
-Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to "[5. Restore your production backup](#5-restore-your-production-backup)."
+Opcionalmente, se você usa o {% data variables.product.prodname_registry %} na instância de produção, configure o recurso na instância de preparo antes de restaurar o backup de produção. Se você não usa o {% data variables.product.prodname_registry %}, pule para "[5. Restaurar o backup de produção](#5-restore-your-production-backup)".
 
 {% warning %}
 
-**Warning**: If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
+**Aviso**: se você não configurar o {% data variables.product.prodname_registry %} na instância de preparo antes de restaurar o backup de produção, a instância de preparo usará o armazenamento externo da instância de produção, o que poderá resultar em perda de dados. É altamente recomendável que você use um armazenamento externo diferente para a instância de preparo.
 
 {% endwarning %}
 
-1. Review the backup you will restore to the staging instance.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 or later, the backup includes the configuration for {% data variables.product.prodname_registry %}. Continue to the next step.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 or earlier, configure {% data variables.product.prodname_registry %} on the staging instance. For more information, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+1. Examine o backup que você vai restaurar para a instância de preparo.
+   - Se você fez o backup com o {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 ou posterior, o backup incluirá a configuração do {% data variables.product.prodname_registry %}. Siga para a próxima etapa.
+   - Se você fez o backup com o {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 ou anterior, configure o {% data variables.product.prodname_registry %} na instância de preparo. Para obter mais informações, confira "[Introdução ao {% data variables.product.prodname_registry %} na empresa](/admin/packages/getting-started-with-github-packages-for-your-enterprise)".
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
-   - Azure Blob Storage:
+1. Configure a conexão de armazenamento externo inserindo os comandos a seguir e substituindo os valores de espaço reservado pelos valores reais da sua conexão.
+   - Armazenamento de Blobs do Azure:
 
      ```shell{:copy}
      ghe-config secrets.packages.blob-storage-type "azure"
@@ -118,40 +122,40 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
      ghe-config secrets.packages.aws-access-key "S3 ACCESS KEY ID"
      ghe-config secrets.packages.aws-secret-key "S3 ACCESS SECRET"
      ```
-1. To prepare to enable {% data variables.product.prodname_registry %} on the staging instance, enter the following command.
+1. Como preparação para habilitar o {% data variables.product.prodname_registry %} na instância de preparo, insira o comando a seguir.
 
    ```shell{:copy}
    ghe-config app.packages.enabled true
    ```
 
-### 5. Restore your production backup
+### 5. Restaurar o backup de produção
 
-Use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
+Use o comando `ghe-restore` para restaurar o restante dos dados do backup. Para obter mais informações, confira "[Como restaurar um backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)".
 
-If the staging instance is already configured and you want to overwrite settings, certificate, and license data, add the `-c` option to the command. For more information about the option, see [Using the backup and restore commands](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) in the {% data variables.product.prodname_enterprise_backup_utilities %} documentation.
+Se a instância de preparo já estiver configurada e você quiser substituir as configurações, o certificado e os dados de licença, adicione a opção `-c` ao comando. Para obter mais informações sobre a opção, confira [Como usar os comandos de backup e restauração](https://github.com/github/backup-utils/blob/master/docs/usage.md#restoring-settings-tls-certificate-and-license) na documentação do {% data variables.product.prodname_enterprise_backup_utilities %}.
 
-### 6. Review the instance's configuration
+### 6. Examinar a configuração da instância
 
-To access the staging instance using the same hostname, update your local hosts file to resolve the staging instance's hostname by IP address by editing the `/etc/hosts` file in macOS or Linux, or the `C:\Windows\system32\drivers\etc` file in Windows.
+Para acessar a instância de preparo usando o mesmo nome de host, atualize o arquivo de hosts local para resolver o nome do host da instância de preparo por endereço IP editando o arquivo `/etc/hosts` no macOS ou Linux ou o arquivo `C:\Windows\system32\drivers\etc` no Windows.
 
 {% note %}
 
-**Note**: Your staging instance must be accessible from the same hostname as your production instance. Changing the hostname for {% data variables.location.product_location %} is not supported. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+**Observação**: a instância de preparo precisa estar acessível por meio do mesmo nome do host que a instância de produção. Não há suporte para a alteração do nome do host de {% data variables.location.product_location %}. Para obter mais informações, confira "[Como configurar um nome do host](/admin/configuration/configuring-network-settings/configuring-a-hostname)".
 
 {% endnote %}
 
-Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see "[Accessing the  {% data variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+Depois, examine a configuração da instância de preparo no {% data variables.enterprise.management_console %}. Para obter mais informações, confira "[{% data variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
 
 {% warning %}
 
-**Warning**: If you configured {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for the staging instance, to avoid overwriting production data, ensure that the external storage configuration in the {% data variables.enterprise.management_console %} does not match your production instance.
+**Aviso**: se você configurou o {% data variables.product.prodname_actions %} ou o {% data variables.product.prodname_registry %} na instância de preparo, para evitar a substituição de dados de produção, verifique se a configuração de armazenamento externo no {% data variables.enterprise.management_console %} não corresponde à instância de produção.
 
 {% endwarning %}
 
-### 7. Apply the instance's configuration
+### 7. Aplicar a configuração da instância
 
-To apply the configuration from the {% data variables.enterprise.management_console %}, click **Save settings**.
+Para aplicar a configuração do {% data variables.enterprise.management_console %}, clique em **Salvar configurações**.
 
-## Further reading
+## Leitura adicional
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+- "[Sobre atualizações em novas versões](/admin/overview/about-upgrades-to-new-releases)"

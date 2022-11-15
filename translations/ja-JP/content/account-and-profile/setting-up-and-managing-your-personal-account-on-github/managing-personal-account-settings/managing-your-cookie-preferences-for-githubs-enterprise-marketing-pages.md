@@ -9,12 +9,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Manage cookie preferences
-ms.openlocfilehash: f2fdbcf8bd552902e7db491aa1b3c6622c5673ab
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 44f0324a91f8447a10947d5f5c7be111241ad091
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147760923'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108809'
 ---
 ## エンタープライズ マーケティング ページでの Cookie の基本設定について
 

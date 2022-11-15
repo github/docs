@@ -3,7 +3,6 @@ import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from 'components/page-header/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
-import { ExcludesNull } from 'components/lib/ExcludesNull'
 
 export type ProductT = {
   external: boolean
@@ -27,14 +26,9 @@ type VersionItem = {
 }
 
 export type ProductTreeNode = {
-  page: {
-    hidden?: boolean
-    documentType: 'article' | 'mapTopic'
-    title: string
-    shortTitle: string
-  }
-  renderedShortTitle?: string
-  renderedFullTitle: string
+  documentType: 'article' | 'mapTopic'
+  title: string
+  shortTitle: string
   href: string
   childPages: Array<ProductTreeNode>
 }
@@ -102,7 +96,6 @@ export type MainContextT = {
       languageCode: string
       relativePath: string
       title: string
-      pageVersionTitle: string
       pageVersion: string
       href: string
     }>
@@ -157,14 +150,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
       permalinks: req.context.page?.permalinks.map((obj: any) =>
-        pick(obj, [
-          'title',
-          'pageVersionTitle',
-          'pageVersion',
-          'href',
-          'relativePath',
-          'languageCode',
-        ])
+        pick(obj, ['title', 'pageVersion', 'href', 'relativePath', 'languageCode'])
       ),
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
@@ -178,34 +164,15 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     allVersions: req.context.allVersions,
     currentVersion: req.context.currentVersion,
-    currentProductTree: req.context.currentProductTree
-      ? getCurrentProductTree(req.context.currentProductTree)
-      : null,
+    // This is a slimmed down version of `req.context.currentProductTree`
+    // that only has the minimal titles stuff needed for sidebars and
+    // any page that is hidden is omitted.
+    currentProductTree: req.context.currentProductTreeTitlesExcludeHidden || null,
     featureFlags: {},
     searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
     fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
-  }
-}
-
-// only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): ProductTreeNode | null => {
-  if (input.page.hidden) {
-    return null
-  }
-
-  return {
-    href: input.href,
-    renderedShortTitle: input.renderedShortTitle || '',
-    renderedFullTitle: input.renderedFullTitle || '',
-    page: {
-      hidden: input.page.hidden || false,
-      documentType: input.page.documentType,
-      title: input.page.title,
-      shortTitle: input.page.shortTitle || '',
-    },
-    childPages: (input.childPages || []).map(getCurrentProductTree).filter(ExcludesNull),
   }
 }
 

@@ -9,7 +9,7 @@ name: Enterprise date updater
 on:
   workflow_dispatch:
   schedule:
-    - cron: '39 2 * * 2' # At 02:39 on Tuesday
+    - cron: '20 16 * * 2' # Run every Tuesday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: write
@@ -87,7 +87,7 @@ jobs:
 
       - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve
-        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
+        uses: juliangruber/approve-pull-request-action@c67a4808d52e44ea03656f6646ba24a010304f03
         with:
           github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}

@@ -12,11 +12,11 @@ children:
   - /enabling-github-actions-with-minio-gateway-for-nas-storage
   - /managing-self-hosted-runners-for-dependabot-updates
 shortTitle: Enable GitHub Actions
-ms.openlocfilehash: 675bbbe0ccbb68d676602b0553c8534f1601bcf6
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 273e03407dd8c3c0a125e2c215a973c88aaf884b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145100004'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108108'
 ---
 

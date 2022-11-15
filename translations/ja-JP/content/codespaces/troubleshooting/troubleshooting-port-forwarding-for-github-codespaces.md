@@ -1,7 +1,6 @@
 ---
-title: GitHub Codespaces のポート フォワーディングのトラブルシューティング
-intro: ポートの転送に関する一般的な問題のトラブルシューティング手順。
-product: '{% data reusables.gated-features.codespaces %}'
+title: Troubleshooting port forwarding for GitHub Codespaces
+intro: Troubleshooting steps for common port forwarding issues.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,20 +10,17 @@ topics:
 shortTitle: Port forwarding
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces
-ms.openlocfilehash: 326c96e86883604ecc1f4ebcb81be98dae23bf84
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147111570'
 ---
-Codespace 内で実行されているアプリケーションによってポートがコンソールに出力されると、{% data variables.product.prodname_github_codespaces %} によってローカルホスト URL パターンが検出され、ポートが自動的に転送されます。 詳細については、「[codespace でのポートの転送](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)」を参照してください。
 
-ポートが自動的に転送されない場合は、手動で転送できます。 詳細については、「[ポートの転送](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)」を参照してください。
+When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_github_codespaces %}  detects the localhost URL pattern and automatically forwards the port. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
-ポート フォワーディングが設定されている場合は、次を確認してください。
+If a port is not automatically forwarded, you can forward it manually. For more information, see "[Forwarding a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)."
 
-- 通知トーストを使用するか、ターミナルの URL をクリックして、転送されたポートを開きます。 ブラウザー経由で codespace に接続している場合、ローカル マシンに「`localhost:8000`」 (例) と入力しても、動作しません。
-- アプリケーションが codespace 内から引き続き実行されていることを確認してください。 一定期間にわたって非アクティブになった後で codespace が停止した場合は、codespace が再起動したら、必ずアプリケーションを再起動する必要があります。
+If port forwarding is set up, check the following:
 
-通常は、転送されたポートをパブリックに、またはリポジトリを所有する組織内でアクセスできるようにします。 詳細については、「[codespace でのポートの転送](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)」を参照してください。 パブリックと組織のオプションのいずれか、または両方での可視性を実現できない場合、これは、組織レベルのポリシーが構成されていることを示しています。 詳細については、「[転送されたポートの可視性の制限](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)」を参照してください。
+- Use the link in the notification "toast" message, that pops up in the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, or click the URL in Terminal, to open the forwarded port. Typing in `localhost:8000` (as an example) to your local machine will not work if you're connected to the codespace via the browser.
+- Make sure to check that your application is still running from within your codespace. If your codespace has stopped after a period of inactivity, you'll need to ensure to restart your application once the codespace has restarted.
+
+Typically, you can make a forwarded port accessible publicly, or within the organization that owns a repository. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)." If either, or both, of the options for public or organization visibility are not available, this indicates that an organization-level policy has been configured. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+
+{% data reusables.codespaces.forwarded-ports-environment-variable %}

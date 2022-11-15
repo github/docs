@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a78a08bd4cdf72ca732b4c2a664164d0f69f1815
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8fef95ca781a57606206a89a8408bcd4774402e2
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147423976"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108611"
 ---
 1. 选择该项。 要选择多个项，请执行下列操作之一：
      - 按住 <kbd>Command</kbd> (Mac) 或 <kbd>Ctrl</kbd> (Windows/Linux) 并单击每个项。

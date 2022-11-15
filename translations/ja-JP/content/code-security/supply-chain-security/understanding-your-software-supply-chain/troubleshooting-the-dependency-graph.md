@@ -16,12 +16,12 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
-ms.openlocfilehash: 51a1da4eff062263aeca52de02b764385e7e1184
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 30c4830c125e9b20ada59e0e0e29fa0eb5c6c649
+ms.sourcegitcommit: a9af58ef52d8d109186053d184d9b1e52e5f0323
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146458245'
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148128905'
 ---
 {% data reusables.dependabot.result-discrepancy %}
 
@@ -53,7 +53,7 @@ ms.locfileid: '146458245'
 
     サイズが 0.5 MB を超えるマニフェストは、Enterprise アカウントに対してのみ処理されます。 他のアカウントの場合、0.5 MB を超えるマニフェストは無視され、{% data variables.product.prodname_dependabot_alerts %} は作成されません。
 
-    デフォルト設定では、{% data variables.product.prodname_dotcom %} はリポジトリごとに 20 個を超えるマニフェストを処理しません。 {% data variables.product.prodname_dependabot_alerts %} は、この制限を超えるマニフェストに対しては作成されません。 制限を増やす必要がある場合は、{% data variables.contact.contact_support %} にお問い合わせください。 
+    規定では、{% data variables.product.prodname_dotcom %} はリポジトリごとに {% ifversion fpt %}150{% else %}600{% endif %} 個を超えるマニフェストを処理しません。 {% data variables.product.prodname_dependabot_alerts %} は、この制限を超えるマニフェストに対しては作成されません。 制限を増やす必要がある場合は、{% data variables.contact.contact_support %} にお問い合わせください。 
 
 2. **視覚化の制限**
 
@@ -67,5 +67,5 @@ ms.locfileid: '146458245'
 
 - "[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
 - 「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」
-- 「[Troubleshooting the detection of vulnerable dependencies](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)」(脆弱な依存関係の検出に関するトラブルシューティング){% ifversion fpt or ghec or ghes > 3.2 %}
+- [脆弱な依存関係の検出に関するトラブルシューティング](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies){% ifversion fpt or ghec or ghes %}
 - 「[{% data variables.product.prodname_dependabot %} エラーのトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)」{% endif %}

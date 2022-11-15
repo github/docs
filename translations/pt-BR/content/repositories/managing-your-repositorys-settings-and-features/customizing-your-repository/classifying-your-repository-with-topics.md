@@ -14,12 +14,12 @@ versions:
 topics:
   - Repositories
 shortTitle: Classify with topics
-ms.openlocfilehash: 68bd754ac6c50968961c61e533cb6b9de26e4cc4
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 26f51423140c086bbea019666b8d569419da3b38
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145127061'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107797'
 ---
 ## Sobre tópicos
 
@@ -38,6 +38,12 @@ Os repositórios {% ifversion fpt %}público e privado{% elsif ghec or ghes %}p�
 Você pode pesquisar repositórios que são associados a um tópico específico. Para obter mais informações, confira "[Pesquisa em repositórios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)". Também é possível pesquisar uma lista de tópicos no {% data variables.product.product_name %}. Para obter mais informações, confira "[Pesquisa de tópicos](/search-github/searching-on-github/searching-topics)".
 
 ## Adicionar tópicos ao repositório
+
+{% note %}
+
+**Observação:** os nomes de tópico são sempre públicos, mesmo quando você cria o tópico dentro de um repositório privado.
+
+{% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. À direita de "Sobre", clique em {% octicon "gear" aria-label="The Gear icon" %}.

@@ -1,27 +1,32 @@
 ---
-title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
-shortTitle: 'Automating with the API'
-intro: 'You can use the GraphQL API to automate your projects.'
+title: 'API を使用して {% data variables.product.prodname_projects_v2 %} を管理する'
+shortTitle: Automating with the API
+intro: GraphQL API を使用して、プロジェクトを自動化できます。
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
 type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 6b4deff4ee518bfdafcd3886577a1c9b12ea7b2e
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148111602'
 ---
-
-This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." For a full list of the available data types, see "[Reference](/graphql/reference)."
+この記事では、GraphQL API を使用してプロジェクトを管理する方法を説明します。 {% data variables.product.prodname_actions %} ワークフローで API を使用する方法について詳しくは、「[Actions を使った {% data variables.product.prodname_projects_v2 %} の自動化](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)」を参照してください。 使用可能なデータ型の完全な一覧については、「[リファレンス](/graphql/reference)」を参照してください。
 
 {% data reusables.projects.graphql-deprecation %}
 
-## Authentication
+## 認証
 
 {% curl %}
 
-In all of the following cURL examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
+次のすべての cURL の例では、`TOKEN` を、`read:project` スコープ (クエリの場合) または `project` スコープ (クエリとミューテーションの場合) を持つトークンに置き換えます。 このトークンは、ユーザーの{% data variables.product.pat_v1 %}でも、{% data variables.product.prodname_github_app %} のインストール アクセス トークンでもかまいません。 {% data variables.product.pat_generic %}の作成について詳しくは、「[{% data variables.product.pat_generic %}の作成](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)」をご覧ください。 {% data variables.product.prodname_github_app %} のインストール アクセス トークンの作成の詳細については、「[{% data variables.product.prodname_github_apps %} を使用した認証](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)」を参照してください。
 
 {% endcurl %}
 
@@ -29,15 +34,15 @@ In all of the following cURL examples, replace `TOKEN` with a token that has the
 
 {% data reusables.cli.cli-learn-more %}
 
-Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login --scopes "project"`. If you only need to read, but not edit, projects, you can provide the `read:project` scope instead of `project`. For more information on command line authentication, see "[gh auth login](https://cli.github.com/manual/gh_auth_login)."
+{% data variables.product.prodname_cli %} コマンドを実行する前に、`gh auth login --scopes "project"` を実行して認証する必要があります。 プロジェクトの読み取りだけを行い、編集を行う必要がないのであれば、`project` の代わりに `read:project` スコープを指定できます。 コマンド ライン認証の詳細については、「[gh auth login](https://cli.github.com/manual/gh_auth_login)」を参照してください。
 
 {% endcli %}
 
 {% cli %}
 
-## Using variables
+## 変数の使用
 
-In all of the following examples, you can use variables to simplify your scripts. Use `-F` to pass a variable that is a number, Boolean, or null. Use `-f` for other variables. For example,
+以下のすべての例で、変数を使ってスクリプトをシンプルにできます。 数値、ブール値、または null 値である変数を渡すには、`-F` を使用ます。 その他の変数の場合は、`-f` を使用します。 たとえば、次のように入力します。
 
 ```shell
 my_org="octo-org"
@@ -52,19 +57,19 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-For more information, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql#working-with-variables)."
+詳細については、「[GraphQL での呼び出しの作成](/graphql/guides/forming-calls-with-graphql#working-with-variables)」を参照してください。
 
 {% endcli %}
 
-## Finding information about projects
+## プロジェクトに関する情報を見つける
 
-Use queries to get data about projects. For more information, see "[About queries](/graphql/guides/forming-calls-with-graphql#about-queries)."
+プロジェクトに関するデータを取得するには、クエリを使ってください。 詳細については、「[クエリについて](/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
 
-### Finding the node ID of an organization project
+### OrganizationプロジェクトのノードIDを調べる
 
-To update your project through the API, you will need to know the node ID of the project.
+APIを通じてプロジェクトを更新するには、プロジェクトのノードIDを知る必要があります。
 
-You can find the node ID of an organization project if you know the organization name and project number. Replace `ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `NUMBER` with the project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
+Organization名とプロジェクト番号が分かっていれば、OrganizationプロジェクトのノードIDを知ることができます。 `ORGANIZATION` を自身の組織の名前に置き換えます。 たとえば、「 `octo-org` 」のように入力します。 `NUMBER` をプロジェクト番号に置き換えます。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば、`https://github.com/orgs/octo-org/projects/5` のプロジェクト番号は 5 です。
 
 {% curl %}
 ```shell
@@ -88,7 +93,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-You can also find the node ID of all projects in your organization. The following example will return the node ID and title of the first 20 projects in an organization. Replace `ORGANIZATION` with the name of your organization. For example, `octo-org`.
+Organization中のすべてのプロジェクトのノードIDを見つけることもできます。 以下の例は、Orgazation中の最初の20個のプロジェクトのノードIDとタイトルを返します。 `ORGANIZATION` を自身の組織の名前に置き換えます。 たとえば、「 `octo-org` 」のように入力します。
 
 {% curl %}
 ```shell
@@ -115,11 +120,11 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Finding the node ID of a user project 
+### ユーザプロジェクトのノードIDを調べる 
 
-To update your project through the API, you will need to know the node ID of the project.
+APIを通じてプロジェクトを更新するには、プロジェクトのノードIDを知る必要があります。
 
-You can find the node ID of a user project if you know the project number. Replace `USER` with your user name. For example, `octocat`. Replace `NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/users/octocat/projects/5` has a project number of 5.
+ユーザプロジェクトのノードIDは、プロジェクト番号を知っていれば見つけることができます。 `USER` は、実際のユーザー名に置き換えます。 たとえば、「 `octocat` 」のように入力します。 `NUMBER`をプロジェクト番号に置き換えます。 プロジェクト番号を見つけるには、プロジェクトのURLを見てください。 たとえば、`https://github.com/users/octocat/projects/5` のプロジェクト番号は 5 です。
 
 {% curl %}
 ```shell
@@ -143,7 +148,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-You can also find the node ID for all of your projects. The following example will return the node ID and title of your first 20 projects. Replace `USER` with your username. For example, `octocat`.
+自分のすべてのプロジェクトのノードIDを知ることもできます。 以下の例では、自分の最初の20個のプロジェクトのノードIDとタイトルが返されます。 `USER` をご自分のユーザー名に置き換えます。 たとえば、`octocat` のようにします。
 
 {% curl %}
 ```shell
@@ -170,11 +175,11 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Finding the node ID of a field
+### フィールドのノードIDを見つける
 
-To update the value of a field, you will need to know the node ID of the field. Additionally, you will need to know the ID of the options for single select fields and the ID of the iterations for iteration fields.
+フィールドの値を更新するには、フィールドのノードIDを知る必要があります。 加えて、単一選択フィールドの選択肢のIDと、繰り返しフィールドの繰り返しのIDも知る必要があります。
 
-The following example will return the ID, name, settings, and configuration for the first 20 fields in a project. Replace `PROJECT_ID` with the node ID of your project.
+以下の例では、プロジェクト内の最初の 20 個のフィールドの ID、名前、設定、構成が返されます。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。
 
 {% curl %}
 ```shell
@@ -223,7 +228,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-The response will look similar to the following example:
+応答は、次の例のようになります。
 
 ```json
 {
@@ -276,9 +281,9 @@ The response will look similar to the following example:
 }
 ```
 
-Each field has an ID and name. Single select fields are returned as a `ProjectV2SingleSelectField` object and have an `options` field where you can find the ID of each option for the single select. Iteration fields are returned as a `ProjectV2IterationField` object and have a `configuration` field which includes an `iterations` field containing the ID and information about each iteration. 
+各フィールドには ID と名前があります。 単一選択フィールドは `ProjectV2SingleSelectField` オブジェクトとして返され、単一選択の各オプションの ID を見つけることができる `options` フィールドがあります。 繰り返しフィールドは `ProjectV2IterationField` オブジェクトとして返され、ID と各繰り返しに関する情報が含まれている `iterations` フィールドを含む `configuration` フィールドがあります。 
 
-If you just need the name and ID of a field, and do not need information about iterations or a single select field's options, you can make use of the `ProjectV2FieldCommon` object. 
+フィールドの名前と ID のみが必要で、繰り返しや単一選択フィールドのオプションに関する情報が必要ない場合は、`ProjectV2FieldCommon` オブジェクトを利用できます。 
 
 {% curl %}
 ```shell
@@ -309,7 +314,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-The response when using the `ProjectV2FieldCommon` object will look similar to the following example:
+`ProjectV2FieldCommon` オブジェクトを使用する場合の応答は、次の例のようになります。
 
 ```json
 {
@@ -344,11 +349,11 @@ The response when using the `ProjectV2FieldCommon` object will look similar to t
 }
 ```
 
-### Finding information about items in a project 
+### プロジェクト中のアイテムに関する情報を見つける 
 
-You can query the API to find information about items in your project.
+APIでクエリを行い、プロジェクト中のアイテムに関する情報を見つけることができます。
 
-The following example will return the first 20 issues, pull requests, and draft issues in a project. For issues and pull requests, it will also return title and the first 10 assignees. For draft issue, it will return the title and body. The example will also return the field name and value for any text, date, or single select fields in the first 8 fields of the project. Replace `PROJECT_ID` with the node ID of your project.
+次の例では、プロジェクトの最初の 20 件の issue、pull request、ドラフト issue が返されます。 issue と pull request の場合は、タイトルと最初の 10 人の担当者も返されます。 ドラフト issue の場合は、タイトルと本文が返されます。 この例では、プロジェクトの最初の 8 つのフィールドのテキスト、日付、または単一選択フィールドのフィールド名と値も返されます。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。
 
 {% curl %}
 ```shell
@@ -426,21 +431,21 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-A project may contain items that a user does not have permission to view. In this case, the item type will be returned as `REDACTED`.
+プロジェクトは、ユーザが表示権限を持たないアイテムを含んでいることがあります。 この場合、アイテムの種類は `REDACTED` として返されます。
 
-## Updating projects 
+## プロジェクトの更新 
 
-Use mutations to update projects. For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+プロジェクトを更新するには、ミューテーションを使ってください。 詳細については、「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
 
 {% note %}
 
-**Note:** You cannot add and update an item in the same call. You must use `addProjectV2ItemById` to add the item and then use `updateProjectV2ItemFieldValue` to update the item.
+**注:** 同じ呼び出しで項目を追加および更新することはできません。 `addProjectV2ItemById` を使用して項目を追加してから、`updateProjectV2ItemFieldValue` を使用して項目を更新する必要があります。
 
 {% endnote %}
 
-### Adding an item to a project
+### プロジェクトへのアイテムの追加
 
-The following example will add an issue or pull request to your project. Replace `PROJECT_ID` with the node ID of your project. Replace `CONTENT_ID` with the node ID of the issue or pull request that you want to add.
+以下の例は、プロジェクトにIssueあるいはPull Requestを追加します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `CONTENT_ID` は、追加する Issue または Pull Request のノード ID に置き換えます。
 
 {% curl %}
 ```shell
@@ -464,7 +469,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-The response will contain the node ID of the newly created item.
+レスポンスには、新しく作成されたアイテムのノードIDが含まれます。
 
 ```json
 {
@@ -478,11 +483,11 @@ The response will contain the node ID of the newly created item.
 }
 ```
 
-If you try to add an item that already exists, the existing item ID is returned instead.
+既に存在しているアイテムを追加しようとすると、代わりに既存のアイテムのIDが返されます。
 
-### Adding a draft issue to a project
+### プロジェクトへのドラフト issue の追加
 
-The following example will add a draft issue to your project. Replace `PROJECT_ID` with the node ID of your project. Replace `TITLE` and `BODY` with the content you want for the new draft issue.
+次の例では、プロジェクトにドラフト issue を追加します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `TITLE` と `BODY` は、新しいドラフト issue に必要なコンテンツに置き換えます。
 
 {% curl %}
 ```shell
@@ -506,12 +511,12 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-The response will contain the node ID of the newly created draft issue.
+応答には、新しく作成されたドラフト issue のノード ID が含まれます。
 
 ```json
 {
   "data": {
-    "addProjectV2ItemById": {
+    "addProjectV2DraftIssue": {
       "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
@@ -520,9 +525,9 @@ The response will contain the node ID of the newly created draft issue.
 }
 ```
 
-### Updating a project's settings 
+### プロジェクトの設定の更新 
 
-The following example will update your project's settings. Replace `PROJECT_ID` with the node ID of your project. Set `public` to `true` to make your project public on {% data variables.product.product_name %}. Modify `readme` to make changes to your project's README.
+以下の例は、プロジェクトの設定を更新します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `public` を `true` に設定し、{% data variables.product.product_name %} でプロジェクトをパブリックにします。 `readme` を変更し、プロジェクトの README に変更を加えます。
 
 {% curl %}
 ```shell
@@ -557,9 +562,9 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Updating a custom text, number, or date field 
+### カスタムのテキスト、数値、日付フィールドの更新 
 
-The following example will update the value of a text field for an item. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to update. Replace `FIELD_ID` with the ID of the field that you want to update.
+以下の例では、アイテムのテキスト フィールドの値を更新します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `ITEM_ID` は、更新する項目のノード ID に置き換えます。 `FIELD_ID` は、更新するフィールドの ID に置き換えます。
 
 {% curl %}
 ```shell
@@ -594,7 +599,7 @@ gh api graphql -f query='
 
 {% note %}
 
-**Note:** You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
+**注:** `updateProjectV2ItemFieldValue` を使用して `Assignees`、`Labels`、`Milestone`、`Repository` を変更することはできません。これらのフィールドは、プロジェクト項目ではなく、Pull Request と Issue のプロパティであるためです。 代わりに、次のミューテーションを使用できます。
 
 - [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
 - [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
@@ -606,14 +611,14 @@ gh api graphql -f query='
 
 {% endnote %}
 
-### Updating a single select field
+### 単一選択フィールドの更新
 
-The following example will update the value of a single select field for an item.
+以下の例は、アイテムの単一選択フィールドの値を更新します。
 
-- `PROJECT_ID` - Replace this with the node ID of your project.
-- `ITEM_ID` - Replace this with the node ID of the item you want to update.
-- `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
-- `OPTION_ID` - Replace this with the ID of the desired single select option.
+- `PROJECT_ID` - これをプロジェクトのノード ID に置き換えます。
+- `ITEM_ID` - これを、更新する項目のノード ID に置き換えます。
+- `FIELD_ID` - これを、更新する単一選択フィールドの ID に置き換えます。
+- `OPTION_ID` - これを、目的の単一選択オプションの ID に置き換えます。
 
 {% curl %}
 ```shell
@@ -646,14 +651,14 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Updating an iteration field
+### 繰り返しフィールドの更新
 
-The following example will update the value of an iteration field for an item.
+以下の例は、アイテムの繰り返しフィールドの値を更新します。
 
-- `PROJECT_ID` - Replace this with the node ID of your project.
-- `ITEM_ID` - Replace this with the node ID of the item you want to update.
-- `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
-- `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active or completed iteration.
+- `PROJECT_ID` - これをプロジェクトのノード ID に置き換えます。
+- `ITEM_ID` - これを、更新する項目のノード ID に置き換えます。
+- `FIELD_ID` - これを、更新する繰り返しフィールドの ID に置き換えます。
+- `ITERATION_ID` - これを、目的の繰り返しの ID に置き換えます。 これは、アクティブなまたは完了した繰り返しにすることができます。
 
 {% curl %}
 ```shell
@@ -686,9 +691,9 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Deleting an item from a project
+### プロジェクトからのアイテムの削除
 
-The following example will delete an item from a project. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to delete.
+以下の例は、プロジェクトからアイテムを削除します。 `PROJECT_ID` はプロジェクトのノード ID に置き換えます。 `ITEM_ID` は、削除する項目のノード ID に置き換えます。
 
 {% curl %}
 ```shell
@@ -715,15 +720,15 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-## Managing projects 
+## プロジェクトを管理する 
 
-### Creating projects
+### プロジェクトの作成
 
-You can use a mutation to create a new project. For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+ミューテーションを使って、新しいプロジェクトを作成できます。 詳細については、「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
 
-To create a new project using the API, you'll need to provide a name for the project and the node ID of a {% data variables.product.product_name %} user or organization who will become the project's owner.
+API を使って新しいプロジェクトを作成するには、プロジェクトの名前と、プロジェクトの所有者になる {% data variables.product.product_name %} ユーザーまたは Organization のノード ID を指定する必要があります。
 
-You can find the node ID of a {% data variables.product.product_name %} user or organization if you know the username. Replace <code>GITHUB_OWNER</code> with the {% data variables.product.product_name %} username of the new project owner.
+ユーザー名がわかっている場合は、{% data variables.product.product_name %} ユーザーまたは Organization のノード ID を確認できます。 <code>GITHUB_OWNER</code> を、新しいプロジェクト所有者の {% data variables.product.product_name %} ユーザー名に置き換えます。
 
 {% curl %}
 ```shell
@@ -740,7 +745,7 @@ gh api -H "Accept: application/vnd.github+json" /users/<em>GITHUB_OWNER</em>
 ```
 {% endcli %}
 
-To create the project, replace `OWNER_ID` with the node ID of the new project owner and replace `PROJECT_NAME` with a name for the project.
+プロジェクトを作成するには、`OWNER_ID` を新しいプロジェクト所有者のノード ID に置き換え、`PROJECT_NAME` をプロジェクトの名前に置き換えます。
 
 {% curl %}
 ```shell
@@ -770,6 +775,6 @@ gh api graphql -f query='
 {% endcli %}
 
 
-## Using webhooks
+## Webhook の使用
 
-You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)." To learn more about the `projects_v2_item` webhook event, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)."
+Webhook を使用して、プロジェクトで発生するイベントをサブスクライブできます。 たとえば、アイテムが編集されると、{% data variables.product.product_name %} では、サーバーでの自動化をトリガーできる Webhook の構成済み URL に HTTP POST ペイロードを送信できます。 Webhook について詳しくは、「[Webhook について](/developers/webhooks-and-events/webhooks/about-webhooks)」を参照してください。 `projects_v2_item` Webhook イベントについて詳しくは、「[Webhook イベントとペイロード](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)」をご覧ください。

@@ -77,9 +77,15 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 
 {%- endif %}
 
-{%- ifversion ghes = 3.6 %}
+{%- ifversion ghes > 3.5 %}
 
-{% data reusables.actions.hardware-requirements-3.6 %}
+
+| vCPUs | Memory | Maximum Connected Runners |
+| :---| :--- | :--- |
+| 8   | 64 GB  | 740  runners |
+| 32  | 160 GB | 2700 runners |
+| 96  | 384 GB | 7000 runners |
+| 128 | 512 GB | 7000 runners |
 
 {% data variables.product.company_short %} measured maximum connected runners using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
 
@@ -129,7 +135,9 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% note %}
 
-**Note:** These are the only storage providers that {% data variables.product.company_short %} supports and can provide assistance with. Other S3 API-compatible storage providers are unlikely to work due to differences from the S3 API. [Contact us](https://support.github.com/contact) to request support for additional storage providers.
+**Note:** These are the only storage providers that {% data variables.product.company_short %} supports and can provide assistance with.
+
+{% data reusables.actions.enterprise-s3-tech-partners %}
 
 {% endnote %}
 

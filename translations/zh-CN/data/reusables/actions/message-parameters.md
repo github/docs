@@ -1,9 +1,16 @@
 ---
-ms.openlocfilehash: bbc3a414d8a29780d8df51bd14b9f8a5843a6c4b
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 8f48fb502f949942b6a0796f03b0b9afb9c538f9
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145098432"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108750"
 ---
-| Parameter | Value | | :- | :- |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `title` | Custom title |{% endif %} | `file` | Filename | | `col` | Column number, starting at 1 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endColumn` | End column number |{% endif %} | `line` | Line number, starting at 1 |{% ifversion fpt or ghes > 3.2 or ghae or ghec %} | `endLine` | End line number |{% endif %}
+| 参数 | 值 |
+| :- | :- |
+| `title` | 自定义标题 |
+| `file` | 文件名 |
+| `col` | 列号（从 1 开始） |
+| `endColumn` | 结束列号 |
+| `line` | 行号（从 1 开始） |
+| `endLine` | 结束行号 |

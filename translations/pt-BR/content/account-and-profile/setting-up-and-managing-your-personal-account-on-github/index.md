@@ -1,6 +1,6 @@
 ---
-title: Setting up and managing your personal account on GitHub
-intro: You can manage settings for your personal account on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}, including email preferences, access to personal repositories, and organization memberships. You can also manage the account itself.
+title: Configurar e gerenciar sua conta pessoal no GitHub
+intro: 'Você pode gerenciar as configurações da conta pessoal em {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}, incluindo preferências de email, acesso a repositórios pessoais e associações à organização. Você também pode gerenciar a própria conta.'
 shortTitle: Personal accounts
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account
@@ -19,5 +19,11 @@ children:
   - /managing-email-preferences
   - /managing-access-to-your-personal-repositories
   - /managing-your-membership-in-organizations
+ms.openlocfilehash: b3c8007f37b9c61650f96a51e805024dd10a853f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106682'
 ---
 

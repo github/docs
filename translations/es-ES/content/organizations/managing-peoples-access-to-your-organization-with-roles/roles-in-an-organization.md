@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: d8d07ff40026de0d12fce2e11479c424b781680a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147061742'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109815'
 ---
 ## Acerca de los roles
 {% data reusables.organizations.about-roles %}
@@ -142,7 +142,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | Habilitar la sincronización de equipos (consulte "[Administración de la sincronización de equipos para la organización](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)") | **X** |  |  |  |  |{% endif %}
 | Administrar revisiones de solicitudes de incorporación de cambios en la organización (consulte "[Administración de revisiones de solicitudes de incorporación de cambios en la organización](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  |  |  |  |
 
-{% elsif ghes > 3.2 or ghae %}
+{% elsif ghes or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | Acción de la organización | Propietarios | Miembros | Administradores de seguridad |
@@ -167,7 +167,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | Puede ser *mantenedor de equipo* | **X** | **X** | **X**  |
 | Transferir repositorios | **X** | |  |
 | Administrar la configuración de seguridad y análisis (consulte "[Administración de la configuración de seguridad y análisis de la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes %}
-| Consultar la información general sobre seguridad de la organización (consulte "[Acerca de la información general sobre seguridad](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
+| Consultar la información general sobre seguridad de la organización (consulte "[Acerca de la información general sobre seguridad](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Administrar las {% data variables.product.prodname_dependabot_security_updates %} (consulte ["Acerca de {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
 | Administrar las entidades de certificación SSH de una organización (consulte "[Administración de las entidades de certificación SSH de la organización](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |
 | Crear paneles de proyecto (consulte "[Permisos de panel de proyecto para una organización](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |

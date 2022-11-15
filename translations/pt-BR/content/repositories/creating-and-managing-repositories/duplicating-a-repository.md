@@ -1,6 +1,6 @@
 ---
-title: Duplicating a repository
-intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
+title: Duplicar um repositório
+intro: 'Para manter um espelho de um repositório sem a bifurcação, é possível executar um comando especial de clone e, em seguida, fazer push do espelho para o novo repositório.'
 redirect_from:
   - /articles/duplicating-a-repo
   - /articles/duplicating-a-repository
@@ -13,92 +13,98 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 4c893597918cb4837e88d13aa6a51b769ab13dd1
+ms.sourcegitcommit: 938ec7898dddd5da5481ad32809d68e4127e1948
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135483'
 ---
 {% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**Observação:** se você tem um projeto hospedado em outro sistema de controle de versão, importe automaticamente seu projeto para o {% data variables.product.prodname_dotcom %} usando a ferramenta Importador do {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira "[Sobre o Importador do {% data variables.product.prodname_dotcom %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)".
 
 {% endnote %}
 
 {% endif %}
 
-Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.location.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
+Antes de efetuar push do repositório original para a nova cópia ou _espelho_ do repositório, você precisa [criar o repositório](/articles/creating-a-new-repository) no {% data variables.location.product_location %}. Nesses exemplos, `exampleuser/new-repository` ou `exampleuser/mirrored` são os espelhos.
 
-## Mirroring a repository
+## Espelhar um repositório
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a bare clone of the repository.
+2. Crie um clone bare do repositório.
   ```shell
   $ git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/OLD-REPOSITORY.git
   ```
-3. Mirror-push to the new repository.
+3. Faça espelhamento/push no novo repositório.
   ```shell
   $ cd OLD-REPOSITORY.git
   $ git push --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/NEW-REPOSITORY.git
   ```
-4. Remove the temporary local repository you created earlier.
+4. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
   $ rm -rf OLD-REPOSITORY.git
   ```
 
-## Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
+## Espelhar um repositório que contém objetos do {% data variables.large_files.product_name_long %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a bare clone of the repository. Replace the example username with the name of the person or organization who owns the repository, and replace the example repository name with the name of the repository you'd like to duplicate.
+2. Crie um clone bare do repositório. Substitua o exemplo de nome de usuário pelo nome da pessoa ou da organização a quem pertence o repositório e substitua o exemplo de nome de repositório pelo nome do repositório que você deseja duplicar.
   ```shell
   $ git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/OLD-REPOSITORY.git
   ```
-3. Navigate to the repository you just cloned.
+3. Navegue até o repositório que você acabou de clonar.
   ```shell
   $ cd OLD-REPOSITORY.git
   ```
-4. Pull in the repository's {% data variables.large_files.product_name_long %} objects.
+4. Extraia os objetos do {% data variables.large_files.product_name_long %} do repositório.
   ```shell
   $ git lfs fetch --all
   ```
-5. Mirror-push to the new repository.
+5. Faça espelhamento/push no novo repositório.
   ```shell
-  $ git push --mirror https://{% data variables.command_line.codeblock %}EXAMPLE-USER/NEW-REPOSITORY.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/NEW-REPOSITORY.git
   ```
-6. Push the repository's {% data variables.large_files.product_name_long %} objects to your mirror.
+6. Faça push nos objetos do {% data variables.large_files.product_name_long %} do repositório no seu espelho.
   ```shell
   $ git lfs push --all https://github.com/EXAMPLE-USER/NEW-REPOSITORY.git
   ```
-7. Remove the temporary local repository you created earlier.
+7. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
   $ rm -rf OLD-REPOSITORY.git
   ```
 
-## Mirroring a repository in another location
+## Espelhar um repositório em outro local
 
-If you want to mirror a repository in another location, including getting updates from the original, you can clone a mirror and periodically push the changes.
+Se você deseja espelhar um repositório em outro local e ainda obter atualizações do original, é possível clonar um espelho e fazer push das alterações periodicamente.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a bare mirrored clone of the repository.
+2. Crie um clone bare espelhado do repositório.
   ```shell
   $ git clone --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/REPOSITORY-TO-MIRROR.git
   ```
-3. Set the push location to your mirror.
+3. Defina o local de push no espelho.
   ```shell
   $ cd REPOSITORY-TO-MIRROR
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/MIRRORED
   ```
-As with a bare clone, a mirrored clone includes all remote branches and tags, but all local references will be overwritten each time you fetch, so it will always be the same as the original repository. Setting the URL for pushes simplifies pushing to your mirror.
+Assim como um clone bare, um clone espelhado inclui todos os branches remotes e tags, mas todas as referências locais serão substituídas todas as vezes que você fizer fetch, assim ele sempre será o mesmo do repositório original. O push no espelho é simplificado pela configuração da URL para pushes.
 
-4. To update your mirror, fetch updates and push.
+4. Para atualizar o espelho, obtenha atualizações e faça push.
   ```shell
   $ git fetch -p origin
   $ git push --mirror
   ```
 {% ifversion fpt or ghec %}
-## Further reading
+## Leitura adicional
 
-* "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
-* "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
-* "[About GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
+* "[Como efetuar push das alterações para o GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
+* "[Sobre o Git Large File Storage e o GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* "[Sobre o Importador do GitHub](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
 
 {% endif %}

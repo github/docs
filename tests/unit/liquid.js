@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals'
+
 import { liquid } from '../../lib/render-content/index.js'
 import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
 import featureVersionsMiddleware from '../../middleware/contextualizers/features.js'
@@ -44,6 +46,8 @@ const featureVersionsTemplate = `
 `
 
 describe('liquid template parser', () => {
+  jest.setTimeout(60 * 1000)
+
   describe('custom operators', () => {
     describe('ver_gt', () => {
       test('works as expected', async () => {

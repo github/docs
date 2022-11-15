@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 86e15f92ffd6a5a5b90d7a70a666447a6a51a62a
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: ddc27b0ace0d5be48f1d93fe36ed27cc1a16184f
+ms.sourcegitcommit: 0c000ebc6e405c1d634fe370f834cd6dce35124b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145100528"
+ms.lasthandoff: 11/02/2022
+ms.locfileid: "148130906"
 ---
 1. 在组织名称下，单击{% octicon "gear" aria-label="The Settings gear" %}“设置”。
-  {% ifversion fpt or ghes > 3.2 or ghec %} ![组织设置按钮](/assets/images/help/organizations/organization-settings-tab-with-overview-tab.png) {% else %} ![组织设置按钮](/assets/images/help/organizations/organization-settings-tab.png) {% endif %}
+{% ifversion fpt or ghes or ghec %} ![组织设置按钮](/assets/images/help/organizations/organization-settings-tab-with-overview-tab.png) {% else %} ![组织设置按钮](/assets/images/help/organizations/organization-settings-tab.png) {% endif %}

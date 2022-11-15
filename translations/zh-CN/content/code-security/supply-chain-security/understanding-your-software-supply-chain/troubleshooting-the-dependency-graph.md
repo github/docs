@@ -16,12 +16,12 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
-ms.openlocfilehash: 51a1da4eff062263aeca52de02b764385e7e1184
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 30c4830c125e9b20ada59e0e0e29fa0eb5c6c649
+ms.sourcegitcommit: a9af58ef52d8d109186053d184d9b1e52e5f0323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '146458242'
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148128902'
 ---
 {% data reusables.dependabot.result-discrepancy %}
 
@@ -53,7 +53,7 @@ ms.locfileid: '146458242'
 
     仅为企业帐户处理大小超过 0.5 MB 的清单。 对于其他帐户，将忽略超过 0.5 MB 的清单，并且不会创建 {% data variables.product.prodname_dependabot_alerts %}。
 
-    默认情况下， {% data variables.product.prodname_dotcom %} 对每个仓库处理的清单不会超过 20 个。 对于超出此限制的清单，不会创建 {% data variables.product.prodname_dependabot_alerts %}。 如果您需要提高限值，请联系 {% data variables.contact.contact_support %}。 
+    默认情况下，对于每个存储库，{% data variables.product.prodname_dotcom %} 处理的清单数量不会超过 {% ifversion fpt %}150{% else %}600{% endif %}。 对于超出此限制的清单，不会创建 {% data variables.product.prodname_dependabot_alerts %}。 如果您需要提高限值，请联系 {% data variables.contact.contact_support %}。 
 
 2. 可视化限制
 
@@ -67,5 +67,5 @@ ms.locfileid: '146458242'
 
 - “[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”
 - “[管理存储库的安全性和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”
-- “[漏洞依赖项检测疑难解答](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)”{% ifversion fpt or ghec or ghes > 3.2 %}
-- “[排查 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)”{% endif %}
+- [对易受攻击依赖项的检测进行故障排除](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies) {% ifversion fpt or ghec or ghes %}
+- [{% data variables.product.prodname_dependabot %} 错误故障排除](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors){% endif %}

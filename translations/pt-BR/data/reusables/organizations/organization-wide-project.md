@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: cba236cbf17553914d18f006b2a17a77a4892658
-ms.sourcegitcommit: 148257a7931ae06b962477ffa5483615410699e8
+ms.openlocfilehash: 55a01fbe1358fc0fffc11f146b973d79242c5235
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2022
-ms.locfileid: "145096422"
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107999"
 ---
 1. Abaixo do nome da organização, clique em {% octicon "project" aria-label="The Projects icon" %} **Projetos**.
-  {% ifversion fpt or ghes > 3.2 or ghec %} ![Guia Projetos para sua organização](/assets/images/help/organizations/organization-projects-tab-with-overview-tab.png) {% else %} ![Guia Projetos para sua organização](/assets/images/help/organizations/organization-projects-tab.png) {% endif %}
+  {% ifversion fpt or ghes or ghec %} ![Guia Projetos da organização](/assets/images/help/organizations/organization-projects-tab-with-overview-tab.png) {% else %} ![Guia Projetos da organização](/assets/images/help/organizations/organization-projects-tab.png) {% endif %}
