@@ -62,18 +62,18 @@ Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more info
 macOS Monterey 12
 </td>
 <td>
-<code>macos-12</code>
+<code>macos-latest</code> or <code>macos-12</code>
   </td>
+<td>
+The <code>macos-latest</code> label currently uses the macOS 12 runner image.
+</td>
 </tr>
 <tr>
 <td>
 macOS Big Sur 11
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-11</code>
-</td>
-<td>
-The <code>macos-latest</code> label currently uses the macOS 11 runner image.
+<code>macos-11</code>
 </td>
 </tr>
 <tr>
