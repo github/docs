@@ -212,8 +212,8 @@ $ git remote rm destination
 # Remove remote
 $ git remote -v
 # Verify it's gone
-> origin  https://{% data variables.command_line.codeblock %}/ OWNER/REPOSITORY.git (fetch)
-> origin  https://{% data variables.command_line.codeblock %}/ OWNER/REPOSITORY.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
 ```
 
 {% warning %}
