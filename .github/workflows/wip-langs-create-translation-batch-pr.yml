@@ -63,11 +63,6 @@ jobs:
       - name: Remove unwanted git hooks
         run: rm .git/hooks/post-checkout
 
-      - name: Remove all language translations
-        run: |
-          git rm -rf --quiet ${{ matrix.language_dir }}/content
-          git rm -rf --quiet ${{ matrix.language_dir }}/data
-
       - name: Checkout the language-specific repo
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
