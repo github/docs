@@ -1,6 +1,0 @@
-date: '2022-12-06'
-
-sections:
-  security_fixes:
-    - |
-      **HIGH**: Added an extra check to harden against a path traversal bug that could lead to remote code execution in GitHub Pages builds on GitHub Enterprise Server. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This bug was originally reported via GitHub's Bug Bounty program and assigned [CVE-2021-22870](https://nvd.nist.gov/vuln/detail/CVE-2021-22870).
