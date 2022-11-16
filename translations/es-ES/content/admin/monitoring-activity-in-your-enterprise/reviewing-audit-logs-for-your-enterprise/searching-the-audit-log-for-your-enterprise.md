@@ -1,6 +1,6 @@
 ---
-title: Búsqueda en el registro de auditoría de la empresa
-intro: Puedes buscar una lista extensa de acciones auditadas en tu empresa.
+title: Searching the audit log for your enterprise
+intro: You can search an extensive list of audited actions in your enterprise.
 shortTitle: Search audit logs
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
 redirect_from:
@@ -19,78 +19,76 @@ topics:
   - Enterprise
   - Logging
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 6289b83d40aecf5208ae377be953ca65baba4a7d
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147879430'
 ---
-## Acerca de la búsqueda en el registro de auditoría de empresa
 
-Puede buscar en el registro de auditoría de la empresa directamente desde la interfaz de usuario mediante la lista desplegable **Filtros** o si escribe una consulta de búsqueda.
+## About search for the enterprise audit log
 
-  ![Consulta de búsqueda](/assets/images/enterprise/site-admin-settings/search-query.png)
+You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
 
-Para más información sobre cómo ver el registro de auditoría de la empresa, vea "[Acceso al registro de auditoría de la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)". 
+  ![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
+
+For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)." 
 
 {% data reusables.audit_log.git-events-not-in-search-results %}
 
-También puede usar la API para recuperar eventos de registro de auditoría. Para más información, vea "[Uso de la API de registro de auditoría para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)".
+You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 
-No puedes buscar entradas mediante texto. Sin embargo, puedes construir consultas de búsqueda utilizando una variedad de filtros. Muchos operadores que se utilizan cuando se consulta el registro, tales como `-`, `>` o `<`, coinciden con el mismo formato de búsqueda en {% data variables.product.product_name %}. Para más información, vea "[Búsqueda en {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)".
+You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% note %}
 
-**Nota**: {% data reusables.audit_log.retention-periods %}
+**Note**: {% data reusables.audit_log.retention-periods %}
 
 {% endnote %}
 
-## Filtros de consulta de búsqueda
+## Search query filters
 
-Filter| Descripción
+Filter| Description
 --------------:| -----------
-`Yesterday's activity` | Todas las acciones creadas en el último día.
-`Enterprise account management` | Todas las acciones de la categoría `business`.
-`Organization membership` | Todas las acciones para cuando se ha invitado a un nuevo usuario a unirse a una organización.
-`Team management` | Todas las acciones relacionadas con la administración de equipos.<br/>- Cuando se ha agregado o quitado una cuenta de usuario o un repositorio de un equipo<br/>- Cuando un mantenedor de equipo se ha promocionado o degradado<br/>- Cuando se ha eliminado un equipo
-`Repository management` | Todas las acciones para la administración de repositorios.<br/>- Cuando se ha creado o eliminado un repositorio<br/>- Cuando se ha cambiado la visibilidad del repositorio<br/>- Cuando se ha agregado o quitado un equipo de un repositorio{% ifversion ghec %}
-`Billing updates` | Todas las acciones relacionadas con la forma en que la empresa paga por {% data variables.product.prodname_dotcom %} y con cuándo se ha cambiado la dirección de correo electrónico de facturación.{% endif %}
-`Hook activity` | Todas las acciones de webhooks y enlaces de recepción previa.
-`Security management` | Todas las acciones relacionadas con las claves SSH, las claves de implementación, las claves de seguridad, 2FA y la autorización de credenciales de inicio de sesión único de SAML y las alertas de vulnerabilidades para los repositorios.
+`Yesterday's activity` | All actions created in the past day.
+`Enterprise account management` | All actions in the `business` category.
+`Organization membership` | All actions for when a new user was invited to join an organization.
+`Team management` | All actions related to team management.<br/>- When a user account or repository was added or removed from a team<br/>- When a team maintainer was promoted or demoted<br/>-  When a team was deleted
+`Repository management` | All actions for repository management.<br/>- When a repository was created or deleted<br/>- When the repository visibility was changed<br/>- When a team was added or removed from a repository{% ifversion ghec %}
+`Billing updates` | All actions concerning how your enterprise pays for {% data variables.product.prodname_dotcom %} and for when your billing email address was changed.{% endif %}
+`Hook activity` | All actions for webhooks and pre-receive hooks.
+`Security management` | All actions concerning SSH keys, deploy keys, security keys, 2FA, and SAML single sign-on credential authorization, and vulnerability alerts for repositories.
 
-## Sintaxis de la consulta de búsqueda
+## Search query syntax
 
-Puede redactar una consulta de búsqueda de uno o más pares `key:value` separados por los operadores lógicos AND/OR. Por ejemplo, para ver todas las acciones que han afectado al repositorio `octocat/Spoon-Knife` desde principios de 2017:
+You can compose a search query from one or more `key:value` pairs, separated by AND/OR logical operators. For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
 
   `repo:"octocat/Spoon-Knife" AND created:>=2017-01-01`
 
-Los pares `key:value` que se pueden usar en una consulta de búsqueda son los siguientes:
+The `key:value` pairs that can be used in a search query are:
 
-Clave            | Value
+Key            | Value
 --------------:| --------------------------------------------------------
-`actor_id`     | ID de la cuenta de usuario que inició la acción
-`actor`        | Nombre de la cuenta de usuario que inició la acción
-`oauth_app_id` | ID de la aplicación OAuth asociada con la acción
-`action`       | Nombre de la acción auditada
-`user_id`      | ID del usuario afectado por la acción
-`user`         | Nombre del usuario afectado por la acción
-`repo_id`      | ID del repositorio afectado por la acción (si corresponde)
-`repo`         | Nombre del repositorio afectado por la acción (si corresponde)
-`actor_ip`     | Dirección IP desde donde se inició la acción
-`created`      | Hora a la que se ha producido la acción{% ifversion ghes %}. Si consulta el registro de auditoría desde el panel de administración del sitio, use `created_at` en su lugar{% endif %}
-`from`         | Vista desde donde se inició la acción
-`note`         | Información variada de evento específico (en texto simple o en formato JSON)
-`org`          | Nombre de la organización afectada por la acción (si corresponde)
-`org_id`       | ID de la organización afectada por la acción (si corresponde)
-`business` | Nombre de la empresa afectada por la acción (si procede)
-`business_id` | Id. de la empresa afectada por la acción (si procede)
+`actor_id`     | ID of the user account that initiated the action
+`actor`        | Name of the user account that initiated the action
+`oauth_app_id` | ID of the OAuth application associated with the action
+`action`       | Name of the audited action
+`user_id`      | ID of the user affected by the action
+`user`         | Name of the user affected by the action
+`repo_id`      | ID of the repository affected by the action (if applicable)
+`repo`         | Name of the repository affected by the action (if applicable)
+`actor_ip`     | IP address from which the action was initiated
+`created`      | Time at which the action occurred{% ifversion ghes %}. If querying the audit log from the site admin dashboard, use `created_at` instead{% endif %}
+`from`         | View from which the action was initiated
+`note`         | Miscellaneous event-specific information (in either plain text or JSON format)
+`org`          | Name of the organization affected by the action (if applicable)
+`org_id`       | ID of the organization affected by the action (if applicable)
+`business` | Name of the enterprise affected by the action (if applicable)
+`business_id` | ID of the enterprise affected by the action (if applicable)
+{%- ifversion token-audit-log %}
+`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)")
+{%- endif %}
 
-Para ver las acciones agrupadas por categoría, también puede usar el calificador de acción como un par `key:value`. Para más información, vea "[Búsqueda en función de la acción realizada](#search-based-on-the-action-performed)".
+To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
-Para obtener una lista completa de las acciones del registro de auditoría de la empresa, vea "[Acciones del registro de auditoría para la empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
+For a full list of actions in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
-## Buscar el registro de auditoría
+## Searching the audit log
 
 {% data reusables.audit_log.audit-log-search-by-operation %}
 
@@ -98,40 +96,46 @@ Para obtener una lista completa de las acciones del registro de auditoría de la
 
 {% data reusables.audit_log.audit-log-search-by-user %}
 
-### Búsqueda basada en la acción realizada
+### Search based on the action performed
 
-Para buscar eventos específicos, use el calificador `action` en la consulta. Por ejemplo:
+To search for specific events, use the `action` qualifier in your query. For example:
 
-  * `action:team` busca todos los eventos agrupados dentro de la categoría de equipo.
-  * `-action:hook` excluye todos los eventos de la categoría de webhook.
+  * `action:team` finds all events grouped within the team category.
+  * `-action:hook` excludes all events in the webhook category.
 
-Cada categoría tiene un conjunto de acciones asociadas que puedes filtrar. Por ejemplo:
+Each category has a set of associated actions that you can filter on. For example:
 
-  * `action:team.create` busca todos los eventos en los que se ha creado un equipo.
-  * `-action:hook.events_changed` excluye todos los eventos en los que se han modificado los eventos de un webhook.
+  * `action:team.create` finds all events where a team was created.
+  * `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
-Las acciones que se pueden encontrar en el registro de auditoría de la empresa se agrupan en las categorías siguientes:
+Actions that can be found in your enterprise audit log are grouped within the following categories:
 
 {% data reusables.audit_log.audit-log-action-categories %}
-### Búsqueda basada en el momento de la acción
+### Search based on time of action
 
-Use el calificador `created` para filtrar los eventos del registro de auditoría en función de cuándo se hayan producido.
+Use the `created` qualifier to filter events in the audit log based on when they occurred.
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-Por ejemplo:
+For example:
 
-  * `created:2014-07-08` busca todos los eventos que se han producido el 8 de julio de 2014.
-  * `created:>=2014-07-08` busca todos los eventos que se han producido el 8 de julio de 2014 o después.
-  * `created:<=2014-07-08` busca todos los eventos que se han producido el 8 de julio de 2014 o antes.
-  * `created:2014-07-01..2014-07-31` busca todos los eventos que se han producido durante el mes de julio de 2014.
+  * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+  * `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+  * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+  * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
-### Búsqueda basada en la ubicación
+### Search based on location
 
-Con el calificador `country`, puede filtrar los eventos del registro de auditoría en función del país de origen. Puede usar un código corto de dos letras del país o el nombre completo. Los países con espacios en el nombre se tendrán que incluir entre comillas. Por ejemplo:
+Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or full name. Countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-  * `country:de` busca todos los eventos que se han producido en Alemania.
-  * `country:Mexico` busca todos los eventos que se han producido en México.
-  * `country:"United States"` todos buscan eventos que se han producido en Estados Unidos.
+  * `country:de` finds all events that occurred in Germany.
+  * `country:Mexico` finds all events that occurred in Mexico.
+  * `country:"United States"` all finds events that occurred in the United States.
+
+{% ifversion token-audit-log %}
+### Search based on the token that performed the action
+
+Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+{% endif %}

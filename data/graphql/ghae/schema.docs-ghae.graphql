@@ -1741,7 +1741,7 @@ type BranchProtectionRule implements Node {
   repository: Repository
 
   """
-  Whether someone other than the person who last pushed to the branch must approve this pull request
+  Whether the most recent push must be approved by someone other than the person who pushed it
   """
   requireLastPushApproval: Boolean!
 
@@ -5644,7 +5644,7 @@ input CreateBranchProtectionRuleInput {
   repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
 
   """
-  Whether someone other than the person who last pushed to the branch must approve this pull request
+  Whether the most recent push must be approved by someone other than the person who pushed it
   """
   requireLastPushApproval: Boolean
 
@@ -32745,7 +32745,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   hasAnonymousAccessEnabled: Boolean!
 
   """
-  Are discussions available on this repository?
+  Indicates if the repository has the Discussions feature enabled.
   """
   hasDiscussionsEnabled: Boolean!
 
@@ -33480,6 +33480,9 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   Whether a squash merge commit can use the pull request title as default.
   """
   squashPrTitleUsedAsDefault: Boolean!
+    @deprecated(
+      reason: "`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle` instead. Removal on 2023-04-01 UTC."
+    )
 
   """
   The SSH URL to clone this repository
@@ -34044,6 +34047,11 @@ interface RepositoryInfo {
   Indicates if the repository has anonymous Git read access feature enabled.
   """
   hasAnonymousAccessEnabled: Boolean!
+
+  """
+  Indicates if the repository has the Discussions feature enabled.
+  """
+  hasDiscussionsEnabled: Boolean!
 
   """
   Indicates if the repository has issues feature enabled.
@@ -40282,7 +40290,7 @@ input UpdateBranchProtectionRuleInput {
   pushActorIds: [ID!]
 
   """
-  Whether someone other than the person who last pushed to the branch must approve this pull request
+  Whether the most recent push must be approved by someone other than the person who pushed it
   """
   requireLastPushApproval: Boolean
 

@@ -22,16 +22,18 @@ topics:
   - Security
   - Dependency graph
   - Dependabot
-ms.openlocfilehash: 2a7df1dbbe0f8d905bbd1378592dedbec4f43a19
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 009b6199e0212c531caaf48b220342853d656248
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106722'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135668'
 ---
 ## Sobre {% data variables.product.prodname_dependabot %} para {% data variables.product.product_name %}
 
 O {% data variables.product.prodname_dependabot %} ajuda os usuários para {% data variables.location.product_location %} a encontrar e corrigir vulnerabilidades nas dependências.{% ifversion ghes %} Você pode habilitar {% data variables.product.prodname_dependabot_alerts %} para notificar os usuários sobre dependências vulneráveis e {% data variables.product.prodname_dependabot_updates %} para corrigir as vulnerabilidades e manter as dependências atualizadas com a última versão.
+
+{% data variables.product.prodname_dependabot %} é apenas um dos muitos recursos disponíveis para fortalecer a segurança da cadeia de suprimentos de {% data variables.location.product_location %}. Para obter mais informações sobre os outros recursos, confira "[Sobre a segurança da cadeia de suprimentos da sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise)".
 
 ### Sobre {% data variables.product.prodname_dependabot_alerts %}
 {% endif %}

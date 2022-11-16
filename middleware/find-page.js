@@ -1,4 +1,3 @@
-import { fileURLToPath } from 'url'
 import path from 'path'
 import { existsSync } from 'fs'
 
@@ -7,8 +6,7 @@ import { languageKeys } from '../lib/languages.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 const englishPrefixRegex = /^\/en(\/|$)/
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const CONTENT_ROOT = path.posix.join(__dirname, '..', 'content')
+const CONTENT_ROOT = 'content'
 
 export default async function findPage(
   req,

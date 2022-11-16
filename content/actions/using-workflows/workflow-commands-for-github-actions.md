@@ -709,7 +709,7 @@ steps:
     id: step_one
     run: |
       echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      curl https://example.lab >> $GITHUB_ENV
+      curl https://example.com >> $GITHUB_ENV
       echo 'EOF' >> $GITHUB_ENV
 ```
 
@@ -723,7 +723,7 @@ steps:
     id: step_one
     run: |
       "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
-      (Invoke-WebRequest -Uri "https://example.lab").Content >> $env:GITHUB_ENV
+      (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
       "EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```

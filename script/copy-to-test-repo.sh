@@ -21,7 +21,7 @@ fi;
 
 if [[ "$REPO_NAME" == "docs-internal-test" ]]; then
   echo "Copying files to $TEST_PATH..."
-  rsync -r --exclude='.git' --exclude='.gitattributes' --exclude='node_modules' --exclude='data' --exclude='content' --exclude="lib/search/indexes" --exclude=".github/CODEOWNERS" . $TEST_PATH
+  rsync -r --exclude='.git' --exclude='.gitattributes' --exclude='node_modules' --exclude='data' --exclude='content' --exclude=".github/CODEOWNERS" . $TEST_PATH
   cd $TEST_PATH
   if [[ `git status --porcelain` ]]; then
     echo "Committing and pushing test files"

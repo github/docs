@@ -1,7 +1,7 @@
 ---
 title: Configuração do fluxo de trabalho do CodeQL para linguagens compiladas
 shortTitle: Configure compiled languages
-intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %} usa o {% data variables.product.prodname_codeql_workflow %} para varrer o código escrito em linguagens compiladas para obter vulnerabilidades e erros.'
+intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %} usa o {% data variables.code-scanning.codeql_workflow %} para examinar o código escrito nas linguagens compiladas quanto a vulnerabilidades e erros.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
@@ -25,18 +25,18 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: 3be843fdc441e925569208defdd8412851609cef
-ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.openlocfilehash: 91983e79a6381b4a38cbb1de4f6d7f228637b192
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148111534'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161196'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## Sobre o {% data variables.product.prodname_codeql_workflow %} e linguagens compiladas
+## Sobre o {% data variables.code-scanning.codeql_workflow %} e as linguagens compiladas
 
-Você configurou {% data variables.product.prodname_dotcom %} para executar {% data variables.product.prodname_code_scanning %} para o seu repositório, adicionando um fluxo de trabalho de {% data variables.product.prodname_actions %} ao repositório. Para {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, você adiciona o {% data variables.product.prodname_codeql_workflow %}. Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
+Você configurou {% data variables.product.prodname_dotcom %} para executar {% data variables.product.prodname_code_scanning %} para o seu repositório, adicionando um fluxo de trabalho de {% data variables.product.prodname_actions %} ao repositório. Para a {% data variables.product.prodname_code_scanning %} do {% data variables.product.prodname_codeql %}, você adiciona o {% data variables.code-scanning.codeql_workflow %}. Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
 
 {% data reusables.code-scanning.edit-workflow %} Para obter informações gerais sobre como configurar a {% data variables.product.prodname_code_scanning %} e editar arquivos de fluxo de trabalho, confira "[Como configurar a {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" e "[Aprenda a usar o {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
@@ -89,6 +89,8 @@ O processo `autobuild` tenta fazer a detecção automática de um método de bui
 Se `autobuild` detectar vários arquivos de solução ou de projeto na mesma profundidade (mais curta) do diretório de nível superior, ele tentará compilar todos eles.
 3. Invocar um script parecido com um script de build: _build_ e _build.sh_ (nessa ordem, para o Linux) ou _build.bat_, _build.cmd_ e _build.exe_ (nessa ordem, para o Windows).
 
+{% ifversion codeql-go-autobuild %}
+
 ### Go
 
 | Tipo de sistema compatível | Nome do sistema |
@@ -102,6 +104,8 @@ O processo `autobuild` tenta fazer a detecção automática de uma forma adequad
 2. Se nenhum desses comandos for bem-sucedido, procure `go.mod`, `Gopkg.toml` ou `glide.yaml` e execute `go get` (a menos que a cópia para a pasta Vendor esteja em uso), `dep ensure -v` ou `glide install`, respectivamente, para tentar instalar as dependências.
 3. Por fim, se os arquivos de configurações desses gerenciadores de dependência não forem encontrados, reorganize a estrutura de diretório do repositório adequada para adição a `GOPATH` e use `go get` para instalar as dependências. A estrutura de diretório é revertida para normal após a conclusão da extração.
 4. Extraia todo o código Go no repositório, semelhante à execução de `go build ./...`.
+
+{% endif %}
 
 ### Java
 

@@ -1,7 +1,7 @@
 ---
-title: Adición de un distintivo "Abrir en GitHub Codespaces"
+title: Adding an "Open in GitHub Codespaces" badge
 shortTitle: Add a Codespaces badge
-intro: Puedes agregar un distintivo a un archivo Markdown en el repositorio en el que la gente puede hacer clic para crear un codespace.
+intro: You can add a badge to a Markdown file in your repository which people can click to create a codespace.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,62 +10,50 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: d2ed02a205a4a8c3e55deb0b52fdc9ffdb855dc4
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109863'
 ---
-## Información general
 
-Agregar un distintivo "Abrir en {% data variables.product.prodname_github_codespaces %}" a un archivo de Markdown proporciona a la gente una manera fácil de crear un codespace para el repositorio.
+## Overview
 
-![Captura de pantalla de un distintivo de Codespaces en una página LÉAME](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
+Adding an "Open in {% data variables.product.prodname_github_codespaces %}" badge to a Markdown file gives people an easy way to create a codespace for your repository.
 
-Al crear un distintivo, puedes elegir opciones de configuración específicas para el codespace que creará el distintivo.
+![Screenshot of a Codespaces badge on a README page](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
 
-Cuando la gente haga clic en el distintivo, se les dirigirá a la página de opciones avanzadas para la creación del codespace, con las opciones que elegiste preseleccionadas. Para obtener más información sobre la página de opciones avanzadas, consulta "[Creación de un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+When you create a badge you can choose specific configuration options for the codespace that the badge will create.
 
-En la página opciones avanzadas, los usuarios pueden cambiar la configuración preseleccionada si es necesario y, a continuación, hacer clic en **Crear codespace**.
+When people click the badge they'll be taken to the advanced options page for codespace creation, with the options you chose preselected. For more information about the advanced options page, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
-{% note %}
+From the advanced options page, users can change the preselected settings if required, then click **Create codespace**.
 
-**Nota**: Ten en cuenta que las personas que aún no tienen acceso a {% data variables.product.prodname_github_codespaces %} verán un mensaje 404 si hacen clic en este distintivo.
-
-{% endnote %}
-
-## Creación de un distintivo "Abrir en {% data variables.product.prodname_github_codespaces %}"
+## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Debajo del nombre de repositorio, utiliza el menú desplegable de "Rama" y selecciona aquella en la que quieras crear el distintivo.
+1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create the badge for.
 
-   ![Captura de pantalla del menú desplegable Rama](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Screenshot of the Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Haz clic en el botón **{% octicon "code" aria-label="The code icon" %} Código** y , a continuación, haz clic en la pestaña **Codespaces**.
+1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
 
-   ![Captura de pantalla del botón Nuevo codespace](/assets/images/help/codespaces/new-codespace-button.png)
+   ![Screenshot of the New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Haz clic en la flecha abajo situada al lado del botón **Crear codespace en RAMA**, haz clic en **Configurar y crear codespace** y, a continuación, haz clic en el botón **Configurar y crear codespace**.
+1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab, then click **New with options**.
 
-   ![Captura de pantalla de la opción "Configurar y crear codespace"](/assets/images/help/codespaces/configure-and-create-option.png)
+   ![Screenshot of the "Configure and create codespace" option](/assets/images/help/codespaces/default-machine-type.png)
 
-1. En la página opciones avanzadas para la creación del codespace, selecciona los valores que deseas que se preseleccionen en cada campo.
+1. On the advanced options page for codespace creation, select the values you want to be preselected in each field.
 
-   ![Captura de pantalla de la página opciones avanzadas](/assets/images/help/codespaces/advanced-options.png)
+   ![Screenshot of the advanced options page](/assets/images/help/codespaces/advanced-options.png)
 
-1. Copie la dirección URL de la barra de direcciones del explorador.
-1. Agrega el siguiente markdown a, por ejemplo, el `README.md` archivo del repositorio:
+1. Copy the URL from the browser's address bar.
+1. Add the following Markdown to, for example, the `README.md` file of your repository:
 
    ```Markdown{:copy}
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](COPIED-URL)
    ```
 
-   Por ejemplo:
+   For example:
 
    ```Markdown
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=0000000&machine=premiumLinux&devcontainer_path=.devcontainer%2Fdevcontainer.json&location=WestUs2)
    ```
 
-   En el ejemplo anterior, `0000000` será el número de referencia del repositorio. Los demás detalles de la dirección URL vienen determinados por los valores seleccionados en los campos de la página de opciones avanzadas.
+   In the above example, `0000000` will be the reference number of your repository. The other details in the URL are determined by the values you selected in the fields on the advanced options page.

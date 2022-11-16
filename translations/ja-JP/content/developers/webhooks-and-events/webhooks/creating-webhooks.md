@@ -11,28 +11,38 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
-ms.openlocfilehash: f07c5de7acd3c5be5236765236d24a6938e3b91f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: ced763e71ecc9f99d8dd5037dcdb6d87cfdba91d
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145112366'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132972'
 ---
 [Webhook の基本][webhooks-overview]を理解したので、Webhook で動作する独自の統合を構築するプロセスを見ていきましょう。 このチュートリアルでは、1日あたりに受け取るIssueの数に基づいて、リポジトリの人気の度合いをリストするリポジトリwebhookを作成します。
 
-webhookの作成は、2ステップのプロセスです。 まず、webhookを{% data variables.product.product_name %}を通じてどのように動作させたいのかをセットアップする必要があります。これはすなわち、どのイベントを待ち受けるのかということです。 その後、ペイロードを受信して管理するようにサーバーをセットアップします。
+webhookの作成は、2ステップのプロセスです。 最初に、Webhook でリッスンするイベントを設定する必要があります。 その後、ペイロードを受信して管理するようにサーバーをセットアップします。
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 ## ローカルホストをインターネットに公開する
 
-このチュートリアルでは、{% data variables.product.prodname_dotcom %}からメッセージを受信するためにローカルサーバーを使用します。 そのためには、まずローカル開発環境をインターネットに公開する必要があります。 そのためにngrokを使用しましょう。 ngrokは無料で、主要なオペレーティングシステムで利用できます。 詳細については、[`ngrok` のダウンロード ページ](https://ngrok.com/download)を参照してください。
+このチュートリアルでは、{% data variables.product.prodname_dotcom %} から Webhook イベントを受信するためにローカルサーバーを使います。 
 
-`ngrok` をインストールしたら、コマンド ラインで `./ngrok http 4567` を実行してローカル ホストを公開できます。 4567は、サーバーがメッセージを受信するポート番号です。 以下のような行が表示されるはずです。
+まず、{% data variables.product.prodname_dotcom %} がイベントを配信できるように、ローカル開発環境をインターネットに公開する必要があります。 これを行うには、[`ngrok`](https://ngrok.com) を使います。
+
+{% ifversion cli-webhook-forwarding %} {% note %}
+
+**メモ:** または、Webhook 転送を使って、Webhook を受信するようにローカル環境を設定することもできます。 詳しくは、「[GitHub CLI を使った Webhook の受信](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)」を参照してください。
+
+{% endnote %} {% endif %}
+
+`ngrok` は無料で、主なオペレーティングシステムで利用できます。 詳細については、[`ngrok` のダウンロード ページ](https://ngrok.com/download)を参照してください。
+
+`ngrok` をインストールしたら、コマンド ラインで `./ngrok http 4567` を実行してローカル ホストを公開できます。 `4567` は、サーバーがメッセージを受信するポート番号です。 以下のような行が表示されるはずです。
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
 `*.ngrok.io` URL をメモします。 webhookのセットアップで利用します。

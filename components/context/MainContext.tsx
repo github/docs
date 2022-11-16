@@ -96,7 +96,6 @@ export type MainContextT = {
       languageCode: string
       relativePath: string
       title: string
-      pageVersionTitle: string
       pageVersion: string
       href: string
     }>
@@ -151,14 +150,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
       permalinks: req.context.page?.permalinks.map((obj: any) =>
-        pick(obj, [
-          'title',
-          'pageVersionTitle',
-          'pageVersion',
-          'href',
-          'relativePath',
-          'languageCode',
-        ])
+        pick(obj, ['title', 'pageVersion', 'href', 'relativePath', 'languageCode'])
       ),
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,

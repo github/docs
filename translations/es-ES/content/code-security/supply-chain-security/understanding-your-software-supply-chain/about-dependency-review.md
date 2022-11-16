@@ -46,8 +46,6 @@ The dependency review feature becomes available when you enable the dependency g
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 ## Dependency review enforcement
 
-{% data reusables.dependency-review.dependency-review-action-beta-note %}
-
 The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
 
 {% data reusables.dependency-review.action-enterprise %}

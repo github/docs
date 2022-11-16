@@ -11,14 +11,16 @@ topics:
   - Enterprise
   - Security
   - Dependency graph
-ms.openlocfilehash: 7f1c658285e88065ad1a232fc13c9186be143119
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: edfa8c2abecfa4eb7dc797d1dac3a06827fff5d7
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107198'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135696'
 ---
 {% data variables.location.product_location %}の依存関係グラフを{% ifversion ghes %}有効にする{% elsif ghae %}使用する{% endif %}ことにより、ユーザーがプロジェクトの依存関係を識別できるようにすることができます。 詳しくは、「{% ifversion ghes %}[Enterprise の依存関係グラフを有効にする](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% elsif ghae %}[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph){% endif %}」をご覧ください。
+
+{% data reusables.dependency-review.dependency-review-enabled-ghes %}
 
 また、{% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} と {% data variables.product.prodname_dependabot_updates %}{% endif %} を有効にすることで、{% data variables.location.product_location %}のユーザーがコードの依存関係の脆弱性を見つけて修正できるようにすることもできます。 詳細については、「[企業に対する {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 

@@ -20,8 +20,8 @@ export default async function getOperations(schema) {
 }
 
 export async function getWebhooks(schema) {
-  if (schema['x-webhooks']) {
-    return Object.values(schema['x-webhooks']).map((webhook) => new Webhook(webhook.post))
+  if (schema.webhooks) {
+    return Object.values(schema.webhooks).map((webhook) => new Webhook(webhook.post))
   }
 
   return []

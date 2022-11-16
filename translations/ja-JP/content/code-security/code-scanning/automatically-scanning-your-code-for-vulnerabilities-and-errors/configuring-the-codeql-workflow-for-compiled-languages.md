@@ -1,7 +1,7 @@
 ---
 title: コンパイル済み言語の CodeQL ワークフローを構成する
 shortTitle: Configure compiled languages
-intro: '{% data variables.product.prodname_dotcom %} が {% data variables.product.prodname_codeql_workflow %} を使用してコンパイル型言語で記述されたコードの脆弱性やエラーをスキャンする方法を設定できます。'
+intro: '{% data variables.product.prodname_dotcom %} による {% data variables.code-scanning.codeql_workflow %}の使用方法を構成すると、コンパイル型言語で脆弱性とエラーが記述されているコードをスキャンできます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
@@ -25,18 +25,18 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: 3be843fdc441e925569208defdd8412851609cef
-ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.openlocfilehash: 91983e79a6381b4a38cbb1de4f6d7f228637b192
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148111538'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161200'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## {% data variables.product.prodname_codeql_workflow %} とコンパイル型言語について
+## {% data variables.code-scanning.codeql_workflow %}とコンパイル型言語について
 
-{% data variables.product.prodname_dotcom %} がリポジトリに対して {% data variables.product.prodname_code_scanning %} を実行できるようにするには、{% data variables.product.prodname_actions %} ワークフローをリポジトリに追加します。 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} の場合、{% data variables.product.prodname_codeql_workflow %}. を追加します。 詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} の設定](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
+{% data variables.product.prodname_dotcom %} がリポジトリに対して {% data variables.product.prodname_code_scanning %} を実行できるようにするには、{% data variables.product.prodname_actions %} ワークフローをリポジトリに追加します。 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} では、{% data variables.code-scanning.codeql_workflow %}を追加できます。 詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} の設定](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
 
 {% data reusables.code-scanning.edit-workflow %} {% data variables.product.prodname_code_scanning %} の構成とワークフロー ファイルの編集に関する一般的な情報については、「[{% data variables.product.prodname_code_scanning %} を構成する](/code-security/secure-coding/configuring-code-scanning)」および「[{% data variables.product.prodname_actions %} について学ぶ](/actions/learn-github-actions)」をご覧ください。
 
@@ -89,6 +89,8 @@ Linux と macOS の `autobuild` ステップでは、リポジトリ内にある
 `autobuild` が最上位ディレクトリから同じ (最短) 深度で複数のソリューションまたはプロジェクト ファイルを検出した場合、それらすべてのビルドが試みられます。
 3. ビルド スクリプトのように見えるスクリプト、つまり _build_ と _build.sh_ (Linux の場合、この順序で) または _build.bat_、_build.cmd_、_and build.exe_ (Windows の場合、この順序で) を呼び出します。
 
+{% ifversion codeql-go-autobuild %}
+
 ### Go
 
 | サポートされているシステムの種類 | システム名 |
@@ -102,6 +104,8 @@ Linux と macOS の `autobuild` ステップでは、リポジトリ内にある
 2. これらのコマンドがいずれも成功しなかった場合は、`go.mod`、`Gopkg.toml`、または `glide.yaml` を探し、それぞれの `go get` (ベンダーが使用していない場合)、`dep ensure -v`、または `glide install` を実行して、依存関係のインストールを試みます。
 3. 最後に、これらの依存関係マネージャーの構成ファイルが見つからない場合は、`GOPATH` に追加するのに適したリポジトリ ディレクトリ構造に調整し直し、`go get` を使って依存関係をインストールします。 抽出が完了すると、ディレクトリ構造は通常に戻ります。
 4. `go build ./...` を実行するのと同じようにして、リポジトリ内のすべての Go コードを抽出します。
+
+{% endif %}
 
 ### Java
 

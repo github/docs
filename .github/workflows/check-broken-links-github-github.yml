@@ -7,7 +7,7 @@ name: Check Broken Docs Links in github/github
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 13 * * 1' # run every Monday at 1:20PM UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read

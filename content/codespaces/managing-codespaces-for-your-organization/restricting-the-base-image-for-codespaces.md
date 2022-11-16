@@ -2,7 +2,6 @@
 title: Restricting the base image for codespaces
 shortTitle: Restrict base image
 intro: You can specify which base images can be used for new codespaces created within your organization.
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage image constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -35,7 +34,7 @@ If the image specified in the dev container configuration does not match one of 
 {% note %}
 
 **Notes**: 
-* The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle#rebuilding-a-codespace)."
+* The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace)."
 * The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt. 
 
 {% endnote %}
