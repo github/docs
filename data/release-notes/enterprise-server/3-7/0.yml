@@ -285,6 +285,7 @@ sections:
         - |
           Users can write mathematical expressions using fenced code blocks with the `math` syntax in addition to the existing delimiters. `$$` is not required with this method. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
 
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.7. The feature will be available in an upcoming release. [Updated: 2022-11-16]
         # https://github.com/github/releases/issues/2105
         - |
           Users can render maps directly in Markdown using fenced code blocks with the `geojson` or `topojson` syntax, and embed STL 3D renders using `stl` syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
