@@ -1,0 +1,6 @@
+gist_homepage: >-
+  {% ifversion fpt or ghec %}[Домашняя страница gist](https://gist.github.com/){% elsif ghae %}Домашняя страница gist, http(s)://gist.[hostname]{% else %}Домашняя страница gist, http(s)://[hostname]/gist или http(s)://gist.[hostname], если поддерживаются поддомены{% endif %}
+gist_search_url: >-
+  {% ifversion fpt or ghec %}[Поиск Gist](https://gist.github.com/search){% elsif ghae %}Поиск Gist, http(s)://gist.[hostname]/search{% else %}Поиск Gist, http(s)://[hostname]/gist/search или http(s)://gist.[hostname]/search, если поддерживаются поддомены{% endif %}
+discover_url: >-
+  {% ifversion fpt or ghec %}[Страница поиска](https://gist.github.com/discover){% elsif ghae %}Страница поиска, http(s)://gist.[hostname]/discover{% else %}Страница поиска, http(s)://[hostname]/gist/discover или http(s)://gist.[hostname]/discover, если поддерживаются поддомены{% endif %}
