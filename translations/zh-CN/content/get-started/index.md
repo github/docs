@@ -62,11 +62,11 @@ children:
   - /using-git
   - /customizing-your-github-workflow
   - /privacy-on-github
-ms.openlocfilehash: 4178e22c506d32b0736305936b56c4c1ff348357
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 7671e605fa3644c4690de6ed16bd9a255bb6b1f6
+ms.sourcegitcommit: 2ecb6ba7d01b2bc9a44ad74a5953b98413216051
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147580693'
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148165351'
 ---
 
