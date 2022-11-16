@@ -1,6 +1,6 @@
 ---
-title: Organization のメンバー名表示を管理する
-intro: Organization のプライベートリポジトリ内において、Organization のメンバーが、コメント作者のプロフィール名を表示できるよう許可することができます。
+title: Managing the display of member names in your organization
+intro: You can allow members of your organization to see a comment author's profile name in private repositories in the organization.
 product: '{% data reusables.gated-features.display-names %}'
 redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
@@ -14,22 +14,20 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage display of member names
-ms.openlocfilehash: 0a394b40689d95ea37906fef2ddc9b203e2041c3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409428'
 ---
-Organization のオーナーは、Organization 内のメンバー名表示を管理できます。
 
-![コメントに表示されたコメント作者の名前](/assets/images/help/issues/commenter-full-name.png)
+Organization owners can manage the display of member names in an organization.
 
-Organization の各メンバーは、自分のプロフィール名を設定で選択します。 詳細については、「[プロフィールをパーソナライズする](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)」を参照してください。
+![Commenter's profile name displayed in comment](/assets/images/help/issues/commenter-full-name.png)
 
-{% ifversion profile-name-enterprise-setting %}Enterprise 所有者が Enterprise レベルでポリシーを設定している場合、Organization にこの設定を構成できないことがあります。 詳しくは、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)」を参照してください。{% endif %}
+Changes to the display of usernames within an organization will affect the display of other people's usernames, not your own. Each organization member chooses their own profile name in their settings. For more information, see "[Personalizing your profile](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)."
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
-5. [管理者リポジトリのアクセス許可] の下で、 **[プライベートリポジトリでコメント作成者のプロフィール名を表示することをメンバーに許可する]** を選択または選択解除します。
-![プライベートリポジトリ内で、コメント作者のフルネームを表示することをメンバーに許可するためのチェックボックス](/assets/images/help/organizations/allow-members-to-view-full-names.png)
-6. **[保存]** をクリックします。
+{% ifversion profile-name-enterprise-setting %}
+You may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."{% endif %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.member-privileges %}
+5. Under "Admin repository permissions", select or unselect **Allow members to see comment author's profile name in private repositories**.
+![Checkbox to allow members to see comment author's full name in private repositories](/assets/images/help/organizations/allow-members-to-view-full-names.png)
+6. Click **Save**.
