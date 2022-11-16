@@ -6,18 +6,18 @@ versions:
 topics:
   - Copilot
 shortTitle: About GitHub Copilot
-ms.openlocfilehash: 340be078a8af263a477399a3303161864fe2040e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: dd4538cb4cf6fc9dd84bb3f0d05bf8a85559d5ec
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147092967'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160641'
 ---
 ## {% data variables.product.prodname_copilot %} について
 
-{% data variables.product.prodname_copilot %} では、コーディング時にオートコンプリート スタイルの候補を提示する AI ペア プログラマーです。 使用するコードを書き始めるか、そのコードに何をさせたいかを自然言語のコメントで記述することで、{% data variables.product.prodname_copilot %} から候補を取り入れることができます。 {% data variables.product.prodname_copilot %} は、編集中のファイルや関連ファイルのコンテキストを分析し、テキスト エディター内から候補の提示を行います。
+{% data variables.product.prodname_copilot %} では、コーディング時にオートコンプリート スタイルの候補を提示する AI ペア プログラマーです。 使用するコードを書き始めるか、そのコードに何をさせたいかを自然言語のコメントで記述することで、{% data variables.product.prodname_copilot %} から候補を取り入れることができます。 {% data variables.product.prodname_copilot %} は、編集中のファイルや関連ファイルのコンテキストを分析し、テキスト エディター内から候補の提示を行います。 {% data variables.product.prodname_copilot %} は、OpenAI によって作成された新しい AI システムである OpenAI Codex を利用しています。
 
-{% data variables.product.prodname_copilot %} は、Python、JavaScript、TypeScript、Ruby、Go、C#、または C++ の記述に役立つように最適化されています。 また、{% data variables.product.prodname_copilot %} を使って、他の言語やさまざまなフレームワークで候補を生成することもできます。 {% data variables.product.prodname_copilot %} は、OpenAI によって作成された新しい AI システムである OpenAI Codex を利用しています。 
+{% data variables.product.prodname_copilot %} は、パブリック リポジトリに表示されるすべて言語でトレーニングされます。 各言語で、受け取る提案の品質は、その言語のトレーニング データの量と多様性によって異なります。 たとえば、JavaScript は、パブリック リポジトリで適切に表現されており、{% data variables.product.prodname_copilot %} でサポートされている最適な言語の 1 つです。 パブリック リポジトリでの表現が少ない言語では、生成される候補の信頼性が低下する可能性があります。
 
 {% data variables.product.prodname_copilot %} は、Visual Studio Code、Visual Studio、Neovim、JetBrains での一連の IDE で拡張機能として使用できます。 詳しくは、「[{% data variables.product.prodname_copilot %} の概要](/copilot/getting-started-with-github-copilot)」を参照してください。
 
@@ -31,9 +31,11 @@ GitHub Copilot は、OpenAI が何十億行ものオープンソース コード
 
 {% data variables.product.prodname_copilot %} では、プロンプト内の不快な単語をブロックし、機密性の高いコンテキストにある候補を生成しないようにフィルターを使っています。 私たちは、{% data variables.product.prodname_copilot %} によって生成された不快な候補 (偏った、差別的、または虐待的な出力など) をよりインテリジェントに検出して削除するため、フィルター システムを常に改善することに取り組んでいます。 {% data variables.product.prodname_copilot %} によって生成された不快な候補が表示される場合は、安全対策を改善できるように、その候補を copilot-safety@github.com に直接報告してください。 
 
+{% data reusables.copilot.emus-cannot-use-copilot %}
+
 ## {% data variables.product.prodname_copilot %} の課金について
 
-{% data variables.product.prodname_copilot %} は有料機能であり、月単位または年単位のサブスクリプションが必要です。 検証済みの学生や {% data variables.product.prodname_dotcom %} 上の人気オープンソース プロジェクトのメンテナンス担当者は、無料で {% data variables.product.prodname_copilot %} を使うことができます。 無料の {% data variables.product.prodname_copilot %} サブスクリプションの条件を満たしている場合は、{% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスしたときに、自動的に通知されます。 無料の {% data variables.product.prodname_copilot %} サブスクリプションの条件を満たしていない場合、60 日間の無料試用版が提供され、その後継続して使うには有料のサブスクリプションが必要になります。 詳細については、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」を参照してください。
+{% data variables.product.prodname_copilot %} は有料機能であり、月単位または年単位のサブスクリプションが必要です。 確認が取れている学生、教師、および {% data variables.product.prodname_dotcom %} 上のオープン ソース プロジェクトのメンテナンス担当者は、{% data variables.product.prodname_copilot %} を無料で使うことができます。 無料の {% data variables.product.prodname_copilot %} サブスクリプションの条件を満たしている場合は、{% data variables.product.prodname_copilot %} サブスクリプション ページにアクセスしたときに、自動的に通知されます。 無料の {% data variables.product.prodname_copilot %} サブスクリプションの条件を満たしていない場合、60 日間の無料試用版が提供され、その後継続して使うには有料のサブスクリプションが必要になります。 詳細については、「[{% data variables.product.prodname_copilot %} の課金について](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)」を参照してください。
 
 ## JetBrains IDE での {% data variables.product.prodname_copilot %} プラグインのライセンスについて
 

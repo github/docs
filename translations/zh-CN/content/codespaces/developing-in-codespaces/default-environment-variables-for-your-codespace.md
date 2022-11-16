@@ -1,7 +1,6 @@
 ---
 title: 代码空间的默认环境变量
 shortTitle: Default environment variables
-product: '{% data reusables.gated-features.codespaces %}'
 intro: '{% data variables.product.prodname_dotcom %} 为每个代码空间设置默认环境变量。'
 versions:
   fpt: '*'
@@ -11,12 +10,12 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-ms.openlocfilehash: e9034fb566c8245fff6d610ff456084dc9818f0b
-ms.sourcegitcommit: 43a959b8faf78d9c5b3deadffa079d24cd11650b
+ms.openlocfilehash: 1a57445bbffb3e1112299414e29796b716f2d801
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2022
-ms.locfileid: '148134753'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158923'
 ---
 ## 关于默认环境变量
 
@@ -32,7 +31,7 @@ ms.locfileid: '148134753'
 
 | 环境变量 | 说明 |
 | ---------------------|------------ |
-| `CODESPACE_NAME` | 代码空间的名称 例如，`monalisa-github-hello-world-2f2fsdf2e` |
+| `CODESPACE_NAME` | 代码空间的名称 例如，`octocat-literate-space-parakeet-mld5` |
 | `CODESPACES` | 在代码空间中始终为 `true` |
 | `GIT_COMMITTER_EMAIL` | 未来 `git` 提交的“作者”字段的电子邮件。 |
 | `GIT_COMMITTER_NAME` | 未来 `git` 提交的“提交者”字段的名称。 |

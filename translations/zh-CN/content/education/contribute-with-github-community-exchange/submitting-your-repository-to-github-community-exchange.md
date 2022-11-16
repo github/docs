@@ -4,12 +4,12 @@ shortTitle: Submit your repository
 intro: '可将存储库提交到 {% data variables.product.prodname_community_exchange %}，以供其他人查看或参与。'
 versions:
   fpt: '*'
-ms.openlocfilehash: 07198c74937470a591b30702bd027036d91d3ec7
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 404a1a20f3474c4fa48d6fae9e7f6cc5ddf0e647
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108220'
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111270'
 ---
 ## 关于存储库提交
 
@@ -35,11 +35,14 @@ ms.locfileid: '148108220'
 - 说明。
 - 一个 LEARN.md 文件，用于通过文本和/或媒体提供有关如何构建项目的分步说明。 理想情况下，LEARN.md 文件会将项目分解为小组件，并提供每个步骤的详细信息，以便其他学生可以按照说明编写其项目。
 - 一个 README.md 文件，用于提供项目的详细说明。
+- 一个许可证，以便其他人知道他们可以和不能用源代码执行的操作。
 
 对于以 `Collaborate` 为用途的提交，存储库必须具有：
 - 说明。
 - 一个 README.md 文件，用于提供项目的详细说明。
+- 一个许可证，以便其他人知道他们可以和不能用源代码执行的操作。
 - 供协作组处理的一个或多个问题。
+- 用于传达如何参与项目的 CONTRIBUTING.md 文件。
 
 用于 `Learn` 和 `Collaborate` 用途的良好存储库提交是遵循社区标准的存储库。 有关详细信息，请参阅“[关于公共存储库的社区配置文件](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)”。
 

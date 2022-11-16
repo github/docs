@@ -1,7 +1,7 @@
 ---
 title: Configuração do fluxo de trabalho do CodeQL para linguagens compiladas
 shortTitle: Configure compiled languages
-intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %} usa o {% data variables.product.prodname_codeql_workflow %} para varrer o código escrito em linguagens compiladas para obter vulnerabilidades e erros.'
+intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %} usa o {% data variables.code-scanning.codeql_workflow %} para examinar o código escrito nas linguagens compiladas quanto a vulnerabilidades e erros.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
@@ -25,18 +25,18 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: d6d0f0f881b3fc56c3abe50ff84177f9417d81bf
-ms.sourcegitcommit: 75c3c90cb610e0bb9a5ea014937507e8aab0eb3a
+ms.openlocfilehash: 91983e79a6381b4a38cbb1de4f6d7f228637b192
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2022
-ms.locfileid: '148132992'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161196'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## Sobre o {% data variables.product.prodname_codeql_workflow %} e linguagens compiladas
+## Sobre o {% data variables.code-scanning.codeql_workflow %} e as linguagens compiladas
 
-Você configurou {% data variables.product.prodname_dotcom %} para executar {% data variables.product.prodname_code_scanning %} para o seu repositório, adicionando um fluxo de trabalho de {% data variables.product.prodname_actions %} ao repositório. Para {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, você adiciona o {% data variables.product.prodname_codeql_workflow %}. Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
+Você configurou {% data variables.product.prodname_dotcom %} para executar {% data variables.product.prodname_code_scanning %} para o seu repositório, adicionando um fluxo de trabalho de {% data variables.product.prodname_actions %} ao repositório. Para a {% data variables.product.prodname_code_scanning %} do {% data variables.product.prodname_codeql %}, você adiciona o {% data variables.code-scanning.codeql_workflow %}. Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
 
 {% data reusables.code-scanning.edit-workflow %} Para obter informações gerais sobre como configurar a {% data variables.product.prodname_code_scanning %} e editar arquivos de fluxo de trabalho, confira "[Como configurar a {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" e "[Aprenda a usar o {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 

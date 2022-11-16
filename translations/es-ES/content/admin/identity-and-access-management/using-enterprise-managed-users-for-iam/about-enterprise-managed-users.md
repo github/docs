@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 371a6998976fdb8ff87017866319912b28dc8ce6
-ms.sourcegitcommit: ec712c0fd32e7fe2f74c2b6d5da95f700dfd8111
+ms.openlocfilehash: 82a8b8c29ea38d57f0481146f2a857c2dcba8413
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148110373'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160732'
 ---
 ## Acerca de {% data variables.product.prodname_emus %}
 
@@ -94,6 +94,7 @@ Los {% data variables.enterprise.prodname_managed_users_caps %} solo pueden cola
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Solo se pueden crear repositorios internos y privados en las organizaciones que pertenezcan a una {% data variables.enterprise.prodname_emu_enterprise %}, en función de la configuración de visibilidad del repositorio o la empresa. 
 * Los {% data variables.enterprise.prodname_managed_users_caps %} están limitados en su uso de {% data variables.product.prodname_pages %}. Para obtener más información, consulta [Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users).
+* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## Introducción a {% data variables.product.prodname_emus %}
 
@@ -124,9 +125,9 @@ Para que los desarrolladores puedan usar la {% data variables.product.prodname_g
   
   {% endif %}
   
-4. Una vez que hayas configurado el inicio de sesión único, puedes configurar el aprovisionamiento de SCIM. SCIM es la forma en la que el proveedor de identidades aprovisionará y administrará los equipos y cuentas de miembro en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información sobre cómo configurar el aprovisionamiento de SCIM, consulta "[Configuración del aprovisionamiento de SCIM para Usuarios Administrados de Enterprise](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
+4. Una vez que hayas configurado el inicio de sesión único, puedes configurar el aprovisionamiento de SCIM. SCIM es cómo creará el proveedor de identidades {% data variables.enterprise.prodname_managed_users %} en los datos {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información sobre cómo configurar el aprovisionamiento de SCIM, consulta "[Configuración del aprovisionamiento de SCIM para Usuarios Administrados de Enterprise](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
   
-5. Una vez que hayas configurado la autenticación y el aprovisionamiento, podrás empezar a aprovisionar miembros y administrar equipos. Para más información sobre cómo administrar equipos, vea "[Administración de pertenencias a equipos con grupos de proveedores de identidades](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
+5. Una vez configurada la autenticación y el aprovisionamiento, puede empezar a administrar la pertenencia a la organización para los datos {% data variables.enterprise.prodname_managed_users %} mediante la sincronización de grupos de IdP con equipos. Para más información sobre cómo administrar equipos, vea "[Administración de pertenencias a equipos con grupos de proveedores de identidades](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
 
 Si los miembros de tu empresa deben usar una estación de trabajo para contribuir a los repositorios en {% data variables.location.product_location %} tanto de un {% data variables.enterprise.prodname_managed_user %} como de una cuenta personal, puedes proporcionar compatibilidad. Para obtener más información, consulta "[Compatibilidad con desarrolladores con varias cuentas de usuario en {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)".
 

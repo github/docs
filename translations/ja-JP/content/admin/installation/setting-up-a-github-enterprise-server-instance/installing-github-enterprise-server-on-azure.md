@@ -99,7 +99,15 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
   
+## Azure extension features
+
+{% data variables.product.product_name %} does not support the installation of Azure extension features. The {% data variables.product.prodname_ghe_server %} image is shipped with a customized `waagent` package which only supports basic VM management functions and blocks advanced VM management functions. 
+
+To avoid system instability of your {% data variables.product.prodname_ghe_server %} instance, the `walinuxagent` service is intentionally run in {% data variables.product.prodname_ghe_server %} in a restricted mode, explicitly disallowing the agent from being able to install other agents. VM management features that rely on additional agents and extensions beyond that which ships with {% data variables.product.prodname_ghe_server %} image, such as the Monitoring Agent extension for Azure Insights or Azure Backups, are unsupported.
+
+Because {% data variables.product.product_name %} runs a customized Linux operating system with only the necessary applications and services, installing or updating operating system packages manually will overwrite these customizations and can cause unexpected behavior. For more information, see "[System overview](/admin/overview/system-overview)."
+
 ## Further reading
-  
+
 - "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

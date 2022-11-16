@@ -61,7 +61,8 @@ We do not allow content or activity on GitHub that is:
 * creation of or participation in secondary markets for the purpose of the proliferation of inauthentic activity;
 * using GitHub as a platform for propagating abuse on other platforms;
 * phishing or attempted phishing; or
-* using our servers for any form of excessive automated bulk activity, to place undue burden on our servers through automated means, or to relay any form of unsolicited advertising or solicitation through our servers, such as get-rich-quick schemes.
+* using our servers for any form of excessive automated bulk activity, to place undue burden on our servers through automated means, or to relay any form of unsolicited advertising or solicitation through our servers, such as get-rich-quick schemes;
+* incentivized by (or incentivizes inauthentic engagement with) rewards such as cryptocurrency airdrops, tokens, credits, gifts or other give-aways.
 
 ## 5. Site Access and Safety
 We do not allow content or activity on GitHub that:

@@ -4239,6 +4239,40 @@
       ]
     },
     {
+      "name": "linkProjectV2ToTeam",
+      "kind": "mutations",
+      "id": "linkprojectv2toteam",
+      "href": "/graphql/reference/mutations#linkprojectv2toteam",
+      "description": "<p>Links a project to a team.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "LinkProjectV2ToTeamInput!",
+          "id": "linkprojectv2toteaminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#linkprojectv2toteaminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "team",
+          "type": "Team",
+          "id": "team",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#team",
+          "description": "<p>The team the project is linked to.</p>"
+        }
+      ]
+    },
+    {
       "name": "linkRepositoryToProject",
       "kind": "mutations",
       "id": "linkrepositorytoproject",
@@ -5585,6 +5619,40 @@
       ]
     },
     {
+      "name": "transferEnterpriseOrganization",
+      "kind": "mutations",
+      "id": "transferenterpriseorganization",
+      "href": "/graphql/reference/mutations#transferenterpriseorganization",
+      "description": "<p>Transfer an organization from one enterprise to another enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "TransferEnterpriseOrganizationInput!",
+          "id": "transferenterpriseorganizationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#transferenterpriseorganizationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization for which a transfer was initiated.</p>"
+        }
+      ]
+    },
+    {
       "name": "transferIssue",
       "kind": "mutations",
       "id": "transferissue",
@@ -5785,6 +5853,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "description": "<p>The repository the project is no longer linked to.</p>"
+        }
+      ]
+    },
+    {
+      "name": "unlinkProjectV2FromTeam",
+      "kind": "mutations",
+      "id": "unlinkprojectv2fromteam",
+      "href": "/graphql/reference/mutations#unlinkprojectv2fromteam",
+      "description": "<p>Unlinks a project to a team.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnlinkProjectV2FromTeamInput!",
+          "id": "unlinkprojectv2fromteaminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unlinkprojectv2fromteaminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "team",
+          "type": "Team",
+          "id": "team",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#team",
+          "description": "<p>The team the project is unlinked from.</p>"
         }
       ]
     },
@@ -37616,6 +37718,16 @@
               }
             },
             {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for sponsorships returned from this connection. If left\nblank, the sponsorships will be ordered based on relevancy to the viewer.</p>",
               "type": {
@@ -58121,7 +58233,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "sshUrl",
@@ -61640,6 +61754,22 @@
           "href": "/graphql/reference/objects#sponsorsgoal"
         },
         {
+          "name": "billingCountryOrRegion",
+          "description": "<p>The name of the country or region with the maintainer's bank account or fiscal\nhost. Will only return a value when queried by the maintainer themselves, or\nby an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "contactEmailAddress",
+          "description": "<p>The email address used by GitHub to contact the sponsorable about their GitHub\nSponsors profile. Will only return a value when queried by the maintainer\nthemselves, or by an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -61702,6 +61832,14 @@
           "id": "date",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "residenceCountryOrRegion",
+          "description": "<p>The name of the country or region where the maintainer resides. Will only\nreturn a value when queried by the maintainer themselves, or by an admin of\nthe sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "resourcePath",
@@ -63070,12 +63208,28 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>The name of the submodule in .gitmodules (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "path",
           "description": "<p>The path in the superproject that this submodule is located in.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The path in the superproject that this submodule is located in (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "subprojectCommitOid",
@@ -63963,6 +64117,16 @@
               }
             },
             {
+              "name": "filterBy",
+              "description": "<p>Filtering options for projects returned from this connection.</p>",
+              "type": {
+                "name": "ProjectV2Filters",
+                "id": "projectv2filters",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2filters"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -63990,6 +64154,17 @@
                 "id": "projectv2order",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#projectv2order"
+              }
+            },
+            {
+              "name": "query",
+              "defaultValue": "",
+              "description": "<p>The query to search projects by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             }
           ]
@@ -67112,6 +67287,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>Entry file name. (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "object",
           "description": "<p>Entry file object.</p>",
           "type": "GitObject",
@@ -67134,6 +67317,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The full path of the file. (Base64-encoded).</p>",
+          "type": "Base64String",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "repository",
@@ -70078,6 +70269,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -74689,6 +74890,16 @@
               }
             },
             {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for sponsorships returned from this connection. If left\nblank, the sponsorships will be ordered based on relevancy to the viewer.</p>",
               "type": {
@@ -77795,6 +78006,23 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>The project's date and time of update.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2State",
+      "kind": "enums",
+      "id": "projectv2state",
+      "href": "/graphql/reference/enums#projectv2state",
+      "description": "<p>The possible states of a project v2.</p>",
+      "values": [
+        {
+          "name": "CLOSED",
+          "description": "<p>A project v2 that has been closed.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>A project v2 that is still open.</p>"
         }
       ]
     },
@@ -84631,6 +84859,24 @@
           "isDeprecated": false
         },
         {
+          "name": "repositoryId",
+          "description": "<p>The repository to link the project to.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The team to link the project to. The team will be granted read permissions.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "title",
           "description": "<p>The title of the project.</p>",
           "type": "String!",
@@ -86806,6 +87052,41 @@
       ]
     },
     {
+      "name": "LinkProjectV2ToTeamInput",
+      "kind": "inputObjects",
+      "id": "linkprojectv2toteaminput",
+      "href": "/graphql/reference/input-objects#linkprojectv2toteaminput",
+      "description": "<p>Autogenerated input type of LinkProjectV2ToTeam.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to link to the team.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The ID of the team to link to the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "LinkRepositoryToProjectInput",
       "kind": "inputObjects",
       "id": "linkrepositorytoprojectinput",
@@ -87527,6 +87808,23 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2Filters",
+      "kind": "inputObjects",
+      "id": "projectv2filters",
+      "href": "/graphql/reference/input-objects#projectv2filters",
+      "description": "<p>Ways in which to filter lists of projects.</p>",
+      "inputFields": [
+        {
+          "name": "state",
+          "description": "<p>List project v2 filtered by the state given.</p>",
+          "type": "ProjectV2State",
+          "id": "projectv2state",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2state"
         }
       ]
     },
@@ -89301,6 +89599,41 @@
       ]
     },
     {
+      "name": "TransferEnterpriseOrganizationInput",
+      "kind": "inputObjects",
+      "id": "transferenterpriseorganizationinput",
+      "href": "/graphql/reference/input-objects#transferenterpriseorganizationinput",
+      "description": "<p>Autogenerated input type of TransferEnterpriseOrganization.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "destinationEnterpriseId",
+          "description": "<p>The ID of the enterprise where the organization should be transferred.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization to transfer.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "TransferIssueInput",
       "kind": "inputObjects",
       "id": "transferissueinput",
@@ -89483,6 +89816,41 @@
         {
           "name": "repositoryId",
           "description": "<p>The ID of the repository to unlink from the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UnlinkProjectV2FromTeamInput",
+      "kind": "inputObjects",
+      "id": "unlinkprojectv2fromteaminput",
+      "href": "/graphql/reference/input-objects#unlinkprojectv2fromteaminput",
+      "description": "<p>Autogenerated input type of UnlinkProjectV2FromTeam.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to unlink from the team.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The ID of the team to unlink from the project.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",

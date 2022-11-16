@@ -7,6 +7,6 @@
 | `disable_workflow` | Triggered when a workflow is disabled.
 | `enable_workflow` | Triggered when a workflow is enabled, after previously being disabled by `disable_workflow`.
 | `rerun_workflow_run` | Triggered when a workflow run is re-run. For more information, see "[Re-running a workflow](/actions/managing-workflow-runs/re-running-a-workflow)."
-| `prepared_workflow_job` | Triggered when a workflow job is started. Includes the list of secrets that were provided to the job. Can only be viewed using the REST API. It is not visible in the the {% data variables.product.prodname_dotcom %} web interface or included in the JSON/CSV export. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+| `prepared_workflow_job` | Triggered when a workflow job is started. Includes the list of secrets that were provided to the job. Can only be viewed using the REST API. It is not visible in the {% data variables.product.prodname_dotcom %} web interface or included in the JSON/CSV export. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 | `approve_workflow_job` | Triggered when a workflow job has been approved. For more information, see "[Reviewing deployments](/actions/managing-workflow-runs/reviewing-deployments)."
 | `reject_workflow_job` | Triggered when a workflow job has been rejected. For more information, see "[Reviewing deployments](/actions/managing-workflow-runs/reviewing-deployments)."

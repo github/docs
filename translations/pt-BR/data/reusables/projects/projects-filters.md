@@ -1,16 +1,10 @@
----
-ms.openlocfilehash: 02959a116ad5d087dc8a9d7fb3293e36b9b9cb24
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145095455"
----
-- Para filtrar qualquer correspondência de vários valores (uma consulta OR), separe os valores com uma vírgula. Por exemplo, `label:"good first issue",bug` listará todos os problemas rotulados como `good first issue` ou `bug`.
-- Para filtrar a ausência de um valor específico, coloque `-` antes do filtro. Por exemplo, `-label:"bug"` mostrará apenas os itens que não têm o rótulo `bug`.
-- Para filtrar a ausência de todos os valores, insira `no:` seguido do nome do campo. Por exemplo, `no:assignee` mostrará apenas os itens que não têm um destinatário.
-- Para filtrá-lo por estado, insira `is:`. Por exemplo, `is: issue` ou `is:open`.
-- Separe vários filtros com um espaço. Por exemplo, `status:"In progress" -label:"bug" no:assignee` mostrará apenas os itens que têm o status `In progress`, não têm o rótulo `bug` e não têm um destinatário.
-- Para filtrar a iteração anterior, atual ou próxima de um campo de iteração, use `@previous`, `@current` ou `@next`. Por exemplo, `sprint:@current`.
-- Para filtrar os itens atribuídos ao visualizador, use `@me`. Por exemplo, `assignee:@me`. Qualquer pessoa que usar essa exibição verá os itens atribuídos a si mesmos.
-- Para filtrar campos de data e número, use os intervalos de consultas `>`, `>=`, `<`, `<=` e `..`. Por exemplo: `target:2022-03-01..2022-03-15`. Para obter mais informações, confira "[Noções básicas sobre a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
+- To filter for any match of multiple values (an OR query), separate the values with a comma. For example `label:"good first issue",bug` will list all issues labelled `good first issue` or `bug`.
+- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
+- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
+- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
+- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+- To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. For example, `iteration:@current`.
+- To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
+- To filter by when an item was last updated, use `last-updated:` followed by the number of days. This filter only supports `{number}days` (or `1day` for a single day) as a unit. For example, `last-updated:7days` will only show items that were last updated 7 or more days ago.
+- To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. For more information, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)." {% ifversion projects-v2-tasklists %}
+- To filter for issues tracked by a specified issue, use `tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"` and replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. {% endif %}

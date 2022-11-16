@@ -183,18 +183,18 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-4. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. For example, this following *package.json* uses the `@octo-org/octo-app` package as a dependency.
+1. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. Replace `<organization_name>/<package_name>` with your package dependency.
 
   ```json
   {
     "name": "@my-org/server",
     "version": "1.0.0",
-    "description": "Server app that uses the @octo-org/octo-app package",
+    "description": "Server app that uses the <organization_name>/<package_name> package",
     "main": "index.js",
     "author": "",
     "license": "MIT",
     "dependencies": {
-      "@octo-org/octo-app": "1.0.0"
+      "<organization_name>/<package_name>": "1.0.0"
     }
   }
   ```

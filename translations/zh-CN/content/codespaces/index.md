@@ -8,22 +8,26 @@ introLinks:
 featuredLinks:
   guides:
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
-    - /codespaces/developing-in-codespaces/codespaces-lifecycle
+    - /codespaces/developing-in-codespaces/the-codespace-lifecycle
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
     - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
     - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
   guideCards:
     - /codespaces/getting-started/deep-dive
-    - /codespaces/developing-in-codespaces/creating-a-codespace
+    - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+    - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
     - /codespaces/developing-in-codespaces/opening-an-existing-codespace
-    - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
   popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
   popularHeading: Set up your project
+changelog:
+  label: codespaces
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
 communityRedirect:
   name: Provide GitHub Feedback
@@ -49,11 +53,11 @@ children:
   - /troubleshooting
   - /the-githubdev-web-based-editor
   - /guides
-ms.openlocfilehash: 078b2c2ba743f2332ffda5a03ba9b0589cfdd12c
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 62723c1d4bf684e67420149c96586a91e7583031
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147652627'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160432'
 ---
 

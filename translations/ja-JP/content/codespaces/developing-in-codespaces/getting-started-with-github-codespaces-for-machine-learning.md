@@ -1,8 +1,7 @@
 ---
-title: 機械学習のための GitHub Codespaces の概要
+title: Getting started with GitHub Codespaces for machine learning
 shortTitle: Machine learning
-intro: '{% data variables.product.prodname_github_codespaces %} とそのすぐに使えるツールを使用して、機械学習プロジェクトに取り組む方法について学習します。'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Learn about working on machine learning projects with {% data variables.product.prodname_github_codespaces %} and its out-of-the-box tools.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,88 +9,72 @@ type: tutorial
 topics:
   - Codespaces
   - Developer
-ms.openlocfilehash: 07aa272377cf82d6bd660819d96aa348b2fb2a64
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147764004'
 ---
-## はじめに
 
-このガイドでは、{% data variables.product.prodname_github_codespaces %} を使用した機械学習について説明します。 単純な画像分類器を構築し、{% data variables.product.prodname_github_codespaces %} にプレインストールされているツールの一部について学習し、NVIDIA CUDA の開発環境を構成し、{% data variables.product.prodname_cli %} を使用して JupyterLab で codespace を開きます。
+## Introduction
 
-## 前提条件
+This guide introduces you to machine learning with {% data variables.product.prodname_github_codespaces %}. You’ll build a simple image classifier, learn about some of the tools that come preinstalled in {% data variables.product.prodname_github_codespaces %}, configure your development environment for NVIDIA CUDA, and open your codespace in JupyterLab.
 
-{% data variables.product.prodname_github_codespaces %} にアクセスできる。 詳細については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces)」を参照してください。
+## Building a simple image classifier
 
-## 単純な画像分類器を構築する
+We'll use a Jupyter notebook to build a simple image classifier. 
 
-Jupyter Notebook を使用して、単純な画像分類器を構築します。 
+Jupyter notebooks are sets of cells that you can execute one after another. The notebook we'll use includes a number of cells that build an image classifier using [PyTorch](https://pytorch.org/). Each cell is a different phase of that process: download a dataset, set up a neural network, train a model, and then test that model.
 
-Jupyter Notebook は、順次実行できるセルのセットです。 使用するノートブックには、[PyTorch](https://pytorch.org/) を使って画像分類器を構築する多数のセルが含まれています。 各セルは、データセットのダウンロード、ニューラル ネットワークの設定、モデルのトレーニング、そのモデルのテストなど、そのプロセスの異なるフェーズです。
+We'll run all of the cells, in sequence, to perform all phases of building the image classifier. When we do this Jupyter saves the output back into the notebook so that you can examine the results.
 
-すべてのセルを順番に実行して、画像分類器を構築するすべてのフェーズを実行します。 この操作を行うと、Jupyter によって出力がノートブックに保存され、結果を確認できるようになります。
+### Creating a codespace
 
-### リポジトリと codespace の作成
+1. Go to the [github/codespaces-jupyter](https://github.com/github/codespaces-jupyter) template repository.
+{% data reusables.codespaces.open-template-in-codespace-step %}
 
-1. [github/codespaces-getting-started-ml](https://github.com/github/codespaces-getting-started-ml) テンプレート リポジトリに移動し、 **[このテンプレートを使用する]** をクリックします。
-{% data reusables.codespaces.open-codespace-from-template-repo %}
+A codespace for this template will open in a web-based version of {% data variables.product.prodname_vscode %}.
 
-   既定では、このリポジトリの codespace は、Web ベース バージョンの {% data variables.product.prodname_vscode %} で開きます。
+### Opening the image classifier notebook 
 
-### 画像分類器ノートブックを開く
+The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/universal).
 
-{% data variables.product.prodname_github_codespaces %} によって使用される既定のコンテナー イメージには、codespace にプレインストールされている一連の機械学習ライブラリが含まれています。 たとえば、Numpy、pandas、SciPy、Matplotlib、seaborn、scikit-learn、TensorFlow、Keras、PyTorch、Requests、Plotly などです。 既定のイメージについては詳しくは、「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)」と[ `devcontainers/images` リポジトリ](https://github.com/devcontainers/images/tree/main/src/codespaces#github-codespaces-default-linux-universal)を参照してください。
+1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
+1. Open the `notebooks/image-classifier.ipynb` notebook file.
 
-1. {% data variables.product.prodname_vscode_shortname %} エディターで、表示されている [作業の開始] タブを閉じます。
-1. `image-classifier.ipynb` ノートブック ファイルを開きます。
-1. エディターの右上にある Python カーネル リンクをクリックします。
+### Building the image classifier
 
-   ![Python カーネル リンクのスクリーンショット](/assets/images/help/codespaces/jupyter-python-kernel-link.png)
-   
-1. ドロップダウン メニューで、ディレクトリ `/opt/python/latest/bin/python` 内のカーネルを選びます。
+The image classifier notebook contains all the code you need to download a dataset, train a neural network, and evaluate its performance.
 
-   ![Python カーネル ドロップダウン メニューのスクリーンショット](/assets/images/help/codespaces/jupyter-python-kernel-dropdown.png)
+1. Click **Run All** to execute all of the notebook’s cells.
 
-### 画像分類器を構築する
+   ![Screenshot of the Run All button](/assets/images/help/codespaces/jupyter-run-all.png)
 
-画像分類器ノートブックには、データセットのダウンロード、ニューラル ネットワークのトレーニング、そのパフォーマンスの評価に必要なすべてのコードが含まれています。
+1. Scroll down to view the output of each cell.
 
-1. **[すべて実行]** をクリックして、ノートブックのセルをすべて実行します。
+   ![Screenshot of Step 3 in the editor](/assets/images/help/codespaces/jupyter-notebook-step3.png)
 
-   ![[すべて実行] ボタンのスクリーンショット。](/assets/images/help/codespaces/jupyter-run-all.png)
+## Configuring NVIDIA CUDA for your codespace
 
-1. 下にスクロールして、各セルの出力を表示します。
-
-   ![エディターの手順 3 のスクリーンショット](/assets/images/help/codespaces/jupyter-notebook-step3.png)
-
-## codespace 用に NVIDIA CUDA を構成する
-
-TensorFlow などの一部のソフトウェアでは、codespace の GPU を使用するために NVIDIA CUDA をインストールする必要があります。 その場合は、`devcontainer.json` ファイルを使用して独自のカスタム構成を作成し、CUDA をインストールする必要があることを指定できます。 カスタム構成の作成について詳しくは、「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)」を参照してください。
+Some software requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 
 {% note %}
 
-**注**: `nvidia-cuda` 機能を追加するときに実行されるスクリプトについて詳しくは、[devcontainers/features リポジトリ](https://github.com/devcontainers/features/tree/main/src/nvidia-cuda)を参照してください。
+**Note**: For full details of the script that's run when you add the `nvidia-cuda` feature, see [the devcontainers/features repository](https://github.com/devcontainers/features/tree/main/src/nvidia-cuda).
 
 {% endnote %}
 
-1. codespace 内で、エディターで `.devcontainer/devcontainer.json` ファイルを開きます。
-1. 次の内容を含む最上位の `features` オブジェクトを追加します。
+1. Within the codespace, open the `.devcontainer/devcontainer.json` file in the editor.
+1. Add a top-level `features` object with the following contents:
 
    ```json{:copy}
-     “features”: {
+     "features": {
        "ghcr.io/devcontainers/features/nvidia-cuda:1": { 
          "installCudnn": true
        }
      }
    ```
 
-   `features` オブジェクトについて詳しくは、「[開発コンテナーの仕様](https://containers.dev/implementors/features/#devcontainer-json-properties)」を参照してください。
+   For more information about the `features` object, see the [development containers specification](https://containers.dev/implementors/features/#devcontainer-json-properties).
 
-   このチュートリアル用に作成した画像分類器リポジトリの `devcontainer.json` ファイルを使用している場合、`devcontainer.json` ファイルは次のようになります。
+   If you are using the `devcontainer.json` file from the image classifier repository you created for this tutorial, your `devcontainer.json` file will now look like this:
 
-   ```
+   ```json
    {
      "customizations": {
        "vscode": {
@@ -101,7 +84,7 @@ TensorFlow などの一部のソフトウェアでは、codespace の GPU を使
          ]
        }
      },
-     “features”: {
+     "features": {
        "ghcr.io/devcontainers/features/nvidia-cuda:1": { 
          "installCudnn": true
        }
@@ -109,16 +92,13 @@ TensorFlow などの一部のソフトウェアでは、codespace の GPU を使
    }
    ```
 
-1. 変更を保存します。
-{% data reusables.codespaces.rebuild-command %}codespace コンテナーが再構築されます。 これには数分かかります。 再構築が完了すると、自動的に codespace が再び開きます。
-1. 変更をリポジトリにコミットして、CUDA が今後このリポジトリから作成する新しい codespace にインストールされるようにします。
+1. Save the change.
+{% data reusables.codespaces.rebuild-command %}
+   The codespace container will be rebuilt. This will take several minutes. When the rebuild is complete the codespace is automatically reopened.
+1. Publish your change to a repository so that CUDA will be installed in any new codespaces you create from this repository in future. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-vs-code)."
 
-## JupyterLab で codespace を開く
+## Opening your codespace in JupyterLab
 
-{% data variables.product.prodname_github_codespaces %} によって使用される既定のコンテナー イメージには、Web ベースの Jupyter IDE である JupyterLab が含まれています。 {% data variables.product.prodname_cli %} を使用すると、codespace に他のものをインストールしなくても、JupyterLab で codespace を開くことができます。
+You can open your codespace in JupyterLab from the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces), or by using {% data variables.product.prodname_cli %}. For more information, see "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)."
 
-1. ターミナルで、{% data variables.product.prodname_cli %} コマンド `gh cs jupyter` を入力します。
-1. 開く codespace を選びます。
-
-   ![ターミナルから codespace を開くスクリーンショット](/assets/images/help/codespaces/open-codespace-in-jupyter.png)
-
+{% data reusables.codespaces.jupyterlab-installed-in-codespace %}

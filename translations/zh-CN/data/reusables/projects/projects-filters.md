@@ -1,16 +1,10 @@
----
-ms.openlocfilehash: 02959a116ad5d087dc8a9d7fb3293e36b9b9cb24
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145099549"
----
-- 若要筛选多个值的任何匹配项（OR 查询），请用逗号分隔这些值。 例如 `label:"good first issue",bug` 将列出所有标记为 `good first issue` 或 `bug` 的问题。
-- 要筛选缺少特定值的字段，请在筛选器之前加上 `-`。 例如，`-label:"bug"` 将仅显示没有标签 `bug` 的项。
-- 要筛选缺少所有值的字段，请输入 `no:`，后跟字段名称。 例如，`no:assignee` 将仅显示没有受理人的项。
-- 若要按状态进行筛选，请输入 `is:`。 例如，`is: issue` 或 `is:open`。
-- 多个过滤条件之间用逗号分隔。 例如，`status:"In progress" -label:"bug" no:assignee` 将仅显示状态为 `In progress`、没有标签 `bug` 且没有受理人的项。
-- 要筛选迭代字段的上一个、当前或下一个迭代，请使用 `@previous`、`@current` 或 `@next`。 例如，`sprint:@current`。
-- 若要筛选分配给查看器的项，请使用 `@me`。 例如，`assignee:@me`。 使用此视图的任何人都会看到分配给自己的项。
-- 若要筛选日期和数字字段，请使用 `>`、`>=`、`<`、`<=` 和 `..` 范围查询。 例如：`target:2022-03-01..2022-03-15`。 有关详细信息，请参阅“[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)”。
+- To filter for any match of multiple values (an OR query), separate the values with a comma. For example `label:"good first issue",bug` will list all issues labelled `good first issue` or `bug`.
+- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
+- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
+- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
+- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+- To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. For example, `iteration:@current`.
+- To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
+- To filter by when an item was last updated, use `last-updated:` followed by the number of days. This filter only supports `{number}days` (or `1day` for a single day) as a unit. For example, `last-updated:7days` will only show items that were last updated 7 or more days ago.
+- To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. For more information, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)." {% ifversion projects-v2-tasklists %}
+- To filter for issues tracked by a specified issue, use `tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"` and replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. {% endif %}

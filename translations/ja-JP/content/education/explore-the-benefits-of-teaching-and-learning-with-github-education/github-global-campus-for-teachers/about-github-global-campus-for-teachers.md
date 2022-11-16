@@ -1,6 +1,6 @@
 ---
-title: 教師向け GitHub Global Campus について
-intro: '{% data variables.product.prodname_global_campus %} には、教室の内外で作業効率を高めるためのツールやリソースを利用できる、教師のための中心的な場所が用意されています。'
+title: About GitHub Global Campus for teachers
+intro: '{% data variables.product.prodname_global_campus %} offers teachers a central place to access tools and resources for working more effectively inside and outside of the classroom.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education-for-educators-and-researchers
   - /github/teaching-and-learning-with-github-education/about-github-education-for-educators-and-researchers
@@ -10,30 +10,28 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: 6a0e8b7ba27060b4f48438b515786256d93d6d0c
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108892'
 ---
-認定教育機関の学生または教職員は、{% data variables.product.prodname_education %} 特典とリソースが含まれている {% data variables.product.prodname_global_campus %} を申し込むことができます。 詳しくは、「[教師として {% data variables.product.prodname_global_campus %} に応募する](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)」を参照してください。
 
-{% data variables.product.prodname_global_campus %} は、GitHub Education Community を使って教育特典をすべてまとめて 1 か所で利用できるポータルです。 認証済み {% data variables.product.prodname_global_campus %} 教師になると、[{% data variables.product.prodname_education %} website](https://education.github.com) にアクセスすることで、いつでも {% data variables.product.prodname_global_campus %} を利用できます。
+As a faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_global_campus %}, which includes {% data variables.product.prodname_education %} benefits and resources. For more information, see "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."
 
-![教師向け {% data variables.product.prodname_global_campus %} ポータル](/assets/images/help/education/global-campus-portal-teachers.png)
+{% data variables.product.prodname_global_campus %} is a portal that allows the GitHub Education Community to access their education benefits, all in one place. Once you are a verified {% data variables.product.prodname_global_campus %} teacher, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
 
-個別割引を申請する前に、学習コミュニティが既に {% data variables.product.prodname_campus_program %} 学校として提携しているかどうかを確認してください。 詳細については、「[{% data variables.product.prodname_campus_program %} について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)」を参照してください。
+![{% data variables.product.prodname_global_campus %} portal for teachers](/assets/images/help/education/global-campus-portal-teachers.png)
 
-## 教師向け {% data variables.product.prodname_global_campus %} 機能
+Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see "[About {% data variables.product.prodname_campus_program %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)."
 
-{% data variables.product.prodname_global_campus %} は、{% data variables.product.prodname_education %} 特典とリソースをすべてまとめて 1 か所で利用できるポータルです。 {% data variables.product.prodname_global_campus %} ポータルでは、あらゆるレベルの教師が次を行うことができます。{% data reusables.education.apply-for-team %}
-  - 最近の割り当てやクラスの進行状況などのアクティブな [{% data variables.product.prodname_classroom %}](https://classroom.github.com) の一目でわかる概要と、{% data variables.product.prodname_classroom %} へのリンクを確認する。
-  - 世界中の仲間によって投稿された [{% data variables.product.prodname_discussions %}](https://github.com/orgs/community/discussions/categories/github-education) を確認して操作し、テクノロジ教育の現在の傾向について議論し、[{% data variables.product.prodname_education %} ブログ](https://github.blog/category/education/)の最新の投稿を確認する。
-  - {% data variables.product.prodname_education %} と学生リーダーによってキュレーションされた学生イベントを確認する。
-  - [Campus TV](https://www.twitch.tv/githubeducation) の最近のエピソードをもう一度観て、学生コミュニティで関心が持たれている事柄を常に把握しておく。 Campus TV は、{% data variables.product.prodname_dotcom %} と学生コミュニティのリーダーによって作成されます。ライブまたはオンデマンドでの視聴が可能です。
-  - 学生の教育のための素材が入った {% data variables.product.prodname_dotcom %} のスワッグ バッグを要求する。
+## {% data variables.product.prodname_global_campus %} features for teachers
 
-## 関連項目
+{% data variables.product.prodname_global_campus %} is a portal from which you can access your {% data variables.product.prodname_education %} benefits and resources, all in one place. On the {% data variables.product.prodname_global_campus %} portal, teachers of all levels can:
+  {% data reusables.education.apply-for-team %}
+  - View an overview of your active [{% data variables.product.prodname_classroom %}](https://classroom.github.com), including recent assignments and your class's progress at a glance, as well as links to {% data variables.product.prodname_classroom %}.
+  - View and interact with [{% data variables.product.prodname_discussions %}](https://github.com/orgs/community/discussions/categories/github-education) posted by your peers from around the world to discuss current trends in technology education, and see the latest posts from our [{% data variables.product.prodname_education %} blog](https://github.blog/category/education/).
+  - See student events curated by {% data variables.product.prodname_education %} and student leaders.
+  - Stay in the know on what the student community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
+  - Request a {% data variables.product.prodname_dotcom %} swag bag with educational materials and goodies for your students.
 
-- 「[学生向け {% data variables.product.prodname_global_campus %} について](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)」
+A free subscription for {% data variables.product.prodname_copilot %} is available to verified teachers with {% data variables.product.prodname_education %}. You will be automatically notified about the free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page in your account settings. For more information about subscribing to and using {% data variables.product.prodname_copilot %}, see "[Managing your {% data variables.product.prodname_copilot %} subscription](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot)" and "[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)."
+
+## Further reading
+
+- "[About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)"

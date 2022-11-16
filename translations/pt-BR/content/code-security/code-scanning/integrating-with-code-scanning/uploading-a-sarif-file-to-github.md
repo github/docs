@@ -23,12 +23,12 @@ topics:
   - Repositories
   - CI
   - SARIF
-ms.openlocfilehash: 80f95a5c74a465a285d73f1af9719b2f7a4981d6
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 3def104e487f54e2c48d462d1dcfe8bab63c6fa3
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147705754'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161155'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
@@ -38,12 +38,12 @@ O {% data variables.product.prodname_dotcom %} cria alertas de {% data variables
 
 Você pode gerar arquivos SARIF usando muitas ferramentas de teste de segurança de análise estática, incluindo {% data variables.product.prodname_codeql %}. Os resultados devem usar o SARIF versão 2.1.0. Para obter mais informações, confira "[Suporte do SARIF à {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)".
 
-Você pode carregar os resultados usando o {% data variables.product.prodname_actions %}, a API {% data variables.product.prodname_code_scanning %},{% ifversion codeql-runner-supported %} o {% data variables.product.prodname_codeql_runner %},{% endif %} ou a {% data variables.product.prodname_codeql_cli %}. O melhor método de upload dependerá de como você gera o arquivo SARIF. Por exemplo, se você usar:
+Carregue os resultados usando o {% data variables.product.prodname_actions %}, a API da {% data variables.product.prodname_code_scanning %},{% ifversion codeql-runner-supported %} o {% data variables.code-scanning.codeql_runner %},{% endif %} ou a {% data variables.product.prodname_codeql_cli %}. O melhor método de upload dependerá de como você gera o arquivo SARIF. Por exemplo, se você usar:
 
 - {% data variables.product.prodname_actions %} para executar a ação {% data variables.product.prodname_codeql %}, não haverá nenhuma ação adicional necessária. A ação {% data variables.product.prodname_codeql %} faz o upload do arquivo SARIF automaticamente quando ele conclui a análise.
 - O arquivo SARIF pode ser gerado a partir de uma ferramenta de análise compatível com o SARIF, que você executa no mesmo fluxo de trabalho de {% data variables.product.prodname_actions %} usado para fazer o upload do arquivo.
  - A {% data variables.product.prodname_codeql_cli %} para executar a {% data variables.product.prodname_code_scanning %} no sistema de CI. Você pode usar a CLI para carregar resultados no {% data variables.product.prodname_dotcom %} (para obter mais informações, confira "[Como instalar a {% data variables.product.prodname_codeql_cli %} no sistema de CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").{% ifversion codeql-runner-supported %}
-- Por padrão, para executar a {% data variables.product.prodname_code_scanning %} no seu sistema de CI, o {% data variables.product.prodname_codeql_runner %} carrega automaticamente os resultados no {% data variables.product.prodname_dotcom %} após a conclusão. Se você bloquear o upload automático, quando estiver pronto para carregar os resultados, use o comando `upload` (para obter mais informações, confira "[Como executar o {% data variables.product.prodname_codeql_runner %} no seu sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").{% endif %}
+- O {% data variables.code-scanning.codeql_runner %}, para executar a {% data variables.product.prodname_code_scanning %} no seu sistema de CI. Por padrão, o executor carrega automaticamente os resultados no {% data variables.product.prodname_dotcom %} após a conclusão. Se você bloquear o upload automático, quando estiver pronto para carregar os resultados, use o comando `upload` (para obter mais informações, confira "[Como executar o {% data variables.code-scanning.codeql_runner %} no seu sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").{% endif %}
 - Uma ferramenta que gera resultados como um artefato fora do repositório. Você pode usar a API da {% data variables.product.prodname_code_scanning %} para carregar o arquivo (para obter mais informações, confira "[Carregar uma análise como dados SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
 
 {% data reusables.code-scanning.not-available %}

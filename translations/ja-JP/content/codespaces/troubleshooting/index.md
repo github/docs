@@ -1,8 +1,7 @@
 ---
-title: Codespaces のトラブルシューティング
+title: Troubleshooting GitHub Codespaces
 shortTitle: Troubleshooting
-product: '{% data reusables.gated-features.codespaces %}'
-intro: 'これらのガイドでは、{% data variables.product.prodname_github_codespaces %} のトラブルシューティングに関する情報を提供します'
+intro: 'These guides provide information for troubleshooting {% data variables.product.prodname_github_codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -19,13 +18,8 @@ children:
   - /troubleshooting-prebuilds
   - /troubleshooting-dotfiles-for-codespaces
   - /troubleshooting-port-forwarding-for-github-codespaces
-  - /troubleshooting-codespaces-clients
+  - /troubleshooting-github-codespaces-clients
+  - /troubleshooting-gpg-verification-for-github-codespaces
   - /working-with-support-for-github-codespaces
-ms.openlocfilehash: 2cb06e61a7998e1f084d9cb6b2e6dfdb212103f9
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147110875'
 ---
 

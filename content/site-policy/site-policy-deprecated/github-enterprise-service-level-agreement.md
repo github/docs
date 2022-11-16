@@ -11,7 +11,7 @@ versions:
   fpt: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 
 **Short version:** GitHub guarantees a 99.9% quarterly uptime commitment for the applicable GitHub service (the “**Service Level**” or “**SLA**”). If GitHub does not meet the SLA, then Customer will be entitled to a service credit to Customer’s account (“**Service Credits**”).
 

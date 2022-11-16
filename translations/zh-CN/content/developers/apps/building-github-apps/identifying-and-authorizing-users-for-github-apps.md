@@ -86,7 +86,6 @@ Name | Type | Description
 `client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
 `redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
-`state` | `string` | The unguessable random string you provided in Step 1.
 
 #### Response
 

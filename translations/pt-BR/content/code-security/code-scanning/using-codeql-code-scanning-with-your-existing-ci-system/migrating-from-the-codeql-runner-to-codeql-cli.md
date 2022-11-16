@@ -1,7 +1,7 @@
 ---
-title: Fazendo a migração do executor CodeQL para a CLI do CodeQL
+title: Migrating from the CodeQL runner to CodeQL CLI
 shortTitle: Migrating from the CodeQL runner
-intro: 'Você pode usar o {% data variables.product.prodname_codeql_cli %} para realizar as mesmas tarefas que {% data variables.product.prodname_codeql_runner %}.'
+intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to complete the same tasks as with the {% data variables.code-scanning.codeql_runner %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,57 +12,52 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
-ms.openlocfilehash: c58dfe006a1f9189ece847559d5ecfafde1f7d81
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145094814'
 ---
-# Fazendo a migração de {% data variables.product.prodname_codeql_runner %} para {% data variables.product.prodname_codeql_cli %}
 
-{% data variables.product.prodname_codeql_runner %} está tornando-se obsoleto. Em vez disso, você pode usar a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %} ou superior.
-Este documento descreve como fazer a migração de fluxos de trabalho comuns de {% data variables.product.prodname_codeql_runner %} para {% data variables.product.prodname_codeql_cli %}.
+# Migrating from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}
 
-## Instalação
+The {% data variables.code-scanning.codeql_runner %} is being deprecated. You can use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
+This document describes how to migrate common workflows from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}.
 
-Baixe o **pacote do {% data variables.product.prodname_codeql %}** no [repositório `github/codeql-action`](https://github.com/github/codeql-action/releases). Este pacote contém {% data variables.product.prodname_codeql_cli %} e as consultas e bibliotecas padrão de {% data variables.product.prodname_codeql %}.
+## Installation
 
-Para obter mais informações sobre como configurar a {% data variables.product.prodname_codeql_cli %}, confira "[Como instalar a {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)".
+Download the **{% data variables.product.prodname_codeql %} bundle** from the [`github/codeql-action` repository](https://github.com/github/codeql-action/releases). This bundle contains the {% data variables.product.prodname_codeql_cli %} and the standard {% data variables.product.prodname_codeql %} queries and libraries.
 
-## Visão geral das alterações do fluxo de trabalho
+For more information on setting up the {% data variables.product.prodname_codeql_cli %}, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
-Um fluxo de trabalho típico que usa o {% data variables.product.prodname_codeql_runner %} para analisar uma base de código tem as seguintes etapas.
-- `codeql-runner-<platform> init` para começar a criar bancos de dados do {% data variables.product.prodname_codeql %} e ler a configuração.
-- Para linguagens compiladas: defina variáveis de ambiente produzidas pela etapa `init`.
-- Para linguagens compiladas: execute o autobuild ou etapas manuais de compilação.
-- `codeql-runner-<platform> analyze` para terminar de criar bancos de dados do {% data variables.product.prodname_codeql %}, executar consultas para analisar cada banco de dados do {% data variables.product.prodname_codeql %}, resumir os resultados em um arquivo SARIF e carregar os resultados no {% data variables.product.prodname_dotcom %}.
+## Overview of workflow changes
 
-Um fluxo de trabalho típico que usa o {% data variables.product.prodname_codeql_cli %} para analisar uma base de código tem as seguintes etapas.
-- `codeql database create` para criar bancos de dados do {% data variables.product.prodname_codeql %}.
-  - Para linguagens compiladas: Opcionalmente, forneça um comando de criação.
-- `codeql database analyze` para executar consultas a fim de analisar cada banco de dados do {% data variables.product.prodname_codeql %} e resumir os resultados em um arquivo SARIF. Esse comando deve ser executado uma vez para cada linguagem ou banco de dados.
-- `codeql github upload-results` para carregar os arquivos SARIF resultantes no {% data variables.product.prodname_dotcom %}, a serem exibidos como alertas da verificação de código. Esse comando deve ser executado uma vez para cada linguagem ou arquivo SARIF.
+A typical workflow that uses the {% data variables.code-scanning.codeql_runner %} to analyze a codebase has the following steps.
+- `codeql-runner-<platform> init` to start creating {% data variables.product.prodname_codeql %} databases and read the configuration.
+- For compiled languages: set environment variables produced by the `init` step.
+- For compiled languages: run autobuild or manual build steps.
+- `codeql-runner-<platform> analyze` to finish creating {% data variables.product.prodname_codeql %} databases, run queries to analyze each {% data variables.product.prodname_codeql %} database, summarize the results in a SARIF file, and upload the results to {% data variables.product.prodname_dotcom %}.
 
-O {% data variables.product.prodname_codeql_runner %} tem váris segmentos por padrão. O {% data variables.product.prodname_codeql_cli %} só usa um único segmento por padrão, mas permite que você especifique a quantidade de segmentos que você deseja que ele use. Caso deseje replicar o comportamento do {% data variables.product.prodname_codeql_runner %} para usar todas as conversas disponíveis no computador ao usar a {% data variables.product.prodname_codeql_cli %}, transmita `--threads 0` para `codeql database analyze`.
+A typical workflow that uses the {% data variables.product.prodname_codeql_cli %} to analyze a codebase has the following steps.
+- `codeql database create` to create {% data variables.product.prodname_codeql %} databases.
+  - For compiled languages: Optionally provide a build command.
+- `codeql database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file. This command must be run once for each language or database.
+- `codeql github upload-results` to upload the resulting SARIF files to {% data variables.product.prodname_dotcom %}, to be displayed as code scanning alerts. This command must be run once for each language or SARIF file.
 
-Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)".
+The {% data variables.code-scanning.codeql_runner %} is multithreaded by default. The {% data variables.product.prodname_codeql_cli %} only uses a single thread by default, but allows you to specify the amount of threads you want it to use. If you want to replicate the behavior of the {% data variables.code-scanning.codeql_runner %} to use all threads available on the machine when using the {% data variables.product.prodname_codeql_cli %}, you can pass `--threads 0` to `codeql database analyze`.
 
-## Exemplos de usos comuns para o {% data variables.product.prodname_codeql_cli %}
+For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
 
-### Sobre os exemplos
+## Examples of common uses for the {% data variables.product.prodname_codeql_cli %}
 
-Estes exemplos assumem que o código-fonte foi check-out para o diretório de trabalho atual. Se você usar outro diretório, altere o argumento `--source-root` e as etapas de build de acordo.
+### About the examples
 
-Esses exemplos também assumem que a {% data variables.product.prodname_codeql_cli %} é colocado no PATH atual.
+These examples assume that the source code has been checked out to the current working directory. If you use a different directory, change the `--source-root` argument and the build steps accordingly.
 
-Nestes exemplos, um token do {% data variables.product.prodname_dotcom %} com escopos adequados é armazenado na variável de ambiente `$TOKEN` e transmitido para os exemplos de comandos por meio de `stdin` ou é armazenado na variável de ambiente `$GITHUB_TOKEN`.
+These examples also assume that the {% data variables.product.prodname_codeql_cli %} is placed on the current PATH.
 
-O nome da ref e o commit SHA que está sendo verificado e analisado nesses exemplos são conhecidos durante o fluxo de trabalho. Para um branch, use `refs/heads/BRANCH-NAME` como referência. Para o commit principal de uma solicitação de pull, use `refs/pull/NUMBER/head`. Para um commit de mesclagem de uma solicitação de pull gerado pelo {% data variables.product.prodname_dotcom %}, use `refs/pull/NUMBER/merge`. Todos os exemplos abaixo usam `refs/heads/main`. Se você usar um nome de branch diferente, deverá modificar o código do exemplo.
+In these examples, a {% data variables.product.prodname_dotcom %} token with suitable scopes is stored in the `$TOKEN` environment variable and passed to the example commands via `stdin`, or is stored in the `$GITHUB_TOKEN` environment variable.
 
-### Linguagem única não compilada (JavaScript)
+The ref name and commit SHA being checked out and analyzed in these examples are known during the workflow. For a branch, use `refs/heads/BRANCH-NAME` as the ref. For the head commit of a pull request, use `refs/pull/NUMBER/head`. For a {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request, use `refs/pull/NUMBER/merge`. The examples below all use `refs/heads/main`. If you use a different branch name, you must modify the sample code.
 
-Executor:
+### Single non-compiled language (JavaScript)
+
+Runner:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -87,11 +82,11 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-js.sarif --github-auth-stdin
 ```
 
-### Linguagem única não compilada (JavaScript) que usa um conjunto de consultas diferente (segurança e qualidade)
+### Single non-compiled language (JavaScript) using a different query suite (security-and-quality)
 
-É possível adotar uma abordagem semelhante para as linguagens compiladas ou para várias linguagens.
+A similar approach can be taken for compiled languages, or multiple languages.
 
-Executor:
+Runner:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -117,11 +112,11 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-js.sarif --github-auth-stdin
 ```
 
-### Linguagem única não compilada (JavaScript) que usa um arquivo de configuração personalizado
+### Single non-compiled language (JavaScript) using a custom configuration file
 
-É possível adotar uma abordagem semelhante para as linguagens compiladas ou para várias linguagens.
+A similar approach can be taken for compiled languages, or multiple languages.
 
-Executor:
+Runner:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -148,9 +143,9 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-js.sarif --github-auth-stdin
 ```
 
-### Linguagem compilada única que usa autobuild (Java)
+### Single compiled language using autobuild (Java)
 
-Executor:
+Runner:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -182,9 +177,9 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-java.sarif --github-auth-stdin
 ```
 
-### Uma linguagem compilada que usa um comando de criação personalizado (Java)
+### Single compiled language using a custom build command (Java)
 
-Executor:
+Runner:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -215,11 +210,11 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --sarif=/temp/example-repo-java.sarif --github-auth-stdin
 ```
 
-### Linguagem compilada única que usa rastreamento de compilação indireta (C# no Windows dentro do Azure DevOps)
+### Single compiled language using indirect build tracing (C# on Windows within Azure DevOps)
 
-O rastreamento indireto de build de uma linguagem compilada permite que o {% data variables.product.prodname_codeql %} detecte todas as etapas de build entre as etapas `init` e `analyze`, quando o código não pode ser compilado com o construtor automático ou com uma linha de comando de build explícita. Isso é útil quando são usadas etapas de build pré-configuradas do seu sistema de CI, como as tarefas `VSBuild` e `MSBuild` no Azure DevOps.
+Indirect build tracing for a compiled language enables {% data variables.product.prodname_codeql %} to detect all build steps between the `init` and `analyze` steps, when the code cannot be built using the autobuilder or an explicit build command line. This is useful when using preconfigured build steps from your CI system, such as the `VSBuild` and `MSBuild` tasks in Azure DevOps.
 
-Executor:
+Runner:
 ```yaml
 - task: CmdLine@1
   displayName: CodeQL Initialization
@@ -337,12 +332,12 @@ CLI:
 
 ```
 
-### Várias linguagens que usam autobuild (C++, Python)
+### Multiple languages using autobuild (C++, Python)
 
-Este exemplo não é estritamente possível com {% data variables.product.prodname_codeql_runner %}.
-Apenas uma linguagem (a linguagem compilada com mais arquivos) será analisada.
+This example is not strictly possible with the {% data variables.code-scanning.codeql_runner %}.
+Only one language (the compiled language with the most files) will be analyzed.
 
-Executor:
+Runner:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \
@@ -380,9 +375,9 @@ for language in cpp python; do
 done
 ```
 
-### Várias linguagens que usam um comando de compilação personalizada (C++, Python)
+### Multiple languages using a custom build command (C++, Python)
 
-Executor:
+Runner:
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \

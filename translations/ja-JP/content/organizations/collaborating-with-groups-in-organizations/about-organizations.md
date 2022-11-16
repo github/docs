@@ -1,6 +1,6 @@
 ---
-title: Organizationについて
-intro: Organization は、高度なセキュリティと管理機能を使って、企業とオープンソース プロジェクトが一度に多くのプロジェクト間で共同作業ができる共有アカウントです。
+title: About organizations
+intro: 'Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once, with sophisticated security and administrative features.'
 redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
@@ -12,48 +12,48 @@ versions:
 topics:
   - Organizations
   - Teams
-ms.openlocfilehash: e18c95475e06db0623aee67515eeb6d8a1ee641f
-ms.sourcegitcommit: e98b752895109965b32cb277610985da5799f8a1
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 11/01/2022
-ms.locfileid: '148127636'
 ---
-## Organizationについて
 
-{% data reusables.organizations.about-organizations %} アカウントの種類のについて詳しくは、「[{% data variables.product.prodname_dotcom %} アカウントの種類](/get-started/learning-about-github/types-of-github-accounts)」をご覧ください。
+## About organizations
 
-Organization に参加するために招待するユーザーの数に制限はなく、Organization のメンバーには、Organization とそのデータへのさまざまなレベルのアクセス権を許可するさまざまなロールを許可することができます。 詳細については、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
+{% data reusables.organizations.about-organizations %} For more information about account types, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
-また、Organization 自体へのアクセスを管理するだけでなく、Organization のリポジトリ、プロジェクト ボード、アプリへのアクセスを個別に管理できます。 詳しくは、「[Organization のリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」、「[Organization のプロジェクトボード権限](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)」、「[Organization のアプリケーションに対するアクセスを管理する](/organizations/managing-access-to-your-organizations-apps)」をご覧ください。
+You can invite an unlimited number of people to join your organization, then give these organization members a variety of roles that grant different levels of access to the organization and its data. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-アクセス管理を簡素化し、コラボレーションを向上するために、連鎖アクセス許可とメンションを使って、グループの構造を反映する入れ子になったチームを作成できます。 詳細については、「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
+In addition to managing access to the organization itself, you can separately manage access to your organization's repositories, project boards, and apps. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)", "[Project board permissions for an organization](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)", and "[Managing access to your organization's apps](/organizations/managing-access-to-your-organizations-apps)."
 
-メンバーが作成できるリポジトリの種類を制限するなど、設定を管理して、グループ固有のニーズを満たすように Organization を構成できます。 詳しくは、「[Organization の設定を管理する](/organizations/managing-organization-settings)」をご覧ください。
+To simplify access management and enhance collaboration, you can create nested teams that reflect your group's structure, with cascading access permissions and mentions. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
-Organization のセキュリティを強化するために、セキュリティ要件を適用し、Organization の監査ログを確認できます。 詳しくは、「[Organization を安全に保つ](/organizations/keeping-your-organization-secure)」をご覧ください。
+You can configure the organization to meet the unique needs of your group by managing settings, such as restricting the types of repositories that members can create. For more information, see "[Managing organization settings](/organizations/managing-organization-settings)."
 
-{% data reusables.organizations.org-ownership-recommendation %}詳しくは、「[Organization の所有権の継続性を管理する](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)」をご覧ください。
+To harden your organization's security, you can enforce security requirements and review the organization's audit log. For more information, see "[Keeping your organization secure](/organizations/keeping-your-organization-secure)."
+
+To learn how to use organizations most effectively, see "[Best practices for organizations](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)."
 
 {% ifversion fpt or ghec %}
-## 使用できる機能について
+## About feature availability
 
-{% data reusables.organizations.organization-plans %} {% endif %}
+{% data reusables.organizations.organization-plans %}
+{% endif %}
 
-## Organization と Enterprise アカウント
+## Organizations and enterprise accounts
 
-{% ifversion fpt %}Enterprise アカウントは、所有者が複数の Organization のポリシーと支払いを集中管理できるようにする {% data variables.product.prodname_ghe_cloud %} の機能です。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations)を参照してください。
-{% else %}{% ifversion ghec %}Enterprise アカウントに属する Organization では、支払いは Enterprise アカウントのレベルで管理され、支払い設定は Organization レベルでは利用できません。{% endif %}Enterprise 所有者は Enterprise アカウント内のすべての Organization のポリシーを設定するか、Organization 所有者に Organization レベルでのポリシーの設定を許可することができます。 Organization のオーナーは、Enterprise アカウントのレベルで Organization に強制された設定を変更することはできません。 Organization のポリシーや設定について質問がある場合は Enterprise アカウントのオーナーに問い合わせてください。
+{% ifversion fpt %}
+Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations).
+{% else %}
+{% ifversion ghec %}For organizations that belong to an enterprise account, billing is managed at the enterprise account level, and billing settings are not available at the organization level.{% endif %} Enterprise owners can set policy for all organizations in the enterprise account or allow organization owners to set the policy at the organization level. Organization owners cannot change settings enforced for your organization at the enterprise account level. If you have questions about a policy or setting for your organization, contact the owner of your enterprise account.
 
-{% ifversion ghec %}{% data reusables.enterprise.create-an-enterprise-account %}詳しくは、「[Enterprise アカウントの作成](/admin/overview/creating-an-enterprise-account)」をご覧ください。
+{% ifversion ghec %}
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
 
 {% data reusables.enterprise-accounts.invite-organization %}
 
-{% endif %} {% endif %}
+{% endif %}
+{% endif %}
 
 {% ifversion fpt or ghec %}
-## Organization の利用規約とデータ保護
+## Terms of service and data protection for organizations
 
-会社、非営利団体、グループなどは、Organization として標準の利用規約あるいは企業向け利用規約に合意できます。 詳しくは、「[企業利用規約にアップグレードする](/articles/upgrading-to-the-corporate-terms-of-service)」をご覧ください。
+An entity, such as a company, non-profit, or group, can agree to the Standard Terms of Service or the Corporate Terms of Service for their organization. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."
 
 {% endif %}
