@@ -5619,6 +5619,40 @@
       ]
     },
     {
+      "name": "transferEnterpriseOrganization",
+      "kind": "mutations",
+      "id": "transferenterpriseorganization",
+      "href": "/graphql/reference/mutations#transferenterpriseorganization",
+      "description": "<p>Transfer an organization from one enterprise to another enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "TransferEnterpriseOrganizationInput!",
+          "id": "transferenterpriseorganizationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#transferenterpriseorganizationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization for which a transfer was initiated.</p>"
+        }
+      ]
+    },
+    {
       "name": "transferIssue",
       "kind": "mutations",
       "id": "transferissue",
@@ -37684,6 +37718,16 @@
               }
             },
             {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for sponsorships returned from this connection. If left\nblank, the sponsorships will be ordered based on relevancy to the viewer.</p>",
               "type": {
@@ -61718,6 +61762,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "contactEmailAddress",
+          "description": "<p>The email address used by GitHub to contact the sponsorable about their GitHub\nSponsors profile. Will only return a value when queried by the maintainer\nthemselves, or by an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -63156,12 +63208,28 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>The name of the submodule in .gitmodules (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "path",
           "description": "<p>The path in the superproject that this submodule is located in.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The path in the superproject that this submodule is located in (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "subprojectCommitOid",
@@ -67219,6 +67287,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>Entry file name. (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "object",
           "description": "<p>Entry file object.</p>",
           "type": "GitObject",
@@ -67241,6 +67317,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The full path of the file. (Base64-encoded).</p>",
+          "type": "Base64String",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "repository",
@@ -70185,6 +70269,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -74793,6 +74887,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -89491,6 +89595,41 @@
           "id": "teamrepositoryorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#teamrepositoryorderfield"
+        }
+      ]
+    },
+    {
+      "name": "TransferEnterpriseOrganizationInput",
+      "kind": "inputObjects",
+      "id": "transferenterpriseorganizationinput",
+      "href": "/graphql/reference/input-objects#transferenterpriseorganizationinput",
+      "description": "<p>Autogenerated input type of TransferEnterpriseOrganization.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "destinationEnterpriseId",
+          "description": "<p>The ID of the enterprise where the organization should be transferred.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization to transfer.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

@@ -54,6 +54,7 @@ translations/pt-BR/content/actions/automating-builds-and-tests/building-and-test
 translations/pt-BR/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/pt-BR/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/overview-of-github-advanced-security-deployment.md,file deleted because it no longer exists in main
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/troubleshooting-ssl-errors.md,file deleted because it no longer exists in main
+translations/pt-BR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage.md,file deleted because it no longer exists in main
 translations/pt-BR/content/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/index.md,file deleted because it no longer exists in main
 translations/pt-BR/content/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/index.md,file deleted because it no longer exists in main
 translations/pt-BR/content/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/index.md,file deleted because it no longer exists in main
@@ -360,6 +361,7 @@ translations/pt-BR/data/release-notes/enterprise-server/3-2/9.yml,file deleted b
 translations/pt-BR/data/reusables/actions/enterprise-s3-support-warning.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/hardware-requirements-3.6.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
+translations/pt-BR/data/reusables/actions/minio-gateways-removal.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
 translations/pt-BR/data/reusables/actions/self-hosted-runner-groups-navigate-to-repo-org-enterprise.md,file deleted because it no longer exists in main
@@ -551,6 +553,7 @@ translations/pt-BR/content/admin/enterprise-management/caching-repositories/conf
 translations/pt-BR/content/admin/enterprise-management/caching-repositories/index.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/cluster-network-configuration.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/configuring-high-availability-replication-for-a-cluster.md,broken liquid tags
+translations/pt-BR/content/admin/enterprise-management/configuring-clustering/initializing-the-cluster.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/configuring-collectd.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise.md,broken liquid tags
@@ -588,6 +591,7 @@ translations/pt-BR/content/admin/identity-and-access-management/using-enterprise
 translations/pt-BR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
+translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,broken liquid tags
 translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
@@ -638,6 +642,7 @@ translations/pt-BR/content/admin/user-management/migrating-data-to-and-from-your
 translations/pt-BR/content/admin/user-management/migrating-data-to-and-from-your-enterprise/migrating-data-to-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,rendering error
 translations/pt-BR/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,rendering error
+translations/pt-BR/content/authentication/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions.md,broken liquid tags
 translations/pt-BR/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,rendering error
 translations/pt-BR/content/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys.md,rendering error
 translations/pt-BR/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
@@ -833,7 +838,7 @@ translations/pt-BR/content/discussions/collaborating-with-your-community-using-d
 translations/pt-BR/content/discussions/guides/finding-your-discussions.md,broken liquid tags
 translations/pt-BR/content/discussions/managing-discussions-for-your-community/managing-categories-for-discussions.md,broken liquid tags
 translations/pt-BR/content/discussions/managing-discussions-for-your-community/managing-discussions.md,broken liquid tags
-translations/pt-BR/content/discussions/managing-discussions-for-your-community/moderating-discussions.md,broken liquid tags
+translations/pt-BR/content/discussions/managing-discussions-for-your-community/moderating-discussions.md,rendering error
 translations/pt-BR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students.md,broken liquid tags
 translations/pt-BR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers.md,broken liquid tags
 translations/pt-BR/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,broken liquid tags
