@@ -31,7 +31,7 @@ To provide feedback on the new code view beta, see the [discussion forum](https:
 ## Using the file tree view
 The new file tree view is a panel that displays a repository's directories and files within an easily navigable tree. You can move between directories and files quickly and understand the context for each item you view.
 
-1. Select a repository, then click a directory or file within that repository to open the file tree view.
+1. Select a repository, then click a directory or file or press <kbd>T</kbd> within that repository to open the file tree view.
 
   ![Screenshot of the "github/docs" repository with emphasis on the file tree view](/assets/images/help/repository/file-tree-view-directory-selected.png)
 
