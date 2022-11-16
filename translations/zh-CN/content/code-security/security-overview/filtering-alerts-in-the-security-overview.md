@@ -1,5 +1,5 @@
 ---
-title: Filtering alerts in security overviews
+title: Filtering alerts in the security overview
 intro: Use filters to view specific categories of alerts
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
@@ -15,14 +15,14 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Filtering security overviews
+shortTitle: Filtering the security overview
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-overview.beta %}
 {% endif %}
 
-## About filtering security overviews
+## About filtering the security overview
 
 You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} and whether you are viewing data at the enterpise or organization level{% endif %}.
 

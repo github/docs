@@ -61,7 +61,7 @@ You can find the dependency graph on the **Insights** tab for your repository. F
 {% ifversion security-overview-displayed-alerts %}
 ### Security overview
 
-The security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[About security overviews](/code-security/security-overview/about-the-security-overview)."
+The security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 
 {% else %}
 ### Security overview for repositories
@@ -114,7 +114,7 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 {% else %}
 ### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
 
-Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About security overviews](/code-security/security-overview/about-the-security-overview)."
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
 ## Further reading

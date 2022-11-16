@@ -1,4 +1,12 @@
-1. Populate the {% data variables.product.prodname_codeql %} databases, analyze them, and upload the results to {% data variables.product.product_name %}. The results will appear in the **Security** tab for your repository.
+---
+ms.openlocfilehash: e6d7a33506174bf50d70ae9b5d4ac9857cd880ae
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/11/2022
+ms.locfileid: "148161243"
+---
+1. {% data variables.product.prodname_codeql %}データベースを展開し、分析し、その結果を{% data variables.product.product_name %}にアップロードしてください。 結果は、リポジトリの **[セキュリティ]** タブに表示されます。
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
@@ -9,7 +17,7 @@
     > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
     > Successfully uploaded results
     ```
-2. To upload {% data variables.product.prodname_code_scanning %} results as pull request checks, specify the pull request using the <nobr>`--ref`</nobr> flag. We recommend setting up the {% data variables.code-scanning.codeql_runner %} so that it runs on the [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) webhook event.
+2. {% data variables.product.prodname_code_scanning %} の結果をプルリクエストのチェックとしてアップロードするには、<nobr>`--ref`</nobr> フラグを使用してプルリクエストを指定します。 [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) Webhook イベントで実行されるように {% data variables.code-scanning.codeql_runner %}を設定することをお勧めします。
 
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
@@ -21,4 +29,4 @@
     > Successfully uploaded results
     ```
 
-For more information about viewing {% data variables.product.prodname_code_scanning %} alerts, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)" and "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_code_scanning %} アラートの表示の詳細については、「[Triaging code scanning alerts in pull requests (プルリクエストでのコード スキャン アラートのトリアージ)](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)」および「[Managing code scanning alerts for your repository (リポジトリのコード スキャン アラートの管理)](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)」を参照してください。

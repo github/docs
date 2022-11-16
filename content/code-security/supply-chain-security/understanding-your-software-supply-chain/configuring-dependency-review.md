@@ -1,6 +1,7 @@
 ---
 title: Configuring dependency review
 intro: You can use dependency review to catch vulnerabilities before they are added to your project.
+miniTocMaxHeadingLevel: 3
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
@@ -50,9 +51,8 @@ Dependency review is available when dependency graph is enabled for {% data vari
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
-## Configuring the {% data variables.product.prodname_dependency_review_action %}
+## About configuring the {% data variables.product.prodname_dependency_review_action %}
 
-{% data reusables.dependency-review.dependency-review-action-beta-note %}
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
 The following configuration options are available.
@@ -63,7 +63,11 @@ The following configuration options are available.
 {%- ifversion dependency-review-action-licenses %}
 | `allow-licenses` | Optional | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
 {%- ifversion dependency-review-action-licenses %}
-| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}
+| `deny-licenses` | Optional | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
+| `fail-on-scopes` | Optional | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilites in the scopes that match the list.|{% endif %}
+| `allow-ghsas` | Optional | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
+| `config-file` | Optional | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
+| `external-repo-token` | Optional | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
 
 {% ifversion dependency-review-action-licenses %}
 {% tip %}
@@ -73,37 +77,139 @@ The following configuration options are available.
 {% endtip %}
 {% endif %}
 
-This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use these configuration options. Notice that the example uses short version number for the action (`v2`) instead of a semver release number (for example, `v2.0.8`). This ensures that you use the most recent minor version of the action.
+## Configuring the {% data variables.product.prodname_dependency_review_action %}
 
-```yaml{:copy}
-name: 'Dependency Review'
-on: [pull_request]
+There are two methods of configuring the {% data variables.product.prodname_dependency_review_action %}: 
+- Inlining the configuration options in your workflow file. 
+- Referencing a configuration file in your workflow file.
 
-permissions:
-  contents: read
+Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
+### Using inline configuration to set up the {% data variables.product.prodname_dependency_review_action %}
 
-jobs:
-  dependency-review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout Repository'
-        uses: {% data reusables.actions.action-checkout %}
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v2
-        with:
-          # Possible values: "critical", "high", "moderate", "low" 
-          fail-on-severity: critical
-{% ifversion dependency-review-action-licenses %}
-          # You can only can only include one of these two options: `allow-licenses` and `deny-licences`
-          # ([String]). Only allow these licenses (optional)
-          # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # allow-licenses: GPL-3.0, BSD-3-Clause, MIT
+1. Add a new YAML workflow to your `.github/workflows` folder.   
+   
+   {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
+  ```yaml{:copy}
+  name: 'Dependency Review'
+  on: [pull_request]
 
-          # ([String]). Block the pull request on these licenses (optional)
-          # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
-          # deny-licenses: LGPL-2.0, BSD-2-Clause
-{% endif %}
-```
+  permissions:
+    contents: read
 
+  jobs:
+    dependency-review:
+     {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+   ```
+1. Specify your settings.   
+
+   This {% data variables.product.prodname_dependency_review_action %} example file illustrates how you can use the available configuration options.
+   ```yaml{:copy}
+   name: 'Dependency Review'
+   on: [pull_request]
+
+   permissions:
+     contents: read
+
+   jobs:
+     dependency-review:
+     {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+           with:
+           # Possible values: "critical", "high", "moderate", "low" 
+           fail-on-severity: critical
+  {% ifversion dependency-review-action-licenses %}
+           # You can only include one of these two options: `allow-licenses` and `deny-licences`
+           # ([String]). Only allow these licenses (optional)
+           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+           allow-licenses: GPL-3.0, BSD-3-Clause, MIT
+           # ([String]). Block the pull request on these licenses (optional)
+           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+           deny-licenses: LGPL-2.0, BSD-2-Clause
+  {% endif %}
+           # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
+           # Possible values: Any valid {% data variables.product.prodname_advisory_database %} ID from https://github.com/advisories  
+           allow-ghsas: GHSA-abcd-1234-5679, GHSA-efgh-1234-5679
+  {% ifversion dependency-review-action-fail-on-scopes %}
+           # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
+           # Possible values: "development", "runtime", "unknown"
+           fail-on-scopes: development, runtime
+  {% endif %}
+   ```
+### Using a configuration file to set up {% data variables.product.prodname_dependency_review_action %}
+
+1. Add a new YAML workflow to your `.github/workflows` folder and use `config-file` to specify that you are using a configuration file.
+
+   {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
+   ```yaml{:copy}
+   name: 'Dependency Review'
+   on: [pull_request]
+
+   permissions:
+    contents: read
+
+   jobs:
+     dependency-review:
+       {% ifversion ghes %}runs-on: self-hosted
+       {% else %}runs-on: ubuntu-latest
+       {% endif %}steps:
+         - name: 'Checkout Repository'
+           uses: {% data reusables.actions.action-checkout %}
+         - name: Dependency Review
+           uses: actions/dependency-review-action@v3
+           with:
+            # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
+            # Possible values: An absolute path to a local file or an external file.
+            config-file: './.github/dependency-review-config.yml'   
+            # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
+            config-file: 'github/octorepo/dependency-review-config.yml@main'
+
+            # ([Token]) Use if your configuration file resides in a private external repository.
+            # Possible values: Any GitHub token with read access to the private external repository.  
+            external-repo-token: 'ghp_123456789abcde'
+   ```
+1. Create the configuration file in the path you have specified.   
+
+   This YAML example file illustrates how you can use the available configuration options. 
+   ```yaml{:copy}
+     # Possible values: "critical", "high", "moderate", "low" 
+     fail-on-severity: critical
+   {% ifversion dependency-review-action-licenses %}
+     # You can only include one of these two options: `allow-licenses` and `deny-licences`
+     # ([String]). Only allow these licenses (optional)
+     # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+     allow-licenses: 
+       - GPL-3.0
+       - BSD-3-Clause
+       - MIT
+      # ([String]). Block the pull request on these licenses (optional)
+      # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
+     deny-licenses: 
+       - LGPL-2.0
+       - BSD-2-Clause
+   {% endif %}
+      # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
+      # Possible values: Any valid {% data variables.product.prodname_advisory_database %} ID from https://github.com/advisories  
+     allow-ghsas: 
+       - GHSA-abcd-1234-5679 
+       - GHSA-efgh-1234-5679
+   {% ifversion dependency-review-action-fail-on-scopes %}
+      # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
+      # Possible values: "development", "runtime", "unknown"
+     fail-on-scopes: 
+       - development 
+       - runtime
+  {% endif %}
+  ```
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}

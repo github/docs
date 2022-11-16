@@ -18,6 +18,7 @@ children:
   - /re-running-workflows-and-jobs
   - /canceling-a-workflow
   - /approving-workflow-runs-from-public-forks
+  - /approving-workflow-runs-from-private-forks
   - /reviewing-deployments
   - /disabling-and-enabling-a-workflow
   - /skipping-workflow-runs

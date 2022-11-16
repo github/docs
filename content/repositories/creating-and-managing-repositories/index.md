@@ -13,6 +13,7 @@ topics:
   - Repositories
 children:
   - /about-repositories
+  - /best-practices-for-repositories
   - /creating-a-new-repository
   - /creating-a-repository-from-a-template
   - /creating-a-template-repository
