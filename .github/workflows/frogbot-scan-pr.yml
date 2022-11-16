@@ -1,0 +1,75 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# Frogbot Scan Pull Request does the following:
+# Automatically scans new pull requests for security vulnerabilities.
+# Uses JFrog Xray to scan the project.
+# Read more about Frogbot here - https://github.com/jfrog/frogbot#frogbot
+
+name: "Frogbot Scan Pull Request"
+on:
+  pull_request_target:
+    types: [ opened, synchronize ]
+permissions:
+  pull-requests: write
+  contents: read
+jobs:
+  scan-pull-request:
+    runs-on: ubuntu-latest
+    # A pull request needs to be approved, before Frogbot scans it. Any GitHub user who is associated with the
+    # "frogbot" GitHub environment can approve the pull request to be scanned.
+    environment: frogbot
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      # Install prerequisites - uncomment the relevant ones
+
+      # - uses: actions/setup-go@v3
+      #   with:
+      #     go-version: 1.17.x
+
+      # - uses: actions/setup-java@v3
+      #    with:
+      #      java-version: "11"
+      #      distribution: "temurin"
+
+      # - uses: actions/setup-node@v3
+      #    with:
+      #      node-version: "16.x"
+
+      # The full template list with the required GitHub Actions can be found at https://github.com/jfrog/frogbot/tree/master/templates/github-actions/scan-pull-request
+
+      - uses: jfrog/frogbot@b92e53d9631139a697cb71d9e70229a70ca56694
+        env:
+          # [Mandatory]
+          # JFrog platform URL (This functionality requires version 3.29.0 or above of Xray)
+          JF_URL: ${{ secrets.JF_URL }}
+
+          # [Mandatory if JF_ACCESS_TOKEN is not provided]
+          # JFrog username with 'read' permissions for Xray. Must be provided with JF_PASSWORD
+          JF_USER: ${{ secrets.JF_USER }}
+
+          # [Mandatory if JF_ACCESS_TOKEN is not provided]
+          # JFrog password. Must be provided with JF_USER
+          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+
+          # [Mandatory]
+          # The GitHub token automatically generated for the job
+          JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # [Mandatory if JF_USER and JF_PASSWORD are not provided]
+          # JFrog access token with 'read' permissions on Xray service
+          # JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+
+          # [Mandatory when using npm]
+          # The command that installs the dependencies
+          # JF_INSTALL_DEPS_CMD: "npm i"
+
+          # [Mandatory when using .NET]
+          # The command that installs the dependencies
+          # JF_INSTALL_DEPS_CMD: "dotnet restore"
+
+          # The full template list with full optional environment variables can be found at https://github.com/jfrog/frogbot/tree/master/templates/github-actions/scan-pull-request
