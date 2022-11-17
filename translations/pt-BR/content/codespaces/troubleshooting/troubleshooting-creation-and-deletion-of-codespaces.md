@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting creation and deletion of codespaces
 intro: 'This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,11 +13,11 @@ shortTitle: Creation and deletion
 ## Creating codespaces
 
 ### No access to create a codespace
-{% data variables.product.prodname_github_codespaces %} is not available for all repositories. If the "Open with Codespaces" button is missing, {% data variables.product.prodname_github_codespaces %} may not be available for that repository. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)."
+{% data variables.product.prodname_github_codespaces %} is not available for all repositories. If the options for creating a codespace are not displayed, {% data variables.product.prodname_github_codespaces %} may not be available for that repository. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces)."
 
-You can't create a codespace for a private repository that's owned by an organization, unless you have write access to the repository or the organization has enabled forking for it.
+Provided you have remaining monthly included usage of {% data variables.product.prodname_github_codespaces %} on your personal account, or you have set up a payment method and a spending limit, you will be able to create codespaces for public repositories. However, you can only create a codespace for a private repository if you can push changes to the repository, or you can fork the repository.
 
-If you believe your organization has [enabled {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#about-enabling-github-codespaces-for-your-organization), make sure that an organization owner or billing manager has set the spending limit for {% data variables.product.prodname_github_codespaces %}. For more information, see "[Managing your spending limit for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
+For more information about included usage for personal accounts, and setting a spending limit, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" and "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
 
 ### Codespace does not open when created
 
@@ -60,13 +59,16 @@ If you create a codespace and the creation fails:
    ![Screenshot of VS Code with the Building codespace link emphasized](/assets/images/help/codespaces/vs-code-building-codespace.png)
 
     {% endnote %}
-2. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
+2. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
 ## Deleting codespaces
 
-The owner of a codespace has full control over it and only they can delete their codespaces. You cannot delete a codespace created by another user.
+A codespace can only be deleted by:
+* The person who created the codespace.
+* An organization owner for an organization-owned codespace.
+* Automatic deletion at the end of a retention period. 
 
-You can delete your codespaces in the browser, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} also allows you to bulk delete codespaces. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)" and "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 
 ## Container storage
 
@@ -89,5 +91,6 @@ Some more destructive options:
 ```
 This codespace is currently running in recovery mode due to a container error.
 ```
+Review the creation logs and update the dev container configuration as needed. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
-Review the creation logs, update the dev container configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)" and "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+You can then try restarting the codespace, or rebuilding the container. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."

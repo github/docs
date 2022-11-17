@@ -18,7 +18,7 @@ topics:
 
 ## Using the audit log API
 
-You can interact with the audit log using the GraphQL API or the REST API. 
+You can interact with the audit log using the GraphQL API or the REST API.{% ifversion read-audit-scope %} You can use the `read:audit_log` scope to access the audit log via the APIs.{% endif %}
 
 Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
 

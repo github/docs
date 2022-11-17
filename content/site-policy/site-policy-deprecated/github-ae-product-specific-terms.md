@@ -9,7 +9,7 @@ redirect_from:
   - /github/site-policy-deprecated/github-ae-product-specific-terms
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 
 The Agreement consists of these GitHub AE Product Specific Terms, the General Terms that Customer accepted, and any additional terms GitHub or its Affiliates present when an order is placed.
 

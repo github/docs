@@ -1,11 +1,23 @@
+import { merge } from 'lodash-es'
+
 import { formatReleases, renderPatchNotes } from '../../lib/release-notes-utils.js'
+import { getDeepDataByLanguage } from '../../lib/get-data.js'
+import { allVersions } from '../../lib/all-versions.js'
 
 export default async function ghaeReleaseNotesContext(req, res, next) {
   if (!(req.pagePath.endsWith('/release-notes') || req.pagePath.endsWith('/admin'))) return next()
-  const requestedPlan = req.context.currentVersion.split('@')[0]
-  if (requestedPlan !== 'github-ae') return next()
+  if (
+    !allVersions[req.context.currentVersion] ||
+    req.context.currentVersion.split('@')[0] !== 'github-ae'
+  )
+    return next()
 
-  const ghaeReleaseNotes = req.context.site.data['release-notes']['github-ae']
+  const ghaeReleaseNotesEnglish = getDeepDataByLanguage('release-notes.github-ae', 'en')
+  const ghaeReleaseNotesTranslated = getDeepDataByLanguage('release-notes.github-ae', req.language)
+  const ghaeReleaseNotes = {}
+  merge(ghaeReleaseNotes, ghaeReleaseNotesEnglish)
+  merge(ghaeReleaseNotes, ghaeReleaseNotesTranslated)
+
   // internalLatestRelease is set in lib/all-versions, e.g., '3.5' but UI still displays '@latest'.
   let requestedRelease = req.context.currentVersionObj.internalLatestRelease
 

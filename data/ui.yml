@@ -32,6 +32,7 @@ search:
   no_results: No results found
   search_results_for: Search results for
   no_content: No content
+  matches_found: Results found
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Documentation.
@@ -100,6 +101,7 @@ parameter_table:
   see_preview_notice: See preview notice
   see_preview_notices: See preview notices
   type: Type
+  single_enum_description: Value
 products:
   graphql:
     reference:
@@ -140,6 +142,25 @@ products:
       preview_notice_to_change: This API is under preview and subject to change
       works_with: Works with
       api_reference: REST API reference
+      enum_description_title: Can be one of
+      required: Required
+      headers: Headers
+      query: Query parameters
+      path: Path parameters
+      body: Body parameters
+  webhooks:
+    action_type_switch_error: There was an error switching webhook action types.
+    action_type: Action type
+    availability: Availability
+    webhook_payload_object: Webhook payload object
+    webhook_payload_example: Webhook payload example
+    rephrase_availability:
+      repository: Repositories
+      organization: Organizations
+      app: GitHub Apps
+      business: Enterprises
+      marketplace: GitHub Marketplace
+      sponsors_listing: Sponsored accounts
 footer:
   all_rights_reserved: All rights reserved
   terms: Terms

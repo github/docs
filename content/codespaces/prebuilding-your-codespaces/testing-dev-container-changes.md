@@ -10,7 +10,6 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the dev container configuration for a branch.
 ---
 
@@ -20,8 +19,7 @@ For more information, see "[Introduction to dev containers](/codespaces/setting-
 
 ## Testing changes to the dev container configuration
 
-1. Create a codespace from the prebuild-enabled branch whose dev container you want to change. For more information, see "[Creating a codespace
-](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
+1. Create a codespace from the prebuild-enabled branch whose dev container you want to change. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 1. In the codespace, check out a test branch. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#creating-or-switching-branches)."
 1. Make the required changes to the dev container configuration.
 1. Apply the changes by rebuilding the container. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."

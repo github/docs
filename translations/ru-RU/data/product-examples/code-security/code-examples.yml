@@ -1,0 +1,86 @@
+# Code scanning configurations
+- title: Проверка кода CodeQL в Майкрософт
+  description: Изучите примеры рабочего процесса проверки кода для действий CodeQL из репозитория Майкрософт с открытым кодом.
+  href: /microsoft/opensource.microsoft.com/blob/main/.github/workflows/codeql-analysis.yml
+  languages:
+    - JavaScript
+  tags:
+    - CodeQL
+    - Проверка кода
+    - Действия GitHub
+- title: Проверка кода CodeQL Adversarial Robustness Toolbox (ART)
+  description: Изучите примеры рабочего процесса проверки кода для действий CodeQL из репозитория Trusted AI.
+  href: /Trusted-AI/adversarial-robustness-toolbox/blob/main/.github/workflows/codeql-analysis.yml
+  languages:
+    - python
+  tags:
+    - CodeQL
+    - Проверка кода
+    - Действия GitHub
+
+# Security policies
+- title: Шаблон политики безопасности Майкрософт
+  description: Изучите пример политики безопасности
+  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
+  tags:
+    - Политика безопасности
+- title: Политика безопасности Electron
+  description: Изучите пример политики безопасности
+  href: /electron/electron/blob/master/SECURITY.md
+  tags:
+    - Политика безопасности
+
+# Example of security advisory in a major product
+- title: Рекомендации по безопасности для Rails
+  description: "Рекомендации по безопасности, опубликованные Rails, для ошибки CVE-2020-15169."
+  href: /rails/rails/security/advisories/GHSA-cfjv-5498-mph5
+  tags:
+    - Рекомендации по безопасности
+
+# Sample scripts for enabling Dependabot alerts and security updates across a whole organization
+- title: Автоматическое включение оповещений Dependabot и обновлений системы безопасности
+  description: Примеры скриптов для включения оповещений Dependabot и обновлений системы безопасности во всей организации.
+  href: /github/enable-security-alerts-sample
+  tags:
+    - Dependabot
+    - видны узлы
+    - Обновления для системы безопасности
+    - План
+    - Сценарии
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'
+
+# Dependabot configuration only relevant to GitHub.com and GHES 3.3+
+# Convert "languages" to "package-ecosystems" for Dependabot configurations
+- title: Конфигурация анализатора кода Super-Linter
+  description: Изучите примеры конфигурации обновлений версии Dependabot из репозитория анализатора кода Super-Linter.
+  href: /github/super-linter/blob/master/.github/dependabot.yml
+  languages:
+    - github-actions
+    - npm
+    - bundler
+    - docker
+    - pip
+  tags:
+    - Dependabot
+    - Обновления версий
+    - Конфигурация
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'
+
+- title: Запрос на вытягивание обновления версии Dependabot
+  description: "Изучите пример запроса на вытягивание, созданного конфигурацией обновлений версии Dependabot в репозитории анализатора кода Super-Linter."
+  href: /github/super-linter/pull/1398
+  languages:
+  tags:
+    - Dependabot
+    - Обновления версий
+    - Запросы на вытягивание
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'

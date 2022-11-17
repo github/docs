@@ -8,16 +8,18 @@ introLinks:
 featuredLinks:
   guides:
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
-    - /codespaces/developing-in-codespaces/codespaces-lifecycle
+    - /codespaces/developing-in-codespaces/the-codespace-lifecycle
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
     - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
     - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
   guideCards:
     - /codespaces/getting-started/deep-dive
-    - /codespaces/developing-in-codespaces/creating-a-codespace
+    - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+    - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
     - /codespaces/developing-in-codespaces/opening-an-existing-codespace
-    - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
   popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces

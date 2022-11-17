@@ -23,12 +23,12 @@ topics:
   - Repositories
   - CI
   - SARIF
-ms.openlocfilehash: 80f95a5c74a465a285d73f1af9719b2f7a4981d6
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 3def104e487f54e2c48d462d1dcfe8bab63c6fa3
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147705758'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161162'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
@@ -38,12 +38,12 @@ ms.locfileid: '147705758'
 
 SARIF ファイルは、{% data variables.product.prodname_codeql %} を含む多くの静的解析セキュリティテストツールを使用して生成できます。 結果は SARIF バージョン 2.1.0 を使用する必要があります。 詳細については、「[{% data variables.product.prodname_code_scanning %} の SARIF サポート](/code-security/secure-coding/sarif-support-for-code-scanning)」を参照してください。
 
-結果は、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_code_scanning %} API、{% ifversion codeql-runner-supported %} {% data variables.product.prodname_codeql_runner %}、{% endif %} または {% data variables.product.prodname_codeql_cli %} を使ってアップロードできます。 最適なアップロード方法は、SARIF ファイルの生成方法によって異なります。以下、例を示します。
+結果は、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_code_scanning %} API、{% ifversion codeql-runner-supported %} {% data variables.code-scanning.codeql_runner %}、{% endif %}または {% data variables.product.prodname_codeql_cli %} を使ってアップロードできます。 最適なアップロード方法は、SARIF ファイルの生成方法によって異なります。以下、例を示します。
 
 - {% data variables.product.prodname_actions %} を使用して {% data variables.product.prodname_codeql %} アクションを実行している場合、追加のアクションは不要です。 {% data variables.product.prodname_codeql %} アクションは、分析の完了時に SARIF ファイルを自動的にアップロードします。
 - {% data variables.product.prodname_actions %} を使用して SARIF 互換の分析ツールを実行します。ワークフローを更新して、結果をアップロードする最後の手順を含めることができます (下記を参照)。
  - {% data variables.product.prodname_codeql_cli %} は、CI システムで {% data variables.product.prodname_code_scanning %} を実行するために、CLI を使用して結果を {% data variables.product.prodname_dotcom %} にアップロードできます (詳細については、「[CI システムでの {% data variables.product.prodname_codeql_cli %} のインストール](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)」を参照してください)。{% ifversion codeql-runner-supported %}
-- {% data variables.product.prodname_codeql_runner %} は、CI システムで {% data variables.product.prodname_code_scanning %} を実行するために、既定では、ランナーは完了時に結果を {% data variables.product.prodname_dotcom %} に自動的にアップロードします。 自動アップロードをブロックする場合、結果をアップロードする準備ができたら、`upload` コマンドを使用できます (詳細については、「[CI システムでの {% data variables.product.prodname_codeql_runner %} の実行](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)」を参照してください)。{% endif %}
+- {% data variables.code-scanning.codeql_runner %}は、CI システムで {% data variables.product.prodname_code_scanning %} を実行するためのものであり、既定では、完了時に、このランナーによって結果が {% data variables.product.prodname_dotcom %} に自動的にアップロードされます。 自動アップロードをブロックする場合、結果をアップロードする準備ができたら、`upload` コマンドを使うことができます (詳しくは、「[CI システムでの {% data variables.code-scanning.codeql_runner %}の実行](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)」を参照してください)。{% endif %}
 - リポジトリの外部で成果物として結果を生成するツールでは、{% data variables.product.prodname_code_scanning %} API を使用してファイルをアップロードできます (詳細については、「[SARIF データとして分析をアップロードする](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)」を参照してください)。
 
 {% data reusables.code-scanning.not-available %}

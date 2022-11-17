@@ -13,12 +13,12 @@ versions:
 topics:
   - Accounts
 shortTitle: Enterprise Server trial
-ms.openlocfilehash: eba705715818c03cb7fd1316ede6507111728806
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9beee350488bdf27beb7107deda3c44f560d29e9
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146454235'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163552'
 ---
 ## 关于 {% data variables.product.prodname_ghe_server %} 试用版
 
@@ -59,6 +59,8 @@ ms.locfileid: '146454235'
     注意：受邀成为帐户管理员的人将收到一封电子邮件，其中包含接受邀请的链接。
 
     {% endnote %}
+
+{% data reusables.enterprise.best-practices %}    
 
 {% data reusables.products.product-roadmap %}
 

@@ -6,6 +6,8 @@ import cheerio from 'cheerio'
 import coreLib from '@actions/core'
 import got, { RequestError } from 'got'
 import chalk from 'chalk'
+import { Low } from 'lowdb'
+import { JSONFile } from 'lowdb/node'
 
 import shortVersions from '../../middleware/contextualizers/short-versions.js'
 import contextualize from '../../middleware/context.js'
@@ -31,6 +33,29 @@ Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
   }
 })
 
+// By default, we don't cache external link checks to disk.
+// By setting this env var to something >0, it enables the disk-based
+// caching of external links.
+const EXTERNAL_LINK_CHECKER_MAX_AGE_MS =
+  parseInt(process.env.EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS || 0) * 24 * 60 * 60 * 1000
+const EXTERNAL_LINK_CHECKER_DB =
+  process.env.EXTERNAL_LINK_CHECKER_DB || 'external-link-checker-db.json'
+
+const adapter = new JSONFile(EXTERNAL_LINK_CHECKER_DB)
+const externalLinkCheckerDB = new Low(adapter)
+
+// Given a number and a percentage, return the same number with a *percentage*
+// max change of making a bit larger or smaller.
+// E.g. `jitter(55, 10)` will return a value between `[55 - 55/10: 55 + 55/10]`
+// This is useful to avoid the caching timestamps all getting the same
+// numbers from the day it started which means that they don't ALL expire
+// on the same day but start to expire in a bit of a "random pattern" so
+// you don't get all or nothing.
+function jitter(base, percentage) {
+  const r = percentage / 100
+  const negative = Math.random() > 0.5 ? -1 : 1
+  return base + base * Math.random() * r * negative
+}
 // Return a function that can as quickly as possible check if a certain
 // href input should be skipped.
 // Do this so we can use a `Set` and a `iterable.some()` for a speedier
@@ -52,8 +77,15 @@ const deprecatedVersionPrefixesRegex = new RegExp(
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
   // Optional env vars
-  const { ACTION_RUN_URL, LEVEL, FILES_CHANGED, REPORT_REPOSITORY, REPORT_AUTHOR, REPORT_LABEL } =
-    process.env
+  const {
+    ACTION_RUN_URL,
+    LEVEL,
+    FILES_CHANGED,
+    REPORT_REPOSITORY,
+    REPORT_AUTHOR,
+    REPORT_LABEL,
+    EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
+  } = process.env
 
   const octokit = github()
 
@@ -88,6 +120,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     reportLabel: REPORT_LABEL,
     reportAuthor: REPORT_AUTHOR,
     actionContext: getActionContext(),
+    externalServerErrorsAsWarning: EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
   }
 
   if (opts.shouldComment || opts.createReport) {
@@ -130,6 +163,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  random {boolean} - Randomize page order for debugging when true
  *  patient {boolean} - Wait longer and retry more times for rate-limited external URLS
  *  bail {boolean} - Throw an error on the first page (not permalink) that has >0 flaws
+ *  externalServerErrorsAsWarning {boolean} - Treat >=500 errors or temporary request errors as warning
  *
  */
 async function main(core, octokit, uploadArtifact, opts = {}) {
@@ -186,11 +220,16 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
     )
   }
 
+  await externalLinkCheckerDB.read()
+  externalLinkCheckerDB.data ||= { urls: {} }
+
   debugTimeStart(core, 'processPages')
   const flawsGroups = await Promise.all(
-    pages.map((page) => processPage(core, page, pageMap, redirects, opts))
+    pages.map((page) => processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB))
   )
   debugTimeEnd(core, 'processPages')
+
+  await externalLinkCheckerDB.write()
 
   const flaws = flawsGroups.flat()
 
@@ -518,12 +557,12 @@ function getPages(pageList, languages, filters, files, max) {
     .slice(0, max ? Math.min(max, pageList.length) : pageList.length)
 }
 
-async function processPage(core, page, pageMap, redirects, opts) {
+async function processPage(core, page, pageMap, redirects, opts, db) {
   const { verbose, verboseUrl, bail } = opts
 
   const allFlawsEach = await Promise.all(
     page.permalinks.map((permalink) => {
-      return processPermalink(core, permalink, page, pageMap, redirects, opts)
+      return processPermalink(core, permalink, page, pageMap, redirects, opts, db)
     })
   )
 
@@ -545,7 +584,7 @@ async function processPage(core, page, pageMap, redirects, opts) {
   return allFlaws
 }
 
-async function processPermalink(core, permalink, page, pageMap, redirects, opts) {
+async function processPermalink(core, permalink, page, pageMap, redirects, opts, db) {
   const {
     level = 'critical',
     checkAnchors,
@@ -553,6 +592,7 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts)
     checkExternalLinks,
     verbose,
     patient,
+    externalServerErrorsAsWarning,
   } = opts
   const html = await renderInnerHTML(page, permalink)
   const $ = cheerio.load(html)
@@ -583,7 +623,9 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts)
         pageMap,
         checkAnchors,
         checkExternalLinks,
-        { verbose, patient }
+        externalServerErrorsAsWarning,
+        { verbose, patient },
+        db
       )
 
       if (flaw) {
@@ -727,7 +769,9 @@ async function checkHrefLink(
   pageMap,
   checkAnchors = false,
   checkExternalLinks = false,
-  { verbose = false, patient = false } = {}
+  externalServerErrorsAsWarning = false,
+  { verbose = false, patient = false } = {},
+  db = null
 ) {
   if (href === '#') {
     if (checkAnchors) {
@@ -781,11 +825,82 @@ async function checkHrefLink(
     if (linksToSkip(href)) {
       return
     }
-    const { ok, ...info } = await checkExternalURL(core, href, { verbose, patient })
+    const { ok, ...info } = await checkExternalURLCached(core, href, { verbose, patient }, db)
     if (!ok) {
-      return { CRITICAL: `Broken external link (${JSON.stringify(info)})`, isExternal: true }
+      // By default, an not-OK problem with an external link is CRITICAL
+      // but if it was a `responseError` or the statusCode was >= 500
+      // then downgrade it to WARNING.
+      let problem = 'CRITICAL'
+      if (externalServerErrorsAsWarning) {
+        if (
+          (info.statusCode && info.statusCode >= 500) ||
+          (info.requestError && isTemporaryRequestError(info.requestError))
+        ) {
+          problem = 'WARNING'
+        }
+      }
+      return { [problem]: `Broken external link (${JSON.stringify(info)})`, isExternal: true }
     }
   }
+}
+
+// Return true if the request error is sufficiently temporary. For example,
+// a request to `https://exammmmple.org` will fail with `ENOTFOUND` because
+// the DNS entry doesn't exist. It means it won't have much hope if you
+// simply try again later.
+// However, an `ETIMEDOUT` means it could work but it didn't this time but
+// might if we try again a different hour or day.
+function isTemporaryRequestError(requestError) {
+  if (typeof requestError === 'string') {
+    // See https://betterstack.com/community/guides/scaling-nodejs/nodejs-errors/
+    // for a definition of each one.
+    const errorEnums = ['ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT', 'ECONNABORTED']
+    return errorEnums.some((enum_) => requestError.includes(enum_))
+  }
+  return false
+}
+
+// Can't do this memoization within the checkExternalURL because it can
+// return a Promise since it already collates multiple URLs under the
+// same cache key.
+async function checkExternalURLCached(core, href, { verbose, patient }, db) {
+  const cacheMaxAge = EXTERNAL_LINK_CHECKER_MAX_AGE_MS
+  const timestamp = new Date().getTime()
+  const url = href.split('#')[0]
+
+  if (cacheMaxAge) {
+    const tooOld = timestamp - Math.floor(jitter(cacheMaxAge, 10))
+    if (db && db.data.urls[url]) {
+      if (db.data.urls[url].timestamp > tooOld) {
+        if (verbose) {
+          core.debug(`External URL ${url} in cache`)
+        }
+        return db.data.urls[url].result
+      } else if (verbose) {
+        core.info(`External URL ${url} in cache but too old`)
+        // Delete it so the cache file don't bloat infinitely
+        delete db.data.urls[url]
+      }
+    }
+  }
+
+  const result = await checkExternalURL(core, href, {
+    verbose,
+    patient,
+  })
+
+  if (cacheMaxAge) {
+    // By only cache storing successful results, we give the system a chance
+    // to try 40xx and 50x errors another go.
+    if (db && result.ok) {
+      db.data.urls[url] = {
+        timestamp,
+        result,
+      }
+    }
+  }
+
+  return result
 }
 
 const _fetchCache = new Map()

@@ -12,12 +12,12 @@ topics:
 shortTitle: Web-based editor
 redirect_from:
   - /codespaces/developing-in-codespaces/web-based-editor
-ms.openlocfilehash: a84f6dbf012f8541d68cfb78364525df75da826c
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: d1c21f3e75ecc4fec282c9156943c137287d203c
+ms.sourcegitcommit: caab4edbbeedf23e9062e48a67c35224772b6efa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107919'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160474'
 ---
 {% note %}
 
@@ -56,16 +56,16 @@ Tanto o {% data variables.product.prodname_serverless %} quanto o {% data variab
 
 || {% data variables.product.prodname_serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
-| **Custo** | Livre.      | Custos de computação e armazenamento. Para obter mais informações sobre preços, confira "[Sobre a cobrança dos {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)".|
-| **Disponibilidade** | Disponível para todos no GitHub.com. | Disponível para organizações que usam o GitHub Team ou GitHub Enterprise Cloud. |
-| **Inicialização** | O {% data variables.product.prodname_serverless %} abre instantaneamente com um toque de tecla e você pode começar a usá-lo imediatamente, sem ter que esperar por uma configuração ou instalação adicional. | Quando você cria ou retoma um codespace, o código é atribuído a uma VM e o contêiner é configurado com base no conteúdo de um arquivo `devcontainer.json`. Essa configuração pode levar alguns minutos para criar o ambiente. Para obter mais informações, confira "[Como criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace)". |
-| **Computação**  | Não há nenhum computador associado. Portanto você não conseguirá criar e executar o seu código ou usar o terminal integrado. | Com os {%  data variables.product.prodname_github_codespaces %}, você usufrui da alta eficiência de uma VM dedicada na qual pode executar e depurar o aplicativo.|
+| **Custo** | Livre.      | Cota mensal gratuita de uso para contas pessoais. Para obter mais informações sobre preços, confira "[Sobre a cobrança dos {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)".|
+| **Disponibilidade** | Disponível para todos no GitHub.com. | Disponível para todos no GitHub.com. |
+| **Inicialização** | O {% data variables.product.prodname_serverless %} abre instantaneamente com um toque de tecla e você pode começar a usá-lo imediatamente, sem ter que esperar por uma configuração ou instalação adicional. | Quando você cria ou retoma um codespace, o código é atribuído a uma VM e o contêiner é configurado com base no conteúdo de um arquivo `devcontainer.json`. Essa configuração pode levar alguns minutos para criar o ambiente. Para obter mais informações, confira "[Como criar um codespace para um repositório](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)". |
+| **Computação**  | Não há nenhum computador associado. Portanto você não conseguirá criar e executar o seu código ou usar o terminal integrado. | Com o {%  data variables.product.prodname_github_codespaces %}, você usufrui da alta eficiência de uma VM dedicada na qual pode executar e depurar seu aplicativo.|
 | **Acesso ao terminal** | Nenhum. | O {% data variables.product.prodname_github_codespaces %} fornece um conjunto comum de ferramentas por padrão, o que significa que você pode usar o Terminal exatamente como você faria no ambiente local.|
 | **Extensões**  | Apenas um subconjunto de extensões que podem ser executadas na web aparecerão na visualização de extensões e podem ser instaladas. Para obter mais informações, confira "[Como usar extensões](#using-extensions)".| Com os {% data variables.product.prodname_github_codespaces %}, você pode usar a maioria das extensões do {% data variables.product.prodname_vscode_marketplace %}.|
 
 ### Continue trabalhando nos {% data variables.product.prodname_codespaces %}
 
-Você pode iniciar o fluxo de trabalho no {% data variables.product.prodname_serverless %} e continuar trabalhando em um codespace, desde que tenha [acesso ao {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces). Se você tentar acessar a janela ou terminal Executar e Depurarl, você receberá uma mensagem de que eles não estão disponíveis em {% data variables.product.prodname_serverless %}.
+Você pode iniciar o fluxo de trabalho no {% data variables.product.prodname_serverless %} e continuar trabalhando em um codespace. Se você tentar acessar a janela ou terminal Executar e Depurarl, você receberá uma mensagem de que eles não estão disponíveis em {% data variables.product.prodname_serverless %}.
 
 Para continuar seu trabalho em um codespace, clique em **Continuar Trabalhando em…** e selecione **Criar Codespace** para criar um codespace no branch atual. Antes de selecionar esta opção, você precisa fazer commit de quaisquer alterações.
 

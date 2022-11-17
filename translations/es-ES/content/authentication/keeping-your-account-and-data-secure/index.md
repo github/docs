@@ -32,6 +32,7 @@ children:
   - /githubs-ssh-key-fingerprints
   - /sudo-mode
   - /preventing-unauthorized-access
+  - /viewing-and-managing-your-sessions
 shortTitle: Account security
 ---
 

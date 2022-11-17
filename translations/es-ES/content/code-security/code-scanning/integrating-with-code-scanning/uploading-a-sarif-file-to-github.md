@@ -23,12 +23,12 @@ topics:
   - Repositories
   - CI
   - SARIF
-ms.openlocfilehash: 80f95a5c74a465a285d73f1af9719b2f7a4981d6
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 3def104e487f54e2c48d462d1dcfe8bab63c6fa3
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147705761'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161169'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
@@ -38,12 +38,12 @@ ms.locfileid: '147705761'
 
 Puedes generar archivos SARIF utilizando muchas herramientas de prueba de seguridad para análisis estático, incluyendo a {% data variables.product.prodname_codeql %}. Los resultados deben usar la versión 2.1.0 de SARIF. Para más información, vea "[Compatibilidad con SARIF para {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)".
 
-Puedes cargar los resultados mediante {% data variables.product.prodname_actions %}, la API de {% data variables.product.prodname_code_scanning %},{% ifversion codeql-runner-supported %} el {% data variables.product.prodname_codeql_runner %}{% endif %} o la {% data variables.product.prodname_codeql_cli %}. El mejor método de carga dependerá de cómo generas el archivo SARIF, por ejemplo, si utilizas:
+Puedes cargar los resultados mediante {% data variables.product.prodname_actions %}, la API de {% data variables.product.prodname_code_scanning %},{% ifversion codeql-runner-supported %} el {% data variables.code-scanning.codeql_runner %}{% endif %} o la {% data variables.product.prodname_codeql_cli %}. El mejor método de carga dependerá de cómo generas el archivo SARIF, por ejemplo, si utilizas:
 
 - {% data variables.product.prodname_actions %} para ejecutar la acción de {% data variables.product.prodname_codeql %}, no hay que hacer nada más. La acción de {% data variables.product.prodname_codeql %} carga el archivo de SARIF automáticamente cuando completa el análisis.
 - {% data variables.product.prodname_actions %} para ejecutar una herramienta de análisis compatible con SARIF, podías actualizar el flujo de trabajo para que incluya un último paso que cargue los resultados (míralo más adelante).
  - La {% data variables.product.prodname_codeql_cli %} para ejecutar el {% data variables.product.prodname_code_scanning %} en el sistema de CI, puedes usar la CLI para cargar los resultados en {% data variables.product.prodname_dotcom %} (para obtener más información, consulta "[Instalación de la {% data variables.product.prodname_codeql_cli %} en el sistema de CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").{% ifversion codeql-runner-supported %}
-- El {% data variables.product.prodname_codeql_runner %}, para ejecutar {% data variables.product.prodname_code_scanning %} en tu sistema de CI, de manera predeterminada, el ejecutor carga automáticamente los resultados en {% data variables.product.prodname_dotcom %} tras la finalización. Si bloquea la carga automática, cuando esté listo para cargar los resultados, puede usar el comando `upload` (para más información, vea "[Ejecución de {% data variables.product.prodname_codeql_runner %} en el sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").{% endif %}
+- El {% data variables.code-scanning.codeql_runner %}, para ejecutar {% data variables.product.prodname_code_scanning %} en tu sistema de CI, de manera predeterminada, el ejecutor carga automáticamente los resultados en {% data variables.product.prodname_dotcom %} tras la finalización. Si bloquea la carga automática, cuando esté listo para cargar los resultados, puede usar el comando `upload` (para más información, vea "[Ejecución de {% data variables.code-scanning.codeql_runner %} en el sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").{% endif %}
 - Una herramienta que genera resultados como un artefacto fuera del repositorio, puede usar la API {% data variables.product.prodname_code_scanning %} para cargar el archivo (para más información, vea "[Carga de un análisis como datos de SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
 
 {% data reusables.code-scanning.not-available %}

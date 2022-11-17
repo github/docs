@@ -17,6 +17,31 @@ redirect_from:
   - /articles
   - /common-issues-and-questions
   - /troubleshooting-common-issues
+  - /early-access/github/enforcing-best-practices-with-github-policies
+  - /github/enforcing-best-practices-with-github-policies/index
+  - /early-access/github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /early-access/github/enforcing-best-practices-with-github-policies/constraints
+  - /github/enforcing-best-practices-with-github-policies/constraints
+  - /early-access/github/enforcing-best-practices-with-github-policies/contexts
+  - /github/enforcing-best-practices-with-github-policies/contexts
+  - /early-access/github/enforcing-best-practices-with-github-policies/expressions
+  - /github/enforcing-best-practices-with-github-policies/expressions
+  - /early-access/github/enforcing-best-practices-with-github-policies/getting-started
+  - /early-access/github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /early-access/github/enforcing-best-practices-with-github-policies/onboarding
+  - /github/enforcing-best-practices-with-github-policies/onboarding
+  - /early-access/github/enforcing-best-practices-with-github-policies/overview
+  - /github/enforcing-best-practices-with-github-policies/overview
+  - /early-access/github/enforcing-best-practices-with-github-policies/release-notes
+  - /github/enforcing-best-practices-with-github-policies/release-notes
+  - /early-access/github/enforcing-best-practices-with-github-policies/resources
+  - /github/enforcing-best-practices-with-github-policies/resources
+  - /early-access/github/enforcing-best-practices-with-github-policies/sharing
+  - /github/enforcing-best-practices-with-github-policies/sharing
+  - /early-access/github/enforcing-best-practices-with-github-policies/syntax
+  - /github/enforcing-best-practices-with-github-policies/syntax
 versions: '*'
 children:
   - search
@@ -76,6 +101,7 @@ childGroups:
     children:
       - code-security
       - code-security/supply-chain-security
+      - code-security/security-advisories
       - code-security/dependabot
       - code-security/code-scanning
       - code-security/secret-scanning
@@ -128,11 +154,11 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
-ms.openlocfilehash: 09ad193360503125adce9c659a465cfae32dd54e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: dad74fe11fc5bfea72ae994e9918683fc7e87b7a
+ms.sourcegitcommit: bd23217796e6ff442b14ef9d889eaef30e8d6826
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107626'
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167301'
 ---
 

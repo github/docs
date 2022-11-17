@@ -16,12 +16,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-ms.openlocfilehash: 3af7dce198afcb851c228fa3fc4ad5f01f77ed60
-ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.openlocfilehash: b34a96bb62a885031584f3da017fd86b7469a277
+ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148111554'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160833'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -698,7 +698,7 @@ steps:
     id: step_one
     run: |
       echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      curl https://example.lab >> $GITHUB_ENV
+      curl https://example.com >> $GITHUB_ENV
       echo 'EOF' >> $GITHUB_ENV
 ```
 
@@ -712,7 +712,7 @@ steps:
     id: step_one
     run: |
       "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
-      (Invoke-WebRequest -Uri "https://example.lab").Content >> $env:GITHUB_ENV
+      (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
       "EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```

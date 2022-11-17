@@ -3,18 +3,19 @@ title: Secretos del repositorio de Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Repository secrets
 intro: 'La API de secretos del repositorio de Codespaces permite que un usuario cree, enumere y elimine secretos (tales como los tokens de acceso para los servicios en la nube) para los repositorios a los que el usuario tenga acceso en un codespace.'
+permissions: 'Users with write access to a repository can manage {% data variables.product.prodname_codespaces %} repository secrets.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: d80d75934cc41db2ae12db2df47a41e74627dfef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 95b3dfaafef598bf05f55d697716eb1036093697
+ms.sourcegitcommit: 9490533fcb7b7d5c16f8fea082a06ee66dd5db8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147063982'
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148165605'
 ---
 ## Acerca de la API de secretos del repositorio de Codespaces
 

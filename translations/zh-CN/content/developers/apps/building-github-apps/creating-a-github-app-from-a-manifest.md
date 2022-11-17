@@ -12,12 +12,12 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: App creation manifest flow
-ms.openlocfilehash: 8dd917a5b08605b995a7ecf8321b5cd61c50a681
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 9ff6fa93e0f31de16e6ee2d96f1d7665742151d3
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145099208'
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135704'
 ---
 ## 关于 GitHub 应用程序清单
 
@@ -68,6 +68,7 @@ GitHub 应用清单流使用类似于 [OAuth 流](/apps/building-oauth-apps/auth
 `hook_attributes` | `object` | GitHub 应用程序 web 挂钩的配置
 `redirect_url` | `string` | 用户从清单启动 GitHub 应用创建后要重定向到的完整 URL。
 `callback_urls` | `array of strings` | 在用户授权安装后重定向到的完整 URL。 您可以提供最多 10 个回叫 URL。
+`setup_url` | `string` | 在需要额外的设置的情况下，在用户安装 GitHub 应用后重定向到的完整 URL。
 `description` | `string` | GitHub 应用程序的说明。
 `public` | `boolean` | 当 GitHub 应用可供公众使用时，设置为 `true`；当其仅可供应用所有者访问时，设置为 `false`。
 `default_events` | `array` | GitHub 应用订阅的[事件](/webhooks/event-payloads)列表。

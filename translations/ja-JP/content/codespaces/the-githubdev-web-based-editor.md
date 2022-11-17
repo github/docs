@@ -12,12 +12,12 @@ topics:
 shortTitle: Web-based editor
 redirect_from:
   - /codespaces/developing-in-codespaces/web-based-editor
-ms.openlocfilehash: a84f6dbf012f8541d68cfb78364525df75da826c
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: d1c21f3e75ecc4fec282c9156943c137287d203c
+ms.sourcegitcommit: caab4edbbeedf23e9062e48a67c35224772b6efa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109284'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160478'
 ---
 {% note %}
 
@@ -56,16 +56,16 @@ Web ベースのエディターを使用するには、サインインする必�
 
 || {% data variables.product.prodname_serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
-| **コスト** | フリー。      | コンピューティングとストレージのコスト。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の課金について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)」を参照してください。|
-| **可用性** | GitHub.com のすべてのユーザーが利用できます。 | GitHub Team または GitHub Enterprise Cloud を使用している組織で利用できます。 |
-| **起動** | {% data variables.product.prodname_serverless %} は、キーを押すとすぐに開き、追加の構成やインストールを待たずにすぐに使用を開始できます。 | codespace を作成または再開すると、codespace に VM が割り当てられ、`devcontainer.json` ファイルの内容に基づいてコンテナーが構成されます。 この設定では、環境の作成に数分かかる場合があります。 詳細については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace)」を参照してください。 |
-| **Compute**  | 関連付けられたコンピューティングがないので、コードをビルドして実行したり、統合ターミナルを使用したりすることはできません。 | {%  data variables.product.prodname_github_codespaces %} を使用した場合、専用の VM を通じてアプリケーションを実行およびデバッグできます。|
+| **コスト** | フリー。      | 個人用アカウントでの 1 か月あたりの使用量の Free クォータ。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の課金について](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)」を参照してください。|
+| **可用性** | GitHub.com のすべてのユーザーが利用できます。 | GitHub.com のすべてのユーザーが利用できます。 |
+| **起動** | {% data variables.product.prodname_serverless %} は、キーを押すとすぐに開き、追加の構成やインストールを待たずにすぐに使用を開始できます。 | codespace を作成または再開すると、codespace に VM が割り当てられ、`devcontainer.json` ファイルの内容に基づいてコンテナーが構成されます。 この設定では、環境の作成に数分かかる場合があります。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)」を参照してください。 |
+| **Compute**  | 関連付けられたコンピューティングがないので、コードをビルドして実行したり、統合ターミナルを使用したりすることはできません。 | {%  data variables.product.prodname_github_codespaces %} を使うと、専用の VM を通じてアプリケーションを実行およびデバッグできます。|
 | **ターミナル アクセス** | [なし] : | {% data variables.product.prodname_github_codespaces %} には、既定で共通のツール セットが用意されています。つまり、ローカル環境の場合とまったく同じようにターミナルを使用できます。|
 | **拡張機能**  | Web で実行できる拡張機能のサブセットのみが拡張機能ビューに表示され、それらをインストールできます。 詳細については、「[拡張機能の使用](#using-extensions)」を参照してください。| {% data variables.product.prodname_github_codespaces %} では、{% data variables.product.prodname_vscode_marketplace %} のほとんどの拡張機能を使用できます。|
 
 ### 引き続き {% data variables.product.prodname_codespaces %} で作業する
 
-[{% data variables.product.prodname_github_codespaces %} にアクセス](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)できる場合は、{% data variables.product.prodname_serverless %} でワークフローを開始し、codespace で作業を続けることができます。 実行およびデバッグ ビューまたはターミナルにアクセスしようとすると、{% data variables.product.prodname_serverless %} では使用できないことが通知されます。
+{% data variables.product.prodname_serverless %}でワークフローを開始して、codespace で作業を続けることができます。 実行およびデバッグ ビューまたはターミナルにアクセスしようとすると、{% data variables.product.prodname_serverless %} では使用できないことが通知されます。
 
 codespace で作業を続行するには、 **[Continue Working on…]\(作業の続行...\)** をクリックし、 **[Create New Codespace]\(新しい codespace の作成\)** を選択して、現在のブランチに codespace を作成します。 このオプションを選択する前に、変更をコミットする必要があります。
 
