@@ -131,7 +131,7 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 {%- ifversion actions-ghes-gcp-storage %}
 * Google Cloud Storage
 {%- endif %}
-* S3-compatible MinIO Gateway for NAS
+* S3-compatible MinIO cluster
 
 {% note %}
 
@@ -140,8 +140,6 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 {% data reusables.actions.enterprise-s3-tech-partners %}
 
 {% endnote %}
-
-{% data reusables.actions.minio-gateways-removal %}
 
 ## Networking considerations
 
@@ -158,7 +156,7 @@ Follow one of the procedures below to enable {% data variables.product.prodname_
 {%- ifversion actions-ghes-gcp-storage %}
 * [Enabling GitHub Actions with Google Cloud Storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage)
 {%- endif %}
-* [Enabling GitHub Actions with MinIO Gateway for NAS storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage)
+* [Enabling GitHub Actions with MinIO storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-storage)
 
 ## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
 

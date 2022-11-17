@@ -180,36 +180,6 @@ jobs:
 ```
 {% endraw %}
 
-{% ifversion actions-reusable-workflow-matrix %}
-## Using a matrix strategy with a reusable workflow
-
-Jobs using the matrix strategy can call a reusable workflow.
-
-A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
-
-### Example matrix strategy with a reusable workflow
-
-This workflow file references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. The workflow will run three jobs, one for each value in the variable. The workflow file also calls a reusable workflow by using the `uses` keyword.
-
-{% raw %}
-```yaml{:copy}
-name: Reusable workflow with matrix strategy
-
-on:
-  push:
-
-jobs:
-  ReuseableMatrixJobForDeployment:
-    strategy:
-      matrix:
-        target: [dev, stage, prod]
-    uses: octocat/octo-repo/.github/workflows/deployment.yml@main
-    with:
-      target: ${{ matrix.target }}
-```
-{% endraw %}
-
-{% endif %}
 ## Calling a reusable workflow
 
 You call a reusable workflow by using the `uses` keyword. Unlike when you are using actions within a workflow, you call reusable workflows directly within a job, and not from within job steps.
@@ -228,6 +198,29 @@ You can call multiple workflows, referencing each in a separate job.
 
 {% data reusables.actions.pass-inputs-to-reusable-workflows%}
 
+{% ifversion actions-reusable-workflow-matrix %}
+### Using a matrix strategy with a reusable workflow
+
+Jobs using the matrix strategy can call a reusable workflow.
+
+A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. For example, you can use a matrix strategy to pass different inputs to a reusable workflow. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+
+This example job below calls a reusable workflow and references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. It will run three jobs, one for each value in the variable.
+
+{% raw %}
+```yaml{:copy}
+jobs:
+  ReuseableMatrixJobForDeployment:
+    strategy:
+      matrix:
+        target: [dev, stage, prod]
+    uses: octocat/octo-repo/.github/workflows/deployment.yml@main
+    with:
+      target: ${{ matrix.target }}
+```
+{% endraw %}
+{% endif %}
+
 ### Supported keywords for jobs that call a reusable workflow
 
 When you call a reusable workflow, you can only use the following keywords in the job containing the call:
@@ -238,7 +231,12 @@ When you call a reusable workflow, you can only use the following keywords in th
 * [`jobs.<job_id>.with.<input_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
- {% ifversion actions-inherit-secrets-reusable-workflows %}* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit){% endif %}
+{%- ifversion actions-inherit-secrets-reusable-workflows %}
+* [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)
+{%- endif %}
+{%- ifversion actions-reusable-workflow-matrix %}
+* [`jobs.<job_id>.strategy`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy)
+{%- endif %}
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idpermissions)

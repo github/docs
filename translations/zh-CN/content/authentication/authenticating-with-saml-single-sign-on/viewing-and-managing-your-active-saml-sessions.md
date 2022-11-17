@@ -1,6 +1,6 @@
 ---
-title: 查看和管理活动的 SAML 会话
-intro: 您可以在安全设置中查看和撤销活动的 SAML 会话。
+title: Viewing and managing your active SAML sessions
+intro: You can view and revoke your active SAML sessions in your settings.
 redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
@@ -9,28 +9,31 @@ versions:
   ghec: '*'
 topics:
   - SSO
+type: how_to
 shortTitle: Active SAML sessions
-ms.openlocfilehash: ee30f76143ec28a810cd23150d115a3b1cd213c8
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145099900'
 ---
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
-3. 在“Sessions（会话）”下，您可以看到活动的 SAML 会话。
-   ![活动 SAML 会话列表](/assets/images/help/settings/saml-active-sessions.png)
-4. 若要查看会话详细信息，请单击“查看更多”。
-   ![用于打开 SAML 会话详细信息的按钮](/assets/images/help/settings/saml-expand-session-details.png)
-5. 若要撤销会话，请单击“撤销 SAML”。
-   ![撤销 SAML 会话的按钮](/assets/images/help/settings/saml-revoke-session.png)
+
+You can view a list of devices that have logged into your account, and revoke any SAML sessions that you don't recognize.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.sessions %}
+1. Under "Web sessions," you can see your active SAML sessions.
+
+   ![Screenshot of the list of active SAML sessions](/assets/images/help/settings/saml-active-sessions.png)
+
+1. To see the session details, click **See more**.
+   ![Screenshot of the active SAML sessions with the button to open SAML session details emphasized](/assets/images/help/settings/saml-expand-session-details.png)
+
+1. To revoke a session, click **Revoke SAML**.
+
+   ![Screenshot of the Session details page with the button to revoke a SAML session emphasized](/assets/images/help/settings/saml-revoke-session.png)
 
   {% note %}
 
-  **注意：** 撤销会话时，将删除对该组织的 SAML 身份验证。 要再次访问该组织，您需要通过身份提供程序单点登录。 有关详细信息，请参阅“[关于通过 SAML SSO 进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”。
+  **Note:** When you revoke a session, you remove your SAML authentication to that organization. To access the organization again, you will need to single sign-on through your identity provider. For more information, see "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."
 
   {% endnote %}
 
-## 延伸阅读
+## Further reading
 
-- “[关于使用 SAML SSO 进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”
+- "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

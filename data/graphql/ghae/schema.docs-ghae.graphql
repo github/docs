@@ -33480,6 +33480,9 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   Whether a squash merge commit can use the pull request title as default.
   """
   squashPrTitleUsedAsDefault: Boolean!
+    @deprecated(
+      reason: "`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle` instead. Removal on 2023-04-01 UTC."
+    )
 
   """
   The SSH URL to clone this repository
@@ -37106,9 +37109,19 @@ type Submodule {
   name: String!
 
   """
+  The name of the submodule in .gitmodules (Base64-encoded)
+  """
+  nameRaw: Base64String!
+
+  """
   The path in the superproject that this submodule is located in
   """
   path: String!
+
+  """
+  The path in the superproject that this submodule is located in (Base64-encoded)
+  """
+  pathRaw: Base64String!
 
   """
   The commit revision of the subproject repository being tracked by the submodule
@@ -39589,6 +39602,11 @@ type TreeEntry {
   name: String!
 
   """
+  Entry file name. (Base64-encoded)
+  """
+  nameRaw: Base64String!
+
+  """
   Entry file object.
   """
   object: GitObject
@@ -39602,6 +39620,11 @@ type TreeEntry {
   The full path of the file.
   """
   path: String
+
+  """
+  The full path of the file. (Base64-encoded)
+  """
+  pathRaw: Base64String
 
   """
   The Repository the tree entry belongs to

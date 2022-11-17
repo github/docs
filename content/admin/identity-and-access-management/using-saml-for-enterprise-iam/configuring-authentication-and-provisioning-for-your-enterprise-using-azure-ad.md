@@ -44,8 +44,6 @@ For more information about managing identity and access for your enterprise on {
 - {% data reusables.saml.ghes-you-must-configure-saml-sso %}
 {%- endif %}
 
-- {% data reusables.saml.assert-the-administrator-attribute %} For more information about including the `administrator` attribute in the SAML claim from Azure AD, see [How to: customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) in the Microsoft Docs.
-
 - {% data reusables.saml.create-a-machine-user %}
 
 ## Configuring authentication and user provisioning with Azure AD
@@ -77,3 +75,7 @@ In your Azure AD tenant, add the application for {% data variables.product.produ
 1. After you ensure a successful connection, at the top of the page, click **Save**.
 
 {% endif %}
+
+1. Assign an enterprise owner for {% data variables.product.product_name %} in Azure AD. The process you should follow depends on whether you configured provisioning. For more information about enterprise owners, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
+   - If you configured provisioning, to grant the user enterprise ownership in {% data variables.product.product_name %}, assign the enterprise owner role to the user in Azure AD.
+   - If you did not configure provisioning, to grant the user enterprise ownership in {% data variables.product.product_name %}, include the `administrator` attribute in the SAML assertion for the user account on the IdP, with the value of `true`. For more information about including the `administrator` attribute in the SAML claim from Azure AD, see [How to: customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) in the Microsoft Docs.

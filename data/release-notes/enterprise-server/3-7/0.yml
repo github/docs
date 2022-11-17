@@ -285,6 +285,7 @@ sections:
         - |
           Users can write mathematical expressions using fenced code blocks with the `math` syntax in addition to the existing delimiters. `$$` is not required with this method. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
 
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.7. The feature will be available in an upcoming release. [Updated: 2022-11-16]
         # https://github.com/github/releases/issues/2105
         - |
           Users can render maps directly in Markdown using fenced code blocks with the `geojson` or `topojson` syntax, and embed STL 3D renders using `stl` syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
@@ -325,6 +326,10 @@ sections:
     - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
 
   deprecations:
+    # https://github.com/github/enterprise-releases/issues/3217
+    - |
+      **Upcoming deprecation**: In GitHub Enterprise Server 3.8 and later, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+
     # https://github.com/github/releases/issues/2395
     - Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
 

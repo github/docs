@@ -11,12 +11,12 @@ type: overview
 topics:
   - Clustering
   - Enterprise
-ms.openlocfilehash: c0f442f455bffea9fd6e7bd225d7c37c0820b4ab
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 6c009e5d5aa1c2f0b2d3effb3beab2d51f48b070
+ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145093994'
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167066'
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
@@ -56,7 +56,7 @@ O clustering permite que os serviços que compõem o {% data variables.product.p
 - Estabeleça camadas de nós relevantes para a sua organização. Veja esta configuração de exemplo:
   - Camada de front-end com dois nós e os seguintes serviços:
     - `web-server`
-    - `jobs-server`
+    - `job-server`
     - `memcache-server`
   - Camada de banco de dados com dois nós e os seguintes serviços:
     - `consul-server`

@@ -6,12 +6,12 @@ versions:
 topics:
   - Webhooks
 shortTitle: Receiving webhooks with the GitHub CLI
-ms.openlocfilehash: 2772a9d4208d0afe77871255ad6510b7f39de8d5
-ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
+ms.openlocfilehash: 11bc5b476a191a61594cb73f1e6ce1be5bb6cf9b
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2022
-ms.locfileid: '148132960'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160661'
 ---
 ## Sobre como receber webhooks com {% data variables.product.prodname_cli %}
 
@@ -29,7 +29,7 @@ Ao fazer alterações no código de integração, execute-o em um ambiente local
 
 {% endnote %}
 
-## Receber webhooks com o {% data variables.product.prodname_cli %}
+## Como receber webhooks com a {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-learn-more %}
 

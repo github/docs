@@ -9,7 +9,7 @@ versions:
   fpt: '*'
 ---
 
-_These terms apply to Customers who have executed agreements in place referencing them. All other corporate customers are directed to https://www.github.com/customer-terms for current terms._
+_These terms apply to Customers who have executed agreements in place referencing them. All other corporate customers are directed to https://github.com/customer-terms for current terms._
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **“Products”**):
 

@@ -36,7 +36,7 @@ jobs:
       fail-fast: false
       matrix:
         # This needs to match the languages we support
-        language: [en, ja, es, pt, cn]
+        language: [en, ja, es, pt, cn, ru]
     steps:
       - if: ${{ env.FREEZE == 'true' }}
         run: |
@@ -99,9 +99,8 @@ jobs:
 
         run: |
           mkdir /tmp/records
-          npm run sync-search-indices -- \
-            --language ${{ matrix.language }} \
-            /tmp/records
+          npm run sync-search-indices -- /tmp/records \
+            --language ${{ matrix.language }}
 
           ls -lh /tmp/records
 
@@ -116,9 +115,8 @@ jobs:
           # not exist.
           VERSION: ${{ github.event.inputs.version }}
         run: |
-          ./script/search/index-elasticsearch.js \
+          ./script/search/index-elasticsearch.js /tmp/records \
             --language ${{ matrix.language }} \
-            /tmp/records
 
       - name: Check created indexes and aliases
         run: |
@@ -135,4 +133,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+          text: The last 'Sync search Elasticsearch' run failed. See https://github.com/${{github.repository}}/actions/workflows/sync-search-elasticsearch.yml?query=workflow%3A%22sync+search%22

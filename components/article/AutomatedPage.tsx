@@ -6,13 +6,14 @@ import { ArticleGridLayout } from './ArticleGridLayout'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
+import { Callout } from 'components/ui/Callout'
 
 type Props = {
   children: React.ReactNode
 }
 
 export const AutomatedPage = ({ children }: Props) => {
-  const { title, intro, renderedPage, miniTocItems } = useAutomatedPageContext()
+  const { title, intro, renderedPage, miniTocItems, product } = useAutomatedPageContext()
 
   return (
     <DefaultLayout>
@@ -22,11 +23,21 @@ export const AutomatedPage = ({ children }: Props) => {
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
-            intro && (
-              <Lead data-testid="lead" data-search="lead">
-                {intro}
-              </Lead>
-            )
+            <>
+              {intro && (
+                <Lead data-testid="lead" data-search="lead">
+                  {intro}
+                </Lead>
+              )}
+
+              {product && (
+                <Callout
+                  variant="success"
+                  className="mb-4"
+                  dangerouslySetInnerHTML={{ __html: product }}
+                />
+              )}
+            </>
           }
           toc={miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
         >

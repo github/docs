@@ -38,6 +38,7 @@ import triggerError from './trigger-error.js'
 import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
 import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
+// TODO: docs-eng#1937: delete this line
 import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
@@ -261,13 +262,14 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
   app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
+  // TODO: docs-eng#1937: delete this line
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
   app.use(asyncMiddleware(instrument(currentProductTree, './contextualizers/current-product-tree')))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(instrument(breadcrumbs, './contextualizers/breadcrumbs'))
-  app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
+  app.use(instrument(features, './contextualizers/features'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
   app.use(instrument(glossaries, './contextualizers/glossaries'))

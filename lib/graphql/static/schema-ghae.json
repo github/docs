@@ -47438,7 +47438,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "sshUrl",
@@ -51184,12 +51186,28 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>The name of the submodule in .gitmodules (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "path",
           "description": "<p>The path in the superproject that this submodule is located in.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The path in the superproject that this submodule is located in (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "subprojectCommitOid",
@@ -55135,6 +55153,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>Entry file name. (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "object",
           "description": "<p>Entry file object.</p>",
           "type": "GitObject",
@@ -55157,6 +55183,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The full path of the file. (Base64-encoded).</p>",
+          "type": "Base64String",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "repository",
