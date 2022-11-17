@@ -30,7 +30,7 @@ Use the official Octokit library, or choose between any of the available third p
 
 | Library name | Repository |
 |---|---|
-|**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|**Tentacles**| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 
