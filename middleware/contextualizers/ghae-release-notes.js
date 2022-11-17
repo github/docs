@@ -10,7 +10,10 @@ export default async function ghaeReleaseNotesContext(req, res, next) {
   )
     return next()
 
-  const ghaeReleaseNotes = getDeepDataByLanguage('release-notes.github-ae', req.language)
+  let ghaeReleaseNotes = getDeepDataByLanguage('release-notes.github-ae', req.language)
+  if ((!ghaeReleaseNotes || Object.keys(ghaeReleaseNotes).length === 0) && req.language !== 'en') {
+    ghaeReleaseNotes = getDeepDataByLanguage('release-notes.github-ae', 'en')
+  }
 
   // internalLatestRelease is set in lib/all-versions, e.g., '3.5' but UI still displays '@latest'.
   let requestedRelease = req.context.currentVersionObj.internalLatestRelease
