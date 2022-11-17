@@ -1,4 +1,5 @@
 import { formatReleases, renderPatchNotes } from '../../lib/release-notes-utils.js'
+import { getDeepDataByLanguage } from '../../lib/get-data.js'
 import { allVersions } from '../../lib/all-versions.js'
 
 export default async function ghaeReleaseNotesContext(req, res, next) {
@@ -9,7 +10,8 @@ export default async function ghaeReleaseNotesContext(req, res, next) {
   )
     return next()
 
-  const ghaeReleaseNotes = req.context.site.data['release-notes']['github-ae']
+  const ghaeReleaseNotes = getDeepDataByLanguage('release-notes.github-ae', req.language)
+
   // internalLatestRelease is set in lib/all-versions, e.g., '3.5' but UI still displays '@latest'.
   let requestedRelease = req.context.currentVersionObj.internalLatestRelease
 
