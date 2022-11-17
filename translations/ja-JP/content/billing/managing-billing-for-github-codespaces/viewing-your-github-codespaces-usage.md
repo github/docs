@@ -1,7 +1,7 @@
 ---
-title: Viewing your GitHub Codespaces usage
+title: GitHub Codespaces の使用状況の表示
 shortTitle: Viewing your usage
-intro: 'You can view the compute hours and storage used by {% data variables.product.prodname_github_codespaces %}.'
+intro: '{% data variables.product.prodname_github_codespaces %} によって使用されるコンピューティング時間とストレージを見ることができます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,63 +11,64 @@ topics:
   - Billing
 redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
+ms.openlocfilehash: 67e29ee71b1881ee2ae6e9ca872fd7969f86afca
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158742'
 ---
+## 個人アカウントの {% data variables.product.prodname_github_codespaces %} の使用状況を表示する
 
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your personal account
+現在の月単位の請求期間でこれまでに使用した個人アカウントに含まれている使用状況を確認できます。 支払い方法を設定し、使用制限を設定し、含まれているすべての使用量を使用している場合は、当月の請求書を確認することもできます。
 
-You can see how much of the usage included in your personal account you have used so far in the current monthly billing cycle. If you have set up a payment method, set a spending limit, and used all of your included usage, you can also check your bill for the current month.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. [{% data variables.product.prodname_codespaces %}] で、現在の請求月にこれまでに使用した {% data variables.product.prodname_github_codespaces %} コンピューティング使用量と GB 月のストレージのコア時間を確認できます。
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. Under "{% data variables.product.prodname_codespaces %}," you can see how many core hours of {% data variables.product.prodname_github_codespaces %} compute usage and GB-months of storage you have used so far in the current billing month.
+   ![個人の使用状況の初期ビューのスクリーンショット](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
-   ![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
+   "コア時間" と "GB 月" の詳細については、「[{% data variables.product.prodname_github_codespaces %} の課金について](/enterprise-cloud@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
-   For information about "core hours" and "GB-months," see "[About billing for {% data variables.product.prodname_github_codespaces %}](/enterprise-cloud@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+1. 必要に応じて、 **[使用時間]** と **[ストレージ]** をクリックして詳細を表示します。
 
-1. Optionally, click **Usage hours** and **Storage** to see more details.
+   ![個人の使用状況の展開されたビューのスクリーンショット](/assets/images/help/codespaces/view-personal-usage-expanded.png)
 
-   ![Screenshot of the expanded view of personal usage](/assets/images/help/codespaces/view-personal-usage-expanded.png)
+   **[含まれる]** 列には、今月これまでに使用したコンピューティング使用量のコア時間数、またはストレージの GB 月、アカウントに含まれる無料使用量が表示されます。 **[有料]** 列には、使用した使用量の請求済みのコア時間、またはストレージの GB 月が表示されます。 図は 1 時間ごとに 1 回更新されます。
 
-   The **Included** column shows how many of the core hours of compute usage, or GB-months of storage, included free with your account, you have used so far this month. The **Paid** column shows how many billed core hours of usage, or GB-months of storage, you have used. The figures are updated once every hour.
-
-   In the screenshot above, the entire quota of included storage for the month has been used. When you've used all of either the included compute usage or storage (whichever is reached first), you must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. For more information, see "[Adding or editing a payment method](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)" and "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)."
+   上のスクリーンショットでは、月に含まれるストレージのクォータ全体が使用されています。 含まれているコンピューティング使用量またはストレージのいずれかをすべて使用した場合 (どちらか早く到達した方)、現在の請求月中に {% data variables.product.prodname_github_codespaces %} を引き続き使用するには、支払い方法と使用制限を設定する必要があります。 詳細については、「[支払い方法の追加または編集](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)」および「[{% data variables.product.prodname_github_codespaces %} の使用制限の管理](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)」を参照してください。
 
 {% data reusables.codespaces.usage-report-download %}
 
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization account
+## 組織アカウントの {% data variables.product.prodname_github_codespaces %} の使用状況を表示する
 
-Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for the organization.
+組織については、組織所有者と支払いマネージャーが {% data variables.product.prodname_github_codespaces %} の使用状況を表示できます。
 
 {% data reusables.organizations.billing-settings %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
+1. [{% data variables.product.prodname_codespaces %}] で、今月これまでに使用されたコンピューティング時間とストレージについて詳しく説明します。
 
-   ![Screenshot of compute usage and storage details](/assets/images/help/billing/codespaces-compute-storage.png)
+   ![コンピューティング使用量とストレージの詳細のスクリーンショット](/assets/images/help/billing/codespaces-compute-storage.png)
 
-   You can also see and update your current spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+   現在の使用制限を確認して更新することもできます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の利用上限の管理](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)」をご覧ください。
 
    {% note %}
 
-   **Notes**: 
-   * The costs shown here are the cumulative costs within the current monthly billing period. The metered costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each monthly billing period. Outstanding costs from previous months are not shown.
-   * The figures on this page are updated every hour.
+   **注**: 
+   * ここで示されるコストは、現在の月単位の請求期間内の累積コストです。 このページに表示される {% data variables.product.prodname_github_codespaces %} の測定されたコストは、各月次請求期間の開始時にゼロにリセットされます。 前月の未払いコストは表示されません。
+   * このページの図は 1 時間ごとに更新されます。
 
    {% endnote %}
 
 {% data reusables.codespaces.usage-report-download %}
 
 {% ifversion ghec %}
-## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
+## エンタープライズ アカウントの {% data variables.product.prodname_codespaces %} の使用状況を表示する
 
-Enterprise owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an enterprise account.
+Enterprise アカウントについては、Enterprise 所有者と課金マネージャーが {% data variables.product.prodname_github_codespaces %} の使用状況を確認できます。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_codespaces %} monthly usage", view the usage details of each organization in your enterprise account.
-{% data reusables.codespaces.usage-report-download %}
-{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+1. [{% data variables.product.prodname_codespaces %} の 1 か月間の使用量] で、Enterprise アカウント内の各 Organization の使用状況の詳細を確認します。
+{% data reusables.codespaces.usage-report-download %} {% endif %}
 
-## Further reading
+## 参考資料
 
-- "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"
+- [組織内の codespace を一覧表示する](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)
