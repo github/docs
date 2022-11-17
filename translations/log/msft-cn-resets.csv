@@ -54,6 +54,7 @@ translations/zh-CN/content/actions/automating-builds-and-tests/building-and-test
 translations/zh-CN/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/overview-of-github-advanced-security-deployment.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/troubleshooting-ssl-errors.md,file deleted because it no longer exists in main
+translations/zh-CN/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/index.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/index.md,file deleted because it no longer exists in main
 translations/zh-CN/content/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes.md,file deleted because it no longer exists in main
@@ -358,6 +359,7 @@ translations/zh-CN/data/release-notes/enterprise-server/3-2/9.yml,file deleted b
 translations/zh-CN/data/reusables/actions/enterprise-s3-support-warning.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/hardware-requirements-3.6.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
+translations/zh-CN/data/reusables/actions/minio-gateways-removal.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
 translations/zh-CN/data/reusables/actions/self-hosted-runner-groups-navigate-to-repo-org-enterprise.md,file deleted because it no longer exists in main
@@ -546,6 +548,7 @@ translations/zh-CN/content/admin/enterprise-management/caching-repositories/conf
 translations/zh-CN/content/admin/enterprise-management/caching-repositories/index.md,rendering error
 translations/zh-CN/content/admin/enterprise-management/configuring-clustering/cluster-network-configuration.md,broken liquid tags
 translations/zh-CN/content/admin/enterprise-management/configuring-clustering/configuring-high-availability-replication-for-a-cluster.md,broken liquid tags
+translations/zh-CN/content/admin/enterprise-management/configuring-clustering/initializing-the-cluster.md,broken liquid tags
 translations/zh-CN/content/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard.md,broken liquid tags
 translations/zh-CN/content/admin/enterprise-management/monitoring-your-appliance/configuring-collectd.md,broken liquid tags
 translations/zh-CN/content/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise.md,broken liquid tags
@@ -583,6 +586,7 @@ translations/zh-CN/content/admin/identity-and-access-management/using-enterprise
 translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,rendering error
+translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
@@ -634,6 +638,7 @@ translations/zh-CN/content/admin/user-management/migrating-data-to-and-from-your
 translations/zh-CN/content/admin/user-management/migrating-data-to-and-from-your-enterprise/migrating-data-to-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on.md,rendering error
 translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on.md,rendering error
+translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions.md,broken liquid tags
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,rendering error
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys.md,rendering error
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
@@ -690,7 +695,6 @@ translations/zh-CN/content/code-security/code-scanning/automatically-scanning-yo
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
-translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests.md,rendering error
@@ -702,7 +706,6 @@ translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scannin
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
-translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system.md,rendering error
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts.md,rendering error
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts.md,rendering error
@@ -831,7 +834,7 @@ translations/zh-CN/content/discussions/collaborating-with-your-community-using-d
 translations/zh-CN/content/discussions/guides/finding-your-discussions.md,broken liquid tags
 translations/zh-CN/content/discussions/managing-discussions-for-your-community/managing-categories-for-discussions.md,broken liquid tags
 translations/zh-CN/content/discussions/managing-discussions-for-your-community/managing-discussions.md,broken liquid tags
-translations/zh-CN/content/discussions/managing-discussions-for-your-community/moderating-discussions.md,broken liquid tags
+translations/zh-CN/content/discussions/managing-discussions-for-your-community/moderating-discussions.md,rendering error
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students.md,broken liquid tags
 translations/zh-CN/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers.md,broken liquid tags
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,broken liquid tags
@@ -912,6 +915,7 @@ translations/zh-CN/content/organizations/managing-organization-settings/disablin
 translations/zh-CN/content/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,rendering error
+translations/zh-CN/content/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
 translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error

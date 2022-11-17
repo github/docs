@@ -47,9 +47,9 @@ jobs:
 
           # We'll be ready to add the following languages in a future effort.
 
-          # - language: ru
-          #   language_dir: translations/ru-RU
-          #   language_repo: github/docs-internal.ru-ru
+          - language: ru
+            language_dir: translations/ru-RU
+            language_repo: github/docs-internal.ru-ru
 
           # - language: ko
           #   language_dir: translations/ko-KR
