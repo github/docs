@@ -55,9 +55,9 @@ jobs:
           #   language_dir: translations/ko-KR
           #   language_repo: github/docs-internal.ko-kr
 
-          # - language: fr
-          #   language_dir: translations/fr-FR
-          #   language_repo: github/docs-internal.fr-fr
+          - language: fr
+            language_dir: translations/fr-FR
+            language_repo: github/docs-internal.fr-fr
 
           # - language: de
           #   language_dir: translations/de-DE

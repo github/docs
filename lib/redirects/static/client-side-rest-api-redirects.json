@@ -721,7 +721,7 @@
   "/rest/issues#events": "/rest/issues/events",
   "/rest/issues#get-an-issue-event": "/rest/issues/events#get-an-issue-event",
   "/rest/issues#get-an-issue": "/rest/issues/issues#get-an-issue",
-  "/rest/issues/#update-an-issue": "/rest/issues/issues#update-an-issue",
+  "/rest/issues#update-an-issue": "/rest/issues/issues#update-an-issue",
   "/rest/issues#add-assignees-to-an-issue": "/rest/issues/assignees#add-assignees-to-an-issue",
   "/rest/issues#remove-assignees-from-an-issue": "/rest/issues/assignees#remove-assignees-from-an-issue",
   "/rest/issues#list-issue-comments": "/rest/issues/comments#list-issue-comments",

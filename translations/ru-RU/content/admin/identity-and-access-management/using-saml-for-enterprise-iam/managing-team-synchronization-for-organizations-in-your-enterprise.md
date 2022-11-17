@@ -1,6 +1,6 @@
 ---
-title: Managing team synchronization for organizations in your enterprise
-intro: 'You can enable team synchronization between Azure AD and {% data variables.product.product_name %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
+title: Управление синхронизацией команд для организаций на предприятии
+intro: "Вы можете включить синхронизацию команд между Azure\_AD и {% data variables.product.product_name %}, чтобы позволить организациям, принадлежащим вашей корпоративной учетной записи, управлять членством в команде через группы поставщика удостоверений."
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'
@@ -16,13 +16,18 @@ redirect_from:
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
 shortTitle: Manage team synchronization
+ms.openlocfilehash: 1e29d70b0b8fcf78a8b03834e9436112634c636f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147076938'
 ---
-
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
-## About team synchronization for enterprise accounts
+## Сведения о синхронизации команд для учетных записей предприятия
 
-If you use SAML at the enterprise level with Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.
+Если вы используете SAML на уровне предприятия вместе с Azure AD в качестве поставщика удостоверений, можно включить синхронизацию команд для корпоративной учетной записи, чтобы позволить владельцам организации и координаторам команд синхронизировать команды в организациях, принадлежащих вашим корпоративным учетным записям, с группами поставщика удостоверений.
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
@@ -30,29 +35,24 @@ If you use SAML at the enterprise level with Azure AD as your IdP, you can enabl
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-You can also configure and manage team synchronization for an individual organization. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
+Вы также можете настроить синхронизацию команд и управлять ей для отдельной организации. Дополнительные сведения см. в разделе [Управление синхронизацией команд в организации](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization).
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 
-## Prerequisites
+## Предварительные требования
 
-You or your Azure AD administrator must be a Global administrator or a Privileged Role administrator in Azure AD.
+Вы или администратор Azure AD должны быть глобальным администратором или Администратором привилегированных ролей в Azure AD.
  
-You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+Вам необходимо применить единый вход SAML для организаций в своей учетной записи предприятия с помощью поддерживаемого поставщика удостоверений. Дополнительные сведения см. в разделе [Настройка единого входа SAML для вашего предприятия](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise).
 
-You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+Вам необходимо пройти проверку подлинности в своей учетной записи предприятия с помощью единого входа SAML и поддерживаемого поставщика удостоверений. Дополнительные сведения см. в разделе [Проверка подлинности с помощью единого входа SAML](/articles/authenticating-with-saml-single-sign-on).
 
-## Managing team synchronization for Azure AD
+## Управление синхронизацией команд для Azure AD
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
-{% data reusables.identity-and-permissions.enable-team-sync-azure %}
-{% data reusables.identity-and-permissions.team-sync-confirm %}
-7. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**.
-  ![Pending request to enable team synchronization to a specific IdP tenant with option to approve or cancel request](/assets/images/help/teams/approve-team-synchronization.png)
-8. To disable team synchronization, click **Disable team synchronization**.
-  ![Disable team synchronization](/assets/images/help/teams/disable-team-synchronization.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.team-sync-confirm-saml %} {% data reusables.identity-and-permissions.enable-team-sync-azure %} {% data reusables.identity-and-permissions.team-sync-confirm %}
+7. Просмотрите сведения о клиенте поставщика удостоверений, который вы хотите подключить к своей учетной записи предприятия, а затем нажмите кнопку **Утвердить**.
+  ![Ожидающий обработки запрос для включения синхронизации команды с конкретным клиентом поставщика удостоверений с возможностью утверждения или отмены запроса](/assets/images/help/teams/approve-team-synchronization.png)
+8. Чтобы отключить синхронизацию команд, нажмите кнопку **Disable team synchronization** (Отключить синхронизацию команд).
+  ![Отключение синхронизации команд](/assets/images/help/teams/disable-team-synchronization.png)

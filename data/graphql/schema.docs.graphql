@@ -26161,6 +26161,13 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     first: Int
 
     """
+    Whether to include those events where this sponsorable acted as the sponsor.
+    Defaults to only including events where this sponsorable was the recipient
+    of a sponsorship.
+    """
+    includeAsSponsor: Boolean = false
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -44994,6 +45001,13 @@ interface Sponsorable {
     first: Int
 
     """
+    Whether to include those events where this sponsorable acted as the sponsor.
+    Defaults to only including events where this sponsorable was the recipient
+    of a sponsorship.
+    """
+    includeAsSponsor: Boolean = false
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -53892,6 +53906,13 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Whether to include those events where this sponsorable acted as the sponsor.
+    Defaults to only including events where this sponsorable was the recipient
+    of a sponsorship.
+    """
+    includeAsSponsor: Boolean = false
 
     """
     Returns the last _n_ elements from the list.
