@@ -3,7 +3,7 @@ The table below summarizes whether dependency scope is supported for various eco
 | **Language** | **Ecosystem** | **Manifest file** | **Dependency scope supported** |
 |:---|:---:|:---:|:---|{% ifversion fpt or ghec or ghes > 3.7 %}
 | Dart | pub | pubspec.yaml |  ✔ |
-| Dart | pub | pubspec.lock |  ✔ |
+| Dart | pub | pubspec.lock |  ✔ |{% endif %}
 | Go | Go modules | go.mod | No, defaults to runtime |
 | Go | Go modules |	go.sum | No, defaults to runtime |
 | Java | Maven | pom.xml | ✔ `test` maps to development, else scope defaults to runtime |
