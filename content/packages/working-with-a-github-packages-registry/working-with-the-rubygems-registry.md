@@ -46,12 +46,7 @@ shortTitle: RubyGems registry
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with RubyGems by: 
-* editing the  *~/.gem/credentials* file for publishing gems
-* adding a source using `gem sources --add` for installing gems using `gem install`
-* using Bundler for installing gems from an application Gemfile
-
-#### Publishing Gems
+To publish and install gems, you can configure RubyGems or Bundler to authenticate to {% data variables.product.prodname_registry %} using your personal access token.
 
 To publish new gems, you need to authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing your *~/.gem/credentials* file to include your {% data variables.product.pat_v1 %}. Create a new *~/.gem/credentials* file if this file doesn't exist.
 
@@ -62,7 +57,6 @@ For example, you would create or edit a *~/.gem/credentials* to include the foll
 :github: Bearer TOKEN
 ```
 
-#### Installing Gems
 To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by updating your gem sources to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. You must replace:
   - `USERNAME` with your {% data variables.product.prodname_dotcom %} username.
   - `TOKEN` with your {% data variables.product.pat_v1 %}.
@@ -72,7 +66,7 @@ To install gems, you need to authenticate to {% data variables.product.prodname_
   - `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.
 {% endif %}
 
-If you would like your package to be available systemwide you can simply run the following command to add your registry as a source.
+If you would like your package to be available globally, you can run the following command to add your registry as a source.
 ```shell
 gem sources --add https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
 ```
