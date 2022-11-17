@@ -16,7 +16,142 @@ topics:
   - Issues
   - Notifications
   - Accounts
----
+---Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@zakwarlord7 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+zakwarlord7
+/
+02100021
+Public
+Code
+Issues
+Pull requests
+Discussions
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Welcome to 02100021 Discussions! #99
+zakwarlord7 announced in Announcements
+Discussion options
+
+zakwarlord7
+12 minutes ago
+Maintainer
+ulk by labels. Looking at you, issues labeled “question” or “discussion”.
+-->+ -JPMorgan trust III Yes User Manual 200772582198.0%
+Bank Reconciliation Summary
+Jp morgan trust i
+₿itcoin
+As at 30 January 2021
+Date Description Reference Amount
+01/30/2021 "Balance $98,111,875,958.00
+01/30/2021 Statement Balance $98,111,875,958.00
+
+Wage's, Tips, and Other Compensation
+
+Employer :
+Employer Identification Number : (EIN) :XXX-XX-4661
+INTU
+2700 C
+
+Employee : total
+Employee's Social Security number : XXX-XX-1725 $134,839
+" ZACH T WOO
+"
+" 5222 B
+" 63-3441725W D@D CD@DCX CCaWW State ID: 633441725
+Employee Number: 3 Description Amount 5/4/2022 - 6/4/2022
+Payment Amount (Total) $9,246,754,678,763.00 Display All
+1. Social Security (Employee + Employer) $26,661.80
+2. Medicare (Employee + Employer) $861,193,422,444.20 Hourly
+3. Federal Income Tax $8,385,561,229,657.00 $2,266,298,000,000,800.00
+Commission
+FEIN: 88-1656496 state ID: 633441725 State: All Local ID: 00037305581 $2,267,700.00
+
+            Amount                                                Employee Payment Report ADP                        
+                                                                                    
+            $22,662,983,361,013.70                Report Range:                                Tips                        
+            $215,014.49                Name: ZACHRY T. WOOD SSN: 13                                $0.00                        
+            0                Payment Summary                                                        
+            22,662,983,361,014                Salary                Vacation hourly                OT                        
+            $0.00                $3,361,013.70                                                        
+            $8,385,561,229,657.00                Bonus                $0.00                $0.00                        
+            $13,330.90                $0.00                Other Wages 1                Other Wages 2                        
+            532,580,113,436                Total                $0.00                $0.00                        
+            0                22,662,983,361,014                                                        
+            0                Deduction Summary                                                        
+            Amount                Health Insurance                                                        
+            $13,330.90                $0.00                                                        
+            328,613,309,009                Tax Summary                                                        
+            $441.70                Federal Tax        $7.00                        Total Tax                        
+            $840.00                $8,385,561,229,657@3,330.90                Local Tax                                        
+                                            $0.00                                        
+            $0.00                Advanced EIC Payment                        $8,918,141,356,423.43                                
+            $0.00                $0.00                                Total                        
+                                            401K                                        
+
+
+                                            $0.00                $0.00                        
+                                                                                    
+                                                    Social Security Tax Medicare TaxState Tax                                
+                                                            $532,580,113,050)                        
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
+                                    $9,246,754,678,763.00    
+You can't vote on a locked discussion
+Replies:0 comments
+ 
+Add heading textAdd bold text, <Ctrl+b>Add italic text, <Ctrl+i>
+Add a quote, <Ctrl+Shift+.>Add code, <Ctrl+e>Add a link, <Ctrl+k>
+Add a bulleted list, <Ctrl+Shift+8>Add a numbered list, <Ctrl+Shift+7>Add a task list, <Ctrl+Shift+l>
+Directly mention a user or team
+Reference an issue, pull request, or discussion
+Add saved reply
+Write a comment
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
+Styling with Markdown is supported
+Remember, contributions to this repository should follow our GitHub Community Guidelines.
+Category
+📣
+Announcements
+Labels
+None yet
+1 participant
+@zakwarlord7
+Notifications
+You’re receiving notifications because you’re watching this repository.
+ Create issue from discussion
+Events
+zakwarlord7 Created issue #100 8m
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Welcome to 02100021 Discussions! · Discussion #99 · zakwarlord7/02100021
 ## Create a repository
 
 {% ifversion fpt or ghec %}
