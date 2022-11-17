@@ -1,7 +1,7 @@
 The table below summarizes whether dependency scope is supported for various ecosystems and manifests, that is, whether {% data variables.product.prodname_dependabot %} can identify if a dependency is used for development or production.
 
 | **Language** | **Ecosystem** | **Manifest file** | **Dependency scope supported** |
-|:---|:---:|:---:|:---|
+|:---|:---:|:---:|:---|{% ifversion fpt or ghec or ghes > 3.7 %}
 | Dart | pub | pubspec.yaml |  ✔ |
 | Dart | pub | pubspec.lock |  ✔ |
 | Go | Go modules | go.mod | No, defaults to runtime |
