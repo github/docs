@@ -1,5 +1,5 @@
 ---
-title: Working with the npm registry
+title: Working with the npm registry and its functions
 intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
