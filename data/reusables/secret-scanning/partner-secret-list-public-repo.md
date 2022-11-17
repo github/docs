@@ -15,6 +15,8 @@ Azure | Azure CosmosDB Key Identifiable
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
 Azure | Azure ML Studio (classic) Web Service Key
 Azure | Azure SAS Token
+Azure | Azure Search Admin Key
+Azure | Azure Search Query Key
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String
 Azure | Azure Storage Account Key
