@@ -1,0 +1,4 @@
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghae: 'problème-5036'

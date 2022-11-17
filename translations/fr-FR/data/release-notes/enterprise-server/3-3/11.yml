@@ -1,0 +1,32 @@
+date: '2022-07-21'
+sections:
+  security_fixes:
+    - "**MOYENNE** : Empêche une attaque où une falsification de requête côté serveur (SSRF) pouvait potentiellement forcer le pont Subversion (SVN) à exécuter du code à distance en injectant des données arbitraires dans Memcached." 
+    - "**MOYENNE** : Empêche un attaquant d’exécuter du code JavaScript en exploitant une vulnérabilité XSS (cross-site scripting) dans les éléments de l’interface utilisateur déroulante de l’interface web de GitHub Enterprise Server." 
+    - "Mise à jour de Grafana vers la version 7.5.16, qui corrige diverses vulnérabilités de sécurité, notamment [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) et [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g)." 
+    - Les packages ont été mis à jour avec les dernières versions de sécurité.
+    - "**MOYENNE** : Une vulnérabilité XSS stockée a été identifiée dans GitHub Enterprise Server, permettant l’injection d’attributs arbitraires. Cette injection a été bloquée par la stratégie de sécurité du contenu (CSP) de Github. Cette vulnérabilité a été signalée via le programme GitHub Bug Bounty et a été affectée au numéro [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733). [Mise à jour : 2022-07-31]"
+
+
+  bugs:
+    - "Correction d’un problème où les fichiers à l’intérieur des archives zip des artefacts avaient des autorisations de 000 lorsqu’ils étaient décompressés à l’aide d’un outil de décompression. Maintenant, les fichiers auront les autorisations définies sur 644, de la même manière que dans GitHub.com." 
+    - "Dans certains cas, le démon collectd pouvait consommer une quantité excessive de mémoire." 
+    - "Dans certains cas, les sauvegardes des fichiers journaux en rotation pouvaient s’accumuler et consommer un excès de stockage." 
+    - "Après une mise à niveau vers une nouvelle mise en production de fonctionnalité et une exécution de configuration ultérieure, Elasticsearch pouvait enregistrer des exceptions excessives lors de la reconstruction des indices." 
+    - "Dans certains cas, lorsqu’une branche protégée nécessitait plus d’une révision approuvée, une demande de retrait pouvait être fusionnée avec moins que le nombre requis de révisions approuvées." 
+    - "Sur les instances utilisant l’authentification LDAP, l’invite d’authentification pour le mode sudo plaçait incorrectement le curseur dans le champ du mot de passe par défaut lorsque les champs de texte pour un nom d’utilisateur et un mot de passe étaient visibles." 
+  changes:
+    - L’utilitaire de ligne de commande `ghe-set-password` démarre automatiquement les services requis lorsque l’instance est démarrée en mode récupération. 
+    - Les métriques des processus d’arrière-plan `aqueduct` sont collectées pour le transfert Collectd et l’affichage dans la console de gestion. 
+    - "L’emplacement du journal d’exécution de la migration et de la configuration de la base de données, `/data/user/common/ghe-config.log`, est maintenant affiché sur la page qui détaille une migration en cours." 
+  known_issues:
+    - "Après la mise à niveau vers {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} peut ne pas démarrer automatiquement. Pour résoudre ce problème, connectez-vous à l’appliance via SSH et exécutez la commande `ghe-actions-start`."
+    - "Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur."
+    - Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.
+    - "Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel."
+    - "Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères."
+    - "Lorsque l’option « Les utilisateurs peuvent effectuer des recherches sur GitHub.com » est activée avec {% data variables.product.prodname_github_connect %}, les problèmes des référentiels privés et internes ne sont pas inclus dans les résultats de recherche de {% data variables.product.prodname_dotcom_the_website %}."
+    - "Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants."
+    - Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.
+    - 'Les paramètres de stockage de {% data variables.product.prodname_actions %} ne peuvent pas être validés et enregistrés dans la {% data variables.enterprise.management_console %} lorsque l’option « Forcer le style de chemin » est sélectionnée, et doivent être configurés avec l’utilitaire de ligne de commande `ghe-actions-precheck`.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
