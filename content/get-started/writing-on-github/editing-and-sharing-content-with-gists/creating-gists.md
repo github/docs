@@ -15,6 +15,10 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
+## What is a gists?
+
+A Gist is a simple way to share code snippets with others. Like a repository, each Gist has version control.
+
 ## About gists
 
 Every gist is a Git repository, which means that it can be forked and cloned. {% ifversion not ghae %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
