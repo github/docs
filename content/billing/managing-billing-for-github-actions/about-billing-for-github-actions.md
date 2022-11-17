@@ -88,8 +88,8 @@ At the end of the month, {% data variables.product.prodname_dotcom %} calculates
 For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
 
 - 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
-  - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
-  - 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
+- 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
+- 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
 
 {% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month.
 
