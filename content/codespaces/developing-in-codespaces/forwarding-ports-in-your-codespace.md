@@ -1,9 +1,112 @@
----
+Search
+Electron Forge - v6.0.1	All
+ Inherited
+Electron Forge - v6.0.1
+Electron Forge
+Build Status Discord npm version license status
+
+A complete tool for building modern Electron applications.
+
+Electron Forge unifies the existing (and well maintained) build tools for Electron development into a simple, easy to use package so that anyone can jump right in to Electron development.
+
+Website | Goals | Docs and Usage | Configuration | Support | Contributing | Changelog
+
+Note: The major version bump between v5.0.0 and v6.0.0 contains major breaking API changes and improvements. If you are new to Forge, we highly recommend using the latest version. If using an older version of Forge, we recommend upgrading to v6.0.0 or later.
+
+Getting Started
+Pre-requisities:
+
+Node 14.17.5 or higher
+Git
+If you have a more recent version of npm or yarn, you can use npx, or yarn create.
+
+npx create-electron-app my-new-app
+# or
+yarn create electron-app my-new-app
+
+# then
+cd my-new-app
+npm start
+Alternatively (less recommended):
+
+npm install -g @electron-forge/cli
+electron-forge init my-new-app
+cd my-new-app
+npm start
+For more information on creating a new project from a template, see our CLI documentation.
+
+Docs and Usage
+For Electron Forge documentation and usage you should check out our website: electronforge.io
+
+Project Goals
+Starting with Electron should be as simple as a single command.
+Developers shouldn't have to worry about setting up build tooling, native module rebuilding, etc. Everything should "just work" for them out of the box.
+Everything from creating the project to packaging the project for release should be handled by one core dependency in a standard way while still offering users maximum choice and freedom.
+With these goals in mind, under the hood this project uses, among others:
+
+@electron/rebuild: Automatically recompiles native Node.js modules against the correct Electron version.
+Electron Packager: Customizes and bundles your Electron app to get it ready for distribution.
+Contributing
+If you are interested in reporting/fixing issues and contributing directly to the code base, please see CONTRIBUTING.md for more information on what we're looking for and how to get started.
+
+Community
+Please report bugs or feature requests in our issue tracker. You can find help for debugging your Electron Forge on the Support page, and ask questions in the official Electron Discord server, where there is a dedicated channel for Electron Forge.
+
+All Modules
+Makers
+maker-appx
+maker-deb
+maker-dmg
+maker-flatpak
+maker-pkg
+maker-rpm
+maker-snap
+maker-squirrel
+maker-wix
+maker-zip
+Plugins
+plugin-auto-unpack-natives
+plugin-base
+plugin-compile
+plugin-electronegativity
+plugin-local-electron
+plugin-webpack
+Publishers
+publisher-base
+publisher-bitbucket
+publisher-electron-release-server
+publisher-github
+publisher-nucleus
+publisher-s3
+publisher-snapcraft
+Templates
+template-base
+template-webpack
+template-webpack-typescript
+Utils & Internal Helpers
+core
+core-utils
+maker-base
+shared-types
+test-utils
+web-multi-logger
+Legend
+Variable
+Function
+Function with type parameter
+Type alias
+Type alias with type parameter
+Class
+Class with type parameter
+Interface
+Settings
+Theme 
+OS---
 title: Forwarding ports in your codespace
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
 versions:
-  fpt: '*'
-  ghec: '*'
+  fpt: 'OPTIONAL'
+  cadd.i'@ghcr.yml: 'REQUIRE'
 redirect_from:
   - /github/developing-online-with-codespaces/forwarding-ports-in-your-codespace
 type: how_to
