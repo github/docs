@@ -802,7 +802,7 @@ translations/ru-RU/content/code-security/secret-scanning/protecting-pushes-with-
 translations/ru-RU/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,rendering error
 translations/ru-RU/content/code-security/secret-scanning/secret-scanning-patterns.md,rendering error
 translations/ru-RU/content/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database.md,rendering error
-translations/ru-RU/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,broken liquid tags
+translations/ru-RU/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,rendering error
 translations/ru-RU/content/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository.md,rendering error
 translations/ru-RU/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/ru-RU/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
@@ -818,7 +818,7 @@ translations/ru-RU/content/codespaces/codespaces-reference/security-in-github-co
 translations/ru-RU/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
 translations/ru-RU/content/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces.md,broken liquid tags
 translations/ru-RU/content/codespaces/overview.md,rendering error
-translations/ru-RU/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
+translations/ru-RU/content/codespaces/the-githubdev-web-based-editor.md,rendering error
 translations/ru-RU/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
@@ -1089,7 +1089,7 @@ translations/ru-RU/content/repositories/releasing-projects-on-github/linking-to-
 translations/ru-RU/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
 translations/ru-RU/content/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md,rendering error
 translations/ru-RU/content/repositories/working-with-files/managing-files/adding-a-file-to-a-repository.md,rendering error
-translations/ru-RU/content/repositories/working-with-files/managing-files/navigating-files-with-the-new-code-view.md,broken liquid tags
+translations/ru-RU/content/repositories/working-with-files/managing-files/navigating-files-with-the-new-code-view.md,rendering error
 translations/ru-RU/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,rendering error
 translations/ru-RU/content/repositories/working-with-files/using-files/getting-permanent-links-to-files.md,rendering error
 translations/ru-RU/content/rest/activity/notifications.md,rendering error
