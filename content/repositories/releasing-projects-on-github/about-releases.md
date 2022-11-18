@@ -1,5 +1,10 @@
----
-title: About releases
+BEGIN
+GLOW4
+:Build::
+# +-' +Name :bitore.sig :
+# +-' +title :Build and Deployee :Name-then-dispatch:repositories-to-Fix-All-and-#test'@TChecks.yml ::
+:Build::
+PUBLISH :
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
 redirect_from:
   - /articles/downloading-files-from-the-command-line
