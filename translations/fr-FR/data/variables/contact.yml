@@ -1,0 +1,46 @@
+contact_ent_support: '[Support GitHub Enterprise](https://support.github.com/contact?tags=docs-generic)'
+
+contact_support: >-
+  {% ifversion fpt or ghec %} [Support GitHub](https://support.github.com/contact?tags=docs-generic){% elsif ghes %}votre administrateur de site{% elsif ghae %}votre propriétaire d’entreprise{% endif %}
+report_abuse: >-
+  {% ifversion fpt or ghec %}[Signaler un abus](https://github.com/contact/report-abuse){% endif %}
+report_content: >-
+  {% ifversion fpt or ghec %}[Signaler du contenu](https://github.com/contact/report-content){% endif %}
+contact_dmca: >-
+  {% ifversion fpt or ghec %}[Plaintes liées au droit d’auteur](https://github.com/contact/dmca){% endif %}
+contact_privacy: >-
+  {% ifversion fpt or ghec %}[Formulaire de contact relatif à la confidentialité](https://github.com/contact/privacy){% endif %}
+contact_enterprise_sales: "[L’équipe de vente GitHub](https://github.com/enterprise/contact)"
+
+contact_feedback_actions: '[Discussions de la communauté GitHub pour GitHub Actions](https://github.com/orgs/community/discussions/categories/actions-and-packages)'
+
+# The team that provides Standard Support
+enterprise_support: 'Support GitHub Enterprise'
+
+# The larger team that includes Enterprise Support and Premium Support
+github_support: 'Support GitHub'
+
+# The team that provides Premium Support
+premium_support: 'Support Premium GitHub'
+
+# Enterprise Support portal (previously the Zendesk portal at enterprise.githubsupport.com)
+enterprise_portal: 'Portail de support GitHub'
+contact_enterprise_portal: '[Portail de support GitHub](https://support.github.com/contact?tags=docs-generic)'
+
+# Azure support (GitHub AE) portal
+ae_azure_portal: 'Portail de support Azure'
+contact_ae_portal: '[Portail de support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
+
+# GitHub Support portal (for dotcom - this sends users to a contact form)
+support_portal: 'Portail de support GitHub'
+contact_support_portal: '[Portail de support GitHub](https://support.github.com/contact?tags=docs-generic)'
+
+# GitHub Support portal (this sends users to the Support landing page)
+landing_page_portal: 'Portail de support GitHub'
+contact_landing_page_portal: '[Portail d’assistance GitHub](https://support.github.com/)'
+
+# The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
+community_support: 'Support de la communauté GitHub'
+
+# GitHub Community discussions
+community_support_forum: '[Discussions de la communauté GitHub](https://github.com/orgs/community/discussions)'

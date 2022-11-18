@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1162ab428d4c20f7f0ca4af8c1ec743b30e42852
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 4f04b4395ec12d834bc4d8f350b302c09badea6d
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148109085"
+ms.lasthandoff: 11/12/2022
+ms.locfileid: "148163180"
 ---
 | アクション | 説明
 |------------------|-------------------

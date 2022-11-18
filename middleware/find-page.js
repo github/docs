@@ -29,6 +29,16 @@ export default async function findPage(
   if (page) {
     req.context.page = page
     req.context.page.version = req.context.currentVersion
+
+    // We can't depend on `page.hidden` because the dedicated search
+    // results page is a hidden page but it needs to offer all possible
+    // languages.
+    if (page.relativePath.startsWith('early-access')) {
+      // Override the languages to be only English
+      req.context.languages = {
+        en: req.context.languages.en,
+      }
+    }
   }
 
   return next()

@@ -285,6 +285,7 @@ sections:
         - |
           Users can write mathematical expressions using fenced code blocks with the `math` syntax in addition to the existing delimiters. `$$` is not required with this method. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
 
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.7. The feature will be available in an upcoming release. [Updated: 2022-11-16]
         # https://github.com/github/releases/issues/2105
         - |
           Users can render maps directly in Markdown using fenced code blocks with the `geojson` or `topojson` syntax, and embed STL 3D renders using `stl` syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
@@ -323,8 +324,31 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      In some cases after upgrading to GitHub Enterprise Server 3.7.0, users may encounter `Internal Server Error` or `500` errors when initiating `git` operations over SSH or HTTPS. Example:
+
+        ```
+        git push origin master
+        Total 0 (delta 0), reused 0 (delta 0)
+        remote: Internal Server Error
+        To ghes.hostname.com:User/repo.git
+        ! [remote rejected]       master -> master (Internal Server Error)
+        ```
+      
+      If these are encountered, please [contact GitHub Enterprise Support](/support/contacting-github-support/creating-a-support-ticket) with a support bundle. The known temporary workaround at this time is to restart the `github-gitauth` service with the commands below:
+
+        ```
+        nomad stop github-gitauth
+        nomad run /etc/nomad-jobs/github/gitauth.hcl
+        nomad status git
+        ```
+      We are currently investigating a permanent fix for a future hot patch.
 
   deprecations:
+    # https://github.com/github/enterprise-releases/issues/3217
+    - |
+      **Upcoming deprecation**: In GitHub Enterprise Server 3.8 and later, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+
     # https://github.com/github/releases/issues/2395
     - Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
 

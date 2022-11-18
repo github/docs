@@ -15,7 +15,10 @@ Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key
 Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %} | azure_devops_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
+Azure | Azure ML Studio (classic) Web Service Key | azure_ml_web_service_classic_identifiable_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+Azure | Azure Search Admin Key | azure_search_admin_key
+Azure | Azure Search Query Key | azure_search_query_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key

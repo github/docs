@@ -1,6 +1,6 @@
 ---
-title: Inicializar o cluster
-intro: 'Um cluster do {% data variables.product.prodname_ghe_server %} deve ser configurado com uma licença e inicializado usando o shell administrativo (SSH).'
+title: Initializing the cluster
+intro: 'A {% data variables.product.prodname_ghe_server %} cluster must be set up with a license and initialized using the administrative shell (SSH).'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
   - /enterprise/admin/enterprise-management/initializing-the-cluster
@@ -11,111 +11,151 @@ type: how_to
 topics:
   - Clustering
   - Enterprise
-ms.openlocfilehash: ea771194e8bf5104707a645c4ee18473ff235153
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146331813'
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-## Instalar o {% data variables.product.prodname_ghe_server %}
+## Installing {% data variables.product.prodname_ghe_server %}
 
-1. Em cada nó de cluster, provisione e instale o {% data variables.product.prodname_ghe_server %}. Para obter mais informações, confira "[Como configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)".
-2. Usando o shell administrativo ou o DHCP, configure **apenas** o endereço IP de cada nó. Não altere nenhuma outra configuração.
+1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+2. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
 
-## Configurar o primeiro nó
+## Configuring the first node
 
-1. Conecte-se ao nó que será designado como o primário do MySQL em `cluster.conf`. Para obter mais informações, confira "[Sobre o arquivo de configuração do cluster](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
-2. No navegador da Web, acesse `https://<ip address>:8443/setup/`.
-{% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} {% data reusables.enterprise_installation.instance-will-restart-automatically %}
+1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
+2. In your web browser, visit `https://<ip address>:8443/setup/`.
+{% data reusables.enterprise_installation.upload-a-license-file %}
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
+{% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-## Inicializar o cluster
+## Initializing the cluster
 
-Para inicializar o cluster, você precisa ter um arquivo de configuração do cluster (`cluster.conf`). Para obter mais informações, confira "[Sobre o arquivo de configuração do cluster](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
-1. No primeiro nó que foi configurado, execute `ghe-cluster-config-init`.  Essa ação inicializará o cluster caso haja nós no arquivo de configuração que não estão configurados.
-2. Execute `ghe-cluster-config-apply`. Isso validará o arquivo `cluster.conf`, aplicará a configuração a cada arquivo de nó e apresentará os serviços configurados em cada nó.
+1. From the first node that was configured, run `ghe-cluster-config-init`.  This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
+2. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
 
-Para verificar o status de um cluster em execução, use o comando `ghe-cluster-status`.
+To check the status of a running cluster use the `ghe-cluster-status` command.
 
-## Sobre o arquivo de configuração do cluster
+## About the cluster configuration file
 
-O arquivo de configuração do cluster (`cluster.conf`) define os nós no cluster e os serviços que eles executam.
-Para obter mais informações, confira "[Sobre os nós de cluster](/enterprise/admin/guides/clustering/about-cluster-nodes)".
+The cluster configuration file (`cluster.conf`) defines the nodes in the cluster, and what services they run.
+For more information, see "[About cluster nodes](/enterprise/admin/guides/clustering/about-cluster-nodes)."
 
-Este exemplo de `cluster.conf` define um cluster com cinco nós.
+This example `cluster.conf` defines a cluster with 11 nodes.
 
-  - Dois nós (chamados `ghe-app-node-\*`) executam os serviços `web-server` e `job-server` responsáveis por responder às solicitações do cliente.
-  - Três nós (chamados `ghe-data-node-\*`) executam os serviços responsáveis pelo armazenamento e pela recuperação dos dados do {% data variables.product.prodname_ghe_server %}.
+  - Two nodes called `ghes-front-end-node-\*` run services responsible for responding to client requests.
+  - Three nodes called `ghes-database-node-\*` run services responsible for storage, retrieval, and replication of database data.
+  - Three nodes called `ghes-search-node-\*` run services responsible for search functionality.
+  - Three nodes called `ghes-storage-node-\*` run services responsible for storage, retrieval, and replication of data.
 
-Os nomes dos nós podem ser qualquer nome de host válido. Os nomes são definidos como o nome do host de cada nó e serão adicionados a `/etc/hosts` em cada nó, de modo que os nós possam ser resolvidos localmente entre si.
+The names of the nodes can be any valid hostname you choose. The names are set as the hostname of each node, and will also be added to `/etc/hosts` on each node, so that the nodes are locally resolvable to each other.
 
-Especifique o primeiro nó de cluster que você configurou como o primário do MySQL por meio de `mysql-server` e `mysql-master`.
+Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
 
 ```ini
 [cluster]
-  mysql-master = ghe-data-node-1
-  redis-master = ghe-data-node-1
-  primary-datacenter = default
-[cluster "ghe-app-node-1"]
-  hostname = ghe-app-node-1
+  mysql-master = ghes-database-node-1
+  redis-master = ghes-database-node-1
+  primary-datacenter = primary
+[cluster "ghes-front-end-node-1"]
+  hostname = ghes-front-end-node-1
   ipv4 = 192.168.0.2
   # ipv6 = fd12:3456:789a:1::2
+  consul-datacenter = primary
+  datacenter = primary
   web-server = true
   job-server = true
-[cluster "ghe-app-node-2"]
-  hostname = ghe-app-node-2
+  memcache-server = true
+[cluster "ghes-front-end-node-2"]
+  hostname = ghes-front-end-node-2
   ipv4 = 192.168.0.3
   # ipv6 = fd12:3456:789a:1::3
+  consul-datacenter = primary
+  datacenter = primary
   web-server = true
   job-server = true
-[cluster "ghe-data-node-1"]
-  hostname = ghe-data-node-1
+  memcache-server = true
+[cluster "ghes-database-node-1"]
+  hostname = ghes-database-node-1
   ipv4 = 192.168.0.4
   # ipv6 = fd12:3456:789a:1::4
+  consul-datacenter = primary
+  datacenter = primary
   consul-server = true
-  consul-datacenter = default
-  git-server = true
-  pages-server = true
   mysql-server = true
-  elasticsearch-server = true
   redis-server = true
-  memcache-server = true
-  metrics-server = true
-  storage-server = true
-[cluster "ghe-data-node-2"]
-  hostname = ghe-data-node-2
+[cluster "ghes-database-node-2"]
+  hostname = ghes-database-node-2
   ipv4 = 192.168.0.5
   # ipv6 = fd12:3456:789a:1::5
+  consul-datacenter = primary
+  datacenter = primary
   consul-server = true
-  consul-datacenter = default
-  git-server = true
-  pages-server = true
   mysql-server = true
-  elasticsearch-server = true
   redis-server = true
-  memcache-server = true
-  metrics-server = true
-  storage-server = true
-[cluster "ghe-data-node-3"]
-  hostname = ghe-data-node-3
+[cluster "ghes-database-node-3"]
+  hostname = ghes-database-node-3
   ipv4 = 192.168.0.6
   # ipv6 = fd12:3456:789a:1::6
+  consul-datacenter = primary
+  datacenter = primary
   consul-server = true
-  consul-datacenter = default
+  mysql-server = true
+  redis-server = true
+[cluster "ghes-search-node-1"]
+  hostname = ghes-search-node-1
+  ipv4 = 192.168.0.7
+  # ipv6 = fd12:3456:789a:1::7
+  consul-datacenter = primary
+  datacenter = primary
+  elasticsearch-server = true
+[cluster "ghes-search-node-2"]
+  hostname = ghes-search-node-2
+  ipv4 = 192.168.0.8
+  # ipv6 = fd12:3456:789a:1::8
+  consul-datacenter = primary
+  datacenter = primary
+  elasticsearch-server = true
+[cluster "ghes-search-node-3"]
+  hostname = ghes-search-node-3
+  ipv4 = 192.168.0.9
+  # ipv6 = fd12:3456:789a:1::9
+  consul-datacenter = primary
+  datacenter = primary
+  elasticsearch-server = true
+[cluster "ghes-storage-node-1"]
+  hostname = ghes-storage-node-1
+  ipv4 = 192.168.0.10
+  # ipv6 = fd12:3456:789a:1::10
+  consul-datacenter = primary
+  datacenter = primary
   git-server = true
   pages-server = true
-  mysql-server = true
-  elasticsearch-server = true
-  redis-server = true
-  memcache-server = true
-  metrics-server = true
   storage-server = true
+  metrics-server = true
+[cluster "ghes-storage-node-2"]
+  hostname = ghes-storage-node-2
+  ipv4 = 192.168.0.11
+  # ipv6 = fd12:3456:789a:1::11
+  consul-datacenter = primary
+  datacenter = primary
+  git-server = true
+  pages-server = true
+  storage-server = true
+  metrics-server = true
+[cluster "ghes-storage-node-3"]
+  hostname = ghes-storage-node-3
+  ipv4 = 192.168.0.12
+  # ipv6 = fd12:3456:789a:1::12
+  consul-datacenter = primary
+  datacenter = primary
+  git-server = true
+  pages-server = true
+  storage-server = true
+  metrics-server = true
 ```
 
-Crie o arquivo `/data/user/common/cluster.conf` no primeiro nó configurado. Por exemplo, usando `vim`:
+Create the file `/data/user/common/cluster.conf` on the configured first node. For example, using `vim`:
 
    ```shell
    ghe-data-node-1:~$ sudo vim /data/user/common/cluster.conf

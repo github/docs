@@ -1,0 +1,14 @@
+product_name_long: 'Хранилище больших файлов Git'
+product_name_short: 'Git LFS'
+warning_size: '50 MБ'
+max_github_size: '100 МБ'
+max_github_browser_size: '25 Мб'
+initial_bandwidth_quota: '1 ГБ'
+initial_storage_quota: '1 ГБ'
+max_lfs_size: '2 ГБ'
+max_file_size: '2 ГБ'
+command_name: lfs
+version_name: "https://git-lfs.github.com/spec/v1"
+pack_monthly_price: 5 долл. США в месяц
+pack_monthly_bandwidth: '50 ГБ'
+pack_monthly_storage: '50 ГБ'
