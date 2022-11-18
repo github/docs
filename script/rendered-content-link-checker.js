@@ -69,6 +69,7 @@ program
   .option('--bail', 'Exit on the first possible flaw')
   .option('--verbose-url <BASE_URL>', 'Print the absolute URL if set')
   .option('--fail-on-flaw', 'Throw error on link flaws (default: false)')
+  .option('--external-server-errors-as-warning', 'Treat server errors as warning (default: false)')
   .option('--max <number>', 'integer argument (default: none)', (value) => {
     const parsed = parseInt(value, 10)
     if (isNaN(parsed)) {
