@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1162ab428d4c20f7f0ca4af8c1ec743b30e42852
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 4f04b4395ec12d834bc4d8f350b302c09badea6d
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107863"
+ms.lasthandoff: 11/12/2022
+ms.locfileid: "148163176"
 ---
 | Ação | Descrição
 |------------------|-------------------
@@ -15,6 +15,6 @@ ms.locfileid: "148107863"
 | `disable_workflow` | Acionada quando um fluxo de trabalho está desabilitado.
 | `enable_workflow` | Disparada quando um fluxo de trabalho é habilitado, depois de ter sido desabilitado por `disable_workflow`.
 | `rerun_workflow_run` | Acionada quando uma execução do fluxo de trabalho é executada novamente. Para obter mais informações, confira "[Como executar novamente um fluxo de trabalho](/actions/managing-workflow-runs/re-running-a-workflow)".
-| `prepared_workflow_job` | Acionada quando um trabalho no fluxo de trabalho é iniciado. Inclui a lista de segredos que foram fornecidos ao trabalho. Só pode ser visto usando a API REST. Não é visível na interface da web de {% data variables.product.prodname_dotcom %} ou incluído na exportação do JSON/CSV. Para obter mais informações, confira "[Eventos que disparam fluxos de trabalho](/actions/reference/events-that-trigger-workflows)".
+| `prepared_workflow_job` | Acionada quando um trabalho no fluxo de trabalho é iniciado. Inclui a lista de segredos que foram fornecidos ao trabalho. Só pode ser visto usando a API REST. Não é visível na interface da web do {% data variables.product.prodname_dotcom %} nem incluído na exportação do JSON/CSV. Para obter mais informações, confira "[Eventos que disparam fluxos de trabalho](/actions/reference/events-that-trigger-workflows)".
 | `approve_workflow_job` | Acionada quando um trabalho no fluxo de trabalho foi aprovado. Para obter mais informações, confira "[Como revisar implantações](/actions/managing-workflow-runs/reviewing-deployments)".
 | `reject_workflow_job` | Acionada quando um trabalho no fluxo de trabalho foi rejeitado. Para obter mais informações, confira "[Como revisar implantações](/actions/managing-workflow-runs/reviewing-deployments)".

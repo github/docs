@@ -77,8 +77,15 @@ const deprecatedVersionPrefixesRegex = new RegExp(
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
   // Optional env vars
-  const { ACTION_RUN_URL, LEVEL, FILES_CHANGED, REPORT_REPOSITORY, REPORT_AUTHOR, REPORT_LABEL } =
-    process.env
+  const {
+    ACTION_RUN_URL,
+    LEVEL,
+    FILES_CHANGED,
+    REPORT_REPOSITORY,
+    REPORT_AUTHOR,
+    REPORT_LABEL,
+    EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
+  } = process.env
 
   const octokit = github()
 
@@ -113,6 +120,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     reportLabel: REPORT_LABEL,
     reportAuthor: REPORT_AUTHOR,
     actionContext: getActionContext(),
+    externalServerErrorsAsWarning: EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
   }
 
   if (opts.shouldComment || opts.createReport) {
@@ -155,6 +163,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  random {boolean} - Randomize page order for debugging when true
  *  patient {boolean} - Wait longer and retry more times for rate-limited external URLS
  *  bail {boolean} - Throw an error on the first page (not permalink) that has >0 flaws
+ *  externalServerErrorsAsWarning {boolean} - Treat >=500 errors or temporary request errors as warning
  *
  */
 async function main(core, octokit, uploadArtifact, opts = {}) {
@@ -583,6 +592,7 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
     checkExternalLinks,
     verbose,
     patient,
+    externalServerErrorsAsWarning,
   } = opts
   const html = await renderInnerHTML(page, permalink)
   const $ = cheerio.load(html)
@@ -613,6 +623,7 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
         pageMap,
         checkAnchors,
         checkExternalLinks,
+        externalServerErrorsAsWarning,
         { verbose, patient },
         db
       )
@@ -758,6 +769,7 @@ async function checkHrefLink(
   pageMap,
   checkAnchors = false,
   checkExternalLinks = false,
+  externalServerErrorsAsWarning = false,
   { verbose = false, patient = false } = {},
   db = null
 ) {
@@ -815,9 +827,37 @@ async function checkHrefLink(
     }
     const { ok, ...info } = await checkExternalURLCached(core, href, { verbose, patient }, db)
     if (!ok) {
-      return { CRITICAL: `Broken external link (${JSON.stringify(info)})`, isExternal: true }
+      // By default, an not-OK problem with an external link is CRITICAL
+      // but if it was a `responseError` or the statusCode was >= 500
+      // then downgrade it to WARNING.
+      let problem = 'CRITICAL'
+      if (externalServerErrorsAsWarning) {
+        if (
+          (info.statusCode && info.statusCode >= 500) ||
+          (info.requestError && isTemporaryRequestError(info.requestError))
+        ) {
+          problem = 'WARNING'
+        }
+      }
+      return { [problem]: `Broken external link (${JSON.stringify(info)})`, isExternal: true }
     }
   }
+}
+
+// Return true if the request error is sufficiently temporary. For example,
+// a request to `https://exammmmple.org` will fail with `ENOTFOUND` because
+// the DNS entry doesn't exist. It means it won't have much hope if you
+// simply try again later.
+// However, an `ETIMEDOUT` means it could work but it didn't this time but
+// might if we try again a different hour or day.
+function isTemporaryRequestError(requestError) {
+  if (typeof requestError === 'string') {
+    // See https://betterstack.com/community/guides/scaling-nodejs/nodejs-errors/
+    // for a definition of each one.
+    const errorEnums = ['ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT', 'ECONNABORTED']
+    return errorEnums.some((enum_) => requestError.includes(enum_))
+  }
+  return false
 }
 
 // Can't do this memoization within the checkExternalURL because it can
@@ -844,7 +884,10 @@ async function checkExternalURLCached(core, href, { verbose, patient }, db) {
     }
   }
 
-  const result = await checkExternalURL(core, href, { verbose, patient })
+  const result = await checkExternalURL(core, href, {
+    verbose,
+    patient,
+  })
 
   if (cacheMaxAge) {
     // By only cache storing successful results, we give the system a chance

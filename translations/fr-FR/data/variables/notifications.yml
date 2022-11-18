@@ -1,0 +1,4 @@
+no_reply_address: >-
+  {% ifversion fpt or ghec %}`noreply@github.com`{% else %}l’adresse e-mail no-reply configurée par l’administrateur de votre site{% endif %}
+cc_address: >-
+  {% ifversion fpt or ghec %}`@noreply.github.com`{% else %}en fonction de l’adresse e-mail no-reply configurée par l’administrateur de votre site{% endif %}

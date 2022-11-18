@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 0a42d7b90fd6973a0d52e7cff8dfc3082de11135
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 64c92d2427b9be166d820bf3fcb23d39d449a295
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145100530"
+ms.lasthandoff: 11/14/2022
+ms.locfileid: "148163432"
 ---
-如果无法连接组织所有者，则由一个唯一组织所有者维护和管理的项目很容易变成无法访问。 建议一个组织至少有两个人拥“所有者”权限，以确保任何人都不会失去对项目的访问。
+如果组织只有一个所有者，那么在无法联系到所有者的情况下，组织项目可能会不可访问。 为了确保任何人都不会失去对项目的访问权限，建议每个组织中至少有两个人具有所有者角色。
