@@ -86,6 +86,16 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
+{% ifversion ghes < 3.6 or ghae < 3.6 %}
+
+{% tip %}
+
+**Tip:** You can use {% data variables.product.prodname_secret_scanning %} as a push protection from the web UI, as well as the command line, in {% data variables.product.product_name %} version 3.6 or later.
+
+{% endtip %}
+
+{% endif %}
+
 ### Allowing a blocked secret to be pushed
 
 If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
@@ -136,5 +146,6 @@ If you confirm a secret is real and that you intend to fix it later, you should 
   ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
 
 1. Click **Allow secret**.
+
 
 {% endif %}

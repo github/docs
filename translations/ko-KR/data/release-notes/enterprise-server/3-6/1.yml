@@ -1,0 +1,33 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - 임시 액세스를 위해 리포지토리의 잠금을 해제한 후 사이트 관리자가 리포지토리의 보안 제품에 대한 설정을 관리할 수 없습니다. 
+    - 관리 콘솔과 `/home/admin/.ssh/authorized_keys` 파일 모두에 중복된 관리 SSH 키가 나타날 수 있습니다.
+    - "기능이 포함된 <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code>에서 개별 사용자에 대한 사이트 관리자 페이지는 GitHub Enterprise Server용이 아닙니다."  
+    - 경우에 따라 `ghe-cluster-config-apply`를 실행하면 빈 구성이 클러스터의 기존 노드에 복제될 수 있습니다. 
+    - 경우에 따라 `ghe-config-apply`로 시작된 구성 실행이 완료되지 않았거나 `Container count mismatch` 오류를 반환했습니다. 
+    - GitHub Enterprise Server 인스턴스에서 자체 서명된 TLS 인증서를 업데이트한 후 웹 인터페이스의 일부 페이지에 UI 요소가 나타나지 않았습니다. 
+    - 일부 경우에는 스레드가 안전하지 않음에도 불구하고 동시에 사용된 라이브러리로 인해 백그라운드 작업이 중단될 수 있습니다.
+    - 웹 인터페이스 위쪽의 사이트 관리 표시줄에 현재 실행 중인 애플리케이션 버전의 SHA에 대한 끊어진 링크가 포함되었습니다.
+    - 조직 소유자는 토론을 만드는 데 필요한 액세스 수준을 설정할 수 없었습니다. 
+    - 토론 사용자가 GitHub.com의 커뮤니티 지침을 잘못 참조했습니다.
+    - 토론을 만들기 전에 이메일을 확인하라는 잘못된 지시를 받은 경우도 있습니다.
+    - 사이트 관리자가 GitHub Enterprise Server 3.4로 직접 업그레이드하지 않은 경우 GitHub Advanced Security 고객에 대한 비밀 검사의 경고가 웹 UI 및 REST API에서 누락되었습니다. 이제 경고가 표시됩니다.
+  changes:
+    - "병렬 로그 검사를 통해 지원 번들을 더 빠르게 생성할 수 있습니다. 지원 번들에 대한 자세한 내용은 \"[GitHub 지원에 데이터 지원](/support/contacting-github-support/providing-data-to-github-support)\"을 참조하세요."
+    - "`organization` 또는 `org` 경로를 포함하는 API는 이제 조직의 슬러그 또는 ID를 허용합니다. 이전에는 API가 슬래그만 허용했기 때문에 GitHub Advanced Security 엔드포인트에 대한 `Link` 헤더에 액세스할 수 없었습니다. 자세한 내용은 REST API 설명서에서 \"[조직](https://docs.github.com/rest/orgs/orgs)\"을 참조하세요." 
+    - "엔터프라이즈 감사 로그에는 이제 `project.create`와 같은 사용자 생성 이벤트가 더 많이 포함됩니다. REST API는 `repo.create`와 같은 추가 사용자 생성 이벤트도 반환합니다. 자세한 내용은 \"[엔터프라이즈의 감사 로그에 액세스](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)\" 및 \"[엔터프라이즈의 감사 로그 API 사용](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)\"을 참조하세요."
+    - "경우에 따라 캐시 복제본이 최근에 업데이트된 리포지토리에서 일부 Git 작업을 거부할 수 있습니다. 리포지토리 캐싱에 대한 자세한 내용은 \"[리포지토리 캐싱 정보](/admin/enterprise-management/caching-repositories/about-repository-caching)\"를 참조하세요." 
+    - "이제 REST API를 사용하여 전역 공지 배너를 해제할 수 있도록 구성할 수 있습니다. 자세한 내용은 \"[엔터프라이즈에 대한 사용자 메시지 사용자 지정](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)\"을 참조하세요." 
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - 다른 호스트에서 수행한 백업에서 인스턴스가 복원되면 Actions 서비스를 다시 시작해야 합니다.
+    - 리포지토리 설정에서 읽기 권한을 가진 사용자가 토론을 만들 수 있도록 허용하는 옵션을 활성화해도 이 기능을 활성화하지 않습니다.
+    - 경우에 따라 사용자는 기존 이슈를 토론으로 변환할 수 없습니다.
+    - "비밀 검사에 대한 사용자 지정 패턴에는 특히 \"비밀 이후\" 필드에서 종료 구분 기호로 `.*`가 있습니다. 이 구분 기호로 인해 리포지토리 전체의 비밀 검사에서 불일치가 발생하며, 검사가 완료되지 않은 리포지토리의 기록에서 차이를 확인할 수 있습니다. 증분 검사도 영향을 받을 수 있습니다. 검사와 관련된 이슈를 방지하려면 '.*' 구분 기호를 제거하도록 패턴 끝을 수정합니다."
