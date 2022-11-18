@@ -33,7 +33,7 @@ Windows Server 2019
 Ubuntu 22.04
 </td>
 <td>
-<code>ubuntu-22.04</code>
+<code>ubuntu-latest</code> or <code>ubuntu-22.04</code>
 </td>
 <td>
 </td>
@@ -43,7 +43,7 @@ Ubuntu 22.04
 Ubuntu 20.04
 </td>
 <td>
-<code>ubuntu-latest</code> or <code>ubuntu-20.04</code>
+<code>ubuntu-20.04</code>
 </td>
 </tr>
 <tr>
