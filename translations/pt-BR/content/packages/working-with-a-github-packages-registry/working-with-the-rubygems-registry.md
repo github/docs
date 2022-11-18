@@ -36,12 +36,6 @@ shortTitle: RubyGems registry
   Bundler version 1.13.7
   ```
 
-- Install keycutter to manage multiple credentials. To install keycutter:
-
-  ```shell
-  $ gem install keycutter
-  ```
-
 ## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
@@ -52,7 +46,7 @@ shortTitle: RubyGems registry
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing the  *~/.gem/credentials* file for publishing gems, editing the *~/.gemrc* file for installing a single gem, or using Bundler for tracking and installing one or more gems.
+To publish and install gems, you can configure RubyGems or Bundler to authenticate to {% data variables.product.prodname_registry %} using your {% data variables.product.pat_generic %}.
 
 To publish new gems, you need to authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing your *~/.gem/credentials* file to include your {% data variables.product.pat_v1 %}. Create a new *~/.gem/credentials* file if this file doesn't exist.
 
@@ -63,7 +57,7 @@ For example, you would create or edit a *~/.gem/credentials* to include the foll
 :github: Bearer TOKEN
 ```
 
-To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by editing the *~/.gemrc* file for your project to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. You must replace:
+To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by updating your gem sources to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. You must replace:
   - `USERNAME` with your {% data variables.product.prodname_dotcom %} username.
   - `TOKEN` with your {% data variables.product.pat_v1 %}.
   - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes %}
@@ -72,18 +66,9 @@ To install gems, you need to authenticate to {% data variables.product.prodname_
   - `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.
 {% endif %}
 
-If you don't have a *~/.gemrc* file, create a new *~/.gemrc* file using this example.
-
+If you would like your package to be available globally, you can run the following command to add your registry as a source.
 ```shell
----
-:backtrace: false
-:bulk_threshold: 1000
-:sources:
-- https://rubygems.org/
-- https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
-:update_sources: true
-:verbose: true  
-
+gem sources --add https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
 ```
 
 To authenticate with Bundler, configure Bundler to use your {% data variables.product.pat_v1 %}, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_generic %}, and *OWNER* with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes %} Replace `REGISTRY-URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.{% endif %}
