@@ -30,7 +30,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    $ cd REPOSITORY-NAME
    ```
 
-5. To filter out the subfolder from the rest of the files in the repository, run [`git-filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
+5. To filter out the subfolder from the rest of the files in the repository, install [`git-filter-repo`](https://github.com/newren/git-filter-repo), then run `git filter-repo` with the following arguments.
    - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
 
    {% windows %}
@@ -44,7 +44,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    {% endwindows %}
   
    ```shell
-   $ git-filter-repo --path FOLDER-NAME1/ --path FOLDER-NAME2/
+   $ git filter-repo --path FOLDER-NAME1/ --path FOLDER-NAME2/
    # Filter the specified branch in your directory and remove empty commits
    > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
    > Ref 'refs/heads/BRANCH-NAME' was rewritten
