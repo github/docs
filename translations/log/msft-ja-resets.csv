@@ -804,7 +804,7 @@ translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/set
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,broken liquid tags
-translations/ja-JP/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
+translations/ja-JP/content/codespaces/the-githubdev-web-based-editor.md,rendering error
 translations/ja-JP/content/codespaces/troubleshooting/exporting-changes-to-a-branch.md,broken liquid tags
 translations/ja-JP/content/codespaces/troubleshooting/github-codespaces-logs.md,broken liquid tags
 translations/ja-JP/content/codespaces/troubleshooting/index.md,broken liquid tags
@@ -1288,5 +1288,5 @@ translations/ja-JP/data/reusables/user-settings/security.md,rendering error
 translations/ja-JP/data/reusables/user-settings/ssh.md,rendering error
 translations/ja-JP/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/ja-JP/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
-translations/ja-JP/data/variables/product.yml,broken liquid tags
+translations/ja-JP/data/variables/product.yml,rendering error
 translations/ja-JP/data/variables/projects.yml,broken liquid tags
