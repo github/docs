@@ -244,7 +244,7 @@ Supported options
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}50{% elsif ghes < 3.8 or ghae < 3.8 %}15{% endif %} character limit.
 
 {% endnote %}
 
