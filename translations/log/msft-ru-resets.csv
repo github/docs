@@ -1471,5 +1471,5 @@ translations/ru-RU/data/reusables/webhooks/dependabot_alert_availability.md,rend
 translations/ru-RU/data/reusables/webhooks/dependabot_alert_description.md,rendering error
 translations/ru-RU/data/reusables/webhooks/dependabot_alert_payload.md,rendering error
 translations/ru-RU/data/reusables/webhooks/pull_request_properties.md,rendering error
-translations/ru-RU/data/variables/product.yml,broken liquid tags
+translations/ru-RU/data/variables/product.yml,rendering error
 translations/ru-RU/data/variables/projects.yml,broken liquid tags
