@@ -747,7 +747,7 @@ translations/ko-KR/content/code-security/secret-scanning/pushing-a-branch-blocke
 translations/ko-KR/content/code-security/secret-scanning/secret-scanning-patterns.md,rendering error
 translations/ko-KR/content/code-security/security-advisories/global-security-advisories/about-global-security-advisories.md,rendering error
 translations/ko-KR/content/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database.md,rendering error
-translations/ko-KR/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,broken liquid tags
+translations/ko-KR/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,rendering error
 translations/ko-KR/content/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository.md,rendering error
 translations/ko-KR/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/ko-KR/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
