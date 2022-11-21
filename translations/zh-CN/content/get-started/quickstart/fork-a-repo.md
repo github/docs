@@ -175,10 +175,10 @@ When you fork a project in order to propose changes to the original repository, 
 7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the original repository as `upstream`.
   ```shell
   $ git remote -v
-  > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/ YOUR_FORK</em>.git (fetch)
+  > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
   > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
-  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ ORIGINAL_REPOSITORY.git (fetch)
-  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ ORIGINAL_REPOSITORY.git (push)
+  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
   ```
 
 Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."

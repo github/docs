@@ -61805,6 +61805,26 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "featuredItems",
+          "description": "<p>The records featured on the GitHub Sponsors profile.</p>",
+          "type": "[SponsorsListingFeaturedItem!]!",
+          "id": "sponsorslistingfeatureditem",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslistingfeatureditem",
+          "arguments": [
+            {
+              "name": "featureableTypes",
+              "description": "<p>The types of featured items to return.</p>",
+              "type": {
+                "name": "[SponsorsListingFeaturedItemFeatureableType!]",
+                "id": "sponsorslistingfeatureditemfeatureabletype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorslistingfeatureditemfeatureabletype"
+              }
+            }
+          ]
+        },
+        {
           "name": "fullDescription",
           "description": "<p>The full description of the listing.</p>",
           "type": "String!",
@@ -61951,6 +61971,62 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsListingFeaturedItem",
+      "kind": "objects",
+      "id": "sponsorslistingfeatureditem",
+      "href": "/graphql/reference/objects#sponsorslistingfeatureditem",
+      "description": "<p>A record that is promoted on a GitHub Sponsors profile.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>Will either be a description from the sponsorable maintainer about why they\nfeatured this item, or the item's description itself, such as a user's bio\nfrom their GitHub profile page.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "position",
+          "description": "<p>The position of this featured item on the GitHub Sponsors profile with a lower\nposition indicating higher precedence. Starts at 1.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "sponsorsListing",
+          "description": "<p>The GitHub Sponsors profile that features this record.</p>",
+          "type": "SponsorsListing!",
+          "id": "sponsorslisting",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslisting"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -79513,6 +79589,23 @@
         {
           "name": "TOTAL_SPONSORS_COUNT",
           "description": "<p>The goal is about reaching a certain number of sponsors.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsListingFeaturedItemFeatureableType",
+      "kind": "enums",
+      "id": "sponsorslistingfeatureditemfeatureabletype",
+      "href": "/graphql/reference/enums#sponsorslistingfeatureditemfeatureabletype",
+      "description": "<p>The different kinds of records that can be featured on a GitHub Sponsors profile page.</p>",
+      "values": [
+        {
+          "name": "REPOSITORY",
+          "description": "<p>A repository owned by the user or organization with the GitHub Sponsors profile.</p>"
+        },
+        {
+          "name": "USER",
+          "description": "<p>A user who belongs to the organization with the GitHub Sponsors profile.</p>"
         }
       ]
     },

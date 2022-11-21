@@ -24,8 +24,11 @@ Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% en
 Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %} | azure_devops_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
-Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key{% endif %}
+Azure | Azure ML Studio (classic) Web Service Key | azure_ml_studio_classic_web_service_key, azure_ml_web_service_classic_identifiable_key{% endif %}
 Azure | Azure SAS Token | azure_sas_token
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+Azure | Azure Search Admin Key | azure_search_admin_key
+Azure | Azure Search Query Key | azure_search_query_key{% endif %}
 Azure | Azure Service Management Certificate | azure_management_certificate
 {%- ifversion ghes < 3.4 or ghae < 3.4 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
@@ -78,7 +81,8 @@ GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 Google | Firebase Cloud Messaging Server Key | firebase_cloud_messaging_server_key
 Google | Google API Key | google_api_key
-Google | Google Cloud Private Key ID | 
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+Google | Google Cloud Private Key ID | google_cloud_private_key_id{% endif %}
 Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
 Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
