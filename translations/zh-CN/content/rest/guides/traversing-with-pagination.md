@@ -102,7 +102,7 @@ link: <https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODMzMzk2
 In this example, `rel=next` says that the next page is located at:
 
 ```
-after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=>
+after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=
 ```
 
 
@@ -115,7 +115,7 @@ after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%
 Using cursor based pagination requires you to use the terms `before` and `after`. To navigate using `before` and `after`, copy the link header generated above into your curl request:
 
 ```shell
-$ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"  https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=>
+$ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"  https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=
 ```
 
 The above example will generate a page of results and new header information that you can use to make the next request. `rel="next"` provides the next page of results. `rel="prev"` provides the previous page of results. The important part of the output here is the link header needs to be generated rather than manually imputed. Copy the entire link from the following output.
@@ -183,7 +183,7 @@ our results.
 You can also pass the `per_page` parameter for cursor-based pagination. 
 
 ```shell
-$ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"  https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=>&per_page=50
+$ curl -I -H "Accept: application/vnd.github+json" -H "Authorization: Bearer YOUR_TOKEN"  https://api.github.com/enterprises/13827/audit-log?after=MS42NjQzODM5MTkzNDdlKzEyfDM0MkI6NDdBNDo4RTFGMEM6NUIyQkZCMzo2MzM0N0JBRg%3D%3D&before=&per_page=50
 ```
 
 ## Consuming the information

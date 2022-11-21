@@ -86,3 +86,7 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
 {% endif %}
+
+## Bypassing `.git-blame-ignore-revs` in the blame view
+
+If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** will disappear.

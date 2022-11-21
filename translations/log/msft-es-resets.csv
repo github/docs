@@ -805,7 +805,7 @@ translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/set
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,broken liquid tags
-translations/es-ES/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
+translations/es-ES/content/codespaces/the-githubdev-web-based-editor.md,rendering error
 translations/es-ES/content/codespaces/troubleshooting/exporting-changes-to-a-branch.md,broken liquid tags
 translations/es-ES/content/codespaces/troubleshooting/github-codespaces-logs.md,broken liquid tags
 translations/es-ES/content/codespaces/troubleshooting/index.md,broken liquid tags
@@ -820,6 +820,7 @@ translations/es-ES/content/communities/documenting-your-project-with-wikis/editi
 translations/es-ES/content/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization.md,broken liquid tags
 translations/es-ES/content/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account.md,rendering error
 translations/es-ES/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
+translations/es-ES/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
 translations/es-ES/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/es-ES/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/es-ES/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
@@ -1282,5 +1283,5 @@ translations/es-ES/data/reusables/user-settings/security.md,rendering error
 translations/es-ES/data/reusables/user-settings/ssh.md,rendering error
 translations/es-ES/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/es-ES/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
-translations/es-ES/data/variables/product.yml,broken liquid tags
+translations/es-ES/data/variables/product.yml,rendering error
 translations/es-ES/data/variables/projects.yml,broken liquid tags

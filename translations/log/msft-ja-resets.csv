@@ -804,6 +804,7 @@ translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/set
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,broken liquid tags
+translations/ja-JP/content/codespaces/the-githubdev-web-based-editor.md,rendering error
 translations/ja-JP/content/codespaces/troubleshooting/exporting-changes-to-a-branch.md,broken liquid tags
 translations/ja-JP/content/codespaces/troubleshooting/github-codespaces-logs.md,broken liquid tags
 translations/ja-JP/content/codespaces/troubleshooting/index.md,broken liquid tags
@@ -817,6 +818,7 @@ translations/ja-JP/content/communities/documenting-your-project-with-wikis/chang
 translations/ja-JP/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ja-JP/content/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization.md,broken liquid tags
 translations/ja-JP/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
+translations/ja-JP/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
@@ -919,7 +921,7 @@ translations/ja-JP/content/organizations/collaborating-with-groups-in-organizati
 translations/ja-JP/content/organizations/collaborating-with-groups-in-organizations/about-your-organizations-news-feed.md,rendering error
 translations/ja-JP/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on.md,rendering error
 translations/ja-JP/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization.md,rendering error
-translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization.md,broken liquid tags
+translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization.md,rendering error
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization.md,rendering error
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/ja-JP/content/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities.md,broken liquid tags
@@ -1287,5 +1289,5 @@ translations/ja-JP/data/reusables/user-settings/security.md,rendering error
 translations/ja-JP/data/reusables/user-settings/ssh.md,rendering error
 translations/ja-JP/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/ja-JP/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
-translations/ja-JP/data/variables/product.yml,broken liquid tags
+translations/ja-JP/data/variables/product.yml,rendering error
 translations/ja-JP/data/variables/projects.yml,broken liquid tags

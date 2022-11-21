@@ -15,7 +15,6 @@ import { jest, test, expect } from '@jest/globals'
 
 import { describeIfElasticsearchURL } from '../helpers/conditional-runs.js'
 import { get } from '../helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
@@ -69,7 +68,47 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
+    expect(res.headers['surrogate-key']).toBe('api-search:en')
+  })
+
+  test('basic search in Japanese', async () => {
+    const sp = new URLSearchParams()
+    // To see why this will work,
+    // see tests/content/fixtures/search-indexes/github-docs-dotcom-en-records.json
+    // which clearly has a record with the title "Foo"
+    sp.set('query', 'foo')
+    sp.set('language', 'ja')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+
+    expect(results.meta).toBeTruthy()
+    expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+    expect(results.meta.found.relation).toBeTruthy()
+    expect(results.meta.page).toBe(1)
+    expect(results.meta.size).toBeGreaterThanOrEqual(1)
+    expect(results.meta.took.query_msec).toBeGreaterThanOrEqual(0)
+    expect(results.meta.took.total_msec).toBeGreaterThanOrEqual(0)
+
+    // Might be empty but at least an array
+    expect(results.hits).toBeTruthy()
+    // The word 'foo' appears in more than 1 document in the fixtures.
+    expect(results.hits.length).toBeGreaterThanOrEqual(1)
+    // ...but only one has the word "foo" in its title so we can
+    // be certain it comes first.
+    const hit = results.hits[0]
+    // This specifically checks what we expect of version v1
+    expect(hit.url).toBe('/ja/foo')
+    expect(hit.title).toBe('フー')
+    expect(hit.breadcrumbs).toBe('fooing')
+
+    // Check that it can be cached at the CDN
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-control']).toContain('public')
+    expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-key']).toBe('api-search:ja')
   })
 
   test('debug search', async () => {

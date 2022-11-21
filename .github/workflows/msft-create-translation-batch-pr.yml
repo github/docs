@@ -51,17 +51,17 @@ jobs:
             language_dir: translations/ru-RU
             language_repo: github/docs-internal.ru-ru
 
-          # - language: ko
-          #   language_dir: translations/ko-KR
-          #   language_repo: github/docs-internal.ko-kr
+          - language: ko
+            language_dir: translations/ko-KR
+            language_repo: github/docs-internal.ko-kr
 
           - language: fr
             language_dir: translations/fr-FR
             language_repo: github/docs-internal.fr-fr
 
-          # - language: de
-          #   language_dir: translations/de-DE
-          #   language_repo: github/docs-internal.de-de
+          - language: de
+            language_dir: translations/de-DE
+            language_repo: github/docs-internal.de-de
 
     steps:
       - name: Set branch name
