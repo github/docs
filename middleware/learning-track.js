@@ -1,6 +1,7 @@
 import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
 import getLinkData from '../lib/get-link-data.js'
 import renderContent from '../lib/render-content/renderContent.js'
+import { getDeepDataByLanguage } from '../lib/get-data.js'
 
 export default async function learningTrack(req, res, next) {
   const noTrack = () => {
@@ -14,7 +15,8 @@ export default async function learningTrack(req, res, next) {
   if (!trackName) return noTrack()
 
   let trackProduct = req.context.currentProduct
-  let tracksPerProduct = req.context.site.data['learning-tracks'][trackProduct]
+  const allLearningTracks = getDeepDataByLanguage('learning-tracks', req.language)
+  let tracksPerProduct = allLearningTracks[trackProduct]
 
   // If there are no learning tracks for the current product, try and fall
   // back to the learning track product set as a URL parameter.  This handles
@@ -22,12 +24,11 @@ export default async function learningTrack(req, res, next) {
   // than the current learning track product.
   if (!tracksPerProduct) {
     trackProduct = req.query.learnProduct
-    tracksPerProduct = req.context.site.data['learning-tracks'][trackProduct]
+    tracksPerProduct = allLearningTracks[trackProduct]
   }
-
   if (!tracksPerProduct) return noTrack()
 
-  const track = req.context.site.data['learning-tracks'][trackProduct][trackName]
+  const track = allLearningTracks[trackProduct][trackName]
   if (!track) return noTrack()
 
   const currentLearningTrack = { trackName, trackProduct }

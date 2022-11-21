@@ -1,0 +1,1 @@
+You must use a {% data variables.product.pat_v1 %} with the appropriate scopes to publish and install packages in {% data variables.product.prodname_registry %}. For more information, see "[About {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages)."

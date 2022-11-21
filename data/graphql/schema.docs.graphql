@@ -26161,6 +26161,13 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     first: Int
 
     """
+    Whether to include those events where this sponsorable acted as the sponsor.
+    Defaults to only including events where this sponsorable was the recipient
+    of a sponsorship.
+    """
+    includeAsSponsor: Boolean = false
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -44994,6 +45001,13 @@ interface Sponsorable {
     first: Int
 
     """
+    Whether to include those events where this sponsorable acted as the sponsor.
+    Defaults to only including events where this sponsorable was the recipient
+    of a sponsorship.
+    """
+    includeAsSponsor: Boolean = false
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -45469,6 +45483,16 @@ type SponsorsListing implements Node {
   dashboardUrl: URI!
 
   """
+  The records featured on the GitHub Sponsors profile.
+  """
+  featuredItems(
+    """
+    The types of featured items to return.
+    """
+    featureableTypes: [SponsorsListingFeaturedItemFeatureableType!] = [REPOSITORY, USER]
+  ): [SponsorsListingFeaturedItem!]!
+
+  """
   The full description of the listing.
   """
   fullDescription: String!
@@ -45555,6 +45579,55 @@ type SponsorsListing implements Node {
   The HTTP URL for this Sponsors listing.
   """
   url: URI!
+}
+
+"""
+A record that is promoted on a GitHub Sponsors profile.
+"""
+type SponsorsListingFeaturedItem implements Node {
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  Will either be a description from the sponsorable maintainer about why they
+  featured this item, or the item's description itself, such as a user's bio
+  from their GitHub profile page.
+  """
+  description: String
+  id: ID!
+
+  """
+  The position of this featured item on the GitHub Sponsors profile with a lower
+  position indicating higher precedence. Starts at 1.
+  """
+  position: Int!
+
+  """
+  The GitHub Sponsors profile that features this record.
+  """
+  sponsorsListing: SponsorsListing!
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+}
+
+"""
+The different kinds of records that can be featured on a GitHub Sponsors profile page.
+"""
+enum SponsorsListingFeaturedItemFeatureableType {
+  """
+  A repository owned by the user or organization with the GitHub Sponsors profile.
+  """
+  REPOSITORY
+
+  """
+  A user who belongs to the organization with the GitHub Sponsors profile.
+  """
+  USER
 }
 
 """
@@ -53892,6 +53965,13 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Whether to include those events where this sponsorable acted as the sponsor.
+    Defaults to only including events where this sponsorable was the recipient
+    of a sponsorship.
+    """
+    includeAsSponsor: Boolean = false
 
     """
     Returns the last _n_ elements from the list.

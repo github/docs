@@ -77,6 +77,9 @@ jobs:
           # But mind you that the number has a 10% chance of "jitter"
           # to avoid a stampeding herd when they all expire some day.
           EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS: 7
+          # If we're unable to connect or the server returns a 50x error,
+          # treat it as a warning and not as a broken link.
+          EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
         timeout-minutes: 30
         run: node .github/actions/rendered-content-link-checker.js
 

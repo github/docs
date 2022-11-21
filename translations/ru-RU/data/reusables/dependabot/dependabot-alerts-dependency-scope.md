@@ -1,33 +1,27 @@
----
-ms.openlocfilehash: 873bdafd14b68ef0b8f2a99429a7f9966decc537
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147080538"
----
-В таблице ниже приведены сведения о том, поддерживается ли область зависимости для разных экосистем и манифестов, то есть может ли {% data variables.product.prodname_dependabot %} определить, используется ли зависимость для разработки или рабочей среды.
+The table below summarizes whether dependency scope is supported for various ecosystems and manifests, that is, whether {% data variables.product.prodname_dependabot %} can identify if a dependency is used for development or production.
 
-| **Язык** | **Экосистема** | **Файл манифеста** | **Поддержка области зависимости** |
-|:---|:---:|:---:|:---|
-| Go | Модули Go | go.mod | Нет, по умолчанию предполагается среда выполнения |
-| Go | Модули Go | go.sum | Нет, по умолчанию предполагается среда выполнения |
-| Java | Maven | pom.xml | ✔ `test` обозначает среду разработки, во всех остальных случаях по умолчанию предполагается среда выполнения |
+| **Language** | **Ecosystem** | **Manifest file** | **Dependency scope supported** |
+|:---|:---:|:---:|:---|{% ifversion dependency-graph-dart-support %}
+| Dart | pub | pubspec.yaml |  ✔ |
+| Dart | pub | pubspec.lock |  ✔ |{% endif %}
+| Go | Go modules | go.mod | No, defaults to runtime |
+| Go | Go modules |	go.sum | No, defaults to runtime |
+| Java | Maven | pom.xml | ✔ `test` maps to development, else scope defaults to runtime |
 | JavaScript | npm | package.json | ✔ |
 | JavaScript | npm | package-lock.json | ✔ |
-| JavaScript |  yarn v1 | yarn.lock | Нет, по умолчанию предполагается среда выполнения |
+| JavaScript |	yarn v1 | yarn.lock | No, defaults to runtime |
 | PHP | Composer | composer.json | ✔ |
 | PHP | Composer | composer.lock | ✔ |
 | Python | Poetry | poetry.lock | ✔ |
 | Python | Poetry | pyproject.toml | ✔ |
-| Python | pip | requirements.txt | ✔ Предполагается область разработки, если имя файла содержит `test` или `dev`, и среда выполнения во всех остальных случаях |
+| Python | pip | requirements.txt | ✔ Scope is development if the filename contains `test` or `dev`, else it is runtime |
 | Python | pip | pipfile.lock | ✔ |
 | Python | pip | pipfile | ✔ |
-| Ruby | RubyGems | Gemfile |   ✔ |
-| Ruby | RubyGems | Gemfile.lock    | Нет, по умолчанию предполагается среда выполнения |
-| Rust | Грузовой |  Cargo.toml | ✔ |
-| Rust | Грузовой | Cargo.lock | Нет, по умолчанию предполагается среда выполнения |
-| YAML | Действия GitHub | - | Нет, по умолчанию предполагается среда выполнения |
-| .NET (C#, F#, VB и так далее) | NuGet | .csproj / .vbproj .vcxproj / .fsproj | Нет, по умолчанию предполагается среда выполнения |
-| .NET | NuGet | packages.config | Нет, по умолчанию предполагается среда выполнения |
-| .NET | NuGet | .nuspec | ✔ Когда нет тега "runtime" |
+| Ruby | RubyGems | Gemfile |	✔ |
+| Ruby | RubyGems | Gemfile.lock	| No, defaults to runtime |
+| Rust | Cargo | Cargo.toml | ✔ |
+| Rust | Cargo | Cargo.lock | No, defaults to runtime |
+| YAML | GitHub Actions | - | No, defaults to runtime |
+| .NET (C#, F#, VB, etc.) | NuGet | .csproj / .vbproj .vcxproj / .fsproj | No, defaults to runtime |
+| .NET | NuGet | packages.config | No, defaults to runtime |
+| .NET | NuGet | .nuspec | ✔ When the tag != runtime |
