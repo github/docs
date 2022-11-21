@@ -780,6 +780,7 @@ translations/ko-KR/content/communities/documenting-your-project-with-wikis/about
 translations/ko-KR/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/ko-KR/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ko-KR/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
+translations/ko-KR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
 translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,rendering error
 translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags

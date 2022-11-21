@@ -1,32 +1,27 @@
 ---
-title: GitHub 양식 스키마 구문
-intro: '{% data variables.product.company_short %}의 양식 스키마를 사용하여 지원되는 기능에 대한 양식을 구성할 수 있습니다.'
+title: Syntax for GitHub's form schema
+intro: 'You can use {% data variables.product.company_short %}''s form schema to configure forms for supported features.'
 versions:
   fpt: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: f5910f3cfdeeb148dc92ee537de4c26551a02f26
-ms.sourcegitcommit: ab0ae13cc28587f0302181d58a9519d88c7c1ef9
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2022
-ms.locfileid: '148101711'
 ---
+
 {% note %}
 
-**참고:** {% data variables.product.company_short %}의 양식 스키마는 현재 베타 버전이며 변경될 수 있습니다.
+**Note:** {% data variables.product.company_short %}'s form schema is currently in beta and subject to change.
 
 {% endnote %}
 
-## {% data variables.product.company_short %}의 양식 스키마 정보
+## About {% data variables.product.company_short %}'s form schema
 
-{% data variables.product.company_short %}의 양식 스키마를 사용하여 지원되는 기능에 대한 양식을 구성할 수 있습니다. 자세한 내용은 “[리포지토리에 대한 문제 템플릿 구성](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)”을 참조하세요.
+You can use {% data variables.product.company_short %}'s form schema to configure forms for supported features. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)."
 
-양식은 사용자 입력을 요청하기 위한 요소 집합입니다. 양식 요소의 배열인 YAML 양식 정의를 만들어 양식을 구성할 수 있습니다. 각 양식 요소는 요소의 형식, 요소의 속성, 요소에 적용할 제약 조건을 결정하는 키-값 쌍 집합입니다. 일부 키의 경우 값은 키-값 쌍의 또 다른 집합입니다.
+A form is a set of elements for requesting user input. You can configure a form by creating a YAML form definition, which is an array of form elements. Each form element is a set of key-value pairs that determine the type of the element, the properties of the element, and the constraints you want to apply to the element. For some keys, the value is another set of key-value pairs.
 
-예를 들어 다음 양식 정의에는 사용자의 운영 체제를 제공하기 위한 텍스트 영역, 사용자가 실행 중인 소프트웨어 버전을 선택하기 위한 드롭다운 메뉴, 사용 규정을 승인하는 확인란, 양식을 완료한 사용자에게 감사하는 Markdown 등 네 가지 양식 요소가 포함되어 있습니다.
+For example, the following form definition includes four form elements: a text area for providing the user's operating system, a dropdown menu for choosing the software version the user is running, a checkbox to acknowledge the Code of Conduct, and Markdown that thanks the user for completing the form.
 
 ```yaml{:copy}
 - type: textarea
@@ -60,48 +55,48 @@ ms.locfileid: '148101711'
     value: "Thanks for completing our form!"
 ```
 
-## 구성
+## Keys
 
-각 양식 요소에 대해 다음 키를 설정할 수 있습니다.
+For each form element, you can set the following keys.
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `type` | 정의하려는 요소의 형식입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
-| `id` | `type`이 `markdown`으로 설정된 경우를 제외하고 요소의 식별자입니다. {% data reusables.form-schema.id-must-be-unique %} 제공되는 경우 `id`는 URL 쿼리 매개 변수 미리 채우기의 필드에 대한 정규 식별자입니다. | 선택 사항 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | 요소의 속성을 정의하는 키-값 쌍 집합입니다.  | 필수 | 맵 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | 요소에 대한 제약 조건을 설정하는 키-값 쌍 집합입니다. | 선택 사항 | 맵 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `type` | The type of element that you want to define. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
+| `id` | The identifier for the element, except when `type` is set to `markdown`. {% data reusables.form-schema.id-must-be-unique %} If provided, the `id` is the canonical identifier for the field in URL query parameter prefills. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | A set of key-value pairs that define the properties of the element.  | Required | Map | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | A set of key-value pairs that set constraints on the element. | Optional | Map | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-다음 유형의 양식 요소 중에서 선택할 수 있습니다. 각 형식에는 고유한 특성 및 유효성 검사가 있습니다.
+You can choose from the following types of form elements. Each type has unique attributes and validations.
 
-| 형식 | 설명 |
+| Type | Description |
 | ---- | ----------- |
-| [`markdown`](#markdown) | 사용자에게 추가 컨텍스트를 제공하기 위해 양식에 표시되지만 **제출되지 않은** Markdown 텍스트입니다. |
-| [`textarea`](#textarea) | 여러 줄 텍스트 필드. |
-| [`input`](#input) | 단일 줄 텍스트 필드. |
-| [`dropdown`](#dropdown) | 드롭다운 메뉴. |
-| [`checkboxes`](#checkboxes) | 확인란 집합. |
+| [`markdown`](#markdown) | Markdown text that is displayed in the form to provide extra context to the user, but is **not submitted**. |
+| [`textarea`](#textarea) | A multi-line text field. |
+| [`input`](#input) | A single-line text field. |
+| [`dropdown`](#dropdown) | A dropdown menu. |
+| [`checkboxes`](#checkboxes) | A set of checkboxes. |
 
 ### `markdown`
 
-`markdown` 요소를 사용하여 사용자에게 추가 컨텍스트를 제공하지만 제출되지 않는 Markdown을 양식에 표시할 수 있습니다.
+You can use a `markdown` element to display Markdown in your form that provides extra context to the user, but is not submitted.
 
-#### 특성
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `value` | 렌더링되는 텍스트. Markdown 서식 지정이 지원됩니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `value` | The text that is rendered. Markdown formatting is supported. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 {% tip %}
 
-**팁:** YAML 처리는 해시 기호를 주석으로 처리합니다. Markdown 헤더를 삽입하려면 텍스트를 따옴표로 묶습니다.
+**Tips:** YAML processing will treat the hash symbol as a comment. To insert Markdown headers, wrap your text in quotes.
 
-여러 줄 텍스트의 경우 파이프 연산자를 사용할 수 있습니다.
+For multi-line text, you can use the pipe operator.
 
 {% endtip %}
 
-#### 예제
+#### Example
 
 ```YAML{:copy}
 body:
@@ -116,29 +111,29 @@ body:
 
 ### `textarea`
 
-`textarea` 요소를 사용하여 양식에 여러 줄 텍스트 필드를 추가할 수 있습니다. 기여자는 `textarea` 필드에 파일을 첨부할 수도 있습니다.
+You can use a `textarea` element to add a multi-line text field to your form. Contributors can also attach files in `textarea` fields.
 
-#### 특성
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | 양식에도 표시되는 예상 사용자 입력에 대한 간략한 설명입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `description` | 양식에 표시되는 컨텍스트 또는 지침을 제공하는 텍스트 영역에 대한 설명입니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
-| `placeholder` | 비어 있을 때 텍스트 영역에 렌더링되는 반투명 자리 표시자입니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
-| `value` | 텍스트 영역에 미리 채워진 텍스트입니다. | 선택 사항 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `render` | 값이 제공되면 제출된 텍스트의 서식이 코드 블록으로 지정됩니다. 이 키를 제공하면 파일 첨부 파일 또는 Markdown 편집을 위해 텍스트 영역이 확장되지 않습니다. | 선택 사항 | String | {% octicon "dash" aria-label="The dash icon" %} | {% data variables.product.prodname_dotcom %}에 알려진 언어입니다. 자세한 내용은 [언어 YAML 파일](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)을 참조하세요. |
+| `label` | A brief description of the expected user input, which is also displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the text area to provide context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `placeholder` | A semi-opaque placeholder that renders in the text area when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `value` | Text that is pre-filled in the text area. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `render` | If a value is provided, submitted text will be formatted into a codeblock. When this key is provided, the text area will not expand for file attachments or Markdown editing. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | Languages known to {% data variables.product.prodname_dotcom %}. For more information, see [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml). |
 
-#### 유효성 검사
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### 예제
+#### Example
 
 ```YAML{:copy}
 body:
@@ -159,28 +154,28 @@ body:
 
 ### `input`
 
-`input` 요소를 사용하여 양식에 단일 줄 텍스트 필드를 추가할 수 있습니다.
+You can use an `input` element to add a single-line text field to your form.
 
-#### 특성
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | 양식에도 표시되는 예상 사용자 입력에 대한 간략한 설명입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `description` | 양식에 표시되는 컨텍스트 또는 지침을 제공하는 필드에 대한 설명입니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
-| `placeholder` | 필드가 비어 있을 때 렌더링되는 반투명 자리 표시자입니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
-| `value` | 필드에 미리 채워진 텍스트입니다. | 선택 사항 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `label` | A brief description of the expected user input, which is also displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the field to provide context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `placeholder` | A semi-transparent placeholder that renders in the field when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `value` | Text that is pre-filled in the field. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-#### 유효성 검사
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### 예제
+#### Example
 
 ```YAML{:copy}
 body:
@@ -196,28 +191,28 @@ body:
 
 ### `dropdown`
 
-`dropdown` 요소를 사용하여 양식에 드롭다운 메뉴를 추가할 수 있습니다.
+You can use a `dropdown` element to add a dropdown menu in your form.
 
-#### 특성
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | 양식에 표시되는 예상 사용자 입력에 대한 간략한 설명입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `description` | 양식에 표시되는 추가 컨텍스트 또는 지침을 제공하기 위한 드롭다운에 대한 설명입니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
-| `multiple` | 사용자가 둘 이상의 옵션을 선택할 수 있는지 여부를 결정합니다. | 선택 사항 | 부울 | false | {% octicon "dash" aria-label="The dash icon" %} |
-| `options` | 사용자가 선택할 수 있는 옵션 배열입니다. 비워 둘 수 없으며 모든 선택 항목은 고유해야 합니다. | 필수 | 문자열 배열 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `label` | A brief description of the expected user input, which is displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the dropdown to provide extra context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `multiple` | Determines if the user can select more than one option. | Optional | Boolean | false | {% octicon "dash" aria-label="The dash icon" %} |
+| `options` | An array of options the user can choose from. Cannot be empty and all choices must be distinct. | Required | String array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-#### 유효성 검사
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### 예제
+#### Example
 
 ```YAML{:copy}
 body:
@@ -236,21 +231,29 @@ body:
 
 ### `checkboxes`
 
-`checkboxes` 요소를 사용하여 양식에 체크박스 세트를 추가할 수 있습니다.
+You can use the `checkboxes` element to add a set of checkboxes to your form.
 
-#### 특성
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | 양식에 표시되는 예상 사용자 입력에 대한 간략한 설명입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `description` | 양식에 표시되는 확인란 집합에 대한 설명입니다. Markdown 서식 지정을 지원합니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
-| `options` | 사용자가 선택할 수 있는 확인란의 배열입니다. 구문의 경우 아래를 참조하세요. | 필수 | 배열 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `label` | A brief description of the expected user input, which is displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the set of checkboxes, which is displayed in the form. Supports Markdown formatting. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `options` | An array of checkboxes that the user can select. For syntax, see below. | Required | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
 
-#### 예제
+#### Validations
+
+{% data reusables.form-schema.validations-intro %}
+
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
+
+#### Example
 
 ```YAML{:copy}
 body:
@@ -265,6 +268,6 @@ body:
       - label: Linux
 ```
 
-## 추가 참고 자료
+## Further reading
 
 - [YAML](https://yaml.org)
