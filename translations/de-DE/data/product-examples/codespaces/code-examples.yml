@@ -1,0 +1,36 @@
+- title: Node.js-Beispielprojekt
+  description: Ausprobieren eines Node.js-Projekts mit einem benutzerdefinierten Entwicklungscontainer
+  languages: Javascript
+  href: microsoft/vscode-remote-try-node
+  tags:
+    - Entwicklungscontainer
+- title: Python-Beispielprojekt
+  description: Ausprobieren eines Python-Projekts mit einem benutzerdefinierten Entwicklungscontainer
+  languages: Python
+  href: microsoft/vscode-remote-try-python
+  tags:
+    - Entwicklungscontainer
+- title: Java-Beispielprojekt
+  description: Ausprobieren eines Java-Projekts mit einem benutzerdefinierten Entwicklungscontainer
+  languages: Java
+  href: microsoft/vscode-remote-try-java
+  tags:
+    - Entwicklungscontainer
+- title: Go-Beispielprojekt
+  description: Ausprobieren eines Go-Projekts mit einem benutzerdefinierten Entwicklungscontainer
+  languages: Go
+  href: microsoft/vscode-remote-try-go
+  tags:
+    - Entwicklungscontainer
+- title: Rust-Beispielprojekt
+  description: Ausprobieren eines Rust-Projekts mit einem benutzerdefinierten Entwicklungscontainer
+  languages: Rust
+  href: microsoft/vscode-remote-try-rust
+  tags:
+    - Entwicklungscontainer
+- title: PHP-Beispielprojekt
+  description: Ausprobieren eines PHP-Projekts mit einem benutzerdefinierten Entwicklungscontainer
+  languages: PHP
+  href: microsoft/vscode-remote-try-php
+  tags:
+    - Entwicklungscontainer
