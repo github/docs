@@ -1,33 +1,27 @@
----
-ms.openlocfilehash: 873bdafd14b68ef0b8f2a99429a7f9966decc537
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147079708"
----
-Le tableau ci-dessous résume si l’étendue des dépendances est prise en charge pour divers écosystèmes et manifestes, c’est-à-dire si {% data variables.product.prodname_dependabot %} peut identifier si une dépendance est utilisée pour le développement ou la production.
+The table below summarizes whether dependency scope is supported for various ecosystems and manifests, that is, whether {% data variables.product.prodname_dependabot %} can identify if a dependency is used for development or production.
 
-| **Langage** | **Écosystème** | **Fichier manifeste** | **Étendue de dépendance prise en charge** |
-|:---|:---:|:---:|:---|
-| Go | Modules Go | go.mod | Non, utilise runtime par défaut |
-| Go | Modules Go | go.sum | Non, utilise runtime par défaut |
-| Java | Maven | pom.xml | ✔ `test` est mappé au développement, ou au runtime par défaut |
+| **Language** | **Ecosystem** | **Manifest file** | **Dependency scope supported** |
+|:---|:---:|:---:|:---|{% ifversion dependency-graph-dart-support %}
+| Dart | pub | pubspec.yaml |  ✔ |
+| Dart | pub | pubspec.lock |  ✔ |{% endif %}
+| Go | Go modules | go.mod | No, defaults to runtime |
+| Go | Go modules |	go.sum | No, defaults to runtime |
+| Java | Maven | pom.xml | ✔ `test` maps to development, else scope defaults to runtime |
 | JavaScript | npm | package.json | ✔ |
 | JavaScript | npm | package-lock.json | ✔ |
-| JavaScript |  yarn v1 | yarn.lock | Non, utilise runtime par défaut |
+| JavaScript |	yarn v1 | yarn.lock | No, defaults to runtime |
 | PHP | Composer | composer.json | ✔ |
 | PHP | Composer | composer.lock | ✔ |
 | Python | Poetry | poetry.lock | ✔ |
 | Python | Poetry | pyproject.toml | ✔ |
-| Python | pip | requirements.txt | ✔ L’étendue est « développement » si le nom de fichier contient `test` ou `dev`, sinon runtime est utilisé |
+| Python | pip | requirements.txt | ✔ Scope is development if the filename contains `test` or `dev`, else it is runtime |
 | Python | pip | pipfile.lock | ✔ |
 | Python | pip | pipfile | ✔ |
-| Ruby | RubyGems | Gemfile |   ✔ |
-| Ruby | RubyGems | Gemfile.lock    | Non, utilise runtime par défaut |
-| Rust | Cargo |  Cargo.toml | ✔ |
-| Rust | Cargo | Cargo.lock | Non, utilise runtime par défaut |
-| YAML | GitHub Actions | - | Non, utilise runtime par défaut |
-| .NET (C#, F#, VB, etc.) | NuGet | .csproj / .vbproj .vcxproj / .fsproj | Non, utilise runtime par défaut |
-| .NET | NuGet | packages.config | Non, utilise runtime par défaut |
-| .NET | NuGet | .nuspec | ✔ Si l’étiquette != runtime |
+| Ruby | RubyGems | Gemfile |	✔ |
+| Ruby | RubyGems | Gemfile.lock	| No, defaults to runtime |
+| Rust | Cargo | Cargo.toml | ✔ |
+| Rust | Cargo | Cargo.lock | No, defaults to runtime |
+| YAML | GitHub Actions | - | No, defaults to runtime |
+| .NET (C#, F#, VB, etc.) | NuGet | .csproj / .vbproj .vcxproj / .fsproj | No, defaults to runtime |
+| .NET | NuGet | packages.config | No, defaults to runtime |
+| .NET | NuGet | .nuspec | ✔ When the tag != runtime |

@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>SponsorsListingFeaturedItem</code> was added</p>",
+          "<p>Type <code>SponsorsListingFeaturedItemFeatureableType</code> was added</p>",
+          "<p>Field <code>featuredItems</code> was added to object type <code>SponsorsListing</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>includeAsSponsor: Boolean</code> added to field <code>Organization.sponsorsActivities</code></p>",
           "<p>Argument <code>includeAsSponsor: Boolean</code> added to field <code>Sponsorable.sponsorsActivities</code></p>",
           "<p>Argument <code>includeAsSponsor: Boolean</code> added to field <code>User.sponsorsActivities</code></p>"

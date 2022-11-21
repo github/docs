@@ -1,0 +1,3 @@
+{% ifversion not ghae %}
+If your repository has a supported dependency manifest{% ifversion fpt or ghec %} (and if you've set up the dependency graph if it's a private repository){% endif %}, whenever {% data variables.product.product_name %} detects a vulnerable dependency in your repository, you will receive a weekly digest email. You can also configure your security alerts as web notifications, individual email notifications, daily email digests, or alerts in the {% data variables.product.product_name %} interface. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+{% endif %}

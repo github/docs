@@ -1,6 +1,6 @@
 ---
-title: github.dev 基于 web 的编辑器
-intro: '使用存储库或拉取请求中的 github.dev {% data variables.product.prodname_serverless %} 来创建和提交更改。'
+title: The github.dev web-based editor
+intro: 'Use the github.dev {% data variables.codespaces.serverless %} from your repository or pull request to create and commit changes.'
 versions:
   feature: githubdev-editor
 type: how_to
@@ -12,108 +12,104 @@ topics:
 shortTitle: Web-based editor
 redirect_from:
   - /codespaces/developing-in-codespaces/web-based-editor
-ms.openlocfilehash: d1c21f3e75ecc4fec282c9156943c137287d203c
-ms.sourcegitcommit: caab4edbbeedf23e9062e48a67c35224772b6efa
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160475'
 ---
+
 {% note %}
 
-注意：github.dev {% data variables.product.prodname_serverless %} 目前为测试预览版。 你可以在[我们的讨论中](https://github.com/community/community/discussions/categories/general)提供反馈。
+**Note:** The github.dev {% data variables.codespaces.serverless %} is currently in beta preview. You can provide feedback [in our Discussions](https://github.com/community/community/discussions/categories/general).
 
 {% endnote %}
 
-## 关于 {% data variables.product.prodname_serverless %}
+## About the {% data variables.codespaces.serverless %}
 
-{% data variables.product.prodname_serverless %} 引入了完全在浏览器中运行的轻量级编辑体验。 使用 {% data variables.product.prodname_serverless %}，您可以从 {% data variables.product.prodname_dotcom %}中导航文件和源代码存储库，并创建和提交代码更改。 您可以在编辑器中打开任何存储库、复刻或拉取请求。
+The {% data variables.codespaces.serverless %} introduces a lightweight editing experience that runs entirely in your browser. With the {% data variables.codespaces.serverless %}, you can navigate files and source code repositories from {% data variables.product.prodname_dotcom %}, and make and commit code changes. You can open any repository, fork, or pull request in the editor.
 
-{% data variables.product.prodname_serverless %} 在 {% data variables.product.prodname_dotcom_the_website %} 上免费供所有人使用。
+The {% data variables.codespaces.serverless %} is available to everyone for free on {% data variables.product.prodname_dotcom_the_website %}.
 
-{% data variables.product.prodname_serverless %} 具有 {% data variables.product.prodname_vscode %} 的诸多优点，如搜索、语法突出显示和源控制视图。 还可以使用 Settings Sync 与编辑器共享自己的 {% data variables.product.prodname_vscode_shortname %} 设置。 有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)”。
+The {% data variables.codespaces.serverless %} provides many of the benefits of {% data variables.product.prodname_vscode %}, such as search, syntax highlighting, and a source control view. You can also use Settings Sync to share your own {% data variables.product.prodname_vscode_shortname %} settings with the editor. For more information, see "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-{% data variables.product.prodname_serverless %} 完全在浏览器的沙盒中运行。 编辑器不会克隆存储库，而是使用 [GitHub 存储库扩展](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)来执行你将要使用的大部分功能。 您的工作将保存在浏览器的本地存储中，直到您提交为止。 您应定期提交更改，以确保它们始终可访问。
+The {% data variables.codespaces.serverless %} runs entirely in your browser’s sandbox. The editor doesn’t clone the repository, but instead uses the [GitHub Repositories extension](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension) to carry out most of the functionality that you will use. Your work is saved in the browser’s local storage until you commit it. You should commit your changes regularly to ensure that they're always accessible.
 
-必须登录才能使用基于 Web 的编辑器。
+You must be signed in to use the web-based editor.
 
-## 打开 {% data variables.product.prodname_serverless %}
+## Opening the {% data variables.codespaces.serverless %}
 
-您可以通过以下任一方式打开 {% data variables.product.prodname_serverless %} 中的任何 {% data variables.product.prodname_dotcom %} 存储库：
+You can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.codespaces.serverless %} in either of the following ways:
 
-- 要在同一浏览器标签页中打开存储库，请按 <kbd>.</kbd> （在 {% data variables.product.prodname_dotcom %} 上浏览任何存储库或拉取请求时）。
+- To open the repository in the same browser tab, press <kbd>.</kbd> while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
  
-  要在新的浏览器标签页中打开存储库，请按 <kbd>></kbd>。
+  To open the repository in a new browser tab, press <kbd>></kbd>.
 
-- 将 URL 从“github.com”更改为“github.dev”。
-- 查看文件时，请使用 {% octicon "pencil" aria-label="The edit icon" %} 旁边的下拉菜单，然后选择“在 github.dev 中打开”。
+- Change the URL from "github.com" to "github.dev".
+- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
 
-  ![“编辑文件”按钮下拉菜单](/assets/images/help/repository/edit-file-edit-dropdown.png)
+  ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
-## {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_serverless %}
+## {% data variables.product.prodname_codespaces %} and the {% data variables.codespaces.serverless %}
 
-{% data variables.product.prodname_serverless %} 和 {% data variables.product.prodname_github_codespaces %} 都允许你直接从存储库中编辑代码。 但两者的优点略有不同，具体取决于您的使用情况。
+Both the {% data variables.codespaces.serverless %} and {% data variables.product.prodname_github_codespaces %} allow you to edit your code straight from your repository. However, both have slightly different benefits, depending on your use case.
 
-|| {% data variables.product.prodname_serverless %} | {% data variables.product.prodname_github_codespaces %}|
+|| {% data variables.codespaces.serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
-| **成本** | 可用。      | 个人帐户每月免费使用配额。 有关定价的信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)”。|
-| **可用性** | 可供 GitHub.com 上的所有人使用。 | 可供 GitHub.com 上的所有人使用。 |
-| **启动** | {% data variables.product.prodname_serverless %} 在按下按键时可立即打开，您可以立即开始使用它，而无需等待其他配置或安装。 | 创建或恢复 codespace 时，将为该 codespace 分配一个 VM，并根据 `devcontainer.json` 文件的内容配置容器。 此设置可能需要几分钟才能创建环境。 有关详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)”。 |
-| **计算**  | 没有关联的计算，因此您将无法创建和运行代码或使用集成终端。 | 借助 {%  data variables.product.prodname_github_codespaces %}，可以获得专用 VM 的强大功能，在该 VM 上可以运行和调试应用程序。|
-| **终端访问** | 无。 | 默认情况下，{% data variables.product.prodname_github_codespaces %} 提供一组通用工具，这意味着可以像在本地环境中一样使用终端。|
-| **扩展**  | 只有可以在 Web 中运行的扩展子集才会显示在扩展视图中，并且可以安装。 有关详细信息，请参阅[使用扩展](#using-extensions)。| 借助 {% data variables.product.prodname_github_codespaces %}，可以使用 {% data variables.product.prodname_vscode_marketplace %} 中的大多数扩展。|
+| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)."|
+| **Availability** | Available to everyone on GitHub.com. | Available to everyone on GitHub.com. |
+| **Start up** | The {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)." |
+| **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
+| **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
+| **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. For more information, see "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
 
-### 继续使用 {% data variables.product.prodname_codespaces %}
+### Continue working on {% data variables.product.prodname_codespaces %}
 
-你可以在 {% data variables.product.prodname_serverless %} 中启动工作流并继续使用 codespace。 如果尝试访问运行和调试视图或终端，系统将通知您它们在 {% data variables.product.prodname_serverless %} 中不可用。
+You can start your workflow in the {% data variables.codespaces.serverless %} and continue working on a codespace. If you try to access the Run and Debug View or the Terminal, you'll be notified that they are not available in the {% data variables.codespaces.serverless %}.
 
-要在 codespace 中继续工作，请单击“继续处理...” 然后选择“新建 Codespace”，在当前分支上创建 codespace。 在选择此选项之前，必须提交任何更改。
+To continue your work in a codespace, click **Continue Working on…** and select **Create New Codespace** to create a codespace on your current branch. Before you choose this option, you must commit any changes.
 
-![显示 UI 中的“继续工作”按钮的屏幕截图](/assets/images/help/codespaces/codespaces-continue-working.png)
+![A screenshot that shows the "Continue Working on" button in the UI](/assets/images/help/codespaces/codespaces-continue-working.png)
 
-## 使用源控制
+## Using source control
 
-使用 {% data variables.product.prodname_serverless %} 时，所有操作都通过源控制视图进行管理，该视图位于左侧的活动栏中。 有关源代码管理视图的详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[版本控制](https://code.visualstudio.com/docs/editor/versioncontrol)”。
+When you use the {% data variables.codespaces.serverless %}, all actions are managed through the Source Control View, which is located in the Activity Bar on the left hand side. For more information on the Source Control View, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-由于基于 Web 的编辑器使用 GitHub 存储库扩展来增强其功能，因此您可以切换分支而无需隐藏更改。 有关详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[GitHub 存储库](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)”。
+Because the web-based editor uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. For more information, see "[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-### 创建新分支
+### Create a new branch
 
-{% data reusables.codespaces.create-or-switch-branch %} 你在旧分支中所做的任何未提交的更改都将在新分支上可用。
+{% data reusables.codespaces.create-or-switch-branch %}
+  Any uncommitted changes you have made in your old branch will be available on your new branch.
 
-### 提交更改
+### Commit your changes
 
 {% data reusables.codespaces.source-control-commit-changes %} 
-5. 更改在提交后将自动推送到 {% data variables.product.prodname_dotcom %} 上的分支。
-### 创建拉取请求
+5. Once you have committed your changes, they will automatically be pushed to your branch on {% data variables.product.prodname_dotcom %}.
+### Create a pull request
 
 {% data reusables.codespaces.source-control-pull-request %}
 
-### 使用现有的拉取请求
+### Working with an existing pull request
 
-您可以使用 {% data variables.product.prodname_serverless %} 来处理现有的拉取请求。
+You can use the {% data variables.codespaces.serverless %} to work with an existing pull request.
 
-1. 浏览到要在 {% data variables.product.prodname_serverless %} 中打开的拉取请求。
-2. 按 `.` 以在 {% data variables.product.prodname_serverless %} 中打开拉取请求。
-3. 进行任何更改后，请使用[提交更改](#commit-your-changes)中的步骤提交更改。 您的更改将直接提交到分支，无需推送更改。
+1. Browse to the pull request you'd like to open in the {% data variables.codespaces.serverless %}.
+2. Press `.` to open the pull request in the {% data variables.codespaces.serverless %}.
+3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
 
-## 使用扩展
+## Using extensions
 
-{% data variables.product.prodname_serverless %} 支持专门创建或更新以在 Web 中运行的 {% data variables.product.prodname_vscode_shortname %} 扩展。 这些扩展称为“Web 扩展”。 要了解如何创建 Web 扩展或更新现有扩展以适用于 Web，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[Web 扩展](https://code.visualstudio.com/api/extension-guides/web-extensions)”。
+The {% data variables.codespaces.serverless %} supports {% data variables.product.prodname_vscode_shortname %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see "[Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-可以在 {% data variables.product.prodname_serverless %} 中运行的扩展将显示在扩展视图中，并且可以安装。 如果使用“设置同步”，则所有兼容的扩展也会自动安装。 有关信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)”。
+Extensions that can run in the {% data variables.codespaces.serverless %} will appear in the Extensions View and can be installed. If you use Settings Sync, any compatible extensions are also installed automatically. For information, see "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 
-## 故障排除
+## Troubleshooting
 
-如果您在打开 {% data variables.product.prodname_serverless %} 时遇到问题，请尝试以下操作：
+If you have issues opening the {% data variables.codespaces.serverless %}, try the following:
 
-- 确保您已登录到 {% data variables.product.prodname_dotcom %}。
-- 禁用任何广告拦截器。
-- 在浏览器中使用非隐身窗口打开 {% data variables.product.prodname_serverless %}。
+- Make sure you are signed in to {% data variables.product.prodname_dotcom %}.
+- Disable any ad blockers.
+- Use a non-incognito window in your browser to open the {% data variables.codespaces.serverless %}.
 
-### 已知的限制
+### Known limitations
 
-- {% data variables.product.prodname_serverless %} 目前在 Chrome（以及其他各种基于 Chromium 的浏览器）、Edge、Firefox 和 Safari 中受支持。 我们建议您使用这些浏览器的最新版本。
-- 某些按键绑定可能不起作用，具体取决于您使用的浏览器。 这些键绑定限制记录在 {% data variables.product.prodname_vscode_shortname %} 文档的“[已知限制和改编](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)”部分中。
-- 根据本地键盘布局，`.` 可能无法打开 {% data variables.product.prodname_serverless %}。 在这种情况下，你可以通过将 URL 从 `github.com` 更改为 `github.dev` 来打开 {% data variables.product.prodname_serverless %} 中的任何 {% data variables.product.prodname_dotcom %} 存储库。
+- The {% data variables.codespaces.serverless %} is currently supported in Chrome (and various other Chromium-based browsers), Edge, Firefox, and Safari. We recommend that you use the latest versions of these browsers.
+- Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the "[Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" section of the {% data variables.product.prodname_vscode_shortname %} documentation.
+- `.` may not work to open the {% data variables.codespaces.serverless %} according to your local keyboard layout. In that case, you can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.codespaces.serverless %} by changing the URL from `github.com` to `github.dev`.
