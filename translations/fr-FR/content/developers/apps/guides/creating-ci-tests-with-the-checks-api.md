@@ -154,7 +154,7 @@ def create_check_run
 end
 ```
 
-This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the [create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
+This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
 
 To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
 
@@ -236,7 +236,7 @@ def initiate_check_run
 end
 ```
 
-The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run) to update the check run that you already created.
+The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method) to update the check run that you already created.
 
 Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In [Part 2](#part-2-creating-the-octo-rubocop-ci-test) of this quickstart, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
 
