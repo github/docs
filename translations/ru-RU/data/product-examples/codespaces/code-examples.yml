@@ -1,0 +1,36 @@
+- title: Пример проекта Node.js
+  description: Запустите проект Node.js с помощью настраиваемого контейнера разработки
+  languages: JavaScript
+  href: microsoft/vscode-remote-try-node
+  tags:
+    - контейнеры разработки
+- title: Пример проекта Python
+  description: Запустите проект Python с помощью настраиваемого контейнера разработки
+  languages: Python
+  href: microsoft/vscode-remote-try-python
+  tags:
+    - контейнеры разработки
+- title: Пример проекта Java
+  description: Запустите проект Java с помощью настраиваемого контейнера разработки
+  languages: Java
+  href: microsoft/vscode-remote-try-java
+  tags:
+    - контейнеры разработки
+- title: Пример проекта Go
+  description: Запустите проект Go с помощью настраиваемого контейнера разработки
+  languages: Go
+  href: microsoft/vscode-remote-try-go
+  tags:
+    - контейнеры разработки
+- title: Пример проекта Rust
+  description: Запустите проект Rust с помощью настраиваемого контейнера разработки
+  languages: Rust
+  href: microsoft/vscode-remote-try-rust
+  tags:
+    - контейнеры разработки
+- title: Пример проекта PHP
+  description: Запустите проект PHP с помощью настраиваемого контейнера разработки
+  languages: PHP
+  href: microsoft/vscode-remote-try-php
+  tags:
+    - контейнеры разработки

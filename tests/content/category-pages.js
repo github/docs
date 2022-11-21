@@ -6,7 +6,6 @@ import matter from '../../lib/read-frontmatter.js'
 import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
-import loadSiteData from '../../lib/site-data.js'
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -16,8 +15,6 @@ const slugger = new GithubSlugger()
 const contentDir = path.join(__dirname, '../../content')
 
 describe('category pages', () => {
-  const siteData = loadSiteData().en.site
-
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
     ignore: [
@@ -100,7 +97,9 @@ describe('category pages', () => {
           })
 
           // Save the index title for later testing
-          indexTitle = await renderContent(data.title, { site: siteData }, { textOnly: true })
+          indexTitle = data.title.includes('{')
+            ? await renderContent(data.title, { currentLanguage: 'en' }, { textOnly: true })
+            : data.title
 
           publishedArticlePaths = (
             await Promise.all(

@@ -1,6 +1,6 @@
 ---
-title: Sobre o GitHub Global Campus para alunos
-intro: 'O {% data variables.product.prodname_education %} proporciona aos estudantes do mundo real experiência com acesso grátis a várias ferramentas de desenvolvedor de parceiros do {% data variables.product.prodname_dotcom %}.'
+title: About GitHub Global Campus for students
+intro: '{% data variables.product.prodname_education %} offers students real-world experience with free access to various developer tools from {% data variables.product.prodname_dotcom %}''s partners.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education-for-students
   - /github/teaching-and-learning-with-github-education/about-github-education-for-students
@@ -10,36 +10,40 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: 9012b473399905e60b04a8876a3d4e6afd10a6ba
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107965'
 ---
-Usar o {% data variables.product.prodname_dotcom %} nos projetos da sua escola é uma maneira prática de colaborar com outras pessoas e de criar um portfólio que demonstra experiência no mundo real.
+Using {% data variables.product.prodname_dotcom %} for your school projects is a practical way to collaborate with others and build a portfolio that showcases real-world experience.
 
-Cada pessoa com uma conta do {% data variables.product.prodname_dotcom %} pode colaborar em repositórios públicos e privados ilimitados com o {% data variables.product.prodname_free_user %}. Como aluno, você também pode se candidatar a benefícios para alunos do {% data variables.product.prodname_education %}. Seus recursos e os benefícios para alunos do {% data variables.product.prodname_education %} estão incluídos em {% data variables.product.prodname_global_campus %}, um portal que permite acessar seus benefícios educacionais, tudo em um só lugar. Para obter mais informações, confira "[Candidatar-se para o GitHub Global Campus como aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)" e [{% data variables.product.prodname_education %}](https://education.github.com/).
+Everyone with a {% data variables.product.prodname_dotcom %} account can collaborate in unlimited public and private repositories with {% data variables.product.prodname_free_user %}. As a student, you can also apply for {% data variables.product.prodname_education %} student benefits. Your {% data variables.product.prodname_education %} student benefits and resources are all included in {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits, all in one place. For more information, see "[Apply to GitHub Global Campus as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)" and [{% data variables.product.prodname_education %}](https://education.github.com/).
 
-Antes de se candidatar para o Global Campus, verifique se a sua comunidade de aprendizado já tem parceria conosco como uma escola {% data variables.product.prodname_campus_program %}. Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_campus_program %} ](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)".
+Before applying for Global Campus, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see "[About {% data variables.product.prodname_campus_program %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)."
 
-Se você for integrante de uma associação escolar, um professor poderá candidatar-se para o {% data variables.product.prodname_global_campus %} para que sua equipe possa colaborar usando o {% data variables.product.prodname_team %}, que permite repositórios privados e de usuários ilimitados, gratuitamente. Para obter mais informações, confira "[Candidatar-se para o {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."
+If you're a member of a school club, a teacher can apply for {% data variables.product.prodname_global_campus %} so your team can collaborate using {% data variables.product.prodname_team %}, which allows unlimited users and private repositories, for free. For more information, see "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."
 
-Depois de ser um aluno verificado do {% data variables.product.prodname_global_campus %}, você poderá acessar {% data variables.product.prodname_global_campus %} a qualquer momento acessando o [site {% data variables.product.prodname_education %}](https://education.github.com). 
+Once you are a verified {% data variables.product.prodname_global_campus %} student, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com). 
 
-![Portal do {% data variables.product.prodname_global_campus %} para alunos](/assets/images/help/education/global-campus-portal-students.png)
+![{% data variables.product.prodname_global_campus %} portal for students](/assets/images/help/education/global-campus-portal-students.png)
 
-## Recursos do {% data variables.product.prodname_global_campus %} para alunos
+## {% data variables.product.prodname_global_campus %} features for students
 
-O {% data variables.product.prodname_global_campus %} é um portal do qual você pode acessar seus recursos e benefícios do {% data variables.product.prodname_education %}, tudo em um só lugar. No portal do {% data variables.product.prodname_global_campus %}, os alunos podem:
-- Conectar-se com um especialista local de campus. Para obter mais informações sobre especialistas do campus, confira "[Sobre especialistas do campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-experts)".
-- Explore e reivindique ofertas para ferramentas gratuitas do setor do [Pacote para Alunos Desenvolvedores](https://education.github.com/pack).
-- Confira os próximos eventos virtuais e presenciais para os alunos, com a curadoria de {% data variables.product.prodname_education %} e dos líderes estudantis.
-- Exiba as atribuições da [Sala de aula do GitHub](https://classroom.github.com/) com as próximas datas de conclusão.
-- Mantenha-se informado sobre no que a comunidade está interessada assistindo novamente episódios recentes da [Campus TV](https://www.twitch.tv/githubeducation). A Campus TV é criada por {% data variables.product.prodname_dotcom %} e líderes da comunidade estudantil e pode ser assistida ao vivo ou sob demanda.
-- Descubra repositórios criados por alunos do GitHub Community Exchange. Para obter mais informações, confira "[Sobre o GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)".
+{% data variables.product.prodname_global_campus %} is a portal from which you can access your {% data variables.product.prodname_education %} benefits and resources, all in one place. On the {% data variables.product.prodname_global_campus %} portal, students can:
+- Connect with a local Campus Expert. For more information on campus experts, see "[About Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-experts)."
+- Explore and claim offers for free industry tools from the [Student Developer Pack](https://education.github.com/pack).
+- See upcoming in-person and virtual events for students, curated by {% data variables.product.prodname_education %} and student leaders.
+- View assignments from [GitHub Classroom](https://classroom.github.com/) with upcoming due dates.
+- Stay in the know on what the community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
+- Discover student-created repositories from GitHub Community Exchange. For more information, see "[About GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)."
 
-## Leitura adicional
+{% data variables.product.prodname_global_campus %} students also receive the following {% data variables.product.prodname_dotcom %} benefits.
+- **{% data variables.product.prodname_copilot %}**: Verified students receive a free subscription for {% data variables.product.prodname_copilot %}. You will be automatically notified about the free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page in your account settings. For more information about subscribing to and using {% data variables.product.prodname_copilot %}, see "[Managing your {% data variables.product.prodname_copilot %} subscription](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot)" and "[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)."
+- **{% data variables.product.prodname_github_codespaces %}**: {% data reusables.education.student-codespaces-benefit %} For more information on getting started with {% data variables.product.prodname_github_codespaces %}, see "[{% data variables.product.prodname_github_codespaces %} overview](/codespaces/overview)."
 
-- "[Sobre o {% data variables.product.prodname_global_campus %} para professores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)"
-- "[Sobre o {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)"
+{% note %}
+
+**Note:** {% data reusables.education.note-on-student-codespaces-usage %} For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)."
+
+{% endnote %}
+
+## Further reading
+
+- "[About {% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)"
+- "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)"

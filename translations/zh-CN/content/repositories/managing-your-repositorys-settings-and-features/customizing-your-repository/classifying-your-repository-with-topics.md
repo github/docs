@@ -1,6 +1,6 @@
 ---
-title: Classifying your repository with topics
-intro: 'To help other people find and contribute to your project, you can add topics to your repository related to your project''s intended purpose, subject area, affinity groups, or other important qualities.'
+title: 使用主题对仓库分类
+intro: 为帮助其他人找到并参与您的项目，可以为仓库添加主题，这些主题可以与项目的预期目的、学科领域、关联团队或其他重要特点相关。
 redirect_from:
   - /articles/about-topics
   - /articles/classifying-your-repository-with-topics
@@ -14,36 +14,41 @@ versions:
 topics:
   - Repositories
 shortTitle: Classify with topics
+ms.openlocfilehash: 26f51423140c086bbea019666b8d569419da3b38
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108051'
 ---
+## 关于主题
 
-## About topics
+使用主题可以探索特定主题领域的仓库，查找要参与的项目，以及发现特定问题的新解决方案。 主题显示在仓库的主页面上。 可以单击主题名称以{% ifversion fpt or ghec %}查看相关主题和按该主题分类的其他存储库列表{% else %}搜索具有该主题的其他存储库{% endif %}。
 
-With topics, you can explore repositories in a particular subject area, find projects to contribute to, and discover new solutions to a specific problem. Topics appear on the main page of a repository. You can click a topic name to {% ifversion fpt or ghec %}see related topics and a list of other repositories classified with that topic{% else %}search for other repositories with that topic{% endif %}.
+![显示主题的测试仓库主页面](/assets/images/help/repository/os-repo-with-topics.png)
 
-![Main page of the test repository showing topics](/assets/images/help/repository/os-repo-with-topics.png)
+若要浏览最常用的主题，请转到 https://github.com/topics/ 。
 
-To browse the most used topics, go to https://github.com/topics/.
+{% ifversion fpt or ghec %}可以在 [github/explore](https://github.com/github/explore) 存储库中参与 {% data variables.product.product_name %} 的一组精选主题。 {% endif %}
 
-{% ifversion fpt or ghec %}You can contribute to {% data variables.product.product_name %}'s set of featured topics in the [github/explore](https://github.com/github/explore) repository. {% endif %}
+仓库管理员可以添加他们喜欢的任何主题到仓库。 用于对存储库进行分类的有用主题包括存储库的预期用途、主题领域、社区或语言。{% ifversion fpt or ghec %}此外，{% data variables.product.product_name %} 分析公共存储库内容，并生成存储库管理员可接受或拒绝的建议主题。 私有仓库内容不可分析，也不会收到主题建议。{% endif %}
 
-Repository admins can add any topics they'd like to a repository. Helpful topics to classify a repository include the repository's intended purpose, subject area, community, or language.{% ifversion fpt or ghec %} Additionally, {% data variables.product.product_name %} analyzes public repository content and generates suggested topics that repository admins can accept or reject. Private repository content is not analyzed and does not receive topic suggestions.{% endif %}
+{% ifversion fpt %}公共和私有{% elsif ghec or ghes %}公共、私有和内部{% elsif ghae %}私有和内部{% endif %} 存储库可以包含主题，但您只会在主题搜索结果中看到您有权访问的私有存储库。
 
-{% ifversion fpt %}Public and private{% elsif ghec or ghes %}Public, private, and internal{% elsif ghae %}Private and internal{% endif %} repositories can have topics, although you will only see private repositories that you have access to in topic search results.
+您可以搜索与公共仓库关联的仓库。 有关详细信息，请参阅“[搜索存储库](/search-github/searching-on-github/searching-for-repositories#search-by-topic)”。 您也可以搜索 {% data variables.product.product_name %} 中的主题列表。 有关详细信息，请参阅“[搜索主题](/search-github/searching-on-github/searching-topics)”。
 
-You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/search-github/searching-on-github/searching-topics)."
-
-## Adding topics to your repository
+## 添加主题到仓库
 
 {% note %}
 
-**Note:** Topic names are always public, even if you create the topic from within a private repository.
+注意：主题名称始终是公共的，即使从专用存储库中创建主题也是如此。
 
 {% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. To the right of "About", click {% octicon "gear" aria-label="The Gear icon" %}.
-  ![Gear icon on main page of a repository](/assets/images/help/repository/edit-repository-details-gear.png)
-3. Under "Topics", type the topic you want to add to your repository, then type a space.
-  ![Form to enter topics](/assets/images/help/repository/add-topic-form.png)
-4. After you've finished adding topics, click **Save changes**.
-  !["Save changes" button in "Edit repository details"](/assets/images/help/repository/edit-repository-details-save-changes-button.png)
+2. 在“关于”右侧，单击 {% octicon "gear" aria-label="The Gear icon" %}。
+  ![存储库主页上的齿轮图标](/assets/images/help/repository/edit-repository-details-gear.png)
+3. 在“"Topics（主题）”下，键入要添加到仓库的主题，然后键入空格。
+  ![用于输入主题的表单](/assets/images/help/repository/add-topic-form.png)
+4. 完成添加主题后，单击“保存更改”。
+  ![“编辑存储库详细信息”中的“保存更改”按钮](/assets/images/help/repository/edit-repository-details-save-changes-button.png)

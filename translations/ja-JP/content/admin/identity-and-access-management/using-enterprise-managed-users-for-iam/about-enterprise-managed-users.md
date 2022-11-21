@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 371a6998976fdb8ff87017866319912b28dc8ce6
-ms.sourcegitcommit: ec712c0fd32e7fe2f74c2b6d5da95f700dfd8111
+ms.openlocfilehash: 82a8b8c29ea38d57f0481146f2a857c2dcba8413
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148110370'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160729'
 ---
 ## {% data variables.product.prodname_emus %} について
 
@@ -94,6 +94,7 @@ Enterprise によって所有されている Organization にメンバーを追�
 * {% data reusables.enterprise-accounts.emu-forks %}
 * {% data variables.enterprise.prodname_emu_enterprise %} が所有する Organization では、Organization および Enterprise リポジトリの可視性の設定に応じて、プライベートおよび内部リポジトリのみを作成できます。 
 * {% data variables.enterprise.prodname_managed_users_caps %}は、{% data variables.product.prodname_pages %} の使用が制限されます。 詳細については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)」を参照してください。
+* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## {% data variables.product.prodname_emus %} の概要
 
@@ -124,11 +125,11 @@ Enterprise によって所有されている Organization にメンバーを追�
   
   {% endif %}
   
-4. SSO を構成したら、SCIM のプロビジョニングを構成できます。 SCIM は、ID プロバイダーが {% data variables.product.prodname_dotcom_the_website %} 上のメンバー アカウントとチームをプロビジョニングし、管理する方法です。 SCIM のプロビジョニングを構成する場合の詳細については、「[エンタープライズ マネージド ユーザーの SCIM プロビジョニングの構成](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)」を参照してください。
+4. SSO を構成したら、SCIM のプロビジョニングを構成できます。 SCIM は、ID プロバイダーを使って {% data variables.product.prodname_dotcom_the_website %} に{% data variables.enterprise.prodname_managed_users %}を作成する方法です。 SCIM のプロビジョニングを構成する場合の詳細については、「[エンタープライズ マネージド ユーザーの SCIM プロビジョニングの構成](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)」を参照してください。
   
-5. 認証とプロビジョニングを構成したら、メンバーのプロビジョニングとチームの管理を開始できます。 詳細については、「[Managing team memberships with identity provider groups](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)」 (ID プロバイダー グループを使用して Team のメンバーシップを管理する) を参照してください。
+5. 認証とプロビジョニングが構成されたら、IdP グループを Team と同期することで、{% data variables.enterprise.prodname_managed_users %}の Organization メンバーシップの管理を開始できます。 詳細については、「[Managing team memberships with identity provider groups](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)」 (ID プロバイダー グループを使用して Team のメンバーシップを管理する) を参照してください。
 
-エンタープライズのメンバーが 1 つのワークステーションを使用して、{% data variables.enterprise.prodname_managed_user %}と個人アカウントの両方から {% data variables.location.product_location %} のリポジトリに投稿する必要がある場合は、サポートを提供できます。 詳しくは、「[{% data variables.product.prodname_dotcom_the_website %} で複数のユーザー アカウントを持つ開発者をサポートする](#supporting-developers-with-multiple-user-accounts-on-githubcom)」をご覧ください。
+Enterprise のメンバーが 1 つのワークステーションを使って、{% data variables.enterprise.prodname_managed_user %}と個人アカウントの両方から、{% data variables.location.product_location %} のリポジトリに投稿する必要がある場合は、サポートを提供できます。 詳しくは、「[{% data variables.product.prodname_dotcom_the_website %} で複数のユーザー アカウントを持つ開発者をサポートする](#supporting-developers-with-multiple-user-accounts-on-githubcom)」をご覧ください。
 
 ## {% data variables.enterprise.prodname_managed_user %}として認証を行う
 

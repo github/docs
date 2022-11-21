@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: becb68c2813f1e6914edb34b235ac59aba8ae00b
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 89fc5092468d50484cfcad71824870b6456d9ac7
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145129230'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164161'
 ---
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
@@ -38,6 +38,7 @@ ms.locfileid: '145129230'
 | PHP        | ✅                           |                         |
 | Python     | ✅                           | ✅                      |
 | Ruby       | ✅                           |                         |
+| Rust       | ✅                           |                         |
 | TypeScript | ✅                           |                         |
 
 
@@ -72,6 +73,12 @@ ms.locfileid: '145129230'
 ![基于搜索的代码导航链接](/assets/images/help/repository/search-based-code-navigation-link.png)
 
 如果精确结果显示不准确，您可以提交支持请求。
+
+## 跨存储库精确代码导航
+
+跨存储库代码导航适用于精确代码导航和依赖项关系图支持的语言。 有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。 使用跨存储库代码导航，如果项目导入的依赖项是由 {% data variables.product.prodname_dotcom %} 托管的存储库，则可以跳转到该依赖项中定义的函数或变量的定义。 跨存储库代码导航目前不支持查找所有引用请求。
+
+![跨存储库代码导航的屏幕截图](/assets/images/help/repository/cross-repository-code-navigation.png)
 
 ## 代码导航疑难解答
 

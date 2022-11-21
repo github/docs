@@ -7,12 +7,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: About custom roles
-ms.openlocfilehash: 48c6fe2ee78d2d28d11093d0b50a472c46266959
-ms.sourcegitcommit: ca040a1871ab5e929b596686ef955b02c5afa051
+ms.openlocfilehash: c4e7f791b9402b45160b31aab2653bf80150ddee
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2022
-ms.locfileid: '148131010'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160689'
 ---
 {% data reusables.organizations.custom-repo-roles-ghec-only %}
 
@@ -68,60 +68,60 @@ REST API を使って、組織で使用できるカスタム リポジトリ ロ
 {% ifversion discussions %}
 ### ディスカッション
 
-- **ディスカッション カテゴリを作成する**: 新しいディスカッション カテゴリを作成する機能。 詳しくは、[新しいディスカッション カテゴリの作成](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)に関するページをご覧ください。
-- **ディスカッション カテゴリを編集する**: ディスカッション カテゴリを編集する機能。 詳しくは、[ディスカッション カテゴリの編集](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)に関するページをご覧ください。
-- **ディスカッション カテゴリを削除する**: ディスカッション カテゴリを削除する機能。 詳しくは、[ディスカッション カテゴリの削除](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)に関するページをご覧ください。
-- **ディスカッションの回答をマークまたはマーク解除する**: ディスカッションのカテゴリが回答を受け入れる場合に、ディスカッションへの回答をマークする機能。 詳しくは、[ディスカッションのコメントを回答としてマークまたはマークの解除](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)に関するページをご覧ください。
-- **ディスカッション コメントを非表示または再表示する**: ディスカッション内のコメントを非表示または再表示する機能。  詳細については、「[ディスカッションをモデレートする](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)」を参照してください。
-- **Issue をディスカッションに変換する**: Issue をディスカッションに変換する機能。  詳しくは、「[Issue をディスカッションに変換する](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)」をご覧ください。
+- ディスカッション カテゴリを作成する
+- ディスカッション カテゴリを編集する
+- ディスカッション カテゴリを削除する 
+- ディスカッションの回答をマークまたはマーク解除する 
+- ディスカッション コメントを非表示または非表示解除する 
+- issue をディスカッションに変換する 
+
+詳しくは、「[{% data variables.product.prodname_discussions %}](/discussions)」を参照してください。
 {% endif %}
 
 ### IssueとPull Request
 
-- **ユーザーを割り当てる、または削除する**: ユーザーを issue または pull request に割り当てるか、ユーザーを issue または pull request から削除します。
-- **ラベルを追加または削除する**: ラベルを issue または pull request に追加するか、ラベルを issue または pull request から削除します。
+- ユーザーの割り当てまたは削除 
+- ラベルの追加または削除 
 
 ### 問題
 
-- **issue をクローズする**
-- **クローズされた issue を再オープンする**
-- **issue を削除する**
-- **issue を複製としてマークする**
+- issue をクローズする
+- クローズされた issue を再オープンする
+- issue を削除する
+- issue を複製としてマークする
 
 ### Pull Request
 
-- **pull request をクローズする**
-- **クローズされた pull request を再オープンする**
-- **pull request のレビューを要求する**: ユーザーまたは Team にレビューを要求します。
+- pull request をクローズする
+- クローズされた pull request を再オープンする
+- pull request レビューを要求する
 
 ### リポジトリ
 
-- **マイルストーンを設定する**: issue または pull request にマイルストーンを追加します。
-- **Wiki 設定を管理する**: リポジトリに対して Wiki を有効にします。
-- **プロジェクト設定を管理する**: リポジトリのプロジェクトを有効にします。
-- **pull request のマージ設定を管理する**: マージ、squash、リベースなど、リポジトリで許可されるマージ コミットの種類を選びます。
-- **{% data variables.product.prodname_pages %} 設定を管理する**: リポジトリに対して {% data variables.product.prodname_pages %} を有効にし、公開するブランチを選択します。 詳細については、「[{% data variables.product.prodname_pages %} サイトの公開元を設定する](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)」を参照してください。
-- **Webhook を管理する**: リポジトリに Webhook を追加します。
-- **デプロイ キーを管理する**: リポジトリにデプロイ キーを追加します。
-- **リポジトリのメタデータを編集する**: リポジトリの説明およびポジトリのトピックを更新します。
-{%- ifversion ghec %}
-- **インタラクションの制限を設定する**: 自分のパブリック リポジトリで特定のユーザーによるコメント、issue のオープン、pull request の作成を一時的に制限し、制限されたアクティビティの期間を適用します。 詳細については、「[リポジトリでのインタラクションを制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。
-{%- endif %}
-- **ソーシャル プレビューを設定する**: リポジトリがリンクされたときにソーシャル メディア プラットフォーム上に表示される識別画像をリポジトリに追加します。 詳細については、「[リポジトリのソーシャル メディア プレビューのカスタマイズ](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)」を参照してください。
-- **保護されたブランチにコミットをプッシュする**: 保護されたブランチとしてマークされているブランチにプッシュします。 ブランチ保護ルールは引き続き適用され、プッシュが拒否される可能性があります。
-- **保護されたタグを作成する**: タグ保護ルールに一致するタグを作成します。 詳細については、「[タグ保護ルールの構成](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)」を参照してください。
-- **タグ保護ルールを削除する**: タグ保護ルールに一致するタグを削除します。 詳しくは、「[タグ保護ルールの構成](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)」を参照してください。{% ifversion bypass-branch-protections %}
-- **ブランチ保護をバイパスする**: ブランチ保護ルールに準拠せず、保護されたブランチにプッシュします。{% endif %}
+- マイルストーンを設定する
+- wiki 設定を管理する 
+- プロジェクト設定を管理する
+- pull request のマージ設定を管理する 
+- {% data variables.product.prodname_pages %} 設定を管理する (「[{% data variables.product.prodname_pages %} サイトの公開元を設定する](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)」を参照してください)
+- webhookの管理 
+- デプロイキーの管理 
+- リポジトリ メタデータの編集 {%- ifversion ghec %}
+- 相互作用の制限を設定する {%- endif %}
+- ソーシャル プレビューを設定する 
+- 保護されたブランチにコミットをプッシュする (ブランチ保護規則は引き続き適用されます)
+- 保護されたタグを作成する
+- 保護されたタグを削除する {%- ifversion bypass-branch-protections %}
+- ブランチ保護をバイパスする {%- endif %}
 
 ### セキュリティ
 
-- **{% data variables.product.prodname_code_scanning %} の結果を表示する**: {% data variables.product.prodname_code_scanning %} アラートを表示できます。
-- **{% data variables.product.prodname_code_scanning %} の結果を無視または再オープンする**: {% data variables.product.prodname_code_scanning %} アラートを無視または再オープンできます。
-- **{% data variables.product.prodname_code_scanning %} の結果を削除する**: {% data variables.product.prodname_code_scanning %} アラートを削除できます。
-- **{% data variables.product.prodname_dependabot_alerts %} を表示する**: {% data variables.product.prodname_dependabot_alerts %} を表示できます。
-- **{% data variables.product.prodname_dependabot_alerts %} を無視または再オープンする**: {% data variables.product.prodname_dependabot_alerts %} を無視または再オープンできます。
-- **{% data variables.product.prodname_secret_scanning %} の結果を表示する**: {% data variables.product.prodname_secret_scanning %} アラートを表示できます。
-- **{% data variables.product.prodname_secret_scanning %} の結果を無視または再オープンする**: {% data variables.product.prodname_secret_scanning %} アラートを無視または再オープンできます。
+- {% data variables.product.prodname_code_scanning %} の結果を表示する 
+- {% data variables.product.prodname_code_scanning %} を閉じる、またはもう一度開く
+- {% data variables.product.prodname_code_scanning %} の結果を削除する 
+- {% data variables.product.prodname_dependabot_alerts %}を表示する 
+- {% data variables.product.prodname_dependabot_alerts %}を閉じる、またはもう一度開く 
+- {% data variables.product.prodname_secret_scanning %} の結果を表示する 
+- {% data variables.product.prodname_secret_scanning %} を閉じる、またはもう一度開く 
 
 ## 様々なアクセスレベルの優先順位
 

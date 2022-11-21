@@ -5,6 +5,7 @@ import { allVersions } from '../../lib/all-versions.js'
 
 let webhookPayloads = null
 
+// TODO: docs-eng#1937: webhooks-delete-1937: delete this file
 export default function webhooksContext(req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-webhook reference paths

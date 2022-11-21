@@ -29,7 +29,7 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
    ![Fork button](/assets/images/help/repository/fork_button.png){% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 3. Select an owner for the forked repository.
    ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
-4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further. 
+4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further.
    ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
 5. Optionally, add a description of your fork.
    ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
@@ -184,7 +184,7 @@ For more information about how to push changes in {% data variables.product.prod
 
 At last, you're ready to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
 
-To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://www.github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
+To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
 
 {% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Click **Create pull request**.
 

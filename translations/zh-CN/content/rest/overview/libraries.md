@@ -11,25 +11,25 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 4fa9e97ca9fa3803cfbd0cf0e21d3d2253a7aa60
-ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.openlocfilehash: aa139c0d25354260ccf688079f3e15a871b627bd
+ms.sourcegitcommit: 0ed77777360ec29eee7cd4fc212ae36fdd97c0bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '146769155'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148160960'
 ---
-<div class="jumbotron libraries-jumbotron">
-  <img src="/assets/images/gundamcat.png" class="gundamcat" alt="The Gundamcat" />
-  <h1>Octokit 风格多样</h1>
-  <p class="lead">使用官方的 Octokit 库，或者使用任何适用的第三方库。</p>
-  <div class="octokit-links"><br/>
-     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
-     <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
-  </div>
-</div>
+![Gundamcat](/assets/images/gundamcat.png)
 
-# 第三方库
+## Octokit 风格多样
+
+使用官方的 Octokit 库，或者使用任何适用的第三方库。
+
+- Python → [octokit.py](https://github.com/khornberg/octokit.py)
+- Ruby → [octokit.rb](https://github.com/octokit/octokit.rb)
+- .NET → [octokit.net](https://github.com/octokit/octokit.net)
+- JavaScript → [octokit/octokit.js](https://github.com/octokit/octokit.js)
+
+## 第三方库
 
 ### Clojure
 
@@ -130,6 +130,7 @@ ms.locfileid: '146769155'
 |**octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)|
 |**github-flask**|[github-flask（官方网站）](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
+|githubkit|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
 
 ### Ruby
 

@@ -1762,3 +1762,11 @@ upcoming_changes:
     date: '2023-04-01T00:00:00+00:00'
     criticality: breaking
     owner: traumverloren
+  - location: Repository.squashPrTitleUsedAsDefault
+    description:
+      '`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle`
+      instead.'
+    reason: '`squashPrTitleUsedAsDefault` will be removed.'
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/pull_requests

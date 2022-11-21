@@ -1,0 +1,25 @@
+date: '2022-02-17'
+sections:
+  security_fixes:
+    - 'Il était possible pour un utilisateur d’enregistrer un utilisateur ou une organisation nommée « saml ».'
+    - 'Les packages ont été mis à jour avec les dernières versions de sécurité.'
+  bugs:
+    - 'Les paramètres de stockage des packages GitHub ne pouvaient pas être validés et enregistrés dans la console de gestion lorsque Stockage Blob Azure était utilisé.'
+    - 'L’option de configuration mssql.backup.cadence échouait pour ghe-config-check avec un avertissement de jeu de caractères invalide.'
+    - 'Correction de SystemStackError (pile trop profonde) lors de l’obtention de plus de 2<sup>^16</sup> clés de memcached.'
+    - 'Un certain nombre de menus sélectionnés sur le site s’affichaient de manière incorrecte et n’étaient pas fonctionnels.'
+  changes:
+    - 'Le graphique des dépendances peut désormais être activé sans données de vulnérabilité, ce qui permet aux clients de voir quelles dépendances sont utilisées et à quelles versions. L’activation du graphique des dépendances sans activer GitHub Connect ne fournira *pas* d’informations de vulnérabilité.'
+    - 'L’analyse des secrets ignore l’analyse des fichiers ZIP et des autres fichiers d’archive.'
+  known_issues:
+    - 'Après la mise à niveau vers {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} peut ne pas démarrer automatiquement. Pour résoudre ce problème, connectez-vous à l’appliance via SSH et exécutez la commande `ghe-actions-start`.'
+    - 'Sur une instance fraîchement configurée de {% data variables.product.prodname_ghe_server %} sans aucun utilisateur, un attaquant pourrait créer le premier utilisateur administrateur.'
+    - 'Les règles de pare-feu personnalisées sont supprimées pendant le processus de mise à niveau.'
+    - 'Les fichiers suivis par Git LFS [chargés via l’interface web](https://github.com/blog/2105-upload-files-to-your-repositories) sont incorrectement ajoutés directement au référentiel.'
+    - 'Les questions ne peuvent pas être fermées si elles contiennent un permalien vers un blob dans le même référentiel, où le chemin de fichier du blob est supérieur à 255 caractères.'
+    - "Lorsque l’option «\_Les utilisateurs peuvent effectuer des recherches sur GitHub.com\_» est activée avec GitHub Connect, les problèmes dans les référentiels privés et internes ne sont pas inclus dans les résultats de recherche de GitHub.com."
+    - 'Le registre npm {% data variables.product.prodname_registry %} ne renvoie plus une valeur de temps dans les réponses de métadonnées. Cela a été fait pour permettre des améliorations substantielles des performances. Nous disposons toujours de toutes les données nécessaires pour renvoyer une valeur de temps dans le cadre de la réponse aux métadonnées et nous recommencerons à renvoyer cette valeur à l’avenir, une fois que nous aurons résolu les problèmes de performance existants.'
+    - 'Les limites de ressources spécifiques au traitement des hooks de pré-réception peuvent entraîner l’échec de certains hooks de pré-réception.'
+    - "Les paramètres de stockage de {% data variables.product.prodname_actions %} ne peuvent pas être validés et enregistrés dans la {% data variables.enterprise.management_console %} lorsque l’option «\_Forcer le style de chemin\_» est sélectionnée, et doivent être configurés avec l’utilitaire de ligne de commande `ghe-actions-precheck`."
+    - "Les instances {% data variables.product.prodname_ghe_server %} 3.3 installées sur Azure et dotées de plus de 32 cœurs de processeur ne parvenaient pas à se lancer, en raison d’un bogue présent dans le noyau Linux actuel. [Mise à jour\_: 2022-04-08]"
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

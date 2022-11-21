@@ -1,7 +1,7 @@
 ---
 title: CodeQL ランナーから CodeQL CLI への移行
 shortTitle: Migrating from the CodeQL runner
-intro: '{% data variables.product.prodname_codeql_cli %} を使用して、{% data variables.product.prodname_codeql_runner %} と同じタスクを完了できます。'
+intro: '{% data variables.product.prodname_codeql_cli %} を使用して、{% data variables.code-scanning.codeql_runner %} と同じタスクを完了できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,17 +12,17 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
-ms.openlocfilehash: c58dfe006a1f9189ece847559d5ecfafde1f7d81
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 10711111e3fa5c7226574ac9b70eb4bd4d5bff21
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145116062'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161265'
 ---
-# {% data variables.product.prodname_codeql_runner %} から {% data variables.product.prodname_codeql_cli %} への移行
+# {% data variables.code-scanning.codeql_runner %} から {% data variables.product.prodname_codeql_cli %} への移行
 
-{% data variables.product.prodname_codeql_runner %} は非推奨になりました。 代わりに {% data variables.product.prodname_codeql_cli %} バージョン 2.6.2 以降をお使いいただけます。
-このドキュメントでは、一般的なワークフローを {% data variables.product.prodname_codeql_runner %} から {% data variables.product.prodname_codeql_cli %} に移行する方法について説明します。
+{% data variables.code-scanning.codeql_runner %} は非推奨になっています。 代わりに {% data variables.product.prodname_codeql_cli %} バージョン 2.6.2 以降をお使いいただけます。
+このドキュメントでは、一般的なワークフローを {% data variables.code-scanning.codeql_runner %} から {% data variables.product.prodname_codeql_cli %} に移行する方法について説明します。
 
 ## インストール
 
@@ -32,7 +32,7 @@ ms.locfileid: '145116062'
 
 ## ワークフローの変更の概要
 
-{% data variables.product.prodname_codeql_runner %} を使用してコードベースを分析する一般的なワークフローには、次の手順があります。
+{% data variables.code-scanning.codeql_runner %} を使用してコードベースを分析する一般的なワークフローには、次の手順があります。
 - `codeql-runner-<platform> init` により、{% data variables.product.prodname_codeql %} データベースの作成を開始して、構成を読み取ります。
 - コンパイル済み言語の場合: `init` ステップによって生成される環境変数を設定します。
 - コンパイル済み言語の場合: 自動ビルドまたは手動ビルド手順を実行します。
@@ -44,7 +44,7 @@ ms.locfileid: '145116062'
 - `codeql database analyze` では、クエリを実行して各 {% data variables.product.prodname_codeql %} データベースを分析し、結果を SARIF ファイルにまとめます。 このコマンドは、言語またはデータベースごとに 1 回実行する必要があります。
 - `codeql github upload-results` により、結果の SARIF ファイルを {% data variables.product.prodname_dotcom %} にアップロードし、コード スキャン アラートとして表示します。 このコマンドは、言語または SARIF ファイルごとに 1 回実行する必要があります。
 
-{% data variables.product.prodname_codeql_runner %} は、既定ではマルチスレッドです。 既定では、{% data variables.product.prodname_codeql_cli %} により単一のスレッドのみが使用されますが、使用するスレッドの数を指定できます。 {% data variables.product.prodname_codeql_runner %} の動作をレプリケートして、{% data variables.product.prodname_codeql_cli %} を使用するときにマシンで使用可能なすべてのスレッドを使用する場合は、`--threads 0` を `codeql database analyze` に渡します。
+{% data variables.code-scanning.codeql_runner %} は、既定ではマルチスレッドです。 既定では、{% data variables.product.prodname_codeql_cli %} により単一のスレッドのみが使用されますが、使用するスレッドの数を指定できます。 {% data variables.code-scanning.codeql_runner %} の動作をレプリケートして、{% data variables.product.prodname_codeql_cli %} を使用するときにマシンで使用可能なすべてのスレッドを使用する場合は、`--threads 0` を `codeql database analyze` に渡します。
 
 詳細については、「[CI システムでの {% data variables.product.prodname_codeql_cli %} の構成](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)」を参照してください。
 
@@ -339,7 +339,7 @@ CLI:
 
 ### 自動ビルドを使用する複数の言語 (C++、Python)
 
-この例は、{% data variables.product.prodname_codeql_runner %} では厳密には可能ではありません。
+この例は、{% data variables.code-scanning.codeql_runner %} では厳密には可能ではありません。
 分析されるのは、1 つの言語 (ほとんどのファイルを含むコンパイル済みの言語) だけです。
 
 ランナー:

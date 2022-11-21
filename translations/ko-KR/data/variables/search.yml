@@ -1,0 +1,4 @@
+advanced_url: >-
+  {% ifversion fpt or ghec %}[고급 검색](https://github.com/search/advanced) 페이지{% else %}고급 검색 페이지 (`https://[호스트 이름]/search/advanced`){% endif %}
+search_page_url: >-
+  {% ifversion fpt or ghec %}[검색](https://github.com/search) 페이지{% else %}검색 페이지 (`https://[호스트 이름]/search`){% endif %}

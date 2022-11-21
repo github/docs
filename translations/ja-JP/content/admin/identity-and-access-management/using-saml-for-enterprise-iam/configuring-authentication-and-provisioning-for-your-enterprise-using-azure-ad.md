@@ -1,7 +1,7 @@
 ---
-title: Azure AD を使用して Enterprise の認証とプロビジョニングを設定する
+title: Configuring authentication and provisioning for your enterprise using Azure AD
 shortTitle: Configure with Azure AD
-intro: 'Azure Active Directory (Azure AD) のテナントを ID プロバイダー (IdP) として使って、{% data variables.location.product_location %} の認証とユーザー プロビジョニングを一元管理できます。'
+intro: 'You can use a tenant in Azure Active Directory (Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.'
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
@@ -17,67 +17,65 @@ redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
-ms.openlocfilehash: 10b6fdaa2014836e7a709bc94920dea6331ed030
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107510'
 ---
-## Azure AD を使用した認証とユーザプロビジョニングについて
 
-Azure Active Directory (Azure AD) は、ユーザアカウントと Web アプリケーションへのアクセスを一元管理できる Microsoft のサービスです。 詳細については、Microsoft Docs の「[Azure Active Directory とは](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)」を参照してください。
+## About authentication and user provisioning with Azure AD
 
-{% data variables.product.product_name %} のアイデンティティとアクセスを管理するために、Azure AD テナントを認証用の SAML IdP として使用できます。 アカウントを自動的にプロビジョニングし、SCIM でメンバーシップにアクセスするように、Azure AD を構成することもできます。これにより、{% data variables.product.product_name %} のユーザーを作成し、Azure AD テナントから Team と Organization のメンバーシップを管理できます。
+Azure Active Directory (Azure AD) is a service from Microsoft that allows you to centrally manage user accounts and access to web applications. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) in the Microsoft Docs.
+
+To manage identity and access for {% data variables.product.product_name %}, you can use an Azure AD tenant as a SAML IdP for authentication. You can also configure Azure AD to automatically provision accounts and access membership with SCIM, which allows you to create {% data variables.product.product_name %} users and manage team and organization membership from your Azure AD tenant.
 
 {% data reusables.scim.ghes-beta-note %}
 
-Azure AD を使って {% data variables.product.product_name %} に対して SAML SSO と SCIM を有効にした後、Azure AD テナントから以下を実行できます。
+After you enable SAML SSO and SCIM for {% data variables.product.product_name %} using Azure AD, you can accomplish the following from your Azure AD tenant.
 
-* Azure AD の {% data variables.product.product_name %} アプリケーションをユーザー アカウントに割り当て、{% data variables.product.product_name %} 上に対応するユーザー アカウントを自動的に作成して、アクセスを許可します。
-* Azure AD 上のユーザー アカウントへの {% data variables.product.product_name %} アプリケーションの割り当てを解除し、{% data variables.product.product_name %} の対応するユーザー アカウントを非アクティブ化します。
-* {% data variables.product.product_name %} アプリケーションを Azure AD の IdP グループに割り当てて、IdP グループのすべてのメンバーに対する {% data variables.product.product_name %} 上のユーザー アカウントを自動的に作成して、アクセスを許可します。 さらに、Team とその親 Organization に接続するために、{% data variables.product.product_name %} で IdP グループを利用できます。
-* IdP グループから {% data variables.product.product_name %} アプリケーションの割り当てを解除すると、その IdP グループを介してのみアクセスしていたすべての IdP ユーザーの {% data variables.product.product_name %} ユーザー アカウントが非アクティブ化され、親 Organization からユーザーが削除されます。 IdP グループは {% data variables.product.product_name %} のどの Team からも切断されます
+* Assign the {% data variables.product.product_name %} application on Azure AD to a user account to automatically create and grant access to a corresponding user account on {% data variables.product.product_name %}.
+* Unassign the {% data variables.product.product_name %} application to a user account on Azure AD to deactivate the corresponding user account on {% data variables.product.product_name %}.
+* Assign the {% data variables.product.product_name %} application to an IdP group on Azure AD to automatically create and grant access to user accounts on {% data variables.product.product_name %} for all members of the IdP group. In addition, the IdP group is available on {% data variables.product.product_name %} for connection to a team and its parent organization.
+* Unassign the {% data variables.product.product_name %} application from an IdP group to deactivate the {% data variables.product.product_name %} user accounts of all IdP users who had access only through that IdP group and remove the users from the parent organization. The IdP group will be disconnected from any teams on {% data variables.product.product_name %}.
 
-{% data variables.location.product_location %} での Enterprise の ID とアクセスの管理について詳しくは、「[Enterprise の ID とアクセスを管理する](/admin/authentication/managing-identity-and-access-for-your-enterprise)」をご覧ください。 IdP グループとのチームの同期の詳細については、「[チームを ID プロバイダー グループと同期する](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)」を参照してください。
+For more information about managing identity and access for your enterprise on {% data variables.location.product_location %}, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)." For more information about synchronizing teams with IdP groups, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
-## 前提条件
+## Prerequisites
 
-- Azure AD を使用して {% data variables.product.product_name %} の認証とユーザプロビジョニングを設定するには、Azure AD アカウントとテナントが必要です。 詳細については、[Azure AD Web サイト](https://azure.microsoft.com/free/active-directory)および Microsoft Docs の「[クイックスタート: Azure Active Directory テナントを作成する](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)」を参照してください。
+- To configure authentication and user provisioning for {% data variables.product.product_name %} using Azure AD, you must have an Azure AD account and tenant. For more information, see the [Azure AD website](https://azure.microsoft.com/free/active-directory) and [Quickstart: Create an Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in the Microsoft Docs.
 
 {%- ifversion scim-for-ghes %}
-- {% data reusables.saml.ghes-you-must-configure-saml-sso %} {%- endif %}
-
-- {% data reusables.saml.assert-the-administrator-attribute %} Azure AD からの SAML 要求に `administrator` 属性を含める方法の詳細については、Microsoft Docs の「[エンタープライズ アプリケーションの SAML トークンで発行された要求のカスタマイズ](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)」を参照してください。
+- {% data reusables.saml.ghes-you-must-configure-saml-sso %}
+{%- endif %}
 
 - {% data reusables.saml.create-a-machine-user %}
 
-## Azure AD を使用して認証とユーザプロビジョニングを設定する
+## Configuring authentication and user provisioning with Azure AD
 
-Azure AD テナントで、{% data variables.product.product_name %} 用のアプリケーションを追加してから、プロビジョニングを構成します。
+In your Azure AD tenant, add the application for {% data variables.product.product_name %}, then configure provisioning.
 
 {% ifversion ghae %}
 
-1. Azure AD で、{% data variables.enterprise.ae_azure_ad_app_link %} をテナントに追加し、シングル サインオンを構成します。 詳しくは、Microsoft Docs の[チュートリアル: Azure Active Directory シングル サインオン (SSO) と {% data variables.product.product_name %} の統合](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial)に関する記事をご覧ください。
+1. In Azure AD, add the {% data variables.enterprise.ae_azure_ad_app_link %} to your tenant and configure single sign-on. For more information, see [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.product_name %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs.
 
-1. {% data variables.product.product_name %} で、Azure AD テナントの詳細を入力します。
+1. In {% data variables.product.product_name %}, enter the details for your Azure AD tenant.
 
     - {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-    - 別の IdP を使って {% data variables.location.product_location %} の SAML SSO を既に設定しており、その代わりに Azure AD を使う場合は、構成を編集できます。 詳細については、「[エンタープライズ向けの SAML シングル サインオンの構成](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#editing-the-saml-sso-configuration)」を参照してください。
+    - If you've already configured SAML SSO for {% data variables.location.product_location %} using another IdP and you want to use Azure AD instead, you can edit your configuration. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#editing-the-saml-sso-configuration)."
 
-1. {% data variables.product.product_name %} でユーザプロビジョニングを有効化し、Azure AD でユーザプロビジョニングを設定します。 詳細については、「[エンタープライズ向けのユーザー プロビジョニングの構成](/admin/authentication/configuring-user-provisioning-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)」を参照してください。
+1. Enable user provisioning in {% data variables.product.product_name %} and configure user provisioning in Azure AD. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)."
 
 {% elsif scim-for-ghes %}
 
-1. Azure AD テナントの左側のサイドバーで、 **[プロビジョニング]** をクリックします。
+1. In the Azure AD tenant, in the left sidebar, click **Provisioning**.
 
-1. [テナント URL] に、{% data variables.location.product_location %} での SCIM の完全なエンドポイント URL を入力します。 詳しくは、REST API のドキュメントの「[SCIM](/rest/enterprise-admin/scim#scim-endpoint-urls)」をご覧ください。
+1. Under "Tenant URL", type the full endpoint URL for SCIM on {% data variables.location.product_location %}. For more information, see "[SCIM](/rest/enterprise-admin/scim#scim-endpoint-urls)" in the REST API documentation.
 
-1. [シークレット トークン] に、「[Enterprise 用の SCIM を使用したユーザーのプロビジョニングを構成する](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)」のステップ 4 で作成した {% data variables.product.pat_v1 %} を入力します。
+1. Under "Secret Token", type the {% data variables.product.pat_v1 %} that you created in step 4 of "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)."
 
-1. Azure AD から {% data variables.location.product_location %} への正常な接続を確認するには、 **[テスト接続]** をクリックします。
+1. To ensure a successful connection from Azure AD to {% data variables.location.product_location %}, Click **Test Connection**.
 
-1. 接続が成功したことを確認したら、ページの上部にある **[保存]** をクリックします。
+1. After you ensure a successful connection, at the top of the page, click **Save**.
 
 {% endif %}
+
+1. Assign an enterprise owner for {% data variables.product.product_name %} in Azure AD. The process you should follow depends on whether you configured provisioning. For more information about enterprise owners, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
+   - If you configured provisioning, to grant the user enterprise ownership in {% data variables.product.product_name %}, assign the enterprise owner role to the user in Azure AD.
+   - If you did not configure provisioning, to grant the user enterprise ownership in {% data variables.product.product_name %}, include the `administrator` attribute in the SAML assertion for the user account on the IdP, with the value of `true`. For more information about including the `administrator` attribute in the SAML claim from Azure AD, see [How to: customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) in the Microsoft Docs.

@@ -7,12 +7,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: About custom roles
-ms.openlocfilehash: 48c6fe2ee78d2d28d11093d0b50a472c46266959
-ms.sourcegitcommit: ca040a1871ab5e929b596686ef955b02c5afa051
+ms.openlocfilehash: c4e7f791b9402b45160b31aab2653bf80150ddee
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2022
-ms.locfileid: '148130988'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160685'
 ---
 {% data reusables.organizations.custom-repo-roles-ghec-only %}
 
@@ -68,60 +68,60 @@ Você só pode escolher uma permissão adicional se já não estiver incluída n
 {% ifversion discussions %}
 ### Discussões
 
-- **Criar uma categoria de discussão**: capacidade de criar uma categoria de discussão. Para obter mais informações, confira "[Como criar uma categoria de discussão](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".
-- **Editar uma categoria de discussão**: capacidade de editar uma categoria de discussão. Para obter mais informações, confira "[Como editar uma categoria de discussão](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)".
-- **Excluir uma categoria de discussão**: capacidade de excluir uma categoria de discussão. Para obter mais informações, confira "[Como excluir uma categoria de discussão](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)".
-- **Marcar ou desmarcar respostas de discussão**: capacidade de marcar respostas de uma discussão, caso a categoria da discussão aceite respostas. Para obter mais informações, confira "[Marcar ou desmarcar comentários como resposta em uma discussão](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)".
-- **Ocultar ou reexibir comentários de discussão**: capacidade de ocultar e reexibir comentários de uma discussão.  Para obter mais informações, confira "[Como moderar discussões](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)".
-- **Converter problemas em discussões**: capacidade de converter um problema em uma discussão.  Para obter mais informações, confira "[Como converter problemas em discussões](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)".
+- Criar uma categoria de discussão
+- Editar uma categoria de discussão
+- Excluir uma categoria de discussão 
+- Marcar ou desmarcar respostas de discussão 
+- Ocultar ou mostrar comentários da discussão 
+- Converter problemas em discussões 
+
+Para obter mais informações, confira "[{% data variables.product.prodname_discussions %}](/discussions)".
 {% endif %}
 
 ### Problemas e Pull Requests
 
-- **Atribuir ou remover um usuário**: atribua um usuário a um problema ou a uma solicitação de pull ou remova um usuário de um problema ou de uma solicitação de pull.
-- **Adicionar ou remover um rótulo**: adicione um rótulo a um problema ou a uma solicitação de pull ou remova um rótulo de um problema ou de uma solicitação de pull.
+- Atribuir ou remover um usuário 
+- Adicionar ou remover um rótulo 
 
 ### Problema
 
-- **Fechar um problema**
-- **Reabrir um problema fechado**
-- **Excluir um problema**
-- **Marcar um problema como duplicado**
+- Fechar um problema
+- Reabrir um problema fechado
+- Excluir um problema
+- Marcar um problema como duplicado
 
 ### Pull Request
 
-- **Fechar uma solicitação de pull**
-- **Reabrir uma solicitação de pull fechada**
-- **Solicitar uma revisão de solicitação de pull**: solicitar uma revisão de um usuário ou de uma equipe.
+- Fechar uma solicitação de pull
+- Reabrir uma solicitação de pull fechada
+- Solicitar uma revisão de solicitação de pull
 
 ### Repositório
 
-- **Definir marcos**: adicione marcos a um problema ou a uma solicitação de pull.
-- **Gerenciar as configurações do wiki**: ative wikis para um repositório.
-- **Gerenciar as configurações do projeto**: ativação de projetos para um repositório.
-- **Gerenciar as configurações de mesclagem da solicitação de pull**: escolha os tipos de commits de mesclagem permitidos no seu repositório, como mesclagem, mesclagem squash ou troca de base.
-- **Gerenciar as configurações do {% data variables.product.prodname_pages %}** : habilite o {% data variables.product.prodname_pages %} no repositório e selecione o branch que deseja publicar. Para obter mais informações, confira "[Como configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
-- **Gerenciar webhooks**: adicione webhooks ao repositório.
-- **Gerenciar chaves de implantação**: adicione chaves de implantação ao repositório.
-- **Editar os metadados do repositório**: atualize a descrição do repositório, bem como os tópicos do repositório.
-{%- ifversion ghec %}
-- **Definir os limites de interação**: restrinja temporariamente determinados usuários de fazer comentários, abrir problemas ou criar solicitações de pull no repositório público para impor um período de atividade limitada. Para obter mais informações, confira "[Como limitar as interações no seu repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
-{%- endif %}
-- **Definir a visualização social**: adicione uma imagem de identificação ao repositório que é exibida nas plataformas de mídia social quando o repositório é vinculado. Para obter mais informações, confira "[Como personalizar a visualização de mídia social do repositório](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)".
-- **Efetuar push de commits em branches protegidos**: efetue push em um branch marcado como um branch protegido. As regras de proteção de branch ainda serão aplicadas e podem resultar em uma rejeição por push.
-- **Criar marcas protegidas**: crie marcas que correspondam a uma regra de proteção de marca. Para obter mais informações, confira "[Como configurar regras de proteção de marca](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)".
-- **Excluir marcas protegidas**: exclua as marcas que correspondam a uma regra de proteção de marca. Para obter mais informações, confira "[Configurar regras de proteção de marca](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)". {% ifversion bypass-branch-protections %}
-- **Ignorar proteções de branch**: envie por push para um branch protegido sem a necessidade de cumprir as regras de proteção de branch.{% endif %}
+- Definir os marcos
+- Gerenciar as configurações do wiki 
+- Gerenciar as configurações do projeto
+- Gerenciar as configurações de mesclagem de solicitação de pull 
+- Gerenciar as configurações do {% data variables.product.prodname_pages %} (confira "[Como configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
+- Gerenciar webhooks 
+- Gerenciar as chaves de implantação 
+- Editar os metadados do repositório {%- ifversion ghec %}
+- Definir os limites de interação {%- endif %}
+- Definir a visualização social 
+- Efetuar push de commits para branches protegidos (as regras de proteção de branch ainda serão aplicadas)
+- Criar marcas protegidas
+- Excluir marcas protegidas {%- ifversion bypass-branch-protections %}
+- Ignorar as proteções de branch {%- endif %}
 
 ### Segurança
 
-- **Exibir os resultados da {% data variables.product.prodname_code_scanning %}** : capacidade de ver os alertas da {% data variables.product.prodname_code_scanning %}.
-- **Ignorar ou reabrir os resultados da {% data variables.product.prodname_code_scanning %}** : capacidade de ignorar ou reabrir os alertas da {% data variables.product.prodname_code_scanning %}.
-- **Excluir os resultados da {% data variables.product.prodname_code_scanning %}** : capacidade de excluir os alertas da {% data variables.product.prodname_code_scanning %}.
-- **Exibir os {% data variables.product.prodname_dependabot_alerts %}** : capacidade de ver os {% data variables.product.prodname_dependabot_alerts %}.
-- **Ignorar ou reabrir os {% data variables.product.prodname_dependabot_alerts %}** : capacidade de ignorar ou reabrir os {% data variables.product.prodname_dependabot_alerts %}.
-- **Exibir os resultados da {% data variables.product.prodname_secret_scanning %}** : capacidade de ver os alertas da {% data variables.product.prodname_secret_scanning %}.
-- **Ignorar ou reabrir os resultados da {% data variables.product.prodname_secret_scanning %}** : capacidade de ignorar ou reabrir alertas da {% data variables.product.prodname_secret_scanning %}.
+- Exibir os resultados da {% data variables.product.prodname_code_scanning %} 
+- Ignorar ou reabrir os resultados da {% data variables.product.prodname_code_scanning %}
+- Excluir os resultados da {% data variables.product.prodname_code_scanning %} 
+- Exibir os {% data variables.product.prodname_dependabot_alerts %} 
+- Ignorar ou reabrir os {% data variables.product.prodname_dependabot_alerts %} 
+- Exibir os resultados da {% data variables.product.prodname_secret_scanning %} 
+- Ignorar ou reabrir os resultados da {% data variables.product.prodname_secret_scanning %} 
 
 ## Precedência para diferentes níveis de acesso
 

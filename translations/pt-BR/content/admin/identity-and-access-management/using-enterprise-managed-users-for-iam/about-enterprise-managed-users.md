@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 371a6998976fdb8ff87017866319912b28dc8ce6
-ms.sourcegitcommit: ec712c0fd32e7fe2f74c2b6d5da95f700dfd8111
+ms.openlocfilehash: 82a8b8c29ea38d57f0481146f2a857c2dcba8413
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148110366'
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160725'
 ---
 ## Sobre os {% data variables.product.prodname_emus %}
 
@@ -94,6 +94,7 @@ Os {% data variables.enterprise.prodname_managed_users_caps %} só podem contrib
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Apenas repositórios privados e internos podem ser criados em organizações pertencentes a um {% data variables.enterprise.prodname_emu_enterprise %}, dependendo das configurações de visibilidade da organização e do repositório corporativo. 
 * Os {% data variables.enterprise.prodname_managed_users_caps %} são limitados quanto ao uso de {% data variables.product.prodname_pages %}. Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)".
+* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## Introdução aos {% data variables.product.prodname_emus %}
 
@@ -124,11 +125,11 @@ Para que os desenvolvedores possam usar o {% data variables.product.prodname_ghe
   
   {% endif %}
   
-4. Depois de configurar o SSO, você poderá configurar o provisionamento do SCIM. O SCIM é usado pelo provedor de identidade para provisionar e gerenciar contas e equipes de membros no {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações de como configurar o provisionamento do SCIM, confira "[Como configurar o provisionamento do SCIM para usuários empresariais gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
+4. Depois de configurar o SSO, você poderá configurar o provisionamento do SCIM. O SCIM é a forma como o seu provedor de identidade criará {% data variables.enterprise.prodname_managed_users %} no {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações de como configurar o provisionamento do SCIM, confira "[Como configurar o provisionamento do SCIM para usuários empresariais gerenciados](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)".
   
-5. Depois que a autenticação e o provisionamento forem configurados, você poderá começar a provisionar membros e gerenciar equipes. Para obter mais informações, confira "[Como gerenciar associações à equipe com grupos de provedores de identidade](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
+5. Depois que a autenticação e o provisionamento forem configurados, você poderá começar a gerenciar a associação à organização para os {% data variables.enterprise.prodname_managed_users %} sincronizando os grupos de IdP com as equipes. Para obter mais informações, confira "[Como gerenciar associações à equipe com grupos de provedores de identidade](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)".
 
-Se os membros da empresa precisarem usar uma estação de trabalho para contribuir em repositórios em {% data variables.location.product_location %} por meio de um {% data variables.enterprise.prodname_managed_user %} e de uma conta pessoal, você poderá dar suporte. Para obter mais informações, confira "[Suporte a desenvolvedores com várias contas de usuário em {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)".
+Se os membros da sua empresa precisarem usar uma estação de trabalho para contribuir com os repositórios no {% data variables.location.product_location %} por meio de um {% data variables.enterprise.prodname_managed_user %} e de uma conta pessoal, você poderá fornecer suporte. Para obter mais informações, confira "[Suporte a desenvolvedores com várias contas de usuário em {% data variables.product.prodname_dotcom_the_website %}](#supporting-developers-with-multiple-user-accounts-on-githubcom)".
 
 ## Fazer a autenticação como um {% data variables.enterprise.prodname_managed_user %}
 

@@ -2,7 +2,6 @@
 title: Solução de problemas de dotfiles dos GitHub Codespaces
 allowTitleToDifferFromFilename: true
 intro: Etapas de solução de problemas comuns de dotfiles.
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,12 +9,12 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Dotfiles
-ms.openlocfilehash: c316909f66d88b0f4f1fe52d6740af9b1e0d4854
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 699f790e45c71e685ac6b301e8dea1eca2ee6f15
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107918'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158682'
 ---
 Se o seu codespace não consegue pegar as configurações de dotfiles, você deverá seguir as etapas de depuração a seguir.
 
