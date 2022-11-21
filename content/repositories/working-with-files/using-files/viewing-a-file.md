@@ -89,7 +89,7 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 
 ## View blame for a file ignoring `.git-blame-ignore-revs`
 
-If you see a file and its blame view shows **Ignoring revisions in .git-blame-ignore-revs** and you want to see blame for the file without regard to `.git-blame-ignore-revs`, you can....
+If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** will disappear.
 
 1. Open /tree/`CURRENT_SHA` (you can get here by clicking the repository link to the left of the file's path bread crumbs).
 2. Browse to `.git-blame-ignore-revs`.
