@@ -1,0 +1,25 @@
+---
+title: Leitfäden zu GitHub Sponsors
+shortTitle: Guides
+intro: 'Erfahre, wie du das Beste aus {% data variables.product.prodname_sponsors %} herausholen kannst.'
+allowTitleToDifferFromFilename: true
+layout: product-guides
+versions:
+  fpt: '*'
+  ghec: '*'
+includeGuides:
+  - /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
+  - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization
+  - /sponsors/sponsoring-open-source-contributors/managing-your-sponsorship
+  - /sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors
+  - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account
+  - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization
+  - /sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
+ms.openlocfilehash: 334f25f2ee44fb7a69c13745f3b0d883ed499fbc
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145133997'
+---
+
