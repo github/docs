@@ -1,12 +1,3 @@
----
-ms.openlocfilehash: 095556009ed66ca0b687734f62f21c70fd87699a
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148108923"
----
-IP 許可リストを作成すると、許可 IP アドレスを有効にすることができます。 許可 IP アドレスを有効にすると、IP 許可リスト内のいずれかの有効なエントリが、{% data variables.product.company_short %} によってすぐに適用されます。
+After you create an IP allow list, you can enable allowed IP addresses. When you enable allowed IP addresses, {% data variables.product.company_short %} immediately enforces any enabled entries in your IP allow list.
 
-{% ifversion ip-allow-list-address-check %} 許可 IP アドレスを有効にする前に、特定の IP アドレスがリスト内のいずれかの有効なエントリによって許可されるかどうかを確認できます。 詳しくは、「[IP アドレスが許可されているかどうかを確認する](#checking-if-an-ip-address-is-permitted)」を参照してください。
-{% endif %}
+Before you enable your IP allow list, you can check whether your allow list will permit a connection from a particular IP address. For more information, see "[Checking if an IP address is permitted](#checking-if-an-ip-address-is-permitted)."

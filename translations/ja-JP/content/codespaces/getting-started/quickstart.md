@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart for {% data variables.product.prodname_github_codespaces %}'
+title: '{% data variables.product.prodname_github_codespaces %} のクイックスタート'
 shortTitle: 'Quickstart for {% data variables.product.prodname_codespaces %}'
-intro: 'Try out {% data variables.product.prodname_github_codespaces %} in 5 minutes.'
+intro: '{% data variables.product.prodname_github_codespaces %} は 5 分以内で試すことができます。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -11,103 +11,108 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/codespaces-quickstart
+ms.openlocfilehash: f35fa87711ff3a7c33ed252d0d1e87865af619bc
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158654'
 ---
+## はじめに
 
-## Introduction
+このガイドでは、テンプレート リポジトリから codespace を作成し、codespace 内で使用できるいくつかの重要な機能について調べます。 ブラウザー バージョンの {% data variables.product.prodname_vscode %} で作業します。これは、最初は {% data variables.product.prodname_github_codespaces %} の既定のエディターです。 このクイックスタートを試した後、他のエディターで {% data variables.product.prodname_codespaces %} を使用し、既定のエディターを変更できます。 リンクは、このガイドの最後に示します。
 
-In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace. You'll work in the browser version of {% data variables.product.prodname_vscode %}, which is initially the default editor for {% data variables.product.prodname_github_codespaces %}. After trying out this quickstart you can use {% data variables.product.prodname_codespaces %} in other editors, and you can change the default editor. Links are provided at the end of this guide.
+このクイックスタートでは、codespace を作成し、転送されるポートに接続して実行中のアプリケーションを表示し、新しいリポジトリに codespace を発行し、拡張機能でセットアップをカスタマイズする方法について学習します。
 
-From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, publish your codespace to a new repository, and personalize your setup with extensions.
+{% data variables.product.prodname_github_codespaces %} の厳密なしくみの詳細については、コンパニオン ガイド「[{% data variables.product.prodname_github_codespaces %} の詳細情報](/codespaces/getting-started/deep-dive)」を参照してください。
 
-For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
+## codespace を作成する
 
-## Creating your codespace
-
-1. Navigate to the [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces) template repository.
+1. [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces) テンプレート リポジトリに移動します。
 {% data reusables.codespaces.open-template-in-codespace-step %}
 
-## Running the application
+## アプリケーションの実行
 
-Once your codespace is created, the template repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
+codespace が作成されると、そこにテンプレート リポジトリが自動的にクローンされます。 これで、アプリケーションを実行し、ブラウザーで起動できます。
 
-1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the `package.json` file, which starts up the web application defined in the sample repository.
+1. ターミナルが使用可能になったら、コマンド `npm run dev` を入力します。 この例では Node.js プロジェクトを使用します。また、このコマンドは `package.json` ファイルで、サンプル リポジトリで定義されている Web アプリケーションを起動する "dev" というラベルの付いたスクリプトを実行します。
    
-   ![npm run dev in terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
+   ![ターミナルで dev を実行する npm](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
-   If you're following along with a different application type, enter the corresponding start command for that project.
+   別のアプリケーションの種類を使用している場合は、そのプロジェクトの対応する開始コマンドを入力します。
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
+2. アプリケーションが起動すると、アプリケーションが実行しているポートが codespace によって認識されて、転送されたことを知らせるプロンプトが表示されます。 
 
-   ![Port forwarding "toast" notification](/assets/images/help/codespaces/quickstart-port-toast.png)
+   ![ポート転送の "トースト" 通知](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-3. Click **Open in Browser** to view your running application in a new tab.
+3. **[ブラウザーで開く]** をクリックして、実行中のアプリケーションを新しいタブで表示します。
 
-## Edit the application and view changes
+## アプリケーションを編集して変更を表示する
 
-1. Switch back to your codespace and open the `haikus.json` file by clicking it in the Explorer.
+1. codespace に戻り、エクスプローラーで `haikus.json` ファイルをクリックして開きます。
 
-2. Edit the `text` field of the first haiku to personalize the application with your own haiku.
+2. 最初の俳句の `text` フィールドを編集して、独自の俳句でアプリケーションをカスタマイズします。
 
-3. Go back to the running application tab in your browser and refresh to see your changes.
+3. ブラウザーで実行中のアプリケーションのタブに戻り、表示を更新して変更を確認します。
    
-   {% octicon "light-bulb" aria-label="The lightbulb icon" %} If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
+   {% octicon "light-bulb" aria-label="The lightbulb icon" %} タブを閉じた場合は、[ポート] パネルを開き、実行中のポートの **[ブラウザーで開く]** アイコンをクリックします。
 
-   ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
+   ![ポート転送パネル](/assets/images/help/codespaces/quickstart-forward-port.png)
 
-## Committing and pushing your changes
+## 変更のコミットとプッシュ
 
-Now that you've made a few changes, you can use the integrated terminal or the source view to publish your work to a new repository.
+いくつかの変更を加えたので、統合ターミナルまたはソース ビューを使って作業をリポジトリに公開できます。
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. To stage your changes, click  **+** next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
+1. 変更をステージングするには、`haikus.json` ファイルの横の **[+]** をクリックします。複数のファイルを変更してすべてをステージングする場合は、 **[変更]** の横のものをクリックします。
 
-   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![ステージング ボタンが強調表示されたソース コントロール サイドバー](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
-2. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
+2. ステージングされた変更をコミットするには、行った変更を説明するコミット メッセージを入力し、 **[コミット]** をクリックします。
 
-   ![Source control side bar with a commit message](/assets/images/help/codespaces/vscode-commit-button.png)
+   ![コミット メッセージがあるソース管理サイドバー](/assets/images/help/codespaces/vscode-commit-button.png)
 
-3. Click **Publish Branch**.
+3. **[ブランチを公開する]** をクリックします。
    
-   ![Screenshot of the "Publish branch" button in VS Code](/assets/images/help/codespaces/vscode-publish-branch-button.png)
+   ![VS Code の [ブランチの発行] ボタンのスクリーンショット](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
-4. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.company_short %} private repository** or **Publish to {% data variables.product.company_short %} public repository**.
+4. [リポジトリ名] ドロップダウンで、新しいリポジトリの名前を入力し、 **[{% data variables.product.company_short %} プライベート リポジトリに発行]** または **[{% data variables.product.company_short %} パブリック リポジトリに発行]** を選びます。
    
-   ![Screenshot of the "Repository Name" dropdown in VS Code](/assets/images/help/codespaces/choose-new-repository.png)
+   ![VS Code の [リポジトリ名] ドロップダウンのスクリーンショット](/assets/images/help/codespaces/choose-new-repository.png)
 
-   The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
-5. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.company_short %}** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
+   新しいリポジトリの所有者は、codespace を作成した {% data variables.product.prodname_dotcom %} アカウントになります。
+5. エディターの右下隅に表示されるポップアップで、 **[{% data variables.product.company_short %} で開く]** をクリックして、{% data variables.product.prodname_dotcom_the_website %} の新しいリポジトリを表示します。 新しいリポジトリで `haikus.json` ファイルを表示し、codespace で加えた変更がリポジトリに正常にプッシュされたことを確認します。
    
-   ![Screenshot of the "Open in GitHub" pop-up in VS Code](/assets/images/help/codespaces/open-on-github.png)
+   ![VS Code の [GitHub で開く] ポップアップのスクリーンショット](/assets/images/help/codespaces/open-on-github.png)
 
-## Personalizing with an extension
+## 拡張機能を使用した個人用設定
 
-When you connect to a codespace using the browser, or the {% data variables.product.prodname_vscode %} desktop application, you can access the Visual Studio Code Marketplace directly from the editor. For this example, you'll install a {% data variables.product.prodname_vscode_shortname %} extension that alters the theme, but you can install any extension that's useful for your workflow.
+ブラウザーまたは {% data variables.product.prodname_vscode %} デスクトップ アプリケーションを使用して codespace に接続すると、エディターから Visual Studio Code Marketplace に直接アクセスできます。 この例では、テーマを変更する {% data variables.product.prodname_vscode_shortname %} 拡張機能をインストールしますが、ご自分のワークフローにとって便利なあらゆる拡張機能をインストールすることができます。
 
-1. In the left sidebar, click the Extensions icon.
-1. In the search bar, type `fairyfloss` and click **Install**.
+1. 左サイトバーで、[Extensions] アイコンをクリックします。
+1. 検索バーに「`fairyfloss`」と入力し、 **[インストール]** をクリックします。
 
-   ![Add an extension](/assets/images/help/codespaces/add-extension.png)
+   ![機能拡張を追加](/assets/images/help/codespaces/add-extension.png)
 
-1. Select the `fairyfloss` theme by selecting it from the list.
+1. 一覧で `fairyfloss` テーマをクリックして選択します。
 
-   ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
+   ![fairyfloss のテーマを選択](/assets/images/help/codespaces/fairyfloss.png)
 
-If you are using a codespace in the browser, or in the {% data variables.product.prodname_vscode %} desktop application, and you have [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) turned on, any changes you make to your editor setup in the current codespace, such as changing your theme or keyboard bindings, are automatically synced to any instances of {% data variables.product.prodname_vscode %} that are signed into your {% data variables.product.prodname_dotcom %} account and to any other codespaces you create.
+ブラウザーまたは {% data variables.product.prodname_vscode %} デスクトップ アプリケーションで codespace を使う場合で、[[Settings Sync]](https://code.visualstudio.com/docs/editor/settings-sync) が有効になっている場合、テーマやキーボード バインドの変更など、現在の codespace でエディターの設定に加えた変更はすべて、{% data variables.product.prodname_dotcom %} アカウントにサインインしている {% data variables.product.prodname_vscode %} のインスタンスと、ご自分で作成する他の codespace に自動的に同期されます。
 
-## Next steps
+## 次のステップ
 
-You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
+codespace で最初のアプリケーションを正常に作成、パーソナライズ、および実行しましたが、その他にもできることはまだまだたくさんあります。 {% data variables.product.prodname_github_codespaces %} で次の手順を行うのに役立つリソースをいくつか以下に示します。
 
-* "[Deep dive](/codespaces/getting-started/deep-dive)": This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-* "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
-* "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)": This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
+* 「[詳細情報](/codespaces/getting-started/deep-dive)」: このクイックスタートでは、{% data variables.product.prodname_github_codespaces %} の機能をいくつか説明しました。 詳細情報では、これらの領域について技術的な観点から説明します。
+* 「[開発コンテナー構成をリポジトリに追加する](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)」: これらのガイドでは、特定の言語で {% data variables.product.prodname_github_codespaces %} を使用するようにリポジトリを設定する方法について説明します。
+* 「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)」: このガイドではプロジェクト向けの {% data variables.product.prodname_codespaces %} のカスタム構成の作成について詳しい情報を提供します。
 
-## Further reading
+## 参考資料
 
-* "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
-* "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
-* "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
-* "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)"
-* "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-* "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+* [Organization に対して {% data variables.product.prodname_github_codespaces %} を有効にする](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)
+* [{% data variables.product.prodname_vscode %} での {% data variables.product.prodname_github_codespaces %} の使用](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)
+* [JetBrains IDE で {% data variables.product.prodname_github_codespaces %} を使う](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)
+* [{% data variables.product.prodname_cli %} で {% data variables.product.prodname_github_codespaces %} を使う](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)
+* [{% data variables.product.prodname_github_codespaces %} の既定のエディターを設定する](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)
+* [Organization で {% data variables.product.prodname_github_codespaces %} のコストを管理する](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)

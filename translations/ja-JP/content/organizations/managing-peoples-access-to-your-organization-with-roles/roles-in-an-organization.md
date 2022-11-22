@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108803'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159174'
 ---
 ## ロールについて
 {% data reusables.organizations.about-roles %}
@@ -121,7 +121,7 @@ Organizationでの{% data variables.product.prodname_github_app %}マネージ�
 | スポンサー プランを別の Organization に関連付ける (詳細については、「[Organization へのスポンサーシップの関連付け](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)」を参照) | **X** |  |  |  |  |
 | Organization 内のリポジトリから {% data variables.product.prodname_pages %} サイトの公開を管理する (「[Organization の {% data variables.product.prodname_pages %} サイトの公開を管理する](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)」を参照) | **X** |  |  |  |  |
 | セキュリティと分析の設定を管理する (「[Organization のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照) | **X** |  |  |  | **X** |
-| Organization のセキュリティの概要を表示する (「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照) | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Organization のセキュリティの概要を表示する ([セキュリティの概要](/code-security/security-overview/about-the-security-overview)に関する説明を参照) | **X** |  |  |  | **X** |{% ifversion ghec %}
 | [SAML シングル サインオン](/articles/about-identity-and-access-management-with-saml-single-sign-on)を有効にして適用する | **X** |  |  |  |  |
 | [Organization へのユーザーの SAML アクセスを管理する](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | Organization の SSH 認証局を管理する (「[Organization の SSH 認証局を管理する](/articles/managing-your-organizations-ssh-certificate-authorities)」を参照) | **X** |  |  |  |  |{% endif %}
@@ -167,7 +167,7 @@ Organizationでの{% data variables.product.prodname_github_app %}マネージ�
 | "*チーム メンテナ*" に指定できる | **X** | **X** | **X**  |
 | リポジトリを移譲する | **X** | |  |
 | セキュリティと分析の設定を管理する (「[Organization のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照) | **X** | | **X** |{% ifversion ghes %}
-| Organization のセキュリティの概要を表示する (「[セキュリティの概要について](/code-security/security-overview/about-the-security-overview)」を参照) | **X** | | **X** |{% endif %}{% ifversion ghes %}
+| Organization のセキュリティの概要を表示する ([セキュリティの概要](/code-security/security-overview/about-the-security-overview)に関する説明を参照) | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | {% data variables.product.prodname_dependabot_security_updates %} を管理する (「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照) | **X** | | **X** |{% endif %}
 | Organization の SSH 認証局を管理する (「[Organization の SSH 認証局を管理する](/articles/managing-your-organizations-ssh-certificate-authorities)」を参照) | **X** |  |  |
 | プロジェクト ボードを作成する (「[Organization のプロジェクト ボード権限](/articles/project-board-permissions-for-an-organization)」を参照) | **X** | **X** | **X** |

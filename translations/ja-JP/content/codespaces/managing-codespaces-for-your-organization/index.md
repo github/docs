@@ -1,8 +1,8 @@
 ---
-title: Managing GitHub Codespaces for your organization
+title: Organization での GitHub Codespaces の管理
 allowTitleToDifferFromFilename: true
 shortTitle: Managing your organization
-intro: 'You can manage and review how users in your organization can use  {% data variables.product.prodname_github_codespaces %}.'
+intro: 'Organization 内のユーザの {% data variables.product.prodname_github_codespaces %} の使用方法について管理および確認できます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -20,5 +20,11 @@ children:
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces
+ms.openlocfilehash: 7b8b9211a8bcafdcfb3fb2b037ea6362e8ecb27f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158638'
 ---
- 
+
