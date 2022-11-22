@@ -19,7 +19,7 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 
 {% data reusables.copilot.jetbrains-ides %}
 
-## Installing the JetBrains extension
+## Installing the {% data variables.product.prodname_copilot %} extension in your JetBrains IDE
 
 To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
 

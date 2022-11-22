@@ -54,6 +54,8 @@ Under "Individual or group assignment", select the drop-down menu, and click **I
 
 ### Choosing a visibility for assignment repositories
 
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
+
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}

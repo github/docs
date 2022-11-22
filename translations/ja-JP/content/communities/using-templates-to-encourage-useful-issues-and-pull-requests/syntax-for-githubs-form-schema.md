@@ -1,32 +1,27 @@
 ---
-title: GitHub のフォームスキーマの構文
-intro: '{% data variables.product.company_short %} のフォームスキーマを使用して、サポートされている機能のフォームを設定できます。'
+title: Syntax for GitHub's form schema
+intro: 'You can use {% data variables.product.company_short %}''s form schema to configure forms for supported features.'
 versions:
   fpt: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: 2a329c7c0a7f1943f7515059c3f376fa36ea29b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145117574'
 ---
+
 {% note %}
 
-**注:** {% data variables.product.company_short %} のフォーム スキーマは現在ベータであり、変更される可能性があります。
+**Note:** {% data variables.product.company_short %}'s form schema is currently in beta and subject to change.
 
 {% endnote %}
 
-## {% data variables.product.company_short %} のフォームスキーマについて
+## About {% data variables.product.company_short %}'s form schema
 
-{% data variables.product.company_short %} のフォームスキーマを使用して、サポートされている機能のフォームを設定できます。 詳細については、「[リポジトリ用に Issue テンプレートを設定する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)」を参照してください。
+You can use {% data variables.product.company_short %}'s form schema to configure forms for supported features. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)."
 
-フォームは、ユーザ入力を要求するための要素のセットです。 フォームを設定するには、フォーム要素の配列である YAML フォーム定義を作成します。 各フォーム要素は、要素のタイプ、要素のプロパティ、および要素に適用する制約を決定するキー/値ペアのセットです。 一部のキーでは、値はキー/値ペアの別のセットです。
+A form is a set of elements for requesting user input. You can configure a form by creating a YAML form definition, which is an array of form elements. Each form element is a set of key-value pairs that determine the type of the element, the properties of the element, and the constraints you want to apply to the element. For some keys, the value is another set of key-value pairs.
 
-たとえば、次のフォーム定義には、ユーザのオペレーティングシステムを提供するためのテキスト領域、ユーザが実行しているソフトウェアバージョンを選択するためのドロップダウンメニュー、行動規範を確認するためのチェックボックス、およびフォームへの入力を完了したユーザに感謝する Markdown の 4 つのフォーム要素が含まれます。
+For example, the following form definition includes four form elements: a text area for providing the user's operating system, a dropdown menu for choosing the software version the user is running, a checkbox to acknowledge the Code of Conduct, and Markdown that thanks the user for completing the form.
 
 ```yaml{:copy}
 - type: textarea
@@ -60,48 +55,48 @@ ms.locfileid: '145117574'
     value: "Thanks for completing our form!"
 ```
 
-## [キー]
+## Keys
 
-フォーム要素ごとに、次のキーを設定できます。
+For each form element, you can set the following keys.
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `type` | 定義する要素のタイプ。 | 必須 | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
-| `id` | 要素の識別子。ただし、`type` が `markdown` に設定されている場合を除きます。 {% data reusables.form-schema.id-must-be-unique %} 指定されている場合、`id` は URL クエリ パラメーターの事前入力のフィールドの正規識別子です。 | オプション | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | 要素のプロパティを定義するキー/値ペアのセット。  | 必須 | ハッシュ インデックス | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | 要素に制約を設定するキー/値ペアのセット。 | オプション | ハッシュ インデックス | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `type` | The type of element that you want to define. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
+| `id` | The identifier for the element, except when `type` is set to `markdown`. {% data reusables.form-schema.id-must-be-unique %} If provided, the `id` is the canonical identifier for the field in URL query parameter prefills. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | A set of key-value pairs that define the properties of the element.  | Required | Map | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | A set of key-value pairs that set constraints on the element. | Optional | Map | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-以下のタイプのフォーム要素から選択できます。 各タイプには、固有の属性と検証があります。
+You can choose from the following types of form elements. Each type has unique attributes and validations.
 
-| 型 | 説明 |
+| Type | Description |
 | ---- | ----------- |
-| [`markdown`](#markdown) | ユーザーに追加のコンテキストを提供するためにフォームに表示されるが、**未送信** である Markdown テキスト。 |
-| [`textarea`](#textarea) | 複数行のテキストフィールド。 |
-| [`input`](#input) | 単一行のテキストフィールド。 |
-| [`dropdown`](#dropdown) | ドロップダウンメニュー。 |
-| [`checkboxes`](#checkboxes) | チェックボックスのセット。 |
+| [`markdown`](#markdown) | Markdown text that is displayed in the form to provide extra context to the user, but is **not submitted**. |
+| [`textarea`](#textarea) | A multi-line text field. |
+| [`input`](#input) | A single-line text field. |
+| [`dropdown`](#dropdown) | A dropdown menu. |
+| [`checkboxes`](#checkboxes) | A set of checkboxes. |
 
 ### `markdown`
 
-`markdown` 要素を使用して、ユーザーに追加のコンテキストを提供する Markdown をフォームに表示できますが、これは送信されません。
+You can use a `markdown` element to display Markdown in your form that provides extra context to the user, but is not submitted.
 
-#### 属性
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `value` | そのテキストはレンダリングされます。 Markdown フォーマットはサポートされています。 | 必須 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `value` | The text that is rendered. Markdown formatting is supported. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 {% tip %}
 
-**ヒント:** YAML の処理では、ハッシュ シンボルがコメントとして扱われます。 Markdown ヘッダを挿入するには、テキストを引用符で囲みます。
+**Tips:** YAML processing will treat the hash symbol as a comment. To insert Markdown headers, wrap your text in quotes.
 
-複数行のテキストの場合は、パイプ演算子を使用できます。
+For multi-line text, you can use the pipe operator.
 
 {% endtip %}
 
-#### 例
+#### Example
 
 ```YAML{:copy}
 body:
@@ -116,29 +111,29 @@ body:
 
 ### `textarea`
 
-`textarea` 要素を使用して、フォームに複数行のテキスト フィールドを追加できます。 共同作成者は、`textarea` フィールドにファイルを添付することもできます。
+You can use a `textarea` element to add a multi-line text field to your form. Contributors can also attach files in `textarea` fields.
 
-#### 属性
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | 予想されるユーザ入力の簡単な説明。これもフォームに表示されます。 | 必須 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `description` | フォームに表示される、コンテキストまたはガイダンスを提供するテキスト領域の説明。 | オプション | String | 空の文字列 | {% octicon "dash" aria-label="The dash icon" %} |
-| `placeholder` | 空のときにテキスト領域に表示される半透明のプレースホルダ。 | オプション | String | 空の文字列 | {% octicon "dash" aria-label="The dash icon" %} |
-| `value` | テキスト領域に事前入力されているテキスト。 | オプション | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `render` | 値が指定されている場合、送信されたテキストはコードブロックにフォーマットされます。 このキーを指定すると、添付ファイルや Markdown 編集のためにテキスト領域が拡張されません。 | オプション | String | {% octicon "dash" aria-label="The dash icon" %} | {% data variables.product.prodname_dotcom %} に知られている言語。 詳細については、[言語 YAML ファイル](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)に関するページを参照してください。 |
+| `label` | A brief description of the expected user input, which is also displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the text area to provide context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `placeholder` | A semi-opaque placeholder that renders in the text area when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `value` | Text that is pre-filled in the text area. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `render` | If a value is provided, submitted text will be formatted into a codeblock. When this key is provided, the text area will not expand for file attachments or Markdown editing. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | Languages known to {% data variables.product.prodname_dotcom %}. For more information, see [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml). |
 
-#### 確認
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### 例
+#### Example
 
 ```YAML{:copy}
 body:
@@ -159,28 +154,28 @@ body:
 
 ### `input`
 
-`input` 要素を使用して、フォームに単一のテキスト フィールドを追加できます。
+You can use an `input` element to add a single-line text field to your form.
 
-#### 属性
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | 予想されるユーザ入力の簡単な説明。これもフォームに表示されます。 | 必須 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `description` | フォームに表示される、コンテキストまたはガイダンスを提供するフィールドの説明。 | オプション | String | 空の文字列 | {% octicon "dash" aria-label="The dash icon" %} |
-| `placeholder` | 空のときにフィールドにレンダリングされる半透明のプレースホルダ。 | オプション | String | 空の文字列 | {% octicon "dash" aria-label="The dash icon" %} |
-| `value` | フィールドに事前に入力されているテキスト。 | オプション | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `label` | A brief description of the expected user input, which is also displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the field to provide context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `placeholder` | A semi-transparent placeholder that renders in the field when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `value` | Text that is pre-filled in the field. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-#### 確認
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### 例
+#### Example
 
 ```YAML{:copy}
 body:
@@ -196,28 +191,28 @@ body:
 
 ### `dropdown`
 
-`dropdown` 要素を使用して、フォームにドロップダウン メニューを追加できます。
+You can use a `dropdown` element to add a dropdown menu in your form.
 
-#### 属性
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | フォームに表示される、予想されるユーザ入力の簡単な説明。 | 必須 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `description` | フォームに表示される、追加のコンテキストまたはガイダンスを提供するドロップダウンの説明。 | オプション | String | 空の文字列 | {% octicon "dash" aria-label="The dash icon" %} |
-| `multiple` | ユーザが複数のオプションを選択できるかどうかを指定します。 | オプション | Boolean | false | {% octicon "dash" aria-label="The dash icon" %} |
-| `options` | ユーザが選択できるオプションの配列。 空にすることはできず、すべての選択肢を区別する必要があります。 | 必須 | 文字列配列 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `label` | A brief description of the expected user input, which is displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the dropdown to provide extra context or guidance, which is displayed in the form. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `multiple` | Determines if the user can select more than one option. | Optional | Boolean | false | {% octicon "dash" aria-label="The dash icon" %} |
+| `options` | An array of options the user can choose from. Cannot be empty and all choices must be distinct. | Required | String array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-#### 確認
+#### Validations
 
 {% data reusables.form-schema.validations-intro %}
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### 例
+#### Example
 
 ```YAML{:copy}
 body:
@@ -236,21 +231,29 @@ body:
 
 ### `checkboxes`
 
-`checkboxes` 要素を使用して、フォームにチェック ボックスのセットを追加できます。
+You can use the `checkboxes` element to add a set of checkboxes to your form.
 
-#### 属性
+#### Attributes
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | フォームに表示される、予想されるユーザ入力の簡単な説明。 | 必須 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `description` | フォームに表示されるチェックボックスのセットの説明。 Markdown フォーマットをサポートします。 | オプション | String | 空の文字列 | {% octicon "dash" aria-label="The dash icon" %} |
-| `options` | ユーザが選択できるチェックボックスの配列。 構文については、以下を参照してください。 | 必須 | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `label` | A brief description of the expected user input, which is displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `description` | A description of the set of checkboxes, which is displayed in the form. Supports Markdown formatting. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
+| `options` | An array of checkboxes that the user can select. For syntax, see below. | Required | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
 
-#### 例
+#### Validations
+
+{% data reusables.form-schema.validations-intro %}
+
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
+
+#### Example
 
 ```YAML{:copy}
 body:
@@ -265,6 +268,6 @@ body:
       - label: Linux
 ```
 
-## 参考資料
+## Further reading
 
 - [YAML](https://yaml.org)
