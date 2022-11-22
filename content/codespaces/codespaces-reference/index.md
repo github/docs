@@ -10,6 +10,7 @@ children:
   - /using-the-github-codespaces-plugin-for-jetbrains
   - /using-the-vs-code-command-palette-in-codespaces
   - /security-in-github-codespaces
+  - /performing-a-full-rebuild-of-a-container
   - /disaster-recovery-for-github-codespaces
 ---
 

@@ -40,25 +40,9 @@ When a codespace times out, your data is preserved from the last time your chang
 
 ## Rebuilding a codespace
 
-You can rebuild your codespace to restore a clean state as if you had created a new codespace. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. You are most likely to rebuild a codespace to implement changes to your dev container configuration. When you rebuild a codespace, any Docker containers, images, volumes, and caches are cleaned, then the codespace is rebuilt.
+You can rebuild your codespace to implement changes to your dev container configuration. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. By default, when you rebuild your codespace, {% data variables.product.prodname_github_codespaces %} will reuse images from your cache to speed up the rebuild process. Alternatively, you can perform a full rebuild, which clears your cache and rebuilds the container with fresh images.
 
-If you need any of this data to persist over a rebuild, you can create, at the desired location in the container, a symbolic link (symlink) to the persistent directory. For example, in your `.devcontainer` directory, you can create a `config` directory that will be preserved across a rebuild. You can then symlink the `config` directory and its contents as a `postCreateCommand` in your `devcontainer.json` file.
-
-```json  
-{
-    "image": "mcr.microsoft.com/vscode/devcontainers/base:alpine",
-    "postCreateCommand": ".devcontainer/postCreate.sh"
-}
-```
-
-In the example `postCreate.sh` file below, the contents of the `config` directory are symbolically linked to the home directory.
-
-```bash
-#!/bin/bash
-ln -sf $PWD/.devcontainer/config $HOME/config && set +x
-```
-
-For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)" and "[Performing a full rebuild of a container](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container)."
 
 ## Stopping a codespace
 
