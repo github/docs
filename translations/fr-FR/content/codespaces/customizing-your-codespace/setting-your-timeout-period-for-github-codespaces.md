@@ -1,7 +1,7 @@
 ---
-title: Setting your timeout period for GitHub Codespaces
+title: Définition de votre délai d’expiration pour GitHub Codespaces
 shortTitle: Set the timeout
-intro: 'You can set your default timeout for {% data variables.product.prodname_github_codespaces %} in your personal settings page.'
+intro: 'Vous pouvez définir votre délai d’expiration par défaut pour {% data variables.product.prodname_github_codespaces %} dans la page de vos paramètres personnels.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,53 +10,57 @@ topics:
 type: how_to
 redirect_from:
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
+ms.openlocfilehash: 6ca559fefddc34eb6de0441d17344ff8054db509
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159604'
 ---
+## À propos du délai d’inactivité
 
-## About the idle timeout
-
-A codespace will stop running after a period of inactivity. By default this period is 30 minutes, but you can specify a longer or shorter default timeout period in your personal settings on {% data variables.product.prodname_dotcom %}. The updated setting will apply to any new codespaces you create, or to existing codespaces the next time you start them. You can also specify a timeout when you use {% data variables.product.prodname_cli %} to create a codespace.
+Un codespace cesse de s’exécuter après une période d’inactivité. Par défaut, cette période est de 30 minutes, mais vous pouvez spécifier un délai d’expiration par défaut plus ou moins long dans vos paramètres personnels sur {% data variables.product.prodname_dotcom %}. Le paramètre mis à jour s’applique à tous les codespaces que vous créez ou aux codespaces existants la prochaine fois que vous les démarrez. Vous pouvez également spécifier un délai d’expiration quand vous utilisez {% data variables.product.prodname_cli %} pour créer un codespace.
 
 {% warning %}
 
-**Warning**: Codespaces compute usage is billed for the duration for which a codespace is active. If you're not using a codespace but it remains running, and hasn't yet timed out, you are billed for the total time that the codespace was active, irrespective of whether you were using it. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+**Avertissement** : L’utilisation du calcul Codespaces est facturée pour la durée pendant laquelle un codespace est actif. Si vous n’utilisez pas un codespace, mais qu’il continue de s’exécuter et qu’il n’a pas encore expiré, vous êtes facturé pour la durée totale d’activité du codespace, que vous l’ayez utilisé ou non. Pour plus d’informations, consultez « [À propos de la facturation pour {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing) ».
 
 {% endwarning %}
 
-### Timeout periods for organization-owned repositories
+### Délais d’expiration pour les dépôts appartenant à une organisation
 
-Organizations can set a maximum idle timeout policy for codespaces created from some or all of their repositories. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting. You will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+Les organisations peuvent définir une stratégie de délai d’inactivité maximal pour les codespaces créés à partir de tout ou partie de leurs dépôts. Si une stratégie d’organisation définit un délai d’expiration maximal inférieur au délai par défaut que vous avez défini, le délai d’expiration de l’organisation est utilisé à la place de votre paramètre. Vous en êtes averti une fois le codespace créé. Pour plus d’informations, consultez « [Restriction de la période du délai d’inactivité](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period) ».
 
 {% webui %}
 
-## Setting your default timeout period
+## Définition de votre délai d’expiration par défaut
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours).
-   ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Sous « Délai d’inactivité par défaut », entrez la durée souhaitée, puis cliquez sur **Enregistrer**. La durée doit être comprise entre 5 et 240 minutes (4 heures).
+   ![Sélection de votre délai d’expiration](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## Setting the timeout period for a codespace
+## Définition du délai d’expiration pour un espace de code
 
 {% data reusables.cli.cli-learn-more %}
 
-To set the timeout period when you create a codespace, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. The time must be between 5 minutes and 240 minutes (4 hours).
+Pour définir le délai d’expiration lorsque vous créez un codespace, utilisez l’argument `idle-timeout` avec la sous-commande `codespace create`. Spécifiez la durée en minutes, suivie de `m`. La durée doit être comprise entre 5 et 240 minutes (4 heures).
 
 ```shell
 gh codespace create --idle-timeout 90m
 ```
 
-If you don't specify a timeout period when you create a codespace, then the default timeout period will be used. For information about setting a default timeout period, click the "Web browser" tab on this page. You can't currently specify a default timeout period through {% data variables.product.prodname_cli %}.
+Si vous ne spécifiez pas de délai d’expiration lorsque vous créez un codespace, le délai d’expiration par défaut sera utilisé. Pour plus d’informations sur la définition d’un délai d’expiration par défaut, cliquez sur l’onglet « Navigateur web » dans cette page. Actuellement, vous ne pouvez pas spécifier de délai d’expiration par défaut via {% data variables.product.prodname_cli %}.
 
 {% endcli %}
 
 {% vscode %}
 
-## Setting a timeout period
+## Définition d’un délai d’expiration
 
-You can set your default timeout period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a timeout period for that particular codespace. For more information, click the appropriate tab above.
+Vous pouvez définir votre délai d’expiration par défaut dans votre navigateur web, sur {% data variables.product.prodname_dotcom_the_website %}. Sinon, si vous utilisez {% data variables.product.prodname_cli %} pour créer un espace de code, vous pouvez définir un délai d’expiration pour cet espace de code particulier. Pour plus d’informations, cliquez sur l’onglet approprié ci-dessus.
 
 {% endvscode %}

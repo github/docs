@@ -1,6 +1,6 @@
 ---
-title: About forks
-intro: A fork is a copy of a repository that you manage. Forks let you make changes to a project without affecting the original repository. You can fetch updates from or submit changes to the original repository with pull requests.
+title: À propos des duplications (fork)
+intro: Une duplication est une copie d’un dépôt que vous gérez. Les duplications vous permettent d’apporter des modifications à un projet sans affecter le dépôt d’origine. Vous pouvez extraire des mises à jour du dépôt d’origine ou envoyer des modifications à celui-ci avec des demandes de tirage (pull request).
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/about-forks
   - /articles/about-forks
@@ -13,33 +13,39 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 83372d27f052ee8c22730f5ce5d22e9efbf04fbb
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158748'
 ---
-Forking a repository is similar to copying a repository, with two major differences:
+La duplication d’un dépôt est similaire à la copie d’un dépôt, à l’exception de deux différences majeures :
 
-* You can use a pull request to suggest changes from your user-owned fork to the original repository in its GitHub instance, also known as the *upstream* repository.
-* You can bring changes from the upstream repository to your local fork by synchronizing your fork with the upstream repository.
+* Vous pouvez utiliser une demande de tirage pour suggérer de remplacer votre duplication appartenant à l’utilisateur par le dépôt d’origine dans son instance de GitHub, également appelé dépôt *en amont*.
+* Vous pouvez importer des modifications du dépôt en amont dans votre duplication locale en synchronisant votre duplication avec le dépôt en amont.
 
 {% data reusables.repositories.you-can-fork %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Si vous êtes membre d’une {% data variables.enterprise.prodname_emu_enterprise %}, d’autres restrictions s’appliquent aux dépôts que vous pouvez dupliquer. {% data reusables.enterprise-accounts.emu-forks %} Pour plus d’informations, consultez « [À propos d’{% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %} » dans la documentation {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
 
 {% endif %}
 
 {% data reusables.repositories.desktop-fork %}
 
-Deleting a fork will not delete the original upstream repository. You can make any changes you want to your fork—add collaborators, rename files, generate {% data variables.product.prodname_pages %}—with no effect on the original.{% ifversion fpt or ghec %} You cannot restore a deleted forked repository. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+La suppression d’une duplication n’aura pas pour effet de supprimer le dépôt en amont d’origine. Vous pouvez apporter les modifications de votre choix à votre duplication (ajouter des collaborateurs, renommer des fichiers, générer des {% data variables.product.prodname_pages %}) sans que cela ait d’incidence sur l’original.{% ifversion fpt or ghec %} Vous ne pouvez pas restaurer un dépôt dupliqué supprimé. Pour plus d’informations, consultez « [Restauration d’un dépôt supprimé](/articles/restoring-a-deleted-repository) »."{% endif %}
 
-In open source projects, forks are often used to iterate on ideas or changes before they are offered back to the upstream repository. When you make changes in your user-owned fork and open a pull request that compares your work to the upstream repository, you can give anyone with push access to the upstream repository permission to push changes to your pull request branch (including deleting the branch). This speeds up collaboration by allowing repository maintainers the ability to make commits or run tests locally to your pull request branch from a user-owned fork before merging. You cannot give push permissions to a fork owned by an organization. 
+Dans les projets open source, des duplications sont souvent utilisées pour itérer sur des idées ou des modifications avant de les proposer au dépôt amont. Lorsque vous modifiez votre duplication appartenant à un utilisateur et ouvrez une demande de tirage qui compare votre travail au dépôt en amont, vous pouvez donner à toute personne disposant d’un accès push au dépôt en amont l’autorisation d’envoyer (push) des modifications à votre branche de demande de tirage (y compris la suppression de la branche). Cela accélère la collaboration en permettant aux responsables de maintenance du dépôt d’effectuer des validations ou des tests localement sur votre branche de demande de tirage à partir d’une duplication appartenant à un utilisateur avant la fusion. Vous ne pouvez pas accorder d’autorisations d’envoi (push) à une duplication (fork) appartenant à une organisation. 
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
+Si vous souhaitez créer un dépôt à partir du contenu d’un dépôt existant, mais ne souhaitez pas fusionner vos modifications en amont à l’avenir, vous pouvez dupliquer le dépôt ou, si celui-ci est un modèle, l’utiliser comme modèle. Pour plus d’informations, consultez « [Duplication d’un dépôt](/articles/duplicating-a-repository) » et « [Création d’un dépôt à partir d’un modèle](/articles/creating-a-repository-from-a-template) ».
 
-## Further reading
+## Pour aller plus loin
 
-- "[About collaborative development models](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
-- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-- [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
+- « [À propos des modèles de développement collaboratif](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models) »
+- « [Création d’une demande de tirage à partir d’une duplication](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) »
+- [Guides open source](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

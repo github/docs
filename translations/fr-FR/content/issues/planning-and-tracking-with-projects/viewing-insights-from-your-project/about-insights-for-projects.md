@@ -11,12 +11,12 @@ product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 89f93ace53547fccd69ffb7e6d7b666a6cb48991
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 809d8492bb1ec7c8cd4eb051b1eaefb00d29097e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108480'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158572'
 ---
 {% ifversion fpt %}
 
@@ -29,6 +29,8 @@ ms.locfileid: '148108480'
 {% endif %}
 
  Vous pouvez utiliser les insights des {% data variables.product.prodname_projects_v2 %} pour voir, créer et personnaliser des graphiques qui utilisent les éléments ajoutés à votre projet comme données sources. Vous pouvez appliquer des filtres au graphique par défaut et créer vos propres graphiques. Lorsque vous créez un graphique, vous définissez les filtres, le type de graphique, les informations affichées, et le graphique est disponible pour tous ceux qui peuvent voir le projet. Vous pouvez générer deux types de graphique : les graphiques actuels et les graphiques historiques.
+
+ Insights fait le suivi des éléments que vous avez archivés ou supprimés.
 
  ### À propos des graphiques actuels
 

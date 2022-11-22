@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108285'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159172'
 ---
 ## À propos des rôles
 {% data reusables.organizations.about-roles %}
@@ -121,7 +121,7 @@ Pour sécuriser les données de votre organisation tout en autorisant l’accès
 | Attribuer vos parrainages à une autre organisation (pour plus d’informations, consultez « [Attribution de parrainages à votre organisation](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization) ») | **X** |  |  |  |  |
 | Gérer la publication de sites {% data variables.product.prodname_pages %} depuis des dépôts de l’organisation (consultez « [Gestion de la publication de sites {% data variables.product.prodname_pages %} pour votre organisation](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization) ») | **X** |  |  |  |  |
 | Gérer les paramètres de sécurité et d’analyse (consultez « [Gestion des paramètres de sécurité et d’analyse pour votre organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization) ») | **X** |  |  |  | **X** |
-| Visualiser la vue d’ensemble de la sécurité pour l’organisation (consultez « [À propos de la vue d’ensemble de la sécurité](/code-security/security-overview/about-the-security-overview) ») | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Afficher la vue d’ensemble de la sécurité pour l’organisation (consultez « [À propos de la vue d’ensemble de la sécurité](/code-security/security-overview/about-the-security-overview) ») | **X** |  |  |  | **X** |{% ifversion ghec %}
 | Activer et appliquer [l’authentification unique SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
 | [Gérer l’accès SAML d’un utilisateur à votre organisation](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | Gérer les autorités de certification SSH d’une organisation (consultez « [Gestion des autorités de certification SSH de votre organisation](/articles/managing-your-organizations-ssh-certificate-authorities) ») | **X** |  |  |  |  |{% endif %}
@@ -167,7 +167,7 @@ Pour sécuriser les données de votre organisation tout en autorisant l’accès
 | Peut être rendu *gestionnaire d’équipe* | **X** | **X** | **X**  |
 | Transférer des dépôts | **X** | |  |
 | Gérer les paramètres de sécurité et d’analyse (consultez « [Gestion des paramètres de sécurité et d’analyse pour votre organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization) ») | **X** | | **X** |{% ifversion ghes %}
-| Visualiser la vue d’ensemble de la sécurité pour l’organisation (consultez « [À propos de la vue d’ensemble de la sécurité](/code-security/security-overview/about-the-security-overview) ») | **X** | | **X** |{% endif %}{% ifversion ghes %}
+| Afficher la vue d’ensemble de la sécurité pour l’organisation (consultez « [À propos de la vue d’ensemble de la sécurité](/code-security/security-overview/about-the-security-overview) ») | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Gérer les {% data variables.product.prodname_dependabot_security_updates %} (consultez « [À propos des {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates) ») | **X** | | **X** |{% endif %}
 | Gérer les autorités de certification SSH d’une organisation (consultez « [Gestion des autorités de certification SSH de votre organisation](/articles/managing-your-organizations-ssh-certificate-authorities) ») | **X** |  |  |
 | Créer des tableaux de bord de projet (consultez « [Autorisations de tableau de bord de projet pour une organisation](/articles/project-board-permissions-for-an-organization) ») | **X** | **X** | **X** |

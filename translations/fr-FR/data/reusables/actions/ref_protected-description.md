@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: e3a5d34c1e7fa7964296417f959e02f7d25322d1
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: aa83ecff715eed06bc0b455344b227e8676ee4e3
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145066540"
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179601"
 ---
 `true` si des protections de branche sont configurées pour la référence qui a déclenché l’exécution du workflow.

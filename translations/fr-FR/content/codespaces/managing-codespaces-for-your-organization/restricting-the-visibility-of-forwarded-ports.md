@@ -1,7 +1,7 @@
 ---
-title: Restricting the visibility of forwarded ports
+title: Restriction de la visibilité des ports transférés
 shortTitle: Restrict port visibility
-intro: You can set constraints on the visibility options users can choose when they forward ports from codespaces in your organization.
+intro: Vous pouvez définir des contraintes sur les options de visibilité que les utilisateurs peuvent choisir lorsqu’ils transfèrent des ports à partir d’espaces de codes dans votre organisation.
 permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -9,73 +9,76 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: ad670b43e0ac2a80e43048ffa61e0c83a8d12130
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158972'
 ---
+## Vue d’ensemble
 
-## Overview
+En règle générale, dans un codespace, vous pouvez transférer des ports de manière privée (uniquement à vous-même), aux membres de votre organisation ou publiquement (à toute personne qui dispose de l’URL). Pour plus d’informations, consultez « [Transfert de ports dans votre codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace) ».
 
-Typically, within a codespace you are able to forward ports privately (only to yourself), to members of your organization, or publicly (to anyone with the URL). For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+En tant que propriétaire de l’organisation, vous pouvez configurer des contraintes sur les options de visibilité que les utilisateurs peuvent définir lors du transfert de ports. Par exemple, pour des raisons de sécurité, vous pouvez interdire le transfert de ports public. Pour cela, définissez une ou plusieurs stratégies dans les paramètres {% data variables.product.prodname_github_codespaces %} de votre organisation.
 
-As an organization owner, you may want to configure constraints on the visibility options users can set when forwarding ports. For example, for security reasons, you may want to disallow public port forwarding. You do this by defining one or more policies in the {% data variables.product.prodname_github_codespaces %} settings for your organization.
+### Comportement quand vous définissez une contrainte de visibilité des ports
 
-### Behavior when you set a port visibility constraint
-
-If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. When the user resumes the codespace, it will be subject to the policy constraints.
+S’il existe des codespaces qui ne sont plus conformes à une stratégie que vous avez définie, ils continuent de fonctionner tant qu’ils ne sont pas arrêtés ou qu’ils n’ont pas expiré. Quand l’utilisateur reprend le codespace, il est soumis aux contraintes de la stratégie.
 
 {% note %}
 
-**Note**: You can't disable private port forwarding, as private port forwarding is required by {% data variables.product.prodname_github_codespaces %} to continue working as designed, for example to forward SSH on port 22.
+**Remarque** : Vous ne pouvez pas désactiver le transfert de ports privé, car il est exigé par {% data variables.product.prodname_github_codespaces %} pour continuer à fonctionner normalement, par exemple pour transférer SSH sur le port 22.
 
 {% endnote %}
 
-### Setting organization-wide and repository-specific policies
+### Définition de stratégies spécifiques d’un dépôt à l’échelle de l’organisation
 
-When you create a policy you choose whether it applies to all repositories in your organization, or only to specified repositories. If you set an organization-wide policy then any policies you set for individual repositories must fall within the restriction set at the organization level. Adding policies makes the choice of visibility options more, not less, restrictive.
+Quand vous créez une stratégie, vous choisissez si elle s’applique à tous les dépôts de votre organisation ou uniquement aux dépôts spécifiés. Si vous définissez une stratégie à l’échelle de l’organisation, alors toutes les stratégies que vous définissez pour des dépôts individuels doivent s’inscrire dans cet ensemble de restrictions au niveau de l’organisation. L’ajout de stratégies rend le choix des options de visibilité plus restrictif, et non moins restrictif.
 
-For example, you could create an organization-wide policy that restricts the visibility options to organization only. You can then set a policy for Repository A that disallows both public and organization visibility, which would result in only private port forwarding being available for this repository. Setting a policy for Repository A that allowed both public and organization would result in only organization visibility, because the organization-wide policy does not allow public visibility.
+Par exemple, vous pouvez créer une stratégie à l’échelle de l’organisation qui limite les options de visibilité à l’organisation uniquement. Vous pouvez ensuite définir une stratégie pour le dépôt A qui interdit à la fois la visibilité publique et celle à l’échelle de l’organisation. Ainsi, seul le transfert de ports privé est disponible pour ce dépôt. Si vous définissez une stratégie pour le dépôt A qui autorise à la fois la visibilité publique et celle à l’échelle de l’organisation, seule la visibilité à l’échelle de l’organisation est disponible, car la stratégie à l’échelle de l’organisation n’autorise pas de visibilité publique.
 
-If you add an organization-wide policy, you should set it to the most lenient visibility option that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
+Si vous ajoutez une stratégie à l’échelle de l’organisation, vous devez la définir sur l’option de visibilité la moins stricte disponible pour un dépôt au sein de votre organisation. Vous pouvez ensuite ajouter des stratégies plus précises pour un dépôt afin de restreindre encore ce choix.
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to limit the port visibility options
+## Ajout d’une stratégie pour limiter les options de visibilité des ports
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Port visibility**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. Cliquez sur **Ajouter une contrainte** et choisissez **Visibilité des ports**.
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
+   ![Capture d’écran du menu déroulant « Ajouter une contrainte »](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. Cliquez sur {% octicon "pencil" aria-label="The edit icon" %} pour modifier la contrainte.
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
+   ![Capture d’écran de l’icône de crayon permettant de modifier la contrainte](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
-1. Clear the selection of the port visibility options (**Org** or **Public**) that you don't want to be available.
+1. Effacez la sélection des options de visibilité des ports (**Organisation** ou **Publique**) que vous ne souhaitez pas rendre disponibles.
 
-   ![Screenshot of clearing a port visibility option](/assets/images/help/codespaces/choose-port-visibility-options.png)
+   ![Capture d’écran de l’effacement d’une option de visibilité des ports](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. Pour ajouter une autre contrainte à la stratégie, cliquez sur **Ajouter une contrainte** et choisissez une autre contrainte. Pour plus d’informations sur les autres contraintes, consultez :
+   * « [Restriction de l’accès aux types d’ordinateurs](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types) »
+   * « [Restriction de l’image de base pour les codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces) »
+   * « [Restriction de la période du délai d’inactivité](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period) »
+   * « [Restriction de la période de conservation pour les codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces) »
+1. Une fois que vous avez terminé d’ajouter des contraintes à votre stratégie, cliquez sur **Enregistrer**.
 
-The policy will be applied to all new codespaces that are billable to your organization. The port visibility constraint is also applied to existing codespaces the next time they are started.
+La stratégie sera appliquée à tous les nouveaux codespaces facturables à votre organisation. La contrainte de visibilité des ports est également appliquée aux codespaces existants lors de leur prochain démarrage.
 
-## Editing a policy
+## Modification d’une stratégie
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+Vous pouvez modifier une stratégie existante. Par exemple, vous avez peut-être besoin d’ajouter ou de supprimer des contraintes dans une stratégie.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Port visibility" constraint.
-1. Make the required changes then click **Save**.
+1. Affichez la page « Stratégies de codespace ». Pour plus d’informations, consultez « [Ajout d’une stratégie pour limiter les options de visibilité des ports](#adding-a-policy-to-limit-the-port-visibility-options) ».
+1. Cliquez sur le nom de la stratégie à modifier.
+1. Cliquez sur l’icône de crayon ({% octicon "pencil" aria-label="The edit icon" %}) à côté de la contrainte « Visibilité des ports ».
+1. Apportez les changements nécessaires, puis cliquez sur **Enregistrer**.
 
-## Deleting a policy 
+## Suppression d’une stratégie 
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
-1. Click the delete button to the right of the policy you want to delete.
+1. Affichez la page « Stratégies de codespace ». Pour plus d’informations, consultez « [Ajout d’une stratégie pour limiter les options de visibilité des ports](#adding-a-policy-to-limit-the-port-visibility-options) ».
+1. Cliquez sur le bouton Supprimer à droite de la stratégie à supprimer.
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![Capture d’écran du bouton de suppression d’une stratégie](/assets/images/help/codespaces/policy-delete.png)

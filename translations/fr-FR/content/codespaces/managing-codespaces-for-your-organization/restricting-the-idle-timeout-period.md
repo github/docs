@@ -1,7 +1,7 @@
 ---
-title: Restricting the idle timeout period
+title: Restriction de la période du délai d’inactivité
 shortTitle: Restrict timeout periods
-intro: You can set a maximum timeout period for any codespaces owned by your organization.
+intro: Vous pouvez définir un délai d’expiration maximal pour tous les codespaces appartenant à votre organisation.
 permissions: 'To manage timeout constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -9,77 +9,80 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: b07d1834078b065eee89acdb84e0e80a2db1e8a6
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158988'
 ---
+## Vue d’ensemble
 
-## Overview
+Par défaut, les espaces de code expirent après 30 minutes d’inactivité. Lorsqu’un espace de code expire, il est arrêté et n’entraîne plus de frais pour l’utilisation du calcul. 
 
-By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage. 
+Les paramètres personnels d’un utilisateur {% data variables.product.prodname_dotcom %} lui permettent de définir sa propre période d’expiration pour les espaces de code qu’il crée. Cela peut être plus long que la période par défaut de 30 minutes. Pour plus d’informations, consultez « [Définition de votre délai d’expiration pour {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces) ».
 
-The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
-
-As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories. 
+En tant que propriétaire de l’organisation, vous pouvez configurer des contraintes sur le délai d’inactivité maximal pour les codespaces qui appartiennent à votre organisation. Cela peut vous aider à limiter les coûts associés aux espaces de code que vous laissez expirer après de longues périodes d’inactivité. Vous pouvez définir un délai d’expiration maximal pour les codespaces de tous les dépôts appartenant à votre organisation ou pour ceux situés dans certains dépôts. 
 
 {% note %}
 
-**Note**: Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
+**Remarque** : Les contraintes de délai d’inactivité maximales s’appliquent uniquement aux espaces de code appartenant à votre organisation.
 
 {% endnote %}
 
-For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+Pour plus d’informations sur les tarifs appliqués pour l’utilisation du calcul {% data variables.product.prodname_github_codespaces %}, consultez « [À propos de la facturation pour {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing) ».
 
-### Behavior when you set a maximum idle timeout constraint
+### Comportement lorsque vous définissez une contrainte de délai d’inactivité maximale
 
-If someone sets the default idle timeout to 90 minutes in their personal settings and they then start a codespace for a repository with a maximum idle timeout constraint of 60 minutes, the codespace will time out after 60 minutes of inactivity. When codespace creation completes, a message explaining this will be displayed:
+Si une personne définit le délai d’inactivité par défaut sur 90 minutes dans ses paramètres personnels, puis démarre un espace de code pour un référentiel avec une contrainte de délai d’inactivité maximale de 60 minutes, l’espace de code expire après 60 minutes d’inactivité. Une fois la création de l’espace de code terminée, un message expliquant cela s’affiche :
 
-> Idle timeout for this codespace is set to 60 minutes in compliance with your organization’s policy.
+> Le délai d’inactivité de cet espace de code est défini sur 60 minutes en conformité avec la stratégie de votre organisation.
 
-### Setting organization-wide and repository-specific policies
+### Définition de stratégies spécifiques à l’organisation et au référentiel
 
-When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
+Lorsque vous créez une stratégie, vous choisissez si elle s’applique à tous les référentiels de votre organisation ou uniquement aux référentiels spécifiés. Si vous créez une stratégie à l’échelle de l’organisation avec une contrainte de délai d’expiration, les contraintes de délai d’expiration dans toutes les stratégies ciblant des référentiels spécifiques doivent se trouver dans la restriction configurée pour l’ensemble de l’organisation. La période d’expiration la plus courte (dans une stratégie à l’échelle de l’organisation, une stratégie ciblée sur les référentiels spécifiés ou dans les paramètres personnels d’une personne) est appliquée.
 
-If you add an organization-wide policy with a timeout constraint, you should set the timeout to the longest acceptable period. You can then add separate policies that set the maximum timeout to a shorter period for specific repositories in your organization.
+Si vous ajoutez une stratégie à l’échelle de l’organisation avec une contrainte de délai d’expiration, vous devez définir le délai d’expiration sur la période acceptable la plus longue. Vous pouvez ensuite ajouter des stratégies distinctes qui définissent le délai d’expiration maximal sur une période plus courte pour des référentiels spécifiques dans votre organisation.
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to set a maximum idle timeout period
+## Ajout d’une stratégie pour définir un délai d’inactivité maximal
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Maximum idle timeout**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. Cliquez sur **Ajouter une contrainte** et choisissez **Délai d’inactivité maximal**.
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
+   ![Capture d’écran du menu déroulant « Ajouter une contrainte »](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. Cliquez sur {% octicon "pencil" aria-label="The edit icon" %} pour modifier la contrainte.
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![Capture d’écran de l’icône de crayon permettant de modifier la contrainte](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
-1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
+1. Entrez le nombre maximal de minutes pendant lesquelles les espaces de code peuvent rester inactifs avant d’expirer, puis cliquez sur **Enregistrer**.
 
-   ![Screenshot of setting the maximum timeout in minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
+   ![Capture d’écran de la définition du délai d’expiration maximal en minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. Pour ajouter une autre contrainte à la stratégie, cliquez sur **Ajouter une contrainte** et choisissez une autre contrainte. Pour plus d’informations sur les autres contraintes, consultez :
+   * « [Restriction de l’accès aux types d’ordinateurs](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types) »
+   * « [Restriction de l’image de base pour les codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces) »
+   * « [Restriction de la visibilité des ports transférés](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports) »
+   * « [Restriction de la période de conservation pour les codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces) »
+1. Une fois que vous avez terminé d’ajouter des contraintes à votre stratégie, cliquez sur **Enregistrer**.
 
-The policy will be applied to all new codespaces that are billable to your organization. The timeout constraint is also applied to existing codespaces the next time they are started.
+La stratégie sera appliquée à tous les nouveaux codespaces facturables à votre organisation. La contrainte d’expiration est également appliquée aux codespaces existants lors de leur prochain démarrage.
 
-## Editing a policy
+## Modification d’une stratégie
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+Vous pouvez modifier une stratégie existante. Par exemple, vous avez peut-être besoin d’ajouter ou de supprimer des contraintes dans une stratégie.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Maximum idle timeout" constraint.
-1. Make the required changes then click **Save**.
+1. Affichez la page « Stratégies d’espace de code ». Pour plus d’informations, consultez « [Ajout d’une stratégie pour définir une période d’inactivité maximale](#adding-a-policy-to-set-a-maximum-idle-timeout-period) ».
+1. Cliquez sur le nom de la stratégie à modifier.
+1. Cliquez sur l’icône de crayon ({% octicon "pencil" aria-label="The edit icon" %}) à côté de la contrainte « Délai d’inactivité maximal ».
+1. Apportez les changements nécessaires, puis cliquez sur **Enregistrer**.
 
-## Deleting a policy 
+## Suppression d’une stratégie 
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
-1. Click the delete button to the right of the policy you want to delete.
+1. Affichez la page « Stratégies d’espace de code ». Pour plus d’informations, consultez « [Ajout d’une stratégie pour définir une période d’inactivité maximale](#adding-a-policy-to-set-a-maximum-idle-timeout-period) ».
+1. Cliquez sur le bouton Supprimer à droite de la stratégie à supprimer.
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![Capture d’écran du bouton de suppression d’une stratégie](/assets/images/help/codespaces/policy-delete.png)

@@ -89,7 +89,6 @@ For more information about how to create an allow list for a {% data variables.p
 1. Click **Update**.
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-{% ifversion ip-allow-list-address-check %}
 ## Checking if an IP address is permitted
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
@@ -98,7 +97,6 @@ For more information about how to create an allow list for a {% data variables.p
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.check-ip-address-step %}
-{% endif %}
 
 ## Deleting an allowed IP address
 

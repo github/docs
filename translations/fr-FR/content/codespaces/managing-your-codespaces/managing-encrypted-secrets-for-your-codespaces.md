@@ -1,6 +1,6 @@
 ---
-title: Managing encrypted secrets for your codespaces
-intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
+title: Gestion des secrets chiffrés pour vos codespaces
+intro: Vous pouvez stocker les informations sensibles (telles que des jetons) auxquelles vous souhaitez accéder dans vos codespaces via des variables d’environnement.
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,89 +14,84 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
+ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160441'
 ---
+## À propos des secrets chiffrés pour {% data variables.product.prodname_github_codespaces %}
 
- 
+Vous pouvez ajouter des secrets chiffrés à votre compte personnel en vue de les utiliser dans vos codespaces. Par exemple, vous pouvez stocker les informations sensibles suivantes sous forme de secrets chiffrés afin d’y accéder.
 
+- Jetons d’accès aux services cloud
+- Principaux de service
+- Identificateurs d’abonnement
+- [Informations d’identification d’un registre d’images privé](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
 
-## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
-
-You can add encrypted secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
-
-- Access tokens to cloud services
-- Service principals
-- Subscription identifiers
-- [Credentials for a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
-
-You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret. To share a secret with a codespace created from a template, you will need to publish the codespace to a repository on {% data variables.product.prodname_dotcom %}, then give that repository access to the secret.
+Vous pouvez déterminer quels dépôts doivent avoir accès à chaque secret. Ensuite, vous pouvez utiliser chaque secret dans un codespace que vous créez pour un dépôt qui a accès à ces secrets. Pour partager un secret avec un codespace créé à partir d’un modèle, vous devez publier le codespace dans un dépôt sur {% data variables.product.prodname_dotcom %}, puis accorder à ce dépôt l’accès au secret.
 
 {% data reusables.codespaces.secrets-on-start %}
 
-### Naming secrets
+### Nommage des secrets
 
-{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
+{% data reusables.codespaces.secrets-naming %} Par exemple, un secret créé au niveau du dépôt doit avoir un nom unique dans ce dépôt.
 
   {% data reusables.codespaces.secret-precedence %}
 
-### Limits for secrets
+### Limites pour les secrets
 
-You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
+Vous pouvez stocker jusqu’à 100 secrets pour {% data variables.product.prodname_github_codespaces %}.
 
-Secrets are limited to 64 KB in size.
+La taille des secrets est limitée à 64 Ko.
 
-## Adding a secret
+## Ajout d’un secret
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. To the right of "Codespaces secrets", click **New secret**.
-  !["New secret" button](/assets/images/help/settings/codespaces-new-secret-button.png)
-1. Under "Name", type a name for your secret.
-  !["Name" text box](/assets/images/help/settings/codespaces-secret-name-field.png)
-{% data reusables.user-settings.codespaces-secret-value %}
-{% data reusables.user-settings.codespaces-secret-repository-access %}
-1. Click **Add secret**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. À droite de « Secrets Codespaces », cliquez sur **Nouveau secret**.
+  ![Bouton « Nouveau secret »](/assets/images/help/settings/codespaces-new-secret-button.png)
+1. Sous « Nom », tapez un nom pour votre secret.
+  ![Zone de texte « Nom »](/assets/images/help/settings/codespaces-secret-name-field.png) {% data reusables.user-settings.codespaces-secret-value %} {% data reusables.user-settings.codespaces-secret-repository-access %}
+1. Cliquez sur **Ajouter un secret**.
 
-## Editing a secret
+## Modification d’un secret
 
-You can update the value of an existing secret, and you can change which repositories can access a secret.
+Vous pouvez mettre à jour la valeur d’un secret existant et modifier les dépôts qui peuvent y accéder.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Codespaces secrets", to the right of the secret you want to edit, click **Update**.
-  !["Update" button](/assets/images/help/settings/codespaces-secret-update-button.png)
-1. Under "Value", click **enter a new value**.
-  !["enter a new value" link](/assets/images/help/settings/codespaces-secret-update-value-text.png)
-{% data reusables.user-settings.codespaces-secret-value %}
-{% data reusables.user-settings.codespaces-secret-repository-access %}
-1. Optionally, to remove the secret's access to a repository, deselect the repository.
-  ![Checkboxes to remove access to repositories](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
-1. Click **Save changes**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Sous « Secrets Codespaces », à droite du secret à modifier, cliquez sur **Mettre à jour**.
+  ![Bouton « Mettre à jour »](/assets/images/help/settings/codespaces-secret-update-button.png)
+1. Sous « Valeur », cliquez sur **Entrer une nouvelle valeur**.
+  ![Lien « Entrer une nouvelle valeur »](/assets/images/help/settings/codespaces-secret-update-value-text.png) {% data reusables.user-settings.codespaces-secret-value %} {% data reusables.user-settings.codespaces-secret-repository-access %}
+1. Si nécessaire, pour supprimer l’accès du secret à un dépôt, désélectionnez le dépôt.
+  ![Cases à cocher permettant de supprimer l’accès à des dépôts](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
+1. Cliquez sur **Save changes**.
 
-## Deleting a secret
+## Suppression d’un secret
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Codespaces secrets", to the right of the secret you want to delete, click **Delete**.
-  !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
-1. Read the warning, then click **OK**.
-  ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Sous « Secrets Codespaces », à droite du secret à supprimer, cliquez sur **Supprimer**.
+  ![Bouton « Supprimer »](/assets/images/help/settings/codespaces-secret-delete-button.png)
+1. Lisez l’avertissement, puis cliquez sur **OK**.
+  ![Confirmation de la suppression du secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
 
-## Using secrets
+## Utilisation de secrets
 
-A secret is exported as an environment variable into the user's terminal session.
+Un secret est exporté en tant que variable d’environnement dans la session du terminal de l’utilisateur.
 
-  ![Displaying the value of an exported secret in the terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+  ![Affichage de la valeur d’un secret exporté dans le terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
 
-You can use secrets in a codespace after the codespace is built and is running. For example, a secret can be used:
+Vous pouvez utiliser des secrets dans un codespace une fois que le codespace est créé et exécuté. Par exemple, un secret peut être utilisé :
 
-* When launching an application from the integrated terminal or ssh session.
-* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on containers.dev: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+* Lors du lancement d’une application à partir du terminal intégré ou de la session ssh.
+* Dans un script de cycle de vie de conteneur de développement exécuté après l’exécution du codespace. Pour plus d’informations sur les scripts de cycle de vie de conteneur de développement, consultez la documentation sur containers.dev : [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
 
-Codespace secrets cannot be used:
+Les secrets de codespace ne peuvent pas être utilisés :
 
-* During codespace build time (that is, within a Dockerfile or custom entry point).
-* Within a dev container feature. For more information, see the `features` property in the [dev containers specification](https://containers.dev/implementors/json_reference/#general-properties) on containers.dev.
+* Pendant la génération d’un codespace (autrement dit, dans un Dockerfile ou un point d’entrée personnalisé).
+* Dans une fonctionnalité de conteneur de développement. Pour plus d’informations, consultez la propriété `features` dans la [spécification des conteneurs de développement](https://containers.dev/implementors/json_reference/#general-properties) sur containers.dev.
 
-## Further reading
+## Pour aller plus loin
 
-- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+- « [Gestion des secrets chiffrés de votre dépôt et de votre organisation pour {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces) »
