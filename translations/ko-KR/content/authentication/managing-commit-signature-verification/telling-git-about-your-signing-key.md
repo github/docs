@@ -15,18 +15,18 @@ topics:
   - Identity
   - Access management
 shortTitle: Tell Git your signing key
-ms.openlocfilehash: e78306bb1519f2b7f51ab6bc039bff0b982e48cf
-ms.sourcegitcommit: a0ad3bfe2a99c3092e76ca9b3d476cf30988ca55
+ms.openlocfilehash: d70911bdf3ff5de93537f7c9acb1374a4f2c90e3
+ms.sourcegitcommit: aded2711e14a0c2473049d3d7e05c82a74e4c634
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2022
-ms.locfileid: '148118997'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179951'
 ---
 {% mac %}
 
 ## GPG 키에 대해 Git에 알리기
 
-{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}에서 커밋자 ID 및 계정과 연결된 확인된 이메일 주소와 일치하는 GPG 키를 사용하는 경우 커밋 서명 및 태그 서명을 시작할 수 있습니다.
+{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}에서 커밋자 ID 및 계정과 연결된 확인된 전자 메일 주소와 일치하는 GPG 키를 사용하는 경우 커밋 서명 및 태그 서명을 시작할 수 있습니다.
 
 {% note %}
 
@@ -60,7 +60,7 @@ ms.locfileid: '148118997'
 
 ## GPG 키에 대해 Git에 알리기
 
-{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}에서 커밋자 ID 및 계정과 연결된 확인된 이메일 주소와 일치하는 GPG 키를 사용하는 경우 커밋 서명 및 태그 서명을 시작할 수 있습니다.
+{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}에서 커밋자 ID 및 계정과 연결된 확인된 전자 메일 주소와 일치하는 GPG 키를 사용하는 경우 커밋 서명 및 태그 서명을 시작할 수 있습니다.
 
 {% note %}
 
@@ -78,7 +78,7 @@ ms.locfileid: '148118997'
 
 ## GPG 키에 대해 Git에 알리기
 
-{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}에서 커밋자 ID 및 계정과 연결된 확인된 이메일 주소와 일치하는 GPG 키를 사용하는 경우 커밋 서명 및 태그 서명을 시작할 수 있습니다.
+{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}에서 커밋자 ID 및 계정과 연결된 확인된 전자 메일 주소와 일치하는 GPG 키를 사용하는 경우 커밋 서명 및 태그 서명을 시작할 수 있습니다.
 
 {% note %}
 
@@ -101,7 +101,7 @@ ms.locfileid: '148118997'
 
 {% data reusables.gpg.ssh-git-version %}
 
-{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-ssh-signing %} {% data reusables.gpg.copy-ssh-public-key %} {% data reusables.gpg.paste-ssh-public-key %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-ssh-signing %} {% data reusables.gpg.paste-ssh-public-key %}
 
 {% endif %}
 

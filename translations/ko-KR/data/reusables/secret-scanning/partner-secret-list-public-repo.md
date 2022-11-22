@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: cd91a98e6cb0da73a24f7f6e682b67ec25b406d4
-ms.sourcegitcommit: 24427fe609677b2c58137b1d9d63869d0872daf4
+ms.openlocfilehash: 7843dd2811e3645b6c9ea979fd3cb54a14b151f0
+ms.sourcegitcommit: 8d6f272d8b5da44e3a29ad8d99013c10a5c91b35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2022
-ms.locfileid: "148134794"
+ms.lasthandoff: 11/17/2022
+ms.locfileid: "148172038"
 ---
 파트너 | 지원되는 비밀
 --- | ---
@@ -23,12 +23,14 @@ Azure | Azure CosmosDB 키 식별 가능
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
 Azure | Azure ML Studio(클래식) 웹 서비스 키
 Azure | Azure SAS 토큰
+Azure | Azure Search 관리 키
+Azure | Azure Search 쿼리 키
 Azure | Azure 서비스 관리 인증서
 Azure | Azure SQL 연결 문자열
 Azure | Azure Storage 계정 키
 Checkout.com | Checkout.com 프로덕션 비밀 키
 Checkout.com | Checkout.com 테스트 비밀 키
-Chief | 최고 도구 토큰
+Chief | 주요 도구 토큰
 Clojars | Clojars 배포 토큰
 CloudBees CodeShip | CloudBees CodeShip 자격 증명
 기여된 시스템 | 기여된 시스템 자격 증명
