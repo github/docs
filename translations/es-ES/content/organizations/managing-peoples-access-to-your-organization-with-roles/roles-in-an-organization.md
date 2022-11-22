@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109815'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159177'
 ---
 ## Acerca de los roles
 {% data reusables.organizations.about-roles %}
@@ -121,7 +121,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | Atribuir los patrocinios a otra organización (consulte "[Atribución de patrocinios a la organización](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" para obtener más información) | **X** |  |  |  |  |
 | Administrar la publicación de sitios de {% data variables.product.prodname_pages %} desde los repositorios de la organización (consulte "[Administración de la publicación de sitios de {% data variables.product.prodname_pages %} para la organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** |  |  |  |  |
 | Administrar la configuración de seguridad y análisis (consulte "[Administración de la configuración de seguridad y análisis de la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** |  |  |  | **X** |
-| Consultar la información general sobre seguridad de la organización (consulte "[Acerca de la información general sobre seguridad](/code-security/security-overview/about-the-security-overview)") | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Consultar la información general sobre la seguridad de la organización (consulta "[Acerca de la información general de seguridad](/code-security/security-overview/about-the-security-overview)") | **X** |  |  |  | **X** |{% ifversion ghec %}
 | Habilitar y aplicar el [inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
 | [Administrar el acceso de SAML de un usuario a la organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | Administrar las entidades de certificación SSH de una organización (consulte "[Administración de las entidades de certificación SSH de la organización](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |  |  |{% endif %}
@@ -167,7 +167,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | Puede ser *mantenedor de equipo* | **X** | **X** | **X**  |
 | Transferir repositorios | **X** | |  |
 | Administrar la configuración de seguridad y análisis (consulte "[Administración de la configuración de seguridad y análisis de la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes %}
-| Consultar la información general sobre seguridad de la organización (consulte "[Acerca de la información general sobre seguridad](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes %}
+| Consultar la información general sobre la seguridad de la organización (consulta "[Acerca de la información general de seguridad](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Administrar las {% data variables.product.prodname_dependabot_security_updates %} (consulte ["Acerca de {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
 | Administrar las entidades de certificación SSH de una organización (consulte "[Administración de las entidades de certificación SSH de la organización](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |
 | Crear paneles de proyecto (consulte "[Permisos de panel de proyecto para una organización](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |
