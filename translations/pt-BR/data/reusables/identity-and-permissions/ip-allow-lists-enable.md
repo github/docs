@@ -1,3 +1,9 @@
-To enforce the IP allow list, you must first add IP addresses to the list, then enable the IP allow list.{% ifversion ip-allow-list-address-check %} After you complete your list, you can check whether a particular IP address would be allowed by any of the enabled entries in the list.{% endif %} 
-
-You must add your current IP address, or a matching range, before you enable the IP allow list.
+---
+ms.openlocfilehash: c42c0ef2686e4419be79cccce149d25c6ed0638c
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145093301"
+---
+Para fazer cumprir a lista de permissões de IP, você deve primeiro adicionar endereços IP à lista, e então habilitar a lista de permissões de IP. É preciso adicionar o endereço IP atual ou um intervalo correspondente antes de habilitar a lista de permissões de IP.

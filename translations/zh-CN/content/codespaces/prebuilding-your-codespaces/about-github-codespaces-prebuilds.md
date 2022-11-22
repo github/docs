@@ -1,7 +1,7 @@
 ---
-title: About GitHub Codespaces prebuilds
+title: 关于 GitHub Codespaces 预生成
 shortTitle: About prebuilds
-intro: '{% data variables.product.prodname_github_codespaces %} prebuilds help to speed up the creation of new codespaces for large or complex repositories.'
+intro: '{% data variables.product.prodname_github_codespaces %} 预生成有助于加快为大型或复杂存储库创建新的 codespace 的速度。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,43 +9,48 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
+ms.openlocfilehash: e0962e410f2227a23ff98c8a3e7995ea8ec8a914
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158795'
 ---
-
-## Overview
+## 概述
 
 {% data reusables.codespaces.prebuilds-definition %}
 
-If it currently takes more than 2 minutes to create a codespace for a repository, you are likely to benefit from using prebuilds. This is because, with a prebuild, any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace. 
+如果当前为存储库创建 codespace 的时间超过 2 分钟，则使用预生成可能会更好。 这是因为，使用预生成，会在创建 codespace 之前下载、安装和应用任何源代码、编辑器扩展、项目依赖项、命令和配置。 
 
-By default, whenever you push changes to your repository, {% data variables.product.prodname_github_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
+默认情况下，每当将更改推送到存储库时，{% data variables.product.prodname_github_codespaces %} 都会使用 {% data variables.product.prodname_actions %} 自动更新预生成。
 
-When prebuilds are available for a particular branch of a repository, a particular dev container configuration file, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-label="The history icon" %} Prebuild in progress" label. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+当预生成可用于存储库的特定分支、特定开发容器配置文件和你所在的区域时，你会在创建 codespace 时在计算机类型选项列表中看到“{% octicon "zap" aria-label="The zap icon" %} 预生成就绪”标签。 如果仍在创建预生成，你将看到“{% octicon "history" aria-label="The history icon" %}正在进行预生成”标签。 有关详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。
 
-![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![用于选择计算机类型的对话框](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-When you create a codespace from a template on the "Your codespaces" page, {% data variables.product.prodname_dotcom %} may automatically use a prebuild to speed up creation time. For more information on templates, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+根据“你的 codespace”页面上的模板创建 codespace 时，{% data variables.product.prodname_dotcom %} 可能会自动使用预生成来加快创建时间。 有关模板的详细信息，请参阅“[根据模板创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)”。
 
-## The prebuild process
+## 预生成过程
 
-To create a prebuild you set up a prebuild configuration. When you save the configuration, a {% data variables.product.prodname_actions %} workflow runs to create each of the required prebuilds; one workflow per prebuild. Workflows also run whenever the prebuilds for your configuration need to be updated. This can happen at scheduled intervals, on pushes to a prebuild-enabled repository, or when you change the dev container configuration. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."  
+若要创建预生成，请设置预生成配置。 保存配置时，将运行 {% data variables.product.prodname_actions %} 工作流以创建每个所需的预生成；每个预生成一个工作流。 每当需要更新配置的预生成时，也会运行工作流。 在计划时间间隔、推送到已启用预生成的存储库时或更改开发容器配置时可能会发生这种情况。 有关详细信息，请参阅“[配置预生成](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)”。  
 
-When a prebuild configuration workflow runs, {% data variables.product.prodname_dotcom %} creates a temporary codespace, performing setup operations up to and including any `onCreateCommand` and `updateContentCommand` commands in the `devcontainer.json` file. No `postCreateCommand` commands are run during the creation of a prebuild. For more information about these commands, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation. A snapshot of the generated container is then taken and stored.
+运行预生成配置工作流时，{% data variables.product.prodname_dotcom %} 会创建临时 codespace，从而执行直到 `devcontainer.json` 文件中的任何 `onCreateCommand` 和 `updateContentCommand` 命令（含）的设置操作。 在创建预生成期间不会运行任何 `postCreateCommand` 命令。 有关使用这些命令的详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的 [`devcontainer.json` 参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties)。 然后创建并存储生成的容器的快照。
 
-As with other {% data variables.product.prodname_actions %} workflows, running a prebuild configuration workflow will either consume some of the {% data variables.product.prodname_actions %} minutes included with your account, if you have any, or it will incur charges for {% data variables.product.prodname_actions %} minutes. Storage of codespace prebuilds is billed in the same way as storage of active or stopped codespaces. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
+与其他 {% data variables.product.prodname_actions %} 工作流一样，运行预生成配置工作流会占用帐户中包含的一些 {% data variables.product.prodname_actions %} 分钟（如果有），或者会产生 {% data variables.product.prodname_actions %} 分钟的费用。 存储 codespace 预生成的计费方式与存储活动或已停止的 codespace 相同。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)”。
 
-When you create a codespace from a prebuild, {% data variables.product.prodname_dotcom %} downloads the existing container snapshot from storage and deploys it on a fresh virtual machine, completing the remaining commands specified in the dev container configuration. Since many operations have already been performed, such as cloning the repository, creating a codespace from a prebuild can be substantially quicker than creating one without a prebuild. This is true where the repository is large and/or `onCreateCommand` commands take a long time to run.
+从预生成创建 codespace 时，{% data variables.product.prodname_dotcom %} 从存储下载现有容器快照，并将其部署到全新的虚拟机上，从而完成开发容器配置中指定的剩余命令。 由于已执行许多操作（例如克隆存储库），因此从预生成创建 codespace 可能比在没有预生成的情况下创建 codespace 要快得多。 存储库很大和/或 `onCreateCommand` 命令的运行时间很长时会出现这种情况。
 
-## About pushing changes to prebuild-enabled branches
+## 关于将更改推送到已启用预生成的分支
 
-By default, each push to a branch that has a prebuild configuration results in a {% data variables.product.prodname_dotcom %}-managed {% data variables.product.prodname_actions %} workflow run to update the prebuild. The prebuild workflow has a concurrency limit of one workflow run at a time for a given prebuild configuration, unless changes were made that affect the dev container configuration for the associated repository. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." If a run is already in progress, the workflow run that was queued most recently queued will run next, after the current run completes. 
+默认情况下，每次推送到有预生成配置的分支，都会运行一个 {% data variables.product.prodname_dotcom %} 托管的 {% data variables.product.prodname_actions %} 工作流来更新预生成。 预生成工作流有一个并发限制，即，对于一个给定的预生成配置，一次只能运行一个工作流，除非进行的更改影响到相关存储库的开发容器配置。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。 如果运行已在进行中，则最近排队的工作流运行将在当前运行完成后运行。 
 
-With the prebuild set to be updated on each push, it means that if there are very frequent pushes to your repository, prebuild updates will occur at least as often as it takes to run the prebuild workflow. That is, if your workflow run typically takes one hour to complete, prebuilds will be created for your repository roughly hourly, if the run succeeds, or more often if there were pushes that change the dev container configuration on the branch.
+将预生成设置为在每次推送时更新，意味着如果存储库中存在非常频繁的推送，预生成更新将至少与运行预生成工作流所需的频率一样频繁。 也就是说，如果工作流运行通常需要一个小时才能完成且运行成功，那么大约每小时会为存储库创建一次预生成，如果分支上有更改开发容器配置的推送，则创建预生成会更频繁。
 
-For example, let's imagine 5 pushes are made, in quick succession, against a branch that has a prebuild configuration. In this situation:
+例如，假设针对有预生成配置的分支连续进行 5 次推送。 在这种情况下：
 
-* A workflow run is started for the first push, to update the prebuild.
-* If the 4 remaining pushes do not affect the dev container configuration, the workflow runs for these are queued in a "pending" state. 
+* 在第一次推送中会启动工作流运行，以更新预生成。
+* 如果余下的 4 次推送不会影响开发容器配置，这些工作流运行将以“挂起”状态排队。 
   
-  If any of the remaining 4 pushes change the dev container configuration, then the service will not skip that one and will immediately run the prebuild creation workflow, updating the prebuild accordingly if it succeeds. 
+  如果余下 4 次推送中的任何一次更改了开发容器配置，服务将不会跳过该推送，并将立即运行预生成创建工作流，运行成功后将相应地更新预生成。 
 
-* Once the first run completes, workflow runs for pushes 2, 3, and 4 will be canceled, and the last queued workflow (for push 5) will run and update the prebuild. 
+* 首次运行完成后，将取消第 2、3 和 4 次推送的工作流运行，最后排队的工作流（第 5 次推送）将运行并更新预生成。 

@@ -1,6 +1,6 @@
 ---
-title: 创建个人作业
-intro: 您可以为课程中的学生创建需单独完成的作业。
+title: Create an individual assignment
+intro: You can create an assignment for students in your course to complete individually.
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can create and manage individual assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
@@ -8,14 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
-ms.openlocfilehash: 4f5fab2f63ff686762a4fb6ccd5964b7f4d9cb3c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147573866'
 ---
-## 关于个人作业
+## About individual assignments
 
 {% data reusables.classroom.assignments-individual-definition %}
 
@@ -23,82 +17,84 @@ ms.locfileid: '147573866'
 
 {% data reusables.classroom.about-assignments %}
 
-有关创建个人作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本信息](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
+For a video demonstration of the creation of an individual assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## 先决条件
+## Prerequisites
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## 创建作业
+## Creating an assignment
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## 设置作业的基本信息
+## Setting up the basics for an assignment
 
-指定作业的名称，决定是否分配截止时间，并选择作业仓库的可见性。
+Name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
 
-- [指定作业名称](#naming-an-assignment)
-- [分配作业的截止时间](#assigning-a-deadline-for-an-assignment)
-- [选择作业类型](#choosing-an-assignment-type)
-- [选择作业存储库的可见性](#choosing-a-visibility-for-assignment-repositories)
+- [Naming an assignment](#naming-an-assignment)
+- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
+- [Choosing an assignment type](#choosing-an-assignment-type)
+- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
 
-### 指定作业名称
+### Naming an assignment
 
-对于个人作业，{% data variables.product.prodname_classroom %} 使用仓库前缀和学生的 {% data variables.product.product_name %} 用户名对仓库命名。 默认情况下，仓库前缀是作业标题。 例如，如果你对作业 "assignment-1" 命名，学生在 {% data variables.product.product_name %} 上的用户名是 @octocat，则 @octocat 的作业存储库的名称将是 `assignment-1-octocat`。
+For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### 分配作业的截止时间
+### Assigning a deadline for an assignment
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### 选择作业类型
+### Choosing an assignment type
 
-在“个人或小组作业”下，选择下拉菜单，并单击“个人作业”。 创建作业后不可更改作业类型。 如果想要创建小组作业，请参阅“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
+Under "Individual or group assignment", select the drop-down menu, and click **Individual assignment**. You can't change the assignment type after you create the assignment. If you'd rather create a group assignment, see "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
 
-### 选择作业仓库的可见性
+### Choosing a visibility for assignment repositories
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## 添加起始代码并配置开发环境
+## Adding starter code and configuring a development environment
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [选择模板存储库](#choosing-a-template-repository)
-- [选择集成开发环境 (IDE)](#choosing-an-integrated-development-environment-ide)
+- [Choosing a template repository](#choosing-a-template-repository)
+- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
 
-### 选择模板仓库
+### Choosing a template repository
 
-默认情况下，新作业将为教室名册上的每个学生创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %}
+By default, a new assignment will create an empty repository for each student on the roster for the classroom. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-### 选择集成开发环境 (IDE)
+### Choosing an integrated development environment (IDE)
 
-{% data reusables.classroom.about-online-ides %} 有关详细信息，请参阅“[将 {% data variables.product.prodname_classroom %} 与 IDE 集成](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)”。
+{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
-## 为作业提供反馈
+## Providing feedback for an assignment
 
-（可选）您可以自动对作业进行分级，并创建一个空间，用于与学生讨论每个提交。
+Optionally, you can automatically grade assignments and create a space for discussing each submission with the student.
 
-- [自动测试作业](#testing-assignments-automatically)
-- [为反馈创建拉取请求](#creating-a-pull-request-for-feedback)
+- [Testing assignments automatically](#testing-assignments-automatically)
+- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
 
-### 自动测试作业
+### Testing assignments automatically
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### 为反馈创建拉取请求
+### Creating a pull request for feedback
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -106,34 +102,34 @@ ms.locfileid: '147573866'
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## 邀请学生参加作业
+## Inviting students to an assignment
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-你可以在作业的“课堂名册”选项卡中查看学生是否已进入教室以及是否接受或提交作业。 你还可以在此选项卡中将学生的 {% data variables.product.prodname_dotcom %} 别名链接到其关联的名册标识符，反之亦然。{% data reusables.classroom.assignments-to-prevent-submission %}
+You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-## 监控学生的进度
-作业概述页面提供了作业接受情况和学生进度的概述。 根据作业的配置，您可能有不同的摘要信息。
+## Monitoring students' progress
+The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
 
-- **名册内学生**：课堂名册上的学生人数。
-- **已添加的学生**：已接受作业且未与名册标识符关联的 {% data variables.product.prodname_dotcom %} 帐户数。
--  **已接受的学生**：已接受此作业的帐户数。
--  **作业提交**：已提交作业的学生人数。 在作业截止日期触发提交。
--  **及格学生**：当前通过此作业的自动评分测试的学生人数。
+- **Rostered students**: The number of students on the Classroom's roster.
+- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
+-  **Accepted students**: The number of accounts have accepted this assignment.
+-  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
+-  **Passing students**: The number of students currently passing the autograding tests for this assignment.
 
-## 后续步骤
+## Next steps
 
-- 在创建作业后，学生可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和学生都可以审查仓库的提交历史记录。 有关详细信息，请参阅“[开始使用 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)”、“[存储库](/repositories)”和“[协作处理问题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”。
+- Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
 
-- 当学生完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解学生的工作。 有关详细信息，请参阅“[使用图表可视化存储库数据](/github/visualizing-repository-data-with-graphs)”。
+- When a student finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand the student's work. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
 
-- 您可以通过在拉取请求中评论个别提交或行来提供作业反馈。 有关详细信息，请参阅“[对拉取请求添加注释](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”和“[从代码中打开问题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。 有关创建已保存回复以提供常见错误反馈的详细信息，请参阅“[关于已保存回复](/github/writing-on-github/about-saved-replies)”。
+- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
 
-## 延伸阅读
+## Further reading
 
-- [教师版 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- [将学习管理系统连接到 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)
+- "[{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
+- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"

@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: af8eda15fb2efa1997bec460be9f8d9549171c71
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 217ff84c9edd02f476d3f25f01d384f46ab05e0c
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145084860"
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179579"
 ---
 执行作业的运行器的体系结构。 可能的值为 `X86`、`X64`、`ARM` 或 `ARM64`。
