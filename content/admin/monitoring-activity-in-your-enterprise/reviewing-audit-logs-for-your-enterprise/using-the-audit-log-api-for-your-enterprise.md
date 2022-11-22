@@ -136,3 +136,28 @@ curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```
+
+### Example 3: Using cursor based pagination 
+
+Cursor based pagination uses terms `before` and `after` using links found within the [header of the API request](/rest/guides/getting-started-with-the-rest-api#about-the-response-code-and-headers). For further information,
+see [Traversing with Pagination](/rest/guides/traversing-with-pagination). 
+
+Example of header links in header output:
+
+```
+link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&page=1&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next", 
+<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&page=1&per_page=100&after=&before=>; rel="first", 
+<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&page=1&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
+```
+
+To use this navigation, copy the corresponding link into your request.
+
+```shell
+curl -I -H "Authorization: Bearer TOKEN" \
+--request GET \
+"https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&page=1&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
+```
+
+
+
+
