@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107769'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159170'
 ---
 ## Sobre as funções
 {% data reusables.organizations.about-roles %}
@@ -121,7 +121,7 @@ Para manter os dados da sua organização seguros e permitir acesso aos reposit�
 | Atribuir seus patrocínios a outra organização (confira "[Como atribuir patrocínios à sua organização](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" para obter detalhes) | **X** |  |  |  |  |
 | Gerenciar a publicação de sites do {% data variables.product.prodname_pages %} em repositórios na organização (confira "[Como gerenciar a publicação de sites do {% data variables.product.prodname_pages %} para sua organização](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** |  |  |  |  |
 | Gerenciar configurações de segurança e análise (confira "[Como gerenciar configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** |  |  |  | **X** |
-| Ter a visão geral de segurança da organização (confira "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)") | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Ter a visão geral de segurança da organização (confira "[Sobre visões gerais de segurança](/code-security/security-overview/about-the-security-overview)") | **X** |  |  |  | **X** |{% ifversion ghec %}
 | Habilitar e impor o [logon único do SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
 | [Gerenciar o acesso do SAML de um usuário à sua organização](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | Gerenciar as autoridades de certificação SSH de uma organização (confira "[Como gerenciar as autoridades de certificação SSH da sua organização](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |  |  |{% endif %}
@@ -167,7 +167,7 @@ Para manter os dados da sua organização seguros e permitir acesso aos reposit�
 | Pode se tornar um *mantenedor da equipe* | **X** | **X** | **X**  |
 | Transferir repósitórios | **X** | |  |
 | Gerenciar configurações de segurança e análise (confira "[Como gerenciar configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes %}
-| Ter a visão geral de segurança da organização (confira "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes %}
+| Ter a visão geral de segurança da organização (confira "[Sobre visões gerais de segurança](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Gerenciar {% data variables.product.prodname_dependabot_security_updates %} (confira "[Sobre as {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
 | Gerenciar as autoridades de certificação SSH de uma organização (confira "[Como gerenciar as autoridades de certificação SSH da sua organização](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |
 | Criar quadros de projetos (confira "[Permissões de quadros de projetos de uma organização](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |
