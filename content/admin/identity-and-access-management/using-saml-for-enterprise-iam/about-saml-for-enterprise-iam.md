@@ -124,5 +124,7 @@ If you use Okta as your IdP, you can map your Okta groups to teams on {% data va
 ## Further reading
 
 - [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
-- [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website{% ifversion ghae %}
-- [Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise){% endif %}
+- [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website
+{%- ifversion ghae %}
+- "[Restricting network traffic to your enterprise with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
+{%- endif %}
