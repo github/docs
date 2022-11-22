@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: af8eda15fb2efa1997bec460be9f8d9549171c71
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 217ff84c9edd02f476d3f25f01d384f46ab05e0c
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145089259"
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179608"
 ---
 Die Architektur des Runners, der den Auftrag ausführt. Mögliche Werte sind `X86`, `X64`, `ARM` oder `ARM64`.

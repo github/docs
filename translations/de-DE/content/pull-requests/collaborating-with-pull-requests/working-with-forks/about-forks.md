@@ -1,6 +1,6 @@
 ---
-title: About forks
-intro: A fork is a copy of a repository that you manage. Forks let you make changes to a project without affecting the original repository. You can fetch updates from or submit changes to the original repository with pull requests.
+title: Informationen zu Forks
+intro: 'Ein Fork ist eine Kopie eines Repositorys, das Du verwaltest. Mit Forks kannst du Änderungen an einem Projekt vornehmen, ohne dass sich dies auf das ursprüngliche Repository auswirkt. Du kannst Updates aus dem ursprünglichen Repository abrufen oder Änderungen mit Pull Requests an das Repository senden.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/about-forks
   - /articles/about-forks
@@ -13,33 +13,39 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
+ms.openlocfilehash: 83372d27f052ee8c22730f5ce5d22e9efbf04fbb
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158749'
 ---
-Forking a repository is similar to copying a repository, with two major differences:
+Das Forking eines Repositorys ist ähnlich wie das Kopieren eines Repositorys, mit zwei wesentlichen Unterschieden:
 
-* You can use a pull request to suggest changes from your user-owned fork to the original repository in its GitHub instance, also known as the *upstream* repository.
-* You can bring changes from the upstream repository to your local fork by synchronizing your fork with the upstream repository.
+* Du kannst einen Pull Request verwenden, um Änderungen an deinem benutzereigenen Fork für das Originalrepository in der zugehörigen GitHub-Instanz vorzuschlagen, auch als *Upstream*-Repository bezeichnet.
+* Du kannst Änderungen vom vorgelagerten Repository auf Deinen lokalen Fork übertragen, indem Du Deinen Fork mit dem vorgelagerten Repository synchronisierst.
 
 {% data reusables.repositories.you-can-fork %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Falls du Mitglied eines {% data variables.enterprise.prodname_emu_enterprise %} bist, gelten weitere Einschränkungen für die Repositorys, die du forken kannst. {% data reusables.enterprise-accounts.emu-forks %} Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %} in der {% data variables.product.prodname_ghe_cloud %}-Dokumentation.{% else %}.{% endif %}
 
 {% endif %}
 
 {% data reusables.repositories.desktop-fork %}
 
-Deleting a fork will not delete the original upstream repository. You can make any changes you want to your fork—add collaborators, rename files, generate {% data variables.product.prodname_pages %}—with no effect on the original.{% ifversion fpt or ghec %} You cannot restore a deleted forked repository. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+Das Löschen eines Forks wird das ursprüngliche vorgelagerte Repository nicht löschen. Du kannst beliebige Änderungen an deinem Fork vornehmen – Projektmitarbeiter hinzufügen, Dateien umbenennen, {% data variables.product.prodname_pages %} generieren –, ohne Auswirkungen auf das Original.{% ifversion fpt or ghec %} Du kannst ein geforktes Repository nach dem Löschen nicht wiederherstellen. Weitere Informationen findest du unter [Wiederherstellen eines gelöschten Repository](/articles/restoring-a-deleted-repository).{% endif %}
 
-In open source projects, forks are often used to iterate on ideas or changes before they are offered back to the upstream repository. When you make changes in your user-owned fork and open a pull request that compares your work to the upstream repository, you can give anyone with push access to the upstream repository permission to push changes to your pull request branch (including deleting the branch). This speeds up collaboration by allowing repository maintainers the ability to make commits or run tests locally to your pull request branch from a user-owned fork before merging. You cannot give push permissions to a fork owned by an organization. 
+In Open-Source-Projekten werden Forks oft verwendet, um mehrfach Ideen oder Änderungen durchzuspielen, bevor sie an das vorgelagerte Repository zurückgesendet werden. Wenn du Änderungen an deinem benutzereigenen Fork vornimmst und einen Pull Request öffnest, der deine Arbeit mit dem Upstream-Repository vergleicht, kannst du jeder Person mit Pushzugriff auf das Upstream-Repository die Erlaubnis geben, Änderungen an deinen Pull Request-Branch zu pushen (einschließlich Löschung des Branches). Dies beschleunigt die Zusammenarbeit, indem es den Repository-Betreuern erlaubt, Commits zu erstellen oder Tests vor dem Zusammenführen lokal aus einer benutzereigenen Fork zu Deinem Pull-Request-Branch auszuführen. Du kannst keine Push-Berechtigungen an eine Fork geben, die einer Organisation gehört. 
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
+Wenn du ein neues Repository aus dem Inhalt eines vorhandenen Repositorys erstellen möchtest, deine Änderungen aber künftig nicht in das Upstream-Repository mergen möchtest, kannst du das Repository duplizieren oder – falls es sich bei dem Repository um eine Vorlage handelt – das Repository als Vorlage verwenden. Weitere Informationen findest du unter [Duplizieren eines Repository](/articles/duplicating-a-repository) und [Erstellen eines Repository anhand einer Vorlage](/articles/creating-a-repository-from-a-template).
 
-## Further reading
+## Weiterführende Themen
 
-- "[About collaborative development models](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
-- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-- [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
+- [Informationen zu gemeinschaftlichen Entwicklungsmodellen](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)
+- [Erstellen eines Pull Requests vom einem Fork des Repositorys](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+- [Open-Source-Leitfäden](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

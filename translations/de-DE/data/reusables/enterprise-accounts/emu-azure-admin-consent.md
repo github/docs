@@ -1,14 +1,6 @@
----
-ms.openlocfilehash: 75ac89c3c50225b0c930c6d603acf0d5c331597d
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147067858"
----
-1. Falls du umgeleitet wirst, melde dich bei deinem Identitätsanbieter an und folge dann den Anweisungen, um deine Einwilligung zu erteilen und die {% data variables.product.prodname_emu_idp_oidc_application %}-Anwendung zu installieren.
+1. After {% data variables.product.product_name %} redirects you to your IdP, sign in, then follow the instructions to give consent and install the {% data variables.product.prodname_emu_idp_oidc_application %} application. After Azure AD asks for permissions for {% data variables.product.company_short %} {% data variables.product.prodname_emus %} with OIDC, enable **Consent on behalf of your organization**, then click **Accept**. 
    {% warning %}
 
-   **Warnung:** Du musst dich bei Azure AD als Benutzer mit globalen Administratorrechten anmelden, um in die Installation der {% data variables.product.prodname_emu_idp_oidc_application %}-Anwendung einzuwilligen.
+   **Warning:** You must sign in to Azure AD as a user with global admin rights in order to consent to the installation of the {% data variables.product.prodname_emu_idp_oidc_application %} application.
 
    {% endwarning %}

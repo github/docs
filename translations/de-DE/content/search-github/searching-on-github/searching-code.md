@@ -1,6 +1,6 @@
 ---
-title: Searching code
-intro: 'You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination.'
+title: Code durchsuchen
+intro: 'Auf {% data variables.product.product_name %} kannst du Code durchsuchen und die Suchergebnisse mit den folgenden Kennzeichnern der Codesuche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -14,108 +14,111 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
+ms.openlocfilehash: 125c17f1050cdb6d1b1d5a3d58d3e513eddce40f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160222'
 ---
+{% ifversion github-code-search %} {% note %}
 
-{% ifversion github-code-search %}
-  {% note %}
+  **Hinweis:** {% data reusables.search.classic-search-code-search-note %}
 
-  **Note:** {% data reusables.search.classic-search-code-search-note %}
+  {% endnote %} {% endif %}
 
-  {% endnote %}
-{% endif %}
+{% data reusables.search.you-can-search-globally %} Weitere Informationen findest du unter [Informationen zur Suche auf GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
-{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
-
-You can only search code using these code search qualifiers. Search qualifiers specifically for repositories, users, or commits, will not work when searching for code.
+Du kannst Code nur mit den diesen Qualifizierern der Codesuche durchsuchen. Spezifische Qualifizierer für Repositorys, Benutzer oder Commits funktionieren bei der Durchsuchung von Code nicht.
 
 {% data reusables.search.syntax_tips %}
 
-## Considerations for code search
+## Grundlegendes zur Codesuche
 
-Due to the complexity of searching code, there are some restrictions on how searches are performed:
+Aufgrund der Komplexität der Codesuche gelten bei der Durchführung der Suche Einschränkungen:
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/search-github/searching-on-github/searching-in-forks)."
-- Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
-- Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
-- Only the first 500 KB of each file is searchable.{% endif %}
-- Up to 4,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories that you have access to.
-- Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt or ghec %}
-- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
-- Except with [`filename`](#search-by-filename) searches, you must always include at least one search term when searching source code. For example, searching for [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) is not valid, while [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) is.
-- At most, search results can show two fragments from the same file, but there may be more results within the file.
-- You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. The search will simply ignore these symbols.
+- Code in [Forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) ist nur durchsuchbar, wenn der Fork über mehr Sterne als das übergeordnete Repository verfügt. Forks mit weniger Sternen als das übergeordnete Repository werden **nicht** für die Codesuche indiziert. Wenn du Forks mit mehr Sternen als das übergeordnete Repository in die Suchergebnisse einschließen möchtest, musst du deiner Abfrage `fork:true` oder `fork:only` hinzufügen. Weitere Informationen findest du unter [Suchen in Forks](/search-github/searching-on-github/searching-in-forks).
+- Nur der _Standardbranch_ wird für die Codesuche indiziert.{% ifversion fpt or ghec %}
+- Nur Dateien kleiner 384 KB sind durchsuchbar.{% else %}* Nur Dateien kleiner 5 MB sind durchsuchbar.
+- Nur die ersten 500 KB jeder Datei sind durchsuchbar.{% endif %}
+- Bis zu 4.000 private{% ifversion ghec or ghes or ghae %} und interne{% endif %} Repositorys sind durchsuchbar. Diese 4.000 Repositorys sind die zuletzt aktualisierten der ersten 10.000 privaten{% ifversion ghec or ghes or ghae %} und internen{% endif %} Repositorys, auf die du Zugriff hast.
+- Nur Repositorys mit weniger als 500.000 Dateien sind durchsuchbar.{% ifversion fpt or ghec %}
+- Nur Repositorys, die im letzten Jahr Aktivität aufwiesen oder in Suchergebnissen zurückgegeben wurden, sind durchsuchbar.{% endif %}
+- Mit Ausnahme von [`filename`](#search-by-filename)-Suchvorgängen musst du beim Durchsuchen von Quellcode immer mindestens einen Suchbegriff angeben. Die Suche nach [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) ist beispielsweise ungültig, die Suche nach [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) ist hingegen gültig.
+- Die Suchergebnisse können maximal zwei gefundene Fragmente der gleichen Datei anzeigen, selbst wenn die Datei mehr Treffer enthält.
+- Folgende Platzhalterzeichen können in Suchabfragen nicht verwendet werden: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. Diese Zeichen werden bei der Suche schlicht ignoriert.
 
-## Search by the file contents or file path
+## Suche nach Dateiinhalten oder Dateipfad
 
-With the `in` qualifier you can restrict your search to the contents of the source code file, the file path, or both. When you omit this qualifier, only the file contents are searched.
+Mit dem `in`-Qualifizierer kannst du deine Suche auf den Inhalt der Quellcodedatei, den Dateipfad oder auf beides eingrenzen. Ohne diesen Qualifizierer werden nur Dateiinhalte durchsucht.
 
-| Qualifier  | Example
+| Qualifizierer  | Beispiel
 | ------------- | -------------
-| `in:file` | [**octocat in:file**](https://github.com/search?q=octocat+in%3Afile&type=Code) matches code where "octocat" appears in the file contents.
-| `in:path` | [**octocat in:path**](https://github.com/search?q=octocat+in%3Apath&type=Code) matches code where "octocat" appears in the file path.
-| | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) matches code where "octocat" appears in the file contents or the file path.
+| `in:file` | [**octocat in:file**](https://github.com/search?q=octocat+in%3Afile&type=Code) entspricht Code, in dem „octocat“ im Dateiinhalt aufgeführt wird.
+| `in:path` | [**octocat in:path**](https://github.com/search?q=octocat+in%3Apath&type=Code) entspricht Code, in dem „octocat“ im Dateipfad aufgeführt wird.
+| | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) entspricht Code, in dem „octocat“ im Dateiinhalt oder im Dateipfad aufgeführt wird.
 
-## Search within a user's or organization's repositories
+## Suche innerhalb der Repositorys eines Benutzers oder einer Organisation
 
-To search the code in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
+Wenn du den Code in allen Repositorys durchsuchen möchtest, die einem bestimmten Benutzer oder einer bestimmten Organisation gehören, kannst du den `user`- oder den `org`Qualifizierer verwenden. Um den Code in einem bestimmten Repository zu durchsuchen, kannst du den `repo`-Qualifizierer verwenden.
 
-| Qualifier  | Example
+| Qualifizierer  | Beispiel
 | ------------- | -------------
-| <code>user:<em>USERNAME</em></code> | [**user:defunkt extension:rb**](https://github.com/search?q=user%3Agithub+extension%3Arb&type=Code) matches code from @defunkt that ends in <em>.rb</em>.
-| <code>org:<em>ORGNAME</em></code> |[**org:github extension:js**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+extension%3Ajs&type=Code) matches code from GitHub that ends in <em>.js</em>.
-| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) matches code from @mozilla's shumway project that ends in <em>.as</em>.
+| <code>user:<em>USERNAME</em></code> | [**user:defunkt extension:rb**](https://github.com/search?q=user%3Agithub+extension%3Arb&type=Code) stimmt mit Code aus @defunkt überein, der auf <em>.rb</em> endet.
+| <code>org:<em>ORGNAME</em></code> |[**org:github extension:js**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+extension%3Ajs&type=Code) stimmt mit Code aus GitHub überein, der auf <em>.js</em> endet.
+| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) stimmt mit Code aus dem @mozilla-Shumway-Projekt überein, der auf <em>.as</em> endet.
 
-## Search by file location
+## Suche nach Standort
 
-You can use the `path` qualifier to search for source code that appears at a specific location in a repository. Use `path:/` to search for files that are located at the root level of a repository. Or specify a directory name or the path to a directory to search for files that are located within that directory or any of its subdirectories.
+Mit dem `path`-Qualifizierer kannst du nach Quellcode unter einem bestimmten Pfad innerhalb eines Repositorys suchen. Verwende `path:/`, um nach Dateien zu suchen, die sich auf der Stammebene eines Repositorys befinden. Du kannst aber auch einen Verzeichnisnamen oder den Pfad zu einem Verzeichnis angeben, um Dateien innerhalb dieses Verzeichnisses oder seiner Unterverzeichnisse zu durchsuchen.
 
-| Qualifier  | Example
+| Qualifizierer  | Beispiel
 | ------------- | -------------
-| <code>path:/</code> | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) matches _readme_ files with the word "octocat" that are located at the root level of a repository.
-| <code>path:<em>DIRECTORY</em></code> | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in the <em>cgi-bin</em> directory, or in any of its subdirectories.
-| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**`console path:app/public language:javascript`**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in the <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>).
+| <code>path:/</code> | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) entspricht _Readme_-Dateien mit dem Wort „octocat“, die sich auf der Stammebene eines Repositorys befinden.
+| <code>path:<em>DIRECTORY</em></code> | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) entspricht Perl-Dateien mit dem Wort „form“ im Verzeichnis <em>cgi-bin</em> oder in einem zugehörigen Unterverzeichnis.
+| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**`console path:app/public language:javascript`**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) entspricht JavaScript-Dateien mit dem Wort „console“ im Verzeichnis <em>app/public</em> oder in einem zugehörigen Unterverzeichnis (sogar in <em>app/public/js/form-validators</em>).
 
-## Search by language
+## Suche nach Sprache
 
-You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+Du kannst Code auch in Abhängigkeit der Programmiersprache suchen. Der `language`-Qualifizierer kann der Sprachname oder Alias sein. Eine vollständige Liste unterstützter Sprachen mit ihren Namen und Aliasen findest du im [github/linguist-Repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-| Qualifier  | Example
+| Qualifizierer  | Beispiel
 | ------------- | -------------
-| <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/search?q=element+language%3Axml+size%3A100&type=Code) matches code with the word "element" that's marked as being XML and has exactly 100 bytes.
-| | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) matches code with the word "display," that's marked as being SCSS.
-| | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) matches code from all @mozilla's repositories that's marked as Markdown.
+| <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/search?q=element+language%3Axml+size%3A100&type=Code) entspricht Code mit dem Wort „element“, das als XML gekennzeichnet ist und genau 100 Byte umfasst.
+| | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) entspricht Code mit dem Wort „display“, der als SCSS gekennzeichnet ist.
+| | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) entspricht Code aus allen @mozilla-Repositorys, der als Markdown gekennzeichnet ist.
 
-## Search by file size
+## Suche nach Dateigröße
 
-You can use the `size` qualifier to search for source code based on the size of the file where the code exists. The `size` qualifier uses [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to filter results based on the byte size of the file in which the code is found.
+Mit dem `size`-Qualifizierer kannst du Quellcode nach der Größe der Datei suchen, in der sich der Code befindet. Der `size`-Qualifizierer verwendet [Größer-als-, Kleiner-als- und Bereichsqualifizierer](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax), um Ergebnisse basierend auf der Bytegröße der Datei zu filtern, in der der Code gefunden wird.
 
-| Qualifier  | Example
+| Qualifizierer  | Beispiel
 | ------------- | -------------
-| <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/search?q=function+size%3A%3E10000+language%3Apython&type=Code) matches code with the word "function," written in Python, in files that are larger than 10 KB.
+| <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/search?q=function+size%3A%3E10000+language%3Apython&type=Code) entspricht Code mit dem Wort „function“, der in Python geschrieben ist und sich in Dateien befindet, die größer als 10 KB sind.
 
-## Search by filename
+## Suche nach Dateiname
 
-The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/search-github/searching-on-github/finding-files-on-github)."
+Der `filename`-Qualifizierer gleicht Codedateien mit einem bestimmten Dateinamen ab. Zur Suche nach Dateien in einem Repository kannst du aber auch den Dateifinder verwenden. Weitere Informationen findest du unter [Suchen nach Dateien auf GitHub](/search-github/searching-on-github/finding-files-on-github).
 
-| Qualifier  | Example
+| Qualifizierer  | Beispiel
 | ------------- | -------------
-| <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) matches files named "linguist."
-| | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
-| | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
+| <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) entspricht Dateien mit dem Namen „linguist“.
+| | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) entspricht *VIMRC*-Dateien mit dem Wort „commands“.
+| | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) entspricht Ruby-Dateien namens *test_helper* innerhalb des Verzeichnisses *test*.
 
-## Search by file extension
+## Suche nach Dateierweiterung
 
-The `extension` qualifier matches code files with a certain file extension.
+Der `extension`-Qualifizierer gleicht Codedateien mit einem bestimmten Suffix ab.
 
-| Qualifier  | Example
+| Qualifizierer  | Beispiel
 | ------------- | -------------
-| <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) matches code with the word "form," under <em>cgi-bin</em>, with the <em>.pm</em> file extension.
-| | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) matches files larger than 200 KB that end in .css and have the word "icon."
+| <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) entspricht Code mit dem Wort „form“ unter <em>cgi-bin</em> mit dem Suffix <em>.pm</em>.
+| | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) entspricht Dateien, die größer als 200 KB sind, auf „.css“ enden und das Wort „icon“ enthalten.
 
-## Further reading
+## Weiterführende Themen
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
-- "[Searching in forks](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
-- "[Navigating code on {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}
+- [Sortieren von Suchergebnissen](/search-github/getting-started-with-searching-on-github/sorting-search-results/)
+- [Suchen in Forks](/search-github/searching-on-github/searching-in-forks){% ifversion fpt or ghec %}
+- [Navigieren in Code auf {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github){% endif %}

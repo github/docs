@@ -154,11 +154,11 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
-ms.openlocfilehash: c76f5cd822d9b7bed7129626283552892366b57a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: dad74fe11fc5bfea72ae994e9918683fc7e87b7a
+ms.sourcegitcommit: bd23217796e6ff442b14ef9d889eaef30e8d6826
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158869'
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167304'
 ---
 
