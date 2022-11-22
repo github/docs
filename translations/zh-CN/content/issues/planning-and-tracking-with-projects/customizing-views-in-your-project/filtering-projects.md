@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: b1c04738a3c03d892b360c3b23def694d202ee0c
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 680d6cff10dfc063ebaef0ebc9f8f7d0c15ba2e7
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108097'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158939'
 ---
 可使用筛选器和按项目中的字段来自定义项目元数据的视图，例如代理人和应用于问题的标签。 可以合并筛选并将其保存为视图。 有关详细信息，请参阅“[自定义项目视图](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)”。
 
@@ -24,6 +24,8 @@ ms.locfileid: '148108097'
 使用多个筛选器将充当逻辑 AND 筛选器。 例如，`label:bug status:"In progress"` 将返回带 `bug` 标签且状态为“正在进行”的项。 {% data variables.product.prodname_projects_v2 %} 当前不支持跨多个字段的逻辑 OR 筛选器。
 
 对于使用 {% data variables.product.prodname_projects_v2 %} 的见解创建的图表，可使用相同的筛选器来筛选用于创建图表的数据。 有关详细信息，请参阅“[将见解用于项目](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)”。
+
+筛选视图并添加项时，筛选后的元数据将应用到添加的项。 例如，如果将筛选条件设置为 `status:"In progress"`，并添加项，则新项的状态将设置为“正在进行”。
 
 ## 过滤项
 

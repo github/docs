@@ -1,6 +1,6 @@
 ---
-title: 'About {% data variables.product.prodname_projects_v2 %}'
-intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
+title: '关于 {% data variables.product.prodname_projects_v2 %}'
+intro: '{% data variables.product.prodname_projects_v2 %} 是一个适应性强的灵活工具，用于计划和跟踪 {% data variables.product.company_short %} 上的工作。'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,52 +10,57 @@ redirect_from:
 type: overview
 topics:
   - Projects
+ms.openlocfilehash: 768234aa5e6c9cfbca6a6144a80ac2868f3316ce
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158859'
 ---
+## 关于 {% data variables.product.prodname_projects_v2 %}
 
-## About {% data variables.product.prodname_projects_v2 %}
+项目是一个适应性强的电子表格，可与你在 {% data variables.product.company_short %} 上的问题和拉取求集成来帮助你有效地计划和跟踪工作。 可通过以下方式创建和自定义多个视图：对问题和拉取请求进行筛选、排序和分组；添加自定义字段来跟踪特定于团队的元数据；使用可配置图表直观呈现工作。 项目提供灵活的功能而不是强制实施特定方法，你可根据团队的需求和流程对这些灵活功能进行自定义。
 
-A project is an adaptable spreadsheet that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests, adding custom fields to track metadata specific to your team, and visualize work with configurable charts. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
+### 保持最新
 
-### Staying up-to-date
+项目是根据你添加的问题和拉取请求生成的，在项目与工作之间创建了直接引用。 当你进行更改、更新视图和图表时，信息会自动同步到项目。 此集成也双向运行，因此当你更改有关项目中拉取请求或问题的信息时，拉取请求或问题会反映该信息。 例如，更改项目中的代理人，该更改将显示在问题中。 可进一步进行此集成，按代理人对项目进行分组，并通过将问题拖动到不同的组中来更改问题分配。
 
-Your projects are built from the issues and pull requests you add, creating direct references between your project and your work. Information is synced automatically to your project as you make changes, updating your views and charts. This integration works both ways, so that when you change information about a pull request or issue in your project, the pull request or issue reflects that information. For example, change an assignee in your project and that change is shown in your issue. You can take this integration even further, group your project by assignee, and make changes to issue assignment by dragging issues into the different groups.
+### 添加元数据到项目
 
-### Adding metadata to your items
+可使用自定义字段向问题、拉取请求和草稿问题添加元数据，并生成更丰富的项属性视图。 可添加的元数据并不局限于当前针对问题和拉取请求而存在的内置元数据（代理人、里程碑、标签等）。 例如，可以将以下元数据添加为自定义字段：
 
-You can use custom fields to add metadata to your issues, pull requests, and draft issues and build a richer view of item attributes. You’re not limited to the built-in metadata (assignee, milestone, labels, etc.) that currently exists for issues and pull requests. For example, you can add the following metadata as custom fields:
-
-- A date field to track target ship dates.
-- A number field to track the complexity of a task.
-- A single select field to track whether a task is Low, Medium, or High priority.
-- A text field to add a quick note.
-- An iteration field to plan work week-by-week, including support for breaks.
+- 用于跟踪目标发货日期的日期字段。
+- 用于跟踪任务复杂性的数字字段。
+- 用于跟踪任务是“低”、“中等”还是“高”优先级的单个选择字段。
+- 用于添加快速笔记的文本字段。
+- 用于计划每周工作（包括对中断的支持）的迭代字段。
 
 {% ifversion projects-v2-tasklists %}
 
-### Exploring the relationships between issues
+### 探索问题之间的关系
 
 {% data reusables.projects.tasklists-release-stage %}
 
-You can use Tasklists to build hierarchies of issues, dividing your issues into smaller subtasks, and creating new relationships between your issues. For more information, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
+可以使用任务列表功能构建问题的层次结构，将问题划分为较小的子任务，并在问题之间创建新关系。 有关详细信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/about-tasklists)”。
 
-These relationships are displayed on the issue, as well as the Tracked-by and Tracks fields in your projects. You can filter by issues which are tracked by another issue, and you can also group your table views by the Tracked-by field to show all parent issues with a list of their subtasks.
+这些关系体现在问题以及项目中的“跟踪者”和“跟踪”字段中。 可以按其他问题跟踪的问题进行筛选，还可以按“跟踪者”字段对表视图进行分组，以显示所有父问题及其子任务列表。
 
 {% endif %}
 
-### Viewing your project from different perspectives
+### 从不同的角度查看您的项目
 
-Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
+通过调整项目视图来提供所需信息，快速回答最紧迫的问题。 可保存这些视图，以便根据需要快速返回到这些视图，并使它们可供团队使用。 视图不仅使你可以缩小所列项的范围，还提供两个不同的布局选项。
 
-You can view your project as a high density table layout:
+您可以将您的项目视为高密度表布局：
 
-![Project table](/assets/images/help/issues/projects_table.png)
+![项目表](/assets/images/help/issues/projects_table.png)
 
-Or as a board:
+或作为板：
 
-![Project board](/assets/images/help/issues/projects_board.png)
+![项目板](/assets/images/help/issues/projects_board.png)
 
-To help you focus on specific aspects of your project, you can group, sort, or filter items:
+为了帮助您专注于项目的特定方面，您可以对项目进行分组、排序或筛选：
 
-![Project view](/assets/images/help/issues/project_view.png)
+![项目视图](/assets/images/help/issues/project_view.png)
 
-For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."
+有关详细信息，请参阅“[自定义视图](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)”。

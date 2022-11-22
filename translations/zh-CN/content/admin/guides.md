@@ -63,7 +63,7 @@ includeGuides:
   - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
   - /admin/configuration/initializing-github-ae
   - /admin/configuration/network-ports
-  - /admin/configuration/restricting-network-traffic-to-your-enterprise
+  - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/configuration/site-admin-dashboard
   - /admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
@@ -147,11 +147,11 @@ includeGuides:
   - /admin/user-management/suspending-and-unsuspending-users
   - /admin/overview/creating-an-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
-ms.openlocfilehash: 832e990d9b1c30895fce286f1357ef540a96af6f
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 88a0fe93a3c2784d81d81f91a3b1c0311cac84c7
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147854122'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180112'
 ---
 
