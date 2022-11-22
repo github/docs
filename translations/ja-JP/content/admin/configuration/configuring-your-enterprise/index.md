@@ -33,18 +33,18 @@ children:
   - /troubleshooting-tls-errors
   - /configuring-time-synchronization
   - /command-line-utilities
-  - /restricting-network-traffic-to-your-enterprise
+  - /restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /configuring-github-pages-for-your-enterprise
   - /configuring-host-keys-for-your-instance
   - /configuring-the-referrer-policy-for-your-enterprise
   - /configuring-custom-footers
   - /configuring-web-commit-signing
 shortTitle: Configure your enterprise
-ms.openlocfilehash: 3cc7deccfdf71a0e339fca8055f0cd4b5027a32c
-ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.openlocfilehash: 4f19ba9cd3207c34b7eb679fb62481e04185ad2c
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147409240'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180126'
 ---
 
