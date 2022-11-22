@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: dbfc559ca9be38d03d5bcd7c884687f098025ea9
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 63705338500bed176d013288ee7b091e593300ec
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145104273"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148158604"
 ---
-Si vous atteignez une limite de dépense, vous ne pouvez plus créer ou reprendre l’exécution de vos codespaces. Vous pouvez toujours [exporter les changements en cours vers une nouvelle branche](/codespaces/troubleshooting/exporting-changes-to-a-branch). 
+Si votre compte personnel, d’organisation ou d’entreprise atteint sa limite de dépense, vous ne pouvez plus créer ou reprendre des codespaces facturables pour ce compte. Toutefois, vous pouvez quand même exporter les changements en cours vers une nouvelle branche. Pour plus d’informations, consultez « [Exportation des modifications vers une branche](/codespaces/troubleshooting/exporting-changes-to-a-branch) ».

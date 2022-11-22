@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c30f6000486156f1995f0f05ff27fc173b893de5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: b40c432907d00f7bf7cf33a1f379ea3318ae8aa2
+ms.sourcegitcommit: cb39c15ab6ccfacf49f4b114b77e3b920fdddf70
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529274"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180671"
 ---
 <table style="width:100%">
 <thead>
@@ -53,6 +53,9 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-latest</code> 또는 <code>ubuntu-20.04</code>
 </td>
+<td>
+레이블이 <code>ubuntu-latest</code> 현재 Ubuntu 22.04 실행기 이미지로 전환되고 있습니다. 전환하는 동안 레이블은 Ubuntu 20.04 또는 22.04에 대한 실행기 이미지를 참조할 수 있습니다. 자세한 내용은 <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">이 {% data variables.product.prodname_dotcom %} 블로그 게시물을 참조하세요</a>.
+</rd>
 </tr>
 <tr>
 <td>
@@ -81,7 +84,7 @@ macOS Big Sur 11
 <code>macos-latest</code> 또는 <code>macos-11</code>
 </td>
 <td>
-<code>macos-latest</code> 레이블은 현재 macOS 11 실행기 이미지를 사용합니다.
+레이블이 <code>macos-latest</code> 현재 macOS Monterey 12 실행기 이미지로 전환되고 있습니다. 전환하는 동안 레이블은 macOS 11 또는 12에 대한 실행기 이미지를 참조할 수 있습니다. 자세한 내용은 <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">이 {% data variables.product.prodname_dotcom %} 블로그 게시물을 참조하세요</a>.
 </td>
 </tr>
 <tr>
@@ -106,6 +109,6 @@ macOS Catalina 10.15<sup>[사용되지 않음]</sup>
 
 {% warning %}
 
-<b>참고:</b> 베타 및 사용되지 않는 이미지는 “있는 그대로” “모든 오류를 포함하여” “사용 가능한 상태로” 제공되며, 서비스 수준 계약 및 보증에서 제외됩니다. 베타 이미지는 고객 지원에서 다루지 않을 수 있습니다.
+**경고:** 베타 및 사용되지 않는 이미지는 "있는 그대로", "모든 오류 포함" 및 "사용 가능한" 것으로 제공되며 서비스 수준 계약 및 보증에서 제외됩니다. 베타 이미지는 고객 지원에서 다루지 않을 수 있습니다.
 
 {% endwarning %}

@@ -1,7 +1,7 @@
 ---
-title: Using GitHub Codespaces for pull requests
+title: Utilisation de GitHub Codespaces pour les demandes de tirage
 shortTitle: Pull requests
-intro: 'You can use {% data variables.product.prodname_github_codespaces %} in your web browser, or in {% data variables.product.prodname_vscode %} to create pull requests, review pull requests, and address review comments.'
+intro: 'Vous pouvez utiliser {% data variables.product.prodname_github_codespaces %} dans votre navigateur web ou dans {% data variables.product.prodname_vscode %} pour créer des demandes de tirage, passer en revue les demandes de tirage et traiter les commentaires de révision.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,47 +12,52 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
+ms.openlocfilehash: 6932f8eb9095987bfe808080983970c8807b6d93
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159644'
 ---
+## À propos des demandes de tirage dans {% data variables.product.prodname_github_codespaces %}
 
-## About pull requests in {% data variables.product.prodname_github_codespaces %}
+{% data variables.product.prodname_github_codespaces %} vous offre un grand nombre des fonctionnalités dont vous pourriez avoir besoin pour utiliser les demandes de tirage :
 
-{% data variables.product.prodname_github_codespaces %} provides you with many of the capabilities you might need to work with pull requests:
+- [Créer une demande de tirage](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) – À l’aide des commandes Terminal et Git ou de la vue Contrôle de code source, vous pouvez créer des demandes de tirage comme vous le feriez sur {% data variables.product.prodname_dotcom_the_website %}. Si le dépôt utilise un modèle de demande de tirage, vous pouvez l’utiliser dans la vue Contrôle de code source.
+- [Ouvrir une demande de tirage](#opening-a-pull-request-in-codespaces) – Vous pouvez ouvrir une demande de tirage existante dans un espace de code, à condition d’avoir accès à la branche qui est fusionnée.
+- [Passer en revue une demande de tirage](#reviewing-a-pull-request-in-codespaces) – Une fois que vous avez ouvert une demande de tirage dans un espace de code, vous pouvez utiliser la vue « Demande de tirage GitHub » pour ajouter des commentaires de révision et approuver les demandes de tirage. Vous pouvez également utiliser {% data variables.product.prodname_github_codespaces %} pour [afficher les commentaires de révision](#view-comments-from-a-review-in-codespaces).
 
-- [Create a pull request](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Using either the Terminal and Git commands or the Source Control view, you can create pull requests just as you would on {% data variables.product.prodname_dotcom_the_website %}. If the repository uses a pull request template, you'll be able to use this within the Source Control view.
-- [Open a pull request](#opening-a-pull-request-in-codespaces) – You can open an existing pull request in a codespace, provided you have codespace access to the branch that is being merged in.
-- [Review a pull request](#reviewing-a-pull-request-in-codespaces) - Once you have opened a pull request in a codespace, you can use the "GitHub Pull Request" view to add review comments and approve pull requests. You can also use {% data variables.product.prodname_github_codespaces %} to [view review comments](#view-comments-from-a-review-in-codespaces).
-
-## Opening a pull request in {% data variables.product.prodname_codespaces %}
+## Ouverture d’une demande de tirage dans {% data variables.product.prodname_codespaces %}
 
 {% data reusables.repositories.sidebar-pr %}
 
-1. In the list of pull requests, click the pull request you'd like to open in {% data variables.product.prodname_codespaces %}.
-1. On the right-hand side of your screen, click **{% octicon "code" aria-label="The code icon" %} Code**. 
-1. In the {% data variables.product.prodname_codespaces %} tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %})
+1. Dans la liste des demandes de tirage, cliquez sur celle que vous souhaitez ouvrir dans {% data variables.product.prodname_codespaces %}.
+1. Sur le côté droit de votre écran, cliquez sur **{% octicon "code" aria-label="The code icon" %} Code**. 
+1. Sous l’onglet {% data variables.product.prodname_codespaces %}, cliquez sur le signe plus ({% octicon "plus" aria-label="The plus icon" %}).
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/open-with-codespaces-pr.png)
+   ![Option d’ouverture d’une demande de tirage dans un espace de code](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
-   A codespace is created for the pull request branch and is opened in your default editor for {% data variables.product.prodname_github_codespaces %}.
+   Un codespace est créé pour la branche de demande de tirage et est ouvert dans votre éditeur par défaut pour {% data variables.product.prodname_github_codespaces %}.
 
-## Reviewing a pull request in {% data variables.product.prodname_codespaces %}
+## Examen d’une demande de tirage dans {% data variables.product.prodname_codespaces %}
 
-1. With your default editor set to either {% data variables.product.prodname_vscode %} or {% data variables.product.prodname_vscode %} for Web, open the pull request in a codespace, as described in "[Opening a pull request](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)" above.
-2. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/github-pr-view.png)
-3. To review a specific file, click the **Open File** icon in the sidebar.
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/changes-in-files.png)
-4. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/start-review.png)
-5. When you are finished adding review comments, from the sidebar you can choose to either submit the comments, approve the changes, or request changes.
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/submit-review.png)
+1. Avec votre éditeur par défaut défini sur {% data variables.product.prodname_vscode %} ou {% data variables.product.prodname_vscode %} pour le web, ouvrez la demande de tirage dans un codespace, comme décrit dans « [Ouverture d’une demande de tirage](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces) » ci-dessus.
+2. Dans la barre d’activités, cliquez sur la vue **Demande de tirage GitHub**. Cette vue s’affiche uniquement quand vous ouvrez une demande de tirage dans un codespace.
+  ![Option d’ouverture d’une demande de tirage dans un codespace](/assets/images/help/codespaces/github-pr-view.png)
+3. Pour passer en revue un fichier spécifique, cliquez sur l’icône **Ouvrir un fichier** dans la barre latérale.
+  ![Option d’ouverture d’une demande de tirage dans un codespace](/assets/images/help/codespaces/changes-in-files.png)
+4. Pour ajouter des commentaires de revue, cliquez sur l’icône **+** en regard du numéro de ligne. Tapez votre commentaire de revue, puis cliquez sur **Démarrer la revue**.
+  ![Option d’ouverture d’une demande de tirage dans un codespace](/assets/images/help/codespaces/start-review.png)
+5. Une fois que vous avez fini d’ajouter des commentaires de revue, dans la barre latérale, vous pouvez choisir d’envoyer les commentaires, d’approuver les changements ou de demander des changements.
+  ![Option d’ouverture d’une demande de tirage dans un espace de code](/assets/images/help/codespaces/submit-review.png)
 
-For more information on reviewing a pull request, see "[Reviewing proposed changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+Pour plus d’informations sur l’examen d’une demande de tirage, consultez « [Révision des changements proposés dans une demande de tirage](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request) ».
 
-## View comments from a review in {% data variables.product.prodname_codespaces %}
+## Afficher les commentaires d’une révision dans {% data variables.product.prodname_codespaces %}
 
-Once you have received feedback on a pull request, you can [open it in a codespace](#opening-a-pull-request-in-codespaces) in your web browser, or in {% data variables.product.prodname_vscode_shortname %}, to see the [review comments](#reviewing-a-pull-request-in-codespaces). From there you can respond to comments, add reactions, or dismiss the review. 
+Une fois que vous avez reçu des commentaires sur une demande de tirage, vous pouvez [l’ouvrir dans un codespace](#opening-a-pull-request-in-codespaces) dans votre navigateur web ou dans {% data variables.product.prodname_vscode_shortname %}, pour voir les [commentaires de révision](#reviewing-a-pull-request-in-codespaces). À partir de là, vous pouvez répondre aux commentaires, ajouter des réactions ou ignorer la révision. 
 
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/incorporating-codespaces.png)
+  ![Option d’ouverture d’une demande de tirage dans un espace de code](/assets/images/help/codespaces/incorporating-codespaces.png)
 
 
 

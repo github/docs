@@ -1,8 +1,8 @@
 ---
-title: Managing GitHub Codespaces for your organization
+title: Gestion de GitHub Codespaces pour votre organisation
 allowTitleToDifferFromFilename: true
 shortTitle: Managing your organization
-intro: 'You can manage and review how users in your organization can use  {% data variables.product.prodname_github_codespaces %}.'
+intro: 'Vous pouvez gérer et examiner la façon dont les utilisateurs de votre organisation peuvent utiliser {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -20,5 +20,11 @@ children:
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces
+ms.openlocfilehash: 7b8b9211a8bcafdcfb3fb2b037ea6362e8ecb27f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158636'
 ---
- 
+

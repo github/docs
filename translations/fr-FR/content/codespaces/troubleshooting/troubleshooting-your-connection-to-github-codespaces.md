@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting your connection to GitHub Codespaces
-intro: 'Troubleshooting help for connecting to {% data variables.product.prodname_github_codespaces %}.'
+title: Résolution des problèmes liés à votre connexion à GitHub Codespaces
+intro: 'Résolution des problèmes liés à la connexion à {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,49 +10,54 @@ topics:
 shortTitle: Connection
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
+ms.openlocfilehash: 75632e73b689ed7fe1df95027f6e5170136c7935
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159675'
 ---
+## 503 - Service des codespaces non disponible
 
-## 503 codespace service unavailable
+Les codespaces sont configurés pour s’arrêter au bout de 30 minutes d’inactivité. Si vous essayez d’interagir avec un codespace après l’arrêt de celui-ci, l’erreur `503 service unavailable` peut apparaître. 
 
-Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `503 service unavailable` error. 
+- Si un bouton **Démarrer** est disponible dans {% data variables.product.prodname_vscode %} ou dans la fenêtre de votre navigateur, cliquez sur **Démarrer** pour vous reconnecter au codespace.
+- Réinitialisez votre codespace en rechargeant la fenêtre. Depuis la [palette de commandes](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) de {% data variables.product.prodname_vscode %}, cliquez sur **Développeur : Recharger la fenêtre**.
 
-- If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
-- Reset your codespace by reloading the window. From the [Command Palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
+## Le navigateur ne peut pas se connecter
 
-## Browser cannot connect
+Il peut arriver que vous n’ayez pas accès à un codespace à partir de votre navigateur. Dans ce cas, accédez à https://github.com/codespaces et essayez de vous connecter au codespace à partir de cette page.
 
-Sometimes you may not be able to access a codespace from your browser. If this happens, go to https://github.com/codespaces and try connecting to the codespace from that page.
+  - Si le codespace n’est pas répertorié sur cette page, vérifiez que vous êtes bien propriétaire du codespace auquel vous essayez de vous connecter. Vous ne pouvez ouvrir qu’un codespace que vous avez créé. Les URL de vos codespaces incluent toujours votre descripteur {% data variables.product.company_short %}.
+  - Si le codespace est répertorié, mais que vous ne parvenez pas à vous connecter à celui-ci à partir de cette page, essayez de vous connecter à l’aide d’un autre navigateur.
 
-  - If the codespace is not listed on that page, check that you are the owner of the codespace you are trying to connect to. You can only open a codespace that you created. The URLs for your codespaces always include your {% data variables.product.company_short %} handle.
-  - If the codespace is listed but you cannot connect from that page, check whether you can connect using a different browser.
+Le réseau de votre entreprise bloque peut-être la connexion. Si possible, consultez les journaux pour en savoir plus sur les connexions rejetées sur votre appareil.
 
-Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
+Si vous ne parvenez toujours pas à vous connecter, {% data reusables.codespaces.contact-support %}
 
-If you still cannot connect, {% data reusables.codespaces.contact-support %}
+## Impossible de se connecter à votre codespace dans JupyterLab
 
-## Unable to connect to your codespace in JupyterLab
+Pour pouvoir utiliser un codespace dans JupyterLab, vous devez vérifier qu’il est installé dans votre codespace. L’image conteneur par défaut utilisée par {% data variables.product.prodname_github_codespaces %} inclut JupyterLab, mais si vous avez personnalisé votre configuration de conteneur de développement, vous devez installer manuellement JupyterLab.
 
-To be able to use a codespace in JupyterLab, you must ensure that your codespace has it installed. The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes JupyterLab, but if you have customized your dev container configuration you will have to manually install JupyterLab.
+Si votre codespace utilise une image Debian, vous pouvez installer JupyterLab dans le conteneur de développement en ajoutant la fonctionnalité `python` à votre fichier `devcontainer.json`, avec l’option `installJupyterlab` définie sur `true`. Sinon, installez-le directement dans votre Dockerfile. Pour obtenir des instructions d’installation, consultez « [Installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html) » dans la documentation de JupyterLab.
 
-If your codespace uses a Debian-based image, you can install JupyterLab in the dev container by adding the `python` feature to your `devcontainer.json` file, with the `installJupyterlab` option set to `true`. Otherwise, install it directly in your Dockerfile. For installation instructions, see "[Installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html)" in the JupyterLab documentation.
+Pour plus d’informations sur la fonctionnalité `python`, consultez la page README dans le [dépôt `devcontainers/features`](https://github.com/devcontainers/features/tree/main/src/python). Pour plus d’informations sur le fichier `devcontainer.json` et le Dockerfile, consultez « [Présentation des conteneurs de développement](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson) ».
 
-For more information about the `python` feature, see the README page in the [`devcontainers/features` repository](https://github.com/devcontainers/features/tree/main/src/python). For more information about the `devcontainer.json` file and the Dockerfile, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
+Si vous ne parvenez toujours pas à vous connecter, {% data reusables.codespaces.contact-support %}
 
-If you still cannot connect, {% data reusables.codespaces.contact-support %}
+## L’extension {% data variables.product.prodname_github_codespaces %} pour {% data variables.product.prodname_vscode %} ne peut pas se connecter
 
-## {% data variables.product.prodname_github_codespaces %} extension for {% data variables.product.prodname_vscode %} cannot connect
+Si vous ne parvenez pas à vous connecter à un codespace à partir du bureau de {% data variables.product.prodname_vscode %}, suivez les étapes de résolution suivantes.
 
-If you cannot connect to a codespace from {% data variables.product.prodname_vscode %} desktop, use the following troubleshooting steps.
+1. Vérifiez que la dernière version de l’extension {% data variables.product.prodname_github_codespaces %} est installée. L’extension est une préversion et des mises à jour fréquentes sont publiées.
+   1. Dans {% data variables.product.prodname_vscode %}, accédez à l’onglet « Extensions ».
+   2. Sélectionnez l’extension {% data variables.product.prodname_github_codespaces %} pour afficher la page de présentation de celle-ci.
+   3. Si une mise à jour est disponible, un bouton apparaît. Cliquez sur **Mettre à jour vers X.X.X** pour procéder à une mise à niveau vers la dernière version.
+2. Vérifiez que vous utilisez bien la build stable de {% data variables.product.prodname_vscode %} ou la version [Insiders de {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/insiders/) (mises à jour nocturnes). Si vous utilisez la version Insiders, essayez d’installer la [build stable](https://code.visualstudio.com/).
+3. Le réseau de votre entreprise bloque peut-être la connexion. Si possible, consultez les journaux pour en savoir plus sur les connexions rejetées sur votre appareil.
 
-1. Check that you have the latest version of the {% data variables.product.prodname_github_codespaces %} extension installed. The extension is a preview release and frequent updates are released.
-   1. In {% data variables.product.prodname_vscode %}, display the "Extensions" tab.
-   2. Select the {% data variables.product.prodname_github_codespaces %} extension to display the extension's overview page.
-   3. If an update is available, a button is shown, click **Update to X.X.X** to upgrade to the latest version.
-2. Check whether you are using the stable build of {% data variables.product.prodname_vscode %} or the [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/) release (nightly updates). If you are using the insiders release, try installing the [stable build](https://code.visualstudio.com/).
-3. Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
+Si vous ne parvenez toujours pas à vous connecter, {% data reusables.codespaces.contact-support %}
 
-If you still cannot connect, {% data reusables.codespaces.contact-support %}
+### Le codespace présente des problèmes de latence
 
-### The codespace has latency issues
-
-If the codespace seems particularly slow or has latency issues, it is possible that it has been created in a region that is far from you. To resolve this, you can [manually set your {% data variables.product.prodname_github_codespaces %} region](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).
+Si le codespace semble particulièrement lent ou présente des problèmes de latence, il est possible qu’il ait été créé dans une région qui est loin de vous. Pour résoudre ce problème, vous pouvez [définir manuellement la région de vos {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces).

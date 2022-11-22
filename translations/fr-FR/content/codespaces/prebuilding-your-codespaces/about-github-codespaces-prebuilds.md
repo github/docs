@@ -1,7 +1,7 @@
 ---
-title: About GitHub Codespaces prebuilds
+title: À propos des prébuilds GitHub Codespaces
 shortTitle: About prebuilds
-intro: '{% data variables.product.prodname_github_codespaces %} prebuilds help to speed up the creation of new codespaces for large or complex repositories.'
+intro: 'Les prébuilds {% data variables.product.prodname_github_codespaces %} permettent d’accélérer la création de codespaces pour les dépôts volumineux ou complexes.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,43 +9,48 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
+ms.openlocfilehash: e0962e410f2227a23ff98c8a3e7995ea8ec8a914
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158796'
 ---
-
-## Overview
+## Vue d’ensemble
 
 {% data reusables.codespaces.prebuilds-definition %}
 
-If it currently takes more than 2 minutes to create a codespace for a repository, you are likely to benefit from using prebuilds. This is because, with a prebuild, any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace. 
+Si la création d’un codespace pour un dépôt prend actuellement plus de 2 minutes, vous tirerez probablement profit de l’utilisation de prébuilds. En fait, avec une prébuild, le code source, les extensions d’éditeur, les dépendances de projet, les commandes et les configurations sont téléchargés, installés et appliqués avant la création d’un codespace. 
 
-By default, whenever you push changes to your repository, {% data variables.product.prodname_github_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
+Par défaut, chaque fois que vous envoyez (push) des modifications à votre dépôt, {% data variables.product.prodname_github_codespaces %} utilise {% data variables.product.prodname_actions %} pour mettre à jour automatiquement vos pré-builds.
 
-When prebuilds are available for a particular branch of a repository, a particular dev container configuration file, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-label="The history icon" %} Prebuild in progress" label. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+Lorsque des prébuilds sont disponibles pour une branche particulière d’un dépôt, un fichier de configuration de conteneur de développement, et pour votre région, vous voyez l’étiquette « {% octicon "zap" aria-label="The zap icon" %} Prébuild prête » dans la liste des options de type de machine lorsque vous créez un codespace. Si une prébuild est toujours en cours de création, vous verrez l’étiquette « {% octicon "history" aria-label="The history icon" %} Prébuild en cours ». Pour plus d’informations, consultez « [Création d’un codespace pour un dépôt](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository) ».
 
-![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![Boîte de dialogue pour choisir un type de machine](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-When you create a codespace from a template on the "Your codespaces" page, {% data variables.product.prodname_dotcom %} may automatically use a prebuild to speed up creation time. For more information on templates, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+Quand vous créez un codespace à partir d’un modèle dans la page « Vos codespaces », {% data variables.product.prodname_dotcom %} peut utiliser automatiquement une prébuild pour accélérer le temps de création. Pour plus d’informations sur les modèles, consultez « [Création d’un codespace à partir d’un modèle](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template) ».
 
-## The prebuild process
+## Processus de prébuild
 
-To create a prebuild you set up a prebuild configuration. When you save the configuration, a {% data variables.product.prodname_actions %} workflow runs to create each of the required prebuilds; one workflow per prebuild. Workflows also run whenever the prebuilds for your configuration need to be updated. This can happen at scheduled intervals, on pushes to a prebuild-enabled repository, or when you change the dev container configuration. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."  
+Pour créer une prébuild, vous configurez une configuration de prébuild. Lorsque vous enregistrez la configuration, un flux de travail {% data variables.product.prodname_actions %} s’exécute pour créer chacune des prébuilds requises (un flux de travail par prébuild). Les workflows s’exécutent également chaque fois que les prébuilds de votre configuration doivent être mises à jour. Cela peut se produire à intervalles planifiés, sur les envois (push) vers un référentiel de prébuild, ou lorsque vous modifiez la configuration du conteneur de développement. Pour plus d’informations, consultez « [Configuration des prébuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds) ».  
 
-When a prebuild configuration workflow runs, {% data variables.product.prodname_dotcom %} creates a temporary codespace, performing setup operations up to and including any `onCreateCommand` and `updateContentCommand` commands in the `devcontainer.json` file. No `postCreateCommand` commands are run during the creation of a prebuild. For more information about these commands, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation. A snapshot of the generated container is then taken and stored.
+Lorsqu’un workflow de configuration de prébuild s’exécute, {% data variables.product.prodname_dotcom %} crée un codespace temporaire, effectuant des opérations ensemblistes sur les commandes `onCreateCommand` et `updateContentCommand` du fichier `devcontainer.json`. Aucune commande `postCreateCommand` n’est exécutée lors de la création d’une prébuild. Pour plus d’informations, consultez les [références sur `devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) dans la documentation {% data variables.product.prodname_vscode_shortname %}. Un instantané du conteneur généré est ensuite pris et stocké.
 
-As with other {% data variables.product.prodname_actions %} workflows, running a prebuild configuration workflow will either consume some of the {% data variables.product.prodname_actions %} minutes included with your account, if you have any, or it will incur charges for {% data variables.product.prodname_actions %} minutes. Storage of codespace prebuilds is billed in the same way as storage of active or stopped codespaces. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
+Comme pour les autres workflows {% data variables.product.prodname_actions %}, l’exécution d’un workflow de configuration de prébuild consomme une partie des minutes {% data variables.product.prodname_actions %} incluses avec votre compte, si vous en avez, ou engendre des frais pour les minutes {% data variables.product.prodname_actions %}. Le stockage des prébuilds de codespace est facturé de la même manière que le stockage des codespaces actifs ou arrêtés. Pour plus d’informations, consultez « [À propos de la facturation de {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds) ».
 
-When you create a codespace from a prebuild, {% data variables.product.prodname_dotcom %} downloads the existing container snapshot from storage and deploys it on a fresh virtual machine, completing the remaining commands specified in the dev container configuration. Since many operations have already been performed, such as cloning the repository, creating a codespace from a prebuild can be substantially quicker than creating one without a prebuild. This is true where the repository is large and/or `onCreateCommand` commands take a long time to run.
+Lorsque vous créez un codespace à partir d’une prébuild, {% data variables.product.prodname_dotcom %} télécharge l’instantané de conteneur existant à partir du stockage et le déploie sur une nouvelle machine virtuelle, en effectuant les commandes restantes spécifiées dans la configuration du conteneur de développement. Étant donné que de nombreuses opérations ont déjà été effectuées, comme le clonage du référentiel, la création d’un codespace à partir d’une prébuild peut être sensiblement plus rapide que la création d’une instance sans prébuild. Cela est vrai lorsque le référentiel est volumineux et/ou que les commandes `onCreateCommand` prennent beaucoup de temps à s’exécuter.
 
-## About pushing changes to prebuild-enabled branches
+## À propos de l’envoi (push) de modifications à des branches de pré-build
 
-By default, each push to a branch that has a prebuild configuration results in a {% data variables.product.prodname_dotcom %}-managed {% data variables.product.prodname_actions %} workflow run to update the prebuild. The prebuild workflow has a concurrency limit of one workflow run at a time for a given prebuild configuration, unless changes were made that affect the dev container configuration for the associated repository. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." If a run is already in progress, the workflow run that was queued most recently queued will run next, after the current run completes. 
+Par défaut, chaque envoi (push) à une branche associée à une configuration de prébuild entraîne l’exécution d’un workflow {% data variables.product.prodname_actions %} managé par {% data variables.product.prodname_dotcom %} pour mettre à jour la prébuild. Le workflow de pré-build a une limite de concurrence d’une exécution de workflow à la fois pour une configuration de pré-build donnée, sauf si des modifications ont été apportées, qui affectent la configuration du conteneur de développement pour le dépôt associé. Pour plus d’informations, consultez « [Présentation des conteneurs de développement](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) ». Si une exécution est déjà en cours, le workflow mis en file d’attente le plus récemment s’exécute ensuite, une fois l’exécution en cours terminée. 
 
-With the prebuild set to be updated on each push, it means that if there are very frequent pushes to your repository, prebuild updates will occur at least as often as it takes to run the prebuild workflow. That is, if your workflow run typically takes one hour to complete, prebuilds will be created for your repository roughly hourly, if the run succeeds, or more often if there were pushes that change the dev container configuration on the branch.
+Avec la prébuild définie pour être mise à jour à chaque envoi (push), s’il y a des envois (push) très fréquents à votre dépôt, des mises à jour de la prébuild se produisent autant de fois qu’il le faut pour exécuter le workflow de la prébuild. Autrement dit, si l’exécution de votre workflow prend généralement une heure, des pré-builds seront créées pour votre dépôt à peu près toutes les heures si l’exécution réussit, ou plus souvent si des envois (push) ont été effectués, qui modifient la configuration du conteneur de développement sur la branche.
 
-For example, let's imagine 5 pushes are made, in quick succession, against a branch that has a prebuild configuration. In this situation:
+Par exemple, imaginons que 5 envois (push) sont effectués, dans succession rapide, sur à une branche qui a une configuration de pré-build. Dans cette situation :
 
-* A workflow run is started for the first push, to update the prebuild.
-* If the 4 remaining pushes do not affect the dev container configuration, the workflow runs for these are queued in a "pending" state. 
+* Une exécution de workflow démarre pour le premier envoi (push) afin de mettre à jour la prébuild.
+* Si les 4 envois (push) restants n’affectent pas la configuration du conteneur de développement, les exécutions de workflow pour ceux-ci sont mises en file d’attente dans un état « en attente ». 
   
-  If any of the remaining 4 pushes change the dev container configuration, then the service will not skip that one and will immediately run the prebuild creation workflow, updating the prebuild accordingly if it succeeds. 
+  Si l’un des 4 envois (push) restants modifie la configuration du conteneur de développement, le service ne l’ignore pas et exécute immédiatement le workflow de création de pré-build, mettant à jour la pré-build en conséquence s’il réussit. 
 
-* Once the first run completes, workflow runs for pushes 2, 3, and 4 will be canceled, and the last queued workflow (for push 5) will run and update the prebuild. 
+* Une fois la première exécution terminée, les exécutions de workflow pour les envois (push) 2, 3 et 4 sont annulées, et le dernier workflow mis en file d’attente pour l’envoi (push) 5 s’exécute et met à jour la prébuild. 

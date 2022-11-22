@@ -18,12 +18,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: af0b8eb9f8bd7a98c246a0806a8bc60f59ba147f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 95e4033aa41f7920b5447554773dc61a181f5861
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107284'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163504'
 ---
 ## À propos des dépôts
 
@@ -43,6 +43,8 @@ Vous pouvez utiliser des référentiels pour gérer votre travail et collaborer 
 - Vous pouvez utiliser des tableaux de projet pour organiser et hiérarchiser vos problèmes et demandes de tirage. Pour plus d’informations, consultez « [À propos des tableaux de projet](/github/managing-your-work-on-github/about-project-boards) ».
 
 {% data reusables.repositories.repo-size-limit %}
+
+Pour savoir comment utiliser les référentiels le plus efficacement possible, consultez « [Meilleures pratiques pour les référentiels](/repositories/creating-and-managing-repositories/best-practices-for-repositories) ».
 
 ## À propos de la visibilité du référentiel
 
@@ -132,7 +134,6 @@ Les pages de comparaison des affichages et des demandes de tirage affichent une 
 
 ## Pour aller plus loin
 
-- « [Création d’un nouveau référentiel](/articles/creating-a-new-repository) »
 - « [À propos des duplications](/github/collaborating-with-pull-requests/working-with-forks/about-forks) »
 - « [Collaboration entre des problèmes et des demandes de tirage](/categories/collaborating-with-issues-and-pull-requests) »
 - « [Gestion de votre travail sur {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/) »

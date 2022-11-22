@@ -7,12 +7,12 @@ type: overview
 topics:
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 9e7769fca5b36252fad5566450ba156120491649
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 388e271c17c182a318e8c2d095811ac27633a414
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389853'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180182'
 ---
 ## {% data variables.product.prodname_ghe_managed %} 정보
 
@@ -38,7 +38,7 @@ ms.locfileid: '147389853'
 
 ## 제한된 네트워크 액세스
 
-네트워크 액세스가 제한된 {% data variables.product.prodname_ghe_managed %}에서 엔터프라이즈에 안전하게 액세스하여 네트워크 내에서만 데이터에 액세스할 수 있습니다. 자세한 내용은 “[엔터프라이즈에 대한 네트워크 트래픽 제한](/admin/configuration/restricting-network-traffic-to-your-enterprise)”을 참조하세요.
+네트워크 액세스가 제한된 {% data variables.product.prodname_ghe_managed %}에서 엔터프라이즈에 안전하게 액세스하여 네트워크 내에서만 데이터에 액세스할 수 있습니다. 자세한 내용은 "[IP 허용 목록을 사용하여 엔터프라이즈로 네트워크 트래픽 제한"을 참조하세요](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
 
 ## 상업 및 정부 환경
 

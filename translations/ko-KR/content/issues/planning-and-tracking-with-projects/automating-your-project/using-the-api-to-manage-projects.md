@@ -11,12 +11,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 6b4deff4ee518bfdafcd3886577a1c9b12ea7b2e
-ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.openlocfilehash: ab041e8473e310913eb1b794302415e9b6323e76
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148111603'
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169234'
 ---
 이 문서에서는 GraphQL API를 사용하여 프로젝트를 관리하는 방법을 보여 줍니다. {% data variables.product.prodname_actions %}워크플로에서 API를 사용하는 방법에 대한 자세한 내용은 “[작업을 사용하여 {% data variables.product.prodname_projects_v2 %} 자동화](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)”를 참조하세요. 사용 가능한 데이터 형식의 전체 목록은 "[참조](/graphql/reference)"를 참조하세요.
 
@@ -665,7 +665,7 @@ gh api graphql -f query='
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { iterationId: \"ITERATION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 

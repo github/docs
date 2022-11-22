@@ -11,14 +11,14 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: aa139c0d25354260ccf688079f3e15a871b627bd
-ms.sourcegitcommit: 0ed77777360ec29eee7cd4fc212ae36fdd97c0bc
+ms.openlocfilehash: 4560ae5e63f8a607f068bb24e84f1a014f44885c
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148160964'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179738'
 ---
-![건담캣](/assets/images/gundamcat.png)
+![더 건담캣](/assets/images/gundamcat.png)
 
 ## 다양한 버전으로 제공되는 Octokit
 
@@ -35,7 +35,7 @@ ms.locfileid: '148160964'
 
 | 라이브러리 이름 | 리포지토리 |
 |---|---|
-|**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|**Tentacles**| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 

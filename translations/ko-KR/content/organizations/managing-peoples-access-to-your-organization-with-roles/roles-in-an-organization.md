@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: f9e5d411c7a7a16e22abcc660f2761f1bfd6cf7d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159175'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180079'
 ---
 ## 역할 정보
 {% data reusables.organizations.about-roles %}
@@ -121,7 +121,7 @@ ms.locfileid: '148159175'
 | 다른 조직에 대한 스폰서쉽 특성 지정(자세한 내용은 "[조직에 대한 스폰서쉽 특성 지정](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" 참조) | **X** |  |  |  |  |
 | 조직의 리포지토리에서 {% data variables.product.prodname_pages %} 사이트 게시 관리("[조직에 대한 {% data variables.product.prodname_pages %} 사이트 게시 관리](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" 참조) | **X** |  |  |  |  |
 | 보안 및 분석 설정 관리("[조직에 대한 보안 및 분석 설정 관리](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" 참조) | **X** |  |  |  | **X** |
-| 조직의 보안 개요 보기("[보안 개요 정보](/code-security/security-overview/about-the-security-overview)"참조) | **X** |  |  |  | **X** |{% ifversion ghec %}
+| 조직의 보안 개요 보기("[보안 개요 정보](/code-security/security-overview/about-the-security-overview)" 참조) | **X** |  |  |  | **X** |{% ifversion ghec %}
 | [SAML Single Sign On](/articles/about-identity-and-access-management-with-saml-single-sign-on) 사용 및 적용 | **X** |  |  |  |  |
 | [조직에 대한 사용자의 SAML 액세스 관리](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | 조직의 SSH 인증 기관 관리("[조직의 SSH 인증 기관 관리](/articles/managing-your-organizations-ssh-certificate-authorities)" 참조) | **X** |  |  |  |  |{% endif %}
@@ -186,7 +186,7 @@ ms.locfileid: '148159175'
 | [조직 리포지토리에 액세스할 수 있는 사용자 목록 내보내기](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | 기본 레이블 관리("[조직의 리포지토리에 대한 기본 레이블 관리](/articles/managing-default-labels-for-repositories-in-your-organization)" 참조) | **X** | |  |{% ifversion pull-request-approval-limit %}
 | 조직에서 끌어오기 요청 검토 관리("[조직에서 끌어오기 요청 검토 관리](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)" 참조) | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| IP 허용 목록 관리("[엔터프라이즈에 대한 네트워크 트래픽 제한](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
+{% ifversion ghae %}| IP 허용 목록 관리("[IP 허용 목록으로 엔터프라이즈에 네트워크 트래픽 제한](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)" 참조) | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -227,7 +227,7 @@ ms.locfileid: '148159175'
 | [조직 리포지토리에 액세스할 수 있는 사용자 보기](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [조직 리포지토리에 액세스할 수 있는 사용자 목록 내보내기](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | 기본 레이블 관리("[조직의 리포지토리에 대한 기본 레이블 관리](/articles/managing-default-labels-for-repositories-in-your-organization)" 참조) | **X** | |
-{% ifversion ghae %}| IP 허용 목록 관리("[엔터프라이즈에 대한 네트워크 트래픽 제한](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
+{% ifversion ghae %}| IP 허용 목록 관리("[IP 허용 목록으로 엔터프라이즈에 네트워크 트래픽 제한](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)" 참조) | **X** | |{% endif %}
 
 {% endif %}
 

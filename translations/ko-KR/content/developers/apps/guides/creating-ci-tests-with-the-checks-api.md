@@ -1,6 +1,6 @@
 ---
-title: Creating CI tests with the Checks API
-intro: 'Build a continuous integration server to run tests using a {% data variables.product.prodname_github_app %} and the Checks API.'
+title: Checks API를 사용하여 CI 테스트 만들기
+intro: '{% data variables.product.prodname_github_app %} 및 Checks API를 사용하여 테스트를 실행하는 연속 통합 서버를 빌드합니다.'
 redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
   - /developers/apps/creating-ci-tests-with-the-checks-api
@@ -12,98 +12,104 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: CI tests using Checks API
+ms.openlocfilehash: 0459714ae9ffb8094c70a714a60a66a19964424f
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179679'
 ---
-## Introduction
+## 소개
 
-This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+이 가이드에서는 테스트를 실행하는 CI(연속 통합) 서버를 빌드하는 데 사용할 [GitHub 앱](/apps/) 및 [Checks API](/rest/reference/checks)를 소개합니다.
 
-CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts. 🙌
+CI는 공유 리포지토리에 코드를 자주 커밋해야 하는 소프트웨어 사례입니다. 코드를 자주 커밋하면 오류가 더 빨리 발생하며 개발자가 오류의 원인을 찾을 때 디버그해야 하는 코드의 양이 줄어듭니다. 또한 코드가 자주 업데이트되면 소프트웨어 개발 팀의 여러 구성원의 변경 내용을 보다 쉽게 병합할 수 있습니다. 이는 코드를 작성하는 데는 더 많은 시간을 할애할 수 있지만 오류를 디버깅하거나 병합 충돌을 해결하는 데 시간이 부족한 개발자에게 유용합니다. 🙌
 
-A CI server hosts code that runs CI tests such as code linters (which check style formatting), security checks, code coverage, and other checks against new code commits in a repository. CI servers can even build and deploy code to staging or production servers. For some examples of the types of CI tests you can create with a GitHub App, check out the [continuous integration apps](https://github.com/marketplace/category/continuous-integration) available in GitHub Marketplace.
+CI 서버는 코드 Linter(스타일 양식 확인), 보안 검사, 코드 검사 및 리포지토리의 새 코드 커밋에 대한 기타 검사와 같은 CI 테스트를 실행하는 코드를 호스트합니다. CI 서버는 스테이징 또는 프로덕션 서버에 코드를 빌드하고 배포할 수도 있습니다. GitHub 앱으로 만들 수 있는 CI 테스트 유형의 몇 가지 예제를 보려면 GitHub Marketplace에서 제공하는 [연속 통합 앱](https://github.com/marketplace/category/continuous-integration)을 확인하세요.
 
 {% data reusables.apps.app-ruby-guides %}
 
-### Checks API overview
+### Checks API 개요
 
-The [Checks API](/rest/reference/checks) allows you to set up CI tests that are automatically run against each code commit in a repository. The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. With the Checks API, you can create annotations with additional details for specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
+[Checks API](/rest/reference/checks)를 사용하면 리포지토리의 각 코드 커밋에 대해 자동으로 실행되는 CI 테스트를 설정할 수 있습니다. Checks API는 끌어오기 요청의 **검사** 탭에서 GitHub의 각 검사에 대한 자세한 정보를 보고합니다. Checks API를 사용하면 특정 코드 줄에 대한 추가 세부 정보가 포함된 주석을 만들 수 있습니다. 주석은 **검사** 탭에 표시됩니다. 끌어오기 요청의 일부인 파일에 대한 주석을 만들면 주석이 **변경된 파일** 탭에도 표시됩니다.
 
-A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/rest/reference/repos#branches) can prevent people from merging pull requests prematurely. See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
+검사 도구 모음은 검사 실행(개별 CI 테스트) 그룹입니다.  검사 도구 모음과 검사 실행에는 모두 GitHub의 끌어오기 요청에 표시되는 상태가 포함됩니다. 상태를 사용하면 코드 커밋으로 인해 오류가 발생하는 시기를 확인할 수 있습니다. 상태를 [보호된 분기](/rest/reference/repos#branches)와 함께 사용하면 사용자가 끌어오기 요청을 조기에 병합하지 못하도록 할 수 있습니다. 자세한 내용은 “[보호된 분기 정보](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”를 참조하세요.
 
-The Checks API sends the [`check_suite` webhook event](/webhooks/event-payloads/#check_suite) to all GitHub Apps installed on a repository each time new code is pushed to the repository. To receive all Checks API event actions, the app must have the `checks:write` permission. GitHub automatically creates `check_suite` events for new code commits in a repository using the default flow, although [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites) if you'd like. Here's how the default flow works:
+Checks API는 새 코드가 리포지토리에 푸시될 때마다 리포지토리에 설치된 모든 GitHub 앱에 [`check_suite` 웹후크 이벤트](/webhooks/event-payloads/#check_suite)를 보냅니다. 모든 Checks API 이벤트 작업을 수신하려면 앱에 `checks:write` 권한이 있어야 합니다. GitHub는 기본 흐름을 사용하여 리포지토리에서 새 코드 커밋에 대한 `check_suite` 이벤트를 자동으로 만듭니다. 원하는 경우 [검사 도구 모음의 리포지토리 기본 설정 업데이트](/rest/reference/checks#update-repository-preferences-for-check-suites)를 수행합니다. 다음은 기본 흐름의 작동 방식입니다.
 
-1. Whenever someone pushes code to the repository, GitHub sends the `check_suite` event with an action of `requested` to all GitHub Apps installed on the repository that have the `checks:write` permission. This event lets the apps know that code was pushed and that GitHub has automatically created a new check suite.
-1. When your app receives this event, it can [add check runs](/rest/reference/checks#create-a-check-run) to that suite.
-1. Your check runs can include [annotations](/rest/reference/checks#annotations-object) that are displayed on specific lines of code.
+1. 누군가가 리포지토리에 코드를 푸시할 때마다 GitHub는 `checks:write` 권한이 있는 리포지토리에 설치된 모든 GitHub 앱에 `requested` 작업으로 `check_suite` 이벤트를 보냅니다. 이 이벤트를 통해 앱은 코드가 푸시되었고 GitHub에서 자동으로 새 검사 도구 모음을 만들었다는 것을 알 수 있습니다.
+1. 이 이벤트를 수신한 앱은 해당 도구 모음에 [검사 실행 추가](/rest/reference/checks#create-a-check-run)가 가능합니다.
+1. 검사 실행에는 특정 코드 줄에 표시되는 [주석](/rest/reference/checks#annotations-object)이 포함될 수 있습니다.
 
-**In this guide, you’ll learn how to:**
+**이 가이드에서 배울 내용은 다음과 같습니다.**
 
-* Part 1: Set up the framework for a CI server using the Checks API.
-  * Configure a GitHub App as a server that receives Checks API events.
-  * Create new check runs for CI tests when a repository receives newly pushed commits.
-  * Re-run check runs when a user requests that action on GitHub.
-* Part 2: Build on the CI server framework you created by adding a linter CI test.
-  * Update a check run with a `status`, `conclusion`, and `output` details.
-  * Create annotations on lines of code that GitHub displays in the **Checks** and **Files Changed** tab of a pull request.
-  * Automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
+* 1부: Checks API를 사용하여 CI 서버의 프레임워크 설정
+  * GitHub 앱을 Checks API 이벤트를 수신하는 서버로 구성합니다.
+  * 리포지토리가 새로 푸시된 커밋을 수신할 때 CI 테스트에 대한 새 검사 실행을 만듭니다.
+  * 재실행 검사는 사용자가 GitHub에서 해당 작업을 요청할 때 실행됩니다.
+* 2부: Linter CI 테스트를 추가하여 만든 CI 서버 프레임워크를 기반으로 빌드
+  * `status``conclusion` 및`output` 세부 정보를 사용하여 검사 실행을 업데이트합니다.
+  * GitHub에 있는 끌어오기 요청의 **검사** 및 **변경된 파일** 탭에 표시되는 코드 줄에 주석을 만듭니다.
+  * 끌어오기 요청의 **검사** 탭에서 “이 문제 해결” 단추를 노출하여 Linter 권장 사항을 자동으로 수정합니다.
 
-To get an idea of what your Checks API CI server will do when you've completed this quickstart, check out the demo below:
+이 빠른 시작을 완료할 때 Check API CI 서버가 수행할 작업을 알아보려면 아래 데모를 확인하세요.
 
-![Demo of Checks API CI sever quickstart](/assets/images/github-apps/github_apps_checks_api_ci_server.gif)
+![Checks API CI 서버 빠른 시작의 데모](/assets/images/github-apps/github_apps_checks_api_ci_server.gif)
 
-## Prerequisites
+## 필수 조건
 
-Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
+시작하기 전에 [GitHub 앱](/apps/), [웹후크](/webhooks) 및 [Checks API](/rest/reference/checks)를 숙지할 수 있습니다. [REST API 문서](/rest)에서 더 많은 API를 찾을 수 있습니다. Checks API는 [GraphQL](/graphql)에서도 사용할 수 있지만 이 빠른 시작에서는 REST를 중심으로 합니다. 자세한 내용은 GraphQL [검사 도구 모음](/graphql/reference/objects#checksuite) 및 [검사 실행](/graphql/reference/objects#checkrun) 개체를 참조하세요.
 
-You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
+[Ruby 프로그래밍 언어](https://www.ruby-lang.org/en/), [Smee](https://smee.io/) 웹후크 페이로드 배달 서비스, GitHub REST API용 [Octokit.rb Ruby 라이브러리](http://octokit.github.io/octokit.rb/) 및 [Sinatra 웹 프레임워크](http://sinatrarb.com/)를 사용하여 Checks API CI 서버 앱을 만듭니다.
 
-You don't need to be an expert in any of these tools or concepts to complete this project. This guide will walk you through all the required steps. Before you begin creating CI tests with the Checks API, you'll need to do the following:
+이 프로젝트를 완료하기 위해 도구 또는 개념의 전문가가 될 필요는 없습니다. 이 가이드에서는 필요한 모든 단계를 안내합니다. Checks API를 사용하여 CI 테스트 만들기를 시작하기 전에 다음을 수행해야 합니다.
 
-1. Clone the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
+1. [Checks API로 CI 테스트 만들기](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) 리포지토리를 복제합니다.
   ```shell
     $ git clone https://github.com/github-developer/creating-ci-tests-with-the-checks-api.git
   ```
 
-  Inside the directory, you'll find a `template_server.rb` file with the template code you'll use in this quickstart and a `server.rb` file with the completed project code.
+  빠른 시작에서 사용할 템플릿 코드가 있는 `template_server.rb` 파일과 완료된 프로젝트 코드가 있는 `server.rb` 파일을 디렉터리에서 찾을 수 있습니다.
 
-1. Follow the steps in the "[Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/)" quickstart to configure and run the app server. **Note:** Instead of [cloning the GitHub App template repository](/apps/quickstart-guides/setting-up-your-development-environment/#prerequisites), use the `template_server.rb` file in the repository you cloned in the previous step in this quickstart.
+1. “[개발 환경 설정](/apps/quickstart-guides/setting-up-your-development-environment/)” 빠른 시작의 단계에 따라 앱 서버를 구성하고 실행합니다. **참고:** [GitHub 앱 템플릿 리포지토리 복제](/apps/quickstart-guides/setting-up-your-development-environment/#prerequisites) 대신 빠른 시작의 이전 단계에서 복제한 리포지토리의 `template_server.rb` 파일을 사용합니다.
 
-  If you've completed a GitHub App quickstart before, make sure to register a _new_ GitHub App and start a new Smee channel to use with this quickstart.
+  이전에 GitHub 앱 빠른 시작을 완료한 경우 새 GitHub 앱을 등록하고 빠른 시작에서 사용할 새 Smee 채널을 시작해야 합니다.
 
-  See the [troubleshooting](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) section if you are running into problems setting up your template GitHub App.
+  템플릿 GitHub 앱 설정에 문제가 있는 경우 [문제 해결](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) 섹션을 참조하세요.
 
-## Part 1. Creating the Checks API interface
+## 1부. Checks API 인터페이스 만들기
 
-In this part, you will add the code necessary to receive `check_suite` webhook events and create and update check runs. You'll also learn how to create check runs when a check was re-requested on GitHub. At the end of this section, you'll be able to view the check run you created in a GitHub pull request.
+1부에서는 `check_suite` 웹후크 이벤트를 수신하고 검사 실행을 만들고 업데이트하는 데 필요한 코드를 추가합니다. GitHub에서 검사를 다시 요청했을 때 검사 실행을 만드는 방법도 알아봅니다. 이 섹션의 마지막에서는 GitHub 끌어오기 요청에서 만든 검사 실행을 확인할 수 있습니다.
 
-Your check run will not be performing any checks on the code in this section. You'll add that functionality in [Part 2: Creating the Octo RuboCop CI test](#part-2-creating-the-octo-rubocop-ci-test).
+검사 실행은 이 섹션의 코드에 대한 검사를 수행하지 않습니다. [2부: Octo RuboCop CI 테스트 만들기](#part-2-creating-the-octo-rubocop-ci-test)에서 해당 기능을 추가합니다.
 
-You should already have a Smee channel configured that is forwarding webhook payloads to your local server. Your server should be running and connected to the GitHub App you registered and installed on a test repository. If you haven't completed the steps in "[Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/)," you'll need to do that before you can continue.
+웹후크 페이로드를 로컬 서버로 전달하는 Smee 채널이 이미 구성되어 있어야 합니다. 서버가 실행 중이고 테스트 리포지토리에 등록하고 설치한 GitHub 앱에 연결되어야 합니다. “[개발 환경 설정](/apps/quickstart-guides/setting-up-your-development-environment/)”의 단계를 완료하지 않은 경우 계속하려면 이 작업을 수행해야 합니다.
 
-Let's get started! These are the steps you'll complete in Part 1:
+그럼 시작하겠습니다. 1부에서 완료할 단계는 다음과 같습니다.
 
-1. [Updating app permissions](#step-11-updating-app-permissions)
-1. [Adding event handling](#step-12-adding-event-handling)
-1. [Creating a check run](#step-13-creating-a-check-run)
-1. [Updating a check run](#step-14-updating-a-check-run)
+1. [앱 권한 업데이트](#step-11-updating-app-permissions)
+1. [이벤트 처리 추가](#step-12-adding-event-handling)
+1. [검사 실행 만들기](#step-13-creating-a-check-run)
+1. [검사 실행 업데이트](#step-14-updating-a-check-run)
 
-## Step 1.1. Updating app permissions
+## 1\.1단계. 앱 권한 업데이트
 
-When you [first registered your app](#prerequisites), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read and write checks.
+[앱을 처음으로 등록](#prerequisites)했을 때 기본 사용 권한을 수락했으므로, 앱은 대부분의 리소스에 액세스할 수 없습니다. 이 예제에서는 앱에 검사를 읽고 쓸 수 있는 권한이 필요합니다.
 
-To update your app's permissions:
+앱의 사용 권한 업데이트 방법은 다음과 같습니다.
 
-1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
-1. In the "Permissions" section, find "Checks", and select **Read & write** in the Access dropdown next to it.
-1. In the "Subscribe to events" section, select **Check suite** and **Check run** to subscribe to these events.
+1. [앱 설정 페이지](https://github.com/settings/apps)에서 앱을 선택하고 사이드바에서 **사용 권한 및 웹후크** 를 클릭합니다.
+1. “사용 권한” 섹션에서 “검사”를 찾고 옆에 있는 Access 드롭다운에서 **읽기 및 쓰기** 를 선택합니다.
+1. “이벤트 구독” 섹션에서 **검사 도구 모음** 및 **검사 실행** 을 선택하여 이벤트를 구독합니다.
 {% data reusables.apps.accept_new_permissions_steps %}
 
-Great! Your app has permission to do the tasks you want it to do. Now you can add the code to handle the events.
+좋습니다! 수행하려는 작업을 수행할 수 있는 권한이 앱에 있습니다. 이제 이벤트를 처리하는 코드를 추가할 수 있습니다.
 
-## Step 1.2. Adding event handling
+## 1\.2 단계. 이벤트 처리 추가
 
-Now that your app is subscribed to the **Check suite** and **Check run** events, it will start receiving the [`check_suite`](/webhooks/event-payloads/#check_suite) and [`check_run`](/webhooks/event-payloads/#check_run) webhooks. GitHub sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost/event_handler:3000`, your server will receive the `POST` request payloads at the `post '/event_handler'` route.
+이제 앱이 **검사 도구 모음** 및 **검사 실행** 이벤트를 구독했으므로 [`check_suite`](/webhooks/event-payloads/#check_suite)및 [`check_run`](/webhooks/event-payloads/#check_run) 웹후크 수신을 시작합니다. GitHub에서 웹후크 페이로드를 `POST` 요청으로 보냅니다. Smee 웹후크 페이로드를 `http://localhost/event_handler:3000`으로 전달했으므로 서버는 `post '/event_handler'` 경로에서 `POST` 요청 페이로드를 받게 됩니다.
 
-An empty `post '/event_handler'` route is already included in the `template_server.rb` file, which you downloaded in the [prerequisites](#prerequisites) section. The empty route looks like this:
+빈 `post '/event_handler'` 경로는 [필수 조건](#prerequisites) 섹션에서 다운로드한 `template_server.rb` 파일에 이미 포함되어 있습니다. 빈 경로는 다음과 같습니다.
 
 ``` ruby
   post '/event_handler' do
@@ -116,7 +122,7 @@ An empty `post '/event_handler'` route is already included in the `template_serv
   end
 ```
 
-Use this route to handle the `check_suite` event by adding the following code:
+다음 코드를 추가하여 `check_suite` 이벤트를 처리하려면 이 경로를 사용합니다.
 
 ``` ruby
 # Get the event type from the HTTP_X_GITHUB_EVENT header
@@ -129,13 +135,13 @@ when 'check_suite'
 end
 ```
 
-Every event that GitHub sends includes a request header called `HTTP_X_GITHUB_EVENT`, which indicates the type of event in the `POST` request. Right now, you're only interested in events of type `check_suite`, which are emitted when a new check suite is created. Each event has an additional `action` field that indicates the type of action that triggered the events. For `check_suite`, the `action` field can be `requested`, `rerequested`, or `completed`.
+GitHub에서 보내는 모든 이벤트에는 `POST` 요청의 이벤트 유형을 나타내는 `HTTP_X_GITHUB_EVENT`라는 요청 헤더가 포함됩니다. 지금은 새 검사 도구 모음을 만들 때 내보내지는 `check_suite` 형식의 이벤트에만 관심이 있습니다. 각 이벤트에는 이벤트를 트리거한 작업 유형을 나타내는 추가 `action` 필드가 있습니다. `check_suite`의 경우 `action` 필드는 `requested`, `rerequested` 또는 `completed`가 될 수 있습니다.
 
-The `requested` action requests a check run each time code is pushed to the repository, while the `rerequested` action requests that you re-run a check for code that already exists in the repository. Because both the `requested` and `rerequested` actions require creating a check run, you'll call a helper called `create_check_run`. Let's write that method now.
+`requested` 작업은 코드가 리포지토리에 푸시될 때마다 검사 실행을 요청하고, `rerequested` 작업은 리포지토리에 이미 있는 코드에 대한 검사를 다시 실행하도록 요청합니다. `requested` 및 `rerequested` 작업에서 모두 검사 실행 만들기를 요구하므로 `create_check_run`이라는 도우미를 호출합니다. 이제 해당 메서드를 작성해 보겠습니다.
 
-## Step 1.3. Creating a check run
+## 1\.3단계. 검사 실행 만들기
 
-You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
+다른 경로로도 이 새 메서드를 사용하려면 메서드를 [Sinatra 도우미](https://github.com/sinatra/sinatra#helpers)로 추가합니다. `helpers do`에서 `create_check_run` 메서드를 추가합니다.
 
 ``` ruby
 # Create a new check run with the status queued
@@ -154,17 +160,17 @@ def create_check_run
 end
 ```
 
-This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
+이 코드는 [create_check_run 메서드](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method)를 사용하여 “[검사 실행 만들기](/rest/reference/checks#create-a-check-run)” 엔드포인트를 호출합니다.
 
-To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
+검사 실행을 만들려면 `name`과 `head_sha`라는 두 개의 입력 매개 변수만 필요합니다. 빠른 시작의 뒷부분에서 [RuboCop](https://rubocop.readthedocs.io/en/latest/)을 사용하여 CI 테스트를 구현합니다. 따라서 여기서는 “Octo RuboCop”이라는 이름이 사용되지만 검사 실행에는 원하는 이름을 선택할 수 있습니다.
 
-You're only supplying the required parameters now to get the basic functionality working, but you'll update the check run later as you collect more information about the check run. By default, GitHub sets the `status` to `queued`.
+지금은 기본 기능이 작동하도록 필수 매개 변수만 제공하지만 나중에 검사 실행에 대한 자세한 정보를 수집할 때는 검사 실행을 업데이트합니다. 기본적으로 GitHub에서는 `status`를 `queued`로 설정합니다.
 
-GitHub creates a check run for a specific commit SHA, which is why `head_sha` is a required parameter. You can find the commit SHA in the webhook payload. Although you're only creating a check run for the `check_suite` event right now, it's good to know that the `head_sha` is included in both the `check_suite` and `check_run` objects in the event payloads.
+GitHub에서는 특정 커밋 SHA에 대한 검사 실행을 만듭니다. 따라서 `head_sha`가 필수 매개 변수입니다. 웹후크 페이로드에서 커밋 SHA를 찾을 수 있습니다. 지금은 `check_suite` 이벤트에 대한 검사 실행만 만들고 있지만 `head_sha`가 이벤트 페이로드의 `check_suite` 및 `check_run` 개체 모두에 포함된다는 것을 아는 것이 좋습니다.
 
-In the code above, you're using the [ternary operator](https://ruby-doc.org/core-2.3.0/doc/syntax/control_expressions_rdoc.html#label-Ternary+if), which works like an `if/else` statement, to check if the payload contains a `check_run` object. If it does, you read the `head_sha` from the `check_run` object, otherwise you read it from the `check_suite` object.
+위의 코드에서는 `if/else` 문처럼 작동하는 [삼항 연산자](https://ruby-doc.org/core-2.3.0/doc/syntax/control_expressions_rdoc.html#label-Ternary+if)를 사용하여 페이로드에 `check_run` 개체가 포함되어 있는지 확인합니다. 포함되어 있는 경우 `check_run` 개체에서 `head_sha`를 읽고, 포함되어 있지 않은 경우 `check_suite` 개체에서 읽습니다.
 
-To test this code, restart the server from your terminal:
+이 코드를 테스트하려면 터미널에서 서버를 다시 시작합니다.
 
 ```shell
 $ ruby template_server.rb
@@ -172,21 +178,21 @@ $ ruby template_server.rb
 
 {% data reusables.apps.sinatra_restart_instructions %}
 
-Now open a pull request in the repository where you installed your app. Your app should respond by creating a check run on your pull request. Click on the **Checks** tab, and you should see something like this:
+이제 앱을 설치한 리포지토리에서 끌어오기 요청을 엽니다. 앱은 끌어오기 요청에서 검사 실행을 만들어 응답해야 합니다. **검사** 탭을 클릭하면 다음과 같이 표시됩니다.
 
-![Queued check run](/assets/images/github-apps/github_apps_queued_check_run.png)
+![큐에 대기 중인 검사 실행](/assets/images/github-apps/github_apps_queued_check_run.png)
 
-If you see other apps in the Checks tab, it means you have other apps installed on your repository that have **Read & write** access to checks and are subscribed to **Check suite** and **Check run** events.
+검사 탭에 다른 앱이 표시되는 경우 검사에 대한  **읽기 및 쓰기** 권한이 있고 **검사 도구 모음** 및 **검사 실행** 이벤트를 구독하는 다른 앱이 리포지토리에 설치되어 있음을 의미합니다.
 
-Great! You've told GitHub to create a check run. You can see the check run status is set to `queued` next to a yellow icon. Next, you'll want to wait for GitHub to create the check run and update its status.
+좋습니다! GitHub에 확인 실행을 만들라고 지시했습니다. 검사 실행 상태가 노란색 아이콘 옆에 `queued`로 설정된 것을 볼 수 있습니다. 다음으로 GitHub에서 검사 실행을 만들고 상태를 업데이트할 때까지 기다려야 합니다.
 
-## Step 1.4. Updating a check run
+## 1\.4단계. 검사 실행 업데이트
 
-When your `create_check_run` method runs, it asks GitHub to create a new check run. When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
+`create_check_run` 메서드가 실행되면 메서드가 GitHub에 새 검사 실행을 만들도록 요청합니다. GitHub가 검사 실행 만들기를 마치면 `created` 작업과 함께 `check_run` 웹후크 이벤트를 받게 됩니다. 이 이벤트는 검사 실행을 시작하는 신호입니다.
 
-You'll want to update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on GitHub by clicking the "Re-run" button, GitHub sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll want to start the process all over and create a new check run.
+`created` 작업을 찾으려면 이벤트 처리기를 업데이트해야 합니다. 이벤트 처리기를 업데이트하는 동안 `rerequested` 작업에 대한 조건을 추가할 수 있습니다. “다시 실행” 단추를 클릭하여 GitHub에서 단일 테스트를 다시 실행하는 경우 GitHub에서는 `rerequested` 검사 실행 이벤트를 앱으로 보냅니다. 검사 실행이 `rerequested`인 경우에는 프로세스를 처음부터 시작하고 새 검사 실행을 만드는 것이 좋습니다.
 
-To include a condition for the `check_run` event in the `post '/event_handler'` route, add the following code under `case request.env['HTTP_X_GITHUB_EVENT']`:
+`post '/event_handler'` 경로에 `check_run` 이벤트의 조건을 포함하려면 `case request.env['HTTP_X_GITHUB_EVENT']` 아래에 다음 코드를 추가합니다.
 
 ``` ruby
 when 'check_run'
@@ -201,13 +207,13 @@ when 'check_run'
   end
 ```
 
-GitHub sends all events for `created` check runs to every app installed on a repository that has the necessary checks permissions. That means that your app will receive check runs created by other apps. A `created` check run is a little different from a `requested` or `rerequested` check suite, which GitHub sends only to apps that are being requested to run a check. The code above looks for the check run's application ID. This filters out all check runs for other apps on the repository.
+GitHub에서 필요한 검사 권한이 있는 리포지토리에 설치된 모든 앱에 `created` 검사 실행에 대한 모든 이벤트를 보냅니다. 즉, 앱이 다른 앱에서 만든 검사 실행을 받게 됩니다. `created` 검사 실행은 검사 실행을 요청받고 있는 앱으로만 GitHub에서 보내는 `requested` 또는 `rerequested` 검사 도구 모음과 약간 다릅니다. 위의 코드는 검사 실행의 애플리케이션 ID를 찾습니다. 이렇게 하면 리포지토리의 다른 앱에 대한 모든 검사 실행이 필터링됩니다.
 
-Next you'll write the `initiate_check_run` method, which is where you'll update the check run status and prepare to kick off your CI test.
+다음으로 검사 실행 상태를 업데이트하고 CI 테스트를 시작할 준비를 하는 `initiate_check_run` 메서드를 작성합니다.
 
-In this section, you're not going to kick off the CI test yet, but you'll walk through how to update the status of the check run from `queued` to `pending` and then from `pending` to `completed` to see the overall flow of a check run. In "[Part 2: Creating the Octo RuboCop CI test](#part-2-creating-the-octo-rubocop-ci-test)," you'll add the code that actually performs the CI test.
+이 섹션에서는 CI 테스트를 아직 시작하지는 않지만 검사 실행의 상태를 `queued`에서 `pending`으로 업데이트한 다음 `pending`에서 `completed`로 업데이트하여 검사 실행의 전체 흐름을 확인하는 방법을 안내합니다. “[2부: Octo RuboCop CI 테스트 만들기](#part-2-creating-the-octo-rubocop-ci-test)”에서 실제로 CI 테스트를 수행하는 코드를 추가합니다.
 
-Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
+`initiate_check_run` 메서드를 만들고 검사 실행의 상태를 업데이트해 보겠습니다. 도우미 섹션에 다음 코드를 추가합니다.
 
 ``` ruby
 # Start the CI process
@@ -236,53 +242,53 @@ def initiate_check_run
 end
 ```
 
-The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method) to update the check run that you already created.
+이미 만든 검사 실행을 업데이트하기 위해 위의 코드가 [`update_check_run` Octokit 메서드](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method)를 사용하여 “[검사 실행 업데이트](/rest/reference/checks#update-a-check-run)” API 엔드포인트를 호출합니다.
 
-Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In [Part 2](#part-2-creating-the-octo-rubocop-ci-test) of this quickstart, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
+이 코드가 수행하는 작업을 살펴보겠습니다. 먼저 검사 실행 상태를 `in_progress`로 업데이트하고 `started_at` 시간을 현재 시간으로 암시적으로 설정합니다. 빠른 시작의 [2부](#part-2-creating-the-octo-rubocop-ci-test)에서는 실제 CI 테스트를 시작하는 코드를 `***** RUN A CI TEST *****` 아래에 추가합니다. 지금은 해당 섹션을 자리 표시자로 남겨 두므로 뒤에 오는 코드는 CI 프로세스가 성공하고 모든 테스트가 통과한다는 것을 시뮬레이션합니다. 마지막으로 코드는 검사 실행의 상태를 다시 `completed`로 업데이트합니다.
 
-You'll notice in the "[Update a check run](/rest/reference/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
+“[검사 실행 업데이트](/rest/reference/checks#update-a-check-run)” 문서를 보면 `completed`인 상태를 제공할 때 `conclusion` 및 `completed_at` 매개 변수가 필요하다는 것을 알 수 있습니다. `conclusion`에 검사 실행의 결과가 요약되어 있으며 결과는 `success`, `failure`, `neutral`, `cancelled`, `timed_out` 또는 `action_required`이 될 수 있습니다. 결론을 `success`로, `completed_at` 시간을 현재 시간으로, 상태를 `completed`로 설정합니다.
 
-You could also provide more details about what your check is doing, but you'll get to that in the next section. Let's test this code again by re-running `template_server.rb`:
+검사에 대한 자세한 내용을 제공할 수도 있지만 다음 섹션에서 제공하도록 합니다. `template_server.rb`를 다시 실행하여 이 코드를 다시 테스트해 보겠습니다.
 
 ```shell
 $ ruby template_server.rb
 ```
 
-Head over to your open pull request and click the **Checks** tab. Click the "Re-run all" button in the upper left corner. You should see the check run move from `pending` to `in_progress` and end with `success`:
+열린 끌어오기 요청으로 이동하여 **검사** 탭을 클릭합니다. 왼쪽 상단 구석에서 “모두 다시 실행” 단추를 클릭합니다. 검사 실행이 `pending`에서 `in_progress`로 이동하고 `success`로 끝나는 것을 볼 수 있습니다.
 
-![Completed check run](/assets/images/github-apps/github_apps_complete_check_run.png)
+![완료된 검사 실행](/assets/images/github-apps/github_apps_complete_check_run.png)
 
-## Part 2. Creating the Octo RuboCop CI test
+## 2부. Octo RuboCop CI 테스트 만들기
 
-[RuboCop](https://rubocop.readthedocs.io/en/latest/) is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the "[Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide)." RuboCop has three primary functions:
+[RuboCop](https://rubocop.readthedocs.io/en/latest/)은 Ruby 코드 Linter 및 포맷터로, Ruby 코드를 검사하여 “[Ruby 스타일 가이드](https://github.com/rubocop-hq/ruby-style-guide)”를 준수하는지 확인합니다. RuboCop에는 다음과 같은 세 가지 기본 기능이 있습니다.
 
-* Linting to check code style
-* Code formatting
-* Replaces the native Ruby linting capabilities using `ruby -w`
+* 코드 스타일을 확인하는 린팅
+* 코드 서식
+* `ruby -w`를 사용하여 네이티브 Ruby 린팅 기능을 대체합니다.
 
-Now that you've got the interface created to receive Checks API events and create check runs, you can create a check run that implements a CI test.
+이제 Checks API 이벤트를 수신하고 검사 실행을 만들기 위해 인터페이스를 만들었으므로 CI 테스트를 구현하는 검사 실행을 만들 수 있습니다.
 
-Your app will run RuboCop on the CI server and create check runs (CI tests in this case) that report the results that RuboCop reports to GitHub.
+앱은 CI 서버에서 RuboCop을 실행하고 RuboCop이 GitHub에 보고하는 결과를 보고하는 검사 실행(이 경우 CI 테스트)을 만듭니다.
 
-The Checks API allows you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
+Checks API를 사용하면 상태, 이미지, 요약, 주석, 요청된 작업을 포함하여 각 검사 실행에 대한 다양한 세부 정보를 보고할 수 있습니다.
 
-Annotations are information about specific lines of code in a repository. An annotation allows you to pinpoint and visualize the exact parts of the code you'd like to show additional information for. That information can be anything: for example, a comment, an error, or a warning. This quickstart uses annotations to visualize RuboCop errors.
+주석은 리포지토리의 특정 코드 줄에 대한 정보입니다. 주석을 사용하면 추가 정보를 표시하려는 코드의 정확한 부분을 정확히 파악하고 시각화할 수 있습니다. 해당 정보는 설명, 오류, 경고 등 모든 것이 될 수 있습니다. 이 빠른 시작에서는 주석을 사용하여 RuboCop 오류를 시각화합니다.
 
-To take advantage of requested actions, app developers can create buttons in the **Checks** tab of pull requests. When someone clicks one of these buttons, the click sends a `requested_action` `check_run` event to the GitHub App. The action that the app takes is completely configurable by the app developer. This quickstart will walk you through adding a button that allows users to request that RuboCop fix the errors it finds. RuboCop supports automatically fixing errors using a command-line option, and you'll configure the `requested_action` to take advantage of this option.
+요청된 작업을 활용하기 위해 앱 개발자는 끌어오기 요청의 **검사** 탭에서 단추를 만들 수 있습니다. 누군가가 해당 단추 중 하나를 클릭하면 GitHub 앱에 `requested_action``check_run` 이벤트가 전송됩니다. 앱이 수행하는 작업은 앱 개발자가 전부 구성할 수 있습니다. 이 빠른 시작에서는 사용자가 RuboCop에서 발견한 오류를 수정하도록 요청할 수 있는 단추를 추가하는 방법을 안내합니다. RuboCop은 명령줄 옵션을 사용하여 오류 자동 수정을 지원하며 사용자는 이 옵션을 활용하도록 `requested_action`을 구성합니다.
 
-Let's get started! These are the steps you'll complete in this section:
+그럼 시작하겠습니다. 이 섹션에서 완료할 단계는 다음과 같습니다.
 
-1. [Adding a Ruby file](#step-21-adding-a-ruby-file)
-1. [Cloning the repository](#step-22-cloning-the-repository)
-1. [Running RuboCop](#step-23-running-rubocop)
-1. [Collecting RuboCop errors](#step-24-collecting-rubocop-errors)
-1. [Updating the check run with CI test results](#step-25-updating-the-check-run-with-ci-test-results)
-1. [Automatically fixing RuboCop errors](#step-26-automatically-fixing-rubocop-errors)
-1. [Security tips](#step-27-security-tips)
+1. [Ruby 파일 추가](#step-21-adding-a-ruby-file)
+1. [리포지토리 복제](#step-22-cloning-the-repository)
+1. [RuboCop 실행](#step-23-running-rubocop)
+1. [RuboCop 오류 수집](#step-24-collecting-rubocop-errors)
+1. [CI 테스트 결과를 사용하여 검사 실행 업데이트](#step-25-updating-the-check-run-with-ci-test-results)
+1. [RuboCop 오류 자동 수정](#step-26-automatically-fixing-rubocop-errors)
+1. [보안 팁](#step-27-security-tips)
 
-## Step 2.1. Adding a Ruby file
+## 2\.1 단계. Ruby 파일 추가
 
-You can pass specific files or entire directories for RuboCop to check. In this quickstart, you'll run RuboCop on an entire directory. Because RuboCop only checks Ruby code, you'll want at least one Ruby file in your repository that contains errors. The example file provided below contains a few errors. Add this example Ruby file to the repository where your app is installed (make sure to name the file with an `.rb` extension, as in `myfile.rb`):
+RuboCop에 대한 특정 파일 또는 전체 디렉터리를 전달하여 확인할 수 있습니다. 이 빠른 시작에서는 전체 디렉터리에서 RuboCop을 실행합니다. RuboCop은 Ruby 코드만 검사하므로 리포지토리에 오류가 포함된 Ruby 파일이 하나 이상 있어야 합니다. 아래에 제공된 예제 파일에는 몇 가지 오류가 포함되어 있습니다. 앱이 설치되어 있는 리포지토리에 이 예제 Ruby 파일을 추가합니다(`myfile.rb`에서와 같이 확장명 `.rb`로 파일 이름을 만듭니다).
 
 ```ruby
 # The Octocat class tells you about different breeds of Octocat
@@ -304,31 +310,31 @@ m = Octocat.new("Mona", "cat", "octopus")
 m.display
 ```
 
-## Step 2.2. Cloning the repository
+## 2\.2 단계. 리포지토리 복제
 
-RuboCop is available as a command-line utility. That means your GitHub App will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem.
+RuboCop은 명령줄 유틸리티로 사용할 수 있습니다. 즉, GitHub 앱은 RuboCop에서 파일을 구문 분석할 수 있도록 CI 서버에서 리포지토리의 로컬 복사본을 복제해야 합니다. Ruby 앱에서 Git 작업을 실행하려면 [ruby-git](https://github.com/ruby-git/ruby-git) gem을 사용할 수 있습니다.
 
-The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites). To use the gem, add this code to the top of your `template_server.rb` file:
+`building-a-checks-api-ci-server` 리포지토리의 `Gemfile`에는 ruby-git gem이 이미 포함되어 있으며 [필수 구성 요소 단계](#prerequisites)에서 `bundle install`을 실행했을 때 ruby-git gem을 설치했습니다. gem을 사용하려면 `template_server.rb` 파일 맨 위에 다음 코드를 추가합니다.
 
 ``` ruby
 require 'git'
 ```
 
-Your app needs read permission for "Repository contents" to clone a repository. Later in this quickstart, you'll need to push contents to GitHub, which requires write permission. Go ahead and set your app's "Repository contents" permission to **Read & write** now so you don't need to update it again later. To update your app's permissions:
+리포지토리를 복제하려면 앱에 “리포지토리 콘텐츠”에 대한 읽기 권한이 필요합니다. 빠른 시작의 뒷부분에서 쓰기 권한이 필요한 콘텐츠를 GitHub로 푸시해야 합니다. 계속해서 앱의 “리포지토리 콘텐츠” 권한을 지금 **읽기 및 쓰기** 로 설정하면 나중에 다시 업데이트할 필요가 없습니다. 앱의 사용 권한 업데이트 방법은 다음과 같습니다.
 
-1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
-1. In the "Permissions" section, find "Repository contents", and select **Read & write** in the "Access" dropdown next to it.
+1. [앱 설정 페이지](https://github.com/settings/apps)에서 앱을 선택하고 사이드바에서 **사용 권한 및 웹후크** 를 클릭합니다.
+1. “사용 권한” 섹션에서 “리포지토리 콘텐츠”를 찾고 옆에 있는 “액세스” 드롭다운에서 **읽기 및 쓰기** 를 선택합니다.
 {% data reusables.apps.accept_new_permissions_steps %}
 
-To clone a repository using your GitHub App's permissions, you can use the app's installation token (`x-access-token:<token>`) shown in the example below:
+GitHub 앱의 권한을 사용하여 리포지토리를 복제하려면 아래 예제에 표시된 앱의 설치 토큰(`x-access-token:<token>`)을 사용할 수 있습니다.
 
 ```shell
 git clone https://x-access-token:<token>@github.com/<owner>/<repo>.git
 ```
 
-The code above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
+위의 코드는 HTTP를 통해 리포지토리를 복제합니다. 리포지토리 소유자(사용자 또는 조직) 및 리포지토리 이름을 포함하는 전체 리포지토리 이름이 필요합니다. 예를 들어 [octocat Hello-World](https://github.com/octocat/Hello-World) 리포지토리의 전체 이름은 `octocat/hello-world`입니다.
 
-After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. Add the following new method to the helper method section in `template_server.rb`:
+앱은 리포지토리를 복제한 후 최신 코드 변경 내용을 풀하고 특정 Git 참조를 체크 아웃해야 합니다. 이 모든 작업을 수행하는 코드는 자체 메서드에 잘 맞습니다. 작업을 수행하려면 메서드에 체크 아웃할 리포지토리와 참조의 이름과 전체 이름이 필요합니다. 참조는 커밋 SHA, 분기 또는 태그가 될 수 있습니다. 다음 새 메서드를 `template_server.rb`의 도우미 메서드 섹션에 추가합니다.
 
 ``` ruby
 # Clones the repository to the current working directory, updates the
@@ -347,11 +353,11 @@ def clone_repository(full_repo_name, repository, ref)
 end
 ```
 
-The code above uses the `ruby-git` gem to clone the repository using the app's installation token. This code clones the code in the same directory as `template_server.rb`. To run Git commands in the repository, the code needs to change into the repository directory. Before changing directories, the code stores the current working directory in a variable (`pwd`) to remember where to return before exiting the `clone_repository` method.
+위의 코드는 `ruby-git` gem을 사용하여 앱의 설치 토큰을 통해 리포지토리를 복제합니다. 이 코드는 `template_server.rb`와 동일한 디렉터리에 있는 코드를 복제합니다. 리포지토리에서 Git 명령을 실행하려면 코드를 리포지토리 디렉터리로 변경해야 합니다. 디렉터리를 변경하기 전에 코드는 현재 작업 디렉터리를 변수(`pwd`)에 저장하여 `clone_repository` 메서드를 끝내기 전에 반환할 위치를 기억합니다.
 
-From the repository directory, this code fetches and merges the latest changes (`@git.pull`), checks out the ref (`@git.checkout(ref)`), then changes the directory back to the original working directory (`pwd`).
+리포지토리 디렉터리에서 이 코드는 최신 변경 내용(`@git.pull`)을 가져와 병합하고, 참조(`@git.checkout(ref)`)를 체크 아웃한 다음, 디렉터리를 원래 작업 디렉터리(`pwd`)로 다시 변경합니다.
 
-Now you've got a method that clones a repository and checks out a ref. Next, you need to add code to get the required input parameters and call the new `clone_repository` method. Add the following code under the `***** RUN A CI TEST *****` comment in your `initiate_check_run` helper method:
+이제 리포지토리를 복제하고 참조를 체크 아웃하는 메서드가 있습니다. 다음으로, 필요한 입력 매개 변수를 가져와서 새 `clone_repository` 메서드를 호출하는 코드를 추가해야 합니다. `initiate_check_run` 도우미 메서드의 `***** RUN A CI TEST *****` 주석 아래에 다음 코드를 추가합니다.
 
 ``` ruby
 # ***** RUN A CI TEST *****
@@ -362,13 +368,13 @@ head_sha       = @payload['check_run']['head_sha']
 clone_repository(full_repo_name, repository, head_sha)
 ```
 
-The code above gets the full repository name and the head SHA of the commit from the `check_run` webhook payload.
+위의 코드는 `check_run` 웹후크 페이로드에서 전체 리포지토리 이름 및 커밋의 헤드 SHA를 가져옵니다.
 
-## Step 2.3. Running RuboCop
+## 2\.3 단계. RuboCop 실행
 
-Great! You're cloning the repository and creating check runs using your CI server. Now you'll get into the nitty gritty details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
+좋습니다! CI 서버를 사용하여 리포지토리를 복제하고 검사 실행을 만듭니다. 이제 [RuboCop Linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) 및 [Checks API 주석](/rest/reference/checks#create-a-check-run)의 핵심 세부 정보를 살펴보겠습니다.
 
-The following code runs RuboCop and saves the style code errors in JSON format. Add this code below the call to `clone_repository` you added in the [previous step](#step-22-cloning-the-repository) and above the code that updates the check run to complete.
+다음 코드는 RuboCop을 실행하고 스타일 코드 오류를 JSON 형식으로 저장합니다. [이전 단계](#step-22-cloning-the-repository)에서 추가한 `clone_repository`에 대한 호출 아래와 완료할 검사 실행을 업데이트하는 코드 위에 이 코드를 추가합니다.
 
 ``` ruby
 # Run RuboCop on all files in the repository
@@ -378,23 +384,23 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-The code above runs RuboCop on all files in the repository's directory. The option `--format json` is a handy way to save a copy of the linting results in a machine-parsable format. See the [RuboCop docs](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) for details and an example of the JSON format.
+위의 코드는 리포지토리의 디렉터리에 있는 모든 파일에서 RuboCop을 실행합니다. `--format json` 옵션은 린팅 결과의 복사본을 컴퓨터 구문 분석 가능한 형식으로 저장하는 편리한 방법입니다. 자세한 내용 및 JSON 형식의 예제는 [RuboCop 문서](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)를 참조하세요.
 
-Because this code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository. This code also parses the JSON so you can easily access the keys and values in your GitHub App using the `@output` variable.
+이 코드는 RuboCop 결과를 `@report` 변수에 저장하므로 리포지토리의 체크 아웃을 안전하게 제거할 수 있습니다. 또한 이 코드는 `@output` 변수를 사용하여 GitHub 앱의 키와 값에 쉽게 액세스할 수 있도록 JSON을 구문 분석합니다.
 
 {% note %}
 
-**Note:** The command used to remove the repository (`rm -rf`) cannot be undone. See [Step 2.7. Security tips](#step-27-security-tips) to learn how to check webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. 😱 If for some reason you're _not_ using the method `verify_webhook_signature` (which is included in `template_server.rb`) to validate the sender of the webhook, make sure you check that the repository name is valid.
+**참고:** 리포지토리를 제거하는 데 사용되는 명령(`rm -rf`)은 실행 취소할 수 없습니다. [2.7단계. 보안 팁](#step-27-security-tips)에서 앱에서 의도한 것과 다른 디렉터리를 제거하는 데 사용할 수 있는 삽입된 악성 명령에 대한 웹후크를 확인하는 방법을 알아보세요. 예를 들어 악의적인 작업자가 리포지토리 이름이 `./`인 웹후크를 보내는 경우 앱이 루트 디렉터리를 제거합니다. 😱 어떤 이유로 웹후크를 보낸 사람의 유효성을 검사할 때 `verify_webhook_signature` 메서드(`template_server.rb`에 포함)를 사용하지 않는 경우 리포지토리 이름이 유효한지 확인해야 합니다.
 
 {% endnote %}
 
-You can test that this code works and see the errors reported by RuboCop in your server's debug output. Start up the `template_server.rb` server again and create a new pull request in the repository where you're testing your app:
+이 코드가 작동하는지 테스트하고 서버의 디버그 출력에서 RuboCop에서 보고한 오류를 확인할 수 있습니다. `template_server.rb` 서버를 다시 시작하고, 앱을 테스트하는 리포지토리에서 새 끌어오기 요청을 만듭니다.
 
 ```shell
 $ ruby template_server.rb
 ```
 
-You should see the linting errors in the debug output, although they aren't printed with formatting. You can use a web tool like [JSON formatter](https://jsonformatter.org/) to format your JSON output like this formatted linting error output:
+디버그 출력에는 린팅 오류가 표시되지만 서식으로 인쇄되지는 않습니다. [JSON 포맷터](https://jsonformatter.org/)와 같은 웹 도구를 사용하여 다음과 같이 서식이 지정된 린팅 오류 출력과 같은 JSON 출력의 서식을 지정할 수 있습니다.
 
 ```json
 {
@@ -450,17 +456,17 @@ You should see the linting errors in the debug output, although they aren't prin
 }
 ```
 
-## Step 2.4. Collecting RuboCop errors
+## 2\.4단계. RuboCop 오류 수집
 
-The `@output` variable contains the parsed JSON results of the RuboCop report. As shown above, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
+`@output` 변수에는 RuboCop 보고서의 구문 분석된 JSON 결과가 포함됩니다. 위와 같이 결과에는 `summary` 섹션이 포함되어 있기 때문에 코드가 오류의 유무를 신속하게 확인할 수 있습니다. 다음 코드는 보고된 오류가 없는 경우 검사 실행 결론을 `success`로 설정합니다. RuboCop은 `files` 배열의 각 파일에 대한 오류를 보고하므로 오류가 있는 경우 파일 개체에서 일부 데이터를 추출해야 합니다.
 
-The Checks API allows you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this quickstart you are [updating the check run](/rest/reference/checks#update-a-check-run) with annotations.
+Checks API를 사용하면 특정 코드 줄에 대한 주석을 만들 수 있습니다. 검사 실행을 만들거나 업데이트할 때 주석을 추가할 수 있습니다. 이 빠른 시작에서는 주석으로 [검사 실행을 업데이트](/rest/reference/checks#update-a-check-run)합니다.
 
-The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint three times. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
+Checks API는 주석 수를 API 요청당 최대 50개로 제한합니다. 50개 이상의 주석을 만들려면 [검사 실행 업데이트](/rest/reference/checks#update-a-check-run) 엔드포인트에 대한 요청을 여러 차례 수행해야 합니다. 예를 들어 105개의 주석을 만들려면 [검사 실행 업데이트](/rest/reference/checks#update-a-check-run) 엔드포인트를 세 번 호출해야 합니다. 처음 두 요청에는 각각 50개의 주석이 있고, 세 번째 요청에는 나머지 5개의 주석이 포함됩니다. 검사 실행을 업데이트할 때마다 검사 실행에 이미 존재하는 주석 목록에 주석이 추가됩니다.
 
-A check run expects annotations as an array of objects. Each annotation object must include the `path`, `start_line`, `end_line`, `annotation_level`, and `message`. RuboCop provides the `start_column` and `end_column` too, so you can include those optional parameters in the annotation. Annotations only support `start_column` and `end_column` on the same line. See the [`annotations` object](/rest/reference/checks#annotations-object-1) reference documentation for details.
+검사 실행에는 주석이 개체 배열로 예상됩니다. 각 주석 개체에는 `path`, `start_line`, `end_line`, `annotation_level` 및 `message`가 포함되어야 합니다. RuboCop도 `start_column` 및 `end_column`을 제공하므로 주석에 선택적 매개 변수를 포함할 수 있습니다. 주석은 동일한 줄에서 `start_column` 및 `end_column`만 지원합니다. 자세한 내용은[`annotations` 개체](/rest/reference/checks#annotations-object-1)를 참조하세요.
 
-You'll extract the required information from RuboCop needed to create each annotation. Append the following code to the code you added in the [previous section](#step-23-running-rubocop):
+각 주석을 만드는 데 필요한 정보를 RuboCop에서 추출합니다. [이전 섹션](#step-23-running-rubocop)에서 추가한 코드에 다음 코드를 추가합니다.
 
 ``` ruby
 annotations = []
@@ -515,21 +521,21 @@ else
 end
 ```
 
-This code limits the total number of annotations to 50. But you can modify this code to update the check run for each batch of 50 annotations. The code above includes the variable `max_annotations` that sets the limit to 50, which is used in the loop that iterates through the offenses.
+이 코드는 주석의 총 수를 50으로 제한합니다. 그러나 각 50개 주석 배치에 대한 검사 실행을 업데이트하도록 이 코드를 수정할 수 있습니다. 위의 코드에는 제한을 50으로 설정하는 변수 `max_annotations`가 포함되어 있으며, 공격을 반복하는 루프에서 사용됩니다.
 
-When the `offense_count` is zero, the CI test is a `success`. If there are errors, this code sets the conclusion to `neutral` in order to prevent strictly enforcing errors from code linters. But you can change the conclusion to `failure` if you would like to ensure that the check suite fails when there are linting errors.
+`offense_count`가 0이면 CI 테스트는 `success`입니다. 오류가 있는 경우 이 코드는 코드 Linter의 오류를 엄격하게 적용하지 않도록 결론을 `neutral`로 설정합니다. 그러나 린팅 오류가 있을 때 검사 도구 모음이 실패하도록 하려는 경우 결론을 `failure`로 변경할 수 있습니다.
 
-When errors are reported, the code above iterates through the `files` array in the RuboCop report. For each file, it extracts the file path and sets the annotation level to `notice`. You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
+오류가 보고되면 위의 코드는 RuboCop 보고서의 `files` 배열을 반복합니다. 또한 각 파일에 대해 파일 경로를 추출하고 주석 수준을 `notice`로 설정합니다. 사용자는 더 나아가 각 유형의 [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html)에 대해 특정 경고 수준을 설정할 수 있지만 이 빠른 시작에서 작업을 더 간단하게 유지하려면 모든 오류가 `notice` 수준으로 설정됩니다.
 
-This code also iterates through each error in the `offenses` array and collects the location of the offense and error message. After extracting the information needed, the code creates an annotation for each error and stores it in the `annotations` array. Because annotations only support start and end columns on the same line, `start_column` and `end_column` are only added to the `annotation` object if the start and end line values are the same.
+또한 이 코드는 `offenses` 배열의 각 오류를 반복하고 공격 및 오류 메시지의 위치를 수집합니다. 필요한 정보를 추출한 후 코드는 각 오류에 대한 주석을 만들어 `annotations` 배열에 저장합니다. 주석은 동일한 줄의 시작 및 끝 열만 지원하므로 시작 및 끝 줄 값이 동일한 경우에 `start_column` 및 `end_column`이 `annotation` 개체에만 추가됩니다.
 
-This code doesn't yet create an annotation for the check run. You'll add that code in the next section.
+이 코드로는 검사 실행에 대한 주석을 아직 만들지 않습니다. 다음 섹션에서 해당 코드를 추가합니다.
 
-## Step 2.5. Updating the check run with CI test results
+## 2\.5단계. CI 테스트 결과를 사용하여 검사 실행 업데이트
 
-Each check run from GitHub contains an `output` object that includes a `title`, `summary`, `text`, `annotations`, and `images`. The `summary` and `title` are the only required parameters for the `output`, but those alone don't offer much detail, so this quickstart adds `text` and `annotations` too. The code here doesn't add an image, but feel free to add one if you'd like!
+GitHub의 각 검사 실행에는 `title`, `summary`, `text`, `annotations` 및 `images`를 포함하는 `output` 개체가 포함됩니다. `output`에는 `summary` 및 `title` 매개 변수만 필요하지만 이 매개 변수만으로는 많은 세부 정보가 제공되지 않으므로 이 빠른 시작에서는 `text`와 `annotations`도 추가합니다. 이 코드는 이미지를 추가하지 않지만 원하는 경우 자유롭게 추가할 수 있습니다.
 
-For the `summary`, this example uses the summary information from RuboCop and adds some newlines (`\n`) to format the output. You can customize what you add to the `text` parameter, but this example sets the `text` parameter to the RuboCop version. To set the `summary` and `text`, append this code to the code you added in the [previous section](#step-24-collecting-rubocop-errors):
+`summary`의 경우 이 예제에서는 RuboCop의 요약 정보를 사용하고 일부 줄 바꿈(`\n`)을 추가하여 출력의 서식을 지정합니다. `text` 매개 변수에 추가하는 항목을 사용자 지정할 수 있지만 이 예제에서는 `text` 매개 변수를 RuboCop 버전으로 설정합니다. `summary`와 `text`를 설정하려면 [이전 섹션](#step-24-collecting-rubocop-errors)에서 추가한 코드에 다음 코드를 추가합니다.
 
 ``` ruby
 # Updated check run summary and text parameters
@@ -537,7 +543,7 @@ summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_c
 text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 ```
 
-Now you've got all the information you need to update your check run. In the [first half of this quickstart](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
+이제 검사 실행을 업데이트하는 데 필요한 모든 정보가 있습니다. [이 빠른 시작의 전반부](#step-14-updating-a-check-run)에서는 이 코드를 추가하여 검사 실행의 상태를 `success`로 설정했습니다.
 
 ``` ruby
 # Mark the check run as complete!
@@ -550,7 +556,7 @@ Now you've got all the information you need to update your check run. In the [fi
 )
 ```
 
-You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). You can update the code with the following:
+RuboCop 결과에 따라 설정한 `conclusion` 변수를 사용하도록 코드를 `success` 또는 `neutral`로 업데이트해야 합니다. 다음을 사용하여 코드를 업데이트할 수 있습니다.
 
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
@@ -574,48 +580,48 @@ You'll need to update that code to use the `conclusion` variable you set based o
 )
 ```
 
-Now that you're setting a conclusion based on the status of the CI test and you've added the output from the RuboCop results, you've created a CI test! Congratulations. 🙌
+CI 테스트의 상태를 기반으로 결론을 설정하고 RuboCop 결과의 출력을 추가했으므로 CI 테스트 만들기를 완료했습니다. 축하합니다. 🙌
 
-The code above also adds a feature to your CI server called [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) via the `actions` object. {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}Requested actions add a button in the **Checks** tab on GitHub that allows someone to request the check run to take additional action. The additional action is completely configurable by your app. For example, because RuboCop has a feature to automatically fix the errors it finds in Ruby code, your CI server can use a requested actions button to allow people to request automatic error fixes. When someone clicks the button, the app receives the `check_run` event with a `requested_action` action. Each requested action has an `identifier` that the app uses to determine which button was clicked.
+위의 코드는 또한 `actions` 개체를 통해 [요청된 작업](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/)이라는 기능을 CI 서버에 추가합니다. {% ifversion fpt or ghec %}([GitHub Actions](/actions)와 관련이 없습니다.) {% endif %}요청된 작업으로 GitHub의 **검사** 탭에 단추가 추가되면 다른 사용자가 추가 작업을 수행하도록 검사 실행을 요청할 수 있습니다. 추가 작업은 앱에서 전부 구성할 수 있습니다. 예를 들어 RuboCop에는 Ruby 코드에서 찾은 오류를 자동으로 수정하는 기능이 있으므로 CI 서버는 요청된 작업 단추를 사용하여 사용자가 자동 오류 수정을 요청할 수 있도록 할 수 있습니다. 누군가가 단추를 클릭하면 앱이 `requested_action` 동작으로 `check_run` 이벤트를 받습니다. 요청된 각 작업에는 클릭한 단추를 판단하기 위해 앱에서 사용하는 `identifier`가 있습니다.
 
-The code above doesn't have RuboCop automatically fix errors yet. You'll add that in the next section. But first, take a look at the CI test that you just created by starting up the `template_server.rb` server again and creating a new pull request:
+위의 코드에는 RuboCop이 아직 오류를 자동으로 수정하지 않습니다. 해당 기능은 다음 섹션에서 추가합니다. 하지만 먼저 `template_server.rb` 서버를 다시 시작하고 새 끌어오기 요청을 만들어 방금 만든 CI 테스트를 살펴보세요.
 
 ```shell
 $ ruby template_server.rb
 ```
 
-The annotations will show up in the **Checks** tab.
+주석이 **검사** 탭에 표시됩니다.
 
-![Check run annotations in the checks tab](/assets/images/github-apps/github_apps_checks_annotations.png)
+![검사 탭에서 주석 검사 실행](/assets/images/github-apps/github_apps_checks_annotations.png)
 
-Notice the "Fix this" button that you created by adding a requested action.
+요청된 작업을 추가하여 만든 “이 문제 해결” 단추를 확인합니다.
 
-![Check run requested action button](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
+![요청된 작업 검사 실행 단추](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
 
-If the annotations are related to a file already included in the PR, the annotations will also show up in the **Files changed** tab.
+주석이 PR에 이미 포함된 파일과 관련된 경우 주석도 **변경된 파일** 탭에 표시됩니다.
 
-![Check run annotations in the files changed tab](/assets/images/github-apps/github_apps_checks_annotation_diff.png)
+![변경된 파일 탭에서 주석 검사 실행](/assets/images/github-apps/github_apps_checks_annotation_diff.png)
 
-## Step 2.6. Automatically fixing RuboCop errors
+## 2\.6단계. RuboCop 오류 자동 수정
 
-If you've made it this far, kudos! 👏 You've already created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in the [previous section](#step-25-updating-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event triggered when someone clicks the "Fix this" button.
+지금까지 잘 따라오신 분들을 칭찬합니다. 👏 CI 테스트는 이미 만들었습니다. 이 섹션에서는 발견한 오류를 RuboCop을 사용하여 자동으로 수정하는 기능을 하나 더 추가합니다. 이미 [이전 섹션](#step-25-updating-the-check-run-with-ci-test-results)에서 “이 문제 해결” 단추를 추가했습니다. 이제는 누군가 “이 문제 해결” 단추를 클릭할 때 트리거되는 `requested_action` 검사 실행 이벤트를 처리하는 코드를 추가하겠습니다.
 
-The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to GitHub after RuboCop does its magic.
+RuboCop 도구는 발견한 오류를 자동으로 수정하는 `--auto-correct` 명령줄 옵션을 [제공](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses)합니다. `--auto-correct` 기능을 사용하면 업데이트가 서버의 로컬 파일에 적용됩니다. RuboCop으로 오류를 수정한 후 변경 내용을 GitHub 푸시해야 합니다.
 
-To push to a repository, your app must have write permissions for "Repository contents." You set that permission back in [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) to **Read & write**, so you're all set.
+리포지토리로 푸시하려면 앱에 “리포지토리 콘텐츠”에 대한 쓰기 권한이 있어야 합니다. [2.2단계. 리포지토리 복제](#step-22-cloning-the-repository)에서 권한을 **읽기 및 쓰기** 로 설정했으므로 설정이 모두 완료되었습니다.
 
-In order to commit files, Git must know which [username](/github/getting-started-with-github/setting-your-username-in-git/) and [email](/articles/setting-your-commit-email-address-in-git/) to associate with the commit. Add two more environment variables in your `.env` file to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) settings. Your name can be the name of your app and the email can be any email you'd like for this example. For example:
+파일을 커밋하려면 Git에서 커밋과 연결할 [사용자 이름](/github/getting-started-with-github/setting-your-username-in-git/) 및 [메일](/articles/setting-your-commit-email-address-in-git/)을 알고 있어야 합니다. `.env` 파일에서 두 개의 환경 변수를 추가하여 이름(`GITHUB_APP_USER_NAME`) 및 메일(`GITHUB_APP_USER_EMAIL`) 설정을 저장합니다. 앱의 이름으로 이름을 사용할 수 있으며 메일은 이 예제에서 사용하고자 하는 아무 메일이나 가능합니다. 예를 들면 다음과 같습니다.
 
 ```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```
 
-Once you've updated your `.env` file with the name and email of the author and committer, you'll be ready to add code to read the environment variables and set the Git configuration. You'll add that code soon.
+작성자와 커밋한 사람의 이름과 메일로 `.env` 파일을 업데이트하면 환경 변수를 읽고 Git 구성을 설정하는 코드를 추가할 준비가 됩니다. 곧 해당 코드를 추가할 것입니다.
 
-When someone clicks the "Fix this" button, your app receives the [check run webhook](/webhooks/event-payloads/#check_run) with the `requested_action` action type.
+누군가가 "이 문제 해결" 단추를 클릭하면 앱에서 작업 유형이 `requested_action`인 [검사 실행 웹후크](/webhooks/event-payloads/#check_run)를 받습니다.
 
-In [Step 1.4. Updating a check run](#step-14-updating-a-check-run) you updated the your `event_handler` to handle look for actions in the `check_run` event. You already have a case statement to handle the `created` and `rerequested` action types:
+[1.4단계. 검사 실행 업데이트](#step-14-updating-a-check-run)에서 `event_handler`를 업데이트하여 `check_run` 이벤트에서 작업을 찾았습니다. `created` 및 `rerequested` 작업 형식을 처리할 case 문이 이미 있습니다.
 
 ``` ruby
 when 'check_run'
@@ -630,14 +636,14 @@ when 'check_run'
 end
 ```
 
-Add another `when` statement after the `rerequested` case to handle the `rerequested_action` event:
+`rerequested` case 뒤에 다른 `when` 문을 추가하여 `rerequested_action` 이벤트를 처리합니다.
 
 ``` ruby
 when 'requested_action'
   take_requested_action
 ```
 
-This code calls a new method that will handle all `requested_action` events for your app. Add the following method to the helper methods section of your code:
+이 코드는 앱에 대한 모든 `requested_action` 이벤트를 처리하는 새 메서드를 호출합니다. 코드의 도우미 메서드 섹션에 다음 메서드를 추가합니다.
 
 ``` ruby
 # Handles the check run `requested_action` event
@@ -672,11 +678,11 @@ def take_requested_action
 end
 ```
 
-The code above clones a repository just like the code you added in [Step 2.2. Cloning the repository](#step-22-cloning-the-repository). An `if` statement checks that the requested action's identifier matches the RuboCop button identifier (`fix_rubocop_notices`). When they match, the code clones the repository, sets the Git username and email, and runs RuboCop with the option `--auto-correct`. The `--auto-correct` option applies the changes to the local CI server files automatically.
+위의 코드는 [2.2단계. 리포지토리 복제](#step-22-cloning-the-repository)에서 추가한 코드와 마찬가지로 리포지토리를 복제합니다 `if` 문은 요청된 작업의 식별자가 RuboCop 단추 식별자(`fix_rubocop_notices`)와 일치하는지 확인합니다. 일치하는 경우 코드는 리포지토리를 복제하고, Git 사용자 이름 및 메일을 설정하고, `--auto-correct` 옵션을 사용하여 RuboCop을 실행합니다. `--auto-correct` 옵션은 로컬 CI 서버 파일에 변경 내용을 자동으로 적용합니다.
 
-The files are changed locally, but you'll still need to push them to GitHub. You'll use the handy `ruby-git` gem again to commit all of the files. Git has a single command that stages all modified or deleted files and commits them: `git commit -a`. To do the same thing using `ruby-git`, the code above uses the `commit_all` method. Then the code pushes the committed files to GitHub using the installation token, using the same authentication method as the Git `clone` command. Finally, it removes the repository directory to ensure the working directory is prepared for the next event.
+파일은 로컬로 변경되지만 여전히 파일을 GitHub로 푸시해야 합니다. 편리한 `ruby-git` gem을 다시 사용하여 모든 파일을 커밋합니다. Git에는 수정되거나 삭제된 모든 파일을 스테이징하고 커밋하는 단일 명령(`git commit -a`)이 있습니다. `ruby-git`를 사용하여 동일한 작업을 수행하기 위해 위의 코드에서 `commit_all` 메서드를 사용합니다. 그런 다음 코드는 Git `clone` 명령과 동일한 인증 방법을 사용하는 설치 토큰을 통해 커밋된 파일을 GitHub로 푸시합니다. 마지막으로 코드는 리포지토리 디렉터리를 제거하여 작업 디렉터리가 다음 이벤트에 대해 준비되었는지 확인합니다.
 
-That's it! The code you have written now completes your Checks API CI server. 💪 Restart your `template_server.rb` server again and create a new pull request:
+정말 간단하죠. 이제 작성한 코드가 Checks API CI 서버를 완성합니다. 💪 `template_server.rb` 서버를 다시 시작하고 새 끌어오기 요청을 만듭니다.
 
 ```shell
 $ ruby template_server.rb
@@ -684,21 +690,21 @@ $ ruby template_server.rb
 
 {% data reusables.apps.sinatra_restart_instructions %}
 
-This time, click the "Fix this" button to automatically fix the errors RuboCop found from the **Checks** tab.
+이번에는 "이 문제 해결" 단추를 클릭하여 **검사** 탭에서 RuboCop이 발견한 오류를 자동으로 수정합니다.
 
-In the **Commits** tab, you'll see a brand new commit by the username you set in your Git configuration. You may need to refresh your browser to see the update.
+**커밋** 탭에 Git 구성에서 설정한 사용자 이름으로 새 커밋이 표시됩니다. 업데이트를 보려면 브라우저를 새로 고쳐야 할 수 있습니다.
 
-![A new commit to automatically fix Octo RuboCop notices](/assets/images/github-apps/github_apps_new_requested_action_commit.png)
+![Octo RuboCop 알림을 자동으로 수정하는 새 커밋](/assets/images/github-apps/github_apps_new_requested_action_commit.png)
 
-Because a new commit was pushed to the repo, you'll see a new check suite for Octo RuboCop in the **Checks** tab. But this time there are no errors because RuboCop fixed them all. 🎉
+새 커밋이 리포지토리로 푸시되었으므로 **검사** 탭에 Octo RuboCop의 새 검사 도구 모음이 표시됩니다. 그러나 이번에는 RuboCop이 오류를 모두 수정했기 때문에 오류가 없습니다. 🎉
 
-![No check suite or check run errors](/assets/images/github-apps/github_apps_checks_api_success.png)
+![검사 도구 모음 또는 검사 실행 오류 없음](/assets/images/github-apps/github_apps_checks_api_success.png)
 
-You can find the completed code for the app you just built in the `server.rb` file in the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
+[Checks API로 CI 테스트 만들기](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) 리포지토리에서 `server.rb` 파일에 방금 빌드한 앱의 완성된 코드를 찾을 수 있습니다.
 
-## Step 2.7. Security tips
+## 2\.7단계. 보안 팁
 
-The template GitHub App code already has a method to verify incoming webhook payloads to ensure they are from a trusted source. If you are not validating webhook payloads, you'll need to ensure that when repository names are included in the webhook payload, the webhook does not contain arbitrary commands that could be used maliciously. The code below validates that the repository name only contains Latin alphabetic characters, hyphens, and underscores. To provide you with a complete example, the complete `server.rb` code available in the [companion repository](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) for this quickstart includes both the method of validating incoming webhook payloads and this check to verify the repository name.
+템플릿 GitHub 앱 코드에는 들어오는 웹후크 페이로드를 확인하여 신뢰할 수 있는 소스에서 온 것인지 확인하는 메서드가 이미 있습니다. 웹후크 페이로드의 유효성을 검사하지 않는 경우 리포지토리 이름이 웹후크 페이로드에 포함될 때 웹후크에 악의적으로 사용할 수 있는 임의의 명령이 포함되어 있지 않는지 확인해야 합니다. 아래 코드는 리포지토리 이름에 라틴어 알파벳 문자, 하이픈 및 밑줄만 포함되는지 확인합니다. 전체 예제를 제공하기 위해 이 빠른 시작의 [도우미 리포지토리](https://github.com/github-developer/creating-ci-tests-with-the-checks-api)에 있는 전체 `server.rb` 코드에는 들어오는 웹후크 페이로드의 유효성을 검사하는 메서드와 리포지토리 이름을 확인하는 이 검사가 모두 포함됩니다.
 
 ``` ruby
 # This quickstart example uses the repository name in the webhook with
@@ -712,43 +718,43 @@ unless @payload['repository'].nil?
 end
 ```
 
-## Troubleshooting
+## 문제 해결
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
+다음은 몇 가지 일반적인 문제와 제안된 해결 방법입니다. 다른 문제가 발생하면 {% data reusables.support.prodname_support_forum_with_url %}에서 도움말이나 조언을 요청할 수 있습니다.
 
-* **Q:** My app isn't pushing code to GitHub. I don't see the fixes that RuboCop automatically makes!
+* **Q:** 내 앱이 GitHub 코드를 푸시하지 않습니다. RuboCop에서 자동으로 실행으로 수정 사항이 표시되지 않습니다.
 
-    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
+    **A:** “리포지토리 콘텐츠”에 대한 **읽기 및 쓰기** 권한이 있고 설치 토큰을 사용하여 리포지토리를 복제하고 있는지 확인하세요. 자세한 내용은 [2.2단계. 리포지토리 복제](#step-22-cloning-the-repository)를 참조하세요.
 
-* **Q:** I see an error in the `template_server.rb` debug output related to cloning my repository.
+* **Q:** 리포지토리 복제와 관련된 `template_server.rb` 디버그 출력에 오류가 표시됩니다.
 
-    **A:** If you see the following error, you haven't deleted the checkout of the repository in one or both of the `initiate_check_run` or `take_requested_action` methods:
+    **A:** 다음 오류가 표시되면 `initiate_check_run` 또는 `take_requested_action` 메서드 중 하나 또는 둘 다에서 리포지토리의 체크 아웃을 삭제하지 않은 것입니다.
 
     ```shell
     2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
-    Compare your code to the `server.rb` file to ensure you have the same code in your `initiate_check_run` and `take_requested_action` methods.
+    코드와 `server.rb` 파일을 비교하여 `initiate_check_run` 메서드와 `take_requested_action` 메서드에 동일한 코드가 있는지 확인하세요.
 
-* **Q:** New check runs are not showing up in the "Checks" tab on GitHub.
+* **Q:** GitHub의 “검사” 탭에 새 검사 실행이 표시되지 않습니다.
 
-    **A:** Restart Smee and re-run your `template_server.rb` server.
+    **A:** Smee를 다시 시작하고 `template_server.rb` 서버를 다시 실행합니다.
 
-* **Q:** I do not see the "Re-run all" button in the "Checks" tab on GitHub.
+* **Q:** GitHub “검사” 탭에 "모두 다시 실행" 단추가 표시되지 않습니다.
 
-    **A:** Restart Smee and re-run your `template_server.rb` server.
+    **A:** Smee를 다시 시작하고 `template_server.rb` 서버를 다시 실행합니다.
 
-## Conclusion
+## 결론
 
-After walking through this guide, you've learned the basics of using the Checks API to create a CI server! To review, you:
+이 가이드의 자세한 설명을 통해 Checks API를 사용한 CI 서버 만들기의 기초를 배웠습니다. 요약하면 다음과 같습니다.
 
-* Configured your server to receive Checks API events and create check runs.
-* Used RuboCop to check code in repositories and create annotations for the errors.
-* Implemented a requested action that automatically fixes linter errors.
+* Checks API 이벤트를 수신하고 검사 실행을 만들도록 서버를 구성했습니다.
+* RuboCop을 사용하여 리포지토리의 코드를 확인하고 오류에 대한 주석을 만들었습니다.
+* Linter 오류를 자동으로 수정하는 요청된 작업을 구현했습니다.
 
-## Next steps
+## 다음 단계
 
-Here are some ideas for what you can do next:
+다음에 수행할 작업에 대한 몇 가지 아이디어를 살펴봅니다.
 
-* Currently, the "Fix this" button is always displayed. Update the code you wrote to display the "Fix this" button only when RuboCop finds errors.
-* If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to [create a pull request](/rest/reference/pulls#create-a-pull-request) with a new branch based on the head branch.
+* 현재 “이 문제 해결” 단추가 항상 표시됩니다. RuboCop에서 오류를 발견하는 경우에만 “이 문제 해결” 단추를 표시하도록 작성한 코드를 업데이트합니다.
+* RuboCop에서 헤드 분기에 직접 파일을 커밋하지 않으려면 헤드 분기를 기반으로 하는 새 분기를 사용하여 [끌어오기 요청 만들기](/rest/reference/pulls#create-a-pull-request)를 수행하도록 코드를 업데이트할 수 있습니다.
