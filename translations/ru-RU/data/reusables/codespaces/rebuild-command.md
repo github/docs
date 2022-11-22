@@ -1,11 +1,5 @@
----
-ms.openlocfilehash: 2a9a8aec377e545ba9eecac42e61e9cdff9c4bfd
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147760882"
----
-1. Откройте {% data variables.product.prodname_vscode_command_palette_shortname %}, нажав сочетание клавиш <kbd>SHIFT</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) или <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd> (Windows/Linux), а затем начните вводить строку "перестроить". Выберите **Codespaces: перестроить контейнер**.
+1. Access the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)), then start typing "rebuild". Select **Codespaces: Rebuild Container**.
 
-    ![Параметр перестроения контейнера](/assets/images/help/codespaces/codespaces-rebuild.png)
+   ![Screenshot of Rebuild Container command in the Command Pallette](/assets/images/help/codespaces/codespaces-rebuild.png)
+
+   {% indented_data_reference reusables.codespaces.full-rebuild-tip %}

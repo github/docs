@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: cd91a98e6cb0da73a24f7f6e682b67ec25b406d4
-ms.sourcegitcommit: 24427fe609677b2c58137b1d9d63869d0872daf4
+ms.openlocfilehash: 7843dd2811e3645b6c9ea979fd3cb54a14b151f0
+ms.sourcegitcommit: 8d6f272d8b5da44e3a29ad8d99013c10a5c91b35
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2022
-ms.locfileid: "148134795"
+ms.lasthandoff: 11/17/2022
+ms.locfileid: "148172039"
 ---
 Партнер | Поддерживаемый секрет
 --- | ---
@@ -23,6 +23,8 @@ Azure | Идентифицируемый ключ Azure CosmosDB
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
 Azure | Ключ веб-службы Студии машинного обучения Azure (классическая версия)
 Azure | Маркер Azure SAS
+Azure | Ключ Администратор поиска Azure
+Azure | Ключ запроса поиска Azure
 Azure | Сертификат управления службами Azure
 Azure | Строка подключения Azure SQL
 Azure | Ключ учетной записи хранения Azure
