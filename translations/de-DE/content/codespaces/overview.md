@@ -15,12 +15,12 @@ versions:
 type: overview
 topics:
   - Codespaces
-ms.openlocfilehash: a1618c86671bc5b06474c41803c6b34576a897aa
-ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.openlocfilehash: 9d01df3f8dae7ceb788e2dd57b02fb3cc977400d
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160800'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164323'
 ---
 ## Was ist ein Codespace?
 
@@ -50,7 +50,7 @@ Du kannst einen Codespace für jedes Repository erstellen und verwenden, den du 
 
 Organisationsbesitzer können die Verwendung von {% data variables.product.prodname_github_codespaces %} aktivieren, die dem Organisations- oder Unternehmenskonto in Rechnung gestellt werden kann. Dies gilt für Codespaces, die aus Repositorys im Besitz der Organisation erstellt wurden. Weitere Informationen findest du unter [Aktivieren von {% data variables.product.prodname_github_codespaces %} für deine Organisation](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization). Du kannst ein Ausgabenlimit für die Verwendung von {% data variables.product.prodname_github_codespaces %} in deinem Organisations- oder Unternehmenskonto festlegen. Weitere Informationen findest du unter [Verwalten von Ausgabenlimits für {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).
 
-Wenn die Verwendung eines Codespaces einer Organisation oder einem Unternehmen in Rechnung gestellt wird, wird dies angezeigt, wenn der Codespace erstellt wird. Weitere Informationen findest du unter [Erstellen eines Codespaces für ein Repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository). Codespaces, die einer Organisation oder ihrem übergeordneten Unternehmen in Rechnung gestellt werden, gehören der Organisation und können von einem Organisationsbesitzer gelöscht werden. Weitere Informationen findest du unter [Löschen eines Codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization). 
+Wenn die Verwendung eines Codespaces einer Organisation oder einem Unternehmen in Rechnung gestellt wird, wird dies angezeigt, wenn der Codespace erstellt wird. Weitere Informationen findest du unter [Erstellen eines Codespaces für ein Repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository). Codespaces, die einer Organisation oder ihrem übergeordneten Unternehmen in Rechnung gestellt werden, gehören der Organisation und können von einem Organisationsbesitzer bzw. einer -besitzerin gelöscht werden. Weitere Informationen findest du unter [Löschen eines Codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization). 
 
 ### Anpassen von {% data variables.product.prodname_github_codespaces %}
 

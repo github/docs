@@ -1,7 +1,7 @@
 ---
-title: Setting a minimum specification for codespace machines
+title: Festlegen einer Mindestspezifikation für Codespacecomputer
 shortTitle: Set a minimum machine spec
-intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_github_codespaces %} for your repository.'
+intro: 'Du kannst vermeiden, dass für {% data variables.product.prodname_github_codespaces %} für dein Repository Computertypen mit zu geringen Ressourcen verwendet werden.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
   fpt: '*'
@@ -10,26 +10,31 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+ms.openlocfilehash: b7eeaac84721ff1d9ceab663957b1615952b0623
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159165'
 ---
+## Übersicht
 
-## Overview
+Jeder von dir erstellte Codespace wird auf einem separaten virtuellen Computer gehostet. Wenn du einen Codespace auf der Grundlage eines Repositorys erstellst, kannst du in der Regel zwischen verschiedenen Arten von virtuellen Computern wählen. Jeder Computertyp besitzt verschiedene Ressourcen (Prozessorkerne, Arbeitsspeicher, Speicher), und standardmäßig wird der Computertyp mit den wenigsten Ressourcen verwendet. Weitere Informationen zu Computertypen findest du unter [Ändern des Computertyps für deinen Codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types).
 
-Each codespace that you create is hosted on a separate virtual machine. When you create a codespace from a repository, you can usually choose from different types of virtual machines. Each machine type has different resources (processor cores, memory, storage) and, by default, the machine type with the least resources is used. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
-
-If your project needs a certain level of compute power, you can configure {% data variables.product.prodname_github_codespaces %} so that only machine types that meet these requirements can be used by default, or selected by users. You configure this in a `devcontainer.json` file.
+Wenn für dein Projekt eine bestimmte Computeleistung benötigt wird, kannst du {% data variables.product.prodname_github_codespaces %} so konfigurieren, dass standardmäßig nur Computertypen verwendet oder von den Benutzern ausgewählt werden können, die diese Anforderungen erfüllen. Du konfigurierst dies in einer `devcontainer.json`-Datei.
 
 {% data reusables.codespaces.machine-types-for-unpublished-codespaces %}
 
 {% note %}
 
-**Important:** Access to some machine types may be restricted at the organization level. Typically this is done to prevent people choosing higher resourced machines that are billed at a higher rate. If your repository is affected by an organization-level policy for machine types you should make sure you don't set a minimum specification that would leave no available machine types for people to choose. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+**Wichtig**: Der Zugriff auf einige Computertypen kann auf Organisationsebene eingeschränkt sein. So soll in der Regel vermieden werden, dass Benutzer Computer mit einer größeren Kapazität wählen, die zu einem höheren Preis abgerechnet werden. Wenn dein Repository einer organisationsweiten Richtlinie für Computertypen unterliegt, musst du sicherstellen, dass die Mindestanforderungen nicht so hoch festgelegt werden, dass keine Computertypen mehr zur Auswahl stehen. Weitere Informationen findest du unter [Einschränken des Zugriffs auf Computertypen](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types).
 
 {% endnote %}
 
-## Setting a minimum machine specification
+## Festlegen einer Mindestspezifikation für Computer
 
 {% data reusables.codespaces.edit-devcontainer-json %}
-1. Edit the `devcontainer.json` file, adding the `hostRequirements` property at the top level of the file, within the enclosing JSON object. For example:
+1. Bearbeite die Datei `devcontainer.json`, und füge die Eigenschaft `hostRequirements` innerhalb des umschließenden JSON-Objekts am Anfang der Datei hinzu. Beispiel:
 
    ```json{:copy}
    "hostRequirements": {
@@ -39,16 +44,16 @@ If your project needs a certain level of compute power, you can configure {% dat
    }
    ```
 
-   You can specify any or all of the options: `cpus`, `memory`, and `storage`.
+   Du kannst eine oder alle der folgenden Optionen angeben: `cpus`, `memory` und `storage`.
    
-   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   Um die Spezifikationen der {% data variables.product.prodname_github_codespaces %}-Computertypen zu überprüfen, die derzeit für dein Repository zur Verfügung stehen, durchlaufe den Prozess zum Erstellen eines Codespaces, bis du zur Auswahl der Computertypen gelangst. Weitere Informationen findest du unter [Erstellen eines Codespaces für ein Repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
    
-1. Save the file and commit your changes to the required branch of the repository.
+1. Speichere die Datei, und committe deine Änderungen in den gewünschten Branch des Repositorys.
 
-   Now when you create a codespace for that branch of the repository, and you go to the creation configuration options, you will only be able to select machine types that match or exceed the resources you've specified.
+   Wenn du jetzt einen Codespace für diesen Branch des Repositorys erstellst und zu den Konfigurationsoptionen für die Erstellung wechselst, kannst du nur Computertypen auswählen, die den von dir angegebenen Ressourcen entsprechen oder diese überschreiten.
 
-   ![Dialog box showing a limited choice of machine types](/assets/images/help/codespaces/machine-types-limited-choice.png)
+   ![Dialogfeld mit eingeschränkter Auswahl an Computertypen](/assets/images/help/codespaces/machine-types-limited-choice.png)
 
-## Further reading
+## Weiterführende Themen
 
-- "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)"
+- [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)

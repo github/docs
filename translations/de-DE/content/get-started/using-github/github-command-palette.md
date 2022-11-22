@@ -1,229 +1,234 @@
 ---
-title: GitHub Command Palette
-intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
+title: GitHub-Befehlspalette
+intro: 'Verwende die Befehlspalette in {% data variables.product.product_name %} zum Navigieren, Suchen und Ausführen von Befehlen direkt über die Tastatur.'
 versions:
   feature: command-palette
 shortTitle: GitHub Command Palette
+ms.openlocfilehash: 5c6b739f2422be780cef6fa0e44e5d75663cc036
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159053'
 ---
-
 {% data reusables.command-palette.beta-note %}
 
-## About the {% data variables.product.prodname_command_palette %}
+## Informationen zur {% data variables.product.prodname_command_palette %}
 
-You can navigate, search, and run commands on {% data variables.product.product_name %} with the {% data variables.product.prodname_command_palette %}. The command palette is an on-demand way to show suggestions based on your current context and resources you've used recently. You can open the command palette with a keyboard shortcut from anywhere on {% data variables.product.product_name %}, which saves you time and keeps your hands on the keyboard.
+Du kannst mit der {% data variables.product.prodname_command_palette %} zwischen Befehlen für {% data variables.product.product_name %} navigieren, die Befehle suchen und ausführen. Die Befehlspalette ist eine On-Demand-Methode, um Vorschläge basierend auf deinem aktuellen Kontext und deinen zuletzt verwendeten Ressourcen anzuzeigen. Du kannst die Befehlspalette von überall in {% data variables.product.product_name %} mit einer Tastenkombination öffnen, wodurch du Zeit sparst und die Hände auf der Tastatur halten können.
 
-### Fast navigation
+### Schnelle Navigation
 
-When you open the command palette, the suggestions are optimized to give you easy access from anywhere in a repository, personal account, or organization to top-level pages like the Issues page. If the location you want isn't listed, start entering the name or number for the location to refine the suggestions.
+Wenn du die Befehlspalette öffnest, werden die Vorschläge optimiert, um dir von überall in einem Repository, einem persönlichen Konto oder einer Organisation einfachen Zugriff auf Seiten der obersten Ebene, wie die Seite „Issues“, zu ermöglichen. Wenn der gewünschte Ort nicht aufgeführt ist, beginne mit der Eingabe des Namens oder der Nummer für den Speicherort, um die Vorschläge zu verfeinern.
 
-![Command palette repository suggestions](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
+![Repository-Vorschläge der Befehlspalette](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
 
-### Easy access to commands
+### Einfacher Zugriff auf Befehle
 
-The ability to run commands directly from your keyboard, without navigating through a series of menus, may change the way you use {% data variables.product.prodname_dotcom %}. For example, you can switch themes with a few keystrokes, making it easy to toggle between themes as your needs change.
+Die Möglichkeit, Befehle direkt über die Tastatur auszuführen, ohne durch eine Reihe von Menüs zu navigieren, kann die Verwendung von {% data variables.product.prodname_dotcom %} ändern. Du kannst z. B. Designs mit wenigen Tastatureingaben wechseln, sodass du einfach zwischen Designs umschalten kannst, wenn sich deine Anforderungen ändern.
 
-![Command palette change theme](/assets/images/help/command-palette/command-palette-command-change-theme.png)
+![Design mit Befehlspalette ändern](/assets/images/help/command-palette/command-palette-command-change-theme.png)
 
-## Opening the {% data variables.product.prodname_command_palette %}
+## Öffnen der {% data variables.product.prodname_command_palette %}
 
-Open the command palette using one of the following default keyboard shortcuts:
-- Windows and Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>
-- Mac: <kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>
+Öffne die Befehlspalette mit einer der folgenden Standardtastenkombinationen:
+- Windows und Linux: <kbd>STRG</kbd>+<kbd>K</kbd> oder <kbd>STRG</kbd>+<kbd>ALT</kbd>+<kbd>K</kbd>
+- Mac: <kbd>BEFEHL</kbd>+<kbd>K</kbd> oder <kbd>BEFEHL</kbd>+<kbd>WAHL</kbd>+<kbd>K</kbd>
 
-You can customize the keyboard shortcuts you use to open the command palette in the [Accessibility section](https://github.com/settings/accessibility) of your user settings. For more information, see "[Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts](#customizing-your-github-command-palette-keyboard-shortcuts)."
+Du kannst die Tastenkombinationen, die du zum Öffnen der Befehlspalette verwendest, im [Abschnitt „Barrierefreiheit“](https://github.com/settings/accessibility) deiner Benutzereinstellungen anpassen. Weitere Informationen findest du unter [Anpassen deiner {% data variables.product.prodname_command_palette %}-Tastenkombinationen](#customizing-your-github-command-palette-keyboard-shortcuts).
 
-When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization).
+Wenn du die Befehlspalette öffnest, wird deine Position oben links angezeigt und als Bereich für Vorschläge verwendet (z. B. die `mashed-avocado`-Organisation).
 
-![Command palette launch](/assets/images/help/command-palette/command-palette-launch.png)
+![Start der Befehlspalette](/assets/images/help/command-palette/command-palette-launch.png)
 
 {% note %}
 
-**Notes:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
-- If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."{% endif %}
+**Hinweise:**
+- Wenn du Markdowntext bearbeitest, öffne die Befehlspalette mit <kbd>STRG</kbd>+<kbd>ALT</kbd>+<kbd>K</kbd> (Windows und Linux) oder <kbd>COMMAND</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
+- Wenn du an einem {% data variables.projects.project_v2 %}arbeitest, wird stattdessen eine projektspezifische Befehlspalette angezeigt. Weitere Informationen findest du unter [Anpassen einer Ansicht](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view).{% endif %}
 
 {% endnote %}
 
-### Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts
+### Anpassen deiner {% data variables.product.prodname_command_palette %}-Tastenkombinationen
 
 
-The default keyboard shortcuts used to open the command palette may conflict with your default OS and browser keyboard shortcuts. You have the option to customize your keyboard shortcuts in the [Accessibility section](https://github.com/settings/accessibility) of your account settings. In the command palette settings, you can customize the keyboard shortcuts for opening the command palette in both search mode and command mode. 
+Die Standardtastenkombinationen, die zum Öffnen der Befehlspalette verwendet werden, können in Konflikt mit deinen Standardtastenkombinationen für Betriebssystem und Browser stehen. Du hast die Möglichkeit, deine Tastenkombinationen im [Abschnitt „Barrierefreiheit“](https://github.com/settings/accessibility) deiner Kontoeinstellungen anzupassen. In den Befehlspaletteneinstellungen kannst du die Tastenkombinationen zum Öffnen der Befehlspalette sowohl im Suchmodus als auch im Befehlsmodus anpassen. 
 
-![Command palette keyboard shortcut settings](/assets/images/help/command-palette/command-palette-keyboard-shortcut-settings.png)
-## Navigating with the {% data variables.product.prodname_command_palette %}
+![Tastenkombinationseinstellungen für Befehlspaletten](/assets/images/help/command-palette/command-palette-keyboard-shortcut-settings.png)
+## Navigieren mit der {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}.
-
-{% data reusables.command-palette.open-palette %}
-
-2. Start typing the path you want to navigate to. The suggestions in the command palette change to match your text.
-
-   ![Command palette navigation current scope](/assets/images/help/command-palette/command-palette-navigation-current-scope.png)
-
-{% data reusables.command-palette.change-scope %}
-
-   You can also use keystrokes to narrow your search. For more information, see "[Keystroke functions](#keystroke-functions)."
-
-4. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
-
-5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
-
-## Searching with the {% data variables.product.prodname_command_palette %}
-
-You can use the command palette to search for anything on {% data variables.location.product_location %}.
+Du kannst die Befehlspalette verwenden, um zu einer beliebigen Seite zu navigieren, auf die du in {% data variables.product.product_name %} Zugriff hast.
 
 {% data reusables.command-palette.open-palette %}
 
+2. Beginne mit der Eingabe des Pfads, zu dem du navigieren möchtest. Die Vorschläge in der Befehlspalette ändern sich, um deinem Text zu entsprechen.
+
+   ![Aktueller Bereich der Befehlspalettennavigation](/assets/images/help/command-palette/command-palette-navigation-current-scope.png)
+
 {% data reusables.command-palette.change-scope %}
 
-3. Optionally, use keystrokes to find specific types of resource:
+   Du kannst auch Tastatureingaben verwenden, um deine Suche einzugrenzen. Weitere Informationen findest du unter [Tastatureingabefunktionen](#keystroke-functions).
 
-   - <kbd>#</kbd> Search for issues, pull requests, discussions, and projects
-   - <kbd>!</kbd> Search for projects
-   - <kbd>@</kbd> Search for users, organizations, and repositories
-   - <kbd>/</kbd> Search for files within a repository scope
+4. Beende die Eingabe des Pfads, oder verwende die Pfeiltasten, um den gewünschten Pfad aus der Liste der Vorschläge hervorzuheben.
 
-   ![Command palette search files](/assets/images/help/command-palette/command-palette-search-files.png)
+5. Verwende die <kbd>EINGABETASTE</kbd>, um zu deinem ausgewählten Speicherort zu springen. Verwende alternativ <kbd>STRG</kbd>+<kbd>EINGABE</kbd> (Windows und Linux) oder <kbd>BEFEHL</kbd>+<kbd>EINGABE</kbd> (Mac), um den Speicherort auf einer neuen Browserregisterkarte zu öffnen.
 
-4. Begin entering your search terms. The command palette will offer you a range of suggested searches based on your search scope.
+## Suchen mit der {% data variables.product.prodname_command_palette %}
+
+Du kannst mit der Befehlspalette nach etwas auf {% data variables.location.product_location %} suchen.
+
+{% data reusables.command-palette.open-palette %}
+
+{% data reusables.command-palette.change-scope %}
+
+3. Verwende optional Tastatureingaben, um bestimmte Arten von Ressourcen zu finden:
+
+   - <kbd>#</kbd> Suchen nach Issues, Pull Requests, Diskussionen und Projekten
+   - <kbd>!</kbd> Suchen nach Projekten
+   - <kbd>@</kbd> Suchen nach Benutzern, Organisationen und Repositorys
+   - <kbd>/</kbd> Suche nach Dateien innerhalb eines Repositorybereichs
+
+   ![Suche nach Dateien mit der Befehlspalette](/assets/images/help/command-palette/command-palette-search-files.png)
+
+4. Beginne mit der Eingabe deiner Suchbegriffe. Die Befehlspalette bietet dir basierend auf deinem Suchbereich eine Reihe von vorgeschlagenen Suchvorgängen.
 
    {% tip %}
 
-   You can also use the full syntax of {% data variables.product.prodname_dotcom %}'s integrated search within the command palette. For more information, see "[Searching for information on {% data variables.product.prodname_dotcom %}](/search-github)."
+   Du kannst auch die vollständige Syntax der in {% data variables.product.prodname_dotcom %} integrierten Suche in der Befehlspalette verwenden. Weitere Informationen findest du unter [Suchen nach Informationen in {% data variables.product.prodname_dotcom %}](/search-github).
 
    {% endtip %}
 
-5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Verwende die Pfeiltasten, um das gewünschte Suchergebnis hervorzuheben, und verwende die <kbd>EINGABETASTE</kbd>, um zu deinem ausgewählten Speicherort zu springen. Verwende alternativ <kbd>STRG</kbd>+<kbd>EINGABE</kbd> (Windows und Linux) oder <kbd>BEFEHL</kbd>+<kbd>EINGABE</kbd> (Mac), um den Speicherort auf einer neuen Browserregisterkarte zu öffnen.
 
-## Running commands from the {% data variables.product.prodname_command_palette %}
+## Ausführen von Befehlen über die {% data variables.product.prodname_command_palette %}
 
-You can use the {% data variables.product.prodname_command_palette %} to run commands. For example, you can create a new repository or issue, or change your theme. When you run a command, the location for its action is determined by either the underlying page or the scope shown in the command palette.
+Du kannst die {% data variables.product.prodname_command_palette %} verwenden, um Befehle auszuführen. Du kannst beispielsweise ein neues Repository oder Issue erstellen oder dein Design ändern. Wenn du einen Befehl ausführst, bestimmt die zugrunde liegende Seite oder der in der Befehlspalette angezeigte Bereich, wo die Aktion stattfindet.
 
-- Pull request and issue commands always run on the underlying page.
-- Higher-level commands, for example, repository commands, run in the scope shown in the command palette.
+- Pull Request- und Issuebefehle werden immer auf der zugrunde liegenden Seite ausgeführt.
+- Befehle auf höherer Ebene, z. B. Repositorybefehle, werden im Bereich ausgeführt, der in der Befehlspalette angezeigt wird.
 
-For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
+Eine vollständige Liste der unterstützten Befehle findest du unter [Referenz für {% data variables.product.prodname_command_palette %}](#github-command-palette-reference).
 
-1. The default keyboard shortcuts to open the command palette in command mode are <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac). If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
+1. Die Standardtastenkombination zum Öffnen der Befehlspalette im Befehlsmodus sind <kbd>STRG</kbd>+<kbd>UMSCHALT</kbd>+<kbd>K</kbd> (Windows und Linux) oder <kbd>BEFEHL</kbd>+<kbd>UMSCHALT</kbd>+<kbd>K</kbd> (Mac). Wenn die Befehlspalette bereits geöffnet ist, drücke <kbd>></kbd>, um zum Befehlsmodus zu wechseln. {% data variables.product.prodname_dotcom %} schlägt Befehle anhand deiner Position vor.
 
-   ![Command palette command mode](/assets/images/help/command-palette/command-palette-command-mode.png)
+   ![Befehlsmodus der Befehlspalette](/assets/images/help/command-palette/command-palette-command-mode.png)
 
 {% data reusables.command-palette.change-scope %}
 
-3. If the command you want is not displayed, check your scope then start entering the command name in the text box.
+3. Wenn der gewünschte Befehl nicht angezeigt wird, aktiviere den Bereich, und beginne dann mit der Eingabe des Befehlsnamens im Textfeld.
 
-4. Use the arrow keys to highlight the command you want and use <kbd>Enter</kbd> to run it.
+4. Verwende die Pfeiltasten, um den gewünschten Befehl hervorzuheben, und verwende die <kbd>EINGABETASTE</kbd>, um ihn auszuführen.
 
 
-## Closing the command palette
+## Schließen der Befehlspalette
 
-When the command palette is active, you can use one of the following keyboard shortcuts to close the command palette:
+Wenn die Befehlspalette aktiv ist, kannst du eine der folgenden Tastenkombinationen verwenden, um die Befehlspalette zu schließen:
 
-- Search and navigation mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
-- Command mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
+- Such- und Navigationsmodus: <kbd>ESC</kbd> oder <kbd>STRG</kbd>+<kbd>K</kbd> (Windows und Linux)  <kbd>BEFEHL</kbd>+<kbd>K</kbd> (Mac)
+- Befehlsmodus: <kbd>ESC</kbd> oder <kbd>STRG</kbd>+<kbd>UMSCHALT</kbd>+<kbd>K</kbd> (Windows und Linux)  <kbd>BEFEHL</kbd>+<kbd>UMSCHALT</kbd>+<kbd>K</kbd> (Mac)
 
-If you have customized the command palette keyboard shortcuts in the Accessibility settings, your customized keyboard shortcuts will be used for both opening and closing the command palette.  
+Wenn du die Tastenkombinationen der Befehlspalette in den Barrierefreiheitseinstellungen angepasst hast, werden deine angepassten Tastenkombinationen sowohl zum Öffnen als auch zum Schließen der Befehlspalette verwendet.  
 
-## {% data variables.product.prodname_command_palette %} reference
+## Referenz für {% data variables.product.prodname_command_palette %}
 
-### Keystroke functions
+### Tastatureingabefunktionen
 
-These keystrokes are available when the command palette is in navigation and search modes, that is, they are not available in command mode.
+Diese Tastatureingaben sind verfügbar, wenn sich die Befehlspalette im Navigations- oder Suchmodus befindet; sie sind also nicht im Befehlsmodus verfügbar.
 
-| Keystroke | Function |
+| Tastatureingabe | Funktion |
 | :- | :- |
-|<kbd>></kbd>| Enter command mode. For more information, see "[Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette)." |
-|<kbd>#</kbd>| Search for issues, pull requests, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>@</kbd>| Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>/</kbd>| Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
-|<kbd>!</kbd>| Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>Command</kbd>+<kbd>C</kbd>| Copy the search or navigation URL for the highlighted result to the clipboard.|
-|<kbd>Enter</kbd>| Jump to the highlighted result or run the highlighted command.|
-|<kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd>| Open the highlighted search or navigation result in a new brower tab.|
-|<kbd>?</kbd>| Display help within the command palette.|
+|<kbd>></kbd>| Befehlsmodus aktivieren. Weitere Informationen findest du unter [Ausführen von Befehlen über die {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette). |
+|<kbd>#</kbd>| Suchen nach Issues, Pull Requests, Diskussionen und Projekten. Weitere Informationen findest du unter [Suchen mit der {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette).|
+|<kbd>@</kbd>| Suchen nach Benutzern, Organisationen und Repositorys. Weitere Informationen findest du unter [Suchen mit der {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette).|
+|<kbd>/</kbd>| Suchen nach Dateien innerhalb eines Repositorybereichs oder Repositorys innerhalb eines Organisationsbereichs. Weitere Informationen findest du unter [Suchen mit der {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette). |
+|<kbd>!</kbd>| Nur nach Projekten suchen. Weitere Informationen findest du unter [Suchen mit der {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette).|
+|<kbd>STRG</kbd>+<kbd>C</kbd> oder <kbd>BEFEHL</kbd>+<kbd>C</kbd>| Die Such- oder Navigations-URL für das hervorgehobene Ergebnis in die Zwischenablage kopieren.|
+|<kbd>EINGABETASTE</kbd>| Zum hervorgehobenen Ergebnis springen oder den hervorgehobenen Befehl ausführen.|
+|<kbd>STRG</kbd>+<kbd>EINGABE</kbd> oder <kbd>BEFEHL</kbd>+<kbd>EINGABE</kbd>| Das hervorgehobene Such- oder Navigationsergebnis in einer neuen Browerregisterkarte öffnen.|
+|<kbd>?</kbd>| Die Hilfe in der Befehlspalette anzeigen.|
 
-### Global commands
+### Globale Befehle
 
-These commands are available from all scopes.
+Diese Befehle sind von allen Bereichen aus verfügbar.
 
-| Command | Behavior|
+| Befehl | Verhalten|
 | :- | :- | :- |
-|`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)."  |
-|`New gist`|Open a new gist. For more information, see "[Creating a gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
-|`New organization`|Create a new organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |
-|`New project`|Create a new project board. For more information, see "[Creating a project](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."  |
-|`New repository`|Create a new repository from scratch. For more information, see "[Creating a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository)." |
-|`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)." |
+|`Import repository`|Neues Repository erstellen, indem ein Projekt aus einem anderen Versionssteuerungssystem importiert wird. Weitere Informationen findest du unter [Importieren eines Repositorys mit GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer).  |
+|`New gist`|Neues Gist öffnen. Weitere Informationen findest du unter [Erstellen eines Gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists). |
+|`New organization`|Neue Organisation erstellen. Weitere Informationen findest du unter [Erstellen einer neuen Organisation von Grund auf](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch). |
+|`New project`|Neues Projektboard erstellen. Weitere Informationen findest du unter [Erstellen eines Projekts](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project).  |
+|`New repository`|Neues Repository ohne Vorlage erstellen. Weitere Informationen findest du unter [Erstellen eines neuen Repositorys](/repositories/creating-and-managing-repositories/creating-a-new-repository). |
+|`Switch theme to <theme name>`|Direkt zu einem anderen Design für die Benutzeroberfläche wechseln. Weitere Informationen findest du unter [Verwalten deiner Designeinstellungen](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings). |
 
 
-### Organization commands
+### Organisationsbefehle
 
-These commands are available only within the scope of an organization.
+Diese Befehle sind nur im Bereich einer Organisation verfügbar.
 
-| Command | Behavior|
+| Befehl | Verhalten|
 | :- | :- |
-| `New team`| Create a new team in the current organization. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+| `New team`| Neues Team in der aktuellen Organisation erstellen. Weitere Informationen findest du unter [Erstellen eines Teams](/organizations/organizing-members-into-teams/creating-a-team).
 
-### Repository commands
+### Repositorybefehle
 
-Most of these commands are available only on the home page of the repository. If a command is also available on other pages, this is noted in the behavior column.
+Die meisten dieser Befehle sind nur auf der Startseite des Repositorys verfügbar. Wenn ein Befehl auch auf anderen Seiten verfügbar ist, wird dies in der Spalte „Verhalten“ angegeben.
 
-| Command | Behavior|
+| Befehl | Verhalten|
 | :- | :- |
-|`Clone repository: <URL type>`|Copy the URL needed to clone the repository using {% data variables.product.prodname_cli %}, HTTPS, or SSH to the clipboard. For more information, see "[Cloning a repository](/repositories/creating-and-managing-repositories/cloning-a-repository)."|
-|`New discussion`|Create a new discussion in the repository. For more information, see "[Creating a new discussion](/discussions/quickstart#creating-a-new-discussion)."|
-|`New file`|Create a new file from any page in the repository. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
-|`New issue`|Open a new issue from any page in the repository. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."|
-|`Open in new codespace`|Create and open a codespace for this repository. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."|
-|`Open in github.dev editor`|Open the current repository in the github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
+|`Clone repository: <URL type>`|Die URL, die zum Klonen des Repositorys mit {% data variables.product.prodname_cli %}, HTTPS oder SSH erforderlich ist, in die Zwischenablage kopieren. Weitere Informationen findest du unter [Klonen eines Repositorys](/repositories/creating-and-managing-repositories/cloning-a-repository).|
+|`New discussion`|Neue Diskussion im Repository erstellen. Weitere Informationen findest du unter [Erstellen einer neuen Diskussion](/discussions/quickstart#creating-a-new-discussion).|
+|`New file`|Eine neue Datei von einer beliebigen Seite im Repository erstellen. Weitere Informationen findest du unter [Hinzufügen einer Datei zu einem Repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
+|`New issue`|Ein neues Issue von einer beliebigen Seite im Repository öffnen. Weitere Informationen findest du unter [Erstellen eines Issues](/issues/tracking-your-work-with-issues/creating-an-issue).|
+|`Open in new codespace`|Einen Codespace für dieses Repository erstellen und öffnen. Weitere Informationen findest du unter [Erstellen eines Codespaces für ein Repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository).|
+|`Open in github.dev editor`|Das aktuelle Repository im github.dev-Editor öffnen. Weitere Informationen findest du unter [Öffnen des webbasierten Editors](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
 
-### File commands
+### Dateibefehle
 
-These commands are available only when you open the command palette from a file in a repository.
+Diese Befehle sind nur verfügbar, wenn du die Befehlspalette von einer Datei in einem Repository öffnest.
 
-| Command | Behavior|
+| Befehl | Verhalten|
 | :- | :- |
-|`Copy permalink`|Create a link to the file that includes the current commit SHA and copy the link to the clipboard. For more information, see "[Getting permanent links to files](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit)."
-|`Open in github.dev editor`|Open the currently displayed file in github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
+|`Copy permalink`|Link zu der Datei erstellen, die den aktuellen Commit-SHA enthält, und den Link in die Zwischenablage kopieren. Weitere Informationen findest du unter [Abrufen dauerhafter Links zu Dateien](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit).
+|`Open in github.dev editor`|Die aktuell angezeigte Datei im github.dev-Editor öffnen. Weitere Informationen findest du unter [Öffnen des webbasierten Editors](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
 
-### Discussion commands
+### Diskussionsbefehle
 
-These commands are available only when you open the command palette from a discussion. They act on your current page and are not affected by the scope set in the command palette.
+Diese Befehle sind nur verfügbar, wenn du die Befehlspalette von einer Diskussion öffnest. Sie wirken auf deiner aktuellen Seite und sind nicht von dem Bereich betroffen, der in der Befehlspalette festgelegt ist.
 
-| Command | Behavior|
+| Befehl | Verhalten|
 | :- | :- |
-|`Delete discussion...`|Permanently delete the discussion. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
-|`Edit discussion body`|Open the main body of the discussion ready for editing.
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for additions to the discussion. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Transfer discussion...`|Move the discussion to a different repository. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion)."
+|`Delete discussion...`|Die Diskussion endgültig löschen. Weitere Informationen findest du unter [Verwalten von Diskussionen](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion).
+|`Edit discussion body`|Den Haupttext der Diskussion öffnen, der zur Bearbeitung bereit ist.
+|`Subscribe`/`unsubscribe`|Benachrichtigungen zu Ergänzungen für die Diskussion abonnieren oder nicht mehr abonnieren. Weitere Informationen findest du unter [Informationen zu Benachrichtigungen](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|`Transfer discussion...`|Diskussion in ein anderes Repository verschieben. Weitere Informationen findest du unter [Verwalten von Diskussionen](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion).
 
-### Issue commands
+### Issuebefehle
 
-These commands are available only when you open the command palette from an issue. They act on your current page and are not affected by the scope set in the command palette.
+Diese Befehle sind nur verfügbar, wenn du die Befehlspalette von einem Issue öffnest. Sie wirken auf deiner aktuellen Seite und sind nicht von dem Bereich betroffen, der in der Befehlspalette festgelegt ist.
 
-| Command | Behavior|
+| Befehl | Verhalten|
 | :- | :- |
-|`Close`/`reopen issue`|Close or reopen the current issue. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."|
-|`Convert issue to discussion...`|Convert the current issue into a discussion. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
-|`Delete issue...`|Delete the current issue. For more information, see "[Deleting an issue](/issues/tracking-your-work-with-issues/deleting-an-issue)."|
-|`Edit issue body`|Open the main body of the issue ready for editing.
-|`Edit issue title`|Open the title of the issue ready for editing.
-|`Lock issue`|Limit new comments to users with write access to the repository. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
-|`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."|
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this issue. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Transfer issue...`|Transfer the issue to another repository. For more information, see "[Transferring an issue to another repository](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)."|
+|`Close`/`reopen issue`|Das aktuelle Issue schließen oder erneut öffnen. Weitere Informationen findest du unter [Informationen zu Issues](/issues/tracking-your-work-with-issues/about-issues).|
+|`Convert issue to discussion...`|Das aktuelle Issue in eine Diskussion umwandeln. Weitere Informationen findest du unter [Moderieren von Diskussionen](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion).
+|`Delete issue...`|Das akuelle Issue löschen. Weitere Informationen findest du unter [Löschen eines Issues](/issues/tracking-your-work-with-issues/deleting-an-issue).|
+|`Edit issue body`|Den Haupttext des Issues öffnen, der zur Bearbeitung bereit ist.
+|`Edit issue title`|Den Titel des Issues öffnen, der zur Bearbeitung bereit ist.
+|`Lock issue`|Neue Kommentare auf Benutzer mit Schreibzugriff auf das Repository beschränken. Weitere Informationen findest du unter [Sperren von Unterhaltungen](/communities/moderating-comments-and-conversations/locking-conversations).
+|`Pin`/`unpin issue`|Ändern, ob das Issue im Abschnitt „Angeheftete Issues“ für das Repository angezeigt wird. Weitere Informationen findest du unter [Anheften eines Issues an dein Repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository).|
+|`Subscribe`/`unsubscribe`|Benachrichtigungen zu Änderungen für dieses Issue abonnieren oder nicht mehr abonnieren. Weitere Informationen findest du unter [Informationen zu Benachrichtigungen](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|`Transfer issue...`|Das Issue an ein anderes Repository übertragen. Weitere Informationen findest du unter [Übertragen eines Issues an ein anderes Repository](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository).|
 
-### Pull request commands
+### Pull Request-Befehle
 
-These commands are available only when you open the command palette from a pull request. They act on your current page and are not affected by the scope set in the command palette.
+Diese Befehle sind nur verfügbar, wenn du die Befehlspalette von einem Pull Request öffnest. Sie wirken auf deiner aktuellen Seite und sind nicht von dem Bereich betroffen, der in der Befehlspalette festgelegt ist.
 
-| Command | Behavior|
+| Befehl | Verhalten|
 | :- | :- |
-|`Close`/`reopen pull request`|Close or reopen the current pull request. For more information, see "[About pull requests](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."|
-|`Convert to draft`/`Mark pull request as ready for review`|Change the state of the pull request to show it as ready, or not ready, for review. For more information, see "[Changing the state of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."|
-|`Copy current branch name`| Add the name of the head branch for the pull request to the clipboard.
-|`Edit pull request body`|Open the main body of the pull request ready for editing.
-|`Edit pull request title`|Open the title of the pull request ready for editing.
-|`Open in new codespace`|Create and open a codespace for the head branch of the pull request. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see "[About branches](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)."|
+|`Close`/`reopen pull request`|Aktuellen Pull Request schließen oder erneut öffnen. Weitere Informationen findest du unter [Informationen zu Pull Requests](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).|
+|`Convert to draft`/`Mark pull request as ready for review`|Den Status des Pull Requests ändern, um ihn als bereit oder nicht bereit, zur Überprüfung, anzuzeigen. Weitere Informationen findest du unter [Ändern des Status eines Pull Requests](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request).|
+|`Copy current branch name`| Den Namen des Head-Branch für den Pull Request zur Zwischenablage hinzufügen.
+|`Edit pull request body`|Den Haupttext des Pull Requests öffnen, der zur Bearbeitung bereit ist.
+|`Edit pull request title`|Den Titel des Pull Requests öffnen, der zur Bearbeitung bereit ist.
+|`Open in new codespace`|Einen Codespace für den Head-Branch des Pull Requests erstellen und öffnen. Weitere Informationen findest du unter [Erstellen eines Codespaces für ein Repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository).
+|`Subscribe`/`unsubscribe`|Benachrichtigungen zu Änderungen für diesen Pull Request abonnieren oder nicht mehr abonnieren. Weitere Informationen findest du unter [Informationen zu Benachrichtigungen](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|`Update current branch`|Den Head-Branch des Pull Requests mit Änderungen aus dem Basisbranch aktualisieren. Dieser Befehl ist nur für Pull Requests verfügbar, die auf den Standardbranch des Repositorys abzielen. Weitere Informationen findest du unter [Informationen zu Branches](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).|

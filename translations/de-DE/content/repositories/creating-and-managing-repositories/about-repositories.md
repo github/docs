@@ -18,12 +18,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: af0b8eb9f8bd7a98c246a0806a8bc60f59ba147f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 95e4033aa41f7920b5447554773dc61a181f5861
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107285'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163505'
 ---
 ## Informationen zu Repositorys
 
@@ -43,6 +43,8 @@ Du kannst Repositorys zum Verwalten deiner Arbeit und zur Zusammenarbeit mit and
 - Du kannst Projektboards zum Organisieren und Priorisieren deiner Issues und Pull Requests verwenden. Weitere Informationen findest du unter [Informationen zu Projektboards](/github/managing-your-work-on-github/about-project-boards).
 
 {% data reusables.repositories.repo-size-limit %}
+
+Informationen zum effektiven Einsatz von Repositorys findest du unter [Bewährte Methoden für Repositorys](/repositories/creating-and-managing-repositories/best-practices-for-repositories).
 
 ## Informationen zur Sichtbarkeit eines Repositorys
 
@@ -130,9 +132,8 @@ Einige Teile einer eingeschränkten Diff werden möglicherweise angezeigt, aber 
 
 Die Seiten „Ansicht vergleichen“ und „Pull Requests“ zeigen eine Liste von Commits zwischen den Überarbeitungen `base` und `head` an. Diese Listen sind auf **250** Commits beschränkt. Wenn diese Grenze überschritten wird, gibt ein Hinweis an, dass weitere Commits vorhanden sind (aber sie werden nicht angezeigt).
 
-## Weitere Informationsquellen
+## Weiterführende Themen
 
-- [Erstellen eines neuen Repositorys](/articles/creating-a-new-repository)
 - [Informationen zu Forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)
 - [Zusammenarbeiten mithilfe von Issues und Pull Requests](/categories/collaborating-with-issues-and-pull-requests)
 - [Verwalten deiner Arbeit auf {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)

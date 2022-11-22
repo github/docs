@@ -1,6 +1,6 @@
 ---
-title: Initializing the cluster
-intro: 'A {% data variables.product.prodname_ghe_server %} cluster must be set up with a license and initialized using the administrative shell (SSH).'
+title: Cluster initialisieren
+intro: 'Ein {% data variables.product.prodname_ghe_server %}-Cluster muss mit einer Lizenz eingerichtet und mithilfe der Verwaltungsshell (SSH) initialisiert werden.'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
   - /enterprise/admin/enterprise-management/initializing-the-cluster
@@ -11,46 +11,50 @@ type: how_to
 topics:
   - Clustering
   - Enterprise
+ms.openlocfilehash: 91394d1d39301f77bc49a87012e04c3d5e9c3b60
+ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167079'
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-## Installing {% data variables.product.prodname_ghe_server %}
+## {% data variables.product.prodname_ghe_server %} installieren
 
-1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
+1. Stelle auf jedem Clusterknoten {% data variables.product.prodname_ghe_server %} bereit, und installiere es. Weitere Informationen findest du unter [Einrichten einer {% data variables.product.prodname_ghe_server %}-Instanz](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
+2. Konfiguriere mithilfe der Verwaltungsshell oder DHCP **nur** die IP-Adresse jedes Knotens. Konfiguriere keine anderen Einstellungen.
 
-## Configuring the first node
+## Ersten Knoten konfigurieren
 
-1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
-2. In your web browser, visit `https://<ip address>:8443/setup/`.
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+1. Stelle eine Verbindung mit dem Knoten her, der in `cluster.conf` als primäre MySQL-Instanz gekennzeichnet wird. Weitere Informationen findest du unter [Informationen zur Clusterkonfigurationsdatei](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file).
+2. Wechsle in deinem Webbrowser zu `https://<ip address>:8443/setup/`.
+{% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-## Initializing the cluster
+## Cluster initialisieren
 
-To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+Um den Cluster zu initialisieren, benötigst du eine Clusterkonfigurationsdatei (`cluster.conf`). Weitere Informationen findest du unter [Informationen zur Clusterkonfigurationsdatei](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file).
 
-1. From the first node that was configured, run `ghe-cluster-config-init`.  This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
-2. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
+1. Führe auf dem ersten Knoten, der konfiguriert wurde, `ghe-cluster-config-init` aus.  Dadurch wird der Cluster initialisiert, wenn in der Clusterkonfigurationsdatei nicht konfigurierte Knoten vorhanden sind.
+2. Führe aus `ghe-cluster-config-apply`. Dieser Befehl validiert die Datei `cluster.conf`, wendet die Konfiguration auf jede Knotendatei an und lädt die konfigurierten Dienste auf jeden Knoten.
 
-To check the status of a running cluster use the `ghe-cluster-status` command.
+Um den Status eines ausgeführten Clusters zu überprüfen, verwende den Befehl `ghe-cluster-status`.
 
-## About the cluster configuration file
+## Informationen zur Clusterkonfigurationsdatei
 
-The cluster configuration file (`cluster.conf`) defines the nodes in the cluster, and what services they run.
-For more information, see "[About cluster nodes](/enterprise/admin/guides/clustering/about-cluster-nodes)."
+Die Clusterkonfigurationsdatei (`cluster.conf`) definiert die Knoten im Cluster und die von ihnen ausgeführten Dienste.
+Weitere Informationen findest du unter [Informationen zu Clusterknoten](/enterprise/admin/guides/clustering/about-cluster-nodes).
 
-This example `cluster.conf` defines a cluster with 11 nodes.
+Diese `cluster.conf`-Beispieldatei definiert einen Cluster mit 11 Knoten.
 
-  - Two nodes called `ghes-front-end-node-\*` run services responsible for responding to client requests.
-  - Three nodes called `ghes-database-node-\*` run services responsible for storage, retrieval, and replication of database data.
-  - Three nodes called `ghes-search-node-\*` run services responsible for search functionality.
-  - Three nodes called `ghes-storage-node-\*` run services responsible for storage, retrieval, and replication of data.
+  - Zwei Knoten mit dem Namen `ghes-front-end-node-\*` führen die für die Reaktion auf Clientanforderungen zuständigen Dienste aus
+  - Drei Knoten mit dem Namen `ghes-database-node-\*` führen Dienste aus, die für die Speicherung, den Abruf und die Replikation von Datenbankdaten verantwortlich sind
+  - Drei Knoten mit dem Namen `ghes-search-node-\*` führen Dienste aus, die für die Suchfunktionalität verantwortlich sind
+  - Drei Knoten mit dem Namen `ghes-storage-node-\*` führen Dienste aus, die für die Speicherung, den Abruf und die Replikation von Daten verantwortlich sind
 
-The names of the nodes can be any valid hostname you choose. The names are set as the hostname of each node, and will also be added to `/etc/hosts` on each node, so that the nodes are locally resolvable to each other.
+Die Namen der Knoten können beliebige gültige Hostnamen sein. Die Namen sind als Hostnamen jedes Knotens festgelegt und werden auf jedem Knoten zu `/etc/hosts` hinzugefügt, damit die Knoten untereinander lokal auflösbar sind.
 
-Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
+Gib den ersten Clusterknoten an, den du über `mysql-server` und `mysql-master` als primär MySQL-Instanz konfiguriert hast.
 
 ```ini
 [cluster]
@@ -155,7 +159,7 @@ Specify the first cluster node you configured as the MySQL primary via `mysql-se
   metrics-server = true
 ```
 
-Create the file `/data/user/common/cluster.conf` on the configured first node. For example, using `vim`:
+Erstelle die Datei `/data/user/common/cluster.conf` auf dem konfigurierten ersten Knoten. Beispielsweise gilt bei Verwendung von `vim`:
 
    ```shell
    ghe-data-node-1:~$ sudo vim /data/user/common/cluster.conf

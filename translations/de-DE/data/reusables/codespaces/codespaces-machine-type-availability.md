@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: bde9df5c980a7448c30645675dc13086c1094fdc
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 32a0269159f5f1556cd96d10ef75915fe84b05c0
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "147882883"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148159577"
 ---
-Die Auswahl der verfügbaren Computertypen kann durch eine für deine Organisation konfigurierte Richtlinie oder durch eine Mindestspezifikation für Computertypen für dein Repository eingeschränkt werden. Weitere Informationen findest du unter [Einschränken des Zugriffs auf Computertypen](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types) und unter [Festlegen einer Mindestspezifikation für Codespacecomputer](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines).
+Die zur Auswahl stehenden Computertypen können durch eine Reihe von Faktoren eingeschränkt werden. Hierzu zählen eine für deine Organisation konfigurierte Richtlinie oder eine Mindestspezifikation für Computertypen für dein Repository. Weitere Informationen findest du unter [Einschränken des Zugriffs auf Computertypen](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types) und unter [Festlegen einer Mindestspezifikation für Codespacecomputer](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines).
