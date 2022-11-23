@@ -1,7 +1,7 @@
 ---
-title: Adding features to a devcontainer.json file
+title: devcontainer.json 파일에 기능 추가
 shortTitle: Adding features
-intro: With features, you can quickly add tools, runtimes, or libraries to your dev container configuration.
+intro: '기능을 사용하면 도구, 런타임 또는 라이브러리를 개발 컨테이너 구성에 빠르게 추가할 수 있습니다.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,34 +10,39 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+ms.openlocfilehash: 7e72739e93e83995d86baf19d62f7bf2e1c5b6bc
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180829'
 ---
+{% data reusables.codespaces.about-features %} 이 문서의 탭을 사용하여 이러한 각 기능 추가 방법에 대한 지침을 표시합니다.
 
-{% data reusables.codespaces.about-features %} Use the tabs in this article to display instructions for each of these ways of adding features.
-
-## Adding features to a `devcontainer.json` file
+## 파일에 기능 `devcontainer.json` 추가
 
 {% webui %}
 
-1. Navigate to your repository on {% data variables.product.prodname_dotcom_the_website %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
+1. {% data variables.product.prodname_dotcom_the_website %}에서 리포지토리로 이동하여 파일을 찾 `devcontainer.json` 은 다음 {% octicon "pencil" aria-label="The edit icon" %}을 클릭하여 파일을 편집합니다.
    
-   If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
-1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
+   파일이 아직 `devcontainer.json` 없는 경우 지금 만들 수 있습니다. 자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)”를 참조하세요.
+1. 파일 편집기 오른쪽의 **Marketplace** 탭에서 추가하려는 기능을 찾아보거나 검색한 다음 기능의 이름을 클릭합니다.
 
-   ![Screenshot of the Terraform feature in the Marketplace tab, with "Terra" in the search bar](/assets/images/help/codespaces/feature-marketplace.png)
-3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
+   ![검색 창에 "Terra"가 있는 Marketplace 탭의 Terraform 기능 스크린샷](/assets/images/help/codespaces/feature-marketplace.png)
+3. "설치"에서 코드 조각을 클릭하여 클립보드에 복사한 다음, 코드 조각을 파일의 `features` 개체에 `devcontainer.json` 붙여넣습니다.
 
-   ![Screenshot of a code block in the Installation section of the Marketplace tab](/assets/images/help/codespaces/feature-installation-code.png)
+   ![Marketplace 탭의 설치 섹션에 있는 코드 블록 스크린샷](/assets/images/help/codespaces/feature-installation-code.png)
 
    ```JSON
    "features": {
         ...
         "ghcr.io/devcontainers/features/terraform:1": {},
         ...
-	}
+    }
     ```
-1. By default, the latest version of the feature will be used. To choose a different version, or configure other options for the feature, expand the properties listed under "Options" to view the available values, then add the options by manually editing the object in your `devcontainer.json` file.
+1. 기본적으로 기능의 최신 버전이 사용됩니다. 다른 버전을 선택하거나 기능에 대한 다른 옵션을 구성하려면 "옵션" 아래에 나열된 속성을 확장하여 사용 가능한 값을 확인한 다음 파일의 개체를 수동으로 편집하여 옵션을 추가합니다 `devcontainer.json` .
 
-   ![Screenshot of the Options section of the Marketplace tab, with "version" and "tflint" expanded](/assets/images/help/codespaces/feature-options.png)
+   !["버전" 및 "tflint"가 확장된 Marketplace 탭의 옵션 섹션 스크린샷](/assets/images/help/codespaces/feature-options.png)
 
    ```JSON
    "features": {
@@ -47,11 +52,11 @@ topics:
             "tflint": "latest"
         },
         ...
-	}
+    }
     ```
-1. Commit the changes to your `devcontainer.json` file.
+1. 변경 내용을 파일에 커밋합니다 `devcontainer.json` .
 
-The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+구성 변경 내용은 리포지토리에서 만든 새 codespace에 적용됩니다. 기존 codespace에서 변경 내용을 적용하려면 파일에 대한 업데이트를 `devcontainer.json` codespace로 끌어온 다음 codespace에 대한 컨테이너를 다시 빌드해야 합니다. 자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)”를 참조하세요.
 
 {% endwebui %}
 
@@ -59,21 +64,21 @@ The configuration changes will take effect in new codespaces created from the re
 
 {% note %}
 
-To add features in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+코드스페이스에 연결되지 않고 로컬로 작업하는 동안 {% data variables.product.prodname_vscode_shortname %}의 기능을 추가하려면 "Dev Containers" 확장을 설치하고 사용하도록 설정해야 합니다. 이 확장에 대한 자세한 내용은 [{% data variables.product.prodname_vs_marketplace_shortname %}를 참조하세요](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 {% endnote %}
 
 {% data reusables.codespaces.command-pallette %}
-2. Start typing "Configure" and select **Codespaces: Configure Dev Container Features**.
+2. "구성"을 입력하고 **Codespaces: Dev Container Features 구성** 을 선택합니다.
 
-   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![명령 팔레트의 Devcontainer 기능 구성 명령](/assets/images/help/codespaces/codespaces-configure-features.png)
 
-3. Update your feature selections, then click **OK**.
+3. 기능 선택을 업데이트한 다음 **확인** 을 클릭합니다.
 
-   ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
+   ![컨테이너 구성 중에 추가 기능 선택 메뉴](/assets/images/help/codespaces/select-additional-features.png)
 
-4. If you're working in a codespace, a prompt will appear in the lower-right corner. To rebuild the container and apply the changes to the codespace you're working in, click **Rebuild Now**.
+4. codespace에서 작업하는 경우 오른쪽 아래 모서리에 프롬프트가 표시됩니다. 컨테이너를 다시 빌드하고 작업 중인 codespace에 변경 내용을 적용하려면 **지금 다시 빌드** 를 클릭합니다.
 
-   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![명령 팔레트의 “Codespaces: 컨테이너 다시 빌드”](/assets/images/help/codespaces/rebuild-prompt.png)
 
 {% endvscode %}

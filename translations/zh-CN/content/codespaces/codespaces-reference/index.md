@@ -12,11 +12,11 @@ children:
   - /security-in-github-codespaces
   - /performing-a-full-rebuild-of-a-container
   - /disaster-recovery-for-github-codespaces
-ms.openlocfilehash: 87692cd862e791f3e6ffa2be2b07f34c6158e617
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 223d3b146d829f129de39b43b51b6ab9e8aef411
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159195'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180801'
 ---
 

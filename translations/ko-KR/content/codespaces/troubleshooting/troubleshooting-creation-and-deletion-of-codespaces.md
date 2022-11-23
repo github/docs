@@ -8,12 +8,12 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Creation and deletion
-ms.openlocfilehash: 09c3a73ec5e41f0170f1d3cd66df139bb2a497e5
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 4a12c848fa7400ec336f5ad086eb4d2858a431f0
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158695'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180821'
 ---
 ## codespace 만들기
 
@@ -98,4 +98,4 @@ This codespace is currently running in recovery mode due to a container error.
 ```
 만들기 로그를 검토하고 필요에 따라 개발 컨테이너 구성을 업데이트합니다. 자세한 내용은 “[{% data variables.product.prodname_github_codespaces %} 로그](/codespaces/troubleshooting/github-codespaces-logs)”를 참조하세요.
 
-그런 다음 codespace를 다시 시작하거나 컨테이너를 다시 빌드할 수 있습니다. 자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)”를 참조하세요.
+그런 다음 codespace를 다시 시작하거나 컨테이너를 다시 빌드할 수 있습니다. 컨테이너를 다시 빌드하는 방법에 대한 자세한 내용은 "[개발 컨테이너 소개"를 참조하세요.](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)

@@ -1,6 +1,6 @@
 ---
-title: The codespace lifecycle
-intro: 'You can develop in a {% data variables.product.prodname_github_codespaces %} environment and maintain your data throughout the entire codespace lifecycle.'
+title: Жизненный цикл codespace
+intro: 'Вы можете разрабатывать в среде {% data variables.product.prodname_github_codespaces %} и поддерживать данные на протяжении всего жизненного цикла codespace.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,58 +10,63 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/codespaces-lifecycle
+ms.openlocfilehash: 660ced63e34c6de8025c65946542baca43534cfe
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180798'
 ---
+## Сведения о жизненном цикле пространства кода
 
-## About the lifecycle of a codespace
+Жизненный цикл пространства кода начинается при его создании и заканчивается при его удалении. Вы можете отключиться и переподключиться к активному пространству кода, не затрагивая выполняемые процессы. Вы можете остановить и перезапустить пространство кода без потери изменений, внесенных в проект.
 
-The lifecycle of a codespace begins when you create a codespace and ends when you delete it. You can disconnect and reconnect to an active codespace without affecting its running processes. You may stop and restart a codespace without losing changes that you have made to your project.
+## Создание codespace
 
-## Creating a codespace
+Когда вы собираетесь работать над проектом, вы можете создать новое пространство кода или открыть существующее. Вам может потребоваться создать новое пространство кода из ветви репозитория при каждой разработке в {% data variables.product.prodname_github_codespaces %} или сохранить длительное пространство кода для функции. {% data reusables.codespaces.starting-new-project-template %} Дополнительные сведения см. в [разделах Создание codespace для репозитория](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository) и [Создание codespace на основе шаблона](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template).
 
-When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your repository each time you develop in {% data variables.product.prodname_github_codespaces %} or keep a long-running codespace for a feature. {% data reusables.codespaces.starting-new-project-template %} For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)" and "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+{% data reusables.codespaces.max-number-codespaces %} Аналогичным образом, если вы достигнете максимального количества активных сред codespace и попытаетесь запустить еще одну среду, вам будет предложено остановить одну из активных сред codespace.
 
-{% data reusables.codespaces.max-number-codespaces %} Similarly, if you reach the maximum number of active codespaces and you try to start another, you are prompted to stop one of your active codespaces.
-
-If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine. 
+Если вы решили создавать новое пространство кода каждый раз при работе над проектом, следует регулярно отправлять изменения, чтобы все новые фиксации были включены в {% data variables.product.prodname_dotcom %}. Если вы решили использовать для своего проекта долгосрочное пространство кода, то должны выполнять вытягивание из ветви по умолчанию репозитория каждый раз, когда начинаете работать в пространстве кода, чтобы в вашей среде присутствовали последние фиксации. Этот рабочий процесс очень похож на работу с проектом на локальном компьютере. 
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
-## Saving changes in a codespace
+## Сохранение изменений в пространстве кода
 
-When you connect to a codespace through the web, auto-save is enabled automatically for the web editor and configured to save changes after a delay. When you connect to a codespace through {% data variables.product.prodname_vscode %} running on your desktop, you must enable auto-save. For more information, see [Save/Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) in the {% data variables.product.prodname_vscode %} documentation.
+При подключении к пространству кода через Интернет для веб редактора автоматически включается автосохранение и настраивается сохранение изменений после задержки. При подключении к пространству кода через {% data variables.product.prodname_vscode %}, работающий на вашем компьютере, необходимо самостоятельно включить автосохранение. Дополнительные сведения см. в разделе [Сохранение и автосохранение](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) документации по {% data variables.product.prodname_vscode %}.
 
-Your work will be saved on a virtual machine in the cloud. You can close and stop a codespace and return to the saved work later. If you have unsaved changes, your editor will prompt you to save them before exiting. However, if your codespace is deleted, then your work will be deleted too. To persist your work, you will need to commit your changes and push them to your remote repository, or publish your work to a new remote repository if you created your codespace from a template. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)."
+Ваша работа будет сохранена на виртуальной машине в облаке. Вы можете закрыть и остановить codespace, а затем вернуться к сохраненной работе. Если у вас есть несохраненные изменения, перед выходом редактор предложит сохранить их. Однако при удалении codespace работа также будет удалена. Чтобы сохранить работу, необходимо зафиксировать изменения и отправить их в удаленный репозиторий или опубликовать работу в новом удаленном репозитории, если вы создали codespace на основе шаблона. Дополнительные сведения см. в статье [Использование системы управления версиями в кодовом пространстве](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace).
 
-## Timeouts for {% data variables.product.prodname_github_codespaces %}
+## Время ожидания для {% data variables.product.prodname_github_codespaces %}
 
-If you leave your codespace running without interaction, or if you exit your codespace without explicitly stopping it, the codespace will timeout after a period of inactivity and stop running. By default, a codespace will timeout after 30 minutes of inactivity, but you can customize the duration of the timeout period for new codespaces that you create. For more information about setting the default timeout period for your codespaces, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)." For more information about stopping a codespace, see "[Stopping a codespace](#stopping-a-codespace)."
+Если вы оставите свое пространство кода работающим без взаимодействия или если выйдете из него, не остановив его явно, после некоторого периода бездействия время ожидания истечет, и пространство кода остановит работу. По умолчанию время ожидания пространства кода истекает через 30 минут бездействия, но вы можете настроить другое время ожидания для вновь создаваемых пространств кода. Дополнительные сведения о настройке времени ожидания по умолчанию для пространств кода см. в разделе [Настройка времени ожидания для {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces). Дополнительные сведения об остановке пространства кода см. в разделе [Остановка пространства кода](#stopping-a-codespace).
 
-When a codespace times out, your data is preserved from the last time your changes were saved. For more information, see "[Saving changes in a codespace](#saving-changes-in-a-codespace)."
+При истечении времени ожидания пространства кода данные сохраняются с момента последнего сохранения изменений. Дополнительные сведения см. в разделе [Сохранение изменений в пространстве кода](#saving-changes-in-a-codespace).
 
-## Rebuilding a codespace
+## Перестроение пространства кода
 
-You can rebuild your codespace to implement changes to your dev container configuration. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. By default, when you rebuild your codespace, {% data variables.product.prodname_github_codespaces %} will reuse images from your cache to speed up the rebuild process. Alternatively, you can perform a full rebuild, which clears your cache and rebuilds the container with fresh images.
+Вы можете перестроить codespace, чтобы реализовать изменения в конфигурации контейнера разработки. В большинстве случаев вместо перестроения пространства кода можно просто создать новое пространство кода. По умолчанию при перестроении codespace {% data variables.product.prodname_github_codespaces %} будет повторно использовать образы из кэша, чтобы ускорить процесс перестроения. Кроме того, можно выполнить полную перестройку, которая очищает кэш и перестраивает контейнер со свежими образами.
 
-For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)" and "[Performing a full rebuild of a container](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container)."
+Дополнительные сведения см. в разделах [Общие сведения о контейнерах разработки](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace) и [Выполнение полной перестройки контейнера](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container).
 
-## Stopping a codespace
+## Остановка пространства кода
 
-{% data reusables.codespaces.stopping-a-codespace %} For more information, see "[Stopping and starting a codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."
+{% data reusables.codespaces.stopping-a-codespace %} Дополнительные сведения см. в разделе [Остановка и запуск codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace).
 
-## Deleting a codespace
+## Удаление codespace
 
-You can create a codespace for a particular task and then safely delete the codespace after you push your changes to a remote branch.
+Вы можете создать пространство кода для конкретной задачи, а затем безопасно удалить его после отправки изменений в удаленную ветвь.
 
-If you try to delete a codespace with unpushed git commits, your editor will notify you that you have changes that have not been pushed to a remote branch. You can push any desired changes and then delete your codespace, or continue to delete your codespace and any uncommitted changes. You can also export your code to a new branch without creating a new codespace. For more information, see "[Exporting changes to a branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+Если вы попытаетесь удалить пространство кода с неотправленными фиксациями git, редактор сообщит вам, что имеются изменения, которые не были отправлены в удаленную ветвь. Вы можете отправить все необходимые изменения, а затем удалить пространство кода или продолжить, чтобы удалить пространство кода и все незафиксированные изменения. Вы также можете экспортировать код в новую ветвь, не создавая новое пространство кода. Дополнительные сведения см. в разделе [Экспорт изменений в ветвь](/codespaces/troubleshooting/exporting-changes-to-a-branch).
 
-Codespaces that have been stopped and remain inactive for a specified period of time will be deleted automatically. By default, inactive codespaces are deleted after 30 days, but you can customize your codespace retention period. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+Codespace, которые были остановлены и остаются неактивными в течение указанного периода времени, будут удалены автоматически. По умолчанию неактивные codespace удаляются через 30 дней, но вы можете настроить период хранения codespace. Дополнительные сведения см. в статье [Настройка автоматического удаления сред codespace](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces).
 
-If you create a codespace, it will continue to accrue storage charges until it is deleted, irrespective of whether it is active or stopped. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)." Deleting a codespace does not reduce the current billable amount for {% data variables.product.prodname_github_codespaces %}, which accumulates during each monthly billing cycle. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+Если вы создадите codespace, оно будет продолжать начислять расходы на хранение, пока оно не будет удалено, независимо от того, является ли оно активным или остановленным. Дополнительные сведения см. в статье [Сведения о выставлении счетов за {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage). Удаление codespace не уменьшает текущую оплачиваемую сумму для {% data variables.product.prodname_github_codespaces %}, которая накапливается в течение каждого ежемесячного цикла выставления счетов. Дополнительные сведения см. в разделе [Просмотр данных об использовании {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
 
-For more information on deleting a codespace, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+Дополнительные сведения об удалении пространства кода см. в разделе [Удаление пространства кода](/codespaces/developing-in-codespaces/deleting-a-codespace).
 
-## Losing the connection while using {% data variables.product.prodname_github_codespaces %}
+## Потеря подключения при использовании {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} is a cloud-based development environment and requires an internet connection. If you lose connection to the internet while working in a codespace, you will not be able to access your codespace. However, any uncommitted changes will be saved. When you have access to an internet connection again, you can connect to your codespace in the exact same state that it was left in. If you have an unstable internet connection, you should commit and push your changes often.
+{% data variables.product.prodname_github_codespaces %} — это облачная среда разработки, для которой требуется подключение к Интернету. Если во время работы в пространстве кода произойдет потеря подключения к Интернету, вы не сможете получить доступ к своему пространству кода. Однако все незафиксированные изменения будут сохранены. Когда подключение к Интернету будет восстановлено, вы сможете подключиться к пространству кода в том же состоянии, в котором оно было оставлено. Если ваше подключение к Интернету нестабильно, следует чаще фиксировать и отправлять изменения.
 
-If you know that you will often be working offline, you can use your `devcontainer.json` file with the ["Dev Containers" extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for {% data variables.product.prodname_vscode_shortname %} to build and attach to a local development container for your repository. For more information, see [Developing inside a container](https://code.visualstudio.com/docs/remote/containers) in the {% data variables.product.prodname_vscode %} documentation.
+Если вы знаете, что часто работаете в автономном режиме, вы можете использовать файл `devcontainer.json` с [расширением "Контейнеры разработки"](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) для {% data variables.product.prodname_vscode_shortname %} для сборки и подключения к локальному контейнеру разработки для репозитория. Дополнительные сведения см. в разделе [Разработка в контейнере](https://code.visualstudio.com/docs/remote/containers) в документации по {% data variables.product.prodname_vscode %}.
