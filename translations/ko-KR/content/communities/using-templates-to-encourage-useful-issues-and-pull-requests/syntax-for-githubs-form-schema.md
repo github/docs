@@ -7,12 +7,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: f5910f3cfdeeb148dc92ee537de4c26551a02f26
-ms.sourcegitcommit: ab0ae13cc28587f0302181d58a9519d88c7c1ef9
+ms.openlocfilehash: 3a8a21f04582b87741ef80755e92fbc859921bb5
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2022
-ms.locfileid: '148101711'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179671'
 ---
 {% note %}
 
@@ -64,7 +64,7 @@ ms.locfileid: '148101711'
 
 각 양식 요소에 대해 다음 키를 설정할 수 있습니다.
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | 정의하려는 요소의 형식입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
 | `id` | `type`이 `markdown`으로 설정된 경우를 제외하고 요소의 식별자입니다. {% data reusables.form-schema.id-must-be-unique %} 제공되는 경우 `id`는 URL 쿼리 매개 변수 미리 채우기의 필드에 대한 정규 식별자입니다. | 선택 사항 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
@@ -89,7 +89,7 @@ ms.locfileid: '148101711'
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `value` | 렌더링되는 텍스트. Markdown 서식 지정이 지원됩니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
@@ -122,7 +122,7 @@ body:
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | 양식에도 표시되는 예상 사용자 입력에 대한 간략한 설명입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | 양식에 표시되는 컨텍스트 또는 지침을 제공하는 텍스트 영역에 대한 설명입니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
@@ -134,7 +134,7 @@ body:
 
 {% data reusables.form-schema.validations-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -165,7 +165,7 @@ body:
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | 양식에도 표시되는 예상 사용자 입력에 대한 간략한 설명입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | 양식에 표시되는 컨텍스트 또는 지침을 제공하는 필드에 대한 설명입니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
@@ -176,7 +176,7 @@ body:
 
 {% data reusables.form-schema.validations-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -202,7 +202,7 @@ body:
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | 양식에 표시되는 예상 사용자 입력에 대한 간략한 설명입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | 양식에 표시되는 추가 컨텍스트 또는 지침을 제공하기 위한 드롭다운에 대한 설명입니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
@@ -213,7 +213,7 @@ body:
 
 {% data reusables.form-schema.validations-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -242,13 +242,21 @@ body:
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 키 | 설명 | 필수 | Type | 기본값 | 유효한 값 |
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | 양식에 표시되는 예상 사용자 입력에 대한 간략한 설명입니다. | 필수 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | 양식에 표시되는 확인란 집합에 대한 설명입니다. Markdown 서식 지정을 지원합니다. | 선택 사항 | String | 빈 문자열 | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | 사용자가 선택할 수 있는 확인란의 배열입니다. 구문의 경우 아래를 참조하세요. | 필수 | 배열 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
+
+#### 유효성 검사
+
+{% data reusables.form-schema.validations-intro %}
+
+| 키 | Description | 필수 | Type | 기본값 | 유효한 값 |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
 
 #### 예제
 

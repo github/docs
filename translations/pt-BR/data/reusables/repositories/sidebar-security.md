@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8a30be469d4a74efc97849e83e825f619c585036
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 88f9918556730cd1d87c09c72a032d15a149d220
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145083390"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148159321"
 ---
 1. Abaixo do nome do repositório, clique em **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.
 ![Guia Segurança](/assets/images/help/repository/security-tab.png)

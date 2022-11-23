@@ -53,6 +53,7 @@ translations/ko-KR/content/account-and-profile/setting-up-and-managing-your-pers
 translations/ko-KR/content/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python.md,file deleted because it no longer exists in main
 translations/ko-KR/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise.md,file deleted because it no longer exists in main
 translations/ko-KR/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/overview-of-github-advanced-security-deployment.md,file deleted because it no longer exists in main
+translations/ko-KR/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise.md,file deleted because it no longer exists in main
 translations/ko-KR/content/admin/configuration/configuring-your-enterprise/troubleshooting-ssl-errors.md,file deleted because it no longer exists in main
 translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage.md,file deleted because it no longer exists in main
 translations/ko-KR/content/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes.md,file deleted because it no longer exists in main
@@ -218,6 +219,7 @@ translations/ko-KR/content/rest/reference/users.md,file deleted because it no lo
 translations/ko-KR/content/rest/reference/webhooks.md,file deleted because it no longer exists in main
 translations/ko-KR/content/site-policy/privacy-policies/github-data-protection-agreement.md,file deleted because it no longer exists in main
 translations/ko-KR/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account.md,file deleted because it no longer exists in main
+translations/ko-KR/data/features/ip-allow-list-address-check.yml,file deleted because it no longer exists in main
 translations/ko-KR/data/features/security-overview-views.yml,file deleted because it no longer exists in main
 translations/ko-KR/data/glossaries/internal.yml,file deleted because it no longer exists in main
 translations/ko-KR/data/release-notes/enterprise-server/2-20/0.yml,file deleted because it no longer exists in main
@@ -375,6 +377,7 @@ translations/ko-KR/data/reusables/dotcom_billing/monthly-spending-limit-codespac
 translations/ko-KR/data/reusables/dotcom_billing/pricing_calculator/pricing_cal_codespaces.md,file deleted because it no longer exists in main
 translations/ko-KR/data/reusables/education/upgrade-organization.md,file deleted because it no longer exists in main
 translations/ko-KR/data/reusables/education/upgrade-page.md,file deleted because it no longer exists in main
+translations/ko-KR/data/reusables/enterprise-accounts/oidc-beta-notice.md,file deleted because it no longer exists in main
 translations/ko-KR/data/reusables/enterprise-accounts/repository-visibility-policy.md,file deleted because it no longer exists in main
 translations/ko-KR/data/reusables/enterprise-licensing/you-can-sync-for-a-combined-view.md,file deleted because it no longer exists in main
 translations/ko-KR/data/reusables/gated-features/advanced-security.md,file deleted because it no longer exists in main
@@ -524,7 +527,7 @@ translations/ko-KR/content/admin/configuration/configuring-your-enterprise/confi
 translations/ko-KR/content/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode.md,rendering error
 translations/ko-KR/content/admin/configuration/configuring-your-enterprise/enabling-private-mode.md,rendering error
 translations/ko-KR/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,rendering error
-translations/ko-KR/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise.md,rendering error
+translations/ko-KR/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list.md,rendering error
 translations/ko-KR/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,rendering error
 translations/ko-KR/content/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors.md,rendering error
 translations/ko-KR/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,rendering error
@@ -570,7 +573,6 @@ translations/ko-KR/content/admin/identity-and-access-management/using-enterprise
 translations/ko-KR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,rendering error
 translations/ko-KR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant.md,rendering error
 translations/ko-KR/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
-translations/ko-KR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,rendering error
 translations/ko-KR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,rendering error
 translations/ko-KR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise.md,rendering error
 translations/ko-KR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,rendering error
@@ -772,7 +774,7 @@ translations/ko-KR/content/codespaces/prebuilding-your-codespaces/allowing-a-pre
 translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,rendering error
 translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,rendering error
 translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,rendering error
-translations/ko-KR/content/codespaces/the-githubdev-web-based-editor.md,rendering error
+translations/ko-KR/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
 translations/ko-KR/content/codespaces/troubleshooting/github-codespaces-logs.md,rendering error
 translations/ko-KR/content/codespaces/troubleshooting/troubleshooting-github-codespaces-clients.md,rendering error
 translations/ko-KR/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,rendering error
@@ -780,7 +782,6 @@ translations/ko-KR/content/communities/documenting-your-project-with-wikis/about
 translations/ko-KR/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/ko-KR/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ko-KR/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
-translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,rendering error
 translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
 translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
@@ -802,7 +803,6 @@ translations/ko-KR/content/developers/apps/building-oauth-apps/creating-an-oauth
 translations/ko-KR/content/developers/apps/building-oauth-apps/scopes-for-oauth-apps.md,rendering error
 translations/ko-KR/content/developers/apps/getting-started-with-apps/activating-optional-features-for-apps.md,rendering error
 translations/ko-KR/content/developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app.md,rendering error
-translations/ko-KR/content/developers/apps/guides/creating-ci-tests-with-the-checks-api.md,rendering error
 translations/ko-KR/content/developers/apps/guides/using-the-github-api-in-your-app.md,rendering error
 translations/ko-KR/content/developers/apps/managing-github-apps/deleting-a-github-app.md,rendering error
 translations/ko-KR/content/developers/apps/managing-github-apps/editing-a-github-apps-permissions.md,rendering error
@@ -837,6 +837,8 @@ translations/ko-KR/content/education/manage-coursework-with-github-classroom/int
 translations/ko-KR/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom.md,rendering error
 translations/ko-KR/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,rendering error
 translations/ko-KR/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom.md,rendering error
+translations/ko-KR/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment.md,rendering error
+translations/ko-KR/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment.md,rendering error
 translations/ko-KR/content/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms.md,rendering error
 translations/ko-KR/content/education/quickstart.md,rendering error
 translations/ko-KR/content/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations.md,rendering error
@@ -867,7 +869,6 @@ translations/ko-KR/content/get-started/quickstart/github-glossary.md,rendering e
 translations/ko-KR/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md,rendering error
 translations/ko-KR/content/get-started/signing-up-for-github/verifying-your-email-address.md,rendering error
 translations/ko-KR/content/get-started/using-git/about-git-rebase.md,rendering error
-translations/ko-KR/content/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository.md,rendering error
 translations/ko-KR/content/get-started/using-github/github-mobile.md,rendering error
 translations/ko-KR/content/get-started/using-github/keyboard-shortcuts.md,rendering error
 translations/ko-KR/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,rendering error
@@ -894,13 +895,13 @@ translations/ko-KR/content/graphql/reference/unions.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
+translations/ko-KR/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,broken liquid tags
 translations/ko-KR/content/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project.md,rendering error
 translations/ko-KR/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/ko-KR/content/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch.md,rendering error
 translations/ko-KR/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on.md,rendering error
 translations/ko-KR/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization.md,rendering error
 translations/ko-KR/content/organizations/keeping-your-organization-secure/index.md,rendering error
-translations/ko-KR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization.md,rendering error
 translations/ko-KR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization.md,rendering error
 translations/ko-KR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization.md,rendering error
 translations/ko-KR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization.md,rendering error
@@ -1038,9 +1039,10 @@ translations/ko-KR/content/repositories/releasing-projects-on-github/managing-re
 translations/ko-KR/content/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md,rendering error
 translations/ko-KR/content/repositories/working-with-files/managing-files/adding-a-file-to-a-repository.md,rendering error
 translations/ko-KR/content/repositories/working-with-files/managing-files/deleting-files-in-a-repository.md,rendering error
-translations/ko-KR/content/repositories/working-with-files/managing-files/navigating-files-with-the-new-code-view.md,rendering error
+translations/ko-KR/content/repositories/working-with-files/managing-files/navigating-files-with-the-new-code-view.md,broken liquid tags
 translations/ko-KR/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,rendering error
 translations/ko-KR/content/repositories/working-with-files/using-files/getting-permanent-links-to-files.md,rendering error
+translations/ko-KR/content/repositories/working-with-files/using-files/viewing-a-file.md,rendering error
 translations/ko-KR/content/repositories/working-with-files/using-files/working-with-non-code-files.md,broken liquid tags
 translations/ko-KR/content/rest/apps/oauth-applications.md,rendering error
 translations/ko-KR/content/rest/dependabot/index.md,broken liquid tags
@@ -1106,11 +1108,9 @@ translations/ko-KR/data/reusables/actions/enterprise-marketplace-actions.md,rend
 translations/ko-KR/data/reusables/actions/enterprise-postinstall-nextsteps.md,rendering error
 translations/ko-KR/data/reusables/actions/github-connect-resolution.md,rendering error
 translations/ko-KR/data/reusables/actions/hosted-runner-security.md,rendering error
-translations/ko-KR/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
 translations/ko-KR/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/ko-KR/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
 translations/ko-KR/data/reusables/actions/onboarding-next-steps.md,rendering error
-translations/ko-KR/data/reusables/actions/ref_name-description.md,broken liquid tags
 translations/ko-KR/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
 translations/ko-KR/data/reusables/actions/reusable-workflow-calling-syntax.md,rendering error
 translations/ko-KR/data/reusables/actions/reusable-workflows-ghes-beta.md,rendering error
@@ -1163,7 +1163,6 @@ translations/ko-KR/data/reusables/copilot/install-copilot-in-neovim.md,rendering
 translations/ko-KR/data/reusables/dependabot/beta-security-and-version-updates.md,rendering error
 translations/ko-KR/data/reusables/dependabot/configuration-options.md,rendering error
 translations/ko-KR/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
-translations/ko-KR/data/reusables/dependabot/dependabot-alerts-dependency-scope.md,broken liquid tags
 translations/ko-KR/data/reusables/dependabot/dependabot-alerts-filters.md,rendering error
 translations/ko-KR/data/reusables/dependabot/dependabot-updates-and-actions.md,rendering error
 translations/ko-KR/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
@@ -1200,7 +1199,6 @@ translations/ko-KR/data/reusables/enterprise/test-in-staging.md,rendering error
 translations/ko-KR/data/reusables/enterprise_installation/download-package.md,rendering error
 translations/ko-KR/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,rendering error
 translations/ko-KR/data/reusables/enterprise_installation/hotpatching-explanation.md,rendering error
-translations/ko-KR/data/reusables/enterprise_installation/image-urls-viewable-warning.md,rendering error
 translations/ko-KR/data/reusables/enterprise_installation/ssh-into-instance.md,rendering error
 translations/ko-KR/data/reusables/enterprise_site_admin_settings/dormancy-threshold.md,rendering error
 translations/ko-KR/data/reusables/enterprise_site_admin_settings/sign-in.md,rendering error
@@ -1243,6 +1241,7 @@ translations/ko-KR/data/reusables/organizations/billing_plans.md,rendering error
 translations/ko-KR/data/reusables/organizations/github-apps-settings-sidebar.md,rendering error
 translations/ko-KR/data/reusables/organizations/member-privileges.md,rendering error
 translations/ko-KR/data/reusables/organizations/navigate-to-org.md,rendering error
+translations/ko-KR/data/reusables/organizations/organization-wide-project.md,broken liquid tags
 translations/ko-KR/data/reusables/organizations/repository-defaults.md,rendering error
 translations/ko-KR/data/reusables/organizations/restricted-app-access-requests.md,rendering error
 translations/ko-KR/data/reusables/organizations/security-and-analysis.md,rendering error

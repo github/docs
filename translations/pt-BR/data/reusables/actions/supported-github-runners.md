@@ -1,17 +1,9 @@
----
-ms.openlocfilehash: c30f6000486156f1995f0f05ff27fc173b893de5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529269"
----
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Imagem do executor</b></th>
-    <th style="width:25%"><b>Rótulo de fluxo de trabalho YAML</b></th>
-    <th style="width:40%"><b>Observações</b></th>
+    <th style="width:35%"><b>Runner image</b></th>
+    <th style="width:25%"><b>YAML workflow label</b></th>
+    <th style="width:40%"><b>Notes</b></th>
   </tr>
 </thead>
 <tbody>
@@ -20,10 +12,10 @@ ms.locfileid: "147529269"
 Windows Server 2022
 </td>
 <td>
-<code>windows-latest</code> ou <code>windows-2022</code>
+<code>windows-latest</code> or <code>windows-2022</code>
 </td>
 <td>
-Atualmente, o rótulo <code>windows-latest</code> usa a imagem do executor do Windows Server 2022.
+The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
 </td>
 </tr>
 <tr>
@@ -51,18 +43,21 @@ Ubuntu 22.04
 Ubuntu 20.04
 </td>
 <td>
-<code>ubuntu-latest</code> ou <code>ubuntu-20.04</code>
+<code>ubuntu-latest</code> or <code>ubuntu-20.04</code>
 </td>
+<td>
+The <code>ubuntu-latest</code> label is currently transitioning to the Ubuntu 22.04 runner image. During the transition, the label might refer to the runner image for either Ubuntu 20.04 or 22.04. For more information, see <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">this {% data variables.product.prodname_dotcom %} blog post</a>.
+</rd>
 </tr>
 <tr>
 <td>
-Ubuntu 18.04 <sup>[preterido]</sup>
+Ubuntu 18.04 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>ubuntu-18.04</code>
 </td>
 <td>
-Migre para <code>ubuntu-20.04</code> ou <code>ubuntu-22.04</code>. Para saber mais, confira <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">esta postagem no blog do GitHub</A>.
+Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
 </td>
 </tr>
 <tr>
@@ -78,21 +73,21 @@ macOS Monterey 12
 macOS Big Sur 11
 </td>
 <td>
-<code>macos-latest</code> ou <code>macos-11</code>
+<code>macos-latest</code> or <code>macos-11</code>
 </td>
 <td>
-Atualmente, o rótulo <code>macos-latest</code> usa a imagem do executor do macOS 11.
+The <code>macos-latest</code> label is currently transitioning to the macOS Monterey 12 runner image. During the transition, the label might refer to the runner image for either macOS 11 or 12. For more information, see <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">this {% data variables.product.prodname_dotcom %} blog post</a>.
 </td>
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15 <sup>[preterido]</sup>
+macOS Catalina 10.15 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>macos-10.15</code>
 </td>
 <td>
-Migre para <code>macOS-11</code> ou <code>macOS-12</code>. Para saber mais, confira <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">esta postagem no blog do GitHub</A>.
+Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
 </td>
 </tr>
 </tbody>
@@ -100,12 +95,12 @@ Migre para <code>macOS-11</code> ou <code>macOS-12</code>. Para saber mais, conf
 
 {% note %}
 
-**Observação:** as imagens do executor `-latest` são as imagens estáveis mais recentes fornecidas pelo {% data variables.product.prodname_dotcom %} e talvez não seja a versão mais recente do sistema operacional disponível do fornecedor do sistema operacional.
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
 
 {% warning %}
 
-<b>Observação:</b> as imagens beta e preteridas são fornecidas "no estado em que se encontram", "com todas as falhas" e "conforme disponível" e são excluídas do contrato de nível de serviço e da garantia. As imagens beta podem não ser cobertas pelo atendimento ao cliente.
+**Warning:** Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
 
 {% endwarning %}

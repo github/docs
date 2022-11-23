@@ -10,12 +10,12 @@ redirect_from:
 type: overview
 topics:
   - Projects
-ms.openlocfilehash: 768234aa5e6c9cfbca6a6144a80ac2868f3316ce
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3190379652fe1c95b8ea6ec7f864c44b72d9a7f7
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158863'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180763'
 ---
 ## {% data variables.product.prodname_projects_v2 %} 정보
 
@@ -27,7 +27,7 @@ ms.locfileid: '148158863'
 
 ### 항목에 메타데이터 추가
 
-사용자 지정 필드를 사용하여 문제에 메타데이터를 추가하고, 요청을 끌어오고, 문제 초안을 작성하고, 항목 특성에 대한 보다 풍부한 보기를 빌드할 수 있습니다. 현재 문제 및 끌어오기 요청에 대해 존재하는 기본 제공 메타데이터(담당자, 마일스톤, 레이블 등)로 제한되지 않습니다. 예를 들어 다음 메타데이터를 사용자 지정 필드로 추가할 수 있습니다.
+사용자 지정 필드를 사용하여 이슈, 끌어오기 요청 및 초안 문제에 메타데이터를 추가하고 항목 특성에 대한 보다 풍부한 보기를 빌드할 수 있습니다. 현재 문제 및 끌어오기 요청에 대해 존재하는 기본 제공 메타데이터(담당자, 마일스톤, 레이블 등)로 제한되지 않습니다. 예를 들어 다음 메타데이터를 사용자 지정 필드로 추가할 수 있습니다.
 
 - 목표 배달 날짜를 추적하는 날짜 필드.
 - 작업의 복잡성을 추적하는 숫자 필드.
@@ -41,9 +41,9 @@ ms.locfileid: '148158863'
 
 {% data reusables.projects.tasklists-release-stage %}
 
-작업 목록을 사용하여 문제의 계층 구조를 빌드하고, 문제를 더 작은 하위 작업으로 나누고, 문제 간에 새로운 관계를 만들 수 있습니다. 자세한 내용은 "[작업 목록 정보](/issues/tracking-your-work-with-issues/about-tasklists)"를 참조하세요.
+작업 목록을 사용하여 문제의 계층 구조를 빌드하고, 문제를 더 작은 하위 작업으로 나누고, 문제 간에 새 관계를 만들 수 있습니다. 자세한 내용은 "[작업 목록 정보"를 참조하세요.](/issues/tracking-your-work-with-issues/about-tasklists)
 
-이러한 관계는 프로젝트의 추적됨 및 트랙 필드뿐만 아니라 문제에 표시됩니다. 다른 문제로 추적되는 문제를 기준으로 필터링할 수 있으며, 테이블 보기를 추적 기준 필드별로 그룹화하여 하위 작업 목록의 모든 부모 문제를 표시할 수도 있습니다.
+이러한 관계는 프로젝트의 추적 기준 및 트랙 필드뿐만 아니라 문제에 표시됩니다. 다른 문제로 추적되는 문제를 기준으로 필터링할 수 있으며, 테이블 뷰를 추적 기준 필드별로 그룹화하여 하위 작업 목록의 모든 부모 문제를 표시할 수도 있습니다.
 
 {% endif %}
 

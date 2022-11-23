@@ -21,9 +21,10 @@ Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a 
 {% ifversion keyboard-shortcut-accessibility-setting %}
 You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings)."{% endif %}
 
-Below is a list of some of the available keyboard shortcuts.
 {% ifversion command-palette %}
 The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+
+The following sections list some of the available keyboard shortcuts, organized by the pages where you can use them on {% data variables.location.product_location %}.
 
 ## Site wide shortcuts
 
@@ -130,16 +131,14 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>Shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 |<kbd>Command</kbd> and click (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and click (Windows/Linux) | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>Command</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."{% endif %}
 
-## Changes in pull requests
+## "Files changed" tab in pull requests
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>C</kbd> | Open the list of commits in the pull request
-|<kbd>T</kbd> | Open the list of changed files in the pull request
-|<kbd>J</kbd> | Move selection down in the list
-|<kbd>K</kbd> | Move selection up in the list
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Add a single comment on a pull request diff |
-|<kbd>Alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**.|
+|<kbd>C</kbd> | Open the **Commits** dropdown menu to filter which commits are shown in the diffs
+|<kbd>T</kbd> | Move your cursor to the "Filter changed files" field
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Submit a review comment |
+|<kbd>Option</kbd> and click (Mac) or <kbd>Alt</kbd> and click (Windows/Linux) | Toggle between collapsing and expanding all outdated or resolved review comments in a pull request (for example, by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**) |
 |Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|
 
 {% ifversion projects-v2 %}

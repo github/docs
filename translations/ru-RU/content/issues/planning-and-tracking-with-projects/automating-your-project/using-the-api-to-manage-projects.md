@@ -11,12 +11,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 6b4deff4ee518bfdafcd3886577a1c9b12ea7b2e
-ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.openlocfilehash: ab041e8473e310913eb1b794302415e9b6323e76
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148111604'
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169235'
 ---
 В этой статье показано, как использовать API GraphQL для управления проектами. Дополнительные сведения об использовании API в рабочем процессе {% data variables.product.prodname_actions %} см. в разделе [Автоматизация {% data variables.product.prodname_projects_v2 %} с помощью Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions). Полный список доступных типов данных см. в [Справочнике](/graphql/reference).
 
@@ -665,7 +665,7 @@ gh api graphql -f query='
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { iterationId: \"ITERATION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 
@@ -724,7 +724,7 @@ gh api graphql -f query='
 
 ### Создание проектов
 
-Для создания нового проекта можно использовать изменение. Дополнительные сведения см. в разделе [Сведения об изменениях](/graphql/guides/forming-calls-with-graphql#about-mutations).
+Вы можете использовать изменение для создания нового проекта. Дополнительные сведения см. в разделе [Сведения об изменениях](/graphql/guides/forming-calls-with-graphql#about-mutations).
 
 Чтобы создать проект с помощью API, необходимо указать имя проекта и идентификатор узла пользователя или организации {% data variables.product.product_name %}, которые станут владельцем проекта.
 
@@ -745,7 +745,7 @@ gh api -H "Accept: application/vnd.github+json" /users/<em>GITHUB_OWNER</em>
 ```
 {% endcli %}
 
-Чтобы создать проект, замените `OWNER_ID` идентификатором узла нового владельца проекта, а — `PROJECT_NAME` именем проекта.
+Чтобы создать проект, замените `OWNER_ID` идентификатором узла нового владельца проекта, а замените `PROJECT_NAME` именем проекта.
 
 {% curl %}
 ```shell

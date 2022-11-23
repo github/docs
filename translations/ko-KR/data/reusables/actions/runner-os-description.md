@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 4bf3f1a9bd94d5faf665ceab4c30925162bf2977
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
+ms.openlocfilehash: 78f1e2366d4ae9645f335439efa2bb040194bea9
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145089246"
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179620"
 ---
 작업을 실행하는 실행기의 운영 체제입니다. 가능한 값은 `Linux`, `Windows` 또는 `macOS`입니다.

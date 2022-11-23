@@ -11,12 +11,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 9deedb6f9940afd509eeaf974abd916a0cb5f5a0
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: ab041e8473e310913eb1b794302415e9b6323e76
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107244'
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169231'
 ---
 Cet article explique comment utiliser l’API GraphQL pour gérer un projet. Pour plus d’informations sur l’utilisation de l’API dans un workflow {% data variables.product.prodname_actions %}, consultez « [Automatisation des {% data variables.product.prodname_projects_v2 %} avec des actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions) ». Pour obtenir la liste complète des types de données disponibles, consultez « [Référence](/graphql/reference) ».
 
@@ -516,7 +516,7 @@ La réponse contient l’ID de nœud de brouillon de problème récemment créé
 ```json
 {
   "data": {
-    "addProjectV2ItemById": {
+    "addProjectV2DraftIssue": {
       "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
@@ -665,7 +665,7 @@ L’exemple suivant met à jour la valeur d’un champ d’itération pour un é
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { iterationId: \"ITERATION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 

@@ -10,12 +10,12 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/codespaces-lifecycle
-ms.openlocfilehash: bf3174d3a2a91db5a817d2d7298e3ffae229e9bb
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 660ced63e34c6de8025c65946542baca43534cfe
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160261'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180797'
 ---
 ## Codespace의 수명 주기 정보
 
@@ -45,25 +45,9 @@ Codespace가 시간 초과되면 변경 내용이 마지막으로 저장된 시�
 
 ## Codespace 다시 빌드
 
-Codespace를 다시 빌드하여 새 Codespace를 만든 것처럼 정리 상태를 복원할 수 있습니다. 대부분의 경우 Codespace를 다시 빌드하는 대신 새 Codespace를 만들면 됩니다. codespace를 다시 빌드하여 개발 컨테이너 구성에 대한 변경 내용을 구현할 가능성이 높습니다. Codespace를 다시 빌드하면 Docker 컨테이너, 이미지, 볼륨 및 캐시가 정리된 다음, Codespace가 다시 빌드됩니다.
+codespace를 다시 빌드하여 개발 컨테이너 구성에 대한 변경 내용을 구현할 수 있습니다. 대부분의 경우 Codespace를 다시 빌드하는 대신 새 Codespace를 만들면 됩니다. 기본적으로 codespace를 다시 빌드할 때 {% data variables.product.prodname_github_codespaces %}은 캐시의 이미지를 다시 사용하여 다시 빌드 프로세스를 가속화합니다. 또는 캐시를 지우고 새 이미지로 컨테이너를 다시 빌드하는 전체 다시 빌드를 수행할 수 있습니다.
 
-다시 빌드를 통해 이 데이터를 유지해야 하는 경우 컨테이너의 원하는 위치에 영구 디렉터리에 대한 기호 링크(symlink)를 만들 수 있습니다. 예를 들어 `.devcontainer` 디렉터리에서 다시 빌드 간에 유지되는 `config` 디렉터리를 만들 수 있습니다. 그런 다음 `config` 디렉터리와 그 내용을 `devcontainer.json` 파일에 `postCreateCommand`로 symlink할 수 있습니다.
-
-```json  
-{
-    "image": "mcr.microsoft.com/vscode/devcontainers/base:alpine",
-    "postCreateCommand": ".devcontainer/postCreate.sh"
-}
-```
-
-아래 예제 `postCreate.sh` 파일에서 `config` 디렉터리의 내용은 홈 디렉터리에 기호적으로 연결됩니다.
-
-```bash
-#!/bin/bash
-ln -sf $PWD/.devcontainer/config $HOME/config && set +x
-```
-
-자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)”를 참조하세요.
+자세한 내용은 "[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)" 및 "컨테이너[의 전체 다시 빌드 수행"을 참조하세요](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container).
 
 ## Codespace 중지
 

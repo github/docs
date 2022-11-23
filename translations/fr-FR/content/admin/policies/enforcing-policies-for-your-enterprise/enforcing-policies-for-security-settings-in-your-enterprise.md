@@ -25,7 +25,7 @@ shortTitle: Policies for security settings
 
 ## About policies for security settings in your enterprise
 
-You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings. For more information, see "[Keeping your organization secure](/organizations/keeping-your-organization-secure)."
+You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings. 
 
 {% ifversion ghec or ghes %}
 
@@ -56,93 +56,6 @@ Before you require use of two-factor authentication, we recommend notifying orga
 6. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise. To confirm the change, type your enterprise's name, then click **Remove members & require two-factor authentication**.
   ![Confirm two-factor enforcement box](/assets/images/help/business-accounts/confirm-require-2fa.png)
 7. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
-
-{% endif %}
-
-{% ifversion ghec or ghae %}
-
-## Managing allowed IP addresses for organizations in your enterprise
-
-{% ifversion ghae %}
-
-You can restrict network traffic to your enterprise on {% data variables.product.product_name %}. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
-
-{% elsif ghec %}
-
-Enterprise owners can restrict access to private assets owned by organizations in an enterprise by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
-
-{% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
-
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
-
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
-
-### Adding an allowed IP address
-
-{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
-
-{% data reusables.identity-and-permissions.ipv6-allow-lists %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
-
-### Allowing access by {% data variables.product.prodname_github_apps %}
-
-{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
-
-### Enabling allowed IP addresses
-
-{% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-3. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
-
-### Editing an allowed IP address
-
-{% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
-{% data reusables.identity-and-permissions.check-ip-address %}
-
-{% ifversion ip-allow-list-address-check %}
-### Checking if an IP address is permitted
-
-{% data reusables.identity-and-permissions.about-checking-ip-address %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
-{% endif %}
-
-### Deleting an allowed IP address
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
-
-### Using {% data variables.product.prodname_actions %} with an IP allow list
-
-{% data reusables.actions.ip-allow-list-self-hosted-runners %}
-
-{% endif %}
 
 {% endif %}
 
@@ -197,5 +110,7 @@ To prevent confusion from your developers, you can change this behavior so that 
 ## Further reading
 
 - "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
-{% endif %}
+- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{%- endif %}
+- "[Keeping your organization secure](/organizations/keeping-your-organization-secure)"
+- "[Restricting network traffic with an IP allow list with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
+{%- endif %}

@@ -1,12 +1,11 @@
 ---
-ms.openlocfilehash: 8f78a77c83ea498d8d41a0deff20903062542479
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: a6a2388e469c6283bbe0f9f7855044f45829584e
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148108926"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180072"
 ---
 Вы можете изменить запись в списке разрешенных IP-адресов. При изменении включенной записи изменения применяются немедленно. 
 
-{% ifversion ip-allow-list-address-check %} После завершения редактирования записей можно проверить, разрешен ли определенный IP-адрес любой из включенных записей в списке.
-{% endif %}
+Завершив редактирование записей, вы можете проверить, разрешено ли в списке разрешений подключение с определенного IP-адреса после включения списка.

@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting port forwarding for GitHub Codespaces
-intro: Troubleshooting steps for common port forwarding issues.
+title: Résolution des problèmes de transfert de port pour GitHub Codespaces
+intro: Étapes de dépannage pour les problèmes courants relatifs au transfert de port.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,17 +10,22 @@ topics:
 shortTitle: Port forwarding
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces
+ms.openlocfilehash: 828150ca05c18cb1106f5a3c883331785b6bce2e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159148'
 ---
+Quand une application s’exécutant à l’intérieur d’un codespace génère un port vers la console, {% data variables.product.prodname_github_codespaces %} détecte le modèle d’URL localhost et transfère automatiquement le port. Pour plus d’informations, consultez « [Transfert de ports dans votre codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace) ».
 
-When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_github_codespaces %}  detects the localhost URL pattern and automatically forwards the port. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+Si un port n’est pas automatiquement transféré, vous pouvez le transférer manuellement. Pour plus d’informations, consultez « [Transfert d’un port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port) ».
 
-If a port is not automatically forwarded, you can forward it manually. For more information, see "[Forwarding a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)."
+Si le transfert de port est configuré, vérifiez ce qui suit :
 
-If port forwarding is set up, check the following:
+- Utilisez le lien dans le message de notification « toast » qui s’affiche en bas à droite de {% data variables.product.prodname_vscode_shortname %} ou cliquez sur l’URL dans Terminal pour ouvrir le port transféré. Par exemple, la saisie de `localhost:8000` sur votre ordinateur local ne fonctionnera pas si vous êtes connecté au codespace via le navigateur.
+- Veillez à vérifier que votre application est toujours en cours d’exécution à partir de votre codespace. Si votre codespace s’est arrêté après une période d’inactivité, vous devez veiller à redémarrer votre application une fois que le codespace a redémarré.
 
-- Use the link in the notification "toast" message, that pops up in the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, or click the URL in Terminal, to open the forwarded port. Typing in `localhost:8000` (as an example) to your local machine will not work if you're connected to the codespace via the browser.
-- Make sure to check that your application is still running from within your codespace. If your codespace has stopped after a period of inactivity, you'll need to ensure to restart your application once the codespace has restarted.
-
-Typically, you can make a forwarded port accessible publicly, or within the organization that owns a repository. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)." If either, or both, of the options for public or organization visibility are not available, this indicates that an organization-level policy has been configured. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+En règle générale, vous pouvez rendre un port transféré accessible publiquement, ou au sein de l’organisation propriétaire d’un dépôt. Pour plus d’informations, consultez « [Transfert de ports dans votre codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace) ». Si une ou les deux options de visibilité publique ou de l’organisation ne sont pas disponible, cela indique qu’une stratégie au niveau de l’organisation a été configurée. Pour plus d’informations, consultez « [Restriction de la visibilité des ports transférés](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports) ».
 
 {% data reusables.codespaces.forwarded-ports-environment-variable %}

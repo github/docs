@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: cd91a98e6cb0da73a24f7f6e682b67ec25b406d4
-ms.sourcegitcommit: 24427fe609677b2c58137b1d9d63869d0872daf4
+ms.openlocfilehash: 7843dd2811e3645b6c9ea979fd3cb54a14b151f0
+ms.sourcegitcommit: 8d6f272d8b5da44e3a29ad8d99013c10a5c91b35
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2022
-ms.locfileid: "148134790"
+ms.lasthandoff: 11/17/2022
+ms.locfileid: "148172034"
 ---
 Partner | 支持的密钥
 --- | ---
@@ -23,6 +23,8 @@ Azure | Azure CosmosDB 可识别密钥
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
 Azure | Azure ML 工作室（经典）Web 服务密钥
 Azure | Azure SAS 令牌
+Azure | Azure 搜索管理密钥
+Azure | Azure 搜索查询密钥
 Azure | Azure 服务管理证书
 Azure | Azure SQL 连接字符串
 Azure | Azure 存储帐户密钥

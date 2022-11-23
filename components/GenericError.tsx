@@ -72,10 +72,10 @@ export const SimpleFooter = () => {
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>
           <li className="ml-3">
-            <a href="/github/site-policy/github-terms-of-service">Terms</a>
+            <a href="/site-policy/github-terms/github-terms-of-service">Terms</a>
           </li>
           <li className="ml-3">
-            <a href="/github/site-policy/github-privacy-statement">Privacy </a>
+            <a href="/site-policy/privacy-policies/github-privacy-statement">Privacy </a>
           </li>
           <li className="ml-3">
             <a href="https://github.com/security">Security</a>

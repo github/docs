@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: d2eb1d49e6bb3057ce347b8bdd37f7f1a66014fa
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 3ceb785289a3b263eebda76d766bab52d6cec3c3
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145065892"
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179570"
 ---
 存储库中每个工作流运行的唯一编号。 如果您重新执行工作流程运行，此编号不变。

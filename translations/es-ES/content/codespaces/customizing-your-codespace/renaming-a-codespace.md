@@ -1,6 +1,6 @@
 ---
-title: Renaming a codespace
-intro: 'You can change the codespace display name to one of your choice through {% data variables.product.prodname_dotcom_the_website %} or the {% data variables.product.prodname_cli %}.'
+title: Cambio del nombre de un codespace
+intro: 'Puedes cambiar el nombre para mostrar del codespace a uno de tu elección mediante {% data variables.product.prodname_dotcom_the_website %} o la {% data variables.product.prodname_cli %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,69 +10,74 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Rename a codespace
+ms.openlocfilehash: dcb4558cce7ca0768524917a46cde2a49bacd1ce
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158721'
 ---
+## Acerca del cambio del nombre de un codespace
 
-## About renaming a codespace
+A cada codespace se le asigna un nombre para mostrar generado automáticamente. Si tienes varios codespaces, el nombre para mostrar te ayuda a diferenciar entre ellos. Por ejemplo: `literate space parakeet`. Puedes cambiar el nombre para mostrar del codespace.
 
-Each codespace is assigned an auto-generated display name. If you have multiple codespaces, the display name helps you to differentiate between codespaces. For example: `literate space parakeet`. You can change the display name for your codespace.
+Para encontrar el nombre para mostrar de un codespace:
 
-To find the display name of a codespace:
+- En {% data variables.product.product_name %}, consulta la lista de codespaces en https://github.com/codespaces.
 
-- On {% data variables.product.product_name %}, view your list of codespaces at https://github.com/codespaces.
+  ![Captura de pantalla de la lista de codespaces en GitHub](/assets/images/help/codespaces/codespaces-list-display-name.png)
 
-  ![Screenshot of the list of codespaces in GitHub](/assets/images/help/codespaces/codespaces-list-display-name.png)
+- En la aplicación de escritorio {% data variables.product.prodname_vscode %} o el cliente web {% data variables.product.prodname_vscode_shortname %}, haz clic en el Explorador remoto. El nombre para mostrar es el segundo elemento de la lista. Por ejemplo: `symmetrical space telegram` en la captura de pantalla siguiente.
 
-- In the {% data variables.product.prodname_vscode %} desktop application, or the {% data variables.product.prodname_vscode_shortname %} web client, click the Remote Explorer. The display name is the second item in the list. For example: `symmetrical space telegram` in the screenshot below.
-
-  ![Screenshot of the Remote Explorer in VS Code](/assets/images/help/codespaces/codespaces-remote-explorer.png)
+  ![Captura de pantalla del Explorador remoto en VS Code](/assets/images/help/codespaces/codespaces-remote-explorer.png)
 
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=2 %}
-- In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`. 
+- En una ventana de terminal de la máquina local, usa este comando de {% data variables.product.prodname_cli %}: `gh codespace list`. 
 
-### Permanent codespace names
+### Nombres permanentes de codespace
 
-In addition to the display name, when you create a codespace, a permanent name is also assigned to the codespace. The name is a combination of your {% data variables.product.company_short %} handle, and the auto-generated display name. For example: `octocat-literate-space-parakeet-mld5`. You can't change the permanent name.
+Además del nombre para mostrar, al crear un codespace, también se le asigna un nombre permanente. El nombre es una combinación de tu identificador de {% data variables.product.company_short %} y el nombre para mostrar autogenerado. Por ejemplo: `octocat-literate-space-parakeet-mld5`. No se puede cambiar el nombre permanente.
 
-To find the permanent name of a codespace:
+Para encontrar el nombre de un codespace:
 
-* On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the display name of a codespace on https://github.com/codespaces. 
+* En {% data variables.product.product_name %}, el nombre permanente se muestra en un elemento emergente al mantener el puntero sobre el nombre para mostrar de un codespace en https://github.com/codespaces. 
 
-   ![Screenshot of the codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
+   ![Captura de pantalla del nombre del codespace que se muestra al mantener el puntero](/assets/images/help/codespaces/find-codespace-name-github.png)
    
-* In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
-* In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
+* En un codespace, use este comando en el terminal: `echo $CODESPACE_NAME`.
+* En una ventana de terminal de la máquina local, usa este comando de {% data variables.product.prodname_cli %}: `gh codespace list`.
 
-## Renaming a codespace
+## Cambio del nombre de un codespace
 
-Changing the display name of a codespace can be useful if you have multiple codespaces that you will be using for an extended period. An appropriate name helps you identify a codespace that you use for a particular purpose. 
+Cambiar el nombre para mostrar de un codespace puede ser útil si tienes varios codespaces que vas a usar durante un período prolongado. Un nombre adecuado te ayuda a identificar un codespace que se usa para un propósito determinado. 
 
 {% cli %}
 
-You can change the display name for your codespace by using the {% data variables.product.prodname_cli %}.
+Puedes cambiar el nombre para mostrar de tu codespace mediante {% data variables.product.prodname_cli %}.
 
-To rename a codespace, use the `gh codespace edit` subcommand:
+Para cambiar el nombre de un codespace, usa el subcomando `gh codespace edit`:
 
 ```shell
 gh codespace edit -c PERMANENT-CODESPACE-NAME -d NEW-DISPLAY-NAME
 ```
 
-In this example, replace `PERMANENT-CODESPACE-NAME` with the permanent name of the codespace whose display name you want to change. Replace `NEW-DISPLAY-NAME` with the display name you want to use for this codespace.
+En este ejemplo, reemplaza `PERMANENT-CODESPACE-NAME` por el nombre permanente del codespace cuyo nombre para mostrar quieres cambiar. Reemplaza `NEW-DISPLAY-NAME` por el nombre para mostrar que quieres usar para este codespace.
 
-For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#rename-a-codespace)."
+Para obtener más información, consulta "[Uso de {% data variables.product.prodname_github_codespaces %} con la {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#rename-a-codespace)".
 
 {% endcli %}
 
 {% webui %}
 
-You can change the display name for your codespace on {% data variables.product.prodname_dotcom_the_website %}.
+Puedes cambiar el nombre para mostrar de tu codespace en {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
     The current display name for each of your codespaces is displayed.
 
 {% data reusables.codespaces.ellipsis-settings %}
-1. Click **Rename**.
+1. Haga clic en **Rename**.
 
-1. In the prompt, under "Change display name to..." type your desired display name and click **OK**.
+1. En el símbolo del sistema, en "Cambiar el nombre para mostrar a…", escribe el nombre para mostrar que quieras y haz clic en **Aceptar**.
 
 {% endwebui %}

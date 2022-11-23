@@ -1,7 +1,7 @@
 ---
-title: Using GitHub Codespaces for pull requests
+title: pull request で GitHub Codespaces を使用する
 shortTitle: Pull requests
-intro: 'You can use {% data variables.product.prodname_github_codespaces %} in your web browser, or in {% data variables.product.prodname_vscode %} to create pull requests, review pull requests, and address review comments.'
+intro: 'Web ブラウザーで、または {% data variables.product.prodname_vscode %} で {% data variables.product.prodname_github_codespaces %} を使うと、pull request の作成、pull request のレビュー、レビュー コメントの対応を行うことができます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,47 +12,52 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
+ms.openlocfilehash: 6932f8eb9095987bfe808080983970c8807b6d93
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160008'
 ---
+## {% data variables.product.prodname_github_codespaces %} での pull request について
 
-## About pull requests in {% data variables.product.prodname_github_codespaces %}
+{% data variables.product.prodname_github_codespaces %} からは、pull request の使用で必要になることがあるさまざまな機能を提供します。
 
-{% data variables.product.prodname_github_codespaces %} provides you with many of the capabilities you might need to work with pull requests:
+- [pull request の作成](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Terminal コマンドと Git コマンドを使用するか、Source Control ビューを使用することで、{% data variables.product.prodname_dotcom_the_website %} の場合と同じように pull request を作成できます。 リポジトリで pull request テンプレートが使用される場合、Source Control ビュー内でこれを使用できます。
+- [pull request を開く](#opening-a-pull-request-in-codespaces) – マージされているブランチに codespace アクセスできる場合、codespace で既存の pull request を開くことができます。
+- [pull request をレビューする](#reviewing-a-pull-request-in-codespaces) - codespace で pull request を開いたら、"GitHub pull request" ビューを利用し、レビューコメントを追加したり、pull request を承認したりできます。 また、{% data variables.product.prodname_github_codespaces %} を使って、[レビュー コメントを表示](#view-comments-from-a-review-in-codespaces)することもできます。
 
-- [Create a pull request](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Using either the Terminal and Git commands or the Source Control view, you can create pull requests just as you would on {% data variables.product.prodname_dotcom_the_website %}. If the repository uses a pull request template, you'll be able to use this within the Source Control view.
-- [Open a pull request](#opening-a-pull-request-in-codespaces) – You can open an existing pull request in a codespace, provided you have codespace access to the branch that is being merged in.
-- [Review a pull request](#reviewing-a-pull-request-in-codespaces) - Once you have opened a pull request in a codespace, you can use the "GitHub Pull Request" view to add review comments and approve pull requests. You can also use {% data variables.product.prodname_github_codespaces %} to [view review comments](#view-comments-from-a-review-in-codespaces).
-
-## Opening a pull request in {% data variables.product.prodname_codespaces %}
+## {% data variables.product.prodname_codespaces %} で pull request を開く
 
 {% data reusables.repositories.sidebar-pr %}
 
-1. In the list of pull requests, click the pull request you'd like to open in {% data variables.product.prodname_codespaces %}.
-1. On the right-hand side of your screen, click **{% octicon "code" aria-label="The code icon" %} Code**. 
-1. In the {% data variables.product.prodname_codespaces %} tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %})
+1. pull request のリストで、{% data variables.product.prodname_codespaces %} で開く pull request をクリックします。
+1. 画面の右側にある **[{% octicon "code" aria-label="The code icon" %} コード]** をクリックします。 
+1. {% data variables.product.prodname_codespaces %} タブで、プラス記号 ({% octicon "plus" aria-label="The plus icon" %}) をクリックします
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/open-with-codespaces-pr.png)
+   ![codespace で PR を開くオプション](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
-   A codespace is created for the pull request branch and is opened in your default editor for {% data variables.product.prodname_github_codespaces %}.
+   codespace は、pull request ブランチ用に作成され、{% data variables.product.prodname_github_codespaces %} の既定のエディターで開きます。
 
-## Reviewing a pull request in {% data variables.product.prodname_codespaces %}
+## {% data variables.product.prodname_codespaces %} で pull request をレビューする
 
-1. With your default editor set to either {% data variables.product.prodname_vscode %} or {% data variables.product.prodname_vscode %} for Web, open the pull request in a codespace, as described in "[Opening a pull request](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)" above.
-2. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/github-pr-view.png)
-3. To review a specific file, click the **Open File** icon in the sidebar.
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/changes-in-files.png)
-4. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/start-review.png)
-5. When you are finished adding review comments, from the sidebar you can choose to either submit the comments, approve the changes, or request changes.
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/submit-review.png)
+1. 既定のエディターを Web 用の {% data variables.product.prodname_vscode %} または {% data variables.product.prodname_vscode %} のいずれかに設定した状態で、上記の「[pull request を開く](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)」で説明されているように、codespace 内にある pull request を開きます。
+2. アクティビティ バーで **[GitHub の pull request]** ビューをクリックします。 このビューは、codespace で pull request を開く場合にのみ表示されます。
+  ![codespace で PR を開くオプション](/assets/images/help/codespaces/github-pr-view.png)
+3. 特定のファイルをレビューするには、サイド バーの **[ファイルを開く]** アイコンをクリックします。
+  ![codespace で PR を開くオプション](/assets/images/help/codespaces/changes-in-files.png)
+4. レビュー コメントを追加するには、行番号の横にある **+** アイコンをクリックします。 レビュー コメントを入力し、 **[レビューの開始]** をクリックします。
+  ![codespace で PR を開くオプション](/assets/images/help/codespaces/start-review.png)
+5. レビュー コメントの追加が完了したら、サイド バーからコメントの送信、変更の承認、または変更の要求のいずれかを選ぶことができます。
+  ![codespace で PR を開くオプション](/assets/images/help/codespaces/submit-review.png)
 
-For more information on reviewing a pull request, see "[Reviewing proposed changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+pull request の確認について詳しくは、「[pull request で提案されている変更を確認する](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)」を参照してください。
 
-## View comments from a review in {% data variables.product.prodname_codespaces %}
+## {% data variables.product.prodname_codespaces %} でレビューからのコメントを表示する
 
-Once you have received feedback on a pull request, you can [open it in a codespace](#opening-a-pull-request-in-codespaces) in your web browser, or in {% data variables.product.prodname_vscode_shortname %}, to see the [review comments](#reviewing-a-pull-request-in-codespaces). From there you can respond to comments, add reactions, or dismiss the review. 
+pull request に関するフィードバックを受け取った後で、[レビュー コメント](#reviewing-a-pull-request-in-codespaces)を確認するには、Web ブラウザーまたは {% data variables.product.prodname_vscode_shortname %} の [codespace で開く](#opening-a-pull-request-in-codespaces)ことができます。 そこから、コメントに返信したり、反応を追加したり、レビューを退けたりできます。 
 
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/incorporating-codespaces.png)
+  ![codespace で PR を開くオプション](/assets/images/help/codespaces/incorporating-codespaces.png)
 
 
 

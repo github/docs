@@ -1,43 +1,49 @@
 ---
-title: Splitting a subfolder out into a new repository
+title: 하위 폴더를 새 리포지토리로 분할
 redirect_from:
   - /articles/splitting-a-subpath-out-into-a-new-repository
   - /articles/splitting-a-subfolder-out-into-a-new-repository
   - /github/using-git/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository
-intro: You can turn a folder within a Git repository into a brand new repository.
+intro: Git 리포지토리 내의 폴더를 새 리포지토리로 전환할 수 있습니다.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Splitting a subfolder
+ms.openlocfilehash: e99c1c1411b335837b478b32f085596ec4f5fc0f
+ms.sourcegitcommit: 46eac8c63f52669996a9c832f2abf04864dc89ba
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172911'
 ---
-If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.
+리포지토리의 새 복제본을 만드는 경우 폴더를 별도의 리포지토리로 분할할 때 Git 기록이나 변경 내용이 손실되지 않습니다.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. Change the current working directory to the location where you want to create your new repository.
+2. 현재 작업 디렉터리를 새 리포지토리를 만들 위치로 변경합니다.
 
-4. Clone the repository that contains the subfolder.
+4. 하위 폴더가 포함된 리포지토리를 복제합니다.
    ```shell
    $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME
    ```
 
-4. Change the current working directory to your cloned repository.
+4. 현재 작업 디렉터리를 복제된 리포지토리로 변경합니다.
    ```shell
    $ cd REPOSITORY-NAME
    ```
 
-5. To filter out the subfolder from the rest of the files in the repository, install [`git-filter-repo`](https://github.com/newren/git-filter-repo), then run `git filter-repo` with the following arguments.
-   - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
+5. 리포지토리의 나머지 파일에서 하위 폴더를 필터링하려면 를 설치 [`git-filter-repo`](https://github.com/newren/git-filter-repo)한 다음, 다음 인수를 사용하여 를 실행 `git filter-repo` 합니다.
+   - `FOLDER-NAME`: 별도의 리포지토리를 만들려는 프로젝트 내의 폴더입니다.
 
    {% windows %}
 
    {% tip %}
 
-   **Tip:** Windows users should use `/` to delimit folders.
+   **팁:** Windows 사용자는 폴더를 구분하기 위해 `/`를 사용해야 합니다.
 
    {% endtip %}
 
@@ -50,33 +56,33 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    > Ref 'refs/heads/BRANCH-NAME' was rewritten
    ```
    
-   The repository should now only contain the files that were in your subfolder(s).
+   이제 리포지토리에는 하위 폴더에 있던 파일만 포함되어 있습니다.
 
-6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
+6. {% data variables.product.product_name %}에 [새 리포지토리를 만듭니다](/articles/creating-a-new-repository/).
 
-7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
-	
-   ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}의 빠른 설정 페이지에서 새 리포지토리 맨 위에 있는 {% octicon "clippy" aria-label="The copy to clipboard icon" %}을 클릭하여 원격 리포지토리 URL을 복사합니다.
+    
+   ![원격 리포지토리 URL 필드 복사](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    {% tip %}
 
-   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+   **팁:** HTTPS와 SSH URL 간의 차이점에 대한 자세한 내용은 “[원격 리포지토리 정보](/github/getting-started-with-github/about-remote-repositories)”를 참조하세요.
 
    {% endtip %}
 
-8. Check the existing remote name for your repository. For example, `origin` or `upstream` are two common choices.
+8. 리포지토리의 기존 원격 이름을 확인합니다. 예를 들어 일반적으로 선택하는 두 가지는 `origin` 또는 `upstream`입니다.
    ```shell
    $ git remote -v
    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (fetch)
    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (push)
    ```
 
-9. Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
+9. 7단계에서 복사한 기존 원격 이름 및 원격 리포지토리 URL을 사용하여 새 리포지토리에 대한 새 원격 URL을 설정합니다.
    ```shell
    git remote set-url origin https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git
    ```
 
-10. Verify that the remote URL has changed with your new repository name.
+10. 원격 URL이 새 리포지토리 이름으로 변경되었는지 확인합니다.
     ```shell
     $ git remote -v
     # Verify new remote URL
@@ -84,7 +90,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
     > origin  https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git (push)
     ```
 
-11. Push your changes to the new repository on {% data variables.product.product_name %}.
+11. {% data variables.product.product_name %}의 새 리포지토리에 변경 내용을 푸시합니다.
     ```shell
     git push -u origin BRANCH-NAME
     ```
