@@ -763,17 +763,14 @@ translations/ko-KR/content/code-security/supply-chain-security/understanding-you
 translations/ko-KR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,rendering error
 translations/ko-KR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,rendering error
 translations/ko-KR/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
-translations/ko-KR/content/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces.md,broken liquid tags
 translations/ko-KR/content/codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning.md,rendering error
 translations/ko-KR/content/codespaces/developing-in-codespaces/opening-an-existing-codespace.md,rendering error
-translations/ko-KR/content/codespaces/developing-in-codespaces/the-codespace-lifecycle.md,broken liquid tags
 translations/ko-KR/content/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide.md,rendering error
 translations/ko-KR/content/codespaces/getting-started/deep-dive.md,rendering error
 translations/ko-KR/content/codespaces/getting-started/quickstart.md,rendering error
 translations/ko-KR/content/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization.md,rendering error
 translations/ko-KR/content/codespaces/overview.md,rendering error
 translations/ko-KR/content/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories.md,rendering error
-translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file.md,broken liquid tags
 translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,rendering error
 translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,rendering error
 translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces.md,rendering error
@@ -898,6 +895,7 @@ translations/ko-KR/content/graphql/reference/unions.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
+translations/ko-KR/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,broken liquid tags
 translations/ko-KR/content/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project.md,rendering error
 translations/ko-KR/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/ko-KR/content/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch.md,rendering error
@@ -1158,7 +1156,6 @@ translations/ko-KR/data/reusables/codespaces/customize-vcpus-and-ram.md,broken l
 translations/ko-KR/data/reusables/codespaces/next-steps-adding-devcontainer.md,broken liquid tags
 translations/ko-KR/data/reusables/codespaces/prebuilds-crossreference.md,broken liquid tags
 translations/ko-KR/data/reusables/codespaces/publishing-template-codespaces.md,rendering error
-translations/ko-KR/data/reusables/codespaces/rebuild-command.md,broken liquid tags
 translations/ko-KR/data/reusables/codespaces/secrets-on-start.md,broken liquid tags
 translations/ko-KR/data/reusables/command_line/provide-an-access-token.md,rendering error
 translations/ko-KR/data/reusables/copilot/config-enable-copilot-in-neovim.md,rendering error
@@ -1244,6 +1241,7 @@ translations/ko-KR/data/reusables/organizations/billing_plans.md,rendering error
 translations/ko-KR/data/reusables/organizations/github-apps-settings-sidebar.md,rendering error
 translations/ko-KR/data/reusables/organizations/member-privileges.md,rendering error
 translations/ko-KR/data/reusables/organizations/navigate-to-org.md,rendering error
+translations/ko-KR/data/reusables/organizations/organization-wide-project.md,broken liquid tags
 translations/ko-KR/data/reusables/organizations/repository-defaults.md,rendering error
 translations/ko-KR/data/reusables/organizations/restricted-app-access-requests.md,rendering error
 translations/ko-KR/data/reusables/organizations/security-and-analysis.md,rendering error

@@ -1,0 +1,6 @@
+# Reference: issue  #8667
+# Adding support for self-hosted Hex repositories
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'
