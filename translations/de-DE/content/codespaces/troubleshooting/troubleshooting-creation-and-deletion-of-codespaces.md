@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting creation and deletion of codespaces
-intro: 'This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.'
+title: Problembehandlung beim Erstellen und Löschen von Codespaces
+intro: 'In diesem Artikel findest du Schritte zur Behandlung gängiger Probleme, die beim Erstellen oder Löschen von Codespaces auftreten können, einschließlich Speicher- und Konfigurationsproblemen.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,89 +8,94 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Creation and deletion
+ms.openlocfilehash: 09c3a73ec5e41f0170f1d3cd66df139bb2a497e5
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158693'
 ---
+## Erstellen von Codespaces
 
-## Creating codespaces
+### Kein Zugriff zum Erstellen eines Codespace
+{% data variables.product.prodname_github_codespaces %} ist nicht für alle Repositorys verfügbar. Wenn die Optionen zum Erstellen eines Codespace nicht angezeigt werden, ist {% data variables.product.prodname_github_codespaces %} für dieses Repository eventuell nicht verfügbar. Weitere Informationen findest du unter [Erstellen eines Codespaces für ein Repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces).
 
-### No access to create a codespace
-{% data variables.product.prodname_github_codespaces %} is not available for all repositories. If the options for creating a codespace are not displayed, {% data variables.product.prodname_github_codespaces %} may not be available for that repository. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces)."
+Vorausgesetzt, du hast noch verbleibende monatliche enthaltene Nutzung von {% data variables.product.prodname_github_codespaces %} in deinem persönlichen Konto oder eine Zahlungsmethode sowie ein Ausgabenlimit eingerichtet, kannst du Codespaces für öffentliche Repositorys erstellen. Du kannst jedoch nur dann einen Codespace für ein privates Repository erstellen, wenn du Änderungen an das Repository pushen oder das Repository forken kannst.
 
-Provided you have remaining monthly included usage of {% data variables.product.prodname_github_codespaces %} on your personal account, or you have set up a payment method and a spending limit, you will be able to create codespaces for public repositories. However, you can only create a codespace for a private repository if you can push changes to the repository, or you can fork the repository.
+Weitere Informationen zur enthaltenen Nutzung bei persönlichen Konten und zum Festlegen eines Ausgabenlimits findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) und [Verwalten von Ausgabenlimits für {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces).
 
-For more information about included usage for personal accounts, and setting a spending limit, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" and "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces)."
+### Codespace wird beim Erstellen nicht geöffnet.
 
-### Codespace does not open when created
+Du erstellst einen Codespace, aber dieser wird nicht geöffnet:
 
-If you create a codespace and it does not open:
+1. Versuche, die Seite neu zu laden, falls ein Zwischenspeicherungs- oder Berichtsproblem aufgetreten ist.
+2. Navigiere zur {% data variables.product.prodname_github_codespaces %}-Seite (https://github.com/codespaces ), und überprüfe, ob der neue Codespace hier aufgeführt ist. Der Prozess hat den Codespace vielleicht erfolgreich erstellt, hat dies jedoch nicht an deinen Browser gemeldet. Wenn der neue Codespace aufgelistet ist, kannst du ihn direkt über diese Seite öffnen.
+3. Versuche erneut, den Codespace für das Repository zu erstellen, um einen vorübergehenden Kommunikationsfehler auszuschließen.
 
-1. Try reloading the page in case there was a caching or reporting problem.
-2. Go to your {% data variables.product.prodname_github_codespaces %} page: https://github.com/codespaces and check whether the new codespace is listed there. The process may have successfully created the codespace but failed to report back to your browser. If the new codespace is listed, you can open it directly from that page.
-3. Retry creating the codespace for the repository to rule out a transient communication failure.
+Wenn du immer noch keinen Codespace für ein Repository erstellen kannst, in dem {% data variables.product.prodname_github_codespaces %} verfügbar ist, {% data reusables.codespaces.contact-support %}.
 
-If you still cannot create a codespace for a repository where {% data variables.product.prodname_github_codespaces %} is available, {% data reusables.codespaces.contact-support %}
+### Fehler beim Erstellen des Codespace
 
-### Codespace creation fails
-
-If the creation of a codespace fails, it's likely to be due to a temporary infrastructure issue in the cloud - for example, a problem provisioning a virtual machine for the codespace. A less common reason for failure is if it takes longer than an hour to build the container. In this case, the build is cancelled and codespace creation will fail.
+Wenn beim Erstellen eines Codespace ein Fehler auftritt, ist dies wahrscheinlich auf ein temporäres Infrastrukturproblem in der Cloud zurückzuführen, z. B. auf ein Problem beim Bereitstellen eines virtuellen Computers für den Codespace. Ein weniger häufiger Grund für Fehler ist, wenn das Erstellen des Containers länger als eine Stunde dauert. In diesem Fall wird der Build abgebrochen, und für das Erstellen des Codespace wird ein Fehler ausgegeben.
 
 {% note %}
 
-**Note:** A codespace that was not successfully created is never going to be usable and should be deleted. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+**Hinweis:** Ein Codespace, der nicht erfolgreich erstellt wurde, kann nie verwendet werden und sollte gelöscht werden. Weitere Informationen findest du unter [Löschen eines Codespace](/codespaces/developing-in-codespaces/deleting-a-codespace).
 
 {% endnote %}
 
-If you create a codespace and the creation fails:
+Wenn du einen Codespace erstellst und dabei ein Fehler auftritt, führe Folgendes durch:
 
-1. Check {% data variables.product.prodname_dotcom %}'s [Status page](https://githubstatus.com) for any active incidents.
-1. Go to [your {% data variables.product.prodname_github_codespaces %} page](https://github.com/codespaces), delete the codespace, and create a new codespace.
-1. If the container is building, look at the logs that are streaming and make sure the build is not stuck. A container build that takes longer than one hour will be canceled, resulting in a failed creation.
+1. Überprüfe die [Statusseite](https://githubstatus.com) von {% data variables.product.prodname_dotcom %} auf aktive Incidents.
+1. Wechsle zu [deiner {% data variables.product.prodname_github_codespaces %}-Seite](https://github.com/codespaces), lösche den Codespace, und erstelle einen neuen Codespace.
+1. Wenn der Container erstellt wird, sieh dir die Protokolle an, die gestreamt werden, und stelle sicher, dass der Build nicht hängen geblieben ist. Ein Containerbuild, der länger als eine Stunde dauert, wird abgebrochen, was zu einem Fehler bei der Erstellung führt.
 
-   One common scenario where this could happen is if you have a script running that is prompting for user input and waiting for an answer. If this is the case, remove the interactive prompt so that the build can complete non-interactively.
+   Dieses Szenario tritt häufig auf, wenn ein Skript ausgeführt wird, das zur Benutzereingabe auffordert und auf eine Antwort wartet. Wenn dies der Fall ist, entferne die interaktive Eingabeaufforderung, damit der Build nicht-interaktiv abgeschlossen werden kann.
 
    {% note %}
 
-   **Note**: To view the logs during a build:
-   * In the browser, click **View logs.** 
+   **Hinweis**: So zeigst du die Protokolle während eines Builds an:
+   * Klicke im Browser auf **Protokolle anzeigen**. 
 
-   ![Screenshot of the Codespaces web UI with the View logs link emphasized](/assets/images/help/codespaces/web-ui-view-logs.png)
+   ![Screenshot der Codespaces-Webbenutzeroberfläche mit hervorgehobenem Link „Protokolle anzeigen“](/assets/images/help/codespaces/web-ui-view-logs.png)
 
-   * In the VS Code desktop application, click **Building codespace** in the "Setting up remote connection" that's displayed. 
+   * Klicke in der VS Code-Desktopanwendung unter „Remoteverbindung einrichten“ auf **Codespace erstellen**. 
 
-   ![Screenshot of VS Code with the Building codespace link emphasized](/assets/images/help/codespaces/vs-code-building-codespace.png)
+   ![Screenshot von VS Code mit hervorgehobenem Link „Codespace erstellen“](/assets/images/help/codespaces/vs-code-building-codespace.png)
 
     {% endnote %}
-2. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+2. Wenn das Erstellen eines Containers sehr lange dauert, solltest du Prebuilds verwenden, um das Erstellen von Codespaces zu beschleunigen. Weitere Informationen findest du unter [Konfigurieren von Prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds).
 
-## Deleting codespaces
+## Löschen von Codespaces
 
-A codespace can only be deleted by:
-* The person who created the codespace.
-* An organization owner for an organization-owned codespace.
-* Automatic deletion at the end of a retention period. 
+Ein Codespace kann nur wie folgt gelöscht werden:
+* Durch den oder die Ersteller*in des Codespace
+* Durch einen oder eine Organisationsbesitzer*in im Fall eines organisationseigenen Codespace
+* Durch automatisches Löschen am Ende eines Aufbewahrungszeitraums 
 
-For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)" and "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+Weitere Informationen findest du unter [Löschen eines Codespace](/codespaces/developing-in-codespaces/deleting-a-codespace) und [Konfigurieren des automatischen Löschens deiner Codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces).
 
-## Container storage
+## Containerspeicher
 
-When you create a codespace, it has a finite amount of storage and over time it may be necessary for you to free up space. Try running any of the following commands in the {% data variables.product.prodname_github_codespaces %} terminal to free up storage space.
+Beim Erstellen eines Codespace verfügt er über eine begrenzte Speichermenge, und im Laufe der Zeit ist es möglicherweise erforderlich, Speicherplatz freizugeben. Führe einen der folgenden Befehle im {% data variables.product.prodname_github_codespaces %}-Terminal aus, um Speicherplatz freizugeben.
 
-- Remove packages that are no longer used by using `sudo apt autoremove`.
-- Clean the apt cache by using `sudo apt clean`.
-- See the top 10 largest files in the codespace with`sudo find / -printf '%s %p\n'| sort -nr | head -10`.
-- Delete unneeded files, such as build artifacts and logs.
+- Entferne mithilfe von `sudo apt autoremove` Pakete, die nicht mehr verwendet werden.
+- Bereinige den apt-Cache mithilfe von `sudo apt clean`.
+- Zeige die zehn größten Dateien im Codespace mit `sudo find / -printf '%s %p\n'| sort -nr | head -10` an.
+- Lösche nicht benötigte Dateien, z. B. Buildartefakte und Protokolle.
 
-Some more destructive options:
+Einige destruktivere Optionen:
 
-- Remove unused Docker images, networks, and containers by using `docker system prune` (append `-a` if you want to remove all images, and `--volumes` if you want to remove all volumes).
-- Remove untracked files from working tree: `git clean -i`.
+- Entferne nicht verwendete Docker-Images, Netzwerke und Container mithilfe von`docker system prune`. (Füge `-a` an, wenn du alle Images entfernen möchtest, und `--volumes`, wenn du alle Volumes entfernen möchtest.)
+- Entferne nicht nachverfolgte Dateien aus der Arbeitsstruktur: `git clean -i`.
 
-## Configuration
+## Konfiguration
 
 {% data reusables.codespaces.recovery-mode %}
 
 ```
 This codespace is currently running in recovery mode due to a container error.
 ```
-Review the creation logs and update the dev container configuration as needed. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
+Überprüfe die Erstellungsprotokolle, und aktualisiere nach Bedarf die Entwicklungscontainerkonfiguration. Weitere Informationen findest du unter „[{% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)“.
 
-You can then try restarting the codespace, or rebuilding the container. For more information on rebuilding the container, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+Anschließend kannst du versuchen, den Codespace neu zu starten oder den Container neu zu erstellen. Weitere Informationen findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace).

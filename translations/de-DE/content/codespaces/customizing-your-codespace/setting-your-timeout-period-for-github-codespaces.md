@@ -1,7 +1,7 @@
 ---
-title: Setting your timeout period for GitHub Codespaces
+title: Festlegen des Timeoutzeitraums für GitHub Codespaces
 shortTitle: Set the timeout
-intro: 'You can set your default timeout for {% data variables.product.prodname_github_codespaces %} in your personal settings page.'
+intro: 'Du kannst dein Standardtimeout für {% data variables.product.prodname_github_codespaces %} auf der Seite mit deinen persönlichen Einstellungen festlegen.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,53 +10,57 @@ topics:
 type: how_to
 redirect_from:
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
+ms.openlocfilehash: 6ca559fefddc34eb6de0441d17344ff8054db509
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159605'
 ---
+## Informationen zum Leerlauftimeout
 
-## About the idle timeout
-
-A codespace will stop running after a period of inactivity. By default this period is 30 minutes, but you can specify a longer or shorter default timeout period in your personal settings on {% data variables.product.prodname_dotcom %}. The updated setting will apply to any new codespaces you create, or to existing codespaces the next time you start them. You can also specify a timeout when you use {% data variables.product.prodname_cli %} to create a codespace.
+Ein Codespace wird nach einem Inaktivitätszeitraum beendet. Standardmäßig beträgt dieser Zeitraum 30 Minuten. Du kannst jedoch einen längeren oder kürzeren Standardtimeoutzeitraum in deinen persönlichen Einstellungen für {% data variables.product.prodname_dotcom %} angeben. Die aktualisierte Einstellung gilt für alle neuen Codespaces, die du erstellst, oder für vorhandene Codespaces, wenn du sie das nächste Mal startest. Du kannst auch ein Timeout angeben, wenn du {% data variables.product.prodname_cli %} verwendest, um einen Codespace zu erstellen.
 
 {% warning %}
 
-**Warning**: Codespaces compute usage is billed for the duration for which a codespace is active. If you're not using a codespace but it remains running, and hasn't yet timed out, you are billed for the total time that the codespace was active, irrespective of whether you were using it. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+**Warnung**: Die Computenutzung von Codespaces wird für die Dauer abgerechnet, für die ein Codespace aktiv ist. Wenn du keinen Codespace verwendest, er aber weiterhin ausgeführt wird und noch kein Timeout aufgetreten ist, wird dir die Gesamtzeit in Rechnung gestellt, in der der Codespace aktiv war, unabhängig davon, ob du ihn verwendet hast. Weitere Informationen findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing).
 
 {% endwarning %}
 
-### Timeout periods for organization-owned repositories
+### Timeoutzeiträume für organisationseigene Repositorys
 
-Organizations can set a maximum idle timeout policy for codespaces created from some or all of their repositories. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting. You will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+Organisationen können eine maximale Leerlauftimeoutrichtlinie für Codespaces festlegen, die aus einigen oder allen eigenen Repositorys erstellt wurden. Wenn eine Organisationsrichtlinie ein maximales Timeout festlegt, das unter dem von dir festgelegten Standardtimeout liegt, wird anstelle deiner Einstellung das Timeout der Organisation verwendet. Du wirst darüber benachrichtigt, nachdem der Codespace erstellt wurde. Weitere Informationen findest du unter [Einschränken des Zeitraums für Leerlauftimeouts](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period).
 
 {% webui %}
 
-## Setting your default timeout period
+## Festlegen des standardmäßigen Timeoutzeitraums
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours).
-   ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Gib unter „Standard-Leerlauftimeout“ die gewünschte Zeit ein, und klicke dann auf **Speichern**. Die Zeit muss zwischen 5 Minuten und 240 Minuten (4 Stunden) liegen.
+   ![Auswählen deines Timeouts](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## Setting the timeout period for a codespace
+## Festlegen des Timeoutzeitraums für einen Codespace
 
 {% data reusables.cli.cli-learn-more %}
 
-To set the timeout period when you create a codespace, use the `idle-timeout` argument with the `codespace create` subcommand. Specify the time in minutes, followed by `m`. The time must be between 5 minutes and 240 minutes (4 hours).
+Um den Timeoutzeitraum festzulegen, wenn du einen Codespace erstellst, verwende das `idle-timeout`-Argument mit dem `codespace create`-Unterbefehl. Gib die Zeit in Minuten an, gefolgt von `m`. Die Zeit muss zwischen 5 Minuten und 240 Minuten (4 Stunden) liegen.
 
 ```shell
 gh codespace create --idle-timeout 90m
 ```
 
-If you don't specify a timeout period when you create a codespace, then the default timeout period will be used. For information about setting a default timeout period, click the "Web browser" tab on this page. You can't currently specify a default timeout period through {% data variables.product.prodname_cli %}.
+Wenn du keinen Timeoutzeitraum angibst, wenn du einen Codespace erstellst, wird der Standard-Timeoutzeitraum verwendet. Informationen zum Festlegen eines Standard-Timeoutzeitraums findest du auf dieser Seite auf der Registerkarte „Webbrowser“. Du kannst derzeit keinen Standard-Timeoutzeitraum über {% data variables.product.prodname_cli %} angeben.
 
 {% endcli %}
 
 {% vscode %}
 
-## Setting a timeout period
+## Festlegen eines Timeoutzeitraums
 
-You can set your default timeout period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a timeout period for that particular codespace. For more information, click the appropriate tab above.
+Du kannst auf {% data variables.product.prodname_dotcom_the_website %} deinen standardmäßigen Timeoutzeitraum in deinem Webbrowser festlegen. Wenn du alternativ {% data variables.product.prodname_cli %} verwendest, um einen Codespace zu erstellen, kannst du einen Timeoutzeitraum für diesen bestimmten Codespace festlegen. Weitere Informationen erhältst du, wenn du oben auf die entsprechende Registerkarte klickst.
 
 {% endvscode %}

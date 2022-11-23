@@ -1,7 +1,15 @@
+---
+ms.openlocfilehash: 7d64df6146c09aa6cd5fc997ccb96022fab29501
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148159229"
+---
 {% note %}
 
-**Note:** You must set a non-zero spending limit on your personal, organization, or enterprise account before the account can be billed for use of {% data variables.product.prodname_github_codespaces %}.
+**Hinweis:** Du musst ein Ausgabenlimit ungleich Null für dein persönliches, Organisations- oder Unternehmenskonto festlegen, bevor dem Konto das Verwenden von {% data variables.product.prodname_github_codespaces %} in Rechnung gestellt werden kann.
 
 {% endnote %}
 
-By default, all accounts have a {% data variables.product.prodname_github_codespaces %} spending limit of $0 USD. This prevents new codespaces being created, or existing codespaces being opened, if doing so would incur a billable cost to your personal, organization, or enterprise account. For personal accounts, codespaces can always be created and used if the account has not reached the limit of its monthly included usage. For organizations and enterprises, the default spending limit means that, to allow people to create codespaces that are billed to the organization, or its parent enterprise, the limit must be changed to a value above $0 USD.
+Standardmäßig gilt für alle Konten ein Ausgabenlimit von 0 USD für {% data variables.product.prodname_github_codespaces %}. Dadurch wird verhindert, dass neue Codespaces erstellt oder vorhandene Codespaces geöffnet werden, wenn dies für dein persönliches, Organisations- oder Unternehmenskonto mit Kosten verbunden ist. Für persönliche Konten können immer dann Codespaces erstellt und verwendet werden, wenn das Konto das Limit seiner monatlichen inklusiven Nutzung nicht erreicht hat. Für Organisationen und Unternehmen bedeutet das Standardausgabenlimit, dass es in einen Wert über 0 USD geändert werden muss, damit Personen Codespaces erstellen können, die der Organisation oder dem übergeordneten Unternehmen in Rechnung gestellt werden.
