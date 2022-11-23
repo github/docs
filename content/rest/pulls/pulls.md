@@ -21,12 +21,12 @@ Every pull request is an issue, but not every issue is a pull request. For this 
 
 These are the supported media types for pull requests.
 
-    application/vnd.github.VERSION.raw+json
-    application/vnd.github.VERSION.text+json
-    application/vnd.github.VERSION.html+json
-    application/vnd.github.VERSION.full+json
-    application/vnd.github.VERSION.diff
-    application/vnd.github.VERSION.patch
+    application/vnd.github.raw+json
+    application/vnd.github.text+json
+    application/vnd.github.html+json
+    application/vnd.github.full+json
+    application/vnd.github.diff
+    application/vnd.github.patch
 
 For more information, see "[Custom media types](/rest/overview/media-types)."
 
