@@ -1,6 +1,6 @@
 ---
-title: Using GitHub Copilot in GitHub Codespaces
-intro: 'You can use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_github_codespaces %} by adding the extension.'
+title: Verwenden von GitHub Copilot in GitHub Codespaces
+intro: 'Du kannst {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_github_codespaces %} verwenden, indem du die Erweiterung hinzufügst.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,8 +13,13 @@ shortTitle: Copilot in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/using-copilot-in-codespaces
   - /codespaces/codespaces-reference/using-github-copilot-in-codespaces
+ms.openlocfilehash: 6615df6930fa8f27dd8f50c4588d8182b8602549
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158725'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
@@ -23,7 +28,7 @@ redirect_from:
 
 {% webui %}
 
-## Using {% data variables.product.prodname_copilot %} in the {% data variables.product.prodname_vscode_shortname %} web client
+## Verwenden von {% data variables.product.prodname_copilot %} im {% data variables.product.prodname_vscode_shortname %}-Webclient
 
 {% data reusables.codespaces.copilot-in-vscode %}
 
@@ -31,7 +36,7 @@ redirect_from:
 
 {% vscode %}
 
-## Using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
+## Verwenden von {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.copilot-in-vscode %}
 
@@ -39,57 +44,57 @@ redirect_from:
 
 {% jetbrains %}
 
-## Installing {% data variables.product.prodname_copilot %} in your JetBrains IDE
+## Installieren von {% data variables.product.prodname_copilot %} in deiner JetBrains-IDE
 
-[{% data variables.product.prodname_copilot %}](https://copilot.github.com/), an AI pair programmer, can be used in any codespace. For more information, see "[About GitHub Copilot](/copilot/overview-of-github-copilot/about-github-copilot)."
+[{% data variables.product.prodname_copilot %}](https://copilot.github.com/), ein KI-Paarprogrammierer, kann in jedem Codespace verwendet werden. Weitere Informationen findest du unter [Informationen zu GitHub Copilot](/copilot/overview-of-github-copilot/about-github-copilot).
 
-To use {% data variables.product.prodname_copilot %} in a codespace in your JetBrains IDE, install the [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) from within your codespace.
+Wenn du {% data variables.product.prodname_copilot %} in einem Codespace in deiner JetBrains-IDE verwenden möchtest, installiere das [{% data variables.product.prodname_copilot %}-Plug-In](https://plugins.jetbrains.com/plugin/17718-github-copilot) in deinem Codespace.
 
 {% note %}
 
-**Note**: You must install the {% data variables.product.prodname_copilot %} plugin each time you create a new codespace.
+**Hinweis**: Du musst das {% data variables.product.prodname_copilot %}-Plug-In jedes Mal installieren, wenn du einen neuen Codespace erstellst.
 
 {% endnote %}
 
-1. In the JetBrains client application, open the Settings (Windows/Linux) or Preferences (Mac) dialog box:
+1. Öffne in der JetBrains-Clientanwendung das Dialogfeld „Einstellungen (Windows/Linux)“ oder „Einstellungen (Mac)“:
 
-   - **Windows/Linux**: Click **File** and then **Settings** (or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd>)
-   - **Mac**: Click **JetBrains Client** in the MacOS menu bar, then click **Preferences** (or press <kbd>command</kbd>+<kbd>,</kbd>)
+   - **Windows/Linux**: Klicke auf **Datei** und dann auf **Einstellungen** (oder drücke <kbd>STRG</kbd>+<kbd>ALT</kbd>+<kbd>S</kbd>).
+   - **Mac**: Klicke in der macOS-Menüleiste auf **JetBrains-Client**, und klicke dann auf **Einstellungen** (oder drücke <kbd>Command</kbd>+<kbd>,</kbd>).
 
-1. In the left-side menu of the Settings/Preferences dialog box, click **Plugins On Host**. Then click the **Marketplace** tab.
+1. Klicke im linken Menü des Dialogfelds „Einstellungen/Voreinstellungen“ auf **Plug-Ins auf dem Host**. Klicke auf die Registerkarte **Marketplace**.
 
-   ![Screenshot of the Marketplace tab for 'Plugins On Host'](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
+   ![Screenshot: Registerkarte „Marketplace“ für „Plug-Ins auf dem Host“](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
 
-1. In the search box, type "copilot" then click the **Install** button for the {% data variables.product.prodname_copilot %} plugin.
+1. Gib im Suchfeld „Copilot“ ein, und klicke dann auf die Schaltfläche **Installieren** für das {% data variables.product.prodname_copilot %}-Plug-In.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} plugin](/assets/images/help/codespaces/jetbrains-copilot-plugin.png)
+   ![Screenshot: Das {% data variables.product.prodname_copilot %}-Plug-In](/assets/images/help/codespaces/jetbrains-copilot-plugin.png)
 
-1. Click **Accept** on the "Third-Party Plugins Privacy Note" dialog box.
-1. Click **Restart IDE**.
+1. Klicke im Dialogfeld „Datenschutzhinweis für Plug-Ins von Drittanbietern“ auf **Akzeptieren**.
+1. Klicke auf **IDE neu starten**.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} plugin](/assets/images/help/codespaces/jetbrains-copilot-restart.png)
+   ![Screenshot: Das {% data variables.product.prodname_copilot %}-Plug-In](/assets/images/help/codespaces/jetbrains-copilot-restart.png)
  
-1. Click **Restart** when prompted to confirm that you want to restart the backend IDE that's running remotely. The JetBrains client application will close when you do this.
-1. Open the codespace again from the JetBrains Gateway application. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide#opening-a-codespace-in-your-jetbrains-ide)."
-1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
+1. Klicke auf **Neu starten**, wenn du aufgefordert wirst, zu bestätigen, dass du die Remoteausführung der Back-End-IDE neu starten möchtest. Die JetBrains-Clientanwendung wird geschlossen, wenn du dies tust.
+1. Öffne den Codespace erneut über die JetBrains Gateway-Anwendung. Weitere Informationen findest du unter [Verwenden von {% data variables.product.prodname_github_codespaces %} in deiner JetBrains-IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide#opening-a-codespace-in-your-jetbrains-ide).
+1. Klicke nach dem Neustart deiner JetBrains-IDE auf das Menü **Extras**. Klicke auf **{% data variables.product.prodname_copilot %}** und dann auf **Anmelden bei {% data variables.product.prodname_dotcom %}** . 
 
-    ![Screenshot of the JetBrains Tools menu](/assets/images/help/codespaces/jetbrains-tools-menu.png)
+    ![Screenshot: JetBrains Tools-Menü](/assets/images/help/codespaces/jetbrains-tools-menu.png)
 
-1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
+1. Um den Gerätecode zu kopieren und das Geräteaktivierungsfenster zu öffnen, klicke im Dialogfeld „Anmelden bei {% data variables.product.prodname_dotcom %}“ auf **Kopieren und öffnen**.
 
-    ![Screenshot of the device code copy and open](/assets/images/help/copilot/device-code-copy-and-open.png)
+    ![Screenshot: „Kopieren und öffnen“ für den Gerätecode](/assets/images/help/copilot/device-code-copy-and-open.png)
 
-1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
+1. Ein Geräteaktivierungsfenster wird in deinem Browser geöffnet. Füge den Gerätecode ein, und klicke dann auf **Weiter**.
 
-   - To paste the code in Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>v</kbd>.
-   - To paste the code in macOS, press <kbd>command</kbd>+<kbd>v</kbd>.
-1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
-1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
+   - Um den Code in Windows oder Linux einzufügen, drücke<kbd>STRG</kbd>+<kbd>V</kbd>.
+   - Um den Code in macOS einzufügen, drücke <kbd>BEFEHLSTASTE</kbd>+<kbd>V</kbd>.
+1. {% data variables.product.prodname_dotcom %} fordert die notwendigen Berechtigungen für {% data variables.product.prodname_copilot %} an. Um diese Berechtigungen zu genehmigen, klicke auf **{% data variables.product.prodname_copilot %}-Plug-In autorisieren**.
+1. Nach Genehmigung der Berechtigungen zeigt deine JetBrains-IDE eine Bestätigung an. Klicke zum Verwenden von {% data variables.product.prodname_copilot %} auf **OK**.
 
-   ![Screenshot of the JetBrains IDE permissions confirmation](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
+   ![Screenshot: Die Bestätigung von JetBrains-IDE-Berechtigungen](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
 
-## Further reading
+## Weitere nützliche Informationen
 
-- "[Getting started with GitHub Copilot in a JetBrains IDE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide)"
+- [Erste Schritte mit GitHub Copilot in einer JetBrains-IDE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide)
 
 {% endjetbrains %}
