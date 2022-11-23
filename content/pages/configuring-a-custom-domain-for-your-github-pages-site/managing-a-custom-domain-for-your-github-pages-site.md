@@ -46,7 +46,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
-![Save custom domain button](/assets/images/help/pages/save-custom-subdomain.png)
+  ![Save custom domain button](/assets/images/help/pages/save-custom-subdomain.png)
 
   {% note %}
   
