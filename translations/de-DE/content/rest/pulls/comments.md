@@ -1,5 +1,5 @@
 ---
-title: Pull-Request-Review-Kommentare
+title: Pull request review comments
 shortTitle: Review comments
 intro: ''
 versions:
@@ -11,24 +11,10 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 6d49aa3d5bca7f74a21c1cce32cecd38abe9366d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147067730'
 ---
-## Informationen zur API für Pull Request-Review-Kommentare
 
-Pull Request-Review-Kommentare sind Kommentare zu einem Teil des vereinheitlichten Formats, der während einer Pull Request-Review vorgenommen wurde. Commit- und Issue-Kommentare unterscheiden sich von Pull Request-Review-Kommentaren. Du wendest Commit-Kommentare direkt auf einen Commit an und du wendest Issue-Kommentare an, ohne auf einen Teil des vereinheitlichten Formats zu verweisen. Weitere Informationen findest du unter [Erstellen eines Commit-Kommentars](/rest/reference/commits#create-a-commit-comment) und [Erstellen eines Issue-Kommentars](/rest/reference/issues#create-an-issue-comment).
+## About the Pull request review comments API
 
-### Benutzerdefinierte Medientypen für Pull Request-Review-Kommentare
+Pull request review comments are comments on a portion of the unified diff made during a pull request review. Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/commits#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
 
-Dies sind die unterstützten Medientypen für Pull Request-Review-Kommentare.
-
-    application/vnd.github.VERSION.raw+json
-    application/vnd.github.VERSION.text+json
-    application/vnd.github.VERSION.html+json
-    application/vnd.github.VERSION.full+json
-
-Weitere Informationen findest du unter [Benutzerdefinierte Medientypen](/rest/overview/media-types).
+{% data reusables.pull_requests.issues-media-types %}
