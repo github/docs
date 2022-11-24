@@ -6,6 +6,7 @@ intro: 'Die {% data variables.product.prodname_actions %} OIDC-API ermöglicht d
 topics:
   - API
 versions:
+  fpt: '*'
   ghec: '*'
   ghes: '>=3.7'
 ms.openlocfilehash: 6857081d29bd89e59c4f6c7ff458fd0afc2cf6ef
