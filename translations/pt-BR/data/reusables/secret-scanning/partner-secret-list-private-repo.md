@@ -64,6 +64,8 @@ Dynatrace | Dynatrace Internal Token | dynatrace_internal_token
 EasyPost | EasyPost Production API Key | easypost_production_api_key
 EasyPost | EasyPost Test API Key | easypost_test_api_key
 Fastly | Fastly API Token | fastly_api_token
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Figma | Figma {% data variables.product.pat_generic_title_case %} | figma_pat{% endif %}
 Finicity | Finicity App Key | finicity_app_key
 Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key
 Flutterwave | Flutterwave Test API Secret Key | flutterwave_test_api_secret_key
@@ -91,7 +93,12 @@ Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
 Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
 Grafana | Grafana API Key | grafana_api_key
+Grafana | Grafana Cloud API Key | grafana_cloud_api_key
+Grafana | Grafana Cloud API Token | grafana_cloud_api_token
+Grafana | Grafana Project API Key | grafana_project_api_key
+Grafana | Grafana Project Service Account Token | grafana_project_service_account_token{% endif %}
 HashiCorp | Terraform Cloud / Enterprise API Token | terraform_api_token
 HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
@@ -198,6 +205,8 @@ Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret
 Supabase | Supabase Service Key | supabase_service_key{% endif %}
 Tableau | Tableau {% data variables.product.pat_generic_title_case %} | tableau_personal_access_token
 Telegram | Telegram Bot Token | telegram_bot_token
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Telnyx | Telnyx API V2 Key | telnyx_api_v2_key{% endif %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 Twilio | Twilio Access Token | twilio_access_token{% endif %}
