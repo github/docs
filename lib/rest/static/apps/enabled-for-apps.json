@@ -32,6 +32,18 @@
         "requestPath": "/orgs/{org}/actions/cache/usage-by-repository"
       },
       {
+        "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/sub"
+      },
+      {
+        "slug": "set-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/sub"
+      },
+      {
         "slug": "get-github-actions-permissions-for-an-organization",
         "subcategory": "permissions",
         "verb": "get",
@@ -348,6 +360,18 @@
         "subcategory": "workflow-runs",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
+      },
+      {
+        "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
+        "subcategory": "oidc",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
+      },
+      {
+        "slug": "set-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
+        "subcategory": "oidc",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
       },
       {
         "slug": "get-github-actions-permissions-for-a-repository",
