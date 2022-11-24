@@ -340,9 +340,9 @@ sections:
         ```
         nomad stop github-gitauth
         nomad run /etc/nomad-jobs/github/gitauth.hcl
-        nomad status git
+        nomad status github-gitauth
         ```
-      We are currently investigating a permanent fix for a future hot patch.
+      We are currently investigating a permanent fix for a future hot patch [Updated: 2022-11-24].
 
   deprecations:
     # https://github.com/github/enterprise-releases/issues/3217
