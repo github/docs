@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart for {% data variables.product.prodname_github_codespaces %}'
+title: 'Schnellstartanleitung für {% data variables.product.prodname_github_codespaces %}'
 shortTitle: 'Quickstart for {% data variables.product.prodname_codespaces %}'
-intro: 'Try out {% data variables.product.prodname_github_codespaces %} in 5 minutes.'
+intro: 'Teste {% data variables.product.prodname_github_codespaces %} in fünf Minuten.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -11,103 +11,108 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/codespaces-quickstart
+ms.openlocfilehash: f35fa87711ff3a7c33ed252d0d1e87865af619bc
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158653'
 ---
+## Einführung
 
-## Introduction
+In diesem Leitfaden erstellst du einen Codespace aus einem Vorlagenrepository und erkundest einige der wesentlichen Features, die dir im Codespace zur Verfügung stehen. Du arbeitest in der Browserversion von {% data variables.product.prodname_vscode %}, die zunächst der Standard-Editor für {% data variables.product.prodname_github_codespaces %} ist. Nachdem du diesen Schnellstart ausprobiert hast, kannst du {% data variables.product.prodname_codespaces %} in anderen Editoren verwenden und den Standard-Editor ändern. Die Links findest du am Ende dieses Leitfadens.
 
-In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace. You'll work in the browser version of {% data variables.product.prodname_vscode %}, which is initially the default editor for {% data variables.product.prodname_github_codespaces %}. After trying out this quickstart you can use {% data variables.product.prodname_codespaces %} in other editors, and you can change the default editor. Links are provided at the end of this guide.
+In diesem Schnellstart erfährst du, wie du einen Codespace erstellst, eine Verbindung mit einem weitergeleiteten Port herstellst, um deine ausgeführte Anwendung anzuzeigen, deinen Codespace in einem neuen Repository veröffentlichst und dein Setup mit Erweiterungen personalisierst.
 
-From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, publish your codespace to a new repository, and personalize your setup with extensions.
+Weitere Informationen zur genauen Funktionsweise von {% data variables.product.prodname_github_codespaces %} findest du im Begleitleitfaden [Fundierte Einblicke in {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive).
 
-For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive)."
+## Erstellen des Codespace
 
-## Creating your codespace
-
-1. Navigate to the [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces) template repository.
+1. Navigiere zum Vorlagenrepository [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces).
 {% data reusables.codespaces.open-template-in-codespace-step %}
 
-## Running the application
+## Ausführen der Anwendung
 
-Once your codespace is created, the template repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
+Sobald dein Codespace erstellt ist, wird dein Vorlagenrepository automatisch hinein geklont. Jetzt kannst du die Anwendung ausführen und in einem Browser starten.
 
-1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the `package.json` file, which starts up the web application defined in the sample repository.
+1. Sobald das Terminal geöffnet wird, gib den Befehl `npm run dev` ein. In diesem Beispiel wird ein Node.js-Projekt verwendet, und dieser Befehl führt das Skript mit der Bezeichnung „dev“ in der Datei `package.json` aus, die die im Beispielrepository definierte Webanwendung startet.
    
-   ![npm run dev in terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
+   ![„npm run dev“ im Terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
-   If you're following along with a different application type, enter the corresponding start command for that project.
+   Wenn du mit einem anderen Anwendungstyp arbeitest, gib den entsprechenden Startbefehl für dieses Projekt ein.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
+2. Wenn deine Anwendung gestartet wird, erkennt der Codespace den Port, auf dem die Anwendung ausgeführt wird, und zeigt eine Eingabeaufforderung an, um dir mitzuteilen, dass sie weitergeleitet wurde. 
 
-   ![Port forwarding "toast" notification](/assets/images/help/codespaces/quickstart-port-toast.png)
+   ![Popupbenachrichtigung für Portweiterleitung](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-3. Click **Open in Browser** to view your running application in a new tab.
+3. Klicke auf **Im Browser öffnen**, um deine ausgeführte Anwendung auf einer neuen Registerkarte anzuzeigen.
 
-## Edit the application and view changes
+## Bearbeiten der Anwendung und Anzeigen von Änderungen
 
-1. Switch back to your codespace and open the `haikus.json` file by clicking it in the Explorer.
+1. Wechsle zurück zu deinem Codespace, und öffne die Datei `haikus.json`, indem du im Explorer darauf klickst.
 
-2. Edit the `text` field of the first haiku to personalize the application with your own haiku.
+2. Bearbeite das `text`-Feld des ersten Haikus, um die Anwendung mit deinem eigenen Haiku zu personalisieren.
 
-3. Go back to the running application tab in your browser and refresh to see your changes.
+3. Gehe zurück zur Registerkarte der ausgeführten Anwendung in deinem Browser und aktualisiere sie, um deine Änderungen zu sehen.
    
-   {% octicon "light-bulb" aria-label="The lightbulb icon" %} If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
+   {% octicon "light-bulb" aria-label="The lightbulb icon" %} Wenn du die Registerkarte geschlossen hast, öffne den Bereich „Ports“, und klicke auf das Symbol **Im Browser öffnen** für den ausgeführten Port.
 
-   ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
+   ![Portweiterleitungsbereich](/assets/images/help/codespaces/quickstart-forward-port.png)
 
-## Committing and pushing your changes
+## Commit und Push deiner Änderungen
 
-Now that you've made a few changes, you can use the integrated terminal or the source view to publish your work to a new repository.
+Nachdem du nun einige Änderungen vorgenommen hast, kannst du das integrierte Terminal oder die Quellansicht verwenden, um deine Arbeit in einem neuen Repository zu veröffentlichen.
 
 {% data reusables.codespaces.source-control-display-dark %}
-1. To stage your changes, click  **+** next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
+1. Klicke zum Sagen einer Änderungen auf **+** neben der Datei `haikus.json` oder neben **Änderungen**, wenn du mehrere Dateien geändert hast und sie alle stagen möchtest.
 
-   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![Randleiste der Quellcodeverwaltung mit hervorgehobener Stagingschaltfläche](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
-2. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
+2. Gib eine Commitnachricht ein, die die von dir vorgenommene Änderung beschreibt, und klicke dann auf **Commit**, um deine gestageten Änderungen zu committen.
 
-   ![Source control side bar with a commit message](/assets/images/help/codespaces/vscode-commit-button.png)
+   ![Seitenleiste der Quellcodeverwaltung mit einer Commitnachricht](/assets/images/help/codespaces/vscode-commit-button.png)
 
-3. Click **Publish Branch**.
+3. Klicke auf **Branch veröffentlichen**.
    
-   ![Screenshot of the "Publish branch" button in VS Code](/assets/images/help/codespaces/vscode-publish-branch-button.png)
+   ![Screenshot: Schaltfläche „Branch veröffentlichen“ in VS Code](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
-4. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.company_short %} private repository** or **Publish to {% data variables.product.company_short %} public repository**.
+4. Gib in der Dropdownliste „Repositoryname“ einen Namen für dein neues Repository ein, und wähle dann **Im privaten Repository {% data variables.product.company_short %} veröffentlichen** oder **Im öffentlichen Repository {% data variables.product.company_short %} veröffentlichen** aus.
    
-   ![Screenshot of the "Repository Name" dropdown in VS Code](/assets/images/help/codespaces/choose-new-repository.png)
+   ![Screenshot: Dropdownliste „Repositoryname“ in VS Code](/assets/images/help/codespaces/choose-new-repository.png)
 
-   The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
-5. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.company_short %}** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
+   Der Besitzer des neuen Repositorys ist das {% data variables.product.prodname_dotcom %}-Konto, mit dem du den Codespace erstellt hast.
+5. Klicke im Popupfenster, das in der unteren rechten Ecke des Editors angezeigt wird, auf **In {% data variables.product.company_short %} öffnen**, um das neue Repository für {% data variables.product.prodname_dotcom_the_website %} anzuzeigen. Zeige die Datei `haikus.json` im neuen Repository an, und überprüfe, ob die in deinem Codespace vorgenommene Änderung erfolgreich in das Repository gepusht wurde.
    
-   ![Screenshot of the "Open in GitHub" pop-up in VS Code](/assets/images/help/codespaces/open-on-github.png)
+   ![Screenshot: Popupfenster „In GitHub öffnen“ in VS Code](/assets/images/help/codespaces/open-on-github.png)
 
-## Personalizing with an extension
+## Personalisieren mit einer Erweiterung
 
-When you connect to a codespace using the browser, or the {% data variables.product.prodname_vscode %} desktop application, you can access the Visual Studio Code Marketplace directly from the editor. For this example, you'll install a {% data variables.product.prodname_vscode_shortname %} extension that alters the theme, but you can install any extension that's useful for your workflow.
+Wenn du über den Browser oder die {% data variables.product.prodname_vscode %}-Desktopanwendung eine Verbindung mit einem Codespace herstellst, kannst du direkt über den Editor auf den Visual Studio Code-Marketplace zugreifen. In diesem Beispiel installierst du eine {% data variables.product.prodname_vscode_shortname %}-Erweiterung, die das Design ändert. Du kannst jedoch jede Erweiterung installieren, die für deinen Workflow nützlich ist.
 
-1. In the left sidebar, click the Extensions icon.
-1. In the search bar, type `fairyfloss` and click **Install**.
+1. Klicke auf der linken Randleiste auf das Symbol „Erweiterungen“.
+1. Gib in der Suchleiste ein `fairyfloss`, und klicke auf **Installieren**.
 
-   ![Add an extension](/assets/images/help/codespaces/add-extension.png)
+   ![Hinzufügen einer Erweiterung](/assets/images/help/codespaces/add-extension.png)
 
-1. Select the `fairyfloss` theme by selecting it from the list.
+1. Wähle das `fairyfloss`-Design aus, indem du es in der Liste auswählst.
 
-   ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
+   ![Auswählen des Fairyfloss-Designs](/assets/images/help/codespaces/fairyfloss.png)
 
-If you are using a codespace in the browser, or in the {% data variables.product.prodname_vscode %} desktop application, and you have [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) turned on, any changes you make to your editor setup in the current codespace, such as changing your theme or keyboard bindings, are automatically synced to any instances of {% data variables.product.prodname_vscode %} that are signed into your {% data variables.product.prodname_dotcom %} account and to any other codespaces you create.
+Wenn du einen Codespace im Browser oder in der {% data variables.product.prodname_vscode %}-Desktopanwendung verwendest, und du die [Einstellungssynchronisierung](https://code.visualstudio.com/docs/editor/settings-sync) aktiviert hast, werden alle Änderungen, die du am Editor-Setup im aktuellen Codespace vornimmst (z. B. Änderungen an deinem Design oder deinen Tastenzuordnungen) automatisch mit allen Instanzen von {% data variables.product.prodname_vscode %}, die bei deinem {% data variables.product.prodname_dotcom %}-Konto angemeldet sind, und allen anderen von dir erstellten Codespaces synchronisiert.
 
-## Next steps
+## Nächste Schritte
 
-You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
+Du hast deine erste Anwendung in einem Codespace erfolgreich erstellt, personalisiert und ausgeführt, aber es gibt so viel mehr zu entdecken! Hier findest du einige hilfreiche Ressourcen für deine nächsten Schritte mit {% data variables.product.prodname_github_codespaces %}.
 
-* "[Deep dive](/codespaces/getting-started/deep-dive)": This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-* "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
-* "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)": This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
+* [Fundierte Einblicke](/codespaces/getting-started/deep-dive): In diesem Schnellstart werden einige Features von {% data variables.product.prodname_github_codespaces %} vorgestellt. Hier erhältst du fundierte technische Einblicke.
+* [Hinzufügen einer Entwicklungscontainerkonfiguration zu deinem Repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces): Diese Leitfäden enthalten Informationen zum Einrichten deines Repositorys für die Verwendung von {% data variables.product.prodname_github_codespaces %} mit bestimmten Sprachen.
+* [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers): Dieser Leitfaden enthält Details zum Erstellen einer benutzerdefinierten Konfiguration für {% data variables.product.prodname_codespaces %} für dein Projekt.
 
-## Further reading
+## Weitere nützliche Informationen
 
-* "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
-* "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
-* "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
-* "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)"
-* "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-* "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+* [Aktivieren von {% data variables.product.prodname_github_codespaces %} für deine Organisation](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)
+* [Verwenden von {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)
+* [Verwenden von {% data variables.product.prodname_github_codespaces %} in deiner JetBrains-IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)
+* [Verwenden von {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)
+* [Festlegen deines Standard-Editors für {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces).
+* [Verwalten der Kosten von {% data variables.product.prodname_github_codespaces %} in deiner Organisation](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)

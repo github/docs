@@ -305,7 +305,7 @@ async function createReportIssue(core, octokit, flaws, opts) {
 async function linkReports(core, octokit, newReport, opts) {
   const {
     reportRepository = 'github/docs-content',
-    reportAuthor = 'docubot',
+    reportAuthor = 'docs-bot',
     reportLabel = 'broken link report',
   } = opts
 

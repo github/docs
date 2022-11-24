@@ -32,10 +32,10 @@
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000],
+	"forwardPorts": [4000],
 		
 	"portsAttributes": {
-		"3000": {
+		"4000": {
         		"label": "Preview",
         		"onAutoForward": "openPreview"
       		}
