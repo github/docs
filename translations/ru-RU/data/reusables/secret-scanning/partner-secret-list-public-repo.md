@@ -1,132 +1,127 @@
----
-ms.openlocfilehash: 7843dd2811e3645b6c9ea979fd3cb54a14b151f0
-ms.sourcegitcommit: 8d6f272d8b5da44e3a29ad8d99013c10a5c91b35
-ms.translationtype: MT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2022
-ms.locfileid: "148172039"
----
-Партнер | Поддерживаемый секрет
+Partner | Supported secret
 --- | ---
-Adafruit IO | Ключ Adafruit IO
-Adobe | Маркер устройства Adobe
-Adobe | Маркер службы Adobe
-Adobe | Краткосрочный маркер доступа Adobe
+Adafruit IO | Adafruit IO Key
+Adobe | Adobe Device Token
+Adobe | Adobe Service Token
+Adobe | Adobe Short-Lived Access Token
 Adobe | Adobe JSON Web Token
-Alibaba Cloud | Пара идентификатора и секрета ключа доступа Alibaba Cloud
-Amazon Web Services (AWS) | Пара идентификатора и секрета ключа доступа Amazon AWS
-Atlassian | Маркер Atlassian API
+Alibaba Cloud | Alibaba Cloud Access Key ID and Access Key Secret pair
+Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
+Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
-Azure | Секрет приложения Azure Active Directory
-Azure | пакетная служба Azure ключ, который можно идентифицировать
-Azure | Идентифицируемый ключ Azure CosmosDB
+Azure | Azure Active Directory Application Secret
+Azure | Azure Batch Key Identifiable
+Azure | Azure CosmosDB Key Identifiable
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
-Azure | Ключ веб-службы Студии машинного обучения Azure (классическая версия)
-Azure | Маркер Azure SAS
-Azure | Ключ Администратор поиска Azure
-Azure | Ключ запроса поиска Azure
-Azure | Сертификат управления службами Azure
-Azure | Строка подключения Azure SQL
-Azure | Ключ учетной записи хранения Azure
-Checkout.com | Производственный секретный ключ Checkout.com
-Checkout.com | Тестовый секретный ключ Checkout.com
-Chief | Токен главных средств
-Clojars | Маркер развертывания Clojars
-CloudBees CodeShip | Учетные данные CloudBees CodeShip
-Contributed Systems | Учетные данные Contributed Systems
-Databricks | Маркер доступа Databricks
-Datadog | Ключ API Datadog
-DevCycle | Ключ API клиента DevCycle
-DevCycle | Ключ API сервера DevCycle
+Azure | Azure ML Studio (classic) Web Service Key
+Azure | Azure SAS Token
+Azure | Azure Search Admin Key
+Azure | Azure Search Query Key
+Azure | Azure Service Management Certificate
+Azure | Azure SQL Connection String
+Azure | Azure Storage Account Key
+Checkout.com | Checkout.com Production Secret Key
+Checkout.com | Checkout.com Test Secret Key
+Chief | Chief Tools Token
+Clojars | Clojars Deploy Token
+CloudBees CodeShip | CloudBees CodeShip Credential
+Contributed Systems | Contributed Systems Credentials
+Databricks | Databricks Access Token
+Datadog | Datadog API Key
+DevCycle | DevCycle Client API Key
+DevCycle | DevCycle Server API Key
 DigitalOcean | DigitalOcean {% data variables.product.pat_generic_title_case %}
-DigitalOcean | Маркер OAuth DigitalOcean
-DigitalOcean | Маркер обновления DigitalOcean
-DigitalOcean | Маркер системы DigitalOcean
-Discord | Маркер бота Discord
-Doppler | Личный маркер Doppler
-Doppler | Маркер службы Doppler
-Doppler | Маркер CLI Doppler
-Doppler | Маркер SCIM Doppler
-Doppler | Маркер аудита Doppler
-DropBox | Маркер доступа Dropbox
-DropBox | Краткосрочный маркер доступа Dropbox
-Dynatrace | Маркер доступа Dynatrace
-Dynatrace | Внутренний маркер Dynatrace
-Finicity | Ключ приложения Finicity
+DigitalOcean | DigitalOcean OAuth Token
+DigitalOcean | DigitalOcean Refresh Token
+DigitalOcean | DigitalOcean System Token
+Discord | Discord Bot Token
+Doppler | Doppler Personal Token
+Doppler | Doppler Service Token
+Doppler | Doppler CLI Token
+Doppler | Doppler SCIM Token
+Doppler | Doppler Audit Token
+Dropbox | Dropbox Access Token
+Dropbox | Dropbox Short Lived Access Token
+Dynatrace | Dynatrace Access Token
+Dynatrace | Dynatrace Internal Token
+Figma | Figma {% data variables.product.pat_generic_title_case %}
+Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
-Frame.io| Маркер разработчика Frame.io
-FullStory| Ключ API FullStory
+Frame.io| Frame.io Developer Token
+FullStory| FullStory API Key
 GitHub | GitHub {% data variables.product.pat_generic_title_case %}
-GitHub | Маркер доступа OAuth GitHub
-GitHub | Маркер обновления GitHub
-GitHub | Маркер доступа к установке приложений GitHub
-GitHub | Закрытый ключ SSH GitHub
-GoCardless | Маркер динамического доступа GoCardless
-GoCardless | Маркер доступа к песочнице GoCardless
-Google Cloud | Ключ API Google
-Google Cloud | Идентификатор закрытого ключа Google Cloud
-Hashicorp Terraform | Ключ Terraform Cloud / Enterprise API
-Hubspot | Ключ API Hubspot
+GitHub | GitHub OAuth Access Token
+GitHub | GitHub Refresh Token
+GitHub | GitHub App Installation Access Token
+GitHub | GitHub SSH Private Key
+GoCardless | GoCardless Live Access Token
+GoCardless | GoCardless Sandbox Access Token
+Google Cloud | Google API Key
+Google Cloud | Google Cloud Private Key ID
+Hashicorp Terraform | Terraform Cloud / Enterprise API Token
+Hubspot | Hubspot API Key
+Hubspot | Hubspot API Personal Access Key
 Ionic | Ionic {% data variables.product.pat_generic_title_case %}
-Ionic | Маркер обновления Ionic
-JD Cloud | Ключ доступа JD Cloud
-Линейная | Ключ API Linear
-Линейная | Маркер доступа OAuth Linear
-Mailchimp | Ключ API Mailchimp
-Mailchimp | Ключ API Mandrill
-Mailgun | Ключ API Mailgun
-MessageBird | Ключ API MessageBird
-Meta | Маркер доступа Facebook
-npm | Маркер доступа npm
-NuGet | Ключ API NuGet
-Развертывание Octopus | Ключ API развертывания Octopus
-OpenAI | Ключ API OpenAI
+Ionic | Ionic Refresh Token
+JD Cloud | JD Cloud Access Key
+Linear | Linear API Key
+Linear | Linear OAuth Access Token
+Mailchimp | Mailchimp API Key
+Mailchimp | Mandrill API Key
+Mailgun | Mailgun API Key
+MessageBird | MessageBird API Key
+Meta | Facebook Access Token
+npm | npm Access Token
+NuGet | NuGet API Key
+Octopus Deploy | Octopus Deploy API Key
+OpenAI | OpenAI API Key
 Palantir | Palantir JSON Web Token
-PlanetScale | Пароль базы данных PlanetScale
-PlanetScale | Маркер OAuth PlanetScale
-PlanetScale | Маркер службы PlanetScale
-Plivo | Идентификатор и маркер Plivo Auth
-Postman | Ключ API Postman
-Prefect | Ключ API сервера Prefect
-Prefect | Токен API пользователя Prefect
-Proctorio | Ключ потребителя Proctorio
-Proctorio | Ключ связывания Proctorio
-Proctorio | Ключ регистрации Proctorio
-Proctorio | Секретный ключ Proctorio
-Pulumi | Маркер доступа Pulumi
-PyPI | Маркер API PyPI
-ReadMe | Ключ доступа API ReadMe
-redirect.pizza | Маркер API redirect.pizza
-RubyGems | Ключ API RubyGems
-Samsara | Маркер API Samsara
-Samsara | Маркер доступа OAuth Samsara
-SendGrid | Ключ API SendGrid
-Sendinblue | Ключ API Sendinblue
-Sendinblue | Ключ SMTP Sendinblue
-Shopify | Общий секрет приложения Shopify
-Shopify | Маркер доступа Shopify
-Shopify | Пользовательский маркер доступа к приложению Shopify
-Shopify | Пароль частного приложения Shopify
-Slack | Маркер API Slack
-Slack | URL-адрес входящего веб-перехватчика Slack
-Slack | URL-адрес веб-перехватчика рабочего процесса Slack
-SSLMate | Ключ API SSLMate
-SSLMate | Секрет кластера SSLMate
-Stripe | Секретный ключ реального API Stripe
-Stripe | Секретный ключ тестового API Stripe
-Stripe | Ограниченный ключ реального API Stripe
-Stripe | Ограниченный ключ тестового API Stripe
-Supabase | Ключ службы Supabase
-Tencent Cloud | Идентификатор секрета Tencent Cloud
-Twilio | Строковый идентификатор учетной записи Twilio
-Twilio | Ключ API Twilio
-Typeform | Форма типа {% data variables.product.pat_generic_title_case %}
-Uniwise | Ключ API WISEflow 
-Valour | Маркер доступа Valour
-Яндекс | Ключ API Yandex.Cloud   
-Яндекс | Yandex.Cloud IAM Cookie    
-Яндекс | маркер IAM Yandex.Cloud 
-Яндекс | Ключ API "Поиск.Словарь"  
-Яндекс | Секрет доступа Yandex.Cloud 
-Яндекс | Токен OAuth Для гравюр.Passport    
-Zuplo | API потребителя Zuplo
+PlanetScale | PlanetScale Database Password
+PlanetScale | PlanetScale OAuth Token
+PlanetScale | PlanetScale Service Token
+Plivo | Plivo Auth ID and Token
+Postman | Postman API Key
+Prefect | Prefect Server API Key
+Prefect | Prefect User API Token
+Proctorio | Proctorio Consumer Key
+Proctorio | Proctorio Linkage Key
+Proctorio | Proctorio Registration Key
+Proctorio | Proctorio Secret Key
+Pulumi | Pulumi Access Token
+PyPI | PyPI API Token
+ReadMe | ReadMe API Access Key
+redirect.pizza | redirect.pizza API Token
+RubyGems | RubyGems API Key
+Samsara | Samsara API Token
+Samsara | Samsara OAuth Access Token
+SendGrid | SendGrid API Key
+Sendinblue | Sendinblue API Key
+Sendinblue | Sendinblue SMTP Key
+Shopify | Shopify App Shared Secret
+Shopify | Shopify Access Token
+Shopify | Shopify Custom App Access Token
+Shopify | Shopify Private App Password
+Slack | Slack API Token
+Slack | Slack Incoming Webhook URL
+Slack | Slack Workflow Webhook URL
+SSLMate | SSLMate API Key
+SSLMate | SSLMate Cluster Secret
+Stripe | Stripe Live API Secret Key
+Stripe | Stripe Test API Secret Key
+Stripe | Stripe Live API Restricted Key
+Stripe | Stripe Test API Restricted Key
+Supabase | Supabase Service Key
+Tencent Cloud | Tencent Cloud Secret ID
+Tencent WeChat | Tencent WeChat API App ID
+Twilio | Twilio Account String Identifier
+Twilio | Twilio API Key
+Typeform | Typeform {% data variables.product.pat_generic_title_case %}
+Uniwise | WISEflow API Key 
+Valour | Valour Access Token
+Yandex | Yandex.Cloud API Key	
+Yandex | Yandex.Cloud IAM Cookie	
+Yandex | Yandex.Cloud IAM Token	
+Yandex | Yandex.Dictionary API Key	
+Yandex | Yandex.Cloud Access Secret	
+Yandex | Yandex.Passport OAuth Token	
+Zuplo | Zuplo Consumer API

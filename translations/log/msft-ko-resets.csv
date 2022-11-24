@@ -895,7 +895,7 @@ translations/ko-KR/content/graphql/reference/unions.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board.md,rendering error
 translations/ko-KR/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
-translations/ko-KR/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,broken liquid tags
+translations/ko-KR/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,rendering error
 translations/ko-KR/content/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project.md,rendering error
 translations/ko-KR/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/ko-KR/content/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch.md,rendering error
@@ -1058,6 +1058,7 @@ translations/ko-KR/content/rest/overview/permissions-required-for-github-apps.md
 translations/ko-KR/content/rest/overview/resources-in-the-rest-api.md,rendering error
 translations/ko-KR/content/rest/overview/troubleshooting.md,rendering error
 translations/ko-KR/content/rest/packages.md,rendering error
+translations/ko-KR/content/rest/pulls/comments.md,broken liquid tags
 translations/ko-KR/content/rest/quickstart.md,rendering error
 translations/ko-KR/content/rest/scim.md,rendering error
 translations/ko-KR/content/rest/teams/team-sync.md,rendering error
@@ -1299,6 +1300,7 @@ translations/ko-KR/data/reusables/scim/supported-idps.md,rendering error
 translations/ko-KR/data/reusables/search/syntax_tips.md,rendering error
 translations/ko-KR/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,rendering error
 translations/ko-KR/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
+translations/ko-KR/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/ko-KR/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/ko-KR/data/reusables/security-overview/permissions.md,rendering error
 translations/ko-KR/data/reusables/security/displayed-information.md,rendering error
@@ -1308,6 +1310,7 @@ translations/ko-KR/data/reusables/ssh/about-ssh.md,rendering error
 translations/ko-KR/data/reusables/ssh/key-type-support.md,rendering error
 translations/ko-KR/data/reusables/ssh/rsa-sha-1-connection-failure-criteria.md,rendering error
 translations/ko-KR/data/reusables/support/help_resources.md,rendering error
+translations/ko-KR/data/reusables/support/scope-of-support.md,broken liquid tags
 translations/ko-KR/data/reusables/support/submit-a-ticket.md,rendering error
 translations/ko-KR/data/reusables/user-settings/access_applications.md,rendering error
 translations/ko-KR/data/reusables/user-settings/account_settings.md,rendering error
