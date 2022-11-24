@@ -944,7 +944,7 @@ translations/ru-RU/content/issues/organizing-your-work-with-project-boards/manag
 translations/ru-RU/content/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board.md,rendering error
 translations/ru-RU/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
 translations/ru-RU/content/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically.md,rendering error
-translations/ru-RU/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,broken liquid tags
+translations/ru-RU/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,rendering error
 translations/ru-RU/content/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view.md,broken liquid tags
 translations/ru-RU/content/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project.md,rendering error
 translations/ru-RU/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
@@ -1129,6 +1129,7 @@ translations/ru-RU/content/rest/overview/resources-in-the-rest-api.md,rendering 
 translations/ru-RU/content/rest/overview/troubleshooting.md,rendering error
 translations/ru-RU/content/rest/packages.md,rendering error
 translations/ru-RU/content/rest/projects/projects.md,rendering error
+translations/ru-RU/content/rest/pulls/comments.md,broken liquid tags
 translations/ru-RU/content/rest/quickstart.md,rendering error
 translations/ru-RU/content/rest/scim.md,rendering error
 translations/ru-RU/content/rest/teams/team-sync.md,rendering error
@@ -1425,6 +1426,7 @@ translations/ru-RU/data/reusables/search/syntax_tips.md,rendering error
 translations/ru-RU/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,rendering error
 translations/ru-RU/data/reusables/secret-scanning/partner-program-link.md,broken liquid tags
 translations/ru-RU/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
+translations/ru-RU/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/ru-RU/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/ru-RU/data/reusables/security-overview/beta-org-risk-coverage.md,rendering error
 translations/ru-RU/data/reusables/security-overview/permissions.md,rendering error
@@ -1434,6 +1436,7 @@ translations/ru-RU/data/reusables/ssh/about-ssh.md,rendering error
 translations/ru-RU/data/reusables/ssh/key-type-support.md,rendering error
 translations/ru-RU/data/reusables/ssh/rsa-sha-1-connection-failure-criteria.md,rendering error
 translations/ru-RU/data/reusables/support/help_resources.md,rendering error
+translations/ru-RU/data/reusables/support/scope-of-support.md,broken liquid tags
 translations/ru-RU/data/reusables/support/submit-a-ticket.md,rendering error
 translations/ru-RU/data/reusables/supported-languages/C.md,broken liquid tags
 translations/ru-RU/data/reusables/supported-languages/Cpp.md,broken liquid tags
