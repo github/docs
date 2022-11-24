@@ -50,6 +50,8 @@ You can enable a related feature, {% data variables.product.prodname_dependabot_
 
 {% data reusables.dependabot.dependabot-updates-and-actions %}
 
+{% data reusables.dependabot.dependabot-actions-support %}
+
 ## About pull requests for security updates
 
 Each pull request contains everything you need to quickly and safely review and merge a proposed fix into your project. This includes information about the vulnerability like release notes, changelog entries, and commit details. Details of which vulnerability a pull request resolves are hidden from anyone who does not have access to {% data variables.product.prodname_dependabot_alerts %} for the repository.

@@ -751,6 +751,7 @@ translations/ja-JP/content/code-security/security-overview/viewing-the-security-
 translations/ja-JP/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
+translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,broken liquid tags
 translations/ja-JP/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
@@ -867,7 +868,7 @@ translations/ja-JP/content/graphql/reference/unions.md,rendering error
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility.md,rendering error
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board.md,rendering error
 translations/ja-JP/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
-translations/ja-JP/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,broken liquid tags
+translations/ja-JP/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,rendering error
 translations/ja-JP/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
 translations/ja-JP/content/organizations/collaborating-with-groups-in-organizations/about-your-organizations-news-feed.md,rendering error
 translations/ja-JP/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on.md,rendering error
@@ -995,6 +996,7 @@ translations/ja-JP/content/rest/overview/resources-in-the-rest-api.md,rendering 
 translations/ja-JP/content/rest/overview/troubleshooting.md,broken liquid tags
 translations/ja-JP/content/rest/packages.md,broken liquid tags
 translations/ja-JP/content/rest/projects/projects.md,broken liquid tags
+translations/ja-JP/content/rest/pulls/comments.md,broken liquid tags
 translations/ja-JP/content/rest/quickstart.md,broken liquid tags
 translations/ja-JP/content/rest/scim.md,rendering error
 translations/ja-JP/content/rest/teams/team-sync.md,rendering error
@@ -1213,6 +1215,7 @@ translations/ja-JP/data/reusables/scim/supported-idps.md,rendering error
 translations/ja-JP/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/ja-JP/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/ja-JP/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
+translations/ja-JP/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/ja-JP/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/ja-JP/data/reusables/security-overview/permissions.md,rendering error
 translations/ja-JP/data/reusables/shortdesc/rate_limits_github_apps.md,rendering error
@@ -1221,6 +1224,7 @@ translations/ja-JP/data/reusables/ssh/about-ssh.md,broken liquid tags
 translations/ja-JP/data/reusables/ssh/key-type-support.md,rendering error
 translations/ja-JP/data/reusables/ssh/rsa-sha-1-connection-failure-criteria.md,rendering error
 translations/ja-JP/data/reusables/support/help_resources.md,rendering error
+translations/ja-JP/data/reusables/support/scope-of-support.md,broken liquid tags
 translations/ja-JP/data/reusables/support/submit-a-ticket.md,broken liquid tags
 translations/ja-JP/data/reusables/user-settings/access_applications.md,rendering error
 translations/ja-JP/data/reusables/user-settings/account_settings.md,rendering error
