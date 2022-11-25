@@ -1,19 +1,10 @@
----
-ms.openlocfilehash: 4081194451ae681e3a8208cb0462bd7f7574c3ef
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145134460"
----
-Si votre demande de support dépasse le cadre de ce que notre équipe peut faire pour vous aider, nous serons peut-être en mesure de vous recommander les étapes à suivre pour résoudre votre problème en dehors du {% data variables.contact.github_support %}. Votre demande de support est peut-être hors de portée du {% data variables.contact.github_support %} si elle porte principalement sur ce qui suit :
-- Intégrations tierces, telles que Jira{% ifversion ghes %}
-- Configuration matérielle{% endif %}
-- CI/CD, par exemple Jenkins
-- L’écriture de scripts
-- La configuration de systèmes d’authentification externes, comme des fournisseurs d’identité SAML
-- Projets open source{% ifversion ghes %}
-- Conception de cluster LGTM{% endif %}
-- Écriture ou débogage de nouvelles requêtes pour {% data variables.product.prodname_codeql %}
+If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
+- Third party integrations, such as Jira{% ifversion ghes %}
+- Hardware setup{% endif %}
+- CI/CD, such as Jenkins
+- Writing scripts
+- Configuration of external authentication systems, such as SAML identity providers
+- Open source projects
+- Writing or debugging new queries for {% data variables.product.prodname_codeql %}
 
-Si vous ne savez pas si tel est le cas, ouvrez un ticket et nous serons ravis de vous aider à déterminer la meilleure façon de procéder.
+If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed.

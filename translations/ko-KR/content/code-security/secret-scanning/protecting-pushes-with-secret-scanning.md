@@ -30,6 +30,8 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization owners, security managers, and repository administrators, with a link to the related secret and the reason why it was allowed.{% endif %}
 
+{% data reusables.secret-scanning.bypass-reasons-and-alerts %}
+
 For information on the secrets and service providers supported for push protection, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection

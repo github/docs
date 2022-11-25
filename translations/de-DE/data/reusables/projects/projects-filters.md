@@ -1,10 +1,18 @@
-- To filter for any match of multiple values (an OR query), separate the values with a comma. For example `label:"good first issue",bug` will list all issues labelled `good first issue` or `bug`.
-- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
-- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-- To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. For example, `iteration:@current`.
-- To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
-- To filter by when an item was last updated, use `last-updated:` followed by the number of days. This filter only supports `{number}days` (or `1day` for a single day) as a unit. For example, `last-updated:7days` will only show items that were last updated 7 or more days ago.
-- To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. For more information, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)." {% ifversion projects-v2-tasklists %}
-- To filter for issues tracked by a specified issue, use `tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"` and replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. {% endif %}
+---
+ms.openlocfilehash: 9106c4a2e538e62d23cd0aa2e417758376f6ffcd
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148158853"
+---
+- Um nach einer Übereinstimmung mehrerer Werte zu filtern (eine OR-Abfrage), trennst du die Werte mit einem Komma. Zum Beispiel werden durch `label:"good first issue",bug` alle Issues mit der Bezeichnung `good first issue` oder `bug` aufgelistet.
+- Um nach fehlenden Werten zu filtern, stellst du deinem Filter `-` voran. Zum Beispiel zeigt `-label:"bug"` nur Elemente an, die nicht die Bezeichnung `bug` aufweisen.
+- Um nach allen fehlenden Werten zu filtern, gibst du `no:` gefolgt von dem Feldnamen ein. Mit `no:assignee` werden zum Beispiel nur Elemente angezeigt, die keine zugewiesenen Personen enthalten.
+- Um nach dem Zustand zu filtern, gibst du `is:` ein. Zum Beispiel: `is: issue` oder `is:open`.
+- Trenne mehrere Filter durch ein Leerzeichen. Zum Beispiel werden mit `status:"In progress" -label:"bug" no:assignee` nur Elemente angezeigt, die den Status `In progress` aufweisen, nicht die Bezeichnung `bug` tragen und keine zugewiesene Person umfassen.
+- Um nach der vorherigen, aktuellen oder nächsten Iteration eines Iterationsfelds zu filtern, verwende `@previous`, `@current` oder `@next`. Beispiel: `iteration:@current`.
+- Um nach Objekten zu filtern, die der anzeigenden Person zugewiesen sind, verwende `@me`. Beispiel: `assignee:@me`. Alle Personen, die diese Ansicht verwenden, sehen die ihnen zugewiesenen Elemente.
+- Um danach zu filtern, wann ein Element zuletzt aktualisiert wurde, verwendest du `last-updated:` gefolgt von der Anzahl der Tage. Dieser Filter unterstützt nur `{number}days` (oder `1day` für einen einzelnen Tag) als Einheit. Beispielsweise zeigt `last-updated:7days` nur Elemente an, die vor sieben oder mehr Tagen aktualisiert wurden.
+- Um Datums- und Zahlenfelder zu filtern, verwendest du die Bereichsabfragen `>`, `>=`, `<`, `<=` und `..`. Beispiel: `target:2022-03-01..2022-03-15`. Weitere Informationen findest du unter [Grundlagen der Suchsyntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). {% ifversion projects-v2-tasklists %}
+- Um nach Issues zu filtern, die durch einen angegebenen Issue nachverfolgt werden, verwende `tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"`, und ersetze `<OWNER>` durch den Repositorybesitzer, `<REPO>` durch den Repositorynamen und `<ISSUE NUMBER>` durch die Nummer des Issues. {% endif %}

@@ -49,7 +49,7 @@ program
   )
   .option(
     '--report-author <AUTHOR>',
-    'Previous author of report PR for linking. (default: "docubot")'
+    'Previous author of report PR for linking. (default: "docs-bot")'
   )
   .option(
     '--report-label <LABEL>',

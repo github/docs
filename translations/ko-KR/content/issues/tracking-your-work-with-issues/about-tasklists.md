@@ -6,12 +6,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
-ms.openlocfilehash: e35065ae4de634bb7a2da815e0a860c7c0b92234
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 69cdde1bb071f963b1a2f58ef1227bc96ab9d869
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160128'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180787'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
@@ -27,21 +27,11 @@ ms.locfileid: '148160128'
 
 ### {% data variables.projects.projects_v2 %}과의 통합 정보
 
- 프로젝트의 측면 패널에는 이동 경로 메뉴의 계층 구조에 문제의 위치가 표시되므로 작업 목록에 포함된 문제를 탐색할 수 있습니다. 프로젝트 보기에 트랙 및 추적 기준 필드를 추가하여 문제 간의 관계를 빠르게 확인할 수도 있습니다. 자세한 내용은 "[트랙 및 추적 기준 필드 정보"를 참조하세요](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields).
+ 프로젝트의 측면 패널에는 이동 경로 메뉴의 계층 구조에 문제의 위치가 표시되므로 작업 목록에 포함된 문제를 탐색할 수 있습니다. 프로젝트 보기에 트랙 및 추적 기준 필드를 추가하여 문제 간의 관계를 빠르게 확인할 수도 있습니다. 자세한 내용은 "[필드별 트랙 및 추적 정보"를 참조하세요](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields).
 
 ## 작업 목록 만들기
 
-작업 목록을 만들려면 "작업 목록 추가" 단추를 사용하거나 Markdown 문제를 편집할 수 있습니다.
-
-### "작업 목록 추가" 단추를 사용하여 작업 목록 만들기
-
-작업 목록을 만들기 위해 편집할 수 있는 문제 설명의 맨 아래에 **있는 {% octicon "checklist" aria-label="The checklist icon" %} 작업 목록 추가** 단추를 클릭합니다.
-
-!['작업 목록 추가' 단추를 보여 주는 스크린샷](/assets/images/help/issues/tasklist-add-tasklist-button.png)
-
-### Markdown을 사용하여 작업 목록 만들기
-
-문제 설명에서 Markdown을 사용하여 작업 목록을 만들 수 있습니다. 펜스 코드 블록을 만들고 여는 백틱 옆에 포함합니다 `[tasklist]` . 각 항목 `- [ ]` 앞에 다른 문제 또는 텍스트에 대한 링크를 포함하고 있습니다. 필요에 따라 제목을 목록 맨 위에 Markdown 헤더로 포함할 수 있습니다. 
+문제 설명에서 Markdown을 사용하여 작업 목록을 만들 수 있습니다. 펜스 코드 블록을 만들고 여는 백틱 옆에 포함합니다 `[tasklist]` . 그런 다음 각 항목의 서문 앞에 `- [ ]` 다른 문제 또는 텍스트에 대한 링크를 포함할 수 있습니다. 필요에 따라 제목을 목록 맨 위에 Markdown 헤더로 포함할 수 있습니다. 
 
 ````
 ```[tasklist]
@@ -50,10 +40,11 @@ ms.locfileid: '148160128'
 - [ ] Draft issue title
 ```
 ````
-
 Markdown은 {% data variables.product.product_name %}에 의해 작업 목록으로 렌더링됩니다. 그런 다음, UI를 사용하여 변경하고 문제 및 초안 문제를 추가할 수 있습니다. 문제 설명을 편집하는 경우 Markdown을 직접 수정하거나 Markdown을 복사하여 다른 문제의 작업 목록을 복제할 수 있습니다.
 
+서식 지정 도구 모음에서 {% octicon "checklist" aria-label="The checklist icon" %}을 클릭하여 새 문제를 만들거나 문제 설명을 편집할 때 작업 목록을 삽입할 수도 있습니다.
 
+!['작업 목록 추가' 단추를 보여 주는 스크린샷](/assets/images/help/issues/tasklist-formatting-toolbar.png)
 
 ## 작업 목록에 문제 추가
 
