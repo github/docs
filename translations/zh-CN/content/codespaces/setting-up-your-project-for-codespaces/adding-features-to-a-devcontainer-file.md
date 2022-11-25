@@ -1,7 +1,7 @@
 ---
-title: Adding features to a devcontainer.json file
+title: 向 devcontainer.json 文件添加功能
 shortTitle: Adding features
-intro: With features, you can quickly add tools, runtimes, or libraries to your dev container configuration.
+intro: 借助这些功能，可以快速将工具、运行时或库添加到开发容器配置。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,34 +10,39 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+ms.openlocfilehash: 7e72739e93e83995d86baf19d62f7bf2e1c5b6bc
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180825'
 ---
+{% data reusables.codespaces.about-features %} 使用本文中的选项卡可显示上述每一种功能的添加方式的说明。
 
-{% data reusables.codespaces.about-features %} Use the tabs in this article to display instructions for each of these ways of adding features.
-
-## Adding features to a `devcontainer.json` file
+## 向 `devcontainer.json` 文件添加功能
 
 {% webui %}
 
-1. Navigate to your repository on {% data variables.product.prodname_dotcom_the_website %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
+1. 导航到 {% data variables.product.prodname_dotcom_the_website %} 上的存储库，找到 `devcontainer.json` 文件，然后单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑文件。
    
-   If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
-1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
+   如果还没有 `devcontainer.json` 文件，可以立即创建一个。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)”。
+1. 在文件编辑器右侧的“市场”选项卡中，浏览或搜索要添加的功能，然后单击功能的名称。
 
-   ![Screenshot of the Terraform feature in the Marketplace tab, with "Terra" in the search bar](/assets/images/help/codespaces/feature-marketplace.png)
-3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
+   ![“市场”选项卡中的 Terraform 功能的屏幕截图，搜索栏中显示“Terra”](/assets/images/help/codespaces/feature-marketplace.png)
+3. 在“安装”下，单击代码片段将其复制到剪贴板，然后将代码片段粘贴到 `devcontainer.json` 文件中的 `features` 对象中。
 
-   ![Screenshot of a code block in the Installation section of the Marketplace tab](/assets/images/help/codespaces/feature-installation-code.png)
+   ![“市场”选项卡的“安装”部分中代码块的屏幕截图](/assets/images/help/codespaces/feature-installation-code.png)
 
    ```JSON
    "features": {
         ...
         "ghcr.io/devcontainers/features/terraform:1": {},
         ...
-	}
+    }
     ```
-1. By default, the latest version of the feature will be used. To choose a different version, or configure other options for the feature, expand the properties listed under "Options" to view the available values, then add the options by manually editing the object in your `devcontainer.json` file.
+1. 默认情况下，将使用最新版本的功能。 若要选择其他版本或为功能配置其他选项，请展开“选项”下列出的属性查看可用值，然后通过手动编辑 `devcontainer.json` 文件中的对象添加选项。
 
-   ![Screenshot of the Options section of the Marketplace tab, with "version" and "tflint" expanded](/assets/images/help/codespaces/feature-options.png)
+   ![“市场”选项卡“选项”部分的屏幕截图，展开了“版本”和“tflint”](/assets/images/help/codespaces/feature-options.png)
 
    ```JSON
    "features": {
@@ -47,11 +52,11 @@ topics:
             "tflint": "latest"
         },
         ...
-	}
+    }
     ```
-1. Commit the changes to your `devcontainer.json` file.
+1. 将更改提交到 `devcontainer.json` 文件。
 
-The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+配置更改将在从存储库创建的新 codespace 中生效。 若要使更改在现有 codespace 中生效，需要将 `devcontainer.json` 文件的更新拉入 codespace，然后重新生成 codespace 的容器。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)”。
 
 {% endwebui %}
 
@@ -59,21 +64,21 @@ The configuration changes will take effect in new codespaces created from the re
 
 {% note %}
 
-To add features in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+若要在本地工作且未连接到 codespace 时在 {% data variables.product.prodname_vscode_shortname %} 中添加功能，必须安装并启用“开发容器”扩展。 有关该扩展的详细信息，请参阅 [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)。
 
 {% endnote %}
 
 {% data reusables.codespaces.command-pallette %}
-2. Start typing "Configure" and select **Codespaces: Configure Dev Container Features**.
+2. 开始键入“配置”，然后选择“Codespaces:配置开发容器功能”。
 
-   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![命令面板中的“配置 Devcontainer 功能”命令](/assets/images/help/codespaces/codespaces-configure-features.png)
 
-3. Update your feature selections, then click **OK**.
+3. 更新功能选择，然后单击“确定”。
 
-   ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
+   ![容器配置期间的“选择其他功能”菜单](/assets/images/help/codespaces/select-additional-features.png)
 
-4. If you're working in a codespace, a prompt will appear in the lower-right corner. To rebuild the container and apply the changes to the codespace you're working in, click **Rebuild Now**.
+4. 如果在 codespace 中操作，右下角将显示一条提示。 若要重新生成容器并将更改应用于你正在使用的 codespace，请单击“立即重新生成”。
 
-   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![命令面板中的“Codespaces: 重新生成容器”](/assets/images/help/codespaces/rebuild-prompt.png)
 
 {% endvscode %}
