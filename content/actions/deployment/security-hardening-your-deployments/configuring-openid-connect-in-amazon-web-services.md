@@ -49,7 +49,7 @@ Edit the trust policy to add the `sub` field to the validation conditions. For e
 }
 ```
 
-In the following example, StringLike with a wildcard operator, `*`, is used to allow any branch or enviroment from the `octo-org/octo-repo` github organization and repo to assume a role in AWS.
+In the following example, `StringLike` is used with a wildcard operator (`*`) to allow any branch, pull request merge branch, or environment from the `octo-org/octo-repo` organization and repository to assume a role in AWS.
 
 ```json{:copy}
 {
