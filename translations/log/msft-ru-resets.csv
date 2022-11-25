@@ -761,6 +761,7 @@ translations/ru-RU/content/code-security/adopting-github-advanced-security-at-sc
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
+translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
@@ -1232,9 +1233,7 @@ translations/ru-RU/data/reusables/classroom/about-autograding.md,rendering error
 translations/ru-RU/data/reusables/classroom/assignments-click-pencil.md,broken liquid tags
 translations/ru-RU/data/reusables/classroom/assignments-guide-using-autograding.md,rendering error
 translations/ru-RU/data/reusables/classroom/assignments-type-a-title.md,broken liquid tags
-translations/ru-RU/data/reusables/code-scanning/alerts-found-in-generated-code.md,rendering error
 translations/ru-RU/data/reusables/code-scanning/analyze-go.md,rendering error
-translations/ru-RU/data/reusables/code-scanning/autobuild-add-build-steps.md,rendering error
 translations/ru-RU/data/reusables/code-scanning/billing.md,broken liquid tags
 translations/ru-RU/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,rendering error
 translations/ru-RU/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
@@ -1426,7 +1425,6 @@ translations/ru-RU/data/reusables/search/syntax_tips.md,rendering error
 translations/ru-RU/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,rendering error
 translations/ru-RU/data/reusables/secret-scanning/partner-program-link.md,broken liquid tags
 translations/ru-RU/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
-translations/ru-RU/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/ru-RU/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/ru-RU/data/reusables/security-overview/beta-org-risk-coverage.md,rendering error
 translations/ru-RU/data/reusables/security-overview/permissions.md,rendering error
@@ -1436,7 +1434,6 @@ translations/ru-RU/data/reusables/ssh/about-ssh.md,rendering error
 translations/ru-RU/data/reusables/ssh/key-type-support.md,rendering error
 translations/ru-RU/data/reusables/ssh/rsa-sha-1-connection-failure-criteria.md,rendering error
 translations/ru-RU/data/reusables/support/help_resources.md,rendering error
-translations/ru-RU/data/reusables/support/scope-of-support.md,broken liquid tags
 translations/ru-RU/data/reusables/support/submit-a-ticket.md,rendering error
 translations/ru-RU/data/reusables/supported-languages/C.md,broken liquid tags
 translations/ru-RU/data/reusables/supported-languages/Cpp.md,broken liquid tags

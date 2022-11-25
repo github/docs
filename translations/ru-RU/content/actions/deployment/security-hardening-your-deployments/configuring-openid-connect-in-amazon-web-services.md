@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 173a7469fc8bbf58b9477c18fc79c57af7bc8ee1
-ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.openlocfilehash: 597ea408c2f0172eb0eacf07fc2d1ad320872f09
+ms.sourcegitcommit: 94ba3891ebcc3c05812f468e4adafdd15b99e390
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/05/2022
-ms.locfileid: '148010008'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182260'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -53,7 +53,7 @@ OpenID Connect (OIDC) позволяет рабочим процессам {% da
 }
 ```
 
-В следующем примере `ForAllValues` используется для сопоставления нескольких ключей условий, а `StringLike` используется для сопоставления любых ссылок в указанном репозитории. Обратите внимание, что оператор `ForAllValues` [предоставляет слишком много разрешений](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) и его не следует использовать самостоятельно в качестве действия `Allow`. В этом примере включение `StringLike` означает, что пустой набор в `ForAllValues` по-прежнему не будет передавать условие:
+В следующем примере `StringLike` используется с подстановочным оператором (`*`), чтобы разрешить любой ветви, ветви слияния запросов на вытягивание или среде из `octo-org/octo-repo` организации и репозитория принимать роль в AWS.
 
 ```json{:copy}
 {
@@ -69,8 +69,7 @@ OpenID Connect (OIDC) позволяет рабочим процессам {% da
                 "StringLike": {
                     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
                 },
-                "ForAllValues:StringEquals": {
-                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                "StringEquals": {
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 }
             }
