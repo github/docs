@@ -705,6 +705,7 @@ translations/ja-JP/content/code-security/adopting-github-advanced-security-at-sc
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
+translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
@@ -755,10 +756,8 @@ translations/ja-JP/content/code-security/supply-chain-security/understanding-you
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,broken liquid tags
 translations/ja-JP/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
-translations/ja-JP/content/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces.md,broken liquid tags
 translations/ja-JP/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
 translations/ja-JP/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
-translations/ja-JP/content/codespaces/developing-in-codespaces/the-codespace-lifecycle.md,broken liquid tags
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types.md,rendering error
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces.md,rendering error
 translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period.md,rendering error
@@ -767,7 +766,6 @@ translations/ja-JP/content/codespaces/managing-codespaces-for-your-organization/
 translations/ja-JP/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,rendering error
 translations/ja-JP/content/codespaces/prebuilding-your-codespaces/testing-dev-container-changes.md,broken liquid tags
 translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge.md,rendering error
-translations/ja-JP/content/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file.md,broken liquid tags
 translations/ja-JP/content/codespaces/the-githubdev-web-based-editor.md,rendering error
 translations/ja-JP/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,rendering error
 translations/ja-JP/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
@@ -1076,7 +1074,9 @@ translations/ja-JP/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,
 translations/ja-JP/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
 translations/ja-JP/data/reusables/branches/new-repo-default-branch.md,rendering error
 translations/ja-JP/data/reusables/classroom/about-autograding.md,rendering error
+translations/ja-JP/data/reusables/code-scanning/alerts-found-in-generated-code.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/autobuild-add-build-steps.md,broken liquid tags
+translations/ja-JP/data/reusables/code-scanning/autobuild-compiled-languages.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,rendering error
 translations/ja-JP/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
 translations/ja-JP/data/reusables/code-scanning/codeql-languages-keywords.md,rendering error
@@ -1088,7 +1088,6 @@ translations/ja-JP/data/reusables/codespaces/codespaces-policy-targets.md,render
 translations/ja-JP/data/reusables/codespaces/customize-vcpus-and-ram.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/next-steps-adding-devcontainer.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/prebuilds-crossreference.md,broken liquid tags
-translations/ja-JP/data/reusables/codespaces/rebuild-command.md,broken liquid tags
 translations/ja-JP/data/reusables/codespaces/secrets-on-start.md,broken liquid tags
 translations/ja-JP/data/reusables/command_line/provide-an-access-token.md,broken liquid tags
 translations/ja-JP/data/reusables/copilot/install-copilot-in-neovim.md,broken liquid tags
@@ -1224,7 +1223,6 @@ translations/ja-JP/data/reusables/ssh/about-ssh.md,broken liquid tags
 translations/ja-JP/data/reusables/ssh/key-type-support.md,rendering error
 translations/ja-JP/data/reusables/ssh/rsa-sha-1-connection-failure-criteria.md,rendering error
 translations/ja-JP/data/reusables/support/help_resources.md,rendering error
-translations/ja-JP/data/reusables/support/scope-of-support.md,broken liquid tags
 translations/ja-JP/data/reusables/support/submit-a-ticket.md,broken liquid tags
 translations/ja-JP/data/reusables/user-settings/access_applications.md,rendering error
 translations/ja-JP/data/reusables/user-settings/account_settings.md,rendering error
