@@ -700,6 +700,7 @@ translations/de-DE/content/code-security/adopting-github-advanced-security-at-sc
 translations/de-DE/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/de-DE/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/de-DE/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
+translations/de-DE/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,broken liquid tags
 translations/de-DE/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/de-DE/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/de-DE/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
@@ -1146,7 +1147,9 @@ translations/de-DE/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md
 translations/de-DE/data/reusables/audit_log/retention-periods.md,rendering error
 translations/de-DE/data/reusables/branches/new-repo-default-branch.md,rendering error
 translations/de-DE/data/reusables/classroom/about-autograding.md,rendering error
+translations/de-DE/data/reusables/code-scanning/alerts-found-in-generated-code.md,broken liquid tags
 translations/de-DE/data/reusables/code-scanning/autobuild-add-build-steps.md,broken liquid tags
+translations/de-DE/data/reusables/code-scanning/autobuild-compiled-languages.md,broken liquid tags
 translations/de-DE/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,rendering error
 translations/de-DE/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
 translations/de-DE/data/reusables/code-scanning/codeql-languages-keywords.md,rendering error
@@ -1307,7 +1310,6 @@ translations/de-DE/data/reusables/ssh/about-ssh.md,broken liquid tags
 translations/de-DE/data/reusables/ssh/key-type-support.md,rendering error
 translations/de-DE/data/reusables/ssh/rsa-sha-1-connection-failure-criteria.md,rendering error
 translations/de-DE/data/reusables/support/help_resources.md,rendering error
-translations/de-DE/data/reusables/support/scope-of-support.md,broken liquid tags
 translations/de-DE/data/reusables/support/submit-a-ticket.md,broken liquid tags
 translations/de-DE/data/reusables/user-settings/access_applications.md,rendering error
 translations/de-DE/data/reusables/user-settings/account_settings.md,rendering error
