@@ -1,43 +1,49 @@
 ---
-title: Splitting a subfolder out into a new repository
+title: Fractionnement d’un sous-dossier en un nouveau dépôt
 redirect_from:
   - /articles/splitting-a-subpath-out-into-a-new-repository
   - /articles/splitting-a-subfolder-out-into-a-new-repository
   - /github/using-git/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository
-intro: You can turn a folder within a Git repository into a brand new repository.
+intro: Vous pouvez convertir un dossier d’un dépôt Git en tout nouveau dépôt.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Splitting a subfolder
+ms.openlocfilehash: e99c1c1411b335837b478b32f085596ec4f5fc0f
+ms.sourcegitcommit: 46eac8c63f52669996a9c832f2abf04864dc89ba
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172908'
 ---
-If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.
+Si vous créez un clone du dépôt, vous ne perdez pas vos modifications ni historique Git quand vous fractionnez un dossier en un dépôt distinct.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. Change the current working directory to the location where you want to create your new repository.
+2. Remplacez le répertoire de travail actuel par l’emplacement où vous souhaitez créer votre dépôt.
 
-4. Clone the repository that contains the subfolder.
+4. Clonez le dépôt qui contient le sous-dossier.
    ```shell
    $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME
    ```
 
-4. Change the current working directory to your cloned repository.
+4. Remplacez le répertoire de travail actuel par votre dépôt cloné.
    ```shell
    $ cd REPOSITORY-NAME
    ```
 
-5. To filter out the subfolder from the rest of the files in the repository, install [`git-filter-repo`](https://github.com/newren/git-filter-repo), then run `git filter-repo` with the following arguments.
-   - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
+5. Pour filtrer le sous-dossier par rapport au reste des fichiers du référentiel, installez [`git-filter-repo`](https://github.com/newren/git-filter-repo), puis exécutez `git filter-repo` avec les arguments suivants.
+   - `FOLDER-NAME` : dossier dans votre projet dans lequel vous souhaitez créer un dépôt distinct.
 
    {% windows %}
 
    {% tip %}
 
-   **Tip:** Windows users should use `/` to delimit folders.
+   **Conseil :** Les utilisateurs Windows doivent utiliser `/` pour délimiter les dossiers.
 
    {% endtip %}
 
@@ -50,33 +56,33 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    > Ref 'refs/heads/BRANCH-NAME' was rewritten
    ```
    
-   The repository should now only contain the files that were in your subfolder(s).
+   Le dépôt ne doit maintenant contenir que les fichiers qui se trouvaient dans vos sous-dossiers.
 
-6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
+6. [Créez un dépôt](/articles/creating-a-new-repository/) sur {% data variables.product.product_name %}.
 
-7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
-	
-   ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. En haut de votre nouveau référentiel dans la page Configuration rapide de l’instance de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, cliquez sur {% octicon "clippy" aria-label="The copy to clipboard icon" %} pour copier l’URL du référentiel distant.
+    
+   ![Champ Copier l’URL du dépôt distant](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    {% tip %}
 
-   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+   **Conseil :** Pour plus d’informations sur la différence entre les URL HTTPS et SSH, consultez « [À propos des dépôts distants](/github/getting-started-with-github/about-remote-repositories) ».
 
    {% endtip %}
 
-8. Check the existing remote name for your repository. For example, `origin` or `upstream` are two common choices.
+8. Vérifiez le nom de dépôt distant existant pour votre dépôt. Par exemple, `origin` ou `upstream` sont deux choix courants.
    ```shell
    $ git remote -v
    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (fetch)
    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (push)
    ```
 
-9. Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
+9. Configurez une nouvelle URL distante pour votre nouveau dépôt à l’aide du nom de dépôt distant existant et de l’URL de dépôt distant que vous avez copiée à l’étape 7.
    ```shell
    git remote set-url origin https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git
    ```
 
-10. Verify that the remote URL has changed with your new repository name.
+10. Vérifiez que l’URL distante a changé avec le nom de votre nouveau dépôt.
     ```shell
     $ git remote -v
     # Verify new remote URL
@@ -84,7 +90,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
     > origin  https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git (push)
     ```
 
-11. Push your changes to the new repository on {% data variables.product.product_name %}.
+11. Poussez vos modifications vers le nouveau dépôt sur {% data variables.product.product_name %}.
     ```shell
     git push -u origin BRANCH-NAME
     ```
