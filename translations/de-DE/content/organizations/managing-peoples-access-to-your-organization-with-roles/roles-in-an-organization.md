@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108286'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159173'
 ---
 ## Informationen zu Rollen
 {% data reusables.organizations.about-roles %}
@@ -65,7 +65,7 @@ Wenn deine Organisation über ein Sicherheitsteam verfügt, kannst du mit der Ro
 ### {% data variables.product.prodname_github_app %}-Managers
 Standardmäßig können nur Organisationsbesitzer die Einstellungen von {% data variables.product.prodname_github_apps %} im Besitz einer Organisation verwalten. Wenn du weiteren Benutzern die Berechtigung zur Verwaltung von {% data variables.product.prodname_github_apps %} im Besitz einer Organisation erteilen möchtest, kann ihnen ein Besitzer Managerberechtigungen für {% data variables.product.prodname_github_app %} zuweisen.
 
-Wenn du einen Benutzer/eine Benutzerin zum {% data variables.product.prodname_github_app %}-Manager in deiner Organisation ernennst, kannst du ihnen Zugriff auf die Verwaltung der Einstellungen einzelner oder aller {% data variables.product.prodname_github_apps %} im Besitz der Organisation gewähren. Weitere Informationen finden Sie unter
+Wenn du einen Benutzer/eine Benutzerin zum {% data variables.product.prodname_github_app %}-Manager in deiner Organisation ernennst, kannst du ihnen Zugriff auf die Verwaltung der Einstellungen einzelner oder aller {% data variables.product.prodname_github_apps %} im Besitz der Organisation gewähren. Weitere Informationen findest du unter
 
 - [Hinzufügen von GitHub-App-Manager*innen zu deiner Organisation](/articles/adding-github-app-managers-in-your-organization)
 - [Entfernen von GitHub-App-Manager*innen aus deiner Organisation](/articles/removing-github-app-managers-from-your-organization)
@@ -80,7 +80,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 {% ifversion fpt or ghec %}
 <!-- Free/Pro/Team and GHEC versions have extra columns for Moderators and Billing managers-->
 
-| Organisationsberechtigung | Besitzer | Member | Moderatoren | Abrechnungsmanager | Sicherheitsmanager |
+| Organisationsberechtigung | Besitzer | Members | Moderatoren | Abrechnungsmanager | Sicherheitsmanager |
 |:------------------------|:------:|:-------:|:----------:|:----------------:|:-----------------:|
 | Erstellen von Repositorys (weitere Informationen findest du unter [Einschränken der Erstellung von Repositorys in deiner Organisation](/articles/restricting-repository-creation-in-your-organization)) | **X** | **X** | **X** |  | **X**  |
 | Abrechnungsinformationen anzeigen und bearbeiten | **X** |  |  | **X** |  |
@@ -121,7 +121,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 | Zuordnen deines Sponsorings zu einer anderen Organisation (weitere Informationen findest du unter [Zuordnen von Sponsorings zu deiner Organisation](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)) | **X** |  |  |  |  |
 | Verwalten der Veröffentlichung von {% data variables.product.prodname_pages %}-Websites aus Repositorys in der Organisation (weitere Informationen findest du unter [Verwalten der Veröffentlichung von {% data variables.product.prodname_pages %}-Websites für deine Organisation](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)) | **X** |  |  |  |  |
 | Verwalten von Sicherheits- und Analyseeinstellungen (weitere Informationen findest du unter [Verwalten von Sicherheits- und Analyseeinstellungen für deine Organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)) | **X** |  |  |  | **X** |
-| Anzeigen der Sicherheitsübersicht für die Organisation (Informationen unter [Informationen zur Sicherheitsübersicht](/code-security/security-overview/about-the-security-overview)) | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Anzeigen der Sicherheitsübersicht für die Organisation (siehe [Informationen zu Sicherheitsübersichten](/code-security/security-overview/about-the-security-overview)) | **X** |  |  |  | **X** |{% ifversion ghec %}
 | Aktivieren und Erzwingen der [einmaligen SAML-Anmeldung](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
 | [Verwalten des SAML-Benutzerzugriffs auf deine Organisation](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | Verwalten der SSH-Zertifizierungsstellen einer Organisation (weitere Informationen findest du unter [Verwalten der SSH-Zertifizierungsstellen deiner Organisation](/articles/managing-your-organizations-ssh-certificate-authorities)) | **X** |  |  |  |  |{% endif %}
@@ -145,7 +145,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 {% elsif ghes or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
-| Aktion in der Organisation | Besitzer | Member | Sicherheitsmanager |
+| Aktion in der Organisation | Besitzer | Members | Sicherheitsmanager |
 |:--------------------|:------:|:-------:|:-------:|
 | Personen zum Beitritt zur Organisation einladen | **X** |  |  |
 | Einladungen zum Beitritt zu der Organisation bearbeiten und zurückziehen | **X** |  |  |
@@ -167,7 +167,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 | Kann die Rolle des *Maintainers für ein Team* zugewiesen werden | **X** | **X** | **X**  |
 | Repositorys übertragen | **X** | |  |
 | Verwalten von Sicherheits- und Analyseeinstellungen (weitere Informationen findest du unter [Verwalten von Sicherheits- und Analyseeinstellungen für deine Organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)) | **X** | | **X** |{% ifversion ghes %}
-| Anzeigen der Sicherheitsübersicht für die Organisation (Informationen unter [Informationen zur Sicherheitsübersicht](/code-security/security-overview/about-the-security-overview)) | **X** | | **X** |{% endif %}{% ifversion ghes %}
+| Anzeigen der Sicherheitsübersicht für die Organisation (siehe [Informationen zu Sicherheitsübersichten](/code-security/security-overview/about-the-security-overview)) | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Verwalten von {% data variables.product.prodname_dependabot_security_updates %} (Informationen unter [Informationen zu {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)) | **X** | | **X** |{% endif %}
 | Verwalten der SSH-Zertifizierungsstellen einer Organisation (weitere Informationen findest du unter [Verwalten der SSH-Zertifizierungsstellen deiner Organisation](/articles/managing-your-organizations-ssh-certificate-authorities)) | **X** |  |  |
 | Erstellen von Projektboards (Informationen unter [Berechtigungen für Projektboards einer Organisation](/articles/project-board-permissions-for-an-organization)) | **X** | **X** | **X** |
@@ -191,7 +191,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
 
-| Aktion in der Organisation | Besitzer | Member |
+| Aktion in der Organisation | Besitzer | Members |
 |:--------------------|:------:|:-------:|
 | Personen zum Beitritt zur Organisation einladen | **X** |  |
 | Einladungen zum Beitritt zu der Organisation bearbeiten und zurückziehen | **X** |  |
@@ -231,7 +231,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 
 {% endif %}
 
-## Weitere Informationsquellen
+## Weiterführende Themen
 
 - [Repositoryrollen für eine Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)
 - [Projektboardberechtigungen für eine Organisation](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)

@@ -760,11 +760,11 @@ translations/de-DE/content/codespaces/codespaces-reference/security-in-github-co
 translations/de-DE/content/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces.md,broken liquid tags
 translations/de-DE/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,broken liquid tags
 translations/de-DE/content/codespaces/customizing-your-codespace/renaming-a-codespace.md,broken liquid tags
+translations/de-DE/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
 translations/de-DE/content/codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning.md,broken liquid tags
 translations/de-DE/content/codespaces/developing-in-codespaces/opening-an-existing-codespace.md,broken liquid tags
 translations/de-DE/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
 translations/de-DE/content/codespaces/developing-in-codespaces/the-codespace-lifecycle.md,broken liquid tags
-translations/de-DE/content/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization.md,broken liquid tags
 translations/de-DE/content/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization.md,broken liquid tags
 translations/de-DE/content/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces.md,rendering error
 translations/de-DE/content/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces.md,broken liquid tags
@@ -778,7 +778,6 @@ translations/de-DE/content/communities/documenting-your-project-with-wikis/about
 translations/de-DE/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/de-DE/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/de-DE/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
-translations/de-DE/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
@@ -866,7 +865,6 @@ translations/de-DE/content/get-started/quickstart/contributing-to-projects.md,re
 translations/de-DE/content/get-started/quickstart/create-a-repo.md,rendering error
 translations/de-DE/content/get-started/quickstart/fork-a-repo.md,rendering error
 translations/de-DE/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
-translations/de-DE/content/get-started/quickstart/github-glossary.md,broken liquid tags
 translations/de-DE/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md,rendering error
 translations/de-DE/content/get-started/signing-up-for-github/verifying-your-email-address.md,rendering error
 translations/de-DE/content/get-started/using-git/about-git-rebase.md,rendering error
@@ -1011,7 +1009,6 @@ translations/de-DE/content/repositories/creating-and-managing-repositories/delet
 translations/de-DE/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,rendering error
 translations/de-DE/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,rendering error
 translations/de-DE/content/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors.md,rendering error
-translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,broken liquid tags
 translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics.md,rendering error
 translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview.md,rendering error
 translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository.md,rendering error
@@ -1056,7 +1053,7 @@ translations/de-DE/content/rest/guides/traversing-with-pagination.md,rendering e
 translations/de-DE/content/rest/guides/working-with-comments.md,broken liquid tags
 translations/de-DE/content/rest/migrations/source-imports.md,broken liquid tags
 translations/de-DE/content/rest/overview/api-previews.md,rendering error
-translations/de-DE/content/rest/overview/other-authentication-methods.md,broken liquid tags
+translations/de-DE/content/rest/overview/other-authentication-methods.md,rendering error
 translations/de-DE/content/rest/overview/permissions-required-for-github-apps.md,rendering error
 translations/de-DE/content/rest/overview/resources-in-the-rest-api.md,rendering error
 translations/de-DE/content/rest/overview/troubleshooting.md,broken liquid tags

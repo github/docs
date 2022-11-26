@@ -971,6 +971,7 @@ translations/ko-KR/content/packages/learn-github-packages/introduction-to-github
 translations/ko-KR/content/packages/learn-github-packages/publishing-a-package.md,rendering error
 translations/ko-KR/content/packages/learn-github-packages/viewing-packages.md,rendering error
 translations/ko-KR/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
+translations/ko-KR/content/packages/quickstart.md,rendering error
 translations/ko-KR/content/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry.md,rendering error
 translations/ko-KR/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,rendering error
 translations/ko-KR/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
