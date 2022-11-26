@@ -1,6 +1,6 @@
 ---
-title: Organizações
-intro: A API de administração da organização permite a criação de organizações na sua empresa.
+title: Organizations
+intro: The Organization Administration API allows you to create organizations on your enterprise.
 versions:
   ghes: '*'
   ghae: '*'
@@ -10,4 +10,6 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-*Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la.
+*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

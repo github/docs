@@ -1,39 +1,46 @@
 ---
 title: Sobre o GitHub Copilot
-intro: '{% data variables.product.prodname_copilot %} pode ajudar você a codificar oferecendo sugestões de preenchimento automático. Você pode aprender o que considerar ao usar {% data variables.product.prodname_copilot %} e como {% data variables.product.prodname_copilot %} funciona.'
+intro: 'O {% data variables.product.prodname_copilot %} pode ajudar você a criar códigos oferecendo sugestões de preenchimento automático. Saiba o que considerar ao usar o {% data variables.product.prodname_copilot %} e como o {% data variables.product.prodname_copilot %} funciona.'
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Sobre o GitHub Copilot
+shortTitle: About GitHub Copilot
+ms.openlocfilehash: dd4538cb4cf6fc9dd84bb3f0d05bf8a85559d5ec
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160637'
 ---
+## Sobre o {% data variables.product.prodname_copilot %}
 
-## Sobre {% data variables.product.prodname_copilot %}
+O {% data variables.product.prodname_copilot %} é um programador de pares de IA que oferece sugestões de preenchimento automático conforme você codifica. Você pode receber sugestões do {% data variables.product.prodname_copilot %} ao começar a escrever o código que deseja usar ou um comentário em linguagem natural descrevendo o que deseja que o código faça. O {% data variables.product.prodname_copilot %} analisa o contexto no arquivo que você está editando, bem como arquivos relacionados, e oferece sugestões de dentro do editor de texto. O {% data variables.product.prodname_copilot %} é da plataforma OpenAI Codex, um sistema de IA criado pelo OpenAI.
 
-{% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. Você pode receber sugestões de {% data variables.product.prodname_copilot %}, começando a escrever o código que deseja usar ou escrevendo um comentário em linguagem natural, descrevendo o que você quer que o código faça. {% data variables.product.prodname_copilot %} analisa o contexto no arquivo que você está editando, bem como arquivos relacionados e oferece sugestões de dentro de seu editor de texto.
+O {% data variables.product.prodname_copilot %} é treinado em todas as linguagens que são exibidas nos repositórios públicos. Para cada linguagem, a qualidade das sugestões recebidas pode depender do volume e da diversidade de dados de treinamento para essa linguagem. Por exemplo, o JavaScript é bem representado nos repositórios públicos e é uma das linguagens com melhor suporte do {% data variables.product.prodname_copilot %}. As linguagens com menos representação nos repositórios públicos podem produzir sugestões menos robustas e um número menor de sugestões.
 
-{% data variables.product.prodname_copilot %} é otimizado para ajudar você a escrever Python, JavaScript, TypeScript, Ruby, Go, C# ou C++. Você também pode usar {% data variables.product.prodname_copilot %} para gerar sugestões em outras linguagens e uma grande variedade de estruturas. {% data variables.product.prodname_copilot %} é alimentado pelo OpenAI Codex, um novo sistema de IA criado pela OpenAI.
+O {% data variables.product.prodname_copilot %} está disponível como uma extensão no Visual Studio Code, no Visual Studio, no Neovim e no pacote de IDEs da JetBrains. Para obter mais informações, confira "[Introdução ao {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)".
 
-{% data variables.product.prodname_copilot %} está disponível como uma extensão em Visual Studio Code, Visual Studio, Neovim e no conjunto de IDEs do JetBrains. Para obter mais informações, consulte "[Introdução ao {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)".
+## Como usar o {% data variables.product.prodname_copilot %}
 
-## Usar {% data variables.product.prodname_copilot %}
+Veja exemplos reais do {% data variables.product.prodname_copilot %} em ação. Para obter mais informações, confira o site do [{% data variables.product.prodname_copilot %}](https://copilot.github.com/). 
 
-Você pode ver exemplos reais de {% data variables.product.prodname_copilot %} em ação. Para obter mais informações, consulte o site [{% data variables.product.prodname_copilot %}](https://copilot.github.com/).
+O GitHub Copilot oferece sugestões de um modelo que o OpenAI criou com base em bilhões de linhas de código aberto. Como resultado, o conjunto de treinamento do {% data variables.product.prodname_copilot %} pode conter padrões de codificação não seguros, bugs ou referências a APIs desatualizadas ou gírias. Quando o {% data variables.product.prodname_copilot %} gera sugestões com base nesses dados de treinamento, essas sugestões também podem conter padrões indesejáveis. 
 
-O GitHub Copilot oferece sugestões de um modelo que o OpenAI construiu a partir de bilhões de linhas de código-fonte aberto. Como resultado, o conjunto de treinamento para {% data variables.product.prodname_copilot %} pode conter padrões de codificação inseguros, erros ou referências a APIs ou expressões desatualizadas. Quando {% data variables.product.prodname_copilot %} produz sugestões com base nesses dados de treinamento, essas sugestões também podem conter padrões indesejáveis.
+Você é responsável por garantir a segurança e a qualidade do código. Recomendamos que você tome as mesmas precauções ao usar o código gerado pelo {% data variables.product.prodname_copilot %} que tomaria ao usar qualquer código escrito por outra pessoa. Essas precauções incluem testes rigorosos, verificação de IP e acompanhamento de vulnerabilidades de segurança. O {% data variables.product.company_short %} oferece vários recursos que ajudam a monitorar e aprimorar a qualidade do código, como {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_codeql %} e {% data variables.product.prodname_code_scanning %}. Todos esses recursos são gratuitos para serem usados em repositórios públicos. Para obter mais informações, confira "[Noções básicas sobre o {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)" e "[Recursos de segurança do {% data variables.product.company_short %}](/code-security/getting-started/github-security-features)".
 
-Você é responsável por garantir a segurança e a qualidade do seu código. Recomendamos que você tome as mesmas precauções ao usar o código gerado por {% data variables.product.prodname_copilot %} que você faria ao usar qualquer código que não foi escrito por você. Essas precauções incluem testes rigorosos, digitalização de IP e rastreamento de vulnerabilidades de segurança. {% data variables.product.company_short %} fornece uma série de funcionalidades para ajudar você a monitorar e melhorar a qualidade do código, como {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_codeql %} e {% data variables.product.prodname_code_scanning %}. Todos esses recursos são gratuitos para uso em repositórios públicos. Para obter mais informações, consulte "[Entendendo {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)" e "[Funcionalidades de segurança de {% data variables.product.company_short %}](/code-security/getting-started/github-security-features).".
+O {% data variables.product.prodname_copilot %} usa filtros para bloquear palavras ofensivas nos prompts e evitar a geração de sugestões em contextos confidenciais. Estamos comprometidos em sempre aprimorar o sistema de filtro para detectar e remover com mais inteligência as sugestões ofensivas geradas pelo {% data variables.product.prodname_copilot %}, incluindo saídas tendenciosas, discriminatórias ou abusivas. Se você encontrar uma sugestão ofensiva gerada pelo {% data variables.product.prodname_copilot %}, relate-a diretamente a copilot-safety@github.com, para que possamos aprimorar as proteções. 
 
-{% data variables.product.prodname_copilot %} usa filtros para bloquear palavras ofensivas nas instruções e evitar produzir sugestões em contextos sensíveis. We are committed to constantly improving the filter system to more intelligently detect and remove offensive suggestions generated by {% data variables.product.prodname_copilot %}, including biased, discriminatory, or abusive outputs. If you see an offensive suggestion generated by {% data variables.product.prodname_copilot %}, please report the suggestion directly to copilot-safety@github.com so that we can improve our safeguards.
+{% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## Sobre a cobrança do {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} is a paid feature, requiring a monthly or yearly subscription. Verified students and maintainers of popular open source projects on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot %} for free. If you meet the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. If you do not meet the criteria for a free {% data variables.product.prodname_copilot %} subscription, you will be offered a 60 day free trial, after which a paid subscription is required for continued use. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)".
+O {% data variables.product.prodname_copilot %} é um recurso pago, exigindo uma assinatura mensal ou anual. Os alunos, os professores e os mantenedores verificados de projetos populares de software livre do {% data variables.product.prodname_dotcom %} estão qualificados para usar o {% data variables.product.prodname_copilot %} gratuitamente. Se você atender aos critérios de uma assinatura gratuita do {% data variables.product.prodname_copilot %}, será notificado automaticamente quando visitar a página de assinatura do {% data variables.product.prodname_copilot %}. Se você não atender aos critérios de uma assinatura gratuita do {% data variables.product.prodname_copilot %}, será oferecida uma avaliação gratuita de 60 dias. Depois desse período será necessária uma assinatura paga para continuar o uso. Para obter mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)".
 
-## {% data variables.product.prodname_copilot %} Licensing Information for JetBrains Plugin
+## Sobre a licença do plug-in {% data variables.product.prodname_copilot %} nos IDEs da JetBrains
 
-{% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
+O {% data variables.product.prodname_dotcom %}, Inc. é o licenciante do plug-in da JetBrains. O uso desse plug-in está sujeito aos [Termos para produtos e recursos adicionais do {% data variables.product.prodname_dotcom %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot). A JetBrains não tem nenhuma responsabilidade relacionada ao plug-in nem a esse contrato. Usando o plug-in, você concorda com os termos anteriores.
 
-## Leia mais
+## Leitura adicional
 
-- "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+- "[Termos para produtos e recursos adicionais do {% data variables.product.company_short %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"

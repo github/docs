@@ -1,5 +1,5 @@
 ---
-title: パブリックフォークで実行されるワークフローの実行を承認する
+title: Approving workflow runs from public forks
 intro: 'When an outside contributor submits a pull request to a public repository, a maintainer with write access may need to approve any workflow runs.'
 versions:
   fpt: '*'
@@ -17,12 +17,4 @@ Workflow runs that have been awaiting approval for more than 30 days are automat
 
 ## Approving workflow runs on a pull request from a public fork
 
-Maintainers with write access to a repository can use the following procedure to review and run workflows on pull requests from contributors that require approval.
-
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
-1. プルリクエストで提案された変更を調べて、プルリクエストブランチでワークフローを快適に実行できることを確認します。 ワークフローファイルに影響を与える `.github/workflows/` ディレクトリで提案された変更には特に注意する必要があります。
-1. プルリクエストブランチでワークフローを実行することに慣れている場合は、{% octicon "comment-discussion" aria-label="The discussion icon" %} [**Conversation**] タブに戻り、[Workflow(s) awaiting approval] で [**Approve and run**] をクリックします。
-
-   ![ワークフローを承認して実行する](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+{% data reusables.actions.workflows.approve-workflow-runs %}

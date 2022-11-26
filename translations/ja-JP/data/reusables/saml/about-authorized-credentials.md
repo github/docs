@@ -1,1 +1,1 @@
-メンバーがAPI及びGitアクセス用に認可した、各個人アクセストークン及びSSHキーを見ることができます。 各トークンあるいはキーの末尾の数文字だけを見ることができます。 必要であれば、メンバーと共同で取り消すべきクレデンシャルを決定してください。
+You can see each {% data variables.product.pat_generic %} and SSH key that a member has authorized for API and Git access. Only the last several characters of each token or key are visible. If necessary, work with the member to determine which credentials you should revoke.

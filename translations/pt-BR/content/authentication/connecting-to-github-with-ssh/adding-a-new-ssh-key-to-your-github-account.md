@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma nova chave SSH à sua conta do GitHub
-intro: 'Para configurar sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} para usar sua chave SSH nova (ou existente) chave SSH, você também deverá adicionar a chave à sua conta.'
+title: Adding a new SSH key to your GitHub account
+intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) SSH key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
@@ -12,130 +12,78 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: Adicionar uma nova chave SSH
+shortTitle: Add a new SSH key
 ---
 
-Antes de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você deverá ter:
-* [Verificado se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)
-* [Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+## About addition of SSH keys to your account
 
-Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá reconfigurar quaisquer repositórios locais para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)".
+{% data reusables.ssh.about-ssh %} For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)."
+
+{% ifversion ssh-commit-verification %}You can also use SSH to sign commits and tags. For more information about commit signing, see "[About commit signature verification](/articles/about-commit-signature-verification)."{% endif %}
+
+After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
+
+## Prerequisites
+
+Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, complete the following steps.
+
+1. Check for existing SSH keys. For more information, see "[Checking for existing SSH keys](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
+1. Generate a new SSH key and add it to your machine's SSH agent. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+
+## Adding a new SSH key to your account
+
+After adding a new SSH authentication key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)."
 
 {% data reusables.ssh.key-type-support %}
 
-{% mac %}
-
 {% webui %}
 
-1. Copie a chave pública SSH para a sua área de transferência.
-
-  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
-
-  ```shell
-  $ pbcopy &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
-  ```
-
-  {% tip %}
-
-  **Dica:** se `pbcopy` não estiver funcionando, você poderá localizar a pasta `.ssh` oculta, abrir o arquivo no seu editor de texto de preferência e copiá-lo na área de transferência.
-
-  {% endtip %}
-
+{% data reusables.gpg.copy-ssh-public-key %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
-6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
-7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
+4. Click **New SSH key** or **Add SSH key**.
+{% ifversion ssh-commit-verification %}
+  ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key-with-auth.png)
+{% else %}
+  ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
+{% endif %}
+5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
+{% ifversion ssh-commit-verification %}
+6. Select the type of key, either authentication or signing. For more information about commit signing, see "[About commit signature verification](/articles/about-commit-signature-verification)."
+{% endif %}
+7. Paste your key into the "Key" field.
+{% ifversion ssh-commit-verification %}
+  ![The key field](/assets/images/help/settings/ssh-key-paste-with-type.png)
+{% else %}
+  ![The key field](/assets/images/help/settings/ssh-key-paste.png)
+{% endif %}
+8. Click **Add SSH key**.
+  ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
 {% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
-
-{% endmac %}
-
-{% windows %}
-
-{% webui %}
-
-1. Copie a chave pública SSH para a sua área de transferência.
-
-  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
-
-  ```shell
-  $ clip &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
-  ```
-
-  {% tip %}
-
-  **Dica:** se `clip` não estiver funcionando, você poderá localizar a pasta `.ssh` oculta, abrir o arquivo no seu editor de texto de preferência e copiá-lo na área de transferência.
-
-  {% endtip %}
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
-6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
-7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
-8. Se solicitado, confirme sua senha do {% data variables.product.product_name %}.![Caixa de diálogo Sudo mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)
-
-{% endwebui %}
-
-{% endwindows %}
-
-{% linux %}
-
-{% webui %}
-
-1. Copie a chave pública SSH para a sua área de transferência.
-
-  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
-
-  ```shell
-  $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-  # Then select and copy the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file
-  # displayed in the terminal to your clipboard
-  ```
-
-  {% tip %}
-
-  **Dica:** Como alternativa, você pode localizar a pasta oculta de `.ssh`, abrir o arquivo no seu editor de texto favorito e copiá-lo na sua área de transferência.
-
-  {% endtip %}
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
-5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
-6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
-7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
-8. Se solicitado, confirme sua senha do {% data variables.product.product_name %}.![Caixa de diálogo Sudo mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)
-
-{% endwebui %}
-
-{% endlinux %}
 
 {% cli %}
 
 {% data reusables.cli.cli-learn-more %}
 
-Antes de poder usar o {% data variables.product.prodname_cli %} para adicionar uma chave SSH à sua conta, você deve efetuar a autenticação no {% data variables.product.prodname_cli %}. Para obter mais informações, consulte [`login login gh`](https://cli.github.com/manual/gh_auth_login) na documentação do {% data variables.product.prodname_cli %}.
+Before you can use the {% data variables.product.prodname_cli %} to add an SSH key to your account, you must authenticate to the {% data variables.product.prodname_cli %}. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login) in the {% data variables.product.prodname_cli %} documentation.
 
-Para adicionar uma chave SSH à sua conta do GitHub, use o subcomando `ssh-key add`, especificando a sua chave pública.
+{% ifversion ssh-commit-verification %}At present, you can only use {% data variables.product.prodname_cli %} to add SSH authentication keys, you cannot add SSH signing keys.{% endif %}
 
-```shell
-gh ssh-key add <em>key-file</em>
-```
-
-Para incluir um título para a nova chave, use o sinalizador `-t` ou `--title`.
+To add an SSH authentication key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
 
 ```shell
-gh ssh-key add <em>key-file</em> --title "personal laptop"
+gh ssh-key add KEY-FILE
 ```
 
-Se você gerou a sua chave SSH seguindo as instruções em "[Gerando uma nova chave SSH](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", você pode adicionar a chave à sua conta usando este comando.
+To include a title for the new key, use the `-t` or `--title` flag.
+
+```shell
+gh ssh-key add KEY-FILE --title "personal laptop"
+```
+
+If you generated your SSH key by following the instructions in "[Generating a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command.
 
 ```shell
 gh ssh-key add ~/.ssh/id_ed25519.pub
@@ -144,7 +92,7 @@ gh ssh-key add ~/.ssh/id_ed25519.pub
 {% endcli %}
 
 {% ifversion fpt or ghec %}
-## Leia mais
+## Further reading
 
-- "[Autorizar uma chave SSH para uso com logon único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
+- "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
 {% endif %}

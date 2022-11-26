@@ -1,16 +1,16 @@
 import { createContext, useContext } from 'react'
 
 type LanguageItem = {
+  // 92BD1212-61B8-4E7A: Remove `wip: boolean` for the public ship of ko, fr, de, ru
+  wip: boolean
   name: string
   nativeName?: string
   code: string
   hreflang: string
-  wip?: boolean
 }
 
 export type LanguagesContextT = {
   languages: Record<string, LanguageItem>
-  userLanguage: string
 }
 
 export const LanguagesContext = createContext<LanguagesContextT | null>(null)

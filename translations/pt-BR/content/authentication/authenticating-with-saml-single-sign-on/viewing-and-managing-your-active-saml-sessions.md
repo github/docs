@@ -1,6 +1,6 @@
 ---
-title: Exibir e gerenciar sessões SAML ativas
-intro: É possível exibir e revogar sessões SAML ativas nas configurações de segurança.
+title: Viewing and managing your active SAML sessions
+intro: You can view and revoke your active SAML sessions in your settings.
 redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
@@ -9,21 +9,31 @@ versions:
   ghec: '*'
 topics:
   - SSO
-shortTitle: Sessões de SAML ativas
+type: how_to
+shortTitle: Active SAML sessions
 ---
 
+You can view a list of devices that have logged into your account, and revoke any SAML sessions that you don't recognize.
+
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-3. Em "Sessões", você pode ver suas sessões ativas do SAML. ![Lista de sessões SAML ativas](/assets/images/help/settings/saml-active-sessions.png)
-4. Para ver as informações da sessão, clique em **Ver mais**. ![Botão para abrir as informações da sessão do SAML](/assets/images/help/settings/saml-expand-session-details.png)
-5. Para revogar uma sessão, clique em **Revogar SAML**. ![Botão para revogar uma sessão SAML](/assets/images/help/settings/saml-revoke-session.png)
+{% data reusables.user-settings.sessions %}
+1. Under "Web sessions," you can see your active SAML sessions.
+
+   ![Screenshot of the list of active SAML sessions](/assets/images/help/settings/saml-active-sessions.png)
+
+1. To see the session details, click **See more**.
+   ![Screenshot of the active SAML sessions with the button to open SAML session details emphasized](/assets/images/help/settings/saml-expand-session-details.png)
+
+1. To revoke a session, click **Revoke SAML**.
+
+   ![Screenshot of the Session details page with the button to revoke a SAML session emphasized](/assets/images/help/settings/saml-revoke-session.png)
 
   {% note %}
 
-  **Observação:** quando você revoga uma sessão, remove a autenticação SAML para essa organização. Para acessar a organização novamente, você precisa fazer logon único por meio do provedor de identidade. Para obter mais informações, consulte "[Sobre a autenticação com SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)".
+  **Note:** When you revoke a session, you remove your SAML authentication to that organization. To access the organization again, you will need to single sign-on through your identity provider. For more information, see "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."
 
   {% endnote %}
 
-## Leia mais
+## Further reading
 
-- "[Sobre a autenticação com SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"
+- "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

@@ -1,10 +1,10 @@
-You can use `jobs.<job_id>.outputs` to create a `map` of outputs for a job. 作业输出可用于所有依赖此作业的下游作业。 有关定义作业依赖项的更多信息，请参阅 [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)。
+You can use `jobs.<job_id>.outputs` to create a `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
 {% data reusables.actions.output-limitations %}
 
-Job outputs containing expressions are evaluated on the runner at the end of each job. 包含密码的输出在运行器上编辑，不会发送至 {% data variables.product.prodname_actions %}。
+Job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to {% data variables.product.prodname_actions %}.
 
-要在依赖的作业中使用作业输出, 您可以使用 `needs` 上下文。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#needs-context)”。
+To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#needs-context)."
 
 ### Example: Defining outputs for a job
 
@@ -18,10 +18,18 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-      - id: step1
+      - id: step1{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "test=hello" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=test::hello"
-      - id: step2
+{%- endif %}{% raw %}
+      - id: step2{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "test=world" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=test::world"
+{%- endif %}{% raw %}
   job2:
     runs-on: ubuntu-latest
     needs: job1

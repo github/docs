@@ -1,0 +1,7 @@
+# Issue 7387
+# Differentiating triggering actor from executing actor
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'
+  ghae: '>=3.7'

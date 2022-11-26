@@ -1,18 +1,21 @@
 ---
-title: Codespaces organizations
+title: Codespaces 组织
 allowTitleToDifferFromFilename: true
-shortTitle: 组织
-intro: The Codespaces organizations API enables you to manage your organization members codespaces using the REST API.
+shortTitle: Organizations
+intro: 可通过 Codespaces 组织 API 使用 REST API 管理组织成员 codespaces。
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 0daf0d24f839c92d8eea6b221346b2df312071cf
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159452'
 ---
+## 关于 Codespaces 组织 API
 
-{% data reusables.codespaces.codespaces-api-beta-note %}
-
-## About the Codespaces organizations API
-
-The {% data variables.product.prodname_codespaces %} organizations API enables you to manage {% data variables.product.prodname_codespaces %} billed to your organization using the REST API. This API is available for authenticated organization admins and OAuth Apps, but not GitHub Apps. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."
+可通过 {% data variables.product.prodname_codespaces %} 组织 API 使用 REST API 管理向组织收费的 {% data variables.product.prodname_codespaces %}。 此 API 可用于经过身份验证的组织管理员和 OAuth 应用，但不适用于 GitHub 应用。 有关详细信息，请参阅“[{% data variables.product.prodname_codespaces %}](/codespaces)。”

@@ -1,6 +1,16 @@
-1. Navigate to the [GitHub Support Portal](https://support.github.com/).
-1. In the header, click **My Tickets**. ![Screenshot showing "My Tickets" link in the GitHub Support Portal header.](/assets/images/help/support/my-tickets-header.png)
-1. Optionally, to view tickets associated with an organization or enterprise account, select the **My Tickets** drop-down menu and click the name of the organization or enterprise account.
+---
+ms.openlocfilehash: 99112ea1a854a693b779aec53f5d7bfca1ea9ec2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147051957"
+---
+{% data reusables.support.navigate-to-my-tickets %}
+1. 必要に応じて、 **[マイ チケット]** ドロップダウン メニューを選択し、Organization またはエンタープライズ アカウントの名前をクリックして、Organization またはエンタープライズ アカウントに関連付けられているチケットを表示することができます。 
 
-  You must have an enterprise support entitlement to view tickets associated with an organization or enterprise account. 詳しい情報については「[Enterpriseのサポート資格の管理](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)」を参照してください。 ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
-1. In the list of tickets, click the subject of the ticket you want to view. ![Screenshot showing a list of support tickets with the subject highlighted.](/assets/images/help/support/my-tickets-list.png)
+{% indented_data_reference reusables.support.entitlements-note spaces=3 %}
+
+   ![[マイ チケット] ドロップダウン メニューのスクリーンショット。](/assets/images/help/support/ticket-context.png)
+1. チケットの一覧で、表示するチケットの件名をクリックします。
+![件名が強調表示されているサポート チケットの一覧を示すスクリーンショット。](/assets/images/help/support/my-tickets-list.png)

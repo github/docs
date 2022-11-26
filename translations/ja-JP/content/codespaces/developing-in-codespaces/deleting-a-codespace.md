@@ -1,7 +1,6 @@
 ---
-title: codespace を削除する
-intro: 不要になった codespace を削除することができます。
-product: '{% data reusables.gated-features.codespaces %}'
+title: Deleting a codespace
+intro: You can delete a codespace you no longer need.
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
   - /github/developing-online-with-codespaces/deleting-a-codespace
@@ -16,25 +15,26 @@ topics:
 shortTitle: Delete a codespace
 ---
 
-
-
-{% data reusables.codespaces.concurrent-codespace-limit %}
+You can delete a codespace in a variety of ways: in the terminal by using {% data variables.product.prodname_cli %}, in {% data variables.product.prodname_vscode %}, or in your web browser. Use the tabs in this article to display instructions for each of these ways of deleting a codespace.
 
 {% note %}
 
-**注釈:** codespace を作成したユーザだけが削除できます。 現在、Organization のオーナーが Organization 内で作成された Codespaces を削除する方法はありません。
+**Note**: You can't delete a codespace from within the JetBrains Gateway, or the JetBrains client application, or from within JupyterLab.
 
 {% endnote %}
 
-## codespace を削除する
+There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+
+{% data reusables.codespaces.max-number-codespaces %}
+
+## Deleting a codespace
 
 {% webui %}
 
-1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
+{% data reusables.codespaces.your-codespaces-procedure-step %}
+1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**
 
-2. 削除する codespace の右側で {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、**{% octicon "trash" aria-label="The trash icon" %} [Delete]** をクリックします。
-
-   ![削除ボタン](/assets/images/help/codespaces/delete-codespace.png)
+   ![Delete button](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
 
@@ -65,13 +65,13 @@ For more information about this command, see [the {% data variables.product.prod
 
 {% webui %}
 
-You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
+You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
 
 {% endwebui %}
 
 {% vscode %}
 
-You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
+You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
 
 {% endvscode %}
 
@@ -86,17 +86,49 @@ You can delete several or all of your codespaces with a single command, using `g
 
 `--days NUMBER` - Delete all of your codespaces that are older than the specified number of days. Can be used together with the `--repo` flag.
 
-By default you are prompted to confirm deletion of any codespaces that contain unsaved changes. You can use the `--force` flag to skip this confirmation.
+By default you are prompted to confirm deletion of any codespaces that contain unsaved changes. You can use the `--force` flag to skip this confirmation. 
 
-### サンプル
+### Example
 
 Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
 
 ```
-gh cs delete --repo octo-org/octo-repo --days 7
+gh codespace delete --repo octo-org/octo-repo --days 7
 ```
 
 {% endcli %}
 
-## 参考リンク
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+## Deleting codespaces in your organization
+
+As an organization owner, you can use {% data variables.product.prodname_cli %} to delete any codespace in your organization.
+
+{% webui %}
+
+For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
+
+{% endwebui %}
+
+{% vscode %}
+
+For more information, click the "{% data variables.product.prodname_cli %}" tab near the top of this page.
+
+{% endvscode %}
+
+{% cli %}
+
+1. Enter one of these commands to display a list of codespaces.
+   * `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization. 
+   * `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
+   You must be an owner of the specified organization.
+1. In the list of codespaces, navigate to the codespace you want to delete.
+1. To delete the selected codespace press <kbd>Enter</kbd>.
+
+   If the codespace contains unsaved changes you will be prompted to confirm deletion.
+
+{% endcli %}
+
+You can also use the REST API to delete codespaces for your organization. For more information, see "[Codespaces organizations](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)."
+
+## Further reading
+- "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"
+- "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"

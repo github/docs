@@ -1,6 +1,6 @@
 ---
-title: Configurar aplicaciones
-intro: 'Puedes establecer configuraciones de solicitud interna para {% data variables.product.product_location %}.'
+title: Configuring applications
+intro: 'You can configure internal application settings for {% data variables.location.product_location %}.'
 redirect_from:
   - /enterprise/admin/installation/configuring-applications
   - /enterprise/admin/configuration/configuring-applications
@@ -12,13 +12,14 @@ topics:
   - Enterprise
   - Fundamentals
 ---
+## Adjusting image caching
 
-## Ajustar el almacenamiento en caché de las imágenes
-
-Puedes elegir la cantidad de tiempo que {% data variables.product.product_location %} almacena en caché los avatares. Cuando aumentas el tiempo de almacenamiento en caché, aumentas la cantidad de tiempo que tardará en cargar el avatar de un usuario. Configurar el tiempo de almacenamiento en caché con un valor demasiado bajo puede sobrecargar {% data variables.product.product_location %} los procesos de trabajo.
+You can choose the amount of time that {% data variables.location.product_location %} caches avatars. When you increase the cache time, you increase the amount of time a user's avatar will take to load. Configuring the cache time with too low a value can overload {% data variables.location.product_location %} work processes. 
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-3. En la barra lateral izquierda, haz clic en **Applications** (Aplicaciones). ![Pestaña de solicitudes de la barra lateral de configuraciones](/assets/images/enterprise/management-console/sidebar-applications.png)
-4. Debajo de "Avatar image cache time (seconds)" (Tiempo de almacenamiento en caché del avatar [en segundos]), escribe la cantidad de segundos que quieres que {% data variables.product.product_location %} almacene en caché las imágenes de avatar.![Campo de formulario de almacenamiento en caché de imagen de avatar](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
+3. In the left sidebar, click **Applications**.
+![Applications tab in the settings sidebar](/assets/images/enterprise/management-console/sidebar-applications.png)
+4. Under "Avatar image cache time (seconds)", type the number of seconds that you would like {% data variables.location.product_location %} to cache avatar images.
+![Avatar image caching form field](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
 {% data reusables.enterprise_management_console.save-settings %}

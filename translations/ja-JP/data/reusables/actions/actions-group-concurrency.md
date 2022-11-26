@@ -1,4 +1,12 @@
-並行ジョブもしくはワークフローがキューに入っている場合、リポジトリ内の同じ並行グループを使う他のジョブもしくはワークフローが進行中だと、キューイングされたジョブもしくはワークフローは`保留中`になります。 この並行グループ内の以前の保留中のジョブもしくはワークフローは、キャンセルされます。 同じ並行グループ内にある実行中のジョブもしくはワークフローもキャンセルするには、`cancel-in-progress: true`を指定してください。
+---
+ms.openlocfilehash: a0c8b24bacdd41e32d9b8bdd0d8850e7a6ada557
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145114750"
+---
+並行ジョブかワークフローがキューに入っている場合、リポジトリ内の同じ並行グループを使う他のジョブかワークフローが進行中だと、キューイングされたジョブかワークフローは `pending` になります。 この並行グループ内の以前の保留中のジョブもしくはワークフローは、キャンセルされます。 同じコンカレンシー グループ内の現在実行中のジョブかワークフローもキャンセルするには、`cancel-in-progress: true` を指定します。
 
 ### 並行性とデフォルトの動作の使用例
 
@@ -24,9 +32,9 @@ concurrency:
 ```
 {% endraw %}
 
-### Example: Using a fallback value
+### 例: フォールバック値の使用
 
-If you build the group name with a property that is only defined for specific events, you can use a fallback value. For example, `github.head_ref` is only defined on `pull_request` events. If your workflow responds to other events in addition to `pull_request` events, you will need to provide a fallback to avoid a syntax error. The following concurrency group cancels in-progress jobs or runs on `pull_request` events only; if `github.head_ref` is undefined, the concurrency group will fallback to the run ID, which is guaranteed to be both unique and defined for the run.
+特定のイベントにのみ定義されるプロパティでグループ名を作成する場合、フォールバック値を使用できます。 たとえば、`github.head_ref` は `pull_request` イベントにのみ定義されます。 ワークフローが `pull_request` イベントに加えて他のイベントにも応答する場合、構文エラーを回避するためにフォールバックを指定する必要があります。 次のコンカレンシー グループは、`pull_request` イベントで進行中のジョブか実行のみを取り消します。`github.head_ref` が未定義の場合、コンカレンシー グループは実行 ID にフォールバックします。これは、一意であり、実行に対して定義されていることが保証されています。
 
 {% raw %}
 ```yaml
@@ -37,11 +45,11 @@ concurrency:
 {% endraw %}
 
 
-### Example: Only cancel in-progress jobs or runs for the current workflow
+### 例: 現在のワークフローで進行中のジョブまたは実行のみを取り消します
 
- If you have multiple workflows in the same repository, concurrency group names must be unique across workflows to avoid canceling in-progress jobs or runs from other workflows. Otherwise, any previously in-progress or pending job will be canceled, regardless of the workflow.
+ 同じリポジトリに複数のワークフローがある場合、他のワークフローの進行中のジョブまたは実行が取り消されないように、コンカレンシー グループ名はワークフロー間で一意である必要があります。 そうでない場合、ワークフローに関係なく、以前に進行中または保留中のジョブが取り消されます。
 
-To only cancel in-progress runs of the same workflow, you can use the `github.workflow` property to build the concurrency group:
+同じワークフローの進行中の実行だけを取り消すには、`github.workflow` プロパティを使ってコンカレンシー グループを構築します。
 
 {% raw %}
 ```yaml

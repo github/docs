@@ -1,10 +1,18 @@
+---
+ms.openlocfilehash: f329693cde513b779b2e8fa834161dbfdb022782
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145138484"
+---
 1. クローンしたいリポジトリをリストから選択します。
 
 
   {% mac %}
 
   ![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-mac.png)
-
+  
   {% endmac %}
 
   {% windows %}

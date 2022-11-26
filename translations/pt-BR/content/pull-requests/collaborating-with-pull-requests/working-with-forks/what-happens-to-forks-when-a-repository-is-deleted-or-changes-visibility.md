@@ -14,9 +14,14 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Visibilidade excluída ou alterada
+shortTitle: Deleted or changes visibility
+ms.openlocfilehash: d52215a7406edc84bc71022517f848faa9e48600
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147886795'
 ---
-
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 ## Excluir um repositório privado
@@ -41,10 +46,9 @@ Quando você exclui um repositório público, uma das bifurcações públicas ex
 
 Se um repositório público passa a ser privado, as bifurcações públicas dele são divididas em uma nova rede. Assim como na exclusão de um repositório público, uma das bifurcações públicas existentes é escolhida para ser o novo repositório principal, todos os outros repositórios são bifurcados a partir dele e as pull requests subsequentes vão para esse repositório também.
 
-Ou seja, as bifurcações de um repositório público permanecerão públicas na própria rede de repositório separada, mesmo depois que o repositório principal se tornar privado. Isso permite que os proprietários da bifurcação continuem trabalhando e colaborando sem interrupção. Se as bifurcações públicas não tiverem sido movidas para uma rede separada dessa forma, os proprietários dessas bifurcações precisarão obter as [permissões de acesso](/articles/access-permissions-on-github) apropriadas para fazer pull de alterações do repositório principal (agora privado) e enviar pull requests para ele, ainda que antes não precisassem dessas permissões.
+Ou seja, as bifurcações de um repositório público permanecerão públicas na própria rede de repositório separada, mesmo depois que o repositório principal se tornar privado. Isso permite que os proprietários da bifurcação continuem trabalhando e colaborando sem interrupção. Se os forks públicos não forem movidos para uma rede separada dessa forma, os proprietários desses forks precisarão obter as [permissões de acesso](/articles/access-permissions-on-github) apropriadas para efetuar pull das alterações do repositório pai (agora privado) e enviar solicitações de pull para ele, mesmo que eles não precisavam dessas permissões antes.
 
-{% ifversion ghes or ghae %}
-Se um repositório público tiver acesso de leitura anônimo do Git habilitado e o repositório passar a ser privado, todas as bifurcações do repositório perderão o acesso de leitura anônimo do Git e retornarão à configuração padrão desabilitada. Se um repositório bifurcado passar a ser público, os administradores dele poderão reabilitar o acesso de leitura anônimo do Git. Para obter mais informações, consulte "[Habilitar acesso de leitura anônimo do Git para um repositório](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)".
+{% ifversion ghes or ghae %} Se um repositório público tiver acesso de leitura anônimo do Git habilitado e o repositório passar a ser privado, todos os forks do repositório perderão o acesso de leitura anônimo do Git e retornarão à configuração padrão desabilitada. Se um repositório bifurcado passar a ser público, os administradores dele poderão reabilitar o acesso de leitura anônimo do Git. Para obter mais informações, confira "[Como habilitar o acesso de leitura anônimo do Git para um repositório](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)".
 {% endif %}
 
 ### Excluir o repositório privado
@@ -67,7 +71,7 @@ Se um repositório privado passa a ser público e depois é excluído, as bifurc
 
 
 
-Se a política para a sua empresa permitir a bifurcação, qualquer bifurcação de um repositório interno será privado. Se você alterar a visibilidade de um repositório interno, qualquer bifurcação pertencente a uma organização ou conta pessoal continuará sendo privada.
+Se a política para a sua empresa permitir a bifurcação, qualquer bifurcação de um repositório interno será privado. Se você alterar a visibilidade de um repositório interno, qualquer bifurcação pertencente a uma conta pessoal ou de organização continuará sendo privada.
 
 ### Excluir o repositório interno
 
@@ -75,10 +79,10 @@ Se você alterar a visibilidade de um repositório interno e, em seguida, exclui
 
 {% endif %}
 
-## Leia mais
+## Leitura adicional
 
-- "[Definir a visibilidade de um repositório](/articles/setting-repository-visibility)"
-- "[Sobre bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Gerenciando a política de bifurcação de seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[Gerenciar a política de bifurcação para sua organização](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- "[Aplicando políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"
+- "[Como definir a visibilidade do repositório](/articles/setting-repository-visibility)"
+- "[Sobre os forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[Como gerenciar a política de criação de forks para seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
+- "[Como gerenciar a política de criação de forks para sua organização](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- "[Como impor políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

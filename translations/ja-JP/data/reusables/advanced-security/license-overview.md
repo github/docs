@@ -1,12 +1,20 @@
-{% data variables.product.prodname_GH_advanced_security %}の各ライセンスは、それらの機能を使用できるアカウントもしくはシートの最大数を指定します。 少なくとも1つのリポジトリでこの機能が有効化されているそれぞれのアクティブなコミッターは、1つのシートを使用します。 A committer is considered active if one of their commits has been pushed to the repository within the last 90 days, regardless of when it was originally authored.
+---
+ms.openlocfilehash: 5d75f2a8b4c2c9bfdf7b491d23f76f4f820b98e7
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145091234"
+---
+{% data variables.product.prodname_GH_advanced_security %}の各ライセンスは、それらの機能を使用できるアカウントもしくはシートの最大数を指定します。 少なくとも1つのリポジトリでこの機能が有効化されているそれぞれのアクティブなコミッターは、1つのシートを使用します。 コミットの 1 つが過去 90 日以内にリポジトリにプッシュされた場合、そのコミットの作成日に関係なく、コミッターはアクティブと見なされます。
 
 {% note %}
 
-**Note:** Active committers are calculated using both the commit author information and the timestamp for when the code was pushed to {% data variables.product.product_name %}.
+**注:** アクティブなコミッターは、コミット作成者情報と、コードが {% data variables.product.product_name %} にプッシュされた時のタイムスタンプの両方を使用して計算されます。
 
-- When a user pushes code to {% data variables.product.prodname_dotcom %}, every user who authored code in that push counts towards {% data variables.product.prodname_GH_advanced_security %} seats, even if the code is not new to {% data variables.product.prodname_dotcom %}.
+- ユーザーがコードを {% data variables.product.prodname_dotcom %} にプッシュすると、そのプッシュでコードを作成したすべてのユーザーは、そのコードが {% data variables.product.prodname_dotcom %} にとって新しくない場合でも、{% data variables.product.prodname_GH_advanced_security %} シートにカウントされます。
 
-- Users should always create branches from a recent base, or rebase them before pushing. This will ensure that users who have not committed in the last 90 days do not take up {% data variables.product.prodname_GH_advanced_security %} seats.
+- ユーザーは常に、最近のベースからブランチを作成するか、プッシュする前にそれらをリベースする必要があります。 これにより、過去 90 日間コミットしていないユーザーが {% data variables.product.prodname_GH_advanced_security %} シートを占めることがないようにします。
 
 {% endnote %}
 

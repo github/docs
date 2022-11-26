@@ -36,12 +36,22 @@ For more information about forks, see "[About forks](/pull-requests/collaboratin
 ## Creating a repository from a template
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Above the file list, click **Use this template**.
-  ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
+1. Above the file list, click **Use this template**.
+{% ifversion fpt or ghec %}
+1. Select **Create a new repository**.
+
+   ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
+
+   {% note %}
+
+   **Note:** Alternatively, you can open the template in a codespace and publish your work to a new repository later. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+
+   {% endnote %}
+{% endif %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
-6. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
+1. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
   ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
 {% data reusables.repositories.select-marketplace-apps %}
 8. Click **Create repository from template**.

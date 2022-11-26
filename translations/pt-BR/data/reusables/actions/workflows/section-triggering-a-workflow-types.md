@@ -1,6 +1,14 @@
-Use `on.<event_name>.types` para definir o tipo de atividade que acionará a execução de um fluxo de trabalho. A maioria dos eventos GitHub são acionados por mais de um tipo de atividade.  Por exemplo, a `etiqueta ` é acionada quando uma etiqueta é `criada`, `editada` ou `excluída`. A palavra-chave `types` (tipos) permite que você limite a atividade que faz com que o fluxo de trabalho seja executado. Quando somente um tipo de atividade aciona um evento de webhook, a palavra-chave `types` (tipos) é desnecessária.
+---
+ms.openlocfilehash: 67b4dd3749936efb6a7eef53fc38543c3c8a6451
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147875612"
+---
+Use `on.<event_name>.types` para definir o tipo de atividade que vai disparar uma execução de fluxo de trabalho. A maioria dos eventos GitHub são acionados por mais de um tipo de atividade.  Por exemplo, o `label` é disparado quando um rótulo é `created`, `edited` ou `deleted`. A palavra-chave `types` permite restringir a atividade que faz com que o fluxo de trabalho seja executado. Quando apenas um tipo de atividade dispara um evento de webhook, a palavra-chave `types` é desnecessária.
 
-É possível usar um array de `types` (tipos) de evento. Para obter mais informações sobre cada evento e seus tipos de atividades, consulte "[Eventos que acionam fluxos de trabalho](/actions/using-workflows/events-that-trigger-workflows#available-events)".
+Você pode usar uma matriz de eventos `types`. Para obter mais informações sobre cada evento e os respectivos tipos de atividades, confira "[Eventos que disparam fluxos de trabalho](/actions/using-workflows/events-that-trigger-workflows#available-events)".
 
 ```yaml
 on:

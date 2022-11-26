@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas
-intro: Aprende cómo resolver los problemas más comunes que las personas pueden encontrar en la API de REST.
+title: Troubleshooting
+intro: Learn how to resolve the most common problems people encounter in the REST API.
 redirect_from:
   - /v3/troubleshooting
 versions:
@@ -14,59 +14,58 @@ topics:
 
 
 
-Si estás encontrando algunas situaciones extrañas en la API, aquí hay una lista de posibles soluciones a algunos de estos problemas que podrías estar experimentando.
+If you're encountering some oddities in the API, here's a list of resolutions to
+some of the problems you may be experiencing.
 
-## Error `404` para un repositorio existente
+## `404` error for an existing repository
 
-Habitualmente, enviamos un error `404` cuando tu cliente no está autenticado adecuadamente. Puede que esperes ver un `403 Forbidden` en estos casos. Sin embargo, ya que no queremos proporcionar _ningun_ tipo de información acerca de los repositorios privados, en vez de esto, la API devuelve un `404`.
+Typically, we send a `404` error when your client isn't properly authenticated.
+You might expect to see a `403 Forbidden` in these cases. However, since we don't
+want to provide _any_ information about private repositories, the API returns a
+`404` error instead.
 
-Para solucionar problemas, asegúrate de que [te estás autenticando correctamente](/guides/getting-started/), que [tu token de acceso OAuth tenga los alcances requeridos](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), que las [restricciones de aplicaciones de terceros][oap-guide] no estén bloqueando el acceso y que [el token no haya vencido ni se haya revocado](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
-## No se devolvieron todos los resultados
+## Not all results returned
 
-La mayoría de las llamadas a la API que acceden a una lista de recursos (_por ejemplo_, usuarios, informes de problemas, _etc._) son compatibles con la paginación. Si estás haciendo solicitudes y recibes un conjunto de resultados incompleto, probablemente solo estás viendo la primera página. Necesitarás solicitar las páginas restantes para obtener más resultados.
+Most API calls accessing a list of resources (_e.g._, users, issues, _etc._) support
+pagination. If you're making requests and receiving an incomplete set of results, you're
+probably only seeing the first page. You'll need to request the remaining pages
+in order to get more results.
 
-Es importante que *no* intentes adivinar el formato de la URL de paginación. No todas las llamadas a la API utilizan la misma estructura. En vez de esto, extrae la información de paginación del [Encabezado de Enlace](/rest#pagination), el cual se envía en cada solicitud.
+It's important to *not* try and guess the format of the pagination URL. Not every
+API call uses the same structure. Instead, extract the pagination information from
+[the Link Header](/rest#pagination), which is sent with every request.
+
+[oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
 {% ifversion fpt or ghec %}
-## Errores de autenticación básicos
+## Basic authentication errors
 
-Desde el 13 de noviembre de 2020, la autenticación con nombre de usuario y contraseña a la API de REST y a la API de Autorizaciones de OAuth se obsoletizaron y ya no funcionan.
+On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.
 
-### Utilizar `username`/`password` para la autenticación básica
+### Using `username`/`password` for basic authentication
 
-Si estás utilizando `username` y `password` para las llamadas a la API, éstas credenciales ya no funcionarán para que te autentiques. Por ejemplo:
+If you're using `username` and `password` for API calls, then they are no longer able to authenticate. For example:
 
 ```bash
 curl -u my_user:my_password https://api.github.com/user/repos
 ```
 
-En vez de esto, utiliza un [token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) cuando pruebes las terminales o cuando realices desarrollos locales:
+Instead, use a [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
-Para las Apps de Oauth, debes utilizar el [flujo de aplicaciones web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para generar un token de OAuth para utilizar el encabezado de la llamada a la API:
+For OAuth Apps, you should use the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
-### Llamadas a la API de Autorizciones de OAuth
+## Timeouts
 
-Si estás haciendo llamadas a la [API de Autorizaciones de OAuth](/enterprise-server/rest/reference/oauth-authorizations) para administrar las autorizaciones de tu app de OAuth o para generar tokens de acceso de forma similar a este ejemplo:
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-Entonces debes cambiar al [flujo de aplicaciones web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para generar tokens de acceso.
-
-## Exceder el tiempo de espera
-
-Si a {% data variables.product.product_name %} le toma más de 10 segundos procesar una solicitud de la API, {% data variables.product.product_name %} terminará la solicitud y recibirás una respuesta de tiempo de espera excedido.
+If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
 
 {% endif %}
-
-[oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/

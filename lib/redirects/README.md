@@ -50,13 +50,20 @@ As a workaround for these lost redirects, we have two files in `lib/redirects/st
 
   This file contains keys equal to old routes and values equal to new routes (aka snapshots of permalinks at the time) for versions 2.13 to 2.17. (The old routes were generated via `lib/redirects/get-old-paths-from-permalink.js`.)
 
-* `archived-frontmatter-fallbacks.json`
+* `archived-frontmatter-valid-urls.json`
 
-  This file contains an array of arrays, where the child arrays are a group of all frontmatter redirects for each content file. This is essentially list of all the historical paths for the articles in old versions. The problem is, we don't know which historical paths correspond to which versions.
+  This file is an object of VALID_URL to VALID_REDIRECT_SOURCES.
+  E.g. `"/enterprise/2.13/foo": ["/enterprise/2.13/bar", "/enterprise/2.13/buzz"]`
+  It was originally based on a previous file called `archived-frontmatter-fallbacks.json`
+  which had a record of each possible redirect candidate that we should bother
+  redirecting too.
+  Now, this new file has been created by accurately comparing it to the actual
+  content inside the `github/help-docs-archived-enterprise-versions` repo for the
+  version range of 2.13 to 2.17. So every key in `archived-frontmatter-valid-urls.json`
+  corresponds to a file that would work.
 
-Here's how the `middleware/archived-enterprise-versions.js` fallback works: if someone tries to access an article that was updated via a now-lost frontmatter redirect (for example, an article at the path `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page`), the middleware will first look for a redirect in `archived-redirects-from-213-to-217.json`. If it does not find one, it will look for a child array in `archived-frontmatter-fallbacks.json` that contains the requested path. If it finds a relevant array, it will try accessing all the other paths in the array until it finds one that returns a 200. For this example, it would successfully reach `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile` (no `-page`).
-
-This is admittedly an inefficient brute-force approach. But requests for archived docs <2.18 are getting less and less common as organizations upgrade their Enterprise instances, and all the expensive calculation happens in the middleware on page request, not on server warmup, so at least it's a relatively isolated process.
+Here's how the `middleware/archived-enterprise-versions.js` fallback works: if someone tries to access an article that was updated via a now-lost frontmatter redirect (for example, an article at the path `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page`), the middleware will first look for a redirect in `archived-redirects-from-213-to-217.json`. If it does not find one, it will look for it in `archived-frontmatter-valid-urls.json` that contains the requested path. If it finds it, it will redirect to it to because that file knows exactly which URLs are valid in
+`help-docs-archived-enterprise-versions`.
 
 ## Tests
 

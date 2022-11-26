@@ -1,7 +1,7 @@
 ---
 title: GitHub Pages 文档
 shortTitle: GitHub Pages
-intro: '了解如何直接从 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 的仓库创建网站。 探索像Jekyll这样的网站建设工具，并解决 {% data variables.product.prodname_pages %} 网站的问题。'
+intro: '了解如何直接从 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} 上的存储库创建网站。 浏览 Jekyll 等网站生成工具并解决 {% data variables.product.prodname_pages %} 站点的问题。'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
@@ -12,7 +12,6 @@ featuredLinks:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll{% endif %}'
     - '{% ifversion ghec %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site{% endif %}'
-    - '{% ifversion fpt %}/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll{% endif %}'
   popular:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages{% endif %}'
@@ -50,5 +49,11 @@ children:
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site
+ms.openlocfilehash: 0c054dd363dca81ef322d21538076959b9b0cbf4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107075'
 ---
 

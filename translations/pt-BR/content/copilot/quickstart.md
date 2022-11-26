@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_copilot %} can help you work, by offe
 product: '{% data reusables.gated-features.copilot %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: 'copilot'
+  feature: copilot
 shortTitle: Quickstart
 topics:
   - Copilot
@@ -41,6 +41,8 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. In {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialogue box, to confirm the authentication, click **Open**. 
 
 ## Getting your first suggestion
+
+{% data reusables.copilot.code-examples-limitations %}
 
 {% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
 

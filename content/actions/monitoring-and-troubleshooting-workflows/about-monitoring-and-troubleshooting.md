@@ -22,8 +22,6 @@ miniTocMaxHeadingLevel: 3
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ### Using the visualization graph
 
 Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows. For example:
@@ -31,8 +29,6 @@ Every workflow run generates a real-time graph that illustrates the run progress
    ![Workflow graph](/assets/images/help/images/workflow-graph.png)
 
 For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)." 
-
-{% endif %}
 
 ### Adding a workflow status badge
 

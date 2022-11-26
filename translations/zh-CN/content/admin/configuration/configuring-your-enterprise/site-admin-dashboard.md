@@ -51,7 +51,7 @@ For more information on audit logging in general, see "[About the audit log for 
 
 ## Reports
 
-If you need to get information on the users, organizations, and repositories in {% data variables.product.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
+If you need to get information on the users, organizations, and repositories in {% data variables.location.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
 
 Specifically, you can download CSV reports that list
 
@@ -62,12 +62,12 @@ Specifically, you can download CSV reports that list
 - all organizations
 - all repositories
 
-You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a personal access token with the `site_admin` scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 For example, here is how you would download the "all users" report using cURL:
 
 ```shell
-curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftools/reports/all_users.csv
+curl -L -u USERNAME:TOKEN http(s)://HOSTNAME/stafftools/reports/all_users.csv
 ```
 
 To access the other reports programmatically, replace `all_users` with `active_users`, `dormant_users`, `suspended_users`, `all_organizations`, or `all_repositories`.
@@ -131,50 +131,53 @@ Key             | Description
 {% ifversion ghes %}
 ## Indexing
 
-GitHub's [code search][] features are powered by [ElasticSearch][]. This section of the site admin dashboard shows you the current status of your ElasticSearch cluster and provides you with several tools to control the behavior of searching and indexing. These tools are split into the following three categories.
+GitHub's search features are powered by Elasticsearch. This section of the site admin dashboard shows you the current status of your Elasticsearch cluster and provides you with several tools to control search and index behavior.
 
-  [Code Search]: https://github.com/blog/1381-a-whole-new-code-search
-  [ElasticSearch]: http://www.elasticsearch.org/
+For more information about code search, see "[Searching for information on {% data variables.product.prodname_dotcom %}](/search-github)." For more information about Elasticsearch, see the [Elasticsearch website](https://elastic.co).
+
+{% note %}
+
+**Note**: In normal use, site administrators do not need to create new indices or schedule repair jobs. For troubleshooting or other support purposes, {% data variables.contact.github_support %} may instruct you to run a repair job.
+
+{% endnote %}
+
+### Index management
+
+{% data variables.product.product_name %} reconciles the state of the search index with data on the instance automatically and regularly.
+
+- Issues, pull requests, repositories, and users in the database
+- Git repositories (source code) on disk
+
+Your instance uses repair jobs to reconcile the data, and schedules a repair job in the background when the following events occur.
+
+- A new search index is created.
+- Missing data needs to be backfilled.
+- Old search data needs to be updated.
+
+You can create a new index, or you can click on an existing index in the list to manage the index. You can perform the following operations on an index.
+
+- Make the index searchable.
+- Make the index writable.
+- Update the index.
+- Delete the index
+- Reset the index repair state.
+- Start a new index repair job.
+- Enable or disable index repair jobs.
+
+A progress bar shows the current status of a repair job across background workers. The bar is the percentage difference of the repair offset with the highest record ID in the database. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.location.product_location %} even though those repositories are actually indexed.
+
+To minimize the effects on I/O performance and reduce the chances of operations timing out, run the repair job during off-peak hours. As the job reconciles the search index with database and Git repository data, one CPU will be used. Monitor your system's load averages and CPU usage with a utility like `top`. If you don't notice any significant increase in resource consumption, it should also be safe to run an index repair job during peak hours.
+
+Repair jobs use a "repair offset" for parallelization. This is an offset into the database table for the record being reconciled. Multiple background jobs can synchronize work based on this offset.
 
 ### Code search
 
 This allows you to enable or disable both search and index operations on source code.
 
-### Code search index repair
-
-This controls how the code search index is repaired. You can
-
-- enable or disable index repair jobs
-- start a new index repair job
-- reset all index repair state
-
-{% data variables.product.prodname_enterprise %} uses repair jobs to reconcile the state of the search index with data stored in a database (issues, pull requests, repositories, and users) and data stored in Git repositories (source code). This happens when
-
-- a new search index is created;
-- missing data needs to be backfilled; or
-- old search data needs to be updated.
-
-In other words, repair jobs are started as needed and run in the background—they are not scheduled by site admins in any way.
-
-Furthermore, repair jobs use a "repair offset" for parallelization. This is an offset into the database table for the record being reconciled. Multiple background jobs can synchronize work based on this offset.
-
-A progress bar shows the current status of a repair job across all of its background workers. It is the percentage difference of the repair offset with the highest record ID in the database. Don't worry about the value shown in the progress bar after a repair job has completed: because it shows the difference between the repair offset and the highest record ID in the database, it will decrease as more repositories are added to {% data variables.product.product_location %} even though those repositories are actually indexed.
-
-You can start a new code-search index repair job at any time. It will use a single CPU as it reconciles the search index with database and Git repository data. To minimize the effects this will have on I/O performance and reduce the chances of operations timing out, try to run a repair job during off-peak hours first. Monitor your system's load averages and CPU usage with a utility like `top`; if you don't notice any significant changes, it should be safe to run an index repair job during peak hours, as well.
-
-### Issues index repair
-
-This controls how the [Issues][] index is repaired. You can
-
-  [Issues]: https://github.com/blog/831-issues-2-0-the-next-generation
-
-- enable or disable index repair jobs
-- start a new index repair job
-- reset all index repair state
 {% endif %}
 ## Reserved logins
 
-Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
+Certain words are reserved for internal use in {% data variables.location.product_location %}, which means that these words cannot be used as usernames.
 
 For example, the following words are reserved, among others:
 
@@ -213,7 +216,7 @@ Refer to this section of the site admin dashboard to manage organizations, peopl
 
 ## Repositories
 
-This is a list of the repositories on {% data variables.product.product_location %}. You can click on a repository name and access functions for administering the repository.
+This is a list of the repositories on {% data variables.location.product_location %}. You can click on a repository name and access functions for administering the repository.
 
 - [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
 - [Configuring {% data variables.large_files.product_name_long %}](/enterprise/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
@@ -221,21 +224,21 @@ This is a list of the repositories on {% data variables.product.product_location
 
 ## All users
 
-Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
 ## Site admins
 
-Here you can see all of the administrators on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the administrators on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
 ## Dormant users
 {% ifversion ghes %}
-Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
+Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 {% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
+Here you can see and suspend all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 
-- Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.
+- Has existed for longer than the dormancy threshold that's set for {% data variables.location.product_location %}.
 - Has not generated any activity within that time period.
 - Is not a site administrator.
 
@@ -243,4 +246,4 @@ Here you can see and suspend all of the inactive users on {% data variables.prod
 
 ## Suspended users
 
-Here you can see all of the users who have been suspended on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users who have been suspended on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).

@@ -13,7 +13,7 @@ topics:
   - Organizations
   - Teams
 shortTitle: Remove a member
-permissions: 'Organization owners can remove members from an organization.'
+permissions: Organization owners can remove members from an organization.
 ---
 
 {% ifversion fpt or ghec %}

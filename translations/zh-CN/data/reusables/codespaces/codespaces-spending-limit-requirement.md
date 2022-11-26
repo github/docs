@@ -1,9 +1,7 @@
 {% note %}
 
-**注意：**必须先设置支出限额，然后才能使用 {% data variables.product.prodname_codespaces %}。
+**Note:** You must set a non-zero spending limit on your personal, organization, or enterprise account before the account can be billed for use of {% data variables.product.prodname_github_codespaces %}.
 
 {% endnote %}
 
-默认情况下，您的组织或企业的 {% data variables.product.prodname_codespaces %} 支出限制为 $0，这将阻止创建新代码空间或打开现有代码空间。 若要允许用户在组织中创建代码空间，请将限制设置为大于 $0 的值。
-
-{% data reusables.billing.overages-billed-monthly %}
+By default, all accounts have a {% data variables.product.prodname_github_codespaces %} spending limit of $0 USD. This prevents new codespaces being created, or existing codespaces being opened, if doing so would incur a billable cost to your personal, organization, or enterprise account. For personal accounts, codespaces can always be created and used if the account has not reached the limit of its monthly included usage. For organizations and enterprises, the default spending limit means that, to allow people to create codespaces that are billed to the organization, or its parent enterprise, the limit must be changed to a value above $0 USD.

@@ -27,7 +27,9 @@ children:
   - /allowing-people-to-delete-issues-in-your-organization
   - /enabling-or-disabling-github-discussions-for-an-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
+  - /managing-the-commit-signoff-policy-for-your-organization
   - /setting-team-creation-permissions-in-your-organization
+  - /limiting-oauth-app-and-github-app-access-requests
   - /managing-scheduled-reminders-for-your-organization
   - /managing-the-default-branch-name-for-repositories-in-your-organization
   - /managing-default-labels-for-repositories-in-your-organization
@@ -40,6 +42,8 @@ children:
   - /integrating-jira-with-your-organization-project-board
   - /upgrading-to-the-corporate-terms-of-service
   - /disabling-project-boards-in-your-organization
+  - /disabling-insights-for-projects-in-your-organization
+  - /allowing-project-visibility-changes-in-your-organization
 shortTitle: Manage organization settings
 ---
 {% ifversion fpt or ghec %}

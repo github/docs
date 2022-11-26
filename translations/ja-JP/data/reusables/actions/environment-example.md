@@ -1,6 +1,14 @@
-You can specify an environment for each job in your workflow. To do so, add a `jobs.<job_id>.environment` key followed by the name of the environment.
+---
+ms.openlocfilehash: 4795fdc557dbb103d64f7b97d0fa58f445434bca
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145114414"
+---
+ワークフロー内のジョブごとに環境を指定できます。 そのためには `jobs.<job_id>.environment` キーを追加し、その後に環境の名前を追加します。
 
-For example, this workflow will use an environment called `production`.
+たとえば、このワークフローでは `production` という環境が使用されます。
 
 ```yaml
 name: Deployment
@@ -19,9 +27,9 @@ jobs:
         # ...deployment-specific steps
 ```
 
-When the above workflow runs, the `deployment` job will be subject to any rules configured for the `production` environment. For example, if the environment requires reviewers, the job will pause until one of the reviewers approves the job.
+上記のワークフローを実行すると、 `deployment` ジョブは `production` 環境用に構成されたすべてのルールに従います。 たとえば、環境でレビュー担当者が必要な場合、いずれかのレビュー担当者がジョブを承認するまでジョブは一時停止します。
 
-You can also specify a URL for the environment. The specified URL will appear on the deployments page for the repository (accessed by clicking **Environments** on the home page of your repository) and in the visualization graph for the workflow run. If a pull request triggered the workflow, the URL is also displayed as a **View deployment** button in the pull request timeline.
+環境の URL を指定することもできます。 指定した URL は、リポジトリのデプロイ ページ (リポジトリのホーム ページの **[環境]** をクリックすることでアクセス可能) とワークフロー実行の視覚化グラフに表示されます。 pull request がワークフローをトリガーすると、URL は pull request タイムラインの **[デプロイの表示]** ボタンとしても表示されます。
 
 ```yaml
 name: Deployment
@@ -42,4 +50,4 @@ jobs:
         # ...deployment-specific steps
 ```
 
-![Workflow graph with URL](/assets/images/help/images/deploy-graph.png)
+![URL を含むワークフロー グラフ](/assets/images/help/images/deploy-graph.png)

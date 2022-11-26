@@ -29,21 +29,21 @@ describe('footer', () => {
     test('codespaces product landing page leads to codespaces discussions page', async () => {
       const $ = await getDOM(`/en/codespaces`)
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/github/feedback/discussions/categories/codespaces-feedback'
+        'https://github.com/community/community/discussions/categories/codespaces'
       )
     })
 
     test('sponsors product landing page leads to sponsors discussions page', async () => {
       const $ = await getDOM(`/en/sponsors`)
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/github/feedback/discussions/categories/sponsors-feedback'
+        'https://github.com/community/community/discussions/categories/sponsors'
       )
     })
 
     test('codespaces product landing page leads to discussions discussions page', async () => {
       const $ = await getDOM(`/en/discussions`)
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/github/feedback/discussions/categories/discussions-feedback'
+        'https://github.com/community/community/discussions/categories/discussions'
       )
     })
   })
@@ -51,7 +51,9 @@ describe('footer', () => {
   describe('test redirects for non-product landing community links pages', () => {
     test('leads to https://github.community/ when clicking on the community link', async () => {
       const $ = await getDOM(`/en/github/authenticating-to-github`)
-      expect($('a#ask-community').attr('href')).toBe('https://github.community/')
+      expect($('a#ask-community').attr('href')).toBe(
+        'https://github.com/orgs/community/discussions'
+      )
     })
   })
 })

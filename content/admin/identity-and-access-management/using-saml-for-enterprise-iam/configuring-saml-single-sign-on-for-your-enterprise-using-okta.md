@@ -51,9 +51,3 @@ Alternatively, you can also configure SAML SSO using Okta for an organization th
 1. Click **Save**.
 {% data reusables.saml.okta-view-setup-instructions %}
 1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
-
-## Creating groups in Okta
-
-1. In Okta, create a group to match each organization owned by your enterprise account. The name of each group must match the account name of the organization (not the organization's display name). For example, if the URL of the organization is `https://github.com/octo-org`, name the group `octo-org`.
-1. Assign the application you created for your enterprise account to each group. {% data variables.product.prodname_dotcom %} will receive all `groups` data for each user.
-1. Add users to groups based on the organizations you'd like users to belong to.

@@ -2,7 +2,7 @@
 title: Timeline events
 allowTitleToDifferFromFilename: true
 shortTitle: Timeline
-intro: 'The Timeline events API can return different types of events triggered by timeline activity in issues and pull requests.'
+intro: The Timeline events API can return different types of events triggered by timeline activity in issues and pull requests.
 versions:
   fpt: '*'
   ghes: '*'

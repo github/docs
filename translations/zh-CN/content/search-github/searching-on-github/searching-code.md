@@ -1,6 +1,6 @@
 ---
-title: 搜索代码
-intro: '您可以在 {% data variables.product.product_name %} 上搜索代码，并使用这些代码搜索限定符的任意组合缩小结果范围。'
+title: Searching code
+intro: 'You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -16,98 +16,106 @@ topics:
   - GitHub search
 ---
 
-{% data reusables.search.you-can-search-globally %} 更多信息请参阅“[关于在 GitHub 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
+{% ifversion github-code-search %}
+  {% note %}
 
-您只能使用这些代码搜索限定符搜索代码。 搜索代码时，专用于仓库、用户或提交的搜索限定符将不起作用。
+  **Note:** {% data reusables.search.classic-search-code-search-note %}
+
+  {% endnote %}
+{% endif %}
+
+{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+
+You can only search code using these code search qualifiers. Search qualifiers specifically for repositories, users, or commits, will not work when searching for code.
 
 {% data reusables.search.syntax_tips %}
 
-## 代码搜索的注意事项
+## Considerations for code search
 
-由于搜索代码的复杂性，执行搜索的方式有一些限制：
+Due to the complexity of searching code, there are some restrictions on how searches are performed:
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- [复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)中的代码仅当复刻的星号超过父级仓库时可搜索。 星号少于父仓库的复刻**不**为代码搜索编索引。 要在搜索结果中包括星号比其父项多的复刻，您需要将 `fork:true` 或 `fork:only` 添加到查询。 更多信息请参阅“[在复刻中搜索](/search-github/searching-on-github/searching-in-forks)”。
-- 只有_默认分支_被索引用于代码搜索。{% ifversion fpt or ghec %}
-- 只有小于 384 KB 的文件可搜索。{% else %}* 只有小于 5 MB 的文件可搜索。
-- 只有每个文件的前 500 KB 可搜索。{% endif %}
-- 最多可搜索 4,000 个私有{% ifversion ghec or ghes or ghae %} 和内部{% endif %} 存储库。 这 4,000 个存储库将是您有权访问的前 10,000 个私有{% ifversion ghec or ghes or ghae %} 和内部{% endif %} 存储库中的最新更新。
-- 只能搜索少于 500,000 个文件的仓库。{% ifversion fpt or ghec %}
-- 只能搜索去年有活动或已在搜索结果中返回的仓库。{% endif %}
-- 除了 [`filename`](#search-by-filename) 搜索以外，搜索源代码时必须始终包括至少一个搜索词。 例如，搜索 [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) 无效，而搜索 [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) 有效。
-- 搜索结果最多可显示同一文件的两个分段，但文件内可能有更多结果。
-- 您无法使用以下通配符作为搜索查询的一部分：<code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. 搜索只会忽略这些符号。
+- Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/search-github/searching-on-github/searching-in-forks)."
+- Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
+- Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
+- Only the first 500 KB of each file is searchable.{% endif %}
+- Up to 4,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories that you have access to.
+- Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt or ghec %}
+- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
+- Except with [`filename`](#search-by-filename) searches, you must always include at least one search term when searching source code. For example, searching for [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) is not valid, while [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) is.
+- At most, search results can show two fragments from the same file, but there may be more results within the file.
+- You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. The search will simply ignore these symbols.
 
-## 按文件内容或文件路径搜索
+## Search by the file contents or file path
 
-使用 `in` 限定符，您可以将搜索限制为源代码文件的内容、文件路径或两者。 如果省略此限定符，则只搜索文件内容。
+With the `in` qualifier you can restrict your search to the contents of the source code file, the file path, or both. When you omit this qualifier, only the file contents are searched.
 
-| 限定符       | 示例                                                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `in:file` | [**octocat in:file**](https://github.com/search?q=octocat+in%3Afile&type=Code) 匹配文件内容中出现 "octocat" 的代码。                  |
-| `in:path` | [**octocat in:path**](https://github.com/search?q=octocat+in%3Apath&type=Code) 匹配文件路径中出现 "octocat" 的代码。                  |
-|           | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) 匹配文件内容或文件路径中出现 "octocat" 的代码。 |
+| Qualifier  | Example
+| ------------- | -------------
+| `in:file` | [**octocat in:file**](https://github.com/search?q=octocat+in%3Afile&type=Code) matches code where "octocat" appears in the file contents.
+| `in:path` | [**octocat in:path**](https://github.com/search?q=octocat+in%3Apath&type=Code) matches code where "octocat" appears in the file path.
+| | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) matches code where "octocat" appears in the file contents or the file path.
 
-## 在用户或组织的仓库内搜索
+## Search within a user's or organization's repositories
 
-要在特定用户或组织拥有的所有仓库中搜索代码，您可以使用 `user` 或 `org` 限定符。 要在特定仓库中搜索代码，您可以使用 `repo` 限定符。
+To search the code in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
 
-| 限定符                       | 示例                                                                                                                                                                                 |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**user:defunkt extension:rb**](https://github.com/search?q=user%3Agithub+extension%3Arb&type=Code) 匹配来自 @defunkt、以 <em>.rb</em> 结尾的代码。                                 |
-| <code>org:<em>ORGNAME</em></code> | [**org:github extension:js**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+extension%3Ajs&type=Code) 匹配来自 GitHub、以 <em>.js</em> 结尾的代码。                       |
-| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) 匹配来自 @mozilla 的 shumway 项目、以 <em>.as</em> 结尾的代码。 |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>user:<em>USERNAME</em></code> | [**user:defunkt extension:rb**](https://github.com/search?q=user%3Agithub+extension%3Arb&type=Code) matches code from @defunkt that ends in <em>.rb</em>.
+| <code>org:<em>ORGNAME</em></code> |[**org:github extension:js**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+extension%3Ajs&type=Code) matches code from GitHub that ends in <em>.js</em>.
+| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) matches code from @mozilla's shumway project that ends in <em>.as</em>.
 
-## 按文件位置搜索
+## Search by file location
 
-您可使用 `path` 限定符搜索仓库中特定位置显示的源代码。 使用 `path:/` 可搜索位于仓库根目录级别的文件。 或者，指定目录名称或目录路径以搜索位于该命令或其任何子目录中的文件。
+You can use the `path` qualifier to search for source code that appears at a specific location in a repository. Use `path:/` to search for files that are located at the root level of a repository. Or specify a directory name or the path to a directory to search for files that are located within that directory or any of its subdirectories.
 
-| 限定符                        | 示例                                                                                                                                                                                                                                                        |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>path:/</code>  | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) 匹配位于仓库根目录级别且含有 "octocat" 字样的 _readme_ 文件。                                                                                 |
-| <code>path:<em>DIRECTORY</em></code>  | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) 匹配 <em>cgi-bin</em> 目录或其任何子目录中有单词“form”的 Perl 文件。                                                                                 |
-| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**`console path:app/public language:javascript`**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) 匹配 <em>app/public</em> 目录或其任何子目录（即使其位于 <em>app/public/js/form-validators</em> 中）中且含有单词“console”的 JavaScript 文件。 |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>path:/</code> | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) matches _readme_ files with the word "octocat" that are located at the root level of a repository.
+| <code>path:<em>DIRECTORY</em></code> | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in the <em>cgi-bin</em> directory, or in any of its subdirectories.
+| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**`console path:app/public language:javascript`**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in the <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>).
 
-## 按语言搜索
+## Search by language
 
-您可以基于所编写的语言搜索代码。 `language` 限定符可以是语言名称或别名。 有关支持的语言及其名称和别名的完整列表，请参阅 [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)。
+You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-| 限定符                        | 示例                                                                                                                                                               |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/search?q=element+language%3Axml+size%3A100&type=Code) 匹配标记为 XML 且恰好有 100 个字节的并含有 "element" 字样的代码。         |
-|                            | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) 匹配标记为 SCSS 且含有 "display" 字样的代码。                                       |
-|                            | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) 匹配标记为 Markdown 且来自所有 @mozilla 仓库的代码。 |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/search?q=element+language%3Axml+size%3A100&type=Code) matches code with the word "element" that's marked as being XML and has exactly 100 bytes.
+| | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) matches code with the word "display," that's marked as being SCSS.
+| | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) matches code from all @mozilla's repositories that's marked as Markdown.
 
-## 按文件大小搜索
+## Search by file size
 
-您可以使用 `size` 限定符基于代码所在文件的大小搜索源代码。 `size` 限定符使用[大于、小于和范围限定符](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)基于在其中找到代码的文件的字节大小来过滤结果。
+You can use the `size` qualifier to search for source code based on the size of the file where the code exists. The `size` qualifier uses [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to filter results based on the byte size of the file in which the code is found.
 
-| 限定符                        | 示例                                                                                                                                                                                       |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/search?q=function+size%3A%3E10000+language%3Apython&type=Code) 匹配含有 "function" 字样、以 Python 编写、位于大于 10 KB 的文件中的代码。 |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/search?q=function+size%3A%3E10000+language%3Apython&type=Code) matches code with the word "function," written in Python, in files that are larger than 10 KB.
 
-## 按文件名搜索
+## Search by filename
 
-`filename` 限定符匹配具有特定文件名的代码文件。 您还可以使用文件查找器在仓库中查找文件。 更多信息请参阅“[在 GitHub 上查找文件](/search-github/searching-on-github/finding-files-on-github)”。
+The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/search-github/searching-on-github/finding-files-on-github)."
 
-| 限定符                        | 示例                                                                                                                                                                                             |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) 匹配名为 "linguist" 的文件。                                                                         |
-|                            | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) 匹配含有 "commands" 字样的 *.vimrc* 文件。                                                              |
-|                            | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) 匹配 *test* 目录内名为 *test_helper* 的 Ruby 文件。 |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) matches files named "linguist."
+| | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
+| | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
 
-## 按文件扩展名搜索
+## Search by file extension
 
-`extension` 限定符匹配具有特定文件扩展名的代码文件。
+The `extension` qualifier matches code files with a certain file extension.
 
-| 限定符                        | 示例                                                                                                                                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) 匹配含有 "form" 字样、位于 <em>cgi-bin</em> 下且具有 <em>.pm</em> 文件扩展名的代码。 |
-|                            | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) 匹配大于 200 KB、以 .css 结尾且含有 "icon" 字样的文件。                          |
+| Qualifier  | Example
+| ------------- | -------------
+| <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) matches code with the word "form," under <em>cgi-bin</em>, with the <em>.pm</em> file extension.
+| | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) matches files larger than 200 KB that end in .css and have the word "icon."
 
-## 延伸阅读
+## Further reading
 
-- “[排序搜索结果](/search-github/getting-started-with-searching-on-github/sorting-search-results/)”
-- "[在复刻中搜索](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
-- "[在 {% data variables.product.prodname_dotcom %} 上导航代码](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[Searching in forks](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
+- "[Navigating code on {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

@@ -13,6 +13,7 @@ topics:
   - Repositories
 children:
   - /about-repositories
+  - /best-practices-for-repositories
   - /creating-a-new-repository
   - /creating-a-repository-from-a-template
   - /creating-a-template-repository
@@ -24,6 +25,12 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
-shortTitle: 创建和管理存储库
+shortTitle: Create & manage repositories
+ms.openlocfilehash: 06a0bfa43ca81b6b1feb2e796cacac051fb11749
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163553'
 ---
 

@@ -1,1 +1,2 @@
-{% data variables.product.prodname_codespaces %}での最善の体験のためには、Google ChromeあるいはMicrosoft EdgeのようなChromiumベースのブラウザを使うことをおすすめします。
+
+For the best experience with {% data variables.product.prodname_github_codespaces %}, we recommend using a Chromium-based browser, like Google Chrome or Microsoft Edge.

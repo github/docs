@@ -1,9 +1,9 @@
 ---
 title: Removing a member from your enterprise
-intro: 'You can remove a member from all organizations owned by your enterprise.'
+intro: You can remove a member from all organizations owned by your enterprise.
 permissions: Enterprise owners can remove an enterprise member from the enterprise.
 versions:
-  feature: 'remove-enterprise-members'
+  feature: remove-enterprise-members
 type: how_to
 topics:
   - Enterprise

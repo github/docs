@@ -83,12 +83,6 @@ describe('breadcrumbs', () => {
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs[0].attribs.href).toBe('/en/get-started')
     })
-
-    test('localized breadcrumbs link to localize pages', async () => {
-      const $ = await getDOM('/ja/get-started/learning-about-github')
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/ja/get-started')
-    })
   })
 
   describeInternalOnly('early access rendering', () => {
@@ -99,17 +93,15 @@ describe('breadcrumbs', () => {
 
     test('early access article pages have breadcrumbs with product, category, and article', async () => {
       const $ = await getDOM(
-        '/early-access/github/enforcing-best-practices-with-github-policies/about-github-policies'
+        '/early-access/enterprise-importer/understanding-github-enterprise-importer'
       )
       const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
       const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbTitles).toHaveLength(0)
       expect($breadcrumbLinks).toHaveLength(4)
-      expect($breadcrumbLinks[0].attribs.title).toBe(
-        'Enforcing best practices with GitHub Policies'
-      )
-      expect($breadcrumbLinks[1].attribs.title).toBe('About GitHub Policies')
+      expect($breadcrumbLinks[0].attribs.title).toBe('GitHub Enterprise Importer')
+      expect($breadcrumbLinks[1].attribs.title).toBe('Understand the Importer')
       expect($breadcrumbLinks[1].attribs.class.includes('color-fg-muted')).toBe(true)
     })
   })

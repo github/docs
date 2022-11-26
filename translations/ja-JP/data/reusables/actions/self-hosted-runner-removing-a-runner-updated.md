@@ -1,7 +1,15 @@
-1. Click **Remove**.
+---
+ms.openlocfilehash: cf95e20b26e8fb29fbae23c0a5e9a913aa73c8b0
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "145067938"
+---
+1. **[削除]** をクリックします。
 1. セルフホストランナーの削除手順が表示されます。 ランナーがアクセスできる状態にあるかによって、ランナーを削除するための以下のステップのいずれかを実行してください。
 
-    * **ランナーマシンにアクセスできる場合：** マシンのオペレーティングシステムの画面上の指示に従って、削除コマンドを実行してください。 この指示には、必須のURLと自動的に生成された期間限定のトークンが含まれます。
+    * **ランナー マシンにアクセスできる場合:** マシンのオペレーティング システムの画面上の指示に従い、削除コマンドを実行してください。 この指示には、必須のURLと自動的に生成された期間限定のトークンが含まれます。
 
         この削除コマンドは、以下のタスクを実行します。
 
@@ -9,4 +17,4 @@
         * マシン上のセルフホストランナーアプリケーションの設定ファイルの削除。
         * インタラクティブモードで動作していないのであれば設定されているサービスの削除。
 
-    * **If you don't have access to the machine:** Click **Force remove this runner** to force {% data variables.product.product_name %} to remove the runner.
+    * **マシンにアクセスできない場合:** **[このランナーを強制的に削除する]** をクリックして、{% data variables.product.product_name %} でこのランナーを強制的に削除するようにします。

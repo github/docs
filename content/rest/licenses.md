@@ -1,6 +1,6 @@
 ---
 title: Licenses
-intro: "The Licenses API lets you to retrieve popular open source licenses and information about a particular project's license file."
+intro: The Licenses API lets you to retrieve popular open source licenses and information about a particular project's license file.
 versions:
   fpt: '*'
   ghes: '*'

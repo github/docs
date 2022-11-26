@@ -1,12 +1,15 @@
 ---
-title: 许可
-intro: 许可 API 提供有关企业许可的信息。
+title: License
+intro: The License API provides information on your Enterprise license.
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
 
-*它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
+*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

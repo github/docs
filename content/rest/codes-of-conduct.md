@@ -1,6 +1,6 @@
 ---
 title: Codes of conduct
-intro: "The Codes of conduct API lets you retrieve information about a repository's code of conduct."
+intro: The Codes of conduct API lets you retrieve information about a repository's code of conduct.
 versions:
   fpt: '*'
   ghes: '*'

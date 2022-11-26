@@ -1,1 +1,2 @@
-如果仓库中的 C/C++、C# 或 Java 代码含有非标准的构建过程，`autobuild` 可能会失败。 您需要从工作流程中删除 `autobuild` 步骤，然后手动添加构建步骤。 如果您要指定仓库中的哪个 Go 文件要提取，则需要添加生成步骤。
+If `autobuild` fails, or you want to analyze a different set of source files from those built by the `autobuild` process, you'll need to remove the `autobuild` step from the workflow, and manually add build steps. For C/C++, C#, Go, and Java projects, {% data variables.product.prodname_codeql %} will analyze whatever source code is built by your specified build steps.
+

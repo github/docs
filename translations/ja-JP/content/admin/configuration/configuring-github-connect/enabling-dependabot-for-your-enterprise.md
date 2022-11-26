@@ -1,6 +1,6 @@
 ---
-title: Enabling Dependabot for your enterprise
-intro: 'You can allow users of {% data variables.product.product_location %} to find and fix vulnerabilities in code dependencies by enabling {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes > 3.2 %} and {% data variables.product.prodname_dependabot_updates %}{% endif %}.'
+title: エンタープライズ向けの Dependabot の有効化
+intro: '{% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} と {% data variables.product.prodname_dependabot_updates %}{% endif %} を有効にすることで、{% data variables.location.product_location %} のユーザーがコードの依存関係の脆弱性を見つけて修正できるようにすることができます。'
 miniTocMaxHeadingLevel: 3
 shortTitle: Dependabot
 redirect_from:
@@ -22,111 +22,109 @@ topics:
   - Security
   - Dependency graph
   - Dependabot
+ms.openlocfilehash: 009b6199e0212c531caaf48b220342853d656248
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135672'
 ---
+## {% data variables.product.product_name %} の {% data variables.product.prodname_dependabot %} について
 
-## About {% data variables.product.prodname_dependabot %} for {% data variables.product.product_name %}
+{% data variables.product.prodname_dependabot %} を使用すると、{% data variables.location.product_location %} のユーザーが依存関係の脆弱性を見つけて修正するのに役立ちます。{% ifversion ghes %}{% data variables.product.prodname_dependabot_alerts %} を有効にして、脆弱な依存関係についてユーザーに通知し、{% data variables.product.prodname_dependabot_updates %} を有効にして脆弱性を修正し、依存関係を最新バージョンに更新することができます。
 
-{% data variables.product.prodname_dependabot %} helps users of {% data variables.product.product_location %} find and fix vulnerabilities in their dependencies.{% ifversion ghes > 3.2 %} You can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
+{% data variables.product.prodname_dependabot %} は、{% data variables.location.product_location %} のサプライ チェーンのセキュリティを強化するために使用できる多くの機能の 1 つに過ぎません。 他の機能の詳細については、「[エンタープライズ向けサプライ チェーン セキュリティについて](/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise)」を参照してください。
 
-### {% data variables.product.prodname_dependabot_alerts %}について
+### {% data variables.product.prodname_dependabot_alerts %} について
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies insecure dependencies in repositories and creates alerts on {% data variables.product.product_location %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
+{% data variables.product.prodname_dependabot_alerts %} により、{% data variables.product.prodname_dotcom %} は、{% data variables.product.prodname_advisory_database %} のデータと依存関係グラフ サービスを使い、リポジトリ内の安全でない依存関係を特定して {% data variables.location.product_location %} にアラートを作成します。
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-After you enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %}
+エンタープライズに対して {% data variables.product.prodname_dependabot_alerts %} を有効にすると、脆弱性データが {% data variables.product.prodname_advisory_database %} からインスタンスに 1 時間に 1 回同期されます。 {% data variables.product.company_short %} でレビューされたアドバイザリのみが同期されます。 {% data reusables.security-advisory.link-browsing-advisory-db %} 
 
-また、脆弱性データはいつでも手動で同期することができます。 For more information, see "[Viewing the vulnerability data for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise)."
+また、脆弱性データはいつでも手動で同期することができます。 詳細については、「[エンタープライズの脆弱性データの表示](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise)」を参照してください。
 
 {% note %}
 
-**Note:** When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
+**注:** {% data variables.product.prodname_dependabot_alerts %} を有効にすると、{% data variables.location.product_location %} のコードやコードに関する情報は、{% data variables.product.prodname_dotcom_the_website %} にアップロードされません。 
 
 {% endnote %}
 
-When {% data variables.product.product_location %} receives information about a vulnerability, it identifies repositories in  {% data variables.product.product_location %} that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}.
+{% data variables.location.product_location %} は、脆弱性に関する情報を受け取ると、影響を受けるバージョンの依存関係を使用する {% data variables.location.product_location %} 内のリポジトリを識別して、{% data variables.product.prodname_dependabot_alerts %} を生成します。 新しい {% data variables.product.prodname_dependabot_alerts %} についてユーザーに自動的に通知するかどうかを選択できます。 
 
-For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added to {% data variables.product.product_location %}, {% data variables.product.product_name %} scans all existing repositories on {% data variables.product.product_location %} and generates alerts for any repository that is vulnerable. 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
+{% data variables.product.prodname_dependabot_alerts %} が有効になっているリポジトリの場合、マニフェスト ファイルまたはロック ファイルを含む既定のブランチへの任意のプッシュでスキャンがトリガーされます。 さらに、新しい脆弱性レコードが {% data variables.location.product_location %} に追加されると、{% data variables.product.product_name %} は {% data variables.location.product_location %} のすべての既存のリポジトリをスキャンして、脆弱なリポジトリについてのアラートを生成します。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-{% ifversion ghes > 3.2 %}
-### {% data variables.product.prodname_dependabot_updates %}について
+{% ifversion ghes %}
+### {% data variables.product.prodname_dependabot_updates %} について
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
-After you enable {% data variables.product.prodname_dependabot_alerts %}, you can choose to enable {% data variables.product.prodname_dependabot_updates %}. When {% data variables.product.prodname_dependabot_updates %} are enabled for {% data variables.product.product_location %}, users can configure repositories so that their dependencies are updated and kept secure automatically.
+{% data variables.product.prodname_dependabot_alerts %} を有効にした後、{% data variables.product.prodname_dependabot_updates %} を有効にすることができます。 {% data variables.product.prodname_dependabot_updates %} が {% data variables.location.product_location %} に対して有効になっている場合、ユーザーはリポジトリを構成して、依存関係の更新とセキュリティ保護が自動的に行われるようにすることができます。 
 
-{% note %}
+{% note %} 
 
-**Note:** {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.product_name %} requires {% data variables.product.prodname_actions %} with self-hosted runners.
+**注**: {% data variables.product.product_name %} の {% data variables.product.prodname_dependabot_updates %} には、セルフホステッド ランナーを含む {% data variables.product.prodname_actions %} が必要です。
 
 {% endnote %}
 
-By default, {% data variables.product.prodname_actions %} runners used by {% data variables.product.prodname_dependabot %} need access to the internet, to download updated packages from upstream package managers. For {% data variables.product.prodname_dependabot_updates %} powered by {% data variables.product.prodname_github_connect %}, internet access provides your runners with a token that allows access to dependencies and advisories hosted on {% data variables.product.prodname_dotcom_the_website %}.
+既定では、{% data variables.product.prodname_dependabot %} で使用される {% data variables.product.prodname_actions %} ランナーは、上流パッケージ マネージャーから更新されたパッケージをダウンロードするために、インターネットにアクセスする必要があります。 {% data variables.product.prodname_github_connect %} を利用する {% data variables.product.prodname_dependabot_updates %} の場合、インターネット アクセスにより、{% data variables.product.prodname_dotcom_the_website %} でホストされる依存関係とアドバイザリへのアクセスを可能にするトークンがランナーに提供されます。
 
-With {% data variables.product.prodname_dependabot_updates %}, {% data variables.product.company_short %} automatically creates pull requests to update dependencies in two ways.
+{% data variables.product.prodname_dependabot_updates %} では、{% data variables.product.company_short %} によって、依存関係を更新するためのプル要求が 2 つの方法で自動的に作成されます。
 
-- **{% data variables.product.prodname_dependabot_version_updates %}**: Users add a {% data variables.product.prodname_dependabot %} configuration file to the repository to enable {% data variables.product.prodname_dependabot %} to create pull requests when a new version of a tracked dependency is released. 詳しい情報については「[{% data variables.product.prodname_dependabot_version_updates %}について](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)」を参照してください。
-- **{% data variables.product.prodname_dependabot_security_updates %}**: Users toggle a repository setting to enable {% data variables.product.prodname_dependabot %} to create pull requests when {% data variables.product.prodname_dotcom %} detects a vulnerability in one of the dependencies of the dependency graph for the repository. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+- **{% data variables.product.prodname_dependabot_version_updates %}** : 追跡対象の依存関係の新しいバージョンがリリースされたときに {% data variables.product.prodname_dependabot %} がプル要求を作成できるように、ユーザーは {% data variables.product.prodname_dependabot %} 構成ファイルをリポジトリに追加します。 詳細については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)」を参照してください。
+- **{% data variables.product.prodname_dependabot_security_updates %}** : ユーザーは、{% data variables.product.prodname_dotcom %} でリポジトリの依存関係グラフのいずれかの依存関係で脆弱性が検出されたときに、{% data variables.product.prodname_dependabot %} がプル要求を作成できるようにリポジトリ設定を切り替えます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %} について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)」と「[{% data variables.product.prodname_dependabot_security_updates %} について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」を参照してください。
 {% endif %}
 
 ## {% data variables.product.prodname_dependabot_alerts %} の有効化
 
-Before you can enable {% data variables.product.prodname_dependabot_alerts %}:
-- You must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."{% ifversion ghes %}
-- You must enable the dependency graph. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
+{% data variables.product.prodname_dependabot_alerts %} を有効にする前に、次のことを行います。
+- {% data variables.product.prodname_github_connect %} を有効にする必要がある。 詳細については、「[{% data variables.product.prodname_github_connect %} の管理](/admin/configuration/configuring-github-connect/managing-github-connect)」を参照してください。{% ifversion ghes %}
+- 依存関係グラフを有効にする必要がある。 詳細については、「[企業の依存関係グラフの有効化](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)」を参照してください。{% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-{%- ifversion dependabot-updates-github-connect %}
-1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can receive vulnerability alerts for open source code dependencies", select the dropdown menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %} {%- ifversion dependabot-updates-github-connect %}
+1. [{% data variables.product.prodname_dependabot %}] の [ユーザーはオープン ソース コードの依存関係の脆弱性アラートを受け取ることができる] の右側にあるドロップダウン メニューを選択し、 **[有効 (通知なし)]** をクリックします。 必要に応じて、通知ありでアラートを有効にするには、 **[有効 (通知あり)]** をクリックします。
 
-   ![Screenshot of the dropdown menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
+   ![脆弱性に対するリポジトリのスキャンを有効化するドロップダウンメニューのスクリーンショット](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
 
 {%- else %}
-1. Under "Repositories can be scanned for vulnerabilities", select the drop-down menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**. ![脆弱性に対するリポジトリのスキャンを有効化するドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
-{%- endif %}
-   {% tip %}
+1. [リポジトリは脆弱性のスキャンが可能] で、ドロップダウンメニューを選択して、 **[有効 (通知なし)]** を選択します。 必要に応じて、通知ありでアラートを有効にするには、 **[有効 (通知あり)]** をクリックします。
+   ![脆弱性に対するリポジトリのスキャンを有効化するドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png) {%- endif %} {% tip %}
 
-   **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. 数日後、通知を有効化すれば、通常どおり {% data variables.product.prodname_dependabot_alerts %} を受信できます。
+   **ヒント**: メールの過負荷を避けるため、最初の数日間は {% data variables.product.prodname_dependabot_alerts %} を通知なしに設定することをお勧めします。 数日後、通知を有効化して、通常どおり {% data variables.product.prodname_dependabot_alerts %} を受信できます。
 
    {% endtip %}
 
 {% ifversion dependabot-updates-github-connect %}
 ## {% data variables.product.prodname_dependabot_updates %} の有効化
 
-After you enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise, you can enable {% data variables.product.prodname_dependabot_updates %}.
+エンタープライズで {% data variables.product.prodname_dependabot_alerts %} を有効にした後、{% data variables.product.prodname_dependabot_updates %} を有効にできます。
 
-{% ifversion ghes %}
-Before you enable {% data variables.product.prodname_dependabot_updates %}, you must configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+{% ifversion ghes %}{% data reusables.dependabot.enabling-actions-for-ghes %}詳しくは、「[GitHub Enterprise Server の {% data variables.product.prodname_actions %} の概要](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)」をご覧ください。
 
-{% data variables.product.prodname_dependabot_updates %} are not supported on {% data variables.product.product_name %} if your enterprise uses clustering.
+エンタープライズでクラスタリングを使用している場合、{% data variables.product.prodname_dependabot_updates %} は {% data variables.product.product_name %} ではサポートされません。
 {% endif %}
 
-{% data reusables.enterprise_site_admin_settings.sign-in %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security", select **{% data variables.product.prodname_dependabot_security_updates %}**.
+{% data reusables.enterprise_site_admin_settings.sign-in %} {% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.advanced-security-tab %}
+1. [セキュリティ] で、 **{% data variables.product.prodname_dependabot_security_updates %}** を選択します。
 
-   ![Screenshot of the checkbox to enable or disable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/enterprise/management-console/enable-dependabot-updates.png)
+   ![{% data variables.product.prodname_dependabot_security_updates %} を有効または無効にするチェックボックスのスクリーンショット](/assets/images/enterprise/management-console/enable-dependabot-updates.png)
 
 {% data reusables.enterprise_management_console.save-settings %}
-1. **Visit your instance（インスタンスへのアクセス）**をクリックしてください。
-1. Configure self-hosted runners to create the pull requests that will update dependencies. For more information, see "[Managing self-hosted runners for {% data variables.product.prodname_dependabot_updates %} on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)."
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can easily upgrade to non-vulnerable open source code dependencies", click **Enable**.
+1. **[Visit your instance]\(インスタンスにアクセスする)** をクリックします。
+1. 依存関係を更新する pull request を作成するように、専用セルフホステッド ランナーを構成します。 これは、ワークフローで特定のランナー ラベルが使われるために必要です。 詳細については、「[エンタープライズでの {% data variables.product.prodname_dependabot_updates %} のセルフホステッド ランナーの管理](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)」を参照してください。
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.github-connect-tab %}
+1. [{% data variables.product.prodname_dependabot %}] で、[ユーザーは脆弱でないオープン ソース コードの依存関係に簡単にアップグレードできる] の右側にある **[有効]** をクリックします。
 
-   ![Screenshot of the dropdown menu to enable updating vulnerable dependencies](/assets/images/enterprise/site-admin-settings/dependabot-updates-button.png)
+   ![脆弱な依存関係の更新を有効にするドロップダウン メニューのスクリーンショット](/assets/images/enterprise/site-admin-settings/dependabot-updates-button.png)
 
-{% endif %}
-{% ifversion ghes > 3.2 %}
+{% endif %} {% ifversion ghes %}
 
-When you enable {% data variables.product.prodname_dependabot_alerts %}, you should consider also setting up {% data variables.product.prodname_actions %} for {% data variables.product.prodname_dependabot_security_updates %}. This feature allows developers to fix vulnerabilities in their dependencies. For more information, see "[Managing self-hosted runners for {% data variables.product.prodname_dependabot_updates %} on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)."
+{% data variables.product.prodname_dependabot_alerts %} を有効にする場合は、{% data variables.product.prodname_dependabot_security_updates %} に対して {% data variables.product.prodname_actions %} を設定することも検討する必要があります。 この機能により、開発者は依存関係の脆弱性を修正できます。 詳細については、「[エンタープライズでの {% data variables.product.prodname_dependabot_updates %} のセルフホステッド ランナーの管理](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)」を参照してください。
 
-If you need enhanced security, we recommend configuring {% data variables.product.prodname_dependabot %} to use private registries. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_dependabot %}](/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot)."
+セキュリティを強化する必要がある場合は、プライベート レジストリを使用するように {% data variables.product.prodname_dependabot %} を構成することをお勧めします。 詳細については、「[{% data variables.product.prodname_dependabot %} に対する暗号化されたシークレットを管理する](/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot)」を参照してください。
 
 {% endif %}

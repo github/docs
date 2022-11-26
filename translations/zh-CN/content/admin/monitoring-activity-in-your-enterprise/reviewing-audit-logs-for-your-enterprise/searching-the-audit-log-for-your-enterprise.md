@@ -1,7 +1,7 @@
 ---
-title: 搜索企业的审核日志
-intro: 您可以搜索企业中已审核操作的广泛列表。
-shortTitle: 搜索审核日志
+title: Searching the audit log for your enterprise
+intro: You can search an extensive list of audited actions in your enterprise.
+shortTitle: Search audit logs
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
@@ -21,69 +21,74 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## 关于搜索企业审核日志
+## About search for the enterprise audit log
 
-通过使用 **Filters（筛选器）**下拉列表或键入搜索查询，可以直接从用户界面搜索企业审核日志。
+You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
 
-  ![搜索查询](/assets/images/enterprise/site-admin-settings/search-query.png)
+  ![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
 
-有关查看企业审核日志的更多信息，请参阅“[访问企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)”。
+For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)." 
 
-还可以使用 API 检索审核日志事件。 更多信息请参阅“[使用企业的审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)”。
+{% data reusables.audit_log.git-events-not-in-search-results %}
 
-请注意，无法使用文本搜索条目。 但是，您可以使用各种过滤器构建搜索查询。 查询日志时使用的许多运算符，如 `-`、`>` 或 `<`，与在 {% data variables.product.product_name %} 上搜索时的格式相同。 更多信息请参阅“[在 {% data variables.product.prodname_dotcom %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
+You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+
+You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% note %}
 
-**注**：{% data reusables.audit_log.retention-periods %}
+**Note**: {% data reusables.audit_log.retention-periods %}
 
 {% endnote %}
 
-## 搜索查询筛选器
+## Search query filters
 
-|   过滤，过滤器 | 描述                                                                                                       |
-| --------:| -------------------------------------------------------------------------------------------------------- |
-|   `昨日活动` | 过去一天创建的所有操作。                                                                                             |
-| `企业帐户管理` | `business` 类别中的所有操作。                                                                                     |
-| `组织成员资格` | 邀请新用户加入组织时的所有操作。                                                                                         |
-|   `团队管理` | 与团队管理相关的所有操作。<br/>- 在团队中添加或删除用户帐户或存储库时<br/>- 当团队维护者被提升或降级时<br/>- 当团队被删除时               |
-|  `存储库管理` | 存储库管理的所有操作。<br/>- 创建或删除存储库的时间<br/>- 更改存储库可见性<br/>- 在存储库中添加或删除团队的时间{% ifversion ghec %}
-|   `帐单更新` | 有关企业如何支付 {% data variables.product.prodname_dotcom %} 以及帐单电子邮件地址更改时的所有操作。{% endif %}
-|   `挂钩活动` | Web 挂钩和预接收挂钩的所有操作。                                                                                       |
-|   `安全管理` | 有关 SSH 密钥、部署密钥、安全密钥、2FA 和 SAML 单点登录凭据授权以及存储库漏洞警报的所有操作。                                                   |
+Filter| Description
+--------------:| -----------
+`Yesterday's activity` | All actions created in the past day.
+`Enterprise account management` | All actions in the `business` category.
+`Organization membership` | All actions for when a new user was invited to join an organization.
+`Team management` | All actions related to team management.<br/>- When a user account or repository was added or removed from a team<br/>- When a team maintainer was promoted or demoted<br/>-  When a team was deleted
+`Repository management` | All actions for repository management.<br/>- When a repository was created or deleted<br/>- When the repository visibility was changed<br/>- When a team was added or removed from a repository{% ifversion ghec %}
+`Billing updates` | All actions concerning how your enterprise pays for {% data variables.product.prodname_dotcom %} and for when your billing email address was changed.{% endif %}
+`Hook activity` | All actions for webhooks and pre-receive hooks.
+`Security management` | All actions concerning SSH keys, deploy keys, security keys, 2FA, and SAML single sign-on credential authorization, and vulnerability alerts for repositories.
 
-## 搜索查询语法
+## Search query syntax
 
-您可以从一个或多个 `key:value` 对（由 AND/OR 逻辑运算符分隔）编写搜索查询。 例如，要查看自 2017 年初开始影响仓库 `octocat/Spoon-Knife` 的所有操作：
+You can compose a search query from one or more `key:value` pairs, separated by AND/OR logical operators. For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
 
   `repo:"octocat/Spoon-Knife" AND created:>=2017-01-01`
 
-可在搜索查询中使用的 `key:value` 对包括：
+The `key:value` pairs that can be used in a search query are:
 
-|              键 | 值                                                                         |
-| --------------:| ------------------------------------------------------------------------- |
-|     `actor_id` | 发起操作的用户帐户的 ID                                                             |
-|        `actor` | 发起操作的用户帐户的名称                                                              |
-| `oauth_app_id` | 与操作相关联的 OAuth 应用程序的 ID                                                    |
-|       `action` | 已审核操作的名称                                                                  |
-|      `user_id` | 受操作影响的用户的 ID                                                              |
-|           `用户` | 受操作影响的用户的名称                                                               |
-|      `repo_id` | 受操作影响的仓库的 ID（若适用）                                                         |
-|         `repo` | 受操作影响的仓库的名称（若适用）                                                          |
-|     `actor_ip` | 发起操作的 IP 地址                                                               |
-|      `created` | 操作发生的时间{% ifversion ghes %}。 如果从站点管理仪表板查询审核日志，请改用 `created_at`{% endif %}
-|         `from` | 发起操作的视图                                                                   |
-|         `note` | 事件特定的其他信息（采用纯文本或 JSON 格式）                                                 |
-|          `org` | 受操作影响的组织的名称（若适用）                                                          |
-|       `org_id` | 受操作影响的组织的 ID（若适用）                                                         |
-|     `business` | 受操作影响的企业的名称（若适用）                                                          |
-|  `business_id` | 受操作影响的企业的 ID（若适用）                                                         |
+Key            | Value
+--------------:| --------------------------------------------------------
+`actor_id`     | ID of the user account that initiated the action
+`actor`        | Name of the user account that initiated the action
+`oauth_app_id` | ID of the OAuth application associated with the action
+`action`       | Name of the audited action
+`user_id`      | ID of the user affected by the action
+`user`         | Name of the user affected by the action
+`repo_id`      | ID of the repository affected by the action (if applicable)
+`repo`         | Name of the repository affected by the action (if applicable)
+`actor_ip`     | IP address from which the action was initiated
+`created`      | Time at which the action occurred{% ifversion ghes %}. If querying the audit log from the site admin dashboard, use `created_at` instead{% endif %}
+`from`         | View from which the action was initiated
+`note`         | Miscellaneous event-specific information (in either plain text or JSON format)
+`org`          | Name of the organization affected by the action (if applicable)
+`org_id`       | ID of the organization affected by the action (if applicable)
+`business` | Name of the enterprise affected by the action (if applicable)
+`business_id` | ID of the enterprise affected by the action (if applicable)
+{%- ifversion token-audit-log %}
+`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)")
+{%- endif %}
 
-若要查看按类别分组的操作，还可以将操作限定符用作 `key:value` 对。 更多信息请参阅“[根据执行的操作进行搜索](#search-based-on-the-action-performed)”。
+To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
-有关企业审核日志中操作的完整列表，请参阅“[企业的审核日志操作](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
+For a full list of actions in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
-## 搜索审核日志
+## Searching the audit log
 
 {% data reusables.audit_log.audit-log-search-by-operation %}
 
@@ -91,40 +96,46 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.audit_log.audit-log-search-by-user %}
 
-### 基于执行的操作搜索
+### Search based on the action performed
 
-要搜索特定事件，请在查询中使用 `action` 限定符。 例如：
+To search for specific events, use the `action` qualifier in your query. For example:
 
-  * `action:team` 会找到团队类别中的所有事件。
-  * `-action:hook` 会排除 web 挂钩类别中的所有事件。
+  * `action:team` finds all events grouped within the team category.
+  * `-action:hook` excludes all events in the webhook category.
 
-每个类别都有一组可进行过滤的关联操作。 例如：
+Each category has a set of associated actions that you can filter on. For example:
 
-  * `action:team.create` 会找到团队创建处的所有事件。
-  * `-action:hook.events_changed` 会排除 web 挂钩上事件已经改动的所有事件。
+  * `action:team.create` finds all events where a team was created.
+  * `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
-可在企业审核日志中找到的操作分为以下几类：
+Actions that can be found in your enterprise audit log are grouped within the following categories:
 
 {% data reusables.audit_log.audit-log-action-categories %}
-### 基于操作时间搜索
+### Search based on time of action
 
-使用 `created` 限定符在审核日志中根据事件发生的时间过滤事件。
+Use the `created` qualifier to filter events in the audit log based on when they occurred.
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-例如：
+For example:
 
-  * `created:2014-07-08` 会找到在 2014 年 7 月 8 日发生的所有事件。
-  * `created:>=2014-07-08` 查找在 2014 年 7 月 8 日或之后发生的所有事件。
-  * `created:<=2014-07-08` 查找在 2014 年 7 月 8 日或之前发生的所有事件。
-  * `created:2014-07-01..2014-07-31` 会找到在 2014 年 7 月发生的所有事件。
+  * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+  * `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+  * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+  * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
-### 基于位置搜索
+### Search based on location
 
-使用限定符 `country`，您可以在审核日志中根据发生事件的国家/地区过滤事件。 您可以使用国家/地区的两字母短代码或完整名称。 名称中包含空格的国家/地区需要用引号括起来。 例如：
+Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or full name. Countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-  * `country:de` 会找到在德国发生的所有事件。
-  * `country:Mexico` 会找到在墨西哥发生的所有事件。
-  * `country:"United States"` 会找到在美国发生的所有事件。
+  * `country:de` finds all events that occurred in Germany.
+  * `country:Mexico` finds all events that occurred in Mexico.
+  * `country:"United States"` all finds events that occurred in the United States.
+
+{% ifversion token-audit-log %}
+### Search based on the token that performed the action
+
+Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+{% endif %}

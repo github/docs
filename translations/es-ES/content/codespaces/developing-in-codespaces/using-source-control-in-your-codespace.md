@@ -1,7 +1,6 @@
 ---
-title: Utilizar el control de código fuente en tu codespace
-intro: 'Después de hacer cambios en un archivo de tu codespace, puedes confirmar los cambios rápidamente y subir tu actualización al repositorio remoto.'
-product: '{% data reusables.gated-features.codespaces %}'
+title: Using source control in your codespace
+intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,68 +9,114 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Control origen
+shortTitle: Source control
 ---
 
- 
+{% jetbrains %}
 
-## Acerca del control de código fuente en {% data variables.product.prodname_codespaces %}
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-Puedes llevar a cabo todas las acciones de Git que necesites directamente dentro de tu codespace. Por ejemplo, puedes recuperar cambios del repositorio remoto, cambiar de rama, crear una rama nueva, confirmar y subir cambios y crear solicitudes de cambios. Puedes utilizar la terminal integrada dentro de tu codespace para ingresar comandos de Git o puedes hacer clic en los iconos u opciones de menú para completar las tareas más comunes de Git. Esta guía te explica cómo utilizar la interface de usuario gráfica para el control de código fuente.
+{% endjetbrains %}
 
-El control de fuentes en {% data variables.product.prodname_github_codespaces %} utiliza el mismo flujo de trabajo que {% data variables.product.prodname_vscode %}. Para obtener más información, consulta la documentación de {% data variables.product.prodname_vscode_shortname %} en la sección "[Utilizar el control de versiones en {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)".
+## About source control in {% data variables.product.prodname_github_codespaces %}
 
-Un flujo de trabajo típico para actualizar un archivo utilizando {% data variables.product.prodname_github_codespaces %} sería:
+You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from a remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
 
-* Desde la rama predeterminada de tu repositorio en {% data variables.product.prodname_dotcom %}, crea un codespace. Consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace)".
-* En tu codespace, crea una rama nueva para trabajar en ella.
-* Haz tus cambios y guárdalos.
-* Confirma el cambio.
-* Levanta una solicitud de cambios.
+{% vscode %}
 
-## Crear o cambiar de rama
+For more information about Git support in {% data variables.product.prodname_vscode %}, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
 
-{% data reusables.codespaces.create-or-switch-branch %}
+{% endvscode %}
 
-{% tip %}
+{% webui %}
 
-**Tip**: Si alguien cambió un archivo en el repositorio remoto, en la rama a la cual te cambiaste, no verás estos cambios hasta que los extraigas hacia tu codespace.
+Source control in the {% data variables.product.prodname_vscode %} web client uses the same workflow as the {% data variables.product.prodname_vscode %} desktop application. For more information, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
 
-{% endtip %}
+{% endwebui %}
 
-## Extraer cambios del repositorio remoto
+A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-Puedes extraer cambios del repositorio remoto hacia tu codespace en cualquier momento.
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+* In your codespace, create a new branch to work on.
+* Make your changes and save them.
+* Commit the change.
+* Raise a pull request.
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. En la parte superior de la barra lateral, haz clic en los puntos suspensivos (**...**). ![Botón de puntos suspensivos para las acciones de "más" y "ver"](/assets/images/help/codespaces/source-control-ellipsis-button.png)
-1. En el menú desplegable, haz clic en **Extraer**.
+{% webui %}
 
-Si el la configuración del contenedor dev cambió desde que creaste el codespace, puedes aplicar los cambios si recompilas el contenedor para el codespace. Para obtener más información, consulta la sección "[Introducción a los contenedores dev](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)".
+{% data reusables.codespaces.source-control %} 
 
-## Configurar tu codespace para que recupere los cambios nuevos automáticamente
+{% endwebui %}
 
-Puedes configurar tu codespace para que recupere automáticamente los detalles de cualquier confirmación nueva que se haya hecho al repositorio remoto. Esto te permite ver si tu copia local del repositorio está desactualizada, en cuyo caso, podrías elegir extraer los cambios nuevos.
+{% vscode %}
 
-Si la operación de búsqueda detecta cambios nuevos en el repositorio remoto, verás la cantidad de confirmaciones nuevas en la barra de estado. Luego podrás extraer los cambios en tu copia local.
+{% data reusables.codespaces.source-control %} 
 
-1. Haz clic en el botón de **Administrar** en la parte inferior de la barra de actividad. ![Botón de administrar](/assets/images/help/codespaces/manage-button.png)
-1. En el menú, haz clic en **Ajustes**.
-1. En la página de ajustes, busca: `autofetch`. ![Buscar la recuperación automática](/assets/images/help/codespaces/autofetch-search.png)
-1. Para recuperar los detalles de las actualizaciones para todos los remotos registrados para el repositorio actual, configura **Git: Autofetch** en `all`. ![Habilitar la recuperación automática en Git](/assets/images/help/codespaces/autofetch-all.png)
-1. Si quieres cambiar la cantidad de segundos entre cada recuperación automática, edita el valor de **Git: Autofetch Period**.
+{% endvscode %}
 
-## Configramr tus cambios
+{% jetbrains %}
 
-{% data reusables.codespaces.source-control-commit-changes %}
+## Creating or switching branches
 
-## Levantar una solicitud de cambios
+1. Click the branch name at the right side of the status bar.
 
-{% data reusables.codespaces.source-control-pull-request %}
+   ![Screenshot of the branch name in the status bar](/assets/images/help/codespaces/jetbrains-branch-button.png)
 
-## Subir cambios a tu repositorio remoto
+1. In the pop-up menu, do one of the following:
+   * To create a new branch based on the current branch, click the name of the current branch, then choose **New Branch**. 
 
-Puedes subir los cambios que has hecho. Esto aplica a aquellos de la rama ascendente en el repositorio remoto. Puede que necesites hacer eso si aún no estás listo para crear una solicitud de cambios o si prefieres crearla en {% data variables.product.prodname_dotcom %}.
+     ![Screenshot of the new branch option](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
 
-1. En la parte superior de la barra lateral, haz clic en los puntos suspensivos (**...**). ![Botón de puntos suspensivos para las acciones de "más" y "ver"](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
-1. En el menú desplegable, haz clic en **Subir**.
+     Enter a name for the new branch and click **Create**.
+
+     ![Screenshot of the create branch dialog box](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
+
+   * To check out an existing branch, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
+
+     ![Screenshot of the checkout option](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
+
+     {% tip %}
+
+     **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace. 
+
+     {% endtip %}
+
+
+## Committing your changes 
+
+1. At the right side of the navigation bar, click the check mark.
+
+   ![Screenshot of the commit check mark](/assets/images/help/codespaces/jetbrains-commit-button.png)
+
+1. In the Commit Changes dialog box, enter a commit message.
+1. Click **Commit**.
+
+   Alternatively, click the down arrow beside **Commit** and click **Commit and Push**.
+
+   ![Screenshot of the commit and push button](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
+
+## Pulling changes from the remote repository
+
+You can pull changes from the same branch on the remote repository and apply those changes to the copy of the repository you are working on in your codespace.
+
+1. At the right side of the navigation bar, click the downward pointing arrow.
+
+   ![Screenshot of the update project downward arrow button](/assets/images/help/codespaces/jetbrains-update-project-button.png)
+
+1. In the Update Project dialog box, choose whether you want to merge or rebase the incoming changes.
+
+   ![Screenshot of the Update Project dialog box](/assets/images/help/codespaces/jetbrains-update-options.png)
+
+1. Click **OK**.
+
+## Pushing changes to your remote repository
+
+You can push changes you've saved and committed. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+
+1. At the right side of the navigation bar, click the upward pointing arrow.
+
+   ![Screenshot of the push commits upward arrow](/assets/images/help/codespaces/jetbrains-push-button.png)
+
+1. In the Push Commits dialog box, click **Push**.
+
+{% endjetbrains %}

@@ -13,6 +13,7 @@ Add a `versions` block to the YML file with the short names of the versions the 
 ```yaml
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '>3.1'
   ghae: '*'
 ```
@@ -30,18 +31,12 @@ You can also use the feature in frontmatter in content files:
 ```yaml
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '>3.1'
   feature: 'meow'
 ```
 
-If you want a content file to apply to more than one feature, you can do this:
-
-```yaml
-versions:
-  fpt: '*'
-  ghes: '>3.1'
-  feature: ['meow', 'blorp']
-```
+You cannot use `feature:` to specify multiple concurrent versions, as this is not supported. Alternatively, you could create a new feature-based versioning file with the required versioning.
 
 ## Schema enforcement
 

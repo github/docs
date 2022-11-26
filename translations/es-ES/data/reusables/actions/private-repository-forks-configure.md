@@ -1,2 +1,7 @@
-1. Debajo de **Bifurcar los flujos de trabajo de la solicitud de extracción**, selecciona tus opciones. Por ejemplo: ![Habilita, inhabilita o limita las acciones para este repositorio](/assets/images/help/settings/actions-fork-pull-request-workflows.png)
-1. Da clic en **Guardar** para aplicar la configuración.
+1. Under **Fork pull request workflows**, select your options. For example:
+  {% ifversion actions-private-fork-workflow-approvals %}
+   ![Enable, disable, or limits actions for this repository](/assets/images/help/settings/actions-fork-pull-request-workflows-require-approval.png){% else %}
+
+   ![Enable, disable, or limits actions for this repository](/assets/images/help/settings/actions-fork-pull-request-workflows.png){% endif %}
+
+1. Click **Save** to apply the settings.

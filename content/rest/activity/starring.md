@@ -1,6 +1,6 @@
 ---
 title: Starring
-intro: 'The Starring API lets you bookmark a repository.'
+intro: The Starring API lets you bookmark a repository.
 versions:
   fpt: '*'
   ghes: '*'

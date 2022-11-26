@@ -1,19 +1,22 @@
 ---
 title: Revisión de dependencias
-intro: 'The Dependency review API allows you to understand dependency changes, and the security impact of these changes, before you add them to your environment.'
+intro: 'La API de Revisión de dependencias permite comprender los cambios de dependencia, y el impacto en la seguridad de estos cambios, antes de agregarlos al entorno.'
 versions:
   fpt: '*'
   ghes: '>=3.6'
   ghec: '*'
-  ghae: issue-6396
+  ghae: '>= 3.6'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 9988c87ed4b0dcbe9c8a0694ebe0ca43d5bc336e
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164234'
 ---
+## Acerca de Dependency review API
 
-## About the Dependency review API
-
-{% data reusables.dependency-review.dependency-review-api-beta-note %}
-
-La API de revisión de dependencias te permite entender los cambios a las dependencias y el impacto de seguridad de estos antes de que los agregues a tu ambiente. You can view the diff of dependencies between two commits of a repository, including vulnerability data for any version updates with known vulnerabilities. Para obtener más información sobre la revisión de dependencias, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)".
+La API de Revisión de dependencias permite comprender los cambios de dependencia, y el impacto en la seguridad de estos cambios, antes de agregarlos al entorno. Puede ver la diferencia de dependencias entre dos confirmaciones de un repositorio, incluidos los datos de vulnerabilidad de las actualizaciones de versiones con vulnerabilidades conocidas. Para obtener más información sobre la revisión de dependencias, vea "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)".

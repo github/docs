@@ -40,7 +40,7 @@
          "description":"Basic Plan",
          "monthly_price_in_cents":1000,
          "yearly_price_in_cents":10000,
-         "price_model":"per-unit",
+         "price_model":"PER_UNIT",
          "has_free_trial":true,
          "unit_name":"seat",
          "bullets":[

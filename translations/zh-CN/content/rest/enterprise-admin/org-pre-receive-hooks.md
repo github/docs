@@ -1,6 +1,6 @@
 ---
-title: 组织预接收挂钩
-intro: 组织预接收挂钩 API 允许您查看和修改组织可用的预接收挂钩的实施。
+title: Organization Pre-receive Hooks
+intro: The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
 versions:
   ghes: '*'
 topics:
@@ -9,15 +9,17 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-### 对象属性
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-| 名称                               | 类型    | 描述           |
-| -------------------------------- | ----- | ------------ |
-| `name`                           | `字符串` | 挂钩的名称。       |
-| `enforcement`                    | `字符串` | 此仓库中挂钩的实施状态。 |
-| `allow_downstream_configuration` | `布尔值` | 仓库是否可以覆盖实施。  |
-| `configuration_url`              | `字符串` | 设置实施的端点 URL。 |
+### Object attributes
 
-*enforcement* 的可能值包括 `enabled`、`disabled` 和 `testing`。 `disabled` 表示预接收挂钩不会运行。 `enabled` 表示它将运行并拒绝会导致非零状态的任何推送。 `testing` 表示脚本将运行，但不会导致任何推送被拒绝。
+| Name                             | Type      | Description                                               |
+|----------------------------------|-----------|-----------------------------------------------------------|
+| `name`                           | `string`  | The name of the hook.                                     |
+| `enforcement`                    | `string`  | The state of enforcement for the hook on this repository. |
+| `allow_downstream_configuration` | `boolean` | Whether repositories can override enforcement.            |
+| `configuration_url`              | `string`  | URL for the endpoint where enforcement is set.            |
 
-`configuration_url` 可能是此端点或此挂钩的全局配置的链接。 只有站点管理员才能访问全局配置。
+Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+
+`configuration_url` may be a link to this endpoint or this hook's global configuration. Only site admins are able to access the global configuration.

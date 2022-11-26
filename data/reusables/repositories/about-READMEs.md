@@ -1,0 +1,1 @@
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license, citation file{% ifversion fpt or ghec %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.

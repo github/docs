@@ -1,0 +1,1 @@
+You can access and write data in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} using SSH (Secure Shell Protocol). When you connect via SSH, you authenticate using a private key file on your local machine.

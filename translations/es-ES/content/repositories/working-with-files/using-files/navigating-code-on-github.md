@@ -1,6 +1,6 @@
 ---
-title: Código de navegación en GitHub
-intro: 'Puedes comprender las relaciones dentro y a través de los repositorios al navegar directamente por código en {% data variables.product.product_name %}.'
+title: Navigating code on GitHub
+intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
@@ -11,68 +11,74 @@ versions:
 topics:
   - Repositories
 ---
-
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
-## Acerca de la navegación de código en {% data variables.product.prodname_dotcom %}
+## About navigating code on {% data variables.product.prodname_dotcom %}
 
-La navegación de código te ayuda a leer, navegar y entender el código al mostrarte y enlazar las definiciones de una entidad nombrada que corresponda a la referencia de la misma, así como mostrando referencias que corresponden a la definición de dicha entidad.
+Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
 
-![Pantalla de navegación de código](/assets/images/help/repository/code-navigation-popover.png)
+![Code navigation display](/assets/images/help/repository/code-navigation-popover.png)
 
-La navegación de código utiliza la librería de código abierto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). Los siguientes lenguajes y estrategias de navegación son compatibles:
+Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported:
 
-|  Lenguaje  | Navegación de código basada en búsquedas | Navegación de código precisa |
-|:----------:|:----------------------------------------:|:----------------------------:|
-|     C#     |                    ✅                     |                              |
-|   CodeQL   |                    ✅                     |                              |
-|   Elixir   |                    ✅                     |                              |
-|     Go     |                    ✅                     |                              |
-|    Java    |                    ✅                     |                              |
-| JavaScript |                    ✅                     |                              |
-|    PHP     |                    ✅                     |                              |
-|   Python   |                    ✅                     |              ✅               |
-|    Ruby    |                    ✅                     |                              |
-| TypeScript |                    ✅                     |                              |
+| Language   | Search-based code navigation | Precise code navigation |
+|:----------:|:----------------------------:|:-----------------------:|
+| C#         | ✅                           |                         |
+| CodeQL     | ✅                           |                         |
+| Elixir     | ✅                           |                         |
+| Go         | ✅                           |                         |
+| Java       | ✅                           |                         |
+| JavaScript | ✅                           |                         |
+| PHP        | ✅                           |                         |
+| Python     | ✅                           | ✅                      |
+| Ruby       | ✅                           |                         |
+| Rust       | ✅                           |                         |
+| TypeScript | ✅                           |                         |
 
 
-No necesitas configurar nada en tu repositorio para habilitar la navegación de código. Extraeremos información de navegación de código precisa y basada en búsquedas automáticamente para estos lenguajes compatibles en todos los repositorios y puedes cambiar entre estos dos acercamientos compatibles de navegación de código si tu lenguaje de programación es compatible con ambos.
+You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
 
-{% data variables.product.prodname_dotcom %} ha desarrollado dos acercamientos de navegación de código con base en las librerías de código abierto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) y [`stack-graphs`](https://github.com/github/stack-graphs):
- - Basada en búsqueda - busca todas las definiciones y referencias en un repositorio para encontrar entidades con un nombre determinado
- - Preciso - resuelve las definiciones y referencias con base en el conjunto de clases, funciones y definiciones importadas en algún punto específico de tu código
+{% data variables.product.prodname_dotcom %} has developed two code navigation approaches based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) and [`stack-graphs`](https://github.com/github/stack-graphs) library:
+ - Search-based - searches all definitions and references across a repository to find entities with a given name
+ - Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
 
-Para aprender más sobre estos acercamientos, consulta la sección "[Navegación precisa y basada en búsquedas](#precise-and-search-based-navigation)".
+To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
 
-Los lanzamientos de características agregarán *navegación de código precisa* para más lenguajes, lo cual es un acercamiento de navegación de código que puede otorgar resultados más exactos.
+Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
 
-## Saltar a la definición de una función o método
+## Jumping to the definition of a function or method
 
-Puedes saltar a una definición de función o de método dentro del mismo repositorio si das clic en la llamada a dicha función o método dentro de un archivo.
+You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
 
-![Pestaña Jump-to-definition](/assets/images/help/repository/jump-to-definition-tab.png)
+![Jump-to-definition tab](/assets/images/help/repository/jump-to-definition-tab.png)
 
-## Buscar todas las referencias de una función o método
+## Finding all references of a function or method
 
-Puedes encontrar todas las referencias para una función o método dentro del mismo repositorio si das clic en el llamado a dicha función o método en un archivo y posteriormente das clic en la pestaña de **Referencias**.
+You can find all references for a function or method within the same repository by clicking the function or method call in a file, then clicking the **References** tab.
 
-![Pestaña Find all references (Buscar todas las referencias)](/assets/images/help/repository/find-all-references-tab.png)
+![Find all references tab](/assets/images/help/repository/find-all-references-tab.png)
 
-## Navegación precisa y basada en búsqueda
+## Precise and search-based navigation
 
-Alugnos lenguajes que son compatibles con {% data variables.product.prodname_dotcom %} tienen acceso a la *navegación de código precisa*, la cual utiliza un algoritmo (basado en la librería de código abierto [`stack-graphs`](https://github.com/github/stack-graphs)) que resuelve las definiciones y referencias con base en el conjunto de clases, funciones y definiciones importadas que son visibles en cualquier punto de tu código. Otros lenguajes utilizan la *navegación de código basada en búsquedas*, la cual busca todas las definiciones y referencias a lo largo de un repositorio para encontrar entidades con un nombre específico. Ambas estrategias son efectivas para encontrar resultados y ambas se aseguran de evitar resultados inadecuados, tales como los comentarios, pero la navegación de código precisa puede arrojar resultados más exactos, especialmente cuando un repositorio contiene métodos múltiples o funciones con el mismo nombre.
+Certain languages supported by {% data variables.product.prodname_dotcom %} have access to *precise code navigation*, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use *search-based code navigation*, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
 
-Si no ves los resultados que esperas de una consulta de navegación de código precisa, puedes hacer clic en el enlace de "basada en búsqueda" en el mensaje emergente que se muestra para realizar una navegación basada en búsqueda.
+If you don't see the results you expect from a precise code navigation query, you can click on the "search-based" link in the displayed popover to perform search-based navigation.
 
-![Enlace de navegación de código basada en búsqueda](/assets/images/help/repository/search-based-code-navigation-link.png)
+![Search-based code navigation link](/assets/images/help/repository/search-based-code-navigation-link.png)
 
-Si tus resultados precisos te parecen inexactos, puedes enviar una solicitud de soporte.
+If your precise results appear inaccurate, you can file a support request.
 
-## Solución de problemas en la navegación de código
+## Cross-repository precise code navigation
 
-Si se habilitó la navegación de código pero no ves los enlaces a las definiciones de las funciones y métodos:
-- La navegación de código solo funciona para las ramas activas. Sube a la rama e intenta de nuevo.
-- La navegación de código funciona únicamente para los repositorios que tienen menos de 100,000 archivos.
+Cross-repo code navigation is available for languages that are supported by precise code navigation and the dependency graph. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
 
-## Leer más
-- "[Buscar código](/github/searching-for-information-on-github/searching-code)"
+![Screenshot of cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
+
+## Troubleshooting code navigation
+
+If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
+- Code navigation only works for active branches. Push to the branch and try again.
+- Code navigation only works for repositories with fewer than 100,000 files.
+
+## Further reading
+- "[Searching code](/github/searching-for-information-on-github/searching-code)"

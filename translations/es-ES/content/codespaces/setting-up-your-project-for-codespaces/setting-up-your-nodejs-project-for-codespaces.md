@@ -1,8 +1,8 @@
 ---
-title: Setting up your Node.js project for Codespaces
+title: Setting up your Node.js project for GitHub Codespaces
+allowTitleToDifferFromFilename: true
 shortTitle: Setting up your Node.js project
-intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,21 +22,18 @@ hidden: true
 
 ## Introduction
 
-This guide shows you how to set up your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
+This guide shows you how to set up your JavaScript, Node.js, or TypeScript project {% data reusables.codespaces.setting-up-project-intro %}
 
 ### Prerequisites
 
 - You should have an existing JavaScript, Node.js, or TypeScript project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/microsoft/vscode-remote-try-node
-- You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
+- You must have {% data variables.product.prodname_github_codespaces %} enabled for your organization.
 
 ## Step 1: Open your project in a codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}).
 
    ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
-
-   If you don’t see this option, {% data variables.product.prodname_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
-
 
 When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
 
@@ -44,7 +41,7 @@ When you create a codespace, your project is created on a remote VM that is dedi
 
 ## Step 2: Add a dev container configuration to your repository from a template
 
-The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. However, we recommend that you configure your own dev container, as this allows you to define any particular tools and scripts your project needs. This will ensure a fully reproducible environment for all GitHub Codespaces users in your repository.
+The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. However, we recommend that you configure your own dev container, as this allows you to define any particular tools and scripts your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_github_codespaces %} users in your repository.
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
@@ -165,9 +162,9 @@ In the previous section, you used the `postCreateCommand` to installing a set of
 
    ![npm start in terminal](/assets/images/help/codespaces/codespaces-npmstart.png)
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, containing a prompt to connect to the port your project uses.
 
-   ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
+   ![Port forwarding "toast" notification](/assets/images/help/codespaces/codespaces-port-toast.png)
 
 ## Step 5: Commit your changes
 
@@ -175,6 +172,6 @@ In the previous section, you used the `postCreateCommand` to installing a set of
 
 ## Next steps
 
-You should now be ready start developing your JavaScript project in {% data variables.product.prodname_codespaces %}. Here are some additional resources for more advanced scenarios.
+You should now be ready start developing your JavaScript project in {% data variables.product.prodname_github_codespaces %}. Here are some additional resources for more advanced scenarios.
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

@@ -1,6 +1,6 @@
 ---
-title: Visualizar paquetes
-intro: Puedes ver los detalles de los paquetes que se publican en un repositorio y filtrar los resultados por organización o usuario.
+title: Viewing packages
+intro: 'You can see details about packages published to a repository, and narrow results by organization or user.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/viewing-a-repositorys-packages
@@ -19,50 +19,51 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-## Ver paquetes de un repositorio
+## About package views
 
-Tu capacidad de ver un paquete depende de varios factores. Predeterminadamente, puedes ver todos los paquetes que hayas publicado.
+Your ability to view a package depends on several factors. By default, you can view all packages you have published.
 
-Los paquetes con alcance de repositorio heredan sus permisos y visibilidad desde el repositorio al que pertenece el paquete. Los siguientes registros utilizan este tipo de permisos:{% ifversion not fpt or ghec %}
-- Registro de Docker (`docker.pkg.github.com`){% endif %}
-- Registro de npm
-- Registro de RubyGems
-- Registro de Apache maven
-- Registro de NuGet
+Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. The registries below **only** use this type of permissions:{% ifversion not fpt or ghec %}
+- Docker registry (`docker.pkg.github.com`){% endif %}
+{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
+- RubyGems registry
+- Apache Maven registry
+- NuGet registry
 
 {% ifversion fpt or ghec %}
-El registro del contenedor te ofrece la opción de contar con permisos granulares y configuraciones de visibilidad que se pueden personalizar para cada paquete que pertenezca a un usuario personal o a una cuenta de organización. Puedes elegir utilizar permisos granulares o conectar el paquete a un repositorio y heredar sus permisos. Para obtener más información, consulta la sección "[Conectar un repositorio a un paquete](/packages/learn-github-packages/connecting-a-repository-to-a-package)".
+The {% data variables.packages.prodname_ghcr_and_npm_registry %} offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. You can choose to use granular permissions or connect the package to a repository and inherit it's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 {% endif %}
 
-Para obtener más información, consulta las secciones "[Acerca de los permisos para GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}" y "[Configurar el control de accesos y la visibilidad de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}".
+For more information, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}."
 
 {% data reusables.package_registry.package-page-info %}
 
-## Visualizar los paquetes de un repositorio
+## Viewing a repository's packages
 
-Puedes encontrar y ver un paquete que se ubique en un repositorio particular.
+You can find and view a package located in a particular repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
 
-## Visualizar los paquetes de una organización
+## Viewing an organization's packages
 
-Puedes ver y encontrar un paquete que se ubique en los repositorios de una organización a la cual pertenezcas.
+You can find and view a package located in the repositories of an organization you belong to.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-3. Debajo del nombre de tu organización, haz clic en {% octicon "package" aria-label="The package icon" %} **Packages (Paquetes)**.
+3. Under your organization name, click {% octicon "package" aria-label="The package icon" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 
-## Visualizar tus paquetes
+## Viewing your packages
 
-Puedes encontrar y ver cualquier paquete que hayas publicado en cualquier organización y repositorio.
+You can find and view any package you've published across all organizations and repositories. 
 
 {% data reusables.profile.access_profile %}
-2. En la zona de navegación principal, sobre la página de perfil, da clic en **Paquetes**. ![Pestaña Project (Proyecto)](/assets/images/help/package-registry/user-packages-tab.png)
+2. On the top of the profile page, in the main navigation, click **Packages**.
+  ![Project tab](/assets/images/help/package-registry/user-packages-tab.png)
 {% data reusables.package_registry.navigate-to-packages %}
 
-## Leer más
+## Further reading
 
-- "[Buscar paquetes](/search-github/searching-on-github/searching-for-packages)"
+- "[Searching for packages](/search-github/searching-on-github/searching-for-packages)"

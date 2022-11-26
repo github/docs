@@ -1,6 +1,6 @@
 ---
-title: GitHubのIssue
-shortTitle: GitHubのIssue
+title: GitHub イシュー
+shortTitle: GitHub Issues
 intro: '作業を計画し、追跡するために{% data variables.product.prodname_github_issues %}を使う方法を学んでください。'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
@@ -8,19 +8,20 @@ introLinks:
 featuredLinks:
   guides:
     - /issues/tracking-your-work-with-issues/creating-issues/creating-an-issue
-    - /issues/trying-out-the-new-projects-experience/quickstart
-    - /issues/trying-out-the-new-projects-experience/best-practices-for-managing-projects
+    - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
+    - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
     - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
   guideCards:
-    - /issues/trying-out-the-new-projects-experience/automating-projects
+    - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view
     - /issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue
     - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
-    - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
+    - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
   popular:
     - /issues/tracking-your-work-with-issues/creating-issues/about-issues
-    - /issues/trying-out-the-new-projects-experience/about-projects
-    - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+    - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
+    - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
+    - /issues/tracking-your-work-with-issues/creating-issues/about-tasklists
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
@@ -32,8 +33,8 @@ featuredLinks:
       href: 'https://www.youtube-nocookie.com/embed/HwpVvDURHKw'
     - title: Issue Forms for open source – Luke Hefson
       href: 'https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY'
-  videosHeading: GitHub Universe 2021 videos
-product_video: 'https://www.youtube-nocookie.com/embed/uiaLWluYJsA'
+  videosHeading: Videos
+product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y?list=PL0lo9MOBetEG8TZty9Z38oSZAY8FjkaB7&index=1{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
 layout: product-landing
 beta_product: false
 versions:
@@ -43,7 +44,7 @@ versions:
   ghec: '*'
 children:
   - /tracking-your-work-with-issues
-  - /trying-out-the-new-projects-experience
+  - /planning-and-tracking-with-projects
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
   - /guides
@@ -72,5 +73,11 @@ redirect_from:
   - /disabling-issues
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
+ms.openlocfilehash: 0f9165bd3fe278316fcf8cec72b6b49cfce02140
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160291'
 ---
 

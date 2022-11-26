@@ -2,15 +2,13 @@
 title: About Server Statistics
 intro: 'You can use {% data variables.product.prodname_server_statistics %} to analyze your own aggregate data from {% data variables.product.prodname_ghe_server %}, and help us improve {% data variables.product.company_short %} products.'
 versions:
-  feature: 'server-statistics'
+  feature: server-statistics
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_server_statistics %}.'
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics
-topics: 
+topics:
   - Enterprise
 ---
-
-{% data reusables.server-statistics.release-phase %}
 
 ## About the benefits of {% data variables.product.prodname_server_statistics %}
 
@@ -22,7 +20,7 @@ When you enable {% data variables.product.prodname_server_statistics %}, you're 
 
 ## About data security
 
-We respect your data. We will never transmit data from {% data variables.product.product_location %} unless you have first given us permission to do so.
+We respect your data. We will never transmit data from {% data variables.location.product_location %} unless you have first given us permission to do so.
 
 We collect no personal data. We also don't collect any {% data variables.product.company_short %} content, such as code, issues, comments, or pull request content.
 
@@ -50,7 +48,7 @@ You can disable the {% data variables.product.prodname_server_statistics %} feat
 
 ## {% data variables.product.prodname_server_statistics %} data collected
 
-After you enable {% data variables.product.prodname_server_statistics %}, metrics are collected through a daily job that runs on {% data variables.product.product_location %}. The aggregate metrics are stored on your organization or enterprise account on {% data variables.product.prodname_ghe_cloud %} and are not stored on {% data variables.product.product_location %}.
+After you enable {% data variables.product.prodname_server_statistics %}, metrics are collected through a daily job that runs on {% data variables.location.product_location %}. The aggregate metrics are stored on your organization or enterprise account on {% data variables.product.prodname_ghe_cloud %} and are not stored on {% data variables.location.product_location %}.
 
 The following aggregate metrics will be collected and transmitted on a daily basis and represent the total counts for the day:
   - `active_hooks`

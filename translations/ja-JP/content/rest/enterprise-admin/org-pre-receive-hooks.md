@@ -1,6 +1,6 @@
 ---
-title: Organizationのpre-receive フック
-intro: Organization pre-receive フック API を使用すると、Organization で使用可能な pre-receive フックの適用を表示および変更できます。
+title: Organization Pre-receive Hooks
+intro: The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
 versions:
   ghes: '*'
 topics:
@@ -9,15 +9,17 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-### オブジェクトの属性
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-| 名前                               | 種類        | 説明                       |
-| -------------------------------- | --------- | ------------------------ |
-| `name`                           | `string`  | フックの名前。                  |
-| `enforcement`                    | `string`  | このリポジトリでのフックの適用状態。       |
-| `allow_downstream_configuration` | `boolean` | リポジトリが適用をオーバーライドできるかどうか。 |
-| `configuration_url`              | `string`  | 適用設定されているエンドポイントの URL。   |
+### Object attributes
 
-*適用*可能な値は、`enabled`、`disabled`、`testing` です。 `disabled` は、pre-receive フックが実行されないことを示します。 `enabled` は、それが実行され、ゼロ以外の状態になるプッシュを拒否することを示します。 `testing` は、スクリプトは実行されるが、プッシュが拒否されないことを示します。
+| Name                             | Type      | Description                                               |
+|----------------------------------|-----------|-----------------------------------------------------------|
+| `name`                           | `string`  | The name of the hook.                                     |
+| `enforcement`                    | `string`  | The state of enforcement for the hook on this repository. |
+| `allow_downstream_configuration` | `boolean` | Whether repositories can override enforcement.            |
+| `configuration_url`              | `string`  | URL for the endpoint where enforcement is set.            |
 
-`configuration_url`は、このエンドポイントへのリンクもしくはこのフックのグローバル設定です。 サイトアドミンのみがグローバル設定にアクセスできます。
+Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+
+`configuration_url` may be a link to this endpoint or this hook's global configuration. Only site admins are able to access the global configuration.

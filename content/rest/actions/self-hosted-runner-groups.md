@@ -1,6 +1,6 @@
 ---
 title: Self-hosted runner groups
-intro: 'The Self-hosted Runners Groups API allows you manage groups of self-hosted runners.'
+intro: The Self-hosted Runners Groups API allows you manage groups of self-hosted runners.
 topics:
   - API
 versions:
@@ -8,7 +8,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
---- 
+---
+ 
 
 ## About the Self-hosted runner groups API
 

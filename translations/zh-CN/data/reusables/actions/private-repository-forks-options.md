@@ -1,3 +1,4 @@
-- **Run workflows from fork pull requests（从复刻拉取请求运行工作流程）** - 允许用户使用具有只读权限、没有密码访问权限的 `GITHUB_TOKEN`从复刻拉取请求运行工作流程。
-- **Send write tokens to workflows from pull requests（从拉取请求向工作流程发送写入令牌）** - 允许从复刻拉取请求以使用具有写入权限的 `GITHUB_TOKEN`。
-- **Send secrets to workflows from pull requests（从拉取请求向工作流程发送密码）** - 使所有密码可用于拉取请求。
+- **Run workflows from fork pull requests** - Allows users to run workflows from fork pull requests, using a `GITHUB_TOKEN` with read-only permission, and with no access to secrets.
+- **Send write tokens to workflows from pull requests** - Allows pull requests from forks to use a `GITHUB_TOKEN` with write permission.
+- **Send secrets to workflows from pull requests** - Makes all secrets available to the pull request.{% ifversion actions-private-fork-workflow-approvals %}
+- **Require approval for fork pull request workflows** - Workflow runs on pull requests from collaborators without write permission will require approval from someone with write permission before they will run.{% endif %}

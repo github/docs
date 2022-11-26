@@ -118,7 +118,7 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-For more information on `node_id`, see "[Using Global Node IDs]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)."
+For more information on `node_id`, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
 
 ## Example using Probot and GitHub App Manifests
 

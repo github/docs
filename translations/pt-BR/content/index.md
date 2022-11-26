@@ -1,5 +1,5 @@
 ---
-title: 'Documentação de Ajuda do {% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %}'
+title: 'Documentação de ajuda do {% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %}'
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
@@ -19,6 +19,7 @@ redirect_from:
   - /troubleshooting-common-issues
 versions: '*'
 children:
+  - search
   - get-started
   - account-and-profile
   - authentication
@@ -63,6 +64,7 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - copilot
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -73,6 +75,11 @@ childGroups:
     octicon: ShieldLockIcon
     children:
       - code-security
+      - code-security/supply-chain-security
+      - code-security/security-advisories
+      - code-security/dependabot
+      - code-security/code-scanning
+      - code-security/secret-scanning
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
@@ -84,7 +91,7 @@ childGroups:
       - issues
       - search-github
   - name: Developers
-    octicon: MarkGithubIcon
+    octicon: CodeSquareIcon
     children:
       - developers
       - rest
@@ -122,5 +129,11 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
+ms.openlocfilehash: c76f5cd822d9b7bed7129626283552892366b57a
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158866'
 ---
 

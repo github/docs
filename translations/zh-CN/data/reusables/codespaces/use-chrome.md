@@ -1,1 +1,2 @@
-为获取 {% data variables.product.prodname_codespaces %} 最佳使用体验，建议使用基于 Chromium 的浏览器，如 Google Chrome 或 Microsoft Edge。
+
+For the best experience with {% data variables.product.prodname_github_codespaces %}, we recommend using a Chromium-based browser, like Google Chrome or Microsoft Edge.

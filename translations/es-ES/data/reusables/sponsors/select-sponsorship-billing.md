@@ -1,1 +1,1 @@
-4. Dentro de "Billing information" (Información de facturación), revisa tus detalles de pago. Opcionalmente, para cambiar los detalles de pago de toda tu cuenta de {% data variables.product.product_location %}, haz clic en **Editar**. Después, sigue las instrucciones para completar el formulario de pago.
+4. Under "Billing information", review your payment details. Optionally, to change the payment details for your entire account on {% data variables.location.product_location %}, click **Edit**. Then, follow the prompts to complete the payment form.

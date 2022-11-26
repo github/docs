@@ -1,3 +1,4 @@
-- **Ejecutar flujos de trabajo desde las solicitudes de extracción de las bifurcaciones** - permite a los usuarios ejecutar flujos de trabajo desde las solicitudes de extracción de las bifurcaciones utilizando un `GITHUB_TOKEN` con permisos de solo lectura y sin acceso a los secretos.
-- **Enviar tokens de escritura a los flujos de trabajo desde las solicitudes de extracción** - Permite a las solicitudes de extracción de las bifuraciones utilizar un `GITHUB_TOKEN` con permiso de escritura.
-- **Enviar secretos a los flujos de trabajo desde las solicitudes de extracción** - Pone disponibles todos los secretos de la solicitud de extracción.
+- **Run workflows from fork pull requests** - Allows users to run workflows from fork pull requests, using a `GITHUB_TOKEN` with read-only permission, and with no access to secrets.
+- **Send write tokens to workflows from pull requests** - Allows pull requests from forks to use a `GITHUB_TOKEN` with write permission.
+- **Send secrets to workflows from pull requests** - Makes all secrets available to the pull request.{% ifversion actions-private-fork-workflow-approvals %}
+- **Require approval for fork pull request workflows** - Workflow runs on pull requests from collaborators without write permission will require approval from someone with write permission before they will run.{% endif %}

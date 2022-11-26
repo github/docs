@@ -1,7 +1,7 @@
 ---
 title: Migrarse del ejecutor de CodeQL al CLI de CodeQL
-shortTitle: Migrarse desde el ejecutor de CodeQL
-intro: 'Puedes utilizar el {% data variables.product.prodname_codeql_cli %} para completar las mismas tareas que hacías con el {% data variables.product.prodname_codeql_runner %}.'
+shortTitle: Migrating from the CodeQL runner
+intro: 'Puedes utilizar {% data variables.product.prodname_codeql_cli %} para completar las mismas tareas que hacías con {% data variables.code-scanning.codeql_runner %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,47 +12,53 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+ms.openlocfilehash: 10711111e3fa5c7226574ac9b70eb4bd4d5bff21
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161268'
 ---
+# Migración de {% data variables.code-scanning.codeql_runner %} a {% data variables.product.prodname_codeql_cli %}
 
-# Migrarse del {% data variables.product.prodname_codeql_runner %} al {% data variables.product.prodname_codeql_cli %}
-
-El {% data variables.product.prodname_codeql_runner %} se va a obsoletizar. Puedes utilizar la versión 2.6.2 del {% data variables.product.prodname_codeql_cli %} y superiores. Este documento describe cómo migrar flujos de trabajo comunes desde el {% data variables.product.prodname_codeql_runner %} hacia el {% data variables.product.prodname_codeql_cli %}.
+{% data variables.code-scanning.codeql_runner %} se está dejando de usar. Puedes utilizar la versión 2.6.2 del {% data variables.product.prodname_codeql_cli %} y superiores.
+Este documento describe cómo migrar flujos de trabajo comunes desde {% data variables.code-scanning.codeql_runner %} hasta {% data variables.product.prodname_codeql_cli %}.
 
 ## Instalación
 
-Descarga el **paquete de {% data variables.product.prodname_codeql %}** del [repositorio `github/codeql-action`](https://github.com/github/codeql-action/releases). Este paquete contiene al {% data variables.product.prodname_codeql_cli %} y las consultas estándar y librerías de {% data variables.product.prodname_codeql %}.
+Descarga el **paquete {% data variables.product.prodname_codeql %}** del [repositorio `github/codeql-action`](https://github.com/github/codeql-action/releases). Este paquete contiene al {% data variables.product.prodname_codeql_cli %} y las consultas estándar y librerías de {% data variables.product.prodname_codeql %}.
 
-Para obtener más información sobre cómo configurar el {% data variables.product.prodname_codeql_cli %}, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)".
+Para más información sobre cómo configurar {% data variables.product.prodname_codeql_cli %}, consulta "[Instalación de {% data variables.product.prodname_codeql_cli %} en el sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)".
 
 ## Resumen de los cambios en los flujos de trabajo
 
-Un flujo de trabajo habitual utiliza el {% data variables.product.prodname_codeql_runner %} para analizar una base de código tiene los siguientes pasos.
-- `codeql-runner-<platform> init` para comenzar a crear las bases de datos de {% data variables.product.prodname_codeql %} y leer la configuración.
-- Para los lenguajes compilados: configura las variables de ambiente que produce el paso `init`.
+Un flujo de trabajo habitual que utiliza {% data variables.code-scanning.codeql_runner %} para analizar una base de código tiene los siguientes pasos.
+- `codeql-runner-<platform> init` para empezar a crear bases de datos de {% data variables.product.prodname_codeql %} y leer la configuración.
+- Para lenguajes compilados: establece las variables de entorno generadas por el paso `init`.
 - Para los lenguajes compilados: ejecuta la autocompilación o los pasos de compilación manual.
-- `codeql-runner-<platform> analyze` para terminar de crear las bases de datos de {% data variables.product.prodname_codeql %}, ejecutar consultas para analizar cada base de datos de {% data variables.product.prodname_codeql %}, resumir los resultados en un archivo SARIF, y cargar los resultados a {% data variables.product.prodname_dotcom %}.
+- `codeql-runner-<platform> analyze` para terminar de crear bases de datos de {% data variables.product.prodname_codeql %}, ejecuta consultas para analizar cada base de datos de {% data variables.product.prodname_codeql %}, resume los resultados en un archivo SARIF y cárgalos en {% data variables.product.prodname_dotcom %}.
 
 Un flujo de trabajo habitual utiliza el {% data variables.product.prodname_codeql_cli %} para analizar una base de código tiene los siguientes pasos.
 - `codeql database create` para crear bases de datos de {% data variables.product.prodname_codeql %}.
   - Para los lenguajes compilados: Proporciona un comando de compilación opcionalmente.
 - `codeql database analyze` para ejecutar consultas para analizar cada base de datos de {% data variables.product.prodname_codeql %} y resumir los resultados en un archivo SARIF. Este comando debe ejecutarse una vez para cada lenguaje o base de datos.
-- `codeql github upload-results` para cargar los archivos SARIF resultantes a {% data variables.product.prodname_dotcom %}, para que se muestre como alertas del escaneo de código. Este comando debe ejecutarse una vez para cada archivo SARIF o lenguaje.
+- `codeql github upload-results` para cargar los archivos SARIF resultantes en {% data variables.product.prodname_dotcom %}, que se mostrarán como alertas de examen de código. Este comando debe ejecutarse una vez para cada archivo SARIF o lenguaje.
 
-El {% data variables.product.prodname_codeql_runner %} tiene capacidades de subprocesamiento múltiple predeterminadamente. El {% data variables.product.prodname_codeql_cli %} solo utiliza un subproceso predeterminadamente, pero te permite especificar la cantidad de subprocesos que quieres utilizar. Si quieres replicar el comportamiento del {% data variables.product.prodname_codeql_runner %} para utilizar todos los subprocesos disponibles en la máquina cuando utilizas el {% data variables.product.prodname_codeql_cli %}, puedes pasar `--threads 0` a `codeql database analyze`.
+{% data variables.code-scanning.codeql_runner %} tiene capacidades de multiproceso de forma predeterminada. El {% data variables.product.prodname_codeql_cli %} solo utiliza un subproceso predeterminadamente, pero te permite especificar la cantidad de subprocesos que quieres utilizar. Si quieres replicar el comportamiento de {% data variables.code-scanning.codeql_runner %} para usar todos los subprocesos disponibles en la máquina al utilizar {% data variables.product.prodname_codeql_cli %}, puedes pasar `--threads 0` a `codeql database analyze`.
 
-Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)".
+Para más información, consulta "[Configuración de {% data variables.product.prodname_codeql_cli %} en el sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)".
 
 ## Ejemplos de usos comunes para el {% data variables.product.prodname_codeql_cli %}
 
 ### Acerca de los ejemplos
 
-Estos ejemplos asumen que el código fuente se verificó en el directorio de trabajo actual. Si utilizas un directorio diferente, cambia el argumento `--source-root` y compila los pasos como sea correcto.
+Estos ejemplos asumen que el código fuente se verificó en el directorio de trabajo actual. Si usas un directorio diferente, cambia el argumento `--source-root` y los pasos de compilación en consecuencia.
 
 Estos ejemplos también asumen que el {% data variables.product.prodname_codeql_cli %} se coloca en la RUTA correcta.
 
-En estos ejemplos, un token de {% data variables.product.prodname_dotcom %} con un alcance suficiente se almacena en la variable de ambiente `$TOKEN` y se pasa a los comandos de ejemplo a través de `stdin` o se almacena en la variable de ambiente `$GITHUB_TOKEN`.
+En estos ejemplos, un token de {% data variables.product.prodname_dotcom %} con ámbitos adecuados se almacena en la variable de entorno `$TOKEN` y se pasa a los comandos de ejemplo a través de `stdin` o se almacena en la variable de entorno `$GITHUB_TOKEN`.
 
-El nombre de ref y el SHA de confirmación que se verifican y analizan en estos ejemplos se conocen durante el flujo de trabajo. En el caso de las ramas, utiliza `refs/heads/BRANCH-NAME` como el ref. Para la confirmación principal de una solicitud de cambios, utiliza `refs/pull/NUMBER/head`. Para una confirmación de fusión generada por {% data variables.product.prodname_dotcom %} de una solicitud de cambios, utiliza `refs/pull/NUMBER/merge`. Todos los siguientes ejemplos utilizan `refs/heads/main`. Si utilizas un nombre de rama diferente, debes modificar el código de muestra.
+El nombre de ref y el SHA de confirmación que se verifican y analizan en estos ejemplos se conocen durante el flujo de trabajo. Para una rama, usa `refs/heads/BRANCH-NAME` como referencia. Para la confirmación principal de una solicitud de incorporación de cambios, usa `refs/pull/NUMBER/head`. Para una confirmación de combinación generada por {% data variables.product.prodname_dotcom %}, usa `refs/pull/NUMBER/merge`. En los ejemplos siguientes se usa `refs/heads/main`. Si utilizas un nombre de rama diferente, debes modificar el código de muestra.
 
 ### Lenguaje sencillo no compilado (JavaScript)
 
@@ -211,7 +217,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 ### Lenguaje sencillo no compilado utilizando rastreo de compilación indirecto (C# sobre Windows dentro de Azure DevOps)
 
-El rastreo de compilación indirecta para los lenguajes compilados habilita al {% data variables.product.prodname_codeql %} para que detecte los pasos de compilación entre los pasos de `init` y `analyze`, cuando el código no puede compilarse utilizando la compilación automática o una línea de comandos compilada explícita. Esto es útil cuando se utilizan pasos de compilación preconfigurados desde tu sistema de IC, tales como las tareas de `VSBuild` y `MSBuild` en Azure DevOps.
+El seguimiento indirecto de la compilación de un lenguaje compilado permite que {% data variables.product.prodname_codeql %} detecte todos los pasos de compilación entre los pasos `init` y `analyze`, cuando el código no se puede compilar mediante el compilador automático o una línea de comandos de compilación explícita. Esta opción resulta útil cuando se usan pasos de compilación preconfigurados desde el sistema de CI, como las tareas `VSBuild` y `MSBuild` en Azure DevOps.
 
 Ejecutor:
 ```yaml
@@ -333,7 +339,8 @@ CLI:
 
 ### Lenguajes múltiples utilizando compilación automática (C++, Python)
 
-Este ejemplo no es estrictamente posible dentro del {% data variables.product.prodname_codeql_runner %}. Solo se analizará un lenguaje (el lenguaje compilado que tenga la mayoría de los archivos).
+Este ejemplo no es estrictamente posible con {% data variables.code-scanning.codeql_runner %}.
+Solo se analizará un lenguaje (el lenguaje compilado que tenga la mayoría de los archivos).
 
 Ejecutor:
 ```bash

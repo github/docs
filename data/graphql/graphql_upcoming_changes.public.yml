@@ -80,14 +80,6 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
-  - location: Enterprise.userAccounts
-    description:
-      '`userAccounts` will be removed. Use the `Enterprise.members` field
-      instead.'
-    reason: The `Enterprise.userAccounts` field is being removed.
-    date: '2022-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
   - location: Query.sponsorables.dependencyEcosystem
     description:
       '`dependencyEcosystem` will be removed. Use the ecosystem argument
@@ -96,6 +88,36 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: cheshire137
+  - location: DependencyGraphDependency.packageLabel
+    description:
+      '`packageLabel` will be removed. Use normalized `packageName` field
+      instead.'
+    reason: '`packageLabel` will be removed.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/dependency_graph
+  - location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are removed from the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: RepositoryVulnerabilityAlert.fixReason
+    description: '`fixReason` will be removed.'
+    reason:
+      The `fixReason` field is being removed. You can still use `fixedAt` and
+      `dismissReason`.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jamestran201
+  - location: UpdateProjectNextItemFieldInput.fieldWithSettingId
+    description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
+    reason: Renamed to fieldConstraintId to improve naming consistency.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: memex
   - location: AddProjectDraftIssueInput.assigneeIds
     description:
       '`assigneeIds` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -103,7 +125,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: AddProjectDraftIssueInput.body
@@ -113,7 +135,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: AddProjectDraftIssueInput.projectId
@@ -123,7 +145,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: AddProjectDraftIssueInput.title
@@ -133,7 +155,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: AddProjectDraftIssuePayload.projectNextItem
@@ -143,7 +165,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: AddProjectNextItemInput.contentId
@@ -153,7 +175,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: AddProjectNextItemInput.projectId
@@ -163,7 +185,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: AddProjectNextItemPayload.projectNextItem
@@ -173,9 +195,15 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
+  - location: Commit.changedFiles
+    description: '`changedFiles` will be removed. Use `changedFilesIfAvailable` instead.'
+    reason: '`changedFiles` will be removed.'
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: adamshwert
   - location: DeleteProjectNextItemInput.itemId
     description:
       '`itemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -183,7 +211,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: DeleteProjectNextItemInput.projectId
@@ -193,7 +221,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: DeleteProjectNextItemPayload.deletedItemId
@@ -203,17 +231,9 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
-  - location: DependencyGraphDependency.packageLabel
-    description:
-      '`packageLabel` will be removed. Use normalized `packageName` field
-      instead.'
-    reason: '`packageLabel` will be removed.'
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: github/dependency_graph
   - location: Issue.projectNext
     description:
       '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -221,7 +241,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Issue.projectsNext
@@ -231,25 +251,9 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
-  - location: LockMergeQueueInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      The merge queue is locked for the repository's default branch, the `branch`
-      argument is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
-  - location: MergeLockedMergeGroupInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      Changes are merged into the repository's default branch, the `branch` argument
-      is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
   - location: Mutation.addProjectDraftIssue
     description:
       '`addProjectDraftIssue` will be removed. Follow the ProjectV2 guide
@@ -258,7 +262,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Mutation.addProjectNextItem
@@ -269,7 +273,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Mutation.deleteProjectNextItem
@@ -280,7 +284,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Mutation.updateProjectDraftIssue
@@ -291,7 +295,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Mutation.updateProjectNext
@@ -302,7 +306,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Mutation.updateProjectNextItemField
@@ -313,7 +317,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Organization.projectNext
@@ -323,7 +327,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Organization.projectsNext
@@ -333,7 +337,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Organization.recentProjectsNext
@@ -344,7 +348,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.closed
@@ -354,7 +358,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.createdAt
@@ -364,7 +368,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.creator
@@ -374,7 +378,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.databaseId
@@ -384,7 +388,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.defaultView
@@ -394,7 +398,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.description
@@ -404,7 +408,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.fieldConstraints
@@ -415,7 +419,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.fields
@@ -425,7 +429,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.items
@@ -435,7 +439,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.number
@@ -445,7 +449,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.owner
@@ -455,7 +459,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.public
@@ -465,7 +469,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.repositories
@@ -475,7 +479,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.resourcePath
@@ -485,7 +489,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.shortDescription
@@ -496,7 +500,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.title
@@ -506,7 +510,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.updatedAt
@@ -516,7 +520,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.url
@@ -526,7 +530,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNext.views
@@ -536,7 +540,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextField.createdAt
@@ -546,7 +550,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextField.dataType
@@ -556,7 +560,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextField.databaseId
@@ -566,7 +570,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextField.name
@@ -576,7 +580,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextField.project
@@ -586,7 +590,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextField.settings
@@ -596,7 +600,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextField.updatedAt
@@ -606,7 +610,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldCommon.createdAt
@@ -616,7 +620,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldCommon.dataType
@@ -626,7 +630,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldCommon.databaseId
@@ -636,7 +640,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldCommon.id
@@ -646,7 +650,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldCommon.name
@@ -656,7 +660,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldCommon.project
@@ -666,7 +670,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldCommon.settings
@@ -676,7 +680,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldCommon.updatedAt
@@ -686,7 +690,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.ASSIGNEES
@@ -696,7 +700,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.DATE
@@ -706,7 +710,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.ITERATION
@@ -716,7 +720,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.LABELS
@@ -726,7 +730,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.LINKED_PULL_REQUESTS
@@ -737,7 +741,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.MILESTONE
@@ -747,7 +751,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.NUMBER
@@ -757,7 +761,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.REPOSITORY
@@ -767,7 +771,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.REVIEWERS
@@ -777,7 +781,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.SINGLE_SELECT
@@ -787,7 +791,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.TEXT
@@ -797,7 +801,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.TITLE
@@ -807,7 +811,17 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.TRACKED_BY
+    description:
+      '`TRACKED_BY` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.TRACKS
@@ -817,7 +831,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.content
@@ -827,7 +841,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.createdAt
@@ -837,7 +851,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.creator
@@ -847,7 +861,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.databaseId
@@ -857,7 +871,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.fieldValues
@@ -867,7 +881,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.isArchived
@@ -877,7 +891,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.project
@@ -887,7 +901,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.title
@@ -897,7 +911,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.type
@@ -907,7 +921,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItem.updatedAt
@@ -917,7 +931,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItemFieldValue.createdAt
@@ -927,7 +941,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItemFieldValue.creator
@@ -937,7 +951,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItemFieldValue.databaseId
@@ -947,7 +961,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItemFieldValue.projectField
@@ -957,7 +971,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItemFieldValue.projectFieldConstraint
@@ -968,7 +982,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItemFieldValue.projectItem
@@ -978,7 +992,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItemFieldValue.updatedAt
@@ -988,7 +1002,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextItemFieldValue.value
@@ -998,7 +1012,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationField.configuration
@@ -1008,7 +1022,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationField.createdAt
@@ -1018,7 +1032,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationField.dataType
@@ -1028,7 +1042,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationField.databaseId
@@ -1038,7 +1052,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationField.name
@@ -1048,7 +1062,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationField.project
@@ -1058,7 +1072,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationField.settings
@@ -1068,7 +1082,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationField.updatedAt
@@ -1078,7 +1092,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldConfiguration.completedIterations
@@ -1089,7 +1103,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldConfiguration.duration
@@ -1099,7 +1113,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldConfiguration.iterations
@@ -1109,7 +1123,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldConfiguration.startDay
@@ -1119,7 +1133,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldIteration.duration
@@ -1129,7 +1143,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldIteration.id
@@ -1139,7 +1153,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldIteration.startDate
@@ -1149,7 +1163,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldIteration.title
@@ -1159,7 +1173,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextIterationFieldIteration.titleHTML
@@ -1169,7 +1183,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextOrderField.CREATED_AT
@@ -1179,7 +1193,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextOrderField.NUMBER
@@ -1189,7 +1203,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextOrderField.TITLE
@@ -1199,7 +1213,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextOrderField.UPDATED_AT
@@ -1209,7 +1223,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextOwner.projectNext
@@ -1219,7 +1233,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextOwner.projectsNext
@@ -1229,7 +1243,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextRecent.recentProjectsNext
@@ -1240,7 +1254,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectField.createdAt
@@ -1250,7 +1264,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectField.dataType
@@ -1260,7 +1274,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectField.databaseId
@@ -1270,7 +1284,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectField.name
@@ -1280,7 +1294,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectField.options
@@ -1290,7 +1304,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectField.project
@@ -1300,7 +1314,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectField.settings
@@ -1310,7 +1324,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectField.updatedAt
@@ -1320,7 +1334,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectFieldOption.id
@@ -1330,7 +1344,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectFieldOption.name
@@ -1340,7 +1354,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextSingleSelectFieldOption.nameHTML
@@ -1350,9 +1364,19 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
+  - location: ProjectV2View.visibleFields
+    description:
+      '`visibleFields` will be removed. Check out the `ProjectV2View#fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#visibleFields` API is deprecated in favour of the more
+      capable `ProjectV2View#fields` API.
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mattruggio
   - location: ProjectView.createdAt
     description:
       '`createdAt` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -1360,7 +1384,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.databaseId
@@ -1370,7 +1394,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.filter
@@ -1380,7 +1404,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.groupBy
@@ -1390,7 +1414,17 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectView.groupedItems
+    description:
+      '`groupedItems` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.items
@@ -1400,7 +1434,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.layout
@@ -1410,7 +1444,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.name
@@ -1420,7 +1454,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.number
@@ -1430,7 +1464,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.project
@@ -1440,7 +1474,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.sortBy
@@ -1450,7 +1484,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.updatedAt
@@ -1460,7 +1494,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.verticalGroupBy
@@ -1470,7 +1504,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectView.visibleFields
@@ -1480,7 +1514,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: PullRequest.projectNext
@@ -1490,7 +1524,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: PullRequest.projectNextItems
@@ -1501,7 +1535,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: PullRequest.projectsNext
@@ -1511,17 +1545,9 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
-  - location: RemovePullRequestFromMergeQueueInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      PRs are removed from the merge queue for the base branch, the `branch` argument
-      is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
   - location: Repository.projectNext
     description:
       '`projectNext` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -1529,7 +1555,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Repository.projectsNext
@@ -1539,7 +1565,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: Repository.recentProjectsNext
@@ -1550,25 +1576,9 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
-  - location: RepositoryVulnerabilityAlert.fixReason
-    description: '`fixReason` will be removed.'
-    reason:
-      The `fixReason` field is being removed. You can still use `fixedAt` and
-      `dismissReason`.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jamestran201
-  - location: UnlockAndResetMergeGroupInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      The current merge group for the repository's default branch, the `branch`
-      argument is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
   - location: UpdateProjectNextInput.closed
     description:
       '`closed` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -1576,7 +1586,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextInput.description
@@ -1586,7 +1596,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextInput.projectId
@@ -1596,7 +1606,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextInput.public
@@ -1606,7 +1616,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextInput.shortDescription
@@ -1617,7 +1627,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextInput.title
@@ -1627,7 +1637,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextItemFieldInput.fieldConstraintId
@@ -1638,7 +1648,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextItemFieldInput.fieldId
@@ -1648,15 +1658,9 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
-  - location: UpdateProjectNextItemFieldInput.fieldWithSettingId
-    description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
-    reason: Renamed to fieldConstraintId to improve naming consistency.
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: memex
   - location: UpdateProjectNextItemFieldInput.itemId
     description:
       '`itemId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -1664,7 +1668,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextItemFieldInput.value
@@ -1674,7 +1678,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextItemFieldPayload.projectNextItem
@@ -1684,7 +1688,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: UpdateProjectNextPayload.projectNext
@@ -1694,7 +1698,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: User.projectNext
@@ -1704,7 +1708,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: User.projectsNext
@@ -1714,7 +1718,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: User.recentProjectsNext
@@ -1725,6 +1729,44 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
+  - location: ProjectV2View.groupBy
+    description:
+      '`groupBy` will be removed. Check out the `ProjectV2View#group_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#order_by` API is deprecated in favour of the more capable
+      `ProjectV2View#group_by_field` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: alcere
+  - location: ProjectV2View.sortBy
+    description:
+      '`sortBy` will be removed. Check out the `ProjectV2View#sort_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#sort_by` API is deprecated in favour of the more capable
+      `ProjectV2View#sort_by_fields` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: traumverloren
+  - location: ProjectV2View.verticalGroupBy
+    description:
+      '`verticalGroupBy` will be removed. Check out the `ProjectV2View#vertical_group_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#vertical_group_by` API is deprecated in favour of the
+      more capable `ProjectV2View#vertical_group_by_fields` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: traumverloren
+  - location: Repository.squashPrTitleUsedAsDefault
+    description:
+      '`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle`
+      instead.'
+    reason: '`squashPrTitleUsedAsDefault` will be removed.'
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/pull_requests

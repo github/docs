@@ -1,7 +1,15 @@
-1. From an administrative account on {% data variables.product.product_name %}, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
+---
+ms.openlocfilehash: 72fd1a6e5cca7fb07e2d908801041edd659f179e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145111261"
+---
+1. {% data variables.product.product_name %} の管理アカウントから、任意のページの右上隅の {% octicon "rocket" aria-label="The rocket ship" %} をクリックします。
 
-   ![Screenshot of the rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+   ![サイト管理者設定にアクセスするための宇宙船アイコンのスクリーンショット](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-1. If you're not already on the "Site admin" page, in the upper-left corner, click **Site admin**.
+1. [サイト管理者] ページにまだ表示されていない場合は、左上隅の **[サイト管理者]** をクリックします。
 
-   ![Screenshot of "Site admin" link](/assets/images/enterprise/site-admin-settings/site-admin-link.png)
+   ![[サイト管理者] リンクのスクリーンショット](/assets/images/enterprise/site-admin-settings/site-admin-link.png)

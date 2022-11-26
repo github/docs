@@ -11,12 +11,17 @@ versions:
 type: overview
 topics:
   - Fundamentals
+ms.openlocfilehash: f0c16e5f1c341b602a10c5bf672b815ea2149a9e
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147879462'
 ---
-
 ## Productos y características pagos
 
-Puedes actualizar tu cuenta personal u organización a una suscripción paga en cualquier momento. También puedes elegir comprar apps desde {% data variables.product.prodname_marketplace %} o actualizar el almacenamiento y el ancho de banda para {% data variables.large_files.product_name_long %}. Para obtener más información, consulta:
-- "[Acerca de la facturación para las cuentas de {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"
+Puedes actualizar tu cuenta personal u organización a una suscripción paga en cualquier momento. También puedes elegir comprar apps desde {% data variables.product.prodname_marketplace %} o actualizar el almacenamiento y el ancho de banda para {% data variables.large_files.product_name_long %}. Para más información, consulte:
+- "[Acerca de la facturación para cuentas de {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"
 - "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)"
 - "[Acerca de la facturación para {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
 - "[Acerca de la facturación para {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)"
@@ -27,20 +32,22 @@ Debes administrar los parámetros de facturación, el método de pago y las cara
 
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-Para obtener más información, consulta "[Administrar tus parámetros de facturación {% data variables.product.prodname_dotcom %}](/articles/managing-your-github-billing-settings)".
+Para más información, vea "[Administración de la configuración de facturación para {% data variables.product.prodname_dotcom %}](/articles/managing-your-github-billing-settings)".
 
-## Cambiar entre la configuración de tus cuentas diferentes
+## Cambio entre la configuración de sus distintas cuentas
 
-Si eres un propietario de empresa y organización, puedes cambiar entre los ajustes para tus cuentas diferentes utilizando el alternador de contexto en tu configuración.
+Si eres un propietario de empresa y organización, puedes cambiar entre los ajustes para tus cuentas diferentes utilizando el alternador de contexto en tu configuración. 
 
 {% data reusables.user-settings.access_settings %}
-1. En la parte superior de la lágina, a la derecha de tu nombre de usuario, haz clic en **Cambiar a otra cuenta**. ![Botón de interruptor de contexto](/assets/images/help/settings/context-switcher-button.png)
-1. Comienza a teclear el nombre de la cuenta a la que quieres cambiar y luego haz clic en su nombre. ![Menú del interruptor de contexto](/assets/images/help/settings/context-switcher-menu.png)
-1. En la barra lateral izquierda, haz clic en **{% octicon "credit-card" aria-label="The credit card icon" %} Facturación y planes**.
+1. En la parte superior de la página, a la derecha del nombre de usuario, haga clic en **Cambiar a otra cuenta**.
+![Botón de cambio de contexto](/assets/images/help/settings/context-switcher-button.png)
+1. Comienza a teclear el nombre de la cuenta a la que quieres cambiar y luego haz clic en su nombre.
+![Menú de cambio de contexto](/assets/images/help/settings/context-switcher-menu.png)
+1. En la barra lateral de la izquierda, haga clic en **{% octicon "credit-card" aria-label="The credit card icon" %} Facturación y planes**.
 
-## Leer más
+## Información adicional
 
-- "[Administrar la facturación para tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)"
-- "[Administrar la facturación de las apps de {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"
-- "[Administrar la facturación para {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
-- "[Administrar la facturación para {% data variables.product.prodname_sponsors %}](/articles/managing-billing-for-github-sponsors)"
+- "[Administración de la facturación para la cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)"
+- "[Administración de la facturación para las aplicaciones de {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"
+- "[Administración de la facturación para {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
+- "[Administración de la facturación para {% data variables.product.prodname_sponsors %}](/articles/managing-billing-for-github-sponsors)"

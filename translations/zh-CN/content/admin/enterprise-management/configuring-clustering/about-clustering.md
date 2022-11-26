@@ -13,13 +13,18 @@ type: overview
 topics:
   - Clustering
   - Enterprise
+ms.openlocfilehash: 5da017898f1f0e205685dcf1fc29b5088030421a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146332478'
 ---
-
 ## 集群架构
 
-{% data variables.product.prodname_ghe_server %} 由一组服务组成。 在集群中，这些服务跨多个节点运行，请求在它们之间进行负载均衡。 更改会与冗余副本一起自动存储在到单独的节点上。 大多数服务与相同服务的其他实例是对等的。 这种情况的例外是 `mysql-server` 和 `redis-server` 服务。 它们使用具有一个或多个_副本_节点的单个_主_节点来操作。
+{% data variables.product.prodname_ghe_server %} 由一组服务组成。 在集群中，这些服务跨多个节点运行，请求在它们之间进行负载均衡。 更改会与冗余副本一起自动存储在到单独的节点上。 大多数服务与相同服务的其他实例是对等的。 `mysql-server` 和 `redis-server` 服务除外。 它们使用具有一个或多个副本节点的单个主节点进行操作 。
 
-详细了解[群集所需的服务](/enterprise/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering)。
+详细了解[聚类分析所需的服务](/enterprise/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering)。
 
 ## 集群是否适合我的组织？
 
@@ -27,7 +32,7 @@ topics:
 
 {% data variables.product.prodname_ghe_server %} 要求节点之间保持较低的延迟，不适用于跨地理位置的冗余。
 
-集群提供了冗余功能，但不适用于替换高可用性配置。 更多信息请参阅[高可用性配置](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)。 主设备/辅助设备故障切换配置远比集群简单，可以满足许多组织的需求。 更多信息请参阅[集群与高可用性之间的差异](/enterprise/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)。
+集群提供了冗余功能，但不适用于替换高可用性配置。 有关详细信息，请参阅[高可用性配置](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)。 主设备/辅助设备故障切换配置远比集群简单，可以满足许多组织的需求。 有关详细信息，请参阅[聚类分析与高可用性之间的差异](/enterprise/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)。
 
 {% data reusables.package_registry.packages-cluster-support %}
 

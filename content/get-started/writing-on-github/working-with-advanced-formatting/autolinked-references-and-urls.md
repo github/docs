@@ -44,6 +44,20 @@ Within conversations on {% data variables.product.product_name %}, references to
 If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 {% endif %}
 
+## Labels
+When referencing the URL of a label in Markdown, the label is automatically rendered. Only labels of the same repository are rendered, URLs pointing to a label from a different repository are rendered as any [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
+
+The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
+
+```md
+https://github.com/github/docs/labels/enhancement
+```
+{% note %}
+
+**Note:** If the label name contains a period (`.`), the label will not automatically render from the label URL.
+
+{% endnote %}
+
 ## Commit SHAs
 
 References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.

@@ -1,5 +1,5 @@
 ---
-title: OAuth 应用程序
+title: OAuth Apps
 allowTitleToDifferFromFilename: true
 intro: ''
 topics:
@@ -12,6 +12,6 @@ versions:
   ghec: '*'
 ---
 
-## 关于 {% data variables.product.prodname_oauth_app %} API
+## About the {% data variables.product.prodname_oauth_app %} API
 
-您可以使用此 API 来管理 {% data variables.product.prodname_oauth_app %} 用于访问 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上用户帐户的 OAuth 令牌。
+You can use this API to manage the OAuth tokens an {% data variables.product.prodname_oauth_app %} uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.

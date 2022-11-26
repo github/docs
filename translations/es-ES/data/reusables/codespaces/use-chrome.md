@@ -1,1 +1,2 @@
-Para una mejor experiencia con {% data variables.product.prodname_codespaces %}, te recomenamos utilizar un buscador basado en Chromium, como Google Chrome o Microsoft Edge.
+
+For the best experience with {% data variables.product.prodname_github_codespaces %}, we recommend using a Chromium-based browser, like Google Chrome or Microsoft Edge.

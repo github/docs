@@ -1,8 +1,8 @@
 ---
 title: Customizing the containers used by jobs
-intro: 'You can customize how your self-hosted runner invokes a container for a job.'
+intro: You can customize how your self-hosted runner invokes a container for a job.
 versions:
-  feature: 'container-hooks'
+  feature: container-hooks
 type: reference
 miniTocMaxHeadingLevel: 4
 shortTitle: Customize containers used by jobs

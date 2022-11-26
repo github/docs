@@ -2,7 +2,7 @@
 title: Managing IAM for your enterprise
 intro: |
   {%- ifversion ghec %}
-  You can invite existing personal accounts on {% data variables.product.product_location %} to be members of your enterprise, and you can optionally enable SAML single sign-on (SSO) to centrally manage access. Alternatively, you can use {% data variables.product.prodname_emus %} with SAML SSO to create and control the accounts of your enterprise members.
+  You can invite existing personal accounts on {% data variables.location.product_location %} to be members of your enterprise, and you can optionally enable SAML single sign-on (SSO) to centrally manage access. Alternatively, you can use {% data variables.product.prodname_emus %} with SAML SSO to create and control the accounts of your enterprise members.
   {%- elsif ghes %}
   You can use {% data variables.product.product_name %}'s built-in authentication, or you can centrally manage authentication and access to your instance with CAS, LDAP, or SAML.
   {%- elsif ghae %}
@@ -30,6 +30,7 @@ children:
   - /username-considerations-for-external-authentication
   - /changing-authentication-methods
   - /allowing-built-in-authentication-for-users-outside-your-provider
+  - /troubleshooting-identity-and-access-management-for-your-enterprise
 shortTitle: Manage IAM for your enterprise
 ---
 
