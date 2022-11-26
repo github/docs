@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: f9e5d411c7a7a16e22abcc660f2761f1bfd6cf7d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159177'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180081'
 ---
 ## Acerca de los roles
 {% data reusables.organizations.about-roles %}
@@ -121,7 +121,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | Atribuir los patrocinios a otra organización (consulte "[Atribución de patrocinios a la organización](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)" para obtener más información) | **X** |  |  |  |  |
 | Administrar la publicación de sitios de {% data variables.product.prodname_pages %} desde los repositorios de la organización (consulte "[Administración de la publicación de sitios de {% data variables.product.prodname_pages %} para la organización](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | **X** |  |  |  |  |
 | Administrar la configuración de seguridad y análisis (consulte "[Administración de la configuración de seguridad y análisis de la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** |  |  |  | **X** |
-| Consultar la información general sobre la seguridad de la organización (consulta "[Acerca de la información general de seguridad](/code-security/security-overview/about-the-security-overview)") | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Consultar la información general sobre seguridad de la organización (consulte "[Acerca de la información general sobre seguridad](/code-security/security-overview/about-the-security-overview)") | **X** |  |  |  | **X** |{% ifversion ghec %}
 | Habilitar y aplicar el [inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
 | [Administrar el acceso de SAML de un usuario a la organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | Administrar las entidades de certificación SSH de una organización (consulte "[Administración de las entidades de certificación SSH de la organización](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |  |  |{% endif %}
@@ -167,7 +167,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | Puede ser *mantenedor de equipo* | **X** | **X** | **X**  |
 | Transferir repositorios | **X** | |  |
 | Administrar la configuración de seguridad y análisis (consulte "[Administración de la configuración de seguridad y análisis de la organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes %}
-| Consultar la información general sobre la seguridad de la organización (consulta "[Acerca de la información general de seguridad](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes %}
+| Consultar la información general sobre seguridad de la organización (consulte "[Acerca de la información general sobre seguridad](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Administrar las {% data variables.product.prodname_dependabot_security_updates %} (consulte ["Acerca de {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
 | Administrar las entidades de certificación SSH de una organización (consulte "[Administración de las entidades de certificación SSH de la organización](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |
 | Crear paneles de proyecto (consulte "[Permisos de panel de proyecto para una organización](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |
@@ -186,7 +186,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | [Exportar una lista de personas con acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | Administrar etiquetas predeterminadas (consulte "[Administración de etiquetas predeterminadas para los repositorios de la organización](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Administrar revisiones de solicitudes de incorporación de cambios en la organización (consulte "[Administración de revisiones de solicitudes de incorporación de cambios en la organización](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
+{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa con una lista de direcciones IP permitidas](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -227,7 +227,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | [Ver las personas que tienen acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Exportar una lista de personas con acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Administrar etiquetas predeterminadas (consulte "[Administración de etiquetas predeterminadas para los repositorios de la organización](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
-{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
+{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa con una lista de direcciones IP permitidas](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |{% endif %}
 
 {% endif %}
 
