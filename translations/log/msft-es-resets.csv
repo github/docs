@@ -705,7 +705,6 @@ translations/es-ES/content/code-security/adopting-github-advanced-security-at-sc
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
-translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,broken liquid tags
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/es-ES/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
@@ -1048,7 +1047,6 @@ translations/es-ES/data/reusables/actions/settings-ui/settings-actions-pages-cus
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,rendering error
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/es-ES/data/reusables/actions/sidebar-secret.md,rendering error
-translations/es-ES/data/reusables/actions/supported-github-runners.md,broken liquid tags
 translations/es-ES/data/reusables/actions/upgrade-runners-before-upgrade-ghes.md,rendering error
 translations/es-ES/data/reusables/actions/workflow-basic-example-and-explanation.md,rendering error
 translations/es-ES/data/reusables/actions/workflow-dispatch-inputs.md,rendering error
@@ -1063,9 +1061,6 @@ translations/es-ES/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,
 translations/es-ES/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
 translations/es-ES/data/reusables/branches/new-repo-default-branch.md,rendering error
 translations/es-ES/data/reusables/classroom/about-autograding.md,rendering error
-translations/es-ES/data/reusables/code-scanning/alerts-found-in-generated-code.md,broken liquid tags
-translations/es-ES/data/reusables/code-scanning/autobuild-add-build-steps.md,broken liquid tags
-translations/es-ES/data/reusables/code-scanning/autobuild-compiled-languages.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,rendering error
 translations/es-ES/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
 translations/es-ES/data/reusables/code-scanning/codeql-languages-keywords.md,rendering error
@@ -1095,7 +1090,6 @@ translations/es-ES/data/reusables/dotcom_billing/view-all-subscriptions.md,rende
 translations/es-ES/data/reusables/enterprise-accounts/actions-packages-report-download-enterprise-accounts.md,broken liquid tags
 translations/es-ES/data/reusables/enterprise-accounts/billing-microsoft-ea-overview.md,broken liquid tags
 translations/es-ES/data/reusables/enterprise-accounts/dormant-user-activity.md,rendering error
-translations/es-ES/data/reusables/enterprise-accounts/emu-azure-admin-consent.md,broken liquid tags
 translations/es-ES/data/reusables/enterprise-accounts/emu-cap-validates.md,broken liquid tags
 translations/es-ES/data/reusables/enterprise-accounts/emu-forks.md,rendering error
 translations/es-ES/data/reusables/enterprise-accounts/emu-permission-follow.md,broken liquid tags
@@ -1139,9 +1133,7 @@ translations/es-ES/data/reusables/getting-started/managing-enterprise-members.md
 translations/es-ES/data/reusables/git/git-push.md,rendering error
 translations/es-ES/data/reusables/git/provide-credentials.md,rendering error
 translations/es-ES/data/reusables/identity-and-permissions/about-adding-ip-allow-list-entries.md,broken liquid tags
-translations/es-ES/data/reusables/identity-and-permissions/about-editing-ip-allow-list-entries.md,broken liquid tags
 translations/es-ES/data/reusables/identity-and-permissions/about-enabling-allowed-ip-addresses.md,broken liquid tags
-translations/es-ES/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/es-ES/data/reusables/identity-and-permissions/ip-allow-lists-githubapps-enterprise.md,rendering error
 translations/es-ES/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/es-ES/data/reusables/large_files/storage_assets_location.md,broken liquid tags

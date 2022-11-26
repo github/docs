@@ -521,6 +521,7 @@ translations/ja-JP/content/actions/quickstart.md,rendering error
 translations/ja-JP/content/actions/security-guides/automatic-token-authentication.md,rendering error
 translations/ja-JP/content/actions/security-guides/encrypted-secrets.md,rendering error
 translations/ja-JP/content/actions/security-guides/security-hardening-for-github-actions.md,rendering error
+translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,rendering error
 translations/ja-JP/content/actions/using-github-hosted-runners/controlling-access-to-larger-runners.md,rendering error
 translations/ja-JP/content/actions/using-github-hosted-runners/using-larger-runners.md,rendering error
 translations/ja-JP/content/actions/using-workflows/about-workflows.md,rendering error
@@ -604,7 +605,6 @@ translations/ja-JP/content/admin/identity-and-access-management/using-enterprise
 translations/ja-JP/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,rendering error
 translations/ja-JP/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,rendering error
 translations/ja-JP/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
-translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise.md,rendering error
 translations/ja-JP/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,rendering error
@@ -773,7 +773,6 @@ translations/ja-JP/content/communities/documenting-your-project-with-wikis/chang
 translations/ja-JP/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ja-JP/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
 translations/ja-JP/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
-translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
 translations/ja-JP/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
@@ -786,7 +785,6 @@ translations/ja-JP/content/developers/apps/building-github-apps/rate-limits-for-
 translations/ja-JP/content/developers/apps/building-oauth-apps/scopes-for-oauth-apps.md,rendering error
 translations/ja-JP/content/developers/apps/getting-started-with-apps/about-apps.md,rendering error
 translations/ja-JP/content/developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app.md,rendering error
-translations/ja-JP/content/developers/apps/guides/creating-ci-tests-with-the-checks-api.md,rendering error
 translations/ja-JP/content/developers/apps/guides/using-the-github-api-in-your-app.md,rendering error
 translations/ja-JP/content/developers/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app.md,rendering error
 translations/ja-JP/content/developers/github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps.md,broken liquid tags
@@ -840,7 +838,6 @@ translations/ja-JP/content/get-started/signing-up-for-github/setting-up-a-trial-
 translations/ja-JP/content/get-started/signing-up-for-github/signing-up-for-a-new-github-account.md,rendering error
 translations/ja-JP/content/get-started/signing-up-for-github/verifying-your-email-address.md,rendering error
 translations/ja-JP/content/get-started/using-git/about-git-rebase.md,rendering error
-translations/ja-JP/content/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository.md,rendering error
 translations/ja-JP/content/get-started/using-github/github-desktop.md,broken liquid tags
 translations/ja-JP/content/get-started/using-github/github-mobile.md,rendering error
 translations/ja-JP/content/get-started/using-github/keyboard-shortcuts.md,rendering error
@@ -1039,7 +1036,6 @@ translations/ja-JP/data/reusables/actions/enterprise-marketplace-actions.md,brok
 translations/ja-JP/data/reusables/actions/enterprise-postinstall-nextsteps.md,rendering error
 translations/ja-JP/data/reusables/actions/github-connect-resolution.md,rendering error
 translations/ja-JP/data/reusables/actions/hosted-runner-security.md,broken liquid tags
-translations/ja-JP/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/ja-JP/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
@@ -1059,7 +1055,6 @@ translations/ja-JP/data/reusables/actions/settings-ui/settings-actions-pages-cus
 translations/ja-JP/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,rendering error
 translations/ja-JP/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/ja-JP/data/reusables/actions/sidebar-secret.md,rendering error
-translations/ja-JP/data/reusables/actions/supported-github-runners.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/upgrade-runners-before-upgrade-ghes.md,rendering error
 translations/ja-JP/data/reusables/actions/workflow-basic-example-and-explanation.md,rendering error
 translations/ja-JP/data/reusables/actions/workflow-dispatch-inputs.md,rendering error
@@ -1107,7 +1102,6 @@ translations/ja-JP/data/reusables/dotcom_billing/view-all-subscriptions.md,rende
 translations/ja-JP/data/reusables/enterprise-accounts/actions-packages-report-download-enterprise-accounts.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/billing-microsoft-ea-overview.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/dormant-user-activity.md,rendering error
-translations/ja-JP/data/reusables/enterprise-accounts/emu-azure-admin-consent.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/emu-cap-validates.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/emu-forks.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/emu-permission-follow.md,broken liquid tags
@@ -1150,10 +1144,7 @@ translations/ja-JP/data/reusables/getting-started/enterprise-advanced-security.m
 translations/ja-JP/data/reusables/getting-started/managing-enterprise-members.md,rendering error
 translations/ja-JP/data/reusables/git/git-push.md,rendering error
 translations/ja-JP/data/reusables/git/provide-credentials.md,rendering error
-translations/ja-JP/data/reusables/identity-and-permissions/about-adding-ip-allow-list-entries.md,broken liquid tags
-translations/ja-JP/data/reusables/identity-and-permissions/about-editing-ip-allow-list-entries.md,broken liquid tags
 translations/ja-JP/data/reusables/identity-and-permissions/about-enabling-allowed-ip-addresses.md,broken liquid tags
-translations/ja-JP/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/ja-JP/data/reusables/identity-and-permissions/ip-allow-lists-githubapps-enterprise.md,rendering error
 translations/ja-JP/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/ja-JP/data/reusables/large_files/storage_assets_location.md,broken liquid tags
