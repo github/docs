@@ -573,7 +573,6 @@ translations/fr-FR/content/admin/identity-and-access-management/using-enterprise
 translations/fr-FR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
-translations/fr-FR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise.md,rendering error
@@ -651,7 +650,6 @@ translations/fr-FR/content/authentication/managing-commit-signature-verification
 translations/fr-FR/content/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account.md,rendering error
 translations/fr-FR/content/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key.md,rendering error
 translations/fr-FR/content/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits.md,rendering error
-translations/fr-FR/content/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key.md,broken liquid tags
 translations/fr-FR/content/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication.md,rendering error
 translations/fr-FR/content/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication.md,broken liquid tags
 translations/fr-FR/content/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device.md,rendering error
@@ -1115,7 +1113,6 @@ translations/fr-FR/data/reusables/actions/settings-ui/settings-actions-pages-cus
 translations/fr-FR/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,rendering error
 translations/fr-FR/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/fr-FR/data/reusables/actions/sidebar-secret.md,rendering error
-translations/fr-FR/data/reusables/actions/supported-github-runners.md,broken liquid tags
 translations/fr-FR/data/reusables/actions/upgrade-runners-before-upgrade-ghes.md,rendering error
 translations/fr-FR/data/reusables/actions/workflow-basic-example-and-explanation.md,rendering error
 translations/fr-FR/data/reusables/actions/workflow-dispatch-inputs.md,rendering error
@@ -1186,7 +1183,6 @@ translations/fr-FR/data/reusables/enterprise/test-in-staging.md,rendering error
 translations/fr-FR/data/reusables/enterprise_installation/download-package.md,rendering error
 translations/fr-FR/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,rendering error
 translations/fr-FR/data/reusables/enterprise_installation/hotpatching-explanation.md,broken liquid tags
-translations/fr-FR/data/reusables/enterprise_installation/image-urls-viewable-warning.md,broken liquid tags
 translations/fr-FR/data/reusables/enterprise_installation/ssh-into-instance.md,rendering error
 translations/fr-FR/data/reusables/enterprise_site_admin_settings/dormancy-threshold.md,rendering error
 translations/fr-FR/data/reusables/enterprise_site_admin_settings/sign-in.md,rendering error
@@ -1214,7 +1210,6 @@ translations/fr-FR/data/reusables/getting-started/managing-enterprise-members.md
 translations/fr-FR/data/reusables/git/git-push.md,rendering error
 translations/fr-FR/data/reusables/git/provide-credentials.md,rendering error
 translations/fr-FR/data/reusables/identity-and-permissions/about-adding-ip-allow-list-entries.md,broken liquid tags
-translations/fr-FR/data/reusables/identity-and-permissions/about-editing-ip-allow-list-entries.md,broken liquid tags
 translations/fr-FR/data/reusables/identity-and-permissions/about-enabling-allowed-ip-addresses.md,broken liquid tags
 translations/fr-FR/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/fr-FR/data/reusables/identity-and-permissions/ip-allow-lists-githubapps-enterprise.md,rendering error

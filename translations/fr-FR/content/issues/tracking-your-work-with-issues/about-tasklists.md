@@ -6,12 +6,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
-ms.openlocfilehash: e35065ae4de634bb7a2da815e0a860c7c0b92234
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 69cdde1bb071f963b1a2f58ef1227bc96ab9d869
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159708'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180784'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
@@ -31,17 +31,7 @@ Les problèmes que vous ajoutez à vos listes de tâches sont automatiquement re
 
 ## Création de listes de tâches
 
-Pour créer une liste de tâches, vous pouvez utiliser le bouton « Ajouter une liste de tâches » ou modifier le Markdown du problème.
-
-### Création d’une liste de tâches à l’aide du bouton « Ajouter une liste de tâches »
-
-Cliquez sur le bouton **{% octicon "checklist" aria-label="The checklist icon" %} Ajouter une liste de tâches** dans la partie inférieure d’une description de problème que vous pouvez modifier pour créer une liste de tâches.
-
-![Capture d’écran montrant le bouton « Ajouter une liste de tâches »](/assets/images/help/issues/tasklist-add-tasklist-button.png)
-
-### Création d’une liste de tâches à l’aide de Markdown
-
-Vous pouvez utiliser Markdown dans une description de problème pour créer une liste de tâches. Créez un bloc de code délimité et incluez `[tasklist]` en regard des accents graves d’ouverture. Préfacez chaque élément avec `- [ ]` et incluez des liens vers d’autres problèmes ou du texte. Vous pouvez éventuellement inclure un titre en tant qu’en-tête Markdown en haut de votre liste. 
+Vous pouvez créer une liste d tâches dans une description de problème. Créez un bloc de code délimité et incluez `[tasklist]` en regard des accents graves d’ouverture. Vous pouvez ensuite préfacer chaque élément avec `- [ ]` et inclure des liens vers d’autres problèmes ou du texte. Vous pouvez éventuellement inclure un titre en tant qu’en-tête Markdown en haut de votre liste. 
 
 ````
 ```[tasklist]
@@ -50,10 +40,11 @@ Vous pouvez utiliser Markdown dans une description de problème pour créer une 
 - [ ] Draft issue title
 ```
 ````
-
 Votre Markdown sera rendu par {% data variables.product.product_name %} sous la forme d’une liste de tâches. Vous pouvez ensuite apporter des modifications et ajouter des problèmes et des brouillons de problèmes à l’aide de l’interface utilisateur. Si vous modifiez la description du problème, vous pouvez modifier le Markdown directement ou le copier pour dupliquer la liste de tâches dans d’autres problèmes.
 
+Vous pouvez également cliquer sur {% octicon "checklist" aria-label="The checklist icon" %} dans la barre d’outils de mise en forme pour insérer une liste de tâches lors de la création d’un problème ou de la modification d’une description de problème.
 
+![Capture d’écran montrant le bouton « Ajouter une liste de tâches »](/assets/images/help/issues/tasklist-formatting-toolbar.png)
 
 ## Ajout de problèmes à une liste de tâches
 
