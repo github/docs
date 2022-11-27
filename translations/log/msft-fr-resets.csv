@@ -1094,7 +1094,6 @@ translations/fr-FR/data/reusables/actions/enterprise-marketplace-actions.md,brok
 translations/fr-FR/data/reusables/actions/enterprise-postinstall-nextsteps.md,rendering error
 translations/fr-FR/data/reusables/actions/github-connect-resolution.md,rendering error
 translations/fr-FR/data/reusables/actions/hosted-runner-security.md,broken liquid tags
-translations/fr-FR/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
 translations/fr-FR/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/fr-FR/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/fr-FR/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
@@ -1162,7 +1161,6 @@ translations/fr-FR/data/reusables/enterprise-accounts/actions-packages-report-do
 translations/fr-FR/data/reusables/enterprise-accounts/billing-microsoft-ea-overview.md,broken liquid tags
 translations/fr-FR/data/reusables/enterprise-accounts/dormant-user-activity-threshold.md,rendering error
 translations/fr-FR/data/reusables/enterprise-accounts/dormant-user-activity.md,rendering error
-translations/fr-FR/data/reusables/enterprise-accounts/emu-azure-admin-consent.md,broken liquid tags
 translations/fr-FR/data/reusables/enterprise-accounts/emu-cap-validates.md,broken liquid tags
 translations/fr-FR/data/reusables/enterprise-accounts/emu-forks.md,rendering error
 translations/fr-FR/data/reusables/enterprise-accounts/emu-permission-follow.md,broken liquid tags
@@ -1209,9 +1207,6 @@ translations/fr-FR/data/reusables/getting-started/enterprise-advanced-security.m
 translations/fr-FR/data/reusables/getting-started/managing-enterprise-members.md,rendering error
 translations/fr-FR/data/reusables/git/git-push.md,rendering error
 translations/fr-FR/data/reusables/git/provide-credentials.md,rendering error
-translations/fr-FR/data/reusables/identity-and-permissions/about-adding-ip-allow-list-entries.md,broken liquid tags
-translations/fr-FR/data/reusables/identity-and-permissions/about-enabling-allowed-ip-addresses.md,broken liquid tags
-translations/fr-FR/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/fr-FR/data/reusables/identity-and-permissions/ip-allow-lists-githubapps-enterprise.md,rendering error
 translations/fr-FR/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/fr-FR/data/reusables/large_files/storage_assets_location.md,broken liquid tags

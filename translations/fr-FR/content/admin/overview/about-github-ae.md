@@ -7,12 +7,12 @@ type: overview
 topics:
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 9e7769fca5b36252fad5566450ba156120491649
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 388e271c17c182a318e8c2d095811ac27633a414
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389850'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180147'
 ---
 ## À propos de {% data variables.product.prodname_ghe_managed %}
 
@@ -38,7 +38,7 @@ S’ils le souhaitent, les propriétaires d’entreprises peuvent activer une in
 
 ## Accès réseau restreint
 
-Sécurisez l’accès à votre entreprise sur {% data variables.product.prodname_ghe_managed %} avec un accès réseau restreint, garantissant que vos données sont accessibles uniquement à partir de votre réseau. Pour plus d’informations, consultez « [Restriction du trafic réseau vers votre entreprise](/admin/configuration/restricting-network-traffic-to-your-enterprise) ».
+Sécurisez l’accès à votre entreprise sur {% data variables.product.prodname_ghe_managed %} avec un accès réseau restreint, garantissant que vos données sont accessibles uniquement à partir de votre réseau. Pour plus d’informations, consultez « [Restriction du trafic réseau vers votre entreprise avec une liste d’adresses IP autorisées](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list) ».
 
 ## Environnements commerciaux et gouvernementaux
 
