@@ -520,6 +520,7 @@ translations/es-ES/content/actions/quickstart.md,rendering error
 translations/es-ES/content/actions/security-guides/automatic-token-authentication.md,rendering error
 translations/es-ES/content/actions/security-guides/encrypted-secrets.md,rendering error
 translations/es-ES/content/actions/security-guides/security-hardening-for-github-actions.md,rendering error
+translations/es-ES/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,rendering error
 translations/es-ES/content/actions/using-github-hosted-runners/controlling-access-to-larger-runners.md,rendering error
 translations/es-ES/content/actions/using-github-hosted-runners/using-larger-runners.md,rendering error
 translations/es-ES/content/actions/using-workflows/about-workflows.md,rendering error
@@ -604,7 +605,6 @@ translations/es-ES/content/admin/identity-and-access-management/using-enterprise
 translations/es-ES/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,rendering error
 translations/es-ES/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,rendering error
 translations/es-ES/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
-translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,rendering error
 translations/es-ES/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
@@ -674,7 +674,6 @@ translations/es-ES/content/authentication/managing-commit-signature-verification
 translations/es-ES/content/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key.md,rendering error
 translations/es-ES/content/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits.md,rendering error
 translations/es-ES/content/authentication/managing-commit-signature-verification/index.md,broken liquid tags
-translations/es-ES/content/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key.md,broken liquid tags
 translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication.md,rendering error
 translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication.md,broken liquid tags
 translations/es-ES/content/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication.md,rendering error
@@ -1029,7 +1028,6 @@ translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,brok
 translations/es-ES/data/reusables/actions/enterprise-postinstall-nextsteps.md,rendering error
 translations/es-ES/data/reusables/actions/github-connect-resolution.md,rendering error
 translations/es-ES/data/reusables/actions/hosted-runner-security.md,broken liquid tags
-translations/es-ES/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
 translations/es-ES/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/es-ES/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/es-ES/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
@@ -1108,7 +1106,6 @@ translations/es-ES/data/reusables/enterprise/test-in-staging.md,rendering error
 translations/es-ES/data/reusables/enterprise_installation/download-package.md,rendering error
 translations/es-ES/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,rendering error
 translations/es-ES/data/reusables/enterprise_installation/hotpatching-explanation.md,broken liquid tags
-translations/es-ES/data/reusables/enterprise_installation/image-urls-viewable-warning.md,broken liquid tags
 translations/es-ES/data/reusables/enterprise_installation/ssh-into-instance.md,rendering error
 translations/es-ES/data/reusables/enterprise_site_admin_settings/dormancy-threshold.md,rendering error
 translations/es-ES/data/reusables/enterprise_site_admin_settings/sign-in.md,rendering error
@@ -1132,8 +1129,6 @@ translations/es-ES/data/reusables/getting-started/enterprise-advanced-security.m
 translations/es-ES/data/reusables/getting-started/managing-enterprise-members.md,rendering error
 translations/es-ES/data/reusables/git/git-push.md,rendering error
 translations/es-ES/data/reusables/git/provide-credentials.md,rendering error
-translations/es-ES/data/reusables/identity-and-permissions/about-adding-ip-allow-list-entries.md,broken liquid tags
-translations/es-ES/data/reusables/identity-and-permissions/about-enabling-allowed-ip-addresses.md,broken liquid tags
 translations/es-ES/data/reusables/identity-and-permissions/ip-allow-lists-githubapps-enterprise.md,rendering error
 translations/es-ES/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/es-ES/data/reusables/large_files/storage_assets_location.md,broken liquid tags
