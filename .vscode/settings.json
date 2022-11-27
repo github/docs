@@ -1,4 +1,611 @@
-{
+"'*''*'"'{' "' "" :',''Skip' to' content'
+Search' or' jump' to'…'
+'Pull' requests'
+Issues'
+Codespaces'
+Marketplace'
+Explore''
+ 
+'@zakwarlord7'' 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+'github'
+'/''
+''doc''
+Public''
+'Code''
+'Issues''
+'54""
+'Pull' requests'
+31''
+'Discussions''
+'helpo wanted'!''
+'Action'.js''
+'Projects'
+'3''
+Security
+Insights
+Azure - Deploy Preview Environment
+Fix electron docs page not found. #9358
+Jobs
+Run details
+Build and deploy Azure preview environment
+succeeded 17 hours ago in 8m 50s
+Search logs
+9s
+Current runner version: '2.299.1'
+Operating System
+  Ubuntu
+  22.04.1
+  LTS
+Runner Image
+  Image: ubuntu-22.04
+  Version: 20221119.2
+  Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20221119.2/images/linux/Ubuntu2204-Readme.md
+  Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20221119.2
+Runner Image Provisioner
+  2.0.91.1
+GITHUB_TOKEN Permissions
+  Contents: read
+  Deployments: write
+  Metadata: read
+Secret source: Actions
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf' (SHA:1f63701bf3e6892515f1b7ce2d2bf1708b46beaf)
+Download action repository 'azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a' (SHA:81744f9799e7eaa418697cb168452a2882ae844a)
+Download action repository 'docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70' (SHA:95cb08cb2672c73d4ffd2f422e6d11953d2a9c70)
+Download action repository 'actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748' (SHA:dcd71f646680f2efd8db4afa5ad64fdcba30e748)
+Download action repository 'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d' (SHA:2b34a689ec86a68d8ab9478298f91d5401337b7d)
+Download action repository 'docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0' (SHA:1cb9d22b932e4832bb29793b7777ec860fc1cde0)
+Download action repository 'azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d' (SHA:841b12551939c88af8f6df767c24c38a5620fd0d)
+15s
+Run azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+  with:
+    creds: ***
+    enable-AzPSSession: false
+    environment: azurecloud
+    allow-no-subscriptions: false
+    audience: api://AzureADTokenExchange
+  env:
+    PR_NUMBER: 22295
+    COMMIT_REF: 001fe9638f961fbf2f3a28a1f6f4bdb333ba3108
+    BRANCH_NAME: patch-1
+    IS_INTERNAL_BUILD: false
+    IS_PUBLIC_BUILD: true
+    NONPROD_REGISTRY_USERNAME: ghdocs
+/usr/bin/az cloud set -n azurecloud
+Done setting cloud: "azurecloud"
+Login successful.
+0s
+Run azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+  with:
+    login-server: ***
+    username: ghdocs
+    password: ***
+  env:
+    PR_NUMBER: 22295
+    COMMIT_REF: 001fe9638f961fbf2f3a28a1f6f4bdb333ba3108
+    BRANCH_NAME: patch-1
+    IS_INTERNAL_BUILD: false
+    IS_PUBLIC_BUILD: true
+    NONPROD_REGISTRY_USERNAME: ghdocs
+    AZURE_HTTP_USER_AGENT: 
+    AZUREPS_HOST_ENVIRONMENT: 
+DOCKER_CONFIG environment variable is set
+11s
+Run docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
+  with:
+    driver: docker-container
+    buildkitd-flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+    install: false
+    use: true
+  env:
+    PR_NUMBER: 22295
+    COMMIT_REF: 001fe9638f961fbf2f3a28a1f6f4bdb333ba3108
+    BRANCH_NAME: patch-1
+    IS_INTERNAL_BUILD: false
+    IS_PUBLIC_BUILD: true
+    NONPROD_REGISTRY_USERNAME: ghdocs
+    AZURE_HTTP_USER_AGENT: 
+    AZUREPS_HOST_ENVIRONMENT: 
+    DOCKER_CONFIG: /home/runner/work/_temp/docker_login_1669459983748
+Docker info
+  /usr/bin/docker version
+  Client:
+   Version:           20.10.21+azure-1
+   API version:       1.41
+   Go version:        go1.18.7
+   Git commit:        baeda1f82a10204ec5708d5fbba130ad76cfee49
+   Built:             Tue Oct 25 17:53:02 UTC 2022
+   OS/Arch:           linux/amd64
+   Context:           default
+   Experimental:      true
+  
+  Server:
+   Engine:
+    Version:          20.10.21+azure-1
+    API version:      1.41 (minimum version 1.12)
+    Go version:       go1.18.7
+    Git commit:       3056208812eb5e792fa99736c9167d1e10f4ab49
+    Built:            Tue Oct 25 11:44:15 2022
+    OS/Arch:          linux/amd64
+    Experimental:     false
+   containerd:
+    Version:          1.5.14+azure-1
+    GitCommit:        b84d0b151c2395a5917996d602b192ce1e0fa461
+   runc:
+    Version:          1.1.4
+    GitCommit:        5fd4c4d144137e991c4acebb2146ab1483a97925
+   docker-init:
+    Version:          0.19.0
+    GitCommit:        
+  /usr/bin/docker info
+  Client:
+   Context:    default
+   Debug Mode: false
+   Plugins:
+    buildx: Docker Buildx (Docker Inc., 0.9.1+azure-2)
+    compose: Docker Compose (Docker Inc., 2.12.2+azure-1)
+  
+  Server:
+   Containers: 0
+    Running: 0
+    Paused: 0
+    Stopped: 0
+   Images: 17
+   Server Version: 20.10.21+azure-1
+   Storage Driver: overlay2
+    Backing Filesystem: extfs
+    Supports d_type: true
+    Native Overlay Diff: false
+    userxattr: false
+   Logging Driver: json-file
+   Cgroup Driver: cgroupfs
+   Cgroup Version: 2
+   Plugins:
+    Volume: local
+    Network: bridge host ipvlan macvlan null overlay
+    Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+   Swarm: inactive
+   Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc
+   Default Runtime: runc
+   Init Binary: docker-init
+   containerd version: b84d0b151c2395a5917996d602b192ce1e0fa461
+   runc version: 5fd4c4d144137e991c4acebb2146ab1483a97925
+   init version: 
+   Security Options:
+    apparmor
+    seccomp
+     Profile: default
+    cgroupns
+   Kernel Version: 5.15.0-1023-azure
+   Operating System: Ubuntu 22.04.1 LTS
+   OSType: linux
+   Architecture: x86_64
+   CPUs: 2
+   Total Memory: 6.781GiB
+   Name: fv-az225-788
+   ID: EAGM:VPZP:GVES:C5NY:RHC7:6PIR:N6ZV:TCXR:6JN2:QCXP:UFAX:DABK
+   Docker Root Dir: /var/lib/docker
+   Debug Mode: false
+   Registry: https://index.docker.io/v1/
+   Labels:
+   Experimental: false
+   Insecure Registries:
+    127.0.0.0/8
+   Live Restore Enabled: false
+  
+Buildx version
+  /usr/bin/docker buildx version
+  github.com/docker/buildx 0.9.1+azure-2 ed00243a0ce2a0aee75311b06e32d33b44729689
+Creating a new builder instance
+  /usr/bin/docker buildx create --name builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d5 --driver docker-container --buildkitd-flags --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host --use
+  builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d5
+Booting builder
+  /usr/bin/docker buildx inspect --bootstrap --builder builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d5
+  #1 [internal] booting buildkit
+  #1 pulling image moby/buildkit:buildx-stable-1
+  #1 pulling image moby/buildkit:buildx-stable-1 2.8s done
+  #1 creating container buildx_buildkit_builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d50
+  #1 creating container buildx_buildkit_builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d50 1.3s done
+  #1 DONE 4.1s
+  Name:   builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d5
+  Driver: docker-container
+  
+  Nodes:
+  Name:      builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d50
+  Endpoint:  unix:///var/run/docker.sock
+  Status:    running
+  Flags:     --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+  Buildkit:  v0.10.5
+  Platforms: linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/amd64/v4, linux/386
+Inspect builder
+  {
+    "nodes": [
+      {
+        "name": "builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d50",
+        "endpoint": "unix:///var/run/docker.sock",
+        "status": "running",
+        "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+        "buildkit": "v0.10.5",
+        "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386"
+      }
+    ],
+    "name": "builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d5",
+    "driver": "docker-container"
+  }
+BuildKit version
+  builder-7284bdc5-ced8-4227-a0f1-c3d9d5bb36d50: moby/buildkit:buildx-stable-1 => buildkitd github.com/moby/buildkit v0.10.5 bc26045116045516ff2427201abd299043eaf8f7
+35s
+Run actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+  with:
+    ref: main
+    persist-credentials: false
+    lfs: true
+    repository: github/docs
+    token: ***
+    ssh-strict: true
+    clean: true
+    fetch-depth: 1
+    submodules: false
+  env:
+    PR_NUMBER: 22295
+    COMMIT_REF: 001fe9638f961fbf2f3a28a1f6f4bdb333ba3108
+    BRANCH_NAME: patch-1
+    IS_INTERNAL_BUILD: false
+    IS_PUBLIC_BUILD: true
+    NONPROD_REGISTRY_USERNAME: ghdocs
+    AZURE_HTTP_USER_AGENT: 
+    AZUREPS_HOST_ENVIRONMENT: 
+    DOCKER_CONFIG: /home/runner/work/_temp/docker_login_1669459983748
+Warning: The `save-state` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+Syncing repository: github/docs
+Getting Git version info
+  Working directory is '/home/runner/work/docs/docs'
+  /usr/bin/git version
+  git version 2.38.1
+  /usr/bin/git lfs version
+  git-lfs/3.2.0 (GitHub; linux amd64; go 1.18.2)
+Temporarily overriding HOME='/home/runner/work/_temp/3a4a0a80-ac63-41a6-b9bf-3e4f739b352c' before making global git config changes
+Adding working directory to the temporary git global config as a safe directory
+/usr/bin/git config --global --add safe.directory /home/runner/work/docs/docs
+Deleting the contents of '/home/runner/work/docs/docs'
+Warning: The `save-state` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+Initializing the repository
+  /usr/bin/git init /home/runner/work/docs/docs
+  hint: Using 'master' as the name for the initial branch. This default branch name
+  hint: is subject to change. To configure the initial branch name to use in all
+  hint: of your new repositories, which will suppress this warning, call:
+  hint: 
+  hint: 	git config --global init.defaultBranch <name>
+  hint: 
+  hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+  hint: 'development'. The just-created branch can be renamed via this command:
+  hint: 
+  hint: 	git branch -m <name>
+  Initialized empty Git repository in /home/runner/work/docs/docs/.git/
+  /usr/bin/git remote add origin https://github.com/github/docs
+Disabling automatic garbage collection
+  /usr/bin/git config --local gc.auto 0
+Setting up auth
+  /usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+  /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+  /usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+  /usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+  /usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+/usr/bin/git lfs install --local
+Updated Git hooks.
+Git LFS initialized.
+Fetching the repository
+  /usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+  remote: Enumerating objects: 42827, done.        
+  remote: Counting objects:   0% (1/42827)        
+  remote: Counting objects:   1% (429/42827)        
+  remote: Counting objects:   2% (857/42827)        
+  remote: Counting objects:   3% (1285/42827)        
+  remote: Counting objects:   4% (1714/42827)        
+  remote: Counting objects:   5% (2142/42827)        
+  remote: Counting objects:   6% (2570/42827)        
+  remote: Counting objects:   7% (2998/42827)        
+  remote: Counting objects:   8% (3427/42827)        
+  remote: Counting objects:   9% (3855/42827)        
+  remote: Counting objects:  10% (4283/42827)        
+  remote: Counting objects:  11% (4711/42827)        
+  remote: Counting objects:  12% (5140/42827)        
+  remote: Counting objects:  13% (5568/42827)        
+  remote: Counting objects:  14% (5996/42827)        
+  remote: Counting objects:  15% (6425/42827)        
+  remote: Counting objects:  16% (6853/42827)        
+  remote: Counting objects:  17% (7281/42827)        
+  remote: Counting objects:  18% (7709/42827)        
+  remote: Counting objects:  19% (8138/42827)        
+  remote: Counting objects:  20% (8566/42827)        
+  remote: Counting objects:  21% (8994/42827)        
+  remote: Counting objects:  22% (9422/42827)        
+  remote: Counting objects:  23% (9851/42827)        
+  remote: Counting objects:  24% (10279/42827)        
+  remote: Counting objects:  25% (10707/42827)        
+  remote: Counting objects:  26% (11136/42827)        
+  remote: Counting objects:  27% (11564/42827)        
+  remote: Counting objects:  28% (11992/42827)        
+  remote: Counting objects:  29% (12420/42827)        
+  remote: Counting objects:  30% (12849/42827)        
+  remote: Counting objects:  31% (13277/42827)        
+  remote: Counting objects:  32% (13705/42827)        
+  remote: Counting objects:  33% (14133/42827)        
+  remote: Counting objects:  34% (14562/42827)        
+  remote: Counting objects:  35% (14990/42827)        
+  remote: Counting objects:  36% (15418/42827)        
+  remote: Counting objects:  37% (15846/42827)        
+  remote: Counting objects:  38% (16275/42827)        
+  remote: Counting objects:  39% (16703/42827)        
+  remote: Counting objects:  40% (17131/42827)        
+  remote: Counting objects:  41% (17560/42827)        
+  remote: Counting objects:  42% (17988/42827)        
+  remote: Counting objects:  43% (18416/42827)        
+  remote: Counting objects:  44% (18844/42827)        
+  remote: Counting objects:  45% (19273/42827)        
+  remote: Counting objects:  46% (19701/42827)        
+  remote: Counting objects:  47% (20129/42827)        
+  remote: Counting objects:  48% (20557/42827)        
+  remote: Counting objects:  49% (20986/42827)        
+  remote: Counting objects:  50% (21414/42827)        
+  remote: Counting objects:  51% (21842/42827)        
+  remote: Counting objects:  52% (22271/42827)        
+  remote: Counting objects:  53% (22699/42827)        
+  remote: Counting objects:  54% (23127/42827)        
+  remote: Counting objects:  55% (23555/42827)        
+  remote: Counting objects:  56% (23984/42827)        
+  remote: Counting objects:  57% (24412/42827)        
+  remote: Counting objects:  58% (24840/42827)        
+  remote: Counting objects:  59% (25268/42827)        
+  remote: Counting objects:  60% (25697/42827)        
+  remote: Counting objects:  61% (26125/42827)        
+  remote: Counting objects:  62% (26553/42827)        
+  remote: Counting objects:  63% (26982/42827)        
+  remote: Counting objects:  64% (27410/42827)        
+  remote: Counting objects:  65% (27838/42827)        
+  remote: Counting objects:  66% (28266/42827)        
+  remote: Counting objects:  67% (28695/42827)        
+  remote: Counting objects:  68% (29123/42827)        
+  remote: Counting objects:  69% (29551/42827)        
+  remote: Counting objects:  70% (29979/42827)        
+  remote: Counting objects:  71% (30408/42827)        
+  remote: Counting objects:  72% (30836/42827)        
+  remote: Counting objects:  73% (31264/42827)        
+  remote: Counting objects:  74% (31692/42827)        
+  remote: Counting objects:  75% (32121/42827)        
+  remote: Counting objects:  76% (32549/42827)        
+  remote: Counting objects:  77% (32977/42827)        
+  remote: Counting objects:  78% (33406/42827)        
+  remote: Counting objects:  79% (33834/42827)        
+  remote: Counting objects:  80% (34262/42827)        
+  remote: Counting objects:  81% (34690/42827)        
+  remote: Counting objects:  82% (35119/42827)        
+  remote: Counting objects:  83% (35547/42827)        
+  remote: Counting objects:  84% (35975/42827)        
+  remote: Counting objects:  85% (36403/42827)        
+  remote: Counting objects:  86% (36832/42827)        
+  remote: Counting objects:  87% (37260/42827)        
+  remote: Counting objects:  88% (37688/42827)        
+  remote: Counting objects:  89% (38117/42827)        
+  remote: Counting objects:  90% (38545/42827)        
+  remote: Counting objects:  91% (38973/42827)        
+  remote: Counting objects:  92% (39401/42827)        
+  remote: Counting objects:  93% (39830/42827)        
+  remote: Counting objects:  94% (40258/42827)        
+  remote: Counting objects:  95% (40686/42827)        
+  remote: Counting objects:  96% (41114/42827)        
+  remote: Counting objects:  97% (41543/42827)        
+  remote: Counting objects:  98% (41971/42827)        
+  remote: Counting objects:  99% (42399/42827)        
+  remote: Counting objects: 100% (42827/42827)        
+  remote: Counting objects: 100% (42827/42827), done.        
+  remote: Compressing objects:   0% (1/32138)        
+  remote: Compressing objects:   0% (268/32138)        
+  remote: Compressing objects:   0% (270/32138)        
+  remote: Compressing objects:   0% (273/32138)        
+  remote: Compressing objects:   0% (277/32138)        
+  remote: Compressing objects:   0% (278/32138)        
+  remote: Compressing objects:   0% (281/32138)        
+  remote: Compressing objects:   0% (284/32138)        
+  remote: Compressing objects:   0% (288/32138)        
+  remote: Compressing objects:   0% (291/32138)        
+  remote: Compressing objects:   1% (322/32138)        
+  remote: Compressing objects:   2% (643/32138)        
+  remote: Compressing objects:   3% (965/32138)        
+  remote: Compressing objects:   4% (1286/32138)        
+  remote: Compressing objects:   5% (1607/32138)        
+  remote: Compressing objects:   6% (1929/32138)        
+  remote: Compressing objects:   7% (2250/32138)        
+  remote: Compressing objects:   8% (2572/32138)        
+  remote: Compressing objects:   9% (2893/32138)        
+  remote: Compressing objects:  10% (3214/32138)        
+  remote: Compressing objects:  11% (3536/32138)        
+  remote: Compressing objects:  12% (3857/32138)        
+  remote: Compressing objects:  13% (4178/32138)        
+  remote: Compressing objects:  14% (4500/32138)        
+  remote: Compressing objects:  15% (4821/32138)        
+  remote: Compressing objects:  16% (5143/32138)        
+  remote: Compressing objects:  17% (5464/32138)        
+  remote: Compressing objects:  18% (5785/32138)        
+  remote: Compressing objects:  19% (6107/32138)        
+  remote: Compressing objects:  20% (6428/32138)        
+  remote: Compressing objects:  21% (6749/32138)        
+0s
+2s
+0s
+0s
+0s
+0s
+0s
+32s
+3s
+get-started/exploring-projects-on-github/index.md
+get-started/exploring-projects-on-github/saving-repositories-with-stars.md
+get-started/getting-started-with-git/
+get-started/getting-started-with-git/about-remote-repositories.md
+get-started/getting-started-with-git/associating-text-editors-with-git.md
+get-started/getting-started-with-git/caching-your-github-credentials-in-git.md
+get-started/getting-started-with-git/configuring-git-to-handle-line-endings.md
+get-started/getting-started-with-git/git-workflows.md
+get-started/getting-started-with-git/ignoring-files.md
+get-started/getting-started-with-git/index.md
+get-started/getting-started-with-git/managing-remote-repositories.md
+get-started/getting-started-with-git/setting-your-username-in-git.md
+get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain.md
+get-started/getting-started-with-git/why-is-git-always-asking-for-my-password.md
+get-started/importing-your-projects-to-github/
+get-started/importing-your-projects-to-github/index.md
+get-started/importing-your-projects-to-github/importing-source-code-to-github/
+get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer.md
+get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github.md
+get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line.md
+get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer.md
+get-started/importing-your-projects-to-github/importing-source-code-to-github/index.md
+get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools.md
+get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer.md
+get-started/importing-your-projects-to-github/working-with-subversion-on-github/
+get-started/importing-your-projects-to-github/working-with-subversion-on-github/index.md
+get-started/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github.md
+get-started/importing-your-projects-to-github/working-with-subversion-on-github/support-for-subversion-clients.md
+get-started/importing-your-projects-to-github/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git.md
+get-started/learning-about-github/
+get-started/learning-about-github/about-github-advanced-security.md
+get-started/learning-about-github/about-versions-of-github-docs.md
+get-started/learning-about-github/access-permissions-on-github.md
+get-started/learning-about-github/faq-about-changes-to-githubs-plans.md
+get-started/learning-about-github/github-language-support.md
+get-started/learning-about-github/githubs-products.md
+get-started/learning-about-github/index.md
+get-started/learning-about-github/types-of-github-accounts.md
+get-started/onboarding/
+get-started/onboarding/getting-started-with-github-ae.md
+get-started/onboarding/getting-started-with-github-enterprise-cloud.md
+get-started/onboarding/getting-started-with-github-enterprise-server.md
+get-started/onboarding/getting-started-with-github-team.md
+get-started/onboarding/getting-started-with-your-github-account.md
+get-started/onboarding/index.md
+get-started/privacy-on-github/
+get-started/privacy-on-github/about-githubs-use-of-your-data.md
+get-started/privacy-on-github/index.md
+get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository.md
+get-started/privacy-on-github/opting-into-or-out-of-the-github-archive-program-for-your-public-repository.md
+get-started/privacy-on-github/requesting-an-archive-of-your-personal-accounts-data.md
+get-started/quickstart/
+get-started/quickstart/be-social.md
+get-started/quickstart/communicating-on-github.md
+get-started/quickstart/contributing-to-projects.md
+get-started/quickstart/create-a-repo.md
+get-started/quickstart/fork-a-repo.md
+get-started/quickstart/git-and-github-learning-resources.md
+get-started/quickstart/git-cheatsheet.md
+get-started/quickstart/github-flow.md
+get-started/quickstart/github-glossary.md
+get-started/quickstart/hello-world.md
+get-started/quickstart/index.md
+get-started/quickstart/set-up-git.md
+get-started/signing-up-for-github/
+get-started/signing-up-for-github/index.md
+get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md
+get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server.md
+get-started/signing-up-for-github/signing-up-for-a-new-github-account.md
+get-started/signing-up-for-github/verifying-your-email-address.md
+get-started/using-git/
+get-started/using-git/about-git-rebase.md
+get-started/using-git/about-git-subtree-merges.md
+get-started/using-git/about-git.md
+get-started/using-git/dealing-with-non-fast-forward-errors.md
+get-started/using-git/dealing-with-special-characters-in-branch-and-tag-names.md
+get-started/using-git/getting-changes-from-a-remote-repository.md
+get-started/using-git/index.md
+get-started/using-git/pushing-commits-to-a-remote-repository.md
+get-started/using-git/resolving-merge-conflicts-after-a-git-rebase.md
+get-started/using-git/splitting-a-subfolder-out-into-a-new-repository.md
+get-started/using-git/using-git-rebase-on-the-command-line.md
+get-started/using-github/
+get-started/using-github/exploring-early-access-releases-with-feature-preview.md
+get-started/using-github/github-cli.md
+get-started/using-github/github-command-palette.md
+get-started/using-github/github-desktop.md
+get-started/using-github/github-mobile.md
+get-started/using-github/index.md
+get-started/using-github/keyboard-shortcuts.md
+get-started/using-github/supported-browsers.md
+get-started/using-github/troubleshooting-connectivity-problems.md
+get-started/writing-on-github/
+get-started/writing-on-github/index.md
+get-started/writing-on-github/editing-and-sharing-content-with-gists/
+get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md
+get-started/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists.md
+get-started/writing-on-github/editing-and-sharing-content-with-gists/index.md
+get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/
+get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github.md
+get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.md
+get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/index.md
+get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github.md
+get-started/writing-on-github/working-with-advanced-formatting/
+get-started/writing-on-github/working-with-advanced-formatting/about-task-lists.md
+get-started/writing-on-github/working-with-advanced-formatting/attaching-files.md
+get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls.md
+get-started/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet.md
+get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks.md
+get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams.md
+get-started/writing-on-github/working-with-advanced-formatting/index.md
+get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections.md
+get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables.md
+get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests.md
+get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.md
+get-started/writing-on-github/working-with-saved-replies/
+get-started/writing-on-github/working-with-saved-replies/about-saved-replies.md
+get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply.md
+get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply.md
+get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply.md
+get-started/writing-on-github/working-with-saved-replies/index.md
+get-started/writing-on-github/working-with-saved-replies/using-saved-replies.md
+github-cli/
+github-cli/index.md
+github-cli/github-cli/
+github-cli/github-cli/about-github-cli.md
+github-cli/github-cli/creating-github-cli-extensions.md
+github-cli/github-cli/github-cli-reference.md
+github-cli/github-cli/index.md
+github-cli/github-cli/quickstart.md
+github-cli/github-cli/using-github-cli-extensions.md
+graphql/
+graphql/README.md
+graphql/index.md
+graphql/guides/
+graphql/guides/forming-calls-with-graphql.md
+graphql/guides/index.md
+graphql/guides/introduction-to-graphql.md
+graphql/guides/managing-enterprise-accounts.md
+graphql/guides/migrating-from-rest-to-graphql.md
+graphql/guides/migrating-graphql-global-node-ids.md
+graphql/guides/using-global-node-ids.md
+graphql/guides/using-the-explorer.md
+graphql/guides/using-the-graphql-api-for-discussions.md
+graphql/overview/
+graphql/overview/about-the-graphql-api.md
+graphql/overview/breaking-changes.md
+graphql/overview/changelog.md
+graphql/overview/explorer.md
+graphql/overview/index.md
+0s
+2m 15s
+2s
+2m 7s
+2m 31s
+0s
+1s
+0s
+2s
+0s
+ ' ':''
+'":Build::":,' '' "' }'*''*'":,
+   {
   "files.exclude": {
     "translations/**": true
   },
