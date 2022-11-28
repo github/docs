@@ -117,6 +117,10 @@ For more information about the audit log REST API, see "[Enterprise administrati
 
 ### Example 1: All events in an enterprise, for a specific date, with pagination
 
+You can use page-based pagination or cursor based pagination. For more information, see "[Traversing with Pagination](/rest/guides/traversing-with-pagination)."
+
+#### Example with page-based pagination
+
 The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination):
 
 ```shell
@@ -125,19 +129,7 @@ curl -H "Authorization: Bearer TOKEN" \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
-### Example 2: Events for pull requests in an enterprise, for a specific date and actor
-
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your formed URL with the `+` symbol or ASCII character code `%20`.
-
-The query below searches for audit log events for pull requests, where the event occurred on or after Jan 1st, 2022 in the `avocado-corp` enterprise, and the action was performed by the `octocat` user:
-
-```shell
-curl -H "Authorization: Bearer TOKEN" \
---request GET \
-"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
-```
-
-### Example 3: Using cursor based pagination 
+#### Example with cursor-based pagination
 
 The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination). The `--include` flag causes the headers to be returned along with the response.
 
@@ -162,6 +154,20 @@ curl -I -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
 ```
+
+### Example 2: Events for pull requests in an enterprise, for a specific date and actor
+
+You can specify multiple search phrases, such as `created` and `actor`, by separating them in your formed URL with the `+` symbol or ASCII character code `%20`.
+
+The query below searches for audit log events for pull requests, where the event occurred on or after Jan 1st, 2022 in the `avocado-corp` enterprise, and the action was performed by the `octocat` user:
+
+```shell
+curl -H "Authorization: Bearer TOKEN" \
+--request GET \
+"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
+```
+
+
 
 
 
