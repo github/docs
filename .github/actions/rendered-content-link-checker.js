@@ -13,7 +13,7 @@ import shortVersions from '../../middleware/contextualizers/short-versions.js'
 import contextualize from '../../middleware/context.js'
 import getRedirect from '../../lib/get-redirect.js'
 import warmServer from '../../lib/warm-server.js'
-import renderContent from '../../lib/render-content/index.js'
+import liquid from '../../lib/render-content/liquid.js'
 import { deprecated } from '../../lib/enterprise-server-releases.js'
 import excludedLinks from '../../lib/excluded-links.js'
 import { getEnvInputs, boolEnvVar } from './lib/get-env-inputs.js'
@@ -21,6 +21,7 @@ import { debugTimeEnd, debugTimeStart } from './lib/debug-time-taken.js'
 import { uploadArtifact as uploadArtifactLib } from './lib/upload-artifact.js'
 import github from '../../script/helpers/github.js'
 import { getActionContext } from './lib/action-context.js'
+import { createMinimalProcessor } from '../../lib/render-content/create-processor.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -224,9 +225,11 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   externalLinkCheckerDB.data ||= { urls: {} }
 
   debugTimeStart(core, 'processPages')
+  const t0 = new Date().getTime()
   const flawsGroups = await Promise.all(
     pages.map((page) => processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB))
   )
+  const t1 = new Date().getTime()
   debugTimeEnd(core, 'processPages')
 
   await externalLinkCheckerDB.write()
@@ -236,7 +239,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   printGlobalCacheHitRatio(core)
 
   if (verbose) {
-    summarizeCounts(core, pages)
+    summarizeCounts(core, pages, (t1 - t0) / 1000)
     core.info(`Checked ${(globalCacheHitCount + globalCacheMissCount).toLocaleString()} links`)
   }
 
@@ -595,7 +598,7 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
     externalServerErrorsAsWarning,
   } = opts
   const html = await renderInnerHTML(page, permalink)
-  const $ = cheerio.load(html)
+  const $ = cheerio.load(html, { xmlMode: true })
   const flaws = []
   const links = []
   $('a[href]').each((i, link) => {
@@ -1057,11 +1060,16 @@ function summarizeFlaws(core, flaws) {
   }
 }
 
-function summarizeCounts(core, pages) {
+function summarizeCounts(core, pages, tookSeconds) {
   const count = pages.map((page) => page.permalinks.length).reduce((a, b) => a + b, 0)
   core.info(
     `Tested ${count.toLocaleString()} permalinks across ${pages.length.toLocaleString()} pages`
   )
+  core.info(`Took ${Math.floor(tookSeconds)} seconds. (~${(tookSeconds / 60).toFixed(1)} minutes)`)
+  const permalinksPerSecond = count / tookSeconds
+  core.info(`~${permalinksPerSecond.toFixed(1)} permalinks per second.`)
+  const pagesPerSecond = pages.length / tookSeconds
+  core.info(`~${pagesPerSecond.toFixed(1)} pages per second.`)
 }
 
 function shuffle(array) {
@@ -1096,7 +1104,13 @@ async function renderInnerHTML(page, permalink) {
   await shortVersions(req, res, next)
   const context = Object.assign({}, req.context, { page })
   context.relativePath = page.relativePath
-  return await renderContent(page.markdown, context)
+
+  // These lines do what the ubiquitous `renderContent` function does,
+  // but at an absolute minimum to get a string of HTML.
+  const markdown = await liquid.parseAndRender(page.markdown, context)
+  const processor = createMinimalProcessor(context)
+  const vFile = await processor.process(markdown)
+  return vFile.toString()
 }
 
 export default main
