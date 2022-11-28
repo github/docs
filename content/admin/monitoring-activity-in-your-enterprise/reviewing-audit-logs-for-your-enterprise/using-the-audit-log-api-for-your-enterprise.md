@@ -155,7 +155,7 @@ To use this navigation, copy the corresponding link into your request.
 ```shell
 curl -I -H "Authorization: Bearer TOKEN" \
 --request GET \
-"https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&page=1&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
+"https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
 ```
 
 
