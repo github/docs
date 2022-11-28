@@ -43,7 +43,9 @@ describe('sidebar', () => {
 
   test('includes links to external products like the Atom, Electron, and CodeQL', async () => {
     expect($homePage('[data-testid=sidebar] a[href="https://atom.io/docs"]')).toHaveLength(1)
-    expect($homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs"]')).toHaveLength(1)
+    expect(
+      $homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs/latest"]')
+    ).toHaveLength(1)
     expect(
       $homePage('[data-testid=sidebar] a[href="https://codeql.github.com/docs"]')
     ).toHaveLength(1)
