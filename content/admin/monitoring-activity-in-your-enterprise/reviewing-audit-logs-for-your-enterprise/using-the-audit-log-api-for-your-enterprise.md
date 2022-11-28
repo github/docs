@@ -155,7 +155,7 @@ link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_pag
 <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
 ```
 
-To use this navigation, copy the corresponding link into your request.
+Copy the corresponding pagination link into your next request. For example:
 
 ```shell
 curl -I -H "Authorization: Bearer TOKEN" \
