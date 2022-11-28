@@ -131,7 +131,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 #### Example with cursor-based pagination
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination). The `--include` flag causes the headers to be returned along with the response.
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination). The `--include` flag causes the headers to be returned along with the response.
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \
