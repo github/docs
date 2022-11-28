@@ -38,6 +38,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   let subCategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
   const currentLanguage = req.context.currentLanguage as string
+  const allVersions = req.context.allVersions
+  const apiVersion = context.query.apiVersion || allVersions[currentVersion].latestApiVersion
 
   // For pages with category level only operations like /rest/billing, we set
   // the subcategory's value to be the category for the call to getRest()
@@ -45,7 +47,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subCategory = category
   }
 
-  const restOperations = (await getRest(currentVersion, category, subCategory)) || []
+  const restOperations = (await getRest(currentVersion, apiVersion, category, subCategory)) || []
 
   // Gets the miniTocItems in the article context. At this point it will only
   // include miniTocItems generated from the Markdown pages in
@@ -62,6 +64,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,
       subCategory,
+      apiVersion,
       restOperations,
       currentLanguage,
       currentVersion,
