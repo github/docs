@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 32ab6120ced32f068eda9d9b9b1823352685f4ed
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.openlocfilehash: fe4475ec888b22062f49db7a8e87034125a35c94
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145127925"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148159285"
 ---
 1. Depois de fazer commit das alterações na cópia local do repositório, clique no ícone **Criar Solicitação de Pull**. 
 ![Barra lateral do controle do código-fonte com o botão de preparo realçado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  

@@ -7,12 +7,12 @@ type: overview
 topics:
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 9e7769fca5b36252fad5566450ba156120491649
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 388e271c17c182a318e8c2d095811ac27633a414
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389848'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180101'
 ---
 ## Sobre o {% data variables.product.prodname_ghe_managed %}
 
@@ -38,7 +38,7 @@ Opcionalmente, os proprietários de empresas podem ativar a integração limitad
 
 ## Acesso restrito às redes
 
-Acesso seguro à sua empresa em {% data variables.product.prodname_ghe_managed %} com acesso restrito à rede, para que seus dados possam ser acessados somente de dentro da sua rede. Para obter mais informações, confira "[Como restringir o tráfego de rede para sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)".
+Acesso seguro à sua empresa em {% data variables.product.prodname_ghe_managed %} com acesso restrito à rede, para que seus dados possam ser acessados somente de dentro da sua rede. Para obter mais informações, confira "[Como restringir o tráfego de rede da sua empresa com uma lista de permissões de IP](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)".
 
 ## Ambientes comercial e governamental
 

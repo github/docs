@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c30f6000486156f1995f0f05ff27fc173b893de5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b40c432907d00f7bf7cf33a1f379ea3318ae8aa2
+ms.sourcegitcommit: cb39c15ab6ccfacf49f4b114b77e3b920fdddf70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529271"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180668"
 ---
 <table style="width:100%">
 <thead>
@@ -53,6 +53,9 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-latest</code> ou <code>ubuntu-20.04</code>
 </td>
+<td>
+L’étiquette <code>ubuntu-latest</code> est en cours de transition vers l’image d’exécuteur Ubuntu 22.04. Pendant la transition, l’étiquette peut faire référence à l’image d’exécuteur pour Ubuntu 20.04 ou 22.04. Pour plus d’informations, consultez <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">ce billet de blog {% data variables.product.prodname_dotcom %}</a>.
+</rd>
 </tr>
 <tr>
 <td>
@@ -81,7 +84,7 @@ macOS Big Sur 11
 <code>macos-latest</code> ou <code>macos-11</code>
 </td>
 <td>
-L’étiquette <code>macos-latest</code> utilise actuellement l’image de l’exécuteur macOS 11.
+L’étiquette <code>macos-latest</code> est en cours de transition vers l’image d’exécuteur macOS Monterey 12. Pendant la transition, l’étiquette peut faire référence à l’image d’exécuteur pour macOS 11 ou 12. Pour plus d’informations, consultez <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">ce billet de blog {% data variables.product.prodname_dotcom %}</a>.
 </td>
 </tr>
 <tr>
@@ -106,6 +109,6 @@ Migrer vers <code>macOS-11</code> ou <code>macOS-12</code>. Pour plus d’inform
 
 {% warning %}
 
-<b>Remarque :</b> Les images bêta et dépréciées sont fournies « en l’état », « avec toutes les imperfections » et « selon la disponibilité », et sont exclues du contrat de niveau de service et de la garantie. Les images bêta peuvent ne pas être couvertes par le service client.
+**Avertissement :** Les images bêta et dépréciées sont fournies « en l’état », « avec toutes les imperfections » et « selon la disponibilité », et sont exclues du contrat de niveau de service et de la garantie. Les images bêta peuvent ne pas être couvertes par le service client.
 
 {% endwarning %}

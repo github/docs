@@ -1,6 +1,6 @@
 ---
-title: Using source control in your codespace
-intro: After making changes to a file in your codespace you can quickly commit the changes and push your update to the remote repository.
+title: Usando controle de origem no seu codespace
+intro: 'Depois de fazer alterações em um arquivo no seu código, você pode fazer um commit rápido das alterações e fazer push da sua atualização para o repositório remoto.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,37 +10,42 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Source control
+ms.openlocfilehash: 513bf0729e1f04bf93f45999b2fa9e45231add5c
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159334'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 {% endjetbrains %}
 
-## About source control in {% data variables.product.prodname_github_codespaces %}
+## Sobre o controle do código-fonte no {% data variables.product.prodname_github_codespaces %}
 
-You can perform all the Git actions you need directly within your codespace. For example, you can fetch changes from a remote repository, switch branches, create a new branch, commit and push changes, and create a pull request. You can use the integrated terminal within your codespace to enter Git commands, or you can click icons and menu options to complete all the most common Git tasks. This guide explains how to use the graphical user interface for source control.
+Você pode executar todas as ações do Git necessárias diretamente no seu codespace. Por exemplo, é possível obter alterações de um repositório remoto, mudar de branch, criar um branch, fazer commit, efetuar push e criar uma solicitação de pull. Você pode usar o terminal integrado dentro do seu codespace para inserir nos comandos do Git, ou você pode clicar em ícones e opções de menu para realizar todas as tarefas mais comuns do Git. Este guia explica como usar a interface gráfica de usuário para controle de origem.
 
 {% vscode %}
 
-For more information about Git support in {% data variables.product.prodname_vscode %}, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
+Para obter mais informações sobre o suporte do Git no {% data variables.product.prodname_vscode %}, confira "[Como usar o controle de versão no VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" na documentação do {% data variables.product.prodname_vscode %}.
 
 {% endvscode %}
 
 {% webui %}
 
-Source control in the {% data variables.product.prodname_vscode %} web client uses the same workflow as the {% data variables.product.prodname_vscode %} desktop application. For more information, see "[Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
+O controle do código-fonte no cliente Web do {% data variables.product.prodname_vscode %} usa o mesmo fluxo de trabalho que o aplicativo da área de trabalho do {% data variables.product.prodname_vscode %}. Para obter mais informações, confira "[Como usar o controle de versão no VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" na documentação do {% data variables.product.prodname_vscode %}.
 
 {% endwebui %}
 
-A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
+Um fluxo de trabalho típico para atualizar um arquivo que usa {% data variables.product.prodname_github_codespaces %} seria:
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
-* In your codespace, create a new branch to work on.
-* Make your changes and save them.
-* Commit the change.
-* Raise a pull request.
+* A partir do branch padrão do seu repositório em {% data variables.product.prodname_dotcom %}, crie um codespace. Confira "[Como criar um codespace para um repositório](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)".
+* No seu código, crie uma nova agência para trabalhar.
+* Faça suas alterações e salve-as.
+* Confirme a alteração.
+* Abra um pull request.
 
 {% webui %}
 
@@ -56,67 +61,67 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 
 {% jetbrains %}
 
-## Creating or switching branches
+## Criar ou trocar de branches
 
-1. Click the branch name at the right side of the status bar.
+1. Clique no nome do branch no lado direito da barra de status.
 
-   ![Screenshot of the branch name in the status bar](/assets/images/help/codespaces/jetbrains-branch-button.png)
+   ![Captura de tela do nome do branch na barra de status](/assets/images/help/codespaces/jetbrains-branch-button.png)
 
-1. In the pop-up menu, do one of the following:
-   * To create a new branch based on the current branch, click the name of the current branch, then choose **New Branch**. 
+1. No menu pop-up, siga um destes procedimentos:
+   * Para criar um branch com base no branch atual, clique no nome do branch atual e escolha **Novo Branch**. 
 
-     ![Screenshot of the new branch option](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
+     ![Captura de tela da opção de novo branch](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
 
-     Enter a name for the new branch and click **Create**.
+     Insira um nome para o novo branch e clique em **Criar**.
 
-     ![Screenshot of the create branch dialog box](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
+     ![Captura de tela da caixa de diálogo Criar branch](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
 
-   * To check out an existing branch, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
+   * Para fazer check-out de um branch existente, comece a digitar o nome do branch. Clique no branch na lista e depois em **Check-out**.
 
-     ![Screenshot of the checkout option](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
+     ![Captura de tela da opção de check-out](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
 
      {% tip %}
 
-     **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace. 
+     **Dica**: se alguém alterar um arquivo no repositório remoto, essas alterações não aparecerão no branch para o qual você mudou, até que seja efetuado pull das alterações para o codespace. 
 
      {% endtip %}
 
 
-## Committing your changes 
+## Fazendo commit das suas alterações 
 
-1. At the right side of the navigation bar, click the check mark.
+1. No lado direito da barra de navegação, clique na marca de seleção.
 
-   ![Screenshot of the commit check mark](/assets/images/help/codespaces/jetbrains-commit-button.png)
+   ![Captura de tela da marca de seleção de commit](/assets/images/help/codespaces/jetbrains-commit-button.png)
 
-1. In the Commit Changes dialog box, enter a commit message.
-1. Click **Commit**.
+1. Na caixa de diálogo Fazer Commit das Alterações, insira uma mensagem de commit.
+1. Clique em **Confirmar**.
 
-   Alternatively, click the down arrow beside **Commit** and click **Commit and Push**.
+   Como alternativa, clique na seta para baixo ao lado de **Fazer commit** e clique **Fazer commit e enviar por push**.
 
-   ![Screenshot of the commit and push button](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
+   ![Captura de tela do botão Fazer commit e do botão de push](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
 
-## Pulling changes from the remote repository
+## Fazer pull das alterações do repositório remoto
 
-You can pull changes from the same branch on the remote repository and apply those changes to the copy of the repository you are working on in your codespace.
+Você pode efetuar pull de alterações do mesmo branch no repositório remoto e aplicar essas alterações à cópia do repositório em que está trabalhando no codespace.
 
-1. At the right side of the navigation bar, click the downward pointing arrow.
+1. No lado direito da barra de navegação, clique na seta que aponta para baixo.
 
-   ![Screenshot of the update project downward arrow button](/assets/images/help/codespaces/jetbrains-update-project-button.png)
+   ![Captura de tela do botão de seta para baixo de atualização do projeto](/assets/images/help/codespaces/jetbrains-update-project-button.png)
 
-1. In the Update Project dialog box, choose whether you want to merge or rebase the incoming changes.
+1. Na caixa de diálogo Atualizar Projeto, escolha se deseja mesclar ou trocar base das alterações de entrada.
 
-   ![Screenshot of the Update Project dialog box](/assets/images/help/codespaces/jetbrains-update-options.png)
+   ![Captura de tela da caixa de diálogo Atualizar Projeto](/assets/images/help/codespaces/jetbrains-update-options.png)
 
-1. Click **OK**.
+1. Clique em **OK**.
 
-## Pushing changes to your remote repository
+## Fazer push das alterações para o seu repositório remoto
 
-You can push changes you've saved and committed. This applies those changes to the upstream branch on the remote repository. You might want to do this if you're not yet ready to create a pull request, or if you prefer to create a pull request on {% data variables.product.prodname_dotcom %}.
+Você pode enviar por push as alterações salvas e confirmadas. Isso aplica essas alterações ao branch upstream no repositório remoto. Você pode querer fazer isso se ainda não estiver pronto para criar um pull request, ou se você preferir criar um pull request em {% data variables.product.prodname_dotcom %}.
 
-1. At the right side of the navigation bar, click the upward pointing arrow.
+1. No lado direito da barra de navegação, clique na seta que aponta para cima.
 
-   ![Screenshot of the push commits upward arrow](/assets/images/help/codespaces/jetbrains-push-button.png)
+   ![Captura de tela da seta para cima dos commits com push](/assets/images/help/codespaces/jetbrains-push-button.png)
 
-1. In the Push Commits dialog box, click **Push**.
+1. Na caixa de diálogo Efetuar Push de Commits, clique em **Efetuar Push**.
 
 {% endjetbrains %}

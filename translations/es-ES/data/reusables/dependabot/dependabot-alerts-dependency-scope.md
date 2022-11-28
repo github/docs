@@ -1,27 +1,11 @@
-The table below summarizes whether dependency scope is supported for various ecosystems and manifests, that is, whether {% data variables.product.prodname_dependabot %} can identify if a dependency is used for development or production.
+---
+ms.openlocfilehash: fe25bdae61de1f19af6cb1e9103df41c40f60510
+ms.sourcegitcommit: f392aa98511e0889d96af2e4a56e67f8adfb025f
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/18/2022
+ms.locfileid: "148172729"
+---
+En la tabla siguiente se resume si el ámbito de dependencia es compatible con varios ecosistemas y manifiestos; es decir, si {% data variables.product.prodname_dependabot %} puede identificar si se usa una dependencia para el desarrollo o la producción.
 
-| **Language** | **Ecosystem** | **Manifest file** | **Dependency scope supported** |
-|:---|:---:|:---:|:---|{% ifversion dependency-graph-dart-support %}
-| Dart | pub | pubspec.yaml |  ✔ |
-| Dart | pub | pubspec.lock |  ✔ |{% endif %}
-| Go | Go modules | go.mod | No, defaults to runtime |
-| Go | Go modules |	go.sum | No, defaults to runtime |
-| Java | Maven | pom.xml | ✔ `test` maps to development, else scope defaults to runtime |
-| JavaScript | npm | package.json | ✔ |
-| JavaScript | npm | package-lock.json | ✔ |
-| JavaScript |	yarn v1 | yarn.lock | No, defaults to runtime |
-| PHP | Composer | composer.json | ✔ |
-| PHP | Composer | composer.lock | ✔ |
-| Python | Poetry | poetry.lock | ✔ |
-| Python | Poetry | pyproject.toml | ✔ |
-| Python | pip | requirements.txt | ✔ Scope is development if the filename contains `test` or `dev`, else it is runtime |
-| Python | pip | pipfile.lock | ✔ |
-| Python | pip | pipfile | ✔ |
-| Ruby | RubyGems | Gemfile |	✔ |
-| Ruby | RubyGems | Gemfile.lock	| No, defaults to runtime |
-| Rust | Cargo | Cargo.toml | ✔ |
-| Rust | Cargo | Cargo.lock | No, defaults to runtime |
-| YAML | GitHub Actions | - | No, defaults to runtime |
-| .NET (C#, F#, VB, etc.) | NuGet | .csproj / .vbproj .vcxproj / .fsproj | No, defaults to runtime |
-| .NET | NuGet | packages.config | No, defaults to runtime |
-| .NET | NuGet | .nuspec | ✔ When the tag != runtime |
+| **Lenguaje** | **Ecosistema** | **Archivo de manifiesto** | **Ámbito de dependencia admitido** | |:---|:---:|:---:|:---|{% ifversion dependency-graph-dart-support %} | Dart | pub | pubspec.yaml |  ✔ | | Dart | pub | pubspec.lock |  ✔ |{% endif %} | Go | Módulos de Go | go.mod | No, el valor predeterminado es el entorno de ejecución | | Go | Módulos de Go | go.sum | No, el valor predeterminado es el entorno de ejecución | | Java | Maven | pom.xml | ✔ `test` se asigna a desarrollo; de lo contrario, el valor predeterminado es el entorno de ejecución | | JavaScript | npm | package.json | ✔ | | JavaScript | npm | package-lock.json | ✔ | | JavaScript |  yarn v1 | yarn.lock | No, el valor predeterminado es el entorno de ejecución | | PHP | Composer | composer.json | ✔ | | PHP | Composer | composer.lock | ✔ | | Python | Poetry | poetry.lock | ✔ | | Python | Poetry | pyproject.toml | ✔ | | Python | pip | requirements.txt | ✔ El ámbito es desarrollo si el nombre de archivo contiene `test` o `dev`; de lo contrario, es el entorno de ejecución | | Python | pip | pipfile.lock | ✔ | | Python | pip | pipfile | ✔ | | Ruby | RubyGems | Gemfile |   ✔ | | Ruby | RubyGems | Gemfile.lock    | No, el valor predeterminado es el entorno de ejecución | | Rust | Cargo | Cargo.toml | ✔ | | Rust | Cargo | Cargo.lock | No, el valor predeterminado es el entorno de ejecución | | YAML | GitHub Actions | - | No, el valor predeterminado es el entorno de ejecución | | .NET (C#, F#, VB, etc.) | NuGet | .csproj / .vbproj .vcxproj / .fsproj | No, el valor predeterminado es el entorno de ejecución | | .NET | NuGet | packages.config | No, el valor predeterminado es el entorno de ejecución | | .NET | NuGet | .nuspec | ✔ Cuando la etiqueta != runtime |

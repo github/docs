@@ -1,8 +1,8 @@
 ---
-title: Managing access to other repositories within your codespace
+title: Gestion de l’accès à d’autres dépôts dans votre codespace
 allowTitleToDifferFromFilename: true
 shortTitle: Repository access
-intro: 'You can manage the repositories that {% data variables.product.prodname_github_codespaces %} can access.'
+intro: 'Vous pouvez gérer les référentiels auxquels {% data variables.product.prodname_github_codespaces %} a accès.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,26 +11,31 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces
+ms.openlocfilehash: 3f8379c322bd7ccd9ff7d31e17da90a77461536d
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159695'
 ---
+## Vue d’ensemble
 
-## Overview
+Par défaut, votre codespace se voit attribuer un jeton délimité au dépôt à partir duquel il a été créé. Quand vous publiez un codespace que vous avez créé à partir d’un modèle dans un nouveau dépôt sur {% data variables.product.product_name %}, un jeton délimité au nouveau dépôt est affecté au codespace. Pour plus d’informations, consultez « [Sécurité dans {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication). » Si votre projet a besoin d’autorisations supplémentaires pour d’autres dépôts, vous pouvez les configurer dans le fichier `devcontainer.json` et vérifier que les autres collaborateurs disposent de l’ensemble d’autorisations approprié.
 
-By default, your codespace is assigned a token scoped to the repository from which it was created. When you publish a codespace that you created from a template to a new repository on {% data variables.product.product_name %}, the codespace is assigned a token scoped to the new repository. For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)." If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file and ensure other collaborators have the right set of permissions.
+Quand des autorisations sont listées dans le fichier `devcontainer.json`, vous êtes invité à passer en revue et autoriser les autorisations supplémentaires dans le cadre de la création du codespace pour ce dépôt. Une fois que vous avez autorisé les autorisations listées, {% data variables.product.prodname_github_codespaces %} mémorise votre choix et ne vous demande pas d’autorisation, sauf si les autorisations figurant dans le fichier `devcontainer.json` changent.
 
-When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
+## Prérequis
 
-## Prerequisites
+Pour créer des codespaces avec des autorisations personnalisées définies, vous devez utiliser l’une des options suivantes :
+* L’interface utilisateur web de {% data variables.product.prodname_dotcom %}
+* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 ou version ultérieure
+* [Extension de {% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 ou version ultérieure
 
-To create codespaces with custom permissions defined, you must use one of the following:
-* The {% data variables.product.prodname_dotcom %} web UI
-* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 or later
-* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
+## Définition d’autorisations de dépôt supplémentaires
 
-## Setting additional repository permissions
+1. Vous configurez les autorisations de dépôt pour {% data variables.product.prodname_github_codespaces %} dans le fichier `devcontainer.json`. Si votre dépôt ne contient pas encore de fichier `devcontainer.json`, ajoutez-en un maintenant. Pour plus d’informations, consultez « [Ajouter un conteneur de développement à votre projet](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces) ».
 
-1. You configure repository permissions for {% data variables.product.prodname_github_codespaces %} in the `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, "[Add a dev container to your project](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
-
-1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
+1. Modifiez le fichier `devcontainer.json`, en ajoutant le nom du dépôt et les autorisations nécessaires à l’objet `repositories` :
 
   ```json{:copy}
   {
@@ -50,25 +55,25 @@ To create codespaces with custom permissions defined, you must use one of the fo
 
   {% note %}
 
-  **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+  **Remarque :** Vous pouvez uniquement référencer des dépôts qui appartiennent au même compte personnel ou à la même organisation que le dépôt dans lequel vous travaillez actuellement.
 
   {% endnote %}
 
-  You can grant as many or as few of the following permissions for each repository listed:
-   * `actions` - read / write
-   * `checks` - read / write
-   * `contents` - read / write
-   * `deployments` - read / write
-   * `discussions` - read / write
-   * `issues` - read / write
-   * `packages` - read
-   * `pages` - read / write
-   * `pull_requests` - read / write
-   * `repository_projects` - read / write
-   * `statuses` - read / write
-   * `workflows` - write
+  Vous pouvez octroyer le nombre souhaité d’autorisations suivantes pour chaque dépôt listé :
+   * `actions` – lecture / écriture
+   * `checks` – lecture / écriture
+   * `contents` – lecture / écriture
+   * `deployments` – lecture / écriture
+   * `discussions` – lecture / écriture
+   * `issues` – lecture / écriture
+   * `packages` – lecture
+   * `pages` – lecture / écriture
+   * `pull_requests` – lecture / écriture
+   * `repository_projects` – lecture / écriture
+   * `statuses` – lecture / écriture
+   * `workflows` – écriture
 
-  To set a permission for all repositories in an organization, use the `*` wildcard following your organization name in the `repositories` object.
+  Pour définir une autorisation pour tous les dépôts au sein d’une organisation, utilisez le caractère générique `*` après le nom de votre organisation dans l’objet `repositories`.
 
   ```json
   {
@@ -86,7 +91,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
   }
   ```
 
-  To set all permissions for a given repository, use `"permissions": "read-all"` or `"permissions": "write-all"` in the repository object.
+  Pour définir toutes les autorisations pour un dépôt donné, utilisez `"permissions": "read-all"` ou `"permissions": "write-all"` dans l’objet de dépôt.
 
   ```json
   {
@@ -102,32 +107,31 @@ To create codespaces with custom permissions defined, you must use one of the fo
   }
   ```
 
-## Authorizing requested permissions
+## Acceptation des autorisations demandées
 
-If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace or a prebuild configuration for this repository. When you authorize permissions for a repository, {% data variables.product.prodname_github_codespaces %} will not re-prompt you unless the set of requested permissions has changed for the repository.
+Si des autorisations de dépôt supplémentaires sont définies dans le fichier `devcontainer.json`, vous êtes invité à les passer en revue et éventuellement de les accepter quand vous créez un codespace ou une configuration de prébuild pour ce dépôt. Quand vous acceptez des autorisations pour un dépôt, {% data variables.product.prodname_github_codespaces %} ne vous réinvite pas à les passer en revue, sauf si l’ensemble d’autorisations demandées a changé pour le dépôt.
 
-![The requested permissions page](/assets/images/help/codespaces/codespaces-accept-permissions.png)
+![Page des autorisations demandées](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 
-You should only authorize permissions for repositories you know and trust. If you don't trust the set of requested permissions, click **Continue without authorizing** to create the codespace with the base set of permissions. Rejecting additional permissions may impact the functionality of your project within the codespace as the codespace will only have access to the repository from which it was created.
+Vous devez uniquement accepter les autorisations pour les dépôts que vous connaissez et en lesquels vous avez confiance. Si vous n’approuvez pas l’ensemble des autorisations demandées, cliquez sur **Continuer sans autoriser** pour créer le codespace avec l’ensemble d’autorisations de base. Le refus d’autorisations supplémentaires peut avoir des répercussions sur le fonctionnement de votre projet au sein du codespace, car ce dernier n’a alors accès qu’au dépôt à partir duquel il a été créé.
 
-You can only authorize permissions that your personal account already possesses. If a codespace requests permissions for repositories that you don't currently have access to, contact an owner or admin of the repository to obtain sufficient access and then try to create a codespace again.
+Vous pouvez uniquement accepter des autorisations que votre compte personnel possède déjà. Si un codespace demande des autorisations pour des dépôts auxquels vous n’avez pas actuellement accès, contactez leur propriétaire ou administrateur pour obtenir l’accès suffisant, puis réessayez de créer un codespace.
 
-## Access and security
+## Accès et sécurité
 
 {% warning %}
 
-**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. To enable expanded access to other repositories, add the requested permissions to your dev container definition for your codespace, as described above.
+**Note de dépréciation** : Le paramètre d’accès et de sécurité décrit ci-dessous est maintenant déprécié et documenté ici pour référence uniquement. Pour permettre un accès étendu à d’autres dépôts, ajoutez les autorisations demandées à la définition de votre conteneur de développement pour votre codespace, comme décrit ci-dessus.
 
 {% endwarning %}
 
-When you enable access and security for a repository owned by your personal account, any codespaces that are created for that repository will have read permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. You should only enable access and security for repositories you trust. 
+Quand vous activez l’accès et la sécurité d’un dépôt dont votre compte personnel est propriétaire, tous les codespaces créés pour ce dépôt ont des autorisations d’accès en lecture à tous les autres dépôts que vous possédez. Si vous voulez restreindre les dépôts auxquels un codespace peut accéder, vous pouvez le limiter au dépôt pour lequel le codespace a été ouvert ou à des dépôts spécifiques. Vous devez uniquement activer l’accès et la sécurité pour les dépôts auxquels vous faites confiance. 
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Access and security", select the setting you want for your personal account.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Sous « Accès et sécurité », sélectionnez le paramètre que vous voulez pour votre compte personnel.
 
-  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
+  ![Cases d’option pour gérer les dépôts approuvés](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
 
-1. If you chose "Selected repositories", select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat for all repositories whose codespaces you want to access other repositories you own.
+1. Si vous avez choisi « Dépôts sélectionnés », sélectionnez le menu déroulant, puis cliquez sur un dépôt pour autoriser les codespaces du dépôt à accéder aux autres dépôts qui vous appartiennent. Répétez cette opération pour tous les dépôts dont les codespaces ont besoin de pouvoir accéder aux autres dépôts dont vous êtes propriétaire.
 
-  !["Selected repositories" dropdown menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+  ![Menu déroulant « Dépôts sélectionnés »](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)

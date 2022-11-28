@@ -7,12 +7,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: 2a329c7c0a7f1943f7515059c3f376fa36ea29b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3a8a21f04582b87741ef80755e92fbc859921bb5
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145105382'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179668'
 ---
 {% note %}
 
@@ -68,8 +68,8 @@ Pour chaque élément de formulaire, vous pouvez définir les clés suivantes.
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | Type d’élément à définir. | Obligatoire | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
 | `id` | Identificateur de l’élément, sauf quand `type` a la valeur `markdown`. {% data reusables.form-schema.id-must-be-unique %} S’il est fourni, `id` est l’identificateur canonique du champ dans le préremplissage des paramètres de requête d’URL. | Facultatif | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | Ensemble de paires clé-valeur qui définissent les propriétés de l’élément.  | Obligatoire | Hachage | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | Ensemble de paires clé-valeur qui définissent des contraintes sur l’élément. | Facultatif | Hachage | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | Ensemble de paires clé-valeur qui définissent les propriétés de l’élément.  | Obligatoire | Mappage | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | Ensemble de paires clé-valeur qui définissent des contraintes sur l’élément. | Facultatif | Mappage | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 Vous pouvez choisir l’un des types d’élément de formulaire suivants. Chaque type a des attributs et des validations uniques.
 
@@ -248,7 +248,15 @@ Vous pouvez utiliser l’élément `checkboxes` pour ajouter un ensemble de case
 | `description` | Description de l’ensemble des cases à cocher, qui s’affiche dans le formulaire. Prend en charge la mise en forme en Markdown. | Facultatif | String | Chaîne vide | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | Tableau de cases à cocher que l’utilisateur peut sélectionner. Pour la syntaxe, consultez les informations ci-dessous. | Obligatoire | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
+
+#### Validations
+
+{% data reusables.form-schema.validations-intro %}
+
+| Clé | Description | Obligatoire | Type | Default | Valeurs valides |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
 
 #### Exemple
 

@@ -15,12 +15,12 @@ versions:
 type: overview
 topics:
   - Codespaces
-ms.openlocfilehash: a1618c86671bc5b06474c41803c6b34576a897aa
-ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.openlocfilehash: 9d01df3f8dae7ceb788e2dd57b02fb3cc977400d
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160799'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164322'
 ---
 ## Qu’est-ce qu’un codespace ?
 

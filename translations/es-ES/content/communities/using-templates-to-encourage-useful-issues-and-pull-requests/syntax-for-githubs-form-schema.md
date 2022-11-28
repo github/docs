@@ -7,12 +7,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: 2a329c7c0a7f1943f7515059c3f376fa36ea29b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3a8a21f04582b87741ef80755e92fbc859921bb5
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145117577'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179673'
 ---
 {% note %}
 
@@ -68,8 +68,8 @@ Para cada elemento de formato, puedes configurar las siguientes claves.
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | El tipo de elemento que quieres definir. | Obligatorio | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
 | `id` | Identificador del elemento, excepto cuando `type` se establece en `markdown`. {% data reusables.form-schema.id-must-be-unique %} Si se proporciona, `id` es el identificador canónico para el campo en los valores previamente rellenados de parámetro de la consulta de URL. | Opcionales | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | Un conjunto de pares clave-valor que definen las propiedades del elemento.  | Obligatorio | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | Un conjunto de pares de clave-valor que configuran las restricciones en el elemento. | Opcionales | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | Un conjunto de pares clave-valor que definen las propiedades del elemento.  | Obligatorio | Asignación | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | Un conjunto de pares de clave-valor que configuran las restricciones en el elemento. | Opcionales | Asignación | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 Puedes elegir desde los siguientes tipos de elementos de formato. Cada tipo tiene atributos y validaciones únicos.
 
@@ -248,7 +248,15 @@ Puede usar el elemento `checkboxes` para agregar un conjunto de casillas al form
 | `description` | Una descripción del conjunto de casillas de verificación, la cual se muestra en el formato. Es compatible con el formateo de lenguaje de marcado. | Opcionales | String | Cadena vacía | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | Un arreglo de casillas de verificación que puede seleccionar el usuario. Para conocer la sintaxis, consulta a continuación. | Obligatorio | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
+
+#### Validaciones
+
+{% data reusables.form-schema.validations-intro %}
+
+| Clave | Descripción | Obligatorio | Tipo | Valor predeterminado | Valores válidos |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
 
 #### Ejemplo
 

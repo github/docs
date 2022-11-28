@@ -63,7 +63,7 @@ includeGuides:
   - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
   - /admin/configuration/initializing-github-ae
   - /admin/configuration/network-ports
-  - /admin/configuration/restricting-network-traffic-to-your-enterprise
+  - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/configuration/site-admin-dashboard
   - /admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer

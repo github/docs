@@ -1,6 +1,6 @@
 ---
-title: Renaming a codespace
-intro: 'You can change the codespace display name to one of your choice through {% data variables.product.prodname_dotcom_the_website %} or the {% data variables.product.prodname_cli %}.'
+title: 重命名 codespace
+intro: '可以通过 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_cli %} 将 codespace 显示名称更改为所选名称之一。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,69 +10,74 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Rename a codespace
+ms.openlocfilehash: dcb4558cce7ca0768524917a46cde2a49bacd1ce
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158715'
 ---
+## 关于重命名 codespace
 
-## About renaming a codespace
+为每个 codespace 分配一个自动生成的显示名称。 如果有多个 codespace，则显示名称有助于区分不同 codespace。 例如：`literate space parakeet`。 可以更改 codespace 的显示名称。
 
-Each codespace is assigned an auto-generated display name. If you have multiple codespaces, the display name helps you to differentiate between codespaces. For example: `literate space parakeet`. You can change the display name for your codespace.
+若要查找 codespace 的显示名称，请执行以下操作：
 
-To find the display name of a codespace:
+- 在 {% data variables.product.product_name %} 上，在 https://github.com/codespaces 处查看 codespace 列表。
 
-- On {% data variables.product.product_name %}, view your list of codespaces at https://github.com/codespaces.
+  ![GitHub 中 codespace 列表的屏幕截图](/assets/images/help/codespaces/codespaces-list-display-name.png)
 
-  ![Screenshot of the list of codespaces in GitHub](/assets/images/help/codespaces/codespaces-list-display-name.png)
+- 在 {% data variables.product.prodname_vscode %} 桌面应用程序中，或在 {% data variables.product.prodname_vscode_shortname %} Web 客户端中，单击远程资源管理器。 显示名称是列表中的第二项。 例如：以下屏幕截图中的 `symmetrical space telegram`。
 
-- In the {% data variables.product.prodname_vscode %} desktop application, or the {% data variables.product.prodname_vscode_shortname %} web client, click the Remote Explorer. The display name is the second item in the list. For example: `symmetrical space telegram` in the screenshot below.
-
-  ![Screenshot of the Remote Explorer in VS Code](/assets/images/help/codespaces/codespaces-remote-explorer.png)
+  ![VS Code 中远程资源管理器的屏幕截图](/assets/images/help/codespaces/codespaces-remote-explorer.png)
 
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=2 %}
-- In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`. 
+- 在本地计算机上的终端窗口中，使用这条 {% data variables.product.prodname_cli %} 命令：`gh codespace list`。 
 
-### Permanent codespace names
+### 永久 codespace 名称
 
-In addition to the display name, when you create a codespace, a permanent name is also assigned to the codespace. The name is a combination of your {% data variables.product.company_short %} handle, and the auto-generated display name. For example: `octocat-literate-space-parakeet-mld5`. You can't change the permanent name.
+创建 codespace 时，除了显示名称，还会向 codespace 分配永久名称。 该名称是 {% data variables.product.company_short %} 句柄以及自动生成的显示名称的组合。 例如：`octocat-literate-space-parakeet-mld5`。 无法更改永久名称。
 
-To find the permanent name of a codespace:
+若要查找 codespace 的永久名称，请执行以下操作：
 
-* On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the display name of a codespace on https://github.com/codespaces. 
+* 在 {% data variables.product.product_name %} 上，将鼠标悬停在 https://github.com/codespaces 上 codespace 的显示名称上时，永久名称会显示在弹出窗口中。 
 
-   ![Screenshot of the codespace name shown on hover over](/assets/images/help/codespaces/find-codespace-name-github.png)
+   ![悬停时显示的 codespace 名称的屏幕截图](/assets/images/help/codespaces/find-codespace-name-github.png)
    
-* In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
-* In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
+* 在 codespace 中，在终端中使用此命令：`echo $CODESPACE_NAME`。
+* 在本地计算机上的终端窗口中，使用这条 {% data variables.product.prodname_cli %} 命令：`gh codespace list`。
 
-## Renaming a codespace
+## 重命名 codespace
 
-Changing the display name of a codespace can be useful if you have multiple codespaces that you will be using for an extended period. An appropriate name helps you identify a codespace that you use for a particular purpose. 
+如果有多个要在较长时间内使用的 codespace，更改 codespace 的显示名称可能很有用。 适当的名称有助于识别用于特定用途的 codespace。 
 
 {% cli %}
 
-You can change the display name for your codespace by using the {% data variables.product.prodname_cli %}.
+可以使用 {% data variables.product.prodname_cli %} 更改 codespace 的显示名称。
 
-To rename a codespace, use the `gh codespace edit` subcommand:
+若要为 codespace 重命名，请使用 `gh codespace edit` 子命令：
 
 ```shell
 gh codespace edit -c PERMANENT-CODESPACE-NAME -d NEW-DISPLAY-NAME
 ```
 
-In this example, replace `PERMANENT-CODESPACE-NAME` with the permanent name of the codespace whose display name you want to change. Replace `NEW-DISPLAY-NAME` with the display name you want to use for this codespace.
+在本例中，用想要更改其显示名称的 codespace 的永久名称替换 `PERMANENT-CODESPACE-NAME`。 用想用于此 codespace 的显示名称替换 `NEW-DISPLAY-NAME`。
 
-For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#rename-a-codespace)."
+有关详细信息，请参阅“[将 {% data variables.product.prodname_github_codespaces %} 与 {% data variables.product.prodname_cli %} 配合使用](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#rename-a-codespace)。
 
 {% endcli %}
 
 {% webui %}
 
-You can change the display name for your codespace on {% data variables.product.prodname_dotcom_the_website %}.
+可以在 {% data variables.product.prodname_dotcom_the_website %} 上更改 codespace 的显示名称。
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
     The current display name for each of your codespaces is displayed.
 
 {% data reusables.codespaces.ellipsis-settings %}
-1. Click **Rename**.
+1. 单击“重命名”。
 
-1. In the prompt, under "Change display name to..." type your desired display name and click **OK**.
+1. 在提示符中，在“将显示名称更改为...”下键入所需的显示名称，然后单击“ 确定”。
 
 {% endwebui %}

@@ -841,6 +841,27 @@ registries:
 ```
 {% endraw %}
 
+{% ifversion dependabot-hex-self-hosted-support %}
+### `hex-repository`
+
+The `hex-repository` type supports an authentication key.
+
+`repo` is a required field, which must match the name of the repository used in your dependency declaration.
+
+The `public-key-fingerprint` is an optional configuration field, representing the fingerprint of the public key for the Hex repository. `public-key-fingerprint` is used by Hex to establish trust with the private repository. The `public-key-fingerprint` field can be either listed in plaintext or stored as a {% data variables.product.prodname_dependabot %} secret.
+
+{% raw %}
+```yaml
+registries:
+   github-hex-repository:
+     type: hex-repository
+     repo: private-repo
+     url: https://private-repo.example.com
+     auth-key: ${{secrets.MY_AUTH_KEY}}
+     public-key-fingerprint: ${{secrets.MY_PUBLIC_KEY_FINGERPRINT}}
+```
+{% endraw %}{% endif %}
+
 ### `maven-repository`
 
 The `maven-repository` type supports username and password.

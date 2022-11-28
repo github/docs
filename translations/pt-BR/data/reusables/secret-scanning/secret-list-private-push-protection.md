@@ -41,6 +41,8 @@ Doppler | Doppler Audit Token | doppler_audit_token
 Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token
 Duffel | Duffel Live Access Token | duffel_live_access_token
 EasyPost | EasyPost Production API Key | easypost_production_api_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Figma | Figma {% data variables.product.pat_generic_title_case %} | figma_pat{% endif %}
 Flutterwave | Flutterwave Live API Secret Key | flutterwave_live_api_secret_key
 Fullstory | FullStory API Key | fullstory_api_key
 GitHub | GitHub {% data variables.product.pat_generic_title_case %} | github_personal_access_token
