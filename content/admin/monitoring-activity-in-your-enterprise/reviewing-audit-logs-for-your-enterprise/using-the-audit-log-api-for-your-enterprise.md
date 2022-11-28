@@ -139,10 +139,15 @@ curl -H "Authorization: Bearer TOKEN" \
 
 ### Example 3: Using cursor based pagination 
 
-Cursor based pagination uses terms `before` and `after` using links found within the [header of the API request](/rest/guides/getting-started-with-the-rest-api#about-the-response-code-and-headers). For further information,
-see [Traversing with Pagination](/rest/guides/traversing-with-pagination). 
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination). The `--include` flag causes the headers to be returned along with the response.
 
-Example of header links in header output:
+```
+curl --include -H "Authorization: Bearer TOKEN" \
+--request GET \
+"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&per_page=100"
+```
+
+If there are more than 100 results, the `link` header will include URLs to fetch the next, first, and previous pages of results.
 
 ```
 link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next", 
