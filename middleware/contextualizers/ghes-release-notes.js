@@ -1,22 +1,13 @@
-import { merge } from 'lodash-es'
-
 import { formatReleases, renderPatchNotes } from '../../lib/release-notes-utils.js'
 import { all } from '../../lib/enterprise-server-releases.js'
-import { getDeepDataByLanguage } from '../../lib/get-data.js'
+import { getReleaseNotes } from './get-release-notes.js'
 
 export default async function ghesReleaseNotesContext(req, res, next) {
   if (!(req.pagePath.endsWith('/release-notes') || req.pagePath.endsWith('/admin'))) return next()
   const [requestedPlan, requestedRelease] = req.context.currentVersion.split('@')
   if (requestedPlan !== 'enterprise-server') return next()
 
-  const ghesReleaseNotesEnglish = getDeepDataByLanguage('release-notes.enterprise-server', 'en')
-  const ghesReleaseNotesTranslated = getDeepDataByLanguage(
-    'release-notes.enterprise-server',
-    req.language
-  )
-  const ghesReleaseNotes = {}
-  merge(ghesReleaseNotes, ghesReleaseNotesEnglish)
-  merge(ghesReleaseNotes, ghesReleaseNotesTranslated)
+  const ghesReleaseNotes = getReleaseNotes('enterprise-server', req.language)
 
   // If the requested GHES release isn't found in data/release-notes/enterprise-server/*,
   // and it IS a valid GHES release, try being helpful and redirecting to the old location.
