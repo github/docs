@@ -25,7 +25,7 @@ By default, authorized users can access your enterprise from any IP address. You
 
 {% ifversion ghec %}
 
- If your enterprise uses {% data variables.product.prodname_emus %} with OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
+If your enterprise uses {% data variables.product.prodname_emus %} with OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
 
 {% elsif ghae %}
 
@@ -44,8 +44,6 @@ You can use {% data variables.product.company_short %}'s IP allow list to contro
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
-
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
 ## About your IdP's allow list
 
