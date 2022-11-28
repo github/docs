@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5eaf0aa831a27f61216ae9574df61fe7445f2f94
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 48ae9b37a06105b30d9d4bc5d50bc0795443417e
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148108665"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180020"
 ---
-1. Sous « Vérifier votre adresse IP », entrez une adresse IP.
+1. Sous « Vérifier l’adresse IP », entrez une adresse IP.
    ![Capture d’écran du champ de texte « Vérifier votre adresse IP »](/assets/images/help/security/check-ip-address.png)

@@ -702,6 +702,7 @@ translations/ko-KR/content/code-security/adopting-github-advanced-security-at-sc
 translations/ko-KR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/ko-KR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/ko-KR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
+translations/ko-KR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,rendering error
 translations/ko-KR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/ko-KR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container.md,rendering error
 translations/ko-KR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
@@ -970,6 +971,7 @@ translations/ko-KR/content/packages/learn-github-packages/introduction-to-github
 translations/ko-KR/content/packages/learn-github-packages/publishing-a-package.md,rendering error
 translations/ko-KR/content/packages/learn-github-packages/viewing-packages.md,rendering error
 translations/ko-KR/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
+translations/ko-KR/content/packages/quickstart.md,rendering error
 translations/ko-KR/content/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry.md,rendering error
 translations/ko-KR/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,rendering error
 translations/ko-KR/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
@@ -1144,7 +1146,6 @@ translations/ko-KR/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md
 translations/ko-KR/data/reusables/audit_log/retention-periods.md,rendering error
 translations/ko-KR/data/reusables/branches/new-repo-default-branch.md,rendering error
 translations/ko-KR/data/reusables/classroom/about-autograding.md,rendering error
-translations/ko-KR/data/reusables/code-scanning/autobuild-add-build-steps.md,rendering error
 translations/ko-KR/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,rendering error
 translations/ko-KR/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
 translations/ko-KR/data/reusables/code-scanning/codeql-languages-keywords.md,rendering error
@@ -1300,7 +1301,6 @@ translations/ko-KR/data/reusables/scim/supported-idps.md,rendering error
 translations/ko-KR/data/reusables/search/syntax_tips.md,rendering error
 translations/ko-KR/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,rendering error
 translations/ko-KR/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
-translations/ko-KR/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/ko-KR/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/ko-KR/data/reusables/security-overview/permissions.md,rendering error
 translations/ko-KR/data/reusables/security/displayed-information.md,rendering error
@@ -1310,7 +1310,6 @@ translations/ko-KR/data/reusables/ssh/about-ssh.md,rendering error
 translations/ko-KR/data/reusables/ssh/key-type-support.md,rendering error
 translations/ko-KR/data/reusables/ssh/rsa-sha-1-connection-failure-criteria.md,rendering error
 translations/ko-KR/data/reusables/support/help_resources.md,rendering error
-translations/ko-KR/data/reusables/support/scope-of-support.md,broken liquid tags
 translations/ko-KR/data/reusables/support/submit-a-ticket.md,rendering error
 translations/ko-KR/data/reusables/user-settings/access_applications.md,rendering error
 translations/ko-KR/data/reusables/user-settings/account_settings.md,rendering error

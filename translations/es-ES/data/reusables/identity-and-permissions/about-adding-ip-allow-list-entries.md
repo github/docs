@@ -1,3 +1,11 @@
-You can create an IP allow list by adding entries that each contain an IP address or address range. After you finish adding entries, you can check whether a particular IP address would be allowed by any of the enabled entries in your list.
+---
+ms.openlocfilehash: ba27097b12d25f6c6b9688f764e380eb2fc937b1
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180041"
+---
+Puedes crear una lista de direcciones IP permitidas agregando entradas que contienen una dirección IP o un intervalo de direcciones. Cuando hayas terminado de agregar entradas, puedes comprobar si cualquiera de las entradas habilitadas de la lista permitiría una dirección IP determinada.
 
-Before the list restricts access to {% ifversion ghae %}your enterprise{% else %}private assets owned by organizations in your enterprise{% endif %}, you must also enable allowed IP addresses.
+Antes de que la lista restrinja el acceso a {% ifversion ghae %}tu empresa{% else %}los activos privados propiedad de las organizaciones de tu empresa{% endif %}, también debes habilitar las direcciones IP permitidas.

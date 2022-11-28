@@ -17,12 +17,12 @@ redirect_from:
   - /codespaces/codespaces-reference/about-billing-for-codespaces
   - /codespaces/codespaces-reference/understanding-billing-for-codespaces
   - /codespaces/codespaces-reference/understanding-billing-for-github-codespaces.md
-ms.openlocfilehash: 2de93801a9ee3aef0ed54a5b3f9328b58ccfddff
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 24410721878cd77d2528a4d9e8c91633725ce661
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159277'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179548'
 ---
 ## {% data variables.product.prodname_github_codespaces %}-Preise
 
@@ -44,12 +44,14 @@ Folgende Speicherkapazität und Kernstunden sind bei persönlichen Konten kosten
 
 | Kontoplan | Speicher pro Monat | Kernstunden pro Monat |
 | ------------ | ----------------- | -------------------- |
-| {% data variables.product.prodname_dotcom %} Free für persönliche Konten | 15 GB | 120 |
-| {% data variables.product.prodname_dotcom %} Pro                        | 20 GB | 180 |
+| {% data variables.product.prodname_dotcom %} Free für persönliche Konten | 15 GB-Monat | 120 |
+| {% data variables.product.prodname_dotcom %} Pro                        | 20 GB-Monat | 180 |
 
 {% note %}
 
-**Hinweis:** Eine „Kernstunde“ ist ein Measure für die enthaltene Computenutzung. Zur Berechnung der Kernstunden wird die Anzahl von Stunden, für die ein Codespace aktiv war, mit dem Multiplikator in der weiter unten bereitgestellten Preistabelle multipliziert. Bei den einfachen Computertypen ist der Multiplikator die Anzahl von Prozessorkernen des Computers, der den Codespace hostet. Wenn du für deinen Codespace also beispielsweise einen Computer mit zwei Kernen verwendest und dieser eine Stunde lang aktiv ist, hast du zwei Kernstunden genutzt. Wenn du einen Computer mit acht Kernen eine Stunde lang verwendest, hast du acht Kernstunden genutzt. Wenn du einen Computer mit acht Kernen zwei Stunden lang verwendest, hast du 16 Kernstunden genutzt.
+**Hinweise**:
+- Bei der Speichereinheit „GB-Monat“ handelt es sich um eine zeitbasierte Messung, wobei „1 GB-Monat“ einer Speichernutzung von 1 GB für einen ganzen Monat entspricht. Der von allen Codespaces und Prebuilds belegte Speicherplatz wird einmal pro Stunde bewertet, und die aktuelle Nutzung für „GB-Monat“ wird neu berechnet. Wenn du also über Codespaces und Prebuilds verfügst, erhöht sich deine Nutzung für „GB-Monat“ im Laufe des Monats. Wenn der Speicher beispielsweise insgesamt 15 GB umfasst und während deines monatlichen Abrechnungszeitraums unverändert bleibt, hast du nach der Hälfte des Monats 7,5 GB und am Ende des Monats 15 GB verbraucht. Weitere Informationen findest du weiter unten unter [Abrechnung für die Speichernutzung](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage).
+- Eine „Kernstunde“ ist ein Measure für die enthaltene Computenutzung. Zur Berechnung der Kernstunden wird die Anzahl von Stunden, für die ein Codespace aktiv war, mit dem Multiplikator in der weiter unten bereitgestellten Preistabelle multipliziert. Bei den einfachen Computertypen ist der Multiplikator die Anzahl von Prozessorkernen des Computers, der den Codespace hostet. Wenn du für deinen Codespace also beispielsweise einen Computer mit zwei Kernen verwendest und dieser eine Stunde lang aktiv ist, hast du zwei Kernstunden genutzt. Wenn du einen Computer mit acht Kernen eine Stunde lang verwendest, hast du acht Kernstunden genutzt. Wenn du einen Computer mit acht Kernen zwei Stunden lang verwendest, hast du 16 Kernstunden genutzt.
 
 {% endnote %}
 

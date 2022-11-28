@@ -1,6 +1,6 @@
 ---
-title: Using the Visual Studio Code Command Palette in GitHub Codespaces
-intro: 'You can use the Command Palette feature of {% data variables.product.prodname_vscode %} to access many commands in {% data variables.product.prodname_github_codespaces %}.'
+title: 在 GitHub Codespaces 中使用 Visual Studio Code 命令面板
+intro: '你可以使用 {% data variables.product.prodname_vscode %} 的命令面板功能来访问 {% data variables.product.prodname_github_codespaces %} 中的许多命令。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,62 +12,67 @@ shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
+ms.openlocfilehash: acd462dd1c0b60dced529d7471b9c8638e2f6e91
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180809'
 ---
+## 关于 {% data variables.product.prodname_vscode_command_palette %}
 
-## About the {% data variables.product.prodname_vscode_command_palette %}
+{% data variables.product.prodname_vscode_command_palette_shortname %} 是 {% data variables.product.prodname_vscode %} 的主要功能之一，可供你在 {% data variables.product.prodname_github_codespaces %} 中使用。 通过命令面板可以访问 {% data variables.product.prodname_github_codespaces %} 和 {% data variables.product.prodname_vscode_shortname %} 的许多命令。 有关使用 {% data variables.product.prodname_vscode_command_palette_shortname %} 的详细信息，请参阅 {% data variables.product.prodname_vscode_shortname %} 文档中的“[用户界面](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)”。
 
-The {% data variables.product.prodname_vscode_command_palette_shortname %} is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in {% data variables.product.prodname_github_codespaces %}. The Command Palette allows you to access many commands for {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information on using the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+## 访问 {% data variables.product.prodname_vscode_command_palette_shortname %}
 
-## Accessing the {% data variables.product.prodname_vscode_command_palette_shortname %}
+可以通过多种方式访问 {% data variables.product.prodname_vscode_command_palette_shortname %}。
 
-You can access the {% data variables.product.prodname_vscode_command_palette_shortname %} in a number of ways.
+- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac)/<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)。
 
-- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+  请注意，此命令是 Firefox 中保留的键盘快捷键。
+- F1
+- 从“应用程序”菜单，单击“查看”>“命令面板...”。
 
-  Note that this command is a reserved keyboard shortcut in Firefox.
-- <kbd>F1</kbd>
-- From the Application Menu, click **View > Command Palette…**.
+  ![应用程序菜单](/assets/images/help/codespaces/codespaces-view-menu.png)
 
-  ![The application menu](/assets/images/help/codespaces/codespaces-view-menu.png)
+## {% data variables.product.prodname_codespaces %} 的命令
 
-## Commands for {% data variables.product.prodname_codespaces %}
+要查看与 {% data variables.product.prodname_github_codespaces %} 相关的所有命令，请[访问 {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)，然后开始键入“Codespaces”。
 
-To see all commands related to {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "Codespaces".
+![与 {% data variables.product.prodname_github_codespaces %} 相关的所有命令的列表](/assets/images/help/codespaces/codespaces-command-palette.png)
 
-![A list of all commands that relate to {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/codespaces-command-palette.png)
+### 挂起或停止代码空间
 
-### Suspending or stopping a codespace
+如果添加新密钥或更换机器类型，则必须停止并重新启动代码空间才能应用更改。 
 
-If you add a new secret or change the machine type, you'll have to stop and restart the codespace for it to apply your changes. 
+要暂停或停止 codespace 的容器，请[访问 {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)，然后开始键入“stop”。 选择“Codespaces: 停止当前 Codespace”。
 
-To suspend or stop your codespace's container, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "stop". Select **Codespaces: Stop Current Codespace**.
+![停止代码空间的命令](/assets/images/help/codespaces/codespaces-stop.png)
 
-![Command to stop a codespace](/assets/images/help/codespaces/codespaces-stop.png)
+### 添加预定义的开发容器配置
 
-### Adding a predefined dev container configuration
+要添加预定义的开发容器配置，请[访问 {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)，然后开始键入“dev container”。 选择“Codespaces: 添加开发容器配置文件...”。
 
-To add a predefined dev container configuration, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**
+![添加开发容器的命令](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
-![Command to add a dev container](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+### 重建代码空间
 
-### Rebuilding a codespace
+如果添加开发容器或编辑任何配置文件（`devcontainer.json` 和 `Dockerfile`），则必须重新生成 codespace 才能应用所做的更改。 
 
-If you add a dev container or edit any of the configuration files (`devcontainer.json` and `Dockerfile`), you'll have to rebuild your codespace for it to apply your changes. 
+若要重新生成容器，请[访问 {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)，然后开始键入“rebuild”。 选择“代码空间: 重生成容器”。
 
-To rebuild your container, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "rebuild". Select **Codespaces: Rebuild Container**.
-
-![Command to rebuild a codespace](/assets/images/help/codespaces/codespaces-rebuild.png)
+![重建代码空间的命令](/assets/images/help/codespaces/codespaces-rebuild.png)
 
 {% data reusables.codespaces.full-rebuild-tip %}
 
-### Codespaces logs
+### Codespaces 日志
 
-You can use the {% data variables.product.prodname_vscode_command_palette_shortname %} to access the codespace creation logs, or you can use it export all logs. 
+可使用 {% data variables.product.prodname_vscode_command_palette_shortname %} 访问 codespace 创建日志，也可使用它导出所有日志。 
 
-To retrieve the logs for {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_github_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
+要检索 {% data variables.product.prodname_github_codespaces %} 的日志，请[访问 {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette)，然后开始键入“log”。 选择“Codespaces: 导出日志”以导出与 {% data variables.product.prodname_github_codespaces %} 相关的所有日志，或选择“Codespaces: 查看创建日志”以查看与设置相关的日志 。
 
-![Command to access logs](/assets/images/help/codespaces/codespaces-logs.png)
+![访问日志的命令](/assets/images/help/codespaces/codespaces-logs.png)
 
-## Further reading
+## 延伸阅读
 
-- "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
+- [使用 {% data variables.product.prodname_vscode %} 中的 {% data variables.product.prodname_github_codespaces %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)

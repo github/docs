@@ -1,26 +1,34 @@
+---
+ms.openlocfilehash: b40c432907d00f7bf7cf33a1f379ea3318ae8aa2
+ms.sourcegitcommit: cb39c15ab6ccfacf49f4b114b77e3b920fdddf70
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180668"
+---
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Runner image</b></th>
-    <th style="width:25%"><b>YAML workflow label</b></th>
-    <th style="width:40%"><b>Notes</b></th>
+    <th style="width:35%"><b>Image de l’exécuteur</b></th>
+    <th style="width:25%"><b>Étiquette de workflow YAML</b></th>
+    <th style="width:40%"><b>Remarques</b></th>
   </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-Windows Server 2022
+Windows Server 2022
 </td>
 <td>
-<code>windows-latest</code> or <code>windows-2022</code>
+<code>windows-latest</code> ou <code>windows-2022</code>
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
+L’étiquette <code>windows-latest</code> utilise actuellement l’image de l’exécuteur Windows Server 2022.
 </td>
 </tr>
 <tr>
 <td>
-Windows Server 2019
+Windows Server 2019
 </td>
 <td>
 <code>windows-2019</code>
@@ -30,7 +38,7 @@ Windows Server 2019
 </tr>
 <tr>
 <td>
-Ubuntu 22.04
+Ubuntu 22.04
 </td>
 <td>
 <code>ubuntu-22.04</code>
@@ -43,26 +51,26 @@ Ubuntu 22.04
 Ubuntu 20.04
 </td>
 <td>
-<code>ubuntu-latest</code> or <code>ubuntu-20.04</code>
+<code>ubuntu-latest</code> ou <code>ubuntu-20.04</code>
 </td>
 <td>
-The <code>ubuntu-latest</code> label is currently transitioning to the Ubuntu 22.04 runner image. During the transition, the label might refer to the runner image for either Ubuntu 20.04 or 22.04. For more information, see <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">this {% data variables.product.prodname_dotcom %} blog post</a>.
+L’étiquette <code>ubuntu-latest</code> est en cours de transition vers l’image d’exécuteur Ubuntu 22.04. Pendant la transition, l’étiquette peut faire référence à l’image d’exécuteur pour Ubuntu 20.04 ou 22.04. Pour plus d’informations, consultez <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">ce billet de blog {% data variables.product.prodname_dotcom %}</a>.
 </rd>
 </tr>
 <tr>
 <td>
-Ubuntu 18.04 <sup>[deprecated]</sup>
+Ubuntu 18.04 <sup>[déconseillé]</sup>
 </td>
 <td>
 <code>ubuntu-18.04</code>
 </td>
 <td>
-Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
+Migrer vers <code>ubuntu-20.04</code> ou <code>ubuntu-22.04</code>. Pour plus d’informations, consultez ce <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">billet de blog GitHub</A>.
 </td>
 </tr>
 <tr>
 <td>
-macOS Monterey 12
+macOS Monterey 12
 </td>
 <td>
 <code>macos-12</code>
@@ -70,24 +78,24 @@ macOS Monterey 12
 </tr>
 <tr>
 <td>
-macOS Big Sur 11
+macOS Big Sur 11
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-11</code>
+<code>macos-latest</code> ou <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label is currently transitioning to the macOS Monterey 12 runner image. During the transition, the label might refer to the runner image for either macOS 11 or 12. For more information, see <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">this {% data variables.product.prodname_dotcom %} blog post</a>.
+L’étiquette <code>macos-latest</code> est en cours de transition vers l’image d’exécuteur macOS Monterey 12. Pendant la transition, l’étiquette peut faire référence à l’image d’exécuteur pour macOS 11 ou 12. Pour plus d’informations, consultez <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">ce billet de blog {% data variables.product.prodname_dotcom %}</a>.
 </td>
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15 <sup>[deprecated]</sup>
+macOS Catalina 10.15 <sup>[déprécié]</sup>
 </td>
 <td>
 <code>macos-10.15</code>
 </td>
 <td>
-Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
+Migrer vers <code>macOS-11</code> ou <code>macOS-12</code>. Pour plus d’informations, consultez ce <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">billet de blog GitHub</A>.
 </td>
 </tr>
 </tbody>
@@ -95,12 +103,12 @@ Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information,
 
 {% note %}
 
-**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**Remarque :** Les images d’exécuteur `-latest` sont les dernières images stables que fournit {% data variables.product.prodname_dotcom %} et peuvent ne pas correspondre à la version la plus récente du système d’exploitation disponible auprès du fournisseur du système d’exploitation.
 
 {% endnote %}
 
 {% warning %}
 
-**Warning:** Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+**Avertissement :** Les images bêta et dépréciées sont fournies « en l’état », « avec toutes les imperfections » et « selon la disponibilité », et sont exclues du contrat de niveau de service et de la garantie. Les images bêta peuvent ne pas être couvertes par le service client.
 
 {% endwarning %}

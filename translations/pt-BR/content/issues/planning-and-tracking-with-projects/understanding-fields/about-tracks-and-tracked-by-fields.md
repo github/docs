@@ -1,6 +1,6 @@
 ---
-title: Sobre campos de acompanhamento e acompanhados por
-shortTitle: About Tracks and Tracked-by fields
+title: Sobre os campos Acompanhamentos e Acompanhado por
+shortTitle: About Tracks and Tracked by fields
 intro: Você pode exibir as subtarefas dos problemas nos projetos.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -8,18 +8,18 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 74cd26d20882a00ac8c7ac1d109cc6810286cec6
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 44c1fcf3ed4495b57a0f2dbe3e92076f0e815502
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159343'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180742'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
-Você pode habilitar os campos Acompanhamento e Acompanhados por nos projetos para ver as relações entre os problemas à medida que adiciona subtarefas em listas de tarefas. Para obter mais informações de como criar hierarquias de problemas em listas de tarefas, confira "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/about-tasklists)".
+Você pode habilitar os campos Acompanhamento e Acompanhados por nos projetos para ver as relações entre os problemas à medida que adiciona subtarefas nas listas de tarefas. Para obter mais informações de como criar hierarquias de problemas em listas de tarefas, confira "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/about-tasklists)".
 
-O campo Acompanhado por pode ser usado para agrupar itens, criando uma exibição que mostre claramente as subtarefas de cada problema e o trabalho necessário para concluí-las. Para obter mais informações, confira "[Agrupamento por valores de campo no layout de tabela](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#grouping-by-field-values-in-table-layout)".
+O campo Acompanhado por pode ser usado para agrupar itens, criando uma exibição que mostra claramente as subtarefas de cada problema e o trabalho necessário para concluí-las. Para obter mais informações, confira "[Agrupamento por valores de campo no layout de tabela](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#grouping-by-field-values-in-table-layout)".
 
 Você também pode filtrar pelo campo Acompanhado por para exibir apenas os itens que são acompanhados por problemas específicos. Comece a digitar "acompanhado por" e selecione um problema na lista ou, se você souber o repositório e o número do problema, digite o filtro abaixo na íntegra.
 
@@ -31,7 +31,7 @@ Para usar o filtro, substitua `<OWNER>` pelo proprietário do repositório, `<RE
 
 ### Como habilitar o campo Acompanhado por
 
-Você pode habilitar o campo Acompanhado por para ver quais problemas estão acompanhando um item no projeto.
+Você pode habilitar o campo Acompanhado por para ver quais problemas estão acompanhando um item do seu projeto.
 
 1. Na exibição de tabela, clique em {% octicon "plus" aria-label="the plus icon" %} no cabeçalho do campo mais à direita.
    
