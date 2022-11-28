@@ -23,6 +23,6 @@ to your Git database on {% data variables.product.product_name %}. Blobs leverag
 These are the supported media types for blobs.
 
     application/json
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 For more information, see "[Media types](/rest/overview/media-types)."

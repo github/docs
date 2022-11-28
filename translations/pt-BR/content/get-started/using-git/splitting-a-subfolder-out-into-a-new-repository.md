@@ -1,43 +1,49 @@
 ---
-title: Splitting a subfolder out into a new repository
+title: Dividir uma subpasta em um novo repositório
 redirect_from:
   - /articles/splitting-a-subpath-out-into-a-new-repository
   - /articles/splitting-a-subfolder-out-into-a-new-repository
   - /github/using-git/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/splitting-a-subfolder-out-into-a-new-repository
   - /github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository
-intro: You can turn a folder within a Git repository into a brand new repository.
+intro: Você pode transformar uma pasta em um repositório do Git repository em um novo repositório.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 shortTitle: Splitting a subfolder
+ms.openlocfilehash: e99c1c1411b335837b478b32f085596ec4f5fc0f
+ms.sourcegitcommit: 46eac8c63f52669996a9c832f2abf04864dc89ba
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172906'
 ---
-If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.
+Se você criar um clone do repositório, não perderá nenhuma alteração ou histórico do Git quando dividir uma pasta e criar um repositório separado.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. Change the current working directory to the location where you want to create your new repository.
+2. Altere o diretório de trabalho atual para o local em que deseja criar o novo repositório.
 
-4. Clone the repository that contains the subfolder.
+4. Clone o repositório que contém a subpasta.
    ```shell
    $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME
    ```
 
-4. Change the current working directory to your cloned repository.
+4. Altere o diretório de trabalho atual para o repositório clonado.
    ```shell
    $ cd REPOSITORY-NAME
    ```
 
-5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
-   - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
+5. Para filtrar a subpasta do restante dos arquivos no repositório, instale [`git-filter-repo`](https://github.com/newren/git-filter-repo), e execute `git filter-repo` com os argumentos a seguir.
+   - `FOLDER-NAME`: a pasta dentro do seu projeto onde você deseja criar um repositório separado.
 
    {% windows %}
 
    {% tip %}
 
-   **Tip:** Windows users should use `/` to delimit folders.
+   **Dica:** usuários do Windows devem usar `/` para delimitar pastas.
 
    {% endtip %}
 
@@ -50,33 +56,33 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    > Ref 'refs/heads/BRANCH-NAME' was rewritten
    ```
    
-   The repository should now only contain the files that were in your subfolder(s).
+   Agora o repositório deve conter apenas os arquivos que estava(m) na(s) subpasta(s).
 
-6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
+6. [Crie um repositório](/articles/creating-a-new-repository/) no {% data variables.product.product_name %}.
 
-7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
-	
-   ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. Na parte superior do seu novo repositório na página de Configuração Rápida de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar a URL do repositório remoto.
+    
+   ![Campo Copy remote repository URL (Copiar URL do repositório remote)](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    {% tip %}
 
-   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+   **Dica:** Para obter informações sobre a diferença entre URLs HTTPS e SSH, confira "[Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
    {% endtip %}
 
-8. Check the existing remote name for your repository. For example, `origin` or `upstream` are two common choices.
+8. Verifique o nome remoto do repositório. Por exemplo, `origin` ou `upstream` são duas opções comuns.
    ```shell
    $ git remote -v
    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (fetch)
    > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (push)
    ```
 
-9. Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
+9. Configure uma nova URL remota para o novo repositório usando o nome e a URL do repositório remote copiados na etapa 7.
    ```shell
    git remote set-url origin https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git
    ```
 
-10. Verify that the remote URL has changed with your new repository name.
+10. Verifique se a URL remota mudou com o nome do novo repositório.
     ```shell
     $ git remote -v
     # Verify new remote URL
@@ -84,7 +90,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
     > origin  https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git (push)
     ```
 
-11. Push your changes to the new repository on {% data variables.product.product_name %}.
+11. Faça push das alterações para o novo repositório no {% data variables.product.product_name %}.
     ```shell
     git push -u origin BRANCH-NAME
     ```

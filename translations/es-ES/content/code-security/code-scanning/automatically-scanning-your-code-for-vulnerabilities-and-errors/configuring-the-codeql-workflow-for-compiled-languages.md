@@ -4,6 +4,7 @@ shortTitle: Configure compiled languages
 intro: 'Puedes configurar cómo {% data variables.product.prodname_dotcom %} utiliza el {% data variables.code-scanning.codeql_workflow %} para escanear el código escrito en los lenguajes compilados para las vulnerabilidades y errores.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -25,12 +26,13 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: 91983e79a6381b4a38cbb1de4f6d7f228637b192
-ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+  - Kotlin
+ms.openlocfilehash: 4c594a9ca19064da6c017155fad27b37b083e7e3
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148161203'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182270'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -43,7 +45,7 @@ Puedes configurar a {% data variables.product.prodname_dotcom %} para que ejecut
 ##  Acerca de autobuild para {% data variables.product.prodname_codeql %}
 
 El {% data variables.product.prodname_code_scanning_capc %} funciona ejecutando consultas en una o varias bases de datos. Cada base de datos contiene una representación de todo el código de tu repositorio en un solo lenguaje.   
-En los lenguajes compilados C/C++, C#, {% ifversion codeql-go-autobuild %} Go,{% endif %} y Java, el proceso de poblar esta base de datos conlleva compilar el código y extraer los datos. {% data reusables.code-scanning.analyze-go %}
+En los lenguajes compilados C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %}{% ifversion codeql-kotlin-beta %} Kotlin {% endif %} y Java, el proceso de poblar esta base de datos conlleva compilar el código y extraer los datos. {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -107,7 +109,7 @@ El proceso `autobuild` intenta detectar automáticamente una forma adecuada de i
 
 {% endif %}
 
-### Java
+### Java {% ifversion codeql-kotlin-beta %} y Kotlin {% endif %}
 
 | Tipo de sistema compatible | Nombre del sistema |
 |----|----|

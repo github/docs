@@ -1,6 +1,6 @@
 ---
-title: Initializing the cluster
-intro: 'A {% data variables.product.prodname_ghe_server %} cluster must be set up with a license and initialized using the administrative shell (SSH).'
+title: 初始化集群
+intro: '{% data variables.product.prodname_ghe_server %} 集群必须使用许可进行设置，并使用管理 shell (SSH) 进行初始化。'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
   - /enterprise/admin/enterprise-management/initializing-the-cluster
@@ -11,46 +11,50 @@ type: how_to
 topics:
   - Clustering
   - Enterprise
+ms.openlocfilehash: 91394d1d39301f77bc49a87012e04c3d5e9c3b60
+ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167070'
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-## Installing {% data variables.product.prodname_ghe_server %}
+## 安装 {% data variables.product.prodname_ghe_server %}
 
-1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
+1. 在每个集群节点上，提供并安装 {% data variables.product.prodname_ghe_server %}。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
+2. 使用管理 shell 或 DHCP，仅配置每个节点的 IP 地址。 不要配置任何其他设置。
 
-## Configuring the first node
+## 配置第一个节点
 
-1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
-2. In your web browser, visit `https://<ip address>:8443/setup/`.
-{% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
-{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+1. 连接到将在 `cluster.conf` 中指定为 MySQL 主要节点的节点。 有关详细信息，请参阅“[关于群集配置文件](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
+2. 在 Web 浏览器中，访问 `https://<ip address>:8443/setup/`。
+{% data reusables.enterprise_installation.upload-a-license-file %} {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-## Initializing the cluster
+## 初始化集群
 
-To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
+若要初始化群集，需要群集配置文件 (`cluster.conf`)。 有关详细信息，请参阅“[关于群集配置文件](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
 
-1. From the first node that was configured, run `ghe-cluster-config-init`.  This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
-2. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
+1. 从配置的第一个节点开始，运行 `ghe-cluster-config-init`。  如果集群配置文件中存在未配置的节点，此操作会初始化集群。
+2. 运行 `ghe-cluster-config-apply`。 这将验证 `cluster.conf` 文件、将配置应用于每个节点文件，并调出每个节点上已配置的服务。
 
-To check the status of a running cluster use the `ghe-cluster-status` command.
+若要检查正在运行的群集的状态，请使用 `ghe-cluster-status` 命令。
 
-## About the cluster configuration file
+## 关于集群配置文件
 
-The cluster configuration file (`cluster.conf`) defines the nodes in the cluster, and what services they run.
-For more information, see "[About cluster nodes](/enterprise/admin/guides/clustering/about-cluster-nodes)."
+群集配置文件 (`cluster.conf`) 会定义群集中的节点及其运行的服务。
+有关详细信息，请参阅“[关于群集节点](/enterprise/admin/guides/clustering/about-cluster-nodes)”。
 
-This example `cluster.conf` defines a cluster with 11 nodes.
+此示例 `cluster.conf` 定义具有 11 个节点的群集。
 
-  - Two nodes called `ghes-front-end-node-\*` run services responsible for responding to client requests.
-  - Three nodes called `ghes-database-node-\*` run services responsible for storage, retrieval, and replication of database data.
-  - Three nodes called `ghes-search-node-\*` run services responsible for search functionality.
-  - Three nodes called `ghes-storage-node-\*` run services responsible for storage, retrieval, and replication of data.
+  - 名为 `ghes-front-end-node-\*` 的两个节点运行负责响应客户端请求的服务。
+  - 名为 `ghes-database-node-\*` 的三个节点运行负责存储、检索和复制数据库数据的服务。
+  - 名为 `ghes-search-node-\*` 的三个节点运行负责搜索功能的服务。
+  - 名为 `ghes-storage-node-\*` 的三个节点运行负责存储、检索和复制数据的服务。
 
-The names of the nodes can be any valid hostname you choose. The names are set as the hostname of each node, and will also be added to `/etc/hosts` on each node, so that the nodes are locally resolvable to each other.
+节点的名称可以是您选择的任何有效主机名。 名称被设置为每个节点的主机名，并且还将添加到每个节点上的 `/etc/hosts` 中，以便节点可以在本地相互解析。
 
-Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
+通过 `mysql-server` 和 `mysql-master` 指定你配置为 MySQL 主要节点的第一个集群节点。
 
 ```ini
 [cluster]
@@ -155,7 +159,7 @@ Specify the first cluster node you configured as the MySQL primary via `mysql-se
   metrics-server = true
 ```
 
-Create the file `/data/user/common/cluster.conf` on the configured first node. For example, using `vim`:
+在配置的第一个节点上创建文件 `/data/user/common/cluster.conf`。 例如，使用 `vim`：
 
    ```shell
    ghe-data-node-1:~$ sudo vim /data/user/common/cluster.conf

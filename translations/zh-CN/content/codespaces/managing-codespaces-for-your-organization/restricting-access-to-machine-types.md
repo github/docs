@@ -1,7 +1,7 @@
 ---
-title: Restricting access to machine types
+title: 限制对计算机类型的访问
 shortTitle: Restrict machine types
-intro: You can set constraints on the types of machines users can choose when they create codespaces in your organization.
+intro: 你可以对用户在组织中创建 codespace 时可以选择的计算机类型设置约束。
 permissions: 'To manage access to machine types for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -9,82 +9,85 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: 202a2cf9f28a55514450415230686c0c0e94600f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159155'
 ---
+## 概述
 
-## Overview
+通常，在创建代码空间时，系统会为将运行代码空间的计算机提供一系列规范。 您可以选择最适合您需求的计算机类型。 有关详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。 
 
-Typically, when you create a codespace you are offered a choice of specifications for the machine that will run your codespace. You can choose the machine type that best suits your needs. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)." 
+如果您为使用 {% data variables.product.prodname_github_codespaces %} 付费，那么您选择的计算机类型将影响您的账单金额。 codespace 的计算成本与你选择的计算机类型中的处理器核心数成正比。 例如，在 16 核计算机上使用 codespace 一小时的计算成本是 2 核计算机的 8 倍。 有关定价的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)”。
 
-If you pay for using {% data variables.product.prodname_github_codespaces %} then your choice of machine type will affect how much your are billed. The compute cost for a codespace is proportional to the number of processor cores in the machine type you choose. For example, the compute cost of using a codespace for an hour on a 16-core machine is eight times greater than a 2-core machine. For more information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+作为组织所有者，您可能希望对可用的计算机类型配置约束。 例如，如果组织中的工作不需要大量的计算能力或存储空间，则可以从用户可以选择的选项列表中删除资源丰富的计算机。 为此，可在组织的 {% data variables.product.prodname_github_codespaces %} 设置中定义一个或多个策略。
 
-As an organization owner, you may want to configure constraints on the types of machine that are available. For example, if the work in your organization doesn't require significant compute power or storage space, you can remove the highly resourced machines from the list of options that people can choose from. You do this by defining one or more policies in the {% data variables.product.prodname_github_codespaces %} settings for your organization.
+### 设置计算机类型约束时的行为
 
-### Behavior when you set a machine type constraint
+如果现有 codespace 不再符合你定义的策略，这些 codespace 将继续运行，直到它们停止或超时。当用户尝试恢复 codespace 时，系统会显示一条消息，告知他们目前选择的计算机类型已不再可供此组织使用，并提示他们选择备用计算机类型。
 
-If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. When the user attempts to resume the codespace they are shown a message telling them that the currenly selected machine type is no longer allowed for this organization and prompting them to choose an alternative machine type.
-
-If you remove higher specification machine types that are required by the {% data variables.product.prodname_github_codespaces %} configuration for an individual repository in your organization, then it won't be possible to create a codespace for that repository. When someone attempts to create a codespace they will see a message telling them that there are no valid machine types available that meet the requirements of the repository's {% data variables.product.prodname_github_codespaces %} configuration.
+如果删除组织中单个存储库的 {% data variables.product.prodname_github_codespaces %} 配置所需的更高规范的计算机类型，则无法为该存储库创建 codespace。 当有人尝试创建 codespace 时，他们将看到一条消息，告诉他们没有有效的计算机类型可以满足存储库 {% data variables.product.prodname_github_codespaces %} 配置的要求。
 
 {% note %}
 
-**Note**: Anyone who can edit the `devcontainer.json` configuration file in a repository can set a minimum specification for machines that can be used for codespaces for that repository. For more information, see "[Setting a minimum specification for codespace machines](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines)."
+注意：任何可以在存储库中编辑 `devcontainer.json` 配置文件的人员都可以为计算机设置可用于该存储库的 codespace 的最低规范。 有关详细信息，请参阅“[为 codespace 计算机设置最低规范](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines)”。
 
 {% endnote %}
 
-If setting a policy for machine types prevents people from using {% data variables.product.prodname_github_codespaces %} for a particular repository there are two options:
+如果为计算机类型设置策略会阻止用户对特定存储库使用 {% data variables.product.prodname_github_codespaces %}，则有两种选择：
 
-* You can adjust your policies to specifically remove the restrictions from the affected repository.
-* Anyone who has a codespace that they can no longer access, because of the new policy, can export their codespace to a branch. This branch will contain all of their changes from the codespace. They can then open a new codespace on this branch with a compliant machine type or work on this branch locally. For more information, see "[Exporting changes to a branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+* 您可以调整策略以专门从受影响的存储库中删除限制。
+* 由于新策略，任何拥有无法再访问的代码空间的人都可以将其代码空间导出到分支。 此分支将包含它们从代码空间所做的所有更改。 然后，他们可以使用兼容的计算机类型在此分支上打开新的代码空间，或者在本地处理此分支。 有关详细信息，请参阅“[将更改导出到分支](/codespaces/troubleshooting/exporting-changes-to-a-branch)”。
 
-### Setting organization-wide and repository-specific policies
+### 设置组织范围和存储库特定的策略
 
-When you create a policy you choose whether it applies to all repositories in your organization, or only to specified repositories. If you set an organization-wide policy then any policies you set for individual repositories must fall within the restriction set at the organization level. Adding policies makes the choice of machine more, not less, restrictive.
+创建策略时，您可以选择是将其应用于组织中的所有存储库，还是仅应用于指定的存储库。 如果设置了组织范围的策略，则为各个存储库设置的任何策略都必须在组织级别设置的限制范围内。 添加策略会使计算机的选择受到限制更多，而不是更少。
 
-For example, you could create an organization-wide policy that restricts the machine types to either 2 or 4 cores. You can then set a policy for Repository A that restricts it to just 2-core machines. Setting a policy for Repository A that restricted it to machines with 2, 4, or 8 cores would result in a choice of 2-core and 4-core machines only, because the organization-wide policy prevents access to 8-core machines.
+例如，您可以创建一个组织范围的策略，将计算机类型限制为 2 核或 4 核。 然后，您可以为存储库 A 设置一个策略，将其限制为仅 2 核计算机。 为存储库 A 设置策略以将其限制为具有 2、4 或 8 核的计算机将导致仅选择 2 核和 4 核计算机，因为组织范围的策略会阻止访问 8 核计算机。
 
-If you add an organization-wide policy, you should set it to the largest choice of machine types that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
+如果添加组织范围的策略，则应将其设置为可用于组织中任何存储库的最大计算机类型选择范围。 然后，您可以添加特定于存储库的策略以进一步限制选择。
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to limit the available machine types
+## 添加策略以限制可用的计算机类型
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Machine types**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. 单击“添加约束”并选择“计算机类型” 。
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown.png)
+   ![“添加约束”下拉菜单的屏幕截图](/assets/images/help/codespaces/add-constraint-dropdown.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint, then clear the selection of any machine types that you don't want to be available.
+1. 单击 {% octicon "pencil" aria-label="The edit icon" %} 以编辑约束，然后清除您不希望可用的任何计算机类型的选择。
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-machine-constraint.png)
+   ![用于编辑约束的铅笔图标的屏幕截图](/assets/images/help/codespaces/edit-machine-constraint.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. 如果要向策略添加另一个约束，请单击“添加约束”并选择另一个约束。 有关其他约束的信息，请参阅：
+   * [限制 codespace 的基础映像](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)
+   * [限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)
+   * [限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)
+   * [限制 codespace 的保持期](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)
+1. 向策略添加完约束后，单击“保存”。
 
-The policy will be applied to all new codespaces that are billable to your organization. The machine type constraint is also applied to existing codespaces when someone attempts to restart a stopped codespace or reconnect to an active codespace.
+策略将应用于对组织计费的所有新 codespace。 当有人尝试重启已停止的 codespace 或重新连接到活动 codespace 时，计算机类型约束也会应用于现有的 codespace。
 
-## Editing a policy
+## 编辑策略
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+可以编辑现有策略。 例如，你可能想要在策略中添加或移除约束。
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Machine types" constraint.
-1. Make the required changes then click **Save**.
+1. 显示“Codespace policies（代码空间策略）”页。 有关详细信息，请参阅“[添加策略以限制可用的计算机类型](#adding-a-policy-to-limit-the-available-machine-types)”。
+1. 单击要编辑的策略的名称。
+1. 单击“计算机类型”约束旁边的铅笔图标 ({% octicon "pencil" aria-label="The edit icon" %})。
+1. 执行所需更改，然后单击“保存”。
 
-## Deleting a policy 
+## 删除策略 
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
-1. Click the delete button to the right of the policy you want to delete.
+1. 显示“Codespace policies（代码空间策略）”页。 有关详细信息，请参阅“[添加策略以限制可用的计算机类型](#adding-a-policy-to-limit-the-available-machine-types)”。
+1. 单击要删除的策略右侧的删除按钮。
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![策略的“删除”按钮的屏幕截图](/assets/images/help/codespaces/policy-delete.png)
 
-## Further reading
+## 延伸阅读
 
-- "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)"
+- “[管理 {% data variables.product.prodname_github_codespaces %} 的支出限制](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)”

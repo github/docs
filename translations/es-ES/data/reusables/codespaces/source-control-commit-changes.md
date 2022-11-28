@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8cb17c6661826a0d46c37436b05b9f694541dab1
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 0591199ee1d92622aaef5c89e7dcc3d1eab89bfe
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145139146"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148160326"
 ---
 {% data reusables.codespaces.source-control-display-dark %}
 1. Para agregar los cambios al "stage", haga clic en **+** junto al archivo que ha cambiado, o junto a **Cambios** si ha cambiado varios archivos y quiere agregarlos todos.

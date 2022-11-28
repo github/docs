@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 75ac89c3c50225b0c930c6d603acf0d5c331597d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: af0baef0abb9baffb7c9356f6f14aa9a0b9754f3
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147067859"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180186"
 ---
-1. リダイレクトされたら、ID プロバイダーにサインインしてから、指示に従って同意し、{% data variables.product.prodname_emu_idp_oidc_application %} アプリケーションをインストールします。
+1. {% data variables.product.product_name %} によって IdP にリダイレクトされたら、サインインしてから指示に従って同意し、{% data variables.product.prodname_emu_idp_oidc_application %} アプリケーションをインストールします。 Azure AD によって OIDC での {% data variables.product.company_short %} {% data variables.product.prodname_emus %} のアクセス許可が要求されたら、 **[Organization の代理として同意する]** を有効にして、 **[同意する]** をクリックします。 
    {% warning %}
 
    **警告:** {% data variables.product.prodname_emu_idp_oidc_application %} アプリケーションのインストールに同意するには、グローバル管理者権限を持つユーザーとして Azure AD にサインインする必要があります。

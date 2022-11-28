@@ -417,7 +417,7 @@ describe('server', () => {
     })
 
     test('links that point to /assets are not rewritten with a language code', async () => {
-      const $ = await getDOM('/en/github/site-policy/github-privacy-statement')
+      const $ = await getDOM('/en/site-policy/privacy-policies/github-privacy-statement')
       expect($('#french').next().children('a').attr('href').startsWith(localImageBasePath)).toBe(
         true
       )

@@ -1,3 +1,11 @@
-For compiled languages like Java,{% ifversion codeql-go-autobuild %} Go,{% endif %} C, C++, and C#, {% data variables.product.prodname_codeql %} analyzes all of the code which was built during the workflow run. To limit the amount of code being analyzed, build ony the code which you wish to analyze by specifying your own build steps in a `run` block. You can combine specifying your own build steps with using the `paths` or `paths-ignore` filters on the `pull_request` and `push` events to ensure that your workflow only runs when specific code is changed. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+---
+ms.openlocfilehash: a39c6a75a0b6decf15352f2d164d593f0d020fff
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/25/2022
+ms.locfileid: "148182309"
+---
+Для скомпилированных языков, таких как Java, {% ifversion codeql-kotlin-beta %} Kotlin, {% endif %}{% ifversion codeql-go-autobuild %} Go,{% endif %} C, C++, и C#, {% data variables.product.prodname_codeql %} анализирует весь код, созданный во время выполнения рабочего процесса. Чтобы ограничить объем анализируемого кода, создайте код, который требуется проанализировать, указав собственные шаги сборки в блоке `run` . Можно объединить указание собственных шагов сборки с помощью фильтров `paths` и `paths-ignore` в событиях `pull_request` и `push`, чтобы рабочий процесс выполнялся только при изменении определенного кода. Дополнительные сведения см. в статье [Синтаксис рабочего процесса для {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore).
 
-For languages like{% ifversion codeql-go-autobuild %}{% else %} Go,{% endif %} JavaScript, Python, and TypeScript, that {% data variables.product.prodname_codeql %} analyzes without compiling the source code, you can specify additional configuration options to limit the amount of code to analyze. For more information, see "[Specifying directories to scan](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)."
+Для таких языков, как {% ifversion codeql-go-autobuild %}{% else %} Go,{% endif %} JavaScript, Python и TypeScript, которые {% data variables.product.prodname_codeql %} анализирует без компиляции исходного кода, можно указать дополнительные параметры конфигурации, чтобы ограничить объем анализируемого кода. Дополнительные сведения см. в разделе [Указание каталогов для анализа](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan).

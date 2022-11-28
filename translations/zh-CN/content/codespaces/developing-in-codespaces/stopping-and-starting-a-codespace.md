@@ -1,6 +1,6 @@
 ---
-title: Stopping and starting a codespace
-intro: 'You can stop and start your codespace to save resources and to pause work.'
+title: 停止和启动 codespace
+intro: 可停止和启动 codespace 以保存资源和暂停工作。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,28 +10,33 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
+ms.openlocfilehash: 290a39d9d60420230bd9b11d5e2d10119ccc1c72
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158803'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 {% endjetbrains %}
 
-## About stopping and starting a codespace
+## 关于停止和启动 codespace
 
 {% data reusables.codespaces.stopping-a-codespace %}
 
-Regardless of where you created or access your codespaces, you can view and manage them in your browser at https://github.com/codespaces. 
+无论在何处创建或访问 codespace，都可以通过浏览器在 https://github.com/codespaces 中查看和管理它们。 
 
-## Stopping a codespace
+## 停止代码空间
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
- 1. To the right of the codespace you want to stop, click the elipsis (**...**).
- 1. Click **Stop codespace**.
-   ![Screenshot of option to stop a codespace](/assets/images/help/codespaces/stop-codespace-webui.png)
+ 1. 单击要停止的 codespace 右侧的省略号 (...)。
+ 1. 单击“停止 codespace”。
+   ![用于停止 codespace 的选项的屏幕截图](/assets/images/help/codespaces/stop-codespace-webui.png)
 
 {% endwebui %}
 
@@ -39,7 +44,7 @@ Regardless of where you created or access your codespaces, you can view and mana
 
 {% data reusables.cli.cli-learn-more %}
 
- To stop a codespace use the `gh codespace stop` subcommand and then choose the codespace you want to stop from the list that's displayed.
+ 要停止 codespace，请使用 `gh codespace stop` 子命令，然后从显示的列表中选择该 codespace。
 
  ```shell{:copy}
  gh codespace stop
@@ -50,41 +55,41 @@ Regardless of where you created or access your codespaces, you can view and mana
 {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. Type `stop` and select **Codespaces: Stop Codespace** from the list of options.
-1. In the list of codespaces, select the codespace you want to stop.
+1. 键入 `stop` 并从选项列表中选择“Codespaces: 停止 Codespace”。
+1. 在 codespace 列表中，选择要停止的 codespace。
 
 {% endvscode %}
 
 {% jetbrains %}
 
 {% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. In the {% data variables.product.prodname_github_codespaces %} tool window, click the stop icon.
+1. 在 {% data variables.product.prodname_github_codespaces %} 工具窗口中，单击“停止”图标。
 
-   ![Screenshot of the log button](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
+   ![“日志”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
 
 {% endjetbrains %}
 
-## Restarting a codespace
+## 重启 codespace
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
-1. Click the name of the codespace you want to restart.
-![Screenshot of stopped codespaces](/assets/images/help/codespaces/restart-codespace-webui.png)
+1. 单击要重启的 codespace 的名称。
+![已停止的 codespace 的屏幕截图](/assets/images/help/codespaces/restart-codespace-webui.png)
 
 {% endwebui %}
 
 {% cli %}
 
-When you restart a codespace you can choose to open it in {% data variables.product.prodname_vscode %} or in your browser. 
+重启 codespace 时，可选择在 {% data variables.product.prodname_vscode %} 或浏览器中将其打开。 
 
- - To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
+ - 要重启 codespace 并在 {% data variables.product.prodname_vscode %} 中将其打开，请使用 `gh codespace code` 子命令，然后从显示的列表中选择要重启的 codespace。
 
  ```shell{:copy} 
  gh codespace code
  ```
 
- - To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
+ - 要重启 codespace 并在浏览器中将其打开，请使用 `gh codespace open --web` 子命令，然后从显示的列表中选择要重启的 codespace。
 
  ```shell{:copy}
  gh codespace open --web
@@ -95,8 +100,8 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. Type `connect` and select **Codespaces: Connect to Codespace** from the list of options.
-1. In the list of codespaces, select the codespace you want to restart.
+1. 键入 `connect` 并从选项列表中选择“Codespaces: 连接到 Codespace”。
+1. 在 codespace 列表中，选择要重启的 codespace。
 
 {% endvscode %}
 
@@ -106,6 +111,6 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 {% endjetbrains %}
 
-## Further reading
+## 延伸阅读
 
-- "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"
+- [codespace 生命周期](/codespaces/developing-in-codespaces/the-codespace-lifecycle)

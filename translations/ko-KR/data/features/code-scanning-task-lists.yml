@@ -1,0 +1,4 @@
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghae: '문제-5036'

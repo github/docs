@@ -1,6 +1,6 @@
 ---
-title: Создание отдельного задания
-intro: Вы можете создать задание для учащихся в своем курсе для индивидуального выполнения.
+title: Create an individual assignment
+intro: You can create an assignment for students in your course to complete individually.
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can create and manage individual assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
@@ -8,14 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
-ms.openlocfilehash: c6e0d5dd39181545e1bb913360b1f46cb2b19d6e
-ms.sourcegitcommit: 04329ee7464efbb558d77d06664e8578cd154d87
-ms.translationtype: MT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 10/15/2022
-ms.locfileid: '148046485'
 ---
-## Сведения об отдельных заданиях
+## About individual assignments
 
 {% data reusables.classroom.assignments-individual-definition %}
 
@@ -23,82 +17,84 @@ ms.locfileid: '148046485'
 
 {% data reusables.classroom.about-assignments %}
 
-Видеоролик, в котором показано, как создать отдельное задание, можно найти в разделе [Общие сведения о настройке {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom).
+For a video demonstration of the creation of an individual assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## Предварительные требования
+## Prerequisites
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Создание задания
+## Creating an assignment
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## Настройка основных сведений о задании
+## Setting up the basics for an assignment
 
-Укажите имя задания, определите, следует ли задать крайний срок выполнения для задания, и выберите видимость репозиториев для задания.
+Name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
 
-- [Указание имени задания](#naming-an-assignment)
-- [Назначение крайнего срока выполнения для задания](#assigning-a-deadline-for-an-assignment)
-- [Выбор типа задания](#choosing-an-assignment-type)
-- [Выбор видимости для репозиториев задания](#choosing-a-visibility-for-assignment-repositories)
+- [Naming an assignment](#naming-an-assignment)
+- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
+- [Choosing an assignment type](#choosing-an-assignment-type)
+- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
 
-### Указание имени задания
+### Naming an assignment
 
-Для отдельного задания {% data variables.product.prodname_classroom %} устанавливает имена репозиториев, состоящие из префикса репозитория и имени пользователя учащегося {% data variables.product.product_name %}. По умолчанию префикс репозитория используется в качестве заголовка задания. Например, если имя задания — "assignment-1", а имя пользователя учащегося в {% data variables.product.product_name %} — @octocat, репозиторий задания для @octocat получит имя `assignment-1-octocat`.
+For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Назначение крайнего срока выполнения для задания
+### Assigning a deadline for an assignment
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Выбор типа задания
+### Choosing an assignment type
 
-В разделе "Отдельное или групповое задание" щелкните раскрывающееся меню и выберите **Отдельное задание**. Вы не можете изменить тип задания после создания задания. Если вы хотите создать групповое задание, обратитесь к разделу [Создание группового задания](/education/manage-coursework-with-github-classroom/create-a-group-assignment).
+Under "Individual or group assignment", select the drop-down menu, and click **Individual assignment**. You can't change the assignment type after you create the assignment. If you'd rather create a group assignment, see "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
 
-### Выбор видимости для репозиториев задания
+### Choosing a visibility for assignment repositories
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## Добавление начального кода и настройка среды разработки
+## Adding starter code and configuring a development environment
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [Выбор репозитория шаблонов](#choosing-a-template-repository)
-- [Выбор интегрированной среды разработки (IDE)](#choosing-an-integrated-development-environment-ide)
+- [Choosing a template repository](#choosing-a-template-repository)
+- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
 
-### Выбор репозитория шаблонов
+### Choosing a template repository
 
-По умолчанию для нового задания будет создан пустой репозиторий для каждого учащегося в списке аудитории. {% data reusables.classroom.you-can-choose-a-template-repository %}
+By default, a new assignment will create an empty repository for each student on the roster for the classroom. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-### Выбор интегрированной среды разработки (IDE)
+### Choosing an integrated development environment (IDE)
 
-{% data reusables.classroom.about-online-ides %} Дополнительные сведения см. в разделе [Интеграция {% data variables.product.prodname_classroom %} с IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide).
+{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
-## Предоставление отзыва о задании
+## Providing feedback for an assignment
 
-При необходимости можно автоматически оценить задания и создать пространство для обсуждения каждого отправленного задания с учащимся.
+Optionally, you can automatically grade assignments and create a space for discussing each submission with the student.
 
-- [Автоматическое тестирование заданий](#testing-assignments-automatically)
-- [Создание запроса на вытягивание для отзыва](#creating-a-pull-request-for-feedback)
+- [Testing assignments automatically](#testing-assignments-automatically)
+- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
 
-### Автоматическое тестирование заданий
+### Testing assignments automatically
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### Создание запроса на вытягивание для отзыва
+### Creating a pull request for feedback
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -106,34 +102,34 @@ ms.locfileid: '148046485'
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## Приглашение учащихся в задание
+## Inviting students to an assignment
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-На вкладке **Список аудитории** для задания можно узнать, присоединился ли учащийся к аудитории, принял ли он задание и отправил ли он его. На этой вкладке также можно связать псевдонимы учащихся {% data variables.product.prodname_dotcom %} с их идентификаторами в списке и наоборот. {% data reusables.classroom.assignments-to-prevent-submission %}
+You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-## Отслеживание хода работы учащихся
-На странице обзора заданий представлены общие сведения о принятии заданий и ходе работы учащихся. В зависимости от конфигураций заданий могут обращаться различные общие сведения.
+## Monitoring students' progress
+The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
 
-- **Учащиеся в списке**. Число учащихся в списке аудитории.
-- **Добавленные учащиеся**. Количество учетных записей {% data variables.product.prodname_dotcom %}, которые приняли задание и не связаны с идентификатором в списке.
--  **Учащиеся, принявшие задание**. Число учетных записей, принявших это задание.
--  **Учащиеся, отправившие задание**. Число учащихся, отправивших задание. Отправка выполняется при достижении крайнего срока выполнения для задания.
--  **Учащиеся, которые успешно выполнили задание**. Число учащихся, которые прошли тесты с автоматическим выставлением оценки для этого задания.
+- **Rostered students**: The number of students on the Classroom's roster.
+- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
+-  **Accepted students**: The number of accounts have accepted this assignment.
+-  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
+-  **Passing students**: The number of students currently passing the autograding tests for this assignment.
 
-## Дальнейшие действия
+## Next steps
 
-- После создания задания учащиеся могут начать работу над заданием с использованием Git и возможностей {% data variables.product.product_name %}. Учащиеся могут клонировать репозиторий, отправлять фиксации, управлять ветвями, создавать и просматривать запросы на вытягивание, устранять конфликты слияния и обсуждать изменения с помощью проблем. Журнал фиксаций для репозитория доступен для просмотра как вам, так и учащимся. Дополнительные сведения см. в разделах [Начало работы с {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github), [Репозитории](/repositories) и [Совместная работа с проблемами и запросами на вытягивание](/github/collaborating-with-issues-and-pull-requests).
+- Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
 
-- Когда учащийся завершит задание, вы можете просмотреть файлы в репозитории или журнал и визуализации репозитория, чтобы лучше понять работу учащегося. Дополнительные сведения см. в разделе [Визуализация данных репозитория с помощью графов](/github/visualizing-repository-data-with-graphs).
+- When a student finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand the student's work. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
 
-- Чтобы предоставить отзыв о задании, можно оставить комментарий к отдельным фиксациям или строкам в запросе на вытягивание. Дополнительные сведения см. в разделах [Комментарии к запросам на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) и [Открытие проблемы из кода](/github/managing-your-work-on-github/opening-an-issue-from-code). Дополнительные сведения о создании сохраненных ответов для предоставления отзывов о распространенных ошибках см. в разделе [Сведения о сохраненных ответах](/github/writing-on-github/about-saved-replies).
+- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
 
-## Дополнительные материалы
+## Further reading
 
-- [{% data variables.product.prodname_global_campus %} для преподавателей](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- [Подключение системы управления обучением к {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)
+- "[{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
+- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"

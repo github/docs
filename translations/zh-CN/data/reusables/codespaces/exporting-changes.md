@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: dbfc559ca9be38d03d5bcd7c884687f098025ea9
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 63705338500bed176d013288ee7b091e593300ec
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145098731"
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148158603"
 ---
-如果达到支出限制，你将无法再创建或恢复 codespace。 你仍然可以[将任何正在进行的更改导出到新分支](/codespaces/troubleshooting/exporting-changes-to-a-branch)。 
+如果个人、组织或企业帐户达到其支出限制，则无法再创建或恢复可向该帐户计费的 codespace。 但你仍然可以将任何正在进行的更改导出到新分支。 有关详细信息，请参阅“[将更改导出到分支](/codespaces/troubleshooting/exporting-changes-to-a-branch)”。

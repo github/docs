@@ -1,7 +1,7 @@
 ---
-title: Setting a minimum specification for codespace machines
+title: 为代码空间计算机设置最低规范
 shortTitle: Set a minimum machine spec
-intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_github_codespaces %} for your repository.'
+intro: '你可以避免资源不足的计算机类型用于存储库的 {% data variables.product.prodname_github_codespaces %}。'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
   fpt: '*'
@@ -10,26 +10,31 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+ms.openlocfilehash: b7eeaac84721ff1d9ceab663957b1615952b0623
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159163'
 ---
+## 概述
 
-## Overview
+创建的每个 codespace 都托管在单独的虚拟机上。 从存储库创建 codespace 时，通常可以从不同类型的虚拟机中进行选择。 每个计算机类型都有不同的资源（处理器内核、内存、存储），默认情况下，使用资源最少的计算机类型。 有关详细信息，请参阅“[更改 codespace 的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)”。
 
-Each codespace that you create is hosted on a separate virtual machine. When you create a codespace from a repository, you can usually choose from different types of virtual machines. Each machine type has different resources (processor cores, memory, storage) and, by default, the machine type with the least resources is used. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
-
-If your project needs a certain level of compute power, you can configure {% data variables.product.prodname_github_codespaces %} so that only machine types that meet these requirements can be used by default, or selected by users. You configure this in a `devcontainer.json` file.
+如果项目需要一定程度的计算能力，则可以配置 {% data variables.product.prodname_github_codespaces %} 以便默认情况下只能使用或由用户选择满足这些要求的计算机类型。 可以在 `devcontainer.json` 文件中进行此配置。
 
 {% data reusables.codespaces.machine-types-for-unpublished-codespaces %}
 
 {% note %}
 
-**Important:** Access to some machine types may be restricted at the organization level. Typically this is done to prevent people choosing higher resourced machines that are billed at a higher rate. If your repository is affected by an organization-level policy for machine types you should make sure you don't set a minimum specification that would leave no available machine types for people to choose. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+重要提示：对某些计算机类型的访问可能在组织级别受到限制。 通常，这样做是为了防止人们选择以较高费率计费的资源较高的计算机。 如果您的存储库受到组织级计算机类型策略的影响，则应确保不要设置最低规范，因为该规范不会留下任何可用的计算机类型供人们选择。 有关详细信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
 
 {% endnote %}
 
-## Setting a minimum machine specification
+## 设置最低计算机规范
 
 {% data reusables.codespaces.edit-devcontainer-json %}
-1. Edit the `devcontainer.json` file, adding the `hostRequirements` property at the top level of the file, within the enclosing JSON object. For example:
+1. 编辑 `devcontainer.json` 文件，将属性 `hostRequirements` 添加到文件顶层，位于封闭的 JSON 对象内。 例如：
 
    ```json{:copy}
    "hostRequirements": {
@@ -39,16 +44,16 @@ If your project needs a certain level of compute power, you can configure {% dat
    }
    ```
 
-   You can specify any or all of the options: `cpus`, `memory`, and `storage`.
+   可以指定以下任何或所有选项：`cpus`、`memory` 和 `storage`。
    
-   To check the specifications of the {% data variables.product.prodname_github_codespaces %} machine types that are currently available for your repository, step through the process of creating a codespace until you see the choice of machine types. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   要检查当前可用于存储库的 {% data variables.product.prodname_github_codespaces %} 计算机类型的规范，请逐步完成创建 codespace 的过程，直到看到选择的计算机类型。 有关详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。
    
-1. Save the file and commit your changes to the required branch of the repository.
+1. 保存文件并将更改提交到存储库的所需分支。
 
-   Now when you create a codespace for that branch of the repository, and you go to the creation configuration options, you will only be able to select machine types that match or exceed the resources you've specified.
+   现在，当你为存储库的该分支创建代码空间时，前往创建配置选项，只能选择与指定资源匹配或超过你指定的资源的计算机类型。
 
-   ![Dialog box showing a limited choice of machine types](/assets/images/help/codespaces/machine-types-limited-choice.png)
+   ![显示有限计算机类型选择的对话框](/assets/images/help/codespaces/machine-types-limited-choice.png)
 
-## Further reading
+## 延伸阅读
 
-- "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)"
+- “[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”
