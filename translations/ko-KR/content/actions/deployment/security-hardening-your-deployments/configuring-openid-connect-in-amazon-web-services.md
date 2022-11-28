@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 173a7469fc8bbf58b9477c18fc79c57af7bc8ee1
-ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.openlocfilehash: 597ea408c2f0172eb0eacf07fc2d1ad320872f09
+ms.sourcegitcommit: 94ba3891ebcc3c05812f468e4adafdd15b99e390
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2022
-ms.locfileid: '148009491'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182259'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -53,7 +53,7 @@ IAM에서 역할 및 신뢰를 구성하려면 AWS 설명서에서 [“역할 �
 }
 ```
 
-다음 예제에서는 `ForAllValues`를 여러 조건 키에서 일치시키는 데 사용하고 `StringLike`는 지정된 리포지토리에서 모든 참조를 일치시키는 데 사용합니다. `ForAllValues`는 [지나치게 허용적](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html)이므로 `Allow` 효과에서 단독으로 사용되어서는 안 됩니다. 이 예제에서 `StringLike`를 포함하면 `ForAllValues`의 빈 집합이 여전히 조건을 통과하지 못합니다.
+다음 예제 `StringLike` 에서는 을 와일드카드 연산자(`*`)와 함께 사용하여 조직 및 리포지토리의 `octo-org/octo-repo` 분기, 끌어오기 요청 병합 분기 또는 환경이 AWS에서 역할을 맡을 수 있도록 허용합니다.
 
 ```json{:copy}
 {
@@ -69,8 +69,7 @@ IAM에서 역할 및 신뢰를 구성하려면 AWS 설명서에서 [“역할 �
                 "StringLike": {
                     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
                 },
-                "ForAllValues:StringEquals": {
-                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                "StringEquals": {
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 }
             }

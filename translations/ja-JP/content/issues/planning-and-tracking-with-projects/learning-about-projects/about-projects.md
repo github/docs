@@ -10,12 +10,12 @@ redirect_from:
 type: overview
 topics:
   - Projects
-ms.openlocfilehash: 768234aa5e6c9cfbca6a6144a80ac2868f3316ce
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3190379652fe1c95b8ea6ec7f864c44b72d9a7f7
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158862'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180762'
 ---
 ## {% data variables.product.prodname_projects_v2 %} について
 
@@ -43,7 +43,7 @@ ms.locfileid: '148158862'
 
 タスクリストを使用し、issue の階層を構築したり、issue を小さなサブタスクに分割したり、issue 間に新しいリレーションシップを作成したりできます。 詳細については、「[タスクリストについて](/issues/tracking-your-work-with-issues/about-tasklists)」を参照してください。
 
-これらの関係は issue と、プロジェクトの Tracked-by フィールドと Tracks フィールドに表示されます。 別の issue によって追跡されている issue 別にフィルタリングできます。また、Tracked-by フィールドでテーブル表示をグループ化し、すべての親 issue とそのサブタスクの一覧を表示できます。
+これらの関係は、issue に加え、プロジェクトの "追跡対象" フィールドと "追跡" フィールドに表示されます。 別の issue によって追跡されている issue 別にフィルター処理できます。また、"追跡対象" フィールドでテーブル表示をグループ化し、すべての親 issue とそのサブタスクのリストを表示できます。
 
 {% endif %}
 

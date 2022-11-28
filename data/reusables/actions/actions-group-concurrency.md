@@ -18,7 +18,7 @@ concurrency: ci-${{ github.ref }}
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 ```
@@ -30,7 +30,7 @@ If you build the group name with a property that is only defined for specific ev
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
@@ -45,7 +45,7 @@ To only cancel in-progress runs of the same workflow, you can use the `github.wo
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```

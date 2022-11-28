@@ -761,6 +761,7 @@ translations/ru-RU/content/code-security/adopting-github-advanced-security-at-sc
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
+translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/ru-RU/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
@@ -944,7 +945,7 @@ translations/ru-RU/content/issues/organizing-your-work-with-project-boards/manag
 translations/ru-RU/content/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board.md,rendering error
 translations/ru-RU/content/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board.md,rendering error
 translations/ru-RU/content/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically.md,rendering error
-translations/ru-RU/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,broken liquid tags
+translations/ru-RU/content/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic.md,rendering error
 translations/ru-RU/content/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view.md,broken liquid tags
 translations/ru-RU/content/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project.md,rendering error
 translations/ru-RU/content/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue.md,rendering error
@@ -1129,6 +1130,7 @@ translations/ru-RU/content/rest/overview/resources-in-the-rest-api.md,rendering 
 translations/ru-RU/content/rest/overview/troubleshooting.md,rendering error
 translations/ru-RU/content/rest/packages.md,rendering error
 translations/ru-RU/content/rest/projects/projects.md,rendering error
+translations/ru-RU/content/rest/pulls/comments.md,broken liquid tags
 translations/ru-RU/content/rest/quickstart.md,rendering error
 translations/ru-RU/content/rest/scim.md,rendering error
 translations/ru-RU/content/rest/teams/team-sync.md,rendering error
@@ -1231,9 +1233,7 @@ translations/ru-RU/data/reusables/classroom/about-autograding.md,rendering error
 translations/ru-RU/data/reusables/classroom/assignments-click-pencil.md,broken liquid tags
 translations/ru-RU/data/reusables/classroom/assignments-guide-using-autograding.md,rendering error
 translations/ru-RU/data/reusables/classroom/assignments-type-a-title.md,broken liquid tags
-translations/ru-RU/data/reusables/code-scanning/alerts-found-in-generated-code.md,rendering error
 translations/ru-RU/data/reusables/code-scanning/analyze-go.md,rendering error
-translations/ru-RU/data/reusables/code-scanning/autobuild-add-build-steps.md,rendering error
 translations/ru-RU/data/reusables/code-scanning/billing.md,broken liquid tags
 translations/ru-RU/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,rendering error
 translations/ru-RU/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error

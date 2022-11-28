@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 7843dd2811e3645b6c9ea979fd3cb54a14b151f0
-ms.sourcegitcommit: 8d6f272d8b5da44e3a29ad8d99013c10a5c91b35
+ms.openlocfilehash: 59e78cbf492110a8949c27e867bf195ae5605307
+ms.sourcegitcommit: bddda0c0814770ee64e378692891931c618247ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2022
-ms.locfileid: "148172038"
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181765"
 ---
 파트너 | 지원되는 비밀
 --- | ---
@@ -52,6 +52,7 @@ Dropbox | Dropbox 액세스 토큰
 Dropbox | Dropbox 단기 액세스 토큰
 Dynatrace | Dynatrace 액세스 토큰
 Dynatrace | Dynatrace 내부 토큰
+Figma | Figma {% data variables.product.pat_generic_title_case %}
 Finicity | Finicity 앱 키
 Frame.io | Frame.io JSON 웹 토큰
 Frame.io| Frame.io 개발자 토큰
@@ -67,6 +68,7 @@ Google Cloud | Google API 키
 Google Cloud | Google 클라우드 프라이빗 키 ID
 Hashicorp Terraform | Terraform Cloud/Enterprise API 토큰
 Hubspot | Hubspot API 키
+Hubspot | Hubspot API 개인용 액세스 키
 Ionic | Ionic {% data variables.product.pat_generic_title_case %}
 Ionic | Ionic 새로 고침 토큰
 JD Cloud | JD Cloud 액세스 키
@@ -118,13 +120,14 @@ Stripe | Stripe 라이브 API 제한 키
 Stripe | Stripe 테스트 API 제한 키
 Supabase | Supabase 서비스 키
 Tencent Cloud | Tencent Cloud 비밀 ID
+텐센트 위챗 | Tencent WeChat API 앱 ID
 Twilio | Twilio 계정 문자열 식별자
 Twilio | Twilio API 키
 Typeform | Typeform {% data variables.product.pat_generic_title_case %}
 Uniwise | WISEflow API 키 
 Valour | Valour 액세스 토큰
-Yandex | API 키 Yandex.Cloud   
-Yandex | Yandex.Cloud IAM 쿠키    
+Yandex | Yandex.Cloud API 키   
+Yandex | IAM 쿠키 Yandex.Cloud    
 Yandex | IAM 토큰 Yandex.Cloud 
 Yandex | Yandex.Dictionary API 키  
 Yandex | Yandex.Cloud 액세스 비밀 

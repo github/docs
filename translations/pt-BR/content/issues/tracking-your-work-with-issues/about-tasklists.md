@@ -6,12 +6,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
-ms.openlocfilehash: e35065ae4de634bb7a2da815e0a860c7c0b92234
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 69cdde1bb071f963b1a2f58ef1227bc96ab9d869
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159368'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180782'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
@@ -27,21 +27,11 @@ Os problemas que você adicionar às listas de tarefas serão preenchidos automa
 
 ### Sobre a integração com o {% data variables.projects.projects_v2 %}
 
- O painel lateral do projeto exibe o local de um problema na hierarquia em um menu estrutural, permitindo que você navegue pelos problemas incluídos nas listas de tarefas. Você também pode adicionar os campos Acompanhamentos e Acompanhados por às exibições do projeto para ver rapidamente as relações entre os problemas. Para obter informações, confira "[Sobre os campos Acompanhamentos e Acompanhados por](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)".
+ O painel lateral do projeto exibe o local de um problema na hierarquia em um menu estrutural, permitindo que você navegue pelos problemas incluídos nas listas de tarefas. Você também pode adicionar os campos "Acompanhamentos" e "Acompanhados por" às exibições do projeto para ver rapidamente as relações entre os problemas. Para obter informações, confira "[Sobre os campos Acompanhamentos e Acompanhados por](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)".
 
 ## Como criar listas de tarefas
 
-Para criar uma lista de tarefas, você pode usar o botão "Adicionar Lista de Tarefas" ou editar o Markdown do problema.
-
-### Como criar uma lista de tarefas usando o botão "Adicionar Lista de Tarefas"
-
-Clique no botão **{% octicon "checklist" aria-label="The checklist icon" %} Adicionar Lista de Tarefas** na parte inferior de qualquer descrição do problema que você possa editar para criar uma lista de tarefas.
-
-![Captura de tela mostrando o botão "Adicionar Lista de Tarefas"](/assets/images/help/issues/tasklist-add-tasklist-button.png)
-
-### Como criar uma lista de tarefas usando Markdown
-
-Você pode usar Markdown em uma descrição do problema para criar uma lista de tarefas. Crie um bloco de código limitado e inclua `[tasklist]` ao lado dos sinais de acento grave iniciais. Preceda cada item com `- [ ]` e inclua links para outros problemas ou texto. Você também pode incluir um título como um cabeçalho Markdown na parte superior da lista. 
+Você pode criar uma lista de tarefas usando Markdown em uma descrição de problema. Crie um bloco de código limitado e inclua `[tasklist]` ao lado dos sinais de acento grave iniciais. Então, é possível preceder cada item com `- [ ]` e incluir links para outros problemas ou texto. Você também pode incluir um título como um cabeçalho Markdown na parte superior da lista. 
 
 ````
 ```[tasklist]
@@ -50,10 +40,11 @@ Você pode usar Markdown em uma descrição do problema para criar uma lista de 
 - [ ] Draft issue title
 ```
 ````
-
 O Markdown será renderizado pelo {% data variables.product.product_name %} como uma lista de tarefas. Depois você poderá fazer alterações e adicionar problemas e problemas de rascunhos usando a interface do usuário. Se você editar a descrição do problema, poderá modificar o Markdown diretamente ou copiá-lo para duplicar a lista de tarefas em outros problemas.
 
+Você também pode clicar em {% octicon "checklist" aria-label="The checklist icon" %} na barra de ferramentas de formatação para inserir uma lista de tarefas ao criar um problema ou editar a descrição de um problema existente.
 
+![Captura de tela mostrando o botão "Adicionar Lista de Tarefas"](/assets/images/help/issues/tasklist-formatting-toolbar.png)
 
 ## Como adicionar problemas a uma lista de tarefas
 

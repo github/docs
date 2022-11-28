@@ -10,12 +10,12 @@ redirect_from:
 type: overview
 topics:
   - Projects
-ms.openlocfilehash: 768234aa5e6c9cfbca6a6144a80ac2868f3316ce
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3190379652fe1c95b8ea6ec7f864c44b72d9a7f7
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158858'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180758'
 ---
 ## Sobre {% data variables.product.prodname_projects_v2 %}
 
@@ -43,7 +43,7 @@ Você pode usar campos personalizados para adicionar metadados aos seus problema
 
 Você pode usar listas de tarefas para criar hierarquias de problemas, dividir seus problemas em subtarefas menores e criar relações entre seus problemas. Para obter mais informações, confira "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/about-tasklists)".
 
-Essas relações são exibidas no problema, bem como os campos Acompanhado por e Acompanha em seus projetos. Você pode filtrar por problemas que são acompanhados por outro problema e também pode agrupar suas exibições de tabela pelo campo Acompanhado por para mostrar todos os problemas pai com uma lista das respectivas subtarefas.
+Essas relações são exibidas no problema, bem como os campos Acompanhado por e Acompanhamentos em seus projetos. Você pode filtrar por problemas que são acompanhados por outro problema e também pode agrupar as exibições da sua tabela pelo campo Acompanhado por para mostrar todos os problemas pai com uma lista das respectivas subtarefas.
 
 {% endif %}
 

@@ -6,12 +6,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
-ms.openlocfilehash: e35065ae4de634bb7a2da815e0a860c7c0b92234
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 69cdde1bb071f963b1a2f58ef1227bc96ab9d869
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160313'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180789'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
@@ -31,17 +31,7 @@ Las propuestas que agregues a las listas de tareas se rellenarán automáticamen
 
 ## Creación de listas de tareas
 
-Para crear una lista de tareas, puedes usar el botón "Agregar lista de tareas" o editar el markdown de la propuesta.
-
-### Creación de una lista de tareas mediante el botón "Agregar lista de tareas"
-
-Haz clic en el botón **Agregar lista de tareas de {% octicon "checklist" aria-label="The checklist icon" %}** en la parte inferior de cualquier descripción de la propuesta que puedas editar para crear una lista de tareas.
-
-![Captura de pantalla en la que se muestra el botón "Agregar lista de tareas".](/assets/images/help/issues/tasklist-add-tasklist-button.png)
-
-### Creación de una lista de tareas mediante Markdown
-
-Puedes usar Markdown en una descripción de una propuesta para crear una lista de tareas. Crea un bloque de código cercado e incluye `[tasklist]` junto a las comillas inversas de apertura. Antepón `- [ ]` a cada elemento e incluye vínculos a otras propuestas o texto. Opcionalmente, puedes incluir un título como encabezado de Markdown en la parte superior de la lista. 
+Puedes crear una lista de tareas con Markdown en una descripción de una propuesta. Crea un bloque de código cercado e incluye `[tasklist]` junto a las comillas inversas de apertura. Puedes anteponer `- [ ]` a cada elemento e incluir vínculos a otras propuestas o texto. Opcionalmente, puedes incluir un título como encabezado de Markdown en la parte superior de la lista. 
 
 ````
 ```[tasklist]
@@ -50,10 +40,11 @@ Puedes usar Markdown en una descripción de una propuesta para crear una lista d
 - [ ] Draft issue title
 ```
 ````
-
 El markdown se representará mediante {% data variables.product.product_name %} como lista de tareas. Después, puedes realizar cambios y agregar y redactar propuestas mediante la interfaz de usuario. Si editas la descripción de la propuesta, podrás modificar el markdown directamente o copiarlo para duplicar la lista de tareas en otras propuestas.
 
+También puede hacer clic en {% octicon "checklist" aria-label="The checklist icon" %} en la barra de herramientas de formato para insertar una lista de tareas al crear una nueva incidencia o editar una descripción de la incidencia.
 
+![Captura de pantalla en la que se muestra el botón "Agregar lista de tareas".](/assets/images/help/issues/tasklist-formatting-toolbar.png)
 
 ## Adición de propuestas a una lista de tareas
 

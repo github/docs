@@ -1,6 +1,6 @@
 ---
-title: The github.dev web-based editor
-intro: 'Use the github.dev {% data variables.codespaces.serverless %} from your repository or pull request to create and commit changes.'
+title: Éditeur web github.dev
+intro: 'Utilisez le github.dev {% data variables.codespaces.serverless %} à partir de votre référentiel ou de votre demande de tirage pour créer et valider des modifications.'
 versions:
   feature: githubdev-editor
 type: how_to
@@ -12,104 +12,108 @@ topics:
 shortTitle: Web-based editor
 redirect_from:
   - /codespaces/developing-in-codespaces/web-based-editor
+ms.openlocfilehash: adc5622d666f6a32e698a29ceedfc24217b27df9
+ms.sourcegitcommit: 57bef7d45acfa987d82e320c7581c87df320a28a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/18/2022
+ms.locfileid: '148172178'
 ---
-
 {% note %}
 
-**Note:** The github.dev {% data variables.codespaces.serverless %} is currently in beta preview. You can provide feedback [in our Discussions](https://github.com/community/community/discussions/categories/general).
+**Remarque :** le {% data variables.codespaces.serverless %} github.dev est actuellement en préversion bêta. Vous pouvez formuler des commentaires [dans nos discussions](https://github.com/community/community/discussions/categories/general).
 
 {% endnote %}
 
-## About the {% data variables.codespaces.serverless %}
+## À propos de {% data variables.codespaces.serverless %}
 
-The {% data variables.codespaces.serverless %} introduces a lightweight editing experience that runs entirely in your browser. With the {% data variables.codespaces.serverless %}, you can navigate files and source code repositories from {% data variables.product.prodname_dotcom %}, and make and commit code changes. You can open any repository, fork, or pull request in the editor.
+Le {% data variables.codespaces.serverless %} introduit une expérience d’édition légère qui s’exécute entièrement dans votre navigateur. Avec le {% data variables.codespaces.serverless %}, vous pouvez parcourir les fichiers et les référentiels de code source à partir de {% data variables.product.prodname_dotcom %}, ainsi qu’apporter et valider des modifications du code. Vous pouvez ouvrir n’importe quel dépôt, duplication ou demande de tirage dans l’éditeur.
 
-The {% data variables.codespaces.serverless %} is available to everyone for free on {% data variables.product.prodname_dotcom_the_website %}.
+Le {% data variables.codespaces.serverless %} est disponible gratuitement pour tous sur {% data variables.product.prodname_dotcom_the_website %}.
 
-The {% data variables.codespaces.serverless %} provides many of the benefits of {% data variables.product.prodname_vscode %}, such as search, syntax highlighting, and a source control view. You can also use Settings Sync to share your own {% data variables.product.prodname_vscode_shortname %} settings with the editor. For more information, see "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Le {% data variables.codespaces.serverless %} offre de nombreux avantages de {% data variables.product.prodname_vscode %}, comme la recherche, la coloration syntaxique et une vue Contrôle de code source. Vous pouvez également utiliser une Synchronisation des paramètres pour partager vos propres paramètres {% data variables.product.prodname_vscode_shortname %} avec l’éditeur. Pour plus d’informations, consultez [Synchronisation des paramètres](https://code.visualstudio.com/docs/editor/settings-sync) dans la documentation {% data variables.product.prodname_vscode_shortname %}.
 
-The {% data variables.codespaces.serverless %} runs entirely in your browser’s sandbox. The editor doesn’t clone the repository, but instead uses the [GitHub Repositories extension](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension) to carry out most of the functionality that you will use. Your work is saved in the browser’s local storage until you commit it. You should commit your changes regularly to ensure that they're always accessible.
+Le {% data variables.codespaces.serverless %} s’exécute entièrement dans le bac à sable de votre navigateur. L’éditeur ne clone pas le dépôt, mais utilise plutôt [l’extension de Dépôts GitHub](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension) pour exécuter la plupart des fonctionnalités que vous utiliserez. Votre travail est enregistré dans le stockage local du navigateur jusqu’à ce que vous le validiez. Vous devez valider régulièrement vos modifications pour vous assurer qu’elles soient toujours accessibles.
 
-You must be signed in to use the web-based editor.
+Vous devez être connecté pour utiliser l’éditeur web.
 
-## Opening the {% data variables.codespaces.serverless %}
+## Ouverture de {% data variables.codespaces.serverless %}
 
-You can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.codespaces.serverless %} in either of the following ways:
+Vous pouvez ouvrir n’importe quel référentiel {% data variables.product.prodname_dotcom %} dans le {% data variables.codespaces.serverless %} de l’une des manières suivantes :
 
-- To open the repository in the same browser tab, press <kbd>.</kbd> while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
+- Pour ouvrir le dépôt dans le même onglet de navigateur, appuyez sur <kbd>.</kbd> pendant vous parcourez un dépôt ou une demande de tirage sur {% data variables.product.prodname_dotcom %}.
  
-  To open the repository in a new browser tab, press <kbd>></kbd>.
+  Pour ouvrir le dépôt dans un nouvel onglet de navigateur, appuyez sur <kbd>></kbd>.
 
-- Change the URL from "github.com" to "github.dev".
-- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
+- Modifiez l’URL de « github.com » en « github.dev ».
+- Lors de l’affichage d’un fichier, utilisez le menu déroulant en regard de {% octicon "pencil" aria-label="The edit icon" %} et sélectionnez **Ouvrir dans github.dev**.
 
-  ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
+  ![Menu déroulant du bouton Modifier le fichier](/assets/images/help/repository/edit-file-edit-dropdown.png)
 
-## {% data variables.product.prodname_codespaces %} and the {% data variables.codespaces.serverless %}
+## {% data variables.product.prodname_codespaces %} et {% data variables.codespaces.serverless %}
 
-Both the {% data variables.codespaces.serverless %} and {% data variables.product.prodname_github_codespaces %} allow you to edit your code straight from your repository. However, both have slightly different benefits, depending on your use case.
+{% data variables.codespaces.serverless %} et {% data variables.product.prodname_github_codespaces %} vous permettent tous deux de modifier votre code directement à partir de votre référentiel. Toutefois, ils offrent des avantages légèrement différents, selon votre cas d’usage.
 
 || {% data variables.codespaces.serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
-| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)."|
-| **Availability** | Available to everyone on GitHub.com. | Available to everyone on GitHub.com. |
-| **Start up** | The {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)." |
-| **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
-| **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
-| **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. For more information, see "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
+| **Coût** | Libre.      | Quota mensuel gratuit pour l’utilisation des comptes personnels. Pour plus d’informations sur les prix, consultez « [À propos de la facturation de {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing) ».|
+| **Disponibilité** | Disponible pour tout le monde sur GitHub.com. | Disponible pour tout le monde sur GitHub.com. |
+| **Démarrage** | Le {% data variables.codespaces.serverless %} s’ouvre instantanément en appuyant sur une touche. Vous pouvez commencer à l’utiliser immédiatement, sans configuration ni installation supplémentaires. | Lorsque vous créez ou reprenez un codespace, une machine virtuelle est affectée à celui-ci, et le conteneur est configuré en fonction du contenu d’un fichier `devcontainer.json`. Cette configuration peut prendre quelques minutes pour créer l’environnement. Pour plus d’informations, consultez « [Création d’un Codespace pour un dépôt](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository) ». |
+| **Calcul**  | Étant donné qu’il n’y a pas de calcul associé, vous ne pouvez pas générer et exécuter votre code ou utiliser le terminal intégré. | Avec {%  data variables.product.prodname_github_codespaces %}, vous bénéficiez de la puissance d’une machine virtuelle dédiée sur laquelle vous pouvez exécuter et déboguer votre application.|
+| **Accès du Terminal** | Aucun. | {% data variables.product.prodname_github_codespaces %} fournit un ensemble commun d’outils par défaut, ce qui signifie que vous pouvez utiliser le Terminal exactement comme vous le feriez dans votre environnement local.|
+| **Extensions**  | Seul un sous-ensemble d’extensions pouvant s’exécuter sur le web apparaît dans l’affichage Extensions et peut être installé. Pour plus d’informations, consultez « [Utilisation d’extensions](#using-extensions) ».| Avec {% data variables.product.prodname_github_codespaces %}, vous pouvez utiliser la plupart des extensions de la {% data variables.product.prodname_vscode_marketplace %}.|
 
-### Continue working on {% data variables.product.prodname_codespaces %}
+### Continuer à travailler sur {% data variables.product.prodname_codespaces %}
 
-You can start your workflow in the {% data variables.codespaces.serverless %} and continue working on a codespace. If you try to access the Run and Debug View or the Terminal, you'll be notified that they are not available in the {% data variables.codespaces.serverless %}.
+Vous pouvez démarrer votre workflow dans le {% data variables.codespaces.serverless %} et continuer à travailler sur un codespace. Si vous tentez d’accéder à l’affichage Exécuter et déboguer ou au Terminal, vous serez averti qu’ils ne sont pas disponibles dans le {% data variables.codespaces.serverless %}.
 
-To continue your work in a codespace, click **Continue Working on…** and select **Create New Codespace** to create a codespace on your current branch. Before you choose this option, you must commit any changes.
+Pour poursuivre votre travail dans un codespace, cliquez sur **Continuer à travailler sur...** et sélectionnez **Créer un codespace** pour créer un codespace sur votre branche active. Avant de choisir cette option, vous devez valider toutes les modifications.
 
-![A screenshot that shows the "Continue Working on" button in the UI](/assets/images/help/codespaces/codespaces-continue-working.png)
+![Capture d’écran montrant le bouton « Continuer à travailler sur » dans l’interface utilisateur](/assets/images/help/codespaces/codespaces-continue-working.png)
 
-## Using source control
+## Utilisation du contrôle de code source
 
-When you use the {% data variables.codespaces.serverless %}, all actions are managed through the Source Control View, which is located in the Activity Bar on the left hand side. For more information on the Source Control View, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Quand vous utilisez le {% data variables.codespaces.serverless %}, toutes les actions sont gérées via l’affichage Contrôle de code source, qui se trouve dans la Barre d’activité sur le côté gauche. Pour plus d’informations sur l’affichage Contrôle de code source, consultez « [Contrôle de version](https://code.visualstudio.com/docs/editor/versioncontrol) » dans la documentation {% data variables.product.prodname_vscode_shortname %}.
 
-Because the web-based editor uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. For more information, see "[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Étant donné que l’éditeur web utilise l’extension Dépôts GitHub pour alimenter des fonctionnalités, vous pouvez changer de branche sans avoir à dissimuler les modifications. Pour plus d’informations, consultez « [Dépôts GitHub](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension) » dans la documentation {% data variables.product.prodname_vscode_shortname %}.
 
-### Create a new branch
+### Créer une branche
 
-{% data reusables.codespaces.create-or-switch-branch %}
-  Any uncommitted changes you have made in your old branch will be available on your new branch.
+{% data reusables.codespaces.create-or-switch-branch %} Toute modification non validée que vous avez apportée dans votre ancienne branche sera disponible sur votre nouvelle branche.
 
-### Commit your changes
+### Validation de vos modifications
 
 {% data reusables.codespaces.source-control-commit-changes %} 
-5. Once you have committed your changes, they will automatically be pushed to your branch on {% data variables.product.prodname_dotcom %}.
-### Create a pull request
+5. Une fois vos modifications validées, elles sont automatiquement envoyées (push) à votre branche sur {% data variables.product.prodname_dotcom %}.
+### Créer une demande de tirage
 
 {% data reusables.codespaces.source-control-pull-request %}
 
-### Working with an existing pull request
+### Utilisation d’une demande de tirage existante
 
-You can use the {% data variables.codespaces.serverless %} to work with an existing pull request.
+Vous pouvez utiliser le {% data variables.codespaces.serverless %} pour utiliser une demande de tirage existante.
 
-1. Browse to the pull request you'd like to open in the {% data variables.codespaces.serverless %}.
-2. Press `.` to open the pull request in the {% data variables.codespaces.serverless %}.
-3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
+1. Accédez à la demande de tirage que vous souhaitez ouvrir dans le {% data variables.codespaces.serverless %}.
+2. Appuyez sur `.` pour ouvrir la demande de tirage dans le {% data variables.codespaces.serverless %}.
+3. Une fois que vous avez apporté des modifications, validez-les en suivant les étapes décrites dans [Valider vos modifications](#commit-your-changes). Vos modifications étant validées directement dans la branche, il n’est pas nécessaire de les envoyer (push).
 
-## Using extensions
+## Utilisation d’extensions
 
-The {% data variables.codespaces.serverless %} supports {% data variables.product.prodname_vscode_shortname %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see "[Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Le {% data variables.codespaces.serverless %} prend en charge les extensions {% data variables.product.prodname_vscode_shortname %} qui ont été spécifiquement créées ou mises à jour pour s’exécuter sur le web. Ces extensions sont appelées « extensions web ». Pour savoir comment créer une extension web ou mettre à jour votre extension existante pour travailler à partir du web, consultez « [Extensions web](https://code.visualstudio.com/api/extension-guides/web-extensions) » dans la documentation {% data variables.product.prodname_vscode_shortname %}.
 
-Extensions that can run in the {% data variables.codespaces.serverless %} will appear in the Extensions View and can be installed. If you use Settings Sync, any compatible extensions are also installed automatically. For information, see "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Les extensions qui peuvent s’exécuter dans le {% data variables.codespaces.serverless %} apparaissent dans l’affichage Extensions et peuvent être installées. Si vous utilisez la Synchronisation des paramètres, toutes les extensions compatibles sont également installées automatiquement. Pour plus d’informations, consultez « [Synchronisation des paramètres](https://code.visualstudio.com/docs/editor/settings-sync) » dans la documentation {% data variables.product.prodname_vscode_shortname %}.
 
 
-## Troubleshooting
+## Dépannage
 
-If you have issues opening the {% data variables.codespaces.serverless %}, try the following:
+En cas de problèmes lors de l’ouverture du {% data variables.codespaces.serverless %}, essayez la procédure suivante :
 
-- Make sure you are signed in to {% data variables.product.prodname_dotcom %}.
-- Disable any ad blockers.
-- Use a non-incognito window in your browser to open the {% data variables.codespaces.serverless %}.
+- Assurez-vous que vous êtes connecté à {% data variables.product.prodname_dotcom %}.
+- Désactivez tout bloqueur de publicité.
+- Utilisez une fenêtre non privée dans votre navigateur pour ouvrir le {% data variables.codespaces.serverless %}.
 
-### Known limitations
+### Limitations connues
 
-- The {% data variables.codespaces.serverless %} is currently supported in Chrome (and various other Chromium-based browsers), Edge, Firefox, and Safari. We recommend that you use the latest versions of these browsers.
-- Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the "[Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" section of the {% data variables.product.prodname_vscode_shortname %} documentation.
-- `.` may not work to open the {% data variables.codespaces.serverless %} according to your local keyboard layout. In that case, you can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.codespaces.serverless %} by changing the URL from `github.com` to `github.dev`.
+- Le {% data variables.codespaces.serverless %} est actuellement pris en charge dans Chrome (et divers autres navigateurs basés sur Chromium), Edge, Firefox et Safari. Nous vous recommandons d’utiliser les dernières versions de ces navigateurs.
+- Il se peut que certaines combinaisons de touches ne fonctionnent pas, selon le navigateur que vous utilisez. Ces limitations de combinaison de touches sont documentées dans la section « [Limitations et adaptations connues](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations) » de la documentation {% data variables.product.prodname_vscode_shortname %}.
+- Il est possible que `.` ne fonctionne pas pour ouvrir le {% data variables.codespaces.serverless %}, en fonction de la disposition de votre clavier local. Dans ce cas, vous pouvez ouvrir le référentiel {% data variables.product.prodname_dotcom %} de votre choix dans {% data variables.codespaces.serverless %} en modifiant l’URL de `github.com` en `github.dev`.

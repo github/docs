@@ -8,12 +8,12 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Creation and deletion
-ms.openlocfilehash: 09c3a73ec5e41f0170f1d3cd66df139bb2a497e5
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 4a12c848fa7400ec336f5ad086eb4d2858a431f0
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158691'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180817'
 ---
 ## 创建代码空间
 
@@ -98,4 +98,4 @@ This codespace is currently running in recovery mode due to a container error.
 ```
 查看创建日志并根据需要更新开发容器配置。 有关详细信息，请参阅“[{% data variables.product.prodname_github_codespaces %} 日志](/codespaces/troubleshooting/github-codespaces-logs)”。
 
-然后，可以尝试重启 codespace，或重新生成容器。 有关详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)”。
+然后，可以尝试重启 codespace，或重新生成容器。 有关重新生成容器的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)”。
