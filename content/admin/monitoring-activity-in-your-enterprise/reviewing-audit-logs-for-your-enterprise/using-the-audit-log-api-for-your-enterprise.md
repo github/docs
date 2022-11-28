@@ -145,9 +145,9 @@ see [Traversing with Pagination](/rest/guides/traversing-with-pagination).
 Example of header links in header output:
 
 ```
-link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&page=1&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next", 
-<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&page=1&per_page=100&after=&before=>; rel="first", 
-<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&page=1&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
+link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next", 
+<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first", 
+<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
 ```
 
 To use this navigation, copy the corresponding link into your request.
