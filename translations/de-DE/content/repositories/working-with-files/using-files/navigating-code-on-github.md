@@ -1,6 +1,6 @@
 ---
-title: Navigating code on GitHub
-intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.product_name %}.'
+title: Code-Navigation auf GitHub
+intro: 'Du kannst die Beziehungen in Repositorys und Repository-übergreifend durch die Code-Navigation direkt in {% data variables.product.product_name %} nachvollziehen.'
 redirect_from:
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
@@ -10,18 +10,24 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 89fc5092468d50484cfcad71824870b6456d9ac7
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164163'
 ---
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
-## About navigating code on {% data variables.product.prodname_dotcom %}
+## Über Code-Navigation auf {% data variables.product.prodname_dotcom %}
 
-Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
+Die Codenavigation hilft dir dabei, Code zu lesen, in Code zu navigieren und den Code zu verstehen. Dazu kannst du Definitionen einer benannten Entität, die einem Verweis auf diese Entität entsprechen, sowie Verweise, die einer Definition der Entität entsprechen, anzeigen und verknüpfen.
 
-![Code navigation display](/assets/images/help/repository/code-navigation-popover.png)
+![Anzeige der Codenavigation](/assets/images/help/repository/code-navigation-popover.png)
 
-Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported:
+Die Codenavigation verwendet die Open Source-Bibliothek [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). Die folgenden Sprachen und Navigationsstrategien werden unterstützt:
 
-| Language   | Search-based code navigation | Precise code navigation |
+| Sprache   | Suchbasierte Codenavigation | Präzise Codenavigation |
 |:----------:|:----------------------------:|:-----------------------:|
 | C#         | ✅                           |                         |
 | CodeQL     | ✅                           |                         |
@@ -36,49 +42,49 @@ Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sit
 | TypeScript | ✅                           |                         |
 
 
-You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
+Du brauchst dein Repository nicht zu konfigurieren, um die Codenavigation aktivieren zu können. Bei den unterstützten Sprachen werden Informationen der suchbasierten und präzisen Codenavigation in allen Repositorys automatisch extrahiert. Außerdem kannst du zwischen den beiden unterstützten Codenavigationsansätzen wechseln, wenn deineProgrammiersprache von beiden unterstützt wird.
 
-{% data variables.product.prodname_dotcom %} has developed two code navigation approaches based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) and [`stack-graphs`](https://github.com/github/stack-graphs) library:
- - Search-based - searches all definitions and references across a repository to find entities with a given name
- - Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
+{% data variables.product.prodname_dotcom %} hat zwei Codenavigationsansätze auf Basis der Open Source-Bibliothek [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) und [`stack-graphs`](https://github.com/github/stack-graphs) entwickelt:
+ - Suchbasiert: Alle Definitionen und Verweise in einem Repository werden durchsucht, um Entitäten mit einem bestimmten Namen zu finden
+ - Präzise: Definitionen und Verweise werden basierend auf dem Satz von Klassen, Funktionen und importierten Definitionen jederzeit in deinem Code aufgelöst
 
-To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
+Weitere Informationen zu diesen Ansätzen findest du unter [Präzise und suchbasierte Navigation](#precise-and-search-based-navigation).
 
-Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
+Bei zukünftigen Versionen wird die *präzise Codenavigation*, ein Codenavigationsansatz, der genauere Ergebnisse liefern kann, für weitere Sprachen verfügbar gemacht.
 
-## Jumping to the definition of a function or method
+## Zur Definition einer Funktion oder Methode wechseln
 
-You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
+Du kannst zur Definition einer Funktion oder Methoden innerhalb des gleichen Repository springen, indem Du auf den Funktions- oder Methodenaufruf in einer Datei klickst.
 
-![Jump-to-definition tab](/assets/images/help/repository/jump-to-definition-tab.png)
+![Registerkarte „Jump-to-definition" (Wechseln zur Definition)](/assets/images/help/repository/jump-to-definition-tab.png)
 
-## Finding all references of a function or method
+## Alle Verweise einer Funktion oder Methode suchen
 
-You can find all references for a function or method within the same repository by clicking the function or method call in a file, then clicking the **References** tab.
+Du findest alle Referenzen für eine Funktion oder Methode innerhalb eines Repositorys, indem Du auf den Funktions- oder Methodenaufruf in einer Datei und dann auf die Registerkarte **Verweise** klickst.
 
-![Find all references tab](/assets/images/help/repository/find-all-references-tab.png)
+![Registerkarte „Find all references" (Suche nach allen Referenzen)](/assets/images/help/repository/find-all-references-tab.png)
 
-## Precise and search-based navigation
+## Präzise und suchbasierte Navigation
 
-Certain languages supported by {% data variables.product.prodname_dotcom %} have access to *precise code navigation*, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use *search-based code navigation*, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
+Bestimmte, von {% data variables.product.prodname_dotcom %} unterstützte Sprachen haben Zugriff auf die *präzise Codenavigation*, die einen Algorithmus (auf Grundlage der Open Source-Bibliothek [`stack-graphs`](https://github.com/github/stack-graphs)) verwendet, der Definitionen und Verweise basierend auf dem Satz von Klassen, Funktionen und importierten Definitionen auflöst, die an jedem Punkt in deinem Code sichtbar sind. Bei anderen Sprachen wird die *suchbasierte Codenavigation* verwendet, die alle Definitionen und Verweise in einem Repository durchsucht, um Entitäten mit einem bestimmten Namen zu finden. Beide Strategien sind effektiv bei der Suche nach Ergebnissen und vermeiden mit großer Sicherheit ungeeignete Ergebnisse wie Kommentare. Die präzise Codenavigation kann jedoch vor allem bei Repositorys, die mehrere Methoden oder Funktionen mit demselben Namen enthalten, genauere Ergebnisse erzielen.
 
-If you don't see the results you expect from a precise code navigation query, you can click on the "search-based" link in the displayed popover to perform search-based navigation.
+Wenn bei der präzisen Codenavigation nach einer Abfrage nicht die erwarteten Ergebnisse angezeigt werden, kannst du im angezeigten Popover auf den Link „suchbasiert“ klicken, um die suchbasierte Navigation auszuführen.
 
-![Search-based code navigation link](/assets/images/help/repository/search-based-code-navigation-link.png)
+![Link zur suchbasierten Codenavigation](/assets/images/help/repository/search-based-code-navigation-link.png)
 
-If your precise results appear inaccurate, you can file a support request.
+Wenn die genauen Ergebnisse ungenau erscheinen, kannst du eine Supportanfrage einreichen.
 
-## Cross-repository precise code navigation
+## Repositoryübergreifende präzise Codenavigation
 
-Cross-repo code navigation is available for languages that are supported by precise code navigation and the dependency graph. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
+Die repositoryübergreifende Codenavigation steht für Sprachen zur Verfügung, die von der präzisen Codenavigation und vom Abhängigkeitsdiagramm unterstützt werden. Weitere Informationen findest du unter [Informationen zum Abhängigkeitsdiagramm](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph). Mit der repositoryübergreifenden Codenavigation kannst du zur Definition von Funktionen oder Variablen springen, die in von deinem Projekt importierten Abhängigkeiten definiert sind, wenn diese Abhängigkeit ein Repository ist, das über {% data variables.product.prodname_dotcom %} gehostet wird. Die repositoryübergreifende Codenavigation unterstützt derzeit keine Suchabfragen für alle Verweise.
 
-![Screenshot of cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
+![Screenshot der repositoryübergreifenden Codenavigation](/assets/images/help/repository/cross-repository-code-navigation.png)
 
-## Troubleshooting code navigation
+## Problembehandlung bei der Codenavigation
 
-If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
-- Code navigation only works for active branches. Push to the branch and try again.
-- Code navigation only works for repositories with fewer than 100,000 files.
+Die Codenavigation ist zwar für dich aktiviert, es werden aber keine Links zu den Definitionen von Funktionen und Methoden angezeigt:
+- Die Codenavigation funktioniert nur bei aktiven Branches. Drücke auf den Branch, und versuche es erneut.
+- Die Codenavigation funktioniert nur für Repositorys mit weniger als 100.000 Dateien.
 
-## Further reading
-- "[Searching code](/github/searching-for-information-on-github/searching-code)"
+## Weiterführende Themen
+- [Durchsuchen von Code](/github/searching-for-information-on-github/searching-code)

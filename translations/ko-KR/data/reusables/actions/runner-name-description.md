@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 92f9c6962ced87f0075e67d91920b4262d376bbe
-ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
-ms.translationtype: HT
+ms.openlocfilehash: 99093fe4bc8da22d7507cd16ffdbf5c3756ae83f
+ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "147878767"
+ms.lasthandoff: 11/21/2022
+ms.locfileid: "148179639"
 ---
 작업을 실행하는 실행기의 이름입니다.

@@ -12,12 +12,12 @@ shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
-ms.openlocfilehash: ac3be901f6b37636b4e287c93d7a4f312c02a37e
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: acd462dd1c0b60dced529d7471b9c8638e2f6e91
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160266'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180813'
 ---
 ## {% data variables.product.prodname_vscode_command_palette %} 정보
 
@@ -51,7 +51,7 @@ codespace의 컨테이너를 일시 중단하거나 중지하려면 [{% data var
 
 ### 미리 정의된 개발 컨테이너 구성 추가
 
-미리 정의된 개발 컨테이너 구성을 추가하려면 [{% data variables.product.prodname_vscode_command_palette_shortname %}에 액세스](#accessing-the-command-palette)한 후 "개발 컨테이너"를 입력하기 시작합니다. **Codespaces: 개발 컨테이너 구성 파일 추가...** 를 선택합니다.
+미리 정의된 개발 컨테이너 구성을 추가하려면 [{% data variables.product.prodname_vscode_command_palette_shortname %}에 액세스](#accessing-the-command-palette)한 다음 " 개발 컨테이너"를 입력하기 시작합니다. **Codespaces: 개발 컨테이너 구성 파일 추가...** 를 선택합니다.
 
 ![개발 컨테이너를 추가하는 명령](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
@@ -63,11 +63,13 @@ codespace의 컨테이너를 일시 중단하거나 중지하려면 [{% data var
 
 ![codespace를 다시 빌드하는 명령](/assets/images/help/codespaces/codespaces-rebuild.png)
 
+{% data reusables.codespaces.full-rebuild-tip %}
+
 ### Codespaces 로그
 
 {% data variables.product.prodname_vscode_command_palette_shortname %}를 사용하여 codespace 만들기 로그에 액세스하거나 모든 로그를 내보낼 수 있습니다. 
 
-{% data variables.product.prodname_github_codespaces %}에 대한 로그를 검색하려면 [{% data variables.product.prodname_vscode_command_palette_shortname %}에 액세스](#accessing-the-command-palette)한 후 "log"를 입력하기 시작합니다. **Codespaces: 로그 내보내** 기를 선택하여 {% data variables.product.prodname_github_codespaces %}과 관련된 모든 로그를 내보내거나 **Codespaces: 만들기 로그 보기를** 선택하여 설정과 관련된 로그를 봅니다.
+{% data variables.product.prodname_github_codespaces %}에 대한 로그를 검색하려면 [{% data variables.product.prodname_vscode_command_palette_shortname %}에 액세스](#accessing-the-command-palette)한 후 "log" 입력을 시작합니다. **Codespaces: 로그 내보내** 기를 선택하여 {% data variables.product.prodname_github_codespaces %}과 관련된 모든 로그를 내보내거나 **Codespaces: 만들기 로그 보기를** 선택하여 설정과 관련된 로그를 봅니다.
 
 ![로그에 액세스하는 명령](/assets/images/help/codespaces/codespaces-logs.png)
 

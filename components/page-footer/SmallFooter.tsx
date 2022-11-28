@@ -11,12 +11,12 @@ export const SmallFooter = () => {
       <ul className="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-xl-justify-between mb-2 mb-xl-0">
         <li className="mr-3 mr-xl-0">&copy; {new Date().getFullYear()} GitHub, Inc.</li>
         <li className="mr-3 mr-xl-0">
-          <Link href={`/${router.locale}/github/site-policy/github-terms-of-service`}>
+          <Link href={`/${router.locale}/site-policy/github-terms/github-terms-of-service`}>
             {t('terms')}
           </Link>
         </li>
         <li className="mr-3 mr-xl-0">
-          <Link href={`/${router.locale}/github/site-policy/github-privacy-statement`}>
+          <Link href={`/${router.locale}/site-policy/privacy-policies/github-privacy-statement`}>
             {t('privacy')}
           </Link>
         </li>

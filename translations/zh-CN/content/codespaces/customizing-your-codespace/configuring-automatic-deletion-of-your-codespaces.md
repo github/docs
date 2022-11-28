@@ -1,85 +1,89 @@
 ---
-title: Configuring automatic deletion of your codespaces
+title: 配置 codespace 的自动删除
 shortTitle: Configure automatic deletion
-intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
+intro: 处于非活动状态的 codespace 会自动删除。 你可以选择停止的 codespace 将保留多长时间，最长为 30 天。
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 5414d2223f490638f27475840a25883e9c353e77
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159488'
 ---
+默认情况下，{% data variables.product.prodname_github_codespaces %} 在停止且保持 30 天的非活动状态后会自动删除。
 
-By default, {% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for 30 days.
-
-However, because {% data variables.product.prodname_github_codespaces %} incurs storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+但是，由于 {% data variables.product.prodname_github_codespaces %} 会产生存储费用，因此，你可能希望通过在 {% data variables.product.prodname_github_codespaces %} 的个人设置中更改默认期限来减少保持期。 有关存储费用的详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)”。
 
 {% note %}
 
-**Note**: Whether or not you have set a personal codespace retention period, it's a good idea to get into the habit of deleting codespaces that you no longer need. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+注意：无论你是否设置了个人 codespace 保持期，最好养成删除不再需要的 codespace 的习惯。 有关详细信息，请参阅“[删除 codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)”。
 
 {% endnote %}
 
-Automatic deletion happens irrespective of whether a codespace contains unpushed changes. To prevent automatic deletion of a codespace, just open the codespace again. The retention period is reset every time you connect to a codespace, and the retention countdown restarts when the codespace is stopped.
+无论 codespace 是否包含未推送的更改，自动删除都会进行。 若要防止 codespace 的自动删除，只需再次打开此 codespace 即可。 每次连接到 codespace 时保持期都会重置，并且当 codespace 停止时，保留倒计时将重新开始。
 
-If a repository belongs to an organization, the organization admin may have set a retention period for the whole organization. If this period is less than the default retention period in your personal settings then the organization retention period will apply to codespaces you create for this repository. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+如果存储库属于某一组织，此组织管理员可能已为整个组织设置了保持期。 如果此期限小于个人设置中的默认保持期，则组织保持期将应用于为此存储库创建的 codespace。 有关详细信息，请参阅“[限制 codespace 的保持期](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)”。
 
-Each codespace has its own retention period. You may, therefore, have codespaces with different rentention periods. For example, if:
-* You created a codespace, changed your default retention period, then created another codespace.
-* You created a codespace using {% data variables.product.prodname_cli %} and specified a different retention period.
-* You created a codespace from an organization-owned repository that has a retention period configured for the organization.
+每个 codespace 都有自身的保持期。 因此，你可能拥有具有不同保持期的 codespace。 例如，如果：
+* 你创建了一个 codespace，更改了你的默认保持期，然后创建了另一个 codespace。
+* 你使用 {% data variables.product.prodname_cli %} 创建了一个 codespace，并指定了一个不同的保持期。
+* 你从组织拥有的存储库创建了一个 codespace，该存储库拥有为组织配置的保持期。
 
 {% note %}
 
-**Note**: The retention period is specified in days. A day represents a 24-hour period, beginning at the time of day when you stop a codespace.
+注意：保持期是按天指定的。 一天表示一个 24 小时的期限，从停止 codespace 那一天的那一刻起。
 
 {% endnote %}
 
 {% webui %}
 
-## Setting a default retention period for your codespaces
+## 设置 codespace 的默认保持期
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Default retention period", enter the number of days for which you want your codespaces to be retained, by default, after they have been stopped. 
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. 在“默认保持期”下，输入你希望 codespace 在停止后默认将保留的天数。 
 
-   ![Selecting your retention period](/assets/images/help/codespaces/setting-default-retention.png)
+   ![选择保持期](/assets/images/help/codespaces/setting-default-retention.png)
 
-   You can set your default retention period between `0` and `30` days. 
+   你可以在 `0` 到 `30` 天之间设置默认的保持期。 
 
    {% warning %}
 
-   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+   警告：将期限设置为 `0` 将导致 codespace 在停止时或由于处于非活动状态而超时时被立即删除。 有关详细信息，请参阅“[设置 {% data variables.product.prodname_github_codespaces %} 的超时时间](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)”。
 
    {% endwarning %}
  
-1. Click **Save**.
+1. 单击“保存” 。
 
-When you create a codespace using {% data variables.product.prodname_cli %} you can override this default. If you create a codespace in an organization that specifies a shorter retention period, the organization-level value overrides your personal setting.
+使用 {% data variables.product.prodname_cli %} 创建 codespace 时，可以重写此默认值。 如果在指定了更短保持期的组织中创建 codespace，则组织级别的值将重写你的个人设置。
 
-If you set a retention period of more than a day, you'll be sent an email notification one day prior to its deletion. 
+如果设置的保持期超过一天，你将在删除的前一天收到电子邮件通知。 
 
-## Checking the remaining time until autodeletion
+## 检查自动删除之前剩余的时间
 
-You can check whether a codespace is due to be automatically deleted soon. 
+可以查看 codespace 是否即将自动删除。 
 
-When an inactive codespace is approaching the end of its retention period, this is indicated in your list of codespaces on {% data variables.product.prodname_dotcom %} at [https://github.com/codespaces](https://github.com/codespaces).
+当处于非活动状态的 codespace 的保持期即将结束时，这将在 {% data variables.product.prodname_dotcom %} 上的 codespace 列表中指明：[https://github.com/codespaces](https://github.com/codespaces)。
 
-![The pre-deletion message in the codespaces list on {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/retention-deletion-message.png)
+![{% data variables.product.prodname_dotcom %} 上的 codespace 列表中的预删除消息](/assets/images/help/codespaces/retention-deletion-message.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## Setting a retention period for a codespace
+## 设置 codespace 的保持期
 
-To set the codespace retention period when you create a codespace, use the `--retention-period` flag with the `codespace create` subcommand. Specify the period in days. The period must be between 0 and 30 days.
+若要在创建 codespace 时设置 codespace 保持期，请将 `--retention-period` 标志与 `codespace create` 子命令一起使用。 按天数指定期限。 期限必须介于 0 到 30 天之间。
 
 ```shell
 gh codespace create --retention-period DAYS
 ```
 
-If you don't specify a retention period when you create a codespace, then either your default retention period, or an organization retention period, will be used, depending on which is lower. For information about setting your default retention period, click the "Web browser" tab on this page. 
+如果在创建 codespace 时未指定保持期，则将使用默认保持期或组织保持期，具体视哪个保持期的期限较低。 有关设置默认保持期的信息，请单击此页面上的“Web 浏览器”选项卡。 
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -87,20 +91,20 @@ If you don't specify a retention period when you create a codespace, then either
 
 {% vscode %}
 
-## Setting the retention period
+## 指定保持期
 
-You can set your default retention period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a retention period for that particular codespace. For more information, click the appropriate tab above.
+可以通过 Web 浏览器在 {% data variables.product.prodname_dotcom_the_website %} 上设置默认保持期。 或者，如果使用 {% data variables.product.prodname_cli %} 创建 codespace，则可以为该特定 codespace 设置保持期。 有关详细信息，请单击上面相应的选项卡。
 
-## Checking whether codespaces will be autodeleted soon
+## 检查 codespace 是否即将被自动删除
 
-You can check, in the {% data variables.product.prodname_vscode %} desktop application, whether a codespace is due to be automatically deleted soon.
+可以在 {% data variables.product.prodname_vscode %} 桌面应用程序中检查 codespace 是否即将自动删除。
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Choose **{% data variables.product.prodname_github_codespaces %}** from the dropdown menu at the top right of the Remote Explorer, if it is not already selected.
-1. Under "GITHUB CODESPACES," position the mouse pointer over the codespace that you're interested in. A pop-up box is displayed showing you information about the codespace.
+1. 从“远程资源管理器”右上角的下拉菜单中选择“{% data variables.product.prodname_github_codespaces %}”（如果尚未选择）。
+1. 在“GITHUB CODESPACES”下，将鼠标指针放置在你感兴趣的 codespace 上。 随即将显示一个弹出框，其中显示了有关 codespace 的信息。
 
-   If the codespace is nearing the end of its retention period, a line is included telling you when the codespace will be deleted.
+   如果 codespace 即将接近保持期的末尾，则会包含一行，此行将告知你 codespace 将何时被删除。
 
-   ![Codespace information showing the time until deletion](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
+   ![显示了删除前剩余时间的 codespace 信息](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
 
 {% endvscode %}

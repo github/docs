@@ -10,12 +10,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: b1c04738a3c03d892b360c3b23def694d202ee0c
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 680d6cff10dfc063ebaef0ebc9f8f7d0c15ba2e7
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108433'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158940'
 ---
 Vous pouvez personnaliser les vues en filtrant les métadonnées des éléments, comme les personnes responsables et les étiquettes appliquées aux problèmes, ainsi que les champs définis dans votre projet. Vous pouvez combiner des filtres et les enregistrer sous forme de vues. Pour plus d’informations, consultez « [Personnalisation des vues de votre projet](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view) ».
 
@@ -24,6 +24,8 @@ Pour filtrer un projet, cliquez sur {% octicon "filter" aria-label="The Filter i
 L’utilisation de plusieurs filtres agit comme un filtre AND logique. Par exemple, `label:bug status:"In progress"` retourne les éléments avec l’étiquette `bug` et l’état « En cours ». Actuellement, {% data variables.product.prodname_projects_v2 %} ne prend pas en charge les filtres OR logiques sur plusieurs champs.
 
 Les mêmes filtres sont disponibles pour les graphiques que vous créez à l’aide d’insights pour {% data variables.product.prodname_projects_v2 %}, ce qui vous permet de filtrer les données utilisées pour créer vos graphiques. Pour plus d’informations, consultez « [Utilisation des insights avec des projets](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects) ».
+
+Quand vous filtrez une vue, puis ajoutez un élément, les métadonnées filtrées sont appliquées à l’élément ajouté. Par exemple, si vous filtrez par `status:"In progress"` et que vous ajoutez un élément, l’état du nouvel élément est défini sur « En cours ».
 
 ## Filtrage d’éléments
 

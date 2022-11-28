@@ -1,85 +1,89 @@
 ---
-title: Configuring automatic deletion of your codespaces
+title: Konfigurieren des automatischen Löschens deiner Codespaces
 shortTitle: Configure automatic deletion
-intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
+intro: 'Inaktive Codespaces werden automatisch gelöscht. Du kannst bis zu einem Maximum von 30 Tagen auswählen, wie lange deine beendeten Codespaces aufbewahrt werden.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Codespaces
 type: how_to
+ms.openlocfilehash: 5414d2223f490638f27475840a25883e9c353e77
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159697'
 ---
+Standardmäßig werden {% data variables.product.prodname_github_codespaces %} automatisch gelöscht, nachdem sie beendet wurden und 30 Tage lang inaktiv geblieben sind.
 
-By default, {% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for 30 days.
-
-However, because {% data variables.product.prodname_github_codespaces %} incurs storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+Da {% data variables.product.prodname_github_codespaces %} jedoch Speichergebühren verursachen, solltest du den Aufbewahrungszeitraum verringern, indem du deinen Standardzeitraum in deinen persönlichen Einstellungen für {% data variables.product.prodname_github_codespaces %} änderst. Weitere Informationen zu den Speichergebühren findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing).
 
 {% note %}
 
-**Note**: Whether or not you have set a personal codespace retention period, it's a good idea to get into the habit of deleting codespaces that you no longer need. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+**Hinweis**: Unabhängig davon, ob du einen persönlichen Codespace-Aufbewahrungszeitraum festgelegt hast oder nicht, solltest du dir angewöhnen, nicht mehr benötigte Codespaces zu löschen. Weitere Informationen findest du unter [Löschen eines Codespace](/codespaces/developing-in-codespaces/deleting-a-codespace).
 
 {% endnote %}
 
-Automatic deletion happens irrespective of whether a codespace contains unpushed changes. To prevent automatic deletion of a codespace, just open the codespace again. The retention period is reset every time you connect to a codespace, and the retention countdown restarts when the codespace is stopped.
+Automatisches Löschen erfolgt unabhängig davon, ob ein Codespace nicht gepushte Änderungen enthält. Um das automatische Löschen eines Codespaces zu verhindern, öffne den Codespace einfach erneut. Der Aufbewahrungszeitraum wird jedes Mal zurückgesetzt, wenn du eine Verbindung mit einem Codespace herstellst, und der Aufbewahrungscountdown wird neu gestartet, wenn der Codespace beendet wird.
 
-If a repository belongs to an organization, the organization admin may have set a retention period for the whole organization. If this period is less than the default retention period in your personal settings then the organization retention period will apply to codespaces you create for this repository. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+Wenn ein Repository zu einer Organisation gehört, hat der Organisationsadministrator möglicherweise einen Aufbewahrungszeitraum für die gesamte Organisation festgelegt. Wenn dieser Zeitraum kürzer als der Standardaufbewahrungszeitraum in deinen persönlichen Einstellungen ist, gilt der Aufbewahrungszeitraum der Organisation für Codespaces, die du für dieses Repository erstellst. Weitere Informationen findest du unter [Einschränken des Aufbewahrungszeitraums für Codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces).
 
-Each codespace has its own retention period. You may, therefore, have codespaces with different rentention periods. For example, if:
-* You created a codespace, changed your default retention period, then created another codespace.
-* You created a codespace using {% data variables.product.prodname_cli %} and specified a different retention period.
-* You created a codespace from an organization-owned repository that has a retention period configured for the organization.
+Jeder Codespace verfügt über einen eigenen Aufbewahrungszeitraum. Du kannst daher über Codespaces mit unterschiedlichen Aufbewahrungszeiträumen verfügen. Beispiele:
+* Du hast einen Codespace erstellt, den Standardaufbewahrungszeitraum geändert und dann einen anderen Codespace erstellt.
+* Du hast einen Codespace mit {% data variables.product.prodname_cli %} erstellt und einen anderen Aufbewahrungszeitraum angegeben.
+* Du hast einen Codespace von einem organisationseigenen Repository aus erstellt, für das ein Aufbewahrungszeitraum für die Organisation konfiguriert ist.
 
 {% note %}
 
-**Note**: The retention period is specified in days. A day represents a 24-hour period, beginning at the time of day when you stop a codespace.
+**Hinweis**: Der Aufbewahrungszeitraum wird in Tagen angegeben. Ein Tag ist ein Zeitraum von 24 Stunden, der zu dem Zeitpunkt beginnt, wenn du einen Codespace beendest.
 
 {% endnote %}
 
 {% webui %}
 
-## Setting a default retention period for your codespaces
+## Festlegen eines Standardaufbewahrungszeitraums für deine Codespaces
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Default retention period", enter the number of days for which you want your codespaces to be retained, by default, after they have been stopped. 
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Gib unter „Standardaufbewahrungszeitraum“ die Anzahl der Tage ein, für die deine Codespaces standardmäßig aufbewahrt werden sollen, nachdem sie beendet wurden. 
 
-   ![Selecting your retention period](/assets/images/help/codespaces/setting-default-retention.png)
+   ![Auswählen des Aufbewahrungszeitraums](/assets/images/help/codespaces/setting-default-retention.png)
 
-   You can set your default retention period between `0` and `30` days. 
+   Du kannst deinen Standardaufbewahrungszeitraum zwischen `0` und `30` Tagen festlegen. 
 
    {% warning %}
 
-   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+   **Warnung**: Wenn du den Zeitraum auf `0` festlegst, werden deine Codespaces sofort gelöscht, wenn du sie beendest oder ein Inaktivitätstimeout in Kraft tritt. Weitere Informationen findest du unter [Festlegen deines Timeoutzeitraums für {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces).
 
    {% endwarning %}
  
-1. Click **Save**.
+1. Klicke auf **Speichern**.
 
-When you create a codespace using {% data variables.product.prodname_cli %} you can override this default. If you create a codespace in an organization that specifies a shorter retention period, the organization-level value overrides your personal setting.
+Wenn du einen Codespace mit {% data variables.product.prodname_cli %} erstellst, kannst du diesen Standardwert außer Kraft setzen. Wenn du einen Codespace in einer Organisation erstellst, die einen kürzeren Aufbewahrungszeitraum angibt, überschreibt der Wert auf Organisationsebene dein persönliche Einstellung.
 
-If you set a retention period of more than a day, you'll be sent an email notification one day prior to its deletion. 
+Wenn du einen Aufbewahrungszeitraum von mehreren Tagen festlegst, erhältst du einen Tag vor dem Löschen eine E-Mail-Benachrichtigung. 
 
-## Checking the remaining time until autodeletion
+## Überprüfen der verbleibenden Zeit bis zur automatischen Löschung
 
-You can check whether a codespace is due to be automatically deleted soon. 
+Du kannst überprüfen, ob ein Codespace bald automatisch gelöscht werden soll. 
 
-When an inactive codespace is approaching the end of its retention period, this is indicated in your list of codespaces on {% data variables.product.prodname_dotcom %} at [https://github.com/codespaces](https://github.com/codespaces).
+Wenn das Ende des Aufbewahrungszeitraums eines inaktiven Codespaces nähert rückt, wird dies in deiner Codespaces-Liste auf {% data variables.product.prodname_dotcom %} unter [https://github.com/codespaces](https://github.com/codespaces) angezeigt.
 
-![The pre-deletion message in the codespaces list on {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/retention-deletion-message.png)
+![Die Nachricht über vorläufiges Löschen wird in der Codespaces-Liste auf {% data variables.product.prodname_dotcom %} angezeigt.](/assets/images/help/codespaces/retention-deletion-message.png)
 
 {% endwebui %}
 
 {% cli %}
 
-## Setting a retention period for a codespace
+## Festlegen eines Aufbewahrungszeitraums für einen Codespace
 
-To set the codespace retention period when you create a codespace, use the `--retention-period` flag with the `codespace create` subcommand. Specify the period in days. The period must be between 0 and 30 days.
+Um beim Erstellen eines Codespaces den Aufbewahrungszeitraum festzulegen, verwende das `--retention-period`-Flag mit dem `codespace create`-Unterbefehl. Gib den Zeitraum in Tagen an. Der Zeitraum muss zwischen 0 und 30 Tagen betragen.
 
 ```shell
 gh codespace create --retention-period DAYS
 ```
 
-If you don't specify a retention period when you create a codespace, then either your default retention period, or an organization retention period, will be used, depending on which is lower. For information about setting your default retention period, click the "Web browser" tab on this page. 
+Wenn du beim Erstellen eines Codespaces keinen Aufbewahrungszeitraum angibst, wird entweder dein Standardaufbewahrungszeitraum oder ein Aufbewahrungszeitraum der Organisation festgelegt, je nachdem, welcher kürzer ist. Informationen zum Festlegen deines Standardaufbewahrungszeitraums findest du auf dieser Seite auf der Registerkarte „Webbrowser“. 
 
 {% data reusables.cli.cli-learn-more %}
 
@@ -87,20 +91,20 @@ If you don't specify a retention period when you create a codespace, then either
 
 {% vscode %}
 
-## Setting the retention period
+## Festlegen des Aufbewahrungszeitraums
 
-You can set your default retention period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a retention period for that particular codespace. For more information, click the appropriate tab above.
+Du kannst auf {% data variables.product.prodname_dotcom_the_website %} deinen Standardaufbewahrungszeitraum in deinem Webbrowser festlegen. Wenn du alternativ {% data variables.product.prodname_cli %} verwendest, um einen Codespace zu erstellen, kannst du einen Aufbewahrungszeitraum für diesen bestimmten Codespace festlegen. Weitere Informationen erhältst du, wenn du oben auf die entsprechende Registerkarte klickst.
 
-## Checking whether codespaces will be autodeleted soon
+## Überprüfen, ob Codespaces bald automatisch gelöscht werden
 
-You can check, in the {% data variables.product.prodname_vscode %} desktop application, whether a codespace is due to be automatically deleted soon.
+Du kannst in der {% data variables.product.prodname_vscode %}-Desktopanwendung überprüfen, ob ein Codespace bald automatisch gelöscht werden soll.
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Choose **{% data variables.product.prodname_github_codespaces %}** from the dropdown menu at the top right of the Remote Explorer, if it is not already selected.
-1. Under "GITHUB CODESPACES," position the mouse pointer over the codespace that you're interested in. A pop-up box is displayed showing you information about the codespace.
+1. Wähle **{% data variables.product.prodname_github_codespaces %}** im Dropdownmenü oben rechts im Remote-Explorer aus, falls es noch nicht ausgewählt ist.
+1. Positioniere unter „GITHUB CODESPACES“ den Mauszeiger über dem gewünschten Codespace. Ein Popupfeld mit Informationen über den Codespace wird angezeigt.
 
-   If the codespace is nearing the end of its retention period, a line is included telling you when the codespace will be deleted.
+   Gegen Ende des Aufbewahrungszeitraums des Codespaces wird eine Zeile einbezogen, die dir mitteilt, wann der Codespace gelöscht wird.
 
-   ![Codespace information showing the time until deletion](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
+   ![Codespaceinformationen über die bis zum Löschen verbleibende Zeit](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
 
 {% endvscode %}

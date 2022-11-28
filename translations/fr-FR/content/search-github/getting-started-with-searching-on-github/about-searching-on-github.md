@@ -1,6 +1,6 @@
 ---
-title: About searching on GitHub
-intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
+title: À propos de la recherche sur GitHub
+intro: 'Notre recherche intégrée couvre de nombreux référentiels, utilisateurs et lignes de code sur {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/using-the-command-bar
   - /articles/github-search-basics
@@ -17,79 +17,82 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
+ms.openlocfilehash: 58ecec218d8f8f0ee3d11afbf65debf7df72e811
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159100'
 ---
+{% ifversion github-code-search %} {% note %}
 
-{% ifversion github-code-search %}
-  {% note %}
+  **Remarque :** {% data reusables.search.classic-search-code-search-note %}
 
-  **Note:** {% data reusables.search.classic-search-code-search-note %}
-
-  {% endnote %}
-{% endif %}
+  {% endnote %} {% endif %}
 
 {% data reusables.search.you-can-search-globally %}
 
-- To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "All {% data variables.product.prodname_dotcom %}" in the search drop-down menu.
-- To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
+- Pour effectuer une recherche globale dans tout {% data variables.product.product_name %}, tapez ce que vous recherchez dans le champ de recherche en haut de n’importe quelle page, puis choisissez « Tout {% data variables.product.prodname_dotcom %} » dans le menu déroulant de recherche.
+- Pour effectuer une recherche dans un dépôt ou une organisation particuliers, accédez à la page du dépôt ou de l’organisation, tapez ce que vous recherchez dans le champ de recherche en haut de la page, puis **appuyez sur Entrée**.
 
 {% note %}
 
-**Notes:**
+**Remarques :**
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[Searching code](/search-github/searching-on-github/searching-code)." For more information about {% data variables.product.prodname_pages %}, see "[What is GitHub Pages?](/articles/what-is-github-pages/)"
-- Currently our search doesn't support exact matching.
-- Whenever you are searching in code files, only the first two results in each file will be returned.
+- Il n’est pas possible d’effectuer une recherche dans les sites {% data variables.product.prodname_pages %} sur {% data variables.product.product_name %}. Toutefois, vous pouvez effectuer une recherche dans le contenu source s’il existe dans la branche par défaut d’un dépôt, en utilisant une recherche dans le code. Pour plus d’informations, consultez « [Recherche dans le code](/search-github/searching-on-github/searching-code) ». Pour plus d’informations sur {% data variables.product.prodname_pages %}, consultez « [Qu’est-ce que GitHub Pages ?](/articles/what-is-github-pages/) »
+- Actuellement, notre recherche ne prend pas en charge la correspondance exacte.
+- Chaque fois que vous effectuez une recherche dans des fichiers de code, seuls les deux premiers résultats dans chaque fichier sont retournés.
 
 {% endnote %}
 
-After running a search on {% data variables.product.product_name %}, you can sort the results, or further refine them by clicking one of the languages in the sidebar. For more information, see "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results)."
+Après avoir effectué une recherche sur {% data variables.product.product_name %}, vous pouvez trier les résultats ou les affiner en cliquant sur l’un des langages dans la barre latérale. Pour plus d’informations, consultez « [Tri des résultats de recherche](/search-github/getting-started-with-searching-on-github/sorting-search-results) ».
 
-{% data variables.product.product_name %} search uses an ElasticSearch cluster to index projects every time a change is pushed to {% data variables.product.product_name %}. Issues and pull requests are indexed when they are created or modified.
+Une recherche {% data variables.product.product_name %} utilise un cluster ElasticSearch pour indexer des projets chaque fois qu’une modification est envoyée (push) à {% data variables.product.product_name %}. Les problèmes et demandes de tirage sont indexés lors de leur création ou modification.
 
-## Types of searches on {% data variables.product.prodname_dotcom %}
+## Types de recherches sur {% data variables.product.prodname_dotcom %}
 
-You can search for the following information across all repositories you can access on {% data variables.location.product_location %}.
+Vous pouvez rechercher les informations suivantes dans tous les dépôts auxquels vous avez accès sur {% data variables.location.product_location %}.
 
-- [Repositories](/search-github/searching-on-github/searching-for-repositories)
-- [Topics](/search-github/searching-on-github/searching-topics)
-- [Issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
+- [Référentiels](/search-github/searching-on-github/searching-for-repositories)
+- [Rubriques](/search-github/searching-on-github/searching-topics)
+- [Problèmes et demandes de tirage](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
 - [Discussions](/search-github/searching-on-github/searching-discussions){% endif %}
 - [Code](/search-github/searching-on-github/searching-code)
 - [Commits](/search-github/searching-on-github/searching-commits)
-- [Users](/search-github/searching-on-github/searching-users)
+- [Utilisateurs](/search-github/searching-on-github/searching-users)
 - [Packages](/search-github/searching-on-github/searching-for-packages)
 - [Wikis](/search-github/searching-on-github/searching-wikis)
 
-## Searching using a visual interface
+## Recherche à l’aide d’une interface visuelle
 
-You can search {% data variables.product.product_name %} using the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. {% ifversion command-palette %}Alternatively, you can use the interactive search in the {% data variables.product.prodname_command_palette %} to search your current location in the UI, a specific user, repository or organization, and globally across all of {% data variables.product.product_name %}, without leaving the keyboard. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+Vous pouvez effectuer une recherche dabs {% data variables.product.product_name %} en utilisant {% data variables.search.search_page_url %} ou {% data variables.search.advanced_url %}. {% ifversion command-palette %}Vous pouvez également utiliser la recherche interactive dans {% data variables.product.prodname_command_palette %} pour rechercher votre emplacement actuel dans l’interface utilisateur, un utilisateur, un référentiel ou une organisation spécifiques, et globalement effectuer une recherche dans tout {% data variables.product.product_name %}, sans quitter le clavier. Pour plus d’informations, consultez « [{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette) ».{% endif %}
 
-The {% data variables.search.advanced_url %} provides a visual interface for constructing search queries. You can filter your searches by a variety of factors, such as the number of stars or number of forks a repository has. As you fill in the advanced search fields, your query will automatically be constructed in the top search bar.
+L’{% data variables.search.advanced_url %} fournit une interface visuelle pour la construction de requêtes de recherche. Vous pouvez filtrer vos recherches sur divers facteurs, tels que le nombre d’étoiles ou le nombre de duplications d’un dépôt. Lorsque vous renseignez les champs de recherche avancée, votre requête est automatiquement construite dans la barre de recherche supérieure.
 
-![Advanced Search](/assets/images/help/search/advanced_search_demo.gif)
+![Recherche avancée](/assets/images/help/search/advanced_search_demo.gif)
 
-## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
+## Recherche dans des dépôts sur {% data variables.product.prodname_dotcom_the_website %} à partir de votre environnement d’entreprise privé
 
 {% ifversion fpt or ghec %}
 
-If you use both {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}, and an enterprise owner has enabled {% data variables.enterprise.prodname_unified_search %}, you can search across both environments at the same time from {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}. For more information, see [the {% data variables.product.prodname_ghe_server %} documentation](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment) or [the {% data variables.product.prodname_ghe_managed %} documentation](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment).
+Si vous utilisez à la fois {% data variables.product.prodname_dotcom_the_website %} et {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %}, et si un propriétaire d’entreprise a activé la {% data variables.enterprise.prodname_unified_search %}, vous pouvez effectuer des recherches dans les deux environnements en même temps à partir de {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %}. Pour plus d’informations, consultez la [documentation {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment) ou la [documentation {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment).
 
 {% else %}
 
-If you use both {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.product_name %}, and an enterprise owner has enabled {% data variables.enterprise.prodname_unified_search %}, you can search across both environments at the same time from {% data variables.product.product_name %}. For more information about how enterprise owners can enable {% data variables.enterprise.prodname_unified_search %}, see "[Enabling {% data variables.enterprise.prodname_unified_search %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)."
+Si vous utilisez à la fois {% data variables.product.prodname_dotcom_the_website %} et {% data variables.product.product_name %}, et si un propriétaire d’entreprise a activé la {% data variables.enterprise.prodname_unified_search %}, vous pouvez effectuer des recherches dans les deux environnements en même temps à partir de {% data variables.product.product_name %}. Pour plus d’informations sur la façon dont les propriétaires d’entreprise peuvent activer {% data variables.enterprise.prodname_unified_search %}, consultez « [Activation de la {% data variables.enterprise.prodname_unified_search %} pour votre entreprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise) ».
 
-Your enterprise owner on {% data variables.product.product_name %} can separately enable {% data variables.enterprise.prodname_unified_search %} for all public repositories on {% data variables.product.prodname_dotcom_the_website %} and for private repositories owned by the organization or enterprise on {% data variables.product.prodname_dotcom_the_website %} that is connected to {% data variables.product.product_name %} through {% data variables.product.prodname_github_connect %}.
+Le propriétaire d’entreprise sur {% data variables.product.product_name %} peut activer séparément la {% data variables.enterprise.prodname_unified_search %} pour tous les dépôts publics sur {% data variables.product.prodname_dotcom_the_website %} ainsi que pour les dépôts privés appartenant à l’organisation ou à l’entreprise sur {% data variables.product.prodname_dotcom_the_website %} ayant une connexion à {% data variables.product.product_name %} via {% data variables.product.prodname_github_connect %}.
 
-Before you can use {% data variables.enterprise.prodname_unified_search %} for private repositories, you must connect your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.product_name %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+Avant de pouvoir utiliser {% data variables.enterprise.prodname_unified_search %} pour des dépôts privés, vous devez connecter vos comptes personnels sur {% data variables.product.prodname_dotcom_the_website %} et {% data variables.product.product_name %}. Pour plus d’informations, consultez « [Activation de la recherche dans les dépôts {% data variables.product.prodname_dotcom_the_website %} à partir de votre compte d’entreprise privé](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment) ».
 
-When you search from {% data variables.product.product_name %}, only private repositories that you have access to and that are owned by the connected organization or enterprise account will be included in search results. Neither you nor anyone else will be able to search private repositories owned by your personal account on {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.product_name %}.
+Lorsque vous effectuez une recherche à partir de {% data variables.product.product_name %}, seuls des dépôts privés auxquels vous avez accès et qui appartiennent à l’organisation connectée ou à un compte d’entreprise sont inclus dans les résultats de recherche. Ni vous ni personne ne pourrez effectuer une recherche dans des dépôts privés appartenant à votre compte personnel sur {% data variables.product.prodname_dotcom_the_website %} à partir de {% data variables.product.product_name %}.
 
-To limit your search to one environment, you can use a filter option on the {% data variables.search.advanced_url %} or you can use the `environment:` search prefix. To only search for content on {% data variables.product.product_name %}, use the search syntax `environment:local`. To only search for content on {% data variables.product.prodname_dotcom_the_website %}, use `environment:github`.
+Pour limiter votre recherche à un seul environnement, vous pouvez utiliser une option de filtre sur {% data variables.search.advanced_url %}, ou le préfixe de recherche `environment:`. Pour rechercher du contenu uniquement sur {% data variables.product.product_name %}, utilisez la syntaxe de recherche `environment:local`. Pour rechercher du contenu uniquement sur {% data variables.product.prodname_dotcom_the_website %}, utilisez `environment:github`.
 {% endif %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)"
-- "[Searching on GitHub](/articles/searching-on-github)"
+- « [Compréhension de la syntaxe de recherche](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) »
+- « [Recherche sur GitHub](/articles/searching-on-github) »

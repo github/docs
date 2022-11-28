@@ -1,8 +1,8 @@
 ---
-title: Setting up your Python project for GitHub Codespaces
+title: Einrichten deines Python-Projekts für GitHub Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Setting up your Python project
-intro: 'Get started with your Python project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container.'
+intro: 'Beginne mit deinem Python-Projekt in {% data variables.product.prodname_github_codespaces %}, indem du einen benutzerdefinierten Entwicklungscontainer erstellst.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,113 +15,117 @@ topics:
   - Python
 hasExperimentalAlternative: true
 hidden: true
+ms.openlocfilehash: 2d9c627907f447a3efd873fceba963b899b57c39
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159565'
 ---
+## Einführung
 
-## Introduction
+In diesem Leitfaden wird veranschaulicht, wie du dein Python-Projekt in {% data reusables.codespaces.setting-up-project-intro %} einrichtest.
 
-This guide shows you how to set up your Python project {% data reusables.codespaces.setting-up-project-intro %}
+### Voraussetzungen
 
-### Prerequisites
+- Du solltest über ein vorhandenes Python-Projekt in einem Repository auf {% data variables.product.prodname_dotcom_the_website %} verfügen. Wenn du über kein Projekt verfügst, kannst du dieses Tutorial mit dem folgenden Beispiel verwenden: https://github.com/2percentsilk/python-quickstart.
+- {% data variables.product.prodname_github_codespaces %} muss für deine Organisation aktiviert sein.
 
-- You should have an existing Python project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/python-quickstart.
-- You must have {% data variables.product.prodname_github_codespaces %} enabled for your organization.
+## Schritt 1: Öffnen deines Projekt in einem Codespace
 
-## Step 1: Open your project in a codespace
+1. Verwende das Dropdownmenü **{% octicon "code" aria-label="The code icon" %} Code** unter dem Repositorynamen, und klicke auf der Registerkarte **Codespaces** auf das Pluszeichen ({% octicon "plus" aria-label="The plus icon" %}).
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** dropdown menu, and in the **Codespaces** tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}).
+  ![Schaltfläche „New codespace" (Neuer Codespace)](/assets/images/help/codespaces/new-codespace-button.png)
 
-  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
-
-When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
+Wenn du einen Codespace erstellst, wird dein Projekt auf einer Remote-VM erstellt, die dir zugewiesen ist. Der Container deines Codespace verfügt standardmäßig über viele Sprachen und Laufzeiten wie Node.js, JavaScript, TypeScript, nvm, npm und yarn. Er enthält außerdem gängige Tools wie Git, Wget, rsync, OpenSSH und nano.
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## Step 2: Add a dev container configuration to your repository from a template
+## Schritt 2: Hinzufügen einer Entwicklungscontainerkonfiguration zu deinem Repository aus einer Vorlage
 
-The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} comes with the latest Python version, package managers (pip, Miniconda), and other common tools preinstalled. However, we recommend that you configure your own dev container to include all of the tools and scripts that your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_github_codespaces %} users in your repository.
+Im Standardentwicklungscontainer für {% data variables.product.prodname_github_codespaces %} sind die aktuelle Python-Version, Paket-Manager (pip, Miniconda) und andere gängige Tools bereits vorinstalliert. Es wird jedoch empfohlen, einen eigenen Entwicklungscontainer zu konfigurieren, der alle Tools und Skripts enthält, die für dein Projekt erforderlich sind. Dadurch wird eine vollständig reproduzierbare Umgebung für alle {% data variables.product.prodname_github_codespaces %}-Benutzer in deinem Repository bereitgestellt.
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
 {% data reusables.codespaces.command-palette-container %}
-1. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgreSQL.
-  ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
-1. Click the recommended version of Python.
-  ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
-1. Accept the default option to add Node.js to your customization.
-  ![Add Node.js selection](/assets/images/help/codespaces/add-nodejs-selection.png)
-{% data reusables.codespaces.rebuild-command %}
+1. Klicke für dieses Beispiel auf **Python 3**. Wenn du zusätzliche Funktionen benötigst, kannst du einen beliebigen Python-spezifischen Container oder eine Kombination von Tools wie Python 3 und PostgreSQL auswählen.
+  ![Auswählen der Option „Python“ aus der Liste](/assets/images/help/codespaces/add-python-prebuilt-container.png)
+1. Klicke auf die empfohlene Python-Version.
+  ![Auswahl der Python-Version](/assets/images/help/codespaces/add-python-version.png)
+1. Akzeptiere die Standardoption, um deiner Anpassung Node.js hinzuzufügen.
+  ![Hinzufügen der Node.js-Auswahl](/assets/images/help/codespaces/add-nodejs-selection.png) {% data reusables.codespaces.rebuild-command %}
 
-### Anatomy of your dev container
+### Struktur des Dev-Containers
 
-Adding the Python dev container template adds a `.devcontainer` directory to the root of your project's repository with the following files:
+Durch das Hinzufügen der Vorlage des Python-Entwicklungscontainers wird ein Verzeichnis `.devcontainer` mit den folgenden Dateien zum Stammverzeichnis des Projektrepositorys hinzugefügt:
 
 - `devcontainer.json`
 - Dockerfile
 
-The newly added `devcontainer.json` file defines a few properties that are described after the sample.
+Die neu hinzugefügte `devcontainer.json`-Datei definiert einige Eigenschaften, die nach dem Beispiel beschrieben werden.
 
 #### devcontainer.json
 
 ```json
 {
-	"name": "Python 3",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": "..",
-		"args": {
-			// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
-			"VARIANT": "3",
-			// Options
-			"INSTALL_NODE": "true",
-			"NODE_VERSION": "lts/*"
-		}
-	},
+    "name": "Python 3",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "args": {
+            // Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
+            "VARIANT": "3",
+            // Options
+            "INSTALL_NODE": "true",
+            "NODE_VERSION": "lts/*"
+        }
+    },
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"python.pythonPath": "/usr/local/bin/python",
-		"python.linting.enabled": true,
-		"python.linting.pylintEnabled": true,
-		"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-		"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-		"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-		"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-		"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-		"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-		"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-		"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-		"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
-	},
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+        "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+        "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+        "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+        "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+        "python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+        "python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
+        "python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+        "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
+    },
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-python.python"
-	],
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "ms-python.python"
+    ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "pip3 install --user -r requirements.txt",
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }
 ```
 
-- **name** - You can name our dev container anything, this is just the default.
-- **build** - The build properties.
-  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
+- **name**: Du kannst deinem Entwicklungscontainer einen beliebigen Namen geben. Dies ist nur der Standardname.
+- **build**: Hierbei handelt es sich um die Buildeigenschaften.
+  - **dockerfile**: Im `build`-Objekt enthält `dockerfile` den Pfad zu der Dockerfile-Datei, die ebenfalls aus der Vorlage hinzugefügt wurde.
   - **args**
-    - **variant**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
-- **settings** - These are {% data variables.product.prodname_vscode %} settings.
-  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
-- **extensions** - These are extensions included by default.
-  - **ms-python.python** - The Microsoft Python extension provides rich support for the Python language (for all actively supported versions of the language: >=3.6), including features such as IntelliSense, linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
-- **forwardPorts** - Any ports listed here will be forwarded automatically. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
-- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, like `pip3 install -r requirements`, after your codespace is created.
-- **remoteUser** - By default, you’re running as the `vscode` user, but you can optionally set this to `root`.
+    - **variant**: Diese Datei enthält nur ein Buildargument, das die zu verwendende Node-Version angibt, die an die Dockerfile-Datei übergeben wird.
+- **settings**: Hierbei handelt es sich um die {% data variables.product.prodname_vscode %}-Einstellungen.
+  - **terminal.integrated.shell.linux**: Auch wenn Bash hier standardmäßig verwendet wird, kannst du andere Terminalshells verwenden, indem du diese Einstellung bearbeitest.
+- **extensions**: Diese Erweiterungen sind standardmäßig enthalten.
+  - **ms-python.python**: Die Microsoft Python-Erweiterung bietet umfassende Unterstützung für die Python-Sprache (für alle aktiv unterstützten Versionen der Sprache: >=3.6), u. a. für Features wie IntelliSense, Linten, Debuggen, Codenavigation, Codeformatierung, Refactoring, Variablen-Explorer und Test-Explorer.
+- **forwardPorts:** Alle hier aufgeführten Ports werden automatisch weitergeleitet. Weitere Informationen findest du unter [Weiterleiten von Ports in Codespaces](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace).
+- **postCreateCommand**: Verwende diese Eigenschaft zum Ausführen von Befehlen, die nicht in der Dockerfile-Datei definiert sind (etwa `pip3 install -r requirements`), nachdem dein Codespace erstellt wurde.
+- **remoteUser**: Wenn du etwas als `vscode`-Benutzer*in ausführst, kannst du diese Option standardmäßig auf `root` setzen.
 
 #### Dockerfile
 
@@ -148,27 +152,27 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our container.
+Du kannst das Dockerfile verwenden, um zusätzliche Containerebenen zum Definieren von Betriebssystempaketen, Knotenversionen oder globalen Paketen hinzuzufügen, die im Container enthalten sein sollen.
 
-## Step 3: Modify your devcontainer.json file
+## Schritt 3: Bearbeiten der devcontainer.json-Datei
 
-With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties to install extensions and your project dependencies when your codespace launches.
+Mit der hinzugefügten Entwicklungscontainerkonfiguration und einem grundlegenden Verständnis der Funktionen kannst du nun Änderungen vornehmen, um deine Umgebung weiter anzupassen. In diesem Beispiel fügen wir Eigenschaften hinzu, um Erweiterungen und deine Projektabhängigkeiten zu installieren, wenn der Codespace gestartet wird.
 
-1. In the Explorer, expand the `.devcontainer` folder and select the `devcontainer.json` file from the tree to open it.
+1. Erweitere im Explorer den `.devcontainer`-Ordner, und wähle die `devcontainer.json`-Datei aus der Struktur aus, um sie zu öffnen.
 
-  ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
+  ![devcontainer.json-Datei im Explorer](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. Update the `extensions` list in your `devcontainer.json` file to add a few extensions that are useful when working with your project.
+2. Aktualisiere die `extensions`-Liste in deiner `devcontainer.json`-Datei, um einige Erweiterungen hinzuzufügen, die beim Arbeiten mit deinem Projekt nützlich sind.
 
   ```json{:copy}
   "extensions": [
-		  "ms-python.python",
-		  "cstrap.flask-snippets",
-		  "streetsidesoftware.code-spell-checker"
-	  ],
+          "ms-python.python",
+          "cstrap.flask-snippets",
+          "streetsidesoftware.code-spell-checker"
+      ],
   ```
 
-3. Uncomment the `postCreateCommand` to auto-install requirements as part of the codespaces setup process.
+3. Hebe die Auskommentierung von `postCreateCommand` auf, um erforderliche Komponenten im Rahmen des Codespace-Setupprozesses automatisch zu installieren.
 
   ```json{:copy}
   // Use 'postCreateCommand' to run commands after the container is created.
@@ -179,26 +183,26 @@ With your dev container configuration added and a basic understanding of what ev
 
    {% data reusables.codespaces.rebuild-reason %}
 
-5. Check your changes were successfully applied by verifying the Code Spell Checker and Flask Snippet extensions were installed.
+5. Stelle sicher, dass deine Änderungen erfolgreich angewendet wurden, indem du überprüfst, ob die Erweiterungen„Code Spell Checker“ und „Flask Snippet“ installiert wurden.
 
-   ![Extensions list](/assets/images/help/codespaces/python-extensions.png)
+   ![Erweiterungsliste](/assets/images/help/codespaces/python-extensions.png)
 
-## Step 4: Run your application
+## Schritt 4: Ausführen der Anwendung
 
-In the previous section, you used the `postCreateCommand` to install a set of packages via pip3. With your dependencies now installed, you can run your application.
+Im vorherigen Abschnitt hast du den `postCreateCommand`-Befehl verwendet, um mehrere Pakete über pip3 zu installieren. Deine Abhängigkeiten sind installiert. Nun kannst du deine Anwendung ausführen.
 
-1. Run your application by pressing `F5` or entering `python -m flask run` in the codespace terminal.
+1. Führe deine Anwendung aus, indem du `F5` drückst oder im Codespaceterminal `python -m flask run` eingibst.
 
-2. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, containing a prompt to connect to the port your project uses.
+2. Wenn dein Projekt gestartet wird, sollte in der unteren rechten Ecke von {% data variables.product.prodname_vscode_shortname %} eine Popupbenachrichtigung angezeigt werden, die eine Aufforderung zum Herstellen einer Verbindung mit dem Port enthält, den dein Projekt verwendet.
 
-  ![Port forwarding "toast" notification](/assets/images/help/codespaces/python-port-forwarding.png)
+  ![Popupbenachrichtigung für Portweiterleitung](/assets/images/help/codespaces/python-port-forwarding.png)
 
-## Step 5: Commit your changes
+## Schritt 5: Committen der Änderungen
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-## Next steps
+## Nächste Schritte
 
-You should now be ready start developing your Python project in {% data variables.product.prodname_github_codespaces %}. Here are some additional resources for more advanced scenarios.
+Du solltest jetzt mit der Entwicklung deines Python-Projekts in {% data variables.product.prodname_github_codespaces %} beginnen können. Im Folgenden findest du einige zusätzliche Ressourcen für erweiterte Szenarios:
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

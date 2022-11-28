@@ -1,6 +1,6 @@
 ---
-title: Exporting changes to a branch
-intro: This article provides steps for exporting your codespace changes to a branch.
+title: Exportieren von Änderungen in einen Branch
+intro: In diesem Artikel werden Schritte zum Exportieren von Codespaceänderungen in einen Branch erläutert.
 versions:
   fpt: '*'
   ghec: '*'
@@ -8,20 +8,25 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Exporting changes
+ms.openlocfilehash: 2a7dee4725af31f3983e753b4202f94be1742556
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159594'
 ---
+## Exportieren von Änderungen in einen Branch
 
-## Exporting changes to a branch
+Es kann vorkommen, dass du deine Änderungen in {% data variables.product.prodname_github_codespaces %} in einen Branch exportieren musst, ohne deinen Codespace zu starten. Dies kann hilfreich sein, wenn du eine [Ausgabengrenze](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) erreicht hast oder ein allgemeines Problem beim Zugreifen auf deinen Codespace besteht.
 
-While using {% data variables.product.prodname_github_codespaces %}, you may want to export your changes to a branch without launching your codespace. This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) or have a general issue accessing your codespace.
+Wenn dein Codespace nicht veröffentlicht wurde (aus einer Vorlage erstellt und nicht einem Repository in {% data variables.product.product_name %} zugeordnet), kannst du keine Änderungen in einen Branch exportieren. Du kannst den Codespace jedoch in einem neuen Repository veröffentlichen, ohne den Codespace zu starten. Weitere Informationen findest du unter [Erstellen eines Codespace mithilfe einer Vorlage](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-githubcom).
 
-If your codespace is unpublished (created from a template and not associated with a repository on {% data variables.product.product_name %}), then you won't be able to export changes to a branch, but you can publish the codespace to a new repository without launching the codespace. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-githubcom)."
+So exportierst du deine Änderungen in einen Branch
 
-To export your changes to a branch:
+{% data reusables.codespaces.your-codespaces-procedure-step %} Oder klicke für ein einzelnes Repository auf das Menü **{% octicon "code" aria-label="The code icon" %} Code**.
+1. Klicke auf die Auslassungspunkte (**...**) rechts neben dem Codespace, aus dem du Code exportieren möchtest.
+2. Wähle **{% octicon "git-branch" aria-label="The git branch icon" %} Änderungen in Branch exportieren** aus.
 
-{% data reusables.codespaces.your-codespaces-procedure-step %} Or, for an individual repository, click the **{% octicon "code" aria-label="The code icon" %} Code** menu.
-1. Click the ellipsis (**...**) to the right of the codespace you want to export from.
-2. Select **{% octicon "git-branch" aria-label="The git branch icon" %} Export changes to branch**.
+  ![Exportieren von Änderungen in einen Branch](/assets/images/help/codespaces/export-changes-to-a-branch.png)
 
-  ![Export changes to a branch](/assets/images/help/codespaces/export-changes-to-a-branch.png)
-
-1. From the popover, select **Create branch**.
+1. Klicke im Popover auf die Option **Branch erstellen**.

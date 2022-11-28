@@ -60,6 +60,10 @@ export default async function contextualize(req, res, next) {
   req.context.pages = pageMap
   req.context.searchVersions = searchVersions
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
+  req.context.initialRestVersioningReleaseDate =
+    allVersions[nonEnterpriseDefaultVersion].apiVersions[0]
 
+  const restDate = new Date(req.context.initialRestVersioningReleaseDate)
+  req.context.initialRestVersioningReleaseDateLong = restDate.toUTCString().split(' 00:')[0]
   return next()
 }

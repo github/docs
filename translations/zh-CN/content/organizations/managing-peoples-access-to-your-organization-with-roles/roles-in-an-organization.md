@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: f9e5d411c7a7a16e22abcc660f2761f1bfd6cf7d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108023'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180075'
 ---
 ## 关于角色
 {% data reusables.organizations.about-roles %}
@@ -186,7 +186,7 @@ ms.locfileid: '148108023'
 | [导出对组织存储库具有访问权限的人员列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | 管理默认标签（请参阅“[管理组织中存储库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”） | **X** | |  |{% ifversion pull-request-approval-limit %}
 | 管理组织中的拉取请求审查（请参阅“[管理组织中的拉取请求审查](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)”） | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”） | **X** | |  |{% endif %}
+{% ifversion ghae %}| 管理 IP 允许列表（请参阅“[使用 IP 允许列表限制到企业的网络流量](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)”） | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -227,7 +227,7 @@ ms.locfileid: '148108023'
 | [查看对组织存储库具有访问权限的人员](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [导出对组织存储库具有访问权限的人员列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | 管理默认标签（请参阅“[管理组织中存储库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”） | **X** | |
-{% ifversion ghae %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”） | **X** | |{% endif %}
+{% ifversion ghae %}| 管理 IP 允许列表（请参阅“[使用 IP 允许列表限制到企业的网络流量](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)”） | **X** | |{% endif %}
 
 {% endif %}
 

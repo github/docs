@@ -7,12 +7,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: 2a329c7c0a7f1943f7515059c3f376fa36ea29b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3a8a21f04582b87741ef80755e92fbc859921bb5
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145105383'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179669'
 ---
 {% note %}
 
@@ -68,8 +68,8 @@ Für jedes Formularelement kannst du die folgenden Schlüssel festlegen.
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | Der Typ des Elements, das du definieren möchtest. | Erforderlich | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
 | `id` | Der Bezeichner für das Element, außer wenn `type` auf `markdown` gesetzt ist. {% data reusables.form-schema.id-must-be-unique %} Wenn angegeben, ist `id` der kanonische Bezeichner für das Feld im URL-Abfrageparameter. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | Ein Satz von Schlüssel-Wert-Paaren, die die Eigenschaften des Elements definieren.  | Erforderlich | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | Ein Satz von Schlüssel-Wert-Paaren, die Einschränkungen für das Element festlegen. | Optional | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | Ein Satz von Schlüssel-Wert-Paaren, die die Eigenschaften des Elements definieren.  | Erforderlich | Zuordnung | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | Ein Satz von Schlüssel-Wert-Paaren, die Einschränkungen für das Element festlegen. | Optional | Zuordnung | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 Du hast die Wahl zwischen den folgenden Typen von Formularelementen. Jeder Typ hat eindeutige Attribute und Validierungen.
 
@@ -248,7 +248,15 @@ Du kannst mit dem `checkboxes`-Element deinem Formular einen Satz von Kontrollk�
 | `description` | Eine im Formular angezeigte Beschreibung des Satzes von Kontrollkästchen. Unterstützt Markdown-Formatierung. | Optional | String | Leere Zeichenfolge | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | Ein Array von Kontrollkästchen, die der Benutzer auswählen kann. Syntax siehe unten. | Erforderlich | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
+
+#### Überprüfungen
+
+{% data reusables.form-schema.validations-intro %}
+
+| Schlüssel | BESCHREIBUNG | Erforderlich | type | Standard | Gültige Werte |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
 
 #### Beispiel
 

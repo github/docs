@@ -11,12 +11,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 50875021a506201a90cbac62db521604a390a586
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: fd3619faeb8ccaeaa70e8a2be050881b4a169b64
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060333'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181319'
 ---
 ## Сведения об API содержимого репозитория
 
@@ -26,8 +26,8 @@ ms.locfileid: '147060333'
 
 [Файлы сведений](/rest/reference/repos#get-a-repository-readme), [файлы](/rest/reference/repos#get-repository-content) и [символические ссылки](/rest/reference/repos#get-repository-content) поддерживают следующие пользовательские типы мультимедиа:
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.html
+    application/vnd.github.raw
+    application/vnd.github.html
 
 Используйте тип мультимедиа `.raw` для получения содержимого файла.
 
@@ -35,7 +35,7 @@ ms.locfileid: '147060333'
 
 [Все объекты](/rest/reference/repos#get-repository-content) поддерживают следующий пользовательский тип мультимедиа:
 
-    application/vnd.github.VERSION.object
+    application/vnd.github.object
 
 Используйте параметр типа `object`мультимедиа для получения содержимого в согласованном формате объекта независимо от типа содержимого. Например, вместо массива объектов для каталога ответ будет объектом с атрибутом `entries`, содержащим массив объектов.
 

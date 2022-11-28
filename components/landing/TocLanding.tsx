@@ -1,17 +1,21 @@
+import { useRouter } from 'next/router'
+
+import { useTocLandingContext } from 'components/context/TocLandingContext'
+import { useTranslation } from 'components/hooks/useTranslation'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { TableOfContents } from 'components/landing/TableOfContents'
-import { useTocLandingContext } from 'components/context/TocLandingContext'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { ArticleList } from 'components/landing/ArticleList'
-import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
 import { Callout } from 'components/ui/Callout'
 import { Lead } from 'components/ui/Lead'
 import { LearningTrackNav } from 'components/article/LearningTrackNav'
 import { ClientSideRedirects } from 'components/ClientSideRedirects'
+import { RestRedirect } from 'components/RestRedirect'
 
 export const TocLanding = () => {
+  const router = useRouter()
   const {
     title,
     introPlainText,
@@ -26,6 +30,7 @@ export const TocLanding = () => {
 
   return (
     <DefaultLayout>
+      {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
       {/* Doesn't matter *where* this is included because it will
       never render anything. It always just return null. */}
       <ClientSideRedirects />

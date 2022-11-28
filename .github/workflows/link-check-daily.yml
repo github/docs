@@ -62,12 +62,13 @@ jobs:
 
       - name: Run link checker
         env:
+          DISABLE_REWRITE_ASSET_URLS: true
           LEVEL: 'critical'
           # Set this to true in repo scope to enable debug logs
           # ACTIONS_RUNNER_DEBUG = true
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
-          REPORT_AUTHOR: docubot
+          REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken link report
           REPORT_REPOSITORY: github/docs-content
           CREATE_REPORT: true

@@ -17,6 +17,7 @@ import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
+import { RestRedirect } from 'components/RestRedirect'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -44,7 +45,7 @@ const interactiveAlternatives: Record<string, { href: string }> = {
 }
 
 export const ArticlePage = () => {
-  const { asPath } = useRouter()
+  const router = useRouter()
   const {
     title,
     intro,
@@ -59,13 +60,13 @@ export const ArticlePage = () => {
     currentLearningTrack,
   } = useArticleContext()
   const { t } = useTranslation('pages')
-  const currentPath = asPath.split('?')[0]
+  const currentPath = router.asPath.split('?')[0]
 
   return (
     <DefaultLayout>
       {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />
-
+      {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}

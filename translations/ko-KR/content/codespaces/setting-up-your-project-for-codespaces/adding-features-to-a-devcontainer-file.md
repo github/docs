@@ -10,12 +10,12 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-ms.openlocfilehash: 8e07666581a99934ae4cb406e538031ef4e1948c
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 7e72739e93e83995d86baf19d62f7bf2e1c5b6bc
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159918'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180829'
 ---
 {% data reusables.codespaces.about-features %} 이 문서의 탭을 사용하여 이러한 각 기능 추가 방법에 대한 지침을 표시합니다.
 
@@ -25,13 +25,13 @@ ms.locfileid: '148159918'
 
 1. {% data variables.product.prodname_dotcom_the_website %}에서 리포지토리로 이동하여 파일을 찾 `devcontainer.json` 은 다음 {% octicon "pencil" aria-label="The edit icon" %}을 클릭하여 파일을 편집합니다.
    
-   파일이 아직 없는 `devcontainer.json` 경우 지금 만들 수 있습니다. 자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)”를 참조하세요.
-1. 파일 편집기 오른쪽의 **Marketplace** 탭에서 추가하려는 기능을 찾거나 검색한 다음 기능의 이름을 클릭합니다.
+   파일이 아직 `devcontainer.json` 없는 경우 지금 만들 수 있습니다. 자세한 내용은 “[개발 컨테이너 소개](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)”를 참조하세요.
+1. 파일 편집기 오른쪽의 **Marketplace** 탭에서 추가하려는 기능을 찾아보거나 검색한 다음 기능의 이름을 클릭합니다.
 
    ![검색 창에 "Terra"가 있는 Marketplace 탭의 Terraform 기능 스크린샷](/assets/images/help/codespaces/feature-marketplace.png)
-3. "설치"에서 코드 조각을 클릭하여 클립보드에 복사한 다음, 코드 조각을 파일의 개체에 `features` `devcontainer.json` 붙여넣습니다.
+3. "설치"에서 코드 조각을 클릭하여 클립보드에 복사한 다음, 코드 조각을 파일의 `features` 개체에 `devcontainer.json` 붙여넣습니다.
 
-   ![Marketplace 탭의 설치 섹션에 있는 코드 블록의 스크린샷](/assets/images/help/codespaces/feature-installation-code.png)
+   ![Marketplace 탭의 설치 섹션에 있는 코드 블록 스크린샷](/assets/images/help/codespaces/feature-installation-code.png)
 
    ```JSON
    "features": {
@@ -40,7 +40,7 @@ ms.locfileid: '148159918'
         ...
     }
     ```
-1. 기본적으로 최신 버전의 기능이 사용됩니다. 다른 버전을 선택하거나 기능에 대한 다른 옵션을 구성하려면 "옵션" 아래에 나열된 속성을 확장하여 사용 가능한 값을 확인한 다음 파일에서 개체를 수동으로 편집하여 옵션을 추가합니다 `devcontainer.json` .
+1. 기본적으로 기능의 최신 버전이 사용됩니다. 다른 버전을 선택하거나 기능에 대한 다른 옵션을 구성하려면 "옵션" 아래에 나열된 속성을 확장하여 사용 가능한 값을 확인한 다음 파일의 개체를 수동으로 편집하여 옵션을 추가합니다 `devcontainer.json` .
 
    !["버전" 및 "tflint"가 확장된 Marketplace 탭의 옵션 섹션 스크린샷](/assets/images/help/codespaces/feature-options.png)
 
@@ -64,12 +64,12 @@ ms.locfileid: '148159918'
 
 {% note %}
 
-로컬에서 작업하는 동안 {% data variables.product.prodname_vscode_shortname %}에 기능을 추가하려면 codespace에 연결되지 않은 "Dev Containers" 확장이 설치되고 사용하도록 설정되어 있어야 합니다. 이 확장에 대한 자세한 내용은 [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)를 참조하세요.
+코드스페이스에 연결되지 않고 로컬로 작업하는 동안 {% data variables.product.prodname_vscode_shortname %}의 기능을 추가하려면 "Dev Containers" 확장을 설치하고 사용하도록 설정해야 합니다. 이 확장에 대한 자세한 내용은 [{% data variables.product.prodname_vs_marketplace_shortname %}를 참조하세요](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 {% endnote %}
 
-1. {% data variables.product.prodname_vscode_shortname %}에서 명령<kbd>Shift</kbd>P(Mac) 또는 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>++<kbd>P</kbd>(Windows/Linux)를 사용하여 <kbd>명령</kbd>+ 팔레트를 엽니다.<kbd></kbd>
-2. "구성" 입력을 시작하고 **Codespaces: Dev Container Features 구성** 을 선택합니다.
+{% data reusables.codespaces.command-pallette %}
+2. "구성"을 입력하고 **Codespaces: Dev Container Features 구성** 을 선택합니다.
 
    ![명령 팔레트의 Devcontainer 기능 구성 명령](/assets/images/help/codespaces/codespaces-configure-features.png)
 

@@ -8,12 +8,12 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Creation and deletion
-ms.openlocfilehash: 09c3a73ec5e41f0170f1d3cd66df139bb2a497e5
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 4a12c848fa7400ec336f5ad086eb4d2858a431f0
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158694'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180820'
 ---
 ## codespace を作成する
 
@@ -98,4 +98,4 @@ This codespace is currently running in recovery mode due to a container error.
 ```
 作成ログを確認し、必要に応じて開発コンテナーの構成を更新します。 詳しい情報については、「[{% data variables.product.prodname_github_codespaces %} のログ](/codespaces/troubleshooting/github-codespaces-logs)」を参照してください。
 
-その後、codespace を再起動するか、コンテナーをリビルドしてみてください。 詳細については、[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)に関するページをご覧ください。
+その後、codespace を再起動するか、コンテナーをリビルドしてみてください。 コンテナーの再構築について詳しくは、「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)」を参照してください。

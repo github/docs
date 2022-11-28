@@ -11,12 +11,12 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 9deedb6f9940afd509eeaf974abd916a0cb5f5a0
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: ab041e8473e310913eb1b794302415e9b6323e76
+ms.sourcegitcommit: e4069b5613c10d74954185995d0fb73224079463
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107245'
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169232'
 ---
 In diesem Artikel wird veranschaulicht, wie du die GraphQL-API verwendest, um ein Projekt zu verwalten. Weitere Informationen zum Verwenden der API in einem {% data variables.product.prodname_actions %}-Workflow findest du unter [Automatisieren von {% data variables.product.prodname_projects_v2 %} mit Aktionen](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions). Eine vollständige Liste der verfügbaren Datentypen findest du unter [Referenz](/graphql/reference).
 
@@ -516,7 +516,7 @@ Die Antwort enthält die Knoten-ID des neu erstellten Entwurfsissues.
 ```json
 {
   "data": {
-    "addProjectV2ItemById": {
+    "addProjectV2DraftIssue": {
       "projectItem": {
         "id": "PVTI_lADOANN5s84ACbL0zgBbxFc"
       }
@@ -665,7 +665,7 @@ Im folgenden Beispiel wird der Wert eines Iterationsfelds für ein Element aktua
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { singleSelectOptionId: \"OPTION_ID\" }}) { projectV2Item { id }}}"}'
+  --data '{"query":"mutation {updateProjectV2ItemFieldValue( input: { projectId: \"PROJECT_ID\" itemId: \"ITEM_ID\" fieldId: \"FIELD_ID\" value: { iterationId: \"ITERATION_ID\" }}) { projectV2Item { id }}}"}'
 ```
 {% endcurl %}
 

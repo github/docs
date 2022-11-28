@@ -15,12 +15,12 @@ versions:
 type: overview
 topics:
   - Codespaces
-ms.openlocfilehash: a1618c86671bc5b06474c41803c6b34576a897aa
-ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.openlocfilehash: 9d01df3f8dae7ceb788e2dd57b02fb3cc977400d
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160797'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164320'
 ---
 ## O que é um codespace?
 
@@ -50,7 +50,7 @@ Você pode criar e usar um codespace para qualquer repositório que possa clonar
 
 Os proprietários da organização podem habilitar o uso do {% data variables.product.prodname_github_codespaces %}, faturável para a organização ou para a conta corporativa. Isso se aplica aos codespaces criados com base em repositórios pertencentes à organização. Para obter mais informações, confira "[Como habilitar {% data variables.product.prodname_github_codespaces %} para sua organização](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)". Defina um limite de gastos para uso do {% data variables.product.prodname_github_codespaces %} na sua organização ou na sua conta corporativa. Para obter mais informações, confira "[Como gerenciar limites de gastos do {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)".
 
-Se o uso de um codespace for cobrado para uma organização ou uma empresa, isso será mostrado quando o codespace for criado. Para obter mais informações, confira "[Como criar um codespace para um repositório](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)". Os codespaces que são cobrados para uma organização ou para a empresa-mãe pertencem à organização e podem ser excluídos por um proprietário da organização. Para obter mais informações, confira "[Como excluir um codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)". 
+Se o uso de um codespace for cobrado para uma organização ou uma empresa, isso será mostrado quando o codespace for criado. Para obter mais informações, confira "[Como criar um codespace para um repositório](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)". Os codespaces cobrados de uma organização ou de sua empresa-mãe pertencem à organização e podem ser excluídos por um proprietário dela. Para obter mais informações, confira "[Como excluir um codespace](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)". 
 
 ### Como personalizar o {% data variables.product.prodname_github_codespaces %}
 

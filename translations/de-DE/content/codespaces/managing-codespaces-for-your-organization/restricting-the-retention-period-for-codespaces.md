@@ -1,7 +1,7 @@
 ---
-title: Restricting the retention period for codespaces
+title: Einschränken des Aufbewahrungszeitraums für Codespaces
 shortTitle: Restrict the retention period
-intro: You can set a maximum retention period for any codespaces owned by your organization.
+intro: Du kannst einen maximalen Aufbewahrungszeitraum für alle Codespaces im Besitz deiner Organisation festlegen.
 permissions: 'To manage retention constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -9,76 +9,79 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: 3c114fe41b06176899f9dd11a6dcd51c038c88e5
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158981'
 ---
+## Übersicht
 
-## Overview
+{% data variables.product.prodname_github_codespaces %} werden automatisch gelöscht, nachdem sie beendet wurden und für eine definierte Anzahl von Tagen inaktiv geblieben sind. Der Aufbewahrungszeitraum für einen Codespace wird festgelegt, wenn der Codespace erstellt wird, und ändert sich nicht. 
 
-{% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for a defined number of days. The retention period for each codespace is set when the codespace is created and does not change. 
+Jeder, der Zugriff auf {% data variables.product.prodname_github_codespaces %} hat, kann einen Aufbewahrungszeitraum für die von ihm erstellten Codespaces konfigurieren. Die anfängliche Einstellung für diesen Standardaufbewahrungszeitraum beträgt 30 Tage. Einzelne Benutzer können für diesen Zeitraum 0 bis 30 Tage festlegen. Weitere Informationen findest du unter [Konfigurieren des automatischen Löschens deiner Codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces). 
 
-Everyone who has access to {% data variables.product.prodname_github_codespaces %} can configure a retention period for the codespaces they create. The initial setting for this default retention period is 30 days. Individual users can set this period within the range 0-30 days. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)." 
+Als Organisationsbesitzer solltest du eventuell Einschränkungen für den maximalen Aufbewahrungszeitraum für Codespaces konfigurieren, die für die Repositorys im Besitz deiner Organisation erstellt werden. Dies kann dir helfen, die Speicherkosten zu begrenzen, die für Codespaces entstehen, die beendet und dann bis zum automatischen Löschen nicht verwendet werden. Weitere Informationen zu den Speichergebühren findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing). Du kannst einen maximalen Aufbewahrungszeitraum für alle oder bestimmte Repositorys festlegen, die deiner Organisation gehören. 
 
-As an organization owner, you may want to configure constraints on the maximum retention period for codespaces created for the repositories owned by your organization. This can help you to limit the storage costs associated with codespaces that are stopped and then left unused until they are automatically deleted. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." You can set a maximum retention period for all, or for specific, repositories owned by your organization. 
+### Festlegen von organisationsweiten und repositoryspezifischen Richtlinien
 
-### Setting organization-wide and repository-specific policies
+Wenn du eine Richtlinie erstellst, wählst du aus, ob sie für alle Repositorys in deiner Organisation oder nur für angegebene Repositorys gilt. Wenn du eine organisationsweite Richtlinie mit einer Codespace-Aufbewahrungsbeschränkung erstellst, sollten die Aufbewahrungsbeschränkungen in allen Richtlinien, die auf bestimmte Repositorys abzielen, kürzer sein als die für die gesamte Organisation konfigurierte Beschränkung, sonst haben sie keine Wirkung. Der kürzeste Aufbewahrungszeitraum in einer organisationsweiten Richtlinie, einer auf bestimmte Repositorys ausgerichteten Richtlinie, oder der standardmäßige Aufbewahrungszeitraum in den persönlichen Einstellungen einer Person wird angewendet.
 
-When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a codespace retention constraint, then the retention constraints in any policies that are targeted at specific repositories should be shorter than the restriction configured for the entire organization, or they will have no effect. The shortest retention period - in an organization-wide policy, a policy targeted at specified repositories, or the default retention period in someone's personal settings - is applied.
-
-If you add an organization-wide policy with a retention constraint, you should set the retention period to the longest acceptable period. You can then add separate policies that set the maximum retention to a shorter period for specific repositories in your organization.
+Wenn du eine organisationsweite Richtlinie mit einer Aufbewahrungsbeschränkung hinzufügst, solltest du die Aufbewahrungsbeschränkung auf den längsten zulässigen Wert festlegen. Anschließend kannst du separate Richtlinien hinzufügen, die die maximale Aufbewahrung für bestimmte Repositorys in deiner Organisation auf einen kürzeren Zeitraum festlegen.
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to set a maximum codespace retention period
+## Hinzufügen einer Richtlinie zur Festlegung einer maximalen Codespaceaufbewahrung
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Retention period**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. Klicke auf **Einschränkung hinzufügen**, und wähle **Aufbewahrungszeitraum** aus.
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
+   ![Screenshot: Dropdownmenü „Einschränkung hinzufügen“](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. Klicke auf {% octicon "pencil" aria-label="The edit icon" %}, um die Einschränkung zu bearbeiten.
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![Screenshot: Stiftsymbol zum Bearbeiten der Einschränkung](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
-1. Enter the maximum number of days codespaces can remain stopped before they are automatically deleted, then click **Save**.
+1. Gib die maximale Anzahl von Tagen ein, die nach dem Beenden von Codespaces verstreichen können, bevor die Codespaces automatisch gelöscht werden, und klicke dann auf **Speichern**.
 
-   ![Screenshot of setting the retention period in days](/assets/images/help/codespaces/maximum-days-retention.png)
+   ![Screenshot: Festlegen des Aufbewahrungszeitraums in Tagen](/assets/images/help/codespaces/maximum-days-retention.png)
 
    {% note %}
 
-   **Notes**: 
-   * A day, in this context, is a 24-hour period, beginning at the time of day when the codespace was stopped.
-   * The valid range is 0-30 days.
-   * Setting the period to `0` will result in codespaces being immediately deleted when they are stopped, or when they timeout due to inactivity.
+   **Hinweise**: 
+   * Ein Tag ist in diesem Zusammenhang ein 24-Stunden-Zeitraum, der zu dem Zeitpunkt beginnt, wenn der Codespace beendet wird.
+   * Der gültige Bereich sind 0-30 Tage.
+   * Wenn du den Zeitraum auf `0` festlegst, werden deine Codespaces sofort gelöscht, wenn sie beendet werden oder ein Inaktivitätstimeout in Kraft tritt.
 
    {% endnote %}
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. Wenn du der Richtlinie eine weitere Einschränkung hinzufügen möchtest, klicke auf **Einschränkung hinzufügen**, und wähle eine andere Einschränkung aus. Informationen zu anderen Einschränkungen findest du hier:
+   * [Einschränken des Zugriffs auf Computertypen](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)
+   * [Einschränken des Basisimages für Codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)
+   * [Einschränken der Sichtbarkeit weitergeleiteter Ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)
+   * [Einschränken des Zeitraums für Leerlauftimeouts](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)
+1. Nachdem du deiner Richtlinie Einschränkungen hinzugefügt hast, klicke auf **Speichern**.
 
-The policy will be applied to all new codespaces that are billable to your organization. The retention period constraint is only applied on codespace creation.
+Die Richtlinie wird auf alle neu erstellten Codespaces angewendet, die deiner Organisation in Rechnung gestellt werden. Die Einschränkung des Aufbewahrungszeitraums wird nur auf die Codespaceerstellung angewendet.
 
-## Editing a policy
+## Bearbeiten einer Richtlinie
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+Du kannst eine vorhandenen Richtlinie bearbeiten. Beispielsweise kannst du Einschränkungen einer Richtlinie hinzufügen oder daraus entfernen.
 
-The retention period constraint is only applied to codespaces when they are created. Editing a policy has no effect on existing codespaces.
+Die Einschränkung des Aufbewahrungszeitraums wird nur auf Codespaces angewendet, wenn sie erstellt werden. Das Bearbeiten einer Richtlinie hat keine Auswirkungen auf vorhandene Codespaces.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Retention period" constraint.
-1. Make the required changes then click **Save**.
+1. Zeige die Seite „Codespacerichtlinien“ an. Weitere Informationen findest du unter [Hinzufügen einer Richtlinie zur Festlegung einer maximalen Codespaceaufbewahrung](#adding-a-policy-to-set-a-maximum-codespace-retention-period).
+1. Klicke auf den Namen der Richtlinie, die du bearbeiten möchtest.
+1. Klicke auf das Stiftsymbol ({% octicon "pencil" aria-label="The edit icon" %}) neben der Einschränkung „Aufbewahrungszeitraum“.
+1. Nimm die erforderlichen Änderungen vor, und klicke dann auf **Speichern**.
 
-## Deleting a policy 
+## Löschen einer Richtlinie 
 
-You can delete a policy at any time. Deleting a policy has no effect on existing codespaces.
+Du kannst eine Richtlinie jederzeit löschen. Das Löschen einer Richtlinie hat keine Auswirkungen auf vorhandene Codespaces.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
-1. Click the delete button to the right of the policy you want to delete.
+1. Zeige die Seite „Codespacerichtlinien“ an. Weitere Informationen findest du unter [Hinzufügen einer Richtlinie zur Festlegung einer maximalen Codespaceaufbewahrung](#adding-a-policy-to-set-a-maximum-codespace-retention-period).
+1. Klicke rechts neben der Richtlinie, die du löschen möchtest, auf die Schaltfläche „Löschen“.
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![Screenshot: Schaltfläche zum Löschen einer Richtlinie](/assets/images/help/codespaces/policy-delete.png)

@@ -1,7 +1,7 @@
 ---
-title: Restricting access to machine types
+title: Restriction de l’accès aux types de machines
 shortTitle: Restrict machine types
-intro: You can set constraints on the types of machines users can choose when they create codespaces in your organization.
+intro: Vous pouvez définir des contraintes sur les types d’ordinateurs que les utilisateurs peuvent choisir quand ils créent des espaces de code dans votre organisation.
 permissions: 'To manage access to machine types for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -9,82 +9,85 @@ versions:
 type: how_to
 topics:
   - Codespaces
+ms.openlocfilehash: 202a2cf9f28a55514450415230686c0c0e94600f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159156'
 ---
+## Vue d’ensemble
 
-## Overview
+En règle générale, quand vous créez un codespace, vous pouvez choisir les spécifications de la machine qui va l’exécuter. Vous pouvez choisir le type de machine qui convient le mieux à vos besoins. Pour plus d’informations, consultez « [Création d’un codespace pour un dépôt](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository) ». 
 
-Typically, when you create a codespace you are offered a choice of specifications for the machine that will run your codespace. You can choose the machine type that best suits your needs. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)." 
+Si vous payez l’utilisation de {% data variables.product.prodname_github_codespaces %}, le type de machine que vous choisissez a des répercussions sur votre facture. Le coût de calcul d’un codespace est proportionnel au nombre de cœurs de processeur dans le type de machine que vous choisissez. Par exemple, le coût de calcul de l’utilisation d’un codespace pendant une heure sur une machine à 16 cœurs est huit fois supérieur à celui d’une machine à 2 cœurs. Pour plus d’informations sur la tarification, consultez « [À propos de la facturation de {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) ».
 
-If you pay for using {% data variables.product.prodname_github_codespaces %} then your choice of machine type will affect how much your are billed. The compute cost for a codespace is proportional to the number of processor cores in the machine type you choose. For example, the compute cost of using a codespace for an hour on a 16-core machine is eight times greater than a 2-core machine. For more information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+En tant que propriétaire d’une organisation, vous pouvez avoir envie de configurer des contraintes sur les types de machines disponibles. Par exemple, si le travail au sein de votre organisation ne nécessite pas de puissance de calcul ni d’espace de stockage importants, vous pouvez supprimer les machines à fortes ressources de la liste des options sélectionnables. Pour cela, définissez une ou plusieurs stratégies dans les paramètres {% data variables.product.prodname_github_codespaces %} de votre organisation.
 
-As an organization owner, you may want to configure constraints on the types of machine that are available. For example, if the work in your organization doesn't require significant compute power or storage space, you can remove the highly resourced machines from the list of options that people can choose from. You do this by defining one or more policies in the {% data variables.product.prodname_github_codespaces %} settings for your organization.
+### Comportement quand vous définissez une contrainte de type de machine
 
-### Behavior when you set a machine type constraint
+S’il existe des codespaces qui ne sont plus conformes à une stratégie que vous avez définie, ils continuent de fonctionner jusqu’à ce qu’ils soient arrêtés ou qu’ils aient expiré. Quand l’utilisateur essaie de reprendre un tel codespace, un message lui indique que le type de machine actuellement sélectionné n’est plus autorisé pour cette organisation et l’invite à en choisir un autre.
 
-If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. When the user attempts to resume the codespace they are shown a message telling them that the currenly selected machine type is no longer allowed for this organization and prompting them to choose an alternative machine type.
-
-If you remove higher specification machine types that are required by the {% data variables.product.prodname_github_codespaces %} configuration for an individual repository in your organization, then it won't be possible to create a codespace for that repository. When someone attempts to create a codespace they will see a message telling them that there are no valid machine types available that meet the requirements of the repository's {% data variables.product.prodname_github_codespaces %} configuration.
+Si vous supprimez des types de machines dont les spécifications sont supérieures et qui sont exigés par la configuration {% data variables.product.prodname_github_codespaces %} d’un dépôt individuel dans votre organisation, il n’est pas possible de créer un codespace pour ce dépôt. Quand vous essayez de créer un codespace, un message vous indique qu’il n’existe aucun type de machine valide disponible qui répond aux exigences de la configuration {% data variables.product.prodname_github_codespaces %} du dépôt.
 
 {% note %}
 
-**Note**: Anyone who can edit the `devcontainer.json` configuration file in a repository can set a minimum specification for machines that can be used for codespaces for that repository. For more information, see "[Setting a minimum specification for codespace machines](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines)."
+**Remarque** : Toute personne pouvant modifier le fichier de configuration `devcontainer.json` dans un dépôt peut définir une spécification minimale pour les machines utilisables pour les codespaces pour ce dépôt. Pour plus d’informations, consultez « [Définition d’une spécification minimale pour les machines de codespaces](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines) ».
 
 {% endnote %}
 
-If setting a policy for machine types prevents people from using {% data variables.product.prodname_github_codespaces %} for a particular repository there are two options:
+Si la définition d’une stratégie pour des types de machines vous empêche d’utiliser {% data variables.product.prodname_github_codespaces %} pour un dépôt particulier, vous avez deux possibilités :
 
-* You can adjust your policies to specifically remove the restrictions from the affected repository.
-* Anyone who has a codespace that they can no longer access, because of the new policy, can export their codespace to a branch. This branch will contain all of their changes from the codespace. They can then open a new codespace on this branch with a compliant machine type or work on this branch locally. For more information, see "[Exporting changes to a branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+* Vous pouvez ajuster vos stratégies pour supprimer spécifiquement les restrictions du dépôt concerné.
+* Toute personne qui a un codespace auquel elle ne peut plus accéder, en raison de la nouvelle stratégie, peut exporter son codespace vers une branche. Cette branche va contenir tous les changements que la personne apporte au codespace. Cette dernière peut alors ouvrir un nouveau codespace sur cette branche avec un type de machine conforme ou travailler sur cette branche localement. Pour plus d’informations, consultez « [Exportation des changements vers une branche](/codespaces/troubleshooting/exporting-changes-to-a-branch) ».
 
-### Setting organization-wide and repository-specific policies
+### Définition de stratégies propres à un dépôt à l’échelle de l’organisation
 
-When you create a policy you choose whether it applies to all repositories in your organization, or only to specified repositories. If you set an organization-wide policy then any policies you set for individual repositories must fall within the restriction set at the organization level. Adding policies makes the choice of machine more, not less, restrictive.
+Quand vous créez une stratégie, vous choisissez si elle s’applique à tous les dépôts de votre organisation ou uniquement aux dépôts spécifiés. Si vous définissez une stratégie à l’échelle de l’organisation, alors toutes les stratégies que vous définissez pour des dépôts individuels doivent s’inscrire dans cet ensemble de restrictions au niveau de l’organisation. L’ajout de stratégies rend le choix du type de machine plus restrictif, et non moins restrictif.
 
-For example, you could create an organization-wide policy that restricts the machine types to either 2 or 4 cores. You can then set a policy for Repository A that restricts it to just 2-core machines. Setting a policy for Repository A that restricted it to machines with 2, 4, or 8 cores would result in a choice of 2-core and 4-core machines only, because the organization-wide policy prevents access to 8-core machines.
+Par exemple, vous pouvez créer une stratégie à l’échelle de l’organisation qui limite les types de machines à 2 ou 4 cœurs. Vous pouvez ensuite définir une stratégie pour le dépôt A qui les limite à seulement 2 cœurs. Si vous définissez une stratégie pour le dépôt A qui le limite à des machines dotées de 2, 4 ou 8 cœurs, vous pouvez uniquement choisir des machines à 2 et 4 cœurs, car la stratégie à l’échelle de l’organisation empêche l’accès à des machines à 8 cœurs.
 
-If you add an organization-wide policy, you should set it to the largest choice of machine types that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
+Si vous ajoutez une stratégie à l’échelle de l’organisation, vous devez la définir sur le plus grand choix possible de types de machines disponibles pour un dépôt au sein de votre organisation. Vous pouvez ensuite ajouter des stratégies plus précises pour un dépôt afin de restreindre encore ce choix.
 
 {% data reusables.codespaces.codespaces-org-policies-note %}
 
-## Adding a policy to limit the available machine types
+## Ajout d’une stratégie pour limiter les types de machines disponibles
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.codespaces.codespaces-org-policies %}
-1. Click **Add constraint** and choose **Machine types**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.codespaces.codespaces-org-policies %}
+1. Cliquez sur **Ajouter une contrainte** et choisissez **Types de machines**.
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown.png)
+   ![Capture d’écran du menu déroulant « Ajouter une contrainte »](/assets/images/help/codespaces/add-constraint-dropdown.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint, then clear the selection of any machine types that you don't want to be available.
+1. Cliquez sur {% octicon "pencil" aria-label="The edit icon" %} pour modifier la contrainte, puis effacez la sélection des types de machines que vous ne voulez pas rendre disponibles.
 
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-machine-constraint.png)
+   ![Capture d’écran de l’icône de crayon permettant de modifier la contrainte](/assets/images/help/codespaces/edit-machine-constraint.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
-1. After you've finished adding constraints to your policy, click **Save**.
+1. Pour ajouter une autre contrainte à la stratégie, cliquez sur **Ajouter une contrainte** et choisissez une autre contrainte. Pour plus d’informations sur les autres contraintes, consultez :
+   * « [Restriction de l’image de base pour les codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces) »
+   * « [Restriction de la visibilité des ports transférés](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports) »
+   * « [Restriction de la période du délai d’inactivité](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period) »
+   * « [Restriction de la période de conservation pour les codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces) »
+1. Une fois que vous avez terminé d’ajouter des contraintes à votre stratégie, cliquez sur **Enregistrer**.
 
-The policy will be applied to all new codespaces that are billable to your organization. The machine type constraint is also applied to existing codespaces when someone attempts to restart a stopped codespace or reconnect to an active codespace.
+La stratégie sera appliquée à tous les nouveaux codespaces facturables à votre organisation. La contrainte de type de machine est également appliquée aux codespaces existants quand une personne tente de redémarrer un codespace arrêté ou de se reconnecter à un codespace actif.
 
-## Editing a policy
+## Modification d’une stratégie
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+Vous pouvez modifier une stratégie existante. Par exemple, vous avez peut-être besoin d’ajouter ou de supprimer des contraintes dans une stratégie.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
-1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Machine types" constraint.
-1. Make the required changes then click **Save**.
+1. Affichez la page « Stratégies de codespace ». Pour plus d’informations, consultez « [Ajout d’une stratégie pour limiter les types de machines disponibles](#adding-a-policy-to-limit-the-available-machine-types) ».
+1. Cliquez sur le nom de la stratégie à modifier.
+1. Cliquez sur l’icône de crayon ({% octicon "pencil" aria-label="The edit icon" %}) à côté de la contrainte « Types de machine ».
+1. Apportez les changements nécessaires, puis cliquez sur **Enregistrer**.
 
-## Deleting a policy 
+## Suppression d’une stratégie 
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
-1. Click the delete button to the right of the policy you want to delete.
+1. Affichez la page « Stratégies de codespace ». Pour plus d’informations, consultez « [Ajout d’une stratégie pour limiter les types de machines disponibles](#adding-a-policy-to-limit-the-available-machine-types) ».
+1. Cliquez sur le bouton Supprimer à droite de la stratégie à supprimer.
 
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![Capture d’écran du bouton de suppression d’une stratégie](/assets/images/help/codespaces/policy-delete.png)
 
-## Further reading
+## Pour aller plus loin
 
-- "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)"
+- « [Gestion des limites de dépenses pour {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces) »

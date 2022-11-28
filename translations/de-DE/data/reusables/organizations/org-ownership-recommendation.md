@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 0a42d7b90fd6973a0d52e7cff8dfc3082de11135
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 64c92d2427b9be166d820bf3fcb23d39d449a295
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145107871"
+ms.lasthandoff: 11/14/2022
+ms.locfileid: "148163445"
 ---
-Projekte, die von einem alleinigen Organisationsinhaber unterhalten und verwaltet werden, können leicht unzugänglich werden, wenn der Organisationsinhaber nicht erreichbar ist. Wir empfehlen für Organisationen, mindestens zwei Personen mit *Besitzerberechtigungen* einzurichten, um sicherzustellen, dass der Zugriff auf ein Projekt nicht verlorengeht.
+Wenn für eine Organisation nur ein Besitzer vorhanden ist, können die Projekte der Organisation unzugänglich werden, wenn der Besitzer nicht erreichbar ist. Um sicherzustellen, dass niemand den Zugriff auf ein Projekt verliert, empfehlen wir, dass mindestens zwei Personen in jeder Organisation die Besitzerrolle innehaben.

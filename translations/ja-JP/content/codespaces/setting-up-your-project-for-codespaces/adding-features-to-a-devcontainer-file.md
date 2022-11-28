@@ -1,7 +1,7 @@
 ---
-title: Adding features to a devcontainer.json file
+title: devcontainer.json ファイルへの機能の追加
 shortTitle: Adding features
-intro: With features, you can quickly add tools, runtimes, or libraries to your dev container configuration.
+intro: 機能を使用すると、dev container 構成にツール、ランタイム、またはライブラリをすばやく追加できます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,34 +10,39 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+ms.openlocfilehash: 7e72739e93e83995d86baf19d62f7bf2e1c5b6bc
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180828'
 ---
+{% data reusables.codespaces.about-features %} この記事のタブを使用して、これらの機能を追加する各方法の手順を表示します。
 
-{% data reusables.codespaces.about-features %} Use the tabs in this article to display instructions for each of these ways of adding features.
-
-## Adding features to a `devcontainer.json` file
+## `devcontainer.json` ファイルへの機能の追加
 
 {% webui %}
 
-1. Navigate to your repository on {% data variables.product.prodname_dotcom_the_website %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
+1. {% data variables.product.prodname_dotcom_the_website %} のリポジトリに移動し、`devcontainer.json` ファイルを見つけて、{% octicon "pencil" aria-label="The edit icon" %} をクリックしてファイルを編集します。
    
-   If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
-1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
+   `devcontainer.json` ファイルがない場合は、ここで作成します。 詳細については、[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)に関するページをご覧ください。
+1. ファイル エディターの右側にある **[Marketplace]** タブで、追加する機能を参照または検索し、その機能の名前をクリックします。
 
-   ![Screenshot of the Terraform feature in the Marketplace tab, with "Terra" in the search bar](/assets/images/help/codespaces/feature-marketplace.png)
-3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
+   ![[Marketplace] タブの Terraform 機能のスクリーンショット。検索バーに "Terra" が表示されています](/assets/images/help/codespaces/feature-marketplace.png)
+3. [インストール] で、コード スニペットをクリックしてクリップボードにコピーし、`devcontainer.json` ファイル内の `features` オブジェクトにスニペットを貼り付けます。
 
-   ![Screenshot of a code block in the Installation section of the Marketplace tab](/assets/images/help/codespaces/feature-installation-code.png)
+   ![[Marketplace] タブの [インストール] セクションのコード ブロックのスクリーンショット](/assets/images/help/codespaces/feature-installation-code.png)
 
    ```JSON
    "features": {
         ...
         "ghcr.io/devcontainers/features/terraform:1": {},
         ...
-	}
+    }
     ```
-1. By default, the latest version of the feature will be used. To choose a different version, or configure other options for the feature, expand the properties listed under "Options" to view the available values, then add the options by manually editing the object in your `devcontainer.json` file.
+1. 既定では、最新バージョンの機能が使用されます。 別のバージョンを選んだり、機能の他のオプションを構成したりするには、[オプション] の下に表示されているプロパティを展開して使用可能な値を表示し、`devcontainer.json` ファイル内のオブジェクトを手動で編集してオプションを追加します。
 
-   ![Screenshot of the Options section of the Marketplace tab, with "version" and "tflint" expanded](/assets/images/help/codespaces/feature-options.png)
+   ![[Marketplace] タブの [オプション] セクションのスクリーンショット。[バージョン] と [tflint] が展開されています](/assets/images/help/codespaces/feature-options.png)
 
    ```JSON
    "features": {
@@ -47,11 +52,11 @@ topics:
             "tflint": "latest"
         },
         ...
-	}
+    }
     ```
-1. Commit the changes to your `devcontainer.json` file.
+1. `devcontainer.json` ファイルへの変更をコミットします。
 
-The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+構成の変更は、リポジトリから作成された新しい codespace で有効になります。 既存の codespace で変更を有効にするには、`devcontainer.json` ファイルの更新を codespace にプルしてから、codespace のコンテナーをリビルドする必要があります。 詳細については、[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)に関するページをご覧ください。
 
 {% endwebui %}
 
@@ -59,21 +64,21 @@ The configuration changes will take effect in new codespaces created from the re
 
 {% note %}
 
-To add features in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+ローカルで作業していて、codespace に接続されていないときに {% data variables.product.prodname_vscode_shortname %} に機能を追加するには、"Dev Containers" 拡張機能がインストールされ、有効になっている必要があります。 この拡張機能の詳細については、「[{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)」を参照してください。
 
 {% endnote %}
 
 {% data reusables.codespaces.command-pallette %}
-2. Start typing "Configure" and select **Codespaces: Configure Dev Container Features**.
+2. 「構成」と入力し、 **[Codespaces: Dev Container 機能の構成]** を選びます。
 
-   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![コマンド パレットの [Devcontainer 機能の構成] コマンド](/assets/images/help/codespaces/codespaces-configure-features.png)
 
-3. Update your feature selections, then click **OK**.
+3. 機能の選択を更新し、 **[OK]** をクリックします。
 
-   ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
+   ![コンテナーの構成時の追加機能メニューの選択](/assets/images/help/codespaces/select-additional-features.png)
 
-4. If you're working in a codespace, a prompt will appear in the lower-right corner. To rebuild the container and apply the changes to the codespace you're working in, click **Rebuild Now**.
+4. codespace で作業している場合は、右下隅にプロンプトが表示されます。 コンテナーをリビルドし、作業中の codespace に変更を適用するには、 **[今すぐリビルド]** をクリックします。
 
-   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![コマンド パレットの [Codespaces: コンテナーのリビルド]](/assets/images/help/codespaces/rebuild-prompt.png)
 
 {% endvscode %}

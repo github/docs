@@ -1,6 +1,6 @@
 ---
-title: GitHub Codespaces logs
-intro: 'Overview of the logs used by {% data variables.product.prodname_github_codespaces %}.'
+title: GitHub Codespaces-Protokolle
+intro: 'Dieser Artikel bietet eine Übersicht über die von {% data variables.product.prodname_github_codespaces %} verwendeten Protokolle.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,50 +11,55 @@ topics:
 shortTitle: Codespaces logs
 redirect_from:
   - /codespaces/troubleshooting/codespaces-logs
+ms.openlocfilehash: f5cd482888f58f85a051bb9b6e2c5d7c026ed9a9
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159690'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 {% endjetbrains %}
 
-Information on {% data variables.product.prodname_github_codespaces %} is output to various logs:
+Informationen zu {% data variables.product.prodname_github_codespaces %} werden in verschiedenen Protokollen ausgegeben:
 
 {% webui %}
 
-- Codespace logs
-- Creation logs
-- Browser console logs (for the {% data variables.product.prodname_vscode_shortname %} web client)
+- Codespaceprotokolle
+- Erstellungsprotokolle
+- Browserkonsolenprotokolle (für den {% data variables.product.prodname_vscode_shortname %}-Webclient)
 
-Extension logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}. Click the "{% data variables.product.prodname_vscode %}" tab above for details.
+Erweiterungsprotokolle sind verfügbar, wenn du {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} verwendest. Klicke oben auf die Registerkarte „{% data variables.product.prodname_vscode %}“, um weitere Informationen zu erhalten.
 
 {% endwebui %}
 
 {% vscode %}
 
-- Codespace logs
-- Creation logs
-- Extension logs (for the {% data variables.product.prodname_vscode_shortname %} desktop application) 
+- Codespaceprotokolle
+- Erstellungsprotokolle
+- Erweiterungsprotokolle (für die {% data variables.product.prodname_vscode_shortname %}-Desktopanwendung) 
 
-Browser logs are available if you are using {% data variables.product.prodname_github_codespaces %} in your browser. Click the "Web browser" tab above for details.
+Browserprotokolle sind verfügbar, wenn du {% data variables.product.prodname_github_codespaces %} in deinem Browser verwendest. Klicke oben auf die Registerkarte „Webbrowser“, um weitere Informationen zu erhalten.
 
 {% endvscode %}
 
 {% cli %}
 
-- Codespace logs
-- Creation logs
+- Codespaceprotokolle
+- Erstellungsprotokolle
 
-Other logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} or in your web browser. Click the tabs above for details.
+Weitere Protokolle sind verfügbar, wenn du {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} oder in deinem Webbrowser verwendest. Klicke auf die Registerkarten oben, um weitere Informationen zu erhalten.
 
 {% endcli %}
 
 {% jetbrains %}
 
-- Creation logs
+- Erstellungsprotokolle
 
-Other logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} or in your web browser. Click the tabs above for details.
+Weitere Protokolle sind verfügbar, wenn du {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} oder in deinem Webbrowser verwendest. Klicke auf die Registerkarten oben, um weitere Informationen zu erhalten.
 
 {% endjetbrains %}
 
@@ -62,10 +67,10 @@ Other logs are available if you are using {% data variables.product.prodname_git
 
 {% data reusables.codespaces.codespace-logs %}
 
-1. If you are using {% data variables.product.prodname_github_codespaces %} in the browser, ensure that you are connected to the codespace you want to debug.
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
-1. If you are using {% data variables.product.prodname_github_codespaces %} in the browser, right-click on the zip archive of logs from the Explorer view and select **Download…** to download them to your local machine.
+1. Wenn du {% data variables.product.prodname_github_codespaces %} im Browser verwendest, stelle sicher, dass du mit dem Codespace verbunden bist, den du debuggen möchtest.
+1. Öffne die {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>UMSCHALT</kbd>+<kbd>BEFEHL</kbd>+<kbd>P</kbd> (Mac)/<kbd>STRG</kbd>+<kbd>UMSCHALT</kbd>+<kbd>P</kbd> (Windows/Linux)), und gib **Protokolle exportieren** ein. Wähle **Codespaces: Protokolle exportieren** in der Liste aus, um die Protokolle herunterzuladen.
+1. Lege fest, wo das ZIP-Archiv der Protokolle gespeichert werden soll, und klicke dann auf **Speichern** (Desktop) oder **OK** (Web).
+1. Wenn du {% data variables.product.prodname_github_codespaces %} im Browser verwendest, klicke in der Explorer-Ansicht mit der rechten Maustaste auf das ZIP-Archiv mit den Protokollen und dann mit der linken Maustaste auf **Herunterladen...** um es auf deinen lokalen Computer herunterzuladen.
 
 {% endwebui %}
 
@@ -73,8 +78,8 @@ Other logs are available if you are using {% data variables.product.prodname_git
 
 {% data reusables.codespaces.codespace-logs %}
 
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
+1. Öffne die {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>UMSCHALT</kbd>+<kbd>BEFEHL</kbd>+<kbd>P</kbd> (Mac)/<kbd>STRG</kbd>+<kbd>UMSCHALT</kbd>+<kbd>P</kbd> (Windows/Linux)), und gib **Protokolle exportieren** ein. Wähle **Codespaces: Protokolle exportieren** in der Liste aus, um die Protokolle herunterzuladen.
+1. Lege fest, wo das ZIP-Archiv der Protokolle gespeichert werden soll, und klicke dann auf **Speichern** (Desktop) oder **OK** (Web).
 
 {% endvscode %}
 
@@ -82,28 +87,28 @@ Other logs are available if you are using {% data variables.product.prodname_git
 
 {% data reusables.codespaces.codespace-logs %}
 
-Currently you can't use {% data variables.product.prodname_cli %} to access these logs. To access them, open your codespace in {% data variables.product.prodname_vscode_shortname %} or in a browser.
+Derzeit kannst du nicht mit {% data variables.product.prodname_cli %} auf diese Protokolle zugreifen. Öffne den Codespace in {% data variables.product.prodname_vscode_shortname %} oder in einem Browser, um auf sie zuzugreifen.
 
 {% endcli %}
 
-## Creation logs
+## Erstellungsprotokolle
 
-These logs contain information about the container, dev container, and their configuration. They are useful for debugging configuration and setup problems.
+Diese Protokolle enthalten Informationen zum Container und zum Entwicklungscontainer sowie zu deren Konfiguration. Sie sind beim Debuggen von Konfigurations- und Setupproblemen hilfreich.
 
 {% webui %}
 
-1. Connect to the codespace you want to debug.
-2. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+1. Stelle eine Verbindung mit dem Codespace her, den du debuggen möchtest.
+2. Öffne die {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>UMSCHALT</kbd>+<kbd>BEFEHL</kbd>+<kbd>P</kbd> (Mac)/<kbd>STRG</kbd>+<kbd>UMSCHALT</kbd>+<kbd>P</kbd> (Windows/Linux)), und gib **Erstellungsprotokolle** ein. Wähle **Codespaces: Erstellungsprotokolle anzeigen** in der Liste aus, um die Datei `creation.log` zu öffnen.
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+Wenn du das Protokoll für den Support freigeben möchtest, kannst du den Text aus dem Erstellungsprotokoll in einen Text-Editor kopieren und die Datei lokal speichern.
 
 {% endwebui %}
 
 {% vscode %}
 
-Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+Öffne die {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>UMSCHALT</kbd>+<kbd>BEFEHL</kbd>+<kbd>P</kbd> (Mac)/<kbd>STRG</kbd>+<kbd>UMSCHALT</kbd>+<kbd>P</kbd> (Windows/Linux)), und gib **Erstellungsprotokolle** ein. Wähle **Codespaces: Erstellungsprotokolle anzeigen** in der Liste aus, um die Datei `creation.log` zu öffnen.
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+Wenn du das Protokoll für den Support freigeben möchtest, kannst du den Text aus dem Erstellungsprotokoll in einen Text-Editor kopieren und die Datei lokal speichern.
 
 {% endvscode %}
 
@@ -111,15 +116,15 @@ If you want to share the log with support, you can copy the text from the creati
 
 {% data reusables.cli.cli-learn-more %}
 
-To see the creation log use the `gh codespace logs` subcommand. After entering the command choose from the list of codespaces that's displayed.
+Zum Anzeigen des Erstellungsprotokolls verwendest du den Unterbefehl `gh codespace logs`. Nachdem du den Befehl eingegeben hast, kannst du deine Auswahl in der Liste der Codespaces treffen, die angezeigt wird.
 
 ```shell
 gh codespace logs
 ```
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_logs).
+Weitere Informationen zu diesem Befehl findest du [im {% data variables.product.prodname_cli %}-Leitfaden](https://cli.github.com/manual/gh_codespace_logs).
 
-If you want to share the log with support, you can save the output to a file:
+Wenn du das Protokoll für den Support freigeben möchtest, kannst du die Ausgabe in einer Datei speichern:
 
 ```shell
 gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
@@ -129,44 +134,44 @@ gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
 
 {% vscode %}
 
-## Extension logs
+## Erweiterungsprotokolle
 
-These logs are available for {% data variables.product.prodname_vscode_shortname %} desktop users only. They are useful if it seems like the {% data variables.product.prodname_github_codespaces %} extension or {% data variables.product.prodname_vscode_shortname %} editor are having issues that prevent creation or connection.
+Diese Protokolle sind nur für Benutzer*innen der {% data variables.product.prodname_vscode_shortname %}-Desktopanwendung verfügbar. Sie sind nützlich, wenn du vermutest, dass Probleme mit der {% data variables.product.prodname_github_codespaces %}-Erweiterung oder dem {% data variables.product.prodname_vscode_shortname %}-Editor die Erstellung oder das Herstellen der Verbindung verhindern.
 
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette.
-1. Type **Logs** and select **Developer: Open Extension Logs Folder** from the list to open the extension log folder in your system's file explorer.
+1. Öffne in {% data variables.product.prodname_vscode_shortname %} die Befehlspalette.
+1. Gib **Protokolle** ein, und wähle **Entwickler: Erweiterungsprotokolle öffnen** in der Liste aus, um den Erweiterungsprotokollordner im Datei-Explorer deines Systems zu öffnen.
 
-From this view, you can access logs generated by the various extensions that you use in {% data variables.product.prodname_vscode_shortname %}. You will see logs for {% data variables.product.prodname_github_codespaces %}, {% data variables.product.prodname_dotcom %} Authentication, and Git, in addition to any other extensions you have enabled.
+In dieser Ansicht kannst du auf Protokolle zugreifen, die von den verschiedenen Erweiterungen generiert wurden, die du in {% data variables.product.prodname_vscode_shortname %} verwendest. Es werden Protokolle für {% data variables.product.prodname_github_codespaces %}, {% data variables.product.prodname_dotcom %} Authentication und Git sowie für alle anderen Erweiterungen, die du aktiviert hast, angezeigt.
 
 {% endvscode %}
 
 {% webui %}
 
-## Browser console logs
+## Browserkonsolenprotokolle
 
-These logs are useful only if you want to debug problems with using {% data variables.product.prodname_github_codespaces %} in the browser. They are useful for debugging problems creating and connecting to {% data variables.product.prodname_github_codespaces %}.
+Diese Protokolle sind nur hilfreich, wenn du Probleme bei der Verwendung von {% data variables.product.prodname_github_codespaces %} im Browser debuggen möchtest. Sie sind nützlich zum Debuggen von Problemen bei der Erstellung und beim Herstellen einer Verbindung mit {% data variables.product.prodname_github_codespaces %}.
 
-1. In the browser window for the codespace you want to debug, open the developer tools window.
-1. Display the "Console" tab and click **errors** in the left sidebar to show only the errors.
-1. In the log area on the right, right-click and select **Save as** to save a copy of the errors to your local machine.
-  ![Save errors](/assets/images/help/codespaces/browser-console-log-save.png)
+1. Öffne das Fenster mit den Entwicklertools in dem Browserfenster für den Codespace, den du debuggen möchtest.
+1. Wechsle zur Registerkarte „Konsole“, und klicke in der linken Randleiste auf **Fehler**, um nur die Fehler anzuzeigen.
+1. Klicke im Protokollbereich auf der rechten Seite mit der rechten Maustaste, und wähle **Speichern unter** aus, um eine Kopie der Fehler auf deinem lokalen Computer zu speichern.
+  ![Speichern von Fehlern](/assets/images/help/codespaces/browser-console-log-save.png)
 
 {% endwebui %}
 
 {% jetbrains %}
 
 {% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. In the {% data variables.product.prodname_github_codespaces %} tool window, click the log icon.
+1. Klicke im {% data variables.product.prodname_github_codespaces %}-Toolfenster auf das Protokollsymbol.
 
-   ![Screenshot of the log button](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
+   ![Screenshot: Protokollschaltfläche](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
-## JetBrains logs
+## JetBrains-Protokolle
 
-You can download logs for the remote JetBrains IDE and the local client application by going to the **Help** menu in the JetBrains client application and clicking **Collect Host and Client Logs**.
+Du kannst Protokolle für die JetBrains-Remote-IDE und die lokale Clientanwendung herunterladen, indem du in der JetBrains-Clientanwendung zum Menü **Help** (Hilfe) navigierst und auf **Collect Host and Client Logs** (Host- und Clientprotokolle sammeln) klickst.
 
 {% endjetbrains %}
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[Reviewing your organization's audit logs for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
-- "[Reviewing your security logs for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+- „[Überprüfen der Überwachungsprotokolle deiner Organisation für {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)“
+- [Überprüfen deiner Sicherheitsprotokolle für {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)

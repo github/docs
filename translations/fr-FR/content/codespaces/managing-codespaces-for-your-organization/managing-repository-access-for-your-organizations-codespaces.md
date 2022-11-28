@@ -1,7 +1,7 @@
 ---
-title: Managing repository access for your organization's codespaces
+title: Gestion de l’accès aux dépôts pour les codespaces de votre organisation
 shortTitle: Repository access
-intro: 'You can manage the repositories in your organization that {% data variables.product.prodname_github_codespaces %} can access.'
+intro: 'Vous pouvez gérer les référentiels de votre entreprise auxquels {% data variables.product.prodname_github_codespaces %} a accès.'
 permissions: 'To manage access and security for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
@@ -15,26 +15,29 @@ redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces
   - /github/developing-online-with-codespaces/managing-access-and-security-for-codespaces
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
+ms.openlocfilehash: 9fdec24104a61170977053195446db0b4cf0a62f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159758'
 ---
-
 {% warning %}
 
-**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. To enable expanded access to other repositories, add the requested permissions to your `devcontainer.json` configuration file. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
+**Note de dépréciation** : Le paramètre d’accès et de sécurité décrit ci-dessous est maintenant déprécié et documenté ici pour référence uniquement. Pour permettre un accès étendu à d’autres dépôts, ajoutez les autorisations demandées à votre fichier de configuration `devcontainer.json`. Pour plus d’informations, consultez « [Gestion de l’accès à d’autres dépôts dans votre codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces) ».
 
 {% endwarning %}
 
-By default, a codespace can only access the repository where it was created. When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will also have read permissions to all other repositories the organization owns and the codespace creator has permissions to access. If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. You should only enable access and security for repositories you trust.
+Par défaut, un codespace ne peut accéder qu’au dépôt dans lequel il a été créé. Lorsque vous activez l’accès et la sécurité pour un dépôt appartenant à votre organisation, tous les codespaces créés pour ce dépôt ont également des autorisations de lecture sur tous les autres dépôts appartenant à l’organisation, et le créateur du codespace dispose d’autorisations d’accès. Si vous voulez restreindre les dépôts auxquels un codespace peut accéder, vous pouvez restreindre son accès au dépôt dans lequel le codespace a été créé ou à des dépôts spécifiques. Vous ne devez activer l’accès et la sécurité que pour les dépôts auxquels vous faites confiance.
 
-To manage which users in your organization can use {% data variables.product.prodname_github_codespaces %}, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)."
+Pour gérer quels utilisateurs dans votre organisation peuvent utiliser {% data variables.product.prodname_github_codespaces %}, consultez « [Activation de {% data variables.product.prodname_github_codespaces %} pour votre organisation](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization) ».
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Under "Access and security", select the setting you want for your organization.
-  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
-1. If you chose "Selected repositories", select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat for all repositories whose codespaces you want to access other repositories.
-    !["Selected repositories" dropdown menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.click-codespaces %}
+1. Sous « Accès et sécurité », sélectionnez le paramètre souhaité pour votre organisation.
+  ![Cases d’option pour gérer les dépôts approuvés](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
+1. Si vous avez choisi « Dépôts sélectionnés », sélectionnez le menu déroulant, puis cliquez sur un dépôt pour autoriser les codespaces du dépôt à accéder aux autres dépôts appartenant à votre organisation. Répétez l’opération pour tous les dépôts dont les codespaces ont doivent pouvoir accéder aux autres dépôts.
+    ![Menu déroulant « Dépôts sélectionnés »](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
 
-## Further reading
+## Pour aller plus loin
 
-- "[Managing repository access for your codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"
+- « [Gestion de l’accès aux dépôts pour vos codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces) »
