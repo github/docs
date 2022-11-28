@@ -141,11 +141,9 @@ describe('sidebar', () => {
         if (splitPath[splitPath.length - 2] === 'rest') {
           category = data.title
         } else if (splitPath[splitPath.length - 3] === 'rest') {
-          if (filename.includes('index.md')) {
-            category = data.shortTitle || data.title
-          } else {
-            subCategory = data.shortTitle || data.title
-          }
+          filename.includes('index.md')
+            ? (category = data.shortTitle || data.title)
+            : (subCategory = data.shortTitle || data.title)
         }
         for (const version of applicableVersions) {
           req.context.currentVersion = version
