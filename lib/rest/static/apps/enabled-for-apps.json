@@ -1,5 +1,5 @@
 {
-  "api.github.com": {
+  "api.github.com.2022-11-28": {
     "actions": [
       {
         "slug": "get-github-actions-cache-usage-for-an-enterprise",
@@ -2034,6 +2034,12 @@
         "requestPath": "/octocat"
       },
       {
+        "slug": "get-all-api-versions",
+        "subcategory": "meta",
+        "verb": "get",
+        "requestPath": "/versions"
+      },
+      {
         "slug": "get-the-zen-of-github",
         "subcategory": "meta",
         "verb": "get",
@@ -3776,7 +3782,7 @@
       }
     ]
   },
-  "ghec": {
+  "ghec.2022-11-28": {
     "actions": [
       {
         "slug": "get-github-actions-cache-usage-for-an-enterprise",
@@ -5821,6 +5827,12 @@
         "subcategory": "meta",
         "verb": "get",
         "requestPath": "/octocat"
+      },
+      {
+        "slug": "get-all-api-versions",
+        "subcategory": "meta",
+        "verb": "get",
+        "requestPath": "/versions"
       },
       {
         "slug": "get-the-zen-of-github",

@@ -62,6 +62,7 @@ jobs:
 
       - name: Run link checker
         env:
+          DISABLE_REWRITE_ASSET_URLS: true
           LEVEL: 'critical'
           # Set this to true in repo scope to enable debug logs
           # ACTIONS_RUNNER_DEBUG = true

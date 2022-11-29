@@ -12,6 +12,7 @@ featuredLinks:
     - /rest/guides/best-practices-for-integrators
   popular:
     - /rest/overview/resources-in-the-rest-api
+    - /rest/overview/api-versions
     - /rest/overview/other-authentication-methods
     - /rest/overview/troubleshooting
     - /rest/overview/endpoints-available-for-github-apps
@@ -79,4 +80,3 @@ children:
   - /users
   - /webhooks
 ---
-

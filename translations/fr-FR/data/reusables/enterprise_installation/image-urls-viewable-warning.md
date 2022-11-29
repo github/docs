@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 699a28a2443778018ea25e0060e621da9427b4ef
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148179972"
+---
 {% warning %}
 
-**Warning:** If you add an image attachment to a pull request or issue comment, anyone can view the anonymized image URL without authentication{% ifversion ghes %}, even if the pull request is in a private repository, or if private mode is enabled. To prevent unauthorized access to the images, ensure that you restrict network access to the systems that serve the images, including {% data variables.location.product_location %}{% endif %}.{% ifversion ghae %} To prevent unauthorized access to image URLs on {% data variables.product.product_name %}, consider restricting network traffic to your enterprise. For more information, see "[Restricting network traffic to your enterprise with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)."{% endif %}
+**Avertissement :** si vous joignez une image à une demande de tirage ou à un commentaire sur un problème, n’importe qui peut afficher l’URL anonymisée sans authentification{% ifversion ghes %}, même si la demande de tirage se trouve dans un référentiel privé ou si le mode privé est activé. Pour empêcher tout accès non autorisé aux images, veillez à restreindre l’accès réseau aux systèmes qui servent les images, notamment {% data variables.location.product_location %}{% endif %}.{% ifversion ghae %} Pour empêcher tout accès non autorisé aux URL des images sur {% data variables.product.product_name %}, n’hésitez pas à restreindre le trafic réseau vers votre entreprise. Pour plus d’informations, consultez « [Restriction du trafic réseau vers votre entreprise avec une liste d’adresses IP autorisées](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list) ».{% endif %}
 
 {% endwarning %}

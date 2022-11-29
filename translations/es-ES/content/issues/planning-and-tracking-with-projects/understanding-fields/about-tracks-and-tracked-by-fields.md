@@ -1,6 +1,6 @@
 ---
 title: Acerca de los campos Sigue a y Seguido por
-shortTitle: About Tracks and Tracked-by fields
+shortTitle: About Tracks and Tracked by fields
 intro: Puedes ver las subtareas de las incidencias de los proyectos.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -8,12 +8,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 74cd26d20882a00ac8c7ac1d109cc6810286cec6
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 44c1fcf3ed4495b57a0f2dbe3e92076f0e815502
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160036'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180749'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
