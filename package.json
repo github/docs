@@ -79,7 +79,7 @@
     "rss-parser": "^3.12.0",
     "scroll-anchoring": "^0.1.0",
     "semver": "^7.3.7",
-    "slash": "^4.0.0",
+    "slash": "^5.0.0",
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.5",
     "swr": "1.3.0",
