@@ -10,12 +10,12 @@ redirect_from:
 type: overview
 topics:
   - Projects
-ms.openlocfilehash: 768234aa5e6c9cfbca6a6144a80ac2868f3316ce
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3190379652fe1c95b8ea6ec7f864c44b72d9a7f7
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158861'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180761'
 ---
 ## Informationen zu {% data variables.product.prodname_projects_v2 %}
 
@@ -43,7 +43,7 @@ Du kannst benutzerdefinierte Felder verwenden, um deinen Issues, Pull Requests u
 
 Du kannst Tasklisten verwenden, um Hierarchien von Issues zu erstellen, deine Probleme in kleinere Teilaufgaben aufzuteilen und neue Beziehungen zwischen deinen Issues zu erstellen. Weitere Informationen findest du unter „[Informationen zu Aufgabenlisten](/issues/tracking-your-work-with-issues/about-tasklists)“.
 
-Diese Beziehungen werden für das Problem sowie die Felder „Tracked-by“ und „Tracks“ in deinen Projekten angezeigt. Du kannst nach Issues filtern, die von einem anderen Problem nachverfolgt werden, und du kannst deine Tabellenansichten auch nach dem Feld „Tracked-by“ gruppieren, um alle übergeordneten Probleme mit einer Liste der Unteraufgaben anzuzeigen.
+Diese Beziehungen werden für das Issue sowie die nachverfolgungsbezogenen Felder in deinen Projekten angezeigt. Du kannst nach Issues filtern, die von einem anderen Problem nachverfolgt werden, und du kannst deine Tabellenansichten auch nach dem Feld „Nachverfolgt von“ gruppieren, um alle übergeordneten Probleme mit einer Liste der Unteraufgaben anzuzeigen.
 
 {% endif %}
 

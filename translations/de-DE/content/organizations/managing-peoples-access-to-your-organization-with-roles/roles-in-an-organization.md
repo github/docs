@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: c6c345e3d1f0fb2c49aa55e79346bc4ac6567885
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: f9e5d411c7a7a16e22abcc660f2761f1bfd6cf7d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159173'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180077'
 ---
 ## Informationen zu Rollen
 {% data reusables.organizations.about-roles %}
@@ -80,7 +80,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 {% ifversion fpt or ghec %}
 <!-- Free/Pro/Team and GHEC versions have extra columns for Moderators and Billing managers-->
 
-| Organisationsberechtigung | Besitzer | Members | Moderatoren | Abrechnungsmanager | Sicherheitsmanager |
+| Organisationsberechtigung | Besitzer | Member | Moderatoren | Abrechnungsmanager | Sicherheitsmanager |
 |:------------------------|:------:|:-------:|:----------:|:----------------:|:-----------------:|
 | Erstellen von Repositorys (weitere Informationen findest du unter [Einschränken der Erstellung von Repositorys in deiner Organisation](/articles/restricting-repository-creation-in-your-organization)) | **X** | **X** | **X** |  | **X**  |
 | Abrechnungsinformationen anzeigen und bearbeiten | **X** |  |  | **X** |  |
@@ -121,7 +121,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 | Zuordnen deines Sponsorings zu einer anderen Organisation (weitere Informationen findest du unter [Zuordnen von Sponsorings zu deiner Organisation](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)) | **X** |  |  |  |  |
 | Verwalten der Veröffentlichung von {% data variables.product.prodname_pages %}-Websites aus Repositorys in der Organisation (weitere Informationen findest du unter [Verwalten der Veröffentlichung von {% data variables.product.prodname_pages %}-Websites für deine Organisation](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)) | **X** |  |  |  |  |
 | Verwalten von Sicherheits- und Analyseeinstellungen (weitere Informationen findest du unter [Verwalten von Sicherheits- und Analyseeinstellungen für deine Organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)) | **X** |  |  |  | **X** |
-| Anzeigen der Sicherheitsübersicht für die Organisation (siehe [Informationen zu Sicherheitsübersichten](/code-security/security-overview/about-the-security-overview)) | **X** |  |  |  | **X** |{% ifversion ghec %}
+| Anzeigen der Sicherheitsübersicht für die Organisation (Informationen unter [Informationen zur Sicherheitsübersicht](/code-security/security-overview/about-the-security-overview)) | **X** |  |  |  | **X** |{% ifversion ghec %}
 | Aktivieren und Erzwingen der [einmaligen SAML-Anmeldung](/articles/about-identity-and-access-management-with-saml-single-sign-on) | **X** |  |  |  |  |
 | [Verwalten des SAML-Benutzerzugriffs auf deine Organisation](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) | **X** |  |  |  |  |
 | Verwalten der SSH-Zertifizierungsstellen einer Organisation (weitere Informationen findest du unter [Verwalten der SSH-Zertifizierungsstellen deiner Organisation](/articles/managing-your-organizations-ssh-certificate-authorities)) | **X** |  |  |  |  |{% endif %}
@@ -145,7 +145,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 {% elsif ghes or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
-| Aktion in der Organisation | Besitzer | Members | Sicherheitsmanager |
+| Aktion in der Organisation | Besitzer | Member | Sicherheitsmanager |
 |:--------------------|:------:|:-------:|:-------:|
 | Personen zum Beitritt zur Organisation einladen | **X** |  |  |
 | Einladungen zum Beitritt zu der Organisation bearbeiten und zurückziehen | **X** |  |  |
@@ -167,7 +167,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 | Kann die Rolle des *Maintainers für ein Team* zugewiesen werden | **X** | **X** | **X**  |
 | Repositorys übertragen | **X** | |  |
 | Verwalten von Sicherheits- und Analyseeinstellungen (weitere Informationen findest du unter [Verwalten von Sicherheits- und Analyseeinstellungen für deine Organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)) | **X** | | **X** |{% ifversion ghes %}
-| Anzeigen der Sicherheitsübersicht für die Organisation (siehe [Informationen zu Sicherheitsübersichten](/code-security/security-overview/about-the-security-overview)) | **X** | | **X** |{% endif %}{% ifversion ghes %}
+| Anzeigen der Sicherheitsübersicht für die Organisation (Informationen unter [Informationen zur Sicherheitsübersicht](/code-security/security-overview/about-the-security-overview)) | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Verwalten von {% data variables.product.prodname_dependabot_security_updates %} (Informationen unter [Informationen zu {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)) | **X** | | **X** |{% endif %}
 | Verwalten der SSH-Zertifizierungsstellen einer Organisation (weitere Informationen findest du unter [Verwalten der SSH-Zertifizierungsstellen deiner Organisation](/articles/managing-your-organizations-ssh-certificate-authorities)) | **X** |  |  |
 | Erstellen von Projektboards (Informationen unter [Berechtigungen für Projektboards einer Organisation](/articles/project-board-permissions-for-an-organization)) | **X** | **X** | **X** |
@@ -186,12 +186,12 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 | [Exportieren einer Liste der Personen mit Zugriff auf ein Repository der Organisation](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | Verwalten von Standardbezeichnungen (weitere Informationen findest du unter [Verwalten von Standardbezeichnungen für Repositorys in deiner Organisation](/articles/managing-default-labels-for-repositories-in-your-organization)) | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Verwalten von Pull Request-Überprüfungen in der Organisation (weitere Informationen findest du unter [Verwalten von Pull Request-Überprüfungen in deiner Organisation](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)) | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| Verwalten der Liste zugelassener IP-Adressen (weitere Informationen findest du unter [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen](/admin/configuration/restricting-network-traffic-to-your-enterprise)) | **X** | |  |{% endif %}
+{% ifversion ghae %}| Verwalten von IP-Zulassungslisten (siehe [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen mit einer Liste zugelassener IP-Adressen](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)) | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
 
-| Aktion in der Organisation | Besitzer | Members |
+| Aktion in der Organisation | Besitzer | Member |
 |:--------------------|:------:|:-------:|
 | Personen zum Beitritt zur Organisation einladen | **X** |  |
 | Einladungen zum Beitritt zu der Organisation bearbeiten und zurückziehen | **X** |  |
@@ -227,11 +227,11 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 | [Anzeigen von Personen mit Zugriff auf ein Repository der Organisation](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Exportieren einer Liste der Personen mit Zugriff auf ein Repository der Organisation](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Verwalten von Standardbezeichnungen (weitere Informationen findest du unter [Verwalten von Standardbezeichnungen für Repositorys in deiner Organisation](/articles/managing-default-labels-for-repositories-in-your-organization)) | **X** | |
-{% ifversion ghae %}| Verwalten der Liste zugelassener IP-Adressen (weitere Informationen findest du unter [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen](/admin/configuration/restricting-network-traffic-to-your-enterprise)) | **X** | |{% endif %}
+{% ifversion ghae %}| Verwalten von IP-Zulassungslisten (siehe [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen mit einer Liste zugelassener IP-Adressen](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)) | **X** | |{% endif %}
 
 {% endif %}
 
-## Weiterführende Themen
+## Weitere Informationsquellen
 
 - [Repositoryrollen für eine Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)
 - [Projektboardberechtigungen für eine Organisation](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)
