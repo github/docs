@@ -66,7 +66,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const currentVersion = context.params!.versionId as string
   const currentLanguage = req.context.currentLanguage as string
   const allVersions = req.context.allVersions
-  const apiVersion = context.query.apiVersion || allVersions[currentVersion].latestApiVersion
+  const queryApiVersion = context.query.apiVersion
+  const apiVersion = allVersions[currentVersion].apiVersions.includes(queryApiVersion)
+    ? queryApiVersion
+    : allVersions[currentVersion].latestApiVersion
 
   // For pages with category level only operations like /rest/billing, we set
   // the subcategory's value to be the category for the call to getRest()
