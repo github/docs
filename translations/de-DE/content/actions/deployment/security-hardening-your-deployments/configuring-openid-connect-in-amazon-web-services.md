@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren von OpenID Connect in Amazon Web Services
-shortTitle: Configuring OpenID Connect in Amazon Web Services
+shortTitle: OpenID Connect in AWS
 intro: 'Verwende OpenID Connect in deinen Workflows, um dich bei Amazon Web Services zu authentifizieren.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 6b57dc216c3f2ebc1edb73a8d588edb1967aebcb
-ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.openlocfilehash: 597ea408c2f0172eb0eacf07fc2d1ad320872f09
+ms.sourcegitcommit: 94ba3891ebcc3c05812f468e4adafdd15b99e390
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147876810'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182257'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -53,7 +53,7 @@ Bearbeite die Vertrauensstellungsrichtlinie, um das `sub`-Feld den Überprüfung
 }
 ```
 
-Im folgenden Beispiel wird `ForAllValues` verwendet, um einen Abgleich mit mehreren Bedingungsschlüsseln durchzuführen. `StringLike` wird verwendet, um einen Abgleich mit beliebigen Referenzen im angegebenen Repository durchzuführen. Beachte, dass `ForAllValues` [übermäßige Berechtigungen hat](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) und nicht allein in einem `Allow`-Effekt verwendet werden sollte. In diesem Beispiel bedeutet die Aufnahme von `StringLike`, dass eine leere Gruppe in `ForAllValues` die Bedingung weiterhin nicht übergibt:
+Im folgenden Beispiel wird `StringLike` mit einem Platzhalteroperator (`*`) verwendet, um jedem Branch, jedem Branch für das Mergen des Pull Requests oder jeder Umgebung aus der Organisation und dem Repository `octo-org/octo-repo` die Übernahme einer Rolle in AWS zu ermöglichen.
 
 ```json{:copy}
 {
@@ -69,8 +69,7 @@ Im folgenden Beispiel wird `ForAllValues` verwendet, um einen Abgleich mit mehre
                 "StringLike": {
                     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
                 },
-                "ForAllValues:StringEquals": {
-                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                "StringEquals": {
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 }
             }

@@ -1,7 +1,7 @@
 ---
-title: Adding features to a devcontainer.json file
+title: Hinzufügen von Features zu einer Datei vom Typ „devcontainer.json“
 shortTitle: Adding features
-intro: With features, you can quickly add tools, runtimes, or libraries to your dev container configuration.
+intro: 'Mit Features kannst du Schnell Tools, Runtimes oder Bibliotheken zu deiner Entwicklungscontainerkonfiguration hinzufügen.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,34 +10,39 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+ms.openlocfilehash: 7e72739e93e83995d86baf19d62f7bf2e1c5b6bc
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180827'
 ---
+{% data reusables.codespaces.about-features %} Verwende die Registerkarten in diesem Artikel, um Anweisungen für die einzelnen Möglichkeiten zum Hinzufügen von Features anzuzeigen.
 
-{% data reusables.codespaces.about-features %} Use the tabs in this article to display instructions for each of these ways of adding features.
-
-## Adding features to a `devcontainer.json` file
+## Hinzufügen von Features zu einer Datei vom Typ `devcontainer.json`
 
 {% webui %}
 
-1. Navigate to your repository on {% data variables.product.prodname_dotcom_the_website %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
+1. Navigiere zu deinem Repository auf {% data variables.product.prodname_dotcom_the_website %}, suche deine `devcontainer.json`-Datei, und klicke auf {% octicon "pencil" aria-label="The edit icon" %}, um die Datei zu bearbeiten.
    
-   If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
-1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
+   Ist noch keine Datei vom Typ `devcontainer.json` vorhanden, kannst du jetzt eine erstellen. Weitere Informationen findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration).
+1. Navigiere rechts neben dem Datei-Editor auf der Registerkarte **Marketplace** zu dem Feature, das du hinzufügen möchtest, oder suche nach diesem, und klicke dann auf den Namen des Features.
 
-   ![Screenshot of the Terraform feature in the Marketplace tab, with "Terra" in the search bar](/assets/images/help/codespaces/feature-marketplace.png)
-3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
+   ![Screenshot: Terraform-Feature auf der Registerkarte „Marketplace“ mit „Terra“ in der Suchleiste](/assets/images/help/codespaces/feature-marketplace.png)
+3. Klicke unter „Installation“ auf den Codeschnipsel, um ihn in die Zwischenablage zu kopieren, und füge ihn dann in das `features`-Objekt in deiner `devcontainer.json`-Datei ein.
 
-   ![Screenshot of a code block in the Installation section of the Marketplace tab](/assets/images/help/codespaces/feature-installation-code.png)
+   ![Screenshot: Codeblock im Abschnitt „Installation“ der Registerkarte „Marketplace“](/assets/images/help/codespaces/feature-installation-code.png)
 
    ```JSON
    "features": {
         ...
         "ghcr.io/devcontainers/features/terraform:1": {},
         ...
-	}
+    }
     ```
-1. By default, the latest version of the feature will be used. To choose a different version, or configure other options for the feature, expand the properties listed under "Options" to view the available values, then add the options by manually editing the object in your `devcontainer.json` file.
+1. Standardmäßig wird die neueste Version des Features verwendet. Um eine andere Version auszuwählen oder andere Optionen für das Feature zu konfigurieren, erweitere die unter „Optionen“ aufgeführten Eigenschaften, um die verfügbaren Werte anzuzeigen, und füge dann die Optionen hinzu, indem du das Objekt in deiner `devcontainer.json`-Datei manuell bearbeitest.
 
-   ![Screenshot of the Options section of the Marketplace tab, with "version" and "tflint" expanded](/assets/images/help/codespaces/feature-options.png)
+   ![Screenshot: Abschnitt „Optionen“ der Registerkarte „Marketplace“ mit erweiterten Optionen „Version“ und „tflint“](/assets/images/help/codespaces/feature-options.png)
 
    ```JSON
    "features": {
@@ -47,11 +52,11 @@ topics:
             "tflint": "latest"
         },
         ...
-	}
+    }
     ```
-1. Commit the changes to your `devcontainer.json` file.
+1. Committe die Änderungen an der Datei `devcontainer.json`.
 
-The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+Die Konfigurationsänderungen werden in neuen Codespaces wirksam, die aus dem Repository erstellt wurden. Damit die Änderungen in vorhandenen Codespaces wirksam werden, musst du die Aktualisierungen der Datei `devcontainer.json` in deinen Codespace pullen und dann den Container für den Codespace neu erstellen. Weitere Informationen findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace).
 
 {% endwebui %}
 
@@ -59,21 +64,21 @@ The configuration changes will take effect in new codespaces created from the re
 
 {% note %}
 
-To add features in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+Wenn du lokal arbeitest und keine Verbindung mit einem Codespace besteht, musst du zum Hinzufügen von Features in {% data variables.product.prodname_vscode_shortname %} die Erweiterung „Dev Containers“ installieren und aktivieren. Weitere Informationen zu dieser Erweiterung findest du unter [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 {% endnote %}
 
 {% data reusables.codespaces.command-pallette %}
-2. Start typing "Configure" and select **Codespaces: Configure Dev Container Features**.
+2. Beginne mit der Eingabe von „Konfigurieren“, und wähle **Codespaces: Konfigurieren von Features für Entwicklungscontainer** aus.
 
-   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![Befehl zum Konfigurieren von Features für Entwicklungscontainer in der Befehlspalette](/assets/images/help/codespaces/codespaces-configure-features.png)
 
-3. Update your feature selections, then click **OK**.
+3. Aktualisiere deine Featureauswahl, und klicke dann auf **OK**.
 
-   ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
+   ![Menü zum Auswählen zusätzlicher Features bei der Containerkonfiguration](/assets/images/help/codespaces/select-additional-features.png)
 
-4. If you're working in a codespace, a prompt will appear in the lower-right corner. To rebuild the container and apply the changes to the codespace you're working in, click **Rebuild Now**.
+4. Wenn du in einem Codespace arbeitest, wird in der unteren rechten Ecke eine Eingabeaufforderung angezeigt. Klicke auf **Jetzt neu erstellen**, um den Container neu zu erstellen und die Änderungen auf den Codespace anzuwenden, in dem du arbeitest.
 
-   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![„Codespaces: Container neu erstellen“ in der Befehlspalette](/assets/images/help/codespaces/rebuild-prompt.png)
 
 {% endvscode %}

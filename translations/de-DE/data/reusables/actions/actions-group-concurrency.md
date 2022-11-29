@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a0c8b24bacdd41e32d9b8bdd0d8850e7a6ada557
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a9f12214edcef8a107ad9c447fea7207cfdc48f4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145103971"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148184090"
 ---
 Wenn ein gleichzeitiger Auftrag oder ein Workflow in die Warteschlange gestellt wird, wenn ein anderer Auftrag oder Workflow, der dieselbe Übereinstimmungsgruppe im Repository verwendet, in Bearbeitung ist, wird `pending` der Warteschlangeauftrag oder der Workflow ausgeführt. Alle zuvor anhängigen Aufträge oder Workflows in der Parallelitätsgruppe werden abgebrochen. Du kannst auch mit `cancel-in-progress: true` alle derzeit ausgeführten Aufträge oder Workflows in derselben Parallelitätsgruppe abbrechen.
 
@@ -26,7 +26,7 @@ concurrency: ci-${{ github.ref }}
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 ```
@@ -38,7 +38,7 @@ Wenn du den Gruppennamen mit einer Eigenschaft erstellst, die nur für bestimmte
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
@@ -53,7 +53,7 @@ Um nur die Ausführung desselben Workflows abzubrechen, kannst du die `github.wo
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```
