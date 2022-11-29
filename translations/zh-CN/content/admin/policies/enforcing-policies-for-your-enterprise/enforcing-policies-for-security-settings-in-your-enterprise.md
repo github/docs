@@ -1,6 +1,6 @@
 ---
-title: 为企业中的安全设置实施策略
-intro: 您可以实施策略来管理企业组织中的安全设置，或允许在每个组织中设置策略。
+title: Enforcing policies for security settings in your enterprise
+intro: 'You can enforce policies to manage security settings in your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: Enterprise owners can enforce policies for security settings in an enterprise.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -21,89 +21,100 @@ topics:
   - Policies
   - Security
 shortTitle: Policies for security settings
-ms.openlocfilehash: 600917881dc0850af33801bf1c544aa3ceb47574
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148179963'
 ---
-## 关于企业中安全设置的策略
 
-您可以在 {% data variables.product.product_name %} 上实施策略以控制企业拥有的组织的安全设置。 默认情况下，组织所有者可以管理安全设置。 
+## About policies for security settings in your enterprise
+
+You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings. 
 
 {% ifversion ghec or ghes %}
 
-## 要求企业中的组织进行双重身份验证
+## Requiring two-factor authentication for organizations in your enterprise
 
-企业所有者可以要求企业拥有的所有组织中的组织成员、帐单管理员和外部协作者使用双重身份验证来保护其用户帐户。
+Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
 
-您必须为自己的帐户启用双重身份验证，然后才能对企业拥有的所有组织都要求 2FA。 有关详细信息，请参阅“[使用双因素身份验证 (2FA) 保护帐户](/articles/securing-your-account-with-two-factor-authentication-2fa/)”。
+Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. For more information, see "[Securing your account with two-factor authentication (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa/)."
 
 {% warning %}
 
-警告：
+**Warnings:**
 
-- 当您需要为企业进行双重身份验证时，不使用 2FA 的企业拥有的所有组织中的成员、外部协作者和帐单管理员（包括自动程序帐户）将从组织中删除，并失去对其仓库的访问权限。 他们还会失去对组织私有仓库的复刻的访问权限。 如果他们在从你的组织中删除后的三个月内为其帐户启用双因素身份验证，则可以恢复其访问特权和设置。 有关详细信息，请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
-- 为其帐户禁用 2FA 的企业拥有的任何组织中的任何组织所有者、成员、帐单管理员或外部协作者在你启用所需的双重身份验证后将自动从组织中删除。
-- 如果你是某个要求双因素身份验证的企业的唯一所有者，则在不为企业禁用双因素身份验证要求的情况下，你将无法为用户帐户禁用 2FA。
+- When you require two-factor authentication for your enterprise, members, outside collaborators, and billing managers (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from your organization. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
+- Any organization owner, member, billing manager, or outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization.
+- If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required two-factor authentication for the enterprise.
 
 {% endwarning %}
 
-在您要求使用双重身份验证之前，我们建议通知组织成员、外部协作者和帐单管理员，并要求他们为帐户设置双重身份验证。 组织所有者可以查看成员和外部协作者是否已在每个组织的 People（人员）页面上使用 2FA。 有关详细信息，请参阅“[查看组织中的用户是否启用了 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)”。
+Before you require use of two-factor authentication, we recommend notifying organization members, outside collaborators, and billing managers and asking them to set up 2FA for their accounts. Organization owners can see if members and outside collaborators already use 2FA on each organization's People page. For more information, see "[Viewing whether users in your organization have 2FA enabled](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)."
 
-{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
-4. 在“Two-factor authentication（双重身份验证）”下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. 在“双因素身份验证”下，选择“要求对企业中的所有组织进行双因素身份验证”，然后单击“保存” 。
-  ![要求进行双因素身份验证的复选框](/assets/images/help/business-accounts/require-2fa-checkbox.png)
-6. 如果出现提示，请阅读有关将从企业所拥有的组织中删除的成员和外部协作者的信息。 若要确认更改，请键入企业的名称，然后单击“删除成员并要求进行双因素身份验证”。
-  ![确认强制执行双因素身份验证的框](/assets/images/help/business-accounts/confirm-require-2fa.png)
-7. （可选）如果从您的企业拥有的组织中删除了任何成员或外部协作者，我们建议向他们发送邀请，以恢复其以前对组织的权限和访问权限。 每个人都必须启用双重身份验证，然后才能接受您的邀请。
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+4. Under "Two-factor authentication", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "Two-factor authentication", select **Require two-factor authentication for all organizations in your business**, then click **Save**.
+  ![Checkbox to require two-factor authentication](/assets/images/help/business-accounts/require-2fa-checkbox.png)
+6. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise. To confirm the change, type your enterprise's name, then click **Remove members & require two-factor authentication**.
+  ![Confirm two-factor enforcement box](/assets/images/help/business-accounts/confirm-require-2fa.png)
+7. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
 
 {% endif %}
 
-## 管理企业的 SSH 认证机构
+## Managing SSH certificate authorities for your enterprise
 
-您可以使用 SSH 认证机构 (CA) 来允许企业拥有的任何组织的成员使用您提供的 SSH 证书访问该组织的存储库。 {% data reusables.organizations.can-require-ssh-cert %} 有关详细信息，请参阅“[关于 SSH 证书颁发机构](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)”。
+You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
 
 {% data reusables.organizations.add-extension-to-cert %}
 
-### 添加 SSH 认证中心
+### Adding an SSH certificate authority
 
-如果您的企业需要 SSH 证书，企业成员应使用特殊的 URL 通过 SSH 进行 Git 操作。 有关详细信息，请参阅“[关于 SSH 证书颁发机构](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)”。
+If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)."
 
-{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.organizations.new-ssh-ca %} {% data reusables.organizations.require-ssh-cert %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.organizations.new-ssh-ca %}
+{% data reusables.organizations.require-ssh-cert %}
 
-### 删除 SSH 认证中心
+### Deleting an SSH certificate authority
 
-对 CA 的删除无法撤销。 如果以后要使用同一 CA，您需要重新上传该 CA。
+Deleting a CA cannot be undone. If you want to use the same CA in the future, you'll need to upload the CA again.
 
-{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.organizations.delete-ssh-ca %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.organizations.delete-ssh-ca %}
 
-{% ifversion ghec %}
+{% ifversion sso-redirect %}
+## Managing SSO for unauthenticated users
 
-## 管理未经身份验证的用户的 SSO
+{% data reusables.enterprise-managed.sso-redirect-release-phase %}
 
-如果你的企业使用 {% data variables.product.prodname_emus %}，你可以选择未经身份验证的用户在尝试访问企业资源时看到的内容。 有关 {% data variables.product.prodname_emus %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)”。
+If your enterprise uses {% data variables.product.prodname_emus %}, you can choose what unauthenticated users see when they attempt to access your enterprise's resources. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
-默认情况下，为了隐藏专用资源的存在，当未经身份验证的用户尝试访问你的企业时，{% data variables.product.company_short %} 将显示 404 错误。
+By default, to hide the existence of private resources, when an unauthenticated user attempts to access your enterprise, {% data variables.product.company_short %} displays a 404 error.
 
-为防止你的开发人员混淆，你可以更改此行为，以便用户通过标识提供者 (IdP) 自动重定向到单一登录 (SSO)。 启用自动重定向后，访问企业任何资源的 URL 的任何人都可以看到该资源是否存在。 但是，只有在他们使用你的 IdP 进行身份验证后具有适当的访问权限时，他们才能看到资源。
+To prevent confusion from your developers, you can change this behavior so that users are automatically redirected to single sign-on (SSO) through your identity provider (IdP). When you enable automatic redirects, anyone who visits the URL for any of your enterprise's resources will be able to see that the resource exists. However, they'll only be able to see the resource if they have appropriate access after authenticating with your IdP.
 
 {% note %}
 
-注意：如果用户在尝试访问企业的任何资源时登录到其个人帐户，他们将被自动注销并重定向到 SSO 以登录到其 {% data variables.enterprise.prodname_managed_user %}。 有关详细信息，请参阅“[管理多个帐户](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)”。
+**Note:** If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see "[Managing multiple accounts](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
-1. 在“单一登录设置”下，选择或取消选择“自动重定向用户以登录”。
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "Single sign-on settings", select or deselect **Automatically redirect users to sign in**.
 
-   ![用于自动重定向用户以登录的复选框](/assets/images/enterprise/security/Enterprise-Redirect-Users-To-Sign-In-Checkbox.png)
+   ![Checkbox to automatically redirect users to sign in](/assets/images/enterprise/security/Enterprise-Redirect-Users-To-Sign-In-Checkbox.png)
+{% endif %}
 
-## 延伸阅读
+## Further reading
 
-- “[关于企业的标识和访问管理](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)”{% ifversion ghec %}
-- [访问企业的合规性报告](/admin/overview/accessing-compliance-reports-for-your-enterprise){%- endif %}
-- [保护组织安全](/organizations/keeping-your-organization-secure)
-- [使用 IP 允许列表限制网络流量](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){%- endif %}
+- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
+{%- ifversion ghec %}
+- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+{%- endif %}
+{%- ifversion ghec or ghae %}
+- "[Restricting network traffic with an IP allow list with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
+{%- endif %}

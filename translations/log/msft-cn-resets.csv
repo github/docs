@@ -612,6 +612,7 @@ translations/zh-CN/content/admin/packages/getting-started-with-github-packages-f
 translations/zh-CN/content/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry.md,rendering error
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,rendering error
+translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks.md,rendering error
 translations/zh-CN/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,rendering error
@@ -680,7 +681,6 @@ translations/zh-CN/content/code-security/adopting-github-advanced-security-at-sc
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,rendering error
-translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository.md,rendering error
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists.md,rendering error
@@ -728,19 +728,21 @@ translations/zh-CN/content/code-security/security-overview/viewing-the-security-
 translations/zh-CN/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
-translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,broken liquid tags
 translations/zh-CN/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
 translations/zh-CN/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
+translations/zh-CN/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,rendering error
 translations/zh-CN/content/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge.md,rendering error
+translations/zh-CN/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,rendering error
 translations/zh-CN/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/zh-CN/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/zh-CN/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/zh-CN/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
+translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
 translations/zh-CN/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
@@ -853,6 +855,7 @@ translations/zh-CN/content/organizations/managing-organization-settings/managing
 translations/zh-CN/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
 translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,rendering error
+translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/zh-CN/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
 translations/zh-CN/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
@@ -864,6 +867,7 @@ translations/zh-CN/content/packages/learn-github-packages/introduction-to-github
 translations/zh-CN/content/packages/learn-github-packages/publishing-a-package.md,rendering error
 translations/zh-CN/content/packages/learn-github-packages/viewing-packages.md,rendering error
 translations/zh-CN/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
+translations/zh-CN/content/packages/quickstart.md,rendering error
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry.md,rendering error
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,rendering error
 translations/zh-CN/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
@@ -945,7 +949,6 @@ translations/zh-CN/content/rest/enterprise-admin/pre-receive-hooks.md,broken liq
 translations/zh-CN/content/rest/enterprise-admin/repo-pre-receive-hooks.md,broken liquid tags
 translations/zh-CN/content/rest/enterprise-admin/scim.md,rendering error
 translations/zh-CN/content/rest/enterprise-admin/users.md,broken liquid tags
-translations/zh-CN/content/rest/gitignore.md,rendering error
 translations/zh-CN/content/rest/guides/getting-started-with-the-rest-api.md,rendering error
 translations/zh-CN/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/zh-CN/content/rest/guides/working-with-comments.md,broken liquid tags
@@ -957,7 +960,6 @@ translations/zh-CN/content/rest/overview/resources-in-the-rest-api.md,rendering 
 translations/zh-CN/content/rest/overview/troubleshooting.md,broken liquid tags
 translations/zh-CN/content/rest/packages.md,broken liquid tags
 translations/zh-CN/content/rest/projects/projects.md,broken liquid tags
-translations/zh-CN/content/rest/pulls/comments.md,broken liquid tags
 translations/zh-CN/content/rest/scim.md,rendering error
 translations/zh-CN/content/rest/teams/team-sync.md,rendering error
 translations/zh-CN/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,rendering error
@@ -1028,13 +1030,11 @@ translations/zh-CN/data/reusables/advanced-security/secret-scanning-add-custom-p
 translations/zh-CN/data/reusables/advanced-security/secret-scanning-create-custom-pattern.md,rendering error
 translations/zh-CN/data/reusables/advanced-security/secret-scanning-push-protection-org.md,broken liquid tags
 translations/zh-CN/data/reusables/apps/user-to-server-rate-limits.md,broken liquid tags
+translations/zh-CN/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
 translations/zh-CN/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,rendering error
 translations/zh-CN/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
 translations/zh-CN/data/reusables/branches/new-repo-default-branch.md,rendering error
 translations/zh-CN/data/reusables/classroom/about-autograding.md,rendering error
-translations/zh-CN/data/reusables/code-scanning/alerts-found-in-generated-code.md,broken liquid tags
-translations/zh-CN/data/reusables/code-scanning/autobuild-add-build-steps.md,broken liquid tags
-translations/zh-CN/data/reusables/code-scanning/autobuild-compiled-languages.md,broken liquid tags
 translations/zh-CN/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,rendering error
 translations/zh-CN/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
 translations/zh-CN/data/reusables/code-scanning/codeql-languages-keywords.md,rendering error
@@ -1106,6 +1106,7 @@ translations/zh-CN/data/reusables/getting-started/enforcing-repo-management-poli
 translations/zh-CN/data/reusables/getting-started/enterprise-advanced-security.md,broken liquid tags
 translations/zh-CN/data/reusables/getting-started/managing-enterprise-members.md,rendering error
 translations/zh-CN/data/reusables/git/git-push.md,rendering error
+translations/zh-CN/data/reusables/identity-and-permissions/ip-allow-lists-enterprise.md,broken liquid tags
 translations/zh-CN/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/zh-CN/data/reusables/large_files/storage_assets_location.md,broken liquid tags
 translations/zh-CN/data/reusables/large_files/use_lfs_tip.md,rendering error
@@ -1116,8 +1117,8 @@ translations/zh-CN/data/reusables/organizations/billing_plans.md,rendering error
 translations/zh-CN/data/reusables/organizations/github-apps-settings-sidebar.md,rendering error
 translations/zh-CN/data/reusables/organizations/member-privileges.md,rendering error
 translations/zh-CN/data/reusables/organizations/navigate-to-org.md,rendering error
-translations/zh-CN/data/reusables/organizations/organization-wide-project.md,broken liquid tags
 translations/zh-CN/data/reusables/organizations/repository-defaults.md,rendering error
+translations/zh-CN/data/reusables/organizations/require-ssh-cert.md,broken liquid tags
 translations/zh-CN/data/reusables/organizations/security-and-analysis.md,rendering error
 translations/zh-CN/data/reusables/organizations/security.md,rendering error
 translations/zh-CN/data/reusables/organizations/teams_sidebar.md,rendering error
@@ -1163,7 +1164,6 @@ translations/zh-CN/data/reusables/scim/supported-idps.md,rendering error
 translations/zh-CN/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
-translations/zh-CN/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/zh-CN/data/reusables/security-overview/permissions.md,rendering error
 translations/zh-CN/data/reusables/shortdesc/rate_limits_github_apps.md,rendering error
@@ -1189,5 +1189,6 @@ translations/zh-CN/data/reusables/user-settings/security.md,rendering error
 translations/zh-CN/data/reusables/user-settings/ssh.md,rendering error
 translations/zh-CN/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/zh-CN/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
+translations/zh-CN/data/ui.yml,broken liquid tags
 translations/zh-CN/data/variables/product.yml,rendering error
 translations/zh-CN/data/variables/projects.yml,broken liquid tags

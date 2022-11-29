@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: cd0c5b4bafc5226a99a75d3632fc5072233f5c1c
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180096'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184010'
 ---
 ## 关于网络流量限制
 
@@ -30,7 +30,7 @@ ms.locfileid: '148180096'
 
 {% ifversion ghec %}
 
- 如果你的企业将 {% data variables.product.prodname_emus %} 与 OIDC 配合使用，你则可以选择是使用 {% data variables.product.company_short %} 的 IP 允许列表功能，还是为标识提供者 (IdP) 使用允许列表限制。 如果你的企业未将 {% data variables.product.prodname_emus %} 与 OIDC 配合使用，你则可以使用 {% data variables.product.company_short %} 的允许列表功能。 
+如果你的企业将 {% data variables.product.prodname_emus %} 与 OIDC 配合使用，你则可以选择是使用 {% data variables.product.company_short %} 的 IP 允许列表功能，还是为标识提供者 (IdP) 使用允许列表限制。 如果你的企业未将 {% data variables.product.prodname_emus %} 与 OIDC 配合使用，你则可以使用 {% data variables.product.company_short %} 的允许列表功能。 
 
 {% elsif ghae %}
 
@@ -49,8 +49,6 @@ ms.locfileid: '148180096'
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
-
-您还可以为单个组织配置允许的 IP 地址。 有关详细信息，请参阅“[为组织管理允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
 
 ## 关于 IdP 的允许列表
 
