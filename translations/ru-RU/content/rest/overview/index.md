@@ -11,6 +11,7 @@ topics:
   - API
 children:
   - /resources-in-the-rest-api
+  - /api-versions
   - /media-types
   - /other-authentication-methods
   - /troubleshooting
@@ -20,12 +21,13 @@ children:
   - /endpoints-available-for-github-apps
   - /endpoints-available-for-fine-grained-personal-access-tokens
   - /permissions-required-for-github-apps
+  - /breaking-changes
   - /permissions-required-for-fine-grained-personal-access-tokens
-ms.openlocfilehash: 413b4771d77508a1916473009891e1444fa5ea32
-ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.openlocfilehash: 7e5671dcf94766dfcc8d1a39dd47191e20eb1513
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/20/2022
-ms.locfileid: '148098104'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184240'
 ---
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a0c8b24bacdd41e32d9b8bdd0d8850e7a6ada557
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: a9f12214edcef8a107ad9c447fea7207cfdc48f4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145103970"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148184059"
 ---
 Quand un travail ou un workflow simultané est mis en file d’attente, si un autre travail ou workflow utilisant le même groupe d’accès concurrentiel dans le dépôt est en cours d’exécution, le travail ou le workflow en file d’attente a la valeur `pending`. Tout travail ou workflow en attente dans le groupe d’accès concurrentiel est annulé. Pour annuler également un travail ou un workflow en cours d’exécution dans le même groupe d’accès concurrentiel, spécifiez `cancel-in-progress: true`.
 
@@ -26,7 +26,7 @@ concurrency: ci-${{ github.ref }}
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 ```
@@ -38,7 +38,7 @@ Si vous créez le nom de groupe avec une propriété définie uniquement pour de
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
@@ -53,7 +53,7 @@ Pour annuler uniquement les exécutions en cours du même workflow, vous pouvez 
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```
