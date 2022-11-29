@@ -87,7 +87,7 @@
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.0",
     "url-template": "^3.0.0",
-    "uuid": "^8.3.2",
+    "uuid": "^9.0.0",
     "walk-sync": "^3.0.0"
   },
   "devDependencies": {
@@ -111,7 +111,7 @@
     "@types/react": "17.0.38",
     "@types/react-dom": "^18.0.5",
     "@types/react-syntax-highlighter": "^15.5.2",
-    "@types/uuid": "^8.3.4",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "5.28.0",
     "@typescript-eslint/parser": "5.28.0",
     "babel-loader": "^8.2.5",
