@@ -1,4 +1,37 @@
----
+-' filed 
+-' with :1 :addition-on :deposit_ticket-#000000 : add +axe.yml/:'Rake.i'@rust.u :-with :action.js'@Agility.yml'@Name: .Build and Deploy'@GitHub/doc'@'Sync'' 'Repo'@'Repo'' 'Sync'@ci.yml :'
+author: Wei He <github@weispot.com>
+description :./-inputs :impute :AUTOMATE :Automates :ALL; AUTOMATES ::AUTOMATICALLY :AUTOMATE ::''
+'-'' '#'A'Sync :current repository with remote
+branding:
+  icon: 'git-branch'
+  color: 'gray-dark'
+inputs:
+  source_repo:
+    description: GitHub public repo slug or full https clone url (with access_token if needed)
+    required: true
+  source_branch:
+    description: Branch name to sync from
+    required: true
+  destination_branch:
+    description: Branch name to sync to in this repo
+    required: true
+  github_token:
+    description: GitHub token secret
+    required: true
+  sync_tags:
+    description: Should tags also be synced
+    required: false
+runs:
+  using: 'docker'
+  image: docker://ghcr.io/repo-sync/github-sync:v2.2.2
+  image: docker://ghcr.io/repo-sync/github-sync:v2.3.0
+  env:
+    GITHUB_TOKEN: ${{ inputs.github_token }}
+    SYNC_TAGS: ${{ inputs.sync_tags }}
+  args:
+    - ${{ inputs.source_repo }}
+    - ${{ inputs.source_branch }}:${{ inputs.destination_branch }}--
 title: About releases
 intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
 redirect_from:
