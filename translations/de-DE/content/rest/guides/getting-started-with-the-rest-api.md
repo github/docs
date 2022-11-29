@@ -299,7 +299,7 @@ Most operations specify that you should pass an `Accept` header with a value of 
 To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
 
 ```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /octocat
+gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versioning %} --header 'X-GitHub-Api-Version:{{ allVersions[currentVersion].latestApiVersion }}'{% endif %} --method GET /octocat
 ```
 
 {% endcli %}
@@ -311,7 +311,8 @@ The Octokit.js library automatically passes the `Accept: application/vnd.github+
 ```javascript
 await octokit.request("GET /octocat", {
   headers: {
-    "content-type": "text/plain",
+    "content-type": "text/plain",{% ifversion api-date-versioning %}
+    "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
   },
 });
 ```
@@ -326,7 +327,8 @@ To send a header with cURL, use the `--header` or `-H` flag followed by the head
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR-TOKEN"
+--header "Authorization: Bearer <em>YOUR-TOKEN</em>"{% ifversion api-date-versioning %}\
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
 {% endcurl %}

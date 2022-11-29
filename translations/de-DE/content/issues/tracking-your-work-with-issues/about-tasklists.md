@@ -6,12 +6,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
-ms.openlocfilehash: e35065ae4de634bb7a2da815e0a860c7c0b92234
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 69cdde1bb071f963b1a2f58ef1227bc96ab9d869
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159709'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180785'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
@@ -27,21 +27,11 @@ Die Issues, die du deinen Aufgabenlisten hinzufügst, werden automatisch mit den
 
 ### Informationen zur Integration in {% data variables.projects.projects_v2 %}
 
- Im Seitenbereich deines Projekts wird die Position eines Issues in der Hierarchie innerhalb eines Breadcrumb-Menüs angezeigt, sodass du durch die Issues in deinen Aufgabenlisten navigieren kannst. Du kannst auch die Felder „Nachverfolgungen“ und „Nachverfolgt von“ hinzufügen, um die Beziehungen zwischen deinen Issues schnell zu erkennen. Weitere Informationen zu den Feldern „Nachverfolgungen“ und „Nachverfolgt von“ findest du [hier](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields).
+ Im Seitenbereich deines Projekts wird die Position eines Issues in der Hierarchie innerhalb eines Breadcrumb-Menüs angezeigt, sodass du durch die Issues in deinen Aufgabenlisten navigieren kannst. Du kannst auch die Felder „Nachverfolgungen“ und „Nachverfolgt von“ zu deinen Projektansichten hinzufügen, um die Beziehungen zwischen deinen Issues schnell zu erkennen. Weitere Informationen findest du unter [Informationen zu den Feldern „Nachverfolgungen“ und „Nachverfolgt von“](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields).
 
 ## Erstellen von Aufgabenlisten
 
-Eine Aufgabenliste kann durch Klicken auf die Schaltfläche „Aufgabenliste hinzufügen“ oder durch Bearbeiten des Markdown-Codes des Issues erstellt werden.
-
-### Erstellen einer Aufgabenliste mithilfe der Schaltfläche „Aufgabenliste hinzufügen“
-
-Klicke unten in einer Issuebeschreibung, die du bearbeiten kannst, auf die Schaltfläche **{% octicon "checklist" aria-label="The checklist icon" %} Aufgabenliste hinzufügen**, um eine Aufgabenliste hinzuzufügen.
-
-![Screenshot: Schaltfläche zum Hinzufügen einer Aufgabenliste](/assets/images/help/issues/tasklist-add-tasklist-button.png)
-
-### Erstellen einer Aufgabenliste mithilfe von Markdown
-
-Du kannst Markdown in einer Issuebeschreibung verwenden, um eine Aufgabenliste zu erstellen. Erstelle einen Fenced-Code-Block, und schließe `[tasklist]` neben den öffnenden Graviszeichen ein. Stelle jedem Element `- [ ]` voran, und füge Links zu anderen Issues oder Text ein. Am Anfang deiner Liste kannst du optional einen Titel als Markdownheader einfügen. 
+Du kannst eine Aufgabenliste mithilfe von Markdown in einer Issuebeschreibung verwenden. Erstelle einen Fenced-Code-Block, und schließe `[tasklist]` neben den öffnenden Graviszeichen ein. Anschließend kannst du jedem Element `- [ ]` voranstellen und Links zu anderen Issues oder Text einfügen. Am Anfang deiner Liste kannst du optional einen Titel als Markdownheader einfügen. 
 
 ````
 ```[tasklist]
@@ -50,10 +40,11 @@ Du kannst Markdown in einer Issuebeschreibung verwenden, um eine Aufgabenliste z
 - [ ] Draft issue title
 ```
 ````
-
 Dein Markdown-Code wird von {% data variables.product.product_name %} als Aufgabenliste gerendert. Anschließend kannst du über die Benutzeroberfläche Änderungen vornehmen sowie Issues hinzufügen und entwerfen. Wenn du die Issuebeschreibung bearbeitest, kannst du den Markdown-Code direkt ändern oder ihn kopieren, um die Aufgabenliste in anderen Issues zu duplizieren.
 
+Du kannst auch auf der Formatierungssymbolleiste auf {% octicon "checklist" aria-label="The checklist icon" %} klicken, um beim Erstellen eines neuen Issues oder beim Bearbeiten einer Issuebeschreibung eine Aufgabenliste einzufügen.
 
+![Screenshot: Schaltfläche zum Hinzufügen einer Aufgabenliste](/assets/images/help/issues/tasklist-formatting-toolbar.png)
 
 ## Hinzufügen von Issues zu einer Aufgabenliste
 

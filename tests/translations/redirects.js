@@ -30,15 +30,15 @@ describe('redirects', () => {
     expect(res.headers['set-cookie']).toBeUndefined()
   })
 
-  test('redirects accidental /jp* requests to /ja*', async () => {
-    const res = await get('/jp')
+  test.each([
+    ['/jp', '/ja'],
+    ['/zh-CN', '/cn'],
+    ['/br', '/pt'],
+    ['/kr', '/ko'],
+  ])('redirects %s to %s', async (from, to_) => {
+    const res = await get(from)
     expect(res.statusCode).toBe(301)
-    expect(res.headers.location).toBe('/ja')
-  })
-
-  test('redirects accidental /zh-CN* requests to /cn*', async () => {
-    const res = await get('/zh-CN')
-    expect(res.statusCode).toBe(301)
-    expect(res.headers.location).toBe('/cn')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers.location).toBe(to_)
   })
 })
