@@ -140,7 +140,7 @@
     "japanese-characters": "^1.1.0",
     "jest": "^27.5.1",
     "jest-environment-puppeteer": "^5.0.4",
-    "jest-fail-on-console": "^2.4.2",
+    "jest-fail-on-console": "^3.0.2",
     "jest-github-actions-reporter": "^1.0.3",
     "jest-slow-test-reporter": "^1.0.0",
     "kill-port": "2.0.0",
