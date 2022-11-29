@@ -63989,6 +63989,10 @@
         {
           "name": "RENAME",
           "description": "<p>The repository is locked due to a rename.</p>"
+        },
+        {
+          "name": "TRADE_RESTRICTION",
+          "description": "<p>The repository is locked due to a trade controls related reason.</p>"
         }
       ]
     },
