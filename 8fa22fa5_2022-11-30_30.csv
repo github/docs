@@ -1,7 +1,0 @@
-Date,Product,SKU,Quantity,Unit Type,Price Per Unit ($),Multiplier,Owner,Repository Slug,Username,Actions Workflow,Notes
-2022-11-29,Codespaces - Linux,Compute - 2 core,1.3743,hour,0.18,1.0,Dwalin-NewYork,circleci-helpers,Dwalin-NewYork,,
-2022-11-29,Codespaces - Linux,Storage,0.0,gb-month,0.07,1.0,Dwalin-NewYork,circleci-helpers,Dwalin-NewYork,,
-2022-11-29,Codespaces - Linux,Compute - 2 core,2.0275,hour,0.18,1.0,Dwalin-NewYork,circleci-helpers-feedstock,Dwalin-NewYork,,
-2022-11-29,Codespaces - Linux,Storage,0.0049,gb-month,0.07,1.0,Dwalin-NewYork,circleci-helpers-feedstock,Dwalin-NewYork,,
-2022-11-29,Codespaces - Linux,Storage,0.0021,gb-month,0.07,1.0,Dwalin-NewYork,docs,Dwalin-NewYork,,
-2022-11-29,Codespaces - Linux,Compute - 4 core,0.5081,hour,0.36,1.0,Dwalin-NewYork,docs,Dwalin-NewYork,,
