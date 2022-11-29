@@ -1,5 +1,59 @@
-POST \'
-{//NPRT-FILER-INFORMATION'@jannniccllene/julianm
+From 70524b5ff48cd45810dedfe2fbc2824be4103cb0 Mon Sep 17 00:00:00 2001
+From: "ZACHRY T WOODzachryiixixiiwood@gmail.com"
+ <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 29 Nov 2022 11:26:48 -0600
+Subject: [PATCH] Update about-releases.md
+
+---
+ .../about-releases.md                         | 35 ++++++++++++++++++-
+ 1 file changed, 34 insertions(+), 1 deletion(-)
+
+diff --git a/content/repositories/releasing-projects-on-github/about-releases.md b/content/repositories/releasing-projects-on-github/about-releases.md
+index c3edbf5ec06d..60295f1db340 100644
+--- a/content/repositories/releasing-projects-on-github/about-releases.md
++++ b/content/repositories/releasing-projects-on-github/about-releases.md
+@@ -1,4 +1,37 @@
+----
++-' filed 
++-' with :1 :addition-on :deposit_ticket-#000000 : add +axe.yml/:'Rake.i'@rust.u :-with :action.js'@Agility.yml'@Name: .Build and Deploy'@GitHub/doc'@'Sync'' 'Repo'@'Repo'' 'Sync'@ci.yml :'
++author: Wei He <github@weispot.com>
++description :./-inputs :impute :AUTOMATE :Automates :ALL; AUTOMATES ::AUTOMATICALLY :AUTOMATE ::''
++'-'' '#'A'Sync :current repository with remote
++branding:
++  icon: 'git-branch'
++  color: 'gray-dark'
++inputs:
++  source_repo:
++    description: GitHub public repo slug or full https clone url (with access_token if needed)
++    required: true
++  source_branch:
++    description: Branch name to sync from
++    required: true
++  destination_branch:
++    description: Branch name to sync to in this repo
++    required: true
++  github_token:
++    description: GitHub token secret
++    required: true
++  sync_tags:
++    description: Should tags also be synced
++    required: false
++runs:
++  using: 'docker'
++  image: docker://ghcr.io/repo-sync/github-sync:v2.2.2
++  image: docker://ghcr.io/repo-sync/github-sync:v2.3.0
++  env:
++    GITHUB_TOKEN: ${{ inputs.github_token }}
++    SYNC_TAGS: ${{ inputs.sync_tags }}
++  args:
++    - ${{ inputs.source_repo }}
++    - ${{ inputs.source_branch }}:${{ inputs.destination_branch }}--
+ title: About releases
+ intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
+ redirect_from:
+ //POST \'
+curl/ --responses.md : \
+'"{ "POST'='':''{''/''/''NPRT''-''FILER''-''INFORMATION'''@''jasmine''/''ivy''.''yml''"'' ''}'' '':'''''"'':'',''
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
 {
