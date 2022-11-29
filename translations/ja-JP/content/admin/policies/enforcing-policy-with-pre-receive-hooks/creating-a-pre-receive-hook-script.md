@@ -18,10 +18,10 @@ shortTitle: Pre-receive hook scripts
 You can see examples of pre-receive hooks for {% data variables.product.prodname_ghe_server %} in the [`github/platform-samples` repository](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
 ## Writing a pre-receive hook script
-A pre-receive hook script executes in a pre-receive hook environment on {% data variables.product.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
+A pre-receive hook script executes in a pre-receive hook environment on {% data variables.location.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
 
 ### Input (`stdin`)
-After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.product.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
+After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.location.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
 
 ```
 <old-value> SP <new-value> SP <ref-name> LF
@@ -69,7 +69,7 @@ The following variables are always available in the pre-receive hook environment
 | :- | :- | :- |
 |  <pre>$GIT_DIR</pre> | Path to the remote repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
 |  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" in the Git documentation. | 1 |
-| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | Where _N_ is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. | abcd |{% ifversion ghes %}
+| <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where _N_ is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. | abcd |{% ifversion ghes %}
 |  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0{% endif %}
 |  <pre>$GITHUB_REPO_NAME</pre> | Name of the repository being updated in _NAME_/_OWNER_ format | octo-org/hello-enterprise |
 |  <pre>$GITHUB_REPO_PUBLIC</pre> | Boolean representing whether the repository being updated is public | <ul><li>true: Repository's visibility is public</li><li>false: Repository's visibility is private or internal</li></ul>
@@ -102,7 +102,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>releases delete button</pre> | Deletion of a release | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)" |
 | <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | "[Site admin dashboard](/admin/configuration/site-admin-dashboard#repositories)" |
 | <pre>tag create api</pre> | Creation of a tag via the API | "[Git database](/rest/reference/git#create-a-tag-object)" in the REST API documentation |
-| <pre>slumlord (#<em>SHA</em>)</pre> | Commit via Subversion | "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)" |
+| <pre>slumlord (#SHA)</pre> | Commit via Subversion | "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)" |
 | <pre>web branch create</pre> | Creation of a branch via the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)" |
 
 #### Available for pull request merges
@@ -123,32 +123,32 @@ The following variables are available in the pre-receive hook environment when t
 
 ## Setting permissions and pushing a pre-receive hook to {% data variables.product.prodname_ghe_server %}
 
-A pre-receive hook script is contained in a repository on {% data variables.product.product_location %}. A site administrator must take into consideration the repository permissions and ensure that only the appropriate users have access.
+A pre-receive hook script is contained in a repository on {% data variables.location.product_location %}. A site administrator must take into consideration the repository permissions and ensure that only the appropriate users have access.
 
 We recommend consolidating hooks to a single repository. If the consolidated hook repository is public, the `README.md` can be used to explain policy enforcements. Also, contributions can be accepted via pull requests. However, pre-receive hooks can only be added from the default branch. For a testing workflow, forks of the repository with configuration should be used.
 
 1. For Mac users, ensure the scripts have execute permissions:
 
    ```shell
-   $ sudo chmod +x <em>SCRIPT_FILE.sh</em>
+   $ sudo chmod +x SCRIPT_FILE.sh
    ```
    For Windows users, ensure the scripts have execute permissions:
 
    ```shell
-   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
+   git update-index --chmod=+x SCRIPT_FILE.sh
    ```
 
-2. Commit and push to the designated repository for pre-receive hooks on {% data variables.product.product_location %}.
+2. Commit and push to the designated repository for pre-receive hooks on {% data variables.location.product_location %}.
 
    ```shell
-   $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
+   $ git commit -m "YOUR COMMIT MESSAGE"
    $ git push
    ```
 
-3. [Create the pre-receive hook](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
+3. [Create the pre-receive hook](/enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
 
 ## Testing pre-receive scripts locally
-You can test a pre-receive hook script locally before you create or update it on {% data variables.product.product_location %}. One method is to create a local Docker environment to act as a remote repository that can execute the pre-receive hook.
+You can test a pre-receive hook script locally before you create or update it on {% data variables.location.product_location %}. One method is to create a local Docker environment to act as a remote repository that can execute the pre-receive hook.
 
 {% data reusables.linux.ensure-docker %}
 

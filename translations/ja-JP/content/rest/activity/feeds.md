@@ -9,19 +9,24 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 327d47eeee98a2b8a3fd5e1a7a07ae671c691686
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064299'
 ---
+## フィード API について
 
-## Feeds APIについて
+使用可能なフィードを確認するには、[[フィードの取得]](#get-feeds) 操作を使います。 その後、いずれかのフィード URL に要求を送信して、フィードを取得できます。
 
-利用できるフィードを見るには、[Get feeds](#get-feeds)操作を使います。 そして、フィードURLの1つにリクエストを送信することによって、フィードを取得できます。
+### Atom フィードの取得例
 
-### Atomフィードの取得例
-
-Atom 形式のフィードを取得するには、`Accept` ヘッダで `application/atom+xml` タイプを指定する必要があります。 たとえば、GitHub のセキュリティアドバイザリの Atom フィードを取得するには、次のように記述します。
+Atom 形式のフィードを取得するには、`Accept` ヘッダーで、`application/atom+xml` タイプを指定する必要があります。 たとえば、GitHub のセキュリティアドバイザリの Atom フィードを取得するには、次のように記述します。
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
-#### レスポンス
+#### [応答]
 
 ```shell
 HTTP/2 200
@@ -29,9 +34,12 @@ HTTP/2 200
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+<feed xmlns="http://www.w3.org/2005/Atom" 
+xmlns:media="http://search.yahoo.com/mrss/" 
+xml:lang="en-US">
   <id>tag:github.com,2008:/security-advisories</id>
-  <link rel="self" type="application/atom+xml" href="https://github.com/security-advisories.atom"/>
+  <link rel="self" type="application/atom+xml" 
+  href="https://github.com/security-advisories.atom"/>
   <title>GitHub Security Advisory Feed</title>
   <author>
     <name>GitHub</name>
@@ -41,10 +49,18 @@ HTTP/2 200
       <id>tag:github.com,2008:GHSA-abcd-12ab-23cd</id>
       <published>2018-07-26T15:14:52Z</published>
       <updated>2019-01-14T19:34:52Z</updated>
-      <title type="html">[GHSA-abcd-12ab-23cd] Moderate severity vulnerability that affects Octoapp</title>
+      <title type="html">[GHSA-abcd-12ab-23cd] Moderate 
+      severity vulnerability that affects Octoapp</title>
         <category term="NPM"/>
       <content type="html">
-        &lt;p&gt;Octoapp node module before 4.17.5 suffers from a Modification of Assumed-Immutable Data (MAID) vulnerability via defaultsDeep, merge, and mergeWith functions, which allows a malicious user to modify the prototype of &quot;Object&quot; via &lt;strong&gt;proto&lt;/strong&gt;, causing the addition or modification of an existing property that will exist on all objects.&lt;/p&gt;
+        &lt;p&gt;Octoapp node module before 4.17.5 suffers 
+        from a Modification of Assumed-Immutable Data (MAID) 
+        vulnerability via defaultsDeep, merge, and mergeWith 
+        functions, which allows a malicious user to modify 
+        the prototype of &quot;Object&quot; via 
+        &lt;strong&gt;proto&lt;/strong&gt;, causing the 
+        addition or modification of an existing property 
+        that will exist on all objects.&lt;/p&gt;
           &lt;p&gt;&lt;strong&gt;Affected Packages&lt;/strong&gt;&lt;/p&gt;
 
   &lt;dl&gt;

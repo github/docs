@@ -57,11 +57,12 @@ Here's an example of a [comparison between two repositories](https://github.com/
 
 ## Comparisons across commits
 
-As a shortcut, Git uses the `^` notation to mean "one commit prior."
+You can compare a single commit in Git to the commit's predecessors using two types of notation.
 
-You can use this notation to compare a single commit or branch against its immediate predecessors. For example, `96d29b7^^^^^` indicates five commits prior to `96d29b7`, because there are five `^` marks. Typing `96d29b7^^^^^` in the `base` branch and `96d29b7` in the `compare` branch compares the five commits made before `96d29b7` with the `96d29b7` commit.
-
-Here's an example of a [comparison using the `^` notation](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7).
+| Notation | Meaning | Example | Comparison |
+| :-: | :- | :- | :- |
+| `^` | One commit prior. Repeat the `^` character to indicate one more commit further back in the history. | `96d29b7^^^^^`<br/><br/>Represents the commit five commits prior to `96d29b7`. | [View comparison](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7) |
+| `~N` | _N_ commit(s) prior. | `96d29b7~5`<br/><br/>Represents the commit five commits prior to `96d29b7`. | [View comparison](https://github.com/octocat/linguist/compare/octocat:96d29b7%7E5...octocat:96d29b7) |
 
 ## Further reading
 

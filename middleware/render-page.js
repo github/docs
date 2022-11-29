@@ -1,11 +1,14 @@
 import { get } from 'lodash-es'
 
+import FailBot from '../lib/failbot.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
 import statsd from '../lib/statsd.js'
+import { allVersions } from '../lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
+import { defaultCacheControl } from './cache-control.js'
 
 async function buildRenderedPage(req) {
   const { context } = req
@@ -16,42 +19,30 @@ async function buildRenderedPage(req) {
 
   const renderedPage = await pageRenderTimed(context)
 
-  // handle special-case prerendered GraphQL objects page
-  if (path.endsWith('graphql/reference/objects')) {
-    return renderedPage + context.graphql.prerenderedObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL input objects page
-  if (path.endsWith('graphql/reference/input-objects')) {
-    return renderedPage + context.graphql.prerenderedInputObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL mutations page
-  if (path.endsWith('graphql/reference/mutations')) {
-    return renderedPage + context.graphql.prerenderedMutationsForCurrentVersion.html
-  }
-
   return renderedPage
 }
 
 async function buildMiniTocItems(req) {
   const { context } = req
   const { page } = context
-  const isRestReferencePage =
-    page.relativePath.startsWith('rest') &&
-    !page.relativePath.includes('rest/guides') &&
-    !page.relativePath.includes('rest/overview')
 
   // get mini TOC items on articles
   if (!page.showMiniToc) {
     return
   }
 
-  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '', isRestReferencePage)
+  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '')
 }
 
-export default async function renderPage(req, res, next) {
+export default async function renderPage(req, res) {
   const { context } = req
+
+  // This is a contextualizing the request so that when this `req` is
+  // ultimately passed into the `Error.getInitialProps` function,
+  // which NextJS executes at runtime on errors, so that we can
+  // from there send the error to Failbot.
+  req.FailBot = FailBot
+
   const { page } = context
   const path = req.pagePath || req.path
 
@@ -96,7 +87,22 @@ export default async function renderPage(req, res, next) {
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
   if (!patterns.homepagePath.test(path)) {
-    page.fullTitle = page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
+    if (
+      req.context.currentVersion === 'free-pro-team@latest' ||
+      !allVersions[req.context.currentVersion]
+    ) {
+      page.fullTitle += ' - ' + context.site.data.ui.header.github_docs
+    } else {
+      const { versionTitle } = allVersions[req.context.currentVersion]
+      page.fullTitle += ' - '
+      // Some plans don't have the word "GitHub" in them.
+      // E.g. "Enterprise Server 3.5"
+      // In those cases manually prefix the word "GitHub" before it.
+      if (!versionTitle.includes('GitHub')) {
+        page.fullTitle += 'GitHub '
+      }
+      page.fullTitle += versionTitle + ' Docs'
+    }
   }
 
   // Is the request for JSON debugging info?
@@ -116,6 +122,8 @@ export default async function renderPage(req, res, next) {
       })
     }
   }
+
+  defaultCacheControl(res)
 
   return nextHandleRequest(req, res)
 }

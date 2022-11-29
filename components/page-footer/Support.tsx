@@ -13,7 +13,7 @@ export const Support = () => {
       <div className="mb-2">
         <a
           id="ask-community"
-          href={communityRedirect.href || 'https://github.community/'}
+          href={communityRedirect.href || 'https://github.com/orgs/community/discussions'}
           className="Link—secondary text-bold"
         >
           <PeopleIcon size="small" className="octicon mr-1" />

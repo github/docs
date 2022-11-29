@@ -12,7 +12,6 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-  ghae: issue-5378
 miniTocMaxHeadingLevel: 3
 type: how_to
 topics:
@@ -25,7 +24,7 @@ shortTitle: View Advanced Security usage
 
 {% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 
-{% if ghas-committers-calculator %}
+{% ifversion ghas-committers-calculator %}
 You can calculate how many additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories with the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)."
 {% endif %}
 
@@ -67,7 +66,7 @@ You can check how many seats your license includes and how many of them are curr
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5378 %}
+{% ifversion ghec or ghes > 3.3 %}
 
 ## Downloading {% data variables.product.prodname_GH_advanced_security %} license usage information
 
@@ -89,7 +88,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
-1. Underneath "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-label="The download icon" %} next to "Committers."
+1. Underneath "{% data variables.product.prodname_GH_advanced_security %}," click **{% octicon "download" aria-label="The download icon" %} CSV report** next to "Committers."
   ![Download button for organization-level data](/assets/images/help/billing/download-organization-GHAS-usage-data.png)
 
 #### At the enterprise-level
@@ -97,7 +96,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Under "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-label="The download icon" %} next to "Commiters."
+1. Under "{% data variables.product.prodname_GH_advanced_security %}," click **{% octicon "download" aria-label="The download icon" %} CSV report** next to "Committers."
   ![Download button for enterprise-level data](/assets/images/help/billing/download-enterprise-GHAS-usage-data.png)
 
 ### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the REST API

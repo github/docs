@@ -1,6 +1,8 @@
-Cuando se utiliza el evento `workflow_dispatch`, puedes especificar opcionalmente entradas que se pasan al flujo de trabajo.
+When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
 
-El flujo de trabajo que se activa recibe las entradas en el contexto de `github.event.inputs`. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts#github-context)".
+The triggered workflow receives the inputs in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})."
+
+{% data reusables.actions.inputs-vs-github-event-inputs %}
 
 ```yaml
 on:
@@ -9,7 +11,7 @@ on:
       logLevel:
         description: 'Log level'
         required: true
-        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
         type: choice
         options:
         - info
@@ -17,11 +19,11 @@ on:
         - debug {% endif %}
       print_tags:
         description: 'True to print to STDOUT'
-        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
         type: boolean {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
+        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
         type: string
       environment:
         description: 'Environment to run tests against'
@@ -31,8 +33,8 @@ on:
 jobs:
   print-tag:
     runs-on: ubuntu-latest
-    if: {% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}
+    if: {% ifversion actions-unified-inputs %}{% raw %} ${{ inputs.print_tags }} {% endraw %}{% else %}{% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}{% endif %}
     steps:
       - name: Print the input tag to STDOUT
-        run: echo {% raw %} The tags are ${{ github.event.inputs.tags }} {% endraw %}
+        run: {% ifversion actions-unified-inputs %}echo {% raw %} The tags are ${{ inputs.tags }} {% endraw %}{% else %}echo {% raw %} The tags are ${{ github.event.inputs.tags }} {% endraw %}{% endif %}
 ```

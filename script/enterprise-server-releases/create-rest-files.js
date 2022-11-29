@@ -10,7 +10,7 @@
 
 import fs from 'fs/promises'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import { allVersions } from '../../lib/all-versions.js'
 import getOperations from '../rest/utils/get-operations.js'
 

@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.15.0-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10 as base
+FROM node:16.18.0-alpine@sha256:f16544bc93cf1a36d213c8e2efecf682e9f4df28429a629a37aaf38ecfc25cf4 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -26,7 +26,7 @@ RUN npm ci --no-optional --registry https://registry.npmjs.org/
 # For Next.js v12+
 # This the appropriate necessary extra for node:16-alpine
 # Other options are https://www.npmjs.com/search?q=%40next%2Fswc
-# RUN npm i @next/swc-linux-x64-musl --no-save
+RUN npm i @next/swc-linux-x64-musl --no-save
 
 
 # ---------------
@@ -46,12 +46,13 @@ COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
-# One part of the build relies on this content file to pull all-products
+# Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
+COPY content/rest ./content/rest
+COPY data ./data
 
 COPY next.config.js ./next.config.js
 COPY tsconfig.json ./tsconfig.json
-COPY next-env.d.ts ./next-env.d.ts
 
 RUN npm run build
 
@@ -70,10 +71,7 @@ COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
 # We should always be running in production mode
 ENV NODE_ENV production
 
-# Whether to hide iframes, add warnings to external links
-ENV AIRGAP false
-
-# Preferred port for server.mjs
+# Preferred port for server.js
 ENV PORT 4000
 
 ENV ENABLED_LANGUAGES "en"
@@ -86,19 +84,17 @@ ENV BUILD_SHA=$BUILD_SHA
 # Copy only what's needed to run the server
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
-COPY --chown=node:node includes ./includes
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node middleware ./middleware
-COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
-COPY --chown=node:node server.mjs ./server.mjs
-COPY --chown=node:node start-server.mjs ./start-server.mjs
+COPY --chown=node:node server.js ./server.js
+COPY --chown=node:node start-server.js ./start-server.js
 
 EXPOSE $PORT
 
-CMD ["node", "server.mjs"]
+CMD ["node", "server.js"]
 
 # --------------------------------------------------------------------------------
 # PRODUCTION IMAGE - includes all translations

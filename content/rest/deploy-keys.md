@@ -1,6 +1,6 @@
 ---
 title: Deploy keys
-intro: 'The Deploy keys API lets you create and manage deploy keys.'
+intro: The Deploy keys API lets you create and manage deploy keys.
 versions:
   fpt: '*'
   ghes: '*'

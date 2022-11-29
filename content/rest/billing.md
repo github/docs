@@ -1,6 +1,6 @@
 ---
 title: Billing
-intro: 'The Billing API lets you get billing information for an enterprise.'
+intro: The Billing API lets you get billing information for an enterprise.
 topics:
   - API
 miniTocMaxHeadingLevel: 3

@@ -1,6 +1,6 @@
 ---
 title: Status do commit
-intro: 'The Commit status API allows external services to mark commits with a status, which is then reflected in pull requests involving those commits.'
+intro: 'A API de status de commit permite que serviços externos marquem commits com um status, que é refletido em solicitações pull envolvendo esses commits.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,16 +10,21 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 4c75b4817ecddad0e91460d7d12eddabc634d588
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147882292'
 ---
+## Sobre a API de status de commit
 
-## About the Commit statuses API
+A API de status de commit permite que os serviços externos marquem os commits com um estado `error`, `failure`, `pending` ou `success`, que, em seguida, é refletido nas solicitações de pull que envolvem esses commits. Os status também podem incluir uma `description` e uma `target_url` opcionais, e recomendamos expressamente fornecê-las, pois tornam os status muito mais úteis na interface do usuário do GitHub.
 
-The Commit status API allows external services to mark commits with an `error`, `failure`, `pending`, or `success` state, which is then reflected in pull requests involving those commits. Statuses can also include an optional `description` and `target_url`, and we highly recommend providing them as they make statuses much more useful in the GitHub UI.
+Por exemplo, um uso comum disso é para os serviços de integração contínua marcarem os commits como builds aprovados ou com falha usando o status.  A `target_url` será a URL completa para a saída de build, e a `description` será o resumo de alto nível do que aconteceu com o build.
 
-As an example, one common use is for continuous integration services to mark commits as passing or failing builds using status.  The `target_url` would be the full URL to the build output, and the `description` would be the high level summary of what happened with the build.
+Os status podem incluir um `context` para indicar o serviço que está fornecendo esse status. Por exemplo, você pode fazer com que o serviço de integração contínua efetue push dos status com o contexto `ci`, e uma ferramenta de auditoria de segurança efetue push dos status com o contexto `security`.  Em seguida, você pode usar [Obter o status combinado para uma referência específica](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) para recuperar todos os status de um commit.
 
-Os status podem incluir um `contexto` para indicar qual serviço está fornecendo esse status. Por exemplo, você pode fazer com que o seu serviço de integração contínua faça push status com um contexto de `ci`, e uma ferramenta de auditoria de segurança faça push dos status com um contexto de `segurança`.  You can then use the [Get the combined status for a specific reference](/rest/reference/commits#get-the-combined-status-for-a-specific-reference) to retrieve the whole status for a commit.
+Observe que o [escopo OAuth](/developers/apps/scopes-for-oauth-apps) `repo:status` permite acesso direcionado aos status **sem** também permitir acesso ao código do repositório, enquanto o escopo `repo` concede permissão no código, bem como no status.
 
-Note that the `repo:status` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to statuses **without** also granting access to repository code, while the `repo` scope grants permission to code as well as statuses.
-
-Se você está desenvolvendo um aplicativo GitHub e deseja fornecer informações mais detalhadas sobre um serviço externo, você deverá usar a [API de verificação](/rest/reference/checks).
+Se você estiver desenvolvendo um Aplicativo do GitHub e quiser fornecer informações mais detalhadas sobre um serviço externo, use a [API de Verificações](/rest/reference/checks).

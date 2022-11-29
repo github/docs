@@ -20,5 +20,12 @@ children:
   - /renaming-a-file
   - /deleting-files-in-a-repository
   - /customizing-how-changed-files-appear-on-github
+  - /navigating-files-with-the-new-code-view
+ms.openlocfilehash: 4c2a28474175d11d29f78d41a281f4072485eb62
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159883'
 ---
 

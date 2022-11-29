@@ -1,4 +1,12 @@
-Use `jobs.<job_id>.strategy.matrix` para definir uma matriz de diferentes configurações de trabalho. Within your matrix, define one or more variables followed by an array of values. For example, the following matrix has a variable called `version` with the value `[10, 12, 14]` and a variable called `os` with the value `[ubuntu-latest, windows-latest]`:
+---
+ms.openlocfilehash: 02f279903abd69f50ad55aa88462c9c8e4b9a1a8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145085278"
+---
+Use `jobs.<job_id>.strategy.matrix` para definir uma matriz de diferentes configurações de trabalho. Dentro de sua matriz, defina uma ou mais variáveis seguidas por uma matriz de valores. Por exemplo, a matriz a seguir tem uma variável chamada `version` com o valor `[10, 12, 14]` e uma variável chamada `os` com o valor `[ubuntu-latest, windows-latest]`:
 
 ```yaml
 jobs:
@@ -9,9 +17,9 @@ jobs:
         os: [ubuntu-latest, windows-latest]
 ```
 
-A job will run for each possible combination of the variables. In this example, the workflow will run six jobs, one for each combination of the `os` and `version` variables.
+Um trabalho será executado para cada combinação possível das variáveis. Neste exemplo, o fluxo de trabalho executará seis trabalhos, um para cada combinação das variáveis `os` e `version`. 
 
-By default, {% data variables.product.product_name %} will maximize the number of jobs run in parallel depending on runner availability. The order of the variables in the matrix determines the order in which the jobs are created. The first variable you define will be the first job that is created in your workflow run. For example, the above matrix will create the jobs in the following order:
+Por padrão, o {% data variables.product.product_name %} maximizará o número de trabalhos executados em paralelo, dependendo da disponibilidade do executor. A ordem das variáveis na matriz determina a ordem na qual os trabalhos são criados. A primeira variável definida será o primeiro trabalho criado na execução do fluxo de trabalho. Por exemplo, a matriz acima criará os trabalhos na seguinte ordem:
 
 - `{version: 10, os: ubuntu-latest}`
 - `{version: 10, os: windows-latest}`
@@ -20,6 +28,6 @@ By default, {% data variables.product.product_name %} will maximize the number o
 - `{version: 14, os: ubuntu-latest}`
 - `{version: 14, os: windows-latest}`
 
-A matrix will generate a maximum of 256 jobs per workflow run. This limit applies to both {% data variables.product.product_name %}-hosted and self-hosted runners.
+Uma matriz pode gerar 256 tarefas no máximo por execução do fluxo de trabalho. Esse limite se aplica a executores hospedados pelo {% data variables.product.product_name %}e auto-hospedados.
 
-The variables that you define become properties in the `matrix` context, and you can reference the property in other areas of your workflow file. In this example, you can use `matrix.version` and `matrix.os` to access the current value of `version` and `os` that the job is using. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
+As variáveis que você define se tornam propriedades no contexto `matrix`, e você pode referenciar a propriedade em outras áreas do arquivo de fluxo de trabalho. Neste exemplo, você pode usar `matrix.version` e `matrix.os` para acessar o valor atual de `version` e `os` que o trabalho está usando. Para obter mais informações, confira "[Contextos](/actions/learn-github-actions/contexts)".

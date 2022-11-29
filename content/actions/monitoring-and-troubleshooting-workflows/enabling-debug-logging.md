@@ -1,5 +1,6 @@
 ---
 title: Enabling debug logging
+shortTitle: Enable debug logging
 intro: 'If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.'
 redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
@@ -21,6 +22,12 @@ These extra logs are enabled by setting secrets in the repository containing the
 - {% data reusables.actions.permissions-statement-secrets-api %}
 
 For more information on setting secrets, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+
+{% ifversion debug-reruns %}
+
+Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+
+ {% endif %}
 
 ## Enabling runner diagnostic logging
 

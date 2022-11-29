@@ -39,7 +39,7 @@ export type ProductLandingContextT = {
   beta_product: boolean
   product: Product
   introLinks: Record<string, string> | null
-  product_video?: string
+  productVideo: string
   featuredLinks: Record<string, Array<FeaturedLink>>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
@@ -54,7 +54,7 @@ export type ProductLandingContextT = {
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
   hasGuidesPage: boolean
-  releases: Array<{
+  ghesReleases: Array<{
     version: string
     firstPreviousRelease: string
     secondPreviousRelease: string
@@ -93,29 +93,30 @@ export const getFeaturedLinksFromReq = (req: any): Record<string, Array<Featured
   )
 }
 
-export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
+export const getProductLandingContextFromRequest = async (
+  req: any
+): Promise<ProductLandingContextT> => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
   const hasGuidesPage = (page.children || []).includes('/guides')
+
+  const productVideo = page.product_video
+    ? await page.renderProp('product_video', req.context, { textOnly: true })
+    : ''
+
   return {
-    ...pick(page, [
-      'title',
-      'shortTitle',
-      'introPlainText',
-      'beta_product',
-      'intro',
-      'product_video',
-    ]),
+    ...pick(page, ['title', 'shortTitle', 'introPlainText', 'beta_product', 'intro']),
+    productVideo,
     hasGuidesPage,
     product: {
       href: productTree.href,
-      title: productTree.renderedShortTitle || productTree.renderedFullTitle,
+      title: productTree.page.shortTitle || productTree.page.title,
     },
     whatsNewChangelog: req.context.whatsNewChangelog || [],
     changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
-    releases: req.context.releases || [],
+    ghesReleases: req.context.ghesReleases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({

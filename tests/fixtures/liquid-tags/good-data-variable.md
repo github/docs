@@ -3,4 +3,4 @@ title: Good sample page
 versions: '*'
 ---
 
-{% data variables.foo %}
+{% data variables.stuff.foo %}

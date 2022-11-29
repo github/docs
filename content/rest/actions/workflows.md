@@ -1,6 +1,6 @@
 ---
 title: Workflows
-intro: 'The Workflows API allows you to view workflows for a repository.'
+intro: The Workflows API allows you to view workflows for a repository.
 topics:
   - API
 versions:

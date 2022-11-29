@@ -8,12 +8,13 @@ let reporters = ['default']
 
 if (testTranslation) {
   // only use custom reporter if we are linting translations
+  // Remove this when removing translations directory B504EDD0
   reporters = ['<rootDir>/tests/helpers/lint-translation-reporter.js']
 } else if (isActions) {
   reporters.push('jest-github-actions-reporter')
 }
 
-module.exports = {
+export default {
   coverageThreshold: {
     global: {
       branches: 95,
@@ -41,6 +42,6 @@ module.exports = {
   ],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,
-  globalSetup: './script/start-server-for-jest.mjs',
-  globalTeardown: './script/kill-server-for-jest.mjs',
+  globalSetup: './script/start-server-for-jest.js',
+  globalTeardown: './script/kill-server-for-jest.js',
 }

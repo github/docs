@@ -1,7 +1,7 @@
 ---
-title: Accessing your enterprise account if your identity provider is unavailable
+title: ID プロバイダーが使用できない場合の Enterprise アカウントへのアクセス
 shortTitle: Access your enterprise account
-intro: 'You can sign into {% data variables.product.product_name %} even if your identity provider is unavailable by bypassing SAML single sign-on (SSO) with a recovery code.'
+intro: 'ID プロバイダーが使用できない場合でも、回復用コードを使ってシングル サインオン (SSO) をバイパスすることで {% data variables.product.product_name %} にサインインできます。'
 versions:
   ghec: '*'
 type: how_to
@@ -11,17 +11,22 @@ topics:
   - Enterprise
   - SSO
 permissions: Enterprise owners can use a recovery code to access an enterprise account.
+ms.openlocfilehash: d13a4cd336e67ab62087530b00cad8fd6939d64b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147578805'
 ---
+認証構成エラーまたは ID プロバイダー (IdP) の問題によって SSO を使用できない場合は、回復用コードを使ってエンタープライズ アカウントにアクセスできます。 
 
-You can use a recovery code to access your enterprise account when a SAML configuration error or an issue with your identity provider (IdP) prevents you from using SAML SSO.
-
-In order to access your enterprise account this way, you must have previously downloaded and stored the recovery codes for your enterprise. For more information, see "[Downloading your enterprise account's SAML single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes)."
+この方法で Enterprise アカウントにアクセスするには、Enterprise のリカバリ コードを以前にダウンロードして保存しておく必要があります。 詳細については、「[エンタープライズ アカウントのシングル サインオン回復用コードをダウンロードする](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)」を参照してください。
 
 {% data reusables.saml.recovery-code-caveats %}
 
 {% note %}
 
-**Note:** If your enterprises uses {% data variables.product.prodname_emus %}, you must sign in as the setup user to use a recovery code.
+**注:** Enterprise が {% data variables.product.prodname_emus %} を使用している場合は、リカバリ コードを使用するには、セットアップ ユーザーとしてサインインする必要があります。
 
 {% endnote %}
 

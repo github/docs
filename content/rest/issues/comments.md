@@ -2,7 +2,7 @@
 title: Issue comments
 allowTitleToDifferFromFilename: true
 shortTitle: Comments
-intro: 'The Issue comments API supports managing comments on issues and pull requests.'
+intro: The Issue comments API supports managing comments on issues and pull requests.
 versions:
   fpt: '*'
   ghes: '*'

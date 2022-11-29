@@ -1,6 +1,14 @@
-You can use contexts to create matrices. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+---
+ms.openlocfilehash: 9a9d2b4deb488e7b8fa5f0df2377e7d5ca57d194
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884438"
+---
+コンテキストを使用してマトリックスを作成できます。 コンテキストの詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
-For example, the following workflow triggers on the `repository_dispatch` event and uses information from the event payload to build the matrix. When a repository dispatch event is created with a payload like the one below, the matrix `version` variable will have a value of `[12, 14, 16]`. For more information about the `repository_dispatch` trigger, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)."
+たとえば、次のワークフローは `repository_dispatch` イベントをトリガーし、イベント ペイロードからの情報を使用してマトリックスを構築します。 次のようなペイロードを使用してリポジトリのディスパッチ イベントが作成されると、マトリックス `version` 変数の値は `[12, 14, 16]` になります。 `repository_dispatch` イベントの詳細については、「[ワークフローをトリガーするイベント](/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)」を参照してください。
 
 ```json
 {
@@ -16,7 +24,7 @@ on:
   repository_dispatch:
     types:
       - test
-
+ 
 jobs:
   example_matrix:
     runs-on: ubuntu-latest

@@ -1,6 +1,6 @@
 ---
-title: Pull Requestのレビュー
-shortTitle: レビュー
+title: Pull request reviews
+shortTitle: Reviews
 allowTitleToDifferFromFilename: true
 intro: ''
 versions:
@@ -13,6 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Pull request reviews APIについて
+## About the Pull request reviews API
 
-Pull Requestレビューは、Pull Request上のPull Requestレビューコメントのグループで、状態とオプションの本文コメントでグループ化されています。
+Pull Request Reviews are groups of pull request review comments on a pull request, grouped together with a state and optional body comment.
+
+{% data reusables.pull_requests.issues-media-types %}

@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: ebe9a25b8ca45009aa7628cc732e871990edf233
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879406"
+---
 {% note %}
 
-**Note:** To avoid exceeding the rate limit on {% data variables.product.product_name %}, do not assign more than 1,000 users per hour to the IdP application. If you use groups to assign users to the IdP application, do not add more than 100 users to each group per hour. If you exceed these thresholds, attempts to provision users may fail with a "rate limit" error.
+**Nota:** Para evitar superar el límite de frecuencia en los datos {% data variables.product.product_name %}, no asignes más de 1000 usuarios por hora a la aplicación IdP. Si usas grupos para asignar usuarios a la aplicación IdP, no agregues más de 100 usuarios a cada grupo por hora. Si superas estos umbrales, los intentos de aprovisionar usuarios pueden producir un error de "límite de velocidad".
 
 {% endnote %}

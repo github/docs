@@ -1,7 +1,17 @@
-1. 导航到您的项目。
-1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The menu icon" %} 以打开菜单。
-1. 在菜单中，单击 {% octicon "workflow" aria-label="The workflow icon" %} **Workflows（工作流程）**。
-1. 在 **Default workflows（默认工作流程）**下，单击要编辑的工作流程。
-1. 如果工作流程可以同时应用于议题和拉取请求，请在 **When（何时）**旁边，选中要对其执行操作的项类型。
-1. 在 **Set（设置）**旁边，选择要将状态设置为的值。
-1. 如果工作流程已禁用，请单击 **Disabled（已禁用）**旁边的切换开关以启用工作流程。
+{% data reusables.projects.access-workflows %}
+1. Under **Default workflows**, click on the workflow that you want to edit.
+   
+   ![Screenshot showing default workflows](/assets/images/help/projects-v2/default-workflows.png)
+
+2. If the workflow can apply to both issues and pull requests, next to **When**, check the item type(s) that you want to act on.
+   
+   ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when.png)
+
+3. Next to **Set**, choose the value that you want to set the status to.
+   
+   ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
+
+4. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.
+   
+   ![Screenshot showing the "On/Off" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+   

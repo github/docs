@@ -13,52 +13,52 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
+ms.openlocfilehash: 10787e2326f2bb3c4768c5e499d445f65cf9e57d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146178456'
 ---
-
 ## Enterprise のロールについて
 
 Enterprise 内の全員が Enterprise のメンバーです。 Enterprise のメンバーに管理者のロールを割り当てることもできます。 各管理者ロールはビジネス機能にマップされ、Enterprise 内の特定のタスクを行う権限を与えます。
 
 {% data reusables.enterprise-accounts.enterprise-administrators %}
 
-{% ifversion ghec %}
-If your enterprise does not use {% data variables.product.prodname_emus %}, you can invite someone to an administrative role using a user account on {% data variables.product.product_name %} that they control. For more information, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
+{% ifversion ghec %} Enterprise で {% data variables.product.prodname_emus %} が使用されていない場合は、制御対象の {% data variables.product.product_name %} のユーザー アカウントを使用して、管理者ロールにユーザーを招待できます。 詳細については、「[Enterprise を管理するようユーザーを招待する](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)」を参照してください。
 
-In an enterprise using {% data variables.product.prodname_emus %}, new owners and members must be provisioned through your identity provider. Enterprise owners and organization owners cannot add new members or owners to the enterprise using {% data variables.product.prodname_dotcom %}. You can select a member's enterprise role using your IdP and it cannot be changed on {% data variables.product.prodname_dotcom %}. You can select a member's role in an organization on {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-{% else %}
-For more information about adding people to your enterprise, see "[Authentication](/admin/authentication)".
+{% data variables.product.prodname_emus %} を使用している Enterprise では、新しい所有者とメンバーを ID プロバイダーを通じてプロビジョニングする必要があります。 Enterprise 所有者と Organization 所有者は、{% data variables.product.prodname_dotcom %} を使用して新しいメンバーまたは所有者を Enterprise に追加することはできません。 IdP を使用してメンバーの Enterprise ロールを選択できます。{% data variables.product.prodname_dotcom %} で変更することはできません。 {% data variables.product.prodname_dotcom %} では Organization 内のメンバーのロールを選択できます。 詳細については、「[{% data variables.product.prodname_emus %} について](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)」を参照してください。
+{% else %} Enterprise へのユーザーの追加について詳しくは、「[認証](/admin/authentication)」を参照してください。
 
 {% endif %}
 
-## Enterprise owners
+## Enterprise 所有者
 
 Enterprise オーナーは、Enterprise の完全な管理権限を持ち、以下を含むすべての操作を行うことができます。
 - 管理者を管理する
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% if remove-enterprise-members %}
-- Removing enterprise members from all organizations owned by the enterprise{% endif %}
+- エンタープライズ{% ifversion ghec %}に対する{% elsif ghae or ghes %}での{% endif %}組織の{% ifversion ghec %}追加と削除{% elsif ghae or ghes %}管理{% endif %}{% ifversion remove-enterprise-members %}
+- Enterprise が所有するすべての Organization からの Enterprise メンバーの削除{% endif %}
 - Enterprise 設定を管理する
-- Organization にポリシーを強制する
-{% ifversion ghec %}- 支払い設定を管理する{% endif %}
+- Organization 全体でのポリシーの適用 {% ifversion ghec %}- 課金設定の管理{% endif %}
 
-{% if enterprise-owner-join-org %}
-Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. 詳しい情報については「[自身のEnterpriseが所有しているOrganization内での自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
+{% ifversion enterprise-owner-join-org %} エンタープライズの所有者は、既定では組織の設定やコンテンツにアクセスできません。 アクセス権を取得するために、Enterprise 所有者は、Enterprise が所有する任意の Organization に参加できます。 詳細については、「[Enterprise が所有する Organization でのロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
 
-Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
-{% else %}
-Enterprise オーナーは、Organization のオーナーになるか、Organization が所有するリポジトリに直接アクセスする権限を与えられない限り、Organization の設定またはコンテンツにはアクセスできません。 同様に、Enterprise の Organization のオーナーは、Enterprise のオーナーにならない限り、Enterprise にはアクセスできません。
+Enterprise 内の Organization の所有者は、Enterprise 所有者にならない限り、Enterprise にはアクセスできません。
+{% else %} Enterprise 所有者は、Organization 所有者になるか、Organization が所有するリポジトリに直接アクセスする権限を与えられない限り、Organization の設定やコンテンツにはアクセスできません。 同様に、Enterprise の Organization のオーナーは、Enterprise のオーナーにならない限り、Enterprise にはアクセスできません。
 {% endif %}
 
-Enterprise のオーナーは、Enterprise 内の少なくとも 1 つの Organization のオーナーまたはメンバーである場合にのみ、ライセンスを消費できます。 Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}Enterprise のオーナーは {% data variables.product.prodname_dotcom %} に個人アカウントを持っている必要があります。{% endif %} ベストプラクティスとして、ビジネスへのリスクを軽減するために、Enterprise のオーナーを数人にすることをお勧めします。
+Enterprise のオーナーは、Enterprise 内の少なくとも 1 つの Organization のオーナーまたはメンバーである場合にのみ、ライセンスを消費できます。 Enterprise 所有者が複数の Organization でロールを持っている場合でも、単一のライセンスを使用します。 {% ifversion ghec %}Enterprise 所有者は {% data variables.product.prodname_dotcom %} に個人アカウントを持っている必要があります。{% endif %}ベスト プラクティスとして、ビジネスへのリスクを軽減するために、社内のごく少数のみを Enterprise 所有者にすることをお勧めします。
 
 ## Enterprise メンバー
 
-Enterprise が所有する Organization のメンバーも、自動的に Enterprise のメンバーになります。 メンバーは Organization 内でコラボレートできます。Organization のオーナーになることも可能です。メンバーは支払い設定を含む Enterprise 設定{% ifversion ghec %}にアクセスまたは設定することはできません。{% endif %}
+Enterprise が所有する Organization のメンバーも、自動的に Enterprise のメンバーになります。 メンバーは Organization で共同作業を行うことができ、Organization 所有者である場合があります。しかし、メンバーは、{% ifversion ghec %}課金設定を含む、{% endif %}Enterprise 設定に対するアクセスや構成を行うことはできません。
 
-Enterprise 内のユーザは、Enterprise が所有するさまざまな Organization およびそれらの Organization 内のリポジトリへのあらゆるレベルのアクセス権を持つことができます。 各個人がアクセスできるリソースを確認することができます。 詳しい情報については、「[Enterprise の人を表示する](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)」を参照してください。
+Enterprise 内のユーザは、Enterprise が所有するさまざまな Organization およびそれらの Organization 内のリポジトリへのあらゆるレベルのアクセス権を持つことができます。 各個人がアクセスできるリソースを確認することができます。 詳細については、「[Enterprise の人を表示する](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)」を参照してください。
 
-For more information about organization-level permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Organization レベルのアクセス許可について詳しくは、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
-Organization が所有するリポジトリへの外部のコラボレータアクセス権を持つユーザも、Enterprise の [People] タブに一覧表示されますが、Enterprise メンバーではなく、Enterprise へのアクセス権はありません。 外部コラボレータに関する詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)」を参照してください。
+Organization が所有するリポジトリへの外部のコラボレータアクセス権を持つユーザも、Enterprise の [People] タブに一覧表示されますが、Enterprise メンバーではなく、Enterprise へのアクセス権はありません。 外部コラボレーターの詳細については、「[Organization のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)」を参照してください。
 
 {% ifversion ghec %}
 
@@ -71,12 +71,12 @@ Organization が所有するリポジトリへの外部のコラボレータア�
 
 支払いマネージャーは、Enterprise 内の少なくとも 1 つの Organization のオーナーまたはメンバーである場合にのみ、ライセンスを消費できます。 支払いマネージャーは、Enterprise の Organization またはリポジトリにアクセスすることはできません。また、Enterprise のオーナーを追加または削除することもできません。 支払いマネージャーは、{% data variables.product.prodname_dotcom %} 上に個人アカウントを持っていなければなりません。
 
-## About support entitlements
+## サポート資格について
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 
-## 参考リンク
+## 参考資料
 
-- 「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」
+- "[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)"
 
 {% endif %}

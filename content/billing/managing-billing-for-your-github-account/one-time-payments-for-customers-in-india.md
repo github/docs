@@ -23,7 +23,7 @@ The regulation applies to all recurring transactions, including:
 - {% data variables.product.prodname_marketplace %} purchases
 - {% data variables.product.prodname_sponsors %} transactions
 - Git Large File Storage purchases
-- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_codespaces %} consumption
+- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %} consumption
 
 In order to minimize disruption, recurring payments for our affected customers were paused on October 29th, 2021. Paid features and services have remained available to customers impacted by the RBI regulation.
 

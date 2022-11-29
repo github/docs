@@ -17,45 +17,42 @@ topics:
   - Repositories
 shortTitle: View files and track file changes
 ---
-
 ## Viewing or copying the raw file content
 
 With the raw view, you can view or copy the raw content of a file without any styling.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Click the file that you want to view.
-2. In the upper-right corner of the file view, click **Raw**. ![Screenshot of the Raw button in the file header](/assets/images/help/repository/raw-file-button.png)
+2. In the upper-right corner of the file view, click **Raw**.
+![Screenshot of the Raw button in the file header](/assets/images/help/repository/raw-file-button.png)
 3. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="The copy icon" %}**.
 
 ## Viewing the line-by-line revision history for a file
 
-Blame ビューでは、{% octicon "versions" aria-label="The prior blame icon" %} をクリックすることで、ファイル全体の行ごとのリビジョン履歴やファイル内の 1 つの行のリビジョン履歴を表示することができます。 {% octicon "versions" aria-label="The prior blame icon" %} をクリックするたびに、変更をコミットした者と時間を含む、その行の過去のリビジョン情報が表示されます。
+With the blame view, you can view the line-by-line revision history for an entire file, or view the revision history of a single line within a file by clicking {% octicon "versions" aria-label="The prior blame icon" %}. Each time you click {% octicon "versions" aria-label="The prior blame icon" %}, you'll see the previous revision information for that line, including who committed the change and when.
 
-![Git blame ビュー](/assets/images/help/repository/git_blame.png)
+![Git blame view](/assets/images/help/repository/git_blame.png)
 
-ファイルやプルリクエストでは、{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} メニューを使って、選択した行や行の範囲の Git blame を表示することもできます。
+In a file or pull request, you can also use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} menu to view Git blame for a selected line or range of lines.
 
-![選択した行の Git blame を表示するオプションのあるケバブメニュー](/assets/images/help/repository/view-git-blame-specific-line.png)
+![Kebab menu with option to view Git blame for a selected line](/assets/images/help/repository/view-git-blame-specific-line.png)
 
 {% tip %}
 
-**ヒント:** コマンドライン上で、ファイル内の行のリビジョン履歴を表示するために `git blame` を使うこともできます。 詳細は [Git の `git blame` のドキュメンテーション](https://git-scm.com/docs/git-blame)を参照してください。
+**Tip:** On the command line, you can also use `git blame` to view the revision history of lines within a file. For more information, see [Git's `git blame` documentation](https://git-scm.com/docs/git-blame).
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. クリックして、表示したい行の履歴のファイルを開きます。
-3. ファイルビューの右上隅で [**Blame**] をクリックして blame ビューを開きます。 ![[Blame] ボタン](/assets/images/help/repository/blame-button.png)
-4. 特定の行の過去のリビジョンを表示するには、見てみたい変更が見つかるまで {% octicon "versions" aria-label="The prior blame icon" %} をクリックします。 ![さらに前の状態に遡るボタン](/assets/images/help/repository/prior-blame-button.png)
+2. Click to open the file whose line history you want to view.
+3. In the upper-right corner of the file view, click **Blame** to open the blame view.
+![Blame button](/assets/images/help/repository/blame-button.png)
+4. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing.
+![Prior blame button](/assets/images/help/repository/prior-blame-button.png)
 
-{% if blame-ignore-revs %}
+{% ifversion blame-ignore-revs %}
 
 ## Ignore commits in the blame view
-{% note %}
-
-**Note:** Ignoring commits in the blame view is currently in public beta and subject to change.
-
-{% endnote %}
 
 All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
 
@@ -82,4 +79,14 @@ This can be useful when a few commits make extensive changes to your code. You c
 git blame --ignore-revs-file .git-blame-ignore-revs
 ```
 
+You can also configure your local git so it always ignores the revs in that file:
+
+```shell
+git config blame.ignoreRevsFile .git-blame-ignore-revs
+```
+
 {% endif %}
+
+## Bypassing `.git-blame-ignore-revs` in the blame view
+
+If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** will disappear.

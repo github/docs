@@ -1,1 +1,9 @@
-If SCIM provisioning is implemented for your organization, any changes to a user's organization membership should be triggered from the identity provider. If a user is invited to an organization manually instead of by an existing SCIM integration, their user account may not get properly linked to their SCIM identity. This can prevent the user account from being deprovisioned via SCIM in the future. If a user is removed manually instead of by an existing SCIM integration, a stale linked identity will remain, which can lead to issues if the user needs to re-join the organization.
+---
+ms.openlocfilehash: dbc37853f288c92b80e2858c0e94b9a07ca9b60f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145134832"
+---
+Si el aprovisionamiento de SCIM se implementa para su organización, los cambios en la pertenencia a la organización de un usuario se deben desencadenar desde el proveedor de identidades. Si se invita a un usuario manualmente a una organización en lugar de mediante una integración de SCIM existente, es posible que su cuenta de usuario no se vincule correctamente a su identidad de SCIM. Esto puede impedir que la cuenta de usuario se desaprovisione a través de SCIM en el futuro. Si un usuario se quita manualmente en lugar de mediante una integración de SCIM existente, permanecerá una identidad vinculada obsoleta, lo que puede provocar problemas si el usuario necesita volver a unirse a la organización.

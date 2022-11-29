@@ -2,7 +2,6 @@
 title: SCIM
 intro: You can control and manage your GitHub organization members access using SCIM API.
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API
@@ -13,41 +12,41 @@ redirect_from:
 
 ## About the SCIM API
 
-### Aprovisionamiento de SCIM para las Organizaciones
+### SCIM Provisioning for Organizations
 
-Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM para automatizar el aprovisionamiento de la membrecía de las organizaciones de {% data variables.product.product_name %}. La API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} se basa en la versión 2.0 del [SCIM estándar](http://www.simplecloud.info/). La terminal de SCIM de {% data variables.product.product_name %} que deben utilizar los IdP es: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
+The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership. The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). The {% data variables.product.product_name %} SCIM endpoint that an IdP should use is: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 
-**Notas:**
-  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. Para obtener más información sobre SCIM, consulta la sección "[Acerca de SCIM para las organizaciones](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
-  - The SCIM API cannot be used with an enterprise account or with an {% data variables.product.prodname_emu_org %}.
+**Notes:** 
+  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+  - The SCIM API cannot be used with an enterprise account or with an {% data variables.enterprise.prodname_emu_org %}.
 
 {% endnote %}
 
-### Autenticar las llamadas a la API de SCIM
+### Authenticating calls to the SCIM API
 
-Debes autenticarte como un propietario de una organización de {% data variables.product.product_name %} para utilizar la API de SCIM. La API espera que se incluya un token [Portador de OAuth 2.0](/developers/apps/authenticating-with-github-apps) en el encabezado `Authorization`. También puedes utilizar un token de acceso personal, pero primero debes [autorizarlo para su uso con tu orgnización que cuenta con el SSO de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+You must authenticate as an owner of a {% data variables.product.product_name %} organization to use its SCIM API. The API expects an [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) token to be included in the `Authorization` header. If you use a {% data variables.product.pat_v1 %} for authentication, it must have the `admin:org` scope and you must also [authorize it for use with your SAML SSO organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
-### Mapeo de los datos de SAML y de SCIM
+### Mapping of SAML and SCIM data
 
 {% data reusables.scim.nameid-and-username-must-match %}
 
-### Atributos de Usuario de SCIM compatibles
+### Supported SCIM User attributes
 
-| Nombre            | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `userName`        | `secuencia` | El nombre de usuario para el usuario.                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `name.givenName`  | `secuencia` | El primer nombre del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `name.familyName` | `secuencia` | El apellido del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `emails`          | `arreglo`   | Lista de correos electrónicos del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `externalId`      | `secuencia` | El proveedor de SAML genera este identificador, el cual utiliza como una ID única para empatarla contra un usuario de GitHub. Puedes encontrar la `externalID` de un usuario ya sea con el proveedor de SAML, o utilizando la terminal de [Listar las identidades aprovisionadas de SCIM](#list-scim-provisioned-identities) y filtrando otros atributos conocidos, tales como el nombre de usuario de GitHub o la dirección de correo electrónico de un usuario. |
-| `id`              | `secuencia` | Identificador que genera la terminal de SCIM de GitHub.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `active`          | `boolean`   | Se utiliza para indicar si la identidad está activa (true) o si debe desaprovisionarse (false).                                                                                                                                                                                                                                                                                                                                                                   |
+Name | Type | Description
+-----|------|--------------
+`userName`|`string` | The username for the user.
+`name.givenName`|`string` | The first name of the user.
+`name.familyName`|`string` | The last name of the user.
+`emails` | `array` | List of user emails.
+`externalId` | `string` | This identifier is generated by the SAML provider, and is used as a unique ID by the SAML provider to match against a GitHub user. You can find the `externalID` for a user either at the SAML provider, or using the [List SCIM provisioned identities](#list-scim-provisioned-identities) endpoint and filtering on other known attributes, such as a user's GitHub username or email address.
+`id` | `string` | Identifier generated by the GitHub SCIM endpoint.
+`active` | `boolean` | Used to indicate whether the identity is active (true) or should be deprovisioned (false).
 
 {% note %}
 
-**Nota:** Las URL de terminal para la API de SCIM distinguen entre mayúsculas y minúsculas. Por ejemplo, la primera letra en la terminal `Users` debe ponerse en mayúscula:
+**Note:** Endpoint URLs for the SCIM API are case sensitive. For example, the first letter in the `Users` endpoint must be capitalized:
 
 ```shell
 GET /scim/v2/organizations/{org}/Users/{scim_user_id}

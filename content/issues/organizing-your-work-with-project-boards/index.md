@@ -1,12 +1,10 @@
 ---
-title: Organizing your work with project boards
-shortTitle: Project boards
-intro: 'Use project boards to manage your work on {% data variables.product.prodname_dotcom %}'
+title: 'Organizing your work with {% data variables.product.prodname_projects_v1 %}'
+shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
+intro: 'Use {% data variables.product.prodname_projects_v1 %} to manage your work on {% data variables.product.prodname_dotcom %}'
+allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects

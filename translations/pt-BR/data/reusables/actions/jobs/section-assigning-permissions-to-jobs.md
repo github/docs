@@ -1,13 +1,20 @@
-Você pode usar as `permissões` para modificar as permissões padrão concedidas ao `GITHUB_TOKEN`, adicionar ou remover o acesso conforme necessário, para que você permita apenas o acesso mínimo necessário. Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".
+---
+ms.openlocfilehash: 92ca4fc15d763b82d057c350d787ff97522a2768
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145065423"
+---
+Use `permissions` para modificar as permissões padrão concedidas ao `GITHUB_TOKEN`, adicionando ou removendo o acesso conforme necessário, de modo que você só permita o acesso mínimo necessário. Para obter mais informações, confira "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".
 
-Você pode usar as permissões de `` como uma chave de nível superior, para aplicar a todos os trabalhos do fluxo de trabalho ou em trabalhos específicos. Ao adicionar a chave das `permissões` em um trabalho específico, todas as ações e comandos de execução dentro desse trabalho que usam o `GITHUB_TOKEN` ganham os direitos de acesso que você especificar.  Para obter mais informações, consulte [`jobs.<job_id>.permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions).
+Use `permissions` como uma chave de nível superior a ser aplicada a todos os trabalhos no fluxo de trabalho ou em trabalhos específicos. Quando você adiciona a chave `permissions` a um trabalho específico, todas as ações e os comandos de execução nesse trabalho que usam o `GITHUB_TOKEN` obtêm os direitos de acesso especificados.  Para obter mais informações, confira [`jobs.<job_id>.permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions).
 
-{% data reusables.actions.github-token-available-permissions %}
-{% data reusables.actions.forked-write-permission %}
+{% data reusables.actions.github-token-available-permissions %} {% data reusables.actions.forked-write-permission %}
 
 ### Exemplo: Atribuindo permissões ao GITHUB_TOKEN
 
-Este exemplo mostra as permissões que estão sendo definidas para o `GITHUB_TOKEN` que será aplicado a todos os trabalhos do fluxo de trabalho. É concedido acesso de leitura a todas as permissões.
+Este exemplo mostra as permissões que estão sendo definidas para o `GITHUB_TOKEN` que se aplicará a todos os trabalhos no fluxo de trabalho. É concedido acesso de leitura a todas as permissões.
 
 ```yaml
 name: "My workflow"

@@ -17,6 +17,8 @@ redirect_from:
   - /github/working-with-github-support/github-enterprise-cloud-support
   - /articles/business-plan-support
   - /articles/github-business-cloud-support
+  - /admin/enterprise-support/about-support-for-advanced-security
+  - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
 topics:
   - Support
 ---
@@ -58,9 +60,14 @@ For more information, see "[About GitHub Premium Support](/support/about-github-
 
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
-Before contacting {% data variables.contact.github_support %}, check  if there are currently any incidents affecting services on {% data variables.product.prodname_dotcom %} on [{% data variables.product.prodname_dotcom %} Status](https://www.githubstatus.com/). For more information, see "[About GitHub status](#about-github-status)."
+Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on 
+{%- ifversion fpt or ghec %}
+[{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
+{%- elsif ghae %}
+[{% data variables.product.product_name %} Status](https://ghestatus.com/)
+{%- endif %}. For more information, see "[About GitHub status](#about-github-status)."
 
 {% endif %}
 
@@ -94,12 +101,12 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 {% data reusables.support.scope-of-support %}
 
-{% ifversion ghec or fpt %}
+{% ifversion ghec or fpt or ghae %}
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.prodname_dotcom %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page](https://www.githubstatus.com/).
+You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
 
-You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.prodname_dotcom %}.
+You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
 
 {% endif %}
 
@@ -115,7 +122,7 @@ Enterprise owners can also add support entitlements to members of organizations 
 {% ifversion fpt or ghec %}
 ## Granting {% data variables.contact.github_support %} temporary access to a private repository
 
-If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days.
+If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days. During this window, {% data variables.contact.github_support %} staff with the required privileges can unlock the repository for up to two hours at a time, and will relock the repository if the work is completed early. All {% data variables.contact.github_support %} staff access generates audit log events, and the visibility of the repository is not affected at any time.
 
 {% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
 {% endif %}
@@ -170,7 +177,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
 
-{% ifversion ghes %}{% data reusables.enterprise_enterprise_support.installing-releases %}{% endif %}
+{% data reusables.enterprise_enterprise_support.installing-releases %}
 
 {% endif %}
 

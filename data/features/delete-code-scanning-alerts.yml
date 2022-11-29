@@ -1,4 +1,4 @@
-# Tracking removing ability to delete code scanning alerts: ghae-issue-6776
+# Tracking removing ability to delete code scanning alerts: ghae
 
 versions:
   ghae: '*'

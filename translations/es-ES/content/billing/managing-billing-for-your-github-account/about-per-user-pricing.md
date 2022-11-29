@@ -1,6 +1,6 @@
 ---
-title: Acerca del precio por usuario
-intro: 'Con los cobros por usuario, las organizaciones {% ifversion ghec %}y empresas {% endif %}pagan con base en el tamaño de su equipo para acceder a la colaboración avanzada y herramientas de administración para los equipos y, opcionalmente, a los controles de seguridad, cumplimiento y despliegue.'
+title: About per-user pricing
+intro: '{% ifversion fpt or ghec %}For organizations{% ifversion ghec %} and enterprises{% endif %}, your {% else %}Your {% endif %}bill begins with the number of licensed seats you choose.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 type: overview
 topics:
   - Downgrades
@@ -16,69 +17,139 @@ topics:
   - Organizations
 ---
 
-## Acerca del precio por usuario
+## About per-user pricing
 
-Las organizaciones nuevas en {% data variables.product.prodname_dotcom_the_website %} pueden crear proyectos públicos y de código abierto con {% data variables.product.prodname_free_team %} o mejorar a un producto de pago con precios por usuario. Para obtener más información, consulta las secciones "[Productos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)" y "[Actualizar tu suscripción de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)".
+{% ifversion fpt %}
 
-{% ifversion ghec %}Los precios por usuario aplican a todas las organizaciones que pertenecen a tu empresa en {% data variables.product.prodname_dotcom_the_website %} y a las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %}, las cuales no sean parte de una empresa. Cada{% elsif fpt %}costo por usuario significa que, en cada{% endif %} ciclo de facturación, {% data variables.product.company_short %} cobra por cada miembro o colaborador externo dentro de tu organización{% ifversion ghec %} o empresa{% endif %}. También pagarás por cada miembro pendiente o colaborador externo que aún no haya aceptado una invitación. {% data variables.product.company_short %} no cobra por los miembros con rol de administrador de facturación{% ifversion ghec %} ni por los propietarios de la empresa que no sean también miembros de por lo menos una organización en la empresa{% endif %}. Para obtener más información, consulta la sección {% ifversion ghec %}"[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" o {% endif %}{% ifversion fpt or ghec %}"[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".{% endif %}
+New organizations on {% data variables.product.prodname_dotcom_the_website %} can build public and open-source projects with {% data variables.product.prodname_free_team %}, or upgrade to a paid product with per-user pricing. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
 
-{% data variables.product.company_short %} cuenta cada {% ifversion ghec %}miembro o {% endif %}colaborador externo una sola vez para propósitos de facturación, incluso si la persona tiene una {% ifversion ghec %}membrecía en varias organizaciones dentro de una empresa o si tiene {% endif %}acceso a varios repositorios que pertenezcan a tu organización.
+Organizations using a paid subscription before May 11, 2016 can choose to stay on their existing per-repository plan or switch to per-user pricing. {% data variables.product.company_short %} will notify you twelve months before any mandated change to your subscription. For more information on switching your subscription, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
 
-Para obtener más información sobre los colaboradores externos, consulta la sección "[Agregar colaboradores externos a los repositorios de tu organización](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
+{% else %}
 
+The foundation of your bill is the number of standard licensed seats that you choose for your{% ifversion ghec %} organization or{% endif %} enterprise.
+
+{% data reusables.enterprise-licensing.unique-user-licensing-model %}
+
+To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. For more information, see "[About licenses for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
+
+In addition to licensed seats, your bill may include other charges, such as {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+{% endif %}
+
+## People that consume a license
+
+{% ifversion fpt %}
+
+{% data variables.product.company_short %} bills for the following people:
+
+- Organization members, including owners
+- Outside collaborators on private repositories owned by your organization, excluding forks
+- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
+- Dormant users
+
+{% note %}
+
+**Notes:** 
+- {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
+- {% data reusables.organizations.org-invite-scim %}
+
+{% endnote %}
+
+{% data variables.product.company_short %} does not bill for the following people:
+
+- Billing managers
+- Anyone with a pending invitation to become a billing manager
+- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+
+{% else %}
+
+{% data variables.product.company_short %} bills for the following accounts for each deployment of {% data variables.product.prodname_enterprise %}.
+
+### Accounts that consume a license on {% data variables.product.prodname_ghe_cloud %}
+
+{% data variables.product.company_short %} bills for each of the following accounts on {% data variables.product.prodname_ghe_cloud %}:
+
+- Enterprise owners who are a member or owner of at least one organization in the enterprise
+- Organization members, including owners
+- Outside collaborators on private or internal repositories owned by your organization, excluding forks
+- Dormant users
+
+If your enterprise does not use {% data variables.product.prodname_emus %}, you will also be billed for each of the following accounts:
+
+- Anyone with a pending invitation to become an organization owner or member
+- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
+
+{% note %}
+
+**Notes:** 
+  - {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
+  - {% data reusables.organizations.org-invite-scim %}
+
+{% endnote %}
+
+{% data variables.product.company_short %} does not bill for any of the following accounts:
+
+- {% data variables.enterprise.prodname_managed_users_caps %} that are suspended
+- Enterprise owners who are not a member or owner of at least one organization in the enterprise
+- Enterprise billing managers
+- Billing managers for individual organizations
+- Anyone with a pending invitation to become a billing manager
+- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+
+### Accounts that consume a license on {% data variables.product.prodname_ghe_server %}
+
+Each user account on {% data variables.product.prodname_ghe_server %} consumes a seat.
+
+Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+
+Dormant users do occupy a seat license. As such, you can choose to suspend dormant users to release user licenses. For more information, see "[Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+
+{% endif %}
+
+## About changes to your subscription
+
+{% ifversion fpt %}
+
+You can change your {% data variables.product.prodname_dotcom %} subscription at any time.
+
+### About changes for organizations on per-user plans
+
+{% endif %}
+
+You can add more licensed seats to your {% ifversion fpt or ghec %} organization{% endif %}{% ifversion ghec %} or{% endif %}{% ifversion ghec or ghes %} enterprise{% endif %} at any time. If you pay for more seats than are being used, you can also reduce the number of seats.{% ifversion fpt %} For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" and "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
+
+If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
+
+To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like SAML single sign-on and advanced auditing. {% data reusables.enterprise.link-to-ghec-trial %}
+
+For more information about per-user pricing for {% data variables.product.prodname_ghe_cloud %}, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing).
+
+{% else %}
+
+If you use an enterprise account on {% data variables.product.prodname_dotcom_the_website %} and have questions about changes to your subscription, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% endif %}
 {% ifversion ghec %}
 
-Si despliegas {% data variables.product.prodname_ghe_server %}, tu uso ya incluirá licencias para cada usuario en tu instancia. Para obtener más información sobre los servicios adicionales y la facturación de {% data variables.product.prodname_ghe_cloud %}, consulta la sección "[Acerca de la facturación para tu empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
-
-{% elsif fpt %}
-
-Las organizaciones que usan una suscripción paga antes del 11 de mayo de 2016 pueden elegir permanecer en su plan existente por repositorio o cambiar al precio por usuario. {% data variables.product.company_short %} te notificará doce meses antes de que cualquier cambio a tu suscripción sea obligatorio. Para obtener más información sobre cómo cambiar tu suscripción, consulta "[Actualizar tu {% data variables.product.prodname_dotcom %} suscripción](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)".
-
-{% endif %}
-
-## Resumen de los precios por usuario
-
-{% data reusables.billing.per-user-pricing-reference %}
-
-## Acerca de los cambios a tu suscripción
-
-{% ifversion fpt %}
-
-Puedes cambiar tu suscripción de {% data variables.product.prodname_dotcom %} en cualquier momento.
-
-### Acerca de los cambios para las organizaciones que tienen planes por usuario
-
-{% endif %}
-
-Puedes agregar más usuarios a tu organización{% ifversion ghec %} o empresa en cualquier momento{% endif %}. Si pagas más usuarios de los que están activos actualmente, también puedes reducir la cantidad de usuarios de pago.{% ifversion fpt %} Para obtener más información, consulta las secciones "[Actualizar tu suscripción de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" y "[Bajar de nivel tu suscripción de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)".
-
-Si tienes dudas sobre tu suscripción, contacta al{% data variables.contact.contact_support %}.
-
-Para seguir apoyando las capacidades de colaboración de tu equipo, puedes mejorar a {% data variables.product.prodname_ghe_cloud %}, lo cual incluye características como el inicio de sesión único de SAML y la auditoría avanzada. {% data reusables.enterprise.link-to-ghec-trial %}
-
-Para obtener más información sobre los precios por usuario para {% data variables.product.prodname_ghe_cloud %}, consulta [la documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing).
-
-{% elsif ghec %}
-
-Si utilizas una cuenta empresarial de {% data variables.product.prodname_dotcom_the_website %} y tienes dudas sobre los cambios a tu suscripción, contacta a {% data variables.contact.contact_enterprise_sales %}.
-
-Si utilizas una organización individual de {% data variables.product.prodname_ghe_cloud %}, puedes mejorar tu suscripción o bajarla de nivel. Para obtener más información, consulta la sección "[Mejorar tu suscripción de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" o "[Bajar de categoría tu suscripción de {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)". Si tienes dudas sobre tu suscripción, contacta al{% data variables.contact.contact_support %}.
+If you use an individual organization on {% data variables.product.prodname_ghe_cloud %}, you can upgrade or downgrade your subscription. For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)" or "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)." If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
 
 {% endif %}
 
 {% ifversion fpt %}
 
-### Acerca de los cambios para las organizaciones con planes por repositorio
+### About changes for organizations on per-repository plans
 
-Puedes actualizar o bajar de categoría entre planes pagos heredados en los parámetros de facturación de tu organización. Cuando haces la mejora a un plan con más repositorios privados, {% data variables.product.company_short %} inmediatamente mueve tu cuenta a tu plan nuevo y te cobra la diferencia del precio, prorrateado por la cantidad de días restantes en tu ciclo de facturación.
+You can upgrade or downgrade between legacy paid plans in your organization's billing settings. When you upgrade to a plan with more private repositories, {% data variables.product.company_short %} immediately moves your account to your new plan and bills you for the difference in price, prorated for the number of days left in your billing cycle.
 
-Cuando bajas de categoría a un plan pago heredado con menos repositorios privados, tu nuevo plan entrará en vigencia en tu próxima fecha de facturación. Si tienes más repositorios privados de los que permite tu nuevo plan, tus repositorios privados se bloquearán cuando tu nuevo plan entre en vigencia. Para reducir la cantidad de repositorios privados, puedes hacer que algunos de tus repositorios privados sean públicos o puedes clonar tus repositorios privados localmente y eliminar las copias en {% data variables.product.prodname_dotcom %}.
+When you downgrade to a legacy paid plan with fewer private repositories, your new plan will take effect on your next billing date. If you have more private repositories than your new plan allows for, your private repositories will be locked when your new plan takes effect. To reduce your number of private repositories, you can make some of your private repositories public, or you can clone your private repositories locally and delete the copies on {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 
-## Leer más
+## Further reading
 
-{%- ifversion ghec %}
-- "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)"
+{%- ifversion not fpt %}
+- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"
+- "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
 {%- endif %}
-- "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+- "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."

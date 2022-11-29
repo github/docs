@@ -49,7 +49,7 @@ export const GuidesHero = () => {
           {intro && <Lead data-search="lead">{intro}</Lead>}
         </div>
       </header>
-      {featuredTrack && (
+      {featuredTrack && featuredTrack.guides && featuredTrack.guides.length > 0 && (
         <div className="mb-6 position-relative overflow-hidden mr-n3 ml-n3 px-3">
           <ul
             data-testid="feature-track"
@@ -65,17 +65,15 @@ export const GuidesHero = () => {
                 </div>
                 <h2 className="text-semibold my-4 f3">{featuredTrack.title}</h2>
                 <div className="f5 my-4">{featuredTrack.description}</div>
-                {featuredTrack.guides && (
-                  <Link
-                    {...{ 'aria-label': `${featuredTrack.title} - ${t('start_path')}` }}
-                    className="d-inline-flex flex-items-center flex-justify-center btn px-4 py-2 f5 no-underline text-bold"
-                    role="button"
-                    href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}&learnProduct=${featuredTrack.trackProduct}`}
-                  >
-                    {t(`start_path`)}
-                    <ArrowRightIcon size={20} className="ml-2" />
-                  </Link>
-                )}
+                <Link
+                  {...{ 'aria-label': `${featuredTrack.title} - ${t('start_path')}` }}
+                  className="d-inline-flex flex-items-center flex-justify-center btn px-4 py-2 f5 no-underline text-bold"
+                  role="button"
+                  href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}&learnProduct=${featuredTrack.trackProduct}`}
+                >
+                  {t(`start_path`)}
+                  <ArrowRightIcon size={20} className="ml-2" />
+                </Link>
               </div>
             </li>
             {guideItems}

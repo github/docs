@@ -1,1 +1,9 @@
-When you enable {% data variables.product.prodname_actions %}, workflows are able to run actions {% if actions-workflow-policy %}and reusable workflows{% endif %} located within your repository and any other{% ifversion fpt %} public{% elsif ghec or ghes %} public or internal{% elsif ghae %} internal{% endif %} repository.
+---
+ms.openlocfilehash: ab6a2179820f4517ec815e953fa1194be97f5a31
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146180820"
+---
+Quando você habilita o {% data variables.product.prodname_actions %}, os fluxos de trabalho podem executar ações {% ifversion actions-workflow-policy %}e fluxos de trabalho reutilizáveis{% endif %} localizados no seu repositório e em qualquer outro repositório{% ifversion fpt %} público{% elsif ghec or ghes %} público ou interno{% elsif ghae %} interno{% endif %}.

@@ -2,7 +2,7 @@
 title: Searching the audit log for your enterprise
 intro: You can search an extensive list of audited actions in your enterprise.
 shortTitle: Search audit logs
-permissions: Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.
+permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
@@ -29,9 +29,11 @@ You can search your enterprise audit log directly from the user interface by usi
 
 For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)." 
 
+{% data reusables.audit_log.git-events-not-in-search-results %}
+
 You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 
-Note that you cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% note %}
 
@@ -78,6 +80,9 @@ Key            | Value
 `org_id`       | ID of the organization affected by the action (if applicable)
 `business` | Name of the enterprise affected by the action (if applicable)
 `business_id` | ID of the enterprise affected by the action (if applicable)
+{%- ifversion token-audit-log %}
+`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)")
+{%- endif %}
 
 To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
@@ -106,6 +111,7 @@ Each category has a set of associated actions that you can filter on. For exampl
 Actions that can be found in your enterprise audit log are grouped within the following categories:
 
 {% data reusables.audit_log.audit-log-action-categories %}
+
 ### Search based on time of action
 
 Use the `created` qualifier to filter events in the audit log based on when they occurred.
@@ -128,3 +134,9 @@ Using the qualifier `country`, you can filter events in the audit log based on t
   * `country:de` finds all events that occurred in Germany.
   * `country:Mexico` finds all events that occurred in Mexico.
   * `country:"United States"` all finds events that occurred in the United States.
+
+{% ifversion token-audit-log %}
+### Search based on the token that performed the action
+
+Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+{% endif %}

@@ -1,5 +1,6 @@
 ---
 title: Publishing Java packages with Maven
+shortTitle: Publish Java packages with Maven
 intro: You can use Maven to publish Java packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
@@ -15,7 +16,6 @@ topics:
   - Publishing
   - Java
   - Maven
-shortTitle: Java packages with Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -72,7 +72,6 @@ For example, if you were deploying to the Maven Central Repository through the O
 With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by specifying the repository management `id` to the `setup-java` action. You’ll also need to provide environment variables that contain the username and password to authenticate to the repository.
 
 In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with.  For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
-
 
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository
@@ -143,10 +142,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-java %}
@@ -180,10 +179,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+    runs-on: ubuntu-latest 
     permissions: 
       contents: read
-      packages: write {% endif %}
+      packages: write 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java for publishing to Maven Central Repository

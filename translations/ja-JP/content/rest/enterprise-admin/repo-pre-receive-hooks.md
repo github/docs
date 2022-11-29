@@ -1,6 +1,6 @@
 ---
-title: リポジトリ pre-receive フック
-intro: Repository Pre-receive Hooks API を使用すると、リポジトリで使用可能な pre-receive フックの適用を表示および変更できます。
+title: Repository Pre-receive Hooks
+intro: The Repository Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to a repository.
 versions:
   ghes: '*'
 topics:
@@ -9,14 +9,16 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-### オブジェクトの属性
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-| 名前                  | 種類       | 説明                     |
-| ------------------- | -------- | ---------------------- |
-| `name`              | `string` | フックの名前。                |
-| `enforcement`       | `string` | このリポジトリでのフックの適用状態。     |
-| `configuration_url` | `string` | 適用設定されているエンドポイントの URL。 |
+### Object attributes
 
-*適用*可能な値は、`enabled`、`disabled`、`testing` です。 `disabled` は、pre-receive フックが実行されないことを示します。 `enabled` は、それが実行され、ゼロ以外の状態になるプッシュを拒否することを示します。 `testing` は、スクリプトは実行されるが、プッシュが拒否されないことを示します。
+| Name                | Type     | Description                                               |
+|---------------------|----------|-----------------------------------------------------------|
+| `name`              | `string` | The name of the hook.                                     |
+| `enforcement`       | `string` | The state of enforcement for the hook on this repository. |
+| `configuration_url` | `string` | URL for the endpoint where enforcement is set.            |
 
-`configuration_url` は、このリポジトリ、その Organization のオーナー、またはグローバル設定へのリンクである場合があります。 `configuration_url` でエンドポイントにアクセスする権限は、所有者またはサイトアドミンレベルで決定されます。
+Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+
+`configuration_url` may be a link to this repository, it's organization owner or global configuration. Authorization to access the endpoint at `configuration_url` is determined at the owner or site admin level.

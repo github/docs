@@ -4,7 +4,7 @@ import nock from 'nock'
 import { get, getDOM } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('release notes', () => {
   jest.setTimeout(60 * 1000)
@@ -51,27 +51,12 @@ describe('release notes', () => {
     expect(res.statusCode).toBe(200)
     const $ = await getDOM('/en/github-ae@latest/admin/release-notes')
     expect($('h1').text()).toBe('GitHub AE release notes')
+    const sectionTitleRegex = /GitHub AE \d\d?\.\d\d?/ // E.g., GitHub AE 3.3
 
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ]
     const releaseNotesH2 = $('h2').first().text().trim()
-    const monthMatch = monthNames.some((month) => {
-      return releaseNotesH2.startsWith(month)
-    })
+    const sectionTitleMatch = sectionTitleRegex.test(releaseNotesH2)
 
-    expect(monthMatch).toBe(true)
+    expect(sectionTitleMatch).toBe(true)
   })
 
   it('sends a 404 if a bogus version is requested', async () => {

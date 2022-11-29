@@ -1,6 +1,6 @@
 ---
-title: Eliminarte del repositorio de un colaborador
-intro: 'Si no quieres seguir siendo colaborador del repositorio de otra persona, te puedes eliminar.'
+title: Removing yourself from a collaborator's repository
+intro: 'If you no longer want to be a collaborator on someone else''s repository, you can remove yourself.'
 redirect_from:
   - /leave-a-collaborative-repo
   - /leave-a-repo
@@ -18,14 +18,16 @@ versions:
 topics:
   - Accounts
   - Repositories
-shortTitle: Eliminarte a ti mismo
+shortTitle: Remove yourself
 ---
-
 {% data reusables.user-settings.access_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-2. En la sección de "Código, planeación y automatización" de la barra lateral, haz clic en **Repositorios {% octicon "repo" aria-label="The repo icon" %}**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+2. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-label="The repo icon" %} Repositories**.
 {% else %}
-2. En la barra lateral izquierda, haz clic en **Repositories** (Repositorios). ![Pestaña Repositories (Repositorios)](/assets/images/help/settings/settings-sidebar-repositories.png)
+2. In the left sidebar, click **Repositories**.
+  ![Repositories tab](/assets/images/help/settings/settings-sidebar-repositories.png)
 {% endif %}
-3. Junto al repositorio que quieres abandonar, haz clic en **Leave** (Abandonar). ![Botón Leave (Abandonar)](/assets/images/help/repository/repo-leave.png)
-4. Lee la advertencia con atención, luego haz clic en "I understand, leave this repository" (Comprendo, abandonar este repositorio). ![Cuadro de diálogo con advertencia sobre el abandono](/assets/images/help/repository/repo-leave-confirmation.png)
+3. Next to the repository you want to leave, click **Leave**.
+  ![Leave button](/assets/images/help/repository/repo-leave.png)
+4. Read the warning carefully, then click "I understand, leave this repository."
+  ![Dialog box warning you to leave](/assets/images/help/repository/repo-leave-confirmation.png)

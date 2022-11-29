@@ -47,7 +47,7 @@ Rate limits for {% data variables.product.prodname_github_apps %} and {% data va
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_github_apps %} that are installed on an organization or a repository within an enterprise on {% data variables.product.product_location %} are subject to a limit of 15,000 requests per hour.
+{% data variables.product.prodname_github_apps %} that are installed on an organization within an enterprise on {% data variables.location.product_location %} are subject to a limit of 15,000 requests per hour per organization that has installed the app.
 
 {% endif %}
 
@@ -65,7 +65,7 @@ User-to-server requests from {% data variables.product.prodname_oauth_apps %} ar
 
 {% ifversion ghec %}
 
-The rate limits for user-to-server requests made by {% data variables.product.prodname_github_apps %} depend on where the app is installed. If the app is installed on organizations or repositories owned by an enterprise on {% data variables.product.product_location %}, then the rate is higher than for installations outside an enterprise.
+The rate limits for user-to-server requests made by {% data variables.product.prodname_github_apps %} depend on where the app is installed. If the app is installed on organizations or repositories owned by an enterprise on {% data variables.location.product_location %}, then the rate is higher than for installations outside an enterprise.
 
 {% endif %}
 
@@ -82,4 +82,4 @@ The rate limits for user-to-server requests made by {% data variables.product.pr
 ## Further reading
 
 - "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" in the REST API documentation
-- "[Resource limitations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" in the GraphQL API documentation
+- "[Resource limitations](/graphql/overview/resource-limitations)" in the GraphQL API documentation

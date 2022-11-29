@@ -11,9 +11,14 @@ type: how_to
 topics:
   - Enterprise
   - Migration
-shortTitle: Importar de outro VCS
+shortTitle: Import from another VCS
+ms.openlocfilehash: 2647bf8eb0a08e4188d36ddc8bd7057ee1e2f208
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '146331998'
 ---
-
 ## Importar projetos do Mercurial
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
@@ -27,9 +32,9 @@ shortTitle: Importar de outro VCS
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Se ainda não tiver feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
-7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
+7. Faça push do repositório para o {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
@@ -47,9 +52,9 @@ shortTitle: Importar de outro VCS
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Se ainda não tiver feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
-7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
+7. Faça push do repositório para o {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
@@ -67,13 +72,13 @@ shortTitle: Importar de outro VCS
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Se ainda não tiver feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
-7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
+7. Faça push do repositório para o {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-## Leia mais
+## Leitura adicional
 
-- "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[Utilitários de linha de comando](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"

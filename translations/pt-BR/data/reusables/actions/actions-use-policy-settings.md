@@ -1,3 +1,11 @@
-If you choose {% data reusables.actions.policy-label-for-select-actions-workflows %}, actions {% if actions-workflow-policy %}and reusable workflows{% endif %} within your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %} are allowed, and there are additional options for allowing other specific actions{% if actions-workflow-policy %} and reusable workflows{% endif %}. For more information, see "[Allowing select actions{% if actions-workflow-policy %} and reusable workflows{% endif %} to run](#allowing-select-actions{% if actions-workflow-policy %}-and-reusable-workflows{% endif %}-to-run)."
+---
+ms.openlocfilehash: d12805516bcd1d9b079acc9d1260d887bac27eed
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146179716"
+---
+Se você escolher {% data reusables.actions.policy-label-for-select-actions-workflows %}, as ações {% ifversion actions-workflow-policy %}e os fluxos de trabalho reutilizáveis{% endif %} na {% ifversion ghec or ghes or ghae %}empresa{% else %}organização{% endif %} serão permitidos, e haverá opções adicionais para permitir outras ações{% ifversion actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %} específicos. Para obter mais informações, confira "[Como permitir a execução de ações{% ifversion actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %} selecionados](#allowing-select-actions{% ifversion actions-workflow-policy %}-and-reusable-workflows{% endif %}-to-run)".
 
-{% ifversion ghec or fpt %}When you allow actions{% if actions-workflow-policy %} and reusable workflows from only in{% else %} local to{% endif %} your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}, the policy blocks all access to actions authored by {% data variables.product.prodname_dotcom %}. For example, the [`actions/checkout`](https://github.com/actions/checkout) action would not be accessible.{% endif %}
+{% ifversion ghec or fpt %}Quando você permite ações{% ifversion actions-workflow-policy %} e fluxos de trabalho reutilizáveis somente no {% else %} local para{% endif %} sua {% ifversion ghec or ghes or ghae %}empresa{% else %}organização{% endif %}, a política bloqueia todo o acesso às ações criadas pelo {% data variables.product.prodname_dotcom %}. Por exemplo, a ação [`actions/checkout`](https://github.com/actions/checkout) não estará acessível.{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: 参考和引用内容
-intro: 您可以使用第三方工具参考和引用 GitHub 上的内容。
+title: Referencing and citing content
+intro: You can use third-party tools to cite and reference content on GitHub.
 redirect_from:
   - /articles/referencing-and-citing-content
   - /github/creating-cloning-and-archiving-repositories/referencing-and-citing-content
@@ -10,31 +10,30 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: 参考和引用内容
+shortTitle: Reference & cite content
 ---
+## Issuing a persistent identifier for your repository with Zenodo
 
-## 使用 Zenodo 发出仓库的持久标识符
-
-为了使您的仓库在学术文献中更易于参考，您可以创建持久标识符，也称为数字对象标识符 (DOI)。 您可以使用数据归档工具 [Zenodo](https://zenodo.org/about) 来归档 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库，并为归档发出 DOI。
+To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and issue a DOI for the archive.
 
 {% tip %}
 
-**提示：**
-- Zenodo 只能访问公共仓库，因此请确保您要存档的仓库是[公共](/articles/making-a-private-repository-public)仓库。
-- 如果要存档属于组织的仓库，则组织所有者可能需要[批准访问](/articles/approving-oauth-apps-for-your-organization) Zenodo 应用程序。
-- 确保您的仓库中包含[许可证](/articles/open-source-licensing)，以使读者了解他们如何才能重复使用您的工作。
+**Tips:**
+- Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/articles/making-a-private-repository-public).
+- If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/articles/approving-oauth-apps-for-your-organization) for the Zenodo application.
+- Make sure to include a [license](/articles/open-source-licensing) in your repository so readers know how they can reuse your work.
 
 {% endtip %}
 
-1. 导航到 [Zenodo](http://zenodo.org/)。
-2. 在屏幕的左上角，单击 **Log in（登录）**。 ![Zenodo 登录按钮](/assets/images/help/repository/zenodo_login.png)
-3. 单击 **Log in with GitHub（使用 GitHub 登录）**。 ![使用 GitHub 登录 Zenodo](/assets/images/help/repository/zenodo_login_with_github.png)
-4. 检查有关访问权限的信息，然后单击 **Authorize application（授权应用程序）**。 ![授权 Zenodo](/assets/images/help/repository/zenodo_authorize.png)
-5. 导航到 [Zenodo GitHub 页面](https://zenodo.org/account/settings/github/)。 ![Zenodo GitHub 页面](/assets/images/help/repository/zenodo_github_page.png)
-6. 在您想要存档的仓库名称右侧，将按钮从 **Off（关）**切换为 **On（开）**可启用存档。 ![启用 Zenodo 仓库存档](/assets/images/help/repository/zenodo_toggle_on.png)
+1. Navigate to [Zenodo](http://zenodo.org/).
+2. In the upper-left corner of the screen, click **Log in**. ![Zenodo log in button](/assets/images/help/repository/zenodo_login.png)
+3. Click **Log in with GitHub**. ![Log into Zenodo with GitHub](/assets/images/help/repository/zenodo_login_with_github.png)
+4. Review the information about access permissions, then click **Authorize application**. ![Authorize Zenodo](/assets/images/help/repository/zenodo_authorize.png)
+5. Navigate to the [Zenodo GitHub page](https://zenodo.org/account/settings/github/). ![Zenodo GitHub page](/assets/images/help/repository/zenodo_github_page.png)
+6. To the right of the name of the repository you want to archive, toggle the button from **Off** to **On** to enable it for archiving. ![Enable Zenodo archiving on repository](/assets/images/help/repository/zenodo_toggle_on.png)
 
-每次创建新 {% data variables.product.product_name %} [发行版](/articles/about-releases/)时，Zenodo 都会存档您的仓库并发出一个新 DOI。 按照“[创建发行版](/articles/creating-releases/)”中的步骤操作，创建新的发行版。
+Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/articles/about-releases/). Follow the steps at "[Creating releases](/articles/creating-releases/)" to create a new one.
 
-## 使用 Figshare 宣传和引用研究资料
+## Publicizing and citing research material with Figshare
 
-学者可以使用数据管理服务 [Figshare](http://figshare.com) 来宣传和引用研究资料。 更多信息请参阅 [Figshare 的支持站点](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account)。
+Academics can use the data management service [Figshare](http://figshare.com) to publicize and cite research material. For more information, see [Figshare's support site](https://knowledge.figshare.com/articles/item/how-to-connect-figshare-with-your-github-account).

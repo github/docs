@@ -1,6 +1,6 @@
 ---
-title: Managing your role in an organization owned by your enterprise
-intro: You can manage your membership in any organization owned by your enterprise and change your role within the organization.
+title: Administración del rol en una organización que pertenece a la empresa
+intro: Puedes administrar tu pertenencia a cualquier organización que pertenezca a tu empresa y cambiar el rol dentro de la organización.
 permissions: Enterprise owners can manage their role in an organization owned by the enterprise.
 versions:
   feature: enterprise-owner-join-org
@@ -10,57 +10,54 @@ topics:
   - Enterprise
   - Organizations
 shortTitle: Manage your organization roles
+ms.openlocfilehash: e7a95602fe103dcbccb80bc2dfec6a67f8b4b312
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884241'
 ---
+## Acerca de la administración de roles
 
-{% note %}
+Puede optar por unirse a una organización que pertenece a su empresa como miembro o como propietario de la organización, cambiar su rol dentro de la organización o dejar la organización.
 
-**Note:** The ability for enterprise owners to manage their role in an organization owned by the enterprise is in beta and subject to change.
+{% ifversion ghec %} {% warning %}
 
-{% endnote %}
+**Advertencia**: Si una organización usa SCIM para aprovisionar usuarios, la unión a la organización de esta manera podría tener consecuencias imprevistas. Para obtener más información, consulta "[Acerca de SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 
-## About role management
+{% endwarning %} {% endif %}
 
-You can choose to join an organization owned by your enterprise as a member or as an organization owner, change your role within the organization, or leave the organization.
+Para obtener información sobre cómo administrar los roles de otras personas en una organización, consulta "[Administración de la pertenencia a la organización](/organizations/managing-membership-in-your-organization)" y "[Administración del acceso de las personas a la organización mediante roles](/organizations/managing-peoples-access-to-your-organization-with-roles)".
 
-{% ifversion ghec %}
-{% warning %}
+## Administración del rol con la configuración empresarial
 
-**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. Para obtener más información, consulta la sección "[SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
-
-{% endwarning %}
-{% endif %}
-
-For information about managing other people's roles in an organization, see "[Managing membership in your organization](/organizations/managing-membership-in-your-organization)" and "[Managing people's access to your organization with roles](/organizations/managing-peoples-access-to-your-organization-with-roles)."
-
-## Managing your role with the enterprise settings
-
-You can join an organization owned by your enterprise and manage your role within the organization, directly from the settings for your enterprise account.
+Puede unirse a una organización que pertenece a su empresa y administrar su rol dentro de la organización directamente desde la configuración de su cuenta empresarial.
 
 {% ifversion ghec %}
 
-If an organization enforces SAML single sign-on (SSO), you cannot use the enterprise settings to join the organization. En vez de esto, debes unirte a la organización utilizando su proveedor de identidad (IdP). Then, you can manage your role in your enterprise settings. For more information, see "[Joining an organization that enforces SAML SSO](#joining-an-organization-that-enforces-saml-sso)."
+Si una organización aplica el inicio de sesión único (SSO) de SAML, no puede usar la configuración empresarial para unirse a la organización. En vez de esto, debes unirte a la organización utilizando su proveedor de identidad (IdP). Después, puede administrar su rol en la configuración de la empresa. Para obtener más información, vea "[Unión a una organización que aplica el inicio de sesión único de SAML](#joining-an-organization-that-enforces-saml-sso)".
 
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. On the **Organizations** tab, to the right of the organization you want to manage your role in, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click the action you want to take.
+1. En la pestaña **Organizations** (Organizaciones), a la derecha de la organización en la que quiere administrar su rol, seleccione el menú desplegable {% octicon "gear" aria-label="The gear icon" %} y haga clic en la acción que quiera realizar.
 
-   ![Screenshot of the dropdown menu for the gear icon for an organization](/assets/images/help/business-accounts/change-role-in-org.png)
+   ![Captura de pantalla del menú desplegable del icono de engranaje en una organización](/assets/images/help/business-accounts/change-role-in-org.png)
 
 {% ifversion ghec %}
 
-## Joining an organization that enforces SAML SSO
+## Unión a una organización que aplica el inicio de sesión único de SAML
 
-If an organization enforces SAML SSO, you cannot use the enterprise settings to join the organization. En vez de esto, debes unirte a la organización utilizando su proveedor de identidad (IdP).
+Si una organización aplica el inicio de sesión único de SAML, no puede usar la configuración empresarial para unirse a la organización. En vez de esto, debes unirte a la organización utilizando su proveedor de identidad (IdP).
 
-1. You must be assigned access in your IdP to the application for {% data variables.product.prodname_ghe_cloud %} that is used by the organization. If you're unable to configure your IdP yourself, contact your IdP administrator.
-1. Authenticate to the organization using SAML SSO.
+1. Debe tener asignado acceso en el IdP a la aplicación de {% data variables.product.prodname_ghe_cloud %} que usa la organización. Si no puede configurar el IdP usted mismo, póngase en contacto con el administrador de su IdP.
+1. Autentíquese en la organización mediante el inicio de sesión único de SAML.
 
-   - If the organization uses SCIM, accept the organization invitation that will be generated by the SCIM integration.
-   - If the organization does not use SCIM, visit the following URL, replacing ORGANIZATION with the name of the organization, then follow the prompts to authenticate.
+   - Si la organización usa SCIM, acepte la invitación de la organización que generará la integración de SCIM.
+   - Si la organización no usa SCIM, vaya a la siguiente dirección URL, reemplazando ORGANIZATION por el nombre de la organización y, después, siga las indicaciones para autenticarse.
 
     `https://github.com/orgs/ORGANIZATION/sso`
 
-After you've joined the organization, you can use the enterprise settings to manage your role in the organization, such as becoming an organization owner. For more information, see "[Managing your role with the enterprise settings](#managing-your-role-with-the-enterprise-settings)."
+Después de unirse a la organización, puede usar la configuración empresarial para administrar su rol en la organización, como convertirse en propietario de la organización. Para más información, vea "[Administración del rol con la configuración empresarial](#managing-your-role-with-the-enterprise-settings)".
 
 {% endif %}

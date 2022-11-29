@@ -1,12 +1,19 @@
-Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. {% ifversion fpt or ghec %}The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.{% endif %} You can provide `runs-on` as a single string or as an array of strings. If you specify an array of strings, your workflow will run on a self-hosted runner whose labels match all of the specified `runs-on` values, if available. If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. 
 
+{% ifversion fpt or ghec %}- The destination machine can be either a [{% data variables.product.prodname_dotcom %}-hosted runner](#choosing-github-hosted-runners), [{% data variables.actions.hosted_runner %}](#choosing-runners-in-a-group), or a [self-hosted runner](#choosing-self-hosted-runners).{% else %}
+- The destination machine can be a [self-hosted runner](#choosing-self-hosted-runners).{% endif %} 
+{% ifversion target-runner-groups %}- You can target runners based on the labels assigned to them, or their group membership, or a combination of these.{% else %}
+- You can target runners based on the labels assigned to them.{% endif %}
+- You can provide `runs-on` as a single string or as an array of strings. 
+- If you specify an array of strings, your workflow will execute on any runner that matches all of the specified `runs-on` values. 
+- If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 {% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
 
-If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
+If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a runner image specified by `runs-on`.
 
 Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
@@ -18,7 +25,7 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 runs-on: ubuntu-latest
 ```
 
-For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
@@ -34,3 +41,21 @@ runs-on: [self-hosted, linux]
 ```
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+
+{% ifversion target-runner-groups %}
+
+### Choosing runners in a group
+
+You can use `runs-on` to target runner groups, so that the job will execute on any runner that is a member of that group. For more granular control, you can also combine runner groups with labels.
+
+Runner groups can only have [{% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners) or [self-hosted runners](/actions/hosting-your-own-runners) as members.
+
+#### Example: Using groups to control where jobs are run
+
+{% data reusables.actions.jobs.example-runs-on-groups %}
+
+#### Example: Combining groups and labels
+
+{% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
+
+{% endif %}

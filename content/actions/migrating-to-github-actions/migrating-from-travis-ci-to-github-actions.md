@@ -306,7 +306,7 @@ jobs:
 
 Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse.
 
-{% if actions-caching %}
+{% ifversion actions-caching %}
 
 This example demonstrates the cache syntax for each system.
 

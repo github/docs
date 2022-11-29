@@ -1,6 +1,6 @@
 ---
-title: アナウンス
-intro: Announcement API を使用すると、Enterprise でグローバルなアナウンスバナーを管理できます。
+title: Announcement
+intro: The Announcement API allows you to manage the global announcement banner in your enterprise.
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,6 +9,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## アナウンス
+## Announcement
 
-Announcement API を使用すると、Enterprise でグローバルなアナウンスバナーを管理できます。 詳しい情報については「[Enterprise のユーザメッセージをカスタマイズする](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)」を参照してください。
+The Announcements API allows you to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

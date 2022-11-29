@@ -8,16 +8,21 @@ versions:
   ghes: <3.4
 topics:
   - GitHub Apps
+ms.openlocfilehash: f557a804d48144df24398f75e90a589d563d941b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147081024'
 ---
-
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
 ## 添付コンテンツについて
 
-GitHub Appは、`content_reference`イベントをトリガーするドメインを登録できます。 Issueまたはプルリクエストの、ボディまたはコメントに、登録されたドメインにリンクするURLが含まれている場合、アプリケーションは[`content_reference` webhook](/webhooks/event-payloads/#content_reference)を受け取ります。 添付コンテンツを使用して、Issueまたはプルリクエストに追加したURLについてのコンテキストやデータを視覚的に追加できます。 URLは、`http://`または`https://`から始まる、完全修飾URLである必要があります。 Markdownリンクの一部であるURLは無視され、`content_reference`イベントをトリガーしません。
+GitHub App では、`content_reference` イベントをトリガーするドメインを登録できます。 登録したドメインにリンクする URL が issue または pull request の本文またはコメントに含まれている場合、アプリは [`content_reference` webhook](/webhooks/event-payloads/#content_reference) を受け取ります。 添付コンテンツを使用して、Issueまたはプルリクエストに追加したURLについてのコンテキストやデータを視覚的に追加できます。 URL は完全修飾 URL である必要があり、`http://` または `https://` のいずれかで始まります。 markdown リンクの一部である URL は無視され、`content_reference` イベントをトリガーしません。
 
 {% data variables.product.prodname_unfurls %} APIを使用する前に、以下を行ってGitHub Appのコンテンツ参照を設定する必要があります。
-* アプリケーションに、[Content references] に対する`Read & write`権限を付与します。
+* "コンテンツ参照" のアクセス許可をアプリ `Read & write` に付与します。
 * [Content references] 権限を設定する際に、一般にアクセス可能なドメインを5つまで登録します。 コンテンツ参照ドメインを設定する際は、IPアドレスは使用しないでください。 ドメイン名 (example.com) またはサブドメイン (subdomain.example.com) を登録できます。
 * アプリケーションを [Content reference] イベントにサブスクライブします。
 
@@ -25,19 +30,19 @@ GitHub Appは、`content_reference`イベントをトリガーするドメイン
 
 添付コンテンツが、URLを遡って更新することはありません。 上記でまとめた要件に従ってアプリケーションを設定した後に、ユーザがリポジトリにアプリケーションをインストールしてから、Issueまたはプルリクエストに追加したURLに対してのみ機能します。
 
-GitHub App の権限やイベントのサブスクリプションを設定するために必要なステップに関する詳しい情報については、「<[GitHub App を作成する](/apps/building-github-apps/creating-a-github-app/)」または「[GitHub App の権限を編集する](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
+GitHub App のアクセス許可とイベント サブスクリプションの構成に必要な手順については、「[GitHub App の作成](/apps/building-github-apps/creating-a-github-app/)」または「[GitHub App のアクセス許可の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
 
 ## 添付コンテンツフローを実装する
 
-添付コンテンツのフローは、IssueもしくはPull Request中のURL、`content_reference` webhookイベント、追加情報でIssueもしくはPull Requestを更新するために呼ぶ必要があるREST APIエンドポイント間の関係を示します。
+添付コンテンツのフローは、issue または pull request 中の URL、`content_reference` Webhook イベント、追加情報で issue または pull request を更新するために呼ぶ必要がある REST API エンドポイント間の関係を示します。
 
-**ステップ 1.** [添付コンテンツについて](#about-content-attachments)に記載されているガイドラインに従ってアプリケーションを設定します。 添付コンテンツを使い始めるには、[Probotアプリケーションのサンプル](#example-using-probot-and-github-app-manifests)を使うこともできます。
+**ステップ 1.** 「[コンテンツの添付ファイルについて](#about-content-attachments)」で説明されているガイドラインを使用して、アプリを設定します。 [Probot アプリの例](#example-using-probot-and-github-app-manifests)を使用して、コンテンツの添付ファイルの使用を開始することもできます。
 
-**ステップ2。**IssueもしくはPull Requestに登録したドメインのURLを追加します。 `http://`もしくは`https://`で始まる完全修飾URLを使わなければなりません。
+**ステップ 2.** issue または pull request に登録したドメインの URL を追加します。 `http://` または `https://` で始まる完全修飾 URL を使用する必要があります。
 
 ![Issueに追加されたURL](/assets/images/github-apps/github_apps_content_reference.png)
 
-**ステップ3。**アプリケーションは`created`アクション付きで[`content_reference` webhook](/webhooks/event-payloads/#content_reference)を受信します。
+**ステップ 3.** アプリは、アクション `created` 含む [`content_reference` Webhook](/webhooks/event-payloads/#content_reference) を受け取ります。
 
 ``` json
 {
@@ -58,12 +63,11 @@ GitHub App の権限やイベントのサブスクリプションを設定する
 }
 ```
 
-**ステップ4。**アプリケーションはREST APIを使って[添付コンテンツを作成する](/rest/reference/apps#create-a-content-attachment)ために`content_reference` `id`と`repository` `full_name`フィールドを使います。 [GitHub Appのインストール](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)として認証を受けるために、`installation` `id`も必要になります。
+**ステップ 4.** アプリは、REST API で[コンテンツ添付ファイルを作成](/rest/reference/apps#create-a-content-attachment)するために、`content_reference` `id` および `repository` `full_name` フィールドを使用します。 また、[GitHub App インストール](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)として `installation` `id` を認証する必要もあります。
 
-{% data reusables.pre-release-program.corsair-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.corsair-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-`body`パラメータにはMarkdownが含まれていることがあります。
+`body` パラメーターには markdown を含めることができます。
 
 ```shell
 curl -X POST \
@@ -76,19 +80,18 @@ curl -X POST \
 }'
 ```
 
-インストールトークンの作成に関する詳しい情報については「[GitHub Appとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
+インストール トークンの作成の詳細については、「[GitHub App としての認証](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
-**ステップ5。** Pull RequestもしくはIssueコメント内のリンクの下に、新しい添付コンテンツが表示されます。
+**ステップ 5.** pull request または issue コメント内のリンクの下に、新しい添付コンテンツが表示されます。
 
 ![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/content_reference_attachment.png)
 
 ## GraphQLでの添付コンテンツの利用
-[`content_reference` webhook](/webhooks/event-payloads/#content_reference)イベント中で`node_id`を提供しているので、GraphQL APIの`createContentAttachment`ミューテーションを参照できます。
+GraphQL API で `createContentAttachment` ミューテーションを参照できるように、[`content_reference` webhook](/webhooks/event-payloads/#content_reference) イベントで `node_id` を提供します。
 
-{% data reusables.pre-release-program.corsair-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
+{% data reusables.pre-release-program.corsair-preview %} {% data reusables.pre-release-program.api-preview-warning %}
 
-例:
+次に例を示します。
 
 ``` graphql
 mutation {
@@ -119,24 +122,24 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-`node_id`の詳しい情報については「[グローバルノードIDの利用]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)」を参照してください。
+詳細については `node_id`、「[グローバル ノード ID の使用](/graphql/guides/using-global-node-ids)」を参照してください。
 
 ## ProbotとGitHub Appマニフェストの利用例
 
-{% data variables.product.prodname_unfurls %} APIを使用できるGitHub Appを手早くセットアップするには、[Probot](https://probot.github.io/)が利用できます。 ProbotがどのようにGitHub Appのマニフェストを使用するかを学ぶには、「[マニフェストからのGitHub Appの作成](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。
+{% data variables.product.prodname_unfurls %} API を使用できる GitHub App を手早くセットアップするために、[Probot](https://probot.github.io/) を使用できます。 Probot が GitHub アプリ マニフェスト使用する方法については、「[マニフェストから GitHub App を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。
 
 Probotアプリケーションを作成するには、以下のステップに従ってください。
 
-1. [新しい GitHub App を作成](https://probot.github.io/docs/development/#generating-a-new-app)します。
-2. 作成したプロジェクトを開き、 `app.yml` ファイルの設定をカスタマイズします。 `content_reference`イベントをサブスクライブし、`content_references`の書き込み権限を有効化してください。
+1. [新しい GitHub App を生成します](https://probot.github.io/docs/development/#generating-a-new-app)。
+2. 作成したプロジェクトを開き、`app.yml` ファイルの設定をカスタマイズします。 `content_reference` イベントを登録し、`content_references` 書き込みアクセス許可を有効にします。
 
    ``` yml
     default_events:
       - content_reference
-    # GitHub Appが必要とする権限セット。 このオブジェクトのフォーマットは、
-    # キーの権限名（たとえばissues）と値のためのアクセスの
-    # 種類（たとえばwrite）を使います。
-    # 取り得る値は `read`、`write`、`none`
+    # The set of permissions needed by the GitHub App. The format of the object uses
+    # the permission name for the key (for example, issues) and the access type for
+    # the value (for example, write).
+    # Valid values are `read`, `write`, and `none`
     default_permissions:
       content_references: write
 
@@ -147,11 +150,11 @@ Probotアプリケーションを作成するには、以下のステップに�
         value: example.org
    ```
 
-3. このコードを`index.js` ファイルに追加して、`content_reference`を処理してREST APIを呼ぶようにします。
+3. `content_reference` イベントを処理して REST API を呼び出すには、次のコードを `index.js` ファイルに追加します。
 
     ``` javascript
     module.exports = app => {
-      // ここにコードを書く
+      // Your code here
       app.log('Yay, the app was loaded!')
        app.on('content_reference.created', async context => {
         console.log('Content reference created!', context.payload)
@@ -168,13 +171,13 @@ Probotアプリケーションを作成するには、以下のステップに�
     }
     ```
 
-4. [GitHub Appをローカルで動作させます](https://probot.github.io/docs/development/#running-the-app-locally)。 `http://localhost:3000`にアクセスして、**Register GitHub App**ボタンをクリックしてください。
+4. [GitHub App をローカルで実行します](https://probot.github.io/docs/development/#running-the-app-locally)。 `http://localhost:3000` に移動し、 **[GitHub App を登録]** ボタンをクリックします。
 
    ![Probot GitHub App の登録](/assets/images/github-apps/github_apps_probot-registration.png)
 
 5. テストリポジトリにアプリケーションをインストールしてください。
 6. テストリポジトリでIssueを作成してください。
-7. オープンしたIssueに`app.yml`ファイルで設定したURLを含むコメントを追加してください。
+7. オープンした issue に `app.yml` ファイルで設定した URL を含むコメントを追加します。
 8. Issueのコメントを見ると、以下のように更新されています。
 
    ![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/content_reference_attachment.png)

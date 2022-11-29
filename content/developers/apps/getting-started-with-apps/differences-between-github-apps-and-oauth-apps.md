@@ -22,7 +22,10 @@ You can install GitHub Apps in your personal account or organizations you own. I
 
 {% data reusables.apps.app_manager_role %}
 
-By contrast, users _authorize_ OAuth Apps, which gives the app the ability to act as the authenticated user. For example, you can authorize an OAuth App that finds all notifications for the authenticated user. You can always revoke permissions from an OAuth App.
+By contrast, users authorize OAuth Apps, which gives the app the ability to act as the authenticated user. For example, you can authorize an OAuth App that finds all notifications for the authenticated user. You can always revoke permissions from an OAuth App.
+
+{% ifversion limit-app-access-requests %}
+{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 
@@ -92,6 +95,7 @@ Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to requ
 | ----- | ----------- |
 | By default, GitHub Apps have a single webhook that receives the events they are configured to receive for every repository they have access to. | OAuth Apps request the webhook scope to create a repository webhook for each repository they need to receive events from. |
 | GitHub Apps receive certain organization-level events with the organization member's permission. | OAuth Apps request the organization webhook scope to create an organization webhook for each organization they need to receive organization-level events from. |
+| Webhooks are automatically disabled when the GitHub App is uninstalled. | Webhooks are not automatically disabled if an OAuth App's access token is deleted, and there is no way to clean them up automatically. You will have to ask users to do this manually.|
 
 ## Git access
 

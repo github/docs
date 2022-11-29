@@ -1,5 +1,5 @@
 ---
-title: GitHub Bullying and Harassment
+title: Intimidación y Acoso en GitHub
 shortTitle: Bullying and Harassment
 versions:
   fpt: '*'
@@ -9,15 +9,20 @@ topics:
 redirect_from:
   - /github/site-policy/github-bullying-and-harassment
   - /github/site-policy/github-community-guidelines#bullying-and-harassment
+ms.openlocfilehash: 3728314661ad4cb9d5b0765b937e618f8ee31f7b
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556681'
 ---
+No toleramos el acoso, la intimidación ni el abuso de ningún tipo, ya se practique directamente o animando a otros a participar en la conducta prohibida. Esto incluye:
 
-We do not tolerate harassment, bullying, or abuse of any kind, whether directly or by encouraging others to take part in the prohibited conduct. Esto incluye:
+- los ataques personales dirigidos;
+- la acumulación o la organización de actividades [perturbadoras](/github/site-policy/github-disrupting-the-experience-of-other-users) de cualquier modo que pueda ser constitutivo de abuso;
+- el seguimiento a otro usuario por la plataforma de cualquier modo que provoque intimidación;
+- la realización de insinuaciones o comentarios sexuales dirigidos a otra persona;
+- la participación deshonesta en una conversación de tal forma instigue el conflicto o socave un debate sincero;
+- la creación de cuentas alternativas con la finalidad expresa de eludir la acción de moderación adoptada por el personal o los usuarios de GitHub.
 
-- Targeted personal attacks
-- Piling on to or orchestrating [disruptive](/github/site-policy/github-disrupting-the-experience-of-other-users) activity in a way that amounts to abuse
-- Following another user around the platform in a manner that causes intimidation
-- Making sexual advances or comments directed at another individual
-- Disingenuously participating in conversation in a way that instigates conflict or undermines sincere discussion
-- Creating alternative accounts specifically to evade moderation action taken by GitHub staff or users
-
-Please note, not all unwelcome conduct is necessarily considered harassment. For example, disagreeing with another user or downvoting their comments may not rise to the level of harassment on our platform. In addition, sharing criticism of public figures or projects, or topics of public interest, does not necessarily fall under this policy. However, we encourage you to be mindful in how you engage with other users and the platform, as this activity may still violate our restriction on disrupting the experience of other users.
+Tenga en cuenta que no todas las conductas no deseadas se consideran necesariamente acoso. Por ejemplo, no estar de acuerdo con otro usuario o rechazar sus comentarios puede no alcanzar el nivel de acoso en nuestra plataforma. Además, compartir críticas sobre figuras públicas o proyectos, o sobre temas de interés público, no necesariamente es objeto de directiva. Sin embargo, lo alentamos a que tenga en cuenta cómo interactúa con otros usuarios y con la plataforma, ya que, de todos modos, esta actividad podría infringir nuestra restricción sobre la perturbación de la experiencia de otros usuarios.

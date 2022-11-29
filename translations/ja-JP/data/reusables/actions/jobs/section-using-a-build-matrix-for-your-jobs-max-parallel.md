@@ -1,6 +1,14 @@
-By default, {% data variables.product.product_name %} will maximize the number of jobs run in parallel depending on runner availability. To set the maximum number of jobs that can run simultaneously when using a `matrix` job strategy, use `jobs.<job_id>.strategy.max-parallel`.
+---
+ms.openlocfilehash: 50b42f8e3c703723fc592bf63881c997e88b059c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145114237"
+---
+既定で、{% data variables.product.product_name %} は、ランナーの可用性に応じて並列実行されるジョブの数を最大化します。 `matrix` ジョブ戦略を使うとき、同時に実行できるジョブの最大数を設定するには、`jobs.<job_id>.strategy.max-parallel` を使います。
 
-For example, the following workflow will run a maximum of two jobs at a time, even if there are runners available to run all six jobs at once.
+たとえば、次のワークフローでは、6 つのジョブすべてを一度に実行できるランナーがある場合でも、一度に最大 2 つのジョブを実行します。
 
 ```yaml
 jobs:

@@ -5,11 +5,11 @@ import { Operation } from 'components/rest/types'
 import { RestReferencePage } from 'components/rest/RestReferencePage'
 import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
 import {
-  RestContext,
-  RestContextT,
-  getRestContextFromRequest,
-  MiniTocItem,
-} from 'components/context/RestContext'
+  AutomatedPageContext,
+  AutomatedPageContextT,
+  getAutomatedPageContextFromRequest,
+} from 'components/context/AutomatedPageContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
   TocItem,
@@ -25,13 +25,13 @@ type MinitocItemsT = {
 type Props = {
   mainContext: MainContextT
   tocLandingContext: TocLandingContextT
-  restContext: RestContextT
+  automatedPageContext: AutomatedPageContextT
   restOperations: Operation[]
 }
 
 export default function Category({
   mainContext,
-  restContext,
+  automatedPageContext,
   tocLandingContext,
   restOperations,
 }: Props) {
@@ -39,7 +39,7 @@ export default function Category({
 
   return (
     <MainContext.Provider value={mainContext}>
-      <RestContext.Provider value={restContext}>
+      <AutomatedPageContext.Provider value={automatedPageContext}>
         {/* When the page is the rest product landing page, we don't want to
         render the rest-specific sidebar because toggling open the categories
         won't have the minitoc items at that level. These are pages that have
@@ -51,7 +51,7 @@ export default function Category({
         ) : (
           <RestReferencePage restOperations={restOperations} />
         )}
-      </RestContext.Provider>
+      </AutomatedPageContext.Provider>
     </MainContext.Provider>
   )
 }
@@ -65,6 +65,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   let subcategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
   const currentLanguage = req.context.currentLanguage as string
+  const allVersions = req.context.allVersions
+  const apiVersion = context.query.apiVersion || allVersions[currentVersion].latestApiVersion
 
   // For pages with category level only operations like /rest/billing, we set
   // the subcategory's value to be the category for the call to getRest()
@@ -72,7 +74,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subcategory = category
   }
 
-  const restOperations = (await getRest(currentVersion, category, subcategory)) || []
+  const restOperations = (await getRest(currentVersion, apiVersion, category, subcategory)) || []
 
   // Build table of contents for all category operations for TocLanding:
   //
@@ -80,7 +82,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // * loop over subcategories and get the operations per subcategory
   //   * get the minitoc items per set of subcategory operations
   //   * with this data, build a collection of toc items that can be used by TocLanding
-  const restCategoryOperations = (await getRest(currentVersion, category)) || []
+  const restCategoryOperations = (await getRest(currentVersion, apiVersion, category)) || []
   const restCategoryTocItems = []
 
   for (const [subCat, subCatOperations] of Object.entries(restCategoryOperations)) {
@@ -122,6 +124,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     const miniTocItems = (await getRestMiniTocItems(
       category,
       subCat,
+      apiVersion,
       subCatOperations,
       currentLanguage,
       currentVersion,
@@ -165,7 +168,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // Gets the miniTocItems in the article context. At this point it will only
   // include miniTocItems generated from the Markdown pages in
   // content/rest/*
-  const { miniTocItems } = getRestContextFromRequest(req)
+  const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
   // When operations exist, update the miniTocItems in the article context
   // with the list of operations in the OpenAPI.
@@ -177,6 +180,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,
       subcategory,
+      apiVersion,
       restOperations,
       currentLanguage,
       currentVersion,
@@ -193,8 +197,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   return {
     props: {
       restOperations,
-      mainContext: getMainContext(req, res),
-      restContext: getRestContextFromRequest(req),
+      mainContext: await getMainContext(req, res),
+      automatedPageContext: getAutomatedPageContextFromRequest(req),
       tocLandingContext,
     },
   }

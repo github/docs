@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { render } from 'cheerio-to-text'
+
 import { maxContentLength } from '../../lib/search/config.js'
 
 // This module takes cheerio page object and divides it into sections
@@ -17,21 +19,34 @@ export default function parsePageSectionsIntoRecords(page) {
     .get()
     .slice(0, -1)
 
+  // Like in printing from DOM, some elements should not be included in
+  // the records for search. This might be navigational elements of the
+  // page that don't make much sense to find in a site search.
+  $('[data-search=hide]').remove()
+
   const breadcrumbs = breadcrumbsArray.join(' / ') || ''
   const metaKeywords = $('meta[name="keywords"]').attr('content')
-  const topics = metaKeywords ? metaKeywords.split(',') : []
+  const topics = (metaKeywords ? metaKeywords.split(',') : [])
+    .filter(Boolean)
+    .map((keyword) => keyword.trim())
 
   const productName = breadcrumbsArray[0] || ''
-  topics.push(productName)
+  if (productName) topics.push(productName)
   // Remove "github" to make filter queries shorter
   if (productName.includes('GitHub ')) {
-    topics.push(productName.replace('GitHub ', ''))
+    const productNameShort = productName.replace('GitHub ', '').trim()
+    if (productNameShort) topics.push(productNameShort)
   }
 
   const objectID = href
 
   const rootSelector = '[data-search=article-body]'
   const $root = $(rootSelector)
+  if ($root.length === 0) {
+    console.warn(`${href} has no '${rootSelector}'`)
+  } else if ($root.length > 1) {
+    console.warn(`${href} has more than one '${rootSelector}' (${$root.length})`)
+  }
 
   const $sections = $('h2', $root)
     .filter('[id]')
@@ -59,18 +74,24 @@ export default function parsePageSectionsIntoRecords(page) {
   // pages that yields some decent content to be searched on, because
   // when you view these pages in a browser, there's clearly text there.
   if ($root.length > 0) {
-    body = getAllText($, $root)
+    body = render($root)
   }
 
   if (!body && !intro) {
     console.warn(`${objectID} has no body and no intro.`)
   }
 
-  if (languageCode !== 'en' && body.length > maxContentLength) {
-    body = body.slice(0, maxContentLength)
+  // These below lines can be deleted (along with the `maxContentLength`
+  // config) once we've stopped generating Lunr indexes on disk that
+  // we store as Git LFS.
+  if (!process.env.ELASTICSEARCH_URL) {
+    if (languageCode !== 'en' && body.length > maxContentLength) {
+      body = body.slice(0, maxContentLength)
+    }
   }
 
-  const content = `${intro}\n${body}`.trim()
+  const content =
+    intro && !body.includes(intro.trim()) ? `${intro.trim()}\n${body.trim()}`.trim() : body.trim()
 
   return {
     objectID,
@@ -80,57 +101,4 @@ export default function parsePageSectionsIntoRecords(page) {
     content,
     topics,
   }
-}
-
-function getAllText($, $root) {
-  let text = ''
-
-  // We need this so we can know if we processed, for example,
-  // a <td> followed by a <p> because if that's the case, don't use
-  // a ' ' to concatenate the texts together but a '\n' instead.
-  // That means, given this input:
-  //
-  //    <p>Bla</p><table><tr><td>Foo</td><td>Bar</td></table><p>Hi again</p>
-  //
-  // we can produce this outcome:
-  //
-  //    'Bla\nFoo Bar\nHi again'
-  //
-  let previousTagName = ''
-
-  $('p, h2, h3, td, pre, li', $root).each((i, element) => {
-    const $element = $(element)
-    if (previousTagName === 'td' && element.tagName !== 'td') {
-      text += '\n'
-    }
-    // Because our cheerio selector is all the block level tags,
-    // what you might end up with is, from:
-    //
-    //   <li><p>Text</p></li>
-    //   <li><pre>Code</pre></li>
-    //
-    //   ['Text', 'Text', 'Code', 'Code']
-    //
-    // because it will spot both the <li> and the <p>.
-    // If all HTML was exactly like that, you could omit the <li> selector,
-    // but a lot of HTML is like this:
-    //
-    //    <li>Bare text<li>
-    //
-    // So we need to bail if we're inside a block level element whose parent
-    // already was a <li>.
-    if ((element.tagName === 'p' || element.tagName === 'pre') && element.parent.tagName === 'li') {
-      return
-    }
-    text += $element.text()
-    if (element.tagName === 'td') {
-      text += ' '
-    } else {
-      text += '\n'
-    }
-    previousTagName = element.tagName
-  })
-  text = text.trim().replace(/\s*[\r\n]+/g, '\n')
-
-  return text
 }

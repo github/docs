@@ -1,9 +1,17 @@
+---
+ms.openlocfilehash: a35ad50ac71e34c7aecdc8f58720f962375acabd
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145065813"
+---
 
-When using the `workflow_run` event, you can specify what branches the triggering workflow must run on in order to trigger your workflow.
+使用 `workflow_run` 事件时，可以指定触发工作流必须在哪些分支上运行才能触发工作流。
 
-The `branches` and `branches-ignore` filters accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. 有关 glob 模式的更多信息，请参阅“[过滤器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
+`branches` 和 `branches-ignore` 筛选器接受使用 `*`、`**`、`+`、`?` 和 `!` 等字符匹配多个分支名称的 glob 模式。 如果名称包含其中任一字符，而你想要逐字匹配，则需要使用 `\` 转义每个特殊字符。 有关 glob 模式的更多信息，请参阅“[筛选器模式备忘清单](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)”。
 
-For example, a workflow with the following trigger will only run when the workflow named `Build` runs on a branch whose name starts with `releases/`:
+例如，仅当名为 `Build` 的工作流在名称以 `releases/` 开头的分支上运行时，具有以下触发器的工作流才会运行：
 
 ```yaml
 on:
@@ -14,7 +22,7 @@ on:
       - 'releases/**'
 ```
 
-A workflow with the following trigger will only run when the workflow named `Build` runs on a branch that is not named `canary`:
+仅当名为 `Build` 的工作流不在名为 `canary` 的分支上运行时，具有以下触发器的工作流才会运行：
 
 ```yaml
 on:
@@ -25,14 +33,14 @@ on:
       - "canary"
 ```
 
-You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+不能对工作流中的同一事件同时使用 `branches` 和 `branches-ignore` 筛选器。 如果要同时包括和排除单个事件的分支模式，请使用 `branches` 筛选器以及 `!` 字符来指示应排除哪些分支。
 
 您定义模式事项的顺序。
 
-- A matching negative pattern (prefixed with `!`) after a positive match will exclude the branch.
-- A matching positive pattern after a negative match will include the branch again.
+- 肯定匹配后的匹配否定模式（前缀为 `!`）将排除分支。
+- 否定匹配后的匹配肯定模式将再次包含分支。
 
-For example, a workflow with the following trigger will run when the workflow named `Build` runs on a branch that is named `releases/10` or `releases/beta/mona` but will not `releases/10-alpha`, `releases/beta/3-alpha`, or `main`.
+例如，当名为 `Build` 的工作流在名为 `releases/10` 或 `releases/beta/mona` 但不在名为 `releases/10-alpha`、`releases/beta/3-alpha` 或 `main` 的分支上运行时，具有以下触发器的工作流将运行。
 
 ```yaml
 on:

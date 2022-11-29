@@ -1,15 +1,23 @@
-Use `jobs.<job_id>.environment` to define the environment that the job references. 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 更多信息请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
+---
+ms.openlocfilehash: 5b827a2f598a6067ae3c486dbe046effda95bb7f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145084914"
+---
+使用 `jobs.<job_id>.environment` 定义作业引用的环境。 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 有关详细信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
 
-您可以将环境仅作为环境 `name`，或作为具有 `name` 和 `url` 的环境变量。 URL 映射到部署 API 中的 `environment_url`。 有关部署 API 的更多信息，请参阅“[部署](/rest/reference/repos#deployments)”。
+可以将环境仅作为环境 `name` 提供，也可以作为具有 `name` 和 `url` 的环境对象提供。 URL 将映射到部署 API 中的 `environment_url`。 有关部署 API 的详细信息，请参阅“[部署](/rest/reference/repos#deployments)”。
 
-### Example: Using a single environment name
+### 使用单一环境名称的示例
 {% raw %}
 ```yaml
 environment: staging_environment
 ```
 {% endraw %}
 
-### Example: Using environment name and URL
+### 使用环境名称和 URL 的示例
 
 ```yaml
 environment:
@@ -17,9 +25,9 @@ environment:
   url: https://github.com
 ```
 
-The URL can be an expression and can use any context except for the [`secrets` context](/actions/learn-github-actions/contexts#contexts). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+URL 可以是表达式，并且可以使用除 [`secrets` 上下文](/actions/learn-github-actions/contexts#contexts)以外的任何上下文。 有关表达式的更多信息，请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
-### Example: Using output as URL
+### 将输出用作 URL 的示例
 {% raw %}
 ```yaml
 environment:

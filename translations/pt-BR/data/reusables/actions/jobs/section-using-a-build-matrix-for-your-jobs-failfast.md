@@ -1,10 +1,18 @@
-You can control how job failures are handled with `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error`.
+---
+ms.openlocfilehash: 61eae3ef1bfff1fc27fcfd45a693934155021a2a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145083894"
+---
+Você pode controlar como as falhas de trabalho são tratadas com `jobs.<job_id>.strategy.fail-fast` e `jobs.<job_id>.continue-on-error`.
 
-`jobs.<job_id>.strategy.fail-fast` applies to the entire matrix. If `jobs.<job_id>.strategy.fail-fast` is set to `true`, {% data variables.product.product_name %} will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to `true`.
+`jobs.<job_id>.strategy.fail-fast` aplica-se a toda a matriz. Se `jobs.<job_id>.strategy.fail-fast` estiver definido como `true`, {% data variables.product.product_name %} cancelará todos os trabalhos em andamento e enfileirados na matriz se algum trabalho na matriz falhar. Essa propriedade tem como padrão `true`.
 
-`jobs.<job_id>.continue-on-error` applies to a single job. If `jobs.<job_id>.continue-on-error` is `true`, other jobs in the matrix will continue running even if the job with `jobs.<job_id>.continue-on-error: true` fails.
+`jobs.<job_id>.continue-on-error` aplica-se a um único trabalho. Se `jobs.<job_id>.continue-on-error` for `true`, outros trabalhos na matriz continuarão em execução mesmo que o trabalho com `jobs.<job_id>.continue-on-error: true` falhe.
 
-You can use `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error` together. For example, the following workflow will start four jobs. For each job, `continue-on-error` is determined by the value of `matrix.experimental`. If any of the jobs with `continue-on-error: false` fail, all jobs that are in progress or queued will be cancelled. If the job with `continue-on-error: true` fails, the other jobs will not be affected.
+Você não pode usar `jobs.<job_id>.strategy.fail-fast` e `jobs.<job_id>.continue-on-error` juntos. Por exemplo, o fluxo de trabalho a seguir iniciará quatro trabalhos. Para cada trabalho, `continue-on-error` é determinado pelo valor de `matrix.experimental`. Se algum dos trabalhos com `continue-on-error: false` falhar, todos os trabalhos em andamento ou enfileirados serão cancelados. Se o trabalho com `continue-on-error: true` falhar, os outros trabalhos não serão afetados.
 
 
 ```yaml

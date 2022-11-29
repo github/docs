@@ -1,0 +1,9 @@
+---
+ms.openlocfilehash: 737a6403dd94bdb7d50972f5d1bfbc8ada0f4dee
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145108820"
+---
+Sie können mit einer Kreditkarte oder über ein PayPal-Konto für {% data variables.product.product_name %} bezahlen.

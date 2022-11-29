@@ -65,7 +65,7 @@ function PageInner() {
         <div className="col-6">
           <div className="fix position-sticky mt-3" style={{ top: '6.5em' }}>
             <div className="d-flex flex-justify-between flex-items-center mb-3">
-              <CodeLanguagePicker variant="tabs" />
+              <CodeLanguagePicker />
               <div className="flash">
                 <ZapIcon className="mr-2" />
                 <Link href={`/${router.locale}${article.originalArticle}`}>
@@ -88,7 +88,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      mainContext: getMainContext(req, res),
+      mainContext: await getMainContext(req, res),
     },
   }
 }

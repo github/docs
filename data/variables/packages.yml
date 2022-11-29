@@ -1,0 +1,3 @@
+prodname_ghcr_and_npm_registry: '{% data variables.product.prodname_container_registry %}{% ifversion packages-npm-v2 %} and {% data variables.product.prodname_npm_registry %}{% endif %}'
+prodname_ghcr_or_npm_registry: '{% data variables.product.prodname_container_registry %}{% ifversion packages-npm-v2 %} or {% data variables.product.prodname_npm_registry %}{% endif %}'
+prodname_ghcr_and_npm_registry_full: '{% data variables.product.prodname_container_registry %} (`ghcr.io`){% ifversion packages-npm-v2 %} and {% data variables.product.prodname_npm_registry %} (`npm.pkg.github.com`){% endif %}'

@@ -13,30 +13,24 @@ topics:
   - API
 ---
 
-<div class="jumbotron libraries-jumbotron">
-  <img src="/assets/images/gundamcat.png" class="gundamcat" alt="The Gundamcat" />
-  <h1>Octokit comes in many flavors</h1>
-  <p class="lead">Use the official Octokit library, or choose between any of the available third party libraries.</p>
-  <div class="octokit-links"><br/>
-     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
-     <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
-  </div>
-</div>
+![The Gundamcat](/assets/images/gundamcat.png)
 
-{% warning %}
+## Octokit comes in many flavors
 
-Warning: As of late October 2021, the offical Octokit libraries are not currently maintained. For more information, see [this discussion in the octokit.js repository](https://github.com/octokit/octokit.js/discussions/620).
+Use the official Octokit library, or choose between any of the available third party libraries.
 
-{% endwarning %}
+- **Python** → [octokit.py](https://github.com/khornberg/octokit.py)
+- **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
+- **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
+- **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
 
-# Third-party libraries
+## Third-party libraries
 
 ### Clojure
 
 | Library name | Repository |
 |---|---|
-|**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|**Tentacles**| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 
@@ -80,7 +74,7 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 | Library name | Repository |
 |---|---|
 |**NodeJS GitHub library**| [pksunkara/octonode](https://github.com/pksunkara/octonode)|
-|**gh3 client-side API v3 wrapper**| [k33g/gh3](https://github.com/k33g/gh3)|
+|**gh3 client-side API wrapper**| [k33g/gh3](https://github.com/k33g/gh3)|
 |**Github.js wrapper around the GitHub API**|[michael/github](https://github.com/michael/github)|
 |**Promise-Based CoffeeScript library for the Browser or NodeJS**|[philschatz/github-client](https://github.com/philschatz/github-client)|
 
@@ -131,6 +125,7 @@ Warning: As of late October 2021, the offical Octokit libraries are not currentl
 |**octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)|
 |**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
+|**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
 
 ### Ruby
 

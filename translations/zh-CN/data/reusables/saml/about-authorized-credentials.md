@@ -1,1 +1,1 @@
-您可以看到被授权进行 API 和 Git 访问的每个个人访问令牌和 SSH 密钥。 每个令牌或密钥只有最后几个字符可见。 如有必要，与该成员合作确定您应撤销哪些凭据。
+You can see each {% data variables.product.pat_generic %} and SSH key that a member has authorized for API and Git access. Only the last several characters of each token or key are visible. If necessary, work with the member to determine which credentials you should revoke.

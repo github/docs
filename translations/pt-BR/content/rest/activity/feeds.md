@@ -9,15 +9,20 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 327d47eeee98a2b8a3fd5e1a7a07ae671c691686
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064295'
 ---
+## Sobre a API de Feeds
 
-## About the Feeds API
-
-To see what feeds are available to you, use the [Get feeds](#get-feeds) operation. You can then get a feed by sending a request to one of the feed URLs.
+Para ver quais feeds estão disponíveis para você, use a operação [Obter feeds](#get-feeds). Para obter um feed, você pode enviar uma solicitação para uma das URLs do feed.
 
 ### Exemplo de como obter um feed do Atom
 
-Para obter um feed no formato Atom você deve especificar o tipo `application/atom+xml` no cabeçalho `Aceitar`. Por exemplo, para obter o feed do Atom para consultorias de segurança do GitHub:
+Para obter um feed no formato Atom, você deve especificar o tipo `application/atom+xml` no cabeçalho `Accept`. Por exemplo, para obter o feed do Atom para consultorias de segurança do GitHub:
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
@@ -29,9 +34,12 @@ HTTP/2 200
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+<feed xmlns="http://www.w3.org/2005/Atom" 
+xmlns:media="http://search.yahoo.com/mrss/" 
+xml:lang="en-US">
   <id>tag:github.com,2008:/security-advisories</id>
-  <link rel="self" type="application/atom+xml" href="https://github.com/security-advisories.atom"/>
+  <link rel="self" type="application/atom+xml" 
+  href="https://github.com/security-advisories.atom"/>
   <title>GitHub Security Advisory Feed</title>
   <author>
     <name>GitHub</name>
@@ -41,10 +49,18 @@ HTTP/2 200
       <id>tag:github.com,2008:GHSA-abcd-12ab-23cd</id>
       <published>2018-07-26T15:14:52Z</published>
       <updated>2019-01-14T19:34:52Z</updated>
-      <title type="html">[GHSA-abcd-12ab-23cd] Moderate severity vulnerability that affects Octoapp</title>
+      <title type="html">[GHSA-abcd-12ab-23cd] Moderate 
+      severity vulnerability that affects Octoapp</title>
         <category term="NPM"/>
       <content type="html">
-        &lt;p&gt;Octoapp node module before 4.17.5 suffers from a Modification of Assumed-Immutable Data (MAID) vulnerability via defaultsDeep, merge, and mergeWith functions, which allows a malicious user to modify the prototype of &quot;Object&quot; via &lt;strong&gt;proto&lt;/strong&gt;, causing the addition or modification of an existing property that will exist on all objects.&lt;/p&gt;
+        &lt;p&gt;Octoapp node module before 4.17.5 suffers 
+        from a Modification of Assumed-Immutable Data (MAID) 
+        vulnerability via defaultsDeep, merge, and mergeWith 
+        functions, which allows a malicious user to modify 
+        the prototype of &quot;Object&quot; via 
+        &lt;strong&gt;proto&lt;/strong&gt;, causing the 
+        addition or modification of an existing property 
+        that will exist on all objects.&lt;/p&gt;
           &lt;p&gt;&lt;strong&gt;Affected Packages&lt;/strong&gt;&lt;/p&gt;
 
   &lt;dl&gt;

@@ -8,7 +8,7 @@
 
 import fs from 'fs/promises'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import yaml from 'js-yaml'
 import { allVersions } from '../../lib/all-versions.js'
 

@@ -1,6 +1,6 @@
 ---
-title: Configurando o gráfico de dependências
-intro: Você pode permitir que os usuários identifiquem as dependências dos seus projetos habilitando o gráfico de dependências.
+title: Configuring the dependency graph
+intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph
 versions:
@@ -13,30 +13,40 @@ topics:
   - Dependency graph
   - Dependencies
   - Repositories
-shortTitle: Configurar gráfico de dependências
+shortTitle: Configure dependency graph
 ---
+## About the dependency graph
 
-## Sobre o gráfico de dependências
+{% data reusables.dependabot.about-the-dependency-graph %}  
 
-{% data reusables.dependabot.about-the-dependency-graph %}
+For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+{% ifversion fpt or ghec %}
+## About configuring the dependency graph 
+To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For more information on viewing the dependency graph, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."
 
-{% ifversion fpt or ghec %} ## Sobre a configuração do gráfico de dependências {% endif %}
-{% ifversion fpt or ghec %}Para gerar um gráfico de dependência, o {% data variables.product.product_name %} precisa de acesso somente leitura ao manifesto dependência e aos arquivos de bloqueio em um repositório. O gráfico de dependências é gerado automaticamente para todos os repositórios públicos e você pode optar por habilitá-lo para repositórios privados. Para obter mais informações sobre a visualização do gráfico de dependências, consulte "[Explorando as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)".{% endif %}
-
-{% ifversion ghes %} ## Habilitando o gráfico de dependências
-{% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
-
-### Habilitar e desabilitar o gráfico de dependências para um repositório privado
-
-{% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
+{% data reusables.dependency-submission.dependency-submission-link %}
 {% endif %}
 
-Quando o gráfico de dependências é ativado pela primeira vez, todos manifesto e arquivos de bloqueio para ecossistemas suportados são analisados imediatamente. O gráfico geralmente é preenchido em minutos, mas isso pode levar mais tempo para repositórios com muitas dependências. Uma vez habilitado, o gráfico é atualizado automaticamente a cada push no repositório{% ifversion fpt or ghec %} e a cada push para outros repositórios no gráfico{% endif %}.
+{% ifversion ghes %} ## Enabling the dependency graph
+{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
+{% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
 
-## Leia mais
+### Enabling and disabling the dependency graph for a private repository
 
-{% ifversion ghec %}- "[Visualizando insights para sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
-- "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[Solução de problemas na detecção de dependências vulneráveis](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"
+{% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
+
+{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
+{% endif %}
+
+When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt or ghec %} and every push to other repositories in the graph{% endif %}.
+
+{% ifversion ghes %}
+{% ifversion dependency-submission-api %}{% data reusables.dependency-submission.dependency-submission-link %}{% endif %}
+{% endif %}
+
+## Further reading
+
+{% ifversion ghec %}- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
+- "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
+- "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"

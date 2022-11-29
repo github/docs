@@ -1,12 +1,14 @@
+import path from 'path'
+import { readdir } from 'fs/promises'
 import { jest } from '@jest/globals'
 import revalidator from 'revalidator'
+
 import { allVersions } from '../../lib/all-versions.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import schema from '../helpers/schemas/versions-schema.js'
-import { getJSON } from '../helpers/supertest.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('versions module', () => {
   test('is an object with versions as keys', () => {
@@ -21,24 +23,40 @@ describe('versions module', () => {
       expect(valid, expectation).toBe(true)
     })
   })
-})
 
-describe('versions middleware', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  test('check that the correct REST API versions are versioned and/or unversioned', async () => {
+    const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+    const files = await readdir(dereferencedPath)
+    for (const file of files) {
+      const version = file.replace('.deref.json', '')
+      const versionObj = Object.values(allVersions).find((versionObj) =>
+        version.startsWith(versionObj.openApiVersionName)
+      )
+      const dateRegex = /\d{4}-\d{2}-\d{2}/
+      const isApiVersioned = dateRegex.test(version)
 
-  test('adds res.context.allVersions object', async () => {
-    const allVersionsFromMiddleware = await getJSON('/en?json=allVersions')
-    expect(allVersionsFromMiddleware).toEqual(allVersions)
+      if (isApiVersioned) {
+        const apiVersion = version.split(`${versionObj.openApiVersionName}.`)[1]
+        expect(versionObj.apiVersions).toContain(apiVersion)
+        expect()
+      } else {
+        expect(version).toBe(versionObj.openApiVersionName)
+      }
+    }
   })
 
-  test('adds res.context.currentVersion string', async () => {
-    let currentVersion = await getJSON('/en?json=currentVersion')
-    expect(currentVersion).toBe(nonEnterpriseDefaultVersion)
+  test('check REST api calendar date versioned versions set to correct latestApiVersion', () => {
+    Object.values(allVersions).forEach((versionObj) => {
+      if (versionObj.apiVersions.length > 0) {
+        const latestApiVersion = versionObj.latestApiVersion
+        const apiVersions = versionObj.apiVersions
+        expect(apiVersions).toContain(latestApiVersion)
 
-    currentVersion = await getJSON(`/en/${nonEnterpriseDefaultVersion}?json=currentVersion`)
-    expect(currentVersion).toBe(nonEnterpriseDefaultVersion)
-
-    currentVersion = await getJSON(`/en/enterprise-server@${latest}?json=currentVersion`)
-    expect(currentVersion).toBe(`enterprise-server@${latest}`)
+        const latestApiDate = new Date(latestApiVersion).getTime()
+        for (const version of apiVersions) {
+          expect(latestApiDate).toBeGreaterThanOrEqual(new Date(version).getTime())
+        }
+      }
+    })
   })
 })

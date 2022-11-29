@@ -2,7 +2,7 @@
 title: Repository traffic
 shortTitle: Traffic
 allowTitleToDifferFromFilename: true
-intro: 'The Repository traffic API provides access to the information provided in your repository graph.'
+intro: The Repository traffic API provides access to the information provided in your repository graph.
 versions:
   fpt: '*'
   ghec: '*'

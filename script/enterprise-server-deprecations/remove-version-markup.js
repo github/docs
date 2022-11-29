@@ -8,7 +8,7 @@
 // [end-readme]
 
 import fs from 'fs'
-import program from 'commander'
+import { program } from 'commander'
 import frontmatter from '../../lib/read-frontmatter.js'
 import removeLiquidStatements from '../../script/helpers/remove-liquid-statements.js'
 import removeDeprecatedFrontmatter from '../../script/helpers/remove-deprecated-frontmatter.js'
@@ -50,7 +50,8 @@ console.log(`Next oldest version: ${nextOldestRelease}\n`)
 const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })
 const reusables = walkFiles('data/reusables', '.md', { includeEarlyAccess: true })
 const variables = walkFiles('data/variables', '.yml', { includeEarlyAccess: true })
-const allFiles = contentFiles.concat(reusables, variables)
+const learningTracks = walkFiles('data/learning-tracks', '.yml', { includeEarlyAccess: true })
+const allFiles = contentFiles.concat(reusables, variables, learningTracks)
 
 main()
 

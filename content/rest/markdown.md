@@ -1,6 +1,6 @@
 ---
 title: Markdown
-intro: 'The Markdown API enables you to render a markdown document as an HTML page or as raw text.'
+intro: The Markdown API enables you to render a markdown document as an HTML page or as raw text.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,3 +12,4 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/markdown
 ---
+

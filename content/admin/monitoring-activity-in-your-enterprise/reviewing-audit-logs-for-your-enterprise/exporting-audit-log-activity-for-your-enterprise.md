@@ -1,6 +1,6 @@
 ---
 title: Exporting audit log activity for your enterprise
-intro: 'You can export audit and Git events data to a file for offline analysis.'
+intro: You can export audit and Git events data to a file for offline analysis.
 shortTitle: Export audit logs
 permissions: Enterprise owners can export the audit log.
 miniTocMaxHeadingLevel: 3
@@ -16,7 +16,9 @@ topics:
 
 You can export the audit log by downloading a JSON or CSV file from your enterprise on {% data variables.product.product_name %}. When you export audit log events, you can query by one or more of these supported qualifiers to filter for specific log events to export. For more information about search qualifiers, see "[Search based on the action performed](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)."
 
-You can export Git events data by downloading a JSON file from your enterprise audit log. Unlike audit log data, you cannot query for specific Git events to filter and export in the audit log user interface.
+You can export Git events data by downloading a JSON file from your enterprise audit log. Unlike audit log data, you cannot query for specific Git events to filter and export in the audit log user interface. 
+
+{% data reusables.audit_log.git-events-export-limited %}
 
 {% data reusables.audit_log.exported-log-keys-and-values %}
 

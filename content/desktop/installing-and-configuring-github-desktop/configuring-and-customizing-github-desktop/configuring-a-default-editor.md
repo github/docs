@@ -14,7 +14,6 @@ shortTitle: Configure default editor
 
 {% mac %}
 
-- [Atom](https://atom.io/)
 - [MacVim](https://macvim-dev.github.io/macvim/)
 - [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Visual Studio Codium](https://vscodium.com/)
@@ -37,12 +36,12 @@ shortTitle: Configure default editor
 - [RStudio](https://rstudio.com/)
 - [Nova](https://nova.app/)
 - [Android Studio](https://developer.android.com/studio)
+- [Aptana Studio](http://www.aptana.com/)
 
 {% endmac %}
 
 {% windows %}
 
-- [Atom](https://atom.io/)
 - [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Visual Studio Codium](https://vscodium.com/)
 - [Sublime Text](https://www.sublimetext.com/)
@@ -61,6 +60,7 @@ shortTitle: Configure default editor
 - [Brackets](http://brackets.io/)
 - [Notepad++](https://notepad-plus-plus.org/)
 - [RStudio](https://rstudio.com/)
+- [Aptana Studio](http://www.aptana.com/)
 
 {% endwindows %}
 

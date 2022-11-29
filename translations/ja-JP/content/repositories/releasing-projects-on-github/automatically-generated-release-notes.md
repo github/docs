@@ -1,69 +1,73 @@
 ---
-title: Automatically generated release notes
-intro: You can automatically generate release notes for your GitHub releases
+title: 自動生成リリース ノート
+intro: GitHub リリースのリリース ノートを自動的に生成できます
 permissions: Repository collaborators and people with write access to a repository can generate and customize automated release notes for a release.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.3'
-  ghae: issue-4974
+  ghae: '>= 3.4'
 topics:
   - Repositories
 shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/general'
+ms.openlocfilehash: a4adfa306873ef172950666756add7d0e67e168d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147432017'
 ---
+## 自動生成リリース ノートについて
 
-## About automatically generated release notes
+自動生成リリース ノートは、{% data variables.product.prodname_dotcom %} リリースのリリース ノートを手作業で記述する代わりに、自動的に生成する機能です。 自動生成リリース ノートを使うと、リリースの内容の概要をすばやく生成できます。 自動生成されたリリース ノートには、マージされた pull request の一覧、リリースの共同作成者の一覧、完全な変更ログへのリンクが含まれます。
 
-Automatically generated release notes provide an automated alternative to manually writing release notes for your {% data variables.product.prodname_dotcom %} releases. With automatically generated release notes, you can quickly generate an overview of the contents of a release. You can also customize your automated release notes, using labels to create custom categories to organize pull requests you want to include, and exclude certain labels and users from appearing in the output.
+また、自動リリース ノートをカスタマイズし、ラベルを使ってカスタム カテゴリを作成して、含める pull request をまとめたり、特定のラベルとユーザーを出力に表示しないように除外したりすることもできます。
 
-## Creating automatically generated release notes for a new release
+## 新しいリリースの自動生成リリース ノートを作成する
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-3. [**Draft a new release**] をクリックします。 ![新しいリリースのドラフトを作成するボタン](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt or ghec %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
-  {% ifversion fpt or ghec %}
-  ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-5. If you are creating a new tag, click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
-  {% else %}
-  ![タグ付きバージョンのリリース](/assets/images/enterprise/releases/releases-tag-version.png)
-{% endif %}
-6. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
-  {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
-  {% else %}![タグ付きブランチのリリース](/assets/images/enterprise/releases/releases-tag-branch.png)
-  {% endif %}
-7. To the top right of the description text box, click **Auto-generate release notes**. ![Auto-generate release notes](/assets/images/help/releases/auto-generate-release-notes.png)
-8. Check the generated notes to ensure they include all (and only) the information you want to include.
-9. オプションで、コンパイルされたプログラムなどのバイナリファイルをリリースに含めるには、ドラッグアンドドロップするかバイナリボックスで手動で選択します。 ![リリースに DMG ファイルを含める](/assets/images/help/releases/releases_adding_binary.gif)
-10. リリースが不安定であり、運用準備ができていないことをユーザに通知するには、[**This is a pre-release**] を選択します。 ![リリースをプレリリースとしてマークするチェックボックス](/assets/images/help/releases/prerelease_checkbox.png)
-{%- ifversion fpt %}
-11. 必要に応じて、[**Create a discussion for this release**] を選択し、[**Category**] ドロップダウンメニューを選択してリリースディスカッションのカテゴリをクリックします。 ![リリースディスカッションを作成するためのチェックボックスと、カテゴリを選択するドロップダウンメニュー](/assets/images/help/releases/create-release-discussion.png)
-{%- endif %}
-12. リリースを公開する準備ができている場合は、[**Publish release**] をクリックします。 リリースの作業を後でする場合は、[**Save draft**] をクリックします。 ![[Publish release] と [Save draft] ボタン](/assets/images/help/releases/release_buttons.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+3. **[新しいリリースの下書き]** をクリックします。
+   ![リリースの下書きボタン](/assets/images/help/releases/draft_release_button.png)
+4. {% ifversion fpt or ghec %} **[タグの選択]** をクリックして、{% else %}{% endif %}リリースのバージョン番号を入力します。 または、既存のタグを選びます。
+  {% ifversion fpt or ghec %} ![タグを入力する](/assets/images/help/releases/releases-tag-create.png)
+5. 新しいタグを作成する場合は、 **[新しいタグの作成]** をクリックします。
+![新しいタグを作成することを確認する](/assets/images/help/releases/releases-tag-create-confirm.png){% else %}![タグ付きバージョン をリリースする](/assets/images/enterprise/releases/releases-tag-version.png){% endif %}
+6. 新しいタグを作成した場合は、ドロップダウン メニューを使ってリリース対象のプロジェクトを含むブランチを選択します。
+  {% ifversion fpt or ghec %}![ブランチの選択](/assets/images/help/releases/releases-choose-branch.png) {% else %}![タグ付きブランチのリリース](/assets/images/enterprise/releases/releases-tag-branch.png) {% endif %} {%- data reusables.releases.previous-release-tag %}
+7. 説明テキスト ボックスの右上で、{% ifversion previous-release-tag %} **[リリース ノートの生成]** {% else %} **[リリース ノートの自動生成]** {% endif %}.{% ifversion previous-release-tag %} ![[リリース ノートの生成]](/assets/images/help/releases/generate-release-notes.png){% else %} ![[リリース ノートの自動生成]](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}をクリックします
+8. 生成されたノートをチェックし、含めたい情報がすべて (そしてそれだけが) 含まれることを確認します。
+9. オプションで、コンパイルされたプログラムなどのバイナリファイルをリリースに含めるには、ドラッグアンドドロップするかバイナリボックスで手動で選択します。
+   ![リリースに DMG ファイルを含める](/assets/images/help/releases/releases_adding_binary.gif)
+10. リリースが不安定であり、運用の準備ができていないことをユーザーに通知するには、 **[これはプレリリースです]** を選択します。
+   ![リリースをプレリリースとしてマークするチェック ボックス](/assets/images/help/releases/prerelease_checkbox.png){%- ifversion fpt or ghec %}
+11. 必要に応じて、 **[このリリースのディスカッションを作成する]** を選び、 **[カテゴリ]** ドロップダウン メニューを選んでリリース ディスカッションのカテゴリをクリックします。
+  ![リリース ディスカッションを作成するためのチェックボックスと、カテゴリを選ぶドロップダウン メニュー](/assets/images/help/releases/create-release-discussion.png){%- endif %}
+12. リリースを公開する準備ができている場合は、 **[リリースの公開]** をクリックします。 リリースの作業を後でする場合は、 **[下書きの保存]** をクリックします。
+   ![[リリースの公開] と [下書きの保存] ボタン](/assets/images/help/releases/release_buttons.png)
 
 
-## Configuring automatically generated release notes
+## 自動生成リリース ノートを構成する
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-3. In the file name field, type `.github/release.yml` to create the `release.yml` file in the `.github` directory. ![Create new file](/assets/images/help/releases/release-yml.png)
-4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
+3. ファイル名フィールドに「`.github/release.yml`」と入力して、`.github` ディレクトリに `release.yml` ファイルを作成します。
+  ![[新しいファイルの作成]](/assets/images/help/releases/release-yml.png)
+4. このファイルでは、以下の構成オプションを使って、このリリースから除外する pull request ラベルと作成者を YAML で指定します。 新しいカテゴリを作成し、それぞれに含める pull request ラベルを列記することもできます。
 
-### 設定オプション
+### 構成オプション
 
-| Parameter                                 | 説明                                                                                                                                                             |
-|:----------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `changelog.exclude.labels`                | A list of labels that exclude a pull request from appearing in release notes.                                                                                  |
-| `changelog.exclude.authors`               | A list of user or bot login handles whose pull requests are to be excluded from release notes.                                                                 |
-| `changelog.categories[*].title`           | **Required.** The title of a category of changes in release notes.                                                                                             |
-| `changelog.categories[*].labels`          | **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
-| `changelog.categories[*].exclude.labels`  | A list of labels that exclude a pull request from appearing in this category.                                                                                  |
-| `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category.                                                                 |
+| パラメーター | 説明 |
+| :- | :- |
+| `changelog.exclude.labels` | リリース ノートに表示しない pull request のラベルの一覧。 |
+| `changelog.exclude.authors` | pull request をリリース ノートから除外するユーザーまたはボット ログイン ハンドルの一覧。 |
+| `changelog.categories[*].title` | **必須。** リリース ノートでの変更のカテゴリのタイトル。 |
+| `changelog.categories[*].labels`| **必須。** このカテゴリの pull request を修飾するラベル。 前のカテゴリのいずれにも一致しなかった pull request のキャッチオールとして `*` を使います。 |
+| `changelog.categories[*].exclude.labels` | このカテゴリに表示しない pull request のラベルの一覧。 |
+| `changelog.categories[*].exclude.authors` | pull request をこのカテゴリから除外するユーザーまたはボット ログイン ハンドルの一覧。 |
 
-### 設定例
+### 構成例
 
 {% raw %}
 ```yaml{:copy}
@@ -90,6 +94,6 @@ changelog:
 ```
 {% endraw %}
 
-## 参考リンク
+## 参考資料
 
-- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 
+- [ラベルを管理する](/issues/using-labels-and-milestones-to-track-work/managing-labels) 

@@ -1,5 +1,9 @@
-{% ifversion fpt or ghec %}
-詳しい情報については、「[{% data variables.product.prodname_advisory_database %} のセキュリティの脆弱性を参照する](/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)」および「[{% data variables.product.prodname_security_advisories %} について](/code-security/security-advisories/about-github-security-advisories)」を参照してください。
-{% else %}
-For more information about advisory data, see "[Browsing security vulnerabilities in the {% data variables.product.prodname_advisory_database %}](/free-pro-team@latest/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)" in the {% data variables.product.prodname_dotcom_the_website %} documentation.
-{% endif %}
+---
+ms.openlocfilehash: 9bd9a97aac8ee24742aacd8f37472811372d06ea
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147410564"
+---
+詳しくは、「[{% data variables.product.prodname_advisory_database %} でのセキュリティ アドバイザリの参照](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database)」をご覧ください。

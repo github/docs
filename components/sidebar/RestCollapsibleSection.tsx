@@ -7,7 +7,8 @@ import { ActionList } from '@primer/react'
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
 import { EventType, sendEvent } from 'components/lib/events'
-import { MiniTocItem, useRestContext } from 'components/context/RestContext'
+import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import styles from './SidebarProduct.module.scss'
 
 type SectionProps = {
@@ -44,9 +45,10 @@ export const RestCollapsibleSection = (props: SectionProps) => {
     router.query.productId === 'rest' ||
     // These pages need the Article Page mini tocs instead of the Rest Pages
     router.asPath.includes('/rest/guides') ||
-    router.asPath.includes('/rest/overview')
+    router.asPath.includes('/rest/overview') ||
+    router.asPath.includes('/rest/quickstart')
       ? []
-      : useRestContext().miniTocItems
+      : useAutomatedPageContext().miniTocItems
 
   useEffect(() => {
     if (!currentAnchor) {
@@ -65,7 +67,11 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   }, [])
 
   useEffect(() => {
-    if (!router.asPath.includes('guides') && !router.asPath.includes('overview')) {
+    if (
+      !router.asPath.includes('guides') &&
+      !router.asPath.includes('overview') &&
+      !router.asPath.includes('quickstart')
+    ) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -104,37 +110,34 @@ export const RestCollapsibleSection = (props: SectionProps) => {
     const miniTocAnchor = miniTocItem.contents.href
     const title = miniTocItem.contents.title
     const isCurrent = visibleAnchor === miniTocAnchor
-    return {
-      text: title,
-      renderItem: () => (
-        <ActionList.Item
-          data-is-current-page={isCurrent}
-          as="li"
+    return (
+      <ActionList.Item
+        key={miniTocAnchor}
+        data-is-current-page={isCurrent}
+        className={cx(
+          'position-relative',
+          styles.sidebarArticle,
+          isCurrent && ['text-bold', styles.sidebarArticleActive]
+        )}
+        sx={{
+          padding: '2px 0',
+          ':hover': {
+            borderRadius: 0,
+          },
+        }}
+      >
+        <a
           className={cx(
-            'position-relative',
-            styles.sidebarArticle,
-            isCurrent && ['text-bold', styles.sidebarArticleActive]
+            'd-block pl-6 pr-5 py-1 no-underline width-full',
+            isCurrent ? 'color-fg-accent' : 'color-fg-default'
           )}
-          sx={{
-            padding: '2px 0',
-            ':hover': {
-              borderRadius: 0,
-            },
-          }}
+          onClick={() => setVisibleAnchor(miniTocAnchor)}
+          href={miniTocAnchor}
         >
-          <a
-            className={cx(
-              'd-block pl-6 pr-5 py-1 no-underline width-full',
-              isCurrent ? 'color-fg-accent' : 'color-fg-default'
-            )}
-            onClick={() => setVisibleAnchor(miniTocAnchor)}
-            href={miniTocAnchor}
-          >
-            {title}
-          </a>
-        </ActionList.Item>
-      ),
-    }
+          {title}
+        </a>
+      </ActionList.Item>
+    )
   }
 
   return (
@@ -169,17 +172,16 @@ export const RestCollapsibleSection = (props: SectionProps) => {
             {page.childPages.length <= 0 ? (
               <div className="pb-0">
                 {miniTocItems.length > 0 && (
-                  <ActionList
-                    {...{ as: 'ul' }}
-                    items={miniTocItems.map((item) => {
+                  <ActionList variant="full">
+                    {miniTocItems.map((item) => {
                       return renderRestAnchorLink(item)
                     })}
-                  ></ActionList>
+                  </ActionList>
                 )}
               </div>
             ) : (
               page.childPages.map((childPage, i) => {
-                const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+                const childTitle = childPage.shortTitle || childPage.title
                 const isActive = routePath.includes(childPage.href)
                 const isCurrent = routePath === childPage.href
 
@@ -198,12 +200,11 @@ export const RestCollapsibleSection = (props: SectionProps) => {
                         </summary>
                         <div className="pb-0">
                           {miniTocItems.length > 0 && (
-                            <ActionList
-                              {...{ as: 'ul' }}
-                              items={miniTocItems.map((item) => {
+                            <ActionList variant="full" className="my-2">
+                              {miniTocItems.map((item) => {
                                 return renderRestAnchorLink(item)
                               })}
-                            ></ActionList>
+                            </ActionList>
                           )}
                         </div>
                       </details>

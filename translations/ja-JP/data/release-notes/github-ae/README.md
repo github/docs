@@ -1,35 +1,43 @@
+---
+ms.openlocfilehash: 78f03188cb76fd34ffd5670585758bb8c9c2a47d
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145115005"
+---
 # GitHub AEのリリースノート
 
-表示場所：https://docs.github.com/en/github-ae@latest/admin/release-notes
+表示場所: https://docs.github.com/en/github-ae@latest/admin/release-notes
 
-## 動作の仕組み
+## しくみ
 
 ### プレースホルダーコンテンツファイル
 
-コンテンツファイルは`content/admin/release-notes.md`にあります。 これは、特別なfrontmatterプロパティの`layout: release-notes`を持ち、Markdownのコンテンツはありません。 リリースノートのソースはYAMLデータから得られます。
+コンテンツ ファイルは `content/admin/release-notes.md` にあります。 それには特別な frontmatter プロパティ `layout: release-notes` があり、Markdown コンテンツはありません。 リリースノートのソースはYAMLデータから得られます。
 
 ### YAMLソース
 
-リリースノートのソースデータはこのディレクトリ（`data/release-notes/github-ae`）にあります。
+リリース ノートのソース データは、このディレクトリ (`data/release-notes/github-ae`) に存在します。
 
 ディレクトリは月ごとに名付けられます。 YAMLファイルは週次のリリースの日付によって名付けられます。
 
-それぞれのYAMLファイル内で、`currentWeek`という論理型のプロパティを設定しなければなりません。 このプロパティをtrueに設定できるファイルは、1つだけです。
+`currentWeek` という名前のブール型プロパティは、各 YAML ファイルで設定する必要があります。 このプロパティをtrueに設定できるファイルは、1つだけです。
 
-パッチファイルは、オプションの`deprecated: true`プロパティによって個別に非推奨になる（すなわちdocsサイトで表示されなくなる）ことがあるので注意してください。
+パッチ ファイルは、省略可能な `deprecated: true` プロパティによって個別に非推奨 (つまり、ドキュメント サイトでは非表示) とされることがある点に注意してください。
 
 ### ミドルウェアの処理
 
-YAMLデータは`middleware/contextualizers/release-notes.js`で処理されてソートされ、`context`オブジェクトに追加されます。
+YAML データは `middleware/contextualizers/release-notes.js` によって処理、並べ替えされ、`context` オブジェクトに追加されます。
 
-### レイアウト
+### Layouts
 
-The `context` object data is rendered by `components/release-notes`.
+`context` オブジェクト データは`components/release-notes` によってレンダリングされます。
 
-The release notes page has a custom design with CSS in `stylesheets/release-notes.scss`.
+リリース ノート ページには、`stylesheets/release-notes.scss` の CSS を含むカスタム デザインがあります。
 
 ### スキーマ
 
-YAMLデータを検証するスキーマは`tests/helpers/schemas/ghae-release-notes-schema.js`にあります。 必須及びオプションのプロパティを調べるには、このスキーマファイルを見てください。
+YAML データを検証するスキーマは `tests/helpers/schemas/ghae-release-notes-schema.js` に存在します。 必須及びオプションのプロパティを調べるには、このスキーマファイルを見てください。
 
-このスキーマは、`tests/linting/lint-files.js`内のテストで適用されます。 データが検証をパスしなければ、このテストは失敗します。
+スキーマは `tests/linting/lint-files.js` のテストによって実行されます。 データが検証をパスしなければ、このテストは失敗します。

@@ -1,5 +1,5 @@
 ---
-title: GitHub Disrupting the Experience of Other Users
+title: Alteración de la experiencia de otros usuarios de GitHub
 shortTitle: Disrupting the Experience of Other Users
 versions:
   fpt: '*'
@@ -9,19 +9,24 @@ topics:
 redirect_from:
   - /github/site-policy/github-disrupting-the-experience-of-other-users
   - /github/site-policy/github-community-guidelines#disrupting-the-experience-of-other-users
+ms.openlocfilehash: f036077bfebf251befd048cf327663fc90375c89
+ms.sourcegitcommit: 93b306112b5cd5ce482d468a25c9961ad02f87ac
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2022
+ms.locfileid: '144556692'
 ---
+Ser parte de una comunidad incluye reconocer cómo su comportamiento afecta a los demás y mantener interacciones significativas y productivas con las personas y la plataforma en la que confían. 
 
-Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on.
+No permitimos comportamientos que alteren significativa o continuamente la experiencia de otros usuarios. Esto incluye: 
 
-We do not allow behavior that significantly or continually disrupts the experience of other users. Esto incluye:
+- Publicar comentarios ajenos al tema en cuestión 
+- Abrir incidencias o solicitudes de incorporación de cambios vacías o sin sentido 
+- Puntuar con estrellas y/o seguir cuentas o repositorios en gran volumen en un corto periodo de tiempo 
+- Crear revisiones de código sin sentido o irrelevantes 
+- Interactuar con las características de la plataforma de una manera que genere notificaciones excesivas para otros usuarios
+- Usar cualquier otra característica de la plataforma de una manera que genere interrupciones
 
-- Posting off-topic comments
-- Opening empty or meaningless issues or pull requests
-- Starring and/or following accounts or repositories in large volume in a short period of time
-- Creating nonsensical or irrelevant code reviews
-- Engaging with platform features in a way that causes excessive notifications for other users
-- Using any other platform feature in a way that creates disruption
+Si bien animamos a los mantenedores a moderar sus propios proyectos de forma individual, el personal de GitHub puede adoptar medidas restrictivas adicionales contra las cuentas que demuestren este tipo de comportamientos.
 
-Mientras animamos a los mantenedores a moderar sus propios proyectos de forma individual. El personal de GitHub puede tomar medidas más restrictivas contra las cuentas que están participando en este tipo de comportamientos.
-
-Please note that the above conduct may also violate other restrictions in our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies). For example, depending on the nature and severity of the activity, it may rise to the level of [bullying and harassment](/github/site-policy/github-bullying-and-harassment).
+Tenga en cuenta que la conducta anterior también puede infringir otras restricciones de nuestras [Directivas de Uso Aceptable](/github/site-policy/github-acceptable-use-policies). Por ejemplo, según la naturaleza y la gravedad de la actividad, puede llegar al nivel de [acoso y agresión](/github/site-policy/github-bullying-and-harassment).

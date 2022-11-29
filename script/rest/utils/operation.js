@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 import Ajv from 'ajv'
-import GitHubSlugger from 'github-slugger'
 import httpStatusCodes from 'http-status-code'
 import { readFile } from 'fs/promises'
-import { get, flatten, isPlainObject } from 'lodash-es'
+import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
 
 import renderContent from '../../../lib/render-content/index.js'
 import getCodeSamples from './create-rest-examples.js'
 import operationSchema from './operation-schema.js'
+import { getBodyParams } from './get-body-params.js'
 
 const { operationUrls } = JSON.parse(
   await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
 )
-const slugger = new GitHubSlugger()
 
 export default class Operation {
   #operation
@@ -36,7 +35,6 @@ export default class Operation {
     }
 
     this.serverUrl = this.serverUrl.replace('http:', 'http(s):')
-    this.serverUrlOverride()
 
     // Attach some global properties to the operation object to use
     // during processing
@@ -78,17 +76,6 @@ export default class Operation {
       }
     } else if (xGithub.subcategory) {
       this.subcategory = xGithub.subcategory
-    }
-  }
-
-  serverUrlOverride() {
-    // TODO - remove this once github pull #214649
-    // lands in this repo's lib/rest/static/dereferenced directory
-    if (
-      this.#operation['x-github'].subcategory &&
-      this.#operation['x-github'].subcategory === 'management-console'
-    ) {
-      this.serverUrl = this.serverUrl.replace('/api/v3', '')
     }
   }
 
@@ -165,55 +152,17 @@ export default class Operation {
 
   async renderBodyParameterDescriptions() {
     if (!this.#operation.requestBody) return []
+    // There is currently only one operation with more than one content type
+    // and the request body parameter types are the same for both.
+    // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
-    let bodyParamsObject = get(
-      this.#operation,
-      `requestBody.content.${contentType}.schema.properties`,
-      {}
-    )
-    let requiredParams = get(
-      this.#operation,
-      `requestBody.content.${contentType}.schema.required`,
-      []
-    )
-    const oneOfObject = get(
-      this.#operation,
-      `requestBody.content.${contentType}.schema.oneOf`,
-      undefined
-    )
-
-    // oneOf is an array of input parameter options, so we need to either
-    //  use the first option or munge the options together.
-    if (oneOfObject) {
-      const firstOneOfObject = oneOfObject[0]
-      const allOneOfAreObjects =
-        oneOfObject.filter((elem) => elem.type === 'object').length === oneOfObject.length
-
-      // TODO: Remove this check
-      // This operation shouldn't have a oneOf in this case, it needs to be
-      // removed from the schema in the openapi schema repo.
-      if (this.#operation.operationId === 'checks/create') {
-        delete bodyParamsObject.oneOf
-      } else if (allOneOfAreObjects) {
-        // When all of the oneOf objects have the `type: object` we
-        // need to display all of the parameters.
-        // This merges all of the properties and required values into the
-        // first requestBody object.
-        for (let i = 1; i < oneOfObject.length; i++) {
-          Object.assign(firstOneOfObject.properties, oneOfObject[i].properties)
-          requiredParams = firstOneOfObject.required.concat(oneOfObject[i].required)
-        }
-        bodyParamsObject = firstOneOfObject.properties
-      } else if (oneOfObject) {
-        // When a oneOf exists but the `type` differs, the case has historically
-        // been that the alternate option is an array, where the first option
-        // is the array as a property of the object. We need to ensure that the
-        // first option listed is the most comprehensive and preferred option.
-        bodyParamsObject = firstOneOfObject.properties
-        requiredParams = firstOneOfObject.required
-      }
+    const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
+    // TODO: Remove this check
+    if (this.#operation.operationId === 'checks/create') {
+      delete schema.oneOf
     }
-    this.bodyParameters = await getBodyParams(bodyParamsObject, requiredParams)
+
+    this.bodyParameters = isPlainObject(schema) ? await getBodyParams(schema, true) : []
   }
 
   async renderPreviewNotes() {
@@ -234,209 +183,5 @@ export default class Operation {
         return await renderContent(note)
       })
     )
-  }
-}
-
-// need to use this function recursively to get child and grandchild params
-async function getBodyParams(paramsObject, requiredParams) {
-  if (!isPlainObject(paramsObject)) return []
-
-  return Promise.all(
-    Object.keys(paramsObject).map(async (paramKey) => {
-      const param = paramsObject[paramKey]
-      param.name = paramKey
-      param.in = 'body'
-      param.rawType = param.type
-      // OpenAPI 3.0 only had a single value for `type`. OpenAPI 3.1
-      // will either be a single value or an array of values.
-      // This makes type an array regardless of how many values the array
-      // includes. This allows us to support 3.1 while remaining backwards
-      // compatible with 3.0.
-      if (!Array.isArray(param.type)) param.type = [param.type]
-      param.rawDescription = param.description
-
-      // Stores the types listed under the `Type` column in the `Parameters`
-      // table in the REST API docs. When the parameter contains oneOf
-      // there are multiple acceptable parameters that we should list.
-      const paramArray = []
-
-      const oneOfArray = param.oneOf
-      const isOneOfObjectOrArray = oneOfArray
-        ? oneOfArray.filter((elem) => elem.type !== 'object' || elem.type !== 'array')
-        : false
-
-      // When oneOf has the type array or object, the type is defined
-      // in a child object
-      if (oneOfArray && isOneOfObjectOrArray.length > 0) {
-        // Store the defined types
-        paramArray.push(oneOfArray.filter((elem) => elem.type).map((elem) => elem.type))
-
-        // If an object doesn't have a description, it is invalid
-        const oneOfArrayWithDescription = oneOfArray.filter((elem) => elem.description)
-
-        // Use the parent description when set, otherwise enumerate each
-        // description in the `Description` column of the `Parameters` table.
-        if (!param.description && oneOfArrayWithDescription.length > 1) {
-          param.description = oneOfArray
-            .filter((elem) => elem.description)
-            .map((elem) => `**Type ${elem.type}** - ${elem.description}`)
-            .join('\n\n')
-        } else if (!param.description && oneOfArrayWithDescription.length === 1) {
-          // When there is only on valid description, use that one.
-          param.description = oneOfArrayWithDescription[0].description
-        }
-      }
-
-      // Arrays require modifying the displayed type (e.g., array of strings)
-      if (param.type.includes('array')) {
-        if (param.items.type) paramArray.push(`array of ${param.items.type}s`)
-        if (param.items.oneOf) {
-          paramArray.push(param.items.oneOf.map((elem) => `array of ${elem.type}s`))
-        }
-        // push the remaining types in the param.type array
-        // that aren't type array
-        const remainingItems = [...param.type]
-        const indexOfArrayType = remainingItems.indexOf('array')
-        remainingItems.splice(indexOfArrayType, 1)
-        paramArray.push(...remainingItems)
-      } else if (param.type) {
-        paramArray.push(...param.type)
-      }
-      // Supports backwards compatibility for OpenAPI 3.0
-      // In 3.1 a nullable type is part of the param.type array and
-      // the property param.nullable does not exist.
-      if (param.nullable) paramArray.push('null')
-
-      param.type = paramArray.flat().join(' or ')
-      param.description = param.description || ''
-      const isRequired = requiredParams && requiredParams.includes(param.name)
-      param.isRequired = isRequired
-      param.description = await renderContent(param.description)
-      // there may be zero, one, or multiple object parameters that have children parameters
-      param.childParamsGroups = []
-      let childParamsGroup
-
-      // When additionalProperties is defined with a type of `object`
-      // the input parameter is a dictionary. This handles cases for
-      // a dictionary. We don't have any list cases yet, and when
-      // the type is `string` we don't need to render additional rows of
-      // parameters.
-      // https://swagger.io/docs/specification/data-models/dictionaries/
-
-      // This conditional accounts for additionalProperties of type object
-      // and [null, 'object']
-      if (
-        param.additionalProperties &&
-        (param.additionalProperties.type === 'object' ||
-          (Array.isArray(param.additionalProperties.type) &&
-            param.additionalProperties.type.includes('object')))
-      ) {
-        // Add the first element which will always be the user-defined key
-        slugger.reset()
-        const id = slugger.slug(`${param.name}-${param.type}`)
-        param.childParamsGroups.push({
-          parentName: param.name,
-          parentType: param.type,
-          id,
-          params: [
-            {
-              description: `<p>A user-defined key to represent an item in <code>${param.name}</code>.</p>`,
-              type: 'string',
-              name: 'key',
-              in: 'body',
-              rawType: 'string',
-              rawDescription: `A key to represent an item in ${param.name}.`,
-            },
-          ],
-        })
-
-        // Construct a new parameter using the child properties set in
-        // additionalProperties.
-        const newParam = param.additionalProperties
-        newParam.rawType = 'object'
-        newParam.name = 'key'
-        childParamsGroup = await getChildParamsGroup(newParam)
-      } else {
-        childParamsGroup = await getChildParamsGroup(param)
-      }
-
-      if (childParamsGroup && childParamsGroup.params.length) {
-        param.childParamsGroups.push(childParamsGroup)
-      }
-
-      // If the param is an object, it may have child object params that have child params :/
-      // Objects can potentially be null where the rawType is [ 'object', 'null' ].
-      if (
-        param.rawType === 'object' ||
-        (Array.isArray(param.rawType) && param.rawType.includes('object'))
-      ) {
-        param.childParamsGroups.push(
-          ...flatten(
-            childParamsGroup.params
-              .filter((param) => param.childParamsGroups.length)
-              .map((param) => param.childParamsGroups)
-          )
-        )
-      }
-
-      return param
-    })
-  )
-}
-
-async function getChildParamsGroup(param) {
-  // Only objects, arrays of objects, anyOf, allOf, and oneOf have child params.
-  // Objects can potentially be null where the rawType is [ 'object', 'null' ].
-  if (
-    !(
-      param.rawType === 'array' ||
-      (Array.isArray(param.rawType) && param.rawType.includes('array')) ||
-      param.rawType === 'object' ||
-      (Array.isArray(param.rawType) && param.rawType.includes('object')) ||
-      param.oneOf
-    )
-  )
-    return
-  if (
-    param.oneOf &&
-    !param.oneOf.filter((param) => param.type === 'object' || param.type === 'array')
-  )
-    return
-  if (param.items && param.items.type !== 'object') return
-
-  const childParamsObject =
-    param.rawType === 'array' || (Array.isArray(param.rawType) && param.rawType.includes('array'))
-      ? param.items.properties
-      : param.properties
-  const requiredParams =
-    param.rawType === 'array' || (Array.isArray(param.rawType) && param.rawType.includes('array'))
-      ? param.items.required
-      : param.required
-  const childParams = await getBodyParams(childParamsObject, requiredParams)
-
-  // adjust the type for easier readability in the child table
-  let parentType
-
-  if (param.rawType === 'array') {
-    parentType = 'items'
-  } else if (Array.isArray(param.rawType) && param.rawType.includes('array')) {
-    // handle the case where rawType is [ 'array', 'null' ]
-    parentType = 'items'
-  } else if (Array.isArray(param.rawType) && param.rawType.includes('object')) {
-    // handle the case where rawType is [ 'object', 'null' ]
-    parentType = 'object'
-  } else {
-    parentType = param.rawType
-  }
-
-  // add an ID to the child table so they can be linked to
-  slugger.reset()
-  const id = slugger.slug(`${param.name}-${parentType}`)
-
-  return {
-    parentName: param.name,
-    parentType,
-    id,
-    params: childParams,
   }
 }

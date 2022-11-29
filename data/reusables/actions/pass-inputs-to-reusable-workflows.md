@@ -6,13 +6,13 @@ jobs:
   call-workflow-passing-data:
     uses: octo-org/example-repo/.github/workflows/reusable-workflow.yml@main
     with:
-      username: mona
+      config-path: .github/labeler.yml
     secrets:
       envPAT: ${{ secrets.envPAT }}
 ```
 {% endraw %}
 
-{% if actions-inherit-secrets-reusable-workflows %}
+{% ifversion actions-inherit-secrets-reusable-workflows %}
 Workflows that call reusable workflows in the same organization or enterprise can use the `inherit` keyword to implicitly pass the secrets.
 
 {% raw %}
@@ -21,7 +21,7 @@ jobs:
   call-workflow-passing-data:
     uses: octo-org/example-repo/.github/workflows/reusable-workflow.yml@main
     with:
-      username: mona
+      config-path: .github/labeler.yml
     secrets: inherit
 ```
 {% endraw %}

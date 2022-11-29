@@ -1,4 +1,4 @@
-1. `cURL`を使って{% data variables.product.product_location %}にアップグレードパッケージをダウンロードしてください。
+1. Download the upgrade package to {% data variables.location.product_location %} using `curl `:
 ```shell
-admin@<em>HOSTNAME</em>:~$ curl -L -O <em>UPGRADE-PKG-URL</em>
+admin@HOSTNAME:~$ curl -L -O UPGRADE-PKG-URL
 ```

@@ -8,6 +8,7 @@ introLinks:
 featuredLinks:
   guides:
     - /actions/learn-github-actions
+    - /actions/examples
     - /actions/guides/about-continuous-integration
     - /actions/deployment/deploying-with-github-actions
     - /actions/guides/about-packaging-with-github-actions
@@ -19,19 +20,12 @@ featuredLinks:
   popular:
     - /actions/learn-github-actions/workflow-syntax-for-github-actions
     - /actions/learn-github-actions
+    - /actions/examples
     - /actions/learn-github-actions/events-that-trigger-workflows
     - /actions/learn-github-actions/contexts
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/environment-variables
     - /actions/security-guides/encrypted-secrets
-  videos:
-    - title: 'Inside GitHub: How we use GitHub Actions – Brian Douglas'
-      href: 'https://www.youtube-nocookie.com/embed/MW0V5Q9WJu4'
-    - title: Advanced GitHub Actions – Jennifer Schelkopf
-      href: 'https://www.youtube-nocookie.com/embed/wWOH44Lscoc'
-    - title: GitHub Actions in action – Karan MV
-      href: 'https://www.youtube-nocookie.com/embed/4SWO0Pc76CU'
-  videosHeading: GitHub Universe 2021 videos
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
@@ -50,6 +44,7 @@ versions:
 children:
   - /quickstart
   - /learn-github-actions
+  - /examples
   - /using-workflows
   - /using-jobs
   - /managing-workflow-runs
@@ -65,5 +60,11 @@ children:
   - /security-guides
   - /creating-actions
   - /guides
+ms.openlocfilehash: 4001c855ac5f80d36f93746693a247cdd15a1f60
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880654'
 ---
 

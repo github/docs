@@ -11,10 +11,12 @@ import { GHESReleaseNotesContextT } from './types'
 import { GHESReleaseNotePatch } from './GHESReleaseNotePatch'
 
 import styles from './PatchNotes.module.scss'
+import { PlainLink } from './PlainLink'
 
 type Props = {
   context: GHESReleaseNotesContextT
 }
+
 export function GHESReleaseNotes({ context }: Props) {
   const router = useRouter()
   const { currentProduct } = useMainContext()
@@ -28,7 +30,7 @@ export function GHESReleaseNotes({ context }: Props) {
             {currentVersion.planTitle} {currentVersion.currentRelease} release notes
           </h1>
         </div>
-        <MarkdownContent data-search="article-content">
+        <MarkdownContent data-search="article-body">
           {releaseNotes.map((patch) => {
             return (
               <GHESReleaseNotePatch
@@ -54,21 +56,29 @@ export function GHESReleaseNotes({ context }: Props) {
         )}
       >
         <nav className="height-full overflow-auto">
-          <MarkdownContent data-search="article-content">
+          <MarkdownContent>
             <ul className="list-style-none pl-0 text-bold">
               {releases.map((release) => {
                 const releaseLink = `/${router.locale}/${currentVersion.plan}@${release.version}/${currentProduct?.id}/release-notes`
 
+                // Use client-side router link component only if it's a supported release.
+                // Otherwise, it will trigger a NextJS data XHR fetch for releases
+                // that are deprecated when in fact you should load it regularly
+                // so it's read as a proxy from the archive.
+                const LinkComponent = currentVersion.releases.includes(release.version)
+                  ? Link
+                  : PlainLink
+
                 if (!release.patches || release.patches.length === 0) {
                   return (
                     <li key={release.version} className="border-bottom">
-                      <Link
+                      <LinkComponent
                         href={releaseLink}
                         className="Link--primary no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                       >
                         {release.version}
                         <LinkExternalIcon />
-                      </Link>
+                      </LinkComponent>
                     </li>
                   )
                 }
@@ -86,15 +96,16 @@ export function GHESReleaseNotes({ context }: Props) {
 
                 return (
                   <li key={release.version} className="border-bottom">
-                    <Link
+                    <LinkComponent
                       className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                       href={releaseLink}
                     >
                       {release.version}
                       <span className="color-fg-muted text-small text-normal mr-1">
-                        {release.patches.length} releases
+                        {release.patches.length}{' '}
+                        {release.patches.length === 1 ? 'release' : 'releases'}
                       </span>
-                    </Link>
+                    </LinkComponent>
                   </li>
                 )
               })}

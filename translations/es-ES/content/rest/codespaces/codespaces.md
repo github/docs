@@ -9,8 +9,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.codespaces.codespaces-api-beta-note %}
-
 ## About the Codespaces API
 
-La API de {% data variables.product.prodname_codespaces %} te permite administrar las {% data variables.product.prodname_codespaces %} utilizando la API de REST. Esta API se encuentra disponible para los usuarios autenticados y las Apps de OAuth, pero no para las GitHub Apps. Para obtener más información, consulta la sección "[{% data variables.product.prodname_codespaces %}](/codespaces)".
+The {% data variables.product.prodname_github_codespaces %} API enables you to manage {% data variables.product.prodname_codespaces %} using the REST API. This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %}. For more information, see "[{% data variables.product.prodname_codespaces %}](/codespaces)."

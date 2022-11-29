@@ -1,28 +1,33 @@
 ---
-title: Common validation errors when creating issue forms
-intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
+title: Issue フォームを作成するときの一般的な検証エラー
+intro: issue フォームを作成、保存、または表示すると、これらの一般的な検証エラーの一部が表示されることがあります。
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 55eae6e043f82bfbaa49f7af42e23e4cb56f0ee8
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147650342'
 ---
-
 <!--UI-LINK: We link to individual anchors within this file from the issue template editor when the given YAML error is thrown. Links to and anchors within this file should be preserved or should be updated in github/github if they are changed -->
 {% data reusables.community.issue-forms-beta %}
 
-## Required top level key `name` is missing
+## 必須の最上位レベルのキー `name` が欠落しています
 
-The template does not contain a `name` field, which means it is not clear what to call your issue template when giving users a list of options.
+テンプレートに `name` フィールドが含まれていません。つまり、ユーザーにオプションのリストを示すときに Issue テンプレートを呼び出す内容が明確ではありません。
 
-### サンプル
+### 例
 
 ```yaml
 description: "Thank you for reporting a bug!"
 ...
 ```
 
-The error can be fixed by adding `name` as a key.
+このエラーは、キーとして `name` を追加することで修正できます。
 
 ```yaml
 name: "Bug report"
@@ -30,13 +35,13 @@ description: "Thank you for reporting a bug!"
 ...
 ```
 
-## `key` must be a string
+## `key` は文字列である必要があります
 
-This error message means that a permitted key has been provided, but its value cannot be parsed as the data type is not supported.
+このエラー メッセージは、許可されたキーは指定されていますが、データの種類がサポートされていないため、その値を解析できないことを意味します。
 
-### サンプル
+### 例
 
-The `description` below is being parsed as a Boolean, but it should be a string.
+以下の `description` はブール値として解析されていますが、文字列である必要があります。
 
 ```yaml
 name: "Bug report"
@@ -44,7 +49,7 @@ description: true
 ...
 ```
 
-The error can be fixed by providing a string as the value. Strings may need to be wrapped in double quotes to be successfully parsed. For example, strings that contain `'` must be wrapped in double quotes.
+このエラーは、値として文字列を指定することで修正できます。 文字列を正しく解析するには、二重引用符で囲む必要がある場合があります。 たとえば、`'` を含む文字列は二重引用符で囲む必要があります。
 
 ```yaml
 name: "Bug report"
@@ -52,7 +57,7 @@ description: "true"
 ...
 ```
 
-Empty strings, or strings consisting of only whitespaces, are also not permissible when the field expects a string.
+空の文字列、または空白のみで構成される文字列は、フィールドで文字列が必要な場合にも許可されません。
 
 ```yaml
 name: ""
@@ -61,7 +66,7 @@ assignees: "      "
 ...
 ```
 
-The error can be fixed by correcting the value to be a non-empty string. If the field is not required, you should delete the key-value pair.
+このエラーは、値を空以外の文字列に修正することで修正できます。 フィールドが必要ない場合は、キーと値のペアを削除する必要があります。
 
 ```yaml
 name: "Bug Report"
@@ -69,11 +74,11 @@ description: "File a bug report"
 ...
 ```
 
-## `input` is not a permitted key
+## `input` が許可されているキーではありません
 
-An unexpected key was supplied at the top level of the template. For more information about which top-level keys are supported, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+テンプレートの最上位レベルで予期しないキーが指定されました。 サポートされている最上位レベルのキーの詳細については、「[Issue フォームの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)」を参照してください。
 
-### サンプル
+### 例
 
 ```yaml
 name: "Bug report"
@@ -81,26 +86,26 @@ hello: world
 ...
 ```
 
-The error can be fixed by removing the unexpected keys.
+このエラーは予期しないキーを削除することで修正できます。
 
 ```yaml
 name: "Bug report"
 ...
 ```
 
-## Forbidden keys
+## 禁止されているキー
 
-YAML parses certain strings as `Boolean` values. To avoid this, we have explicitly forbidden the usage of the following keys:
+YAML では特定の文字列を `Boolean` 値として解析します。 これを回避するために、次のキーの使用を明示的に禁止しています。
 
 `y`, `Y`, `yes`, `Yes`, `YES`, `n`, `N`, `no`, `No`, `NO`, `true`, `True`, `TRUE`, `false`, `False`, `FALSE`, `on`, `On`, `ON`, `off`, `Off`, `OFF`
 
-The error can be fixed by removing the forbidden keys.
+このエラーは、禁止されているキーを削除することで修正できます。
 
-## Body must contain at least one non-markdown field
+## 本文には、マークダウン以外のフィールドが少なくとも 1 つ含まれている必要があります
 
-Issue forms must accept user input, which means that at least one of its fields must contain a user input field. A `markdown` element is static text, so a `body` array cannot contain only `markdown` elements.
+Issue フォームではユーザー入力を受け入れる必要があります。つまり、そのフィールドの少なくとも 1 つにユーザー入力フィールドが含まれている必要があります。 `markdown` 要素は静的テキストであるため、`body` 配列に `markdown` 要素のみを含めることはできません。
 
-### サンプル
+### 例
 
 ```yaml
 name: "Bug report"
@@ -110,7 +115,7 @@ body:
     value: "Bugs are the worst!"
 ```
 
-The error can be fixed by adding non-markdown elements that accept user input.
+このエラーは、ユーザー入力を受け入れるマークダウン以外の要素を追加することで修正できます。
 
 ```yaml
 name: "Bug report"
@@ -123,11 +128,11 @@ body:
     label: "What's wrong?"
 ```
 
-## Body must have unique ids
+## 本文には一意の ID が必要です
 
-If using `id` attributes to distinguish multiple elements, each `id` attribute must be unique.
+`id` 属性を使用して複数の要素を区別する場合、各 `id` 属性は一意である必要があります。
 
-### サンプル
+### 例
 
 ```yaml
 name: "Bug report"
@@ -142,7 +147,7 @@ body:
     label: Last name
 ```
 
-The error can be fixed by changing the `id` for one of these inputs, so that every `input` field has a unique `id` attribute.
+このエラーは、これらの入力のいずれかの `id` を変更し、すべての `input` フィールドが一意の `id` 属性を持つように変更することで修正できます。
 
 ```yaml
 name: "Bug report"
@@ -157,11 +162,11 @@ body:
     label: Last name
 ```
 
-## Body must have unique labels
+## 本文には一意のラベルが必要です
 
-When there are multiple `body` elements that accept user input, the `label` attribute for each user input field must be unique.
+ユーザー入力を受け入れる `body` 要素が複数ある場合、各ユーザー入力フィールドの `label` 属性は一意である必要があります。
 
-### サンプル
+### 例
 
 ```yaml
 name: "Bug report"
@@ -174,7 +179,7 @@ body:
     label: Name
 ```
 
-The error can be fixed by changing the `label` attribute for one of the input fields to ensure that each `label` is unique.
+このエラーは、いずれかの入力フィールドの `label` 属性を変更し、各 `label` が必ず一意であるようにすることで、修正できます。
 
 ```yaml
 name: "Bug report"
@@ -187,7 +192,7 @@ body:
     label: Operating System
 ```
 
-Input fields can also be differentiated by their `id` attribute. If duplicate `label` attributes are required, you can supply at least one `id` to differentiate two elements with identical labels.
+入力フィールドは、`id` 属性によって区別することもできます。 重複する `label` 属性が必要な場合は、少なくとも 1 つの `id` を指定して、同じラベルを持つ 2 つの要素を区別できます。
 
 ```yaml
 name: "Bug report"
@@ -202,14 +207,14 @@ body:
     label: Name
 ```
 
-`id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
+`id` 属性は Issue 本文に表示されません。 結果の Issue のフィールドを区別する場合は、個別の `label` 属性を使用する必要があります。
 
 
-## Labels are too similar
+## ラベルが似すぎています
 
-Similar labels may be processed into identical references. If an `id` attribute is not provided for an `input`, the `label` attribute is used to generate a reference to the `input` field. To do this, we process the `label` by leveraging the Rails [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) method. In some cases, two labels that are distinct can be processed into the same parameterized string.
+似たようなラベルは同じ参照に処理される場合があります。 `id` 属性が `input` に対して指定されていない場合、`input` フィールドへの参照を生成するために `label` 属性が使用されます。 これを行うには、Rails の [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) メソッドを利用して `label` を処理します。 場合によっては、異なる 2 つのラベルを同じパラメーター化された文字列に処理できます。
 
-### サンプル
+### 例
 
 ```yaml
 name: "Bug report"
@@ -223,7 +228,7 @@ body:
     label: Name???????
 ```
 
-The error can be fixed by adding at least one differentiating alphanumeric character, `-`, or `_` to one of the clashing labels.
+このエラーは、少なくとも 1 つの差別化英数字、`-`、または `_` を競合するラベルのいずれかに追加することで修正できます。
 
 ```yaml
 name: "Bug report"
@@ -236,7 +241,7 @@ body:
     label: Your name
 ```
 
-The error can also be fixed by giving one of the clashing labels a unique `id`.
+このエラーは、競合するラベルのいずれかに一意の `id` を付けることで修正することもできます。
 
 ```yaml
 name: "Bug report"
@@ -250,11 +255,11 @@ body:
     label: Name???????
 ```
 
-## Checkboxes must have unique labels
+## checkboxes には一意のラベルが必要です
 
-When a `checkboxes` element is present, each of its nested labels must be unique among its peers, as well as among other input types.
+`checkboxes` 要素が存在する場合、その入れ子になった各ラベルは、そのピアと他の入力の種類の間で一意である必要があります。
 
-### サンプル
+### 例
 
 ```yaml
 name: "Bug report"
@@ -268,7 +273,7 @@ body:
     - label: Name
 ```
 
-The error can be fixed by changing the `label` attribute for one of these inputs.
+このエラーは、これらの入力のいずれかの `label` 属性を変更することで修正できます。
 
 ```yaml
 name: "Bug report"
@@ -282,7 +287,7 @@ body:
     - label: Your name
 ```
 
-Alternatively, you can supply an `id` to any clashing top-level elements. Nested checkbox elements do not support the `id` attribute.
+または、競合する最上位レベルの要素に対して `id` を指定することもできます。 入れ子になった checkbox 要素では `id` 属性はサポートされていません。
 
 ```yaml
 name: "Bug report"
@@ -297,98 +302,92 @@ body:
     - label: Name
 ```
 
-`id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
+`id` 属性は Issue 本文に表示されません。 結果の Issue のフィールドを区別する場合は、個別の `label` 属性を使用する必要があります。
 
-## Body[i]: required key type is missing
+## Body[i]: 必須のキーの種類が欠落しています
 
-Each body block must contain the key `type`.
+各本文ブロックにはキー `type` が含まれている必要があります。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the zero-indexed index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのゼロから始まるインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
 ```yaml
 body:
 - attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
-The error can be fixed by adding the key `type` with a valid input type as the value. For the available `body` input types and their syntaxes, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
+このエラーは、値として入力の種類が有効な `type` を追加することで修正できます。 使用可能な `body` の入力の種類とその構文については、「[{% data variables.product.prodname_dotcom %} のフォーム スキーマの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)」を参照してください。
 
 ```yaml
 body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
-## Body[i]: `x` is not a valid input type
+## Body[i]: `x` が有効な入力の種類ではありません
 
-One of the body blocks contains a type value that is not one of the [permitted types](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
+本体ブロックの 1 つに、[許可されている種類](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)の 1 つではない種類の値が含まれています。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
 ```yaml
 body:
 - type: x
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
-The error can be fixed by changing `x` to one of the valid types.
+エラーは、`x` を有効な種類のいずれかに変更することで修正できます。
 
 ```yaml
 body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
-## Body[i]: required attribute key `value` is missing
+## Body[i]: 必須の属性キー `value` が欠落しています
 
-One of the required `value` attributes has not been provided. The error occurs when a block does not have an `attributes` key or does not have a `value` key under the `attributes` key.
+必須の `value` 属性の 1 つが指定されていません。 このエラーは、ブロックに `attributes` キーがない場合、または `attributes` キーの下に `value` キーがない場合に発生します。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
 ```yaml
 body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 - type: markdown
 ```
 
-The error in this example can be fixed by adding `value` as a key under `attributes` in the second list element of `body`.
+この例のエラーは、`body` の 2 番目のリスト要素の `attributes` の下にキーとして `value` を追加することで修正できます。
 
 ```yaml
 body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 - type: markdown
   attributes:
     value: "This is working now!"
 ```
 
-## Body[i]: label must be a string
+## Body[i]: ラベルは文字列である必要があります
 
-Within its `attributes` block, a value has the wrong data type.
+その `attributes` ブロック内で、値のデータ型が間違っています。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
-The `label` below is being parsed as a Boolean, but it should be a string.
+以下の `label` はブール値として解析されていますが、文字列である必要があります。
 
 
 ```yaml
@@ -404,7 +403,7 @@ body:
     label: true
 ```
 
-The error can be fixed by supplying a string value for `label`. If you want to use a `label` value that may be parsed as a Boolean, integer, or decimal, you should wrap the value in quotes. For example, `"true"` or `"1.3"` instead of `true` or `1.3`.
+このエラーは、`label` に対して文字列値を指定することで修正できます。 ブール値、整数、または 10 進数として解析できる `label` 値を使用する場合は、その値を引用符で囲む必要があります。 たとえば、`true` や `1.3` ではなく、`"true"` や `"1.3"` とします。
 
 ```yaml
 - type: markdown
@@ -418,9 +417,9 @@ The error can be fixed by supplying a string value for `label`. If you want to u
     label: Environment Details
 ```
 
-Empty strings, or strings consisting of only whitespaces, are not permissible when an attribute expects a string. For example, `""` or `"     "` are not allowed.
+空の文字列、または空白のみで構成される文字列は、属性で文字列が必要な場合に許可されません。 たとえば、`""` や `"     "` は許可されません。
 
-If the attribute is required, the value must be a non-empty string. If the field is not required, you should delete the key-value pair.
+属性が必要な場合、値は空ではない文字列である必要があります。 フィールドが必要ない場合は、キーと値のペアを削除する必要があります。
 
 ```yaml
 body:
@@ -429,13 +428,13 @@ body:
     label: "Name"
 ```
 
-## Body[i]: `id` can only contain numbers, letters, -, _
+## Body[i]: `id` に含めることができるのは数字、文字、-、_ のみです
 
-`id` attributes can only contain alphanumeric characters, `-`, and `_`. Your template may include non-permitted characters, such as whitespace, in an `id`.
+`id` 属性に含めることができるのは、英数字、`-`、および `_` のみです。 テンプレートの `id` には、空白などの許可されていない文字が含まれる場合があります。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
 ```yaml
 name: "Bug report"
@@ -446,7 +445,7 @@ body:
     label: First name
 ```
 
-The error can be fixed by ensuring that whitespaces and other non-permitted characters are removed from `id` values.
+空白やその他の許可されていない文字が確実に `id` 値から削除されるようにすることで、このエラーを修正できます。
 
 ```yaml
 name: "Bug report"
@@ -457,13 +456,13 @@ body:
     label: First name
 ```
 
-## Body[i]: `x` is not a permitted key
+## Body[i]: `x` は許可されているキーではありません
 
-An unexpected key, `x`, was provided at the same indentation level as `type` and `attributes`.
+予期しないキー `x` が、`type` および `attributes` と同じインデント レベルで指定されました。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
 ```yaml
 body:
@@ -473,7 +472,7 @@ body:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-The error can be fixed by removing extra keys and only using `type`, `attributes`, and `id`.
+このエラーは、余分なキーを削除し、`type`、`attributes`、および `id` のみを使用することで修正できます。
 
 ```yaml
 body:
@@ -482,13 +481,13 @@ body:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-## Body[i]: `label` contains forbidden word
+## Body[i]: `label` に禁止された単語が含まれています
 
-To minimize the risk of private information and credentials being posted publicly in GitHub Issues, some words commonly used by attackers are not permitted in the `label` of input or textarea elements.
+GitHub Issues で個人情報と資格情報が公開されるリスクを最小限に抑えるために、攻撃者が一般的に使用する一部の単語は、入力や textarea 要素の `label` では許可されません。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
 ```yaml
 body:
@@ -500,7 +499,7 @@ body:
     label: Password
 ```
 
-The error can be fixed by removing terms like "password" from any `label` fields.
+このエラーは、すべての `label` フィールドから "password" のような用語を削除することで修正できます。
 
 ```yaml
 body:
@@ -512,13 +511,13 @@ body:
     label: Username
 ```
 
-## Body[i]: `x` is not a permitted attribute
+## Body[i]: `x` は許可されている属性ではありません
 
-An invalid key has been supplied in an `attributes` block.
+無効なキーが `attributes` ブロックに指定されています。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
 ```yaml
 body:
@@ -528,7 +527,7 @@ body:
     value: "Thanks for taking the time to fill out this bug!"
 ```
 
-The error can be fixed by removing extra keys and only using permitted attributes.
+このエラーは、余分なキーを削除し、許可されている属性のみを使用することで修正できます。
 
 ```yaml
 body:
@@ -537,15 +536,15 @@ body:
     value: "Thanks for taking the time to fill out this bug!"
 ```
 
-## Body[i]: `options` must be unique
+## Body[i]: `options` は一意である必要があります
 
-For checkboxes and dropdown input types, the choices defined in the `options` array must be unique.
+checkboxes とドロップダウン入力の種類の場合、`options` 配列で定義されている選択肢は一意である必要があります。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -556,9 +555,9 @@ body:
       - pie
 ```
 
-The error can be fixed by ensuring that no duplicate choices exist in the `options` array.
+`options` 配列に重複する選択肢が確実に存在しないようにすることで、エラーを修正できます。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -568,15 +567,15 @@ body:
       - pie
 ```
 
-## Body[i]: `options` must not include the reserved word, none
+## Body[i]: `options` に予約語 none を含めることはできません
 
-"None" is a reserved word in an `options` set because it is used to indicate non-choice when a `dropdown` is not required.
+"None" は `options` セット内の予約語です。これは、`dropdown` が不要な場合に非選択を示すために使用されるためです。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -589,9 +588,9 @@ body:
     required: true
 ```
 
-The error can be fixed by removing "None" as an option. If you want a contributor to be able to indicate that they like none of those types of pies, you can additionally remove the `required` validation.
+このエラーは、オプションとして "None" を削除することで修正できます。 コントリビューターがこのような種類のいずれのパイも好みでないことを示せるようにする場合は、さらに `required` 検証を削除できます。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -601,17 +600,17 @@ body:
       - Chicken & Leek
 ```
 
-In this example, "None" will be auto-populated as a selectable option.
+この例では、選択可能なオプションとして "None" が自動的に設定されます。
 
-## Body[i]: `options` must not include booleans. Please wrap values such as 'yes', and 'true' in quotes
+## Body[i]: `options` にブール値を含めることはできません。 'yes' や 'true' など、値を引用符で囲んでください
 
-There are a number of English words that become processed into Boolean values by the YAML parser unless they are wrapped in quotes. For dropdown `options`, all items must be strings rather than Booleans.
+引用符で囲まれている場合を除き、YAML パーサーによってブール値に処理されるようになる英単語がいくつかあります。 ドロップダウンの `options` の場合、すべての項目はブール値ではなく文字列である必要があります。
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+`body` に関するエラーの先頭には `body[i]` があります。ここで `i` は、エラーを含む本文ブロックのインデックスを表します。 たとえば、`body[0]` は、`body` リストの最初のブロックが原因でエラーが発生したことを示します。
 
-### サンプル
+### 例
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -622,9 +621,9 @@ body:
       - Maybe
 ```
 
-The error can be fixed by wrapping each offending option in quotes, to prevent them from being processed as Boolean values.
+問題のある各オプションを引用符で囲んで、ブール値として処理されないようにすることで、このエラーを修正できます。
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -635,7 +634,37 @@ body:
       - Maybe
 ```
 
-## 参考リンク
+## 本体を空にすることはできない
+
+テンプレート本体の `key:value` のペアを空にすることはできません。 必要な最上位レベルのキーについて詳しくは、「[Issue フォームの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)」をご覧ください。
+
+このエラーは、`body:` セクションを追加することで修正できます。
+
+### 例
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+この例では、ヘッダーと `body` セクションの間の `---` (ドキュメント区切り記号) を削除することで、エラーを修正できます。
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+## 参考資料
 
 - [YAML](https://yaml.org/)
 - [Issue フォームの構文](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)

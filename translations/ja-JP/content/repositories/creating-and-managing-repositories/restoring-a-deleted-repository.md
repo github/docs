@@ -1,6 +1,7 @@
 ---
-title: 削除したリポジトリの復元
-intro: 削除したリポジトリの一部を復元して、内容を回復することができます。
+title: Restoring a deleted repository
+intro: '{% ifversion ghes or ghae %}An enterprise owner{% elsif fpt or ghec %}You{% endif %} can restore some deleted repositories to recover their contents.'
+permissions: '{% ifversion ghes or ghae %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
 redirect_from:
   - /articles/restoring-a-deleted-repository
   - /github/administering-a-repository/restoring-a-deleted-repository
@@ -15,18 +16,21 @@ topics:
 shortTitle: Restore deleted repository
 ---
 
-{% ifversion fpt or ghec %}
-Anyone can restore deleted repositories that were owned by their own personal account. Organizationのオーナーは、そのOrganizationが所有していて削除したリポジトリを復元できます。
+{% ifversion ghes or ghae %}
 
-## リポジトリの復元について
+Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.location.product_location %}{% endif %}. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." 
 
-A deleted repository can be restored within {% ifversion fpt or ghec or ghes > 3.4 %}30{% else %}90{% endif %} days, unless the repository was part of a fork network that is not currently empty. フォークネットワークは、親リポジトリ、リポジトリのフォーク、リポジトリのフォークのフォークで構成されます。 リポジトリがフォークネットワークの一部だった場合は、ネットワークの他のリポジトリすべてが削除されるか、ネットワークから切り離されていない限り、復元できません。 フォークに関する詳細は「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」を参照してください。
+{% else %}
 
-現在空ではないフォークネットワークの一部だったリポジトリを復元したい場合は、{% data variables.contact.contact_support %}にお問い合わせください。
+## About repository restoration
 
-削除したリポジトリが復元できるようになるまでには、最大で1時間かかる場合があります。
+A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
-リポジトリを復元しても、リリース添付ファイルやチーム権限は復元されません。 復元された Issue はラベル付けされません。
+If you want to restore a repository that was part of a fork network that is not currently empty, you can contact {% data variables.contact.contact_support %}.
+
+It can take up to an hour after a repository is deleted before that repository is available for restoration.
+
+Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
 
 ## Restoring a deleted repository that was owned by a personal account
 
@@ -36,7 +40,7 @@ A deleted repository can be restored within {% ifversion fpt or ghec or ghes > 3
 {% data reusables.user-settings.restore-repo %}
 {% data reusables.user-settings.restore-confirmation %}
 
-## Organizationが所有していて削除したリポジトリを復元する
+## Restoring a deleted repository that was owned by an organization
 
 
 {% data reusables.profile.access_org %}
@@ -45,10 +49,8 @@ A deleted repository can be restored within {% ifversion fpt or ghec or ghes > 3
 {% data reusables.user-settings.restore-repo %}
 {% data reusables.user-settings.restore-confirmation %}
 
-## 参考リンク
+## Further reading
 
-- 「[リポジトリを削除する](/articles/deleting-a-repository)」
+- "[Deleting a repository](/articles/deleting-a-repository)"
 
-{% else %}
-Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. 詳しい情報については、「[削除されたリポジトリを復元する](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)」を参照してください。
 {% endif %}

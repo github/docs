@@ -16,7 +16,10 @@ topics:
   - SSH
 shortTitle: SSH key passphrases
 ---
-With SSH keys, if someone gains access to your computer, they also gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. You can use `ssh-agent` to securely save your passphrase so you don't have to reenter it.
+
+## About passphrases for SSH keys
+
+With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent.
 
 ## Adding or changing a passphrase
 
@@ -24,10 +27,10 @@ You can change the passphrase for an existing private key without regenerating t
 
 ```shell
 $ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
-> Enter old passphrase: <em>[Type old passphrase]</em>
-> Key has comment '<em>your_email@example.com</em>'
-> Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
+> Enter old passphrase: [Type old passphrase]
+> Key has comment 'your_email@example.com'
+> Enter new passphrase (empty for no passphrase): [Type new passphrase]
+> Enter same passphrase again: [Repeat the new passphrase]
 > Your identification has been saved with the new passphrase.
 ```
 
@@ -76,9 +79,9 @@ Now, when you first run Git Bash, you are prompted for your passphrase:
 ```shell
 > Initializing new SSH agent...
 > succeeded
-> Enter passphrase for /c/Users/<em>you</em>/.ssh/id_rsa:
-> Identity added: /c/Users/<em>you</em>/.ssh/id_rsa (/c/Users/<em>you</em>/.ssh/id_rsa)
-> Welcome to Git (version <em>1.6.0.2-preview20080923</em>)
+> Enter passphrase for /c/Users/YOU/.ssh/id_rsa:
+> Identity added: /c/Users/YOU/.ssh/id_rsa (/c/Users/YOU/.ssh/id_rsa)
+> Welcome to Git (version 1.6.0.2-preview20080923)
 >
 > Run 'git help git' to display the help index.
 > Run 'git help <command>' to display help for specific commands.
@@ -102,7 +105,3 @@ The first time you use your key, you will be prompted to enter your passphrase. 
 Otherwise, you can store your passphrase in the keychain when you add your key to the ssh-agent. For more information, see "[Adding your SSH key to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% endmac %}
-
-## Further reading
-
-- "[About SSH](/articles/about-ssh)"

@@ -1,6 +1,6 @@
 ---
-title: 疑难解答
-intro: 学习如何解决用户在 REST API 中遇到的最常见问题。
+title: Troubleshooting
+intro: Learn how to resolve the most common problems people encounter in the REST API.
 redirect_from:
   - /v3/troubleshooting
 versions:
@@ -14,59 +14,58 @@ topics:
 
 
 
-您在 API 中可能会遇到一些奇怪的问题，下面列出一些您可能会经历的问题的解决方案。
+If you're encountering some oddities in the API, here's a list of resolutions to
+some of the problems you may be experiencing.
 
-## 现有仓库的 `404` 错误
+## `404` error for an existing repository
 
-一般来说，我们发送 `404` 错误的原因是您的客户端没有正确通过身份验证。 您可能预期在这些情况下会看到 `403 Forbidden`。 但是，由于我们不希望提供有关私有仓库的_任何_信息，因此 API 会返回 `404` 错误。
+Typically, we send a `404` error when your client isn't properly authenticated.
+You might expect to see a `403 Forbidden` in these cases. However, since we don't
+want to provide _any_ information about private repositories, the API returns a
+`404` error instead.
 
-要解决问题，请确保[您正确通过身份验证](/guides/getting-started/)，[您的 OAuth 访问令牌具有所需的作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)，[第三方应用程序限制][oap-guide]不会阻止您访问，并且[令牌未到期或被撤销](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)。
+To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
-## 并非所有结果都返回
+## Not all results returned
 
-大多数访问资源列表（_例如_，用户、议题_等_）的 API 调用都支持分页。 如果您发出了请求但收到了不完整的结果集，您可能只看到第一页。 您需要请求剩余的页面以获取更多结果。
+Most API calls accessing a list of resources (_e.g._, users, issues, _etc._) support
+pagination. If you're making requests and receiving an incomplete set of results, you're
+probably only seeing the first page. You'll need to request the remaining pages
+in order to get more results.
 
-*切勿*尝试和猜测分页 URL 的格式。 并非每个 API 调用都使用相同的结构。 您应该从随每个请求一起发送的[链接标头](/rest#pagination)中提取分页信息。
+It's important to *not* try and guess the format of the pagination URL. Not every
+API call uses the same structure. Instead, extract the pagination information from
+[the Link Header](/rest#pagination), which is sent with every request.
+
+[oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
 {% ifversion fpt or ghec %}
-## 基本身份验证错误
+## Basic authentication errors
 
-从 2020 年 11 月 13 日起，REST API 和 OAuth 授权 API 的用户名和密码身份验证被弃用，不再有效。
+On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.
 
-### 使用 `username`/`password` 进行基本身份验证
+### Using `username`/`password` for basic authentication
 
-如果您对 API 调用使用 `username` 和 `password`，则它们无法再进行身份验证。 例如：
+If you're using `username` and `password` for API calls, then they are no longer able to authenticate. For example:
 
 ```bash
 curl -u my_user:my_password https://api.github.com/user/repos
 ```
 
-相反，在测试端点或进行本地开发时使用[个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)：
+Instead, use a [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
-对于 OAuth 应用程序，您应该使用 [web 应用程序流程](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)生成 OAuth 令牌以用于 API 调用的标头：
+For OAuth Apps, you should use the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
-### 调用 OAuth 授权 API
+## Timeouts
 
-如果要调用 [OAuth 授权 API](/enterprise-server/rest/reference/oauth-authorizations) 来管理 OAuth 应用的授权或生成访问令牌，类似于以下示例：
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-然后您必须切换到 [web 应用程序流程](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)来生成访问令牌。
-
-## 超时
-
-如果  {% data variables.product.product_name %} 需要超过 10 秒来处理一个 API 请求， {% data variables.product.product_name %} 将会终止请求，并且您将收到超时响应。
+If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
 
 {% endif %}
-
-[oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/

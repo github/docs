@@ -1,6 +1,14 @@
-You can specify a single variable to create a single-dimension matrix.
+---
+ms.openlocfilehash: 00fcbabef5e440a27a495ab562cf7ccc43a7e030
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145094342"
+---
+Você pode especificar uma única variável para criar uma matriz unidimensional.
 
-For example, the following workflow defines the variable `version` with the values `[10, 12, 14]`. The workflow will run three jobs, one for each value in the variable. Each job will access the `version` value through the `matrix.version` context and pass the value as `node-version` to the `actions/setup-node` action.
+Por exemplo, o fluxo de trabalho a seguir define a variável `version` com os valores `[10, 12, 14]`. O fluxo de trabalho executará três trabalhos, um para cada valor na variável. Cada trabalho acessará o valor `version` por meio do contexto `matrix.version` e passará o valor como `node-version` à ação `actions/setup-node`.
 
 ```yaml
 jobs:

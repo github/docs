@@ -1,41 +1,47 @@
 ---
-title: Adding an existing project to GitHub using GitHub Desktop
-intro: 'You can add an existing Git repository to {% data variables.product.prodname_dotcom %} using {% data variables.product.prodname_desktop %}.'
+title: GitHub Desktopを介してのGitHubへの既存プロジェクト追加
+intro: '{% data variables.product.prodname_desktop %}を使用して、{% data variables.product.prodname_dotcom %}に既存のGitリポジトリを追加できます。'
 redirect_from:
   - /desktop/contributing-to-projects/adding-an-existing-project-to-github-using-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/adding-an-existing-project-to-github-using-github-desktop
 versions:
   fpt: '*'
 shortTitle: Add an existing project
+ms.openlocfilehash: 99e220467281b3132476638b9b685dfdb99cf95f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145090160'
 ---
 {% mac %}
 
 {% data reusables.git.remove-git-remote %}
-2. [Add the repository to GitHub Desktop](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop/).
+2. [GitHub Desktop にリポジトリを追加します](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop/)。
 {% data reusables.desktop.publish-repository %}
-4. Type the desired name of the repository in the **Name** field or use the default current local repository name.
-  ![The Name field](/assets/images/help/desktop/publish-repository-name-mac.png)
-5. To publish a public repository, unselect **Keep this code private**.
-  ![Keep this code private checkbox](/assets/images/help/desktop/publish-repository-private-checkbox-mac.png)
-6. Choose the organization in the **Organization** drop-down where you want to publish the repository, or select **None** to publish the repository to your personal account.
-  ![Organization drop-down](/assets/images/help/desktop/publish-repository-org-dropdown-mac.png)
-7. Click the **Publish Repository** button.
-  ![The Publish repository button in the Publish Repository dialog](/assets/images/help/desktop/publish-repository-dialog-button-mac.png)
+4. **"名前"** フィールドに希望のリポジトリ名を入力するか、現在のデフォルトのローカル リポジトリ名を使用します。
+  !["名前" フィールド](/assets/images/help/desktop/publish-repository-name-mac.png)
+5. パブリック リポジトリを公開するには、 **[このコードを非公開のままにする]** を選択解除します。
+  ![[このコードを非公開のままにする] チェックボックス](/assets/images/help/desktop/publish-repository-private-checkbox-mac.png)
+6. **[Organization]** ドロップダウンで、リポジトリを公開する Organization を選択します。または、 **[なし]** を選択して、リポジトリを個人アカウントに公開します。
+  ![[Organization] ドロップダウン](/assets/images/help/desktop/publish-repository-org-dropdown-mac.png)
+7. **[リポジトリの公開]** ボタンをクリックします。
+  ![[リポジトリの公開] ダイアログ内にある [リポジトリの公開] ボタン](/assets/images/help/desktop/publish-repository-dialog-button-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.git.remove-git-remote %}
-2. [Add the repository to GitHub Desktop](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop/).
+2. [GitHub Desktop にリポジトリを追加します](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop/)。
 {% data reusables.desktop.publish-repository %}
-4. Type the desired name of the repository in the **Name** field or use the default current local repository name.
-  ![The Name field](/assets/images/help/desktop/publish-repository-name-win.png)
-5. To publish a public repository, unselect **Keep this code private**.
-  ![Keep this code private checkbox](/assets/images/help/desktop/publish-repository-private-checkbox-win.png)
-6. Choose the organization in the **Organization** drop-down where you want to publish the repository, or select **None** to publish the repository to your personal account.
-  ![Organization drop-down](/assets/images/help/desktop/publish-repository-org-dropdown-win.png)
-7. Click the **Publish repository** button.
-  ![The Publish repository button in the Publish repository dialog](/assets/images/help/desktop/publish-repository-dialog-button-win.png)
+4. **"名前"** フィールドに希望のリポジトリ名を入力するか、現在のデフォルトのローカル リポジトリ名を使用します。
+  !["名前" フィールド](/assets/images/help/desktop/publish-repository-name-win.png)
+5. パブリック リポジトリを公開するには、 **[このコードを非公開のままにする]** を選択解除します。
+  ![[このコードを非公開のままにする] チェックボックス](/assets/images/help/desktop/publish-repository-private-checkbox-win.png)
+6. **[Organization]** ドロップダウンで、リポジトリを公開する Organization を選択します。または、 **[なし]** を選択して、リポジトリを個人アカウントに公開します。
+  ![[Organization] ドロップダウン](/assets/images/help/desktop/publish-repository-org-dropdown-win.png)
+7. **[リポジトリの公開]** ボタンをクリックします。
+  ![[リポジトリの公開] ダイアログ内にある [リポジトリの公開] ボタン](/assets/images/help/desktop/publish-repository-dialog-button-win.png)
 
 {% endwindows %}

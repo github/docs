@@ -7,20 +7,35 @@
 //
 // NOTE: This middleware is intended to be removed once testing is complete!
 //
-export default function fastlyCacheTest(req, res, next) {
+import express from 'express'
+import crypto from 'crypto'
+
+const router = express.Router()
+
+router.get('/*', function (req, res) {
   // If X-CacheTest-Error is set, simulate the site being down (regardless of URL)
   if (req.get('X-CacheTest-Error')) {
     res.status(parseInt(req.get('X-CacheTest-Error'))).end()
     return
   }
 
+  const cacheControlModeParam = req.get('X-CacheTest-CCMode') ?? 'none'
   const staleIfErrorParam = req.get('X-CacheTest-StaleIfError') ?? '300'
   const staleWhileRevalidateParam = req.get('X-CacheTest-StaleWhileRevalidate') ?? '60'
+  const maxAgeParam = req.get('X-CacheTest-MaxAge') ?? '300'
 
   const path = req.params[0]
 
+  const content = `<html>
+  <body>
+    <p>Timestamp: ${new Date()}</p>
+  </body>
+</html>`
+
   let status = 200
   const surrogateControlValues = []
+
+  if (path.includes('max-age')) surrogateControlValues.push(`max-age=${maxAgeParam}`)
 
   if (path.includes('must-revalidate')) surrogateControlValues.push('must-revalidate')
   if (path.includes('no-cache')) surrogateControlValues.push('no-cache')
@@ -38,6 +53,12 @@ export default function fastlyCacheTest(req, res, next) {
     res.removeHeader('Set-Cookie')
   }
 
+  if (path.includes('etag')) {
+    res.set({
+      ETag: `"${crypto.createHash('md5').update(content).digest('hex')}"`,
+    })
+  }
+
   if (path.includes('error500')) {
     status = 500
   } else if (path.includes('error502')) {
@@ -49,16 +70,31 @@ export default function fastlyCacheTest(req, res, next) {
   }
 
   if (surrogateControlValues.length > 0) {
-    res.set({
-      'surrogate-control': surrogateControlValues.join(', '),
-    })
+    switch (cacheControlModeParam) {
+      case 'none':
+        res.set({
+          'surrogate-control': surrogateControlValues.join(', '),
+        })
+        break
+
+      case 'both':
+        res.set({
+          'surrogate-control': surrogateControlValues.join(', '),
+          'cache-control': surrogateControlValues.join(', ').replace('max-age', 's-maxage'),
+        })
+        break
+
+      case 'only':
+        res.set({
+          'cache-control': surrogateControlValues.join(', ').replace('max-age', 's-maxage'),
+        })
+        break
+    }
   }
 
   res.status(status)
-  res.send(`<html>
-  <body>
-    <p>Timestamp: ${new Date()}</p>
-  </body>
-</html>`)
+  res.send(content)
   res.end()
-}
+})
+
+export default router

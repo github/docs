@@ -11,9 +11,14 @@ versions:
 type: overview
 topics:
   - Sponsors
-shortTitle: 关于计费
+shortTitle: About billing
+ms.openlocfilehash: 478b0bc1836cd234ffa32aba4a03b823b0c20663
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084502'
 ---
-
 {% data reusables.sponsors.sponsorship-details %}
 
 {% data reusables.sponsors.no-fees %}
@@ -24,5 +29,5 @@ shortTitle: 关于计费
 
 ## 延伸阅读
 
-- "[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
-- "[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors)"
+- “[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”
+- “[赞助开放源代码参与者](/sponsors/sponsoring-open-source-contributors)”

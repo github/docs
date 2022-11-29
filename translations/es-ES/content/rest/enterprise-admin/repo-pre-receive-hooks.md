@@ -9,14 +9,16 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-### Atributos de objeto
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-| Nombre              | Tipo        | Descripción                                               |
-| ------------------- | ----------- | --------------------------------------------------------- |
-| `name (nombre)`     | `secuencia` | El nombre del gancho.                                     |
-| `enforcement`       | `secuencia` | El estado de imposición del gancho en este repositorio.   |
-| `configuration_url` | `secuencia` | URL para la terminal en donde se configuró la imposición. |
+### Object attributes
 
-Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. El valor `disabled` indica que el gancho de pre-recepción no se ejecutará. El valor `enabled` indica que se ejecutará y rechazará cualquier carga que resulte en un estado diferente a zero. El valor `testing` indica que el script va a ejecutarse pero no va a causar que se rechace ninguna carga.
+| Name                | Type     | Description                                               |
+|---------------------|----------|-----------------------------------------------------------|
+| `name`              | `string` | The name of the hook.                                     |
+| `enforcement`       | `string` | The state of enforcement for the hook on this repository. |
+| `configuration_url` | `string` | URL for the endpoint where enforcement is set.            |
 
-`configuration_url` podría ser un enlace a este repositorio, al propietario de su organización o a su configuración global. La autorización para acceder a esta terminal en `configuration_url` se determina a nivel de administrador de sitio o de propietario.
+Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+
+`configuration_url` may be a link to this repository, it's organization owner or global configuration. Authorization to access the endpoint at `configuration_url` is determined at the owner or site admin level.

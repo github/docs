@@ -16,19 +16,6 @@ topics:
 
 This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
 
-## Current version
-
-By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/developers/overview/about-githubs-apis) of the REST API.
-We encourage you to [explicitly request this version via the `Accept` header](/rest/overview/media-types#request-specific-version).
-
-    Accept: application/vnd.github.v3+json
-
-{% ifversion fpt or ghec %}
-
-For information about GitHub's GraphQL API, see the [v4 documentation]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql). For information about migrating to GraphQL, see "[Migrating from REST]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)."
-
-{% endif %}
-
 ## Schema
 
 {% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
@@ -104,12 +91,18 @@ $ curl -u "username" {% data variables.product.api_url_pre %}
 ### OAuth2 token (sent in a header)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
+$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
 
 Note: GitHub recommends sending OAuth tokens using the Authorization header.
+
+{% endnote %}
+
+{% note %}
+
+**Note:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
@@ -157,7 +150,7 @@ the API will temporarily reject all authentication attempts for that user
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
--u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
+-u VALID_USERNAME:VALID_TOKEN {% endif %}{% ifversion ghes %}-u VALID_USERNAME:VALID_PASSWORD {% endif %}
 > HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
@@ -192,12 +185,12 @@ You can issue a `GET` request to the root endpoint to get all the endpoint categ
 
 ```shell
 $ curl {% ifversion fpt or ghae or ghec %}
--u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+-u USERNAME:TOKEN {% endif %}{% ifversion ghes %}-u USERNAME:PASSWORD {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 ## GraphQL global node IDs
 
-See the guide on "[Using Global Node IDs]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ## Client errors
 
@@ -253,7 +246,7 @@ Resources may also send custom validation errors (where `code` is `custom`). Cus
 
 ## HTTP redirects
 
-API v3 uses HTTP redirection where appropriate. Clients should assume that any
+The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
 request may result in a redirection. Receiving an HTTP redirection is *not* an
 error and clients should follow that redirect. Redirect responses will have a
 `Location` header field which contains the URI of the resource to which the
@@ -268,8 +261,8 @@ Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 
 ## HTTP verbs
 
-Where possible, API v3 strives to use appropriate HTTP verbs for each
-action.
+Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
+action. Note that HTTP verbs are case-sensitive.
 
 Verb | Description
 -----|-----------
@@ -355,9 +348,21 @@ Name | Description
 `first` |The link relation for the first page of results.
 `prev` |The link relation for the immediate previous page of results.
 
+## Timeouts
+
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
 ## Rate limiting
 
-Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits. 
+Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
 
 Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
@@ -367,7 +372,7 @@ Additionally, the Search API has dedicated limits. For more information, see "[S
 
 ### Requests from personal accounts
 
-Direct API requests that you authenticate with a personal access token are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+Direct API requests that you authenticate with a {% data variables.product.pat_generic %} are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
 
 {% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
 
@@ -393,7 +398,7 @@ Requests from a GitHub App may be either user-to-server or server-to-server requ
 
 You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
 
-When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.product.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.location.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
 
 ### Checking your rate limit status
 
@@ -413,6 +418,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -420,6 +426,7 @@ Header Name | Description
 -----------|-----------|
 `x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
 `x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
+`x-ratelimit-used` | The number of requests you've made in the current rate limit window.
 `x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
 If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
@@ -436,6 +443,7 @@ If you exceed the rate limit, an error response returns:
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 0
+> x-ratelimit-used: 60
 > x-ratelimit-reset: 1377013266
 
 > {
@@ -454,6 +462,7 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000
 > x-ratelimit-remaining: 4966
+> x-ratelimit-used: 34
 > x-ratelimit-reset: 1372700873
 ```
 
@@ -712,4 +721,3 @@ If no `Time-Zone` header is specified and you make an authenticated call to the 
 If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
 
 [pagination-guide]: /guides/traversing-with-pagination
-

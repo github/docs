@@ -1,6 +1,6 @@
 ---
 title: Finding and customizing actions
-shortTitle: Finding and customizing actions
+shortTitle: Find and customize actions
 intro: 'Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application''s repository. This guide will show you how to discover, use, and customize actions.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
@@ -24,7 +24,7 @@ topics:
 
 The actions you use in your workflow can be defined in:
 
-- The same repository as your workflow file{% if internal-actions %}
+- The same repository as your workflow file{% ifversion internal-actions %}
 - An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
 - Any public repository
 - A published Docker container image on Docker Hub
@@ -51,7 +51,7 @@ You can add an action to your workflow by referencing the action in your workflo
 
 You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 
 {% note %}
 
@@ -110,7 +110,7 @@ The `action.yml` file is used to provide metadata for the action. Learn about th
 
 If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
 
-The action must be stored in a public repository{% if internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
 
 ```yaml
 jobs:
@@ -158,7 +158,7 @@ steps:
 
 ### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. This example targets an action's SHA:
 
 ```yaml
 steps:

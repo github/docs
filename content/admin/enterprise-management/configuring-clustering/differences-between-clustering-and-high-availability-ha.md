@@ -38,8 +38,8 @@ Neither HA nor Clustering should be considered a replacement for regular backups
 
 ## Monitoring
 
-Availability features, especially ones with automatic failover such as Clustering, can mask a failure since service is usually not disrupted when something fails. Whether you are using HA or Clustering, monitoring the health of each instance is important so that you are aware when a failure occurs. For more information on monitoring, see "[Recommended alert thresholds](/enterprise/{{ currentVersion }}/admin/guides/installation/recommended-alert-thresholds/)" and "[Monitoring cluster nodes](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)."
+Availability features, especially ones with automatic failover such as Clustering, can mask a failure since service is usually not disrupted when something fails. Whether you are using HA or Clustering, monitoring the health of each instance is important so that you are aware when a failure occurs. For more information on monitoring, see "[Recommended alert thresholds](/enterprise/admin/guides/installation/recommended-alert-thresholds/)" and "[Monitoring cluster nodes](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)."
 
 ## Further reading
 - For more information about {% data variables.product.prodname_ghe_server %} Clustering, see "[About clustering](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)."
-- For more information about HA, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+- For more information about HA, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."

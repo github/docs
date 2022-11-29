@@ -1,12 +1,10 @@
 ---
-title: Organizando seu trabalho com quadros de projetos
-shortTitle: Quadros de projeto
-intro: 'Use os quadros de projetos para gerenciar seu trabalho em {% data variables.product.prodname_dotcom %}'
+title: 'Organizar seu trabalho com {% data variables.product.prodname_projects_v1 %}'
+shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
+intro: 'Usar {% data variables.product.prodname_projects_v1 %} para gerenciar seu trabalho no {% data variables.product.prodname_dotcom %}'
+allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects
@@ -19,6 +17,11 @@ redirect_from:
   - /tracking-progress-on-your-project-board
   - /filtering-cards-on-a-project-board
   - /archiving-cards-on-a-project-board
+ms.openlocfilehash: 5827065f7fe316f4ec8ea41b56be61b1e01943dd
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107848'
 ---
-
 {% data reusables.projects.project_boards_old %}

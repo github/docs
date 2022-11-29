@@ -15,6 +15,7 @@
 - [Tool tags](#tool-tags)
   - [Usage](#usage-5)
 - [Reusable and variable strings of text](#reusable-and-variable-strings-of-text)
+- [Tables with codeblocks](#tables-with-codeblocks)
 
 ## Writing in Markdown
 
@@ -67,12 +68,12 @@ To render syntax highlighting in command line instructions, we use triple backti
 ### Usage
 
     ```shell
-    git init <em>YOUR_REPO</em>
+    git init YOUR_REPO
     ```
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
-Within the command-line syntax, you can also use the `<em>` helper tag to indicate content that varies for each user, such as a user or repository name.
+Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name.
 
 **Copy-able code blocks**
 
@@ -128,7 +129,11 @@ You can define a default platform in the frontmatter. For more information, see 
 
 ## Tool tags
 
-We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, Visual Studio Code, JetBrains IDEs, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+
+On rare occasions, we will add new tools. Before adding a new tool, read the [tool switcher content model](./tool-switcher.md). To add a new tool, add an entry to the `allTools` object in [`lib/all-tools.js`](../lib/all-tools.js) as a key-value pair. The key is the tag you'll use to refer to the tool in the article, the value is how the tool will be identified on the tool picker at the top of the article.
+
+You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
 
 ### Usage
 
@@ -181,6 +186,14 @@ These instructions are pertinent to VS Code users.
 ```
 
 ```
+{% jetbrains %}
+
+These instructions are pertinent to users of JetBrains IDEs.
+
+{% endjetbrains %}
+```
+
+```
 {% importer_cli %}
 
 These instructions are pertinent to GitHub Enterprise Importer CLI users.
@@ -189,11 +202,11 @@ These instructions are pertinent to GitHub Enterprise Importer CLI users.
 ```
 
 ```
-{% graphql %}
+{% api %}
 
-These instructions are pertinent to GraphQL API users.
+These instructions are pertinent to API users.
 
-{% endgraphql %}
+{% endapi %}
 ```
 
 ```
@@ -212,10 +225,32 @@ These instructions are pertinent to Bash shell commands.
 {% endbash %}
 ```
 
-You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
+```
+{% javascript %}
+
+These instructions are pertinent to javascript users.
+
+{% endjavascript %}
+```
 
 ## Reusable and variable strings of text
 
 Reusable strings (commonly called content references or conrefs) contain content that’s used in more than one place in our documentation and allow us to change the content in a single location rather than every place the string appears.
 
 For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables, see the [reusables README](../data/reusables/README.md). For more information about variables, see the [variables README](../data/variables/README.md).
+
+## Tables with codeblocks
+
+Although using tables to contain block items, such as code blocks, is generally discouraged, occasionally it may be appropriate.
+
+Because [tables in GitHub Flavored Markdown](https://github.github.com/gfm/#tables-extension-) cannot contain any line breaks or block-level structures, you must use HTML tags to write the table structure.
+
+When HTML tables contain code blocks, the width of the table might exceed the regular width of page content, and then overflow into the area normally containing the mini table of contents.
+
+If this happens, add the following CSS style to the `<table>` HTML tag:
+
+```html
+<table style="table-layout: fixed;">
+```
+
+For a current example of this usage, see the [GitHub Actions examples workflow library](https://docs.github.com/en/actions/examples).

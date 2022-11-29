@@ -1,0 +1,6 @@
+user_migrations_intro: >-
+  Vous pouvez utiliser cette API pour consulter, sauvegarder ou migrer vos données utilisateur qui sont stockées sur {% data variables.product.product_name %}.com.
+organization_migrations_intro: >-
+  L’API des migrations de l’organisation vous permet de déplacer un dépôt de {% data variables.product.prodname_dotcom_the_website %} vers {% data variables.product.prodname_ghe_server %}. Pour plus d’informations, consultez « [Exportation des données de migration depuis GitHub.com](/enterprise-server@latest/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom) » dans la documentation {% data variables.product.prodname_ghe_server %}.
+source_imports_intro: >-
+  L’API des sources d’importation vous permet de démarrer une importation à partir d’un dépôt source Git, Subversion, Mercurial ou Team Foundation Version Control. Il s’agit de la même fonctionnalité que {% data variables.product.prodname_dotcom %} Importer. Pour plus d’informations, consultez « [Importation d’un dépôt avec {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer) ».
