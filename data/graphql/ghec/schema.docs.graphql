@@ -42398,6 +42398,11 @@ enum RepositoryLockReason {
   The repository is locked due to a rename.
   """
   RENAME
+
+  """
+  The repository is locked due to a trade controls related reason.
+  """
+  TRADE_RESTRICTION
 }
 
 """
