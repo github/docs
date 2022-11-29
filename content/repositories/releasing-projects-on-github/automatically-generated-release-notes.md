@@ -104,7 +104,7 @@ changelog:
 ```
 {% endraw %}
 
-A configuration for a repository that doesn't tag pull requests but where we want to separate out Dependabot automated pull requests in release notes (`labels: '*'` is required to display a catchall category)
+A configuration for a repository that doesn't tag pull requests but where we want to separate out {% data variables.product.prodname_dependabot %} automated pull requests in release notes (`labels: '*'` is required to display a catchall category)
 
 {% raw %}
 ```yaml{:copy}
