@@ -11,12 +11,12 @@ product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 89f93ace53547fccd69ffb7e6d7b666a6cb48991
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 809d8492bb1ec7c8cd4eb051b1eaefb00d29097e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108479'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158573'
 ---
 {% ifversion fpt %}
 
@@ -29,6 +29,8 @@ ms.locfileid: '148108479'
 {% endif %}
 
  Du kannst Erkenntnisse für {% data variables.product.prodname_projects_v2 %} zum Anzeigen, Erstellen und Anpassen von Diagrammen verwenden, in denen die dem Projekt hinzugefügten Elemente als Quelldaten verwendet werden. Du kannst Filter auf das Standarddiagramm anwenden und auch eigene Diagramme erstellen. Wenn du ein Diagramm erstellst, legst du die Filter, den Diagrammtyp und die angezeigten Informationen fest. Das Diagramm steht allen Personen zur Verfügung, die das Projekt anzeigen können. Du kannst zwei Diagrammtypen generieren: aktuelle Diagramme und Verlaufsdiagramme.
+
+ Insights verfolgt Elemente nach, die du archiviert oder gelöscht hast.
 
  ### Informationen zu aktuellen Diagrammen
 

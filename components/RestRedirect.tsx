@@ -13,14 +13,21 @@ export function RestRedirect() {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
-  const apiVersions = allVersions[currentVersion].apiVersions
-  const latestApiVersion = allVersions[currentVersion].latestApiVersion
+  const validApiVersions = allVersions[currentVersion].apiVersions
+  const isReleaseVersioned = allVersions[currentVersion].apiVersions.length > 0
+  const latestValidApiVersion = allVersions[currentVersion].latestApiVersion
+  const queryApiVersion = router.query.apiVersion
 
   useEffect(() => {
-    if (allVersions[currentVersion].apiVersions.length > 0 && !router.query.apiVersion) {
+    if (
+      isReleaseVersioned &&
+      (!queryApiVersion || !validApiVersions.includes(queryApiVersion as string))
+    ) {
       const versionCookie = Cookies.get(API_VERSION_COOKIE_NAME)
       const date =
-        versionCookie && apiVersions.includes(versionCookie) ? versionCookie : latestApiVersion
+        versionCookie && validApiVersions.includes(versionCookie)
+          ? versionCookie
+          : latestValidApiVersion
       const hash = router.asPath.split('#')[1]
       const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
       const params = new URLSearchParams(asPathQuery)

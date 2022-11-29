@@ -8,12 +8,12 @@ type: reference
 topics:
   - Codespaces
 shortTitle: Creation and deletion
-ms.openlocfilehash: 09c3a73ec5e41f0170f1d3cd66df139bb2a497e5
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 4a12c848fa7400ec336f5ad086eb4d2858a431f0
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158693'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180819'
 ---
 ## Erstellen von Codespaces
 
@@ -98,4 +98,4 @@ This codespace is currently running in recovery mode due to a container error.
 ```
 Überprüfe die Erstellungsprotokolle, und aktualisiere nach Bedarf die Entwicklungscontainerkonfiguration. Weitere Informationen findest du unter „[{% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)“.
 
-Anschließend kannst du versuchen, den Codespace neu zu starten oder den Container neu zu erstellen. Weitere Informationen findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace).
+Anschließend kannst du versuchen, den Codespace neu zu starten oder den Container neu zu erstellen. Weitere Informationen zum Neuerstellen des Containers findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace).
