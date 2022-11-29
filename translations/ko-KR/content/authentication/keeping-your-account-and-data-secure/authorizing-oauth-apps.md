@@ -84,11 +84,11 @@ When you authorize an {% data variables.product.prodname_oauth_app %} for your p
 
 - **For organizations *without* {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
 
-If you belong to any organizations that enforce SAML single sign-on, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
+If you belong to any organizations with SAML single sign-on (SSO) enabled, and you have created a linked identity for that organization by authenticating via SAML in the past, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
 
 {% note %}
 
-**Note:** If you are encountering errors authenticating to an organization that enforces SAML single sign-on, you may need to revoke the OAuth App from your [account settings page](https://github.com/settings/applications) and repeat the authentication flow to reauthorize the app.
+**Note:** If you're encountering issues with an authorized {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} accessing an organization that is protected by SAML, you may need to revoke the app from your [Authorized {% data variables.product.prodname_github_apps %}](https://github.com/settings/applications) or [Authorized {% data variables.product.prodname_oauth_apps %}](https://github.com/settings/apps/authorizations) page, visit the organization to authenticate and establish an active SAML session, and then attempt to reauthorize the app by accessing it.
 
 {% endnote %}
 
