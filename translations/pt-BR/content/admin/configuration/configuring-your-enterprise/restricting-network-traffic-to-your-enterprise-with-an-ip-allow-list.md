@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: cd0c5b4bafc5226a99a75d3632fc5072233f5c1c
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180090'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184009'
 ---
 ## Sobre as restrições de tráfego de rede
 
@@ -30,7 +30,7 @@ Por padrão, os usuários autorizados podem acessar sua empresa a partir de qual
 
 {% ifversion ghec %}
 
- Se a sua empresa usa {% data variables.product.prodname_emus %} com o OIDC, você pode escolher se deseja adotar o recurso de lista de permissões de IP do {% data variables.product.company_short %} ou as restrições da lista de permissões do seu IdP (provedor de identidade). Se sua empresa não usa {% data variables.product.prodname_emus %} com o OIDC, você pode adotar o recurso de lista de permissões do {% data variables.product.company_short %}. 
+Se a sua empresa usa {% data variables.product.prodname_emus %} com o OIDC, você pode escolher se deseja adotar o recurso de lista de permissões de IP do {% data variables.product.company_short %} ou as restrições da lista de permissões do seu IdP (provedor de identidade). Se sua empresa não usa {% data variables.product.prodname_emus %} com o OIDC, você pode adotar o recurso de lista de permissões do {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
@@ -49,8 +49,6 @@ Você pode usar a lista de permissões de IP do {% data variables.product.compan
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
-
-Você também pode configurar endereços IP permitidos para uma organização individual. Para obter mais informações, confira "[Como gerenciar os endereços IP permitidos para sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
 ## Sobre a lista de permissões do seu IdP
 
