@@ -11,3 +11,32 @@
 .sidebarArticleActive::before {
   border-left-width: 2px;
 }
+
+.apiFixedHeader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: var(--color-canvas-default);
+  z-index: 1;
+}
+
+.apiAllProductsLink {
+  top: 82px;
+}
+
+.apiTitle {
+  padding-top: 10px;
+  top: 100px;
+}
+
+.apiVersionPicker {
+  top: 128px;
+
+  svg {
+    float: right;
+  }
+}
+
+.noApiVersion {
+  margin: -5em;
+}

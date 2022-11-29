@@ -879,6 +879,7 @@ translations/es-ES/content/organizations/managing-organization-settings/managing
 translations/es-ES/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
 translations/es-ES/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,rendering error
+translations/es-ES/content/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization.md,broken liquid tags
 translations/es-ES/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/es-ES/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
 translations/es-ES/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
@@ -890,6 +891,7 @@ translations/es-ES/content/packages/learn-github-packages/introduction-to-github
 translations/es-ES/content/packages/learn-github-packages/publishing-a-package.md,rendering error
 translations/es-ES/content/packages/learn-github-packages/viewing-packages.md,rendering error
 translations/es-ES/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
+translations/es-ES/content/packages/quickstart.md,rendering error
 translations/es-ES/content/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry.md,rendering error
 translations/es-ES/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,rendering error
 translations/es-ES/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
@@ -983,7 +985,7 @@ translations/es-ES/content/rest/overview/resources-in-the-rest-api.md,rendering 
 translations/es-ES/content/rest/overview/troubleshooting.md,broken liquid tags
 translations/es-ES/content/rest/packages.md,broken liquid tags
 translations/es-ES/content/rest/projects/projects.md,broken liquid tags
-translations/es-ES/content/rest/pulls/comments.md,broken liquid tags
+translations/es-ES/content/rest/pulls/reviews.md,broken liquid tags
 translations/es-ES/content/rest/quickstart.md,broken liquid tags
 translations/es-ES/content/rest/scim.md,rendering error
 translations/es-ES/content/rest/teams/team-sync.md,rendering error
@@ -1055,6 +1057,7 @@ translations/es-ES/data/reusables/advanced-security/secret-scanning-add-custom-p
 translations/es-ES/data/reusables/advanced-security/secret-scanning-create-custom-pattern.md,rendering error
 translations/es-ES/data/reusables/advanced-security/secret-scanning-push-protection-org.md,broken liquid tags
 translations/es-ES/data/reusables/apps/user-to-server-rate-limits.md,broken liquid tags
+translations/es-ES/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
 translations/es-ES/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,rendering error
 translations/es-ES/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
 translations/es-ES/data/reusables/branches/new-repo-default-branch.md,rendering error
@@ -1129,6 +1132,7 @@ translations/es-ES/data/reusables/getting-started/enterprise-advanced-security.m
 translations/es-ES/data/reusables/getting-started/managing-enterprise-members.md,rendering error
 translations/es-ES/data/reusables/git/git-push.md,rendering error
 translations/es-ES/data/reusables/git/provide-credentials.md,rendering error
+translations/es-ES/data/reusables/identity-and-permissions/ip-allow-lists-enterprise.md,broken liquid tags
 translations/es-ES/data/reusables/identity-and-permissions/ip-allow-lists-githubapps-enterprise.md,rendering error
 translations/es-ES/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/es-ES/data/reusables/large_files/storage_assets_location.md,broken liquid tags
@@ -1142,6 +1146,7 @@ translations/es-ES/data/reusables/organizations/member-privileges.md,rendering e
 translations/es-ES/data/reusables/organizations/navigate-to-org.md,rendering error
 translations/es-ES/data/reusables/organizations/organization-wide-project.md,broken liquid tags
 translations/es-ES/data/reusables/organizations/repository-defaults.md,rendering error
+translations/es-ES/data/reusables/organizations/require-ssh-cert.md,broken liquid tags
 translations/es-ES/data/reusables/organizations/security-and-analysis.md,rendering error
 translations/es-ES/data/reusables/organizations/security.md,rendering error
 translations/es-ES/data/reusables/organizations/teams_sidebar.md,rendering error
@@ -1186,7 +1191,6 @@ translations/es-ES/data/reusables/scim/supported-idps.md,rendering error
 translations/es-ES/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/es-ES/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/es-ES/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
-translations/es-ES/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/es-ES/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/es-ES/data/reusables/security-overview/permissions.md,rendering error
 translations/es-ES/data/reusables/shortdesc/rate_limits_github_apps.md,rendering error
