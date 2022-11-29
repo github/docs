@@ -36,7 +36,7 @@ The `git remote add` command takes two arguments:
 For example:
 
 ```shell
-$ git remote add origin https://{% data variables.command_line.codeblock %}/USER/REPO>.git
+$ git remote add origin https://{% data variables.command_line.codeblock %}/USER/REPO.git
 # Set a new remote
 
 $ git remote -v

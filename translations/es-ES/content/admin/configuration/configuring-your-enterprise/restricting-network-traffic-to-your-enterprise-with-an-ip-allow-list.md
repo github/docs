@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: cd0c5b4bafc5226a99a75d3632fc5072233f5c1c
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180154'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184016'
 ---
 ## Acerca de las restricciones de tráfico de red
 
@@ -30,7 +30,7 @@ Predeterminadamente, los usuarios autorizados pueden acceder a tu empresa desde 
 
 {% ifversion ghec %}
 
- Si tu empresa usa {% data variables.product.prodname_emus %} con OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
+Si tu empresa usa {% data variables.product.prodname_emus %} con OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
@@ -49,8 +49,6 @@ Puedes usar la lista de direcciones IP permitidas de {% data variables.product.c
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
-
-También puedes configurar las direcciones IP permitidas para una organización individual. Para más información, vea "[Administración de las direcciones IP permitidas para la organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
 ## Acerca de la lista de permitidos del proveedor de identidades
 

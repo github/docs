@@ -1,6 +1,6 @@
 ---
-title: 開発コンテナーの概要
-intro: codespace で作業する場合、作業している環境は、仮想マシンでホストされている開発コンテナーを使用して作成されます。
+title: Introduction to dev containers
+intro: 'When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
@@ -16,76 +16,71 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
-ms.openlocfilehash: 0b47f0292eb3a13467a8227ac323d289f9712223
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158774'
 ---
-## 開発コンテナについて
 
-開発コンテナーは、完全な機能を備えた開発環境を提供するように特別に構成された Docker コンテナーです。 codespace で作業を行うときは常に、仮想マシンで開発コンテナーを使用します。
+## About dev containers
 
-リポジトリの開発コンテナーを構成できるので、そのリポジトリ用に作成された codespace によって、特定のプロジェクトの作業を行うために必要なすべてのツールとランタイムを備えた、カスタマイズされた開発環境が提供されます。 リポジトリで構成を定義しない場合、{% data variables.product.prodname_github_codespaces %} で既定の構成が使用されます。この構成には、チームがプロジェクトで開発を行うために必要な可能性がある一般的なツールの多くが含まれています。 詳しくは、「[既定の開発コンテナー構成の使用](#using-the-default-dev-container-configuration)」をご覧ください。
+Development containers, or dev containers, are Docker containers that are specifically configured to provide a fully featured development environment. Whenever you work in a codespace, you are using a dev container on a virtual machine.
 
-開発コンテナーの構成ファイルは、リポジトリの `.devcontainer` ディレクトリに含まれています。 {% data variables.product.prodname_vscode %} を使用して、構成ファイルを追加できます。 さまざまなプロジェクト タイプ向けにあらかじめ定義されている構成の中から選択できます。 これらを追加の構成なしで使うこともできますし、構成を編集して生成される開発環境を改善することもできます。 詳しくは、「[事前定義済みの開発コンテナー構成の使用](#using-a-predefined-dev-container-configuration)」をご覧ください。
+You can configure the dev container for a repository so that codespaces created for that repository give you a tailored development environment, complete with all the tools and runtimes you need to work on a specific project. If you don't define a configuration in the repository then {% data variables.product.prodname_github_codespaces %} uses a default configuration, which contains many of the common tools that your team might need for development with your project. For more information, see "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
 
-または、独自のカスタム構成ファイルを追加することもできます。 詳しくは、「[カスタム開発コンテナー構成の作成](#creating-a-custom-dev-container-configuration)」をご覧ください。
+The configuration files for a dev container are contained in a `.devcontainer` directory in your repository. You can use {% data variables.product.prodname_vscode %} to add configuration files for you. You can choose from a selection of predefined configurations for various project types. You can use these without further configuration, or you can edit the configurations to refine the development environment they produce. For more information, see "[Using a predefined dev container configuration](#using-a-predefined-dev-container-configuration)."
 
-リポジトリ用に単一の開発コンテナー構成を定義したり、異なるブランチ用に異なる構成を定義したり、複数の構成を定義したりできます。 複数の構成を利用できる場合、ユーザーは codespace を作成するときに好みの構成を選択できます。 これは、異なるプログラミング言語のソース コードを含む大規模なリポジトリの場合や、さまざまなプロジェクトがある場合に特に役立ちます。 構成の選択肢を作成することで、異なるチームが、実行する作業用に適切に設定された codespace で作業できるようになります。
+Alternatively, you can add your own custom configuration files. For more information, see "[Creating a custom dev container configuration](#creating-a-custom-dev-container-configuration)."
 
-テンプレートから codespace を作成する場合は、ワークスペース内の 1 つ以上の開発コンテナー構成ファイルを使用して開始できます。 環境をさらに構成するには、これらのファイルの設定を追加または削除し、コンテナーをリビルドして、作業中の codespace に変更を適用します。 {% data variables.product.product_name %} 上のリポジトリに codespace を発行すると、そのリポジトリから作成されたすべての codespace で、定義した構成が共有されます。 詳しい情報については、「[codespace に構成変更を適用する](#applying-configuration-changes-to-a-codespace)」と「[テンプレートから codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-remote-repository)」をご覧ください。
+You can define a single dev container configuration for a repository, different configurations for different branches, or multiple configurations. When multiple configurations are available, users can choose their preferred configuration when they create a codespace. This is particularly useful for large repositories that contain source code in different programming languages or for different projects. You can create a choice of configurations that allow different teams to work in a codespace that's set up appropriately for the work they are doing.
+
+When you create a codespace from a template, you might start with one or more dev container configuration files in your workspace. To configure your environment further, you can add or remove settings from these files and rebuild the container to apply the changes to the codespace you're working in. If you publish your codespace to a repository on {% data variables.product.product_name %}, then any codespaces created from that repository will share the configuration you've defined. For more information, see "[Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace)" and "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-remote-repository)."
 
 ### devcontainer.json
 
-開発コンテナー構成のプライマリ ファイルは `devcontainer.json` ファイルです。 このファイルを使用して、リポジトリ用に作成される codespace の環境を決定できます。 このファイルの内容によって、フレームワーク、ツール、拡張機能、ポート フォワーディングを含めることができる開発コンテナーが定義されます。 通常、`devcontainer.json` ファイルには Dockerfile (通常は `devcontainer.json` ファイルと一緒に配置します) への参照が含まれています。
+The primary file in a dev container configuration is the `devcontainer.json` file. You can use this file to determine the environment of codespaces created for your repository. The contents of this file define a dev container that can include frameworks, tools, extensions, and port forwarding. The `devcontainer.json` file usually contains a reference to a Dockerfile, which is typically located alongside the `devcontainer.json` file.
 
-`devcontainer.json` ファイルを含まないリポジトリから codespace を作成する場合、または {% data variables.product.company_short %} の空のテンプレートから開始する場合は、既定の開発コンテナー構成が使用されます。 詳しくは、「[既定の開発コンテナー構成の使用](#using-the-default-dev-container-configuration)」をご覧ください。
+If you create a codespace from a repository without a `devcontainer.json` file, or if you start from {% data variables.product.company_short %}'s blank template, the default dev container configuration is used. For more information, see "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
 
-通常、`devcontainer.json` ファイルはリポジトリの `.devcontainer` ディレクトリに配置します。 または、リポジトリのルートに直接配置することもできます。その場合は、ファイル名の先頭をピリオドにする必要があります (`.devcontainer.json`)。 
+The `devcontainer.json` file is usually located in the `.devcontainer` directory of your repository. Alternatively, you can locate it directly in the root of the repository, in which case the file name must begin with a period: `.devcontainer.json`. 
 
-リポジトリで開発コンテナー構成を選択できるようにする場合は、`.devcontainer/devcontainer.json` (または `.devcontainer.json`) ファイルに代わるファイルを `.devcontainer/SUBDIRECTORY/devcontainer.json` というパスの独自のサブディレクトリに配置する必要があります。 たとえば、次の 2 つの構成から選ぶようにすることができます。 
+If you want to have a choice of dev container configurations in your repository, any alternatives to the  `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file must be located in their own subdirectory at the path `.devcontainer/SUBDIRECTORY/devcontainer.json`. For example, you could have a choice of two configurations: 
 * `.devcontainer/database-dev/devcontainer.json` 
 * `.devcontainer/gui-dev/devcontainer.json`
 
-リポジトリに複数の `devcontainer.json` ファイルがある場合、各 codespace はいずれかの構成のみから作成されます。 `devcontainer.json` ファイル間で設定をインポートまたは継承することはできません。 カスタム サブディレクトリの `devcontainer.json` ファイルに依存ファイル (Dockerfile など) や `devcontainer.json` ファイル内のコマンドによって実行されるスクリプトがある場合は、これらのファイルを同じサブディレクトリに一緒に配置することをお勧めします。
+When you have multiple `devcontainer.json` files in your repository, each codespace is created from only one of the configurations. Settings cannot be imported or inherited between `devcontainer.json` files. If a `devcontainer.json` file in a custom subdirectory has dependent files, such as the Dockerfile or scripts that are run by commands in the `devcontainer.json` file, it's recommended that you co-locate these files in the same subdirectory.
 
-codespace の作成時にお好みの開発コンテナー構成を選ぶ方法については、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」をご覧ください。
+For information about how to choose your preferred dev container configuration when you create a codespace, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
 {% data reusables.codespaces.more-info-devcontainer %}
 
-#### devcontainer.json の使用方法
+#### How to use the devcontainer.json
 
-`devcontainer.json` ファイルは、"パーソナル化" ではなく "カスタマイズ" を提供するものだと考えると有益です。 コードベースで作業するすべてのユーザーが必要とするもののみを開発環境の標準要素として含め、個人の好みのものは含めないようにする必要があります。 リンターのようなものは標準化して、すべてのユーザーにインストールするよう求めることが適切なので、`devcontainer.json` ファイルに含めることができます。 ユーザー インターフェイスのデコレーターやテーマなどは、`devcontainer.json` ファイルに含めるべきでない個人的な選択肢です。
+It's useful to think of the `devcontainer.json` file as providing "customization" rather than "personalization." You should only include things that everyone working on your codebase needs as standard elements of the development environment, not things that are personal preferences. Things like linters are good to standardize on, and to require everyone to have installed, so they're good to include in your `devcontainer.json` file. Things like user interface decorators or themes are personal choices that should not be put in the `devcontainer.json` file.
 
-ドットファイルと Settings Sync を使用すると、codespace をパーソナル化できます。詳しくは、「[アカウントの {% data variables.product.prodname_github_codespaces %} をパーソナライズする](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)」をご覧ください。
+You can personalize your codespaces by using dotfiles and Settings Sync. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
 
 ### Dockerfile
 
-開発コンテナー構成の一部として Dockerfile を追加できます。 
+You can add a Dockerfile as part of your dev container configuration. 
 
-Dockerfile は Docker コンテナー イメージを作成するために必要な命令が含まれているテキスト ファイルです。 このイメージは、この Dockerfile を参照する `devcontainer.json` ファイルを使用して codespace を作成するたびに、開発コンテナーの生成に使用されます。 Dockerfile 内の命令は通常、作成される新しいイメージの基になる親イメージを参照することから始まります。 その後に、ソフトウェア パッケージのインストールなど、イメージの作成プロセス中に実行されるコマンドが続きます。
+The Dockerfile is a text file that contains the instructions needed to create a Docker container image. This image is used to generate a development container each time someone creates a codespace using the `devcontainer.json` file that references this Dockerfile. The instructions in the Dockerfile typically begin by referencing a parent image on which the new image that will be created is based. This is followed by commands that are run during the image creation process, for example to install software packages.
 
-開発コンテナーの Dockerfile は通常、参照元の `devcontainer.json` と共に `.devcontainer` フォルダーに配置します。 
+The Dockerfile for a dev container is typically located in the `.devcontainer` folder, alongside the `devcontainer.json` in which it is referenced. 
 
 {% note %}
 
-**注**: Dockerfile を使用する代わりに、`image` プロパティを `devcontainer.json` ファイルで使用して、使用する既存のイメージを直接参照できます。 ここで指定するイメージは、設定されている Organization のイメージ ポリシーで許可されている必要があります。 詳しい情報については、「[codespace の基本イメージを制限する](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)」をご覧ください。 Dockerfile もイメージも見つからない場合は、既定のコンテナー イメージが使用されます。 詳しくは、「[既定の開発コンテナー構成の使用](#using-the-default-dev-container-configuration)」をご覧ください。
+**Note**: As an alternative to using a Dockerfile you can use the `image` property in the `devcontainer.json` file to refer directly to an existing image you want to use. The image you specify here must be allowed by any organization image policy that has been set. For more information, see "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)." If neither a Dockerfile nor an image is found then the default container image is used. For more information, see "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
 
 {% endnote %}
 
-#### シンプルな Dockerfile の例
+#### Simple Dockerfile example
 
-次の例では、4 つの命令を使用します。
+The following example uses four instructions:
 
-`ARG` は、ビルド時の変数を定義します。
+`ARG` defines a build-time variable.
 
-`FROM` は、生成される Docker イメージの基になる親イメージを指定します。
+`FROM` specifies the parent image on which the generated Docker image will be based.
 
-`COPY` は、ファイルをコピーしてファイルシステムに追加します。 
+`COPY` copies a file and adds it to the filesystem. 
 
-`RUN` は、パッケージの一覧を更新して、スクリプトを実行します。 コメント アウトされた命令で示されているように、`RUN` 命令を使用してソフトウェアをインストールすることもできます。 複数のコマンドを実行するには、`&&` を使用して、コマンドを 1 つの `RUN` ステートメントに結合します。
+`RUN` updates package lists and runs a script. You can also use a `RUN` instruction to install software, as shown by the commented out instructions. To run multiple commands, use `&&` to combine the commands into a single `RUN` statement.
 
 ```Dockerfile{:copy}
 ARG VARIANT="16-buster"
@@ -102,11 +97,11 @@ COPY library-scripts/github-debian.sh /tmp/library-scripts/
 RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 ```
 
-Dockerfile の命令について詳しくは、Docker のドキュメントの「[Dockerfile リファレンス](https://docs.docker.com/engine/reference/builder)」をご覧ください。
+For more information about Dockerfile instructions, see "[Dockerfile reference](https://docs.docker.com/engine/reference/builder)" in the Docker documentation.
 
-#### Dockerfile の使用
+#### Using a Dockerfile
 
-開発コンテナー構成の一部として Dockerfile を使用するには、`devcontainer.json` ファイル内で `dockerfile` プロパティを使用して参照します。
+To use a Dockerfile as part of a dev container configuration, reference it in your `devcontainer.json` file by using the `dockerfile` property.
 
 ```json{:copy}
 {
@@ -116,130 +111,134 @@ Dockerfile の命令について詳しくは、Docker のドキュメントの�
 }
 ```
 
-開発コンテナー内で既存のコンテナー オーケストレーションを使用する場合は、さまざまなオプションを使用できます。 詳しい情報については、開発コンテナーの Web サイトで[仕様](https://containers.dev/implementors/spec/#orchestration-options)の「オーケストレーション オプション」セクションをご覧ください。
+Various options are available to you if you want to use existing container orchestration in your dev container. For more information, see the "Orchestration options" section of the [Specification](https://containers.dev/implementors/spec/#orchestration-options) on the Development Containers website.
 
-## 既定の開発コンテナー構成の使用
+## Using the default dev container configuration
 
-リポジトリで構成を定義しない場合は、{% data variables.product.prodname_dotcom %} が既定の Linux イメージを使用して codespace を作成します。 この Linux イメージには、Python、Node、PHP、Java、Go、C++、Ruby、.NET Core/C# などの一般的な言語のランタイム バージョンが多数含まれています。 これらの言語の最新または LTS リリースが使用されます。 JupyterLab や Conda など、データ サイエンスと機械学習をサポートするツールもあります。 イメージには、Git、GitHub CLI、yarn、openssh、vim などの他の開発者ツールやユーティリティも含まれています。 含まれているすべての言語、ランタイム、ツールを確認するには、codespace ターミナル内で `devcontainer-info content-url` コマンドを使用し、コマンドで出力された URL にアクセスしてください。
+If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace using a default Linux image. This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
 
-既定の Linux イメージに何が含まれているかについては、[`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal) リポジトリをご覧ください。 
+For information about what's included in the default Linux image, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal) repository. 
 
-{% data variables.product.prodname_github_codespaces %} が提供する言語とツールを使用する小さなプロジェクトで作業している場合は、既定の構成が適しています。
+The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_github_codespaces %} provides.
 
-## 事前定義済みの開発コンテナー構成の使用
+## Using a predefined dev container configuration
 
-{% data variables.product.prodname_vscode %} または Web ブラウザーで {% data variables.product.prodname_codespaces %} を使用する場合は、定義済みの構成の一覧から選ぶことで、リポジトリの開発コンテナー構成を作成できます。 これらの構成は、特定のプロジェクト タイプの共通セットアップを提供するものです。また、適切なコンテナー オプション、{% data variables.product.prodname_vscode %} 設定、インストールする必要がある {% data variables.product.prodname_vscode %} 拡張機能が構成で既に用意されているので、短時間で使い始めることができます。
+If you use {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}, or in a web browser, you can create a dev container configuration for your repository by choosing from a list of predefined configurations. These configurations provide common setups for particular project types, and can help you quickly get started with a configuration that already has the appropriate container options, {% data variables.product.prodname_vscode %} settings, and {% data variables.product.prodname_vscode %} extensions that should be installed.
 
-追加の拡張性が必要な場合は、事前定義済みの設定を使用することをお勧めします。 事前定義済みの構成から始めて、プロジェクトに合わせて修正することもできます。 定義済みの開発コンテナーの定義について詳しくは、[`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src) リポジトリをご覧ください。
+Using a predefined configuration is a great idea if you need some additional extensibility. You can also start with a predefined configuration and amend it as needed for your project. For more information about the definitions of predefined dev containers, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src) repository.
 
-事前定義済みの開発コンテナー構成は、codespace での作業中、またはローカルでのリポジトリの作業中に追加できます。 ローカルで作業していて、codespace に接続されていないときに {% data variables.product.prodname_vscode_shortname %} でこれを行うには、"Dev Containers" 拡張機能がインストールされ、有効になっている必要があります。 この拡張機能について詳しくは、「[{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)」をご覧ください。 次の手順では、codespace を使用している場合のプロセスについて説明します。 codespace に接続していない場合の {% data variables.product.prodname_vscode_shortname %} の手順は非常によく似ています。
+You can add a predefined dev container configuration either while working in a codespace, or while working on a repository locally. To do this in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). The following procedure describes the process when you are using a codespace. The steps in {% data variables.product.prodname_vscode_shortname %} when you are not connected to a codespace are very similar.
 
 {% data reusables.codespaces.command-palette-container %}
-1. 使用する定義をクリックします。
+1. Click the definition you want to use.
 
-   ![定義済みのコンテナー定義の一覧のスクリーンショット](/assets/images/help/codespaces/predefined-container-definitions-list.png)
+   ![Screenshot of a list of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
 
-1. プロンプトに従って定義をカスタマイズします。 定義をカスタマイズするためのオプションの詳細については、「[`devcontainer.json` ファイルへの追加機能の追加](#adding-additional-features-to-your-devcontainerjson-file)」を参照してください。
-1. **[OK]** をクリックします。
+1. Follow the prompts to customize your definition. For more information on the options to customize your definition, see "[Adding additional features to your `devcontainer.json` file](#adding-additional-features-to-your-devcontainerjson-file)."
+1. Click **OK**.
 
-   ![[OK] ボタンのスクリーンショット](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
+   ![Screenshot of the OK button](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
-1. codespace で作業している場合は、ウィンドウの右下にあるメッセージで **[今すぐリビルド]** をクリックして変更を適用します。 コンテナーのリビルドの詳細については、「[構成への変更の適用](#applying-configuration-changes-to-a-codespace)」を参照してください。
+1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
-   ![[今すぐリビルド] を確認するスクリーンショット](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![Screenshot of a prompt to 'Rebuild now'](/assets/images/help/codespaces/rebuild-prompt.png)
 
-### `devcontainer.json` ファイルへの追加機能の追加
+### Adding additional features to your `devcontainer.json` file
 
-{% data reusables.codespaces.about-features %}詳しい情報については、「[`devcontainer.json` ファイルへの機能の追加](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=vscode)」をご覧ください。
+{% data reusables.codespaces.about-features %} For more information, see "[Adding features to a `devcontainer.json` file](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=vscode)."
 
-## カスタム開発コンテナー構成の作成
+## Creating a custom dev container configuration
 
-事前定義済みの構成がどれもニーズを満たさない場合は、独自の `devcontainer.json` ファイルを記述してカスタム構成を作成できます。
+If none of the predefined configurations meets your needs, you can create a custom configuration by writing your own `devcontainer.json` file.
 
-* リポジトリから codespace を作成するすべてのユーザーが使用する単一の `devcontainer.json` ファイルを追加する場合は、リポジトリのルートにある `.devcontainer` ディレクトリ内にファイルを作成します。 
-* ユーザーが構成を選択できるようにする場合は、複数のカスタム `devcontainer.json` ファイルを作成して、それぞれを `.devcontainer` ディレクトリの個別のサブディレクトリ内に配置できます。
+* If you're adding a single `devcontainer.json` file that will be used by everyone who creates a codespace from your repository, create the file within a `.devcontainer` directory at the root of the repository. 
+* If you want to offer users a choice of configuration, you can create multiple custom `devcontainer.json` files, each located within a separate subdirectory of the `.devcontainer` directory.
 
    {% note %}
 
-   **注**:
-   - `devcontainer.json` ファイルは、`.devcontainer` より 2 レベル以上下位のディレクトリに配置することはできません。 たとえば、`.devcontainer/teamA/devcontainer.json` にあるファイルは機能しますが、`.devcontainer/teamA/testing/devcontainer.json` の場合は機能しません。
-   - {% data reusables.codespaces.configuration-choice-templates %}詳しい情報については、「[{% data variables.product.prodname_github_codespaces %} のテンプレート リポジトリを設定する](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces)」をご覧ください。
+   **Notes**:
+   - You can't locate your `devcontainer.json` files in directories more than one level below `.devcontainer`. For example, a file at `.devcontainer/teamA/devcontainer.json` will work, but `.devcontainer/teamA/testing/devcontainer.json` will not.
+   - {% data reusables.codespaces.configuration-choice-templates %} For more information, see "[Setting up a template repository for {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces)."
 
    {% endnote %}
 
-   リポジトリで複数の `devcontainer.json` ファイルが見つかった場合は、それらが codespace の作成オプション ページに一覧表示されます。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。
+   If multiple `devcontainer.json` files are found in the repository, they are listed in the codespace creation options page. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
-   ![構成ファイルの選択肢のスクリーンショット](/assets/images/help/codespaces/configuration-file-choice.png)
+   ![Screenshot of a choice of configuration files](/assets/images/help/codespaces/configuration-file-choice.png)
 
-### `devcontainer.json` ファイルの追加
+### Adding a `devcontainer.json` file
 
-リポジトリにまだ `devcontainer.json` ファイルがない場合は、{% data variables.product.prodname_dotcom_the_website %} からそれをすばやく追加できます。
-1. 自分のリポジトリに移動し、 **[{% octicon "code" aria-label="The code icon" %} コード]** ドロップダウンをクリックします。
-1. **[Codespaces]** タブで省略記号 ( **...** ) をクリックし、次に **[開発コンテナーの構成]** を選択します。
+If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.prodname_dotcom_the_website %}.
+1. Navigate to your repository and click the **{% octicon "code" aria-label="The code icon" %} Code** dropdown.
+1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
 
-   ![[コード] ドロップダウンのスクリーンショット。[開発コンテナーの構成] が強調表示されています](/assets/images/help/codespaces/configure-dev-container.png)
+   ![Screenshot of the Code dropdown, with "Configure dev container" highlighted](/assets/images/help/codespaces/configure-dev-container.png)
 
-新しい `.devcontainer/devcontainer.json` ファイルがエディターで開きます。 ファイルには、新しいツール、ライブラリ、またはランタイムを追加できる `features` オブジェクトなど、いくつかの初期プロパティが含まれます。 詳しい情報については、「[ファイルへの `devcontainer.json` 機能の追加](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=webui)」をご覧ください。
+A new `.devcontainer/devcontainer.json` file will open in the editor. The file will contain some initial properties, including a `features` object to which you can add new tools, libraries, or runtimes. For more information, see "[Adding features to a `devcontainer.json` file](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=webui)."
 
-リポジトリに既に 1 つ以上の `devcontainer.json` ファイルが含まれている場合は、 **[開発コンテナーの構成]** をクリックすると、containers.dev の`devcontainer.json`仕様[に従って、優先順位が最も高い既存の ](https://containers.dev/implementors/spec/#devcontainerjson) ファイルが開きます。 
+If your repository already contains one or more `devcontainer.json` files, then clicking **Configure dev container** will open the existing `devcontainer.json` file with the highest precedence according to the [specification](https://containers.dev/implementors/spec/#devcontainerjson) on containers.dev. 
 
-### codespace の作成時における既定の構成の選択
+### Default configuration selection during codespace creation
 
-`.devcontainer/devcontainer.json` または `.devcontainer.json` が存在する場合は、codespace を作成するときに使用可能な構成ファイルの一覧でそれが既定の選択になります。 どちらのファイルも存在しない場合は、既定の開発コンテナー構成が既定で選択されます。 
+If `.devcontainer/devcontainer.json` or `.devcontainer.json` exists, it will be the default selection in the list of available configuration files when you create a codespace. If neither file exists, the default dev container configuration will be selected by default. 
 
-![既定の構成の選択肢が選択されたスクリーンショット](/assets/images/help/codespaces/configuration-file-choice-default.png)
+![Screenshot of the default configuration choice selected](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
-### devcontainer.json ファイルの編集
+### Editing the devcontainer.json file
 
-`devcontainer.json` ファイルでサポートされている構成キーを追加および編集して、codespace の環境の要素を指定できます (たとえば、どの {% data variables.product.prodname_vscode_shortname %} 拡張機能をインストールするか)。 {% data reusables.codespaces.more-info-devcontainer %}
+You can add and edit the supported configuration keys in the `devcontainer.json` file to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode_shortname %} extensions will be installed. {% data reusables.codespaces.more-info-devcontainer %}
 
-`devcontainer.json` ファイルは JSONC (コメント付きの JSON) 形式を使用して記述されます。 これにより、構成ファイル内にコメントを含めることができます。 詳しくは、{% data variables.product.prodname_vscode_shortname %} のドキュメントの「[{% data variables.product.prodname_vscode_shortname %} での JSON の編集](https://code.visualstudio.com/docs/languages/json#_json-with-comments)」をご覧ください。
+The `devcontainer.json` file is written using the JSONC (JSON with comments) format. This allows you to include comments within the configuration file. For more information, see "[Editing JSON with {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% note %}
 
-**注**: リンターを使用して `devcontainer.json` ファイルを検証する場合は、JSON ではなく JSONC に設定されていることを確認してください。正しく設定されていないと、コメントがエラーとして報告されます。
+**Note**: If you use a linter to validate the `devcontainer.json` file, make sure it is set to JSONC and not JSON or comments will be reported as errors.
 
 {% endnote %}
 
-### {% data variables.product.prodname_vscode_shortname %} のインターフェイス設定
+### Interface settings for {% data variables.product.prodname_vscode_shortname %}
 
-{% data variables.product.prodname_vscode_shortname %} のインターフェイス設定は、ワークスペース、リモート [Codespaces]、ユーザーの 3 つのスコープで構成できます。 これらのスコープは、{% data variables.product.prodname_vscode_shortname %} 設定エディターで表示できます。
+You can configure the interface settings for {% data variables.product.prodname_vscode_shortname %}, with three scopes: Workspace, Remote [Codespaces], and User. You can view these scopes in the {% data variables.product.prodname_vscode_shortname %} Settings editor.
 
-![設定エディターでのスコープの選択を示すスクリーンショット](/assets/images/help/codespaces/scopes-for-vscode.png)
+![Screenshot showing the choice of scopes in the Settings editor](/assets/images/help/codespaces/scopes-for-vscode.png)
 
-設定が複数のスコープで定義されている場合は、ワークスペース 設定が優先され、次にリモート [コードスペース] が優先され、次にユーザーが優先されます。
+If a setting is defined in multiple scopes, Workspace settings take priority, then Remote [Codespaces], then User.
 
-{% data variables.product.prodname_vscode_shortname %} の既定のインターフェイス設定は、2 か所で定義できます。
+You can define default interface settings for {% data variables.product.prodname_vscode_shortname %} in two places.
 
-* リポジトリの `.vscode/settings.json` ファイルで定義されたインターフェイス設定は、codespace でワークスペースをスコープとする設定として適用されます。
-* `devcontainer.json` ファイルの `settings` キーで定義されたインターフェイス設定は、codespace でリモート [Codespaces] をスコープとする設定として適用されます。
+* Interface settings defined in the `.vscode/settings.json` file in your repository are applied as Workspace-scoped settings in the codespace.
+* Interface settings defined in the `settings` key in the `devcontainer.json` file are applied as Remote [Codespaces]-scoped settings in the codespace.
 
-## codespace への構成変更の適用
+## Applying configuration changes to a codespace
 
-構成に対する変更は、次回 codespace を作成するときに適用されます。 ただし、Web ブラウザー、{% data variables.product.prodname_vscode_shortname %}、または JetBrains IDE で codespace を使用している場合は、コンテナーをリビルドすることで、現在の codespace に構成変更を適用できます。
+Changes to a configuration will be applied the next time you create a codespace. However, you can apply your changes to an existing codespace by rebuilding the container. You can do this within a codespace in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application, or you can use {% data variables.product.prodname_cli %}.
 
-### {% data variables.product.prodname_vscode_shortname %} Web クライアントまたはデスクトップ アプリケーションで開発コンテナーをリビルドする
+### Rebuilding the dev container in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application
 
 {% data reusables.codespaces.rebuild-command %}
 1. {% data reusables.codespaces.recovery-mode %}
 
-   ![回復モードに関するエラー メッセージのスクリーンショット](/assets/images/help/codespaces/recovery-mode-error-message.png)
+   ![Screenshot of the error message about recovery mode](/assets/images/help/codespaces/recovery-mode-error-message.png)
 
-   - 作成ログを確認してエラーを診断するには、 **[View creation log]\(作成ログの表示\)** をクリックします。
-   - ログで識別されたエラーを修正するには、`devcontainer.json` ファイルを更新します。
-   - 変更を適用するには、コンテナーをリビルドします。 
+   - To diagnose the error by reviewing the creation logs, click **View creation log**.
+   - To fix the errors identified in the logs, update your `devcontainer.json` file.
+   - To apply the changes, rebuild your container. 
 
-### JetBrains IDE での開発コンテナーのリビルド
+### Using {% data variables.product.prodname_cli %} to rebuild a dev container
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. {% data variables.product.prodname_github_codespaces %} ツール ウィンドウで、リビルド アイコンをクリックします。
+If you've changed a dev container configuration outside of VS Code (for example, on {% data variables.product.prodname_dotcom_the_website %} or in a JetBrains IDE), you can use {% data variables.product.prodname_cli %} to rebuild the dev container for an existing codespace.
 
-   ![リビルド ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
+1. In a terminal, enter the following command.
 
-1. 開発コンテナーをリビルドすることの確認を求められたら、 **[リビルド]** をクリックします。 
-1. JetBrains IDE で codespace をもう一度開きます。
+   ```
+   gh cs rebuild
+   ```
+
+   Your codespaces are listed.
+
+1. Use the arrow keys on your keyboard to highlight the required codespace, then press <kbd>Enter</kbd>.
 
 
-## 参考資料
+## Further reading
 
-- 「[codespaces の事前ビルド](/codespaces/prebuilding-your-codespaces)」
+- "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)"
