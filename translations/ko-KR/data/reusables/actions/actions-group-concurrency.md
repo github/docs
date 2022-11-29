@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a0c8b24bacdd41e32d9b8bdd0d8850e7a6ada557
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: a9f12214edcef8a107ad9c447fea7207cfdc48f4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "145114751"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148184088"
 ---
 동시 작업 또는 워크플로가 큐에 대기 중인 경우 리포지토리의 동일한 동시성 그룹을 사용하는 다른 작업 또는 워크플로가 진행 중이면 대기 중인 작업 또는 워크플로는 `pending` 상태가 됩니다. 동시성 그룹에서 이전에 보류 중인 작업 또는 워크플로는 모두 취소됩니다. 동일한 동시성 그룹에서 현재 실행 중인 작업 또는 워크플로도 취소하려면 `cancel-in-progress: true`를 지정합니다.
 
@@ -26,7 +26,7 @@ concurrency: ci-${{ github.ref }}
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 ```
@@ -38,7 +38,7 @@ concurrency:
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
@@ -53,7 +53,7 @@ concurrency:
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```
