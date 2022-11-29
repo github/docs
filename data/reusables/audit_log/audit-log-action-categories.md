@@ -174,7 +174,8 @@
 {%- ifversion ghec or ghes or ghae %}
 | `ssh_certificate_authority` | Contains activities related to a SSH certificate authority in an organization or enterprise.
 | `ssh_certificate_requirement` | Contains activities related to requiring members use SSH certificates to access organization resources.
-{%- endif %}
+{%- endif %}{% ifversion sso-redirect %}
+| `sso_redirect` | Contains activities related to automatically redirecting users to sign in (see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)").{% endif %}
 | `staff` | Contains activities related to a site admin performing an action.
 | `team` | Contains activities related to teams in an organization.
 | `team_discussions` | Contains activities related to managing team discussions for an organization.
