@@ -1,6 +1,6 @@
 ---
-title: Using the Visual Studio Code Command Palette in GitHub Codespaces
-intro: 'You can use the Command Palette feature of {% data variables.product.prodname_vscode %} to access many commands in {% data variables.product.prodname_github_codespaces %}.'
+title: Verwenden der Visual Studio Code-Befehlspalette in GitHub Codespaces
+intro: 'Du kannst über das Feature „Befehlspalette“ von {% data variables.product.prodname_vscode %} auf viele Befehle in {% data variables.product.prodname_github_codespaces %} zugreifen.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,62 +12,67 @@ shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
+ms.openlocfilehash: acd462dd1c0b60dced529d7471b9c8638e2f6e91
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180811'
 ---
+## Informationen zur {% data variables.product.prodname_vscode_command_palette %}
 
-## About the {% data variables.product.prodname_vscode_command_palette %}
+Die {% data variables.product.prodname_vscode_command_palette_shortname %} ist eines der zentralen Features von {% data variables.product.prodname_vscode %} und steht dir zur Verwendung in {% data variables.product.prodname_github_codespaces %} zur Verfügung. Die Befehlspalette ermöglicht dir den Zugriff auf viele Befehle für {% data variables.product.prodname_github_codespaces %} und {% data variables.product.prodname_vscode_shortname %}. Weitere Informationen zur Verwendung von {% data variables.product.prodname_vscode_command_palette_shortname %} findest du unter [Benutzeroberfläche](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in der {% data variables.product.prodname_vscode_shortname %}-Dokumentation.
 
-The {% data variables.product.prodname_vscode_command_palette_shortname %} is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in {% data variables.product.prodname_github_codespaces %}. The Command Palette allows you to access many commands for {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_vscode_shortname %}. For more information on using the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+## Zugreifen auf die {% data variables.product.prodname_vscode_command_palette_shortname %}
 
-## Accessing the {% data variables.product.prodname_vscode_command_palette_shortname %}
+Du kannst auf die {% data variables.product.prodname_vscode_command_palette_shortname %} auf verschiedene Weisen zugreifen.
 
-You can access the {% data variables.product.prodname_vscode_command_palette_shortname %} in a number of ways.
+- <kbd>Umschalt</kbd>+<kbd>Befehl</kbd>+<kbd>P</kbd> (Mac) / <kbd>STRG</kbd>+<kbd>UMSCHALT</kbd>+<kbd>P</kbd> (Windows/Linux).
 
-- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-
-  Note that this command is a reserved keyboard shortcut in Firefox.
+  Beachte, dass dieser Befehl eine reservierte Tastenkombination in Firefox ist.
 - <kbd>F1</kbd>
-- From the Application Menu, click **View > Command Palette…**.
+- Klicke im Anwendungsmenü auf **Ansicht > Befehlspalette...**.
 
-  ![The application menu](/assets/images/help/codespaces/codespaces-view-menu.png)
+  ![Das Anwendungsmenü](/assets/images/help/codespaces/codespaces-view-menu.png)
 
-## Commands for {% data variables.product.prodname_codespaces %}
+## Befehle für {% data variables.product.prodname_codespaces %}
 
-To see all commands related to {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "Codespaces".
+Um alle Befehle zu {% data variables.product.prodname_github_codespaces %} anzuzeigen, [öffne die {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette) und gib dann „Codespaces“ ein.
 
-![A list of all commands that relate to {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/codespaces-command-palette.png)
+![Eine Liste aller Befehle, die sich auf {% data variables.product.prodname_github_codespaces %} beziehen](/assets/images/help/codespaces/codespaces-command-palette.png)
 
-### Suspending or stopping a codespace
+### Anhalten oder Beenden eines Codespaces
 
-If you add a new secret or change the machine type, you'll have to stop and restart the codespace for it to apply your changes. 
+Wenn du ein neues Geheimnis hinzufügst oder den Computertyp änderst, musst du den Codespace beenden und neu starten, um deine Änderungen zu übernehmen. 
 
-To suspend or stop your codespace's container, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "stop". Select **Codespaces: Stop Current Codespace**.
+Um den Container deines Codespaces zu anzuhalten oder zu beenden, greife auf die [{% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette) zu. Beginne dann mit der Eingabe von „stop“. Wähle **Codespaces: Aktuellen Codespace beenden** aus.
 
-![Command to stop a codespace](/assets/images/help/codespaces/codespaces-stop.png)
+![Befehl zum Beenden eines Codespaces](/assets/images/help/codespaces/codespaces-stop.png)
 
-### Adding a predefined dev container configuration
+### Hinzufügen einer vordefinierten Entwicklungscontainerkonfiguration
 
-To add a predefined dev container configuration, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**
+Um eine vordefinierte Entwicklungscontainerkonfiguration hinzuzufügen, [greife auf die {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette) zu. Beginne dann mit der Eingabe von „dev container“. Wähle **Codespaces: Konfigurationsdateien für Entwicklungscontainer hinzufügen...** aus.
 
-![Command to add a dev container](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+![Befehl zum Hinzufügen eines Dev-Containers](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
-### Rebuilding a codespace
+### Neuerstellen eines Codespaces
 
-If you add a dev container or edit any of the configuration files (`devcontainer.json` and `Dockerfile`), you'll have to rebuild your codespace for it to apply your changes. 
+Wenn du einen Dev-Container hinzufügst oder eine der Konfigurationsdateien (`devcontainer.json` und `Dockerfile`) bearbeitst, musst du deinen Codespace neu erstellen, damit deine Änderungen übernommen werden. 
 
-To rebuild your container, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "rebuild". Select **Codespaces: Rebuild Container**.
+Zur Neuerstellung deines Containers [greifst du auf die {% data variables.product.prodname_vscode_command_palette_shortname %} zu](#accessing-the-command-palette). Beginne dann mit der Eingabe von „rebuild“. Wähle **Codespaces: Container neu erstellen** aus.
 
-![Command to rebuild a codespace](/assets/images/help/codespaces/codespaces-rebuild.png)
+![Befehl zum Neuerstellen eines Codespaces](/assets/images/help/codespaces/codespaces-rebuild.png)
 
 {% data reusables.codespaces.full-rebuild-tip %}
 
-### Codespaces logs
+### Codespaces-Protokolle
 
-You can use the {% data variables.product.prodname_vscode_command_palette_shortname %} to access the codespace creation logs, or you can use it export all logs. 
+Du kannst die {% data variables.product.prodname_vscode_command_palette_shortname %} verwenden, um auf die Erstellungsprotokolle für den Codespace zuzugreifen, oder du kannst damit alle Protokolle exportieren. 
 
-To retrieve the logs for {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_github_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
+Um die Protokolle für {% data variables.product.prodname_github_codespaces %} abzurufen, [öffne die {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), und beginne dann mit der Eingabe von „Protokoll“. Wähle **Codespaces: Protokolle exportieren** aus, um alle Protokolle im Zusammenhang mit {% data variables.product.prodname_github_codespaces %} zu exportieren, oder **Codespaces: Erstellungsprotokolle anzeigen**, um Protokolle im Zusammenhang mit dem Setup einzusehen.
 
-![Command to access logs](/assets/images/help/codespaces/codespaces-logs.png)
+![Befehl für den Zugriff auf Protokolle](/assets/images/help/codespaces/codespaces-logs.png)
 
-## Further reading
+## Weiterführende Themen
 
-- "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
+- [Verwenden von {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)

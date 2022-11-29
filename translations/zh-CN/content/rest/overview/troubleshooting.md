@@ -17,6 +17,22 @@ topics:
 If you're encountering some oddities in the API, here's a list of resolutions to
 some of the problems you may be experiencing.
 
+{% ifversion api-date-versioning %}
+
+## `400` error for an unsupported API version
+
+You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
+
+```shell
+$ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
+```
+
+If you specify a version that does not exist, you will receive a `400` error.
+
+For more information, see "[API Versions](/rest/overview/api-versions)."
+
+{% endif %}
+
 ## `404` error for an existing repository
 
 Typically, we send a `404` error when your client isn't properly authenticated.

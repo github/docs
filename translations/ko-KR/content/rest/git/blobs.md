@@ -11,12 +11,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: ae4d0ac726c9b76785876f7884425cab99e89f1f
-ms.sourcegitcommit: fb740a96852435c748dad95d560327e80b4cef19
+ms.openlocfilehash: 3b7cac6d268fb4c7e786651a7281ca5ce4241ec5
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2022
-ms.locfileid: '148105689'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181247'
 ---
 ## Git Blob API 정보
 
@@ -27,6 +27,6 @@ Git BLOB(Binary Large Object)은 각 파일의 콘텐츠를 리포지토리에 �
 다음은 BLOB에 대해 지원되는 미디어 유형입니다.
 
     application/json
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 자세한 내용은 “[미디어 유형](/rest/overview/media-types)”을 참조하세요.

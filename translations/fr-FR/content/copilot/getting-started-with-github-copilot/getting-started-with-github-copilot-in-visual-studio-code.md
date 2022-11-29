@@ -9,6 +9,8 @@ topics:
   - Copilot
 ---
 
+{% data reusables.copilot.copilot-cta-button %}
+
 ## About {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_vscode %}
 
 {% data reusables.copilot.procedural-intro %}

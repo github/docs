@@ -12,6 +12,7 @@ featuredLinks:
     - /rest/guides/best-practices-for-integrators
   popular:
     - /rest/overview/resources-in-the-rest-api
+    - /rest/overview/api-versions
     - /rest/overview/other-authentication-methods
     - /rest/overview/troubleshooting
     - /rest/overview/endpoints-available-for-github-apps
@@ -78,11 +79,11 @@ children:
   - /teams
   - /users
   - /webhooks
-ms.openlocfilehash: d4d7e93d5bc22833168a932e047525c85e3f8768
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 393b427325e51b3717e882e430662a6517cba551
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147673636'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184388'
 ---
 

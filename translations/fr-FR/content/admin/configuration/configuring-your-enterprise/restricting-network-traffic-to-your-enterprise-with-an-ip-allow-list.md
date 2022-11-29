@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: cd0c5b4bafc5226a99a75d3632fc5072233f5c1c
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180104'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184011'
 ---
 ## À propos des restrictions du trafic réseau
 
@@ -30,7 +30,7 @@ Par défaut, les utilisateurs autorisés peuvent accéder à votre entreprise à
 
 {% ifversion ghec %}
 
- Si votre entreprise utilise des {% data variables.product.prodname_emus %} avec OIDC, vous pouvez choisir d’utiliser la fonctionnalité de liste d’adresses IP autorisées de {% data variables.product.company_short %} ou d’utiliser les restrictions de la liste d’autorisations de votre fournisseur d’identité (IdP). Si votre entreprise n’utilise pas de {% data variables.product.prodname_emus %} avec OIDC, vous pouvez utiliser la fonctionnalité de liste d’autorisations de {% data variables.product.company_short %}. 
+Si votre entreprise utilise des {% data variables.product.prodname_emus %} avec OIDC, vous pouvez choisir d’utiliser la fonctionnalité de liste d’adresses IP autorisées de {% data variables.product.company_short %} ou d’utiliser les restrictions de la liste d’autorisations de votre fournisseur d’identité (IdP). Si votre entreprise n’utilise pas de {% data variables.product.prodname_emus %} avec OIDC, vous pouvez utiliser la fonctionnalité de liste d’autorisations de {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
@@ -49,8 +49,6 @@ Vous pouvez utiliser la liste d’adresses IP autorisées de {% data variables.p
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
-
-Vous pouvez aussi configurer des adresses IP autorisées pour une organisation individuelle. Pour plus d’informations, consultez « [Gestion des adresses IP autorisées pour votre organisation](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization) ».
 
 ## À propos de la liste d’autorisations de votre IdP
 

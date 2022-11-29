@@ -33,7 +33,7 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data
 
 ## Supported secrets for partner patterns
 
-{% data variables.product.product_name %} currently scans public repositories for secrets issued by the following service providers. For more information about {% data variables.product.prodname_secret_scanning_partner %}, see "[About {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
+{% data variables.product.product_name %} currently scans public repositories for secrets issued by the following service providers and alerts the relevant service provider whenever a secret is detected in a commit. For more information about {% data variables.product.prodname_secret_scanning_partner %}, see "[About {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 

@@ -9,12 +9,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: c51d9275950bbf303caa1a03344ba8402618d65b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 47961c5dfeeb5f320bbac67ffb0573c31709bd5b
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145129085'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181285'
 ---
 ## 关于 Gist API
 
@@ -38,7 +38,7 @@ Gist API 为 Gist 中的每个文件提供最多一兆字节的内容。 通过 
 
 以下是获取 Gist 内容所支持的媒体类型。
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.base64
+    application/vnd.github.raw
+    application/vnd.github.base64
 
 有关详细信息，请参阅“[媒体类型](/rest/overview/media-types)”。

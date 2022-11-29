@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
+intro: 'API Gitignore извлекает шаблоны `.gitignore`, которые можно использовать для пропуска файлов и каталогов.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,16 +11,21 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/gitignore
+ms.openlocfilehash: e830b0f00d60f3eb121fa2a99a910b073780700e
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181271'
 ---
+## Сведения об API Gitignore
 
-## About the Gitignore API
+При создании нового репозитория в {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} с помощью API можно указать [шаблон .gitignore](/github/getting-started-with-github/ignoring-files) , который будет применяться к репозиторию после создания. API шаблонов .gitignore перечисляет и извлекает шаблоны из репозитория {% data variables.product.product_name %} [.gitignore](https://github.com/github/gitignore).
 
-When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. The .gitignore templates API lists and fetches templates from the {% data variables.product.product_name %} [.gitignore repository](https://github.com/github/gitignore).
+### Пользовательские типы мультимедиа для gitignore
 
-### Custom media types for gitignore
-
-You can use this custom media type when getting a gitignore template.
+Этот пользовательский тип мультимедиа можно использовать при получении шаблона gitignore.
 
     application/vnd.github.raw
 
-For more information, see "[Media types](/rest/overview/media-types)."
+Дополнительные сведения см. в разделе [Типы носителей](/rest/overview/media-types).
