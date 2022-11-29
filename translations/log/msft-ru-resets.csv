@@ -632,7 +632,6 @@ translations/ru-RU/content/admin/identity-and-access-management/using-enterprise
 translations/ru-RU/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta.md,rendering error
-translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/index.md,broken liquid tags
@@ -672,6 +671,7 @@ translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise
 translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise.md,rendering error
+translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,rendering error
@@ -700,7 +700,6 @@ translations/ru-RU/content/authentication/connecting-to-github-with-ssh/generati
 translations/ru-RU/content/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection.md,rendering error
 translations/ru-RU/content/authentication/index.md,rendering error
 translations/ru-RU/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,rendering error
-translations/ru-RU/content/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps.md,rendering error
 translations/ru-RU/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
 translations/ru-RU/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/ru-RU/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
@@ -814,19 +813,21 @@ translations/ru-RU/content/code-security/security-overview/viewing-the-security-
 translations/ru-RU/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,rendering error
 translations/ru-RU/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/ru-RU/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
-translations/ru-RU/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,rendering error
 translations/ru-RU/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
 translations/ru-RU/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,rendering error
 translations/ru-RU/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
 translations/ru-RU/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
+translations/ru-RU/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
 translations/ru-RU/content/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces.md,broken liquid tags
 translations/ru-RU/content/codespaces/overview.md,rendering error
+translations/ru-RU/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
 translations/ru-RU/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
 translations/ru-RU/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ru-RU/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
+translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,rendering error
 translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
 translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
@@ -1023,6 +1024,7 @@ translations/ru-RU/content/packages/learn-github-packages/introduction-to-github
 translations/ru-RU/content/packages/learn-github-packages/publishing-a-package.md,rendering error
 translations/ru-RU/content/packages/learn-github-packages/viewing-packages.md,rendering error
 translations/ru-RU/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
+translations/ru-RU/content/packages/quickstart.md,rendering error
 translations/ru-RU/content/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry.md,rendering error
 translations/ru-RU/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,rendering error
 translations/ru-RU/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
@@ -1116,21 +1118,17 @@ translations/ru-RU/content/rest/enterprise-admin/pre-receive-hooks.md,rendering 
 translations/ru-RU/content/rest/enterprise-admin/repo-pre-receive-hooks.md,rendering error
 translations/ru-RU/content/rest/enterprise-admin/scim.md,rendering error
 translations/ru-RU/content/rest/enterprise-admin/users.md,rendering error
-translations/ru-RU/content/rest/gitignore.md,rendering error
 translations/ru-RU/content/rest/guides/getting-started-with-the-rest-api.md,rendering error
 translations/ru-RU/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/ru-RU/content/rest/guides/working-with-comments.md,rendering error
 translations/ru-RU/content/rest/migrations/source-imports.md,rendering error
 translations/ru-RU/content/rest/overview/api-previews.md,rendering error
-translations/ru-RU/content/rest/overview/endpoints-available-for-fine-grained-personal-access-tokens.md,rendering error
+translations/ru-RU/content/rest/overview/api-versions.md,rendering error
 translations/ru-RU/content/rest/overview/other-authentication-methods.md,rendering error
-translations/ru-RU/content/rest/overview/permissions-required-for-fine-grained-personal-access-tokens.md,rendering error
 translations/ru-RU/content/rest/overview/permissions-required-for-github-apps.md,rendering error
 translations/ru-RU/content/rest/overview/resources-in-the-rest-api.md,rendering error
-translations/ru-RU/content/rest/overview/troubleshooting.md,rendering error
 translations/ru-RU/content/rest/packages.md,rendering error
 translations/ru-RU/content/rest/projects/projects.md,rendering error
-translations/ru-RU/content/rest/pulls/comments.md,broken liquid tags
 translations/ru-RU/content/rest/quickstart.md,rendering error
 translations/ru-RU/content/rest/scim.md,rendering error
 translations/ru-RU/content/rest/teams/team-sync.md,rendering error
@@ -1254,6 +1252,7 @@ translations/ru-RU/data/reusables/copilot/install-copilot-in-neovim.md,rendering
 translations/ru-RU/data/reusables/dependabot/beta-security-and-version-updates.md,rendering error
 translations/ru-RU/data/reusables/dependabot/configuration-options.md,rendering error
 translations/ru-RU/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
+translations/ru-RU/data/reusables/dependabot/dependabot-actions-support.md,rendering error
 translations/ru-RU/data/reusables/dependabot/dependabot-alerts-filters.md,rendering error
 translations/ru-RU/data/reusables/dependabot/dependabot-updates-and-actions.md,rendering error
 translations/ru-RU/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
@@ -1350,7 +1349,6 @@ translations/ru-RU/data/reusables/organizations/mixed-roles-warning.md,broken li
 translations/ru-RU/data/reusables/organizations/navigate-to-org.md,rendering error
 translations/ru-RU/data/reusables/organizations/new_team.md,broken liquid tags
 translations/ru-RU/data/reusables/organizations/oauth_app_access.md,broken liquid tags
-translations/ru-RU/data/reusables/organizations/organization-wide-project.md,rendering error
 translations/ru-RU/data/reusables/organizations/owners-team.md,broken liquid tags
 translations/ru-RU/data/reusables/organizations/people.md,broken liquid tags
 translations/ru-RU/data/reusables/organizations/repository-defaults.md,rendering error
@@ -1468,5 +1466,6 @@ translations/ru-RU/data/reusables/webhooks/dependabot_alert_availability.md,rend
 translations/ru-RU/data/reusables/webhooks/dependabot_alert_description.md,rendering error
 translations/ru-RU/data/reusables/webhooks/dependabot_alert_payload.md,rendering error
 translations/ru-RU/data/reusables/webhooks/pull_request_properties.md,rendering error
+translations/ru-RU/data/ui.yml,broken liquid tags
 translations/ru-RU/data/variables/product.yml,rendering error
 translations/ru-RU/data/variables/projects.yml,broken liquid tags

@@ -1,7 +1,7 @@
 ---
 title: Ограничение сетевого трафика для предприятия с помощью списка разрешенных IP-адресов
 shortTitle: Restricting network traffic
-intro: Вы можете ограничить доступ к организации и разрешить доступ к ресурсам только с указанных IP-адресов с помощью списка разрешенных IP-адресов.
+intro: Вы можете ограничить доступ к предприятиям и разрешить доступ только к ресурсам с указанных IP-адресов с помощью списка разрешенных IP-адресов.
 permissions: Enterprise owners can configure IP allow lists.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: cd0c5b4bafc5226a99a75d3632fc5072233f5c1c
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180153'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148184015'
 ---
 ## Сведения об ограничениях сетевого трафика
 
@@ -30,13 +30,13 @@ ms.locfileid: '148180153'
 
 {% ifversion ghec %}
 
- Если ваше предприятие использует {% data variables.product.prodname_emus %} с OIDC, вы можете выбрать, следует ли использовать функцию списка разрешенных IP-адресов {% data variables.product.company_short %} или использовать ограничения списка разрешений для поставщика удостоверений (IdP). Если ваше предприятие не использует {% data variables.product.prodname_emus %} с OIDC, можно использовать функцию списка разрешений {% data variables.product.company_short %}. 
+Если ваше предприятие использует {% data variables.product.prodname_emus %} с OIDC, вы можете выбрать, следует ли использовать функцию списка разрешенных IP-адресов {% data variables.product.company_short %}или использовать ограничения списка разрешений для поставщика удостоверений (IdP). Если ваше предприятие не использует {% data variables.product.prodname_emus %} с OIDC, можно использовать функцию списка разрешений {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
 По умолчанию правила группы безопасности сети (NSG) Azure оставляют весь входящий трафик открытым на портах 22, 80, 443 и 25. Вы можете связаться с {% data variables.contact.github_support %}, чтобы настроить ограничения доступа для {% data variables.product.product_name %}.
 
-Чтобы ограничить использование групп безопасности сети Azure, обратитесь в {% data variables.contact.github_support %} с IP-адресами, которым должен быть разрешен доступ к {% data variables.product.product_name %}. Укажите диапазоны адресов, используя стандартный формат CIDR (бесклассовая междоменная маршрутизация). {% data variables.contact.github_support %} настроит соответствующие правила брандмауэра, чтобы ограничить сетевой доступ по протоколам HTTP, SSH, HTTPS и SMTP. Дополнительные сведения см. в разделе [Получение помощи от {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support).
+Для получения ограничений на использование групп безопасности сети Azure обратитесь к {% data variables.contact.github_support %} с IP-адресами, которым должен быть разрешен доступ к {% data variables.product.product_name %}. Укажите диапазоны адресов, используя стандартный формат CIDR (бесклассовая междоменная маршрутизация). {% data variables.contact.github_support %} настроит соответствующие правила брандмауэра, чтобы ограничить сетевой доступ по протоколам HTTP, SSH, HTTPS и SMTP. Дополнительные сведения см. в разделе [Получение помощи от {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support).
 
 {% endif %}
 
@@ -44,25 +44,23 @@ ms.locfileid: '148180153'
 
 ## Сведения о списке разрешенных IP-адресов {% data variables.product.company_short %}
 
-Список разрешенных IP-адресов {% data variables.product.company_short %} можно использовать для управления доступом к предприятию и ресурсам, принадлежащим организациям предприятия. 
+Вы можете использовать список разрешенных IP-адресов {% data variables.product.company_short %}, чтобы управлять доступом к вашему предприятию и ресурсам, принадлежащим организациям на предприятии. 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
 
-Вы также можете настраивать разрешенные IP-адреса для отдельной организации. Дополнительные сведения см. в разделе [Управление разрешенными IP-адресами для организации](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization).
-
 ## Сведения о списке разрешений поставщика удостоверений
 
 Если вы используете {% data variables.product.prodname_emus %} с OIDC, можно использовать список разрешений поставщика удостоверений. 
 
-Использование списка разрешений поставщика удостоверений отключает конфигурации списка разрешений IP-адресов {% data variables.product.company_short %} для всех организаций на предприятии и отключает API GraphQL для включения списков разрешенных IP-адресов и управления ими. 
+Использование списка разрешений поставщика удостоверений отключает конфигурации списков разрешенных IP-адресов {% data variables.product.company_short %} для всех организаций на предприятии и отключает API GraphQL для включения списков разрешенных IP-адресов и управления ими. 
 
 По умолчанию поставщик удостоверений запускает CAP при начальном интерактивном входе SAML или OIDC в {% data variables.product.company_short %} для любой выбранной конфигурации списка разрешенных IP-адресов.
 
-OIDC CAP применяется только к запросам к API с использованием маркера "пользователь—сервер", например маркера для {% data variables.product.prodname_oauth_app %} или {% data variables.product.prodname_github_app %}, действующего от имени пользователя. Cap OIDC не применяется, если {% data variables.product.prodname_github_app %} использует токен "сервер-сервер". Дополнительные сведения см. в разделах [Проверка подлинности с помощью {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-an-installation)и [Сведения о поддержке политики условного доступа поставщиков удостоверений](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps).
+Cap OIDC применяется только для запросов к API с использованием маркера типа "пользователь—сервер", например маркера для {% data variables.product.prodname_oauth_app %} или {% data variables.product.prodname_github_app %}, действующего от имени пользователя. Cap OIDC не применяется, если {% data variables.product.prodname_github_app %} использует токен между серверами. Дополнительные сведения см. в разделах [Проверка подлинности с помощью {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-an-installation)и [Сведения о поддержке политики условного доступа поставщиков удостоверений](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps).
 
-Чтобы обеспечить беспроблемное использование OIDC CAP при одновременном применении политики к маркерам от пользователя к серверу, необходимо скопировать все диапазоны IP-адресов из каждого {% data variables.product.prodname_github_app %}, который использует ваше предприятие, в политику поставщика удостоверений. 
+Чтобы обеспечить беспроблемное использование OIDC CAP при одновременном применении политики к маркерам типа "пользователь —сервер", необходимо скопировать все диапазоны IP-адресов из каждого {% data variables.product.prodname_github_app %}, используемых предприятием, в политику поставщика удостоверений. 
 
 ## Использование списка разрешенных IP-адресов {% data variables.product.company_short %}
 
