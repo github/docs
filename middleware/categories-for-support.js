@@ -1,10 +1,8 @@
 import path from 'path'
 
-import { cacheControlFactory } from './cache-control.js'
+import { defaultCacheControl } from './cache-control.js'
 
 const renderOpts = { textOnly: true, encodeEntities: true }
-
-const cacheControl = cacheControlFactory(60 * 60 * 24)
 
 // This middleware exposes a list of all categories and child articles at /categories.json.
 // GitHub Support uses this for internal ZenDesk search functionality.
@@ -34,7 +32,7 @@ export default async function categoriesForSupport(req, res) {
 
   // Cache somewhat aggressively but note that it will be soft-purged
   // in every prod deployment.
-  cacheControl(res)
+  defaultCacheControl(res)
 
   return res.json(allCategories)
 }
