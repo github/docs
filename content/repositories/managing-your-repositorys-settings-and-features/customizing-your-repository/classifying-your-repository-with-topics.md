@@ -47,3 +47,15 @@ You can search for repositories that are associated with a particular topic. For
   ![Form to enter topics](/assets/images/help/repository/add-topic-form.png)
 4. After you've finished adding topics, click **Save changes**.
   !["Save changes" button in "Edit repository details"](/assets/images/help/repository/edit-repository-details-save-changes-button.png)
+  
+## Limitations and quotas
+
+The following limitations apply to topics:
+
+- Topic names only include basic alphanumeric characters.
+- Topic names may NOT include capital letters.
+- Topic names may be no longer than 50 characters.
+- Each repository cannot have more than 20 topics.
+
+
+
