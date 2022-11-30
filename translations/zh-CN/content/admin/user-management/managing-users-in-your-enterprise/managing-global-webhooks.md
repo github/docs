@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/managing-global-webhooks
   - /admin/user-management/managing-global-webhooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Webhooks
 ---
-### 关于全局 web 挂钩
+
+## 关于全局 web 挂钩
 
 您可以使用全局 web 挂钩自动监视、响应或者为企业的用户和组织管理强制执行规则。 例如，您可以将 web 挂钩配置为在以下情况下执行：
 - 创建或删除用户帐户
@@ -25,7 +26,7 @@ topics:
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-### 添加全局 web 挂钩
+## 添加全局 web 挂钩
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -48,7 +49,7 @@ topics:
 12. 确认已选中 **Active** 复选框（默认处于选中状态）。 ![已选择 Active 复选框](/assets/images/enterprise/site-admin-settings/add-global-webhook-active-checkbox.png)
 13. 单击 **Add webhook（添加 web 挂钩）**。
 
-### 编辑全局 web 挂钩
+## 编辑全局 web 挂钩
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -57,7 +58,7 @@ topics:
 6. 更新 web 挂钩的设置。
 7. 单击 **Update webhook**。
 
-### 删除全局 web 挂钩
+## 删除全局 web 挂钩
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -65,7 +66,7 @@ topics:
 5. 在您想要删除的 web 挂钩旁，请单击 **Delete**。 ![web 挂钩旁的 Delete 按钮](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
 6. 阅读有关删除 web 挂钩的信息，然后单击 **Yes, delete webhook**。 ![包含警告信息的弹出框和用于确认删除 web 挂钩的按钮](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
 
-### 查看最近的交付和回复
+## 查看最近的交付和回复
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

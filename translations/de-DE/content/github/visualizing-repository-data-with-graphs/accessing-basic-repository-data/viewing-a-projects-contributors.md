@@ -14,6 +14,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Informationen zu Mitarbeitern
 
 Im Mitarbeiterdiagramm kannst Du die Top 100 der Mitarbeiter an einem Repository anzeigen{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}, darunter auch die Commit-Co-Autoren{% endif %}. Merge- und leere Commits werden für dieses Diagramm nicht als Beiträge gezählt.
@@ -27,7 +28,7 @@ Darüber hinaus kannst Du eine Liste der Personen anzeigen, die Beiträge zu den
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 3. Klicke auf der linken Seitenleiste auf **Contributors** (Mitarbeiter). ![Registerkarte „Contributors“ (Mitarbeiter)](/assets/images/help/graphs/contributors_tab.png)
-4. Wenn Du optional Mitarbeiter während eines bestimmten Zeitraums anzeigen möchtest, klicke und ziehe solange, bis der gewünschte Zeitraum ausgewählt ist. ![Ausgewählter Zeitraum im Mitarbeiterdiagramm](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
+4. Wenn Du optional Mitarbeiter während eines bestimmten Zeitraums anzeigen möchtest, klicke und ziehe solange, bis der gewünschte Zeitraum ausgewählt ist. The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday. ![Ausgewählter Zeitraum im Mitarbeiterdiagramm](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
 ### Fehlerbehebung bei Mitarbeitern
 

@@ -6,10 +6,12 @@ redirect_from:
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+shortTitle: Subversion & Git differences
 ---
-### ディレクトリ構造
+
+## ディレクトリ構造
 
 プロジェクトのそれぞれの *reference* やコミットのラベルスナップショットは、`trunk`、`branches`、`tags` などの特定のサブディレクトリにまとめられます。 たとえば、2 つの feature のある開発中の SVN プロジェクトは、このようになるでしょう:
 
@@ -41,7 +43,7 @@ Git のワークフローは以下のようになります:
 
 Git はディレクトリ構造は同じままですが、SVN とは違い、ファイルの変更内容はブランチベースです。
 
-### サブプロジェクトを含める
+## サブプロジェクトを含める
 
 *サブプロジェクト*は、メインプロジェクト外で開発され管理されるプロジェクトです。 一般的に、自分でコードを管理する必要なく、プロジェクトに何らかの機能を加えるためにサブプロジェクトをインポートします。 サブプロジェクトがアップデートされる度、すべてを最新にするためにプロジェクトと同期できます。
 
@@ -49,7 +51,7 @@ SVN では、サブプロジェクトは、*SVN external* と呼ばれます。 
 
 詳しい情報については、Pro Git ドキュメントで「[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)」を参照してください。
 
-### 履歴を保存する
+## 履歴を保存する
 
 SVN は、プロジェクトの履歴は変更されないものとして設定されています。 Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
@@ -59,7 +61,7 @@ SVN は、プロジェクトの履歴は変更されないものとして設定�
 
 {% endtip %}
 
-### 参考リンク
+## 参考リンク
 
 - [GitHub がサポートする Subversion プロパティ](/articles/subversion-properties-supported-by-github)
 - [_Git SCM_ ブックの「ブランチおよびマージ」](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)

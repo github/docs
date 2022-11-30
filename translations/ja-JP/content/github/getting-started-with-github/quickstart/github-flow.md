@@ -16,6 +16,7 @@ topics:
   - Fundamentals
 miniTocMaxHeadingLevel: 4
 ---
+
 ### はじめに
 
 {% data variables.product.prodname_dotcom %} flow is a lightweight, branch-based workflow. The {% data variables.product.prodname_dotcom %} flow is useful for everyone, not just developers. For example, here at {% data variables.product.prodname_dotcom %}, we use {% data variables.product.prodname_dotcom %} flow for our [site policy](https://github.com/github/site-policy), [documentation](https://github.com/github/docs), and [roadmap](https://github.com/github/roadmap).
@@ -68,11 +69,11 @@ Create a pull request to ask collaborators for feedback on your changes. Pull re
 
 When you create a pull request, include a summary of the changes and what problem they solve. You can include images, links, and tables to help convey this information. If your pull request addresses an issue, link the issue so that issue stakeholders are aware of the pull request and vice versa. If you link with a keyword, the issue will close automatically when the pull request merges. For more information, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)" and "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)."
 
-![pull request body](../../../assets/images/help/pull_requests/pull-request-body.png)
+![pull request body](/assets/images/help/pull_requests/pull-request-body.png)
 
 In addition to filling out the body of the pull request, you can add comments to specific lines of the pull request to explicitly point something out to the reviewers.
 
-![pull request comment](../../../assets/images/help/pull_requests/pull-request-comment.png)
+![pull request comment](/assets/images/help/pull_requests/pull-request-comment.png)
 
 Your repository may be configured to automatically request a review from specific teams or users when a pull request is created. You can also manually @mention or request a review from specific people or teams.
 

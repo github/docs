@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
 intro: 'LDAP を使えば、既存のアカウントに対して {% data variables.product.prodname_ghe_server %} を認証させることができ、リポジトリへのアクセスを集中管理できます。 LDAPはディレクトリ情報サービスへのアクセスと管理のための広く使われているアプリケーションプロトコルで、大企業のユーザディレクトリとサードパーティのソフトウェアを統合するために使われている最も一般的なプロトコルの1つです。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -19,9 +19,10 @@ topics:
   - Enterprise
   - Identity
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### サポートされているLDAPサービス
+## サポートされているLDAPサービス
 
 {% data variables.product.prodname_ghe_server %} は、以下の LDAP サービスと統合できます:
 
@@ -32,7 +33,7 @@ topics:
 * Open Directory
 * 389-ds
 
-### LDAPでのユーザ名についての考慮
+## LDAPでのユーザ名についての考慮
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -41,7 +42,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### {% data variables.product.product_location %}とのLDAPの設定
+## {% data variables.product.product_location %}とのLDAPの設定
 
 LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでインスタンスにサインインできるようになります。 ユーザが初めてサインインするときに、ディレクトリ内のLDAP属性を使ってプロフィール名、メールアドレス、SSHキーが設定されます。
 
@@ -60,7 +61,7 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![LDAP のビルトイン認証の選択チェックボックス](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
 5. 設定を追加してください。
 
-### LDAPの属性
+## LDAPの属性
 {% data variables.product.product_location %}のlDAPの設定を完了させるために、以下の属性を使ってください。
 
 | 属性名                                              | 種類 | 説明                                                                                                                                                                                                                                                        |
@@ -82,7 +83,7 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 | `Enable LDAP certificate verification`           | 任意 | 選択した場合、LDAP 証明書の検証が[オン](#enabling-ldap-certificate-verification)になります。                                                                                                                                                                                    |
 | `Synchronization`                                | 任意 | 選択した場合、LDAP Sync が[オン](#enabling-ldap-sync)になります。                                                                                                                                                                                                         |
 
-#### Gitの操作のパスワード認証の無効化
+### Gitの操作のパスワード認証の無効化
 
 LDAP 設定中の [**Disable username and password authentication for Git operations（Git の操作でのユーザ名およびパスワード認証の無効化）**] を選択し、Git アクセスでの個人アクセストークンあるいは SSH キーの使用を強制してください。そうすれば、サーバーが LDAP 認証のリクエストで過負荷になるのを防ぐのに役に立ちます。 特にポーリングによる大量のリクエストと組み合わさると、レスポンスの遅いLDAPサーバーは頻繁にパフォーマンス問題や障害の原因となるので、この設定をおすすめします。
 
@@ -90,7 +91,7 @@ LDAP 設定中の [**Disable username and password authentication for Git operat
 
 このオプションが選択されると、ユーザがコマンドライン経由のGitの操作でパスワードを使おうとすると、次のようなエラーメッセージが返されます。`Password authentication is not allowed for Git operations. You must use a personal access token.`
 
-#### LDAPの証明書検証の有効化
+### LDAPの証明書検証の有効化
 
 TLSと共に使うLDAPサーバの証明書を検証するには、LDAPの設定で**Enable LDAP certificate verification（LDAPの証明書検証の有効化）**を選択してください。
 
@@ -101,7 +102,7 @@ TLSと共に使うLDAPサーバの証明書を検証するには、LDAPの設定
 - 証明書の期限が切れていないこと。
 - 証明書が信頼されている認証局 (CA) によって署名されていること。
 
-#### LDAP Syncの有効化
+### LDAP Syncの有効化
 
 {% note %}
 
@@ -158,7 +159,7 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 
 {% endwarning %}
 
-#### サポートされるLDAPグループのオブジェクトクラス
+### サポートされるLDAPグループのオブジェクトクラス
 
 {% data variables.product.prodname_ghe_server %} は、以下の LDAP グループオブジェクトクラスをサポートします。 グループは入れ子にできます。
 
@@ -167,7 +168,7 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 - `groupOfUniqueNames`
 - `posixGroup`
 
-### LDAPユーザの表示と作成
+## LDAPユーザの表示と作成
 
 インスタンスにアクセスできる LDAP ユーザの完全なリストを表示し、新しいユーザをプロビジョニングできます。
 
@@ -176,7 +177,7 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 3. 左のサイドバーで**LDAP users（LDAPユーザ）**をクリックしてください。 ![LDAP ユーザタブ](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
 4. ユーザを検索するには、完全なユーザ名もしくはユーザ名の一部を入力し、**Search（検索）**をクリックしてください。 検索結果に該当するユーザが表示されます。 該当するユーザがいなければ、**Create（作成）**をクリックして新しいユーザアカウントをプロビジョニングできます。 ![LDAP検索](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
 
-### LDAPアカウントの更新
+## LDAPアカウントの更新
 
 [LDAP Sync が有効化](#enabling-ldap-sync)されていない限り、LDAP アカウントへの変更は自動的には {% data variables.product.prodname_ghe_server %} に同期されません。
 
@@ -184,7 +185,7 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 * LDAP 管理者グループに LDAP アカウントを追加あるいは削除するには、[{% data variables.product.prodname_ghe_server %} 上でそのアカウントを昇格もしくは降格](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator)させてください。
 * LDAP アカウントを削除するには、[{% data variables.product.prodname_ghe_server %} アカウントをサスペンド](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)してください。
 
-#### 手動でのLDAPアカウントの同期
+### 手動でのLDAPアカウントの同期
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -196,7 +197,7 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 
 [API を使用して手動同期をトリガー](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)することもできます。
 
-### {% data variables.product.product_location %}へのアクセスの削除
+## {% data variables.product.product_location %}へのアクセスの削除
 
 [LDAP Sync が有効化](#enabling-ldap-sync)されているなら、ユーザの LDAP のクレデンシャルを削除すれば、次の同期が行われた後にそのユーザのアカウントはサスペンドされます。
 

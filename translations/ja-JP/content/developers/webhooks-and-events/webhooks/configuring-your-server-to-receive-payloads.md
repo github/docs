@@ -5,12 +5,14 @@ redirect_from:
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Webhooks
+shortTitle: Configure server for webhooks
 ---
+
 webhookがメッセージを配信する準備ができたので、受信するペイロードを処理するための基本的なSinatraサーバーをセットアップしましょう。
 
 {% note %}
@@ -19,7 +21,7 @@ webhookがメッセージを配信する準備ができたので、受信する�
 
 {% endnote %}
 
-### サーバーの作成
+## サーバーの作成
 
 サーバーを`/payload`で`POST`リクエストに対して待ち受けさせたいですが、これはGitHubにそこがwebhookのURLだと伝えたからです。 Because we're using ngrok to expose our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
 

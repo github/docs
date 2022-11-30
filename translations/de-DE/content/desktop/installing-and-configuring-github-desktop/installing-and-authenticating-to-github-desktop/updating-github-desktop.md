@@ -5,8 +5,9 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/updating-github-desktop
   - /desktop/installing-and-configuring-github-desktop/updating-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 {% mac %}
 
 1. Klicken Sie im Menü **GitHub Desktop** auf **About GitHub Desktop** (Informationen zu GitHub Desktop). ![Menüoption „About GitHub Desktop“ (Informationen zu GitHub Desktop)](/assets/images/help/desktop/desktop-menu-about-desktop-mac.png)

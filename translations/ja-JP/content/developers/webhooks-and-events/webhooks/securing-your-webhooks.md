@@ -5,17 +5,18 @@ redirect_from:
   - /webhooks/securing
   - /developers/webhooks-and-events/securing-your-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Webhooks
 ---
+
 ペイロードを受信するようにサーバーが設定されると、設定したエンドポイントに送信されたペイロードがリッスンされます。 セキュリティ上の理由から、GitHub からのリクエストに制限することをお勧めします。 これを行うにはいくつかの方法があります。たとえば、GitHub の IP アドレスからのリクエストを許可することですが、はるかに簡単な方法は、シークレットトークンを設定して情報を検証することです。
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### シークレットトークンを設定する
+## シークレットトークンを設定する
 
 シークレットトークンは、GitHub とサーバーの 2 か所に設定する必要があります。
 
@@ -33,11 +34,11 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 トークンをアプリケーションにハードコーディング**しないでください**。
 
-### GitHub からのペイロードを検証する
+## GitHub からのペイロードを検証する
 
-シークレットトークンが設定されると、{% data variables.product.product_name %} はそれを使用して各ペイロードでハッシュ署名を作成します。 このハッシュ署名は、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature` として各リクエストのヘッダに含まれています{% endif %}。
+シークレットトークンが設定されると、{% data variables.product.product_name %} はそれを使用して各ペイロードでハッシュ署名を作成します。 このハッシュ署名は、{% ifversion fpt or ghes > 2.22 or ghae %}`X-Hub-Signature-256`{% elsif ghes < 3.0 %}`X-Hub-Signature` として各リクエストのヘッダに含まれています{% endif %}。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion fpt or ghes > 2.22 %}
 {% note %}
 
 **注釈:** 下位互換性のために、SHA-1 ハッシュ関数を使用して生成される `X-Hub-Signature` ヘッダーも含まれています。 可能であれば、セキュリティを向上させるために `X-Hub-Signature-256` ヘッダを使用することをお勧めします。 The example below demonstrates using the `X-Hub-Signature-256` header.
@@ -52,7 +53,8 @@ require 'sinatra'
 require 'json'
 
 post '/payload' do
-  push = JSON.parse(params[:payload])
+  request.body.rewind
+  push = JSON.parse(request.body.read)
   "I got some JSON: #{push.inspect}"
 end
 ```
@@ -64,15 +66,15 @@ post '/payload' do
   request.body.rewind
   payload_body = request.body.read
   verify_signature(payload_body)
-  push = JSON.parse(params[:payload])
+  push = JSON.parse(payload_body)
   "I got some JSON: #{push.inspect}"
 end
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 def verify_signature(payload_body)
   signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
-end{% elsif currentVersion ver_lt "enterprise-server@2.23" %}
+end{% elsif ghes < 3.0 %}
 def verify_signature(payload_body)
   signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
@@ -87,8 +89,8 @@ end{% endif %}
 
 言語とサーバーの実装は、この例で使用したコードとは異なる場合があります。 ただし、次のようないくつかの非常に重要な事項があります。
 
-* どの実装を使用する場合でも、ハッシュ署名は {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %} で始まり、シークレットトークンのキーとペイロード本体を使用します。
+* No matter which implementation you use, the hash signature starts with {% ifversion fpt or ghes > 2.22 or ghae %}`sha256=`{% elsif ghes < 3.0 %}`sha1=`{% endif %}, using the key of your secret token and your payload body.
 
-* プレーンな `==` 演算子を使用することは**お勧めしません**。 A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
+* プレーンな `==` 演算子を使用することは**お勧めしません**。 [`secure_compare`][secure_compare] のようなメソッドは、「一定時間」の文字列比較を実行します。これは、通常の等式演算子に対する特定のタイミング攻撃を軽減するのに役立ちます。
 
 [secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

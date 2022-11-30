@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-cluster-nodes
   - /admin/enterprise-management/about-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering
@@ -14,7 +14,7 @@ topics:
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### Minimum hardware recommendations
+## Minimum hardware recommendations
 Each node must have a root volume, as well as a separate data volume. These are minimum recommendations. More resources may be required depending on your usage, such as user activity and selected integrations.
 
 | Services | Minimum Memory Required    | Minimum Data Volume Free Space Required |
@@ -24,7 +24,7 @@ Each node must have a root volume, as well as a separate data volume. These are 
 | `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` | 7 GB | 10 GB |
 | `elasticsearch-server` | 14 GB | 10 GB |
 
-### Services required for clustering
+## Services required for clustering
 For adequate redundancy, use these minimum nodes operating each service.
 
 {% tip %}
@@ -41,7 +41,7 @@ For adequate redundancy, use these minimum nodes operating each service.
 | `git-server`,<br/>`pages-server`,<br/>`storage-server` | 3 |
 | `elasticsearch-server` | 3 |
 
-### Cluster design recommendations
+## Cluster design recommendations
 
 Clustering allows services that make up {% data variables.product.prodname_ghe_server %} to be scaled out independently of each other. This flexibility can be used to design and implement a cluster that fits organizations with different scalability requirements. For example, some organizations may need more storage throughput for large or frequent fetches, but web server usage may be relatively low. Another organization may have good performance with fewer storage resources, but need many nodes running `pages-server` or `elasticsearch-server`. Many different combinations are possible. Work with your account representative to determine the best cluster configuration for your specific needs.
 
@@ -64,7 +64,7 @@ Clustering allows services that make up {% data variables.product.prodname_ghe_s
     - `storage-server`
     - `metrics-server`
 
-#### Example cluster diagram
+### Example cluster diagram
 {% note %}
 
 **Note: This is only an example.** Your organization's optimal cluster design will depend on your unique needs. Talk to your dedicated representative or {% data variables.contact.contact_enterprise_sales %} so we can help you determine the best cluster configuration.

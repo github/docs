@@ -5,11 +5,13 @@ redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Auto linked references
 ---
-### URLs
+
+## URLs
 
 {% data variables.product.product_name %} erstellt aus Standard-URLs automatisch Links.
 
@@ -19,7 +21,7 @@ versions:
 
 Weitere Informationen zum Erstellen von Links findest Du unter „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax/#links).“
 
-### Issues und Pull Requests
+## Issues und Pull Requests
 
 In Unterhaltungen auf {% data variables.product.product_name %} werden Verweise auf Issues und Pull Requests automatisch in verkürzte Links umgewandelt.
 
@@ -32,12 +34,16 @@ In Unterhaltungen auf {% data variables.product.product_name %} werden Verweise 
 | Verweistyp                                                               | Rohverweis                                     | Kurzlink                                                               |
 | ------------------------------------------------------------------------ | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | URL des Issues oder Pull Requests                                        | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
-| `#` und Nummer des Issues oder Pull Requests                             | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
+| `#` and issue or pull request number                                     | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
 | `GH-` und Nummer des Issues oder Pull Requests                           | GH-26                                          | [GH-26](https://github.com/jlord/sheetsee.js/issues/26)                |
 | `Username/Repository#` und Nummer des Issues oder Pull Requests          | jlord/sheetsee.js#26                           | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Organization_name/Repository#` und Nummer des Issues oder Pull Requests | github/linguist#4039                           | [github/linguist#4039](https://github.com/github/linguist/pull/4039)   |
 
-### Commit-SHAs
+{% ifversion fpt %}
+If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+{% endif %}
+
+## Commit-SHAs
 
 Verweise auf den SHA-Hash eines Commits werden zum Committen auf {% data variables.product.product_name %} automatisch in verkürzte Links umgewandelt.
 
@@ -48,10 +54,10 @@ Verweise auf den SHA-Hash eines Commits werden zum Committen auf {% data variabl
 | Benutzer@SHA                  | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e                                                                                                                                 | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)               |
 | `Benutzername/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e`                                                                                                                   | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-### Benutzerdefinierte automatische Verknüpfungen von externen Ressourcen
+## Benutzerdefinierte automatische Verknüpfungen von externen Ressourcen
 
 {% data reusables.repositories.autolink-references %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax)“

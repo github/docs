@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
 ---
+
 ### {% data variables.product.prodname_dotcom %} への認証について
 
 アカウントを安全に保つには、{% data variables.product.product_name %} の {% if currentVersion != "github-ae@latest" %} 特定 {% endif %} のリソースにアクセスする前に認証する必要があります。 {% data variables.product.product_name %} への認証を行うときは、自分が確かに本人であることを証明するために、固有の認証情報を提供または確認します。

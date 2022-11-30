@@ -6,19 +6,21 @@ redirect_from:
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /developers/apps/troubleshooting-oauth-app-access-token-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - OAuth Apps
+shortTitle: 令牌请求疑难解答
 ---
+
 {% note %}
 
 **注：**这些示例仅显示 JSON 响应。
 
 {% endnote %}
 
-### 客户端凭据不正确
+## 客户端凭据不正确
 
 如果您传递的 client\_id 和/或 client\_secret 不正确，您将收到此错误响应。
 
@@ -32,7 +34,7 @@ topics:
 
 要解决此错误，请确保您拥有 {% data variables.product.prodname_oauth_app %} 的正确凭据。 仔细检查 `client_id` 和 `client_secret` 以确保它们正确无误并且正确地传递到 {% data variables.product.product_name %}。
 
-### 重定向 URI 不匹配
+## 重定向 URI 不匹配
 
 如果您提供的 `redirect_uri` 与您在 {% data variables.product.prodname_oauth_app %} 中注册的 URL 不匹配，您将收到此错误消息：
 
@@ -46,7 +48,7 @@ topics:
 
 要更正此错误，请提供一个与您注册的 URL 匹配的 `redirect_uri`，或者忽略此参数以使用在应用程序中注册的默认 URL。
 
-### 验证码错误
+## 验证码错误
 
 ```json
 {

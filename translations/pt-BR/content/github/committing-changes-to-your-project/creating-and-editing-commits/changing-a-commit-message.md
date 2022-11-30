@@ -6,17 +6,18 @@ redirect_from:
   - /github/committing-changes-to-your-project/changing-a-commit-message
 intro: 'Se uma mensagem do commit contiver informações imprecisas, incorretas ou confidenciais, você poderá corrigi-las localmente e fazer push de um novo commit com uma nova mensagem para o {% data variables.product.product_name %}. Também é possível alterar uma mensagem do commit para adicionar informações ausentes.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
-### Reescrever a mensagem do commit mais recente
+
+## Reescrever a mensagem do commit mais recente
 
 Você pode alterar a mensagem do commit mais recente usando o comando `git commit --amend`.
 
 No Git, o texto da mensagem do commit faz parte do commit. Alterar a mensagem do commit mudará o ID do commit, isto é, a soma de verificação SHA1 que nomeia o commit. Efetivamente, você está criando um commit que substitui o antigo.
 
-### Não foi feito push on-line do commit
+## Não foi feito push on-line do commit
 
 Se o commit existir em seu repositório local e não tiver sido publicado no {% data variables.product.product_location %}, você poderá corrigir a mensagem do commit com o comando `git commit --amend`.
 
@@ -24,7 +25,7 @@ Se o commit existir em seu repositório local e não tiver sido publicado no {% 
 2. Digite `git commit --amend` e pressione **Enter**.
 3. No editor de texto, edite a mensagem do commit e salve o commit.
     - Você pode adicionar um coautor incluindo um trailer no commit. Para obter mais informações, consulte "[Criar um commit com vários autores](/articles/creating-a-commit-with-multiple-authors)".
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
     - É possível criar commits em nome da sua organização adicionando um trailer ao commit. Para obter mais informações, consulte "[Criar um commit em nome de uma organização](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
@@ -36,7 +37,7 @@ Você pode alterar o editor de texto padrão do Git mudando a configuração `co
 
 {% endtip %}
 
-### Corrigir mensagens do commit antigas ou em grandes quantidades
+## Corrigir mensagens do commit antigas ou em grandes quantidades
 
 Se você já tiver feito push do commit no {% data variables.product.product_location %}, será necessário forçar o push de um commit com uma mensagem corrigida.
 
@@ -49,9 +50,9 @@ O recomendável é evitar tanto quanto possível o push forçado, uma vez que is
 **Alterar a mensagem do commit enviado mais recentemente**
 
 1. Siga as [etapas acima](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para corrigir a mensagem do commit.
-2. Use o comando `push --force` para forçar o push sobre o commit antigo.
+2. Use o comando `push --force-with-lease` para fazer push forçado sobre o commit antigo.
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **Alterar a mensagem das mensagens mais antigas ou múltiplas do commit**
@@ -117,6 +118,6 @@ Se você incluiu informações confidenciais em uma mensagem do commit, forçar 
 
 {% endwarning %}
 
-### Leia mais
+## Leia mais
 
 * "[Assinar commits](/articles/signing-commits)"

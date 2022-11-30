@@ -17,6 +17,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 {% data reusables.user_settings.access_settings %}
 2. Na barra lateral esquerda, clique em **Repositories** (Repositórios). ![Guia Repositories (Repositórios)](/assets/images/help/settings/settings-sidebar-repositories.png)
 3. Clique em **Leave** (Sair) ao lado do repositório do qual deseja sair. ![Botão Leave (Sair)](/assets/images/help/repository/repo-leave.png)

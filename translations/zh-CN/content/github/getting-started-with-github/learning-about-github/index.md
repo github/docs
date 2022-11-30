@@ -1,6 +1,6 @@
 ---
 title: 了解 GitHub
-intro: '{% data variables.product.prodname_dotcom %} has a variety of products and account types to help you build software and collaborate with other people.'
+intro: '了解如何使用 {% data variables.product.company_short %} 产品来改进您的软件管理流程并与其他人合作。'
 redirect_from:
   - /articles/learning-about-github
 versions:

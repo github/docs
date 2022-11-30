@@ -11,14 +11,16 @@ redirect_from:
   - /actions/reference/software-installed-on-github-hosted-runners
   - /actions/reference/specifications-for-github-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+shortTitle: GitHub-hosted runners
 ---
 
+{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Informationen zu {% data variables.product.prodname_dotcom %}-gehosteten Runnern
+## Informationen zu {% data variables.product.prodname_dotcom %}-gehosteten Runnern
 
 Ein {% data variables.product.prodname_dotcom %}-gehosteter Runner ist eine virtuelle Maschine, die von {% data variables.product.prodname_dotcom %} gehostet wird und auf der die Runner-Anwendung der {% data variables.product.prodname_actions %} installiert ist. {% data variables.product.prodname_dotcom %} bietet Runner mit den Betriebssystemen Linux, Windows und MacOS.
 
@@ -28,25 +30,25 @@ Du kannst in einem Workflow für jeden Job die Art des Runners festlegen. Jeder 
 
 {% data reusables.github-actions.runner-app-open-source %}
 
-#### Cloud-Hosts für {% data variables.product.prodname_dotcom %}-gehostete Runner
+### Cloud-Hosts für {% data variables.product.prodname_dotcom %}-gehostete Runner
 
 {% data variables.product.prodname_dotcom %} betreibt Linux- und Windows-Runner auf den virtuellen Maschinen nach Standard_DS2_v2 in Microsoft Azure, auf denen die Runner-Anwendung der {% data variables.product.prodname_actions %} installiert ist. Die Runner-Anwendung auf {% data variables.product.prodname_dotcom %}-gehosteten Runnern ist eine Fork-Kopie des Azure-Pipelines-Agenten. Bei Azure werden eingehende ICMP-Pakete werden für alle virtuellen Maschinen blockiert, so dass die Befehle ping und traceroute möglicherweise nicht funktionieren. Weitere Informationen zu den Ressourcen der Standard_DS2_v2-Maschinen findest Du unter „[Serien Dv2 und DSv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)“ in der Dokumentation zu Microsoft Azure.
 
 {% data variables.product.prodname_dotcom %} hosts macOS runners in {% data variables.product.prodname_dotcom %}'s own macOS Cloud.
 
-#### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
+### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
 In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
 
-#### Administrative Rechte von {% data variables.product.prodname_dotcom %}-gehosteten Runnern
+### Administrative Rechte von {% data variables.product.prodname_dotcom %}-gehosteten Runnern
 
 Die virtuellen Maschinen unter Linux und macOS werden beide mit dem passwortlosen Befehl `sudo` ausgeführt. Wenn Sie Befehle ausführen oder Tools installieren müssen, die höhere Berechtigungen als der aktuelle Benutzer erfordern, können Sie `sudo` verwenden, ohne ein Passwort angeben zu müssen. Weitere Informationen findest Du im „[Sudo-Handbuch](https://www.sudo.ws/man/1.8.27/sudo.man.html)“.
 
 Die virtuellen Windows-Maschinen sind so konfiguriert, dass sie als Administratoren laufen, wobei die Benutzerkonten-Steuerung (UAC) deaktiviert ist. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
 
-### Unterstützte Runner und Hardwareressourcen
+## Unterstützte Runner und Hardwareressourcen
 
 Hardware specification for Windows and Linux virtual machines:
 - CPU mit 2 Kernen
@@ -60,29 +62,28 @@ Hardware specification for macOS virtual machines:
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.macos-runner-preview %}
-
 Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-### Supported software
+## Supported software
 
 The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends.
-#### Preinstalled software
+### Preinstalled software
 
-Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
 For the overall list of included tools for each runner operating system, see the links below:
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
+* [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
+* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 
 {% data variables.product.prodname_dotcom %}-gehostete Runner enthalten zusätzlich zu den oben aufgeführten Paketen die standardmäßig integrierten Tools des Betriebssystems. Zum Beispiel beinhalten Ubuntu und macOS Läufer `grep`, `find`, und `which` neben anderen Standard-Tools.
 
-#### Using preinstalled software
+### Using preinstalled software
 
 We recommend using actions to interact with the software installed on runners. This approach has several benefits:
 - Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
@@ -90,11 +91,11 @@ We recommend using actions to interact with the software installed on runners. T
 
 Wenn Sie ein bestimmtes Tool anfordern möchten, öffnen Sie bitte einen Issue unter [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
-#### Installing additional software
+### Installing additional software
 
 You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Customizing GitHub-hosted runners](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
 
-### IP addresses
+## IP addresses
 
 {% note %}
 
@@ -108,7 +109,7 @@ To get a list of IP address ranges that {% data variables.product.prodname_actio
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
-### File systems
+## File systems
 
 {% data variables.product.prodname_dotcom %} führt Aktionen und Shell-Befehle in bestimmten Verzeichnissen auf der virtuellen Maschine aus. Die Dateipfade auf virtuellen Maschinen sind nicht statisch. Verwende die von {% data variables.product.prodname_dotcom %} bereitgestellten Umgebungsvariablen zum Erstellen von Dateipfaden für die Verzeichnisse `home`, `workspace`und `workflow`.
 
@@ -120,7 +121,7 @@ The list of {% data variables.product.prodname_actions %} IP addresses returned 
 
 Eine Liste der von {% data variables.product.prodname_dotcom %} für jeden Workflow erstellten Umgebungsvariablen findest Du unter „[Umgebungsvariablen verwenden](/github/automating-your-workflow-with-github-actions/using-environment-variables)“.
 
-#### Docker-Container-Dateisystem
+### Docker-Container-Dateisystem
 
 Für Aktionen, die in Docker-Containern ausgeführt werden, befinden sich statische Verzeichnisse im Pfad `/github`. Wir empfehlen jedoch dringend, die Standard-Umgebungsvariablen zu verwenden, um Dateipfade in Docker-Containern zu erstellen.
 
@@ -130,9 +131,9 @@ In {% data variables.product.prodname_dotcom %} wird das Pfadpräfix `/github` r
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Weiterführende Informationen
-- „[Abrechnung für {{ site.data.variables.product.prodname_actions }} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)“
+## Weiterführende Informationen
+- "[ Abrechnung für {% data variables.product.prodname_actions %} verwalten](/billing/managing-billing-for-github-actions)"
 
 {% endif %}

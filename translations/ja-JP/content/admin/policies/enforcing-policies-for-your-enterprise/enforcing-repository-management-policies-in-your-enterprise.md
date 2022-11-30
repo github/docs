@@ -27,22 +27,24 @@ redirect_from:
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Security
+shortTitle: Repository management policies
 ---
-### Enterprise 内の新しいリポジトリのデフォルトの可視性を設定する
 
-ユーザが Enterprise に新しいリポジトリを作成するたびに、そのユーザはリポジトリの可視性を選択する必要があります。 その Enterprise のデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 リポジトリの可視性に関する詳しい情報については、「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
+## Enterprise 内の新しいリポジトリのデフォルトの可視性を設定する
+
+ユーザが Enterprise に新しいリポジトリを作成するたびに、そのユーザはリポジトリの可視性を選択する必要があります。 その Enterprise のデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 Enterprise オーナーがメンバーによる特定のタイプのリポジトリの作成を禁止している場合、可視性設定がデフォルトでそのタイプに設定されていても、メンバーはそのタイプのリポジトリを作成できません。 詳しい情報については、「[リポジトリ作成のためのポリシーを設定する](#setting-a-policy-for-repository-creation)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -52,7 +54,7 @@ Enterprise オーナーがメンバーによる特定のタイプのリポジト
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-### リポジトリの可視性を変更するためのポリシーを設定する
+## リポジトリの可視性を変更するためのポリシーを設定する
 
 メンバーがリポジトリの可視性を変更できないようにした場合、Enterprise のオーナーのみがリポジトリの可視性を変更できます。
 
@@ -65,7 +67,7 @@ Enterprise のオーナーがリポジトリの作成を Organization のオー�
 
 {% data reusables.enterprise-accounts.repository-visibility-policy %}
 
-### リポジトリ作成のためのポリシーを設定する
+## リポジトリ作成のためのポリシーを設定する
 
 {% data reusables.organizations.repo-creation-constants %}
 
@@ -73,14 +75,14 @@ Enterprise のオーナーがリポジトリの作成を Organization のオー�
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. [Repository creation] で、設定変更に関する情報を読みます。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
 6. [Repository creation（リポジトリの作成）] で、ドロップダウンメニューを使用してポリシーを選択します。 ![リポジトリ作成ポリシーのドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
-### プライベートまたは内部リポジトリのフォークに関するポリシーを施行する
+## プライベートまたは内部リポジトリのフォークに関するポリシーを施行する
 
 Enterprise が所有しているすべての Organization 全体で、ユーザーにリポジトリのフォーク用にプライベートまたは内部リポジトリへのアクセスを許可したり、プライベートまたは内部リポジトリのフォークを一切禁止したり、オーナーが Organization レベルで設定を管理できるようにしたりすることができます。
 
@@ -89,7 +91,7 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 3. [**Repository policies**] タブの [Repository forking] で、設定変更についての情報を読みます。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. [Repository forking] で、ドロップダウンメニューを使用してポリシーを選択します。 ![リポジトリ フォーク ポリシー オプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
-### リポジトリの削除と移譲のためのポリシーを設定する
+## リポジトリの削除と移譲のためのポリシーを設定する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -98,22 +100,16 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
-### Git プッシュ制限のためのポリシーを設定する
+{% ifversion fpt or ghes %}
+
+## Git プッシュ制限のためのポリシーを設定する
 
 リポジトリのサイズを管理しやすくして、パフォーマンスの問題を防ぐために、Enterprise 内のリポジトリのファイルサイズ制限を設定できます。
 
 デフォルトでは、リポジトリのアップロード制限を適用すると、100MB以上のファイルの追加やアップロードができなくなります。
 
-{% if currentVersion ver_lt "enterprise-server@2.20" %}
-{% tip %}
-
-**注：**{% data variables.large_files.warning_size %}以上のサイズのファイルのみが、Gitプッシュの制限に照らし合わせて確認されます。 プッシュ制限をより小さくする必要がある場合は、{% data variables.contact.contact_ent_support %}までお問い合わせください。
-
-{% endtip %}
-{% endif %}
-
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -122,12 +118,14 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 4. [Repository upload limit] で、ドロップダウンメニューを使用して最大オブジェクトサイズをクリックします。 ![最大オブジェクトサイズのオプションを備えたドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. 必要に応じて、すべてのリポジトリにアップロードの最大制限を適用するには [**Enforce on all repositories**] を選択します。 ![すべてのリポジトリにオブジェクトの最大サイズを適用するオプション](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
-### リポジトリ間のプルリクエストのためのマージコンフリクトエディタを設定する
+{% endif %}
+
+## リポジトリ間のプルリクエストのためのマージコンフリクトエディタを設定する
 
 ユーザが自分のコンピュータ上でローカルにマージコンフリクトを解決するように要求すれば、うっかりフォークから上流のリポジトリに書き込んでしまうことを回避できます。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -135,14 +133,14 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 {% data reusables.enterprise-accounts.options-tab %}
 1. "Conflict editor for pull requests between repositories（リポジトリ間のプルリクエストのコンフリクトエディタ）"の下でドロップダウンメニューを使い、**Disabled（無効化）**を選択してください。 ![マージコンフリクトエディタを無効化するオプションを持つドロップダウンメニュー](/assets/images/enterprise/settings/conflict-editor-settings.png)
 
-### フォースプッシュを設定する
+## フォースプッシュを設定する
 
 それぞれのリポジトリは、所属するユーザアカウントもしくはOraganizationの設定から、デフォルトのフォースプッシュの設定を引き継ぎます。 同様に、それぞれの Organization およびユーザアカウントは、デフォルトのフォースプッシュの設定をアプライアンス全体のフォースプッシュの設定から引き継ぎます。 Enterprise のフォースプッシュの設定を変更すると、すべてのユーザあるいは Organization が所有するすべてのリポジトリが変更されます。
 
-#### アプライアンス上でのすべてのフォースプッシュをブロックする
+### アプライアンス上でのすべてのフォースプッシュをブロックする
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -151,7 +149,7 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 4. [Force pushes] の下のドロップダウンメニューから、[**Allow**]、[**Block**]、[**Block to the default branch**] のいずれかをクリックしてください。 ![フォースプッシュのドロップダウン](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
 5. [**Enforce on all repositories（すべてのリポジトリに強制）**] を選択して、フォースプッシュに関する Organization およびリポジトリレベルの設定をオーバーライドすることもできます。
 
-#### 特定のリポジトリへのフォースプッシュをブロックする
+### 特定のリポジトリへのフォースプッシュをブロックする
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -163,7 +161,7 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 4. [**Push and Pull**] の下で [**Block**] または [**Block to the default branch**] を選択してください。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
 
-#### ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック
+### ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック
 
 リポジトリは、所属するユーザアカウントもしくはOrganizationからフォースプッシュの設定を引き継ぎます。 そして、それぞれの Organization およびユーザアカウントは、フォースプッシュの設定を Enterprise のフォースプッシュの設定から引き継ぎます。
 
@@ -180,13 +178,13 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
     - [**Block to the default branch（デフォルトブランチへのブロック）**] でデフォルトブランチへのフォースプッシュのみがブロックされます。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
 6. **Enforce on all repositories（すべてのリポジトリに対して強制）**を選択して、リポジトリ固有の設定を上書きすることもできます。 これは、Enterprise 全体のポリシーを**上書きしません**のでご注意ください。 ![フォースプッシュのブロック](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-### 匿名 Git 読み取りアクセスを設定する
+## 匿名 Git 読み取りアクセスを設定する
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-{% if enterpriseServerVersions contains currentVersion %} Enterprise で[プライベートモードを有効化](/enterprise/admin/configuration/enabling-private-mode)している場合は、{% else %}{% endif %}リポジトリ管理者がパブリックリポジトリへの匿名 Git 読み取りアクセスを有効化できるようにすることができます。
+{% ifversion ghes %} Enterprise で[プライベートモードを有効化](/enterprise/admin/configuration/enabling-private-mode)している場合は、{% else %}{% endif %}リポジトリ管理者がパブリックリポジトリへの匿名 Git 読み取りアクセスを有効化できるようにすることができます。
 
 匿名 Git 読み取りアクセスを有効化すると、ユーザは Enterprise 上のカスタムツールの認証をバイパスできるようになります。 あなたもしくはリポジトリ管理者がこのアクセス設定をリポジトリで有効化すると、認証を受けていない Git の操作 (そして {% data variables.product.product_name %} へのネットワークアクセスができる人はだれでも) は、認証なしでリポジトリに読み取りアクセスできることになります。
 
@@ -196,10 +194,10 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 
 {% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}
 
-#### すべてのリポジトリに対する匿名 Git 読み取りアクセスを設定する
+### すべてのリポジトリに対する匿名 Git 読み取りアクセスを設定する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -208,7 +206,7 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 4. [Anonymous Git read access（匿名 Git 読み取りアクセス）] の下で、ドロップダウンメニューを使って [**Enabled（有効化）**] をクリックしてください。 ![[Enabled] と [Disabled] のメニューオプションが表示されている [Anonymous Git read access] ドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
 3. Enterprise のすべてのリポジトリでリポジトリ管理者が匿名 Git 読み取りアクセス設定を変更するのを避けるために、[**Prevent repository admins from changing anonymous Git read access**] を選択することもできます。 ![Enterprise のすべてのリポジトリへの匿名 Git 読み取りアクセス設定をリポジトリ管理者が変更するのを避けるための選択チェックボックス](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 
-#### 特定のリポジトリでの匿名 Git 読み取りアクセスを設定する
+### 特定のリポジトリでの匿名 Git 読み取りアクセスを設定する
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.repository-search %}
@@ -221,8 +219,8 @@ Enterprise が所有しているすべての Organization 全体で、ユーザ�
 
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### デフォルトブランチ名に関するポリシーを試行する
+{% ifversion ghes > 2.22 or ghae %}
+## デフォルトブランチ名に関するポリシーを試行する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

@@ -5,24 +5,25 @@ intro: '您可以通过添加工作流程到仓库来设置 {% data variables.pr
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### 设置 {% data variables.product.prodname_code_scanning %} 的选项
+## 设置 {% data variables.product.prodname_code_scanning %} 的选项
 
 在仓库级别决定如何生成 {% data variables.product.prodname_code_scanning %} 警报，以及使用哪些工具。 {% data variables.product.product_name %} 对 {% data variables.product.prodname_codeql %} 分析提供完全集成的支持，还支持使用第三方工具进行分析。 更多信息请参阅“[关于 {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)”。
 
 {% data reusables.code-scanning.enabling-options %}
 
-### 使用操作设置 {% data variables.product.prodname_code_scanning %}
+## 使用操作设置 {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -39,10 +40,11 @@ redirect_from:
 
 在默认 {% data variables.product.prodname_codeql_workflow %} 中，{% data variables.product.prodname_code_scanning %} 配置为在每次将更改推送到默认分支或任何受保护分支或者对默认分支提出拉取请求时分析代码。 因此，{% data variables.product.prodname_code_scanning %} 将立即开始。
 
-### 批量设置 {% data variables.product.prodname_code_scanning %}
-您可以使用脚本在多个仓库中一次设置 {% data variables.product.prodname_code_scanning %}。 有关提出拉取请求以向多个仓库添加 {% data variables.product.prodname_actions %} 工作流程的脚本示例，请参阅 [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) 仓库。
+## 批量设置 {% data variables.product.prodname_code_scanning %}
 
-### You decide how you generate {% data variables.product.prodname_code_scanning %} alerts, and which tools you use, at a repository level. {% data variables.product.product_name %} provides fully integrated support for {% data variables.product.prodname_codeql %} analysis, and also supports analysis using third-party tools. For more information, see "[About {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)."
+您可以使用脚本在多个仓库中一次设置 {% data variables.product.prodname_code_scanning %}。 For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using Powershell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have Powershell and instead would like to use NodeJS.
+
+## You decide how you generate {% data variables.product.prodname_code_scanning %} alerts, and which tools you use, at a repository level. {% data variables.product.product_name %} provides fully integrated support for {% data variables.product.prodname_codeql %} analysis, and also supports analysis using third-party tools. For more information, see "[About {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)."
 
 为仓库设置 {% data variables.product.prodname_code_scanning %} 后，您可以关注操作运行时的输出。
 
@@ -70,7 +72,7 @@ redirect_from:
 
 {% endnote %}
 
-### 了解拉取请求检查
+## 了解拉取请求检查
 
 设置在拉取请求上运行的每个 {% data variables.product.prodname_code_scanning %} 工作流程始终有至少两个条目列在拉取请求的检查部分中。 工作流程中每个分析作业有一个条目，最后还有一个对应于分析结果的条目。
 
@@ -82,7 +84,7 @@ redirect_from:
 
   ![缺少提交消息的分析](/assets/images/help/repository/code-scanning-missing-analysis.png)
 
-#### “缺少分析”消息的原因
+### “缺少分析”消息的原因
 
 在 {% data variables.product.prodname_code_scanning %} 分析拉取请求中的代码后，它需要将主题分支（用于创建拉取请求的分支）的分析与基本分支（要合并拉取请求的分支）的分析进行比较。 这允许 {% data variables.product.prodname_code_scanning %} 计算哪些警报是拉取请求新近引入的，哪些是基础分支中已经存在的，以及是否有任何现有的警报通过拉取请求中的更改来修复。 最初，如果使用拉取请求将 {% data variables.product.prodname_code_scanning %} 添加到仓库，则尚未分析基础分支，因此无法计算这些详细信息。 在这种情况下，当您从拉取请求的结果检查中点进时，将看到“Missing analysis for base commit SHA-HASH（缺少基础提交 SHA-HASH 的分析）”消息。
 
@@ -104,7 +106,7 @@ redirect_from:
 
   将一个微小的更改合并到基础分支以触发此最新提交的 {% data variables.product.prodname_code_scanning %}，然后将更改推送到拉取请求以重新触发 {% data variables.product.prodname_code_scanning %}。
 
-### 后续步骤
+## 后续步骤
 
 设置 {% data variables.product.prodname_code_scanning %} 并允许其操作完成后，您可以：
 

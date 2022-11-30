@@ -5,12 +5,13 @@ redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
+
 {% tip %}
 
 **参考:**
@@ -21,14 +22,10 @@ topics:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion ver_lt "enterprise-server@2.22" %}
-2. リポジトリ名の下で、[**Find file**] をクリックします。 ![[Find file] ボタン](/assets/images/help/search/find-file-button.png)
-{% else %}
 2. ファイルの一覧の上にある [**Go to file**] をクリックします。 ![[Find file] ボタン](/assets/images/help/search/find-file-button.png)
-{% endif %}
 3. 検索フィールドで、検索したいファイル名を入力します。 ![ファイル検索の検索フィールド](/assets/images/help/search/find-file-search-field.png)
 4. 結果のリストで、目的のファイルをクリックします。
 
-### 参考リンク
+## 参考リンク
 
 - "[GitHub での検索について](/articles/about-searching-on-github)"

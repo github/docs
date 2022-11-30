@@ -5,9 +5,9 @@ redirect_from:
   - /guides/rendering-data-as-graphs/
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -20,7 +20,7 @@ topics:
 
 我们马上开始！
 
-### 设置 OAuth 应用程序
+## 设置 OAuth 应用程序
 
 首先，请在 {% data variables.product.product_name %} 上[注册一个新应用程序][new oauth application]。 将主 URL 和回调 URL 设置为 `http://localhost:4567/`。 与[之前][basics-of-authentication]一样，我们将使用 [sinatra-auth-github][sinatra auth github] 实现 Rack 中间件，以处理 API 的身份验证：
 
@@ -73,7 +73,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### 获取仓库信息
+## 获取仓库信息
 
 这次，为了与 {% data variables.product.product_name %} API 进行对话，我们将使用 [Octokit.rb][Octokit]。 这比直接进行一大堆 REST 调用要容易得多。 另外，Octokit 是由 GitHubber 开发的，并且一直在积极维护，因此可以确保有效性。
 
@@ -119,7 +119,7 @@ languages.to_s
 
 到目前为止，进展不错，但结果不是很人性化。 可视化将非常有助于我们理解这些语言计数是如何分布的。 我们来将这些计数输入到 D3 中，得到一个表示语言使用频率的简洁条形图。
 
-### 可视化语言计数
+## 可视化语言计数
 
 D3.js（或仅 D3）是用于创建多种图表、图形和交互式可视化内容的综合库。 详细介绍 D3 的用法超出了本指南的范围，但我们推荐您阅读一篇不错的介绍性文章[“D3 for Mortals（面向大众的 D3)”][D3 mortals]。
 
@@ -221,7 +221,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 
 如“D3 for Mortals（面向大众的 D3）”所述，这未必是 D3 的最佳用法。 但它确实表明了您能够如何配合使用该库与 Octokit，做出一些真正令人惊叹的事情。
 
-### 结合不同的 API 调用
+## 结合不同的 API 调用
 
 现在是时候坦白了：仓库中的 `language` 属性仅标识定义的“主要”语言。 这意味着，如果您的仓库结合了多种语言，则代码字节最多的语言将被视为主要语言。
 
@@ -334,7 +334,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json, :language_byte_cou
 [Octokit]: https://github.com/octokit/octokit.rb
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html
 [language API]: /rest/reference/repos#list-repository-languages
 [language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs

@@ -1,1 +1,1 @@
-1. In your codespace, under the text editor, click "Ports". ![Ports tab](/assets/images/help/codespaces/ports-tab.png)
+1. No seu codespace, embaixo do editor de texto, clique em "Portas". ![Aba Portas](/assets/images/help/codespaces/ports-tab.png)

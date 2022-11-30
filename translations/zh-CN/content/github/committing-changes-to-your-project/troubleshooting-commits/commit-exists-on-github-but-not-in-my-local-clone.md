@@ -5,10 +5,12 @@ redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: 本地克隆中缺少的提交
 ---
+
 使用 `git show` 在命令行上查看特定提交时，可能会收到致命错误。
 
 例如，可能会在本地收到 `bad object` 错误：
@@ -28,7 +30,7 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 * 包含提交的分支已被删除，因此该提交的引用不再有效。
 * 有人强制推送了提交。
 
-### 本地仓库已过期
+## 本地仓库已过期
 
 您的本地仓库可能还没有提交。 要将信息从远程仓库提取到本地克隆，请使用 `git fetch`：
 
@@ -44,7 +46,7 @@ $ git fetch <em>remote</em>
 
 {% endtip %}
 
-### 包含提交的分支已被删除
+## 包含提交的分支已被删除
 
 如果仓库的协作者已删除包含提交的分支或者已强制推送该分支，则缺失的提交可能已成为孤立状态（即无法从任何引用访问它），因此它不会被提取到您的本地克隆中。
 
@@ -68,11 +70,11 @@ $ git fetch upstream recover-B
 # 将提交提取到您的本地仓库。
 ```
 
-### 避免强制推送
+## 避免强制推送
 
 除非万不得已，否则应避免向仓库强制推送。 如果可以向仓库推送的人不止一个，这个原则尤为重要。
 
-### 延伸阅读
+## 延伸阅读
 
 - [_Pro Git_ 手册中的“处理远程仓库”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
 - [_Pro Git_ 手册中的“数据恢复”](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

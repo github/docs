@@ -5,11 +5,13 @@ redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: 基本格式语法
 ---
-### 标题
+
+## 标题
 
 要创建标题，请在标题文本前添加一至六个 `#` 符号。 您使用的 `#` 数量将决定标题的大小。
 
@@ -21,7 +23,7 @@ versions:
 
 ![渲染的 H1、H2 和 H6 标题](/assets/images/help/writing/headings-rendered.png)
 
-### 样式文本
+## 样式文本
 
 您可以在评论字段和 `.md` 文件中以粗体、斜体或删除线的文字表示强调。
 
@@ -33,14 +35,14 @@ versions:
 | 粗体和嵌入的斜体 | `** **` 和 `_ _`   |            | `**此文本 _非常_ 重要**`  | **此文本_非常_重要**    |
 | 全部粗体和斜体  | `*** ***`         |            | `***所有这些文本都很重要***` | ***所有这些文本都是斜体*** |
 
-### 引用文本
+## 引用文本
 
 您可以使用 `>` 来引用文本。
 
 ```markdown
-用 Abraham Lincoln 的话来说：
+Text that is not a quote
 
-> 原谅我爆粗口
+> Text that is a quote
 ```
 
 ![渲染的引用文本](/assets/images/help/writing/quoted-text-rendered.png)
@@ -51,9 +53,9 @@ versions:
 
 {% endtip %}
 
-### 引用代码
+## 引用代码
 
-使用单反引号可标注句子中的代码或命令。 反引号中的文本不会被格式化。
+使用单反引号可标注句子中的代码或命令。 倒引号中的文本不会被格式化。{% ifversion fpt or ghae-next or ghes > 3.1 %} 您也可以按 `command` 或 `Ctrl` + `e` 键盘快捷键将代码块的倒引号插入到 Markdown 一行中。{% endif %}
 
 ```markdown
 使用 `git status` 列出尚未提交的所有新文件或已修改文件。
@@ -76,9 +78,9 @@ git commit
 
 更多信息请参阅“[创建和突出显示代码块](/articles/creating-and-highlighting-code-blocks)”。
 
-### 链接
+## 链接
 
-通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 还可以使用键盘快捷键`命令键 + k` 来创建链接。
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae-next or ghes > 3.1 %}您也可以使用键盘快捷键 `command + k` 创建链接。{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -90,15 +92,50 @@ git commit
 
 {% endtip %}
 
-### 章节链接
+## 章节链接
 
 {% data reusables.repositories.section-links %}
 
-### 相对链接
+## 相对链接
 
 {% data reusables.repositories.relative-links %}
 
-### 列表
+## Images
+
+You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
+
+`![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
+
+![Rendered Image](/assets/images/help/writing/image-rendered.png)
+
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+
+{% tip %}
+
+**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+
+{% endtip %}
+
+Here are some examples for using relative links to display an image.
+
+| 上下文                                                         | Relative Link                                                          |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------- |
+| In a `.md` file on the same branch                          | `/assets/images/electrocat.png`                                        |
+| In a `.md` file on another branch                           | `/../main/assets/images/electrocat.png`                                |
+| In issues, pull requests and comments of the repository     | `../blob/main/assets/images/electrocat.png`                            |
+| In a `.md` file in another repository                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
+| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+
+{% note %}
+
+**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+
+{% endnote %}
+
+For more information, see "[Relative Links](#relative-links)."
+
+
+## 列表
 
 通过在一行或多行文本前面添加 `-` 或 `*` 可创建无序列表。
 
@@ -120,7 +157,7 @@ git commit
 
 ![渲染的有序列表](/assets/images/help/writing/ordered-list-rendered.png)
 
-#### 嵌套列表
+### 嵌套列表
 
 通过在一个列表项下面缩进一个或多个其他列表项，可创建嵌套列表。
 
@@ -147,7 +184,7 @@ git commit
 
 ![含一个嵌套列表项的列表](/assets/images/help/writing/nested-list-example-3.png)
 
-您可以使用相同的方法创建多层级嵌套列表。 例如，由于在第一个嵌套列表项中，嵌套列表项内容`第一个嵌套列表项`之前有七个空格 (`␣␣␣␣␣-␣`)，因此需要将第二个嵌套列表项缩进七个空格。
+您可以使用相同的方法创建多层级嵌套列表。 For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
 ```markdown
 100. 第一个列表项
@@ -159,7 +196,7 @@ git commit
 
 更多示例请参阅 [GitHub Flavored Markdown 规范](https://github.github.com/gfm/#example-265)。
 
-### 任务列表
+## 任务列表
 
 {% data reusables.repositories.task-list-markdown %}
 
@@ -169,9 +206,9 @@ git commit
 
 更多信息请参阅“[关于任务列表](/articles/about-task-lists)”。
 
-### 提及人员和团队
+## 提及人员和团队
 
-您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
 
 `@github/support 您如何看待这些更新？`
 
@@ -183,33 +220,33 @@ git commit
 
 自动填写结果仅限于仓库协作者和该线程上的任何其他参与者。
 
-### 引用议题和拉取请求
+## 引用议题和拉取请求
 
 通过键入 `#` 可显示仓库中建议的议题和拉取请求列表。 键入议题或拉取请求的编号或标题以过滤列表，然后按 Tab 或 Enter 键以填写选中的结果。
 
 更多信息请参阅“[自动链接的引用和 URL](/articles/autolinked-references-and-urls)”。
 
-### 引用外部资源
+## 引用外部资源
 
 {% data reusables.repositories.autolink-references %}
 
-### 内容附件
+## 内容附件
 
-有些 {% data variables.product.prodname_github_app %} 在 {% data variables.product.product_name %} 中提供链接到其注册域名的 URL 信息。 {% data variables.product.product_name %} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
+Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
 
 ![内容附件](/assets/images/github-apps/content_reference_attachment.png)
 
-要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {% data variables.product.prodname_github_app %}。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
+要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {% data variables.product.prodname_github_app %}。{% ifversion fpt %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
 
 内容附件不会显示在属于 markdown 链接的 URL 中。
 
 有关构建使用内容附件的 {% data variables.product.prodname_github_app %} 的详细信息，请参阅“[使用内容附件](/apps/using-content-attachments)”。
 
-### 上传资产
+## 上传资产
 
 您可以通过拖放、从文件浏览器中选择或粘贴来上传图像等资产。 您可以将资产上传到议题、拉取请求、评论和仓库中的 `.md` 文件。
 
-### 使用表情符号
+## 使用表情符号
 
 通过键入 `:EMOJICODE:` 可在您的写作中添加表情符号。
 
@@ -221,11 +258,35 @@ git commit
 
 有关可用表情符号和代码的完整列表，请查看[表情符号备忘清单](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)。
 
-### 段落
+## 段落
 
 通过在文本行之间留一个空白行，可创建新段落。
 
-### 忽略 Markdown 格式
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## 脚注
+
+You can add footnotes to your content by using this bracket syntax:
+
+```
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+The footnote will render like this:
+
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
+{% endif %}
+
+## Hiding content with comments
+
+You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
+## 忽略 Markdown 格式
 
 通过在 Markdown 字符前面输入 `\`，可告诉 {% data variables.product.product_name %} 忽略（或规避）Markdown 格式。
 
@@ -235,7 +296,15 @@ git commit
 
 更多信息请参阅 Daring Fireball 的“[Markdown 语法](https://daringfireball.net/projects/markdown/syntax#backslash)”。
 
-### 延伸阅读
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+
+## Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
+## 延伸阅读
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown 规格](https://github.github.com/gfm/)
 - “[关于 GitHub 上的撰写和格式](/articles/about-writing-and-formatting-on-github)”

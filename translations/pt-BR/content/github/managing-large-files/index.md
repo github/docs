@@ -1,5 +1,6 @@
 ---
 title: Gerenciar arquivos grandes
+intro: Você pode gerenciar arquivos grandes com o armazenamento de arquivos grandes do Git.
 redirect_from:
   - /categories/managing-large-files
 versions:
@@ -10,4 +11,4 @@ children:
   - /working-with-large-files
   - /versioning-large-files
 ---
-### Índice
+

@@ -8,7 +8,7 @@ redirect_from:
   - /admin/authentication/using-saml
 intro: 'SAML ist ein XML-basierter Standard für die Authentifizierung und Autorisierung. {% data variables.product.prodname_ghe_server %} kann als ein Service Provider (SP) mit Ihrem internen SAML Identity Provider (IdP) funktionieren.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -17,15 +17,16 @@ topics:
   - Identity
   - SSO
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### Unterstützte SAML-Dienste
+## Unterstützte SAML-Dienste
 
 {% data reusables.saml.saml-supported-idps %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### Grundlegendes für Benutzernamen bei SAML
+## Grundlegendes für Benutzernamen bei SAML
 
 Jeder {% data variables.product.prodname_ghe_server %}-Benutzername wird nach Priorität geordnet durch eine der folgenden Assertions in der SAML-Antwort bestimmt:
 
@@ -40,7 +41,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 {% note %}
 
-**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% if currentVersion ver_gt "enterprise-server@2.21" %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
+**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
 
 {% endnote %}
 
@@ -51,13 +52,13 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-### SAML-Metadaten
+## SAML-Metadaten
 
 Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 Wenn Sie Ihren Identity Provider manuell konfigurieren möchten, lautet die Assertionsverbraucherdienst-URL (ACS) `http(s)://[hostname]/saml/consume`. Dafür wird die Bindung `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` verwendet.
 
-### SAML-Attribute
+## SAML-Attribute
 
 Die folgenden Attribute sind verfügbar. Mit Ausnahme der `administrator`-Attribute können Sie die Attributnamen in der [Managementkonsole](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/) ändern.
 
@@ -71,7 +72,7 @@ Die folgenden Attribute sind verfügbar. Mit Ausnahme der `administrator`-Attrib
 | `public_keys`                | Optional     | Die öffentlichen SSH-Schlüssel für den Benutzer. Es können mehrere angegeben werden.                                                                                                                                                                                                                    |
 | `gpg_keys`                   | Optional     | Die GPG-Schlüssel für den Benutzer. Es können mehrere angegeben werden.                                                                                                                                                                                                                                 |
 
-### SAML-Einstellungen konfigurieren
+## SAML-Einstellungen konfigurieren
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -93,9 +94,9 @@ Die folgenden Attribute sind verfügbar. Mit Ausnahme der `administrator`-Attrib
 9. Klicken Sie unter **Verification certificate** (Verifizierungszertifikat) auf **Choose File** (Datei auswählen), und wählen Sie ein Zertifikat aus, um Ihre SAML-Antworten vom IdP zu validieren. ![SAML-Authentifizierung](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. Ändern Sie die SAML-Attributnamen bei Bedarf so, dass sie mit Ihrem IdP übereinstimmen, oder akzeptieren Sie die Standardnamen.![SAML-Attributnamen](/assets/images/enterprise/management-console/saml-attributes.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
-### Zugriff auf {{ site.data.variables.product.product_location_enterprise }} widerrufen
+## Zugriff auf {{ site.data.variables.product.product_location_enterprise }} widerrufen
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Wählen Sie **SAML** aus. !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
@@ -107,11 +108,11 @@ Die folgenden Attribute sind verfügbar. Mit Ausnahme der `administrator`-Attrib
 
 {% endif %}
 
-### Zugriff auf {% data variables.product.product_location %} widerrufen
+## Zugriff auf {% data variables.product.product_location %} widerrufen
 
 Wenn Sie einen Benutzer von Ihrem Identity Provider entfernen, müssen Sie ihn zudem manuell sperren. Andernfalls kann er sich weiterhin mithilfe der Zugriffstoken oder SSH-Schlüssel authentifizieren. Weitere Informationen finden Sie unter „[Benutzer sperren und entsperren](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)“.
 
-### Anforderungen für die Antwortmeldung
+## Anforderungen für die Antwortmeldung
 
 Die Antwortmeldung muss die folgenden Anforderungen erfüllen:
 
@@ -139,11 +140,11 @@ Die Antwortmeldung muss die folgenden Anforderungen erfüllen:
 </samlp:Response>
 ```
 
-### SAML-Authentifizierung
+## SAML-Authentifizierung
 
 {% data variables.product.prodname_ghe_server %} logs error messages for failed SAML authentication in the authentication log at  _/var/log/github/auth.log_. For more information about SAML response requirements, see "[Response message requirements](#response-message-requirements)."
 
-#### Error: "Another user already owns the account"
+### Error: "Another user already owns the account"
 
 When a user signs in to {% data variables.product.prodname_ghe_server %} for the first time with SAML authentication, {% data variables.product.prodname_ghe_server %} creates a user account on the instance and maps the SAML `NameID` to the account.
 
@@ -151,9 +152,9 @@ When the user signs in again, {% data variables.product.prodname_ghe_server %} c
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. {% if currentVersion ver_gt "enterprise-server@2.21" %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
+The message typically indicates that the person's username or email address has changed on the IdP. {% ifversion ghes %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %}For help updating the `NameID` mapping, contact {% data variables.contact.contact_ent_support %}.{% endif %}
 
-#### Wenn die SAML-Antwort nicht signiert ist oder die Signatur nicht mit dem Inhalt übereinstimmt, wird im Authentifizierungsprotokoll die folgende Fehlermeldung angezeigt:
+### Wenn die SAML-Antwort nicht signiert ist oder die Signatur nicht mit dem Inhalt übereinstimmt, wird im Authentifizierungsprotokoll die folgende Fehlermeldung angezeigt:
 
 Wenn der `Empfänger` nicht mit der Assertionsverbraucherdienst-URL übereinstimmt, wird im Authentifizierungsprotokoll die folgende Fehlermeldung angezeigt:
 
@@ -167,7 +168,7 @@ Recipient in the SAML response was not valid.
 
 Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for your {% data variables.product.prodname_ghe_server %} instance. For example, `https://ghe.corp.example.com/saml/consume`.
 
-#### Error: "SAML Response is not signed or has been modified"
+### Error: "SAML Response is not signed or has been modified"
 
 If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
 
@@ -177,7 +178,7 @@ SAML Response is not signed or has been modified.
 
 Ensure that you configure signed assertions for the {% data variables.product.prodname_ghe_server %} application on your IdP.
 
-#### Error: "Audience is invalid" or "No assertion found"
+### Error: "Audience is invalid" or "No assertion found"
 
 If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 

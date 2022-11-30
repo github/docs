@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-theme-settings
 ---
+
 For choice and flexibility in how and when you use {% data variables.product.product_name %}, you can configure theme settings to change how {% data variables.product.product_name %} looks to you. You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings. You may want to use a dark theme to reduce power consumption on certain devices, to reduce eye strain in low-light conditions, or because you prefer how the theme looks.
 
 {% data reusables.user_settings.access_settings %}

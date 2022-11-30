@@ -4,7 +4,7 @@ shortTitle: Fazer varredura automaticamente
 intro: 'Você pode encontrar vulnerabilidades e erros no código do seu projeto no {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 children:
@@ -17,4 +17,5 @@ children:
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->

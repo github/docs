@@ -5,8 +5,10 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/uninstalling-github-desktop
   - /desktop/installing-and-configuring-github-desktop/uninstalling-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Uninstall GitHub Desktop
 ---
+
 {% mac %}
 
 1. In a Finder window, navigate to the Applications folder. ![Applications folder in the Finder window](/assets/images/help/desktop/applications-folder.png)

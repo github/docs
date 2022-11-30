@@ -14,6 +14,7 @@ permissions: 'People with write permissions can delete files{% if currentVersion
 topics:
   - Repositories
 ---
+
 ### 关于文件{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}和目录{% endif %}删除
 
 您可以删除仓库中的单个文件{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}或整个目录，包括目录中的所有文件{% endif %}。
@@ -25,8 +26,7 @@ topics:
 ### 删除文件
 
 1. 浏览到要删除仓库中的文件。
-2. 在文件顶部，单击
-{% octicon "trash" aria-label="The trash icon" %}.
+2. 在文件顶部，单击 {% octicon "trash" aria-label="The trash icon" %}。
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

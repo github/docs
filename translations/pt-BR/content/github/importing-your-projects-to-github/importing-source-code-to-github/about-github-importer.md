@@ -1,12 +1,13 @@
 ---
 title: Sobre o Importador do GitHub
-intro: 'If you have source code in Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository, you can move it to GitHub using GitHub Importer.'
+intro: 'Se você tiver o código-fonte no Subversion, Mercurial, Controle de versões do Team Foundation (TFVC) ou outro repositório Git, você poderá movê-lo para o GitHub usando o Importador do GitHub.'
 redirect_from:
   - /articles/about-github-importer
   - /github/importing-your-projects-to-github/about-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 O Importador do GitHub é uma ferramenta que importa rapidamente repositórios do código-fonte, incluindo commits e histórico de revisão, para o GitHub.
 
 ![Importar um gif do repositório](/assets/images/help/importer/github-importer.gif)
@@ -20,7 +21,7 @@ Durante uma importação, dependendo do sistema de controle de versão do qual v
 | Mover arquivos grandes para o [Armazenamento de arquivos grandes do Git](/articles/about-git-large-file-storage) |   **X**    |   **X**   | **X** |       |
 | Remover arquivos grandes do repositório                                                                          |   **X**    |   **X**   | **X** |       |
 
-### Leia mais
+## Leia mais
 
 - "[Importar um repositório com o Importador do GitHub](/articles/importing-a-repository-with-github-importer)"
 - "[Atualizar a atribuição do autor do commit com o Importador do GitHub](/articles/updating-commit-author-attribution-with-github-importer)"

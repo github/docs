@@ -4,12 +4,13 @@ intro: リポジトリにあるブランチの名前を変更できます。
 permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  enterprise-server: '>=3.1'
 topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/renaming-a-branch
 ---
+
 ### ブランチの名前変更について
 
 {% data variables.product.product_location %} にあるリポジトリのブランチの名前を変更できます。 ブランチ関する詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches)」を参照してください。
@@ -18,7 +19,7 @@ redirect_from:
 
 ファイル URL は自動的にリダイレクトされますが、生のファイル URL はリダイレクトされません。 また、ユーザが以前のブランチ名に対して `git pull` を実行した場合、{% data variables.product.prodname_dotcom %} はリダイレクトを行いません。
 
-{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the banch name is deprecated and suggesting that users migrate to the new branch name.
+{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the branch name is deprecated and suggesting that users migrate to the new branch name.
 
 ### ブランチの名前を変更する
 

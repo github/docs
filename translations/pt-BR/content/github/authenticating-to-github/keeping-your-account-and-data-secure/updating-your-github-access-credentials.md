@@ -14,13 +14,17 @@ topics:
   - Identity
   - Access management
 ---
+
 {% if currentVersion != "github-ae@latest" %}
 ### Solicitar uma nova senha
 
 1. Para solicitar uma nova senha, acesse {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. Digite o endereço de e-mail associado à sua conta pessoal do {% data variables.product.product_name %} e clique em **Send password reset email** (Enviar e-mail de redefinição de senha). O e-mail será enviado para o endereço de e-mail de backup, se você tiver um configurado. ![Caixa de diálogo para solicitar e-mail de redefinição de senha](/assets/images/help/settings/password-recovery-email-request.png)
 3. Nós enviaremos por e-mail um link para você redefinir sua senha. Clique nele em até 3 horas após o recebimento do e-mail. Se você não receber o e-mail com o link, verifique sua pasta de spam.
-4. Depois de clicar no link contido no e-mail, você precisará digitar uma nova senha.![Caixa para recuperar senha](/assets/images/help/settings/password_recovery_page.png)
+4. Se você tiver habilitado a autenticação de dois fatores, será solicitado que você crie suas credenciais de 2FA. Digite as suas credenciais de 2FA ou um de seus códigos de recuperação de 2FA e clique em **Verificar**. ![Instrução de autenticação de dois fatores](/assets/images/help/2fa/2fa-password-reset.png)
+5. Digite uma nova senha, confirme a sua nova senha e clique em **Alterar senha**. Para ajudar a criar uma senha forte, consulte "[Criar uma senha forte](/articles/creating-a-strong-password)".
+  {% if currentVersion == "free-pro-team@latest" %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
+  ![Caixa para recuperar senha](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 

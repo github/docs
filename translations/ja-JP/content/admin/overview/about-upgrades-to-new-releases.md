@@ -1,21 +1,21 @@
 ---
 title: 新しいリリースへのアップグレードについて
 shortTitle: アップグレードについて
-intro: '{% if currentVersion == "github-ae@latest" %}{% data variables.product.product_name %} Enterprise は、{% data variables.product.company_short %} によって定期的に最新の機能とバグ修正版で更新されます。{% else %}Enterprise を新しくリリースされたバージョンにアップグレードすることで、{% data variables.product.product_name %} の新機能とバグ修正版を利用できます。{% endif %}'
+intro: '{% ifversion ghae %}{% data variables.product.product_name %} Enterprise は、{% data variables.product.company_short %} によって定期的に最新の機能とバグ修正版で更新されます。{% else %}Enterprise を新しくリリースされたバージョンにアップグレードすることで、{% data variables.product.product_name %} の新機能とバグ修正版を利用できます。{% endif %}'
 versions:
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
   - Upgrades
 ---
 
-{% data variables.product.product_name %} は常に改善されており、メジャーリリースとマイナーリリースで新機能とバグ修正が導入されています。 {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}
+{% data variables.product.product_name %} は常に改善されており、メジャーリリースとマイナーリリースで新機能とバグ修正が導入されています。 {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}
 
-メジャーリリースには、新機能と機能のアップグレードが含まれ、通常、{% if currentVersion == "github-ae@latest" %}数週間または数か月{% else %}四半期ごとに発生します。{% endif %} {% if currentVersion == "github-ae@latest" %}{% data variables.product.company_short %} は、Enterprise を最新のメジャーリリースにアップグレードします。 Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}
+通常、メジャーリリースは四半期ごとに行われ、新機能と機能のアップグレードが含まれます。 {% ifversion ghae %}{% data variables.product.company_short %} は、Enterprise を最新のメジャーリリースにアップグレードします。 Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 {% data variables.product.prodname_ghe_server %} 3.0 以降、すべてのメジャーリリースは少なくとも 1 つのリリース候補から始まります。 リリース候補は、完全な機能一式を備えたメジャーリリースとして提案されています。 リリース候補には、実際に {% data variables.product.product_name %} を使用している顧客からのフィードバックを通じてのみ見つけることができるバグまたは問題がある可能性があります。
 
@@ -33,7 +33,7 @@ topics:
 
 {% endwarning %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 マイナーリリースは、ホットパッチとバグ修正のみで構成されており、より頻繁に発生します。 マイナーリリースは通常、最初のリリース時に利用可能になっています。リリース候補はありません。 マイナーリリースへのアップグレードには、通常 5 分未満のダウンタイムが発生します。
 
@@ -41,9 +41,8 @@ Enterprise を新しいリリースにアップグレードするには、「[�
 
 {% endif %}
 
-### 参考リンク
+## 参考リンク
 
-- `github/roadmap` リポジトリの [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
-{% if currentVersion == "github-ae@latest" %}
-- [ {% data variables.product.prodname_ghe_managed %} のリリースノート](/admin/overview/github-ae-release-notes)
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository{% ifversion ghae %}
+- [ {% data variables.product.prodname_ghe_managed %} のリリースノート](/admin/release-notes)
 {% endif %}

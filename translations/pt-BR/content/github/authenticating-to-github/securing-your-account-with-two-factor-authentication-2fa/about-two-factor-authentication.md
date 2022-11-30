@@ -8,8 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 Por {% data variables.product.product_name %}, a segunda forma de autenticação é um código que é gerado por um aplicativo no dispositivo móvel{% if currentVersion == "free-pro-team@latest" %} ou enviado como mensagem de texto (SMS){% endif %}. Após habilitação da 2FA, o {% data variables.product.product_name %} gera um código de autenticação sempre que alguém tenta entrar na sua conta do {% data variables.product.product_name %}. A única maneira de alguém entrar na sua conta é se ele souber sua senha e tiver acesso ao código de autenticação no seu telefone.
 
 {% data reusables.two_fa.after-2fa-add-security-key %}

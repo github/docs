@@ -7,14 +7,13 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-advanced-security-features
   - /admin/configuration/configuring-advanced-security-features
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
 children:
-  - /about-licensing-for-github-advanced-security
   - /enabling-github-advanced-security-for-your-enterprise
   - /configuring-code-scanning-for-your-appliance
   - /configuring-secret-scanning-for-your-appliance
   - /viewing-your-github-advanced-security-usage
 ---
-### Inhaltsverzeichnis
+

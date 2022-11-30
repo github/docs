@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Sobre arquivos FUNDING
 
 Para configurar o botão de patrocinador, edite um arquivo _FUNDING.yml_ na pasta `.github` do repositório, no branch padrão. É possível configurar o botão para incluir desenvolvedores patrocinados no {% data variables.product.prodname_sponsors %}, em plataformas de financiamento externas ou em uma URL de financiamento personalizado. Para obter mais informações a respeito do {% data variables.product.prodname_sponsors %}, consulte "[Sobre o GitHub Sponsors](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)".

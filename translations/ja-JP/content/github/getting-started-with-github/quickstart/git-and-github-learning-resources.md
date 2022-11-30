@@ -13,6 +13,7 @@ versions:
 authors:
   - GitHub
 ---
+
 ### Git を使用する
 
 [公式 Git プロジェクトサイト](https://git-scm.com)にアクセスして [ProGit book](http://git-scm.com/book) を読み、Git に慣れましょう。 [Try Git](https://try.github.com) シミュレーターを使用しながら、[Git コマンドリスト](https://git-scm.com/docs)や[Git コマンドルックアップ参照](http://gitref.org)を確認できます。

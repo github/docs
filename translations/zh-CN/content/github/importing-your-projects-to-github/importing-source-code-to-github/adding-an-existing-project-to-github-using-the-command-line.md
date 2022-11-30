@@ -6,10 +6,14 @@ redirect_from:
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: 本地添加项目
 ---
+
+## About adding existing projects to {% data variables.product.product_name %}
+
 {% data reusables.repositories.migrating-from-codeplex %}
 
 {% tip %}
@@ -20,12 +24,41 @@ versions:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
+## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
+
+{% data variables.product.prodname_cli %} 是用于从计算机的命令行使用 {% data variables.product.product_name %} 的开源工具。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+
+1. In the command line, navigate to the root directory of your project.
+1. 将本地目录初始化为 Git 仓库。
+
+    ```shell
+    git init -b main
+    ```
+
+1. To create a repository for your project on {% data variables.product.product_name %}, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+
+   ```shell
+   gh repo create <em>project-name</em>
+   ```
+
+1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
+1. Pull changes from the new repository that you created. (If you created a `.gitignore` or `LICENSE` file in the previous step, this will pull those changes to your local directory.)
+
+    ```shell
+    git pull --set-upstream origin main
+    ```
+
+1. Stage, commit, and push all of the files in your project.
+
+    ```shell
+    git add . && git commit -m "initial commit" && git push
+    ```
+
+## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
+
 {% mac %}
 
-1. [创建新仓库](/articles/creating-a-new-repository)
-
-{% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
-    ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
+1. 在 {% data variables.product.product_location %} 上[创建新仓库](/repositories/creating-and-managing-repositories/creating-a-new-repository) 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
@@ -52,7 +85,7 @@ versions:
   ```
 9. [推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)（本地仓库中）到 {% data variables.product.product_location %}。
   ```shell
-  $ git push -u origin master
+  $ git push -u origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 
@@ -60,10 +93,7 @@ versions:
 
 {% windows %}
 
-1. [创建新仓库](/articles/creating-a-new-repository)
-
-{% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
-    ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
+1. 在 {% data variables.product.product_location %} 上[创建新仓库](/articles/creating-a-new-repository) 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
@@ -98,10 +128,7 @@ versions:
 
 {% linux %}
 
-1. [创建新仓库](/articles/creating-a-new-repository)
-
-{% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
-    ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
+1. 在 {% data variables.product.product_location %} 上[创建新仓库](/articles/creating-a-new-repository) 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
@@ -134,6 +161,6 @@ versions:
 
 {% endlinux %}
 
-### 延伸阅读
+## 延伸阅读
 
-- "[使用命令行添加文件到仓库](/articles/adding-a-file-to-a-repository-using-the-command-line)"
+- "[添加文件到仓库](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"

@@ -4,12 +4,13 @@ intro: É possível alterar o nome de um branch em um repositório.
 permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  enterprise-server: '>=3.1'
 topics:
   - Repositories
 redirect_from:
   - /github/administering-a-repository/renaming-a-branch
 ---
+
 ### Sobre a renomeação de branches
 
 Você pode renomear um branch em um repositório em {% data variables.product.product_location %}. Para obter mais informações sobre os branches, consulte "[Sobre os branches](/github/collaborating-with-issues-and-pull-requests/about-branches)".
@@ -18,7 +19,7 @@ Ao renomear um branch em {% data variables.product.product_location %}, todas as
 
 Embora as URLs do arquivo sejam automaticamente redirecionadas, as URLs do arquivo não processado não são redirecionadas. Além disso, {% data variables.product.prodname_dotcom %} não realiza nenhum redirecionamento se os usuários executarem um `git pull` para o nome do branch anterior.
 
-{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the banch name is deprecated and suggesting that users migrate to the new branch name.
+Os fluxos de trabalho de {% data variables.product.prodname_actions %} não seguem renomes. Portanto, se o repositório publicar uma ação, qualquer pessoa que usar essa ação com `@{old-branch-name}` vai quebrar. Você deve considerar adicionar um novo branch com o conteúdo original mais um relatório de commit adicional informando que o nome do branch está obsoleto e sugerindo que os usuários façam a migração para o novo nome do branche.
 
 ### Renomear um branch
 

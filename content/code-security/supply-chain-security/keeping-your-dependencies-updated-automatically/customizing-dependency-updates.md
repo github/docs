@@ -6,11 +6,19 @@ redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Version updates
+  - Security updates
   - Repositories
+  - Dependencies
+  - Pull requests
+  - Vulnerabilities
+shortTitle: Customize updates
 ---
-### About customizing dependency updates
+## About customizing dependency updates
 
 After you've enabled version updates, you can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies by adding further options to the *dependabot.yml* file. For example, you could:
 
@@ -24,13 +32,13 @@ For more information about the configuration options, see "[Configuration option
 
 When you update the *dependabot.yml* file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see "[Listing dependencies configured for version updates](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)."
 
-### Impact of configuration changes on security updates
+## Impact of configuration changes on security updates
 
 If you customize the *dependabot.yml* file, you may notice some changes to the pull requests raised for security updates. These pull requests are always triggered by a security advisory for a dependency, rather than by the {% data variables.product.prodname_dependabot %} schedule. However, they inherit relevant configuration settings from the *dependabot.yml* file unless you specify a different target branch for version updates.
 
 For an example, see "[Setting custom labels](#setting-custom-labels)" below.
 
-### Modifying scheduling
+## Modifying scheduling
 
 When you set a `daily` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions at 05:00 UTC. You can use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
 
@@ -51,7 +59,7 @@ updates:
       time: "02:00"
 ```
 
-### Setting reviewers and assignees
+## Setting reviewers and assignees
 
 By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
 
@@ -79,7 +87,7 @@ updates:
       - "user-name"
 ```
 
-### Setting custom labels
+## Setting custom labels
 
 {% data reusables.dependabot.default-labels %}
 
@@ -124,6 +132,6 @@ updates:
       - "triage-board"
 ```
 
-### More examples
+## More examples
 
 For more examples, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates)."

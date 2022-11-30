@@ -11,14 +11,16 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
   - /admin/user-management/exporting-migration-data-from-githubcom
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Exportar dados do GitHub.com
 ---
-### Preparar a organização de origem em {% data variables.product.prodname_dotcom %}
+
+## Preparar a organização de origem em {% data variables.product.prodname_dotcom %}
 
 1. Verifique se você tem [permissões de proprietário](/articles/permission-levels-for-an-organization/) nos repositórios de origem da organização.
 
@@ -26,7 +28,7 @@ topics:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exportar repositórios da organização
+## Exportar repositórios da organização
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
@@ -34,7 +36,7 @@ Para exportar os dados do repositório do {% data variables.product.prodname_dot
 
 No momento, a API de Migrações está em período de exibição. Ou seja, os pontos de extremidade e os parâmetros podem mudar no futuro. Para acessar a API de Migrações, você deve informar um [tipo de mídia](/rest/overview/media-types) personalizado no cabeçalho `Accept`: `application/vnd.github.wyandotte-preview+json`. Os exemplos abaixo incluem o tipo de mídia personalizado.
 
-### Gerar arquivos de migração
+## Gerar arquivos de migração
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 

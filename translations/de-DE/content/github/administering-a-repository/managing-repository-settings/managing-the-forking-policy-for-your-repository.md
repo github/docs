@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Ein Organisationsinhaber muss Forks von privaten{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} und internen{% endif %} Repositorys auf der Organisationsebene erlauben, bevor Du Forks für ein bestimmtes Repository erlauben oder verbieten kannst. Weitere Informationen findest Du unter „[Die Forking-Richtlinie für Deine Organisation verwalten](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
 {% data reusables.organizations.internal-repos-enterprise %}

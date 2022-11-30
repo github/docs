@@ -12,6 +12,7 @@ versions:
 topics:
   - SSH
 ---
+
 Um das Problem zu beheben, entferne den Deployment-Schlüssel vom Repository und [füge ihn stattdessen zu Deinem Benutzerkonto hinzu](/articles/adding-a-new-ssh-key-to-your-github-account).
 
 Wenn der Schlüssel, den Du verwendest, als Deployment-Schlüssel genutzt werden soll, findest Du weitere Informationen in [unserem Leitfaden zu Deployment-Schlüsseln](/guides/managing-deploy-keys).

@@ -6,8 +6,10 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Use Importador do GitHub
 ---
+
 {% tip %}
 
 **Dica:** o Importador do GitHub não é indicado para todas as importações. Por exemplo, se o código existente está hospedado em uma rede privada, sua ferramenta não conseguirá acessá-lo. Nesses casos, recomendamos [importar usando a linha de comando](/articles/importing-a-git-repository-using-the-command-line) para repositórios Git ou uma [ferramenta de migração de código-fonte](/articles/source-code-migration-tools) externa para projetos importados por outros sistemas de controle de versões.
@@ -31,6 +33,6 @@ Se você quiser combinar os commits de seu repositório com as contas de usuári
 
 Você receberá um e-mail quando o repositório for totalmente importado.
 
-### Leia mais
+## Leia mais
 
 - "[Atualizar a atribuição do autor do commit com o Importador do GitHub](/articles/updating-commit-author-attribution-with-github-importer)"

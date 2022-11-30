@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
   - /admin/enterprise-management/monitoring-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -16,7 +16,8 @@ topics:
   - Monitoring
   - Performance
 ---
-### Clusterstatus manuell überprüfen
+
+## Clusterstatus manuell überprüfen
 
 {% data variables.product.prodname_ghe_server %} besitzt ein integriertes Befehlszeilendienstprogramm zum Überwachen des Clusterzustands. Wenn in der Verwaltungsshell der Befehl `ghe-cluster-status` ausgeführt wird, werden einige Zustandsprüfungen auf jedem Knoten ausgeführt, darunter die Verifizierung der Konnektivität und des Dienststatus. Die Ausgabe enthält alle Testergebnisse, darunter der Text `ok` oder `error`. Führen Sie beispielsweise Folgendes aus, um nur fehlgeschlagene Tests anzuzeigen:
 
@@ -31,15 +32,15 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 
 {% endnote %}
 
-### Clusterstatus mit Nagios überwachen
+## Clusterstatus mit Nagios überwachen
 
 Sie können [Nagios](https://www.nagios.org/) für die Überwachung von {% data variables.product.prodname_ghe_server %} konfigurieren. Zusätzlich zur Überwachung der grundlegenden Konnektivität jedes Clusterknotens können Sie den Clusterstatus überprüfen, indem Sie Nagios für die Verwendung des Befehls `ghe-cluster-status -n` konfigurieren. Dadurch wird eine für Nagios verständliche Ausgabe zurückgegeben.
 
-#### Vorrausetzungen
+### Vorrausetzungen
 * Linux-Host, auf dem Nagios ausgeführt wird.
 * Netzwerkzugriff auf den {% data variables.product.prodname_ghe_server %}-Cluster.
 
-#### Nagios-Host konfigurieren
+### Nagios-Host konfigurieren
 1. Generieren Sie einen SSH-Schlüssel mit einer leeren Passphrase. Nagios verwendet diese, um sich beim {% data variables.product.prodname_ghe_server %}-Cluster zu authentifizieren.
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>

@@ -7,11 +7,11 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Gerenciar organizações que não pertencem a você
 ---
-Se você habilitar o desprovisionamento de usuários para gerenciar a associação da organização na sua conta corporativa, você poderá acabar com uma organização sem proprietários. Para obter mais informações, consulte "[Sobre o provisionamento do usuário para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. À direita do campo de pesquisa, clique **X sem proprietário**. ![Botão para visualizar organizações sem proprietários](/assets/images/help/business-accounts/unowned-organizations-button.png)

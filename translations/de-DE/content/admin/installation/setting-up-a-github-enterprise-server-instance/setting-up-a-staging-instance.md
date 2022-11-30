@@ -5,13 +5,15 @@ redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Upgrades
+shortTitle: Set up a staging instance
 ---
+
 {% tip %}
 
 **Tipp:** Sie können Ihre vorhandene {% data variables.product.prodname_enterprise %}-Lizenzdatei wiederverwenden, sofern die Testinstanz nicht für die Produktion verwendet wird.
@@ -30,8 +32,8 @@ Zum sorgfältigen Testen einer {% data variables.product.prodname_ghe_server %}-
 2. Richten Sie eine neue Instanz ein, die als Ihre Staging-Umgebung fungiert. Sie können dieselben Leitfäden zum Bereitstellen und Installieren Ihrer Testinstanz verwenden, die Sie für Ihre Produktionsinstanz verwenden. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)“.
 3. Stellen Sie Ihr Backup auf Ihrer Testinstanz wieder her. Weitere Informationen finden Sie im Abschnitt „Backup wiederherstellen“ unter „[Backups auf Ihrer Appliance konfigurieren](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)“.
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Weiterführende Informationen
+{% ifversion ghes > 2.22 %}
+## Weiterführende Informationen
 
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

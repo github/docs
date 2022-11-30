@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
@@ -43,8 +44,7 @@ Git バージョン 2.0.0 以降で、ローカルリポジトリでデフォル
   $ git push
   # ローカルコミットをリモートリポジトリにプッシュする
   ```
-4. On
-{% data variables.product.product_name %} 上で、プルリクエストに移動します。
+4. {% data variables.product.product_name %}上で、プルリクエストに移動します。
 {% data reusables.repositories.review-pr-commits %}
 5. ベリファイされた署名の詳しい情報を見るには、Verifiedをクリックします。 ![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 

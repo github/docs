@@ -6,20 +6,21 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
   - /admin/installation/installing-github-enterprise-server-on-openstack-kvm
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on OpenStack
 ---
-### Prerequisites
+## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
 - You must have access to an installation of OpenStack Horizon, the web-based user interface to OpenStack services. For more information, see the [Horizon documentation](https://docs.openstack.org/horizon/latest/).
 
-### Hardware considerations
+## Hardware considerations
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Downloading the {% data variables.product.prodname_ghe_server %} image
+## Downloading the {% data variables.product.prodname_ghe_server %} image
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
@@ -27,7 +28,7 @@ topics:
 4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **OpenStack KVM (QCOW2)**.
 5. Click **Download for OpenStack KVM (QCOW2)**.
 
-### Creating the {% data variables.product.prodname_ghe_server %} instance
+## Creating the {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -39,7 +40,7 @@ topics:
 4. Optionally, associate a floating IP to the instance. Depending on your OpenStack setup, you may need to allocate a floating IP to the project and associate it to the instance. Contact your system administrator to determine if this is the case for you. For more information, see "[Allocate a floating IP address to an instance](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" in the OpenStack documentation.
 5. Launch {% data variables.product.product_location %} using the image, data volume, and security group created in the previous steps. For instructions, see the OpenStack guide "[Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html)."
 
-### Configuring the {% data variables.product.prodname_ghe_server %} instance
+## Configuring the {% data variables.product.prodname_ghe_server %} instance
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -47,7 +48,7 @@ topics:
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Further reading
+## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

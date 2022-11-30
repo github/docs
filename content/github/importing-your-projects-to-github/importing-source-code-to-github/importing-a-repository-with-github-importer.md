@@ -6,7 +6,8 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Use GitHub Importer
 ---
 {% tip %}
 
@@ -39,6 +40,6 @@ If you'd like to match the commits in your repository to the authors' GitHub use
 
 You'll receive an email when the repository has been completely imported.
 
-### Further reading
+## Further reading
 
 - "[Updating commit author attribution with GitHub Importer](/articles/updating-commit-author-attribution-with-github-importer)"

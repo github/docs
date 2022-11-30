@@ -57,7 +57,7 @@ Browse the complete list of CI workflow templates offered by {% data variables.p
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 ### Skipping workflow runs
 
-If you want to temporarily prevent a workflow from being triggered, you can add a skip instruction to the commit message. Workflows that would otherwise be triggered `on: push` or `on: pull_request`, won't be triggered if you add any any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
+If you want to temporarily prevent a workflow from being triggered, you can add a skip instruction to the commit message. Workflows that would otherwise be triggered `on: push` or `on: pull_request`, won't be triggered if you add any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
 
 * `[skip ci]`
 * `[ci skip]`
@@ -90,5 +90,5 @@ For more information, see "[Configuring a workflow](/articles/configuring-a-work
 
 - "[Setting up continuous integration using {% data variables.product.prodname_actions %}](/articles/setting-up-continuous-integration-using-github-actions)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

@@ -7,15 +7,16 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Sponsors profile
   - Open Source
+shortTitle: Set up for organization
 ---
 
-### {% data variables.product.prodname_sponsors %} beitreten
+## {% data variables.product.prodname_sponsors %} beitreten
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -29,7 +30,7 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}
 
-### Dein Profil als unterstützte Organisation vervollständigen
+## Dein Profil als unterstützte Organisation vervollständigen
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
@@ -40,7 +41,7 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### Sponsoring-Stufen erstellen
+## Sponsoring-Stufen erstellen
 
 {% data reusables.sponsors.tier-details %}
 
@@ -50,13 +51,14 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### Deine Bankinformationen einreichen
+## Deine Bankinformationen einreichen
 
-Als unterstützte Organisation musst Du Auszahlungen auf ein dediziertes Bankkonto Deiner Organisation in einer unterstützten Region erhalten. Du kannst ein Unternehmensbankkonto über Dienste wie [Open Collective](https://opencollective.com/) und [Stripe Atlas](https://stripe.com/atlas) erhalten. The region your organization legally operates in and the region of your bank account must match. The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
+As a sponsored organization, you will receive payouts to a bank account in a supported region. This can be a dedicated bank account for your organization or a personal bank account. You can get a business bank account through services like [Stripe Atlas](https://stripe.com/atlas) or join a fiscal host like [Open Collective](https://opencollective.com/). The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
@@ -65,7 +67,7 @@ Als unterstützte Organisation musst Du Auszahlungen auf ein dediziertes Bankkon
 
 For more information about setting up Stripe Connect using Open Collective, see [Setting up {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) in the Open Collective Docs.
 
-### Deine Steuerinformationen einreichen
+## Deine Steuerinformationen einreichen
 
 {% data reusables.sponsors.tax-form-information-org %}
 
@@ -75,17 +77,17 @@ For more information about setting up Stripe Connect using Open Collective, see 
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### Zwei-Faktor-Authentifizierung (2FA) für Dein {% data variables.product.prodname_dotcom %}-Konto aktivieren
+## Zwei-Faktor-Authentifizierung (2FA) für Dein {% data variables.product.prodname_dotcom %}-Konto aktivieren
 
 Bevor Deine Organisation eine unterstütze Organisation werden kann, muss Du 2FA auf Deinem {% data variables.product.product_name %}-Konto aktivieren. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.
 
-### Deinen Antrag bei {% data variables.product.prodname_dotcom %} zur Genehmigung einreichen
+## Deinen Antrag bei {% data variables.product.prodname_dotcom %} zur Genehmigung einreichen
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 - „[Informationen zu {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)“
 - "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"

@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 如果需要在仓库内分发大型文件，您可以在 {% data variables.product.product_location %} 上创建发行版。 发行版允许您打包软件、发行说明和指向二进制文件的链接，以供其他人使用。 更多信息请参阅“[关于发行版](/github/administering-a-repository/about-releases)”。
 
 {% if currentVersion == "free-pro-team@latest" %}

@@ -7,11 +7,12 @@ redirect_from:
   - /articles/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Resolve merge conflicts in Git
 ---
 Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see "[About merge conflicts](/articles/about-merge-conflicts/)."
 
@@ -21,7 +22,7 @@ Merge conflicts occur when competing changes are made to the same line of a file
 
 {% endtip %}
 
-### Competing line change merge conflicts
+## Competing line change merge conflicts
 
 To resolve a merge conflict caused by competing line changes, you must choose which changes to incorporate from the different branches in a new commit.
 
@@ -73,7 +74,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
 
 You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
-### Removed file merge conflicts
+## Removed file merge conflicts
 
 To resolve a merge conflict caused by competing changes to a file, where a person deletes a file in one branch and another person edits the same file, you must choose whether to delete or keep the removed file in a new commit.
 
@@ -122,7 +123,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
 
 You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
-### Further reading
+## Further reading
 
 - "[About merge conflicts](/articles/about-merge-conflicts)"
 - "[Checking out pull requests locally](/articles/checking-out-pull-requests-locally/)"

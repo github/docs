@@ -15,11 +15,13 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
   - /developers/github-marketplace/setting-pricing-plans-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Definir os planos de preços do anúncio
 ---
-### Sobre a configuração dos planos de preços
+
+## Sobre a configuração dos planos de preços
 
 {% data variables.product.prodname_marketplace %} oferece vários tipos diferentes de planos de preços. Para obter informações detalhadas, consulte "[Planos de preços para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".
 
@@ -31,13 +33,13 @@ Se seu aplicativo já foi publicado com um plano pago e você é um editor verif
 
 Se seu aplicativo já foi publicado com um plano pago, mas você não é um editor verificado, você não poderá publicar um novo plano pago até que um editor seja verificado. Para obter mais informações sobre como se tornar um editor verificado, consulte "[Candidatar-se à verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
-### Sobre como salvar planos de preços
+## Sobre como salvar planos de preços
 
 Você pode salvar planos de preços com status de rascunho ou publicado. Se você não enviou seu anúncio de {% data variables.product.prodname_marketplace %} para aprovação, um plano publicado funcionará da mesma forma que um plano provisório até que o seu anúncio seja aprovado e exibido em {% data variables.product.prodname_marketplace %}. Os planos de rascunho permitem criar e salvar novos planos de preços sem torná-los disponíveis na sua página de anúncio de {% data variables.product.prodname_marketplace %}. Depois de publicar um plano de preços em um anúncio publicado, os clientes poderão comprar imediatamente. Você pode publicar até 10 planos de preços.
 
 Para obter diretrizes sobre os clientes de cobrança, consulte "[Clientes de cobrança](/developers/github-marketplace/billing-customers)".
 
-### Criar planos de preços
+## Criar planos de preços
 
 Para criar um plano de preços para a sua listagem do {% data variables.product.prodname_marketplace %}, clique em **Planos e preços** na barra lateral esquerda da sua [página de listagem do {% data variables.product.prodname_marketplace %}](https://github.com/marketplace/manage). Para obter mais informações, consulte "[Criar um rascunho de anúncio de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)."
 
@@ -62,7 +64,7 @@ Ao clicar em **Novo rascunho do plano**, você verá um formulário que permite 
 
 {% data reusables.marketplace.free-plan-note %}
 
-### Alterar um plano de preços da listagem do {% data variables.product.prodname_marketplace %}
+## Alterar um plano de preços da listagem do {% data variables.product.prodname_marketplace %}
 
 Se um plano de preços para o seu anúncio de {% data variables.product.prodname_marketplace %} não for mais necessário, ou se você precisar ajustar os detalhes de preços, você poderá removê-lo.
 

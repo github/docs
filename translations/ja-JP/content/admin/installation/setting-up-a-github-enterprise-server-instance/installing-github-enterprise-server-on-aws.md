@@ -6,11 +6,13 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
   - /admin/installation/installing-github-enterprise-server-on-aws
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on AWS
 ---
-### 必要な環境
+
+## 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
 - EC2 インスタンスを起動してEBS ボリュームを作成できる AWS アカウントを所有している必要があります。 詳細は [Amazon Web Services のウェブサイト](https://aws.amazon.com/)を参照してください。
@@ -25,27 +27,29 @@ topics:
  - [Amazon EC2 と Amazon Virtual Private Cloud](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-vpc.html)（Virtual Private Cloud内での起動を計画しているなら）
  - [AWS の価格](https://aws.amazon.com/pricing/)（コストの計算と管理）
 
- このガイドでは、AWS で {% data variables.product.product_location %} を設定する際に最小権限の原則を推奨しています。 詳細については、[AWS ID およびアクセス管理 (IAM)のドキュメント](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)を参照してください。
+For an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)".
 
-### ハードウェアについて
+このガイドでは、AWS で {% data variables.product.product_location %} を設定する際に最小権限の原則を推奨しています。 詳細については、[AWS ID およびアクセス管理 (IAM)のドキュメント](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)を参照してください。
+
+## ハードウェアについて
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### インスタンスタイプの決定
+## インスタンスタイプの決定
 
-Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+AWS で{% data variables.product.product_location %} を起動する前に、Organization のニーズに最適なマシンタイプを決定する必要があります。 {% data variables.product.product_name %} の最小要件を確認するには、「[最小要件](#minimum-requirements)」を参照してください。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-### {% data variables.product.prodname_ghe_server %} AMI を選択する
+## {% data variables.product.prodname_ghe_server %} AMI を選択する
 
 {% data variables.product.prodname_ghe_server %} には、{% data variables.product.prodname_ghe_server %} ポータルまたは AWS CLI を使用することで、Amazon Machine Image (AMI) を選択できます。
 
 {% data variables.product.prodname_ghe_server %}用のAMIは、AWS GovCloud (US東部およびUS西部) 地域で利用できます。 これにより、特定の規制要件を満たす米国のお客様は、連邦準拠のクラウド環境で {% data variables.product.prodname_ghe_server %} を実行できます。 AWSの連邦及びその他の標準への準拠に関する詳しい情報については[AWS's GovCloud (US) page](http://aws.amazon.com/govcloud-us/) and [AWS コンプライアンスページ](https://aws.amazon.com/jp/compliance/)を参照してください。
 
-#### {% data variables.product.prodname_ghe_server %} を使用して AMI を選択する
+### {% data variables.product.prodname_ghe_server %} を使用して AMI を選択する
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-appliance %}
@@ -53,7 +57,7 @@ Before launching {% data variables.product.product_location %} on AWS, you'll ne
 4. Select your AWS region（AWSのリージョン選択）ドロップダウンメニューで、希望するリージョンを選択してください。
 5. 表示されたAMI IDをメモしておいてください。
 
-#### AWS CLIを使ったAMIの選択
+### AWS CLIを使ったAMIの選択
 
 1. AWS CLI を使用して、{% data variables.product.prodname_dotcom %} の AWS オーナー ID (GovCloud の場合は `025577942450`、その他の地域の場合は `895557238572`) によって公開された {% data variables.product.prodname_ghe_server %} イメージのリストを取得します。 詳しい情報についてはAWSのドキュメンテーションの"[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)"を参照してください。
   ```shell
@@ -64,7 +68,7 @@ Before launching {% data variables.product.product_location %} on AWS, you'll ne
   ```
 2. 最新の {% data variables.product.prodname_ghe_server %} イメージ用の AMI ID をメモしておきます。
 
-### セキュリティグループの作成
+## セキュリティグループの作成
 
 AMI を初めてセットアップする場合は、セキュリティグループを作成し、下記の表にある各ポートに関する新しいセキュリティグループのルールを追加する必要があります。 詳しい情報については、AWS ガイドの「[Using Security Groups](http://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-sg.html)」を参照してください。
 
@@ -83,7 +87,7 @@ AMI を初めてセットアップする場合は、セキュリティグルー�
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-### {% data variables.product.prodname_ghe_server %} インスタンスを作成する
+## {% data variables.product.prodname_ghe_server %} インスタンスを作成する
 
 インスタンスを作成するには、{% data variables.product.prodname_ghe_server %} AMI を使用して EC2 インスタンスを起動し、インスタンスデータ用の追加のストレージボリュームをアタッチする必要があります。 詳細は「[ハードウェアについて](#hardware-considerations)」を参照してください。
 
@@ -99,7 +103,7 @@ AMI を初めてセットアップする場合は、セキュリティグルー�
 
 {% endwarning %}
 
-#### EC2 インスタンスの起動
+### EC2 インスタンスの起動
 
 AWS CLI で、AMI および作成したセキュリティグループを使用して EC2 インスタンスを起動します。 インスタンスデータ用にストレージボリュームとして使うための新しいブロックデバイスをアタッチし、サイズをユーザライセンス数に基づいて設定してください。 詳しい情報については、AWS ドキュメンテーションの「[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html)」を参照してください。
 
@@ -113,13 +117,13 @@ aws ec2 run-instances \
   --ebs-optimized
 ```
 
-#### Elastic IP を割り当ててとインスタンスに関連付ける
+### Elastic IP を割り当ててとインスタンスに関連付ける
 
 これが本番インスタンスである場合は、{% data variables.product.prodname_ghe_server %} の設定に進む前に、Elastic IP (EIP) を割り当ててそれをインスタンスに関連付けることを強くおすすめします。 そうしなければ、インスタンスのパブリック IP アドレスはインスタンスの再起動後に保持されません。 詳しい情報については、Amazon ドキュメンテーションの「[Elastic IP アドレスを割り当てる](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)」および「[Elastic IP アドレスを実行中のインスタンスに関連付ける](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)」を参照してください。
 
 稼働状態の High Availability 設定では、プライマリインスタンスとレプリカインスタンスの両方に別々の EIP を割り当ててください。 詳細は「[High Availability 用に {% data variables.product.prodname_ghe_server %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。
 
-### {% data variables.product.prodname_ghe_server %} インスタンスを設定する
+## {% data variables.product.prodname_ghe_server %} インスタンスを設定する
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -127,7 +131,7 @@ aws ec2 run-instances \
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### 参考リンク
+## 参考リンク
 
-- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes > 2.22 %}
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

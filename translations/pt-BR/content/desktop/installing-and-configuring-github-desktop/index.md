@@ -5,10 +5,10 @@ intro: 'Obtenha o {% data variables.product.prodname_desktop %} configurado para
 redirect_from:
   - /desktop/getting-started-with-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /overview
   - /installing-and-authenticating-to-github-desktop
   - /configuring-and-customizing-github-desktop
 ---
-### Índice
+

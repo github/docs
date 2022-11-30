@@ -10,6 +10,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 ### 通知电子邮件
 
 您可以选择通过电子邮件接收部分或全部活动通知。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)”。 通知电子邮件可包括：

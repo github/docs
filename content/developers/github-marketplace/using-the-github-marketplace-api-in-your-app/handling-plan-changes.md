@@ -7,13 +7,13 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---
 For more information about upgrading and downgrading as it relates to billing, see "[Integrating with the {% data variables.product.prodname_marketplace %} API](/marketplace/integrating-with-the-github-marketplace-api/)."
 
-### Step 1. Pricing plan change event
+## Step 1. Pricing plan change event
 
 GitHub send the `marketplace_purchase` webhook with the `changed` action to your app, when a customer makes any of these changes to their {% data variables.product.prodname_marketplace %} order:
 * Upgrades to a more expensive pricing plan or downgrades to a lower priced plan.
@@ -26,7 +26,7 @@ Read the `effective_date`, `marketplace_purchase`, and `previous_marketplace_pur
 
 If your app offers free trials, you'll receive the `marketplace_purchase` webhook with the `changed` action when the free trial expires. If the customer's free trial expires, upgrade the customer to the paid version of the free-trial plan.
 
-### Step 2. Updating customer accounts
+## Step 2. Updating customer accounts
 
 You'll need to update the customer's account information to reflect the billing cycle and pricing plan changes the customer made to their {% data variables.product.prodname_marketplace %} order. Display upgrades to the pricing plan, `seat_count` (for per-unit pricing plans), and billing cycle on your Marketplace app's website or your app's UI when you receive the `changed` action webhook.
 
@@ -40,11 +40,11 @@ To encourage people to upgrade you can display an upgrade URL in your app's UI. 
 
 {% endnote %}
 
-### Failed upgrade payments
+## Failed upgrade payments
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-### About upgrade URLs
+## About upgrade URLs
 
 You can redirect users from your app's UI to upgrade on GitHub using an upgrade URL:
 

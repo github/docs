@@ -1,76 +1,75 @@
 ---
-title: GitHub Candidate Privacy Policy
+title: GitHub 志望者のプライバシーポリシー
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
 ---
 
-Effective Date: March 8, 2021
+発効日: 2021年3月8日
 
-This GitHub Candidate Privacy Policy explains what information we collect about you during the application or recruitment process for employment with GitHub, as well as the purposes for which we collect and use that information.
+GitHub 志望者のプライバシーポリシーは、GitHub への応募や採用プロセス中において当社が収集する情報、および情報収集の目的やその利用方法について説明します。
 
-For the purposes of this policy:
+本ポリシーにおける用語の定義を以下に挙げます。
 
-“Candidate” includes applicants and candidates who are part of the GitHub application or recruitment process; and
+「志望者」には、GitHub の応募または採用プロセスに関与する応募者や候補者が含まれます。
 
-"Candidate Personal Information" refers to any information we collect about one of our Candidates during the application or recruitment process which could, alone or together with other information, personally identify them or otherwise be reasonably linked or connected with them.
+「志望者の個人情報」とは、応募または採用プロセスにおいて、当社が志望者の 1 人について収集する情報のうち、単独またはほかの情報と合わせることで志望者を個人として識別できる、または、志望者と合理的に結びつける、もしくは関連づけることができるあらゆるものを指します。
 
-This policy does not apply to the use of GitHub services, which are covered under our [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
+本ポリシーは、GitHub サービスの利用には適用されません。GitHub サービスの利用には、[GitHub のプライバシーについての声明](/github/site-policy/github-privacy-statement)が適用されます。
 
-### What Candidate Personal Information do we collect?
+## 当社が収集する志望者の個人情報
 
-The Candidate Personal Information we collect, use, and maintain (or “process”) can include the following, but is not limited to:
+当社が収集、利用、および管理 (または「処理」) する志望者の個人情報には以下が含まれますが、これに限定されません。
 
-**Identification and contact information**, including your name, email address, phone number, location, GitHub profile, and any other information you provide (such as referrals and references).
+**身分確認情報および連絡先情報**。氏名、メールアドレス、電話番号、所在地、GitHub プロフィール、その他志望者が提供する情報 (紹介者や照会先など) が含まれます。
 
-**National identifiers**, such as your citizenship status, residency and work permit status.
+**国民識別番号**。市民権の状態、居住権、労働許可の状態など。
 
-**Employment and education history**, such as your resume or CV, cover letter, details of how you heard about the position you are applying for, information about any previous employment at GitHub or affiliates of GitHub, or other information you provide to us in support of an application and/or the application and recruitment process.
+**職歴および学歴**。履歴書、職務経歴書、カバーレター、応募する職を知った経緯、GitHub または GitHub の関連会社における以前の雇用に関する情報、その他応募や採用プロセスを有利にするために当社に提供した情報。
 
-**Professional or employment information**, including your desired salary or terms related to benefits, willingness to relocate, other job preferences, interview details, reference information and/or information received from background checks (where applicable), and information from publicly available resources (such as your LinkedIn profile or website).
+**職業・雇用に関する情報**。希望する給与や福利厚生に関する規定、転勤を受け入れる意思、その他の仕事における好み、面接の詳細、照会情報や背景確認から得た情報 (該当する場合)、および一般に公開されているリソース (LinkedIn プロフィールやウェブサイトなど) からの情報が含まれます。
 
-**Sensitive or demographic information**, such as your gender, medical or health information, veteran status, or your racial or ethnic origin.
+**機微な情報または人口統計学的情報**。性別、医療・健康情報、軍役経験の有無、人種・民族など。
 
-### How do we use the Candidate Personal Information we collect?
+## 収集した志望者情報の利用方法
 
-We use the Candidate Personal Information for the following purposes:
- - To assess your skills, qualifications and interests for employment opportunities with GitHub;
- - To verify the information provided by you or others, including checking your references;
- - To communicate with you about your application and the recruitment process, including informing you of other potential employment opportunities at GitHub;
- - If you were referred, to inform the referrer of the status of your application;
- - If you are offered a position, to prepare your offer letter and conduct a background check (to the extent permitted by applicable law);
- - If you are offered a position and where requested by you, to assist you with obtaining an immigration visa or work permit;
- - To comply with local laws, regulations, legal processes or enforceable government requests; and
- - To prepare and submit reports as required under local laws and regulations;
- - To manage and improve our application and recruitment process (such as making the application process more efficient and improving our diversity practices).
+当社は、次の目的で志望者の個人情報を利用します。
+ - 技量、資格、GitHub への雇用機会に対する関心を評価するため。
+ - 照会先の確認を含め、志望者やその他から提供された情報を検証するため。
+ - GitHub における別の雇用機会の可能性について通知することを含め、応募および採用のプロセスについて連絡を取るため。
+ - 紹介された人の場合、紹介者に応募の状況について通知するため。
+ - 志望者に職を与える場合、雇用契約書を作成し、(適用法で認められている範囲内で) 背景確認を実施するため。
+ - 志望者に職を与え、志望者が求めた場合、移民ビザや労働許可の取得を支援するため。
+ - 現地の法令、法的手続き、または法的強制力のある政府機関からの要求に従うため。
+ - 現地の法令に基づき求められる報告を作成し提出するため。
+ - 応募及び採用のプロセスを管理・改善するため (応募プロセスを効率化する、多様性の実践を改善するなど)。
 
+## 志望者情報の共有方法
 
- ### How do we share your Candidate Personal Information?
+GitHub は、志望者の個人情報を、業務上必要な人々に共有します。 志望者の個人情報に対して第三者のアクセスを許可する場合は、本ポリシーと一致する方法で個人情報が利用されるようにします。 志望者の個人情報は、次の目的のため、当社の関係会社 (Microsoft など) およびその他の第三者 (ベンダーなど) に共有される場合があります。
+1. 志望者の個人情報を上述した通りに利用するため。
+2. 第三者が当社に、または当社に代わって製品やサービスを提供できるようにするため (応募プロセスの容易化、背景確認の実施など)。
+3. 法的義務、規制、契約を順守するため、裁判所命令、行政上または司法上の手続き (召喚状、政府監査、捜索令状など) に対応するため、または公権力 (国家安全保障局、法執行機関など) による法的な要請への対応として。
+4. 訴訟の可能性や係争中の訴訟について、必要に応じて確定、執行、または防御するため。
+5. GitHub、志望者のプライバシーポリシー、またはその他の人の重大な利益 (安全やセキュリティなど) を保護するために必要な場合。
+6. 志望者のプライバシーポリシーの同意に基づいて (照会先に連絡をするためなど)。 志望者は、照会先の個人情報を GitHub に提供する前に、照会先から同意を得る責任を負います。
 
-GitHub will share your Candidate Personal Information with those who have a legitimate business need for it. Whenever we permit a third party to access your Candidate Personal Information, we will make sure the information is used in a manner consistent with this policy. Your Candidate Personal Information may be shared with our affiliates (such as Microsoft) and other third parties (such as vendors) for the following purposes:
-1. In order to carry out the uses of Candidate Personal Information described above;
-2. To enable third parties to provide products or services to us or on our behalf (such as to facilitate the application process or conduct background checks).
-3. To comply with our legal obligations, regulations or contracts, or to respond to a court order, administrative or judicial process (such as subpoena, government audit or search warrant) or, in response to lawful requests by public authorities (such as national security or law enforcement);
-4. As necessary to establish, exercise, or defend against potential or pending litigation;
-5. Where necessary to protect GitHub, your vital interests (such as safety and security), or those of another person; or
-6. With your consent (such to contact your referees). It is your responsibility to obtain consent from referees before providing their personal information to GitHub.
+## 志望者の個人情報に対する権利
 
-### Your rights to your Candidate Personal Information
+一部の地域においては、適用される地域のプライバシー法 (EU 一般データ保護規則など) に基づき、志望者は特定の権利を有する場合があります。 ただし応募者の所在地にかかわらず、当社は世界中の志望者全員に、同程度に高い水準のプライバシー保護を提供します。
 
-In some locations, Candidates may have certain rights under applicable local privacy laws (such as the European General Data Protection Regulation). However, regardless of your location, we provide the same high standard of privacy protection to all of our Candidates around the world.
+このプライバシー保護には、志望者自身の情報へのアクセスや修正を求める権利、志望者自身の情報について削除を求める権利、GitHub が志望者の情報を特定の目的で用いることについて反対したり制限したりする権利が含まれます。
 
-This includes the rights to request access or correct your information, request that your information be deleted, or object to or restrict GitHub from using it for certain purposes.
+こうした要求を行う場合、privacy@github.com までご連絡ください。 適用されるデータ保護法に従って、あらゆる要求に対応いたします。
 
-You can make a request to do so by contacting privacy@github.com. We will respond to all requests in accordance with applicable data protection laws.
+## 志望者の個人情報を保持する期間
 
-### How long do we retain your Candidate Personal Information?
+当社に課せられた法的義務を順守するため、志望者の個人情報は 1 年間保存されます。 その後、当社は志望者に連絡し、GitHub での今後の就労機会について検討できるようにするために、志望者の個人情報を保持する同意を求めます。
 
-Candidate Personal Information will be stored for one year after your application to comply with our legal obligations. After that time, we will contact you and ask for your consent to continue to retain your personal information so that we can consider you for any future job opportunities at GitHub.
+GitHub で職を得た場合、当社は応募および採用プロセスにおいて提供された情報を、従業員記録の一部として保持します。
 
-If you are hired for a position at GitHub, we will retain the information provided during the application and recruitment process as part of your employee record.
+## 本ポリシーの変更
 
-### Changes to this Policy
-
-We may occasionally update this GitHub Candidate Privacy Policy. When we do make changes to this page, we will update the "last updated" date. 
+当社は、この GitHub 志望者のプライバシーポリシーを更新する場合があります。 このページに変更を加える際は、「最終更新」日を更新します。 

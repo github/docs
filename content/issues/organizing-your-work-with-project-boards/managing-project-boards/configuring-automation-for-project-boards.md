@@ -6,12 +6,15 @@ redirect_from:
   - /articles/configuring-automation-for-project-boards
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Configure automation
 ---
+{% data reusables.projects.project_boards_old %}
+
 {% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards)."
 
 {% data reusables.project-management.use-automated-template %}
@@ -35,5 +38,5 @@ topics:
 ![List of options for automating the column](/assets/images/help/projects/select-automation-options-existing-column.png)
 6. Click **Update automation**.
 
-### Further reading
+## Further reading
 - "[About automation for project boards](/articles/about-automation-for-project-boards)"

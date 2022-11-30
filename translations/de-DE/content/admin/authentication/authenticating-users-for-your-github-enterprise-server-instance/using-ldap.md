@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
 intro: 'Mithilfe von LDAP können Sie {% data variables.product.prodname_ghe_server %} bei Ihren vorhandenen Konten authentifizieren und den Zugriff auf Repositorys zentral verwalten. LDAP ist ein beliebtes Anwendungsprotokoll für den Zugriff auf und die Verwaltung von Verzeichnisinformationsdiensten. Zudem ist es eines der gängigsten Protokolle zur Integration von Drittanbietersoftware in große Benutzerverzeichnisse von Unternehmen.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -19,9 +19,10 @@ topics:
   - Enterprise
   - Identity
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### Unterstützte LDAP-Dienste
+## Unterstützte LDAP-Dienste
 
 {% data variables.product.prodname_ghe_server %} lässt sich in die folgenden LDAP-Dienste integrieren:
 
@@ -32,7 +33,7 @@ topics:
 * Open Directory
 * 389-ds
 
-### Grundlegendes für Benutzernamen bei LDAP
+## Grundlegendes für Benutzernamen bei LDAP
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -41,7 +42,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### LDAP für {% data variables.product.product_location %} konfigurieren
+## LDAP für {% data variables.product.product_location %} konfigurieren
 
 Nach der Konfiguration von LDAP können sich Benutzer mit ihren LDAP-Anmeldeinformationen bei Ihrer Instanz anmelden. Wenn sich Benutzer erstmals anmelden, werden ihre Profilnamen, E-Mail-Adressen und SSH-Schlüssel mit den LDAP-Attributen aus Ihrem Verzeichnis festgelegt.
 
@@ -60,7 +61,7 @@ Wenn Du LDAP-Zugriff für Benutzer über die {% data variables.enterprise.manage
 4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Aktivierung des Kontrollkästchen für integrierte LDAP-Authentifizierung](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
 5. Fügen Sie die gewünschten Konfigurationseinstellungen hinzu.
 
-### LDAP-Attribute
+## LDAP-Attribute
 Verwenden Sie die folgenden Attribute, um die Konfiguration von LDAP für {% data variables.product.product_location %} abzuschließen.
 
 | Attributname                                     | Typ          | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -82,7 +83,7 @@ Verwenden Sie die folgenden Attribute, um die Konfiguration von LDAP für {% dat
 | `Enable LDAP certificate verification`           | Optional     | Wenn diese Option ausgewählt ist, wird die LDAP-Zertifikatsverifizierung [aktiviert](#enabling-ldap-certificate-verification).                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `Synchronization`                                | Optional     | Wenn diese Option ausgewählt ist, wird die LDAP-Synchronisierung [aktiviert](#enabling-ldap-sync).                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-#### Passwortauthentifizierung für Git-Vorgänge deaktivieren
+### Passwortauthentifizierung für Git-Vorgänge deaktivieren
 
 Aktivieren Sie **Disable username and password authentication for Git operations** (Authentifizierung mittels Benutzername und Passwort für Git-Vorgänge deaktivieren) in Ihren LDAP-Einstellungen, um die Verwendung von persönlichen Zugriffstoken oder SSH-Schlüsseln für den Git-Zugriff zu erzwingen, wodurch verhindert werden kann, dass Ihr Server von LDAP-Authentifizierungsanforderungen überladen wird. Diese Einstellung wird empfohlen, da ein langsam reagierender LDAP-Server, insbesondere in Kombination mit einer Vielzahl an Anforderungen (infolge des automatischen Abrufens) häufig für Leistungsprobleme und Ausfälle verantwortlich ist.
 
@@ -90,7 +91,7 @@ Aktivieren Sie **Disable username and password authentication for Git operations
 
 Wenn ein Benutzer bei Auswahl dieser Option versucht, ein Passwort für Git-Vorgänge an der Befehlszeile zu verwenden, wird die Fehlermeldung `Password authentication is not allowed for Git operations. You must use a personal access token` angezeigt.
 
-#### LDAP-Zertifikatsverifizierung aktivieren
+### LDAP-Zertifikatsverifizierung aktivieren
 
 Wählen Sie **Enable LDAP certificate verification** (LDAP-Zertifikatsverifizierung aktivieren) in Ihren LDAP-Einstellungen aus, um das von Ihnen verwendete LDAP-Serverzertifikat mit TLS zu validieren.
 
@@ -101,7 +102,7 @@ Wenn diese Option ausgewählt ist, wird das Zertifikat validiert, um Folgendes s
 - Das Zertifikat ist nicht abgelaufen.
 - Das Zertifikat wurde von einer vertrauenswürdigen Zertifizierungsstelle (CA) signiert.
 
-#### LDAP-Synchronisierung aktivieren
+### LDAP-Synchronisierung aktivieren
 
 {% note %}
 
@@ -158,7 +159,7 @@ Wenn die Offenlegung solcher Informationen nicht gewünscht wird, sollte Ihr Unt
 
 {% endwarning %}
 
-#### Unterstützte LDAP-Gruppenobjektklassen
+### Unterstützte LDAP-Gruppenobjektklassen
 
 {% data variables.product.prodname_ghe_server %} unterstützt die folgenden LDAP-Gruppenobjektklassen. Gruppen können verschachtelt werden.
 
@@ -167,7 +168,7 @@ Wenn die Offenlegung solcher Informationen nicht gewünscht wird, sollte Ihr Unt
 - `groupOfUniqueNames`
 - `posixGroup`
 
-### LDAP-Benutzer anzeigen und erstellen
+## LDAP-Benutzer anzeigen und erstellen
 
 Sie können die vollständige Liste der LDAP-Benutzer anzeigen, die Zugriff auf Ihre Instanz besitzen, und neue Benutzer bereitstellen.
 
@@ -176,7 +177,7 @@ Sie können die vollständige Liste der LDAP-Benutzer anzeigen, die Zugriff auf 
 3. Klicken Sie auf der linken Seitenleiste auf **LDAP users** (LDAP-Benutzer). ![Registerkarte „LDAP users“ (LDAP-Benutzer)](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
 4. Geben Sie bei der Suche nach einem Benutzer einen vollständigen oder den Teil eines Benutzernamens ein, und klicken Sie auf **Search** (Suchen). Die vorhandenen Benutzer werden in den Suchergebnissen angezeigt. Wenn ein Benutzer nicht vorhanden ist, klicken Sie auf **Create** (Erstellen), um das neue Benutzerkonto bereitzustellen. ![LDAP-Suche](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
 
-### LDAP-Konten aktualisieren
+## LDAP-Konten aktualisieren
 
 Sofern die [LDAP-Synchronisierung nicht aktiviert ist](#enabling-ldap-sync), werden Änderungen an LDAP-Konten nicht automatisch mit {% data variables.product.prodname_ghe_server %} synchronisiert.
 
@@ -184,7 +185,7 @@ Sofern die [LDAP-Synchronisierung nicht aktiviert ist](#enabling-ldap-sync), wer
 * [Stufen Sie die Konten auf {% data variables.product.prodname_ghe_server %} hoch und zurück](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator), um LDAP-Konten in LDAP-Administratorgruppen hinzuzufügen oder zu entfernen.
 * [Sperren Sie die {% data variables.product.prodname_ghe_server %}-Konten](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users), wenn Sie die LDAP-Konten entfernen möchten.
 
-#### LDAP-Konten manuell synchronisieren
+### LDAP-Konten manuell synchronisieren
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -196,7 +197,7 @@ Sofern die [LDAP-Synchronisierung nicht aktiviert ist](#enabling-ldap-sync), wer
 
 You can also [use the API to trigger a manual sync](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap).
 
-### Zugriff auf {% data variables.product.product_location %} widerrufen
+## Zugriff auf {% data variables.product.product_location %} widerrufen
 
 Bei [aktivierter LDAP-Synchronisierung](#enabling-ldap-sync) wird beim Entfernen der LDAP-Anmeldeinformationen eines Benutzers dessen Konto nach der nächsten Synchronisierungsausführung gesperrt.
 

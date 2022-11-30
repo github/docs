@@ -13,9 +13,10 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data reusables.organizations.owners-and-admins-can %} 删除组织仓库。 如果已禁用 **Allow members to delete or transfer repositories for this organization（允许成员删除或转让此组织的仓库）**，仅组织所有者可删除组织仓库。 {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion != "github-ae@latest" %}删除公共仓库不会删除该仓库的任何复刻。{% endif %}
+{% if currentversion != "github-ae@latest" %}删除公共仓库不会删除该仓库的任何复刻。{% endif %}
 
 {% warning %}
 

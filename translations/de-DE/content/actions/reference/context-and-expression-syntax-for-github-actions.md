@@ -12,6 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -32,7 +33,9 @@ Sie müssen eine spezielle Syntax verwenden, um {% data variables.product.prodna
 
 {% data reusables.github-actions.expression-syntax-if %} Weitere Informationen über Bedingungen mit `if`findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)“.
 
-#### Beispiel für einen Ausdruck in einer `if`-Anweisung
+{% data reusables.github-actions.context-injection-warning %}
+
+##### Beispiel für einen Ausdruck in einer `if`-Anweisung
 
 ```yaml
 steps:
@@ -40,12 +43,12 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Beispiel zum Setzen einer Umgebungsvariablen
+##### Beispiel zum Setzen einer Umgebungsvariablen
 
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 
@@ -73,7 +76,7 @@ Als Teil eines Ausdrucks kannst Du mit einer der beiden folgenden Syntaxarten au
 - Index-Syntax: `github['sha']`
 - Syntax zur Dereferenzierung von Eigenschaften: `github.sha`
 
-Bei der Syntax zur Dereferenzierung von Eigenschaften muss der Name der Eigenschaft:
+Bei der Eigenschaftsdereferenzierungs-Syntax muss der Eigenschaftsname
 - mit `a-Z` oder `_` beginnen,
 - mit `a-Z`, `0-9`, `-` oder `_` weitergehen.
 
@@ -86,6 +89,7 @@ Bei der Syntax zur Dereferenzierung von Eigenschaften muss der Name der Eigensch
 Der `github`-Kontext enthält Informationen zum Workflow-Lauf und zu dem Ereignis, das den Lauf ausgelöst hat. Du kannst die meisten `github`-Kontextdaten in Umgebungsvariablen lesen. Weitere Informationen über Umgebungsvariablen findest Du unter „[Umgebungsvariablen verwenden](/actions/automating-your-workflow-with-github-actions/using-environment-variables)“.
 
 {% data reusables.github-actions.github-context-warning %}
+{% data reusables.github-actions.context-injection-warning %}
 
 | Name der Eigenschaft      | Typ      | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -140,7 +144,7 @@ Der `job`-Kontext enthält Informationen zum gerade ausgeführten Auftrag.
 
 #### `steps`-Kontext
 
-Der `steps`-Kontext enthält Informationen zu den Schritten im aktuellen Auftrag, die bereits ausgeführt wurden.
+Der `steps`-Kontext enthält Informationen zu den Schritten im aktuellen Job, die bereits ausgeführt wurden.
 
 | Name der Eigenschaft                                | Typ      | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -172,7 +176,7 @@ Der `needs`-Kontext enthält Ausgaben von allen Jobs, die als Abhängigkeit des 
 | `needs.<job id>.outputs.<output name>` | `string` | Der Wert einer bestimmten Ausgabe für einen Job, von dem der aktuelle Job abhängt.                                                                                                           |
 | `needs.<job id>.result`                      | `string` | Das Ergebnis eines Jobs, von dem der aktuelle Job abhängt. Mögliche Werte sind `success` (erfolgreich), `failure` (fehlgeschlagen), `cancelled` (abgebrochen) oder `skipped` (übersprungen). |
 
-#### Beispiel für die Ausgabe von Kontextinformationen in der Protokolldatei
+##### Beispiel für die Ausgabe von Kontextinformationen in die Protokolldatei
 
 Mit dem folgenden Beispiel einer Workflow-Datei kannst Du die Informationen einsehen, auf die in den einzelnen Kontexten zugegriffen werden kann.
 
@@ -225,7 +229,7 @@ In einem Ausdruck kannst Du die Datentypen `boolean`, `null`, `number` oder `str
 | `number`        | Alle von JSON unterstützten Zahlenformate                                                                                                        |
 | `string`        | Du musst einfache Anführungszeichen verwenden. Maskiere einfache Anführungszeichen (Apostrophen) mit einem weiteren einfachen Anführungszeichen. |
 
-#### Beispiel
+##### Beispiel
 
 {% raw %}
 ```yaml
@@ -258,7 +262,7 @@ env:
 | `&&`              | Und                                |
 | <code>\|\|</code> | Oder                               |
 
-{% data variables.product.prodname_dotcom %} vergleicht auf Gleichheit in toleranter Weise.
+{% data variables.product.prodname_dotcom %} führt einen nicht strengen Gleichheitsvergleich aus.
 
 * Wenn die Typen nicht übereinstimmen, wandelt {% data variables.product.prodname_dotcom %} den Typ in eine Zahl um. {% data variables.product.prodname_dotcom %} wandelt Daten verschiedener Typen folgendermaßen in eine Zahl um:
 
@@ -275,7 +279,7 @@ env:
 
 ### Funktionen
 
-{% data variables.product.prodname_dotcom %} bietet integrierte Funktionen, die Du in Ausdrücken verwenden kannst. Manche Funktionen verwandeln Werte an einen String, um Vergleiche durchzuführen. {% data variables.product.prodname_dotcom %} verwandelt Daten verschiedener Typen folgendermaßen in einen String:
+{% data variables.product.prodname_dotcom %} bietet integrierte Funktionen, die Sie in Ausdrücken verwenden können. Manche Funktionen verwandeln Werte an einen String, um Vergleiche durchzuführen. {% data variables.product.prodname_dotcom %} übergibt Datentypen anhand der folgenden Umwandlungen an einen String:
 
 | Typ     | Ergebnis                                          |
 | ------- | ------------------------------------------------- |
@@ -436,7 +440,7 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 ### Funktionen zur Prüfung des Job-Status
 
-Du kannst die nachfolgenden Funktionen zum Statuscheck als Ausdrücke in `if`-Bedingungen verwenden. Wenn Dein `if`-Ausdruck keine Statusfunktion enthält, wird automatisch das Ergebnis `success()` zurückgegeben. Weitere Informationen zu `if`-Anweisungen finden Sie unter „[Workflow-Syntax für GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)“.
+Du kannst die nachfolgenden Funktionen zum Statuscheck als Ausdrücke in `if`-Bedingungen verwenden. Wenn Dein `if`-Ausdruck keine Statusfunktion enthält, wird automatisch das Ergebnis `success()` zurückgegeben. Weitere Informationen zu `if`-Bedingungen findest Du unter „[Workflow-Syntax für GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)“.
 
 #### success (Erfolg)
 
@@ -488,7 +492,7 @@ steps:
 
 Mit der Syntax `*` kannst Du einen Filter anwenden und passende Elemente in einer Sammlung auswählen.
 
-Betrachten Sie beispielsweise das Objekt-Array `fruits`.
+Betrachte beispielsweise das Objekt-Array mit dem Namen `fruits`.
 
 ```json
 [

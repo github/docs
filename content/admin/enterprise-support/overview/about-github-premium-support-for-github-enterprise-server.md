@@ -7,11 +7,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Premium Support for GHES
 ---
 {% note %}
 
@@ -25,7 +26,7 @@ topics:
 
 {% endnote %}
 
-### About {% data variables.contact.premium_support %}
+## About {% data variables.contact.premium_support %}
 
 In addition to all of the benefits of {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} offers:
   - Written support, in English, through our support portal 24 hours per day, 7 days per week
@@ -43,7 +44,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
 
 {% data reusables.support.contacting-premium-support %}
 
-### Hours of operation
+## Hours of operation
 
 {% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week.  If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, support is limited during holidays. For more information on holidays {% data variables.contact.premium_support %} observes, see the holiday schedule at "[About {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)."
 
@@ -53,7 +54,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
 
 You must install the minimum supported version of {% data variables.product.prodname_ghe_server %} pursuant to the Supported Releases section of your applicable license agreement within 90 days of placing an order for {% data variables.contact.premium_support %}.
 
-### Assigning a priority to a support ticket
+## Assigning a priority to a support ticket
 
 When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
@@ -61,7 +62,7 @@ When you contact {% data variables.contact.premium_support %}, you can choose on
 
 {% data reusables.support.ghes-priorities %}
 
-### Resolving and closing support tickets
+## Resolving and closing support tickets
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

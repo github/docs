@@ -11,6 +11,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data variables.product.product_name %} 需要密码来执行敏感的操作，如新增 SSH 密钥、授权应用程序或修改团队成员。
 
 在更改密码后，应执行以下操作，以确保您的帐户安全：

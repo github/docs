@@ -6,13 +6,14 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/keyboard-shortcuts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 {% mac %}
 
 MacOS 上的 GitHub Desktop 快捷键
 
-### 站点快捷键
+## 站点快捷键
 
 | 键盘快捷键                                | 描述                                                    |
 | ------------------------------------ | ----------------------------------------------------- |
@@ -26,7 +27,7 @@ MacOS 上的 GitHub Desktop 快捷键
 | <kbd>⌘</kbd><kbd>-</kbd>             | 缩小文本和图形                                               |
 | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd> | 切换开发者工具                                               |
 
-### 仓库
+## 仓库
 
 | 键盘快捷键                                | 描述                                                    |
 | ------------------------------------ | ----------------------------------------------------- |
@@ -43,7 +44,7 @@ MacOS 上的 GitHub Desktop 快捷键
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> | 在首选的编辑器工具中打开仓库                                        |
 | <kbd>⌘</kbd><kbd>I</kbd>             | 在 {% data variables.product.prodname_dotcom %} 上创建议题  |
 
-### 分支
+## 分支
 
 | 键盘快捷键                                | 描述                                                       |
 | ------------------------------------ | -------------------------------------------------------- |
@@ -69,7 +70,7 @@ MacOS 上的 GitHub Desktop 快捷键
 
 Windows 上的 GitHub Desktop 键盘快捷键
 
-### 站点快捷键
+## 站点快捷键
 
 | 键盘快捷键                                       | 描述              |
 | ------------------------------------------- | --------------- |
@@ -80,7 +81,7 @@ Windows 上的 GitHub Desktop 键盘快捷键
 | <kbd>Ctrl</kbd><kbd>-</kbd>                 | 缩小文本和图形         |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>I</kbd> | 切换开发者工具         |
 
-### 仓库
+## 仓库
 
 | 键盘快捷键                                       | 描述                                                    |
 | ------------------------------------------- | ----------------------------------------------------- |
@@ -97,7 +98,7 @@ Windows 上的 GitHub Desktop 键盘快捷键
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>A</kbd> | 在首选的编辑器工具中打开仓库                                        |
 | <kbd>Ctrl</kbd><kbd>I</kbd>                 | 在 {% data variables.product.prodname_dotcom %} 上创建议题  |
 
-### 分支
+## 分支
 
 | 键盘快捷键                                       | 描述                                                       |
 | ------------------------------------------- | -------------------------------------------------------- |

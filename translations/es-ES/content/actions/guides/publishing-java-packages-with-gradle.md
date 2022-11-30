@@ -32,7 +32,7 @@ Para obtener más información acerca de la creación de un flujo de trabajo de 
 
 También puede ser útil tener un entendimiento básico de lo siguiente:
 
-- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- "[Trabajar con el registro de npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
 - "[Variables de ambiente](/actions/reference/environment-variables)"
 - "[Secretos cifrados](/actions/reference/encrypted-secrets)"
 - "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow)"
@@ -51,6 +51,11 @@ Puedes definir un nuevo repositorio de Maven en el bloque de publicación de tu 
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -114,6 +119,11 @@ Por ejemplo, si tu organización se llama "octocat" y tu repositorio se llama "h
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -173,6 +183,11 @@ Si tu organización se llama "octocat" y tu repositorio se llama "hello-world", 
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 

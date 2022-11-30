@@ -1,5 +1,6 @@
 ---
 title: リポジトリデータをグラフで可視化する
+intro: You can use a variety of graphs to gain a better understanding of your repositories.
 redirect_from:
   - /categories/44/articles/
   - /categories/graphs-and-contributions/
@@ -16,7 +17,4 @@ children:
   - /analyzing-changes-to-a-repositorys-content
   - /understanding-connections-between-repositories
 ---
-### 目次
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}{% endif %}
-    {% if currentVersion ver_lt "enterprise-server@3.0" %}
-    {% endif %}
+

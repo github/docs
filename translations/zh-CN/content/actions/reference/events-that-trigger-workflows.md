@@ -181,7 +181,7 @@ on:
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-For example, you can run a workflow when a check run has been `rerequested` or `completed`.
+例如，您可以在检查运行为 `rerequested` 或 `completed` 时运行工作流程。
 
 ```yaml
 on:

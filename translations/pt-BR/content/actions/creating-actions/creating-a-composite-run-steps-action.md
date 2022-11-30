@@ -21,6 +21,8 @@ Neste guia, você aprenderá os componentes básicos necessários para criar e u
 
 Ao terminar esse projeto, você saberá como criar sua própria ação de etapas de execução compostas e poderá testá-la em um fluxo de trabalho.
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Pré-requisitos
 
 Antes de começar, você criará um repositório {% data variables.product.product_name %}.

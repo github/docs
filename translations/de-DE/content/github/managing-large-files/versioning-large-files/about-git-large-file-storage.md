@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data variables.large_files.product_name_short %} verarbeitet große Dateien, indem Referenzen auf die Datei im Repository gespeichert werden, nicht aber die Datei an sich. Um die Architektur von Git zu umgehen, erstellt {% data variables.large_files.product_name_short %} eine Pointer-Datei, die als Referenz auf die aktuelle Datei (die an einem anderen Ort gespeichert ist) dient. {% data variables.product.product_name %} verwaltet diese Pointer-Datei in Ihrem Repository. Wenn Sie das Repository klonen, verwendet {% data variables.product.product_name %} die Pointer-Datei als Karte, um die große Datei für Sie zu finden.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Using
-{% data variables.large_files.product_name_short %}, you can store files up to:
+Mit {% data variables.large_files.product_name_short %} kannst Du Dateien speichern bis zu einer Größe von:
 
 | Produkt                                           | Maximale Dateigröße |
 | ------------------------------------------------- | ------------------- |
@@ -22,15 +22,14 @@ Using
 | {% data variables.product.prodname_pro %}         | 2 GB                |
 | {% data variables.product.prodname_team %}        | 4 GB                |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
- Using
-{% data variables.large_files.product_name_short %}, you can store files up to {% if currentVersion ver_lt "enterprise-server@2.21" %}{% data variables.large_files.max_lfs_size %}{% else %}5 GB{% endif %} in your repository.
+ Using {% data variables.large_files.product_name_short %}, you can store files up to {% if currentVersion ver_lt "enterprise-server@2.21" %}{% data variables.large_files.max_lfs_size %}{% else %}5 GB{% endif %} in your repository.
 {% endif %}
 
 Du kannst {% data variables.large_files.product_name_short %} auch mit {% data variables.product.prodname_desktop %} verwenden. Weitere Informationen zum Klonen von Git-LFS-Repositorys in {% data variables.product.prodname_desktop %} finden Sie unter „[Ein Repository von GitHub in GitHub Desktop klonen](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)“.
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
-#### Format der Pointer-Datei
+### Format der Pointer-Datei
 
 Die Pointer-Datei von {% data variables.large_files.product_name_short %} sieht folgendermaßen aus:
 

@@ -9,13 +9,17 @@
 | Amazon Web Services (AWS) | Amazon AWS 访问密钥 ID 和秘密访问密钥对         |
 | Atlassian                 | Atlassian API 令牌                    |
 | Atlassian                 | Atlassian JSON Web 令牌               |
+| Azure                     | Azure Active Directory 应用程序密钥       |
 | Azure                     | Azure DevOps 个人访问令牌                 |
 | Azure                     | Azure SAS 令牌                        |
 | Azure                     | Azure 服务管理证书                        |
 | Azure                     | Azure SQL 连接字符串                     |
 | Azure                     | Azure 存储账户密钥                        |
+| Checkout.com              | Checkout.com Production Secret Key  |
+| Checkout.com              | Checkout.com Test Secret Key        |
 | Clojars                   | Clojars 部署令牌                        |
 | CloudBees CodeShip        | CloudBees CodeShip 凭据               |
+| Contributed Systems       | Contributed Systems Credentials     |
 | Databricks                | Databricks 访问令牌                     |
 | Datadog                   | Datadog API 密钥                      |
 | Discord                   | Discord 自动程序令牌                      |
@@ -23,6 +27,7 @@
 | Doppler                   | Doppler 服务令牌                        |
 | Doppler                   | Doppler CLI 令牌                      |
 | Doppler                   | Doppler SCIM 令牌                     |
+| Doppler                   | Doppler Audit Token                 |
 | Dropbox                   | Dropbox 访问令牌                        |
 | Dropbox                   | Dropbox 短暂访问令牌                      |
 | Dynatrace                 | Dynatrace 访问令牌                      |
@@ -41,6 +46,10 @@
 | Google Cloud              | Google Cloud 私钥 ID                  |
 | Hashicorp Terraform       | Terraform Cloud / Enterprise API 令牌 |
 | Hubspot                   | Hubspot API 密钥                      |
+| Ionic                     | Ionic 个人访问令牌                        |
+| Ionic                     | Ionic 刷新令牌                          |
+| 线性                        | 线性 API 密钥                           |
+| 线性                        | 线性 OAuth 访问令牌                       |
 | Mailchimp                 | Mailchimp API 密钥                    |
 | Mailchimp                 | Mandril API 密钥                      |
 | Mailgun                   | Mailgun API 密钥                      |
@@ -49,7 +58,10 @@
 | NuGet                     | NuGet API 密钥                        |
 | OpenAI                    | OpenAI API 密钥                       |
 | Palantir                  | Palantir JSON Web 令牌                |
-| Plivo                     | Plivo 验证令牌                          |
+| PlanetScale               | PlanetScale Database Password       |
+| PlanetScale               | PlanetScale OAuth Token             |
+| PlanetScale               | PlanetScale Service Token           |
+| Plivo                     | Plivo Auth ID and Token             |
 | Postman                   | Postman API 密钥                      |
 | Proctorio                 | Proctorio 消费者密钥                     |
 | Proctorio                 | Proctorio 链接密钥                      |
@@ -77,3 +89,4 @@
 | Tencent Cloud             | 腾讯云密钥 ID                            |
 | Twilio                    | Twilio 帐户字符串标识符                     |
 | Twilio                    | Twilio API 密钥                       |
+| Valour                    | Valour 访问令牌                         |

@@ -6,8 +6,10 @@ redirect_from:
   - /desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Alterar URL do controle remoto
 ---
+
 {% mac %}
 
 1. No menu **Repository** (Repositório), clique em **Repository Settings...** (Configurações do repositório...). ![Opção de menu Repository Settings (Configurações do repositório)](/assets/images/help/desktop/repository-settings-mac.png)

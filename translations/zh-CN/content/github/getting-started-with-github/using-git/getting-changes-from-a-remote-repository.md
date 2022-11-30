@@ -11,7 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### Options for getting changes
+
+### 获取更改的选项
 
 与[远程仓库](/github/getting-started-with-github/about-remote-repositories)交互时，这些命令非常有用。 `clone` 和 `fetch` 用于从仓库的远程 URL 将远程代码下载到您的本地计算机，`merge` 用于将其他人的工作与您的工作合并在一起，而 `pull` 是 `fetch` 和 `merge` 的组合。
 

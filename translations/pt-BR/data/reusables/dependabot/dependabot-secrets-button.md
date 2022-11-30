@@ -1,1 +1,1 @@
-1. In the sidebar, click **{% data variables.product.prodname_dependabot %}**. ![{% data variables.product.prodname_dependabot %} secrets sidebar option](/assets/images/help/dependabot/dependabot-secrets.png)
+1. Na barra lateral, clique em **{% data variables.product.prodname_dependabot %}**. ![Opção da barra lateral de segredos de {% data variables.product.prodname_dependabot %}](/assets/images/help/dependabot/dependabot-secrets.png)

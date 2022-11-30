@@ -7,12 +7,14 @@ redirect_from:
   - /enterprise/admin/user-management/troubleshooting-service-hooks
   - /admin/user-management/troubleshooting-service-hooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
+shortTitle: Troubleshoot service hooks
 ---
-### Informationen zu Auslieferungen abrufen
+
+## Informationen zu Auslieferungen abrufen
 
 Sie können nach Informationen für die letzte Antwort sämtlicher Dienst-Hook-Auslieferungen auf einem beliebigen Repository suchen.
 
@@ -22,7 +24,7 @@ Sie können nach Informationen für die letzte Antwort sämtlicher Dienst-Hook-A
 4. Klicken Sie unter dem Dienst-Hook mit Problemen auf den Link **Latest Delivery** (Letzte Auslieferung). ![Hook-Details](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
 5. Unter **Remote Calls** (Remote-Aufrufe) werden die beim Senden der POST-Methode an den Remote-Server verwendeten Header und die Antwort angezeigt, die der Remote-Server an Ihre Installation zurückgesendet hat.
 
-### Nutzlast anzeigen
+## Nutzlast anzeigen
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Navigieren Sie zu dem Repository, das Sie untersuchen.
@@ -30,7 +32,7 @@ Sie können nach Informationen für die letzte Antwort sämtlicher Dienst-Hook-A
 4. Klicken Sie unter dem Dienst-Hook mit Problemen auf den Link **Latest Delivery** (Letzte Auslieferung).
 5. Click **Delivery**. ![Nutzlast anzeigen](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
 
-### Vergangene Auslieferungen anzeigen
+## Vergangene Auslieferungen anzeigen
 
 Auslieferungen werden 15 Tage lang gespeichert.
 

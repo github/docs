@@ -5,26 +5,26 @@ intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### Sobre o {% data variables.product.prodname_codeql_workflow %} e linguagens compiladas
+## Sobre o {% data variables.product.prodname_codeql_workflow %} e linguagens compiladas
 
 Você configurou {% data variables.product.prodname_dotcom %} para executar {% data variables.product.prodname_code_scanning %} para o seu repositório, adicionando um fluxo de trabalho de {% data variables.product.prodname_actions %} ao repositório. Para {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, você adiciona o {% data variables.product.prodname_codeql_workflow %}. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)".
 
 {% data reusables.code-scanning.edit-workflow %}
-Para informações gerais sobre configuração
-{% data variables.product.prodname_code_scanning %} e editar arquivos do fluxo de trabalho, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" e "[Aprender {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
+Para obter informações gerais sobre a configuração de {% data variables.product.prodname_code_scanning %} e edição de arquivos de fluxo de trabalho, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" e "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".
 
-### Sobre a autobuild para {% data variables.product.prodname_codeql %}
+## Sobre a autobuild para {% data variables.product.prodname_codeql %}
 
 A varredura de código funciona executando consultas contra um ou mais bancos de dados. Cada banco de dados contém uma representação de todo o código em uma linguagem única no seu repositório. Para as linguagens compiladas de C/C++, C#, e Java, o processo de preenchimento deste banco de dados envolve a construção do código e extração de dados. {% data reusables.code-scanning.analyze-go %}
 
@@ -38,7 +38,7 @@ Se o fluxo de trabalho usar uma matriz de `linguagem`, `autobuild` tentará cria
 
 {% endnote %}
 
-#### C/C++
+### C/C++
 
 | Tipo de sistema compatível | Nome do sistema                                                                                                                        |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ No Linux e no macOS, a etapa de `autobuild` revisa os arquivos presentes no repo
 2. Se nenhum for encontrado, procure um diretório único nos subdiretórios com um sistema de criação para C/C++.
 3. Execute um comando apropriado para configurar o sistema.
 
-#### C
+### C
 
 | Tipo de sistema compatível | Nome do sistema                    |
 | -------------------------- | ---------------------------------- |
@@ -69,7 +69,7 @@ O processo de `autobuild` tenta detectar automaticamente um método de criação
 2. Invocar `MSbuild` (Linux) ou `MSBuild.exe` (Windows) na solução ou no arquivo do projeto mais próximo da raiz. Se o `autobuild` detectar várias soluções ou arquivos de projeto na mesma profundidade (mais curta) do diretório de nível superior, ele tentará criar todos eles.
 3. Invoca um script que parece um script de criação—_build_ e _build.sh_ (nessa ordem, para o Linux) ou _build.bat_, _build.cmd_, _e build.exe_ (nessa ordem para o Windows).
 
-#### Java
+### Java
 
 | Tipo de sistema compatível | Nome do sistema                        |
 | -------------------------- | -------------------------------------- |
@@ -82,7 +82,7 @@ O processo de `autobuild` tenta determinar o sistema de criação para bases de 
 2. Execute o primeiro arquivo de criação encontrado. Se os arquivos do Gradle e do Maven estiverem presentes, será usado o arquivo do Gradle.
 3. Caso contrário, procure arquivos de criação nos subdiretórios diretos do diretório-raiz. Se apenas um subdiretório contiver arquivos de criação, execute o primeiro arquivo identificado nesse subdiretório (usando a mesma preferência de 1). Se mais de um subdiretório conter arquivos de criação, relate um erro.
 
-### Adicionar passos de criação a uma linguagem compilada
+## Adicionar passos de criação a uma linguagem compilada
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} Para obter informações sobre como editar o arquivo de fluxo de trabalho, consulte "[Configurar o {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".
 

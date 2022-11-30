@@ -9,13 +9,15 @@ redirect_from:
   - /enterprise/admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-projects-using-jira
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Project management
+shortTitle: Project management with Jira
 ---
-### Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
+
+## Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 
 1. Melden Sie sich unter „http[s]://[hostname]/login“ bei Ihrem {% data variables.product.prodname_enterprise %}-Konto an. If already signed in, click on the {% data variables.product.prodname_dotcom %} logo in the top left corner.
 2. Click on your profile icon under the {% data variables.product.prodname_dotcom %} logo and select the organization you would like to connect with Jira.
@@ -41,7 +43,7 @@ topics:
 7. Klicke auf **Register application** (Anwendung registrieren).
 8. Beachten Sie oben auf der Seite die **Client-ID** und das **Clientgeheimnis**. You will need these for configuring your Jira instance.
 
-### Jira instance configuration
+## Jira instance configuration
 
 1. On your Jira instance, log into an account with administrative access.
 2. At the top of the page, click the settings (gear) icon and choose **Applications**.

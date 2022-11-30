@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds
   - /admin/enterprise-management/recommended-alert-thresholds
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -16,8 +16,9 @@ topics:
   - Monitoring
   - Performance
   - Storage
+shortTitle: Recommended alert thresholds
 ---
-### Monitoring storage
+## Monitoring storage
 
 We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
 
@@ -28,7 +29,7 @@ We recommend that you monitor both the root and user storage devices and configu
 
 You can adjust these values based on the total amount of storage allocated, historical growth patterns, and expected time to respond. We recommend over-allocating storage resources to allow for growth and prevent the downtime required to allocate additional storage.
 
-### Monitoring CPU and load average usage
+## Monitoring CPU and load average usage
 
 Although it is normal for CPU usage to fluctuate based on resource-intense Git operations, we recommend configuring an alert for abnormally high CPU utilization, as prolonged spikes can mean your instance is under-provisioned. We recommend monitoring the fifteen-minute system load average for values nearing or exceeding the number of CPU cores allocated to the virtual machine.
 
@@ -39,7 +40,7 @@ Although it is normal for CPU usage to fluctuate based on resource-intense Git o
 
 We also recommend that you monitor virtualization "steal" time to ensure that other virtual machines running on the same host system are not using all of the instance's resources.
 
-### Monitoring memory usage
+## Monitoring memory usage
 
 The amount of physical memory allocated to {% data variables.product.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
 

@@ -16,9 +16,10 @@ topics:
   - Notifications
   - Accounts
 ---
+
 ### 关于复刻
 
-复刻最常见的用法是对其他人的项目提出更改或将其他人的项目用作自己创意的起点。
+复刻最常见的用法是对其他人的项目提出更改或将其他人的项目用作自己创意的起点。 您可以复刻仓库以创建仓库的副本，并在不影响上游仓库的情况下进行更改。 更多信息请参阅“[使用复刻](/github/collaborating-with-issues-and-pull-requests/working-with-forks)”。
 
 #### 对其他人的项目提出更改
 
@@ -75,9 +76,7 @@ topics:
 
 现在，您有了 Spoon-Knife 仓库的复刻，但您的计算机上还没有该仓库中的文件。 让我们在计算机上本地创建复刻的克隆。
 
-1. 在
-
-{% data variables.product.product_name %} 上，导航到 Spoon-Knife 仓库的**复刻**。
+1. 在 {% data variables.product.product_name %} 上，导航到 Spoon-Knife 仓库的**复刻**。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -95,16 +94,13 @@ topics:
   > remove: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
-
 现在，您有了 Spoon-Knife 仓库复刻的本地副本。
 
 #### 第 3 步：配置 Git 以将您的复刻与原始 Spoon-Knife 仓库同步
 
 为了对原始仓库提议更改而复刻项目时，您可以配置 Git 以将更改从原始或上游仓库拉取到复刻的本地克隆。
 
-1. 在
-
-{% data variables.product.product_name %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
+1. 在 {% data variables.product.product_name %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. 将目录更改为您在[第 2 步：创建复刻的本地克隆](#step-2-create-a-local-clone-of-your-fork)中克隆复刻的位置。
@@ -143,7 +139,6 @@ topics:
 - **打开拉取请求：**如果您希望回馈原始仓库，您可以通过提交[拉取请求](/articles/about-pull-requests)请求原作者将您的复刻拉取到他们的仓库。
 
 ### 另找一个仓库进行复刻
-
 复刻仓库，开始参与项目。 {% data reusables.repositories.you-can-fork %}
 
 {% if currentVersion == "free-pro-team@latest" %}您可以浏览 [Explore](https://github.com/explore) 以查找项目并开始参与开源仓库。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。

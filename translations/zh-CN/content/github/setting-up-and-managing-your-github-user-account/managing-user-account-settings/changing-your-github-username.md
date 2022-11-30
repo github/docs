@@ -14,6 +14,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### 关于用户名更改
 
 您可以将用户名更改为当前未使用的另一个用户名。{% if currentVersion == "free-pro-team@latest" %} 如果所需的用户名不可用，您在键入所需的用户名时将看到您是否可以申请释放该用户名的信息。

@@ -1,12 +1,13 @@
 ---
 title: Desarrollar en un codespace
 intro: 'Puedes abrir un codespace en {% data variables.product.product_name %} y después desarrollar utilizando las características de {% data variables.product.prodname_vscode %}.'
-permissions: Anyone can develop in a codespace owned by their user account.
+product: '{% data reusables.gated-features.codespaces %}'
+permissions: 'You can develop in codespaces you''ve created for repositories owned by organizations using {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -14,42 +15,46 @@ topics:
   - Developer
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
-### Acerca del desarrollo con {% data variables.product.prodname_codespaces %}
+## Acerca del desarrollo con {% data variables.product.prodname_codespaces %}
 
-{% data variables.product.prodname_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
+{% data variables.product.prodname_codespaces %} te proporciona la experiencia completa de desarrollo de {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
-![Codespace overview with annotations](/assets/images/help/codespaces/codespace-overview-annotated.png)
+![Resumen de codespace con anotaciones](/assets/images/help/codespaces/codespace-overview-annotated.png)
 
-1. Side Bar - By default, this area shows your project files in the Explorer.
-2. Activity Bar - This displays the Views and provides you with a way to switch between them. You can reorder the Views by dragging and dropping them.
-3. Editor - This is where you edit your files. You can use the tab for each editor to position it exactly where you need it.
-4. Panels - This is where you can see output and debug information, as well as the default place for the integrated Terminal.
-5. Status Bar - This area provides you with useful information about your codespace and project. For example, the branch name, configured ports, and more.
+1. Barra lateral - Predeterminadamente, esta área te muestra los archivos de tu proyexcto en el explorador.
+2. Barra de actividad - Esto muestra las vistas y te proporciona una forma de cambiar entre ellas. Puedes volver a ordenar las vistas si las arrastras y las sueltas.
+3. Editor - Aquí es donde editas tus archivos. Puedes utilzar la pestaña para que cada editor la posicione exactamente donde la necesitas.
+4. Paneles - Aquí es donde puedes ver la información de salida y depuración, así como el lugar predeterminado para la Terminal integrada.
+5. Barra de estado - Esta área te proporciona información útil sobre tu codespace y proyecto. Por ejemplo, el nombre de rama, los puertos configurados y más.
 
-For more information on using {% data variables.product.prodname_vscode %}, see the [User Interface guide](https://code.visualstudio.com/docs/getstarted/userinterface) in the {% data variables.product.prodname_vscode %} documentation.
+Para obtener más información sobre cómo utilizar {% data variables.product.prodname_vscode %}, consulta la [Guía de interface de usuario](https://code.visualstudio.com/docs/getstarted/userinterface) en la documentación de {% data variables.product.prodname_vscode %}.
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} Para obtener más información, consulta la sección "[Solucionar problemas de tu codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)".
+{% data reusables.codespaces.use-chrome %} Para obtener más información, consulta la sección "[Solucionar problemas de los clientes de los Codespaces](/codespaces/troubleshooting/troubleshooting-codespaces-clients)".
 
-#### Personalizing your codespace
+### Personalizar tu codespace
 
 {% data reusables.codespaces.about-personalization %} Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_codespaces %} para tu cuenta](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)".
 
 {% data reusables.codespaces.apply-devcontainer-changes %} Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
 
-#### Running your app from a codespace
+### Ejecutar tu app desde un codespace
 {% data reusables.codespaces.about-port-forwarding %} Para obtener más información, consulta la sección "[Abrir puertos en tu codespace](/github/developing-online-with-codespaces/forwarding-ports-in-your-codespace)".
 
-#### Committing your changes
+### Configramr tus cambios
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### Navigating to an existing codespace
+### Utilizar la paleta de comandos
+
+La paleta de comandos te permite acceder y administrar muchas características para los {% data variables.product.prodname_codespaces %} y para {% data variables.product.prodname_vscode %}. Para obtener más información, consulta la sección "[Utilizar la paleta de comandos en los {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)".
+
+## Navegar a un codespace existente
 
 1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 2. Da clic en el nombre del codespace en el cual quieras desarrollar. ![Nombre del codespace](/assets/images/help/codespaces/click-name-codespace.png)
 
-Alternatively, you can see any active codespaces for a repository by navigating to the repository in which it was made and selecting **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.
+Como alternativa, puedes ver cualquier codespace activo en un repositorio si navegas a dicho repositorio y seleccionnas **{% octicon "code" aria-label="The code icon" %} Código**. El menú desplegable mostrará todos los codespaces activos en un repositorio.

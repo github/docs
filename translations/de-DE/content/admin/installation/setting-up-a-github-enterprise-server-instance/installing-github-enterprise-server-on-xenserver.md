@@ -6,21 +6,29 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on XenServer
 ---
-### Vorrausetzungen
+
+{% note %}
+
+  **Note:** Support for {% data variables.product.prodname_ghe_server %} on XenServer will be discontinued in {% data variables.product.prodname_ghe_server %} 3.3. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.1 release notes](/admin/release-notes#3.1.0)
+
+{% endnote %}
+
+## Vorrausetzungen
 
 - {% data reusables.enterprise_installation.software-license %}
 - Sie müssen den XenServer Hypervisor auf der Maschine installieren, auf der Ihre {% data variables.product.prodname_ghe_server %}-VM (virtuelle Maschine) ausgeführt wird. Es werden die Versionen 6.0 bis 7.0 unterstützt.
 - Zur Ersteinrichtung sollten Sie die XenCenter Windows Management Console verwenden. Im Folgenden finden Sie Anweisungen zur Verwendung von XenCenter Windows Management Console. Weitere Informationen finden Sie im Citrix-Leitfaden unter „[How to Download and Install a New Version of XenCenter](https://support.citrix.com/article/CTX118531)“.
 
-### Grundlegendes zur Hardware
+## Grundlegendes zur Hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### {% data variables.product.prodname_ghe_server %}-Image herunterladen
+## {% data variables.product.prodname_ghe_server %}-Image herunterladen
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
@@ -28,7 +36,7 @@ topics:
 4. Wählen Sie „{% data variables.product.prodname_dotcom %} On-premises“ ({% data variables.product.prodname_dotcom %} (lokal)) aus, und klicken Sie anschließend auf **XenServer (VHD)**.
 5. Klicke zum Herunterladen Deiner Lizenzdatei auf **Download license** (Lizenz herunterladen).
 
-### {% data variables.product.prodname_ghe_server %}-Instanz erstellen
+## {% data variables.product.prodname_ghe_server %}-Instanz erstellen
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -37,7 +45,7 @@ topics:
     - Lassen Sie die VM nach Abschluss ausgeschaltet.
 {% data reusables.enterprise_installation.create-attached-storage-volume %} {% data reusables.enterprise_installation.create-attached-storage-volume %} Anweisungen finden Sie im XenCenter-Leitfaden unter „[Virtuelle Laufwerke hinzufügen](https://docs.citrix.com/en-us/xencenter/current-release/vms-storage-addnewdisk.html)“.
 
-### {% data variables.product.prodname_ghe_server %}-Instanz konfigurieren
+## {% data variables.product.prodname_ghe_server %}-Instanz konfigurieren
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -45,7 +53,7 @@ topics:
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

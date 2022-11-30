@@ -6,8 +6,10 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Use GitHub Importer
 ---
+
 {% tip %}
 
 **Tipp:** GitHub Importer eignet sich nicht für alle Importe. Wenn beispielsweise Dein existierender Code in einem privaten Netzwerk verwaltet wird, kann unser Tool nicht auf ihn zugreifen. In solchen Fällen empfehlen wir, Git-Repositorys [über die Befehlszeile](/articles/importing-a-git-repository-using-the-command-line) und Projekte aus anderen Quellcode-Verwaltungssystemen mit einem externen [Tool für die Quellcode-Migration](/articles/source-code-migration-tools) zu importieren.
@@ -31,6 +33,6 @@ Wenn Du die Commits in Deinem Repository beim importieren mit den GitHub-Benutze
 
 Du erhälst eine E-Mail, wenn das Repository vollständig importiert wurde.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Die Zuordnung von Commit-Autoren mit dem GitHub Importer aktualisieren](/articles/updating-commit-author-attribution-with-github-importer)“

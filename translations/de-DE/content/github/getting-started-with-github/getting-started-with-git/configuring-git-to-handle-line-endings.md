@@ -13,6 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Jedes Mal, wenn Du auf der Tastatur die <kbd>Eingabetaste</kbd> drückst, fügst Du ein unsichtbares Zeichen ein, nämlich einen Zeilenabschluss. Verschiedene Betriebssysteme handhaben Zeilenenden unterschiedlich.
 
 When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.

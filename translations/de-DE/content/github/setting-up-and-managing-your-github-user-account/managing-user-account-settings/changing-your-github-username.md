@@ -14,6 +14,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Informationen zu Änderungen des Benutzernamens
 
 Du kannst Deinen Benutzernamen in einen aktuell nicht verwendeten Benutzernamen ändern.{% if currentVersion == "free-pro-team@latest" %} Falls der gewünschte Benutzername nicht verfügbar ist, wird angezeigt, ob Du verlangen kannst, dass der Benutzername freigegeben wird, wenn Du den gewünschten Benutzernamen eingibst.

@@ -7,8 +7,8 @@ redirect_from:
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,8 +16,10 @@ topics:
   - Organizations
   - Security
   - User account
+shortTitle: Auditoria de usuários
 ---
-### Acessar o log de auditoria
+
+## Acessar o log de auditoria
 
 O painel de log de auditoria oferece uma exibição visual de dados de auditoria na sua empresa.
 
@@ -29,7 +31,7 @@ O painel de log de auditoria oferece uma exibição visual de dados de auditoria
 
 No mapa, você pode aplicar zoom e visão panorâmica para ver os eventos do mundo todo. Posicione o mouse sobre um país para ver a contagem de eventos ocorridos nele.
 
-### Pesquisar eventos na sua empresa
+## Pesquisar eventos na sua empresa
 
 O log de auditoria lista as seguintes informações sobre as ações feitas na sua empresa:
 
@@ -49,7 +51,7 @@ O log de auditoria lista as seguintes informações sobre as ações feitas na s
 
 {% endwarning %}
 
-#### Pesquisar com base no repositório
+### Pesquisar com base no repositório
 
 O qualificador `repo` limita as ações a um repositório específico pertencente à sua organização. Por exemplo:
 
@@ -59,7 +61,7 @@ O qualificador `repo` limita as ações a um repositório específico pertencent
 
 Você deve incluir o nome da sua organização no qualificador `repo`; pesquisar somente `repo:our-repo` não funcionará.
 
-#### Pesquisar com base no usuário
+### Pesquisar com base no usuário
 
 O qualificador `actor` incluir eventos com base no integrante da organização que fez a ação. Por exemplo:
 
@@ -69,7 +71,7 @@ O qualificador `actor` incluir eventos com base no integrante da organização q
 
 Só é possível usar o nome de usuário do {% data variables.product.product_name %}, e não o nome verdadeiro da pessoa.
 
-#### Pesquisar com base na organização
+### Pesquisar com base na organização
 
 O qualificador `org` limita as ações a uma organização específica. Por exemplo:
 
@@ -77,7 +79,7 @@ O qualificador `org` limita as ações a uma organização específica. Por exem
 * `org:my-org action:team` localiza todos os eventos de equipe que ocorreram na organização `my-org`;
 * `-org:my-org` exclui todos os eventos que ocorreram na organização `minha-org`.
 
-#### Pesquisar com base na ação
+### Pesquisar com base na ação
 
 O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para informações sobre os eventos associados a essas categorias, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
 
@@ -98,7 +100,7 @@ Cada categoria tem um conjunto de eventos associados que você pode usar no filt
 * `action:team.create` localiza todos os eventos em que uma equipe foi criada;
 * `-action:billing.change_email` exclui todos os eventos em que a categoria de cobrança foi alterada.
 
-#### Pesquisar com base no local
+### Pesquisar com base no local
 
 O qualificador `country` filtra as ações com base no país de origem.
 - Você pode usar o código de duas letras do país ou o nome completo.
@@ -107,7 +109,7 @@ O qualificador `country` filtra as ações com base no país de origem.
   * `country:Mexico` localiza todos os eventos ocorridos no México;
   * `country:"United States"` localiza todos os eventos ocorridos nos Estados Unidos.
 
-#### Pesquisar com base na hora da ação
+### Pesquisar com base na hora da ação
 
 O qualificador `created` filtra as ações com base na hora em que elas ocorreram.
 - Defina as datas usando o formato `YYYY-MM-DD` (ano, mês, dia).

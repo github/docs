@@ -5,11 +5,13 @@ redirect_from:
   - /articles/creating-and-highlighting-code-blocks
   - /github/writing-on-github/creating-and-highlighting-code-blocks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Create code blocks
 ---
-### コードブロック
+
+## コードブロック
 
 三連バッククォート <code>\`\`\`</code> をコードのブロック前後に入力すると、コードブロックを作成できます。 ソースコードを読みやすくするために、コードブロックの前後に空の行を入れることをお勧めします。
 
@@ -29,7 +31,22 @@ function test() {
 
 {% endtip %}
 
-### 構文の強調表示
+To display triple backticks in a fenced code block, wrap them inside quadruple backticks.
+
+
+<pre>
+```` 
+```
+Look! You can see my backticks.
+```
+````
+</pre>
+
+![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
+
+
+## 構文の強調表示
+
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 言語識別子を追加して、コードブロックの構文を強調表示することができます。
@@ -46,7 +63,7 @@ function test() {
 
 構文強調表示のための言語検出の実行や[サードパーティの文法](https://github.com/github/linguist/blob/master/vendor/README.md)の選択には [Linguist](https://github.com/github/linguist) を使用します。 どのキーワードが有効かについては[言語 YAML ファイル](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)でご覧いただけます。
 
-### 参考リンク
+## 参考リンク
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
 - [基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)

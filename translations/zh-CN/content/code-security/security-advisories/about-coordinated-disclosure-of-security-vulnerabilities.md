@@ -1,18 +1,23 @@
 ---
 title: 关于安全漏洞的协调披露
 intro: 漏洞披露是安全报告者与仓库维护者之间的协调工作。
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: overview
+topics:
+  - Security advisories
+  - Vulnerabilities
+shortTitle: 协调披露
 ---
 
-### 关于披露行业漏洞
+## 关于披露行业漏洞
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %}
 
 漏洞的初始报告是私下发布的，并且只有在维护者确认问题后才会公布全部详细信息，最好提供补救或修补程序，有时会延迟，以便有更多的时间安装修补程序。 更多信息请参阅 OWASP Cheat Sheet Series 网站上的“[关于漏洞披露的 OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)”。
 
-#### 漏洞报告者的最佳实践
+### 漏洞报告者的最佳实践
 
 私下向维护者报告漏洞是一项良好的做法。 如果可能，作为漏洞报告者，我们建议您避免：
 - 公开披露漏洞而不给维护者补救的机会。
@@ -24,7 +29,7 @@ versions:
 
 我们建议漏洞报告者在报告过程中明确说明其披露政策的条款。 即使漏洞报告者不遵守严格的政策，最好在预期漏洞披露的时间表上对维护者设定明确的期望。 关于披露政策的示例，请在 GitHub Security Lab 网站上查看“[Security Lab 的披露政策](https://securitylab.github.com/advisories#policy)”。
 
-#### 维护者最佳实践
+### 维护者最佳实践
 
 作为维护者，最佳做法是明确说明您想如何和在何处收到关于漏洞的报告。 如果此信息不可明确，但漏洞报告者不知道如何联系您，可能寻求从 git 提交历史记录中提取开发人员电子邮件地址，以尝试找到适当的安全联系人。 这可能导致摩擦、丢失报告或发布未解决的报告。
 
@@ -39,7 +44,7 @@ versions:
 
 发布安全漏洞的详细信息不会使维护者看起来很糟糕。 安全漏洞在软件中随处可见。用户会信任那些在其守则中明确制定了安全漏洞披露程序的维护者。
 
-### 关于在 {% data variables.product.prodname_dotcom %} 上报告和披露项目中的漏洞
+## 关于在 {% data variables.product.prodname_dotcom %} 上报告和披露项目中的漏洞
 
 在 {% data variables.product.prodname_dotcom_the_website %} 上报告和披露项目漏洞的流程如下：
 
@@ -61,5 +66,3 @@ versions:
 
 
  要开始，请参阅“[创建安全通告](/github/managing-security-vulnerabilities/creating-a-security-advisory)”。
-
-

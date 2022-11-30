@@ -8,9 +8,9 @@ redirect_from:
   - /articles/removing-a-credit-card-associated-with-your-organization/
   - /articles/removing-a-payment-method-associated-with-your-organization/
   - /articles/removing-a-payment-method
-  - /github/setting-up-and-managing-billing-and-payments-on-github/removing-a-payment-method
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/removing-a-payment-method
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
@@ -26,7 +26,7 @@ If you're paying for your {% data variables.product.product_name %} subscription
 
 {% endtip %}
 
-### Removing your personal account's payment method
+## Removing your personal account's payment method
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -34,13 +34,11 @@ If you're paying for your {% data variables.product.product_name %} subscription
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}
 
-### Removing your organization's payment method
+## Removing your organization's payment method
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}

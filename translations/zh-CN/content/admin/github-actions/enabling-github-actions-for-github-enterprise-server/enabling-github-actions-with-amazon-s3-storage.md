@@ -3,13 +3,15 @@ title: 使用 Amazon S3 存储启用 GitHub Actions
 intro: '您可以在 {% data variables.product.prodname_ghe_server %} 上启用 {% data variables.product.prodname_actions %}，并使用 Amazon S3 存储来存储工作流程运行生成的构件。'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
+shortTitle: Amazon S3 存储
 ---
-### 基本要求
+
+## 基本要求
 
 {% data reusables.actions.enterprise-s3-support-warning %}
 
@@ -19,7 +21,7 @@ redirect_from:
 
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### 使用 Amazon S3 存储启用 {% data variables.product.prodname_actions %}
+## 使用 Amazon S3 存储启用 {% data variables.product.prodname_actions %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

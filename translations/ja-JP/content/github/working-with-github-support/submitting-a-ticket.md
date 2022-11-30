@@ -4,16 +4,19 @@ intro: 'GitHub Enterprise サポートページを使って、{% data variables.
 redirect_from:
   - /articles/submitting-a-ticket
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 ---
 
-自分のアカウントで有料の {% data variables.product.prodname_dotcom %} 製品を使用している場合は、{% data variables.contact.github_support %} に直接問い合わせることができます。 ユーザアカウントまたは Organization の {% data variables.product.prodname_free_user %} を使用している場合は、{% data variables.contact.contact_support %} に連絡してアカウント、セキュリティ、悪用の問題を報告できます。 詳しい情報については、「[GitHub Supportについて](/github/working-with-github-support/about-github-support)」を参照してください。
+## About ticket submission
+自分のアカウントで有料の {% data variables.product.prodname_dotcom %} 製品を使用している場合は、{% data variables.contact.github_support %} に直接問い合わせることができます。 If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can use contact {% data variables.contact.github_support %} to report account, security, and abuse issues. 詳しい情報については、「[GitHub Supportについて](/github/working-with-github-support/about-github-support)」を参照してください。
+
+{% data reusables.enterprise-accounts.support-entitlements %}
 
 Enterprise アカウントをお持ちでない場合は、{% data variables.contact.enterprise_portal %} を使用してチケットを送信してください。 Enterprise アカウントの詳細については、「[Enterprise アカウントについて](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)」を参照してください。
 
-### {% data variables.contact.support_portal %} を使ってチケットをサブミットする
+## {% data variables.contact.support_portal %} を使ってチケットをサブミットする
 
 1. {% data variables.contact.contact_support_portal %} に移動します。
 2. [Name] に名前を入力します。 ![名前フィールド](/assets/images/help/support/name-field.png)
@@ -26,14 +29,14 @@ Enterprise アカウントをお持ちでない場合は、{% data variables.con
 6. 必要に応じて、クリップボードからドラッグ、ドロップ、アップロードやペーストでファイルを添付します。
 7. [**Send request**] をクリックします。 ![[Send request] ボタン](/assets/images/help/support/send-request-button.png)
 
-### {% data variables.contact.enterprise_portal %} を使ってチケットをサブミットする
+## {% data variables.contact.enterprise_portal %} を使ってチケットをサブミットする
 
 1. {% data variables.contact.contact_enterprise_portal %} に移動します。
 5. [**Submit a Ticket**] をクリックします。 ![Enterprise Support チームにチケットをサブミットする](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### 参考リンク
+## 参考リンク
 - "[{% data variables.product.prodname_dotcom %}の製品](/github/getting-started-with-github/githubs-products)"
 - 「[{% data variables.contact.github_support %} について](/articles/about-github-support)」
 - [{% data variables.product.prodname_ghe_cloud %} の {% data variables.contact.premium_support %} について](/articles/about-github-premium-support-for-github-enterprise-cloud)

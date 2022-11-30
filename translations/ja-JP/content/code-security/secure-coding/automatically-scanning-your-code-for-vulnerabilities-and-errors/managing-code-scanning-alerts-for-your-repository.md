@@ -13,9 +13,14 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
   - /code-security/secure-coding/managing-code-scanning-alerts-for-your-repository
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Alerts
+  - Repositories
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -48,7 +53,7 @@ topics:
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
-1. Optionally, use the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+1. Optionally, use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search box or{% endif %} the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 1. [{% data variables.product.prodname_code_scanning_capc %}] で、調査するアラートをクリックします。
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![アラートの概要](/assets/images/help/repository/code-scanning-click-alert.png)
@@ -58,11 +63,47 @@ topics:
 1. アラートでデータフローの問題が強調表示された場合は、必要に応じて [**Show paths**] をクリックし、データソースから、それが使用されているシンクまでのパスを表示します。 ![アラートの [Show paths] リンク](/assets/images/help/repository/code-scanning-show-paths.png)
 1. {% data variables.product.prodname_codeql %} 解析によるアラートには、問題の説明も含まれています。 コードを修正する方法についてのガイダンスを表示するには、[**Show more**] をクリックします。 ![アラートの詳細情報](/assets/images/help/repository/code-scanning-alert-details.png)
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %}
+### Searching {% data variables.product.prodname_code_scanning %} alerts
+
+You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
+- The name of the alert
+- The alert description
+- The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
+
+ ![The alert information used in searches](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
+
+| Supported search                           | Syntax example      | Results                                                            |
+| ------------------------------------------ | ------------------- | ------------------------------------------------------------------ |
+| Single word search                         | `injection`         | Returns all the alerts containing the word `injection`             |
+| Multiple word search                       | `sql injection`     | Returns all the alerts containing `sql` or `injection`             |
+| Exact match search</br>(use double quotes) | `"sql injection"`   | Returns all the alerts containing the exact phrase `sql injection` |
+| OR search                                  | `sql OR injection`  | Returns all the alerts containing `sql` or `injection`             |
+| AND search                                 | `sql AND injection` | Returns all the alerts containing both words `sql` and `injection` |
+
+{% tip %}
+
+**参考:**
+- The multiple word search is equivalent to an OR search.
+- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name, description, or details.
+
+{% endtip %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. To the right of the **Filters** drop-down menus, type the keywords to search for in the free text search box. ![The free text search box](/assets/images/help/repository/code-scanning-search-alerts.png)
+2. Press <kbd>return</kbd>. The alert listing will contain the open {% data variables.product.prodname_code_scanning %} alerts matching your search criteria.
+
+{% endif %}
+
 ### アラートを解決する
 
 リポジトリへの書き込み権限があるユーザなら誰でも、コードに修正をコミットしてアラートを解決できます。 リポジトリでプルリクエストに対して {% data variables.product.prodname_code_scanning %} が実行されるよう予定されている場合は、修正してプルリクエストを発行するようお勧めします。 これにより、変更の {% data variables.product.prodname_code_scanning %} 解析がトリガーされ、修正で新しい問題が入り込まないようテストされます。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning) を設定する」および「[プルリクエストで {% data variables.product.prodname_code_scanning %} アラートをトリガーする](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
 
 リポジトリへの書き込み権限がある場合は、アラートの概要を表示して、[**Closed**] をクリックすることで、解決したアラートを表示できます。 詳しい情報については、「[リポジトリのアラートを表示する](#viewing-the-alerts-for-a-repository)」を参照してください。 The "Closed" list shows fixed alerts and alerts that users have dismissed.
+
+You can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed.
 
 あるブランチでは解決されたアラートが、別のブランチでは解決されていないことがあります。 アラートの概要で [Branch] ドロップダウンメニューを使用し、特定のブランチでアラートが解決されたかどうか確認できます。
 
@@ -102,7 +143,7 @@ To dismiss or delete alerts:
 
    ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   Optionally, you can use the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
+   Optionally, you can use{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} the free text search or{% endif %} the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Filter alerts by rule](/assets/images/help/repository/code-scanning-filter-by-rule.png)

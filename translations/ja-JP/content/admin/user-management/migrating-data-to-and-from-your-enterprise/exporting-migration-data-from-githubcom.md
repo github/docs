@@ -11,14 +11,16 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
   - /admin/user-management/exporting-migration-data-from-githubcom
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export data from GitHub.com
 ---
-### {% data variables.product.prodname_dotcom %} でソース Organization を準備する
+
+## {% data variables.product.prodname_dotcom %} でソース Organization を準備する
 
 1. ソースOrganizationのリポジトリに[オーナー権限](/articles/permission-levels-for-an-organization/)を持っていることを確認してください。
 
@@ -26,7 +28,7 @@ topics:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Organization のリポジトリのエクスポート
+## Organization のリポジトリのエクスポート
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
@@ -34,7 +36,7 @@ topics:
 
 移行APIは現在プレビュー期間です。すなわち、エンドポイントとパラメータは将来変更されることがあります。 移行APIにアクセスするには、カスタムの[メディアタイプ](/rest/overview/media-types)として`application/vnd.github.wyandotte-preview+json`を`Accept`ヘッダで渡さなければなりません。 以下の例にはカスタムのメディアタイプが含まれています。
 
-### 移行アーカイブの生成
+## 移行アーカイブの生成
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 

@@ -14,16 +14,31 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 关于仓库可见性更改
 
 组织所有者可以限制只有组织所有者才能更改仓库可见性。 更多信息请参阅“[限制组织的仓库可见性更改](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)”。
 
 我们建议在您更改仓库可见性之前审查以下注意事项。
 
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+{% warning %}
+
+**警告：** 更改大型仓库或仓库网络的可见性可能会影响数据的完整性。 可见性变化也可能对复刻产生意外影响。 {% data variables.product.company_short %} 建议在更改仓库网络的可见性之前遵循以下建议。
+
+- 等待一段时间，让 {% data variables.product.product_location %} 上的活动减少。
+
+- 在继续操作之前，请联系您的 {% if enterpriseServerVersions contains currentVersion %}站点管理员{% elsif currentVersion == "github-ae@latest" %}企业所有者{% endif %}。 您的 {% if enterpriseServerVersions contains currentVersion %}站点管理员{% elsif currentVersion == "github-ae@latest" %}企业所有者{% endif %} 可以联系 {% data variables.contact.contact_ent_support %} 获得进一步指导。
+
+{% endwarning %}
+
+{% endif %}
+
 #### 将仓库设为私有
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 * {% data variables.product.product_name %} 将会分离公共仓库的公共复刻并将其放入新的网络中。 公共复刻无法设为私有。{% endif %}
-* 如果您将仓库的可见性从内部更改为私有， {% data variables.product.prodname_dotcom %} 将删除属于任何没有新私有仓库访问权限的用户的复刻。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}任何复刻的可见性也将更改为私有。{% elsif currentVersion == "github-ae@latest" %}如果内部仓库有任何复刻，则复刻的可见性已经是私有的。{% endif %}更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)”{% if currentVersion == "free proteam@latest" %}
+* 如果您将仓库的可见性从内部更改为私有， {% data variables.product.prodname_dotcom %} 将删除属于任何没有新私有仓库访问权限的用户的复刻。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}任何复刻的可见性也将更改为私有。{% elsif currentVersion == "github-ae@latest" %}如果内部仓库有任何复刻，则复刻的可见性已经是私有的。{% endif %}更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)”{% if currentversion == "free proteam@latest" %}
 * 如果对用户帐户或组织使用 {% data variables.product.prodname_free_user %}，有些功能在您将可见性更改为私有后不可用于仓库。 {% data reusables.gated-features.more-info %}{% endif %}
 * 任何已发布的 {% data variables.product.prodname_pages %} 站点将自动取消发布。{% if currentVersion == "free-pro-team@latest" %} 如果将自定义域添加到 {% data variables.product.prodname_pages %} 站点，应先删除或更新 DNS 记录后再将仓库设为私有，以避免域接管的风险。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 * {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上存档内容和数据](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。{% endif %}{% if currentVersion == "free-pro-team@latest" %}
@@ -52,7 +67,7 @@ topics:
 * 如果在创建开源项目时将私有仓库转换为公共仓库，请参阅[开放源码指南](http://opensource.guide)以了解有用的提示和指南。 您还可以通过 [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}) 免费学习管理开源项目的课程。 您的仓库设为公共后，您还可以查看仓库的社区资料以了解项目是否符合支持贡献者的最佳做法。 更多信息请参阅“[查看您的社区资料](/articles/viewing-your-community-profile)”。
 * 仓库将自动获得对 {% data variables.product.prodname_GH_advanced_security %} 功能的使用权限。
 
-有关改善仓库安全性的信息，请参阅“[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”。{% endif %}
+有关改善仓库安全性的信息，请参阅“[保护仓库](/code-security/getting-started/securing-your-repository)”。{% endif %}
 
 {% endif %}
 

@@ -5,19 +5,20 @@ redirect_from:
   - /articles/sorting-search-results
   - /github/searching-for-information-on-github/sorting-search-results
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
+
 Über das Sortiermenü kannst Du die Ergebnisse nach Relevanz, Anzahl der Sterne, Anzahl der Forks und dem letzten Änderungsdatum sortieren.
 
   ![Menü mit Optionen zum Sortieren der Suchergebnisse](/assets/images/help/search/repo-search-sort.png)
 
 Mit einem `sort`-Qualifizierer in der Abfrage kannst Du die Suchergebnisse nach Interaktionen, Reaktionen, Erstellungsdatum, Commit-Datum und letztem Änderungsdatum sortieren.
 
-### Nach Interaktionen sortieren
+## Nach Interaktionen sortieren
 
 Der Qualifizierer `sort:interactions` sortiert in absteigender Reihenfolge nach der Gesamtzahl der Reaktionen und Kommentare.
 
@@ -26,7 +27,7 @@ Der Qualifizierer `sort:interactions` sortiert in absteigender Reihenfolge nach 
 | `sort:interactions` oder `sort:interactions-desc` | [**org:github sort:interactions**](https://github.com/search?q=org%3Agithub+sort%3Ainteractions&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach der Gesamtzahl der Reaktionen und Kommentare.                         |
 | `sort:interactions-asc`                           | [**org:github sort:interactions-asc**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Ainteractions-asc&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in aufsteigender Reihenfolge nach der Gesamtzahl der Reaktionen und Kommentare. |
 
-### Nach Reaktionen sortieren
+## Nach Reaktionen sortieren
 
 Der Qualifizierer `sort:reactions` sortiert nach der Anzahl oder dem Typ der Reaktionen.
 
@@ -40,7 +41,7 @@ Der Qualifizierer `sort:reactions` sortiert nach der Anzahl oder dem Typ der Rea
 |                                             | [**org:github sort:reactions-tada**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-tada&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach der Anzahl der :tada:-Reaktionen (Hurra).       |
 |                                             | [**org:github sort:reactions-heart**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-heart&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach der Anzahl der :heart:-Reaktionen (Herz).     |
 
-### Nach Verfassungsdatum sortieren
+## Nach Verfassungsdatum sortieren
 
 Der Qualifizierer `sort:author-date` sortiert in absteigender oder aufsteigender Reihenfolge nach dem Verfassungsdatum.
 
@@ -49,7 +50,7 @@ Der Qualifizierer `sort:author-date` sortiert in absteigender oder aufsteigender
 | `sort:author-date` oder `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) sucht Commits mit dem Wort „feature“ in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach dem Verfassungsdatum.          |
 | `sort:author-date-asc`                          | [**feature org:github sort:author-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) sucht Commits mit dem Wort „feature“ in {% data variables.product.product_name %}-Repositorys und sortiert sie in aufsteigender Reihenfolge nach dem Verfassungsdatum. |
 
-### Nach Commit-Datum sortieren
+## Nach Commit-Datum sortieren
 
 Der Qualifizierer `sort:committer-date` sortiert in absteigender oder aufsteigender Reihenfolge nach dem Commit-Datum.
 
@@ -58,7 +59,7 @@ Der Qualifizierer `sort:committer-date` sortiert in absteigender oder aufsteigen
 | `sort:committer-date` oder `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) sucht Commits mit dem Wort „feature“ in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach dem Commit-Datum.          |
 | `sort:committer-date-asc`                             | [**feature org:github sort:committer-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) sucht Commits mit dem Wort „feature“ in {% data variables.product.product_name %}-Repositorys und sortiert sie in aufsteigender Reihenfolge nach dem Commit-Datum. |
 
-### Nach Änderungsdatum sortieren
+## Nach Änderungsdatum sortieren
 
 Der Qualifizierer `sort:updated` sortiert in absteigender oder aufsteigender Reihenfolge nach dem letzten Änderungsdatum.
 
@@ -67,7 +68,7 @@ Der Qualifizierer `sort:updated` sortiert in absteigender oder aufsteigender Rei
 | `sort:updated` oder `sort:updated-desc` | [**feature sort:updated**](https://github.com/search?utf8=%E2%9C%93&q=feature+sort%3Aupdated&type=Repositories) sucht Repositorys mit dem Wort „feature“ und sortiert sie in absteigender Reihenfolge nach dem letzten Änderungsdatum.          |
 | `sort:updated-asc`                      | [**feature sort:updated-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+sort%3Aupdated-asc&type=Repositories) sucht Repositorys mit dem Wort „feature“ und sortiert sie in aufsteigender Reihenfolge nach dem letzten Änderungsdatum. |
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
-- [Informationen zur Suche auf GitHub](/articles/about-searching-on-github)
-- [Issues und Pull Requests sortieren](/articles/sorting-issues-and-pull-requests/)
+- "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)"
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

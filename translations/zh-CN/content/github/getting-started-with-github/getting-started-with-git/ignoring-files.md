@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### 为单个仓库配置忽略的文件
 
 您可以在仓库的根目录中创建 *.gitignore* 文件，指示 Git 在您进行提交时要忽略哪些文件和目录。 要与克隆仓库的其他用户共享忽略规则，请提交 *.gitignore* 文件到您的仓库。

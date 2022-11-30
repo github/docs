@@ -6,16 +6,19 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+shortTitle: Create advisories
 ---
 
 Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann einen Sicherheitshinweis erstellen.
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### Einen Sicherheitshinweis erstellen
+## Einen Sicherheitshinweis erstellen
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -28,7 +31,7 @@ Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann 
 {% data reusables.repositories.security-advisory-edit-description %}
 11. Click **Create draft security advisory**. ![Schaltfläche „Create security advisory" (Sicherheitshinweis erstellen)](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
-### Nächste Schritte:
+## Nächste Schritte:
 
 - Du kannst Den Entwurf des Sicherheitshinweises kommentieren, um die Schwachstelle mit Deinem Team zu diskutieren.
 - Füge Mitarbeiter zum Sicherheitshinweis hinzu. Weitere Informationen findest Du unter „[Einen Mitarbeiter zu einem Sicherheitshinweis hinzufügen](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory).“

@@ -4,9 +4,9 @@ intro: 了解如何开始使用 GraphQL、从 REST 迁移到 GraphQL 以及如�
 redirect_from:
   - /v4/guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 children:

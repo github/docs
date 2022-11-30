@@ -7,11 +7,12 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Webhook events
 ---
-### {% data variables.product.prodname_marketplace %} purchase webhook payload
+## {% data variables.product.prodname_marketplace %} purchase webhook payload
 
 Webhooks `POST` requests have special headers. See "[Webhook delivery headers](/webhooks/event-payloads/#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
 
@@ -57,17 +58,17 @@ Key | Type | Description
 
 <br/>
 
-#### Example webhook payload for a `purchased` event
+### Example webhook payload for a `purchased` event
 This example provides the `purchased` event payload.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-#### Example webhook payload for a `changed` event
+### Example webhook payload for a `changed` event
 
 Changes in a plan include upgrades and downgrades. This example represents the `changed`,`pending_change`, and `pending_change_cancelled` event payloads. The action identifies which of these three events has occurred.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-#### Example webhook payload for a `cancelled` event
+### Example webhook payload for a `cancelled` event
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

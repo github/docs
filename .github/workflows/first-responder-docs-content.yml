@@ -21,10 +21,10 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: set-result
         with:
-          github-token: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
           result-encoding: string
           script: |
             const repoName = context.payload.repository.name
@@ -48,16 +48,16 @@ jobs:
             console.log(`This issue or pull request was authored by an external contributor.`)
             return 'false'
       - name: Label external contributor pull requests with docs-content-fr
-        uses: rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         if: steps.set-result.outputs.result == 'false'
         with:
-          repo-token: '${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}'
+          repo-token: '${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}'
           add-labels: 'docs-content-fr'
       - name: Triage to FR PR project column
         uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
         if: steps.set-result.outputs.result == 'false'
         with:
-          action-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          action-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           project-url: 'https://github.com/orgs/github/projects/1367'
           column-name: 'Docs-internal external contributor PRs'
 
@@ -68,9 +68,9 @@ jobs:
 
     steps:
       - name: Remove card from project
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          github-token: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
+          github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
           result-encoding: string
           script: |
             const issueToRemove = context.payload.number
@@ -89,7 +89,7 @@ jobs:
             })
       - name: Remove docs-content-fr label if not already removed
         if: github.event.action == 'closed'
-        uses: rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
-          repo-token: '${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}'
+          repo-token: '${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}'
           remove-labels: 'docs-content-fr'

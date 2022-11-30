@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 新しい GPG キーを {% data variables.product.product_name %} アカウントに追加する前に、以下のことを済ませておかなければなりません:
 - [既存の GPG キーの確認](/articles/checking-for-existing-gpg-keys)
 - [新しい GPG キーの生成とコピー](/articles/generating-a-new-gpg-key)

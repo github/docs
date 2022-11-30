@@ -6,14 +6,15 @@ redirect_from:
   - /articles/about-community-profiles-for-public-repositories
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: 社区简介
 ---
 
 社区资料检查列表用于检查项目是否在支持的位置包含建议的社区健康文件，如 README、CODE_OF_CONDUCT、LICENS 或 CONTRIBUTING。 更多信息请参阅"[访问项目的社区资料](/articles/accessing-a-project-s-community-profile)"。
 
-### 使用社区资料检查列表作为仓库维护工具
+## 使用社区资料检查列表作为仓库维护工具
 
 作为仓库维护员，可使用社区资料检查列表来检查项目是否符合建议的社区标准，以帮助人们使用和参与您的项目。 更多信息请参阅《开源指南》中的“[构建社区](https://opensource.guide/building-community/)”。
 
@@ -25,7 +26,7 @@ topics:
 
 {% data reusables.repositories.security-guidelines %}
 
-### 社区成员或协作者使用社区资料检查列表
+## 社区成员或协作者使用社区资料检查列表
 
 作为潜在贡献者，可使用社区资料检查列表检查项目是否符合建议的社区标准，决定您是否要参与。 更多信息请参阅《开源指南》中的“[如何参与](https://opensource.guide/how-to-contribute/#anatomy-of-an-open-source-project)”。
 
@@ -33,7 +34,7 @@ topics:
 
 ![包含建议的社区标准的社区资料检查列表（适用于贡献者）](/assets/images/help/repository/propose-button-community-profile.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[为项目添加行为准则](/articles/adding-a-code-of-conduct-to-your-project)"
 - "[设置仓库贡献者的指导方针](/articles/setting-guidelines-for-repository-contributors)"

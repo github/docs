@@ -3,15 +3,17 @@ title: Enterprise アカウントでの Advanced Security のポリシーを適�
 intro: 'Enterprise のオーナーは、Enterprise アカウントが所有する Organization の {% data variables.product.prodname_GH_advanced_security %} 機能を管理するためのポリシーを適用できます。'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
+shortTitle: Policies for Advanced Security
 ---
-### {% data variables.product.prodname_GH_advanced_security %} について
+
+## {% data variables.product.prodname_GH_advanced_security %} について
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### {% data variables.product.prodname_advanced_security %} 機能のポリシーを施行する
+## {% data variables.product.prodname_advanced_security %} 機能のポリシーを施行する
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

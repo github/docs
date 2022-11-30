@@ -20,6 +20,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Sobre transferências de repositório
 
 Quando você transfere um repositório para um novo proprietário, ele pode administrar imediatamente o conteúdo do repositório, além de problemas, pull requests, versões, quadros de projeto e configurações.

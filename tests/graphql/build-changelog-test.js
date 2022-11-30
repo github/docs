@@ -1,10 +1,16 @@
-const yaml = require('js-yaml')
-const { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry } = require('../../script/graphql/build-changelog')
-const fs = require('fs').promises
-const MockDate = require('mockdate')
-const readFileAsync = require('../../lib/readfile-async')
-const expectedChangelogEntry = require('../fixtures/changelog-entry')
-const expectedUpdatedChangelogFile = require('../fixtures/updated-changelog-file')
+import yaml from 'js-yaml'
+import {
+  createChangelogEntry,
+  cleanPreviewTitle,
+  previewAnchor,
+  prependDatedEntry,
+} from '../../script/graphql/build-changelog.js'
+import fs from 'fs/promises'
+import MockDate from 'mockdate'
+import readFileAsync from '../../lib/readfile-async.js'
+import readJsonFile from '../../lib/read-json-file.js'
+const expectedChangelogEntry = readJsonFile('./tests/fixtures/changelog-entry.json')
+const expectedUpdatedChangelogFile = readJsonFile('./tests/fixtures/updated-changelog-file.json')
 
 describe('creating a changelog from old schema and new schema', () => {
   afterEach(() => {
@@ -75,7 +81,13 @@ upcoming_changes:
     date: '2021-01-01T00:00:00+00:00'
 `).upcoming_changes
 
-    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges)
+    const entry = await createChangelogEntry(
+      oldSchemaString,
+      newSchemaString,
+      previews,
+      oldUpcomingChanges,
+      newUpcomingChanges
+    )
     expect(entry).toEqual(expectedChangelogEntry)
   })
 

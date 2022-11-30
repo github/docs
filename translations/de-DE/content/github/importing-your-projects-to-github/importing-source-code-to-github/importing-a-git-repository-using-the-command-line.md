@@ -1,14 +1,16 @@
 ---
 title: Ein Git-Repository über die Befehlszeile importieren
-intro: '{% if currentVersion == "free-pro-team@latest" %}If [GitHub Importer](/articles/importing-a-repository-with-github-importer) is not suitable for your purposes, such as if your existing code is hosted on a private network, then we recommend importing using the command line.{% else %}Importing Git projects using the command line is suitable when your existing code is hosted on a private network.{% endif %}'
+intro: '{% ifversion fpt %}Wenn [GitHub Importer](/articles/importing-a-repository-with-github-importer) nicht für Deine Zwecke geeignet ist, z. B. wenn Dein vorhandener Code in einem privaten Netzwerk verwaltet wird, dann empfehlen wir, den Import über die Befehlszeile vorzunehmen.{% else %}Das Importieren von Git-Projekten über die Befehlszeile ist eine geeignete Methode, wenn Dein vorhandener Code in einem privaten Netzwerk verwaltet wird.{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Import repo locally
 ---
+
 Bevor Du startest, stelle sicher, dass Dir Folgendes vorliegt:
 
 - Ihr {% data variables.product.product_name %}-Benutzername

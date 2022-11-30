@@ -7,8 +7,8 @@ redirect_from:
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,8 +16,10 @@ topics:
   - Organizations
   - Security
   - User account
+shortTitle: Audit users
 ---
-### Zugriff auf das Auditprotokoll
+
+## Zugriff auf das Auditprotokoll
 
 The audit log dashboard gives you a visual display of audit data across your enterprise.
 
@@ -29,7 +31,7 @@ The audit log dashboard gives you a visual display of audit data across your ent
 
 Auf der Karte können Sie schwenken und zoomen, um Ereignisse auf der gesamten Welt zu sehen. Bewegen Sie den Mauszeiger über ein Land, um eine schnelle Zählung der Ereignisse für dieses Land zu sehen.
 
-### Searching for events across your enterprise
+## Searching for events across your enterprise
 
 The audit log lists the following information about actions made within your enterprise:
 
@@ -49,7 +51,7 @@ The audit log lists the following information about actions made within your ent
 
 {% endwarning %}
 
-#### Repository-basierte Suche
+### Repository-basierte Suche
 
 Der Kennzeichner `repo` begrenzt die Aktionen auf ein bestimmtes Repository, das Ihrer Organisation gehört. Ein Beispiel:
 
@@ -59,7 +61,7 @@ Der Kennzeichner `repo` begrenzt die Aktionen auf ein bestimmtes Repository, das
 
 Sie müssen den Kennzeichner `repo` in den Namen Ihrer Organisation aufnehmen. Die bloße Suche nach `repo:our-repo` funktioniert nicht.
 
-#### Suche nach Benutzer
+### Suche nach Benutzer
 
 Der Kennzeichner </code>actor</code> analysiert die Ereignisse anhand der Mitglieder Ihrer Organisation, welche die Aktion durchgeführt haben. Ein Beispiel:
 
@@ -69,7 +71,7 @@ Der Kennzeichner </code>actor</code> analysiert die Ereignisse anhand der Mitgli
 
 Sie können nur einen {% data variables.product.product_name %}-Benutzernamen verwenden, nicht den wirklichen Namen einer Einzelperson.
 
-#### Organisationsbasierte Suche
+### Organisationsbasierte Suche
 
 Der Kennzeichner `org` begrenzt Aktionen auf eine bestimmte Organisation. Ein Beispiel:
 
@@ -77,7 +79,7 @@ Der Kennzeichner `org` begrenzt Aktionen auf eine bestimmte Organisation. Ein Be
 * `org:my-org action:team` sucht nach allen Teamereignissen, die in der Organisation `my-org` durchgeführt wurden.
 * `-org:my-org` excludes all events that occurred for the `my-org` organization.
 
-#### Suche nach der Art der durchgeführten Aktion
+### Suche nach der Art der durchgeführten Aktion
 
 Der Kennzeichner `action` sucht nach bestimmten Ereignissen, gruppiert in Kategorien. Weitere Informationen zu diesen Kategorien zugeordneten Ereignissen finden Sie unter „[Überwachte Aktionen](/admin/user-management/audited-actions)“.
 
@@ -98,7 +100,7 @@ Zu jeder Kategorie gehört eine Gruppe zugehöriger Ereignisse, auf die Du filte
 * `action:team.create` findet alle Ereignisse in Verbindung mit der Erstellung eines Teams.
 * `-action:billing.change_email` schließt alle Ereignisse aus, bei denen die E-Mail-Adresse für die Abrechnung geändert wurde.
 
-#### Standortbasierte Suche
+### Standortbasierte Suche
 
 Der Kennzeichner `country` filtert Aktionen nach dem Ursprungsland.
 - Hierzu verwenden Sie den zweistelligen Kurzcode oder den vollständigen Namen des Landes.
@@ -107,7 +109,7 @@ Der Kennzeichner `country` filtert Aktionen nach dem Ursprungsland.
   * `country:Mexico` findet alle Ereignisse, die in Mexiko aufgetreten sind.
   * `country:"United States"` findet alle Ereignisse, die in den USA aufgetreten sind.
 
-#### Aktionszeitpunktbasierte Suche
+### Aktionszeitpunktbasierte Suche
 
 Der Kennzeichner `created` filtert Aktionen nach dem Zeitpunkt ihres Auftretens.
 - Definieren Sie Datumswerte im Format `YYYY-MM-DD`, also nach Jahr, Monat, Tag.

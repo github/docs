@@ -9,6 +9,7 @@ versions:
 topics:
   - SSO
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 3. Under "Sessions," you can see your active SAML sessions. ![Liste der aktiven SAML-Sitzungen](/assets/images/help/settings/saml-active-sessions.png)

@@ -12,15 +12,17 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Maintenance
   - Upgrades
+shortTitle: Configure maintenance mode
 ---
-### Informationen zum Wartungsmodus
+
+## Informationen zum Wartungsmodus
 
 Bei einigen Vorgangstypen müssen Sie {% data variables.product.product_location %} offline nehmen und in den Wartungsmodus versetzen.
 - Upgrade auf eine neue Version von {% data variables.product.prodname_ghe_server %}
@@ -33,11 +35,11 @@ Sie sollten ein Wartungsfenster für mindestens 30 Minuten in der Zukunft planen
 
 ![Banner zur geplanten Wartung für Endbenutzer](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
-Wenn sich die Instanz im Wartungsmodus befindet, wird der gesamte normale HTTP- und Git-Zugriff abgelehnt. Git-Abruf-, -Klon- und -Push-Vorgänge werden ebenfalls mit einer Fehlermeldung abgelehnt, die angibt, dass die Webseite temporär nicht verfügbar ist. Wenn die Website in einem Browser aufgerufen wird, wird eine Wartungsseite angezeigt.
+Wenn sich die Instanz im Wartungsmodus befindet, wird der gesamte normale HTTP- und Git-Zugriff abgelehnt. Git-Abruf-, -Klon- und -Push-Vorgänge werden ebenfalls mit einer Fehlermeldung abgelehnt, die angibt, dass die Webseite temporär nicht verfügbar ist. GitHub Actions jobs will not be executed. Wenn die Website in einem Browser aufgerufen wird, wird eine Wartungsseite angezeigt.
 
 ![Der Wartungsmodus-Startbildschirm](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 
-### Wartungsmodus sofort aktiviert oder Wartungsfenster für späteren Zeitpunkt planen
+## Wartungsmodus sofort aktiviert oder Wartungsfenster für späteren Zeitpunkt planen
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -48,11 +50,11 @@ Wenn sich die Instanz im Wartungsmodus befindet, wird der gesamte normale HTTP- 
 4. Wählen Sie **Enable maintenance mode** (Wartungsmodus aktivieren) aus. ![Kontrollkästchen zum Aktivieren oder Planen des Wartungsmodus](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Wartungsmodus mit {% data variables.product.prodname_enterprise_api %} planen
+## Wartungsmodus mit {% data variables.product.prodname_enterprise_api %} planen
 
 Mit der {% data variables.product.prodname_enterprise_api %} können Sie die Wartung für unterschiedliche Zeitpunkt oder Datumsangaben planen. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
 
-### Wartungsmodus für alle Knoten in einem Cluster aktivieren oder deaktivieren
+## Wartungsmodus für alle Knoten in einem Cluster aktivieren oder deaktivieren
 
 Mit dem Dienstprogramm `ghe-cluster-maintenance` können Sie den Wartungsmodus für jeden Knoten in einem Cluster festlegen oder dessen Festlegung aufheben.
 

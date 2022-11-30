@@ -6,17 +6,19 @@ redirect_from:
   - /enterprise/admin/authentication/using-built-in-authentication
   - /admin/authentication/using-built-in-authentication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: Use built-in authentication
 ---
+
 サインインおよびサインアウトページでユーザに表示されるカスタムメッセージを作成できます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)」を参照してください。
 
-### ビルトイン認証の設定
+## ビルトイン認証の設定
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -26,12 +28,25 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### アカウントの作成とユーザの追加
+## Creating your account
 
-インスタンスが作成できたら、自分自身の管理者アカウントを作成し、それを使ってユーザをプロビジョニングします。
+Once your instance has been created, you'll need to create your own admin account.
 
 1. `http(s)://[hostname]/join`の"Create Admin Account（管理者アカウントの作成）"ページで、ユーザ名、パスワード、メールアドレスを選択し、**Create an account（アカウントの作成）**をクリックしてください。 ![[Create Admin Account]](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
 {% data reusables.enterprise_site_admin_settings.sign-in %}
+
+## Inviting users
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
+
+{% tip %}
+
+**Tip:** If email for notifications is configured on the appliance, an invite will also be sent to the provided email address.
+
+{% endtip %}
+
+## 参考リンク
+
+- "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

@@ -15,6 +15,7 @@ topics:
   - Permissions
   - Accounts
 ---
+
 ### Persönliche Benutzerkonten
 
 Ein Repository, das einem Benutzerkonto gehört, hat zwei Berechtigungsebenen: den *Repository-Inhaber* und *Mitarbeiter*. Weitere Informationen findest Du unter „[Berechtigungsebenen für ein Repository eines Benutzerkontos](/articles/permission-levels-for-a-user-account-repository)."

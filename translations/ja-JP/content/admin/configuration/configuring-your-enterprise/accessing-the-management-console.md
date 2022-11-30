@@ -12,13 +12,15 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
+shortTitle: Access the management console
 ---
-### {% data variables.enterprise.management_console %}について
+
+## {% data variables.enterprise.management_console %}について
 
 次の基本的な管理作業には {% data variables.enterprise.management_console %} を使用します。
 - **初期セットアップ**: ブラウザで {% data variables.product.product_location %} の IP アドレスにアクセスすることで {% data variables.product.product_location %} を最初に起動したときに、初期セットアッププロセスを段階的に実行します。
@@ -31,15 +33,15 @@ topics:
 
 {% data variables.enterprise.management_console %}にアクセスするには、{% data variables.product.product_location %}の初期セットアップ時に設定した管理者パスワードを使わなければなりません。 また、ポート8443で仮想マシンのホストに接続することもできます。 {% data variables.enterprise.management_console %}へのアクセスに問題があれば、中間のファイアウォールやセキュリティグループの設定を確認してください。
 
-### サイト管理者としての{% data variables.enterprise.management_console %}へのアクセス
+## サイト管理者としての{% data variables.enterprise.management_console %}へのアクセス
 
-サイト管理者として初めて {% data variables.enterprise.management_console %} にアクセスするときは、アプリに認証するために {% data variables.product.prodname_enterprise %} ライセンスファイルをアップロードする必要があります。 詳しい情報については、「[{% data variables.product.prodname_enterprise %}ライセンスを管理する](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)」を参照してください。
+サイト管理者として初めて {% data variables.enterprise.management_console %} にアクセスするときは、アプリに認証するために {% data variables.product.prodname_enterprise %} ライセンスファイルをアップロードする必要があります。 For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### 認証されていないユーザとしての{% data variables.enterprise.management_console %}へのアクセス
+## 認証されていないユーザとしての{% data variables.enterprise.management_console %}へのアクセス
 
 1. ブラウザで次の URL にアクセスします。`hostname` は実際の {% data variables.product.prodname_ghe_server %} ホスト名または IP アドレスに置き換えてください:
   ```shell
@@ -47,7 +49,7 @@ topics:
   ```
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### ログイン試行の失敗後の{% data variables.enterprise.management_console %}のアンロック
+## ログイン試行の失敗後の{% data variables.enterprise.management_console %}のアンロック
 
 10 分以内にログインに 10 回失敗すると、{% data variables.enterprise.management_console %} はロックされます。 ログインを再度試みるには、ログイン画面が自動的にロック解除されるまで待つ必要があります。 直前の 10 分間に失敗したログイン試行が 10 回未満となると同時に、ログイン画面は自動的にロックが解除されます。 ログインが成功すると、カウンタはリセットされます。
 

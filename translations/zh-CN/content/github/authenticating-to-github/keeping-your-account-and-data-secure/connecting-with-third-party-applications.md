@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 当第三方应用程序要通过您的 {% data variables.product.product_name %} 登录识别您时，您会看到一个页面，其中包含开发者联系信息，以及申请的特定数据列表。
 
 ### 联系应用程序开发者

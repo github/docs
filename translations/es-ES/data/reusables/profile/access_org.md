@@ -1,1 +1,1 @@
-1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile photo, then click **Your organizations**. ![Your organizations in the profile menu](/assets/images/help/profile/your-organizations.png)
+1. En la esquina superior derecha de {% data variables.product.product_name %}, haz clic en tu foto de perfil y luego en **Tus organizaciones**. ![Tus organizaciones en el menú de perfil](/assets/images/help/profile/your-organizations.png)

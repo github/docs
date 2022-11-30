@@ -14,6 +14,6 @@ As seguintes informações **devem ser incluídas** na sua solicitação de cré
 - **Data** (A data deve ser dentro de 30 dias após o trimestre baseado no final do ano fiscal de {% data variables.product.company_short %} em que as reivindicações ocorreram [31 de janeiro, 30 de abril, 31 de julho ou 31 de outubro.)
 - **Contato do cliente** (Você deve especificar nome e endereço de e-mail)
 - **Endereço do cliente**
-- **Créditos qualificados** (Deve indicar a data de cada crédito qualificado e o número do tíquete associado.){% if currentVersion == "free-pro-team@latest" %}
+- **Créditos qualificados** (Deve indicar a data de cada crédito qualificado e o número do tíquete associado.){% ifversion fpt %}
 - **Nome da organização de {% data variables.product.prodname_ghe_cloud %} **{% endif %}
 - **Números do tíquete**

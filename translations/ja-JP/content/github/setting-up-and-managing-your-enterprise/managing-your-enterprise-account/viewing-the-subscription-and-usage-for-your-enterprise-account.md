@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Enterprise アカウントの支払いについて
 
 現時点では、Enterprise アカウントは請求書で支払いを行っている {% data variables.product.prodname_enterprise %} のお客様が利用できます。 Enterprise アカウントに接続されているすべての Organization と {% data variables.product.prodname_ghe_server %} インスタンスの支払いは、すべての有料 {% data variables.product.prodname_dotcom_the_website %} サービス（Organization の有料ライセンス、{% data variables.large_files.product_name_long %} データパック、{% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.0" %} {% data variables.product.prodname_GH_advanced_security %} の利用状況、{% endif %}{% data variables.product.prodname_marketplace %} アプリケーションのサブスクリプションを含む）の単一の支払いに集約されます。
@@ -26,20 +27,17 @@ topics:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. ー
-{% if currentVersion == "free-pro-team@latest" %}ライセンス{% else %}ライセンス{% endif %}で、ライセンスの合計数、消費ライセンス数、およびサブスクリプションの有効期限を表示します。
+1. Under "User {% if currentVersion == "free-pro-team@latest" %}Licenses{% else %}licenses{% endif %}", view your total licenses, number of consumed licenses, and your subscription expiration date.
   {% if currentVersion == "free-pro-team@latest" %}![License and subscription information in enterprise billing settings](/assets/images/help/business-accounts/billing-license-info.png){% else %}
   ![Enterprise 支払い設定のライセンスおよびプラン情報](/assets/images/enterprise/enterprise-server/enterprise-server-billing-license-info.png){% endif %}
-1. 必要に応じて、ライセンス使用状況の詳細を表示するか、
-ライセンスの詳細を含む {% if currentVersion == "free-pro-team@latest" %}CSV{% elsif enterpriseServerVersions contains currentVersion %}JSON{% endif %} ファイルをダウンロードするには{% if currentVersion == "free-pro-team@latest" %}、[User Licenses]{% endif %} の右側にある [**View {% if currentVersion == "free-pro-team@latest" %}details{% elsif enterpriseServerVersions contains currentVersion %}users{% endif %}**] または [{% if currentVersion == "free-pro-team@latest" %}{% octicon "download" aria-label="The download icon" %}{% elsif enterpriseServerVersions contains currentVersion %}**Export license usage**] をクリックします{% endif %}。{% if currentVersion == "free-pro-team@latest" %}
-  ![[View details] ボタンと [User Licenses] の右にあるダウンロードアイコン付きボタン](/assets/images/help/business-accounts/billing-license-info-click-view-details-or-download.png){% endif %}
+1. Optionally, to view details for license usage or download a {% if currentVersion == "free-pro-team@latest" %}CSV{% elsif enterpriseServerVersions contains currentVersion %}JSON{% endif %} file with license details{% if currentVersion == "free-pro-team@latest" %}, to the right of "User Licenses"{% endif %}, click **View {% if currentVersion == "free-pro-team@latest" %}details{% elsif enterpriseServerVersions contains currentVersion %}users{% endif %}** or {% if currentVersion == "free-pro-team@latest" %}{% octicon "download" aria-label="The download icon" %}{% elsif enterpriseServerVersions contains currentVersion %}**Export license usage**{% endif %}.{% if currentVersion == "free-pro-team@latest" %} !["View details" button and button with download icon to the right of "User Licenses"](/assets/images/help/business-accounts/billing-license-info-click-view-details-or-download.png){% endif %}
 {% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.0" %}
 1. 必要に応じて、他の機能の使用状況の詳細を表示するには、左サイドバーで [**Billing**] をクリックします。 ![Enterpriseアカウント設定のサイドバーの支払いタブ](/assets/images/help/business-accounts/settings-billing-tab.png)
 
 ### 参考リンク
 
-- 「[GitHub Actions の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions#about-billing-for-github-actions)」
-- 「[Git Large File Storage の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage)」
-- 「[{% data variables.product.prodname_GH_advanced_security %} のライセンスについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)」
+- "[About billing for GitHub Actions](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-billing-for-github-actions)"
+- "[About billing for Git Large File Storage](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
+- "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)"
 
 {% endif %}

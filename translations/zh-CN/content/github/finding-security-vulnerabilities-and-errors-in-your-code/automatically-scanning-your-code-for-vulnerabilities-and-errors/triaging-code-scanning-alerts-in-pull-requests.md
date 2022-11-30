@@ -5,17 +5,18 @@ intro: '当 {% data variables.product.prodname_code_scanning %} 在拉取请求�
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 
-### 关于拉取请求上的 {% data variables.product.prodname_code_scanning %} 结果
+## 关于拉取请求上的 {% data variables.product.prodname_code_scanning %} 结果
 
 在仓库中，如果 {% data variables.product.prodname_code_scanning %} 被配置为拉取请求检查，则 {% data variables.product.prodname_code_scanning %} 将检查拉取请求中的代码。 默认情况下，这仅限于针对默认分支的拉取请求，但是您可以在 {% data variables.product.prodname_actions %} 或第三方 CI/CD 系统中更改此配置。 如果合并分支给目标分支带来新的 {% data variables.product.prodname_code_scanning %} 警报，这些警报将在拉取请求中被报告为检查结果。 警报还将在拉取请求的 **Files changed（文件已更改）**选项卡中显示为注释。 如果您拥有仓库的写入权限，您可以在 **Security（安全）**选项卡中查看任何现有的 {% data variables.product.prodname_code_scanning %} 警报。 有关仓库警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
@@ -23,13 +24,13 @@ redirect_from:
 
 ![拉取请求上失败的 {% data variables.product.prodname_code_scanning %} 检查](/assets/images/help/repository/code-scanning-check-failure.png)
 
-### 关于 {% data variables.product.prodname_code_scanning %} 作为拉取请求检查
+## 关于 {% data variables.product.prodname_code_scanning %} 作为拉取请求检查
 
 有许多选项可将 {% data variables.product.prodname_code_scanning %} 配置为拉取请求检查，因此每个仓库的确切设置会有所不同，有些仓库还会有多个检查。 包含 {% data variables.product.prodname_code_scanning %} 结果的检查为：**代码扫描结果**。
 
 如果仓库使用 {% data variables.product.prodname_codeql_workflow %}，则在结果检查运行之前，将针对每种语言运行 **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** 检查。 如果存在配置问题，或者拉取请求中断了分析需要编译的语言（例如 C/C ++、C# 或 Java）的构建，则分析检查可能会失败。 与其他拉取请求检查一样，您可以在 **Checks（检查）**选项卡上查看检查失败的完整细节。 有关配置和故障排除的详细信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)”或“[排查 {% data variables.product.prodname_codeql %} 工作流程故障](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow)”。
 
-### 鉴定拉取请求上的警报
+## 鉴定拉取请求上的警报
 
 查看拉取请求的 **Files changed（文件已更改）**选项卡时，您会看到任何触发警报的代码行的注释。
 
@@ -43,7 +44,7 @@ redirect_from:
 
 ![显示更多信息的警报说明和链接](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-### 解决关于拉取请求的警报
+## 解决关于拉取请求的警报
 
 任何对拉取请求具有推送权限的人都可以修复在该拉取请求上已识别的 {% data variables.product.prodname_code_scanning %} 警报。 如果将更改提交到拉取请求，这将触发拉取请求检查的新运行。 如果您的更改修复了问题，则警报将被关闭，注释将被删除。
 

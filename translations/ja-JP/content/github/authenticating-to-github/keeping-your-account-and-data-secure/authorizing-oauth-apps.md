@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data variables.product.prodname_oauth_app %}が {% data variables.product.product_name %}アカウントであなたを識別したい場合、そのアプリケーションの開発者の連絡先情報と、リクエストされている情報のリストのページが表示されます。
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -48,6 +49,8 @@ topics:
 **メモ:** 現時点では、ソースコードへのアクセスのスコープをリードオンリーにすることはできません。
 
 {% endtip %}
+
+{% data reusables.apps.oauth-token-limit %}
 
 #### リクエストされるデータの種類
 

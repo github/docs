@@ -5,7 +5,7 @@ intro: 'From the security view, you can view, fix, or close alerts for potential
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
 ---
@@ -13,7 +13,7 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-### About alerts from {% data variables.product.prodname_code_scanning %}
+## About alerts from {% data variables.product.prodname_code_scanning %}
 
 You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
@@ -21,7 +21,7 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### About alerts details
+## About alerts details
 
 Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the severity and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
 
@@ -31,7 +31,7 @@ If you set up {% data variables.product.prodname_code_scanning %} using {% data 
 
 When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
 
-### Viewing the alerts for a repository
+## Viewing the alerts for a repository
 
 Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)."
 
@@ -47,7 +47,7 @@ You need write permission to view a summary of all the alerts for a repository o
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
   ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
-### Fixing an alert
+## Fixing an alert
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)."
 
@@ -57,7 +57,7 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" d
 
 ![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 
-### Closing an alert
+## Closing an alert
 
 Closing an alert is a way to resolve an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %}
 
@@ -70,7 +70,7 @@ Closing an alert is a way to resolve an alert that you don't think needs to be f
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-### Further reading
+## Further reading
 
 - "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)"
 - "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)"

@@ -11,9 +11,10 @@ versions:
 topics:
   - Repositories
 ---
+
 在添加图像之前，请展开仓库链接以显示关于仓库和所有者头像的基本信息。 为仓库添加图像有助于在各种社交平台上识别您的项目。
 
-{% if currentVersion != "github-ae@latest" %}您可以将映像上传到私有仓库，但您的映像只能从公共仓库分享。{% endif %}
+{% if currentversion != "github-ae@latest" %}您可以将映像上传到私有仓库，但您的映像只能从公共仓库分享。{% endif %}
 
 {% tip %}
 提示：您的图像应为大小在 1 MB 以下的 PNG、JPG 或 GIF 文件。 为获取质量最佳的渲染，建议图像的像素保持在 640 x 320 像素。

@@ -6,13 +6,15 @@ redirect_from:
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /developers/apps/troubleshooting-authorization-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: 故障排除授权
 ---
-### 应用程序已挂起
+
+## 应用程序已挂起
 
 如果您设置的 OAuth 应用程序已挂起（由于报告的滥用、垃圾邮件或 API 使用不当），GitHub 将使用以下参数重定向到注册的回调 URL 以总结错误：
 
@@ -23,7 +25,7 @@ topics:
 
 要解决已挂起应用程序的问题，请联系 {% data variables.contact.contact_support %}。
 
-### 重定向 URI 不匹配
+## 重定向 URI 不匹配
 
 如果您提供的 `redirect_uri` 与您在应用程序中注册的 URL 不匹配，GitHub 将使用以下参数重定向到注册的回调 URL 以总结错误：
 
@@ -34,7 +36,7 @@ topics:
 
 要更正此错误，请提供一个与您注册的 URL 匹配的 `redirect_uri`，或者忽略此参数以使用在应用程序中注册的默认 URL。
 
-#### 访问被拒绝
+### 访问被拒绝
 
 如果用户拒绝访问您的应用程序，GitHub 将使用以下参数重定向到注册的回调 URL 以总结错误：
 

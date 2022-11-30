@@ -8,7 +8,7 @@ redirect_from:
   - /admin/authentication/using-saml
 intro: 'SAML 是一种基于 XML 的身份验证和授权标准。 {% data variables.product.prodname_ghe_server %} 可以作为您的内部 SAML 身份提供程序 (IdP) 的服务提供程序 (SP)。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -17,15 +17,16 @@ topics:
   - Identity
   - SSO
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### 支持的 SAML 服务
+## 支持的 SAML 服务
 
 {% data reusables.saml.saml-supported-idps %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### 使用 SAML 时的用户名考量因素
+## 使用 SAML 时的用户名考量因素
 
 每个 {% data variables.product.prodname_ghe_server %} 用户名都由 SAML 响应中的以下断言之一决定，这些断言按优先级从高到低排列的顺序为：
 
@@ -40,7 +41,7 @@ topics:
 
 {% note %}
 
-**注**：如果在 IdP 上更改某用户的 `NameID`，该用户在尝试登录到您的 {% data variables.product.prodname_ghe_server %} 实例时会看到错误消息。 {% if currentVersion ver_gt "enterprise-server@2.21" %}要恢复用户的访问权限，您需要更新用户帐户的 `NameID` 映射。 更多信息请参阅“[更新用户的 SAML `NameID`](#updating-a-users-saml-nameid)”。{% else %} 更多信息请参阅“[错误：另一个用户已拥有该帐户](#error-another-user-already-owns-the-account)”。{% endif %}
+**注**：如果在 IdP 上更改某用户的 `NameID`，该用户在尝试登录到您的 {% data variables.product.prodname_ghe_server %} 实例时会看到错误消息。 {% ifversion ghes %}要恢复用户的访问权限，您需要更新用户帐户的 `NameID` 映射。 更多信息请参阅“[更新用户的 SAML `NameID`](#updating-a-users-saml-nameid)”。{% else %} 更多信息请参阅“[错误：另一个用户已拥有该帐户](#error-another-user-already-owns-the-account)”。{% endif %}
 
 {% endnote %}
 
@@ -51,13 +52,13 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-### SAML 元数据
+## SAML 元数据
 
 您的 {% data variables.product.prodname_ghe_server %} 实例的服务提供程序元数据位于 `http(s)://[hostname]/saml/metadata` 下。
 
 要手动配置您的身份提供程序，断言使用者服务 (ACS) URL 为 `http(s)://[hostname]/saml/consume`。 它使用 `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` 绑定。
 
-### SAML 属性
+## SAML 属性
 
 以下属性可用。 您可以在 [Management Console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/) 中更改属性名称，但 `administrator` 属性除外。
 
@@ -71,7 +72,7 @@ topics:
 | `public_keys` | 可选 | 用户的 SSH 公钥。 可以指定多个。                                                                                             |
 | `gpg_keys`    | 可选 | 用户的 GPG 密钥。 可以指定多个。                                                                                             |
 
-### 配置 SAML 设置
+## 配置 SAML 设置
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -93,9 +94,9 @@ topics:
 9. 在 **Verification certificate（验证证书）**下，单击 **Choose File（选择文件）**并选择用于验证 IdP 的 SAML 响应的证书。 ![SAML 身份验证](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. 如果需要，请修改 SAML 属性名称以匹配您的 IdP，或者接受默认名称。![SAML 属性名称](/assets/images/enterprise/management-console/saml-attributes.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
-### 撤销 {{ site.data.variables.product.product_location_enterprise }} 的权限
+## 撤销 {{ site.data.variables.product.product_location_enterprise }} 的权限
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. 选择 **SAML**。 ![网站管理员设置中的"All users（所有用户）"侧边栏项目](/assets/images/enterprise/site-admin-settings/all-users.png)
@@ -107,11 +108,11 @@ topics:
 
 {% endif %}
 
-### 撤销 {% data variables.product.product_location %} 的权限
+## 撤销 {% data variables.product.product_location %} 的权限
 
 如果您将某个用户从您的身份提供程序中移除，还必须手动挂起他们。 否则，他们仍可以继续使用访问令牌或 SSH 密钥进行身份验证。 更多信息请参阅“[挂起和取消挂起用户](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)”。
 
-### 响应消息的要求
+## 响应消息的要求
 
 响应消息必须满足以下要求：
 
@@ -139,11 +140,11 @@ topics:
 </samlp:Response>
 ```
 
-### SAML 身份验证
+## SAML 身份验证
 
 {% data variables.product.prodname_ghe_server %} 在  _/var/log/github/auth.log_ 的身份验证日志中为失败的 SAML 身份验证记录错误消息。 关于 SAML 响应要求的更多信息，请参阅“[响应消息要求](#response-message-requirements)”。
 
-#### Error: "Another user already owns the account"（错误：“其他用户已拥有该帐户”）
+### Error: "Another user already owns the account"（错误：“其他用户已拥有该帐户”）
 
 您的 {% data variables.product.prodname_ghe_server %} 实例的服务提供程序元数据位于 `http(s)://[hostname]/saml/metadata` 下。
 
@@ -151,9 +152,9 @@ topics:
 
 > 另一个用户已经拥有该帐户。 请让您的管理员检查身份验证日志。
 
-该消息通常表示此人的用户名或电子邮件地址已在 IdP 上更改。 {% if currentVersion ver_gt "enterprise-server@2.21" %}确保在 {% data variables.product.prodname_ghe_server %} 上的用户帐户的 `NameID` 映射与 IdP 上的 `NameID` 匹配。 更多信息请参阅“[更新用户的 SAML `NameID`](#updating-a-users-saml-nameid)”。{% else %}如需更新 `NameID` 映射的帮助，请联系 {% data variables.contact.contact_ent_support %}。{% endif %}
+该消息通常表示此人的用户名或电子邮件地址已在 IdP 上更改。 {% ifversion ghes %}确保在 {% data variables.product.prodname_ghe_server %} 上的用户帐户的 `NameID` 映射与 IdP 上的 `NameID` 匹配。 更多信息请参阅“[更新用户的 SAML `NameID`](#updating-a-users-saml-nameid)”。{% else %}如需更新 `NameID` 映射的帮助，请联系 {% data variables.contact.contact_ent_support %}。{% endif %}
 
-#### Error: Recipient in SAML response was blank or not valid（错误：SAML 响应中的收件人为空或无效）
+### Error: Recipient in SAML response was blank or not valid（错误：SAML 响应中的收件人为空或无效）
 
 如果 `Recipient` 与 {% data variables.product.prodname_ghe_server %} 实例的 ACS URL 不匹配，则当用户尝试验证时，身份验证日志中将显示以下两条错误消息之一：
 
@@ -167,7 +168,7 @@ Recipient in the SAML response was not valid.
 
 `Recipient` 属性必须存在并设为 ACS URL。 例如，`https://ghe.corp.example.com/saml/consume`。
 
-#### Error: "SAML Response is not signed or has been modified"（错误：“SAML 响应未签名或已修改”）
+### Error: "SAML Response is not signed or has been modified"（错误：“SAML 响应未签名或已修改”）
 
 如果您的 IdP 未对 SAML 响应进行签名，或者签名与内容不匹配，则身份验证日志中将显示以下错误消息。
 
@@ -177,7 +178,7 @@ SAML Response is not signed or has been modified.
 
 确保为 IdP 上的 {% data variables.product.prodname_ghe_server %} 应用程序配置签名的断言。
 
-#### Error: "Audience is invalid" or "No assertion found"（错误：“受众无效”或“未找到断言”）
+### Error: "Audience is invalid" or "No assertion found"（错误：“受众无效”或“未找到断言”）
 
 如果 IdP 的响应缺少 `Audience` 的值或者该值不正确，则身份验证日志中将显示以下错误消息。
 

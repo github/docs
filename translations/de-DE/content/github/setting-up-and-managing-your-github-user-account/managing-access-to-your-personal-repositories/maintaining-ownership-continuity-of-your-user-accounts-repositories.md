@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories
 ---
+
 ### Über Nachfolger
 
 Wir empfehlen, einen anderen {% data variables.product.company_short %}-Benutzer einzuladen, Dein Nachfolger zu werden, um Deine eigenen Repositories zu verwalten, wenn Du dies nicht kannst. Als Nachfolger wird dieser Benutzer folgende Berechtigungen haben:

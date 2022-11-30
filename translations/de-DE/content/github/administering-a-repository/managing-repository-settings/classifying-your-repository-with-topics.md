@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Informationen zu Themen
 
 Mithilfe von Themen kannst Du Repositorys zu einem bestimmten Themenbereich erkunden, Projekte finden, zu denen Du einen Beitrag leisten kannst, und neue Lösungen für ein bestimmtes Problem entdecken. Themen werden auf der Hauptseite eines Repositorys angezeigt. Du kannst auf den Namen eines Themas klicken, um {% if currentVersion == "free-pro-team@latest" %}ähnliche Themen und eine Liste anderer Repositorys mit demselben Thema anzuzeigen{% else %}nach anderen Repositorys mit demselben Thema zu suchen{% endif %}.

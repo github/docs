@@ -1,6 +1,6 @@
-{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_secret_scanning_caps %} is available for all public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled.
-{%- elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.
-{%- elsif currentVersion == "github-ae@latest" %}
-{% data variables.product.prodname_secret_scanning_caps %} is available as part of {% data variables.product.prodname_GH_advanced_security %}, which is free during the beta release.
+{% ifversion fpt %}{% data variables.product.prodname_secret_scanning_caps %} está disponível para todos os repositórios públicos e para repositórios privados pertencentes a organizações em que {% data variables.product.prodname_GH_advanced_security %} está habilitado.
+{%- elsif ghes > 3.0 or ghae-next %}{% data variables.product.prodname_secret_scanning_caps %} está disponível para repositórios de organizações onde {% data variables.product.prodname_GH_advanced_security %} está habilitado.
+{%- elsif ghae %}
+{% data variables.product.prodname_secret_scanning_caps %} está disponível como parte de {% data variables.product.prodname_GH_advanced_security %}, que é grátis durante a versão beta.
 {%- else %}
 {% data variables.product.prodname_secret_scanning_caps %} está disponível se você tiver uma licença para {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}

@@ -13,6 +13,7 @@ topics:
   - Identity
   - Access management
 ---
+
 ### Acessar o log de segurança
 
 O log de segurança lista todas as ações realizadas nos últimos 90 dias{% if currentVersion ver_lt "enterprise-server@2.20" %}, até 50{% endif %}.
@@ -191,6 +192,7 @@ Uma visão geral de algumas das ações mais comuns que são registradas como ev
 | `repo_funding_links_file_action`              | Acionada quando você altera o arquivo FUNDING no repositório (consulte "[Exibir botão de patrocinador no repositório](/articles/displaying-a-sponsor-button-in-your-repository)")                                                                                                                                                       |
 | `sponsor_sponsorship_cancel`                  | Acionada quando você cancela um patrocínio (consulte "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)")                                                                                                                                                                                                         |
 | `sponsor_sponsorship_create`                  | Acionada quando você patrocina uma conta (consulte "[Patrocinar um contribuidor de código aberto](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")                                                                                                                                                |
+| `sponsor_sponsorship_payment_complete`        | Acionada depois que você patrocinar uma conta e seu pagamento ser processado (consulte [Patrocinando um colaborador de código aberto](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")                                                                                                            |
 | `sponsor_sponsorship_preference_change`       | Acionada quando você altera o recebimento de atualizações de e-mail de um desenvolvedor patrocinado (consulte "[Gerenciar o patrocínio](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)")                                                                                                                      |
 | `sponsor_sponsorship_tier_change`             | Acionada quando você faz upgrade ou downgrade do patrocínio (consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)")                                                                                                                       |
 | `sponsored_developer_approve`                 | Acionada quando sua conta do {% data variables.product.prodname_sponsors %} é aprovada (consulte "[Configuração de {% data variables.product.prodname_sponsors %} para sua conta de usuário](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                               |

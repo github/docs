@@ -1,1 +1,1 @@
-1. "IP Address（IPアドレス）"の下に、IPアドレスもしくはアドレスの範囲をCIDR表記で入力してください。 ![IP アドレスを追加する [Key] フィールド](/assets/images/help/security/ip-address-field.png)
+1. "IP allow list（IP許可リスト）"セクションの下部で、IPアドレスもしくはCIDR表記でアドレスの範囲を入力してください。 ![IP アドレスを追加する [Key] フィールド](/assets/images/help/security/ip-address-field.png)

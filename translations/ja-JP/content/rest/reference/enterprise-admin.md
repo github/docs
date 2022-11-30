@@ -1,20 +1,21 @@
 ---
 title: GitHub Enterprise の管理
+intro: 'You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account. Among the tasks you can perform with this API are many relating to GitHub Actions.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
   - /v3/enterprise
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
+shortTitle: Enterprise管理
 ---
 
-You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -26,29 +27,29 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 ### エンドポイント URL
 
-REST API エンドポイント{% if enterpriseServerVersions contains currentVersion %}（[管理コンソール](#management-console) API エンドポイントを除く）{% endif %}の前には、次の URL が付けられます。
+REST API エンドポイント{% ifversion ghes %}（[管理コンソール](#management-console) API エンドポイントを除く）{% endif %}の前には、次の URL が付けられます。
 
 ```shell
 {% data variables.product.api_url_pre %}
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 [管理コンソール](#management-console) API エンドポイントには、ホスト名のみがプレフィックスとして付加されます。
 
 ```shell
 http(s)://<em>hostname</em>/
 ```
 {% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ### 認証
 
-{% data variables.product.product_name %} のインストールの API エンドポイントは、GitHub.com APIと[同じ認証方法](/rest/overview/resources-in-the-rest-api#authentication)を受け入れます。 **[OAuth トークン](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**{% if enterpriseServerVersions contains currentVersion %}（[a href="/rest/reference/oauth-authorizations#create-a-new-authorization">認証 API](/rest/reference/oauth-authorizations#create-a-new-authorization) を使用して作成可能）{% endif %}または **[Basic 認証](/rest/overview/resources-in-the-rest-api#basic-authentication)**で自分自身を認証できます。 {% if enterpriseServerVersions contains currentVersion %}Enterprise 固有のエンドポイントで使用する場合、OAuthトークンには `site_admin` [OAuth スコープ](/developers/apps/scopes-for-oauth-apps#available-scopes)が必要です。{% endif %}
+{% data variables.product.product_name %} のインストールの API エンドポイントは、GitHub.com APIと[同じ認証方法](/rest/overview/resources-in-the-rest-api#authentication)を受け入れます。 **[OAuth トークン](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**{% ifversion ghes %}（[認証 API](/rest/reference/oauth-authorizations#create-a-new-authorization) を使用して作成可能）{% endif %}または **[Basic 認証](/rest/overview/resources-in-the-rest-api#basic-authentication)**で自分自身を認証できます。 {% ifversion ghes %} Enterprise 固有のエンドポイントで使用する場合、OAuthトークンには `site_admin` [OAuth スコープ](/developers/apps/scopes-for-oauth-apps#available-scopes)が必要です。{% endif %}
 
-Enterprise 管理 API エンドポイントには、認証された {% data variables.product.product_name %} サイト管理者のみがアクセスできます。{% if enterpriseServerVersions contains currentVersion %}ただし、[Management Console のパスワード](/enterprise/admin/articles/accessing-the-management-console/)が必要な [Management Console](#management-console) API は除きます。{% endif %}
+Enterprise 管理 API エンドポイントには、認証された {% data variables.product.product_name %} サイト管理者のみがアクセスできます。{% ifversion ghes %}ただし、[Management Console のパスワード](/enterprise/admin/articles/accessing-the-management-console/)が必要な [Management Console](#management-console) API は除きます。{% endif %}
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ### バージョン情報
 
 Enterprise の現在のバージョンは、すべての API のレスポンスヘッダで返されます: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` [メタエンドポイント](/rest/reference/meta/)を呼び出して、現在のバージョンを読み取ることもできます。
@@ -59,7 +60,7 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## Audit log
 
@@ -69,7 +70,7 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## 支払い
 
 {% for operation in currentRestOperations %}
@@ -78,80 +79,15 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ## GitHub Actions
 
-{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## SCIM
-
-### Enterprise 向け SCIM プロビジョニング
-
-SCIM 対応のアイデンティティプロバイダ（IdP）は、SCIM API を使用して Enterprise メンバーシップのプロビジョニングを自動化できます。 The {% data variables.product.product_name %} API は [SCIM 標準](http://www.simplecloud.info/)のバージョン 2.0 に基づいています。
-
-IdP は、SCIM エンドポイントとして `{% data variables.product.api_url_code %}/scim/v2/enterprises/{enterprise}/` を使用する必要があります。
-
-{% note %}
-
-**注釈:** Enterprise SCIM API は、[SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) が有効になっている [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上の Enterprise でのみ使用できます。 SCIM に関する詳細は「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
-
-{% endnote %}
-
-### SCIM API への呼び出しを認証する
-
-SCIM API を使用するには、{% data variables.product.product_name %} Enterprise の所有者として認証する必要があります。 API は、[OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) トークンが `Authorization` ヘッダに含まれていることを想定しています。 個人アクセストークンを使用することもできますが、まず [SAML SSO Enterprise で使用するためにトークンを承認する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)必要があります。
-
-### SAML および SCIM データのマッピング
-
-SAML IdP および SCIM クライアントは、ユーザごとに一致する `NameID` と `userName` の値を使用する必要があります。 これにより、SAML を介して認証するユーザを、プロビジョニングされた SCIM ID にリンクできます。
-
-SCIM グループは、Enterprise アカウントが所有している、完全に同じ名前の {% data variables.product.product_name %} Organization と一致します。
-
-SAML IdP および SCIM クライアントは、SCIM グループの `displayName` が対応する {% data variables.product.product_name %} Organization の名前と完全に一致するように設定する必要があります。 これにより、{% data variables.product.product_name %} が SCIM グループを {% data variables.product.product_name %} Organization メンバーシップにリンクできるようになります。
-
-### サポートされている SCIM ユーザ属性
-
-| 名前               | 種類        | 説明                                                                                                                                                                                                                                                                            |
-| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `userName`       | `string`  | ユーザのユーザ名。                                                                                                                                                                                                                                                                     |
-| `name.givenName` | `string`  | ユーザーの名。                                                                                                                                                                                                                                                                       |
-| `name.lastName`  | `string`  | ユーザーの姓。                                                                                                                                                                                                                                                                       |
-| `emails`         | `array`   | ユーザのメール一覧。                                                                                                                                                                                                                                                                    |
-| `externalId`     | `string`  | この識別子は SAML プロバイダによって生成され、GitHub ユーザと照合するためにSAML プロバイダによって一意の ID として使用されます。 ユーザの `externalID` は、SAML プロバイダ、または [Enterprise の SCIM プロビジョニング済み ID の一覧表示](#list-scim-provisioned-identities-for-an-enterprise)エンドポイントを使用して、ユーザの GitHub ユーザ名やメールアドレスなどの他の既知の属性でフィルタして見つけることができます。 |
-| `id`             | `string`  | GitHub SCIM エンドポイントによって生成された識別子。                                                                                                                                                                                                                                              |
-| `active`         | `boolean` | ID がアクティブである（true）か、プロビジョニングを解除する必要がある（false）かを示すために使用する。                                                                                                                                                                                                                     |
-| `groups`         | `array`   | ユーザがメンバーになっている SCIM グループ ID のオプションのリスト。                                                                                                                                                                                                                                       |
-
-{% note %}
-
-**注釈:** SCIM API のエンドポイント URL では、大文字と小文字が区別されます。 たとえば、`Users` エンドポイントの最初の文字は大文字にする必要があります。
-
-```shell
-GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
-```
-
-{% endnote %}
-
-### サポートされている SCIM グループ属性
-
-| 名前            | 種類       | 説明                                                                                                                                                                                     |
-| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName` | `string` | SCIM グループの名前。対応する {% data variables.product.product_name %} Organization の名前と完全に一致する必要があります。 たとえば、Organization の URL が `https://github.com/octo-org` の場合、グループ名は `octo-org` である必要があります。 |
-| `members`     | `array`  | グループのメンバーである SCIM ユーザ ID の一覧。                                                                                                                                                          |
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## 管理統計
 
 管理統計 API は、インストールに関するさまざまなメトリクスを提供します。 *[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
@@ -162,7 +98,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghae or ghes > 2.22 %}
 
 ## アナウンス
 
@@ -174,7 +110,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 
 ## グローバル webhook
 
@@ -188,7 +124,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## LDAP
 
@@ -202,8 +138,7 @@ LDAP マッピングエンドポイントを使用すると、ユーザまたは
 
 {% endif %}
 
-
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## ライセンス
 
 ライセンス API は、Enterprise ライセンスに関する情報を提供します。 *[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
@@ -214,7 +149,7 @@ LDAP マッピングエンドポイントを使用すると、ユーザまたは
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Management Console
 
@@ -226,7 +161,7 @@ Management Console への API 呼び出しを行うときは、ポート番号�
 
 ポート番号を提供しない場合は、自動的にリダイレクトに従うようにツールを設定する必要があります。
 
-{% data variables.product.product_name %} は、[独自の TLS 証明書](/enterprise/admin/guides/installation/configuring-tls/)を追加する前に自己署名証明書を使用するため、`cURL` を使用するときに [`-k` フラグ](http://curl.haxx.se/docs/manpage.html#-k)を追加する必要がある場合もあります。
+{% data variables.product.product_name %} は、[独自の TLS 証明書](/enterprise/admin/guides/installation/configuring-tls/)を追加する前は自己署名証明書を使用するため、`cURL` を使用するときに [`-k` フラグ](http://curl.haxx.se/docs/manpage.html#-k)を追加する必要もあるかもしれません。
 
 {% endtip %}
 
@@ -252,7 +187,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Organization
 
 Organization 管理 API を使用すると、Enterprise に Organization を作成できます。 *[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
@@ -263,8 +198,7 @@ Organization 管理 API を使用すると、Enterprise に Organization を作�
 
 {% endif %}
 
-
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Organization pre-receive フック
 
 Organization pre-receive フック API を使用すると、Organization で使用可能な pre-receive フックの適用を表示および変更できます。
@@ -288,7 +222,7 @@ Organization pre-receive フック API を使用すると、Organization で使�
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## pre-receive 環境
 
@@ -314,7 +248,7 @@ pre-receive 環境 API を使用すると、pre-receive フックの環境を作
 | `downloaded_at` | `string` | 最新のダウンロードの開始時刻。       |
 | `message`       | `string` | 失敗時に、エラーメッセージが生成されます。 |
 
-`state` の設定可能な値は、`not_started`、`in_progress`、`success`、`failed` です。
+`state`が取り得る値は、`not_started`、`in_progress`、`success`、`failed`です。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'pre-receive-environments' %}{% include rest_operation %}{% endif %}
@@ -322,7 +256,7 @@ pre-receive 環境 API を使用すると、pre-receive フックの環境を作
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## pre-receive フック
 
 pre-receive フック API を使用すると、pre-receive フックを作成、一覧表示、更新、および削除できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
@@ -335,7 +269,7 @@ pre-receive フック API を使用すると、pre-receive フックを作成、
 | -------------------------------- | --------- | ------------------------------------ |
 | `name`                           | `string`  | フックの名前。                              |
 | `script`                         | `string`  | フックが実行するスクリプト。                       |
-| `script_repository`              | `オブジェクト`  | スクリプトが保存されている GitHub リポジトリ。          |
+| `script_repository`              | `オブジェクト`  | スクリプトが保存されているGitHubリポジトリ。            |
 | `environment`                    | `オブジェクト`  | スクリプトが実行される pre-receive 環境。          |
 | `enforcement`                    | `string`  | このフックの適用状態。                          |
 | `allow_downstream_configuration` | `boolean` | 適用の Org レベルまたは repo レベルでのオーバーライドの可否。 |
@@ -348,7 +282,7 @@ pre-receive フック API を使用すると、pre-receive フックを作成、
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## リポジトリ pre-receive フック
 
@@ -372,10 +306,10 @@ pre-receive フック API を使用すると、pre-receive フックを作成、
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## ユーザ
 
-ユーザ管理 API では、Enterprise でユーザをサスペンド{% if enterpriseServerVersions contains currentVersion %}、サスペンド解除、昇格、降格、{% endif %}{% if currentVersion == "github-ae@latest" %}およびサスペンド解除{% endif %}できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`403` レスポンスを受け取ります。
+ユーザ管理 API では、Enterprise でユーザをサスペンド{% ifversion ghes %}、サスペンド解除、昇格、降格、{% endif %}{% ifversion ghae %}およびサスペンド解除{% endif %}できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`403` レスポンスを受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

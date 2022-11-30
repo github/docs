@@ -51,6 +51,11 @@ You can define a new Maven repository in the publishing block of your _build.gra
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -114,6 +119,11 @@ For example, if your organization is named "octocat" and your repository is name
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -173,6 +183,11 @@ If your organization is named "octocat" and your repository is named "hello-worl
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 

@@ -7,17 +7,26 @@ redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-dependabot-errors
   - /code-security/supply-chain-security/troubleshooting-dependabot-errors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Version updates
+  - Repositories
+  - Pull requests
+  - Troubleshooting
+  - Errors
+  - Dependencies
 ---
-### {% data variables.product.prodname_dependabot %} エラーについて
+
+## {% data variables.product.prodname_dependabot %} エラーについて
 
 {% data reusables.dependabot.pull-request-introduction %}
 
 何らかが {% data variables.product.prodname_dependabot %} によるプルリクエストの発行を妨げる場合、エラーとして報告されます。
 
-### {% data variables.product.prodname_dependabot_security_updates %} でエラーを調査する
+## {% data variables.product.prodname_dependabot_security_updates %} でエラーを調査する
 
 {% data variables.product.prodname_dependabot %} が {% data variables.product.prodname_dependabot %} アラートを修正するためのプルリクエストの作成をブロックされると、アラートにエラーメッセージを投稿します。 {% data variables.product.prodname_dependabot_alerts %} ビューには、未解決のアラートのリストが表示されます。 アラートビューにアクセスするには、リポジトリの [**Security**] タブで [**{% data variables.product.prodname_dependabot_alerts %}**] をクリックします。 脆弱性のある依存関係を修正するプルリクエストが生成された場合、アラートにはそのプルリクエストへのリンクが含まれます。
 
@@ -33,7 +42,7 @@ topics:
 
 ![プルリクエストの作成をブロックしたエラーを示す {% data variables.product.prodname_dependabot %} アラート](/assets/images/help/dependabot/dependabot-security-update-error.png)
 
-### {% data variables.product.prodname_dependabot_version_updates %} でエラーを調査する
+## {% data variables.product.prodname_dependabot_version_updates %} でエラーを調査する
 
 {% data variables.product.prodname_dependabot %} がエコシステムの依存関係を更新するためのプルリクエストの作成をブロックされると、マニフェストファイルにエラーアイコンを投稿します。 {% data variables.product.prodname_dependabot %} によって管理されるマニフェストファイルは、[{% data variables.product.prodname_dependabot %}] タブに一覧表示されます。 このタブにアクセスするには、リポジトリの [**Insights**] タブで [**Dependency graph**] をクリックし、[**{% data variables.product.prodname_dependabot %}**] タブをクリックします。
 
@@ -43,11 +52,11 @@ topics:
 
 ![{% data variables.product.prodname_dependabot %} バージョン更新エラーとログ ](/assets/images/help/dependabot/dependabot-version-update-error-beta.png)
 
-### {% data variables.product.prodname_dependabot %} エラーを理解する
+## {% data variables.product.prodname_dependabot %} エラーを理解する
 
 セキュリティアップデートのプルリクエストは、脆弱性のある依存関係を、脆弱性の修正を含む最小バージョンにアップグレードします。 対照的に、バージョン更新のプルリクエストは、パッケージマニフェストおよび {% data variables.product.prodname_dependabot %} 設定ファイルで許可されている最新バージョンに依存関係をアップグレードするように動作します。 したがって、一部のエラーは 1 つの種類の更新に固有になります。
 
-#### {% data variables.product.prodname_dependabot %} が DEPENDENCY を脆弱でないバージョンに更新できない
+### {% data variables.product.prodname_dependabot %} が DEPENDENCY を脆弱でないバージョンに更新できない
 
 **セキュリティアップデートのみ。** {% data variables.product.prodname_dependabot %} は、このリポジトリの依存関係グラフの他の依存関係を壊さずに、脆弱性のある依存関係を安全なバージョンに更新するためのプルリクエストを作成することはできません。
 
@@ -55,13 +64,13 @@ topics:
 
 この問題を回避する最善策としては、たとえばバージョン更新を有効化するなどして、最新のリリースバージョンで最新の状態に保つことです。 これにより、依存関係グラフを壊さない単純なアップグレードで 1 つの依存関係の脆弱性を解決できる可能性が高くなります。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
 
-#### 最新バージョンのオープンプルリクエストがすでに存在するため、{% data variables.product.prodname_dependabot %} を必要なバージョンに更新できない
+### 最新バージョンのオープンプルリクエストがすでに存在するため、{% data variables.product.prodname_dependabot %} を必要なバージョンに更新できない
 
 **セキュリティアップデートのみ。** {% data variables.product.prodname_dependabot %} は、このリポジトリの依存関係グラフの他の依存関係を壊さずに、脆弱性のある依存関係を安全なバージョンに更新するためのプルリクエストを作成することはできません。 このエラーは、単一の依存関係で脆弱性が検出され、依存関係を最新バージョンに更新するためのオープンプルリクエストがすでに存在する場合に表示されます。
 
 オープンプルリクエストを確認して、変更が安全であると確信したらすぐにマージするか、そのプルリクエストをクローズして新しいセキュリティアップデートプルリクエストをトリガーする、という 2 つのオプションがあります。 詳しい情報については、「[{% data variables.product.prodname_dependabot %} のプルリクエストを手動でトリガーする](#triggering-a-dependabot-pull-request-manually)」を参照してください。
 
-#### {% data variables.product.prodname_dependabot %} が更新中にタイムアウトした
+### {% data variables.product.prodname_dependabot %} が更新中にタイムアウトした
 
 {% data variables.product.prodname_dependabot %} は、必要な更新を評価してプルリクエストを準備するために許可された最大時間よりも長く時間を要しました。 このエラーは通常、多くのマニフェストファイルを含む大規模なリポジトリでのみ発生します。たとえば、数百の *package.json* ファイルを含む npm や yarn monorepo プロジェクトなどです。 Composer エコシステムの更新も評価に時間がかかり、タイムアウトする可能性があります。
 
@@ -69,7 +78,7 @@ topics:
 
 セキュリティアップデートがタイムアウトする場合、たとえばバージョン更新を有効にするなどして依存関係を最新に保つことで、タイムアウトが発生する可能性を減らすことができます。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
 
-#### {% data variables.product.prodname_dependabot %} で追加のプルリクエストをオープンできない
+### {% data variables.product.prodname_dependabot %} で追加のプルリクエストをオープンできない
 
 {% data variables.product.prodname_dependabot %} が生成するオープンプルリクエスト数には制限があります。 上限に達すると、新しいプルリクエストはオープンされず、このエラーが報告されます。 エラーを解決する最善策として、複数のオープンプルリクエストを確認してマージします。
 
@@ -77,7 +86,7 @@ topics:
 
 このエラーを解決する最善策として、既存のプルリクエストの一部をマージまたはクローズして、新しいプルリクエストを手動でトリガーします。 詳しい情報については、「[{% data variables.product.prodname_dependabot %} のプルリクエストを手動でトリガーする](#triggering-a-dependabot-pull-request-manually)」を参照してください。
 
-#### {% data variables.product.prodname_dependabot %} が依存関係を解決またはアクセスできない
+### {% data variables.product.prodname_dependabot %} が依存関係を解決またはアクセスできない
 
 {% data variables.product.prodname_dependabot %} がリポジトリで依存関係のリファレンスを更新する必要があるかどうかを確認しようとしたが、1 つ以上のリファレンスファイルにアクセスできない場合、操作は失敗し、「{% data variables.product.prodname_dependabot %} は LANGUAGE 依存関係ファイルを解決できません」というエラーメッセージが表示されます。 API エラータイプは `git_dependencies_not_reachable` です。
 
@@ -92,7 +101,7 @@ topics:
 
 **バージョンの更新のみ。**{% data reusables.dependabot.private-dependencies-note %}さらに、{% data variables.product.prodname_dependabot %} はすべてのパッケージマネージャーのプライべートな {% data variables.product.prodname_dotcom %} 依存関係をサポートしているわけではありません。 詳しい情報については、「[ Dependabot のバージョン更新について](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)」を参照してください。
 
-### {% data variables.product.prodname_dependabot %} のプルリクエストを手動でトリガーする
+## {% data variables.product.prodname_dependabot %} のプルリクエストを手動でトリガーする
 
 {% data variables.product.prodname_dependabot %} のブロックを解除すると、プルリクエストを作成するための新規の試行を手動でトリガーできます。
 

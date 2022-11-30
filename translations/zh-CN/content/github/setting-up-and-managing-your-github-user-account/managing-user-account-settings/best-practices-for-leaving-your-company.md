@@ -9,6 +9,7 @@ versions:
 topics:
   - Accounts
 ---
+
 在离开公司之前，请确保在用户帐户中更新以下信息：
 
 - 通过[在电子邮件设置中删除公司电子邮件地址](/articles/changing-your-primary-email-address)来取消其验证。 然后，您可以在不验证的情况下重新添加它，以保留与您的帐户相关联的所有相关提交。

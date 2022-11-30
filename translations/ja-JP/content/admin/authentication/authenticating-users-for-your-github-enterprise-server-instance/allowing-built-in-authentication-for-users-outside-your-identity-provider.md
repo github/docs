@@ -6,15 +6,17 @@ redirect_from:
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: Authentication outside IdP
 ---
-### 使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証について
+
+## 使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証について
 
 契約業者やマシンのユーザなど、特定のアカウントを使用中のアイデンティティプロバイダ（IdP）に追加できない場合、外部のユーザのためのビルトイン認証を使うことができます。 また、アイデンティティプロバイダが利用できない場合にフォールバックアカウントにアクセスするためにビルトイン認証を使うこともできます。
 
@@ -28,7 +30,7 @@ topics:
 
 {% endwarning %}
 
-### アイデンティティプロバイダ外のユーザのためのビルトイン認証の設定
+## アイデンティティプロバイダ外のユーザのためのビルトイン認証の設定
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -40,7 +42,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### 使用しているアイデンティティプロバイダ外のユーザをインスタンスで認証するために招待する
+## 使用しているアイデンティティプロバイダ外のユーザをインスタンスで認証するために招待する
 
 ユーザが招待を受け付けると、ユーザはIdPを通じてサインインするのではなく、ユーザ名とパスワードを使ってサインインできます。
 
@@ -49,7 +51,7 @@ topics:
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-### 参考リンク
+## 参考リンク
 
 - /enterprise/{{ page.version }}/admin/guides/user-management/using-ldap
 - [SAMLの利用](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)

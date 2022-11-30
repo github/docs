@@ -7,7 +7,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitThis": false,
-    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -15,6 +14,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules"],
   "include": ["*.d.ts", "**/*.ts", "**/*.tsx"]

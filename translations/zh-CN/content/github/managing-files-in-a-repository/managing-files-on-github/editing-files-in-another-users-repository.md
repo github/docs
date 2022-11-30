@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 1. 才其他用户的仓库中，浏览到包含要编辑文件的文件夹。 单击要编辑文件的名称。
 2. 在文件内容上方，单击 {% octicon "pencil" aria-label="The edit icon" %}。 此时，GitHub 会为您复刻仓库。
 3. 对文件做任何需要的更改。 ![文件中的新内容](/assets/images/help/repository/edit-readme-light.png)

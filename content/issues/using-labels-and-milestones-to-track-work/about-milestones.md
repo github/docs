@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-milestones
   - /github/managing-your-work-on-github/about-milestones
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -26,7 +26,7 @@ Additionally, you can edit the milestone from the milestone page and create new 
 
 ![Milestone page](/assets/images/help/issues/milestone-info-page.png)
 
-### Prioritizing issues and pull requests in milestones
+## Prioritizing issues and pull requests in milestones
 
 You can prioritize open issues and pull requests in a milestone by clicking to the left of an issue or pull request's checkbox, dragging it to a new location, and dropping it.
 
@@ -38,7 +38,7 @@ You can prioritize open issues and pull requests in a milestone by clicking to t
 
 ![Reordered milestone](/assets/images/help/issues/milestone-reordered.gif)
 
-### Further reading
+## Further reading
 
 - "[Creating and editing milestones for issues and pull requests](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"
 - "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"

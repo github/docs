@@ -15,11 +15,12 @@ topics:
   - Notifications
   - Accounts
 ---
+
 ### Ein Repository erstellen
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Sie können die unterschiedlichsten Projekte in {% data variables.product.product_name %}-Repositorys speichern, darunter auch Open-Source-Projekte. Mit [Open-Source-Projekten](http://opensource.org/about) kannst Du Code leichter für andere zugänglich machen, um eine bessere, zuverlässigere Software zu entwickeln.
+Sie können die unterschiedlichsten Projekte in {% data variables.product.product_name %}-Repositorys speichern, darunter auch Open-Source-Projekte. Mit [Open-Source-Projekten](http://opensource.org/about) kannst Du Code leichter für andere zugänglich machen, um eine bessere, zuverlässigere Software zu entwickeln. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)."
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
@@ -39,9 +40,7 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% data reusables.repositories.create_new %}
 2. Gib einen kurzen, leicht merkbaren Namen für Dein Repository ein. Beispiel: „hello world“. ![Feld zum Eingeben eines Repository-Namens](/assets/images/help/repository/create-repository-name.png)
-3. Optional kannst Du auch eine Beschreibung des Repositorys hinzufügen. For example, "My first repository on
-{% data variables.product.product_name %}."
-  ![Feld zum Eingeben einer Repository-Beschreibung](/assets/images/help/repository/create-repository-desc.png)
+3. Optional kannst Du auch eine Beschreibung des Repositorys hinzufügen. Beispiel: „Mein erstes Repository auf {% data variables.product.product_name %}“. ![Feld zum Eingeben einer Repository-Beschreibung](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -79,6 +78,7 @@ Glückwünsch! Du hast jetzt ein Repository samt einer *README*-Datei und Deinem
 
 - „[Git einrichten](/articles/set-up-git)“
 - **Ein Repository erstellen**
+- "[Clone a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)"
 - „[Ein Repository forken](/articles/fork-a-repo)“
 - „[Soziale Interaktion](/articles/be-social)“
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

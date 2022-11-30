@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas) para evitar que invasores tenham acesso aos seus repositórios. Você também pode aprovar as chaves SSh que são válidas.
 
 {% mac %}
@@ -30,9 +31,9 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 4. Abra o terminal.
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
-6. Encontre e anote a impressão digital da chave pública. {% if currentVersion ver_lt "enterprise-server@3.0" %}Se você estiver usando OpenSSH 6.7 ou anterior:
+6. Encontre e anote a impressão digital da chave pública. {% if currentVersion ver_lt "enterprise-server@3.0" %}Se você estiver usnado OpenSSH 6.7 ou anterior:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -108,7 +109,7 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 4. Abra o terminal.
 
-5. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 6. Encontre e anote a impressão digital da chave pública. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell

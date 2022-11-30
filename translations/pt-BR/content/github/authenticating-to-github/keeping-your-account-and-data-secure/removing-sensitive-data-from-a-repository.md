@@ -15,6 +15,7 @@ topics:
   - Identity
   - Access management
 ---
+
 O comando `git filter-branch` e o BFG Repo-Cleaner regravam o histórico do repositório, o que altera os SHAs dos commits existentes que você altera e quaisquer commits dependentes. Os SHAs do commit alterados podem afetar as pull requests abertas no repositório. Recomendamos que você faça merge ou feche todas todas as pull requests abertas antes de remover os arquivos do repositório.
 
 Você pode remover o arquivo com o commit mais recente com `git rm`. Para obter mais informações sobre como remover um arquivo que foi adicionado com o commit mais recente, consulte "[Remover arquivos do histórico do repositório](/articles/removing-files-from-a-repository-s-history)".

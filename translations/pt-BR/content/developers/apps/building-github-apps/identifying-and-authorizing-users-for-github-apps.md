@@ -7,27 +7,31 @@ redirect_from:
   - /apps/building-github-apps/identifying-and-authorizing-users-for-github-apps
   - /developers/apps/identifying-and-authorizing-users-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Identificar & autorizar usuários
 ---
+
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 Quando o seu aplicativo GitHub age em nome de um usuário, ele realiza solicitações de usuário para servidor. Essas solicitações devem ser autorizadas com o token de acesso de um usuário. As solicitações de usuário para servidor incluem a solicitação de dados para um usuário, como determinar quais repositórios devem ser exibidos para um determinado usuário. Essas solicitações também incluem ações acionadas por um usuário, como executar uma criação.
 
 {% data reusables.apps.expiring_user_authorization_tokens %}
 
-### Identificando usuários no seu site
+## Identificando usuários no seu site
 
 Para autorizar usuários para aplicativos-padrão executados no navegador, use o [fluxo de aplicativo web](#web-application-flow).
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghae or ghes > 3.0 %}
+
 Para autorizar usuários para aplicativos sem acesso direto ao navegador, como ferramentas de CLI ou gerentes de credenciais do Git, use o [fluxo de dispositivos](#device-flow). O fluxo de dispositivo usa o OAuth 2.0 [Concessão de autorização do dispositivo](https://tools.ietf.org/html/rfc8628).
+
 {% endif %}
 
-### Fluxo do aplicativo web
+## Fluxo do aplicativo web
 
 Ao usar o fluxo de aplicativo web, o processo para identificar usuários no seu site é:
 
@@ -37,21 +41,22 @@ Ao usar o fluxo de aplicativo web, o processo para identificar usuários no seu 
 
 Se você selecionar **Solicitar autorização de usuário (OAuth) durante a instalação** ao criar ou modificar seu aplicativo, a etapa 1 será concluída durante a instalação do aplicativo. Para obter mais informações, consulte "[Autorizando usuários durante a instalação](/apps/installing-github-apps/#authorizing-users-during-installation)".
 
-#### 1. Solicitar identidade do GitHub de um usuário
+### 1. Solicitar identidade do GitHub de um usuário
+Direcione o usuário para a seguinte URL em seu navegador:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
 Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita aos usuários com uma conta específica que podem usar para iniciar sessão e autorizar seu aplicativo.
 
-##### Parâmetros
+#### Parâmetros
 
-| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub. Você pode encontrá-lo em suas [configurações do aplicativo GitHub](https://github.com/settings/apps) quando você selecionar seu aplicativo.                                                                                                                                                                                                                                                 |
-| `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
-| `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                                                                                          |
-| `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                                                                                                |
-| `allow_signup` | `string` | Independentemente de os usuários autenticados ou não atenticados terem a opção de iscrever-se em {% data variables.product.prodname_dotcom %} durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                                                                                       |
+| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                 |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`    | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub. Você pode encontrá-lo em suas [configurações do aplicativo GitHub](https://github.com/settings/apps) quando você selecionar seu aplicativo. **Observação:** O ID do aplicativo e o ID do cliente não são iguais e não são intercambiáveis.                                                                                 |
+| `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
+| `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                         |
+| `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                               |
+| `allow_signup` | `string` | Independentemente de os usuários autenticados ou não atenticados terem a opção de iscrever-se em {% data variables.product.prodname_dotcom %} durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                      |
 
 {% note %}
 
@@ -59,7 +64,7 @@ Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita a
 
 {% endnote %}
 
-#### 2. Os usuários são redirecionados de volta para o seu site pelo GitHub
+### 2. Os usuários são redirecionados de volta para o seu site pelo GitHub
 
 Se o usuário aceitar o seu pedido, O GitHub irá fazer o redirecionamento para seu site com um `código temporário` em um parâmetro de código, bem como o estado que você forneceu na etapa anterior em um parâmetro do `estado`. Se os estados não corresponderem, o pedido foi criado por terceiros e o processo deve ser abortado.
 
@@ -69,47 +74,40 @@ Se o usuário aceitar o seu pedido, O GitHub irá fazer o redirecionamento para 
 
 {% endnote %}
 
-Troque este `código` por um token de acesso. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} Quando os tokens com expiração estão habilitados, o token de acesso expira em 8 horas e o token de atualização expira em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
+Troque este `código` por um token de acesso.  Quando os tokens vencidos estiverem habilitados, token de acesso irá expirar em 8 horas e o token de atualização irá expirar em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
 
-Os tokens de usuário expirados são atualmente um recurso opcional e estão sujeitos a alterações. Para optar por participar do recurso de expiração de token de usuário para servidor, consulte "[Habilitar funcionalidades opcionais para aplicativos](/developers/apps/activating-optional-features-for-apps)."{% endif %}
+Os tokens de usuário expirados são atualmente um recurso opcional e estão sujeitos a alterações. Para optar por participar do recurso de expiração de token de usuário para servidor, consulte "[Habilitar funcionalidades opcionais para aplicativos](/developers/apps/activating-optional-features-for-apps)."
+
+Faça um pedido para o seguinte ponto de extremidade para receber um token de acesso:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-##### Parâmetros
+#### Parâmetros
 
-| Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                                                                             |
-| `client_secret` | `string` | **Obrigatório.** O segredo do cliente do seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                                                                            |
-| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                                                                                                                                                                                                                                                                                                       |
-| `redirect_uri`  | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
-| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                                                                                                                                                                                                                                                                                                              |
+| Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                            |
+| `client_secret` | `string` | **Obrigatório.** O segredo do cliente do seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                           |
+| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                                                                                                                                                                                                                                      |
+| `redirect_uri`  | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
+| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                                                                                                                                                                                                                                             |
 
-##### Resposta
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+#### Resposta
 
 Por padrão, a resposta assume o seguinte formato. Os parâmetros de resposta `expires_in`, `refresh_token`, e `refresh_token_expires_in` só são retornados quando você habilita os token de acesso de usuário para servidor vencidos.
 
 ```json
 {
-  "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "expires_in": 28800,
-  "refresh_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
   "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
 }
 ```
-{% else %}
 
-Por padrão, a resposta assume o seguinte formato:
-
-    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
-
-{% endif %}
-
-#### 3. Seu aplicativo GitHub acessa a API com o token de acesso do usuário
+### 3. Seu aplicativo GitHub acessa a API com o token de acesso do usuário
 
 O token de acesso do usuário permite que o aplicativo GitHub faça solicitações para a API em nome de um usuário.
 
@@ -122,16 +120,15 @@ Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguint
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-### Fluxo de dispositivo
+{% ifversion fpt or ghae or ghes > 3.0 %}
 
-{% if currentVersion ver_lt "enterprise-server@3.1" %}
+## Fluxo de dispositivo
+
 {% note %}
 
 **Nota:** O fluxo do dispositivo está na versão beta pública e sujeito a alterações.
 
 {% endnote %}
-{% endif %}
 
 O fluxo de dispositivos permite que você autorize usuários para um aplicativo sem cabeçalho, como uma ferramenta de CLI ou um gerenciador de credenciais do Git.
 
@@ -139,12 +136,8 @@ Para obter mais informações sobre autorização de usuários que usam o fluxo 
 
 {% endif %}
 
-### Verifique quais recursos de instalação um usuário pode acessar
+## Verifique quais recursos de instalação um usuário pode acessar
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-{% data reusables.pre-release-program.machine-man-preview %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
 
 Depois de ter um token OAuth para um usuário, você pode verificar quais instalações o usuário poderá acessar.
 
@@ -158,11 +151,11 @@ Você também pode verificar quais repositórios são acessíveis a um usuário 
 
 Você pode encontrar mais informações em: [Listar instalações de aplicativos acessíveis para o token de acesso do usuário](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token) e [Listar repositórios acessíveis para o token de acesso do usuário](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token).
 
-### Tratar uma autorização revogada do aplicativo GitHub
+## Tratar uma autorização revogada do aplicativo GitHub
 
 Se um usuário revogar sua autorização de um aplicativo GitHub, o aplicativo receberá o webhook [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) por padrão. Os aplicativos GitHub não podem cancelar a assinatura deste evento. {% data reusables.webhooks.authorization_event %}
 
-### Permissões no nível do usuário
+## Permissões no nível do usuário
 
 Você pode adicionar permissões de nível de usuário ao seu aplicativo GitHub para acessar os recursos de usuários, como, por exemplo, e-mails de usuários, concedidos por usuários individuais como parte do fluxo de autorização do usuário [](#identifying-users-on-your-site). As permissões de nível de usuário diferem das [permissões do repositório do nível de organização](/rest/reference/permissions-required-for-github-apps), que são concedidas no momento da instalação em uma conta de organização ou usuário.
 
@@ -172,14 +165,14 @@ Quando um usuário instala seu aplicativo em sua conta, o prompt de instalação
 
 Como as permissões de nível de usuário são concedidas em uma base de usuário individual, você poderá adicioná-las ao aplicativo existente sem pedir que os usuários façam a atualização. No entanto, você precisa enviar usuários existentes através do fluxo de autorização do usuário para autorizar a nova permissão e obter um novo token de usuário para servidor para essas solicitações.
 
-### Solicitações de usuário para servidor
+## Solicitações de usuário para servidor
 
 Embora a maior parte da interação da sua API deva ocorrer usando os tokens de acesso de servidor para servidor, certos pontos de extremidade permitem que você execute ações por meio da API usando um token de acesso do usuário. Seu aplicativo pode fazer as seguintes solicitações usando pontos de extremidade do [GraphQL v4](/graphql) ou [REST v3](/rest).
 
-#### Pontos de extremidade compatíveis
+### Pontos de extremidade compatíveis
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Executores de ações
+{% ifversion fpt %}
+#### Executores de ações
 
 * [Listar aplicativos executores para um repositório](/rest/reference/actions#list-runner-applications-for-a-repository)
 * [Listar executores auto-hospedados para um repositório](/rest/reference/actions#list-self-hosted-runners-for-a-repository)
@@ -194,7 +187,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Criar um token de registro para uma organização](/rest/reference/actions#create-a-registration-token-for-an-organization)
 * [Criar um token de remoção para uma organização](/rest/reference/actions#create-a-remove-token-for-an-organization)
 
-##### Segredos de ações
+#### Segredos de ações
 
 * [Obter uma chave pública do repositório](/rest/reference/actions#get-a-repository-public-key)
 * [Listar segredos do repositório](/rest/reference/actions#list-repository-secrets)
@@ -212,8 +205,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir o segredo de uma organização](/rest/reference/actions#delete-an-organization-secret)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Artefatos
+{% ifversion fpt %}
+#### Artefatos
 
 * [Listar artefatos para um repositório](/rest/reference/actions#list-artifacts-for-a-repository)
 * [Listar artefatos executados por fluxo de trabalho](/rest/reference/actions#list-workflow-run-artifacts)
@@ -222,7 +215,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Fazer o download de um artefato](/rest/reference/actions#download-an-artifact)
 {% endif %}
 
-##### Execuções de verificação
+#### Execuções de verificação
 
 * [Criar uma verificação de execução](/rest/reference/checks#create-a-check-run)
 * [Obter uma verificação de execução](/rest/reference/checks#get-a-check-run)
@@ -231,7 +224,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar execuções de verificações em um conjunto de verificações](/rest/reference/checks#list-check-runs-in-a-check-suite)
 * [Listar execuções de verificação para uma referência do GIt](/rest/reference/checks#list-check-runs-for-a-git-reference)
 
-##### conjuntos de verificações
+#### conjuntos de verificações
 
 * [Criar um conjunto de verificações](/rest/reference/checks#create-a-check-suite)
 * [Obter um conjunto de verificações](/rest/reference/checks#get-a-check-suite)
@@ -239,71 +232,71 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Atualizar preferências do repositório para conjuntos de verificações](/rest/reference/checks#update-repository-preferences-for-check-suites)
 * [Listar os conjuntos de verificação para uma referência do Git](/rest/reference/checks#list-check-suites-for-a-git-reference)
 
-##### Códigos de conduta
+#### Códigos de conduta
 
 * [Obter todos os códigos de conduta](/rest/reference/codes-of-conduct#get-all-codes-of-conduct)
 * [Obter um código de conduta](/rest/reference/codes-of-conduct#get-a-code-of-conduct)
 
-##### Status da implementação
+#### Status da implementação
 
 * [Listar status de implementação](/rest/reference/repos#list-deployment-statuses)
 * [Criar um status de implementação](/rest/reference/repos#create-a-deployment-status)
 * [Obter um status de implementação](/rest/reference/repos#get-a-deployment-status)
 
-##### Implantações
+#### Implantações
 
 * [Listar implementações](/rest/reference/repos#list-deployments)
 * [Criar uma implementação](/rest/reference/repos#create-a-deployment)
-* [Faça um deploy](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+* [Obter uma implementação](/rest/reference/repos#get-a-deployment){% ifversion fpt or ghes or ghae %}
 * [Excluir um deploy](/rest/reference/repos#delete-a-deployment){% endif %}
 
-##### Eventos
+#### Eventos
 
 * [Listar eventos públicos de uma rede de repositórios](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 * [Listar eventos públicos da organização](/rest/reference/activity#list-public-organization-events)
 
-##### Feeds
+#### Feeds
 
 * [Obter feeds](/rest/reference/activity#get-feeds)
 
-##### Blobs do Git
+#### Blobs do Git
 
 * [Criar um blob](/rest/reference/git#create-a-blob)
 * [Obter um blob](/rest/reference/git#get-a-blob)
 
-##### Commits do Git
+#### Commits do Git
 
 * [Criar um commit](/rest/reference/git#create-a-commit)
 * [Obter um commit](/rest/reference/git#get-a-commit)
 
-##### Refs do Git
+#### Refs do Git
 
 * [Criar uma referência](/rest/reference/git#create-a-reference)* [Obter uma referência](/rest/reference/git#get-a-reference)
 * [Lista de referências correspondentes](/rest/reference/git#list-matching-references)
 * [Atualizar uma referência](/rest/reference/git#update-a-reference)
 * [Excluir uma referência](/rest/reference/git#delete-a-reference)
 
-##### Tags do Git
+#### Tags do Git
 
 * [Criar um objeto de tag](/rest/reference/git#create-a-tag-object)
 * [Obter uma tag](/rest/reference/git#get-a-tag)
 
-##### Árvores do Git
+#### Árvores do Git
 
 * [Criar uma árvore](/rest/reference/git#create-a-tree)
 * [Obter uma árvore](/rest/reference/git#get-a-tree)
 
-##### Modelos do Gitignore
+#### Modelos do Gitignore
 
 * [Obter todos os modelos do gitignore](/rest/reference/gitignore#get-all-gitignore-templates)
 * [Obter um modelo do gitignore](/rest/reference/gitignore#get-a-gitignore-template)
 
-##### Instalações
+#### Instalações
 
 * [Listar repositórios acessíveis ao token de acesso do usuário](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Limites de interação
+{% ifversion fpt %}
+#### Limites de interação
 
 * [Obter restrições de interação para uma organização](/rest/reference/interactions#get-interaction-restrictions-for-an-organization)
 * [Definir restrições de interação para uma organização](/rest/reference/interactions#set-interaction-restrictions-for-an-organization)
@@ -313,12 +306,12 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover restrições de interação para um repositório](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository)
 {% endif %}
 
-##### Responsáveis pelo problema
+#### Responsáveis pelo problema
 
 * [Adicionar responsáveis a um problema](/rest/reference/issues#add-assignees-to-an-issue)
 * [Remover responsáveis de um problema](/rest/reference/issues#remove-assignees-from-an-issue)
 
-##### Comentários do problema
+#### Comentários do problema
 
 * [Listar comentários do problema](/rest/reference/issues#list-issue-comments)
 * [Criar um comentário do problema](/rest/reference/issues#create-an-issue-comment)
@@ -327,15 +320,15 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Atualizar um comentário do problema](/rest/reference/issues#update-an-issue-comment)
 * [Excluir comentário do problema](/rest/reference/issues#delete-an-issue-comment)
 
-##### Eventos do problema
+#### Eventos do problema
 
 * [Listar eventos do problema](/rest/reference/issues#list-issue-events)
 
-##### Linha do tempo do problema
+#### Linha do tempo do problema
 
 * [Listar eventos da linha do tempo para um problema](/rest/reference/issues#list-timeline-events-for-an-issue)
 
-##### Problemas
+#### Problemas
 
 * [Listar problemas atribuídos ao usuário autenticado](/rest/reference/issues#list-issues-assigned-to-the-authenticated-user)
 * [Listar responsáveis](/rest/reference/issues#list-assignees)
@@ -347,15 +340,15 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Bloquear um problema](/rest/reference/issues#lock-an-issue)
 * [Desbloquear um problema](/rest/reference/issues#unlock-an-issue)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Trabalhos
+{% ifversion fpt %}
+#### Trabalhos
 
 * [Obter um trabalho para uma execução de fluxo de trabalho](/rest/reference/actions#get-a-job-for-a-workflow-run)
 * [Fazer o download dos registros de trabalho para execução de um fluxo de trabalho](/rest/reference/actions#download-job-logs-for-a-workflow-run)
 * [Listar tarefas para execução de um fluxo de trabalho](/rest/reference/actions#list-jobs-for-a-workflow-run)
 {% endif %}
 
-##### Etiquetas
+#### Etiquetas
 
 * [Listar etiquetas para um problema](/rest/reference/issues#list-labels-for-an-issue)
 * [Adicionar etiquetas a um problema](/rest/reference/issues#add-labels-to-an-issue)
@@ -369,21 +362,21 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir uma etiqueta](/rest/reference/issues#delete-a-label)
 * [Obter etiquetas para cada problema em um marco](/rest/reference/issues#list-labels-for-issues-in-a-milestone)
 
-##### Licenças
+#### Licenças
 
 * [Obter todas as licenças comumente usadas](/rest/reference/licenses#get-all-commonly-used-licenses)
 * [Obtenha uma licença](/rest/reference/licenses#get-a-license)
 
-##### markdown
+#### markdown
 
 * [Renderizar um documento markdown](/rest/reference/markdown#render-a-markdown-document)
 * [Renderizar um documento markdown no modo bruto](/rest/reference/markdown#render-a-markdown-document-in-raw-mode)
 
-##### Meta
+#### Meta
 
 * [Meta](/rest/reference/meta#meta)
 
-##### Marcos
+#### Marcos
 
 * [Listar marcos](/rest/reference/issues#list-milestones)
 * [Criar um marco](/rest/reference/issues#create-a-milestone)
@@ -391,7 +384,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Atualizar um marco](/rest/reference/issues#update-a-milestone)
 * [Excluir um marco](/rest/reference/issues#delete-a-milestone)
 
-##### Hooks da organização
+#### Hooks da organização
 
 * [Listar webhooks da organização](/rest/reference/orgs#webhooks/#list-organization-webhooks)
 * [Criar um webhook da organização](/rest/reference/orgs#webhooks/#create-an-organization-webhook)
@@ -400,15 +393,15 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir um webhook da organização](/rest/reference/orgs#webhooks/#delete-an-organization-webhook)
 * [Consultar um webhook da organização](/rest/reference/orgs#webhooks/#ping-an-organization-webhook)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Convites da organização
+{% ifversion fpt %}
+#### Convites da organização
 
 * [Listar convites pendentes para organizações](/rest/reference/orgs#list-pending-organization-invitations)
 * [Criar um convite de organização](/rest/reference/orgs#create-an-organization-invitation)
 * [Listar equipes de convite da organização](/rest/reference/orgs#list-organization-invitation-teams)
 {% endif %}
 
-##### Integrantes da organização
+#### Integrantes da organização
 
 * [Listar integrantes da organização](/rest/reference/orgs#list-organization-members)
 * [Verificar associação da organização para um usuário](/rest/reference/orgs#check-organization-membership-for-a-user)
@@ -421,14 +414,14 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Definir associação à organização pública para o usuário autenticado](/rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user)
 * [Remover associação à organização pública para o usuário autenticado](/rest/reference/orgs#remove-public-organization-membership-for-the-authenticated-user)
 
-##### Colaboradores externos da organização
+#### Colaboradores externos da organização
 
 * [Listar colaboradores externos para uma organização](/rest/reference/orgs#list-outside-collaborators-for-an-organization)
 * [Converter um integrante da organização em colaborador externo](/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator)
 * [Remover colaboradores externos de uma organização](/rest/reference/orgs#remove-outside-collaborator-from-an-organization)
 
-{% if enterpriseServerVersions contains currentVersion %}
-##### Hooks pre-receive da organização
+{% ifversion ghes %}
+#### Hooks pre-receive da organização
 
 * [Listar hooks pre-receive para uma organização](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
 * [Obter um hook pre-receive para uma organização](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization)
@@ -436,8 +429,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover a aplicação do hook pre-receive para uma organização](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-##### Projetos da aquipe da organização
+{% ifversion fpt or ghes or ghae %}
+#### Projetos da aquipe da organização
 
 * [Listar projetos da equipe](/rest/reference/teams#list-team-projects)
 * [Verificar permissões da equipe para um projeto](/rest/reference/teams#check-team-permissions-for-a-project)
@@ -445,32 +438,29 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover um projeto de uma equipe](/rest/reference/teams#remove-a-project-from-a-team)
 {% endif %}
 
-##### Repositórios da equipe da organização
+#### Repositórios da equipe da organização
 
 * [Listar repositórios da equipe](/rest/reference/teams#list-team-repositories)
 * [Verificar permissões da equipe para um repositório](/rest/reference/teams#check-team-permissions-for-a-repository)
 * [Adicionar ou atualizar as permissões do repositório da equipe](/rest/reference/teams#add-or-update-team-repository-permissions)
 * [Remover um repositório de uma equipe](/rest/reference/teams#remove-a-repository-from-a-team)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Sincronizar equipe da organização
+{% ifversion fpt %}
+#### Sincronizar equipe da organização
 
 * [Listar grupos de idp para uma equipe](/rest/reference/teams#list-idp-groups-for-a-team)
 * [Criar ou atualizar conexões do grupo de idp](/rest/reference/teams#create-or-update-idp-group-connections)
 * [Listar grupos de IdP para uma organização](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 
-##### Equipes da organização
+#### Equipes da organização
 
 * [Listar equipes](/rest/reference/teams#list-teams)
 * [Criar uma equipe](/rest/reference/teams#create-a-team)
 * [Obter uma equipe por nome](/rest/reference/teams#get-a-team-by-name)
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-* [Obter uma equipe](/rest/reference/teams#get-a-team)
-{% endif %}
 * [Atualizar uma equipe](/rest/reference/teams#update-a-team)
 * [Excluir uma equipe](/rest/reference/teams#delete-a-team)
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 * [Listar convites pendentes da equipe](/rest/reference/teams#list-pending-team-invitations)
 {% endif %}
 * [Listar integrantes da equipe](/rest/reference/teams#list-team-members)
@@ -480,7 +470,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar equipes secundárias](/rest/reference/teams#list-child-teams)
 * [Listar equipes para o usuário autenticado](/rest/reference/teams#list-teams-for-the-authenticated-user)
 
-##### Organizações
+#### Organizações
 
 * [Listar organizações](/rest/reference/orgs#list-organizations)
 * [Obter uma organização](/rest/reference/orgs#get-an-organization)
@@ -491,15 +481,15 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar organizações para o usuário autenticado](/rest/reference/orgs#list-organizations-for-the-authenticated-user)
 * [Listar organizações para um usuário](/rest/reference/orgs#list-organizations-for-a-user)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Autorizações de credencial das organizações
+{% ifversion fpt %}
+#### Autorizações de credencial das organizações
 
 * [Listar autorizações do SAML SSO para uma organização](/rest/reference/orgs#list-saml-sso-authorizations-for-an-organization)
 * [Remover uma autorização do SAML SSO para uma organização](/rest/reference/orgs#remove-a-saml-sso-authorization-for-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Scim das organizações
+{% ifversion fpt %}
+#### Scim das organizações
 
 * [Listar identidades provisionadas de SCIM](/rest/reference/scim#list-scim-provisioned-identities)
 * [Provisionamento e convite para um usuário de SCIM](/rest/reference/scim#provision-and-invite-a-scim-user)
@@ -509,8 +499,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir um usuário de SCIM de uma organização](/rest/reference/scim#delete-a-scim-user-from-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Importação de fonte
+{% ifversion fpt %}
+#### Importação de fonte
 
 * [Obter um status de importação](/rest/reference/migrations#get-an-import-status)
 * [Iniciar importação](/rest/reference/migrations#start-an-import)
@@ -522,14 +512,14 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Atualizar preferência de LFS do Git](/rest/reference/migrations#update-git-lfs-preference)
 {% endif %}
 
-##### Colaboradores do projeto
+#### Colaboradores do projeto
 
 * [Listar colaboradores do projeto](/rest/reference/projects#list-project-collaborators)
 * [Adicionar colaborador do projeto](/rest/reference/projects#add-project-collaborator)
 * [Remover colaborador do projeto](/rest/reference/projects#remove-project-collaborator)
 * [Obter permissão de projeto para um usuário](/rest/reference/projects#get-project-permission-for-a-user)
 
-##### Projetos
+#### Projetos
 
 * [Listar projetos da organização](/rest/reference/projects#list-organization-projects)
 * [Criar um projeto da organização](/rest/reference/projects#create-an-organization-project)
@@ -551,7 +541,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar projetos do repositório](/rest/reference/projects#list-repository-projects)
 * [Criar um projeto do repositório](/rest/reference/projects#create-a-repository-project)
 
-##### Commentários pull
+#### Commentários pull
 
 * [Listar comentários de revisão em um pull request](/rest/reference/pulls#list-review-comments-on-a-pull-request)
 * [Criar um comentário de revisão para um pull request](/rest/reference/pulls#create-a-review-comment-for-a-pull-request)
@@ -560,18 +550,18 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Atualizar um comentário de revisão para um pull request](/rest/reference/pulls#update-a-review-comment-for-a-pull-request)
 * [Excluir um comentário de revisão para um pull request](/rest/reference/pulls#delete-a-review-comment-for-a-pull-request)
 
-##### Eventos de revisão de pull request
+#### Eventos de revisão de pull request
 
 * [Ignorar uma revisão para um pull request](/rest/reference/pulls#dismiss-a-review-for-a-pull-request)
 * [Enviar uma revisão para um pull request](/rest/reference/pulls#submit-a-review-for-a-pull-request)
 
-##### Solicitações de revisão de pull request
+#### Solicitações de revisão de pull request
 
 * [Listar revisores solicitados para um pull request](/rest/reference/pulls#list-requested-reviewers-for-a-pull-request)
 * [Solicitar revisores para um pull request](/rest/reference/pulls#request-reviewers-for-a-pull-request)
 * [Remover revisores solicitados de um pull request](/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request)
 
-##### Revisões de pull request
+#### Revisões de pull request
 
 * [Listar comentários para um pull request](/rest/reference/pulls#list-reviews-for-a-pull-request)
 * [Criar uma revisão para um pull request](/rest/reference/pulls#create-a-review-for-a-pull-request)
@@ -579,7 +569,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Atualizar uma revisão para um pull request](/rest/reference/pulls#update-a-review-for-a-pull-request)
 * [Listar comentários para uma revisão de pull request](/rest/reference/pulls#list-comments-for-a-pull-request-review)
 
-##### Pulls
+#### Pulls
 
 * [Listar pull requests](/rest/reference/pulls#list-pull-requests)
 * [Criar um pull request](/rest/reference/pulls#create-a-pull-request)
@@ -590,9 +580,9 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Verifiarse um pull request foi mesclado](/rest/reference/pulls#check-if-a-pull-request-has-been-merged)
 * [Mesclar um pull request (Botão de mesclar)](/rest/reference/pulls#merge-a-pull-request)
 
-##### Reações
+#### Reações
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction){% endif %}
+{% ifversion fpt or ghes or ghae %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction){% endif %}
 * [Listar reações para um comentário de commit](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Criar reação para um comentário de commit](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar reações para um problema](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -604,7 +594,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar reações para um comentário de discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Criar reação para um comentário de discussão em equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar reações para uma discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Crie uma reação para discussão de equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+* [Criar reação para uma discussão de equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae %}
 * [Excluir uma reação de comentário de commit](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Excluir uma reação do problema](/rest/reference/reactions#delete-an-issue-reaction)
 * [Excluir uma reação a um comentário do commit](/rest/reference/reactions#delete-an-issue-comment-reaction)
@@ -612,7 +602,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir reação para discussão em equipe](/rest/reference/reactions#delete-team-discussion-reaction)
 * [Excluir reação de comentário para discussão de equipe](/rest/reference/reactions#delete-team-discussion-comment-reaction){% endif %}
 
-##### Repositórios
+#### Repositórios
 
 * [Listar repositórios da organização](/rest/reference/repos#list-organization-repositories)
 * [Criar um repositório para o usuário autenticado](/rest/reference/repos#create-a-repository-for-the-authenticated-user)
@@ -632,7 +622,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar repositórios para um usuário](/rest/reference/repos#list-repositories-for-a-user)
 * [Criar repositório usando um modelo de repositório](/rest/reference/repos#create-repository-using-a-repository-template)
 
-##### Atividade do repositório
+#### Atividade do repositório
 
 * [Listar observadores](/rest/reference/activity#list-stargazers)
 * [Listar inspetores](/rest/reference/activity#list-watchers)
@@ -642,14 +632,14 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Desmarque um repositório como favorito para o usuário autenticado](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
 * [Listar repositórios inspecionados por um usuário](/rest/reference/activity#list-repositories-watched-by-a-user)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Correções de segurança automatizadas no repositório
+{% ifversion fpt %}
+#### Correções de segurança automatizadas no repositório
 
 * [Habilitar as correções de segurança automatizadas](/rest/reference/repos#enable-automated-security-fixes)
 * [Desabilitar as correções de segurança automatizadas](/rest/reference/repos#disable-automated-security-fixes)
 {% endif %}
 
-##### Branches do repositório
+#### Branches do repositório
 
 * [Listar branches](/rest/reference/repos#list-branches)
 * [Obter um branch](/rest/reference/repos#get-a-branch)
@@ -684,7 +674,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover restrições de acesso do usuário](/rest/reference/repos#remove-user-access-restrictions)
 * [Mesclar um branch](/rest/reference/repos#merge-a-branch)
 
-##### Colaboradores do repositório
+#### Colaboradores do repositório
 
 * [Listar colaboradores do repositório](/rest/reference/repos#list-repository-collaborators)
 * [Verifique se um usuário é colaborador de um repositório](/rest/reference/repos#check-if-a-user-is-a-repository-collaborator)
@@ -692,7 +682,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover um colaborador de repositório](/rest/reference/repos#remove-a-repository-collaborator)
 * [Obter permissões de repositório para um usuário](/rest/reference/repos#get-repository-permissions-for-a-user)
 
-##### Comentários do commit do repositório
+#### Comentários do commit do repositório
 
 * [Listar comentários de commit para um repositório](/rest/reference/repos#list-commit-comments-for-a-repository)
 * [Obter um comentário de commit](/rest/reference/repos#get-a-commit-comment)
@@ -701,21 +691,21 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar comentários de commit](/rest/reference/repos#list-commit-comments)
 * [Criar um comentário de commit](/rest/reference/repos#create-a-commit-comment)
 
-##### Commits do repositório
+#### Commits do repositório
 
 * [Listar commits](/rest/reference/repos#list-commits)
 * [Obter um commit](/rest/reference/repos#get-a-commit)
 * [Listar branches para o commit principal](/rest/reference/repos#list-branches-for-head-commit)
 * [Listar pull requests associados ao commit](/rest/reference/repos#list-pull-requests-associated-with-commit)
 
-##### Comunidade do repositório
+#### Comunidade do repositório
 
 * [Obter o código de conduta para um repositório](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 * [Obter métricas do perfil da comunidade](/rest/reference/repos#get-community-profile-metrics)
 {% endif %}
 
-##### Conteúdo do repositório
+#### Conteúdo do repositório
 
 * [Fazer o download de um arquivo do repositório](/rest/reference/repos#download-a-repository-archive)
 * [Obter conteúdo de repositório](/rest/reference/repos#get-repository-content)
@@ -724,13 +714,13 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter um README do repositório](/rest/reference/repos#get-a-repository-readme)
 * [Obter a licença para um repositório](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-##### Envio de eventos do repositório
+{% ifversion fpt or ghes or ghae %}
+#### Envio de eventos do repositório
 
 * [Criar um evento de envio de repositório](/rest/reference/repos#create-a-repository-dispatch-event)
 {% endif %}
 
-##### Hooks do repositório
+#### Hooks do repositório
 
 * [Listar webhooks de repositório](/rest/reference/repos#list-repository-webhooks)
 * [Criar um webhook do repositório](/rest/reference/repos#create-a-repository-webhook)
@@ -740,7 +730,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Fazer ping no webhook de um repositório](/rest/reference/repos#ping-a-repository-webhook)
 * [Testar o webhook do repositório de push](/rest/reference/repos#test-the-push-repository-webhook)
 
-##### Convites do repositório
+#### Convites do repositório
 
 * [Listar convites para repositórios](/rest/reference/repos#list-repository-invitations)
 * [Atualizar um convite para um repositório](/rest/reference/repos#update-a-repository-invitation)
@@ -749,14 +739,14 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Aceitar um convite de repositório](/rest/reference/repos#accept-a-repository-invitation)
 * [Recusar um convite de repositório](/rest/reference/repos#decline-a-repository-invitation)
 
-##### Chaves de repositório
+#### Chaves de repositório
 
 * [Listar chaves de implantação](/rest/reference/repos#list-deploy-keys)
 * [Criar uma chave de implantação](/rest/reference/repos#create-a-deploy-key)
 * [Obter uma chave de implantação](/rest/reference/repos#get-a-deploy-key)
 * [Excluir uma chave de implantação](/rest/reference/repos#delete-a-deploy-key)
 
-##### Páginas do repositório
+#### Páginas do repositório
 
 * [Obter um site do GitHub Pages](/rest/reference/repos#get-a-github-pages-site)
 * [Criar um site do GitHub Pages](/rest/reference/repos#create-a-github-pages-site)
@@ -767,8 +757,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter uma criação do GitHub Pages](/rest/reference/repos#get-github-pages-build)
 * [Obter a última criação de páginas](/rest/reference/repos#get-latest-pages-build)
 
-{% if enterpriseServerVersions contains currentVersion %}
-##### Hooks pre-receive do repositório
+{% ifversion ghes %}
+#### Hooks pre-receive do repositório
 
 * [Listar hooks pre-receive para um repositório](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)
 * [Obter um hook pre-receive para um repositório](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-a-repository)
@@ -776,7 +766,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover a aplicação de um hook pre-receive para um repositório](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository)
 {% endif %}
 
-##### Versões do repositório
+#### Versões do repositório
 
 * [Listar versões](/rest/reference/repos/#list-releases)
 * [Criar uma versão](/rest/reference/repos/#create-a-release)
@@ -790,7 +780,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter a atualização mais recente](/rest/reference/repos/#get-the-latest-release)
 * [Obter uma versão pelo nome da tag](/rest/reference/repos/#get-a-release-by-tag-name)
 
-##### Estatísticas do repositório
+#### Estatísticas do repositório
 
 * [Obter a atividade semanal do commit](/rest/reference/repos#get-the-weekly-commit-activity)
 * [Obter o último ano da atividade de commit](/rest/reference/repos#get-the-last-year-of-commit-activity)
@@ -798,20 +788,20 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter a contagem semanal do commit](/rest/reference/repos#get-the-weekly-commit-count)
 * [Obter a contagem do commit por hora para cada dia](/rest/reference/repos#get-the-hourly-commit-count-for-each-day)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Alertas de vulnerabilidade de repositório
+{% ifversion fpt %}
+#### Alertas de vulnerabilidade de repositório
 
 * [Habilitar alertas de vulnerabilidade](/rest/reference/repos#enable-vulnerability-alerts)
 * [Desabilitar alertas de vulnerabilidade](/rest/reference/repos#disable-vulnerability-alerts)
 {% endif %}
 
-##### Raiz
+#### Raiz
 
 * [Ponto de extremidade raiz](/rest#root-endpoint)
 * [Emojis](/rest/reference/emojis#emojis)
 * [Obter status do limite de taxa para o usuário autenticado](/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user)
 
-##### Pesquisar
+#### Pesquisar
 
 * [Buscar código](/rest/reference/search#search-code)
 * [Pesquisar commits](/rest/reference/search#search-commits)
@@ -820,13 +810,13 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Pesquisar tópicos](/rest/reference/search#search-topics)
 * [Pesquisar usuários](/rest/reference/search#search-users)
 
-##### Status
+#### Status
 
 * [Obter o status combinado para uma referência específica](/rest/reference/repos#get-the-combined-status-for-a-specific-reference)
 * [Listar status de commit para uma referência](/rest/reference/repos#list-commit-statuses-for-a-reference)
 * [Criar um status de commit](/rest/reference/repos#create-a-commit-status)
 
-##### Discussões de equipe
+#### Discussões de equipe
 
 * [Listar discussões](/rest/reference/teams#list-discussions)
 * [Criar discussão](/rest/reference/teams#create-a-discussion)
@@ -839,13 +829,13 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Atualizar um comentário da discussão](/rest/reference/teams#update-a-discussion-comment)
 * [Excluir um comentário da discussão](/rest/reference/teams#delete-a-discussion-comment)
 
-##### Tópicos
+#### Tópicos
 
 * [Obter todos os tópicos do repositório](/rest/reference/repos#get-all-repository-topics)
 * [Substituir todos os tópicos do repositório](/rest/reference/repos#replace-all-repository-topics)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Tráfego
+{% ifversion fpt %}
+#### Tráfego
 
 * [Obter clones do repositório](/rest/reference/repos#get-repository-clones)
 * [Obter caminhos de referência superior](/rest/reference/repos#get-top-referral-paths)
@@ -853,8 +843,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter visualizações de páginas](/rest/reference/repos#get-page-views)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Bloquear usuário
+{% ifversion fpt %}
+#### Bloquear usuário
 
 * [Listar usuários bloqueados pelo usuário autenticado](/rest/reference/users#list-users-blocked-by-the-authenticated-user)
 * [Verificar se um usuário está bloqueado pelo usuário autenticado](/rest/reference/users#check-if-a-user-is-blocked-by-the-authenticated-user)
@@ -866,10 +856,10 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Desbloquear usuário](/rest/reference/users#unblock-a-user)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-##### Emails do usuário
+{% ifversion fpt or ghes %}
+#### Emails do usuário
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 * [Configurar visibilidade do e-mail principal para o usuário autenticado](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user)
 {% endif %}
 * [Listar endereços de e-mail para o usuário autenticado](/rest/reference/users#list-email-addresses-for-the-authenticated-user)
@@ -878,7 +868,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar endereços de e-mail públicos para o usuário autenticado](/rest/reference/users#list-public-email-addresses-for-the-authenticated-user)
 {% endif %}
 
-##### Seguidores do usuário
+#### Seguidores do usuário
 
 * [Listar seguidores de um usuário](/rest/reference/users#list-followers-of-a-user)
 * [Listar as pessoas que um usuário segue](/rest/reference/users#list-the-people-a-user-follows)
@@ -887,7 +877,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Deixar de seguir um usuário](/rest/reference/users#unfollow-a-user)
 * [Verificar se um usuário segue outro usuário](/rest/reference/users#check-if-a-user-follows-another-user)
 
-##### Chaves Gpg do usuário
+#### Chaves Gpg do usuário
 
 * [Listar chaves GPG para o usuário autenticado](/rest/reference/users#list-gpg-keys-for-the-authenticated-user)
 * [Criar uma chave GPG para o usuário autenticado](/rest/reference/users#create-a-gpg-key-for-the-authenticated-user)
@@ -895,7 +885,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir uma chave GPG para o usuário autenticado](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user)
 * [Listar chaves gpg para um usuário](/rest/reference/users#list-gpg-keys-for-a-user)
 
-##### Chaves públicas do usuário
+#### Chaves públicas do usuário
 
 * [Listar chaves SSH públicas para o usuário autenticado](/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user)
 * [Criar uma chave SSH pública para o usuário autenticado](/rest/reference/users#create-a-public-ssh-key-for-the-authenticated-user)
@@ -903,18 +893,18 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir uma chave SSH pública para o usuário autenticado](/rest/reference/users#delete-a-public-ssh-key-for-the-authenticated-user)
 * [Listar chaves públicas para um usuário](/rest/reference/users#list-public-keys-for-a-user)
 
-##### Usuários
+#### Usuários
 
 * [Obter o usuário autenticado](/rest/reference/users#get-the-authenticated-user)
 * [Listar instalações de aplicativos acessíveis ao token de acesso do usuário](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 * [Listar assinaturas para o usuário autenticado](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 {% endif %}
 * [Listar usuários](/rest/reference/users#list-users)
 * [Obter um usuário](/rest/reference/users#get-a-user)
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Execuções do fluxo de trabalho
+{% ifversion fpt %}
+#### Execuções do fluxo de trabalho
 
 * [Listar execuções do fluxo de trabalho para um repositório](/rest/reference/actions#list-workflow-runs-for-a-repository)
 * [Obter execução de um fluxo de trabalho](/rest/reference/actions#get-a-workflow-run)
@@ -926,17 +916,17 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter uso da execução do fluxo de trabalho](/rest/reference/actions#get-workflow-run-usage)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-##### Fluxos de trabalho
+{% ifversion fpt %}
+#### Fluxos de trabalho
 
 * [Listar fluxos de trabalho do repositório](/rest/reference/actions#list-repository-workflows)
 * [Obter um fluxo de trabalho](/rest/reference/actions#get-a-workflow)
 * [Obter uso do workflow](/rest/reference/actions#get-workflow-usage)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre a autenticação em {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 

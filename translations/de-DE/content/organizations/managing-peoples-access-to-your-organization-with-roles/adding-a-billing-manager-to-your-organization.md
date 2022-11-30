@@ -5,11 +5,12 @@ redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
   - Billing
+shortTitle: Add a billing manager
 ---
 
 Mitglieder vom Team des Inhabers Deiner Organisation können anderen Benutzern *Abrechnungsmanager*-Berechtigungen zuweisen. Wenn ein Benutzer die Einladung, Abrechnungsmanager zu werden, annimmt, kann er weitere Benutzer einladen, Abrechnungsmanager zu werden.
@@ -20,7 +21,7 @@ Mitglieder vom Team des Inhabers Deiner Organisation können anderen Benutzern *
 
 {% endnote %}
 
-### Berechtigungen für Abrechnungsmanager
+## Berechtigungen für Abrechnungsmanager
 
 Abrechnungsmanager können
 
@@ -29,6 +30,7 @@ Abrechnungsmanager können
 - Den Zahlungsverlauf anzeigen,
 - Quittungen herunterladen,
 - Abrechnungsmanager anzeigen, einladen und entfernen.
+- Start, modify, or cancel sponsorships
 
 Zusätzlich erhalten alle Abrechnungsmanager am Abrechnungsdatum der Organisation per E-Mail Abrechnungsquittungen.
 
@@ -45,12 +47,16 @@ Abrechnungsmanager können **nicht**
 
 {% endtip %}
 
-### Abrechnungsmanager einladen
+## Abrechnungsmanager einladen
+
+{% note %}
+
+**Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level.
+
+{% endnote %}
 
 Der eingeladene Benutzer erhält eine Einladungs-E-Mail, in der er darum gebeten wird, Abrechnungsmanager für Deine Organisation zu werden. Wenn der eingeladene Benutzer in der E-Mail auf den Link zum Annehmen der Einladung klickt, wird er automatisch als Abrechnungsmanager zur Organisation hinzugefügt. Wenn er noch kein GitHub-Konto besitzt, wird er auf eine Seite umgeleitet, auf der er ein Konto erstellen kann. Nach der Erstellung des Kontos wird er automatisch als Abrechnungsmanager zur Organisation hinzugefügt.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 1. Under "Billing management", next to "Billing managers", click **Add**. ![Abrechnungsmanager einladen](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Gib den Benutzernamen oder die E-Mail-Adresse des Benutzers ein, den Du hinzufügen möchtest, und klicke auf **Send invitation** (Einladung versenden). ![Seite zum Einladen eines Abrechnungsmanagers](/assets/images/help/billing/billing_manager_invite.png)

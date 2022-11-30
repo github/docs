@@ -8,11 +8,17 @@ redirect_from:
   - /github/administering-a-repository/about-dependabot-version-updates
   - /code-security/supply-chain-security/about-dependabot-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: overview
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
+shortTitle: Dependabot version updates
 ---
-### About {% data variables.product.prodname_dependabot_version_updates %}
+## About {% data variables.product.prodname_dependabot_version_updates %}
 
 {% data variables.product.prodname_dependabot %} takes the effort out of maintaining your dependencies. You can use it to ensure that your repository automatically keeps up with the latest releases of the packages and applications it depends on.
 
@@ -26,7 +32,7 @@ If you enable security updates, {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.dependabot-tos %}
 
-### Frequency of {% data variables.product.prodname_dependabot %} pull requests
+## Frequency of {% data variables.product.prodname_dependabot %} pull requests
 
 You specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
 
@@ -34,7 +40,7 @@ You specify how often to check each ecosystem for new versions in the configurat
 
 If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
 
-### Supported repositories and ecosystems
+## Supported repositories and ecosystems
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported repositories or ecosystems. -->
 
 You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)."
@@ -51,6 +57,6 @@ You can configure version updates for repositories that contain a dependency man
 
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. For more information, see "[About integrations](/github/customizing-your-github-workflow/about-integrations)."
 
-### About notifications for {% data variables.product.prodname_dependabot %} version updates
+## About notifications for {% data variables.product.prodname_dependabot %} version updates
 
 You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} version updates. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."

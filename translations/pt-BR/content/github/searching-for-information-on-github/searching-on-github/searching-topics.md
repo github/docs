@@ -5,24 +5,25 @@ redirect_from:
   - /articles/searching-topics
   - /github/searching-for-information-on-github/searching-topics
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
-### Pesquisar tópicos no {% data variables.product.product_name %}
+
+## Pesquisar tópicos no {% data variables.product.product_name %}
 
 Você pode pesquisar tópicos no {% data variables.product.product_name %}, explorar tópicos relacionados e ver quantos repositórios estão associados a um tópico específico.
 
 1. Navegue até https://github.com/search.
 2. Insira uma palavra-chave de tópico. ![campo de pesquisa](/assets/images/help/search/search-field.png)
 3. Na barra lateral esquerda, para limitar a pesquisa aos tópicos, clique em **Topics** (Tópicos).
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
   ![Página de resultados da pequisa do repositório Jekyll com opção de tópico do menu lateral em destaque](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
 ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
 
-### Limitar a pesquisa com qualificadores de pesquisa
+## Limitar a pesquisa com qualificadores de pesquisa
 
 Se quiser explorar repositórios sobre um tópico específico, encontrar projetos para contribuição ou saber quais são os tópicos mais populares no {% data variables.product.product_name %}, pesquise tópicos com os qualificadores de pesquisa `is:featured`, `is:curated`, `repositories:n` e `created:YYYY-MM-DD`.
 
@@ -45,9 +46,9 @@ Você pode filtrar os tópicos com base na data de criação usando parâmetro d
 | `repositories:n`          | [**repositories:&gt;5000**](https://github.com/search?q=repositories%3A%3E5000) identifica os tópicos com mais de 5.000 repositórios.                                                                                                  |
 | <code>created:<em>YYYY-MM-DD</em></code> | [**Serverless created:&gt;2019-01-01**](https://github.com/search?q=Serverless+created%3A%3E2019-01-01&type=Topics) identifica os tópicos com a palavra "serverless" que foram criados depois de 2018.                                 |
 
-### Pesquisar repositórios por tópico
+## Pesquisar repositórios por tópico
 
 Você pode usar o qualificador `topic:` para encontrar os repositórios conectados a um tópico específico. Para obter mais informações, consulte "[Pesquisar repositórios](/articles/searching-for-repositories/#search-by-topic)".
 
-### Leia mais
+## Leia mais
 - "[Classificar seu repositório com tópicos](/articles/classifying-your-repository-with-topics)"

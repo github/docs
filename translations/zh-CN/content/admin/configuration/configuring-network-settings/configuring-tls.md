@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -17,7 +17,8 @@ topics:
   - Networking
   - Security
 ---
-### 关于传输层安全
+
+## 关于传输层安全
 
 当 {% data variables.product.prodname_ghe_server %} 首次启动时，会启用 TLS（替代了 SSL）并通过自签名证书进行配置。 由于自签名证书不受 Web 浏览器和 Git 客户端的信任，因此这些客户端将报告证书警告，直至您禁用 TLS 或上传由 Let's Encrypt 等可信颁发机构签名的证书。
 
@@ -27,7 +28,7 @@ topics:
 
 要允许用户使用 FIDO U2F 进行双重身份验证，您必须为实例启用 TLS。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
 
-### 基本要求
+## 基本要求
 
 要在生产中使用 TLS，您必须具有由可信证书颁发机构签名的未加密 PEM 格式的证书。
 
@@ -35,7 +36,7 @@ topics:
 
 您可以使用 `ghe-ssl-generate-csr` 命令为实例生成证书签名请求 (CSR)。 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)”。
 
-### 上传自定义 TLS 证书
+## 上传自定义 TLS 证书
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -52,7 +53,7 @@ topics:
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-### 关于 Let's Encrypt 支持
+## 关于 Let's Encrypt 支持
 
 Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏览器信任的免费、自动化 TLS 证书。 您可以在设备上自动获取并续订 Let's Encrypt 证书，无需手动维护。
 
@@ -62,7 +63,7 @@ Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏
 
 您还可以在 {% data variables.product.product_location %} 上使用 `ghe-ssl-acme` 命令行实用程序自动生成 Let's Encrypt 证书。 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)”。
 
-### 使用 Let's Encrypt 配置 TLS
+## 使用 Let's Encrypt 配置 TLS
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
@@ -74,4 +75,5 @@ Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏
 {% data reusables.enterprise_management_console.save-settings %}
 {% data reusables.enterprise_management_console.privacy %}
 7. 单击 **Request TLS certificate**。 ![Request TLS Certificate 按钮](/assets/images/enterprise/management-console/request-tls-button.png)
-8. 单击 **Save configuration**。
+8. Wait for the "Status" to change from "STARTED" to "DONE". ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+9. 单击 **Save configuration**。

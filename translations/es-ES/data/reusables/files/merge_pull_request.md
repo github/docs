@@ -1,0 +1,1 @@
+1. Haz clic en **Fusionar solicitud de cambios**. Para obtener más información, consulta "[Fusionar una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)".

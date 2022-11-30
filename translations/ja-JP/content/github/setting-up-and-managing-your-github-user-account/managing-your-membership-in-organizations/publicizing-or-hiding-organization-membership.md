@@ -12,12 +12,13 @@ versions:
 topics:
   - Accounts
 ---
+
 ![[Profile organizations] ボックス](/assets/images/help/profile/profile_orgs_box.png)
 
 ### Organization のメンバーシップの可視性を変更する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. メンバーのリストで自分のユーザ名を探します。 リストが大きい場合は、検索ボックスでユーザ名を検索できます。 ![[Organization member search] ボックス](/assets/images/help/organizations/member-search-box.png)
 5. ユーザ名の右にあるメニューで、新しい可視性オプションを選択します:

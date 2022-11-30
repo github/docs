@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -15,11 +15,12 @@ topics:
   - Monitoring
   - Performance
 ---
+
 O SNMP é um padrão comum para monitorar dispositivos em uma rede. É altamente recomendável ativar o SNMP para monitorar a integridade da {% data variables.product.product_location %} e saber quando adicionar mais memória, armazenamento ou potência do processador à máquina host.
 
 O {% data variables.product.prodname_enterprise %} tem uma instalação SNMP padrão que permite aproveitar [vários plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) disponíveis para Nagios ou qualquer outro sistema de monitoramento.
 
-### Configurar SMTP v2c
+## Configurar SMTP v2c
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -36,14 +37,14 @@ O {% data variables.product.prodname_enterprise %} tem uma instalação SNMP pad
 
 Isso deve retornar o horário do sistema no host do {% data variables.product.product_location %}.
 
-### Segurança baseada no usuário
+## Segurança baseada no usuário
 
 Se habilitar o SNMP v3, você poderá aproveitar o aumento da segurança baseada no usuário por meio do User Security Model (USM). É possível especificar um nível de segurança para cada usuário:
 - `noAuthNoPriv`: este nível de segurança não oferece autenticação nem privacidade.
 - `authNoPriv`: este nível de segurança oferece autenticação, mas não privacidade. Para consultar o appliance, você precisará de nome de usuário e senha (com pelo menos oito caracteres). As informações são enviadas sem criptografia, de modo semelhante ao SNMPv2. O protocolo de autenticação pode ser MD5 ou SHA, e o padrão é SHA.
 - `authPriv`: este nível de segurança oferece autenticação e privacidade. A autenticação (com senha de no mínimo oito caracteres) é necessária, e as respostas são criptografadas. Não é necessário usar uma senha de privacidade, mas, se houver, ela deve ter no mínimo oito caracteres. Se não houver senha de privacidade, a senha de autenticação será usada. O protocolo de privacidade pode ser DES ou AES, e o padrão é AES.
 
-### Configurar usuários para o SNMP v3
+## Configurar usuários para o SNMP v3
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -63,7 +64,7 @@ Se habilitar o SNMP v3, você poderá aproveitar o aumento da segurança baseada
 9. Clique em **Add user** (Adicionar usuário). ![Botão para adicionar usuário SNMP v3](/assets/images/enterprise/management-console/snmpv3-adduser.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-##### Consultar dados SNMP
+#### Consultar dados SNMP
 
 As informações de hardware e software do appliance estão disponíveis no SNMP v3. Devido à falta de criptografia e privacidade para os níveis de segurança dw `noAuthNoPriv` e `authNoPriv`, excluimos a tabela `hrSWRun` (1.3.6.1.2.1.25.4) dos relatórios SNMP resultantes. Incluímos esta tabela para o caso de você estar usando o nível de segurança `authPriv`. Para obter mais informações, consulte a "[Documentação de referência do OID](http://oidref.com/1.3.6.1.2.1.25.4)".
 

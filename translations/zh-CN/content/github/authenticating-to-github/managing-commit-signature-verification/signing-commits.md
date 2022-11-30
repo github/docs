@@ -14,6 +14,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
@@ -43,8 +44,7 @@ topics:
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. 在
-{% data variables.product.product_name %} 上，导航到您的拉取请求。
+4. 在 {% data variables.product.product_name %} 上，导航到您的拉取请求。
 {% data reusables.repositories.review-pr-commits %}
 5. 要查看关于已验证签名的更多详细信息，请单击 Verified（已验证）。 ![已签名提交](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 

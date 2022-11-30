@@ -1,19 +1,21 @@
 ---
 title: 複数の作者を持つコミットを作成する
-intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 共作されたコミットは {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} に表示され、プロファイルコントリビューショングラフとリポジトリの統計に含めることができます{% endif %}。'
+intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 共作されたコミットは {% data variables.product.product_name %}{% ifversion ghes or ghae %} で表示され、プロフィールコントリビューショングラフとリポジトリの統計に含めることができます。{% endif %}'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
   - /github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: With multiple authors
 ---
-### 必要な共作者情報
+
+## 必要な共作者情報
 
 コミットに共作者を追加する前に、各共作者に使う適切なメールアドレスを知っておく必要があります。 共作者のコミットがコントリビューションとしてカウントされるためには、{% data variables.product.product_name %} アカウントに関連付けられているメールアドレスを使う必要があります。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 メールアドレスをプライベートにしておきたい人がいる場合、その人のプライバシーを保護するために、{% data variables.product.product_name %} が提供する `no-reply` メールを使わなければなりません。 そうしない場合、コミットメッセージで共作者のメールアドレスが公開されます。 自分のメールアドレスをプライベートにしておきたい場合、Git の操作のために {% data variables.product.product_name %} が提供する `no-reply` メールアドレスを使い、他の共作者に、`no-reply` メールアドレスをコミットのトレーラーに載せるよう依頼できます。
 
@@ -29,13 +31,13 @@ versions:
 
 {% endif %}
 
-### {% data variables.product.prodname_desktop %} で co-authored コミットを作成する
+## {% data variables.product.prodname_desktop %} で co-authored コミットを作成する
 
 {% data variables.product.prodname_desktop %} で、共作者を持つコミットを作成できます。 詳細は「[コミットメッセージの入力と変更のプッシュ](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)」および [{% data variables.product.prodname_desktop %}](https://desktop.github.com) を参照してください。
 
 ![コミットメッセージに共作者を追加](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
-### コマンドライン上で co-authored コミットを作成する
+## コマンドライン上で co-authored コミットを作成する
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
@@ -64,7 +66,7 @@ versions:
 
 次回のプッシュ時に、{% data variables.product.product_location %}に新たなコミットとメッセージが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)」を参照してください。
 
-### {% data variables.product.product_name %} で co-authored コミットを作成する
+## {% data variables.product.product_name %} で co-authored コミットを作成する
 
 {% data variables.product.product_name %} のウェブエディタでファイルを変更してから、コミットのメッセージに `Co-authored-by:` トレーラーを追加することで、co-authored コミットを作成できます。
 
@@ -77,11 +79,10 @@ versions:
 
 {% data variables.product.product_location %} に新たなコミットとメッセージが表示されます。
 
-### 参考リンク
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+## 参考リンク
+{% ifversion ghes or ghae %}
 - [プロフィール上でのコントリビューションの表示](/articles/viewing-contributions-on-your-profile)
 - [プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile){% endif %}
-- [リポジトリアクティビティの概要を表示する](/articles/viewing-a-summary-of-repository-activity)
 - [プロジェクトのコントリビューターを表示する](/articles/viewing-a-projects-contributors)
 - [コミットメッセージの変更](/articles/changing-a-commit-message)
 - {% data variables.product.prodname_desktop %} ドキュメンテーションの「[プロジェクトへの変更をコミットまたはレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)」

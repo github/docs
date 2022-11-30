@@ -16,6 +16,7 @@ topics:
   - Notifications
   - Accounts
 ---
+
 要了解有关访问个人仪表板的信息，请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 
 ### 关注他人
@@ -38,9 +39,9 @@ topics:
 
 {% data reusables.support.ask-and-answer-forum %}
 
-### Communicating on {% data variables.product.product_name %}
+### {% data variables.product.product_name %} 上的通信
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+{% data variables.product.product_name %} 提供内置的协作通信工具，如议题和拉取请求，使您在构建出色的软件时能够与社区进行密切互动。 有关这些工具的概述以及每个工具的特异性，请参阅“[{% data variables.product.prodname_dotcom %} 通信快速入门](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)”。
 
 ### 更多功能
 

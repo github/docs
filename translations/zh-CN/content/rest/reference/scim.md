@@ -1,11 +1,13 @@
 ---
 title: SCIM
+intro: '您可以使用 SCIM API 控制和管理您的 {% data variables.product.product_name %} 组织成员访问。'
 redirect_from:
   - /v3/scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### 组织的 SCIM 预配
@@ -14,7 +16,9 @@ SCIM API 由 SCIM 启用的身份提供程序 (IdP) 用来自动预配 {% data v
 
 {% note %}
 
-**注：**SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的组织。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+**注意：**
+  - The SCIM API is available only to organizations on [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. {% data reusables.scim.enterprise-account-scim %} 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+  - The SCIM API cannot be used with {% data variables.product.prodname_emus %}.
 
 {% endnote %}
 

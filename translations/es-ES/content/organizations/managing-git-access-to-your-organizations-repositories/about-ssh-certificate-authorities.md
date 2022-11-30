@@ -6,21 +6,22 @@ redirect_from:
   - /articles/about-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Autoridades de certificados SSH
 ---
 
 Un certificado SSH es un mecanismo para que una clave SSH firme otra clave SSH. Si usas una autoridad de certificación de SSH (CA) para ofrecerle a los miembros de tu organización certificados SSH firmados, puedes agregar la CA a tu cuenta de empresa u organización para permitirle a los miembros de la organización usar sus certificados para acceder a los recursos de la organización. Para obtener más información, consulta [Administrar las autoridades de certificación de SSH de tu organización ](/articles/managing-your-organizations-ssh-certificate-authorities)".
 
-Una vez que agregas una CA de SSH a tu cuenta de empresa u organización, puedes usar la CA para firmar certificados de SSH de clientes para los miembros de la organización. Los miembros de la organización pueden usar los certificados firmados para acceder a los repositorios de tu organización (y solo los repositorios de tu organización) con Git. Puedes requerir que los miembros utilicen certificados SSH para acceder a los recursos organizacionales.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta la sección "[requerir ajustes de seguridad en tu cuenta empresarial](/articles/enforcing-security-settings-in-your-enterprise-account#managing-your-enterprise-accounts-ssh-certificate-authorities)".{% endif %}
+Una vez que agregas una CA de SSH a tu cuenta de empresa u organización, puedes usar la CA para firmar certificados de SSH de clientes para los miembros de la organización. Los miembros de la organización pueden usar los certificados firmados para acceder a los repositorios de tu organización (y solo los repositorios de tu organización) con Git. Puedes solicitar a los miembros que usen certificados SSH para acceder a los recursos de la organización.{% ifversion fpt %} Para obtener más información, consulta "[Hacer cumplir los parámetros en tu cuenta de empresa](/articles/enforcing-security-settings-in-your-enterprise-account#managing-your-enterprise-accounts-ssh-certificate-authorities)".{% endif %}
 
 Por ejemplo, puedes crear un sistema interno que emita un nuevo certificado para tus programadores cada mañana. Cada programador puede usar su certificado diario para trabajar en los repositorios de tu organización en {% data variables.product.product_name %}. Al finalizar el día, el certificado puede expirar automáticamente, protegiendo tus repositorios si el certificado más tarde se ve comprometido.
 
-Cuando emites cada certificado, debes incluir una extensión que especifique para qué usuario de {% data variables.product.product_name %} es el certificado. Por ejemplo, puedes usar el comando `ssh-keygen` de OpenSSH, reemplazando _KEY-IDENTITY_ por tu identidad de clave y _USERNAME_ por un nombre de usuario de {% data variables.product.product_name %}.
+Cuando emites cada certificado, debes incluir una extensión que especifique para qué usuario de {% data variables.product.product_name %} es el certificado. Por ejemplo, puedes usar el comando `ssh-keygen` de OpenSSH, reemplazando _KEY-IDENTITY_ por tu identidad de clave y _USERNAME_ por un nombre de usuario de {% data variables.product.product_name %}. El certificado que generes se autorizará para actuar en nombre de ese usuario para cualquiera de los recursos de tu organización. Asegúrate de validar la identidad de los usuarios antes de que emitas el certificado.
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub
@@ -38,7 +39,7 @@ Puedes restringir las direcciones IP desde las que un miembro de la organizació
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> -O source-address=<em>COMMA-SEPARATED-LIST-OF-IP-ADDRESSES-OR-RANGES</em> ./user-key.pub
 ```
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Los miembros de la organización pueden usar sus certificados firmados para la autenticación, incluso si has aplicado el inicio de sesión único de SAML. A menos que hagas que los certificados SSH sean un requisito, los miembros de la organización pueden seguir usando otros medios para la autenticación para acceder a los recursos de tu organización con Git, incluyendo sus nombre de usuario y contraseña, tokens de acceso personales y sus propias claves SSH.
 

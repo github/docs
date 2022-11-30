@@ -3,7 +3,7 @@ title: Declaración antisoborno de GitHub
 redirect_from:
   - /articles/github-anti-bribery-statement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ GitHub defiende nuestro compromiso con prácticas comerciales éticas, que inclu
 
 Según el [Banco Mundial](https://www.worldbank.org/en/topic/governance/brief/anti-corruption) en 2017, las empresas y personas pagan un estimado de $1.5 billones en sobornos cada año.
 
-### Políticas de GitHub que prohíben el soborno
+## Políticas de GitHub que prohíben el soborno
 
 GitHub hace que nuestro compromiso con el anti-soborno sea claro en una cantidad de políticas de la empresa. Como parte de la familia de Microsoft, GitHub también se compromete con la política anticorrupción de Microsoft, que se aplica a todos los empleados y contratistas de GitHub, además de las políticas aquí descritas.
 
@@ -31,7 +31,7 @@ Las normas de conducta de GitHub prohíben:
 
 La **política de regalos y entretenimiento** de GitHub explica que el soborno no está permitido en relación con los viajes o el entretenimiento y proporciona ejemplos para ilustrar conductas inadecuadas. La política describe los regalos adecuados e inadecuados, los gastos de viajes y entretenimiento; los procesos de la empresa para que los directores de GitHub, funcionarios, empleados y agentes hagan regalos y los requisitos para el mantenimiento de registros, sanciones; y la denuncia de violaciones. Incluye umbrales monetarios claros para los regalos junto con las limitaciones anuales, con excepciones limitadas para los regalos aprobados por la administración adecuada. La política es clara y de fácil acceso para los empleados y los contratistas de GitHub.
 
-### Formación para nuestros empleados
+## Formación para nuestros empleados
 
 Los empleados de GitHub están obligados a participar en la capacitación sobre corrupción, incluyendo sobornos. También proporcionamos capacitación adicional para personas y equipos particularmente relevantes, como nuestro equipo de ventas. . La capacitación explica los elementos pertinentes de la ley de prácticas corruptas extranjeras de los EE. UU. y la ley de soborno del Reino Unido de 2010. . Por ejemplo,
 - definición y efectos estructurales de la corrupción
@@ -52,6 +52,6 @@ Además, la capacitación cubre las políticas internas de GitHub relacionadas c
 
 . . Si bien la FCPA de los EE. UU. se enfoca en las interacciones con los oficiales gubernamentales, la ley contra el soborno del Reino Unido es más amplia y se extiende al soborno de cualquiera, sin importar si son un dirigente gubernamental o no. Ambas leyes pueden extenderse a las acciones de GitHub en otro lugar del mundo. Las políticas de GitHub prohíben sobornar a cualquier persona, en cualquier parte del mundo.
 
-### Involucrar a nuestros socios
+## Involucrar a nuestros socios
 - Los acuerdos de reventa de GitHub ** con socios de canal** incluyen cláusulas de anti-corrupción obligatorias. En adelante, GitHub requirá que nuestros socios de canal se comprometan a cumplir con esta declaración anticorrupción.
 - En adelante, los **contratos de vendedores** de GitHub requerirán un compromiso para cumplir con el código de conducta del proveedor de Microsoft o con esta declaración anticorrupción.

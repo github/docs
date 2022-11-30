@@ -11,4 +11,5 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-Você pode adotar o método de fluxo {% data variables.product.prodname_dotcom %} para padronizar o funcionamento e a colaboração da sua equipe no {% data variables.product.prodname_dotcom %}. For more information, see "[{% data variables.product.prodname_dotcom %} flow](/github/getting-started-with-github/github-flow)."
+
+Você pode adotar o método de fluxo {% data variables.product.prodname_dotcom %} para padronizar o funcionamento e a colaboração da sua equipe no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[fluxo de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/github-flow)".

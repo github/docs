@@ -53,7 +53,7 @@ Ao usar os eventos `push` e `pull_request`, é possível configurar um fluxo de 
 
 As palavras-chave `branches`, `branches-ignore`, `tags` e `tags-ignore` aceitam padrões glob que usam os caracteres curinga `*` e `**` para coincidir com mais de um nome de branch ou tag. Para obter mais informações, consulte a "[Folha de consulta de filtro padrão](#filter-pattern-cheat-sheet)".
 
-#### Exemplo com branches e tags
+#### Example: Including branches and tags
 
 Os padrões definidos nos `branches` e `tags` são avaliados relativamente ao nome do Git ref. Por exemplo, definir o padrão `mona/octocat` nos `branches` corresponde ao Git ref `refs/heads/mona/octocat`. O padrão `releases/**` corresponderá ao Git ref `refs/heads/releases/10`.
 
@@ -74,7 +74,7 @@ on:
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
 
-#### Exemplo desconsiderando branches e tags
+#### Example: Ignoring branches and tags
 
 Sempre que um padrão corresponde ao padrão `branches-ignore` ou `tags-ignore`, o fluxo de trabalho não será executado. Os padrões definidos em `branches-ignore` e `tags-ignore` são avaliados relativamente ao nome do Git ref. Por exemplo, definir o padrão `mona/octocat` nos `branches` corresponde ao Git ref `refs/heads/mona/octocat`. O padrão `releases/**-alpha` em `branches` corresponderá ao Git ref `refs/releases/beta/3-alpha`.
 
@@ -98,7 +98,7 @@ Você pode usar dois tipos de filtros para impedir a execução de um fluxo de t
 - `branches` ou `branches-ignore` - não é possível usar os dois filtros `branches` e `branches-ignore` para o mesmo evento em um fluxo de trabalho. Use o filtro `branches` quando você precisa filtrar branches para correspondências positivas e excluir branches. Use o filtro `branches-ignore` quando você só precisa excluir nomes de branches.
 - `tags` ou `tags-ignore` - não é possível usar os dois filtros `tags` e `tags-ignore` para o mesmo evento em um fluxo de trabalho. Use o filtro `tags` quando você precisa filtrar tags para correspondências positivas e excluir tags. Use o filtro `tags-ignore` quando você só precisa excluir nomes de tags.
 
-#### Exemplo com padrões positivos e negativos
+#### Example: Using positive and negative patterns
 
 Você pode excluir `tags` e `branches` usando o caractere `!`. A ordem de definição dos padrões é importante.
   - Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o Git ref.
@@ -120,7 +120,7 @@ Ao usar os eventos `push` e `pull_request`, é possível configurar um fluxo de 
 
 As palavras-chave `paths-ignore` e `paths` aceitam padrões glob que usam os caracteres curinga `*` e `**` para coincidir com mais de um nome de caminho. Para obter mais informações, consulte a "[Folha de consulta de filtro padrão](#filter-pattern-cheat-sheet)".
 
-#### Exemplo desconsiderando caminhos
+#### Example: Ignoring paths
 
 Quando todos os caminhos de nome correspondem a padrões em `paths-ignore`, o fluxo de trabalho não será executado. O {% data variables.product.prodname_dotcom %} avalia os padrões definidos em `paths-ignore` com relação ao nome do caminho. Um fluxo de trabalho com o seguinte filtro de caminho só será executado em eventos `push` que tiverem pelo menos um arquivo fora do diretório `docs` na raiz do repositório.
 
@@ -131,7 +131,7 @@ on:
       - 'docs/**'
 ```
 
-#### Exemplo incluindo caminhos
+#### Example: Including paths
 
 Se pelo menos um caminho corresponder a um padrão no filtro `paths`, o fluxo de trabalho será executado. Para acionar uma compilação sempre que você fizer push de um arquivo JavaScript, você pode usar um padrão curinga.
 
@@ -148,7 +148,7 @@ Você pode excluir caminhos com dois tipos de filtros. Não é possível usar am
 - `paths-ignore` - use o filtro `paths-ignore` quando você precisa somente excluir nomes de caminhos.
 - `paths` - use o filtro `paths` quando você precisa filtrar caminhos para correspondências positivas e excluir caminhos.
 
-#### Exemplo com padrões positivos e negativos
+#### Example: Using positive and negative patterns
 
 Você pode excluir `paths` usando o caractere `!`. A ordem de definição dos padrões é importante:
   - Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o caminho.
@@ -291,7 +291,7 @@ Nome do trabalho no {% data variables.product.prodname_dotcom %}.
 
 Identifica todos os trabalhos a serem concluídos com êxito antes da execução deste trabalho. Esse código pode ser uma string ou array de strings. Se houver falha em um trabalho, todos os trabalhos que dependem dele serão ignorados, a menos que os trabalhos usem uma expressão condicional que faça o trabalho continuar.
 
-#### Exemplo que exige que trabalhos dependentes sejam bem sucedidos
+#### Example: Requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -310,7 +310,7 @@ Os trabalhos neste exemplo são executados sequencialmente:
 2. `job2`
 3. `job3`
 
-#### Exemplo que não exige que trabalhos dependentes sejam bem sucedidos
+#### Example: Not requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -434,7 +434,7 @@ A URL pode ser uma expressão e pode usar qualquer contexto, exceto o contexto d
 ```yaml
 environment:
   name: production_environment
-  url: ${{ steps.step_name.outputs.url_output }}
+  url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
 {% endif %}
@@ -577,7 +577,7 @@ Você pode usar a condicional `if` (se) para evitar que uma etapa trabalho seja 
 
 {% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-#### Exemplo usando contextos
+#### Example: Using contexts
 
  Essa etapa somente é executada quando o tipo de evento é uma `pull_request` e a ação do evento é `unassigned` (não atribuída).
 
@@ -588,7 +588,7 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### Exemplo usando funções de verificação de status
+#### Example: Using status check functions
 
 A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)".
 
@@ -618,7 +618,7 @@ Algumas ações requerem entradas que devem ser definidas com a palavra-chave [`
 
 Ações são arquivos JavaScript ou contêineres Docker. Se a ação em uso for um contêiner do Docker, você deverá executar o trabalho em um ambiente do Linux. Para obter mais detalhes, consulte [`runs-on`](#jobsjob_idruns-on).
 
-#### Exemplo usando ações com versão
+#### Example: Using versioned actions
 
 ```yaml
 steps:    
@@ -632,7 +632,7 @@ steps:
   - uses: actions/setup-node@main
 ```
 
-#### Exemplo usando uma ação pública
+#### Example: Using a public action
 
 `{owner}/{repo}@{ref}`
 
@@ -650,7 +650,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### Exemplo usando uma ação pública em um subdiretório
+#### Example: Using a public action in a subdirectory
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -664,7 +664,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### Exemplo usando a ação no mesmo repositório que o fluxo de trabalho
+#### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
@@ -680,7 +680,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### Exemplo usando uma ação do Docker Hub
+#### Example: Using a Docker Hub action
 
 `docker://{image}:{tag}`
 
@@ -695,7 +695,7 @@ empregos:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Exemplo que utiliza {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
+##### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
@@ -709,7 +709,7 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-##### Exemplo usando uma ação do registro público do Docker Hub
+##### Example: Using a Docker public registry action
 
 `docker://{host}/{image}:{tag}`
 
@@ -723,11 +723,11 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### Exemplo de uso de ação dentro de um repositório privado diferente do fluxo de trabalho
+#### Example: Using an action inside a different private repository than the workflow
 
-Seu fluxo de trabalho deve fazer checkout no repositório privado e referenciar a ação localmente. Generate a personal access token and add the token as an encrypted secret. Para obter mais informações, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)" e "[Segredos criptografados](/actions/reference/encrypted-secrets)".
+Seu fluxo de trabalho deve fazer checkout no repositório privado e referenciar a ação localmente. Gere um token de acesso pessoal e adicione o token como um segredo criptografado. Para obter mais informações, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)" e "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
-Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
+Substitua `PERSONAL_ACCESS_TOKEN` no exemplo pelo nome do seu segredo.
 
 {% raw %}
 ```yaml
@@ -792,7 +792,7 @@ Você pode anular as configurações padrão de shell no sistema operacional do 
 | Windows               | `pwsh`            | Essa é a shell padrão usada no Windows. Powershell Core. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script. Se o seu executor do Windows auto-hospedado não tiver o _PowerShell Core_ instalado, será usado o _PowerShell Desktop_. | `pwsh -command ". '{0}'"`.                      |
 | Windows               | `powershell`      | O PowerShell Desktop. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                                                                                                                                                            | `powershell -command ". '{0}'"`.                |
 
-#### Exemplo de execução de um script usando bash:
+#### Example: Running a script using bash
 
 ```yaml
 steps:
@@ -801,7 +801,7 @@ steps:
     shell: bash
 ```
 
-#### Exemplo de execução de um script usando Windows `cmd`
+#### Example: Running a script using Windows `cmd`
 
 ```yaml
 steps:
@@ -810,7 +810,7 @@ steps:
     shell: cmd
 ```
 
-#### Exemplo de execução de um script usando PowerShell Core
+#### Example: Running a script using PowerShell Core
 
 ```yaml
 steps:
@@ -828,7 +828,7 @@ steps:
     shell: powershell
 ```
 
-#### Exemplo de execução de um script python
+#### Example: Running a python script
 
 ```yaml
 steps:
@@ -985,7 +985,7 @@ Cada opção que você define na `matriz` tem uma chave e um valor. As chaves qu
 
 A ordem que você define uma `matriz` importa. A primeira opção que você definir será a primeira que será executada no seu fluxo de trabalho.
 
-#### Exemplo de execução com mais de uma versão do Node.js
+#### Example: Running multiple versions of Node.js
 
 Você pode especificar uma matriz ao fornecer um array para as opções de configuração. Por exemplo, se o executor for compatível com as versões 10, 12 e 14 do Node.js versões, você poderá especificar um array dessas versões na `matriz`.
 
@@ -1007,7 +1007,7 @@ steps:
 
 A ação setup-node `` é a forma recomendada de configurar uma versão do Node.js ao usar executores hospedados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a ação [`setup-node`](https://github.com/actions/setup-node).
 
-#### Exemplo de execução com mais de um sistema operacional
+#### Example: Running with multiple operating systems
 
 Você pode criar uma matriz para executar fluxos de trabalho em mais de um sistema operacional do executor. Você também pode especificar mais de uma configuração da matriz. Este exemplo cria uma matriz de 6 trabalhos:
 
@@ -1034,7 +1034,7 @@ steps:
 {% else %}Para encontrar opções de configuração compatíveis com executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
-#### Exemplo de inclusão valores adicionais em combinações
+#### Example: Including additional values into combinations
 
 Você pode adicionar opções de configurações para um trabalho de matriz de compilação existente. Por exemplo, se você quer usar uma versão específica do `npm` quando o trabalho que usa o `windows-latest` e a versão 8 do `nó` é executado, você pode usar `incluir` para especificar a opção adicional.
 
@@ -1054,7 +1054,7 @@ strategy:
 ```
 {% endraw %}
 
-#### Exemplo de inclusão novas combinações
+#### Example: Including new combinations
 
 Você pode usar `incluir` para adicionar novos trabalhos a uma matriz de criação. Qualquer configuração sem correspondência de incluir será adicionadas à matriz. Por exemplo, se você quiser usar a versão 14 do `nó` para compilar em vários sistemas operacionais, mas quiser uma tarefa experimental extra usando o node 15 no Ubuntu, você poderá usar `incluir` para especificar essa tarefa adicional.
 
@@ -1072,7 +1072,7 @@ strategy:
 ```
 {% endraw %}
 
-#### Exemplo excluindo configurações de uma matriz
+#### Example: Excluding configurations from a matrix
 
 Você pode remover uma configuração específica definida na matriz de compilação usando a opção `exclude` (excluir). `exclude` remove um trabalho definido pela matriz de compilação. O número de trabalhos é o produto cruzado do número de sistemas operacionais (`os`) incluídos nos arrays fornecidos por você, menos quaisquer subtrações (`exclude`).
 
@@ -1119,7 +1119,7 @@ strategy:
 
 Impede que ocorra falha na execução de um fluxo de trabalho quando ocorrer uma falha em um trabalho. Defina como `verdadeiro` para permitir que uma execução de um fluxo de trabalho passe quando este trabalho falhar.
 
-#### Exemplo do impedimento de uma matriz falha específica de gerar uma falha na execução do fluxo de trabalho
+#### Example: Preventing a specific failing matrix job from failing a workflow run
 
 Você pode permitir que as tarefas específicas em uma matriz de tarefas falhem sem que ocorra falha na execução do fluxo de trabalho. Por exemplo, se você deseja permitir apenas um trabalho experimental com o `nó` definido como `15` sem falhar a execução do fluxo de trabalho.
 
@@ -1172,7 +1172,7 @@ jobs:
 
 ### `jobs.<job_id>.container.image`
 
-Imagem Docker a ser usada como contêiner para executar a ação. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}público{% endif %} nome do registro.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
@@ -1236,7 +1236,7 @@ Se você configurar a tarefa para executar diretamente na máquina do executor e
 
 Para obter mais informações sobre as diferenças entre os contêineres de serviço de rede, consulte "[Sobre contêineres de serviço](/actions/automating-your-workflow-with-github-actions/about-service-containers)".
 
-#### Exemplo de uso de host local
+#### Example: Using localhost
 
 Este exemplo cria dois serviços: nginx e redis. Ao especificar a porta do host do Docker mas não a porta do contêiner, a porta do contêiner será atribuída aleatoriamente a uma porta livre. O {% data variables.product.prodname_dotcom %} define a porta de contêiner atribuída no contexto {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}. Neste exemplo, você pode acessar as portas do contêiner de serviço usando os contextos {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} e {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
 
@@ -1256,7 +1256,7 @@ serviços:
 
 ### `jobs.<job_id>.services.<service_id>.image`
 
-Imagem Docker a ser usada como contêiner de serviço para executar a ação. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}público{% endif %} nome do registro.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
@@ -1365,7 +1365,7 @@ Padrões de caminhos devem corresponder ao caminho completo e iniciar a partir d
 | `docs/*`                                                                | Todos os arquivos dentro da raiz do diretório `docs`, na raiz do repositório.                                                                                                                                          | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
 | `docs/**`                                                               | Qualquer arquivo no diretório `docs`, na raiz do repositório.                                                                                                                                                          | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
 | `docs/**/*.md`                                                          | Um arquivo com um sufixo `.md` em qualquer local do diretório `docs`.                                                                                                                                                  | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
-| `'**/docs/**'`                                                          | Qualquer arquivo no diretório `docs`, em qualquer local do repositório.                                                                                                                                                | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/docs/**'`                                                          | Qualquer arquivo no diretório `docs`, em qualquer local do repositório.                                                                                                                                                | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`             |
 | `'**/README.md'`                                                        | Um arquivo README.md em qualquer local do repositório.                                                                                                                                                                 | `README.md`<br/><br/>`js/README.md`                                                                          |
 | `'**/*src/**'`                                                          | Qualquer arquivo em uma pasta com o sufixo `src` em qualquer local do repositório.                                                                                                                                     | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
 | `'**/*-post.md'`                                                        | Um arquivo com o sufixo `-post.md` em qualquer local do repositório.                                                                                                                                                   | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |

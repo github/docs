@@ -1,20 +1,21 @@
 ---
 title: GitHub Enterprise 管理
+intro: 'You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account. Among the tasks you can perform with this API are many relating to GitHub Actions.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
   - /v3/enterprise
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
+shortTitle: 企业管理
 ---
 
-You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -26,29 +27,29 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 ### 端点 URL
 
-REST API 端点{% if enterpriseServerVersions contains currentVersion %}— [管理控制台](#management-console) API 端点除外—{% endif %} 是以下 URL 的前缀：
+REST API 端点{% ifversion ghes %}— [管理控制台](#management-console) API 端点除外—{% endif %} 是以下 URL 的前缀：
 
 ```shell
 {% data variables.product.api_url_pre %}
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 [管理控制台](#management-console) API 端点是唯一以主机名为前缀的端点：
 
 ```shell
 http(s)://<em>hostname</em>/
 ```
 {% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ### 身份验证
 
-{% data variables.product.product_name %} 安装设施的 API 端点接受与 GitHub.com [相同的身份验证方法](/rest/overview/resources-in-the-rest-api#authentication)。 您可以使用 **[OAuth 令牌](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**{% if enterpriseServerVersions contains currentVersion %}（可使用[授权 API](/rest/reference/oauth-authorizations#create-a-new-authorization) 创建）{% endif %}或**[基本身份验证](/rest/overview/resources-in-the-rest-api#basic-authentication)**来验证自己。 {% if enterpriseServerVersions contains currentVersion %} OAuth 令牌用于企业特定的端点时必须具有 `site_admin` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps#available-scopes)。{% endif %}
+{% data variables.product.product_name %} 安装设施的 API 端点接受与 GitHub.com [相同的身份验证方法](/rest/overview/resources-in-the-rest-api#authentication)。 您可以使用 **[OAuth 令牌](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**{% ifversion ghes %}（可使用[授权 API](/rest/reference/oauth-authorizations#create-a-new-authorization) 创建）{% endif %}或**[基本身份验证](/rest/overview/resources-in-the-rest-api#basic-authentication)**来验证自己。 {% ifversion ghes %} OAuth 令牌用于企业特定的端点时必须具有 `site_admin` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps#available-scopes)。{% endif %}
 
-企业管理 API 端点只有经过身份验证的 {% data variables.product.product_name %} 站点管理员可以访问{% if enterpriseServerVersions contains currentVersion %}，但[管理控制台](#management-console) API 例外，它需要[管理控制台密码](/enterprise/admin/articles/accessing-the-management-console/){% endif %}。
+企业管理 API 端点只有经过身份验证的 {% data variables.product.product_name %} 站点管理员可以访问{% ifversion ghes %}，但[管理控制台](#management-console) API 例外，它需要[管理控制台密码](/enterprise/admin/articles/accessing-the-management-console/){% endif %}。
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ### 版本信息
 
 每个 API 的响应标头中都会返回企业的当前版本：`X-GitHub-Enterprise-Version: {{currentVersion}}.0` 您也可以通过调用[元端点](/rest/reference/meta/)来读取当前版本。
@@ -59,7 +60,7 @@ http(s)://<em>hostname</em>/
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## 审核日志
 
@@ -69,7 +70,7 @@ http(s)://<em>hostname</em>/
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## 计费
 
 {% for operation in currentRestOperations %}
@@ -78,80 +79,15 @@ http(s)://<em>hostname</em>/
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ## GitHub Actions
 
-{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## SCIM
-
-### 企业的 SCIM 预配
-
-启用 SCIM 的身份提供程序 (IdP) 可以使用 SCIM API 自动预配企业成员资格。 {% data variables.product.product_name %} API 基于[SCIM 标准](http://www.simplecloud.info/)的 2.0 版本。
-
-IdP 必须使用 `{% data variables.product.api_url_code %}/scim/v2/enterprises/{enterprise}/` 作为 SCIM 端点。
-
-{% note %}
-
-**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
-
-{% endnote %}
-
-### 向 SCIM API 验证调用
-
-您必须验证为 {% data variables.product.product_name %} 企业的所有者才可使用其 SCIM API。 API 预期 [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) 令牌包含在`授权`标头中。 您也可以使用个人访问令牌，但必须先[授权它与您的 SAML SSO 企业一起使用](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)。
-
-### SAML 和 SCIM 数据的映射
-
-SAML IdP 和 SCIM 客户端必须对每个用户使用匹配的 `NameID` 和 `userName` 值。 这允许通过 SAML 进行身份验证的用户链接到其预配的 SCIM 标识。
-
-SCIM 组与名称完全相同的 {% data variables.product.product_name %} 组织匹配，并且由企业帐户拥有。
-
-SAML IdP 和 SCIM 客户端必须配置为 SCIM 组的 `displayName` 与相应的 {% data variables.product.product_name %} 组织名称完全匹配。 这允许 {% data variables.product.product_name %} 将 SCIM 组与 {% data variables.product.product_name %} 组织成员资格相链接。
-
-### 支持的 SCIM 用户属性
-
-| 名称               | 类型    | 描述                                                                                                                                                                                                       |
-| ---------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `userName`       | `字符串` | 用户的用户名。                                                                                                                                                                                                  |
-| `name.givenName` | `字符串` | 用户的名字                                                                                                                                                                                                    |
-| `name.lastName`  | `字符串` | 用户的姓氏。                                                                                                                                                                                                   |
-| `emails`         | `数组`  | 用户电子邮件列表。                                                                                                                                                                                                |
-| `externalId`     | `字符串` | 此标识符由 SAML 提供程序生成，并且被 SAML 提供程序用作唯一 ID 来匹配 GitHub 用户。 您可以在 SAML 提供程序上查找用户的 `externalID`，或者使用 [为企业列出 SCIM 预配的身份](#list-scim-provisioned-identities-for-an-enterprise)端点并过滤其他已知的属性，如用户的 GitHub 用户名或电子邮件地址。 |
-| `id`             | `字符串` | GitHub SCIM 端点生成的标识符。                                                                                                                                                                                    |
-| `active`         | `布尔值` | 用于表示身份是处于活动状态 (true) 还是应解除预配 (false)。                                                                                                                                                                    |
-| `组`              | `数组`  | 用户是其成员的 SCIM 组 ID 的可选列表。                                                                                                                                                                                 |
-
-{% note %}
-
-**注：**SCIM API 的端点 URL 区分大小写。 例如，`Users` 端点中的第一个字母必须大写：
-
-```shell
-GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
-```
-
-{% endnote %}
-
-### 支持的 SCIM 组属性
-
-| 名称            | 类型    | 描述                                                                                                                                  |
-| ------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName` | `字符串` | SCIM 组的名称，必须与相应 {% data variables.product.product_name %} 组织的名称完全匹配。 例如，如果组织的 URL 为`https://github.com/octo-org`，则组名必须为 `octo-org`。 |
-| `members`     | `数组`  | 属于组成员的 SCIM 用户 ID 列表。                                                                                                               |
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## 管理统计
 
 管理统计 API 提供有关安装设施的各种指标。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
@@ -162,7 +98,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghae or ghes > 2.22 %}
 
 ## 公告
 
@@ -174,7 +110,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 
 ## 全局 web 挂钩
 
@@ -188,7 +124,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## LDAP
 
@@ -202,8 +138,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## 许可
 
 许可 API 提供有关企业许可的信息。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
@@ -214,7 +149,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## 管理控制台
 
@@ -252,7 +187,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## 组织
 
 组织管理 API 允许您在企业上创建组织。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
@@ -263,8 +198,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## 组织预接收挂钩
 
 组织预接收挂钩 API 允许您查看和修改组织可用的预接收挂钩的实施。
@@ -288,7 +222,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## 预接收环境
 
@@ -322,7 +256,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## 预接收挂钩
 
 预接收挂钩 API 允许您创建、列出、更新和删除预接收挂钩。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
@@ -348,7 +282,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## 仓库预接收挂钩
 
@@ -372,10 +306,10 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## 用户
 
-The User Administration API allows you to suspend{% if enterpriseServerVersions contains currentVersion %}, unsuspend, promote, and demote{% endif %}{% if currentVersion == "github-ae@latest" %} and unsuspend{% endif %} users on your enterprise. *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
+用户管理 API 允许您暂停{% ifversion ghes %}、取消暂停、升级和降级{% endif %}{% ifversion ghae %} 以及取消暂停{% endif %} 企业上的用户。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

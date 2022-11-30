@@ -6,13 +6,14 @@ redirect_from:
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Build an app with the REST API
 ---
-### Introduction
+## Introduction
 
 This guide will help you build a GitHub App and run it on a server. The app you build will add a label to all new issues opened in the repository where the app is installed.
 
@@ -23,9 +24,9 @@ This project will walk you through the following:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% if currentVersion == "free-pro-team@latest" %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
+Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% ifversion fpt %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
 
-### Prerequisites
+## Prerequisites
 
 You may find it helpful to have a basic understanding of the following:
 
@@ -52,7 +53,7 @@ Before you begin, you'll need to do the following:
 
   See the [Troubleshooting](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) section if you are running into problems setting up your template GitHub App.
 
-### Building the app
+## Building the app
 
 Now that you're familiar with the `template_server.rb` code, you're going to create code that automatically adds the `needs-response` label to all issues opened in the repository where the app is installed.
 
@@ -73,7 +74,7 @@ These are the steps you'll complete to create your first GitHub App:
 3. [Create a new label](#step-3-create-a-new-label)
 4. [Add label handling](#step-4-add-label-handling)
 
-### Step 1. Update app permissions
+## Step 1. Update app permissions
 
 When you [first registered your app](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read issues and write labels.
 
@@ -86,7 +87,7 @@ To update your app's permissions:
 
 Great! Your app has permission to do the tasks you want it to do. Now you can add the code to make it work.
 
-### Step 2. Add event handling
+## Step 2. Add event handling
 
 The first thing your app needs to do is listen for new issues that are opened. Now that you've subscribed to the **Issues** event, you'll start receiving the [`issues`](/webhooks/event-payloads/#issues) webhook, which is triggered when certain issue-related actions occur. You can filter this event type for the specific action you want in your code.
 
@@ -136,7 +137,7 @@ In your browser, visit the repository where you installed your app. Open a new i
 
 When you look back at your Terminal, you should see a message in the output that says, `An issue was opened!` Congrats! You've added an event handler to your app. 💪
 
-### Step 3. Create a new label
+## Step 3. Create a new label
 
 Okay, your app can tell when issues are opened. Now you want it to add the label `needs-response` to any newly opened issue in a repository the app is installed in.
 
@@ -150,7 +151,7 @@ Before the label can be _added_ anywhere, you'll need to _create_ the custom lab
 
 Now that the label exists, you can program your app to use the REST API to [add the label to any newly opened issue](/rest/reference/issues#add-labels-to-an-issue).
 
-### Step 4. Add label handling
+## Step 4. Add label handling
 
 Congrats—you've made it to the final step: adding label handling to your app. For this task, you'll want to use the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/).
 
@@ -197,7 +198,7 @@ You can see the final code in `server.rb` in the [app template repository](https
 
 See "[Next steps](#next-steps)" for ideas about where you can go from here.
 
-### Troubleshooting
+## Troubleshooting
 
 Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
 
@@ -215,14 +216,14 @@ Here are a few common problems and some suggested solutions. If you run into any
     * Your app has [read & write permissions on issues and is subscribed to issue events](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel).
     * You [checked your email](#step-1-update-app-permissions) after updating the permissions and accepted the new permissions.
 
-### Conclusion
+## Conclusion
 
 After walking through this guide, you've learned the basic building blocks for developing GitHub Apps! To review, you:
 
 * Programmed your app to listen for events
 * Used the Octokit.rb library to do REST API operations
 
-### Next steps
+## Next steps
 
 Here are some ideas for what you can do next:
 
@@ -232,5 +233,5 @@ Here are some ideas for what you can do next:
 * When the bot successfully adds the label, show a message in the Terminal. (Hint: compare the `needs-response` label ID with the ID of the label in the payload as a condition for your message, so that the message only displays when the relevant label is added and not some other label.)
 * Add a landing page to your app and hook up a [Sinatra route](https://github.com/sinatra/sinatra#routes) for it.
 * Move your code to a hosted server (like Heroku). Don't forget to update your app settings with the new domain.
-* Share your project or get advice in the {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
+* Share your project or get advice in the {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt %}
 * Have you built a shiny new app you think others might find useful? [Add it to GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

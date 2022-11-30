@@ -4,16 +4,18 @@ intro: 'You can view details of your usage of storage and data transfer for {% d
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-packages-usage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/viewing-your-github-packages-usage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Enterprise
   - Packages
   - Organizations
   - User account
+shortTitle: View your usage
 ---
-### Viewing {% data variables.product.prodname_registry %} usage for your user account
+## Viewing {% data variables.product.prodname_registry %} usage for your user account
 
 Anyone can view {% data variables.product.prodname_registry %} usage for their own user account.
 
@@ -23,18 +25,16 @@ Anyone can view {% data variables.product.prodname_registry %} usage for their o
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### Viewing {% data variables.product.prodname_registry %} usage for your organization
+## Viewing {% data variables.product.prodname_registry %} usage for your organization
 
 Organization owners and billing managers can view {% data variables.product.prodname_registry %} usage for an organization. For organizations managed by an enterprise account, only the organization owners can view {% data variables.product.prodname_registry %} usage in the organization billing page.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### Viewing {% data variables.product.prodname_registry %} usage for your enterprise account
+## Viewing {% data variables.product.prodname_registry %} usage for your enterprise account
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_registry %} usage for an enterprise account.
 

@@ -1,1 +1,0 @@
-1. Crear un nuevo disco virtual para utilizarlo como un volumen adjunto de almacenamiento para los datos de tu instancia, y configurar el tamaño con base en la cantidad de licencias de usuario disponibles.

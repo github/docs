@@ -15,6 +15,7 @@ topics:
   - Identity
   - Access management
 ---
+
 在使用[GitHub API 或](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)命令[行](#using-a-token-on-the-command-line)时，可使用个人访问令牌 (PAT) 代替密码向 {% data variables.product.product_name %} 进行身份验证。
 
 {% if currentVersion == "free-pro-team@latest" %}如果要使用 PAT 访问使用 SAML SSO 的组织所拥有的资源，则必须授权 PAT。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”和“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”。{% endif %}
@@ -36,8 +37,7 @@ topics:
    ![选择令牌作用域](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
 7. 单击 **Generate token（生成令牌）**。 ![生成令牌按钮](/assets/images/help/settings/generate_token.png)
-8. 单击
-{% octicon "clippy" aria-label="The copy to clipboard icon" %} 以将令牌复制到剪贴板。 出于安全原因，在离开页面后，您将无法再次看到令牌。
+8. 单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 将令牌复制到剪贴板。 出于安全原因，在离开页面后，您将无法再次看到令牌。
    {% if currentVersion == "free-pro-team@latest" %}
    ![新建的令牌](/assets/images/help/settings/personal_access_tokens.png)
    {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
@@ -60,6 +60,8 @@ topics:
 个人访问令牌只能用于 HTTPS Git 操作。 如果您的仓库使用 SSH 远程 URL，则需要[将远程 URL 从 SSH 切换到 HTTPS](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https)。
 
 如果没有提示您输入用户名和密码，说明您的凭据可能已缓存在计算机上。 您可以[在密钥链中更新您的凭据](/github/getting-started-with-github/updating-credentials-from-the-macos-keychain)，用令牌替换您的旧密码。
+
+您可以使用 Git 客户端缓存 PAT，而不必为每个 HTTPS Git 操作手动输入 PAT。 Git 会将您的凭据临时存储在内存中，直到过期为止。 您还可以将令牌存储在 Git 可以在每个请求之前读取的纯文本文件中。 更多信息请参阅“[在 Git 中缓存 {% data variables.product.prodname_dotcom %} 凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git)”。
 
 ### 延伸阅读
 

@@ -5,7 +5,7 @@ intro: '您可以为企业配置跨域身份管理 (SCIM)，以在将 {% data va
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,13 +16,14 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
-### 关于企业的用户预配
+
+## 关于企业的用户预配
 
 {% data reusables.saml.ae-uses-saml-sso %} 更多信息请参阅“[配置企业的 SAML 单点登录](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)”。
 
 {% data reusables.scim.after-you-configure-saml %} 有关 SCIM 的更多信息，请参阅 IETF 网站上的[跨域身份管理系统：协议 (RFC 7644)](https://tools.ietf.org/html/rfc7644)。
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 配置预配允许 IdP 在您将 {% data variables.product.product_name %} 的应用程序分配或取消分配给 IdP 上的用户时与 {% data variables.product.product_location %} 通信。 当您分配应用程序时，IdP 将提示 {% data variables.product.product_location %} 创建帐户并向用户发送一封登录电子邮件。 取消分配应用程序时，IdP 将与 {% data variables.product.product_name %} 通信以取消任何 SAML 会话并禁用成员的帐户。
 
@@ -32,15 +33,15 @@ IdP 上的预配应用程序通过企业的 SCIM API 与 {% data variables.produ
 
 {% endif %}
 
-### 支持的身份提供程序
+## 支持的身份提供程序
 
 {% data reusables.scim.supported-idps %}
 
 在使用支持的 IdP 设置用户预配时，您也可以将 {% data variables.product.product_name %} 的应用程序分配或取消分配给用户组。 然后，这些组可供 {% data variables.product.product_location %} 中的组织所有者和团队维护员用来映射到 {% data variables.product.product_name %} 团队。 更多信息请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
 
-### 基本要求
+## 基本要求
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 要自动预配和解除预配从 IdP 访问 {% data variables.product.product_location %}，必须先在初始化 {% data variables.product.product_name %} 时配置 SAML SSO。 更多信息请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)。”
 
@@ -48,13 +49,11 @@ IdP 上的预配应用程序通过企业的 SCIM API 与 {% data variables.produ
 
 {% endif %}
 
-### 为企业启用用户预配
+## 为企业启用用户预配
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
-1. 作为企业所有者登录到
-
-{% data variables.product.product_location %} 时，创建作用域为 **admin:enterprise** 的个人访问令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+1. 登录到 {% data variables.product.product_location %} 时，创建作用域为 **admin:enterprise** 的个人访问令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
   {% note %}
 
   **注意**：
@@ -82,9 +81,9 @@ IdP 上的预配应用程序通过企业的 SCIM API 与 {% data variables.produ
 
   IdP 上的应用程序需要两个值来预配或取消预配 {% data variables.product.product_location %} 上的用户帐户。
 
-  | 值    | 其他名称        | 描述                                                                         | 示例                        |
-  |:---- |:----------- |:-------------------------------------------------------------------------- |:------------------------- |
-  | URL  | 租户 URL      | {% data variables.product.prodname_ghe_managed %} 上企业的 SCIM 预配 API 的 URL | <pre>https&colon;//api.<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</pre> |
-  | 共享机密 | 个人访问令牌、机密令牌 | IdP 上的应用程序用于代表企业所有者执行预配任务的令牌                                               | 您在步骤 1 中创建的个人访问令牌         |
+  | 值    | 其他名称        | 描述                                                                         | 示例                                                                 |
+  |:---- |:----------- |:-------------------------------------------------------------------------- |:------------------------------------------------------------------ |
+  | URL  | 租户 URL      | {% data variables.product.prodname_ghe_managed %} 上企业的 SCIM 预配 API 的 URL | <nobr>`{% data variables.product.api_url_pre %}/scim/v2</nobr>` |
+  | 共享机密 | 个人访问令牌、机密令牌 | IdP 上的应用程序用于代表企业所有者执行预配任务的令牌                                               | 您在步骤 1 中创建的个人访问令牌                                                  |
 
 {% endif %}

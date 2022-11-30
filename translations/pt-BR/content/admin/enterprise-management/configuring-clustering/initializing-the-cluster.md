@@ -6,20 +6,21 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
   - /admin/enterprise-management/initializing-the-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
 ---
+
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### Instalar o {% data variables.product.prodname_ghe_server %}
+## Instalar o {% data variables.product.prodname_ghe_server %}
 
 1. Em cada nó de cluster, provisione e instale o {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)".
 2. Usando o shell administrativo ou DHCP, configure **somente** o endereço IP de cada nó. Não altere outras configurações.
 
-### Configurar o primeiro nó
+## Configurar o primeiro nó
 
 1. Conecte-se ao nó que será designado como principal no MySQL no `cluster.conf`. Para obter mais informações, consulte "[Sobre o arquivo de configuração do cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 2. No navegador, acesse `https://<ip address>:8443/setup/`.
@@ -27,7 +28,7 @@ topics:
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-### Inicializar o cluster
+## Inicializar o cluster
 
 Para inicializar o cluster, você precisa de um arquivo de configuração de cluster (`cluster.conf`). Para obter mais informações, consulte “[Sobre o arquivo de configuração do cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
@@ -36,7 +37,7 @@ Para inicializar o cluster, você precisa de um arquivo de configuração de clu
 
 Para verificar o status de um cluster em execução, use o comando `ghe-cluster-status`.
 
-### Sobre o arquivo de configuração do cluster
+## Sobre o arquivo de configuração do cluster
 
 O arquivo de configuração do cluster (`cluster.conf`) define os nós no cluster e os serviços que cada nó executa. Para obter mais informações, consulte "[Sobre os nós do cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes)."
 

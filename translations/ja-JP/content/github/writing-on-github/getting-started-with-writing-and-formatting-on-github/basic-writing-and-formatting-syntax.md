@@ -5,11 +5,13 @@ redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Basic formatting syntax
 ---
-### ヘッディング
+
+## ヘッディング
 
 ヘッディングを作成するには、1 つから 6 つの `#` シンボルをヘッディングのテキストの前に追加します。 使用する `#` の数によって、ヘッディングのサイズが決まります。
 
@@ -21,7 +23,7 @@ versions:
 
 ![表示された H1、H2、H6 のヘッディング](/assets/images/help/writing/headings-rendered.png)
 
-### スタイル付きテキスト
+## スタイル付きテキスト
 
 コメントフィールドと `.md` ファイルでは、太字、斜体、または取り消し線のテキストで強調を示すことができます。
 
@@ -33,14 +35,14 @@ versions:
 | 太字および太字中にある斜体 | `** **`及び`_ _`     |                     | `**このテキストは_きわめて_ 重要です**`  | **このテキストは_きわめて_重要です**   |
 | 全体が太字かつ斜体     | `*** ***`          |                     | `***すべてのテキストがきわめて重要です***` | ***すべてのテキストがきわめて重要です*** |
 
-### テキストの引用
+## テキストの引用
 
 テキストは`>`で引用できます。
 
 ```markdown
-アブラハムリンカーンの言葉：:
+Text that is not a quote
 
-> フランス語で失礼します
+> Text that is a quote
 ```
 
 ![表示された引用テキスト](/assets/images/help/writing/quoted-text-rendered.png)
@@ -51,9 +53,9 @@ versions:
 
 {% endtip %}
 
-### コードの引用
+## コードの引用
 
-単一のバッククォートで文章内のコードやコマンドを引用できます。 バッククォート内のテキストはフォーマットされません。
+単一のバッククォートで文章内のコードやコマンドを引用できます。 The text within the backticks will not be formatted.{% ifversion fpt or ghae-next or ghes > 3.1 %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
 
 ```markdown
 コミットされていない新しいもしくは修正されたすべてのファイルをリストするには `git status` を使ってください。
@@ -76,9 +78,9 @@ git commit
 
 詳しい情報については[コードブロックの作成とハイライト](/articles/creating-and-highlighting-code-blocks)を参照してください。
 
-### リンク
+## リンク
 
-リンクのテキストをブラケット `[ ]` で囲み、URL をカッコ `( )` で囲めば、インラインのリンクを作成できます。 キーボードショートカットの `command + k` を使用してリンクを作成することもできます。
+リンクのテキストをブラケット `[ ]` で囲み、URL をカッコ `( )` で囲めば、インラインのリンクを作成できます。 {% ifversion fpt or ghae-next or ghes > 3.1 %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
 
 `このサイトは [GitHub Pages](https://pages.github.com/) を使って構築されています。`
 
@@ -90,15 +92,50 @@ git commit
 
 {% endtip %}
 
-### セクションリンク
+## セクションリンク
 
 {% data reusables.repositories.section-links %}
 
-### 相対リンク
+## 相対リンク
 
 {% data reusables.repositories.relative-links %}
 
-### リスト
+## Images
+
+You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
+
+`![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
+
+![Rendered Image](/assets/images/help/writing/image-rendered.png)
+
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+
+{% tip %}
+
+**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+
+{% endtip %}
+
+Here are some examples for using relative links to display an image.
+
+| コンテキスト                                                      | Relative Link                                                          |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------- |
+| In a `.md` file on the same branch                          | `/assets/images/electrocat.png`                                        |
+| In a `.md` file on another branch                           | `/../main/assets/images/electrocat.png`                                |
+| In issues, pull requests and comments of the repository     | `../blob/main/assets/images/electrocat.png`                            |
+| In a `.md` file in another repository                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
+| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+
+{% note %}
+
+**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+
+{% endnote %}
+
+For more information, see "[Relative Links](#relative-links)."
+
+
+## リスト
 
 1 つ以上の行の前に `-` または `*` を置くことで、順序なしリストを作成できます。
 
@@ -120,7 +157,7 @@ git commit
 
 ![表示された順序付きリスト](/assets/images/help/writing/ordered-list-rendered.png)
 
-#### 入れ子になったリスト
+### 入れ子になったリスト
 
 1 つ以上のリストアイテムを他のアイテムの下にインデントすることで、入れ子になったリストを作成できます。
 
@@ -147,7 +184,7 @@ git commit
 
 ![入れ子になったリストアイテムを持つリスト](/assets/images/help/writing/nested-list-example-3.png)
 
-同じ方法で、複数レベルの入れ子になったリストを作成できます。 たとえば、最初の入れ子になったリストアイテムは内容である`最初の入れ子になったリストアイテム`の前に 7 つの空白 (`␣␣␣␣␣-␣`) があるため、2 番目の入れ子になったリストアイテムは 7 つの空白でインデントしなければならないでしょう。
+同じ方法で、複数レベルの入れ子になったリストを作成できます。 For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
 ```markdown
 100. 最初のリストアイテム
@@ -159,19 +196,19 @@ git commit
 
 [GitHub Flavored Markdown の仕様](https://github.github.com/gfm/#example-265)には、もっと多くのサンプルがあります。
 
-### タスクリスト
+## タスクリスト
 
 {% data reusables.repositories.task-list-markdown %}
 
-タスクリストアイテムの説明が括弧で始まる場合、その括弧を "\" でエスケープする必要があります。
+タスクリストアイテムの説明がカッコから始まるのであれば、`\` でエスケープしなければなりません。
 
 `- [ ] \(オプション) フォローアップの Issue のオープン`
 
 詳しい情報については[タスクリストについて](/articles/about-task-lists)を参照してください。
 
-### 人や Team のメンション
+## 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% ifversion fpt or ghes or ghae %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
 
 `@github/support これらのアップデートについてどう思いますか？`
 
@@ -183,33 +220,33 @@ git commit
 
 オートコンプリートの結果は、リポジトリのコラボレータとそのスレッドのその他の参加者に限定されます。
 
-### Issue およびプルリクエストの参照
+## Issue およびプルリクエストの参照
 
 `#` を入力して、リポジトリ内のサジェストされた Issue およびプルリクエストのリストを表示させることができます。 Issue あるいはプルリクエストの番号あるいはタイトルを入力してリストをフィルタリングし、Tab キーまたは Enter キーを押して、ハイライトされた結果の入力を完了してください。
 
 詳しい情報については[自動リンクされた参照と URL](/articles/autolinked-references-and-urls) を参照してください。
 
-### 外部リソースの参照
+## 外部リソースの参照
 
 {% data reusables.repositories.autolink-references %}
 
-### コンテンツの添付
+## コンテンツの添付
 
-{% data variables.product.prodname_github_app %} には、登録されたドメインにリンクする URL に対する情報を {% data variables.product.product_name %} 内で提供するものがあります。 {% data variables.product.product_name %} は、アプリケーションが提供した情報を Issue あるいはプルリクエストのボディもしくはコメント中の URL の下に表示します。
+Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} は、アプリケーションが提供した情報を Issue あるいはプルリクエストのボディもしくはコメント中の URL の下に表示します。
 
 ![コンテンツの添付](/assets/images/github-apps/content_reference_attachment.png)
 
-コンテンツの添付を見るには、リポジトリにインストールされた Content Attachments API を使う {% data variables.product.prodname_github_app %} が必要です。{% if currentVersion == "free-pro-team@latest" %} 詳しい情報については、「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
+コンテンツの添付を見るには、リポジトリにインストールされた Content Attachments API を使う {% data variables.product.prodname_github_app %} が必要です。{% ifversion fpt %}詳細は「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
 
 コンテンツの添付は、Markdown のリンクの一部になっている URL には表示されません。
 
 コンテンツの添付を利用する {% data variables.product.prodname_github_app %} の構築に関する詳しい情報については、「[コンテンツの添付を使用する](/apps/using-content-attachments)」を参照してください。
 
-### アセットをアップロードする
+## アセットをアップロードする
 
 ドラッグアンドドロップ、ファイルブラウザから選択、または貼り付けることにより、画像などのアセットをアップロードできます。 アセットをリポジトリ内の Issue、プルリクエスト、コメント、および `.md` ファイルにアップロードできます。
 
-### 絵文字の利用
+## 絵文字の利用
 
 `:EMOJICODE:` を入力して、書き込みに絵文字を追加できます。
 
@@ -221,13 +258,37 @@ git commit
 
 利用可能な絵文字とコードの完全なリストについては、[絵文字チートシート](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)を参照してください。
 
-### パラグラフ
+## パラグラフ
 
 テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
-### Markdown のフォーマットの無視
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## Footnotes
 
-{% data variables.product.product_name %}に対し、Markdown のキャラクタの前に "\" を使うことで、Markdown のフォーマットを無視 (エスケープ) させることができます
+You can add footnotes to your content by using this bracket syntax:
+
+```
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+The footnote will render like this:
+
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
+{% endif %}
+
+## Hiding content with comments
+
+You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
+## Markdown のフォーマットの無視
+
+{% data variables.product.product_name %}に対し、Markdown のキャラクタの前に `\` を使うことで、Markdown のフォーマットを無視 (エスケープ) させることができます。
 
 `\*新しいプロジェクト\* を \*古いプロジェクト\* にリネームしましょう`
 
@@ -235,7 +296,15 @@ git commit
 
 詳しい情報については Daring Fireball の [Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash) を参照してください。
 
-### 参考リンク
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+
+## Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
+## 参考リンク
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
 - [GitHub 上での書き込みと書式設定について](/articles/about-writing-and-formatting-on-github)

@@ -2,16 +2,17 @@
 title: 在工作流程中使用 AE 托管的运行器
 intro: '您可以使用标签将作业发送到 {% data variables.actions.hosted_runner %} 池。'
 versions:
-  github-ae: '*'
+  ghae: '*'
+shortTitle: 使用 AE 托管的运行器
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
-### 在工作流程中使用 {% data variables.actions.hosted_runner %}
+## 在工作流程中使用 {% data variables.actions.hosted_runner %}
 
 标签允许您向包含该标签的任何 {% data variables.actions.hosted_runner %} 发送工作流程作业。 您可以使用默认标签，也可以创建自定义标签。
 
-### 使用默认标签路由作业
+## 使用默认标签路由作业
 
 {% data variables.actions.hosted_runner %} 在添加到 {% data variables.product.prodname_actions %} 时会获得一个标签。 该标签用于指示其分配位置。
 
@@ -23,7 +24,7 @@ runs-on: [AE-runner-for-CI]
 
 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
 
-### 使用自定义标签路由作业
+## 使用自定义标签路由作业
 
 您可以随时创建自定义标签并将其分配给您的 {% data variables.actions.hosted_runner %}。 自定义标签允许您根据其标签将作业发送给特定类型的运行器。
 

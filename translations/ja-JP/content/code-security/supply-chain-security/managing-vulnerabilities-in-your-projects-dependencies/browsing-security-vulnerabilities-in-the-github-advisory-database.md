@@ -1,24 +1,30 @@
 ---
 title: GitHub Advisory Database のセキュリティ脆弱性を参照する
 intro: '{% data variables.product.prodname_advisory_database %} を使用すると、{% data variables.product.company_short %} のオープンソースプロジェクトに影響を与える脆弱性を参照または検索できます。'
-shortTitle: Advisory Database を参照する
+shortTitle: Advisory Databaseの参照
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Alerts
+  - Dependabot
+  - Vulnerabilities
+  - CVEs
 ---
+
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 
-### セキュリティの脆弱性について
+## セキュリティの脆弱性について
 
 {% data reusables.repositories.a-vulnerability-is %}
 
 {% data variables.product.prodname_advisory_database %} の脆弱性のいずれかがリポジトリが依存するパッケージに影響することが検出された場合、{% data variables.product.product_name %} は {% data variables.product.prodname_dependabot_alerts %} を送信します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-### {% data variables.product.prodname_advisory_database %} について
+## {% data variables.product.prodname_advisory_database %} について
 
 {% data variables.product.prodname_advisory_database %} には、{% data variables.product.company_short %} の依存関係グラフによって追跡されるパッケージにマップされたセキュリティの脆弱性のキュレーションされたリストが含まれています。 {% data reusables.repositories.tracks-vulnerabilities %}
 
@@ -34,7 +40,7 @@ topics:
 
 {% data reusables.repositories.github-security-lab %}
 
-### {% data variables.product.prodname_advisory_database %} のアドバイザリにアクセスする
+## {% data variables.product.prodname_advisory_database %} のアドバイザリにアクセスする
 
 1. Https://github.com/advisories にアクセスします。
 2. 必要に応じて、リストをフィルタするには、ドロップダウンメニューを使用します。 ![ドロップダウンフィルタ](/assets/images/help/security/advisory-database-dropdown-filters.png)
@@ -46,7 +52,7 @@ topics:
 
 {% endnote %}
 
-### {% data variables.product.prodname_advisory_database %} を検索する
+## {% data variables.product.prodname_advisory_database %} を検索する
 
 データベースを検索し、修飾子を使用して検索を絞り込むことができます。 たとえば、特定の日付、特定のエコシステム、または特定のライブラリで作成されたアドバイザリを検索できます。
 
@@ -71,7 +77,7 @@ topics:
 | `created:YYYY-MM-DD`  | [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) は、この日に作成されたアドバイザリのみを表示します。                                        |
 | `updated:YYYY-MM-DD`  | [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) は、この日に更新されたアドバイザリのみを表示します。                                        |
 
-### 脆弱性のあるリポジトリを表示する
+## 脆弱性のあるリポジトリを表示する
 
 {% data variables.product.prodname_advisory_database %} の脆弱性については、どのリポジトリにその脆弱性に対する {% data variables.product.prodname_dependabot %} アラートがあるかを確認できます。 脆弱性のあるリポジトリを確認するには、そのリポジトリの {% data variables.product.prodname_dependabot_alerts %} にアクセスできる必要があります。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)」を参照してください。
 
@@ -81,6 +87,6 @@ topics:
 4. 必要に応じて、リストをフィルタするには、検索バーまたはドロップダウンメニューを使用します。 [Organization] ドロップダウンメニューを使用すると、オーナー（Organization またはユーザ）ごとに {% data variables.product.prodname_dependabot_alerts %} をフィルタできます。 ![アラートをフィルタするための検索バーとドロップダウンメニュー](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. 脆弱性の詳細、および脆弱性のあるリポジトリを修正する方法に関するアドバイスについては、リポジトリ名をクリックしてください。
 
-### 参考リンク
+## 参考リンク
 
 - MITREの[「脆弱性」の定義](https://cve.mitre.org/about/terminology.html#vulnerability)

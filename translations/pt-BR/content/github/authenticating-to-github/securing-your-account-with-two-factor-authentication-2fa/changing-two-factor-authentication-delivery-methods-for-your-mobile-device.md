@@ -8,8 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 {% note %}
 
 **Observação:** alterar o método de autenticação de dois fatores invalida a configuração do método atual de dois fatores. No entanto, isso não afeta os códigos de recuperação nem retrocede a configuração de SMS. É possível atualizar os códigos de recuperação ou o retrocesso da configuração de SMS na página de configurações de segurança da sua conta pessoal se desejado.

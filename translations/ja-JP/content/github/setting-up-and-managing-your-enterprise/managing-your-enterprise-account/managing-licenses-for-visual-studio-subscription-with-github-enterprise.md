@@ -9,11 +9,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
   - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Visual Studio bundle
 ---
-### {% data variables.product.prodname_vss_ghe %} について
+
+## {% data variables.product.prodname_vss_ghe %} について
 
 {% data variables.product.prodname_vss_ghe %} は、サブスクライバーが {% data variables.product.prodname_enterprise %} と {% data variables.product.prodname_vs %} の両方を使用できるように組み合わせて販売されている Microsoft の製品です。 {% data variables.product.prodname_vss_ghe %} は、Microsoft Enterprise Agreement の条件に基づいて Microsoft から入手できます。 詳しい情報については、「{% data variables.product.prodname_vs %} Web サイトの [{% data variables.product.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/)」を参照してください。
 
@@ -23,7 +25,7 @@ topics:
 
 {% data variables.product.prodname_enterprise %} の詳細は、「[{% data variables.product.company_short %} の製品](/github/getting-started-with-github/githubs-products#github-enterprise)」を参照してください。 {% data variables.product.prodname_dotcom_the_website %} のアカウントの詳細については、「[{% data variables.product.prodname_dotcom %} アカウントのタイプ](/github/getting-started-with-github/types-of-github-accounts)」を参照してください。
 
-### 必要な環境
+## 必要な環境
 
 1. {% data variables.product.prodname_vss_ghe %} を購入したら、{% data variables.contact.contact_enterprise_sales %} に問い合わせて「{% data variables.product.prodname_vss_ghe %}」と伝えます。 営業スチームと連携して、{% data variables.product.prodname_dotcom_the_website %} で Enterprise アカウントを作成します。 すでに {% data variables.product.prodname_dotcom_the_website %} に Enterprise アカウントをお持ちの場合、または不明な場合は、営業チームにお問い合わせください。
 
@@ -31,7 +33,7 @@ topics:
 
 3. {% data variables.product.prodname_dotcom_the_website %} で、Enterprise アカウントが所有する Organization を少なくとも 1 つ作成します。 詳しい情報については、「[Enterprise アカウントに Organization を追加する](/github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account)」参照してください。
 
-### サブスクライバーを招待して {% data variables.product.prodname_enterprise %} を使用する
+## サブスクライバーを招待して {% data variables.product.prodname_enterprise %} を使用する
 
 ライセンスの {% data variables.product.prodname_enterprise %} 部分を使用するには、{% data variables.product.prodname_dotcom_the_website %} のサブスクライバーのユーザアカウントが、{% data variables.product.prodname_dotcom_the_website %} の Enterprise が所有する Organization のメンバーであるかメンバーになる必要があります。
 
@@ -41,12 +43,12 @@ Organization のオーナーは、メールアドレスで新しいメンバー�
 
 詳しい情報については、「[Organization にユーザーを招待する](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)」、「[{% data variables.product.prodname_dotcom %} へのサインアップ](/github/getting-started-with-github/signing-up-for-github)」および「[メール プリファレンスの管理](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)」を参照してください。
 
-### {% data variables.product.prodname_enterprise %} ライセンスを表示する
+## {% data variables.product.prodname_enterprise %} ライセンスを表示する
 
-{% data variables.product.prodname_vss_admin_portal_with_url %} で {% data variables.product.prodname_vss_ghe %} のライセンスを割り当てた後、Enterprise アカウントで使用可能な {% data variables.product.prodname_enterprise %} ライセンスの数を表示できます。 詳細は「[Enterprise アカウントのプランおよび利用状況を見る示](/github/setting-up-and-managing-your-enterprise/viewing-the-subscription-and-usage-for-your-enterprise-account)」を参照してください。
+{% data variables.product.prodname_vss_admin_portal_with_url %} で {% data variables.product.prodname_vss_ghe %} のライセンスを割り当てた後、Enterprise アカウントで使用可能な {% data variables.product.prodname_enterprise %} ライセンスの数を表示できます。 詳細は「[Enterprise アカウントのプランおよび利用状況を見る示](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)」を参照してください。
 
 {% data variables.product.prodname_vss_admin_portal_with_url %} のサブスクライバーへの保留中の {% data variables.product.prodname_enterprise %} 招待を確認することもできます。 保留中の招待リストには、Enterprise アカウントの少なくとも 1 つの Organization のメンバーではないサブスクライバーが含まれます。 詳しい情報については、「[Enterprise の人を表示する](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)」を参照してください。
 
-### 参考リンク
+## 参考リンク
 
 - Microsoft Docs の [GitHub Enterprise による Visual Studio サブスクリプションの紹介](https://docs.microsoft.com/visualstudio/subscriptions/access-github)

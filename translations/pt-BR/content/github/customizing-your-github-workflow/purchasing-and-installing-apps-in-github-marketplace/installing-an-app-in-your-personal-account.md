@@ -5,15 +5,17 @@ redirect_from:
   - /articles/installing-an-app-in-your-personal-account
   - /github/customizing-your-github-workflow/installing-an-app-in-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Instalar uma conta de usuário do aplicativo
 ---
+
 {% data reusables.marketplace.marketplace-apps-only %}
 
 Se você escolheu um plano pago, a assinatura de seu app será paga na data de cobrança atual de sua conta pessoal e com a forma de pagamento vigente.
 
 {% data reusables.marketplace.free-trials %}
 
-### Instalar um {% data variables.product.prodname_github_app %} em sua conta pessoal
+## Instalar um {% data variables.product.prodname_github_app %} em sua conta pessoal
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -26,7 +28,7 @@ Se você escolheu um plano pago, a assinatura de seu app será paga na data de c
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-### Instalar um {% data variables.product.prodname_oauth_app %} em sua conta pessoal
+## Instalar um {% data variables.product.prodname_oauth_app %} em sua conta pessoal
 
 {% data reusables.saml.saml-session-oauth %}
 
@@ -39,7 +41,7 @@ Se você escolheu um plano pago, a assinatura de seu app será paga na data de c
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. Revise as informações sobre o acesso do app à sua conta pessoal e dados, e depois clique em **Authorize application** (Autorizar aplicativo).
 
-### Leia mais
+## Leia mais
 
 - "[Atualizar a forma de pagamento da sua conta pessoal](/articles/updating-your-personal-account-s-payment-method)"
 - "[Instalar um app em sua organização](/articles/installing-an-app-in-your-organization)"

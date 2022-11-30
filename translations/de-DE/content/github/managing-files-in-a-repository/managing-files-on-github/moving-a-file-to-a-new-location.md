@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Du kannst nicht nur den Speicherort der Datei ändern, sondern im selben Commit auch [den Inhalt Deiner Datei aktualisieren](/articles/editing-files-in-your-repository) oder [den Namen der Datei ändern](/articles/renaming-a-file).
 
 {% tip %}

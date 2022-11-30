@@ -1,1 +1,1 @@
-2. Click **Settings** next to the organization. ![The settings button](/assets/images/help/organizations/settings-button.png)
+2. Ao lado da organização, clique em **Configurações**. ![Botão de configurações](/assets/images/help/organizations/settings-button.png)

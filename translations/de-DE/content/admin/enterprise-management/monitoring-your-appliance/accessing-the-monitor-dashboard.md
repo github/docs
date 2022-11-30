@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,14 +14,16 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Access the monitor dashboard
 ---
-### Auf das Überwachungs-Dashboard zugreifen
+
+## Auf das Überwachungs-Dashboard zugreifen
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. Klicken Sie im oberen Bereich der Seite auf **Monitor** (Überwachen). ![Link zum Überwachungs-Dashboard](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-### Fehlerbehebung bei allgemeinen Ressourcenzuordnungsproblemen auf Ihrer Appliance
+## Fehlerbehebung bei allgemeinen Ressourcenzuordnungsproblemen auf Ihrer Appliance
 
 {% note %}
 

@@ -1,1 +1,0 @@
-1. Debajo de "App ID", teclea la ID de la App de tu {% data variables.product.prodname_github_app %}, la cual grabaste cuando creaste dicha app. ![Campo de App ID](/assets/images/help/insights/app-id.png)

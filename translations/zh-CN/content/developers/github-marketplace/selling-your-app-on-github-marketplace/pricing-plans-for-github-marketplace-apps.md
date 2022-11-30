@@ -6,10 +6,12 @@ redirect_from:
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: 应用定价计划
 ---
+
 {% data variables.product.prodname_marketplace %} 定价计划可以是免费、统一定价或每单位定价。 价格以美元设置、显示和处理。 付费计划仅限验证的发布者发布的应用。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
 客户使用附加到其 {% data variables.product.product_name %} 帐户的付款方式购买您的应用程序，而不必离开 {% data variables.product.prodname_dotcom_the_website %}。 您不必编写代码来执行结算交易，但必须处理来自 {% data variables.product.prodname_marketplace %} API 的事件。 更多信息请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
@@ -20,9 +22,9 @@ topics:
 
 {% data reusables.marketplace.free-plan-note %}
 
-### 定价计划的类型
+## 定价计划的类型
 
-#### 免费定价计划
+### 免费定价计划
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
@@ -32,7 +34,7 @@ topics:
 
 如果您向已作为免费服务在 {% data variables.product.prodname_marketplace %} 中上架的应用程序添加付费计划，则需要请求验证应用程序并完成财务手续。
 
-#### 付费定价计划
+### 付费定价计划
 
 有两种类型的付费定价计划：
 
@@ -42,7 +44,7 @@ topics:
 
 您可能还希望提供免费试用。 这些选项为客户提供为期 14 天免费试用 OAuth 或 GitHub 应用程序的机会。 设置 Marketplace 定价计划时，您可以选择为统一定价或每单位定价计划提供免费试用选项。
 
-### 免费试用
+## 免费试用
 
 客户可以免费试用 Marketplace 上架产品中包含免费试用选项的任何付费计划。 但是，客户不能对一个 Marketplace 产品使用多次免费试用机会。
 

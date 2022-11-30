@@ -33,7 +33,7 @@ Node.jsプロジェクトのためのCIワークフローの作成に関する�
 
 また、以下の基本的な理解があれば役立ちます。
 
-- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- 「[npm レジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)」
 - 「[環境変数](/actions/reference/environment-variables)」
 - 「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」
 - 「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow)」
@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to npm
+      # npm に公開するように .npmrc ファイルを設定する
       - uses: actions/setup-node@v2
         with:
           node-version: '12.x'
@@ -133,12 +133,12 @@ jobs:
       packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to GitHub Packages
+      # .npmrc ファイルを設定して GitHub Packages に公開する
       - uses: actions/setup-node@v2
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
+          # 既定値ワークフローファイルを所有するユーザまたは Organization
           scope: '@octocat'
       - run: npm install
       - run: npm publish
@@ -169,12 +169,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to npm
+      # npm に公開するように .npmrc ファイルを設定する
       - uses: actions/setup-node@v2
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-          # Defaults to the user or organization that owns the workflow file
+          # 既定値はワークフローファイルを所有するユーザまたは Organization
           scope: '@octocat'
       - run: yarn
       - run: yarn publish
@@ -217,23 +217,23 @@ jobs:
       packages: write {% endif %}
     steps:
       - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to npm
+      # npm に公開するように .npmrc ファイルを設定する
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
-      # Publish to npm
+      # npm に公開する
       - run: npm publish --access public
         env:{% raw %}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # Setup .npmrc file to publish to GitHub Packages
+      # .npmrc ファイルを設定して GitHub Packages に公開する
       - uses: actions/setup-node@v1
         with:
           registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
+          # 既定値はワークフローファイルを所有するユーザまたは Organization
           scope: '@octocat'
-      # Publish to GitHub Packages
+      # GitHub Packages に公開する
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}

@@ -4,18 +4,18 @@ intro: 'Du kannst selbst gehostete Runner so konfigurieren, dass sie einen Proxy
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
+shortTitle: Proxy servers
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### Einen Proxyserver mithilfe von Umgebungsvariablen konfigurieren
+## Einen Proxyserver mithilfe von Umgebungsvariablen konfigurieren
 
 Wenn Dein selbst-gehosteten Runner über einen Proxy-Server kommunizieren soll, verwendet die Anwendung für selbst-gehostete Runner die Proxy-Konfigurationen in den folgenden Umgebungsvariablen:
 
@@ -35,7 +35,7 @@ Die Proxy-Umgebungsvariablen werden beim Starten der Anwendung für selbst-gehos
 
 Auf Windows-Rechnern wird bei den Namen der Proxy-Umgebungsvariablen nicht zwischen Groß- und Kleinschreibung unterschieden. Auf Linux- und macOS-Rechnern wird empfohlen, alle Umgebungsvariablen in Kleinbuchstaben zu schreiben. Wenn Du auf Linux oder macOS eine Umgebungsvariable sowohl in Klein- als auch Großbuchstaben hast, z.B . `https_proxy` und `HTTPS_PROXY`, verwendet die Anwendung für selbst-gehostete Runner die Umgebungsvariable in Kleinbuchstaben.
 
-### Eine .env-Datei zur Proxykonfiguration verwenden
+## Eine .env-Datei zur Proxykonfiguration verwenden
 
 Wenn es nicht praktikabel ist, Umgebungsvariablen zu setzen, kannst Du die Proxykonfigurations-Variablen in eine Datei mit dem Namen _.env_ schreiben, die im Verzeichnis der Anwendung für selbst-gehostete Runner liegt. Dies kann z. B. erforderlich sein, wenn Du die Runner-Anwendung als Dienst unter einem Systemkonto konfigurieren möchtest. Wenn die Runner-Anwendung startet, liest sie die Variablen für die Proxy-Konfiguration aus _.env_.
 
@@ -46,7 +46,7 @@ https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```
 
-### Festlegen der Proxy-Konfiguration für Docker-Container
+## Festlegen der Proxy-Konfiguration für Docker-Container
 
 Wenn Du Docker-Container-Aktionen oder Service-Container in Deinen Workflows verwendest, musst Du möglicherweise zusätzlich zur Einstellung der oben genannten Umgebungsvariablen auch Docker so konfigurieren, dass er Deinen Proxy-Server verwendet.
 

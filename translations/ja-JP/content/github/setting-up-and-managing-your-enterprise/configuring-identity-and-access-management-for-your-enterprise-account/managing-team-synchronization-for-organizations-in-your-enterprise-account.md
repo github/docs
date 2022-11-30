@@ -4,13 +4,17 @@ intro: 'アイデンティティプロバイダ (IdP) と {% data variables.prod
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
+shortTitle: Teamの同期の管理
 ---
-### Enterprise アカウントのチーム同期について
+
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
+## Enterprise アカウントのチーム同期について
 
 Azure AD を IdP として使用する場合は、Enterprise アカウントのチーム同期を有効にして、Organization のオーナーとチームメンテナが、Enterprise アカウントが所有する Organization のチームを IdP グループと同期できるようにすることができます。
 
@@ -22,15 +26,17 @@ Azure AD を IdP として使用する場合は、Enterprise アカウントの�
 
 Organization ごとの Team 同期の設定と管理も可能です。 詳細は「[Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)」を参照してください。
 
-### 必要な環境
+{% data reusables.identity-and-permissions.team-sync-usage-limits %}
+
+## 必要な環境
 
 あなた、または Azure AD の管理者は Azure AD のグローバル管理者、または特権ロール管理者になっている必要があります。
 
-サポート対象の IdP で、Enterprise アカウントの Organization に対して SAMLシングルサインオンを有効にする必要があります。 詳しい情報については、「[Enterprise アカウントで Organization 用に SAML シングルサインオンを有効にする](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)」参照してください。
+You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 SAML SSO とサポートされる IdP を使用して Enterprise アカウントに認証される必要があります。 詳しい情報については「[SAMLシングルサインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
 
-### Azure AD で Team の同期を管理する
+## Azure AD で Team の同期を管理する
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 

@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 关于 FUNDING 文件
 
 可通过编辑默认分支上仓库 `.github` 文件夹中的 _FUNDING.yml_ 文件来配置赞助者按钮。 您也可以配置此按钮，以通过 {% data variables.product.prodname_sponsors %}、外部资助平台或自定义资助 URL 来包括被赞助的开发者。 有关 {% data variables.product.prodname_sponsors %} 的更多信息请参阅“[关于 GitHub 赞助者](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”。

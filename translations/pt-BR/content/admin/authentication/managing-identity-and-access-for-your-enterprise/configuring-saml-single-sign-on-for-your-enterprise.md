@@ -5,7 +5,7 @@ intro: 'Você pode configurar o logon único SAML (SSO) para sua empresa, o que 
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,9 +16,10 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
 ---
-### Sobre o SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+## Sobre o SAML SSO
+
+{% ifversion ghae %}
 
 O SAML SSO permite que você controle centralmente e proteja o acesso ao {% data variables.product.product_location %} a partir do seu IdP SAML. Quando um usuário não autenticado visita {% data variables.product.product_location %} em um navegador, {% data variables.product.product_name %} redirecionará o usuário para seu IdP do SAML para efetuar a autenticação. Depois que o usuário efetua a autenticação com sucesso com uma conta no IdP, o usuário do IdP redireciona o usuário de volta para {% data variables.product.product_location %}. {% data variables.product.product_name %} valida a resposta do seu IdP e, em seguida, concede acesso ao usuário.
 
@@ -30,19 +31,19 @@ Depois que um usuário efetua a autenticação com sucesso no seu IdP, a sessão
 
 {% endif %}
 
-### Provedores de identidade compatíveis
+## Provedores de identidade compatíveis
 
 {% data variables.product.product_name %} é compatível com o SAML SSO, com IdPs que implementam o padrão SAML 2.0. Para obter mais informações, consulte a [Wiki do SAML](https://wiki.oasis-open.org/security) no site do OASIS.
 
 {% data variables.product.company_short %} testou o SAML SSO para {% data variables.product.product_name %} com os seguintes IdPs.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 - Azure AD
 {% endif %}
 
-### Habilitar o SAML SSO
+## Habilitar o SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -62,11 +63,11 @@ Durante a inicialização para {% data variables.product.product_name %}, você 
 
 {% endif %}
 
-### Editar a configuração SAML SSO
+## Editar a configuração SAML SSO
 
 Se os detalhes para o seu IdP forem alterados, você deverá editar a configuração SAML SSO para o {% data variables.product.product_location %}. Por exemplo, se o certificado de seu IdP expirar, você poderá editar o valor para o certificado público.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% note %}
 
@@ -87,9 +88,9 @@ Se os detalhes para o seu IdP forem alterados, você deverá editar a configura�
 
 {% endif %}
 
-### Desabilitar SAML SSO
+## Desabilitar SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% warning %}
 

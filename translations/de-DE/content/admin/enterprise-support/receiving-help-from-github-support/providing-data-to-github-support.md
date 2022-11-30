@@ -8,13 +8,15 @@ redirect_from:
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/providing-data-to-github-support
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
+shortTitle: Provide data to Support
 ---
-### Diagnosedateien erstellen und freigeben
+
+## Diagnosedateien erstellen und freigeben
 
 Die Diagnose ist eine Übersicht über die Einstellungen und die Umgebung einer {% data variables.product.prodname_ghe_server %}-Instanz. Sie enthält Folgendes:
 
@@ -29,7 +31,7 @@ Die Diagnose ist eine Übersicht über die Einstellungen und die Umgebung einer 
 
 Sie können die Diagnose für Ihre Instanz über die {% data variables.enterprise.management_console %} oder durch Ausführen des Befehlszeilenprogramms `ghe-diagnostics` herunterladen.
 
-#### Diagnosedatei über die {% data variables.enterprise.management_console %} erstellen
+### Diagnosedatei über die {% data variables.enterprise.management_console %} erstellen
 
 Sie können diese Methode verwenden, wenn Sie Ihren SSH-Schlüssel nicht zur Hand haben.
 
@@ -39,7 +41,7 @@ Sie können diese Methode verwenden, wenn Sie Ihren SSH-Schlüssel nicht zur Han
 {% data reusables.enterprise_management_console.support-link %}
 5. Klicken Sie auf **Download diagnostics info** (Diagnoseinformationen herunterladen).
 
-#### Diagnosedatei mithilfe von SSH erstellen
+### Diagnosedatei mithilfe von SSH erstellen
 
 Sie können diese Methode verwenden, ohne sich bei der {% data variables.enterprise.management_console %} anzumelden.
 
@@ -49,7 +51,7 @@ Verwenden Sie das Befehlszeilenprogramm [ghe-diagnostics](/enterprise/{{ current
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 ```
 
-### Support-Bundles erstellen und freigeben
+## Support-Bundles erstellen und freigeben
 
 Nachdem Du Deine Supportanfrage eingereicht hast, können wir Dich bitten, unserem Team ein Support-Paket bereitzustellen. Das Support-Bundle ist ein gzip-komprimiertes Tar-Archiv, das Diagnosen und wichtige Protokolle Ihrer Instanz enthält, beispielsweise
 
@@ -63,7 +65,7 @@ Nachdem Du Deine Supportanfrage eingereicht hast, können wir Dich bitten, unser
 - `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %}-Konfigurationsprotokolle,
 - `collectd/logs/collectd.log`: Collectd-Protokolle,
 - `mail-logs/mail.log`: SMTP-E-Mail-Zustellprotokolle,
-{% if currentVersion ver_lt "enterprise-server@3.0" %}
+{% ifversion ghes < 3.0 %}
 - `hookshot-logs/exceptions.log`: Webhook-Auslieferungsfehler.
 {% endif %}
 
@@ -77,7 +79,7 @@ Support-Bundles enthalten Protokolle der letzten zwei Tage. Um Protokolle der le
 
 {% endtip %}
 
-#### Support-Bundle über die {% data variables.enterprise.management_console %} erstellen
+### Support-Bundle über die {% data variables.enterprise.management_console %} erstellen
 
 Mit diesen Schritten können Sie ein Support-Bundle erstellen und freigeben, wenn Sie auf die webbasierte {% data variables.enterprise.management_console %} zugreifen können und einen ausgehenden Internetzugang haben.
 
@@ -89,7 +91,7 @@ Mit diesen Schritten können Sie ein Support-Bundle erstellen und freigeben, wen
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-#### Support-Bundle mithilfe von SSH erstellen
+### Support-Bundle mithilfe von SSH erstellen
 
 You can use these steps to create and share a support bundle if you have SSH access to {% data variables.product.product_location %} and have outbound internet access.
 
@@ -103,7 +105,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-#### Ein Support-Paket wird mit Deinem Unternehmenskonto hochladen
+### Ein Support-Paket wird mit Deinem Unternehmenskonto hochladen
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -113,24 +115,24 @@ You can use these steps to create and share a support bundle if you have SSH acc
 6. Um Dein Support-Paket auszuwählen, klickst Du unter „Upload a support bundle for {% data variables.contact.enterprise_support %}“ (Ein Support-Bundle für {% data variables.contact.enterprise_support %} hochladen) auf **Choose file** (Datei auswählen) oder Du ziehst Deine Support-Paket-Datei auf **Choose file**. ![Support-Paket-Datei hochladen](/assets/images/enterprise/support/choose-support-bundle-file.png)
 7. Klicke **Upload**.
 
-#### Support-Bundle mithilfe von SSH direkt hochladen
+### Support-Bundle mithilfe von SSH direkt hochladen
 
 Unter folgenden Voraussetzungen können Sie ein Support-Bundle direkt auf unseren Server hochladen:
 - You have SSH access to {% data variables.product.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
 1. Laden Sie das Bundle auf unseren Support-Bundle-Server hoch:
   ```shell
   $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
   ```
 
-### Erweiterte Support-Bundles erstellen und freigeben
+## Erweiterte Support-Bundles erstellen und freigeben
 
 Support-Bundles beinhalten Protokolle der letzten zwei Tage, wohingegen _erweiterte_ Support-Bundles Protokolle der letzten sieben Tage beinhalten. Wenn die vom {% data variables.contact.github_support %} untersuchten Ereignisse vor mehr als zwei Tagen aufgetreten sind, bitten wir Sie möglicherweise, ein erweitertes Support-Bundle bereitzustellen. Sie benötigen SSH-Zugriff, um ein erweitertes Bundle herunterzuladen. Sie können ein erweitertes Bundle nicht über die {% data variables.enterprise.management_console %} herunterladen.
 
 Damit die Pakete nicht zu groß werden, enthalten sie nur Protokolle, die nicht rotiert und komprimiert wurden. Die Protokollrotation unter {% data variables.product.prodname_ghe_server %} erfolgt in verschiedenen Intervallen (täglich oder wöchentlich) für verschiedene Protokolldateien, je nachdem, wie groß die Protokolle schätzungsweise sein werden.
 
-#### Erweitertes Support-Bundle mithilfe von SSH erstellen
+### Erweitertes Support-Bundle mithilfe von SSH erstellen
 
 You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.product.product_location %} and you have outbound internet access.
 
@@ -141,18 +143,18 @@ You can use these steps to create and share an extended support bundle if you ha
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-#### Erweitertes Support-Bundle mithilfe von SSH direkt hochladen
+### Erweitertes Support-Bundle mithilfe von SSH direkt hochladen
 
 Unter folgenden Voraussetzungen können Sie ein Support-Bundle direkt auf unseren Server hochladen:
 - You have SSH access to {% data variables.product.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
 1. Laden Sie das Bundle auf unseren Support-Bundle-Server hoch:
   ```shell
   $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u -x'
   ```
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zum {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)“
 - „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“

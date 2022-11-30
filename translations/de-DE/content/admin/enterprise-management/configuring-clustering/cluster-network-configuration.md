@@ -6,21 +6,23 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
   - /admin/enterprise-management/cluster-network-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Clustering
   - Enterprise
   - Infrastructure
   - Networking
+shortTitle: Configure a cluster network
 ---
-### Grundlegendes zu Netzwerken
+
+## Grundlegendes zu Netzwerken
 
 Das einfachste Netzwerkdesign für Clustering besteht darin, die Knoten in einem einzelnen LAN zu platzieren. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. Zudem sollte die Latenz kleiner als 1 ms sein.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
+{% ifversion ghes %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
 
-#### Anwendungsports für Endbenutzer
+### Anwendungsports für Endbenutzer
 
 Mit Anwendungsports können Endbenutzer auf Webanwendungen und Git zugreifen.
 
@@ -32,7 +34,7 @@ Mit Anwendungsports können Endbenutzer auf Webanwendungen und Git zugreifen.
 | 443/TCP  | HTTPS                                                                | Ja                                                                                  |
 | 9418/TCP | Einfacher Git-Protokollport<br>(Im privaten Modus deaktiviert) | Nein                                                                                |
 
-#### Verwaltungsports
+### Verwaltungsports
 
 Verwaltungsports sind für die einfache Verwendung von Anwendungen durch Endbenutzer nicht erforderlich.
 
@@ -44,7 +46,7 @@ Verwaltungsports sind für die einfache Verwendung von Anwendungen durch Endbenu
 | 8080/TCP | HTTP für Managementkonsole  | Nein<br>(Wenn SSL aktiviert ist, leitet dieser Port Elemente an HTTPS weiter) |
 | 8443/TCP | HTTPS für Managementkonsole | Ja                                                                                  |
 
-#### Clusterkommunikationsports
+### Clusterkommunikationsports
 
 Wenn sich zwischen Knoten eine Firewall auf Netzwerkebene befindet, müssen diese Ports zugänglich sein. Die Kommunikation zwischen Knoten ist nicht verschlüsselt. Diese Ports sollten extern nicht zugänglich sein.
 
@@ -77,7 +79,7 @@ Wenn sich zwischen Knoten eine Firewall auf Netzwerkebene befindet, müssen dies
 | 8302/UDP  | Consul                       |
 | 25827/UDP | Collectd                     |
 
-### Load-Balancer konfigurieren
+## Load-Balancer konfigurieren
 
  Sie sollten einen externen TCP-basierten Load-Balancer verwenden, der das PROXY-Protokoll unterstützt, um den Traffic auf die Knoten zu verteilen. Beachten Sie die folgenden Load-Balancer-Konfigurationen:
 
@@ -86,7 +88,7 @@ Wenn sich zwischen Knoten eine Firewall auf Netzwerkebene befindet, müssen dies
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### Clientverbindungsinformationen verarbeiten
+## Clientverbindungsinformationen verarbeiten
 
 Da Clientverbindungen zum Cluster vom Load-Balancer stammen, kann die Client-IP-Adresse verloren gehen. Zum entsprechenden Erfassen der Clientverbindungsinformationen sind zusätzliche Überlegungen nötig.
 
@@ -94,7 +96,7 @@ Da Clientverbindungen zum Cluster vom Load-Balancer stammen, kann die Client-IP-
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### PROXY-Unterstützung auf {% data variables.product.prodname_ghe_server %} aktivieren
+### PROXY-Unterstützung auf {% data variables.product.prodname_ghe_server %} aktivieren
 
 Es wird dringend empfohlen, die PROXY-Unterstützung für Ihre Instanz und für den Load-Balancer zu aktivieren.
 
@@ -106,11 +108,11 @@ Es wird dringend empfohlen, die PROXY-Unterstützung für Ihre Instanz und für 
 
   {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### X-Forwarded-For-Unterstützung für {% data variables.product.prodname_ghe_server %} aktivieren
+### X-Forwarded-For-Unterstützung für {% data variables.product.prodname_ghe_server %} aktivieren
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-Führen Sie zum Aktivieren des Headers `X-Fowarded-For` den folgenden Befehl aus:
+To enable the `X-Forwarded-For` header, use this command:
 
 ```shell
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
@@ -118,12 +120,12 @@ $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-#### Zustandsprüfungen konfigurieren
+### Zustandsprüfungen konfigurieren
 Zustandsprüfungen ermöglichen einem Load-Balancer, das Senden von Traffic an einen nicht antwortenden Knoten zu stoppen, wenn eine vorkonfigurierte Prüfung auf diesem Knoten fehlschlägt. Wenn ein Clusterknoten fehlschlägt, bieten die mit den redundanten Knoten gekoppelten Zustandsprüfungen Hochverfügbarkeit.
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
-### DNS-Anforderungen
+## DNS-Anforderungen
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}

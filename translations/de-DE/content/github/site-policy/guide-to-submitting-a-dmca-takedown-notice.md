@@ -5,7 +5,7 @@ redirect_from:
   - /articles/dmca-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ Aufgrund der Art von Github gehosteten Inhalte (meist Softwarecode) und der Art 
 
 Wie bei allen Rechtsfragen ist es immer am besten, sich mit einem Fachmann über Ihre spezifischen Fragen oder Situationen zu beraten. Wir empfehlen dringend, dies zu tun, bevor Sie Maßnahmen ergreifen, die sich auf Ihre Rechte auswirken könnten. Diese Übersicht ist keine Rechtsberatung und sollte nicht als solche betrachtet werden.
 
-### Bevor Sie beginnen
+## Bevor Sie beginnen
 
 ***Sagen Sie die Wahrheit.*** Der DMCA verlangt, dass Sie die Tatsachen in Ihrer Urheberrechtsbeschwerde * eidesstattlich beschwören*. Es ist ein Bundesverbrechen, vorsätzlich in einer eidesstattlichen Erklärung zu lügen. (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability — that is, you could get sued for money damages. Der DMCA selbst [gewährt Schadenersatz](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) gegen jede Person, die wissentlich falsche Aussagen über die Verletzung von Inhalten oder Aktivitäten macht.
 
@@ -49,7 +49,7 @@ Diese Liste ist nicht erschöpfend, weshalb es besonders wichtig ist, mit einem 
 
 ***GitHub ist nicht der Richter.*** GitHub übt in diesem Prozess nur wenig Ermessensspielraum aus, als festzustellen, ob die Bekanntmachungen die Mindestanforderungen des DMCA erfüllen. Es obliegt den Parteien (und ihren Anwälten), die Stichhaltigkeit ihrer Ansprüche zu beurteilen, wobei zu bedenken ist, dass Benachrichtigungen unter dem Strafmaß des Meineids abgegeben werden müssen.
 
-### Ihre Beschwerde muss ...
+## Ihre Beschwerde muss ...
 
 1. **Die folgende Aussage enthalten: „Ich habe GitHubs Leitfaden zum Einreichen einer DMCA-Notice gelesen und verstanden."** Wir werden uns nicht weigern, eine ansonsten vollständige Counter Notice zu bearbeiten, wenn Sie diese Erklärung nicht beifügen. Allerdings werden wir wissen, dass Sie diese Richtlinie nicht gelesen haben und Sie möglicherweise bitten, sie noch einmal durchzulesen.
 
@@ -70,11 +70,14 @@ Diese Liste ist nicht erschöpfend, weshalb es besonders wichtig ist, mit einem 
 
 9. **Es muss Ihre physische oder elektronische Unterschrift enthalten sein;**
 
-### Beschwerden über Anti-Umgehungstechnologie
+## Beschwerden über Anti-Umgehungstechnologie
 
-Das Urheberrechtsgesetz verbietet auch die Umgehung technologischer Maßnahmen, die den Zugang zu urheberrechtlich geschützten Werken wirksam kontrollieren. Wenn Sie glauben, dass auf GitHub gehostete Inhalte gegen dieses Verbot verstoßen, senden Sie uns bitte einen Bericht über unsere {% data variables.contact.contact_dmca %}, und geben Sie spezifische Informationen darüber an, welche Inhalte gegen dieses Verbot verstoßen, welche technologischen Maßnahmen Sie ergriffen haben und warum der Inhalt gegen das Verbot verstößt.
+Das Urheberrechtsgesetz verbietet auch die Umgehung technologischer Maßnahmen, die den Zugang zu urheberrechtlich geschützten Werken wirksam kontrollieren. If you believe that content hosted on GitHub violates this prohibition, please send us a report through our {% data variables.contact.contact_dmca %}. A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
+1. What the technical measures are;
+2. How they effectively control access to the copyrighted material; and
+3. How the accused project is designed to circumvent their previously described technological protection measures.
 
-### So reichen Sie Ihre Beschwerde ein
+## So reichen Sie Ihre Beschwerde ein
 
 Der schnellste Weg, um eine Antwort zu erhalten, ist, Ihre Informationen einzugeben und alle Fragen auf unserer {% data variables.contact.contact_dmca %} zu beantworten.
 

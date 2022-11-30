@@ -1,6 +1,6 @@
-When a concurrent job or workflow is queued, if another job or workflow using the same concurrency group in the repository is in progress, the queued job or workflow will be `pending`. Any previously pending job or workflow in the concurrency group will be canceled. To also cancel any currently running job or workflow in the same concurrency group, specify `cancel-in-progress: true`.
+Quando um trabalho simultâneo ou fluxo de trabalho é enfileirado, se outro trbalho ou fluxo de trabalho que usa o mesmo grupo de concorrência no repositório estiver em andamento o trabalho na fila ou o fluxo de trabalho ficará `pendente`. Qualquer trabalho ou fluxo de trabalho anterior pendente no grupo de concorrência será cancelado. Para cancelar também qualquer trabalho atualmente em execução ou fluxo de trabalho no mesmo grupo de concorrência, especifique `cancel-in-progress: true`.
 
-##### Examples using concurrency and the default behavior
+## Exemplos: Como usar a concorrência e o comportamento padrão
 
 {% raw %}
 ```yaml
@@ -14,7 +14,7 @@ concurrency: ci-${{ github.ref }}
 ```
 {% endraw %}
 
-##### Example using concurrency to cancel any in-progress job or run
+## Exemplo: Usar a concorrência para cancelar qualquer trabalho em andamento ou em execução
 
 {% raw %}
 ```yaml

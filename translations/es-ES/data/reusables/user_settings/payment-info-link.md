@@ -1,1 +1,1 @@
-1. At the top of the page, click **Payment information**. ![Payment information link](/assets/images/help/settings/payment-info-link.png)
+1. En la parte superior de la página, haz clic en **Información de pago**. ![Enlace de información de pago](/assets/images/help/settings/payment-info-link.png)

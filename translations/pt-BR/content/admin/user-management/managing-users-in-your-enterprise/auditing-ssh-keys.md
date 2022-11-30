@@ -6,8 +6,8 @@ redirect_from:
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -15,9 +15,10 @@ topics:
   - Security
   - SSH
 ---
+
 Depois de iniciada, a auditoria desabilita todas as chaves SSH e força os usuários a aprová-las ou rejeitá-las antes que eles possam clonar, fazer pull ou fazer push para qualquer repositório. Auditorias são úteis nos casos em que um funcionário ou contratado sai da empresa e você deve garantir a verificação de todas as chaves.
 
-### Iniciar uma auditoria
+## Iniciar uma auditoria
 
 Você pode iniciar uma auditoria de chave SSH na guia "All users" (Todos os usuários) do painel de administração do site:
 
@@ -29,7 +30,7 @@ Depois de clicar no botão "Start public key audit" (Iniciar auditoria de chave 
 
 Depois de clicar no botão "Begin audit" (Iniciar auditoria), todas as chaves SSH serão invalidadas e exigirão aprovação. Você verá uma notificação indicando o início da auditoria.
 
-### O que os usuários veem
+## O que os usuários veem
 
 Se o usuário tentar fazer qualquer operação no Git por SSH, a operação vai falhar e a seguinte mensagem será exibida:
 
@@ -47,7 +48,7 @@ Quando clicar no link, o usuário deverá aprovar as chaves da própria conta:
 
 Depois de aprovar ou rejeitar as chaves, o usuário poderá interagir normalmente com os repositórios.
 
-### Adicionar chave SSH
+## Adicionar chave SSH
 
 Os novos usuários deverão informar a senha ao adicionar uma chave SSH:
 

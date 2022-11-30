@@ -8,10 +8,12 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: 依赖性见解策略
 ---
+
 在企业帐户拥有的组织中，组织所有者可以设置查看组织依赖项洞察的限制。 更多信息请参阅“[更改组织依赖项洞察的可见性](/articles/changing-the-visibility-of-your-organizations-dependency-insights)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}

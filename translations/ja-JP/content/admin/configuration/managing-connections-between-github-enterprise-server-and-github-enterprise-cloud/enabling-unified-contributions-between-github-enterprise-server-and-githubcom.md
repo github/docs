@@ -10,12 +10,14 @@ redirect_from:
   - /admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - GitHub Connect
+shortTitle: Enable unified contributions
 ---
+
 サイト管理者は、{% data variables.product.prodname_ghe_server %} からの作業に対する匿名のコントリビューション数の {% data variables.product.prodname_dotcom_the_website %} コントリビューショングラフへの送信をエンドユーザに許可できます。
 
 {% data variables.product.prodname_github_connect %} を有効化して双方の環境で {% data variables.product.prodname_unified_contributions %} を有効化した後、インスタンス上のエンドユーザは自分の {% data variables.product.prodname_dotcom_the_website %} アカウントに接続し、{% data variables.product.prodname_ghe_server %} からのコントリビューション数を {% data variables.product.prodname_dotcom_the_website %} に送信できます。 {% data reusables.github-connect.sync-frequency %} 詳細は「[{% data variables.product.prodname_ghe_server %} コントリビューションを {% data variables.product.prodname_dotcom_the_website %} プロフィールに送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。
@@ -27,8 +29,9 @@ topics:
 {% data variables.product.product_location_enterprise %}で {% data variables.product.prodname_unified_contributions %}を有効化する前に、{% data variables.product.product_location_enterprise %}を {% data variables.product.prodname_dotcom_the_website %}に接続する必要があります。 詳細は「[{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_dotcom_the_website %} に接続する](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)」を参照してください。
 
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 4. \[Users can share contribution counts to {% data variables.product.prodname_dotcom_the_website %}\] (ユーザは {% data variables.product.prodname_dotcom_the_website %} にコントリビューション数を共有できる) の下で、[**Request access**] (アクセスをリクエスト) をクリックします。 ![統合コントリビューションへのアクセスをリクエストするオプション](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png)
 5. {% data variables.product.prodname_ghe_server %} サイトに[サインイン](https://enterprise.github.com/login)して、以降の指示を受けてください。

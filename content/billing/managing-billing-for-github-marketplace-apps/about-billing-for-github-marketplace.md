@@ -4,12 +4,13 @@ intro: 'If you install a paid app in {% data variables.product.prodname_marketpl
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /articles/about-billing-for-github-marketplace
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Marketplace
+shortTitle: Billing for GitHub Marketplace
 ---
 {% data variables.product.prodname_marketplace %} includes apps with free and paid pricing plans. After you purchase and install an app, you can upgrade, downgrade, or cancel at any time.
 
@@ -17,7 +18,7 @@ topics:
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-### Payment methods and billing cycles for {% data variables.product.prodname_marketplace %} purchases
+## Payment methods and billing cycles for {% data variables.product.prodname_marketplace %} purchases
 
 You will have the same payment method for all paid plans and subscriptions across {% data variables.product.prodname_dotcom %}.
 
@@ -38,11 +39,13 @@ When you choose a paid plan with a free trial:
 - If you have other paid plans or subscriptions, once your 14-day free trial ends, the payment method on file is immediately charged a prorated amount based on the time remaining until your next billing date.
 - If you have other paid plans or subscriptions, on your next billing date, your receipt lists charges for your paid {% data variables.product.prodname_dotcom %} plan and your app subscription.
 
-### Unit plan limits
+{% data reusables.user_settings.context_switcher %}
+
+## Unit plan limits
 
 If you choose a unit plan (for example, a plan that charges per user), and you exceed the units that you're paying for, the integrator may disable your access until you upgrade the app. For more information, see "[Upgrading the billing plan for a {% data variables.product.prodname_marketplace %} app](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app)."
 
-### Downgrading a {% data variables.product.prodname_marketplace %} app
+## Downgrading a {% data variables.product.prodname_marketplace %} app
 
 If you downgrade your app subscription to a less expensive plan or if you cancel a paid app subscription, your changes will take effect at the end your current billing cycle. Your subscription will be moved to your new plan on your next billing date.
 
@@ -52,7 +55,7 @@ If you cancel an app on a free plan, your subscription will immediately end and 
 
 If you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. For more information, see "[Canceling a {% data variables.product.prodname_marketplace %} app](/articles/canceling-a-github-marketplace-app)."
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)"
 - "[Purchasing and installing apps in {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"

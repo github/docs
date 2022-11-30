@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Se você clonar repositórios do {% data variables.product.product_name %} usando SSH, você irá efetuar a autenticação usando uma chave SSH em vez de usar outras credenciais. Para obter informações sobre como configurar uma conexão SSH, consulte "[Gerar uma chave SSH](/articles/generating-an-ssh-key)".
 
 {% mac %}
@@ -94,6 +95,8 @@ Ative o auxiliar de credenciais para que o Git salve a senha na memória por alg
   $ git config --global credential.helper 'cache --timeout=3600'
   # Set the cache to timeout after 1 hour (setting is in seconds)
   ```
+
+Para obter mais opções para armazenar suas credenciais no Linux, consulte [Armazenamento de Credencial](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) no Pro Git.
 
 {% endlinux %}
 

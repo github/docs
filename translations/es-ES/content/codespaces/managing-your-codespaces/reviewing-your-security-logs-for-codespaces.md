@@ -1,21 +1,26 @@
 ---
-title: Reviewing your security logs for Codespaces
-shortTitle: Reviewing your security logs
-intro: 'You can use the security log to review all actions related to {% data variables.product.prodname_codespaces %}.'
+title: Revisar las bitácoras de seguridad de los Codespaces
+shortTitle: Bitácoras de seguridad
+intro: 'Puedes utilizar la bitácora de seguridad para revisar todas las acciones relacionadas con los {% data variables.product.prodname_codespaces %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
   - Developer
   - Security
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
-### About security logs for {% data variables.product.prodname_codespaces %}
+## Acerca de las bitácoras de seguridad para los {% data variables.product.prodname_codespaces %}
 
-When you perform an action related to {% data variables.product.prodname_codespaces %} in repositories owned by your user account, you can review the actions in the security log. Para obtener más información sobre acceder a la bitácora, consulta la sección "[Revisar tu bitácora de seguridad](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
+Cuando realizas una acción relacionada con {% data variables.product.prodname_codespaces %} en los repositorios que le pertenecen a tu cuenta de usuario, puedes revisar las acciones en la bitácora de seguridad. Para obtener más información sobre acceder a la bitácora, consulta la sección "[Revisar tu bitácora de seguridad](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
 
-![security log with Codespaces information](/assets/images/help/settings/codespaces-audit-log.png)
+![bitácora de seguridad con información sobre los codespaces](/assets/images/help/settings/codespaces-audit-log.png)
 
 La bitácora de seguridad incluye detalles de qué acción ocurrió y cuándo la realizaste. Para obtener información sobre las acciones de los {% data variables.product.prodname_codespaces %}, consulta la sección "[acciones de categoría de los {% data variables.product.prodname_codespaces %}](/github/authenticating-to-github/reviewing-your-security-log#codespaces-category-actions)".
+
+## Leer más
+
+- "[Reviewing your organization's audit logs for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces)"

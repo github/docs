@@ -5,25 +5,26 @@ intro: '{% data variables.product.prodname_dotcom %} が {% data variables.produ
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### {% data variables.product.prodname_codeql_workflow %} とコンパイル型言語について
+## {% data variables.product.prodname_codeql_workflow %} とコンパイル型言語について
 
 {% data variables.product.prodname_dotcom %} がリポジトリに対して {% data variables.product.prodname_code_scanning %} を実行できるようにするには、{% data variables.product.prodname_actions %} ワークフローをリポジトリに追加します。 **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. 詳しい情報については、「[リポジトリに対する {% data variables.product.prodname_code_scanning %} をセットアップする](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)」を参照してください。
 
 {% data reusables.code-scanning.edit-workflow %}
-{% data variables.product.prodname_code_scanning %} の設定とワークフローファイルの編集に関する一般的な情報については、 「[{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning) を設定する」および「[{% data variables.product.prodname_actions %} について学ぶ](/actions/learn-github-actions)」を参照してください。
+For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-### {% data variables.product.prodname_codeql %} の autobuild について
+## {% data variables.product.prodname_codeql %} の autobuild について
 
 コードスキャンは、1 つ以上のデータベースに対してクエリを実行することにより機能します。 各データベースには、リポジトリにあるすべてのコードを 1 つの言語で表わしたものが含まれています。 コンパイル型言語の C/C++、C#、および Java では、このデータベースを生成するプロセスに、コードのビルドとデータの抽出が含まれています。 {% data reusables.code-scanning.analyze-go %}
 
@@ -37,25 +38,25 @@ redirect_from:
 
 {% endnote %}
 
-#### C/C++
+### C/C++
 
 | サポートされているシステムの種類 | システム名                                                                                                                       |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | オペレーティングシステム     | Windows、macOS、Linux                                                                                                         |
 | ビルドシステム          | Windows: MSbuild およびビルドスクリプト<br/>Linux および macOS: Autoconf、Make、CMake、qmake、 Meson、Waf、SCons、Linux Kbuild、およびビルドスクリプト |
 
-`autobuild` ステップの動作は、抽出を実行するオペレーティングシステムによって異なります。 On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
+`autobuild` ステップの動作は、抽出を実行するオペレーティングシステムによって異なります。 Windowsでは、`autobuild`ステップは以下のアプローチを使ってC/C++のための適切なビルド方法を自動検出しようとします。
 
 1. ルートに最も近いソリューション (`.sln`) またはプロジェクト (`.vcxproj`) ファイルで `MSBuild.exe` を呼び出します。 `autobuild` が最上位ディレクトリから同じ（最短）深度で複数のソリューションまたはプロジェクトファイルを検出した場合、それらすべてをビルドしようとします。
 2. ビルドスクリプトのように見えるスクリプト、つまり _build.bat_、_build.cmd_、_および build.exe_ を、この順番で呼び出します。
 
-On Linux and macOS, the `autobuild` step reviews the files present in the repository to determine the build system used:
+LinuxとmacOSでは、`autobuild`ステップはリポジトリ中にあるファイルをレビューして、使用されているビルドシステムを判断します。
 
 1. ルートディレクトリでビルドシステムを探します。
 2. 何も見つからない場合は、C/C++ のビルドシステムで一意のディレクトリをサブディレクトリで検索します。
 3. 適切なコマンドを実行してシステムを設定します。
 
-#### C
+### C
 
 | サポートされているシステムの種類 | システム名                      |
 | ---------------- | -------------------------- |
@@ -68,7 +69,7 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 2. ルートに最も近いソリューションまたはプロジェクトファイルで `MSbuild`（Linux）または `MSBuild.exe`（Windows）を呼び出します。 `autobuild` が最上位ディレクトリから同じ（最短）深度で複数のソリューションまたはプロジェクトファイルを検出した場合、それらすべてをビルドしようとします。
 3. ビルドスクリプトのように見えるスクリプト、つまり _build_ と _build.sh_（Linux の場合、この順序で）または _build.bat_、_build.cmd_、および _build.exe_（Windows の場合、この順序で）を呼び出します。
 
-#### Java
+### Java
 
 | サポートされているシステムの種類 | システム名                      |
 | ---------------- | -------------------------- |
@@ -81,7 +82,7 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 2. 最初に見つかったビルドファイルを実行します。 Gradle ファイルと Maven ファイルの両方が存在する場合は、Gradle ファイルが使用されます。
 3. それ以外の場合は、ルートディレクトリの直接サブディレクトリ内でビルドファイルを検索します。 1 つのサブディレクトリにのみビルドファイルが含まれている場合は、そのサブディレクトリで識別された最初のファイルを実行します（1 と同じ環境設定を使用）。 複数のサブディレクトリにビルドファイルが含まれている場合は、エラーを報告します。
 
-### コンパイル言語のビルドステップを追加する
+## コンパイル言語のビルドステップを追加する
 
 {% data reusables.code-scanning.autobuild-add-build-steps %}ワークフローファイルの編集方法については、「[{% data variables.product.prodname_code_scanning %} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)」を参照してください。
 
@@ -95,7 +96,7 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 
 `run` キーワードに関する詳しい情報については、「"[{% data variables.product.prodname_actions %}のためのワークフローの構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
-If your repository contains multiple compiled languages, you can specify language-specific build commands. For example, if your repository contains C/C++, C# and Java, and `autobuild` correctly builds C/C++ and C# but fails to build Java, you could use the following configuration in your workflow, after the `init` step. This specifies build steps for Java while still using `autobuild` for C/C++ and C#:
+複数のコンパイル言語を含むリポジトリでは、言語に固有のビルドコマンドを指定できます。 たとえば、リポジトリがC/C++、C#、Javaを含んでおり、`autobuild`が正しくC/C++をビルドするもののJavaのビルドには失敗するなら、`init`ステップ後にワークフロー中で以下の設定を利用できるでしょう。 これは、引き続きC/C++とC#に`autobuild`を使いながら、Javaにはビルドステップを指定します。
 
 ```yaml
 - if: matrix.language == 'cpp' || matrix.language == 'csharp' 
@@ -109,8 +110,8 @@ If your repository contains multiple compiled languages, you can specify languag
     make release
 ```
 
-For more information about the `if` conditional, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
+`if`条件演算子に関する詳しい情報については「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif)」を参照してください。
 
 `autobuild` がコードをビルドしない理由に関するヒントやビルドの方法については、「[{% data variables.product.prodname_codeql %} ワークフローのトラブルシューティング](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow)」を参照してください。
 
-If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
+コンパイル言語にマニュアルのビルドステップを追加しても、リポジトリで依然として{% data variables.product.prodname_code_scanning %}が動作しない場合は、{% data variables.contact.contact_support %}にお問い合わせください。

@@ -4,14 +4,18 @@ intro: 'Cuando eliminas a un colaborador de una asesoría de seguridad, este pie
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
+shortTitle: Eliminar colaboradores
 ---
 
 Las personas con permisos administrativos en una asesoría de seguridad pueden eliminar a los colaboradores de la misma.
 
-### Eliminar a un colaborador de una asesoría de seguridad
+## Eliminar a un colaborador de una asesoría de seguridad
 
 {% data reusables.repositories.security-advisory-collaborators-public-repositories %}
 
@@ -22,7 +26,7 @@ Las personas con permisos administrativos en una asesoría de seguridad pueden e
 5. En el lado derecho de la página, debajo de "Colaboradores", encuentra el nombre del usuario o equipo al que quieres eliminar de la asesoría de seguridad. ![Colaborador de la asesoría de seguridad](/assets/images/help/security/security-advisory-collaborator.png)
 6. Al lado del colaborador que deseas eliminar, haz clic en el icono **X**. ![Icono X para eliminar al colaborador de la asesoría de seguridad](/assets/images/help/security/security-advisory-remove-collaborator-x.png)
 
-### Leer más
+## Leer más
 
 - "[Niveles de permiso para las asesorías de seguridad](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)"
 - "[Añadir un colaborador a una asesoría de seguridad](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)"

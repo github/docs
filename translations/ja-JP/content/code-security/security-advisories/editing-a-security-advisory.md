@@ -4,22 +4,25 @@ intro: 詳細を更新したりエラーを修正したりする必要がある�
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+shortTitle: アドバイザリの編集
 ---
 
 セキュリティアドバイザリの管理者権限を持つユーザは、セキュリティアドバイザリを編集できます。
 
-### セキュリティアドバイザリのクレジットについて
+## セキュリティアドバイザリのクレジットについて
 
 セキュリティの脆弱性の発見、報告、修正を支援してくれたユーザにクレジットを付与することができます。 ユーザにクレジットを付与すると、相手はそのクレジットを受け入れるか拒否するかを選択できます。
 
 相手がクレジットを受け入れると、そのユーザのユーザ名がセキュリティアドバイザリの [Credits] セクションに表示されます。 リポジトリへの読み取りアクセスを持つユーザは、アドバイザリとそれに対するクレジットを受け入れたユーザを確認することができます。
 
-If you believe you should be credited for a security advisory, please contact the person who created the advisory and ask them to edit the advisory to include your credit. Only the creator of the advisory can credit you, so please don't contact GitHub Support about credits for security advisories.
+セキュリティアドバイザリに自分がクレジットされるべきだと信じるなら、そのアドバイザリを作成した人物に連絡し、そのアドバイザリを編集してあなたへのクレジットを含めてもらうように頼んでください。 あなたをクレジットできるのはアドバイザリの作者だけなので、セキュリティアドバイザリでのクレジットについてはGitHub Supportに問い合わせないでください。
 
-### セキュリティアドバイザリを編集する
+## セキュリティアドバイザリを編集する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -31,9 +34,9 @@ If you believe you should be credited for a security advisory, please contact th
 {% data reusables.repositories.security-advisory-edit-cwe-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
 11. 必要に応じて、セキュリティアドバイザリの [Credits] を編集します。 ![セキュリティアドバイザリのクレジット](/assets/images/help/security/security-advisory-credits.png)
-12. [**Update security advisory**] をクリックします。 ![[Add] ボタン](/assets/images/help/security/update-advisory-button.png)
+12. [**Update security advisory**] をクリックします。 !["Update security advisory" button](/assets/images/help/security/update-advisory-button.png)
 13. [Credits] セクションに記載されているユーザは、クレジットを受け入れるように勧めるメールまたは Web 通知を受信します。 受け入れた場合、セキュリティアドバイザリが公開されると、そのユーザ名が公開されます。
 
-### 参考リンク
+## 参考リンク
 
 - 「[セキュリティアドバイザリを撤回する](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)」

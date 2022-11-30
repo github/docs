@@ -15,13 +15,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Upgrading GHES
 ---
-### アップグレードの準備
+
+## アップグレードの準備
 
 1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 3. {% data variables.product.prodname_enterprise_backup_utilities %} で、プライマリインスタンスの新しいバックアップを作成してください。 詳しい情報については、[{% data variables.product.prodname_enterprise_backup_utilities %}README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
@@ -35,7 +37,7 @@ topics:
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### スナップショットの取得
+## スナップショットの取得
 
 スナップショットは、ある時点での仮想マシン（VM）のチェックポイントです。 アップグレードに失敗した場合にスナップショットからVMを回復できるよう、仮想マシンをアップグレードする前にスナップショットを取っておくことを強くおすすめします。 新しいフィーチャリリースにアップグレードするなら、VM のスナップショットを取らなければなりません。 パッチリリースへのアップグレードをするなら、既存のデータディスクをアタッチできます。
 
@@ -61,24 +63,24 @@ topics:
 | VMware                | VM            | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
 | XenServer             | VM            | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
 
-### ホットパッチでのアップグレード
+## ホットパッチでのアップグレード
 
 {% data reusables.enterprise_installation.hotpatching-explanation %}{% data variables.enterprise.management_console %} を使うと、ホットパッチを即座にインストールすることや、後にインストールするようにスケジュールすることができます。 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 
 {% note %}
 
-**{% if currentVersion ver_gt "enterprise-server@2.22" %}Notes{% else %}Note{% endif %}**:
+**{% ifversion ghes > 2.22 %}Notes{% else %}Note{% endif %}**:
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
+{% ifversion ghes > 2.22 %}
+- {% data variables.product.product_location %} がリリース候補ビルドを実行している場合、ホットパッチでアップグレードすることはできません。
 
-- {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. クラスタ環境でホットパッチをインストールするには、「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)」を参照してください。
+- {% endif %}クラスタ環境では、{% data variables.enterprise.management_console %} を使ったホットパッチのインストールはできません。 クラスタ環境でホットパッチをインストールするには、「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)」を参照してください。
 
 {% endnote %}
 
-#### ホットパッチでの単一のアプライアンスのアップグレード
+### ホットパッチでの単一のアプライアンスのアップグレード
 
-##### {% data variables.enterprise.management_console %} を使ってホットパッチをインストールする
+#### {% data variables.enterprise.management_console %} を使ってホットパッチをインストールする
 
 1. 自動アップデートを有効化してください。 詳しい情報については「[自動アップデートの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)」を参照してください。
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -89,7 +91,7 @@ topics:
     - 後でインストールするなら、後の日付を選択してください。 ![ホットパッチインストール日のドロップダウン](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
 5. [**Install**] をクリックします。 ![ホットパッチインストールボタン](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
-##### 管理シェルを使ったホットパッチのインストール
+#### 管理シェルを使ったホットパッチのインストール
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -103,7 +105,7 @@ topics:
   ```
 5. カーネル、MySQL、Elasticsearch やその他のプログラムのアップグレードにリブートが必要なら、ホットパッチアップグレードスクリプトが通知してくれます。
 
-#### ホットパッチを使ったレプリカインスタンスを持つアプライアンスのアップグレード
+### ホットパッチを使ったレプリカインスタンスを持つアプライアンスのアップグレード
 
 {% note %}
 
@@ -113,11 +115,11 @@ topics:
 
 High Availability と Geo-replication が設定されたアプライアンスは、プライマリインスタンスに加えてレプリカインスタンスを使います。 これらのアプライアンスをアップグレードするには、プライマリインスタンスとすべてのレプリカインスタンスの両方を、1 つずつアップグレードしなければなりません。
 
-##### プライマリインスタンスのアップグレード
+#### プライマリインスタンスのアップグレード
 
 1. 「[管理シェルを使ってホットパッチをインストールする](#installing-a-hotpatch-using-the-administrative-shell)」の指示に従ってプライマリインスタンスをアップグレードしてください。
 
-##### レプリカインスタンスのアップグレード
+#### レプリカインスタンスのアップグレード
 
 {% note %}
 
@@ -129,11 +131,11 @@ High Availability と Geo-replication が設定されたアプライアンスは
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
-### アップグレードパッケージでのアップグレード
+## アップグレードパッケージでのアップグレード
 
 フィーチャシリーズ内の最新のパッチリリースへのアップグレードにはホットパッチが利用できますが、新しいフィーチャリリースへのアップグレードにはアップグレードパッケージを使わなければなりません。 たとえば `2.11.10` から `2.12.4` へのアップグレードの場合、これらは異なるフィーチャシリーズなので、アップグレードパッケージを使わなければなりません。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 
-#### アップグレードパッケージでの単一のアプライアンスのアップグレード
+### アップグレードパッケージでの単一のアプライアンスのアップグレード
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -169,11 +171,11 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
   {% endnote %}
 
-#### アップグレードパッケージを使ったレプリカインスタンスを持つアプライアンスのアップグレード
+### アップグレードパッケージを使ったレプリカインスタンスを持つアプライアンスのアップグレード
 
 High Availability と Geo-replication が設定されたアプライアンスは、プライマリインスタンスに加えてレプリカインスタンスを使います。 これらのアプライアンスをアップグレードするには、プライマリインスタンスとすべてのレプリカインスタンスの両方を、1 つずつアップグレードしなければなりません。
 
-##### プライマリインスタンスのアップグレード
+#### プライマリインスタンスのアップグレード
 
 {% warning %}
 
@@ -186,7 +188,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
 3. レプリカインスタンス、あるいは Geo-replication の一部として複数のレプリカインスタンスを動作させている場合は、すべてのレプリカインスタンスで `ghe-repl-stop` を実行してレプリケーションを停止させます。
 4. 「[アップグレードパッケージで単一アプライアンスをアップグレードする](#upgrading-a-single-appliance-with-an-upgrade-package)」の指示に従い、プライマリインスタンスをアップグレードしてください。
 
-##### レプリカインスタンスのアップグレード
+#### レプリカインスタンスのアップグレード
 
 {% note %}
 
@@ -216,22 +218,22 @@ High Availability と Geo-replication が設定されたアプライアンスは
    {% data reusables.enterprise_installation.replication-status %}
 6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location %} を使えるようにメンテナンスモードを無効化してください。
 
-### 失敗したアップグレードからのリストア
+## 失敗したアップグレードからのリストア
 
 アップグレードが失敗もしくは中断したなら、インスタンスを以前の状態に復帰させなければなりません。 この処理を完了させるプロセスは、アップグレードの種類によります。
 
-#### パッチリリースのロールバック
+### パッチリリースのロールバック
 
 パッチリリースをロールバックするには、`--allow-patch-rollback` を付けて `ghe-upgrade` コマンドを使います。 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)」を参照してください。
 
-#### フィーチャリリースのロールバック
+### フィーチャリリースのロールバック
 
 フィーチャリリースからロールバックするには、ルートおよびデータパーティションが整合した状態になることを保証するため、VM スナップショットからリストアしてください。 詳細は「[スナップショットを取得する](#taking-a-snapshot)」を参照してください。
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### 参考リンク
+{% ifversion ghes > 2.22 %}
+## 参考リンク
 
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」
 {% endif %}

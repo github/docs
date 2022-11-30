@@ -7,12 +7,13 @@ redirect_from:
   - /admin/authentication/disabling-unauthenticated-sign-ups
 intro: 'If you''re using built-in authentication, you can block unauthenticated people from being able to create an account.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
+shortTitle: Block account creation
 ---
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

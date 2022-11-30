@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 HTTPS リモート URL を使用すると、 SSH を使用するときと比べていくつかの利点があります。 SSH よりも、設定が簡単です。 通常は厳密なファイアウォールやプロキシを介して動作します。 ただし、リポジトリをプルまたはプッシュするたびに、{% data variables.product.product_name %} の認証情報を入力するように求められます。
 
 {% data reusables.user_settings.password-authentication-deprecation %}

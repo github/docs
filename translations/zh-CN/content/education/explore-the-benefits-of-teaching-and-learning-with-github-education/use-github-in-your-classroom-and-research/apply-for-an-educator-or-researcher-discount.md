@@ -11,9 +11,11 @@ redirect_from:
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 申请折扣
 ---
-### 关于教育者和研究人员折扣
+
+## 关于教育者和研究人员折扣
 
 {% data reusables.education.about-github-education-link %}
 
@@ -21,7 +23,7 @@ versions:
 
 有关在 {% data variables.product.product_name %} 上创建用户帐户的更多信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/github/getting-started-with-github/signing-up-for-a-new-github-account)”。
 
-### 申请教育者或研究人员折扣
+## 申请教育者或研究人员折扣
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -31,16 +33,16 @@ versions:
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### 升级组织
+## 升级组织
 
 在教育者或研究人员折扣申请获得批准后，您可以将用于学习社区的组织升级到 {% data variables.product.prodname_team %}，以便免费访问无限的用户和具有完全功能的私有仓库。 您可以升级现有组织或创建新组织进行升级。
 
-#### 升级现有组织
+### 升级现有组织
 
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-#### 升级新组织
+### 升级新组织
 
 {% data reusables.education.upgrade-page %}
 1. 单击 {% octicon "plus" aria-label="The plus symbol" %} **Create an organization（创建组织）**。 ![创建组织按钮](/assets/images/help/education/create-org-button.png)
@@ -50,7 +52,7 @@ versions:
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[为什么我的教育者或研究人员折扣申请未获得批准？](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)

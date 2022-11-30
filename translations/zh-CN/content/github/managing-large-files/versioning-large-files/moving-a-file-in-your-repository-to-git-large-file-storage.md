@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 在安装 {% data variables.large_files.product_name_short %} 和配置 {% data variables.large_files.product_name_short %} 跟踪后，您可以将文件从 Git 的常规跟踪移至 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[安装 {% data variables.large_files.product_name_long %}](/github/managing-large-files/installing-git-large-file-storage)”和“[配置 {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)”。
 
 {% data reusables.large_files.resolving-upload-failures %}

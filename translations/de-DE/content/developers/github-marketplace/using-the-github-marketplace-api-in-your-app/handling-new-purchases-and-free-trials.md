@@ -8,17 +8,19 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /developers/github-marketplace/handling-new-purchases-and-free-trials
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: New purchases & free trials
 ---
+
 {% warning %}
 
 If you offer a {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate {% data variables.product.prodname_oauth_app %} to support this flow. See "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
 
 {% endwarning %}
 
-### Schritt 1. Initial purchase and webhook event
+## Schritt 1. Initial purchase and webhook event
 
 Before a customer purchases your {% data variables.product.prodname_marketplace %} app, they select a [listing plan](/marketplace/selling-your-app/github-marketplace-pricing-plans/). They also choose whether to purchase the app from their personal account or an organization account.
 
@@ -32,7 +34,7 @@ If your app offers a free trial, read the `marketplace_purchase[on_free_trial]` 
 
 See "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" for an example of the `marketplace_purchase` event payload.
 
-### Schritt 2. Installation
+## Schritt 2. Installation
 
 If your app is a {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} prompts the customer to select which repositories the app can access when they purchase it. {% data variables.product.product_name %} then installs the app on the account the customer selected  and grants access to the selected repositories.
 
@@ -48,7 +50,7 @@ If your app is an {% data variables.product.prodname_oauth_app %}, {% data varia
 
 When a customer purchases an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
 
-### Schritt 3. Autorisierung
+## Schritt 3. Autorisierung
 
 When a customer purchases your app, you must send the customer through the OAuth authorization flow:
 
@@ -66,7 +68,7 @@ After the customer completes the authorization, your app receives an OAuth acces
 
 {% endnote %}
 
-### Schritt 4. Provisioning customer accounts
+## Schritt 4. Provisioning customer accounts
 
 Your app must provision a customer account for all new purchases. Using the access token you received for the customer in [Step 3. Authorization](#step-3-authorization), call the "[List subscriptions for the authenticated user](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)" endpoint. The response will include the customer's `account` information and show whether they are on a free trial (`on_free_trial`). Use this information to complete setup and provisioning.
 

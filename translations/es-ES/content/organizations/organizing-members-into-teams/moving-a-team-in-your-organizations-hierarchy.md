@@ -7,12 +7,13 @@ redirect_from:
   - /articles/moving-a-team-in-your-organizations-hierarchy
   - /github/setting-up-and-managing-organizations-and-teams/moving-a-team-in-your-organizations-hierarchy
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Mover un equipo
 ---
 
 Los propietarios de la organización pueden cambiar el padre de cualquier equipo. Los mantenedores del equipo pueden cambiar el equipo padre de un equipo si son mantenedores tanto en el equipo hijo como en el equipo padre. Los mantenedores del equipo sin permisos de mantenedor en el equipo hijo puede solicitar agregar un equipo padre o hijo. Para obtener más información, consulta "[Solicitar agregar o cambiar un equipo padre](/articles/requesting-to-add-or-change-a-parent-team)" y "[Solicitar agregar un equipo hijo](/articles/requesting-to-add-a-child-team)."
@@ -27,8 +28,8 @@ Los propietarios de la organización pueden cambiar el padre de cualquier equipo
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. En la lista de equipos, haz clic en el nombre del equipo cuyo padre deseas cambiar. ![Lista de los equipos de la organización](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}
@@ -37,6 +38,6 @@ Los propietarios de la organización pueden cambiar el padre de cualquier equipo
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Haz clic en **Confirm new parent team (Confirmar nuevo equipo padre)**. ![Casilla modal para información acerca de los cambios en los permisos de acceso del repositorio](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Leer más
+## Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"

@@ -11,6 +11,7 @@ versions:
 topics:
   - SSH
 ---
+
 ### Herausfinden, wo der Schlüssel verwendet wurde
 
 Um herauszufinden, wo der Schlüssel bereits verwendet wurde, öffne ein Terminal und gib den Befehl `ssh` ein. Mit dem Flag `-i` gibst Du den Pfad zu dem Schlüssel ein, den Du überprüfen möchtest:

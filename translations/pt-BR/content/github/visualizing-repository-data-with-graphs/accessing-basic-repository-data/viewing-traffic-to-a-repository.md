@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 A partir dos links indicados nos caminhos especificados, é possível navegar para sites de referência, exceto mecanismos de pesquisa e o {% data variables.product.product_name %} em si. O conteúdo popular tem links para o conteúdo específico que gerou o tráfego.
 
 Os sites de referência e o conteúdo popular são ordenados por exibições e visitantes exclusivos. As informações sobre visitantes e clones completos são atualizadas a cada hora, enquanto que as seções de conteúdo popular e sites de referência são atualizadas diariamente. Todos os dados no gráfico de tráfego usam o fuso horário UTC+0, independentemente de onde você está localizado.

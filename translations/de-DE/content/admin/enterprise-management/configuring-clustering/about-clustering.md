@@ -8,19 +8,20 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
   - /admin/enterprise-management/about-clustering
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering
   - Enterprise
 ---
-### Clustering-Architektur
+
+## Clustering-Architektur
 
 {% data variables.product.prodname_ghe_server %} besteht aus einer Reihe an Diensten. In einem Cluster werden diese Dienste knotenübergreifend ausgeführt, und die Last der Anforderungen wird zwischen ihnen ausgeglichen. Änderungen werden automatisch mit redundanten Kopien auf separaten Knoten gespeichert. Die meisten Dienste sind gleichwertige Peers mit anderen Instanzen desselben Diensts. Die Dienste `mysql-server` und `redis-server` bilden hierzu die Ausnahmen. Diese werden mit einem einzelnen _primären_ Knoten betrieben, der mindestens einen _Replikatknoten_ aufweist.
 
 Learn more about [services required for clustering](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
 
-### Ist Clustering die richtige Lösung für meine Organisation?
+## Ist Clustering die richtige Lösung für meine Organisation?
 
 {% data reusables.enterprise_clustering.clustering-scalability %} Das Einrichten eines redundanten und skalierbaren Clusters kann jedoch komplex sein und erfordert eine genaue Planung. Diese zusätzliche Komplexität muss bei der Installation, bei Disaster Recovery-Szenarien und bei Upgrades berücksichtigt werden.
 
@@ -30,6 +31,6 @@ Clustering bietet Redundanz, ist jedoch nicht dazu vorgesehen, eine Hochverfügb
 
 {% data reusables.package_registry.packages-cluster-support %}
 
-### Wie kann ich auf Clustering zugreifen?
+## Wie kann ich auf Clustering zugreifen?
 
 Clustering ist für bestimmte Skalierungssituationen vorgesehen, nicht aber für jede Organisation. Wenn Du Clustering in Betracht ziehen möchtest, wende Dich bitte an Deinen {% data variables.contact.contact_enterprise_sales %}.

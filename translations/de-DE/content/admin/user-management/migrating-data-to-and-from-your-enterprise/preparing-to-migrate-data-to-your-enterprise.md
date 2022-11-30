@@ -10,13 +10,15 @@ redirect_from:
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
   - /admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Prepare to migrate data
 ---
-### Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
+
+## Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
 
 1. Kopieren Sie mit dem Befehl [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) das auf Ihrer Quellinstanz oder in Ihrer Organisation generierte Migrationsarchiv auf Ihr {% data variables.product.prodname_ghe_server %}-Ziel:
 
@@ -35,7 +37,7 @@ topics:
     * Führen Sie zum Starten eines neuen Importversuchs den Befehl `ghe-migrator prepare` erneut aus, und rufen Sie einen neuen Migrations-GUID ab.
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-### Liste mit Migrationskonflikten generieren
+## Liste mit Migrationskonflikten generieren
 
 1. Führen Sie den Befehl `ghe-migrator conflicts` mit dem Migrations-GUID aus, um die Datei *conflicts.csv* zu generieren:
     ```shell
@@ -48,7 +50,7 @@ topics:
   ```
 3. Wechseln Sie zu „[Migrationskonflikte beheben oder benutzerdefinierte Zuordnungen einrichten](#resolving-migration-conflicts-or-setting-up-custom-mappings)“.
 
-### Migrationskonflikte überprüfen
+## Migrationskonflikte überprüfen
 
 1. Verwenden Sie einen Texteditor oder eine [CSV-kompatible Tabellenkalkulationssoftware](https://en.wikipedia.org/wiki/Comma-separated_values#Application_support), um *conflicts.csv* zu öffnen.
 2. Überprüfen Sie die Datei *conflicts.csv*, um sicherzustellen, dass die entsprechenden Aktionen beim Import durchgeführt werden. Berücksichtigen Sie dazu die Anleitung aus den folgenden Beispielen und Referenztabellen.
@@ -71,7 +73,7 @@ Jede Zeile in *conflicts.csv* enthält die folgenden Informationen:
 | `target_url`         | Die erwartete Ziel-URL der Daten.                                               |
 | `recommended_action` | Die Aktion, die `ghe-migrator` beim Importieren der Daten bevorzugt durchführt. |
 
-#### Mögliche Zuordnungen für jeden Datensatztyp
+### Mögliche Zuordnungen für jeden Datensatztyp
 
 Es gibt verschiedene Zuordnungsaktionen, die `ghe-migrator` beim Übertragen von Daten durchführen kann.
 
@@ -86,7 +88,7 @@ Es gibt verschiedene Zuordnungsaktionen, die `ghe-migrator` beim Übertragen von
 **We strongly suggest you review the *conflicts.csv* file and use [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)".
 
 
-### Migrationskonflikte beheben und benutzerdefinierte Zuordnungen einrichten
+## Migrationskonflikte beheben und benutzerdefinierte Zuordnungen einrichten
 
 Wenn Sie der Ansicht sind, dass der Befehl `ghe-migrator` eine falsche Änderung durchführt, können Sie Korrekturen vornehmen. Ändern Sie dazu die Daten in *conflicts.csv*. Sie können Änderungen an allen Zeilen in *conflicts.csv* vornehmen.
 
@@ -108,7 +110,7 @@ Falls Sie darüber hinaus beispielsweise das Repository `octo-org/widgets` auf d
 | ------------ | -------------------------------------------- | ---------------------------------------------------- | -------------------- |
 | `Repository` | `https://example-gh.source/octo-org/widgets` | `https://example-gh.target/octo-org/amazing-widgets` | `rename`             |
 
-#### Benutzerdefinierte Zuordnungen hinzufügen
+### Benutzerdefinierte Zuordnungen hinzufügen
 
 Während einer Migration geschieht es häufig, dass migrierte Benutzer andere Benutzernamen auf der Zielinstanz als auf der Quellinstanz besitzen.
 
@@ -130,7 +132,7 @@ Um beispielsweise den Benutzer `octocat` auf der Zielinstanz `https://example-gh
 
 Mit demselben Prozess können Sie Zuordnungen für jeden Datensatz erstellen, der benutzerdefinierte Zuordnungen unterstützt. Weitere Informationen finden Sie in unserer Tabelle zu den „[möglichen Zuordnungen für Datensätze](/enterprise/admin/guides/migrations/reviewing-migration-conflicts#possible-mappings-for-each-record-type)“.
 
-#### Geänderte Migrationsdaten anwenden
+### Geänderte Migrationsdaten anwenden
 
 1. After making changes, use the [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) command to apply your modified *conflicts.csv* (or any other mapping *.csv* file in the correct format) to the target instance:
 

@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% note %}
 
 コミッタのアイデンティティと {% data variables.product.product_name %}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。

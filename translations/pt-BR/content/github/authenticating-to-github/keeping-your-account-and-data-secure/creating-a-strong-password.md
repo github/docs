@@ -12,12 +12,13 @@ topics:
   - Identity
   - Access management
 ---
+
 Você deve escolher ou gerar uma senha para sua conta de {% data variables.product.product_name %} pelo menos:
-- Oito caracteres, se incluir um número e uma letra minúscula, ou
+- {% if enterpriseServerVersions contains currentVersion %}Sete{% else %}Oito{% endif %} caracteres, se incluir um número e uma letra minúscula, ou
 - 15 caracteres com qualquer combinação de caracteres
 
 Para manter sua conta protegida, é recomendável seguir estas práticas recomendadas:
-- Use um gerenciador de senhas, como [LastPass](https://lastpass.com/) ou [1Password](https://1password.com/) para gerar uma senha de pelo menos 15 caracteres.
+- Use a password manager, such as [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/), to generate a password of at least 15 characters.
 - Gere uma senha exclusiva para o {% data variables.product.product_name %}. Se você usar sua senha do {% data variables.product.product_name %} em outro lugar e esse serviço estiver comprometido, os invasores ou outros atores mal-intencionados podem usar essa informação para acessar sua conta do {% data variables.product.product_name %}.
 - Configure a autenticação de dois fatores para sua conta pessoal. Para obter mais informações, consulte "[Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)".
 - Nunca compartilhe sua senha, mesmo com um possível colaborador. Cada pessoa deve usar a própria conta pessoal no {% data variables.product.product_name %}. Para obter mais informações sobre maneiras de colaborar, consulte: "[Convidar colaboradores para um repositório pessoal](/articles/inviting-collaborators-to-a-personal-repository)", "[Sobre modelos de desenvolvimento colaborativo](/articles/about-collaborative-development-models/)" ou "[Colaborar com grupos em organizações](/organizations/collaborating-with-groups-in-organizations/)".

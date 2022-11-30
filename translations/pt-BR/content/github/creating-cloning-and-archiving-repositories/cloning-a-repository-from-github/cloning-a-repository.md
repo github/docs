@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Sobre clonagem de um repositório
 
 Você pode clonar um repositório do {% data variables.product.product_location %} para o seu computador local para facilitar a correção de conflitos de merge, adicionar ou remover arquivos e fazer push de commits maiores. Ao clonar um repositório, você copia o repositório do {% data variables.product.product_location %} para a sua máquina local.

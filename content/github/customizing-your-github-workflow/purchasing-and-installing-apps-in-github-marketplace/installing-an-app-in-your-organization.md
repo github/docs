@@ -5,7 +5,8 @@ redirect_from:
   - /articles/installing-an-app-in-your-organization
   - /github/customizing-your-github-workflow/installing-an-app-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Install app organization
 ---
 {% data reusables.marketplace.marketplace-apps-only %}
 
@@ -15,7 +16,7 @@ If you choose a paid plan, you'll pay for your app subscription on your organiza
 
 {% data reusables.marketplace.free-trials %}
 
-### Installing a {% data variables.product.prodname_github_app %} in your organization
+## Installing a {% data variables.product.prodname_github_app %} in your organization
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -29,7 +30,7 @@ If you choose a paid plan, you'll pay for your app subscription on your organiza
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-### Installing an {% data variables.product.prodname_oauth_app %} in your organization
+## Installing an {% data variables.product.prodname_oauth_app %} in your organization
 
 {% data reusables.saml.saml-session-oauth %}
 
@@ -42,7 +43,7 @@ If you choose a paid plan, you'll pay for your app subscription on your organiza
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. Review the information about the app's access to your personal account, organizations, and data, then click **Authorize application**.
 
-### Further reading
+## Further reading
 
 - "[Updating your organization's payment method](/articles/updating-your-organization-s-payment-method)"
 - "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)"

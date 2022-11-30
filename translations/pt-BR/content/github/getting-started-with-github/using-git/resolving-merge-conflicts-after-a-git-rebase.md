@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 Depois de reordenar e manipular os commits usando o `git rebase`, se ocorrer um conflito de merge, o Git informará exibindo a seguinte mensagem no terminal:
 
 ```shell

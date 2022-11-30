@@ -15,6 +15,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 组织拥有的仓库可授予更细致的访问权限。 更多信息请参阅“[{% data variables.product.product_name %} 上的访问权限](/articles/access-permissions-on-github)”。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
@@ -31,9 +32,7 @@ topics:
 
 {% endif %}
 
-1. 询问您要邀请成为合作者的人员的用户名。
-
-{% if currentVersion == "free-pro-team@latest" %} 如果他们还没有用户名，他们可以注册 {% data variables.product.prodname_dotcom %} 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”。{% endif %}
+1. 您邀请成为协作者的人员需提供用户名。{% if currentVersion == "free-pro-team@latest" %} 如果他们还没有用户名，他们可以注册 {% data variables.product.prodname_dotcom %} 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”。{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}

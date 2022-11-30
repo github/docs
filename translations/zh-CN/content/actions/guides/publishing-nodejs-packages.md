@@ -33,7 +33,7 @@ topics:
 
 您可能还发现基本了解以下内容是有帮助的：
 
-- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- “[使用 npm 注册表](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)”
 - "[环境变量](/actions/reference/environment-variables)"
 - [加密的密码](/actions/reference/encrypted-secrets)"
 - "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"

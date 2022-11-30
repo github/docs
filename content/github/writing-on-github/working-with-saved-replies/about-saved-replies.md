@@ -5,9 +5,9 @@ redirect_from:
   - /articles/about-saved-replies
   - /github/writing-on-github/about-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ![Saved replies](/assets/images/help/settings/saved-replies.png)
 
@@ -19,7 +19,7 @@ You can create a maximum of 100 saved replies. If you've reached the maximum lim
 
 You can also use the {% data variables.product.product_name %}-provided "Duplicate issue" saved reply to mark an issue as a duplicate and track it with a similar issue.
 
-### Further reading
+## Further reading
 
 - "[Creating a saved reply](/articles/creating-a-saved-reply)"
 - "[Using saved replies](/articles/using-saved-replies)"

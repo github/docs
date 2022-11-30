@@ -3,18 +3,19 @@ title: About code scanning
 intro: 'You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Informationen zu {% data variables.product.prodname_code_scanning %}
+## Informationen zu {% data variables.product.prodname_code_scanning %}
 
 With {% data variables.product.prodname_code_scanning %}, developers can quickly and automatically analyze the code in a {% data variables.product.prodname_dotcom %} repository to find security vulnerabilities and coding errors.
 
@@ -26,7 +27,7 @@ To monitor results from {% data variables.product.prodname_code_scanning %} acro
 
 To get started with {% data variables.product.prodname_code_scanning %}, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
-### Informationen zu {% data variables.product.prodname_codeql %}
+## Informationen zu {% data variables.product.prodname_codeql %}
 
 {% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}. {% data variables.product.prodname_codeql %} treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers.
 
@@ -38,7 +39,7 @@ For more information about API endpoints for {% data variables.product.prodname_
 
 You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
 
-### About third-party code scanning tools
+## About third-party code scanning tools
 
 {% data reusables.code-scanning.you-can-upload-third-party-analysis %}
 
@@ -46,7 +47,7 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 {% data reusables.code-scanning.get-started-uploading-third-party-data %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website

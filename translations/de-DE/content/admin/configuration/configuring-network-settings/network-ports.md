@@ -10,7 +10,7 @@ redirect_from:
   - /admin/configuration/network-ports
 intro: 'Öffnen Sie Netzwerkports anhand dessen, welche Netzwerkdienste Sie für Administratoren, Endbenutzer und für die E-Mail-Unterstützung bereitstellen müssen.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -18,7 +18,8 @@ topics:
   - Networking
   - Security
 ---
-### Verwaltungsports
+
+## Verwaltungsports
 
 Einige Verwaltungsports sind zum Konfigurieren von {% data variables.product.product_location %} und zum Ausführen bestimmter Features erforderlich. Verwaltungsports sind für die einfache Verwendung von Anwendungen durch Endbenutzer nicht erforderlich.
 
@@ -31,7 +32,7 @@ Einige Verwaltungsports sind zum Konfigurieren von {% data variables.product.pro
 | 123/UDP  | NTP    | Für Zeitprotokollvorgänge erforderlich.                                                                                                                                                                                                                                                |
 | 161/UDP  | SNMP   | Für Netzwerküberwachungs-Protokollvorgänge erforderlich.                                                                                                                                                                                                                               |
 
-### Anwendungsports für Endbenutzer
+## Anwendungsports für Endbenutzer
 
 Mit Anwendungsports können Endbenutzer auf Webanwendungen und Git zugreifen.
 
@@ -44,7 +45,7 @@ Mit Anwendungsports können Endbenutzer auf Webanwendungen und Git zugreifen.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### E-Mail-Ports
+## E-Mail-Ports
 
 E-Mail-Ports müssen direkt oder über ein Relay für die Unterstützung eingehender E-Mails für Endbenutzer erreichbar sein.
 

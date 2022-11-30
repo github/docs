@@ -6,16 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
   - /admin/enterprise-management/recovering-a-high-availability-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: 恢复 HA 配置
 ---
+
 如果故障转移是在计划内进行的，或者与设备的健康状态无关，则可以将之前的主设备用作新的副本设备。 如果故障转移与主设备的问题相关，则最好创建新的副本设备。 更多信息请参阅“[创建高可用性副本](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/)”。
 
-### 将之前的主设备配置为新副本
+## 将之前的主设备配置为新副本
 
 1. 使用 SSH 连接到之前的主设备的 IP 地址。
   ```shell

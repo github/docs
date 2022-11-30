@@ -3,23 +3,24 @@ title: Troubleshooting GitHub Actions for your enterprise
 intro: 'Troubleshooting common issues that occur when using {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.'
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
+shortTitle: Troubleshoot GitHub Actions
 ---
-### Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
+## Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.actions.enterprise-self-signed-cert %} For more information, see "[Configuring TLS](/admin/configuration/configuring-tls)."
 
-#### Installing the certificate on the runner machine
+### Installing the certificate on the runner machine
 
 For a self-hosted runner to connect to a {% data variables.product.prodname_ghe_server %} using a self-signed certificate, you must install the certificate on the runner machine so that the connection is security hardened.
 
 For the steps required to install a certificate, refer to the documentation for your runner's operating system.
 
-#### Configuring Node.JS to use the certificate
+### Configuring Node.JS to use the certificate
 
 Most actions are written in JavaScript and run using Node.js, which does not use the operating system certificate store. For the self-hosted runner application to use the certificate, you must set the `NODE_EXTRA_CA_CERTS` environment variable on the runner machine.
 
@@ -33,17 +34,17 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 
 Environment variables are read when the self-hosted runner application starts, so you must set the environment variable before configuring or starting the self-hosted runner application. If your certificate configuration changes, you must restart the self-hosted runner application.
 
-#### Configuring Docker containers to use the certificate
+### Configuring Docker containers to use the certificate
 
 If you use Docker container actions or service containers in your workflows, you might also need to install the certificate in your Docker image in addition to setting the above environment variable.
 
-### Configuring HTTP proxy settings for {% data variables.product.prodname_actions %}
+## Configuring HTTP proxy settings for {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.enterprise-http-proxy %}
 
 If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://<IP_ADDRESS>` when setting or changing your {% data variables.product.prodname_actions %} configuration.
 
-### Runners not connecting to {% data variables.product.prodname_ghe_server %} after changing the hostname
+## Runners not connecting to {% data variables.product.prodname_ghe_server %} after changing the hostname
 
 If you change the hostname of {% data variables.product.product_location %}, self-hosted runners will be unable to connect to the old hostname, and will not execute any jobs.
 
@@ -52,19 +53,19 @@ You will need to update the configuration of your self-hosted runners to use the
 * In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
 * Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see "[Removing self-hosted runners](/actions/hosting-your-own-runners/removing-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
-### Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
+## Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
 
 {% data variables.product.prodname_actions %} is composed of multiple services running on {% data variables.product.product_location %}. By default, these services are set up with default CPU and memory limits that should work for most instances. However, heavy users of {% data variables.product.prodname_actions %} might need to adjust these settings.
 
 You may be hitting the CPU or memory limits if you notice that jobs are not starting (even though there are idle runners), or if the job's progress is not updating or changing in the UI.
 
-#### 1. Check the overall CPU and memory usage in the management console
+### 1. Check the overall CPU and memory usage in the management console
 
 Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[Accessing the monitor dashboard](/admin/enterprise-management/accessing-the-monitor-dashboard)."
 
 If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.product.product_location %} is running at capacity and needs to be scaled up. For more information, see "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
 
-#### 2. Check the Nomad Jobs CPU and memory usage in the management console
+### 2. Check the Nomad Jobs CPU and memory usage in the management console
 
 If the overall "System Health" CPU and memory usage is OK, scroll down the monitor dashboard page to the "Nomad Jobs" section, and look at the "CPU Percent Value" and "Memory Usage" graphs.
 
@@ -79,7 +80,7 @@ Each plot in these graphs corresponds to one service. For {% data variables.prod
 
 If any of these services are at or near 100% CPU utilization, or the memory is near their limit (2 GB by default), then the resource allocation for these services might need increasing. Take note of which of the above services are at or near their limit.
 
-#### 3. Increase the resource allocation for services at their limit
+### 3. Increase the resource allocation for services at their limit
 
 1. Log in to the administrative shell using SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
 1. Run the following command to see what resources are available for allocation:

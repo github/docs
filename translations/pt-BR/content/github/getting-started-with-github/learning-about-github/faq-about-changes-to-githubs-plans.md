@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/faq-about-changes-to-githubs-plans
 ---
+
 ### Quais planos e mudanças de preços o GitHub anunciou em 14 de abril?
 
 O GitHub anunciou os seguintes planos e mudanças de preços:
@@ -24,11 +25,11 @@ O GitHub anunciou os seguintes planos e mudanças de preços:
 
 ### Como posso melhorar meu plano?
 
-Para atualizar o plano da sua conta de usuário, consulte "[Atualizando a assinatura de sua conta pessoal](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Para atualizar o plano da sua organização, consulte "[Atualizando a assinatura da sua organização](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+Para atualizar o plano da sua conta de usuário, consulte "[Atualizando a assinatura de sua conta pessoal](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Para atualizar o plano da sua organização, consulte "[Atualizando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
 ### Como posso rebaixar meu plano?
 
-Para rebaixar o plano da sua conta de usuário, consulte "[Rebaixando a assinatura de sua conta de usuário](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." Para rebaixar o plano da sua organização, consulte "[Rebaixando a assinatura da sua organização](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+Para rebaixar o plano da sua conta de usuário, consulte "[Rebaixando a assinatura de sua conta de usuário](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." Para rebaixar o plano da sua organização, consulte "[Rebaixando a assinatura da sua organização](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
 ### Se eu rebaixar do GitHub Team ou de um plano antigo para o GitHub Free, quais recursos perderei?
 - Revisores necessários em repositórios privados
@@ -64,11 +65,11 @@ Para obter informações sobre diferenças entre cada produto GitHub Free, consu
 
 ### Como posso obter mais minutos de ações se eu preciso de mais do que está alocado no plano GitHub Team?
 
-A maioria das equipes pequenas usa menos de 3.000 ações por minutos/mês, mas algumas equipes podem usar mais. Se sua equipe precisar de minutos adicionais para repositórios privados, você pode aumentar seu limite de gastos de ações do GitHub. Os minutos de ações e o armazenamento de pacotes ainda são gratuitos para seus repositórios públicos. Para obter mais informações, consulte "[Gerenciando seu limite de gastos para ações do GitHub](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+A maioria das equipes pequenas usa menos de 3.000 ações por minutos/mês, mas algumas equipes podem usar mais. Se sua equipe precisar de minutos adicionais para repositórios privados, você pode aumentar seu limite de gastos de ações do GitHub. Os minutos de ações e o armazenamento de pacotes ainda são gratuitos para seus repositórios públicos. Para obter mais informações, consulte "[Gerenciando seu limite de gastos para ações do GitHub](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
 
 ### Como as mudanças no limite de estações me afetam?
 
-Agora que {% data variables.product.prodname_team %} não tem uma exigência mínima de estações, se você estiver usando menos de cinco na sua organização, poderá remover estações pagas para reduzir sua fatura. Para obter mais informações, consulte "[Rebaixando sua assinatura {% data variables.product.prodname_dotcom %}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)".
+Agora que {% data variables.product.prodname_team %} não tem uma exigência mínima de estações, se você estiver usando menos de cinco na sua organização, poderá remover estações pagas para reduzir sua fatura. Para obter mais informações, consulte "[Rebaixando sua assinatura {% data variables.product.prodname_dotcom %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)".
 
 ### Muda alguma coisa para as equipes do GitHub Team do plano Open Source?
 

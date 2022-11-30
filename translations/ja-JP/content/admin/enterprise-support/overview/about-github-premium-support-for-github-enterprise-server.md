@@ -7,12 +7,14 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Premium Support for GHES
 ---
+
 {% note %}
 
 **ノート:**
@@ -25,7 +27,7 @@ topics:
 
 {% endnote %}
 
-### {% data variables.contact.premium_support %} について
+## {% data variables.contact.premium_support %} について
 
 {% data variables.contact.enterprise_support %} のすべての利点に加えて、{% data variables.contact.premium_support %} は以下を提供します:
   - GitHub Enterprise サポートページを通じた文面 (英語) での 24 時間 365 日のサポート
@@ -43,7 +45,7 @@ topics:
 
 {% data reusables.support.contacting-premium-support %}
 
-### 営業時間
+## 営業時間
 
 {% data variables.contact.premium_support %} は、24 時間 365 日利用できます。  {% data variables.contact.premium_support %} を 2018 年 9 月 17 日以前に購入した場合、休日のサポートは限定されます。 {% data variables.contact.premium_support %} の休日に関する情報については、「[{% data variables.contact.github_support %} について](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)」の休日スケジュールを参照してください。
 
@@ -53,7 +55,7 @@ topics:
 
 適用されるライセンスアグリーメントの Supported Releasesセクションに従い、{% data variables.contact.premium_support %} への発注から 90 日以内に {% data variables.product.prodname_ghe_server %} の最小限のサポートされるバージョンをインストールしなければなりません。
 
-### サポートチケットへの優先度の割り当て
+## サポートチケットへの優先度の割り当て
 
 {% data variables.contact.premium_support %} へのお問い合わせ時に、チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} の 4 つから選択できます。
 
@@ -61,7 +63,7 @@ topics:
 
 {% data reusables.support.ghes-priorities %}
 
-### サポートチケットの解決とクローズ
+## サポートチケットの解決とクローズ
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

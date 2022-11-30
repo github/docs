@@ -5,11 +5,13 @@ redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Auto linked references
 ---
-### URL
+
+## URL
 
 {% data variables.product.product_name %}は自動的に標準的な URL からリンクを生成します。
 
@@ -19,7 +21,7 @@ versions:
 
 リンクの生成に関する詳しい情報については[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax/#links)を参照してください。
 
-### Issue およびプルリクエスト
+## Issue およびプルリクエスト
 
 {% data variables.product.product_name %} 上の会話の中では、Issue やプルリクエストへの参照は自動的に短縮リンクに変換されます。
 
@@ -32,12 +34,16 @@ versions:
 | 参照タイプ                                         | RAW 参照                                         | 短縮リンク                                                                  |
 | --------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | Issue またはプルリクエストの URL                         | https://github.com/jlord/sheetsee.js/issues/26 | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
-| `#` および Issue またはプルリクエスト番号                    | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
+| `#` and issue or pull request number          | #26                                            | [#26](https://github.com/jlord/sheetsee.js/issues/26)                  |
 | `GH` および Issue またはプルリクエスト番号                   | GH-26                                          | [GH-26](https://github.com/jlord/sheetsee.js/issues/26)                |
 | `ユーザ名/リポジトリ#` および Issue またはプルリクエスト番号          | jlord/sheetsee.js#26                           | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Organization 名/リポジトリ#`および Issue またはプルリクエスト番号 | github/linguist#4039                           | [github/linguist#4039](https://github.com/github/linguist/pull/4039)   |
 
-### コミット SHA
+{% ifversion fpt %}
+If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+{% endif %}
+
+## コミット SHA
 
 コミットの SHA ハッシュへの参照は、{% data variables.product.product_name %}上のコミットへの短縮リンクに自動的に変換されます。
 
@@ -48,10 +54,10 @@ versions:
 | ユーザ@SHA          | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e                                                                                                                                 | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)               |
 | `ユーザ名/リポジトリ@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e`                                                                                                                   | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-### 外部リソースへのカスタム自動リンク
+## 外部リソースへのカスタム自動リンク
 
 {% data reusables.repositories.autolink-references %}
 
-### 参考リンク
+## 参考リンク
 
 - [基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)

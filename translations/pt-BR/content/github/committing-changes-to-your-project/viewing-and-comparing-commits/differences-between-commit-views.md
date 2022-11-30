@@ -1,13 +1,16 @@
 ---
 title: Diferenças entre exibições de commit
+intro: Você pode observar diferenças no histórico de commit dependendo do método de visualização escolhido.
 redirect_from:
   - /articles/differences-between-commit-views
   - /github/committing-changes-to-your-project/differences-between-commit-views
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Visualizações de commit
 ---
+
 No {% data variables.product.product_name %}, é possível ver o histórico de commits de um repositório:
 
 - Navegando diretamente para [a página de commits](https://github.com/mozilla/rust/commits/master) de um repositório
@@ -23,7 +26,7 @@ O {% data variables.product.product_name %} segue explicitamente essa estratégi
 
 Para obter mais informações sobre como o Git considera o histórico de commits, consulte a seção ["Simplificação do histórico"](https://git-scm.com/docs/git-log#_history_simplification) do artigo da Ajuda sobre `git log`.
 
-### Leia mais
+## Leia mais
 
 - "[Assinar commits](/articles/signing-commits)"
-- "[Pesquisar commits](/articles/searching-commits)"
+- "[Pesquisar commits](/search-github/searching-on-github/searching-commits)"

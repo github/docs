@@ -1,0 +1,1 @@
+要打开、查看和评论与企业帐户相关的支持事件单，您必须具有帐户的支持权利。 企业所有者和帐单管理员自动拥有支持权利，企业所有者可以向企业成员添加支持权利。 更多信息请参阅“[管理企业的支持权利](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)”。

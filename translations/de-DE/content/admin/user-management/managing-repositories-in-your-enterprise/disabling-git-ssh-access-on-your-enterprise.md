@@ -16,16 +16,18 @@ redirect_from:
   - /admin/user-management/disabling-git-ssh-access-on-your-enterprise
 intro: You can prevent people from using Git over SSH for certain or all repositories on your enterprise.
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Security
   - SSH
+shortTitle: Disable SSH for Git
 ---
-### Git-SSH-Zugriff auf ein bestimmtes Repository deaktivieren
+
+## Git-SSH-Zugriff auf ein bestimmtes Repository deaktivieren
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -37,7 +39,7 @@ topics:
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 1. Verwenden Sie unter „Git SSH access“ (Git-SSH-Zugriff) das Dropdownmenü, und klicken Sie auf **Disabled** (Deaktiviert). ![Dropdownmenü „Git SSH access“ (Git-SSH-Zugriff) mit ausgewählter Option „Disabled“ (Deaktiviert)](/assets/images/enterprise/site-admin-settings/git-ssh-access-repository-setting.png)
 
-### Git-SSH-Zugriff auf alle einem Benutzer oder einer Organisation gehörenden Repositorys deaktivieren
+## Git-SSH-Zugriff auf alle einem Benutzer oder einer Organisation gehörenden Repositorys deaktivieren
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
@@ -47,10 +49,10 @@ topics:
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 7. Verwenden Sie unter „Git SSH access“ (Git-SSH-Zugriff) das Dropdownmenü, und klicken Sie auf **Disabled** (Deaktiviert). Wählen Sie anschließend **Enforce on all repositories** (Auf allen Repositorys erzwingen) aus. ![Dropdownmenü „Git SSH access“ (Git-SSH-Zugriff) mit ausgewählter Option „Disabled“ (Deaktiviert)](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
 
-### Disabling Git SSH access to all repositories in your enterprise
+## Disabling Git SSH access to all repositories in your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

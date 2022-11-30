@@ -4,14 +4,14 @@ redirect_from:
   - /v4/enum
   - /v4/reference/enum
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 列挙型について
+## 列挙型について
 
 [列挙型](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)は、フィールドが取り得る値の集合を表します。
 

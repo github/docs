@@ -36,13 +36,6 @@ upcoming_changes:
     criticality: 重大
     owner: tambling
   - 
-    location: Sponsorship.maintainer
-    description: '`maintainer` 将被删除。使用 `Sponsorship.sponsorable` 代替。'
-    reason: '`Sponsorship.maintainer` 将被删除。'
-    date: '2020-04-01T00:00:00+00:00'
-    criticality: 重大
-    owner: antn
-  - 
     location: EnterprisePendingMemberInvitationEdge.isUnlicensed
     description: '`isUnlicensed` 将被删除。'
     reason: 所有挂起的成员都会使用许可证
@@ -78,13 +71,6 @@ upcoming_changes:
     criticality: 重大
     owner: jdennes
   - 
-    location: Sponsorship.sponsor
-    description: '`sponsor` 将被删除。改用 `Sponsorship.sponsorEntity`。'
-    reason: '`Sponsorship.sponsor` 将被删除。'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 重大
-    owner: nholden
-  - 
     location: EnterpriseMemberEdge.isUnlicensed
     description: '`isUnlicensed` 将被删除。'
     reason: 所有成员都会使用许可证
@@ -112,3 +98,17 @@ upcoming_changes:
     date: '2021-01-01T00:00:00+00:00'
     criticality: 重大
     owner: nplasterer
+  - 
+    location: PackageType.DOCKER
+    description: '`DOCKER` 将被删除。'
+    reason: DOCKER 将从这个枚举中移除，因为这种类型将被迁移到仅供软件包 REST API 使用。
+    date: '2021-06-21'
+    criticality: 重大
+    owner: reybard
+  - 
+    location: ReactionGroup.users
+    description: '`user` 将被删除。使用 `reactors` 字段代替。'
+    reason: 反应者现在可以是人体模特、自动程序和组织。
+    date: '2021-10-01T00:00:00+00:00'
+    criticality: 重大
+    owner: synthead

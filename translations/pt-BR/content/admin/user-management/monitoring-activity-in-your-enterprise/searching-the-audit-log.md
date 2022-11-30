@@ -7,15 +7,16 @@ redirect_from:
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
   - Enterprise
   - Logging
 ---
-### Sintaxe de consulta de pesquisa
+
+## Sintaxe de consulta de pesquisa
 
 Crie uma consulta de pesquisa com um ou mais pares chave-valor separados por operadores lógicos AND/OR.
 
@@ -42,7 +43,7 @@ Por exemplo, para ver todas as ações que afetaram o repositório `octocat/Spoo
 
 Para obter uma lista completa de ações, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
 
-### Pesquisar no log de auditoria
+## Pesquisar no log de auditoria
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

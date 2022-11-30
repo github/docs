@@ -13,6 +13,7 @@ topics:
   - Identity
   - Access management
 ---
+
 ### Zugriff auf Dein Sicherheitsprotokoll
 
 Das Sicherheitsprotokoll listet alle in den letzten 90 Tagen durchgeführten Aktionen auf{% if currentVersion ver_lt "enterprise-server@2.20" %}, maximal 50{% endif %}.
@@ -191,6 +192,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `repo_funding_links_file_action`              | Wird ausgelöst, wenn Du die FUNDING-Datei in Deinem Repository änderst (siehe „[Sponsorenschaltfläche in Deinem Repository anzeigen](/articles/displaying-a-sponsor-button-in-your-repository)“)                                                                                                                |
 | `sponsor_sponsorship_cancel`                  | Wird ausgelöst, wenn Sie ein Sponsoring beenden (siehe „[Sponsoring herabstufen](/articles/downgrading-a-sponsorship)“).                                                                                                                                                                                        |
 | `sponsor_sponsorship_create`                  | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")                                                                                                                                      |
+| `sponsor_sponsorship_payment_complete`        | Triggered after you sponsor an account and your payment has been processed (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")                                                                                                 |
 | `sponsor_sponsorship_preference_change`       | Triggered when you change whether you receive email updates from a sponsored developer (see "[Managing your sponsorship](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)")                                                                                                             |
 | `sponsor_sponsorship_tier_change`             | Wird ausgelöst, wenn Sie Ihr Sponsoring upgraden oder herabstufen (siehe „[Sponsoring upgraden](/articles/upgrading-a-sponsorship)“ und „[Sponsoring herabstufen](/articles/downgrading-a-sponsorship)“).                                                                                                       |
 | `sponsored_developer_approve`                 | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                     |

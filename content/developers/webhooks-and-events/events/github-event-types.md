@@ -6,19 +6,19 @@ redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Events
 ---
 The Events API can return different types of events triggered by activity on GitHub. Each event response contains shared properties, but has a unique `payload` object determined by its event type. The [Event object common properties](#event-object-common-properties) describes the properties shared by all events, and each event type describes the `payload` properties that are unique to the specific event.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% endif %}
 
-### Event object common properties
+## Event object common properties
 
 The event objects returned from the Events API endpoints have the same structure.
 
@@ -39,7 +39,7 @@ The event objects returned from the Events API endpoints have the same structure
 | `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
 | `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
 
-#### Example WatchEvent event object
+### Example WatchEvent event object
 
 This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
 
@@ -80,115 +80,115 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ]
 ```
 
-### CommitCommentEvent
+## CommitCommentEvent
 
 {% data reusables.webhooks.commit_comment_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.commit_comment_properties %}
 
-### CreateEvent
+## CreateEvent
 
 {% data reusables.webhooks.create_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.create_properties %}
 
-### DeleteEvent
+## DeleteEvent
 
 {% data reusables.webhooks.delete_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.delete_properties %}
 
-### ForkEvent
+## ForkEvent
 
 {% data reusables.webhooks.fork_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.fork_properties %}
 
-### GollumEvent
+## GollumEvent
 
 {% data reusables.webhooks.gollum_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.gollum_properties %}
 
-### IssueCommentEvent
+## IssueCommentEvent
 
 {% data reusables.webhooks.issue_comment_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.issue_comment_webhook_properties %}
 {% data reusables.webhooks.issue_comment_properties %}
 
-### IssuesEvent
+## IssuesEvent
 
 {% data reusables.webhooks.issues_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.issue_event_api_properties %}
 {% data reusables.webhooks.issue_properties %}
 
-### MemberEvent
+## MemberEvent
 
 {% data reusables.webhooks.member_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### PublicEvent
+{% ifversion fpt or ghes %}
+## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-#### Event `payload` object
+### Event `payload` object
 
 This event returns an empty `payload` object.
 {% endif %}
-### PullRequestEvent
+## PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
 
-### PullRequestReviewEvent
+## PullRequestReviewEvent
 
 {% data reusables.webhooks.pull_request_review_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 Key | Type | Description
 ----|------|-------------
@@ -196,24 +196,24 @@ Key | Type | Description
 `pull_request` | `object` | The pull request the review pertains to.
 `review` | `object` |	The review that was affected.
 
-### PullRequestReviewCommentEvent
+## PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
 
-### PushEvent
+## PushEvent
 
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 Key | Type | Description
 ----|------|-------------
@@ -232,34 +232,34 @@ Key | Type | Description
 `commits[][url]`|`url` | URL that points to the commit API resource.
 `commits[][distinct]`|`boolean` | Whether this commit is distinct from any that have been pushed before.
 
-### ReleaseEvent
+## ReleaseEvent
 
 {% data reusables.webhooks.release_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### SponsorshipEvent
+{% ifversion fpt %}
+## SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.sponsorship_event_api_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
 {% endif %}
 
-### WatchEvent
+## WatchEvent
 
 {% data reusables.webhooks.watch_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+### Event `payload` object
 
 {% data reusables.webhooks.watch_properties %}

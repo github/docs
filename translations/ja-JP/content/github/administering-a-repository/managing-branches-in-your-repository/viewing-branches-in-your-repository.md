@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
 3. ページ上部のナビゲーションを使用して、特定のブランチのリストを表示します:

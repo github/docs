@@ -7,11 +7,13 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Web 挂钩事件
 ---
-### {% data variables.product.prodname_marketplace %} 购买 web 挂钩有效负载
+
+## {% data variables.product.prodname_marketplace %} 购买 web 挂钩有效负载
 
 Web 挂钩 `POST` 请求具有特殊标头。 有关详细信息，请参阅“[web 挂钩递送标头](/webhooks/event-payloads/#delivery-headers)”。 GitHub 不会重新发送失败的递送尝试。 确保您的应用程序可以接收 GitHub 发送的所有 web 挂钩有效负载。
 
@@ -57,17 +59,17 @@ Web 挂钩 `POST` 请求具有特殊标头。 有关详细信息，请参阅“[
 
 <br/>
 
-#### `purchased` 事件的 web 挂钩有效负载示例
+### `purchased` 事件的 web 挂钩有效负载示例
 此示例提供 `purchased` 事件有效负载。
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-#### `changed` 事件的 web 挂钩有效负载示例
+### `changed` 事件的 web 挂钩有效负载示例
 
 计划中的更改包括升级和降级。 此示例表示 `changed`、`pending_change` 和 `pending_change_cancelled` 事件有效负载。 该操作标识这三个事件中发生了哪一个。
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-#### `cancelled` 事件的 web 挂钩有效负载示例
+### `cancelled` 事件的 web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

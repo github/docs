@@ -5,11 +5,13 @@ redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Organized data with tables
 ---
-### Eine Tabelle erstellen
+
+## Eine Tabelle erstellen
 
 Tabellen werden mit senkrechten Strichen (`|`) und Bindestrichen (`-`) erstellt. Mit Bindestrichen werden die Überschriften der Tabelle erstellt; die senkrechten Striche trennen die Spalten voneinander ab. Vor der Tabelle musst Du eine Zeile frei lassen, damit sie korrekt dargestellt wird.
 
@@ -36,7 +38,7 @@ Die Zellen können unterschiedlich breit sein und müssen nicht perfekt an den S
 
 ![Gerenderte Tabelle mit unterschiedlicher Zellenbreite](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-### Inhalt innerhalb der Tabelle formatieren
+## Inhalt innerhalb der Tabelle formatieren
 
 Du kannst [Formatierungen](/articles/basic-writing-and-formatting-syntax) wie Links, Inline-Codeblöcke und Textstile in Deiner Tabelle verwenden:
 
@@ -60,7 +62,7 @@ Du kannst den Text links oder rechts ausrichten oder zentrieren, indem Du links 
 
 ![Gerenderte Tabelle mit nach links, nach rechts oder zentriert ausgerichtetem Text](/assets/images/help/writing/table-aligned-text-rendered.png)
 
-Wenn Du einen senkrechten Strich (`|`) als Inhalt einer Zelle einfügen möchtest, verwende das Zeichen '\' vor dem senkrechten Strich:
+Wenn Sie einen senkrechten Strich (`|`) als Inhalt einer Zelle einfügen möchten, verwenden Sie vor dem senkrechten Strich einen Rückwärtsschrägstrich (`\`):
 
 ```markdown
 | Name     | Character |
@@ -71,7 +73,7 @@ Wenn Du einen senkrechten Strich (`|`) als Inhalt einer Zelle einfügen möchtes
 
 ![Gerenderte Tabelle mit einem maskierten senkrechten Strich](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
 - „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax)“

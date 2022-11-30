@@ -7,11 +7,12 @@ redirect_from:
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 ---
+
 アクティビティダッシュボードには、次の数値の週次、月次、年次のグラフが表示されます。
 - 新規プルリクエスト
 - マージされたプルリクエスト
@@ -25,12 +26,7 @@ topics:
 
 ![アクティビティダッシュボード](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
--
-{% data variables.product.product_name %} のデータに基づく詳細な分析については、{% data variables.product.prodname_insights %} を購入できます。 詳しい情報については、「[{% data variables.product.prodname_insights %} について](/insights/installing-and-configuring-github-insights/about-github-insights)」を参照してください。
-{% endif %}
-
-### アクティビティダッシュボードへのアクセス
+## アクティビティダッシュボードへのアクセス
 
 1. ページの上部で [**Explore**] をクリックします。 ![[Explore] タブ](/assets/images/enterprise/settings/ent-new-explore.png)
 2. 右上にある **Activity** をクリックする。 ![Activity ボタン](/assets/images/enterprise/activity/activity-button.png)

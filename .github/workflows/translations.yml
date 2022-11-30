@@ -8,6 +8,9 @@ on:
   schedule:
     - cron: '20 19 * * *' # once a day at 19:20 UTC / 11:20 PST
 
+permissions:
+  pull-requests: write
+
 env:
   FREEZE: ${{ secrets.FREEZE }}
 
@@ -31,7 +34,7 @@ jobs:
           state: open
       - if: ${{ steps.pr.outputs.number }}
         name: Check if already labeled
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: has-label
         with:
           script: |
@@ -47,17 +50,11 @@ jobs:
         name: Approve Pull Request
         uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.pr.outputs.number }}
       - if: ${{ !steps.has-label.outputs.result }}
         name: Add automerge label
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: ${{ steps.pr.outputs.number }},
-              labels: ['automerge']
-            })
+          issue-number: ${{ steps.pr.outputs.number }}
+          add-labels: 'automerge'

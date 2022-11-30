@@ -5,11 +5,12 @@ redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
   - Billing
+shortTitle: 支払マネージャーの追加
 ---
 
 Organization のオーナーの Team のメンバーは、人に*支払いマネージャー*権限を与えることができます。 Organization の支払いマネージャーになる招待を受け入れた人は、追加で他の人に、支払いマネージャーになるよう招待できます。
@@ -20,7 +21,7 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 
 {% endnote %}
 
-### 支払いマネージャーの権限
+## 支払いマネージャーの権限
 
 支払いマネージャーは以下のことができます:
 
@@ -29,6 +30,7 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 - 支払い履歴の閲覧
 - 領収書のダウンロード
 - 支払いマネージャーの表示、招待、削除
+- スポンサーシップの開始、変更、またはキャンセル
 
 加えて、すべての支払いマネージャーは Organization の支払日にメールで領収書を受け取ります。
 
@@ -45,12 +47,16 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 
 {% endtip %}
 
-### 支払いマネージャーの招待
+## 支払いマネージャーの招待
+
+{% note %}
+
+**Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level.
+
+{% endnote %}
 
 招待された人は、Organization の支払いマネージャーになることを依頼する招待メールを受信します。 招待された人が招待メール中の受諾のリンクをクリックすると、その人は自動的に支払いマネージャーとして Organization に追加されます。 その人がまだ GitHub のアカウントを持っていない場合は、アカウント作成のためのサインアップにリダイレクトされ、アカウント作成後に自動的に支払いマネージャーとして Organization に追加されます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-1. Under "Billing management", next to "Billing managers", click **Add**. ![支払いマネージャーの招待](/assets/images/help/billing/settings_billing_managers_list.png)
+{% data reusables.organizations.billing-settings %}
+1. [Billing management] で、[Billing managers] の右の [**Add**] をクリックします。 ![支払いマネージャーの招待](/assets/images/help/billing/settings_billing_managers_list.png)
 6. 追加したい人のユーザ名あるいはメールアドレスを入力し、[**Send Invitation**] をクリックします。 ![支払いマネージャーの招待ページ](/assets/images/help/billing/billing_manager_invite.png)

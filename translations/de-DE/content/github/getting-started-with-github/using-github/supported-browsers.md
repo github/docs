@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Firefox Extended Support Release
 
 Wir geben unser Bestes, um die aktuelle [Extended Support Release](https://www.mozilla.org/en-US/firefox/organizations/) (ESR) von Firefox zu unterstützen. In älteren Firefox-Versionen sind möglicherweise einige {% data variables.product.product_name %}-Funktionen deaktiviert, für die die aktuelle Version von Firefox erforderlich ist.

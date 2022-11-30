@@ -11,7 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### Using Git rebase
+
+### Usando rebase do Git
 
 Neste exemplo, abordaremos todos os comandos `git rebase` disponíveis, exceto `exec`.
 

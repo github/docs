@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
 intro: 'LDAP lets you authenticate {% data variables.product.prodname_ghe_server %} against your existing accounts and centrally manage repository access. LDAP is a popular application protocol for accessing and maintaining directory information services, and is one of the most common protocols used to integrate third-party software with large company user directories.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -21,7 +21,7 @@ topics:
 ---
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### Supported LDAP services
+## Supported LDAP services
 
 {% data variables.product.prodname_ghe_server %} integrates with these LDAP services:
 
@@ -32,7 +32,7 @@ topics:
 * Open Directory
 * 389-ds
 
-### Username considerations with LDAP
+## Username considerations with LDAP
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -41,7 +41,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### Configuring LDAP with {% data variables.product.product_location %}
+## Configuring LDAP with {% data variables.product.product_location %}
 
 After you configure LDAP, users will be able to sign into your instance with their LDAP credentials. When users sign in for the first time, their profile names, email addresses, and SSH keys will be set with the LDAP attributes from your directory.
 
@@ -61,7 +61,7 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select LDAP built-in authentication checkbox](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
 5. Add your configuration settings.
 
-### LDAP attributes
+## LDAP attributes
 Use these attributes to finish configuring LDAP for {% data variables.product.product_location %}.
 
 | Attribute name           | Type     | Description |
@@ -83,7 +83,7 @@ Use these attributes to finish configuring LDAP for {% data variables.product.pr
 | `Enable LDAP certificate verification` | Optional |If selected, [turns on](#enabling-ldap-certificate-verification) LDAP certificate verification. |
 | `Synchronization` | Optional |If selected, [turns on](#enabling-ldap-sync) LDAP Sync. |
 
-#### Disabling password authentication for Git operations
+### Disabling password authentication for Git operations
 
 Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of personal access tokens or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
 
@@ -91,7 +91,7 @@ Select **Disable username and password authentication for Git operations** in yo
 
 When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a personal access token.`
 
-#### Enabling LDAP certificate verification
+### Enabling LDAP certificate verification
 
 Select **Enable LDAP certificate verification** in your LDAP settings to validate the LDAP server certificate you use with TLS.
 
@@ -102,7 +102,7 @@ When this option is selected, the certificate is validated to make sure:
 - The certificate is not expired.
 - The certificate is signed by a trusted certificate authority (CA).
 
-#### Enabling LDAP Sync
+### Enabling LDAP Sync
 
 {% note %}
 
@@ -159,7 +159,7 @@ If disclosing such information is not desired, your company or organization shou
 
 {% endwarning %}
 
-#### Supported LDAP group object classes
+### Supported LDAP group object classes
 
 {% data variables.product.prodname_ghe_server %} supports these LDAP group object classes. Groups can be nested.
 
@@ -168,7 +168,7 @@ If disclosing such information is not desired, your company or organization shou
 - `groupOfUniqueNames`
 - `posixGroup`
 
-### Viewing and creating LDAP users
+## Viewing and creating LDAP users
 
 You can view the full list of LDAP users who have access to your instance and provision new users.
 
@@ -179,7 +179,7 @@ You can view the full list of LDAP users who have access to your instance and pr
 4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
 ![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
 
-### Updating LDAP accounts
+## Updating LDAP accounts
 
 Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
 
@@ -187,7 +187,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 * To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
 * To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users).
 
-#### Manually syncing LDAP accounts
+### Manually syncing LDAP accounts
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -200,7 +200,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 
 You can also [use the API to trigger a manual sync](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap).
 
-### Revoking access to {% data variables.product.product_location %}
+## Revoking access to {% data variables.product.product_location %}
 
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 

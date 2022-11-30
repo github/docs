@@ -5,8 +5,10 @@ redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: On behalf of an organization
 ---
+
 {% note %}
 
 **メモ:** Organization の代理でコミットを作成する機能は、現在パブリックベータであり、変更されることがあります。
@@ -24,7 +26,7 @@ Organization の代理でコミットを作成するには、以下の条件を�
 
 Organization は、オープンソースの取り組みにおいて、`name@organization.com` のメールアドレスを公開連絡先として使うことができます。
 
-### コマンドラインで `on-behalf-of` バッジを付けてコミットを作成する
+## コマンドラインで `on-behalf-of` バッジを付けてコミットを作成する
 
 1. コミットメッセージと、変更の短く分かりやすい説明を入力してください。 コミットの説明の後に、閉じる引用符の代わりに 2 つの空の行を追加してください。
   ```shell
@@ -49,7 +51,7 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
 
 次回のプッシュ時に、{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)」を参照してください。
 
-### {% data variables.product.product_name %} で `on-behalf-of` バッジを付けてコミットを作成する
+## {% data variables.product.product_name %} で `on-behalf-of` バッジを付けてコミットを作成する
 
 {% data variables.product.product_name %} のウェブエディタでファイルを変更してから、コミットのメッセージに `on-behalf-of:` トレーラーを追加することで、Organization の代理でコミットを作成できます。
 
@@ -62,10 +64,9 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
 
 {% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。
 
-### 参考リンク
+## 参考リンク
 
 - [プロフィール上でのコントリビューションの表示](/articles/viewing-contributions-on-your-profile)
 - [プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile)
-- [リポジトリアクティビティの概要を表示する](/articles/viewing-a-summary-of-repository-activity)
 - [プロジェクトのコントリビューターを表示する](/articles/viewing-a-projects-contributors)
 - [コミットメッセージの変更](/articles/changing-a-commit-message)

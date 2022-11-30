@@ -17,6 +17,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 {% data reusables.user_settings.access_settings %}
 2. 左のサイドバーで [**Repositories**] をクリックします。 ![[Repositories] タブ](/assets/images/help/settings/settings-sidebar-repositories.png)
 3. 離脱するリポジトリの横にある [**Leave**] をクリックします。 ![[Leave] ボタン](/assets/images/help/repository/repo-leave.png)

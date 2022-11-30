@@ -4,16 +4,19 @@ intro: '您可以使用支持门户将事件单提交到 {% data variables.conta
 redirect_from:
   - /articles/submitting-a-ticket
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 ---
 
-如果您的帐户使用付费的 {% data variables.product.prodname_dotcom %} 产品，您可以直接联系 {% data variables.contact.github_support %}。 如果您的帐户使用 {% data variables.product.prodname_free_user %} 支持用户帐户和组织，您可以联系 {% data variables.contact.contact_support %} 以报告帐户、安全和滥用问题。 更多信息请参阅“[关于 GitHub 支持](/github/working-with-github-support/about-github-support)”。
+## 关于事件单提交
+如果您的帐户使用付费的 {% data variables.product.prodname_dotcom %} 产品，您可以直接联系 {% data variables.contact.github_support %}。 如果您的帐户使用 {% data variables.product.prodname_free_user %} 支持用户帐户和组织，您可以联系 {% data variables.contact.github_support %} 以报告帐户、安全和滥用问题。 更多信息请参阅“[关于 GitHub 支持](/github/working-with-github-support/about-github-support)”。
+
+{% data reusables.enterprise-accounts.support-entitlements %}
 
 如果您没有企业帐户，请使用 {% data variables.contact.enterprise_portal %} 提交工单。 有关企业帐户的更多信息，请参阅“[关于企业帐户](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)”。
 
-### 使用 {% data variables.contact.support_portal %}提交事件单
+## 使用 {% data variables.contact.support_portal %}提交事件单
 
 1. 导航到 {% data variables.contact.contact_support_portal %}。
 2. 在“Name（姓名）”下，输入您的姓名。 ![姓名字段](/assets/images/help/support/name-field.png)
@@ -26,14 +29,14 @@ topics:
 6. （可选）通过拖放、上传或从剪贴板粘贴来附加文件。
 7. 单击 **Send request（发送请求）**。 ![发送请求按钮](/assets/images/help/support/send-request-button.png)
 
-### 使用 {% data variables.contact.enterprise_portal %} 提交事件单
+## 使用 {% data variables.contact.enterprise_portal %} 提交事件单
 
 1. 导航到 {% data variables.contact.contact_enterprise_portal %}。
 5. 单击 **Submit a Ticket（提交事件单）** ![将事件单提交至 Enterprise 支持团队](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### 延伸阅读
+## 延伸阅读
 - “[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”
 - “[关于 {% data variables.contact.github_support %}](/articles/about-github-support)”
 - “[关于 {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)。”

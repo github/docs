@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,6 +16,7 @@ topics:
   - Git
   - Logging
 ---
+
 推送日志条目会显示：
 
 - 推送发起人
@@ -26,18 +27,16 @@ topics:
 - 推送所使用的 Git 客户端
 - 操作前后的 SHA 哈希
 
-### 查看仓库的推送日志
+## 查看仓库的推送日志
 
 1. 以站点管理员的身份登录 {% data variables.product.prodname_ghe_server %} 。
 1. 导航到仓库。
-1. 在仓库页面的右上角，单击
-{% octicon "rocket" aria-label="The rocket ship" %}。
-    ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. 在仓库页面右上角，单击 {% octicon "rocket" aria-label="The rocket ship" %}。 ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 在左侧边栏中，单击 **Push Log**。 ![Push Log 选项卡](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
-### 在命令行上查看仓库的推送日志
+{% ifversion ghes %}
+## 在命令行上查看仓库的推送日志
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. 在相应的 Git 仓库中，打开审核日志文件：

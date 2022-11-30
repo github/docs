@@ -2,7 +2,7 @@
 title: Using a staging environment
 intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging environments.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 type: how_to
 topics:
   - Actions
@@ -11,7 +11,9 @@ topics:
   - Upgrades
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
+shortTitle: Use a staging area
 ---
+
 It can be useful to have a staging or testing environment for {% data variables.product.product_location %}, so that you can test updates or new features before implementing them in your production environment.
 
 A common way to create the staging environment is to use a backup of your production instance and restore it to the staging environment.

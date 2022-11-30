@@ -8,11 +8,13 @@ redirect_from:
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - GitHub search
+shortTitle: Habilitar pesquisa no GitHub.com
 ---
+
 Se você usa o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_dotcom_the_website %} e o administrador de site do {% data variables.product.prodname_ghe_server %} habilitou o {% data variables.product.prodname_github_connect %} e o {% data variables.product.prodname_unified_search %} para repositórios privados, você pode pesquisar repositórios privados designados na organização conectada.
 
 Para ver repositórios privados nos resultados da pesquisa, é preciso que você já tenha acesso a esses repositórios e se conecte ao {% data variables.product.prodname_ghe_server %} e às contas do {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações sobre os repositórios em que você pode pesquisar, consulte "[Pesquisar simultaneamente no {% data variables.product.prodname_ghe_server %} e no {% data variables.product.prodname_dotcom_the_website %}](/articles/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)".

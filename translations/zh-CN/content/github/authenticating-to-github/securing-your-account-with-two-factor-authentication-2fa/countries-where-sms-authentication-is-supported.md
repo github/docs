@@ -7,8 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 如果我们不支持在您所在的国家/地区通过短信进行双重身份验证，您可以设置通过 TOTP 移动应用程序进行身份验证。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
 
 ### 支持 SMS 身份验证的国家/地区

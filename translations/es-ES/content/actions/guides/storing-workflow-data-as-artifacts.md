@@ -36,7 +36,7 @@ Estos son algunos de los artefactos comunes que puedes subir:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% else %}
 
@@ -252,6 +252,6 @@ La ejecución de flujo de trabajo archivará cualquier artefacto que haya genera
 
 ### Leer más
 
-- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

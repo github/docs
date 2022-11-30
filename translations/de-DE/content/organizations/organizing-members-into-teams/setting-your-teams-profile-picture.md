@@ -6,18 +6,19 @@ redirect_from:
   - /articles/setting-your-teams-profile-picture
   - /github/setting-up-and-managing-organizations-and-teams/setting-your-teams-profile-picture
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Team profile picture
 ---
 
 Wenn für ein Team kein Profilbild festgelegt ist, wird stattdessen das Profilbild der Organisation angezeigt.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. Klicke auf **Upload new picture** (Neues Bild hochladen), und wähle das gewünschte Profilbild aus. ![Neues Bild hochladen](/assets/images/help/teams/org-team-profile-picture-upload.png)

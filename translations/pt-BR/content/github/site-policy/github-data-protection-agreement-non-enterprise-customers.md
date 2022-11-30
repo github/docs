@@ -4,7 +4,7 @@ redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 _Esses termos aplicam-se a clientes não corporativos. Elas também se aplicam aos clientes corporativos que licenciaram as ofertas do GitHub antes de 4 de janeiro de 2021. Os clientes corporativos que compraram as ofertas do GitHub após essa data serão direcionados para https://www.github.com/enterprise-legal para os termos atuais._
@@ -192,7 +192,7 @@ Para efeitos do artigo 46(2) do Regulamento Geral sobre a Proteção de Dados (U
 
 (e) "A lei de proteção de dados aplicável" é a legislação que protege os direitos e liberdades fundamentais dos indivíduos, e, em particular, o direito à privacidade no que diz respeito ao processamento de dados pessoais aplicável a um controlador de dados do Estado-Membros onde o exportador de dados estiver estabelecido;
 
-(f) "medidas de segurança técnicas e organizacionais" são as medidas que visam proteger os dados pessoais contra a destruição ilegal ou acidental, perda, alteração, divulgação ou acesso não autorizado, em particular quando o processamento envolve a transmissão de dados através de uma rede, e contra todas as formas ilegais de processamento.
+(f) "medidas de segurança técnicas e organizacionais" significa medidas destinadas a proteger dados pessoais contra destruição acidental ou ilegal ou perda acidental, alteração, divulgação ou acesso não autorizado, em particular quando o processamento envolve a transmissão de dados através de uma rede e contra todas as outras formas ilegais de processamento.
 
 #### Cláusula 2: Detalhes da transferência
 Os detalhes da transferência e em particular as categorias especiais de dados pessoais quando aplicáveis estão especificadas no Apêndice 1 abaixo, que constitui parte integral das Cláusulas.
@@ -213,9 +213,9 @@ O exportador de dados concorda e garante:
 
 (b) que instruiu e que durante a duração dos serviços de processamento de dados pessoais irá instruir o importador de dados sobre o processamento de dados pessoais transferidos apenas no nome do exportador e em concordância com a legislação aplicável e as Cláusulas;
 
-(c) que o importador de dados fornecerá garantias suficientes no que se refere às medidas de segurança técnicas e organizacionais especificadas no Anexo 2 abaixo;
+c) que o importador de dados irá fornecer garantias suficientes no que se refere às medidas de segurança técnicas e organizacionais especificadas no Anexo 2 abaixo;
 
-(d) que, após a avaliação dos requerimentos da legislação de proteção aos dados aplicável, as medidas de segurança estejam apropriadas para proteger os dados pessoais contra a destruição ilegal ou acidental, ou a perca acidental, alteração, divulgação ou acesso não autorizado, em particular onde o processamento envolve a transmissão de dados através de uma rede, e contra todas as outras formas ilegais de processamento, e que estas medidas garantam um nível adequado de segurança aos riscos apresentados pelo processamento e pela natureza dos dados a serem protegidos, tendo em conta a conjuntura da questão e o custo de implementação;
+(d) que, após a avaliação dos requisitos da legislação aplicável em matéria de proteção de dados, as medidas de segurança são adequadas para proteger os dados pessoais de destruição acidental ou ilegal ou de perda acidental, alteração, divulgação ou acesso não autorizado, em particular quando o processamento envolve a transmissão de dados, por meio de uma rede, e contra todas as outras formas ilegais de processamento, e que estas medidas garantem um nível de segurança adequado aos riscos apresentados pelo processamento e pela natureza dos dados que devem ser protegidos tendo em conta o a tecnologia te ponta e o custo da sua implementação;
 
 (e) que garantirá o cumprimento das medidas de segurança;
 
@@ -236,15 +236,15 @@ O importador de dados concorda e garante:
 
 (b) que não tem qualquer razão para crer que a legislação que lhe é aplicável o impede de respeitar as instruções recebidas do exportador de dados e as obrigações que lhe incumbem por força do contrato e que, no caso de haver uma alteração nesta legislação que possa ter um efeito adverso substancial nas garantias e obrigações conferidas pelas cláusulas, notificará imediatamente essa alteração ao exportador de dados, assim que tiver conhecimento, tendo neste caso o exportador de dados o direito de suspender a transferência de dados e/ou de rescindir o contrato;
 
-(c) que implementou as medidas de segurança técnicas e organizacionais especificadas no Apêndice 2 antes de processar os dados pessoais transferidos;
+(c) que implementou as medidas de segurança técnicas e organizacionais especificadas no Anexo 2 antes de processar os dados pessoais transferidos;
 
 (d) que irá notificar rapidamente o exportador de dados sobre:
 
 (i) qualquer pedido juridicamente vinculativo de divulgação dos dados pessoais por parte de uma autoridade competente para a aplicação da lei, a não ser que exista uma proibição em contrário, como uma proibição prevista no código penal para preservar a confidencialidade de uma investigação policial,
 
-(ii) qualquer acesso acidental ou não autorizado; e
+(ii) qualquer acesso acidental ou não autorizado, e
 
-(iii) qualquer pedido recebido diretamente dos titulares de dados, sem responder a esse pedido, a não ser que tenha sido autorizado a fazê-lo;
+(iii) qualquer solicitação recebida diretamente dos titulares dos dados sem responder a essa solicitação, a menos que tenha sido autorizada a fazê-lo de outra forma;
 
 (e) em lidar rápida e adequadamente com todos os inquéritos do exportador de dados em relação ao processamento dos dados pessoais na questão da transferência de dados, e em cumprir com o conselho da autoridade de supervisão em relação ao processamento dos dados transferidos;
 
@@ -335,7 +335,7 @@ Descrição das medidas de segurança técnicas e organizacionais implementadas 
 
 **2. Contato de Privacidade de Dados.** Você pode entrar em contato com o encarregado da privacidade de dados do importador de dados no endereço abaixo: GitHub, Inc. Attn: Privacy 88 Colin P. Kelly Jr. Street San Francisco, CA 94107 USA
 
-**3. Technical and Organization Measures.** The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect Customer Personal Data against accidental loss, destruction, alteration, unauthorized disclosure or access or unlawful destruction.
+**3. Medidas técnicas e de organização.** O importador de dados implementou e manterá medidas técnicas e organizacionais apropriadas, controles internos e rotinas de segurança de informações destinadas a proteger os Dados Pessoais do Cliente contra perdas acidentais, destruição, alteração, divulgação ou acesso não autorizado ou destruição ilegal.
 
 A assinatura do GitHub, Inc. aparece abaixo.
 

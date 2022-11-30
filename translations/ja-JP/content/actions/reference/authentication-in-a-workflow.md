@@ -28,19 +28,19 @@ versions:
 
 ### ワークフロー内での`GITHUB_TOKEN`の利用
 
-You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secrets: {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% data variables.product.prodname_dotcom %} API request.
+シークレットを参照するための標準構文 {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} を使用して、`GITHUB_TOKEN` を使用できます。 `GITHUB_TOKEN` の使用例には、トークンをアクションへの入力として渡すことや、トークンを使用して認証済みの {% data variables.product.prodname_dotcom %} APIリクエストを作成することが含まれます。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 {% note %}
 
-**Important:** An action can access the `GITHUB_TOKEN` through the `github.token` context even if the workflow does not explicitly pass the `GITHUB_TOKEN` to the action. As a good security practice, you should always make sure that actions only have the minimum access they require by limiting the permissions granted to the `GITHUB_TOKEN`. 詳しい情報については「[`GITHUB_TOKEN`の権限](#permissions-for-the-github_token)」を参照してください。
+**重要:** ワークフローが `GITHUB_TOKEN` をアクションに明示的に渡さない場合でも、アクションは `github.token` コンテキストを介して `GITHUB_TOKEN` にアクセスできます。 セキュリティを強化するには、`GITHUB_TOKEN` に付与されるアクセス許可を制限することにより、アクションに必要な最小限のアクセスのみが含まれるようにする必要があります。 詳しい情報については「[`GITHUB_TOKEN`の権限](#permissions-for-the-github_token)」を参照してください。
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %}
 
-#### Example 1: passing the `GITHUB_TOKEN` as an input
+#### 例 1: `GITHUB_TOKEN` を入力として渡す
 
 以下のワークフローの例では[labeler action](https://github.com/actions/labeler)を使用しています。これには、`repo-token`入力パラメータの値として`GITHUB_TOKEN`を渡すことが必要です。
 
@@ -63,7 +63,7 @@ jobs:
           repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-#### Example 2: calling the REST API
+#### 例 2: REST API を呼び出す
 
 `GITHUB_TOKEN`を使って、認証されたAPIコールを発行できます。 以下のワークフローの例では、{% data variables.product.prodname_dotcom %} REST APIを使ってIssueを作成しています。
 
@@ -96,21 +96,21 @@ jobs:
 {% data variables.product.prodname_github_apps %} が各権限でアクセスできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/rest/reference/permissions-required-for-github-apps)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-The following table shows the permissions granted to the `GITHUB_TOKEN` by default. People with admin permissions to an enterprise, organization, or repository can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account#setting-the-permissions-of-the-github_token-for-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Disabling or limiting {% data variables.product.prodname_actions %} for a repository](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository#setting-the-permissions-of-the-github_token-for-a-repository)."
+次の表は、デフォルトで `GITHUB_TOKEN` に付与される権限を示しています。 Enterprise、Organization、またはリポジトリへの管理者権限を持つユーザは、デフォルトの権限を許可または制限のいずれかに設定できます。 Enterprise、Organization、またはリポジトリの `GITHUB_TOKEN` のデフォルトの権限を設定する方法については、「[Enterprise アカウントでの {% data variables.product.prodname_actions %} ポリシーの適用](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account#setting-the-permissions-of-the-github_token-for-your-enterprise)」、「[Organization の {% data variables.product.prodname_actions %} の無効化または制限](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)」、または「[リポジトリの {% data variables.product.prodname_actions %} の無効化または制限](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository#setting-the-permissions-of-the-github_token-for-a-repository)」を参照してください。
 
-| スコープ                | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access<br>by forked repos |
-| ------------------- | ------------------------------------ | ------------------------------------ | --------------------------------------- |
-| actions             | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
-| checks              | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
-| contents            | 読み取り/書き込み                            | 読み取り                                 | 読み取り                                    |
-| deployments         | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
-| issues              | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
-| メタデータ               | 読み取り                                 | 読み取り                                 | 読み取り                                    |
-| パッケージ               | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
-| pull requests       | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
-| repository projects | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
-| security events     | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
-| statuses            | 読み取り/書き込み                            | なし                                   | 読み取り                                    |
+| スコープ                | デフォルトアクセス<br>(許可) | デフォルトアクセス<br>(制限付き) | フォークされたリポジトリ<br>による最大アクセス |
+| ------------------- | ----------------------- | ------------------------- | ------------------------------- |
+| actions             | 読み取り/書き込み               | なし                        | 読み取り                            |
+| checks              | 読み取り/書き込み               | なし                        | 読み取り                            |
+| contents            | 読み取り/書き込み               | 読み取り                      | 読み取り                            |
+| deployments         | 読み取り/書き込み               | なし                        | 読み取り                            |
+| issues              | 読み取り/書き込み               | なし                        | 読み取り                            |
+| メタデータ               | 読み取り                    | 読み取り                      | 読み取り                            |
+| パッケージ               | 読み取り/書き込み               | なし                        | 読み取り                            |
+| pull requests       | 読み取り/書き込み               | なし                        | 読み取り                            |
+| repository projects | 読み取り/書き込み               | なし                        | 読み取り                            |
+| security events     | 読み取り/書き込み               | なし                        | 読み取り                            |
+| statuses            | 読み取り/書き込み               | なし                        | 読み取り                            |
 {% else %}
 | スコープ                | アクセスタイプ   | フォークしたリポジトリからのアクセス |
 | ------------------- | --------- | ------------------ |
@@ -129,25 +129,25 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-#### Modifying the permissions for the `GITHUB_TOKEN`
+#### `GITHUB_TOKEN` の権限を変更する
 
-You can modify the permissions for the `GITHUB_TOKEN` in individual workflow files. If the default permissions for the `GITHUB_TOKEN` are restrictive, you may have to elevate the permissions to allow some actions and commands to run successfully. If the default permissions are permissive, you can edit the workflow file to remove some permissions from the `GITHUB_TOKEN`. As a good security practice, you should grant the `GITHUB_TOKEN` the least required access.
+個々のワークフローファイルの `GITHUB_TOKEN` の権限を変更できます。 `GITHUB_TOKEN` のデフォルトの権限が制限付きの場合は、一部のアクションとコマンドを正常に実行できるように、権限を昇格させる必要がある場合があります。 デフォルトの権限が許可の場合は、ワークフローファイルを編集して、`GITHUB_TOKEN` から一部の権限を削除できます。 セキュリティを強化するには、`GITHUB_TOKEN` に必要最小限のアクセスを許可する必要があります。
 
-You can see the permissions that `GITHUB_TOKEN` had for a specific job in the "Set up job" section of the workflow run log. 詳しい情報については、「[ワークフロー実行ログを使用する](/actions/managing-workflow-runs/using-workflow-run-logs)」を参照してください。
+`GITHUB_TOKEN` が特定のジョブに対して保持していた権限は、ワークフロー実行ログの [Set up job] セクションで確認できます。 詳しい情報については、「[ワークフロー実行ログを使用する](/actions/managing-workflow-runs/using-workflow-run-logs)」を参照してください。
 
-You can use the `permissions` key in your workflow file to modify permissions for the `GITHUB_TOKEN` for an entire workflow or for individual jobs. This allows you to configure the minimum required permissions for a workflow or job. When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the `metadata` scope, which always gets read access.
+ワークフローファイルの `permissions` キーを使用して、ワークフロー全体または個々のジョブの `GITHUB_TOKEN` の権限を変更できます。 これにより、ワークフローまたはジョブに最低限必要な権限を設定できます。 `permissions` キーを使用すると、常に読み取りアクセスを取得する `metadata` スコープを除いて、指定されていないすべての権限が権限なしに設定されます。
 
 {% data reusables.github-actions.forked-write-permission %}
 
-The two workflow examples earlier in this article show the `permissions` key being used at the workflow level, and at the job level. In [Example 1](#example-1-passing-the-github_token-as-an-input) the two permissions are specified for the entire workflow. In [Example 2](#example-2-calling-the-rest-api) write access is granted for one scope for a single job.
+この記事の前半の 2 つのワークフロー例は、ワークフローレベルとジョブレベルで使用されている `permissions` キーを示しています。 [例 1](#example-1-passing-the-github_token-as-an-input) では、ワークフロー全体に対して 2 つの権限が指定されています。 [例 2](#example-2-calling-the-rest-api) では、1 つのジョブに対し 1 つのスコープに書き込み権限が付与されています。
 
-For full details of the `permissions` key, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#permissions)."
+`permissions` キーの詳細については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#permissions)」を参照してください。
 
-##### How the permissions are calculated for a workflow job
+##### ワークフロージョブの権限の計算方法
 
-The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
+`GITHUB_TOKEN` の権限は、最初は Enterprise、Organization、またはリポジトリのデフォルトに設定されています。 デフォルトがこれらのレベルのいずれかで制限付きの権限に設定されている場合、これは関連するリポジトリに適用されます。 たとえば、Organization レベルで制限付きのデフォルトを選択した場合、その Organization 内のすべてのリポジトリは、制限付きの権限をデフォルトとして使用します。 次に、ワークフローファイル内の構成に基づいて、最初にワークフローレベルで、次にジョブレベルで権限が調整されます。 最後に、ワークフローがフォークされたリポジトリからのプルリクエストによってトリガーされ、[**Send write tokens to workflows from pull requests**](プルリクエストから書き込みトークンをワークフローに送信) 設定が選択されていない場合、権限が調整され、書き込み権限が読み取り専用に変更されます。
 
-#### Granting additional permissions
+#### 追加の権限を付与する
 {% endif %}
 
 `GITHUB_TOKEN`で利用できない権限を要求するトークンが必要な場合は、個人アクセストークンを生成して、それをリポジトリのシークレットに設定できます。

@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-查询参数是 URL 中可以定制的部分，用于在 {% data variables.product.prodname_dotcom %}上共享特定的网页视图，如搜索过滤结果、议题模板或发行版表单页面。 要创建自己的查询参数，必须将键与值进行配对。
+  查询参数是 URL 中可以定制的部分，用于在 {% data variables.product.prodname_dotcom %}上共享特定的网页视图，如搜索过滤结果、议题模板或发行版表单页面。 要创建自己的查询参数，必须将键与值进行配对。
 
 必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有创建发行版的权限才可预填发行版表单。 更多信息请参阅“[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository)”。
 

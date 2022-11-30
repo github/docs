@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
 ---
+
 ### デフォルトブランチ名について
 
 {% data variables.product.product_location %} に新しいリポジトリを作成すると、リポジトリにはデフォルトブランチである 1 つのブランチが含まれます。 作成する新しいリポジトリのデフォルトブランチに {% data variables.product.product_name %} が使用する名前を変更できます。 デフォルトブランチの詳細については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。

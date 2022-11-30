@@ -5,10 +5,11 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-accounts-data
 intro: '{% data reusables.user_settings.export-data %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
+shortTitle: Request account archive
 ---
 
 {% data variables.product.product_name %} speichert Repository- und Profil-Metadaten aus den Aktivitäten Ihres persönlichen Kontos. Die Daten Ihres persönlichen Kontos können Sie über die Einstellungen auf der {% data variables.product.prodname_dotcom_the_website %} oder mit der API für die Benutzermigration exportieren.
@@ -23,7 +24,7 @@ Falls Ihr Betriebssystem über keine Funktion zum Entpacken der `tar.gz`-Datei v
 
 Die generierte `tar.gz`-Datei reflektiert die Daten im Zustand beim Start des Datenexports.
 
-### Archiv der Daten Ihres persönlichen Kontos herunterladen
+## Archiv der Daten Ihres persönlichen Kontos herunterladen
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
@@ -32,7 +33,7 @@ Die generierte `tar.gz`-Datei reflektiert die Daten im Zustand beim Start des Da
 5. Klicken Sie in der E-Mail auf den Download-Link, und geben Sie Ihr Passwort auf Aufforderung neu ein.
 6. Sie werden zu einer `tar.gz`-Datei geleitet, die Sie herunterladen können.
 
-### Zugriff auf ein Archiv mit den Daten Ihres persönlichen Kontos löschen
+## Zugriff auf ein Archiv mit den Daten Ihres persönlichen Kontos löschen
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}

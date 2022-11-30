@@ -1,10 +1,10 @@
 ---
-title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
+title: '{% data variables.product.product_name %}{% ifversion fpt %}.com{% endif %} ヘルプドキュメント'
 featuredLinks:
   gettingStarted:
     - /github/getting-started-with-github/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
-    - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
+    - /repositories/creating-and-managing-repositories
     - /github/writing-on-github/basic-writing-and-formatting-syntax
   popular:
     - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
@@ -14,18 +14,25 @@ featuredLinks:
     - /github/working-with-github-pages
 versions: '*'
 children:
+  - get-started
+  - account-and-profile
+  - authentication
+  - repositories
   - github
   - admin
+  - billing
   - organizations
   - code-security
+  - issues
   - actions
+  - codespaces
   - packages
+  - search-github
   - developers
   - rest
   - graphql
-  - insights
+  - github-cli
   - discussions
-  - codespaces
   - sponsors
   - communities
   - pages
@@ -33,11 +40,6 @@ children:
   - desktop
   - early-access
 externalProducts:
-  cli:
-    id: cli
-    name: GitHub CLI
-    href: 'https://cli.github.com/manual'
-    external: true
   atom:
     id: atom
     name: Atom

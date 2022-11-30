@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/faq-about-changes-to-githubs-plans
 ---
+
 ### Welche Pläne und Preisänderungen hat GitHub am 14. April angekündigt?
 
 GitHub kündigte die folgenden Pläne und Preisänderungen an:
@@ -24,11 +25,11 @@ GitHub kündigte die folgenden Pläne und Preisänderungen an:
 
 ### Wie kann ich meinen Plan heraufstufen?
 
-Weitere Informationen zur Aktualisierung Deines Benutzerkonto-Plans findest Du unter „[Abonnement Deines persönlichen Kontos heraufstufen](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Weitere Informationen zur Aktualisierung Deines Organisations-Plans findest Du unter „[Abonnement Deiner Organisation heraufstufen](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+Weitere Informationen zur Aktualisierung Deines Benutzerkonto-Plans findest Du unter „[Abonnement Deines persönlichen Kontos heraufstufen](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." Weitere Informationen zur Aktualisierung Deines Organisations-Plans findest Du unter „[Abonnement Deiner Organisation heraufstufen](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
 ### Wie kann ich meinen Plan herunterstufen?
 
-Weitere Informationen zur Herabstufung Deines Benutzerkonto-Plans findest Du unter „[Abonnement Deines persönlichen Kontos herabstufen](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." Weitere Informationen zur Herabstufung Deines Organisations-Plans findest Du unter [„Abonnement Deiner Organisation herabstufen](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+Weitere Informationen zur Herabstufung Deines Benutzerkonto-Plans findest Du unter „[Abonnement Deines persönlichen Kontos herabstufen](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." Weitere Informationen zur Herabstufung Deines Organisations-Plans findest Du unter [„Abonnement Deiner Organisation herabstufen](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
 ### Wenn ich vom GitHub Team oder einem älteren Plan zu GitHub Free herunterstufe, welche Funktionen werde ich verlieren?
 - Erforderliche Reviewer in privaten Repositories
@@ -64,11 +65,11 @@ Weitere Informationen zu den Differenzen zwischen den GitHub Free Produkten find
 
 ### Wie erhalte ich mehr Aktionsminuten, wenn ich mehr benötige als im GitHub-Teamplan zugewiesen?
 
-Die meisten kleinen Teams verwenden weniger als 3.000 Aktionsminuten pro Monat, aber einige Teams könnten mehr verwenden. Wenn Dein Team zusätzliche Minuten für private Repositories benötigt, kannst du dein Ausgabengrenze für GitHub Aktionen erhöhen. Aktionsminuten und Paketspeicher sind für Deine öffentliche Repositorys weiterhin kostenlos. Weitere Informationen findest Du unter "[Deine Ausgabengrenze für GitHub Aktionen verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+Die meisten kleinen Teams verwenden weniger als 3.000 Aktionsminuten pro Monat, aber einige Teams könnten mehr verwenden. Wenn Dein Team zusätzliche Minuten für private Repositories benötigt, kannst du dein Ausgabengrenze für GitHub Aktionen erhöhen. Aktionsminuten und Paketspeicher sind für Deine öffentliche Repositorys weiterhin kostenlos. Weitere Informationen findest Du unter "[Deine Ausgabengrenze für GitHub Aktionen verwalten](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
 
 ### Wie beeinflussen mich die Änderungen der Sitzplatzlimiten?
 
-Da {% data variables.product.prodname_team %} keine Mindestplatzanforderung mehr hat und wenn Du weniger als fünf Plätze in Deiner Organisation benötigst, kannst Du bezahlte Plätze entfernen, um Deine Rechnung zu reduzieren. Weitere Informationen findest Du unter „[Dein {% data variables.product.prodname_dotcom %}-Abonnement herabstufen](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)-"
+Da {% data variables.product.prodname_team %} keine Mindestplatzanforderung mehr hat und wenn Du weniger als fünf Plätze in Deiner Organisation benötigst, kannst Du bezahlte Plätze entfernen, um Deine Rechnung zu reduzieren. Weitere Informationen findest Du unter „[Dein {% data variables.product.prodname_dotcom %}-Abonnement herabstufen](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)-"
 
 ### Ändert sich etwas für Teams im 'GitHub Team for Open Source'-Plan?
 

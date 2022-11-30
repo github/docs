@@ -3,9 +3,9 @@ title: Referenz
 shortTitle: Referenz
 intro: View reference documentation to learn about the resources available in the GitHub REST API.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 children:
@@ -42,4 +42,4 @@ children:
   - /users
   - /permissions-required-for-github-apps
 ---
-### Inhaltsverzeichnis
+

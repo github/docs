@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data variables.product.product_name %} で利用したいファイルがリポジトリにある場合、まずリポジトリからそれらのファイルを削除し、それからローカルで {% data variables.large_files.product_name_short %} に追加する必要があります。 詳細は「[リポジトリ内のファイルを {% data variables.large_files.product_name_short %} に移動する](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)」を参照してください。
 
 {% data reusables.large_files.resolving-upload-failures %}

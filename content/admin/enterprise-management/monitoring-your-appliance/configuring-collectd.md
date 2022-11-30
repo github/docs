@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -16,7 +16,7 @@ topics:
   - Monitoring
   - Performance
 ---
-### Set up an external `collectd` server
+## Set up an external `collectd` server
 
 If you haven't already set up an external `collectd` server, you will need to do so before enabling `collectd` forwarding on {% data variables.product.product_location %}. Your `collectd` server must be running `collectd` version 5.x or higher.
 
@@ -32,7 +32,7 @@ An example *collectd.conf* to run a `collectd` server:
         Listen "0.0.0.0" "25826"
     </Plugin>
 
-### Enable collectd forwarding on {% data variables.product.prodname_enterprise %}
+## Enable collectd forwarding on {% data variables.product.prodname_enterprise %}
 
 By default, `collectd` forwarding is disabled on {% data variables.product.prodname_enterprise %}. Follow the steps below to enable and configure `collectd` forwarding:
 
@@ -44,21 +44,21 @@ By default, `collectd` forwarding is disabled on {% data variables.product.prodn
 1. In the **Cryptographic setup** dropdown menu, select the security level of communications with the `collectd` server. (None, signed packets, or encrypted packets.)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Exporting collectd data with `ghe-export-graphs`
+## Exporting collectd data with `ghe-export-graphs`
 
 The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (.tgz).
 
 Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
 
-#### Usage
+### Usage
 
 ```shell
 ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
 ```
 
-### Troubleshooting
+## Troubleshooting
 
-#### Central collectd server receives no data
+### Central collectd server receives no data
 
 {% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. Your central `collectd` server needs to be at least version 5.x to accept data sent from {% data variables.product.product_location %}.
 

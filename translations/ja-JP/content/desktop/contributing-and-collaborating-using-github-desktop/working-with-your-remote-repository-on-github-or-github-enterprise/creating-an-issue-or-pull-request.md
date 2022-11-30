@@ -7,22 +7,24 @@ redirect_from:
   - /desktop/contributing-to-projects/creating-a-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Create an issue or PR
 ---
-### Issue とプルリクエストについて
+
+## Issue とプルリクエストについて
 
 Issue を使用して、プロジェクトにとって重要なアイデア、バグ、タスク、およびその他の情報を追跡できます。 {% data variables.product.prodname_desktop %} を使用して、プロジェクトのリポジトリに Issue を作成できます。 Issue に関する詳しい情報については「[Issue について](/github/managing-your-work-on-github/about-issues)」を参照してください。
 
 ブランチを作成してプロジェクトのファイルに変更を加えた後、プルリクエストを作成できます。 プルリクエストを使用すると、変更をプロジェクトにマージする前に、変更を提案、議論、反復できます。 {% data variables.product.prodname_desktop %} を使用して、プロジェクトのリポジトリにプルリクエストを作成できます。 プルリクエストに関する詳しい情報については「[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)」を参照してください。
 
-### 必要な環境
+## 必要な環境
 
 プルリクエストを作成する前に、変更を {% data variables.product.prodname_dotcom %} のブランチにプッシュする必要があります。
 - ローカルブランチの変更を保存してコミットします。 詳しい情報については「[プロジェクトに対する変更のコミットとレビュー](/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project)」を参照してください。
 - ローカルコミットをリモートリポジトリにプッシュします。 詳しい情報については、「[GitHub への変更をプッシュする](/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github)」を参照してください。
 - 現在のブランチを {% data variables.product.prodname_dotcom %} に公開します。 詳しい情報については、「[ブランチを管理する](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches)」を参照してください。
 
-### Issue の作成
+## Issue の作成
 
 {% mac %}
 
@@ -44,15 +46,13 @@ Issue を使用して、プロジェクトにとって重要なアイデア、�
 
 {% endnote %}
 
-### プルリクエストの作成方法
+## プルリクエストの作成方法
 
 {% mac %}
 
 1. プルリクエストを作成するブランチに切り替えます。 詳しい情報については、「[ブランチの切り替え](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)」を参照してください。
 2. **Create Pull Request**をクリックします {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開いて {% data variables.product.prodname_dotcom %} に移動します。 ![[Create Pull Request] ボタン](/assets/images/help/desktop/mac-create-pull-request.png)
-4. On
-{% data variables.product.prodname_dotcom %} で、**base:** ドロップダウンメニューのブランチが変更をマージするブランチであることを確認します。 **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。
-  ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/desktop/base-and-compare-branches.png)
+4. {% data variables.product.prodname_dotcom %} で、**base:** ドロップダウンメニューのブランチが変更をマージするブランチであることを確認します。 **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。 ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/desktop/base-and-compare-branches.png)
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
 
@@ -62,15 +62,13 @@ Issue を使用して、プロジェクトにとって重要なアイデア、�
 
 1. プルリクエストを作成するブランチに切り替えます。 詳しい情報については、「[ブランチの切り替え](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)」を参照してください。
 2. **Create Pull Request**をクリックします {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開いて {% data variables.product.prodname_dotcom %} に移動します。 ![[Create Pull Request] ボタン](/assets/images/help/desktop/windows-create-pull-request.png)
-3. On
-{% data variables.product.prodname_dotcom %} で、**base:** ドロップダウンメニューのブランチが変更をマージするブランチであることを確認します。 **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。
-  ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/desktop/base-and-compare-branches.png)
+3. {% data variables.product.prodname_dotcom %} で、**base:** ドロップダウンメニューのブランチが変更をマージするブランチであることを確認します。 **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。 ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/desktop/base-and-compare-branches.png)
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
 
 {% endwindows %}
 
-### 参考リンク
+## 参考リンク
 - {% data variables.product.prodname_dotcom %} 用語集の「[Issue](/github/getting-started-with-github/github-glossary#issue)」
 - {% data variables.product.prodname_dotcom %} 用語集中の[プルリクエスト](/github/getting-started-with-github/github-glossary#pull-request)
 - {% data variables.product.prodname_dotcom %} 用語集の[ベースブランチ](/github/getting-started-with-github/github-glossary#base-branch)

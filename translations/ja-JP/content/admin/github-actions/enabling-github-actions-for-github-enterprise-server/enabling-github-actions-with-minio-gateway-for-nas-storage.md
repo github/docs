@@ -3,13 +3,15 @@ title: NAS ストレージ用の MinIO ゲートウェイで GitHub Actions を�
 intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効化し、NAS ストレージに MinIO Gateway を使用して、ワークフローの実行によって生成されたアーティファクトを保存できます。'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
+shortTitle: MinIO Gateway for NAS storage
 ---
-### 必要な環境
+
+## 必要な環境
 
 {% data reusables.actions.enterprise-s3-support-warning %}
 
@@ -20,7 +22,7 @@ redirect_from:
 
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### NAS ストレージ用の MinIO ゲートウェイで {% data variables.product.prodname_actions %} を有効化する
+## NAS ストレージ用の MinIO ゲートウェイで {% data variables.product.prodname_actions %} を有効化する
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

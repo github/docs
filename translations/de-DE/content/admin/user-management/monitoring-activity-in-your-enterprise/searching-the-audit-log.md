@@ -7,15 +7,16 @@ redirect_from:
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
   - Enterprise
   - Logging
 ---
-### Suchabfragesyntax
+
+## Suchabfragesyntax
 
 Erstellen Sie eine Suchabfrage aus mindestens einem Schlüsselwertpaar, das durch die logischen Operatoren AND/OR getrennt ist.
 
@@ -42,7 +43,7 @@ So können Sie beispielsweise alle Aktionen anzeigen, die sich seit Anfang 2017 
 
 Eine vollständige Liste der Aktionen finden Sie unter „[Überwachte Aktionen](/admin/user-management/audited-actions)“.
 
-### Auditprotokoll durchsuchen
+## Auditprotokoll durchsuchen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

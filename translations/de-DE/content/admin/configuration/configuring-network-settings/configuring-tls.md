@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -17,7 +17,8 @@ topics:
   - Networking
   - Security
 ---
-### Informationen zu Transport Layer Security
+
+## Informationen zu Transport Layer Security
 
 TLS, das SSL ersetzt hat, wird beim erstmaligen Start von {% data variables.product.prodname_ghe_server %} mit einem selbstsignierten Zertifikat aktiviert und konfiguriert. Da Webbrowser und Git-Clients selbstsignierten Zertifikaten nicht vertrauen, melden diese Clients Zertifikatswarnungen, bis Sie TLS deaktivieren oder ein von einer vertrauenswürdigen Zertifizierungsstelle wie Let's Encrypt signiertes Zertifikat hochladen.
 
@@ -27,7 +28,7 @@ Die {% data variables.product.prodname_ghe_server %}-Appliance sendet HTTP Stric
 
 Sie müssen TLS für Ihre Instanz aktivieren, um Benutzern zu erlauben, FIDO U2F für die Zwei-Faktor-Authentifizierung zu verwenden. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.
 
-### Vorrausetzungen
+## Vorrausetzungen
 
 Um TLS in der Produktion zu verwenden, müssen Sie über ein Zertifikat verfügen, das ein unverschlüsseltes PEM-Format aufweist und von einer vertrauenswürdigen Zertifizierungsstelle signiert wurde.
 
@@ -35,7 +36,7 @@ Darüber hinaus schreibt Ihr Zertifikat Subject Alternative Names vor, die für 
 
 Du kannst mit dem Befehl `ghe-ssl-generate-csr` eine Anfrage zur Signierung des Zertifikats (CSR) für Deine Instanz erzeugen. Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)“.
 
-### Benutzerdefiniertes TLS-Zertifikat hochladen
+## Benutzerdefiniertes TLS-Zertifikat hochladen
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -52,7 +53,7 @@ Du kannst mit dem Befehl `ghe-ssl-generate-csr` eine Anfrage zur Signierung des 
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Informationen zur Let's Encrypt-Unterstützung
+## Informationen zur Let's Encrypt-Unterstützung
 
 Let's Encrypt ist eine öffentliche Zertifizierungsstelle, die kostenlose, automatisierte TLS-Zertifikate ausstellt, denen Browsern vertrauen, die das ACME-Protokoll verwenden. Sie können Let's Encrypt-Zertifikate auf Ihrer Appliance automatisch abrufen und verlängern, ohne dass eine manuelle Wartung erforderlich ist.
 
@@ -62,7 +63,7 @@ Wenn Sie die Automatisierung der TLS-Zertifikatsverwaltung mit Let's Encrypt akt
 
 Darüber hinaus können Sie das Befehlszeilenprogramm `ghe-ssl-acme` auf {% data variables.product.product_location %} verwenden, um ein Let's Encrypt-Zertifikat automatisch zu generieren. Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)“.
 
-### TLS mit Let's Encrypt konfigurieren
+## TLS mit Let's Encrypt konfigurieren
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
@@ -74,4 +75,5 @@ Darüber hinaus können Sie das Befehlszeilenprogramm `ghe-ssl-acme` auf {% data
 {% data reusables.enterprise_management_console.save-settings %}
 {% data reusables.enterprise_management_console.privacy %}
 7. Klicken Sie auf **Request TLS certificate** (TLS-Zertifikat anfordern). ![Schaltfläche „Request TLS certificate“ (TLS-Zertifikat anfordern)](/assets/images/enterprise/management-console/request-tls-button.png)
-8. Klicken Sie auf **Save configuration** (Konfiguration speichern).
+8. Wait for the "Status" to change from "STARTED" to "DONE". ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+9. Klicken Sie auf **Save configuration** (Konfiguration speichern).

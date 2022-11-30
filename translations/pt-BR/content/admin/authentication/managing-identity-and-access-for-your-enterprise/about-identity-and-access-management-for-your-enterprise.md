@@ -1,10 +1,10 @@
 ---
 title: Sobre a identidade e gestão de acesso para a sua empresa
 shortTitle: Sobre identidade e gestão de acesso
-intro: 'Você pode usar a autenticação incluída em {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} ou escolher entre CAS, LDAP, ou SAML{% else %}o logon único SAML (SSO) e o Sistema de Administração de Identidade de Domínio Cruzado (SCIM){% endif %} para administrar o acesso centralizadamente{% if currentVersion == "free-pro-team@latest" %}para que as organizações pertencentes à sua empresa em {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a {% data variables.product.product_location %}{% endif %}.'
+intro: 'Você pode usar a autenticação incluída em {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} ou escolher entre CAS, LDAP, ou SAML{% else %}o logon único SAML (SSO) e o Sistema de Administração de Identidade de Domínio Cruzado (SCIM){% endif %} para administrar o acesso centralizadamente{% ifversion fpt %}para que as organizações pertencentes à sua empresa em {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghes or ghae %}a {% data variables.product.product_location %}{% endif %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Accounts
@@ -15,9 +15,10 @@ topics:
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
 ---
-### Sobre a identidade e gestão de acesso para a sua empresa
 
-{% if currentVersion == "github-ae@latest" %}
+## Sobre a identidade e gestão de acesso para a sua empresa
+
+{% ifversion ghae %}
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -29,7 +30,7 @@ Para aprender como configurar tanto o provisionamento de autenticação quanto o
 
 {% endif %}
 
-### Leia mais
+## Leia mais
 
 - [Wiki de SAML](https://wiki.oasis-open.org/security) no site OASIS
 - [Sistema para Gerenciamento de Identidade de entre Domínios: Protocolo (RFC 7644)](https://tools.ietf.org/html/rfc7644) no site do IETF

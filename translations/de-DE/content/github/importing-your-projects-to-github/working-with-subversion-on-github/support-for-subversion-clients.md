@@ -5,14 +5,16 @@ redirect_from:
   - /articles/support-for-subversion-clients
   - /github/importing-your-projects-to-github/support-for-subversion-clients
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+shortTitle: Unterstützung für Subversion-Clients
 ---
+
 GitHub unterstützt Subversion-Clients über das HTTPS-Protokoll. Zur Übertragung von SVN-Befehlen an GitHub wird eine Subversion-Bridge verwendet.
 
-### Auf GitHub unterstützte Subversion-Funktionen
+## Auf GitHub unterstützte Subversion-Funktionen
 
-#### Auschecken
+### Auschecken
 
 Dein erster Schritt in Verbindung mit Subversion ist der Checkout.  Da das Arbeitsverzeichnis (wo Du Dateien bearbeitest) in Git-Klonen getrennt von den Repository-Daten geführt wird, enthält das Arbeitsverzeichnis jeweils nur einen Branch.
 
@@ -43,7 +45,7 @@ Subversion-Checkouts unterscheiden sich hier: In Subversion sind die Repository-
   Updated to revision 1.
   ```
 
-#### Branches erstellen
+### Branches erstellen
 
 Zur Erstellung der Branches kannst Du auch die Subversion-Bridge für GitHub verwenden.
 
@@ -75,7 +77,7 @@ $ git fetch
 > * [new branch]    more_awesome -> origin/more_awesome
 ```
 
-#### Commits an Subversion
+### Commits an Subversion
 
 Nachdem Du einige Funktionen hinzugefügt und Bugs behoben hast, möchtest Du diese Änderungen auf GitHub freigeben. Dies funktioniert genauso, wie Du es von Subversion gewohnt bist. Verwende nach der Bearbeitung Deiner Dateien `svn commit`, um Deine Änderungen festzuschreiben:
 
@@ -98,7 +100,7 @@ $ svn commit -m 'Test coverage for problems'
 > Committed revision 4.
 ```
 
-#### Zwischen Branches wechseln
+### Zwischen Branches wechseln
 
 Um zwischen Branches zu wechseln, wirst Du vermutlich zunächst `trunk` auschecken wollen:
 
@@ -112,7 +114,7 @@ Danach kannst Du zu einem anderen Branch wechseln:
 $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesome
 ```
 
-### Git-Commit-SHA für einen Subversion-Commit finden
+## Git-Commit-SHA für einen Subversion-Commit finden
 
 Der Subversion-Server von GitHub stellt die Git-Commit-SHA für jeden Subversion-Commit bereit.
 
@@ -125,6 +127,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 Mit dieser Commit-SHA kannst Du beispielsweise nach dem zugehörigen Git-Commit auf GitHub suchen.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 * „[Von GitHub unterstützte Subversion-Eigenschaften](/articles/subversion-properties-supported-by-github)“

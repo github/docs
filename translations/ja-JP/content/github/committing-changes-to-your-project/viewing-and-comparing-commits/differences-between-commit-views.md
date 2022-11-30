@@ -1,13 +1,16 @@
 ---
 title: コミットビュー間の違い
+intro: You might observe differences in commit history depending on the chosen viewing method.
 redirect_from:
   - /articles/differences-between-commit-views
   - /github/committing-changes-to-your-project/differences-between-commit-views
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Commit views
 ---
+
 {% data variables.product.product_name %}では、以下の方法によりリポジトリのコミット履歴を表示できます。
 
 - リポジトリの[コミットページ](https://github.com/mozilla/rust/commits/master)に直接移動する
@@ -23,7 +26,7 @@ Gitにはリポジトリの履歴を表示するためにいくつかの方法�
 
 Gitのコミット履歴に対する考え方に関する詳しい情報については、`git log`ヘルプの記事[「History Simplification」](https://git-scm.com/docs/git-log#_history_simplification)のセクションを参照してください。
 
-### 参考リンク
+## 参考リンク
 
 - 「[コミットに署名する](/articles/signing-commits)」
-- "[コミットの検索](/articles/searching-commits)"
+- "[コミットの検索](/search-github/searching-on-github/searching-commits)"

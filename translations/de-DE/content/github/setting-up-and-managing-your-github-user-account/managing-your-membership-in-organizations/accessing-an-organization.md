@@ -14,11 +14,12 @@ versions:
 topics:
   - Accounts
 ---
+
 {% tip %}
 
 **Tipp:** Nur Organisationsinhaber können die Kontoeinstellungen für eine Organisation einsehen und ändern.
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}

@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}コミットsquashingあるいはリベースのようなマージの1つの種類を、リポジトリでその方法だけを有効化することで強制できます。
 
 {% data reusables.pull_requests.default_merge_option %}

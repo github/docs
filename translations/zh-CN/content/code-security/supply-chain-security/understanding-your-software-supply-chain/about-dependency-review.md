@@ -1,20 +1,25 @@
 ---
 title: 关于依赖项审查
 intro: 依赖项审查可让您在将有漏洞的依赖项引入您的环境之前找到它们，并提供关于许可证、依赖项和依赖项存在时间的信息。
+product: '{% data reusables.gated-features.dependency-review %}'
+shortTitle: 依赖项审查
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '>= 3.2'
+type: overview
 topics:
+  - Advanced Security
+  - Dependency review
+  - Vulnerabilities
+  - Dependencies
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
 ---
-{% note %}
 
-**注意：**依赖项审查目前处于测试阶段，可能会更改。
+{% data reusables.dependency-review.beta %}
 
-{% endnote %}
-
-### 关于依赖项审查
+## 关于依赖项审查
 
 {% data reusables.dependency-review.feature-overview %}
 
@@ -32,3 +37,7 @@ redirect_from:
 {% data variables.product.prodname_dependabot_alerts %} 将会查找依赖项中存在的漏洞，但避免引入潜在问题比在以后修复它们要好得多。 有关 {% data variables.product.prodname_dependabot_alerts %} 的更多信息，请参阅“[关于有漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。
 
 依赖项审查支持与依赖关系图相同的语言和包管理生态系统。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
+
+## Enabling dependency review
+
+The dependency review feature becomes available when you enable the dependency graph. {% ifversion fpt %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}

@@ -5,7 +5,7 @@ intro: '您可以为企业配置 SAML 单点登录 (SSO)，这允许您使用身
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,9 +16,10 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
 ---
-### 关于 SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+## 关于 SAML SSO
+
+{% ifversion ghae %}
 
 SAML SSO 允许您从 SAML IDP 集中控制和安全访问 {% data variables.product.product_location %}。 当未经身份验证的用户在浏览器中访问 {% data variables.product.product_location %} 时，{% data variables.product.product_name %} 会将用户重定向到您的 SAML IDP 进行身份验证。 在用户使用 IdP 上的帐户成功进行身份验证后，IdP 会将用户重定向回 {% data variables.product.product_location %}。 {% data variables.product.product_name %} 将验证 IdP 的响应，然后授予用户访问权限。
 
@@ -30,19 +31,19 @@ SAML SSO 允许您从 SAML IDP 集中控制和安全访问 {% data variables.pro
 
 {% endif %}
 
-### 支持的身份提供程序
+## 支持的身份提供程序
 
 {% data variables.product.product_name %} 支持 SAML SSO 与采用 SAML 2.0 标准的 IdP 一起使用。 更多信息请参阅 OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security)。
 
 {% data variables.product.company_short %} 已使用以下 IdP 测试 {% data variables.product.product_name %} 的 SAML SSO。
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 - Azure AD
 {% endif %}
 
-### 启用 SAML SSO
+## 启用 SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -62,11 +63,11 @@ SAML SSO 允许您从 SAML IDP 集中控制和安全访问 {% data variables.pro
 
 {% endif %}
 
-### 编辑 SAML SSO 配置
+## 编辑 SAML SSO 配置
 
 如果 IdP 的详细信息发生更改，则需要编辑 {% data variables.product.product_location %} 的 SAML SSO 配置。 例如，如果 IdP 的证书过期，您可以编辑公共证书的值。
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% note %}
 
@@ -87,9 +88,9 @@ SAML SSO 允许您从 SAML IDP 集中控制和安全访问 {% data variables.pro
 
 {% endif %}
 
-### 禁用 SAML SSO
+## 禁用 SAML SSO
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% warning %}
 

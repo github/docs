@@ -15,11 +15,12 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
   - /developers/github-marketplace/setting-pricing-plans-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Set listing pricing plans
 ---
-### About setting pricing plans
+## About setting pricing plans
 
 {% data variables.product.prodname_marketplace %} offers several different types of pricing plans. For detailed information, see "[Pricing plans for {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)."
 
@@ -31,13 +32,13 @@ If your app is already published with a paid plan and you're a verified publishe
 
 If your app is already published with a paid plan and but you are not a verified publisher, then you can cannot publish a new paid plan until you are a verified publisher. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
-### About saving pricing plans
+## About saving pricing plans
 
 You can save pricing plans in a draft or published state. If you haven't submitted your {% data variables.product.prodname_marketplace %} listing for approval, a published plan will function in the same way as a draft plan until your listing is approved and shown on {% data variables.product.prodname_marketplace %}. Draft plans allow you to create and save new pricing plans without making them available on your {% data variables.product.prodname_marketplace %} listing page. Once you publish a pricing plan on a published listing, it's available for customers to purchase immediately. You can publish up to 10 pricing plans.
 
 For guidelines on billing customers, see "[Billing customers](/developers/github-marketplace/billing-customers)."
 
-### Creating pricing plans
+## Creating pricing plans
 
 To create a pricing plan for your {% data variables.product.prodname_marketplace %} listing, click **Plans and pricing** in the left sidebar of your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage). For more information, see "[Creating a draft {% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)."
 
@@ -62,7 +63,7 @@ When you click **New draft plan**, you'll see a form that allows you to customiz
 
 {% data reusables.marketplace.free-plan-note %}
 
-### Changing a {% data variables.product.prodname_marketplace %} listing's pricing plan
+## Changing a {% data variables.product.prodname_marketplace %} listing's pricing plan
 
 If a pricing plan for your {% data variables.product.prodname_marketplace %} listing is no longer needed, or if you need to adjust pricing details, you can remove it.
 

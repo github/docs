@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
 ---
+
 ### 开始收件箱分类
 
 在开始对收件箱进行分类之前，请考虑您是希望首先查找并响应最重要的更新，还是清除收件箱中容易删除或分类的干扰更新。

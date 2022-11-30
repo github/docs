@@ -6,8 +6,8 @@ redirect_from:
   - /enterprise/admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-ssh-keys
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -15,9 +15,10 @@ topics:
   - Security
   - SSH
 ---
+
 Sobald das Audit initiiert ist, werden alle vorhandenen SSH-Schlüssel deaktiviert und Benutzer gezwungen, sie zu genehmigen oder abzulehnen, bevor sie diese klonen, abrufen oder per Push-Vorgang an Repositorys übertragen können. Ein Audit eignet sich in Situationen, in denen ein Mitarbeiter oder Vertragsnehmer das Unternehmen verlässt und Sie sicherstellen müssen, dass alle Schlüssel verifiziert sind.
 
-### Audit initiieren
+## Audit initiieren
 
 SSH-Schlüssel-Audits können im Websiteadministrator-Dashboard auf der Registerkarte „All users“ (Alle Benutzer) initiiert werden:
 
@@ -29,7 +30,7 @@ Nachdem Sie auf die Schaltfläche „Start public key audit“ (Audit für öffe
 
 Nachdem Sie auf die Schaltfläche „Begin audit“ (Audit starten) geklickt haben, sind alle SSH-Schlüssel ungültig und müssen genehmigt werden. Es wird eine Benachrichtigung angezeigt, die auf den Audit-Start hinweist.
 
-### Benutzer sehen Folgendes
+## Benutzer sehen Folgendes
 
 Wenn ein Benutzer versucht, einen Git-Vorgang mittels SSH durchzuführen, schlägt dieser fehl. Zudem wird die folgende Meldung angezeigt:
 
@@ -47,7 +48,7 @@ Wenn Sie auf den Link klicken, werden sie aufgefordert, die Schlüssel für ihr 
 
 Nachdem sie ihre Schlüssel genehmigt oder abgelehnt haben, können sie wie gewohnt mit den Repositorys interagieren.
 
-### SSH-Schlüssel hinzufügen
+## SSH-Schlüssel hinzufügen
 
 Neue Benutzer werden beim Hinzufügen eines SSH-Schlüssels aufgefordert, ihr Passwort einzugeben:
 

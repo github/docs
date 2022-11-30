@@ -11,14 +11,16 @@ redirect_from:
   - /actions/reference/software-installed-on-github-hosted-runners
   - /actions/reference/specifications-for-github-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+shortTitle: Executores hospedados no GitHub
 ---
 
+{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Sobre os executores hospedados no {% data variables.product.prodname_dotcom %}
+## Sobre os executores hospedados no {% data variables.product.prodname_dotcom %}
 
 Um executor hospedado no {% data variables.product.prodname_dotcom %} é uma máquina virtual hospedada pelo {% data variables.product.prodname_dotcom %} com o aplicativo do executor {% data variables.product.prodname_actions %} instalado. O {% data variables.product.prodname_dotcom %} oferece executores com os sistemas operacionais Linux, Windows e macOS.
 
@@ -28,25 +30,25 @@ Você pode especificar o tipo de executor para cada trabalho em um fluxo de trab
 
 {% data reusables.github-actions.runner-app-open-source %}
 
-#### Hosts da nuvem para os executores hospedados em {% data variables.product.prodname_dotcom %}
+### Hosts da nuvem para os executores hospedados em {% data variables.product.prodname_dotcom %}
 
 O {% data variables.product.prodname_dotcom %} hospeda executores do Linux e Windows no Standard_DS2_v2 máquinas virtuais no Microsoft Azure com o aplicativo do executor {% data variables.product.prodname_actions %} instalado. A o aplicativo do executor hospedado no {% data variables.product.prodname_dotcom %} é uma bifurcação do agente do Azure Pipelines. Os pacotes ICMP de entrada estão bloqueados para todas as máquinas virtuais do Azure. Portanto, é possível que os comandos ping ou traceroute não funcionem. Para obter mais informações sobre os recursos da máquina Standard_DS2_v2, consulte "[Dv2 e DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" na documentação do Microsoft Azure.
 
 {% data variables.product.prodname_dotcom %} hospedas executores do macOS na nuvem do macOS do próprio {% data variables.product.prodname_dotcom %}.
 
-#### Continuidade do fluxo de trabalho para executores hospedados em {% data variables.product.prodname_dotcom %}
+### Continuidade do fluxo de trabalho para executores hospedados em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
 Além disso, se a execução do fluxo de trabalho entrar na fila com sucesso, mas não foi processado por um executor hospedado em {% data variables.product.prodname_dotcom %} dentro de 45 minutos, a execução do fluxo de trabalho na fila será descartada.
 
-#### Privilégios administrativos os executores hospedados no {% data variables.product.prodname_dotcom %}
+### Privilégios administrativos os executores hospedados no {% data variables.product.prodname_dotcom %}
 
 As máquinas virtuais Linux e macOS executam usando autenticação sem senha `sudo`. Quando precisar executar comandos ou instalar ferramentas que exigem mais permissões que o usuário atual possui, você pode usar `sudo` sem a necessidade de fornecer uma senha. Para obter mais informações, consulte o "[Manual do Sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html)".
 
 As máquinas virtuais do Windows estão configuradas para ser executadas como administradores com Controle de Conta de Usuário (UAC) desativado. Para obter mais informações, consulte "[Como funciona o Controle de Conta de Usuário](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" na documentação do Windows.
 
-### Executores e recursos de hardware compatíveis
+## Executores e recursos de hardware compatíveis
 
 Especificação de hardware para máquinas virtuais do Windows e Linux:
 - CPU dual core
@@ -60,29 +62,28 @@ Especificação de hardware para máquinas virtuais do macOS:
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.macos-runner-preview %}
-
 Lista de registros de fluxo de trabalho do executor usado para executar um trabalho. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
-### Software compatível
+## Software compatível
 
 As ferramentas do software incluídas em executores hospedados em {% data variables.product.prodname_dotcom %} são atualizadas semanalmente. O processo de atualização demora vários dias, e a lista de softwares pré-instalados no branch `principal` é atualizada quando a implementação inteira é finalizada.
-#### Software pré-instalado
+### Software pré-instalado
 
-Os registros de fluxo de trabalho incluem um link para as ferramentas pré-instaladas no executor exato. Para encontrar essas informações no fluxo do fluxo de trabalho, expanda a seção `Configurar trabalho`. Nessa seção, expanda a seção `Ambiente virtual`. O link a seguir `Software incluído` informará a você as ferramentas pré-instaladas no executor que executaram o fluxo de trabalho. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+Os registros de fluxo de trabalho incluem um link para as ferramentas pré-instaladas no executor exato. Para encontrar essas informações no fluxo do fluxo de trabalho, expanda a seção `Configurar trabalho`. Nessa seção, expanda a seção `Ambiente virtual`. O link seguinte `Software Incluído` descreverá as ferramentas pré-instaladas no executor que executaram o fluxo de trabalho. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
 Para a lista geral das ferramentas incluídas para cada sistema operacional do executor, consulte os links abaixo:
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
+* [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
+* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 
 Executores hospedados no {% data variables.product.prodname_dotcom %} incluem as ferramentas integradas padrão do sistema operacional, além dos pacotes listados nas referências acima. Por exemplo, os executores do Ubuntu e do macOS incluem `grep`, `find` e `which`, entre outras ferramentas-padrão.
 
-#### Usar software pré-instalado
+### Usar software pré-instalado
 
 Recomendamos usar ações para interagir com o software instalado nos executores. Esta abordagem tem vários benefícios:
 - Normalmente, as ações fornecem funcionalidades mais flexíveis, como seleção de versões, capacidade de passar argumentos e parâmetros
@@ -90,11 +91,11 @@ Recomendamos usar ações para interagir com o software instalado nos executores
 
 Se houver uma ferramenta que você queira solicitar, abra um problema em [actions/virtual-environments](https://github.com/actions/virtual-environments). Este repositório também contém anúncios sobre todas as principais atualizações de software nos executores.
 
-#### Instalando software adicional
+### Instalando software adicional
 
 Você pode instalar um software adicional em executores hospedados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Personalizar executores hospedados no GitHub](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
 
-### Endereços IP
+## Endereços IP
 
 {% note %}
 
@@ -108,7 +109,7 @@ Para obter uma lista de intervalos de endereços IP que {% data variables.produc
 
 A lista de endereços IP de {% data variables.product.prodname_actions %} retornados pela API é atualizada uma vez por semana.
 
-### Sistemas de arquivos
+## Sistemas de arquivos
 
 O {% data variables.product.prodname_dotcom %} executa ações e comandos de shell em diretórios específicos na máquina virtual. Os caminhos dos arquivos nas máquinas virtuais não são estáticos. Use as variáveis de ambiente que {% data variables.product.prodname_dotcom %} fornece para construir caminhos de arquivos para os diretórios `home`, `workspace` e `workflow`.
 
@@ -120,7 +121,7 @@ O {% data variables.product.prodname_dotcom %} executa ações e comandos de she
 
 Para obter uma lista das variáveis de ambiente que {% data variables.product.prodname_dotcom %} cria para cada fluxo de trabalho, consulte "[Usar variáveis de ambiente](/github/automating-your-workflow-with-github-actions/using-environment-variables)".
 
-#### Sistema de arquivos do contêiner Docker
+### Sistema de arquivos do contêiner Docker
 
 Ações executadas em contêineres Docker têm diretórios estáticos no caminho `/github`. No entanto, é altamente recomendável usar as variáveis de ambiente padrão para elaborar caminhos de arquivos em contêineres do Docker.
 
@@ -130,9 +131,9 @@ O {% data variables.product.prodname_dotcom %} reserva o prefixo de caminho `/gi
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Leia mais
-- "[Gerenciar a cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+## Leia mais
+- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 
 {% endif %}

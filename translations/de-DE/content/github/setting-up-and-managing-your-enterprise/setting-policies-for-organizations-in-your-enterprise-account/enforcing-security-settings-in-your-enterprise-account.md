@@ -2,7 +2,7 @@
 title: Sicherheitseinstellungen in Deinem Enterprise-Konto erzwingen
 intro: Enterprise-Inhaber können bestimmte Sicherheitsrichtlinien für alle Organisationen eines Enterprise-Kontos erzwingen.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
@@ -11,11 +11,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Enforce security settings
 ---
-### Zwei-Faktor-Authentifizierung für Organisationen in Deinem Enterprise-Konto vorschreiben
+
+## Zwei-Faktor-Authentifizierung für Organisationen in Deinem Enterprise-Konto vorschreiben
 
 Enterprise-Inhaber können vorschreiben, dass Organisationsmitglieder, Abrechnungsmanager und externe Mitarbeiter in allen Organisationen eines Enterprise-Kontos die Zwei-Faktor-Authentifizierung (2FA) für den Schutz ihrer persönlichen Konten verwenden.
 
@@ -41,17 +43,17 @@ Bevor Du die Zwei-Faktor-Authentifizierung vorschreiben, empfehlen wir, Organisa
 6. Wenn Du dazu aufgefordert wirst, lies die Informationen zu Mitgliedern und externen Mitarbeitern, die aus den Organisationen Deines Enterprise-Kontos entfernt werden. Gib zur Bestätigung der Änderung den Namen Deines Enterprise-Kontos ein, und klicke dann auf **Remove members & require two-factor authentication** (Mitglieder entfernen & Zwei-Faktor-Authentifizierung vorschreiben). ![Feld zum Bestätigen der vorgeschriebenen 2FA](/assets/images/help/business-accounts/confirm-require-2fa.png)
 7. Wenn Mitglieder oder externe Mitarbeiter aus den Organisationen Deines Enterprise-Kontos entfernt werden, empfehlen wir optional, ihnen eine Einladung zum Wiederherstellen ihrer früheren Berechtigungen und ihres Zugriffs auf Deine Organisation zu senden. Vor der Annahme dieser Einladung müssen diese Benutzer die Zwei-Faktor-Authentifizierung aktivieren.
 
-### Zulässige IP-Adressen für Organisationen in Deinem Enterprise-Konto verwalten
+## Zulässige IP-Adressen für Organisationen in Deinem Enterprise-Konto verwalten
 
 Enterprise-Inhaber können den Zugriff auf Objekte im Besitz von Organisationen in Enterprise-Konten einschränken, indem sie eine Zulassungsliste für spezifische IP-Adressen konfigurieren. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfigurieren. Weitere Informationen findest Du auf „[Zugelassene IP-Adressen für Deine Organisation verwalten](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
-#### Eine zulässige IP-Adresse hinzufügen
+### Eine zulässige IP-Adresse hinzufügen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -60,7 +62,11 @@ Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfiguri
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-#### Zulässige IP-Adressen aktivieren
+### Allowing access by {% data variables.product.prodname_github_apps %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
+
+### Zulässige IP-Adressen aktivieren
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -68,7 +74,7 @@ Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfiguri
 3. Wähle unter „IP allow list“ (Liste der zulässigen IP-Adressen) **Enable IP allow list** (Liste der zulässigen IP-Adressen aktivieren) aus. ![Kontrollkästchen, um IP-Adressen zuzulassen](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
 4. Klicke auf **Save** (Speichern).
 
-#### Eine zulässige IP-Adresse bearbeiten
+### Eine zulässige IP-Adresse bearbeiten
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -78,7 +84,7 @@ Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfiguri
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. Klicke auf **Update** (Aktualisieren).
 
-#### Eine zulässige IP-Adresse löschen
+### Eine zulässige IP-Adresse löschen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -86,17 +92,17 @@ Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfiguri
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-#### {% data variables.product.prodname_actions %} mit einer IP-Zulassungsliste verwenden
+### {% data variables.product.prodname_actions %} mit einer IP-Zulassungsliste verwenden
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-### SSH-Zertifizierungsstellen Ihres Enterprise-Kontos verwalten
+## SSH-Zertifizierungsstellen Ihres Enterprise-Kontos verwalten
 
 Enterprise-Inhaber können die SSH-Zertifizierungsstellen eines Enterprise-Kontos hinzufügen und löschen.
 
 Indem Sie eine SSH-Zertifizierungsstelle zu Ihrem Enterprise-Konto hinzufügen, können Sie es den Mitgliedern einer Organisation Ihres Enterprise-Kontos erlauben, mit von Ihnen bereitgestellten SSH-Zertifikaten auf die Repositorys dieser Organisation zuzugreifen. {% data reusables.organizations.can-require-ssh-cert %} Weitere Informationen findest Du unter „[Informationen zu SSH-Zertifizierungsstellen](/articles/about-ssh-certificate-authorities).“
 
-#### Eine SSH-Zertifizierungsstelle hinzufügen
+### Eine SSH-Zertifizierungsstelle hinzufügen
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -106,7 +112,7 @@ Indem Sie eine SSH-Zertifizierungsstelle zu Ihrem Enterprise-Konto hinzufügen, 
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
-#### Eine SSH-Zertifizierungsstelle löschen
+### Eine SSH-Zertifizierungsstelle löschen
 
 Das Löschen einer Zertifizierungsstelle kann nicht rückgängig gemacht werden. Wenn Sie dieselbe Zertifizierungsstelle in Zukunft wieder verwenden möchten, müssen Sie sie erneut hochladen.
 
@@ -115,6 +121,6 @@ Das Löschen einer Zertifizierungsstelle kann nicht rückgängig gemacht werden.
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - "[Configuring identity and access management for your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

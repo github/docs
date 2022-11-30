@@ -12,13 +12,15 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
+shortTitle: Access the management console
 ---
-### Informationen zur {% data variables.enterprise.management_console %}
+
+## Informationen zur {% data variables.enterprise.management_console %}
 
 {% data variables.enterprise.management_console %} für grundlegende Verwaltungsaktivitäten verwenden:
 - **Initial setup** (Ersteinrichtung): Durchlaufen Sie beim ersten Start von {% data variables.product.product_location %} den Ersteinrichtungsprozess. Rufen Sie dazu in Ihrem Browser die IP-Adresse Ihrer {% data variables.product.product_location %} auf.
@@ -31,15 +33,15 @@ Sie können jederzeit mithilfe der IP-Adresse von {% data variables.product.prod
 
 Verwenden Sie das während der Ersteinrichtung von {% data variables.product.product_location %} festgelegte Administratorpasswort, um auf die {% data variables.enterprise.management_console %} zuzugreifen. Zudem müssen Sie auf Port 8443 eine Verbindung zum Host der virtuellen Maschine herstellen können. Wenn Sie Probleme haben, auf {% data variables.enterprise.management_console %} zuzugreifen, sollten Sie die Konfigurationen für die Zwischenfirewall und für die Sicherheitsgruppe überprüfen.
 
-### Auf die {% data variables.enterprise.management_console %} als ein Websiteadministrator zugreifen
+## Auf die {% data variables.enterprise.management_console %} als ein Websiteadministrator zugreifen
 
-The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)."
+The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### Auf die {% data variables.enterprise.management_console %} als ein nicht authentifizierter Benutzer zugreifen
+## Auf die {% data variables.enterprise.management_console %} als ein nicht authentifizierter Benutzer zugreifen
 
 1. Besuchen Sie diese URL in Ihrem Browser, und ersetzen Sie `hostname` durch Ihren tatsächlichen {% data variables.product.prodname_ghe_server %}-Hostnamen oder durch Ihre tatsächliche -IP-Adresse.
   ```shell
@@ -47,7 +49,7 @@ The first time that you access the {% data variables.enterprise.management_conso
   ```
 {% data reusables.enterprise_management_console.type-management-console-password %}
 
-### {% data variables.enterprise.management_console %} nach fehlerhaften Anmeldeversuchen entsperren
+## {% data variables.enterprise.management_console %} nach fehlerhaften Anmeldeversuchen entsperren
 
 Die {% data variables.enterprise.management_console %} wird nach zehn fehlerhaften Anmeldeversuchen gesperrt, die in der Zeitspanne von zehn Minuten vorgenommen wurden. Sie müssen auf die automatische Entsperrung des Anmeldebildschirms warten, bevor Sie versuchen können, sich erneut anzumelden. Der Anmeldebildschirm wird automatisch entsperrt, wenn im Zeitraum der letzten zehn Minuten weniger als zehn fehlerhafte Anmeldeversuche vorlagen. Der Zähler wird nach einer erfolgreichen Anmeldung zurückgesetzt.
 

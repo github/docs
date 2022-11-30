@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
 ---
+
 ### About the default branch name
 
 当您在 {% data variables.product.product_location %} 上创建一个新仓库时，仓库将包含一个分支，它就是默认分支。 您可以更改 {% data variables.product.product_name %} 用于您新建仓库中默认分支的名称。 有关默认分支的更多信息，请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。

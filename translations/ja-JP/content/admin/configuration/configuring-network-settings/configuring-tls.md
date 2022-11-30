@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -17,7 +17,8 @@ topics:
   - Networking
   - Security
 ---
-### Transport Layer Securityについて
+
+## Transport Layer Securityについて
 
 SSL に代わる TLS は、{% data variables.product.prodname_ghe_server %} の初回起動時に有効になり、自己署名証明書で設定されます。 自己署名証明書は Web ブラウザや Git クライアントから信頼されていないため、TLS を無効にするか、Let's Encrypt などの信頼できる機関によって署名された証明書をアップロードするまで、これらのクライアントは証明書の警告を報告します。
 
@@ -27,7 +28,7 @@ SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプ
 
 ユーザが2要素認証のFIDO U2Fを利用できるようにするには、インスタンスでTLSを有効化しなければなりません。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
 
-### 必要な環境
+## 必要な環境
 
 プロダクションでTLSを利用するには、暗号化されていないPEMフォーマットで、信頼済みの証明書認証局によって署名された証明書がなければなりません。
 
@@ -35,7 +36,7 @@ SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプ
 
 `ghe-ssl-generate-csr` コマンドを使用すれば、インスタンス用の証明書署名要求 (CSR) を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)」を参照してください。
 
-### カスタムのTLS証明書のアップロード
+## カスタムのTLS証明書のアップロード
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -52,7 +53,7 @@ SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプ
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Let's Encryptのサポートについて
+## Let's Encryptのサポートについて
 
 Let's Encryptは公開の証明書認証者で、ACMEプロトコルを使ってブラウザが信頼するTLS証明書を、無料で自動的に発行してくれます。 アプライアンスのためのLet's Encryptの証明書は、手動のメンテナンスを必要とせず自動的に取得及び更新できます。
 
@@ -62,7 +63,7 @@ Let's Encryptを使ったTLS証明書管理の自動化を有効にすると、{
 
 また、{% data variables.product.product_location %}上でコマンドラインユーティリティの`ghe-ssl-acme`を使っても、自動的にLet's Encryptの証明書を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)」を参照してください。
 
-### Let's Encryptを使ったTLSの設定
+## Let's Encryptを使ったTLSの設定
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
@@ -74,4 +75,5 @@ Let's Encryptを使ったTLS証明書管理の自動化を有効にすると、{
 {% data reusables.enterprise_management_console.save-settings %}
 {% data reusables.enterprise_management_console.privacy %}
 7. **Request TLS certificate（TLS証明書のリクエスト）**をクリックしてください。 ![[Request TLS certificate] ボタン](/assets/images/enterprise/management-console/request-tls-button.png)
-8. **Save configuration（設定の保存）**をクリックしてください。
+8. Wait for the "Status" to change from "STARTED" to "DONE". ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+9. **Save configuration（設定の保存）**をクリックしてください。

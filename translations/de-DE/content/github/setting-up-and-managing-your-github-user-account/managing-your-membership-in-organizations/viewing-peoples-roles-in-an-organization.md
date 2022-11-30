@@ -12,13 +12,14 @@ versions:
 topics:
   - Accounts
 ---
+
 {% note %}
 
 **Hinweis:** Du musst ein Organisationsmitglied sein, um die Rollen von Personen in Deiner Organisation anzeigen zu können.
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Es wird eine Liste der Personen in Deiner Organisation angezeigt. Klicke zum Filtern der Liste nach Rolle auf **Role** (Rolle), und wähle die gewünschte Rolle aus. ![Auswahl der Rolle per Klick](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)

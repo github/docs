@@ -10,14 +10,16 @@ redirect_from:
   - /admin/user-management/suspending-and-unsuspending-users
 intro: 'Se um usuário sair da empresa ou mudar para outro departamento, você deve remover ou modificar a forma como ele acessa a {% data variables.product.product_location %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Enterprise
   - Security
   - User account
+shortTitle: Gerenciar suspensão do usuário
 ---
+
 Se funcionários saírem da empresa, você poderá suspender suas contas do {% data variables.product.prodname_ghe_server %} para disponibilizar licenças de usuário em sua licença {% data variables.product.prodname_enterprise %}, embora os problemas, comentários, repositórios, gists e outros dados que eles criaram continuem existindo. Usuários suspensos não podem entrar na sua instância nem fazer push ou pull de códigos.
 
 Quando você suspende um usuário, a alteração entra em vigor na mesma hora e o usuário não recebe notificações a respeito. Se tentar fazer pull ou push em um repositório, o usuário receberá este erro:
@@ -37,7 +39,7 @@ Antes de suspender os administradores do site, você deve rebaixá-los para usu�
 
 {% endtip %}
 
-### Suspender usuários pelo painel de administração de usuários
+## Suspender usuários pelo painel de administração de usuários
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -47,7 +49,7 @@ Antes de suspender os administradores do site, você deve rebaixá-los para usu�
 5. Em "Account suspension" (Suspensão de conta) na caixa Danger Zone (Zona de perigo), clique em **Suspend** (Suspender). ![Botão Suspend (Suspender)](/assets/images/enterprise/site-admin-settings/suspend.png)
 6. Informe um motivo para a suspensão do usuário. ![Motivo da suspensão](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
 
-### Cancelar a suspensão de usuários pelo painel de administração de usuários
+## Cancelar a suspensão de usuários pelo painel de administração de usuários
 
 Assim como na suspensão, o cancelamento da suspensão de um usuário ocorre na mesma hora. O usuário não receberá notificações.
 
@@ -59,7 +61,7 @@ Assim como na suspensão, o cancelamento da suspensão de um usuário ocorre na 
 4. Em "Account suspension" (Suspensão de conta) na caixa Danger Zone (Zona de perigo), clique em **Unuspend** (Cancelar suspensão). ![Botão Unsuspend (Cancelar suspensão)](/assets/images/enterprise/site-admin-settings/unsuspend.png)
 5. Informe um motivo para o cancelamento da suspensão do usuário. ![Motivo do cancelamento da suspensão](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
 
-### Suspender usuários pela linha de comando
+## Suspender usuários pela linha de comando
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Execute [ghe-user-suspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-suspend) com o nome de usuário para suspender.
@@ -67,7 +69,7 @@ Assim como na suspensão, o cancelamento da suspensão de um usuário ocorre na 
   $ ghe-user-suspend <em>username</em>
   ```
 
-### Criar mensagem personalizada para usuários suspensos
+## Criar mensagem personalizada para usuários suspensos
 
 É possível criar uma mensagem personalizada que os usuários suspensos verão ao tentar fazer login.
 
@@ -80,7 +82,7 @@ Assim como na suspensão, o cancelamento da suspensão de um usuário ocorre na 
 8. Revise a mensagem renderizada. ![Mensagem renderizada para usuário suspenso](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}
 
-### Cancelar a suspensão de usuários pela linha de comando
+## Cancelar a suspensão de usuários pela linha de comando
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Execute [ghe-user-unsuspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) com o nome de usuário para cancelar a suspensão.
@@ -88,5 +90,5 @@ Assim como na suspensão, o cancelamento da suspensão de um usuário ocorre na 
   $ ghe-user-unsuspend <em>username</em>
   ```
 
-### Leia mais
+## Leia mais
 - "[Suspender um usuário](/rest/reference/enterprise-admin#suspend-a-user)"

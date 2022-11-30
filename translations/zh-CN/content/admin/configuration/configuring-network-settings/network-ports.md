@@ -10,7 +10,7 @@ redirect_from:
   - /admin/configuration/network-ports
 intro: 根据您需要为管理员、最终用户和电子邮件支持显示的网络服务有选择地打开网络端口。
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -18,7 +18,8 @@ topics:
   - Networking
   - Security
 ---
-### 管理端口
+
+## 管理端口
 
 需要使用一些管理端口来配置 {% data variables.product.product_location %} 和运行某些功能。 最终用户在使用基本应用程序时不需要管理端口。
 
@@ -31,7 +32,7 @@ topics:
 | 123/UDP  | NTP   | 为时间协议操作所需。                                                                                                                       |
 | 161/UDP  | SNMP  | 为网络监视协议操作所需。                                                                                                                     |
 
-### 最终用户的应用程序端口
+## 最终用户的应用程序端口
 
 应用程序端口为最终用户提供 Web 应用程序和 Git 访问。
 
@@ -44,7 +45,7 @@ topics:
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-### 电子邮件端口
+## 电子邮件端口
 
 电子邮件端口必须可直接访问或通过中继访问，以便为最终用户提供入站电子邮件支持。
 

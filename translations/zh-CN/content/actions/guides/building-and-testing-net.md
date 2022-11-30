@@ -16,7 +16,7 @@ versions:
 
 本指南介绍如何构建、测试和发布 .NET 包。
 
-{% if currentVersion == "github-ae@latest" %} 要构建和测试您在 {% data variables.product.prodname_ghe_managed %} 上的 .NET 项目，则需要创建包含 .NET Core SDK 的自定义操作系统映像。 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% if currentversion == "github-ae@latest" %} 要构建和测试您在 {% data variables.product.prodname_ghe_managed %} 上的 .NET 项目，则需要创建包含 .NET Core SDK 的自定义操作系统映像。 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
 {% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 .NET Core SDK。 有关最新版软件以及 .NET Core SDK 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 自托管运行器上安装的软件](/actions/reference/specifications-for-github-hosted-runners)。
 {% endif %}
 

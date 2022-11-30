@@ -5,8 +5,10 @@ redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 代表组织
 ---
+
 {% note %}
 
 **注：**代表组织创建提交的功能目前处于公开测试阶段，可能会有所变化。
@@ -24,7 +26,7 @@ versions:
 
 组织可使用 `name@organization.com` 电子邮件地址作为开源工作的公共联络点。
 
-### 在命令行上使用 `on-behalf-of` 徽章创建提交
+## 在命令行上使用 `on-behalf-of` 徽章创建提交
 
 1. 输入提交消息以及简短、有意义的更改描述。 在提交描述后，不要加上右引号，而是添加两个空行。
   ```shell
@@ -49,7 +51,7 @@ versions:
 
 在下次推送时，新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。 更多信息请参阅“[推送更改到远程仓库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)”。
 
-### 在 {% data variables.product.product_name %} 上使用 `on-behalf-of` 徽章创建提交
+## 在 {% data variables.product.product_name %} 上使用 `on-behalf-of` 徽章创建提交
 
 在 {% data variables.product.product_name %} 上使用 web 编辑器对文件进行更改后，您可以通过在提交消息中添加 `on-behalf-of:` 尾行来创建代表组织的提交。
 
@@ -62,10 +64,9 @@ versions:
 
 新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)"
 - “[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
-- “[查看仓库活动的摘要](/articles/viewing-a-summary-of-repository-activity)”
 - “[查看项目的贡献者](/articles/viewing-a-projects-contributors)”
 - “[更改提交消息](/articles/changing-a-commit-message)”

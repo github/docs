@@ -6,21 +6,23 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
   - /admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on Hyper-V
 ---
-### 必要な環境
+
+## 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
 - Hyper-VをサポートしているWindows Server 2008からWindows Server 2019を持っている必要があります。
 - 仮想マシン（VM）の作成に必要なほとんどのアクションは、 [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts)を使っても行えます。 とはいえ、初期セットアップのためにはWindows PowerShellコマンドラインシェルを使うことをおすすめします。 以下の例ではPowerShellを使っています。 詳細については、Microsoft ガイド「[Windows PowerShell 入門](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)」を参照してください。
 
-### ハードウェアについて
+## ハードウェアについて
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### {% data variables.product.prodname_ghe_server %} イメージをダウンロードする
+## {% data variables.product.prodname_ghe_server %} イメージをダウンロードする
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
@@ -28,7 +30,7 @@ topics:
 4. {% data variables.product.prodname_dotcom %}オンプレミスを選択し、**Hyper-V (VHD)**をクリックしてください。
 5. **Download for Hyper-V (VHD)**をクリックしてください。
 
-### {% data variables.product.prodname_ghe_server %} インスタンスを作成する
+## {% data variables.product.prodname_ghe_server %} インスタンスを作成する
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -54,7 +56,7 @@ topics:
   ```
 6. VM の IP アドレスをコピーし、Web ブラウザに貼り付けます。
 
-### {% data variables.product.prodname_ghe_server %} インスタンスを設定する
+## {% data variables.product.prodname_ghe_server %} インスタンスを設定する
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -62,7 +64,7 @@ topics:
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### 参考リンク
+## 参考リンク
 
-- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes > 2.22 %}
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

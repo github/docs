@@ -1,6 +1,6 @@
 ---
-title: Enabling improved container support with the Container registry
-intro: 'To use the {% data variables.product.prodname_container_registry %}, you must enable it for your user or organization account.'
+title: Habilitar suporte aprimorado com registro do contêiner
+intro: 'Para usar o {% data variables.product.prodname_container_registry %}, você precisa habilitá-lo para a sua conta de usuário ou organização.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/enabling-improved-container-support
@@ -12,30 +12,30 @@ versions:
 
 {% note %}
 
-**Note:** The {% data variables.product.prodname_container_registry %} is currently in public beta and subject to change. Durante o beta, o armazenamento e a banda larga são grátis. Para obter mais informações, consulte "[Introdução a {% data variables.product.prodname_registry %}](/packages/learn-github-packages/introduction-to-github-packages)".
+**Observação:** O {% data variables.product.prodname_container_registry %} está atualmente em beta público e está sujeito a alterações. Durante o beta, o armazenamento e a banda larga são grátis. Para obter mais informações, consulte "[Introdução a {% data variables.product.prodname_registry %}](/packages/learn-github-packages/introduction-to-github-packages)".
 
 {% endnote %}
 
 {% data reusables.package_registry.docker-vs-container-registry %}
 
-### Enabling the {% data variables.product.prodname_container_registry %} for your personal account
+### Habilitar {% data variables.product.prodname_container_registry %} para a sua conta pessoal
 
-Once the {% data variables.product.prodname_container_registry %} is enabled for your personal user account, you can publish containers to the {% data variables.product.prodname_container_registry %} owned by your user account.
+Uma vez que a {% data variables.product.prodname_container_registry %} esteja habilitado para a sua conta pessoal de usuário, você poderá publicar contêineres para o {% data variables.product.prodname_container_registry %} que é proprietário da sua conta de usuário.
 
-To use the {% data variables.product.prodname_container_registry %} within an organization, the organization owner must enable the feature for organization members.
+Para usar {% data variables.product.prodname_container_registry %} em uma organização, o proprietário da organização deve habilitar o recurso para os integrantes da organização.
 
 {% data reusables.feature-preview.feature-preview-setting  %}
 2. À esquerda, selecione "Suporte ao contêiner aprimorado" e, em seguida, clique em **Habilitar**. ![Suporte ao contêiner aprimorado](/assets/images/help/settings/improved-container-support.png)
 
-### Enabling the {% data variables.product.prodname_container_registry %} for your organization account
+### Habilitar {% data variables.product.prodname_container_registry %} para a conta da sua organização
 
-Before organization owners or members can publish container images to the {% data variables.product.prodname_container_registry %}, an organization owner must enable the feature preview for the organization.
+Antes que os proprietários ou integrantes da organização possam publicar imagens do contêiner para {% data variables.product.prodname_container_registry %}, um proprietário da organização deverá habilitar a visualização do recurso para a organização.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 4. À esquerda, clique em **Pacotes**.
 5. Em "Melhorar suporte ao container", selecione "Suporte ao contêiner aprimorado" e clique em **Salvar**. ![Opção de habilitar suporte de registro do contêiner e botão de salvar](/assets/images/help/package-registry/enable-improved-container-support-for-orgs.png)
 6. Em "Criação de contêiner", escolha se deseja permitir a criação de imagens públicas, privadas ou internas de contêineres.
-    - To enable organization members to create public container images, select **Public**.
-    - To enable organization members to create private container images that are only visible to other organization members, select **Private**. Você pode personalizar ainda mais a visibilidade de imagens de contêiner privado. For more information, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
-    - **For {% data variables.product.prodname_ghe_cloud %} only:** To enable organization members to create internal container images that are only visible to other organization members, select **Internal**. ![Opções de visibilidade para imagens de contêiner publicadas por integrantes da organização](/assets/images/help/package-registry/container-creation-org-settings.png)
+    - Para permitir que os integrantes da organização criem imagens de contêiner público, selecione **Público**.
+    - Para permitir que os integrantes da organização criem imagens privadas de contêiner que são visíveis apenas para outros integrantes da organização, selecione **Privado**. Você pode personalizar ainda mais a visibilidade de imagens de contêiner privado. Para obter mais informações, consulte "[Configurar o controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
+    - **Apenas para {% data variables.product.prodname_ghe_cloud %}:** Para permitir que os integrantes da organização criem imagens internas de contêiner visíveis apenas para outros integrantes da organização, selecione **Interno**. ![Opções de visibilidade para imagens de contêiner publicadas por integrantes da organização](/assets/images/help/package-registry/container-creation-org-settings.png)

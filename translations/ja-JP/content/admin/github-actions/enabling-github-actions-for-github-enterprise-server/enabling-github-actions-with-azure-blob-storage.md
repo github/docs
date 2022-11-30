@@ -3,13 +3,15 @@ title: Azure Blob ストレージで GitHub Actions を有効化する
 intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効化し、Azure Blob ストレージを使用して、ワークフローの実行によって生成されたアーティファクトを格納できます。'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
+shortTitle: Azure Blob ストレージ
 ---
-### 必要な環境
+
+## 必要な環境
 
 {% data variables.product.prodname_actions %} を有効化する前に、次のステップを完了していることを確認してください。
 
@@ -26,7 +28,7 @@ redirect_from:
   Azure ストレージアカウントの種類とパフォーマンス層の詳細については、[Azure のドキュメント](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts)を参照してください。
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### Azure Blob ストレージで {% data variables.product.prodname_actions %} を有効化する
+## Azure Blob ストレージで {% data variables.product.prodname_actions %} を有効化する
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

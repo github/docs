@@ -1,6 +1,6 @@
 ---
-title: Building and testing Xamarin applications
-intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Xamarin application.
+title: 构建和测试 Xamarin 应用程序
+intro: 您可以在 GitHub Actions 中创建持续集成 (CI) 工作流程，以构建和测试 Xamarin 应用程序。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -22,26 +22,26 @@ topics:
 
 ### 简介
 
-This guide shows you how to create a workflow that performs continuous integration (CI) for your Xamarin project. 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。
+本指南介绍如何为 Xamarin 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。
 
-{% data variables.product.prodname_actions %}-hosted macOS runner stores Xamarin SDK versions and the associated Mono versions as a set of symlinks to Xamarin SDK locations that are available by a single bundle symlink. For a full list of available Xamarin SDK versions and their corresponding bundles, see the runners documentation:
+在 {% data variables.product.prodname_actions %} 托管的 macOS 运行器上有可用的 Xamarin SDK 版本的完整列表，请参阅文档：
 
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
-* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md#xamarin-bundles)
+* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
 {% data reusables.github-actions.macos-runner-preview %}
 
 ### 基本要求
 
-We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML, workflow configuration options, and how to create a workflow file. 更多信息请参阅：
+建议基本了解 Xamarin、.NET Core SDK、YAML、工作流程配置选项以及如何创建工作流程文件。 更多信息请参阅：
 
 - "[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
-- "[Getting started with .NET](https://dotnet.microsoft.com/learn)"
-- "[Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
+- "[开始使用 .NET](https://dotnet.microsoft.com/learn)"
+- "[了解 Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
 
-### Bulding Xamarin.iOS apps
+### 构建 Xamarin.iOS 应用程序
 
-The example below demonstrates how to change the default Xamarin bundle and build  a Xamarin.iOS application.
+下面的示例演示如何更改默认 Xamarin SDK 版本并构建 Xamarin.iOS 应用程序。
 
 {% raw %}
 ```yaml
@@ -55,34 +55,33 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Select default Xamarin bundle to 6_12_6
-        run: |
-          XAMARIN_SDK=6_12_6
-          $VM_ASSETS/select-xamarin-sdk.sh $XAMARIN_SDK
+    - uses: actions/checkout@v2
+    - name: Set default Xamarin SDK versions
+      run: |
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
 
-      - name: Set default Xcode 12.3
-        run: |
-          XCODE_ROOT=/Applications/Xcode_12.3.0.app
-          echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
-          sudo xcode-select -s $XCODE_ROOT
+    - name: Set default Xcode 12.3
+      run: |
+        XCODE_ROOT=/Applications/Xcode_12.3.0.app
+        echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
+        sudo xcode-select -s $XCODE_ROOT
 
-      - name: Setup .NET Core SDK 5.0.x
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.0.x'
+    - name: Setup .NET Core SDK 5.0.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
 
-      - name: Install dependencies
-        run: nuget restore <sln_file_path>
+    - name: Install dependencies
+      run: nuget restore <sln_file_path>
 
-      - name: Build
-        run: msbuild <csproj_file_path> /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
+    - name: Build
+      run: msbuild <csproj_file_path> /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
 ```
 {% endraw %}
 
-### Bulding Xamarin.Android apps
+### 构建 Xamarin.Android 应用程序
 
-The example below demonstrates how to change default the Xamarin bundle and build a Xamarin.Android application.
+下面的示例演示如何更改默认 Xamarin SDK 版本并构建 Xamarin.Android 应用程序。
 
 {% raw %}
 ```yaml
@@ -96,22 +95,21 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Select default Xamarin bundle to 6_12_6
-        run: |
-          XAMARIN_SDK=6_12_6
-          $VM_ASSETS/select-xamarin-sdk.sh $XAMARIN_SDK
+    - uses: actions/checkout@v2
+    - name: Set default Xamarin SDK versions
+      run: |
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.10 --android=10.2
 
-      - name: Setup .NET Core SDK 5.0.x
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.0.x'
+    - name: Setup .NET Core SDK 5.0.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
 
-      - name: Install dependencies
-        run: nuget restore <sln_file_path>
+    - name: Install dependencies
+      run: nuget restore <sln_file_path>
 
-      - name: Build
-        run: msbuild <csproj_file_path> /t:PackageForAndroid /p:Configuration=Debug
+    - name: Build
+      run: msbuild <csproj_file_path> /t:PackageForAndroid /p:Configuration=Debug
 ```
 {% endraw %}
 

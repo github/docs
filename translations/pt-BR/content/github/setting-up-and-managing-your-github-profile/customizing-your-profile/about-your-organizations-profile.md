@@ -12,9 +12,10 @@ versions:
 topics:
   - Profiles
 ---
+
 Se desejar, você pode optar por adicionar uma descrição, um local, um site e um endereço de e-mail para sua organização, além de fixar repositórios importantes no topo da página.
 
-{% if currentVersion == "free-pro-team@latest" %}Para confirmar a identidade da sua organização e exibir um selo "Verificado" na página de perfil da sua organização, você deve verificar os domínios da sua organização com {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+{% if currentVersion == "free-pro-team@latest" %}Para confirmar a identidade da sua organização e exibir um selo "Verificado" na página de perfil da sua organização, você deve verificar os domínios da sua organização com {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
 
 ![Exemplo de página de perfil verificada da organização](/assets/images/help/profile/org_profile_verified.png)
 {% else %}

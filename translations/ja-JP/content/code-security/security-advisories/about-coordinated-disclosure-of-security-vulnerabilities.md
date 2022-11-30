@@ -1,65 +1,68 @@
 ---
-title: About coordinated disclosure of security vulnerabilities
-intro: Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.
-miniTocMaxHeadingLevel: 4
+title: セキュリティ脆弱性の調整された開示について
+intro: 脆弱性の開示は、セキュリティの報告者とリポジトリメンテナの調整された取り組みです。
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: overview
+topics:
+  - Security advisories
+  - Vulnerabilities
+shortTitle: 協調開示
 ---
 
-### About disclosing vulnerabilities in the industry
+## 業界における脆弱性の開示について
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %}
 
-The initial report of a vulnerability is made privately, and the full details are only published once the maintainer has acknowledged the issue, and ideally made remediations or a patch available, sometimes with a delay to allow more time for the patches to be installed. For more information, see the "[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" on the OWASP Cheat Sheet Series website.
+脆弱性の初期の報告は非公開で行われ、完全な詳細はメンテナが問題を認め、理想的には対策もしくはパッチが利用可能になり、場合によってはパッチがインストールできるようさらに時間をおいてから公開されます。 詳しい情報については、OWASP Cheat Sheet Series Webサイトの「[OWASP Cheat Sheet Series about vulnerability disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)」を参照してください。
 
-#### Best practices for vulnerability reporters
+### 脆弱性報告者のためのベストプラクティス
 
-It's good practice to report vulnerabilities privately to maintainers. When possible, as a vulnerability reporter, we recommend you avoid:
-- Disclosing the vulnerability publicly without giving maintainers a chance to remediate.
-- Bypassing the maintainers.
-- Disclosing the vulnerability before a fixed version of the code is available.
-- Expecting to be compensated for reporting an issue, where no public bounty program exists.
+脆弱性をメンテナに非公開で報告するのは良いやり方です。 可能なら、脆弱性報告者は以下を避けることをおすすめします。
+- メンテナに対策の機会を与えることなく脆弱性を公開してしまうこと。
+- メンテナをバイパスしてしまうこと。
+- コードの修正バージョンが利用可能になる前に脆弱性を公開してしまうこと。
+- パブリックなバウンティプログラムが存在しない場合に、問題の報告に補償がなされると期待すること。
 
-It's acceptable for vulnerability reporters to disclose a vulnerability publicly after a period of time, if they have tried to contact the maintainers and not received a response, or contacted them and been asked to wait too long to disclose it.
+メンテナに連絡を取ろうとしてレスポンスがなかったり、連絡は取れたものの公開をあまりに長く待つよう頼まれたなら、一定期間後に脆弱性報告者が脆弱性を公開することは許容できます。
 
-We recommend vulnerability reporters clearly state the terms of their disclosure policy as part of their reporting process. Even if the vulnerability reporter does not adhere to a strict policy, it's a good idea to set clear expectations for maintainers in terms of timelines on intended vulnerability disclosures. For an example of disclosure policy, see the "[Security Lab's disclosure policy](https://securitylab.github.com/advisories#policy)" on the GitHub Security Lab website.
+脆弱性の報告者は、報告のプロセスの一部として、開示ポリシーの条件を明確に述べることをおすすめします。 脆弱性報告者が厳密なポリシーに従っていないばあいでも、意図的な脆弱性の開示の時期についてメンテナが明確な期待を持てるようにするのは良い考えです。 開示ポリシーの例については、GitHubセキュリティラボのWebサイトの「[セキュリティラボの開示ポリシー](https://securitylab.github.com/advisories#policy)」を参照してください。
 
-#### Best practices for maintainers
+### メンテナのためのベストプラクティス
 
-As a maintainer, it's good practice to clearly indicate how and where you want to receive reports for vulnerabilities. If this information is not clearly available, vulnerability reporters don't know how to contact you, and may resort to extracting developer email addresses from git commit histories to try to find an appropriate security contact. This can lead to friction, lost reports, or the publication of unresolved reports.
+メンテナは、脆弱性の報告をいつどのように受けたいかを明確に示しておくのが良いでしょう。 この情報が明確に利用できない場合、脆弱性報告者はどのように連絡をすればいいか分からず、gitのコミット履歴から開発者のメールアドレスを取り出して適切なセキュリティに関する連絡先を見つけようとするかもしれません。 これは、不和、報告の喪失、未解決の報告の公開につながるかもしれません。
 
-Maintainers should disclose vulnerabilities in a timely manner. If there is a security vulnerability in your repository, we recommend you:
-- Treat the vulnerability as a security issue rather than a simple bug, both in your response and your disclosure. For example, you'll need to explicitly mention that the issue is a security vulnerability in the release notes.
-- Acknowlege receipt of the vulnerability report as quickly as possible, even if no immediate resources are available for investigation. This sends the message that you are quick to respond and act, and it sets a positive tone for the rest of the interaction between you and the vulnerability reporter.
-- Involve the vulnerability reporter when you verify the impact and veracity of the report. It's likely the vulnerability reporter has already spent time considering the vulnerability in a variety of scenarios, some of which you may have not considered yourself.
-- Remediate the issue in a way that you see fit, taking any concerns and advice provided by the vulnerability reporter into careful consideration. Often the vulnerability reporter will have knowledge of certain corner cases and remediation bypasses that are easy to miss without a security research background.
-- Always acknowledge the vulnerability reporter when you credit the discovery.
-- Aim to publish a fix as soon as you can.
-- Ensure that you make the wider ecosystem aware of the issue and its remediation when you disclose the vulnerability. It is not uncommon to see cases where a recognized security issue is fixed in the current development branch of a project, but the commit or subsequent release is not explicitly marked as a security fix or release. This can cause problems with downstream consumers.
+メンテナは、適時に脆弱性を開示すべきです。 リポジトリにセキュリティ脆弱性があるなら、以下のようにすることをおすすめします。
+- 脆弱性は、レスポンスにおいても開示においても単純なバグとしてよりもセキュリティの問題として対処してください。 たとえば、リリースノートではその問題をセキュリティ脆弱性として明示的に言及する必要があります。
+- 脆弱性報告を受け取ったことは、たとえすぐに調査するためのリソースがない場合でも、できるだけ早く認めてください。 これはあなたが迅速に対応して行動するというメッセージを送ることになり、あなたと脆弱性報告者との間のそれ以外のやりとりに肯定的なトーンが設定されます。
+- 報告のインパクトと正確性を検証する際には、脆弱性報告者にも関わってもらってください。 おそらく脆弱性の報告者は、すでにその脆弱性を様々なシナリオの中で考慮するのに時間をかけているでしょう。その中には、あなたが自分では考えていなかったものがあるかもしれません。
+- 脆弱性の報告者が提供してくれた懸念点とアドバイスを慎重に考慮に入れて、適切と思われる方法で問題に対処してください。 脆弱性の報告者は、しばしば特定のコーナーケースや対処のバイパスに関する知識を持っており、それらはセキュリティ研究のバックグラウンドなしでは簡単に見逃してしまうものです。
+- 発見されたことを評価する際には、常に脆弱性の報告者に感謝を示してください。
+- できるかぎり早い修正の公開を目指してください。
+- 脆弱性を開示する際には、広汎なエコシステムがその問題と対策を認識するようにしてください。 認識されたセキュリティの問題がプロジェクトの現在の開発ブランチで修正されながら、そのコミットあるいはそれ以降のリリースがセキュリティ修正あるいはリリースとして明示的に示されていない場合が珍しくありません。 これによって、下流の利用者に問題が生じることがあります。
 
-Publishing the details of a security vulnerability doesn't make maintainers look bad. Security vulnerabilities are present everywhere in software, and users will trust maintainers who have a clear and established process for disclosing security vulnerabilities in their code.
+セキュリティ脆弱性の詳細を開会しても、メンテナが悪く見えることはありません。 セキュリティ脆弱性はソフトウェアのあらゆるところに存在し、ユーザはコード中のセキュリティ脆弱性を開示するための明確な確立されたプロセスを持つメンテナを信頼します。
 
-### About reporting and disclosing vulnerabilities in projects on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}上のプロジェクトの脆弱性の報告と開示について
 
-The process for reporting and disclosing vulnerabilities for projects on {% data variables.product.prodname_dotcom_the_website %} is as follows:
+{% data variables.product.prodname_dotcom_the_website %}上のプロジェクトの脆弱性の報告と開示のプロセスは以下のようになります。
 
- If you are a vulnerability reporter (for example, a security researcher) who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[About security policies](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository.
+ あなたが脆弱性の報告したいと考えている人（たとえばセキュリティ研究者）なら、まず関連するリポジトリにセキュリティポリシーがあるかをチェックしてください。 詳しい情報については「[セキュリティポリシーについて](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)」を参照してください。 セキュリティポリシーがあるなら、そのリポジトリのセキュリティチームに連絡する前に、それに従ってプロセスを理解してください。
 
- If there isn't a security policy in place, the most efficient way to establish a private means of communication with maintainers is to create an issue asking for a preferred security contact. It's worth noting that the issue will be immediately publicly visible, so it should not include any information about the bug. Once communication is established, you can suggest the maintainers define a security policy for future use.
+ セキュリティポリシーがないなら、メンテナへの非公開のコミュニケーション方法を確立するための最も効率的な方法は、望ましいセキュリティの連絡先を尋ねるIssueを作成することです。 そのIssueはすぐに公に見ることができるようになるので、そこにはバグに関する情報は含めないようにするべきであることには注意してください。 コミュニケーションが確立できたら、将来的に利用できるよう、セキュリティポリシーを規定してもらうメンテナに提案できます。
 
 {% note %}
 
-**Note**: _For npm only_ - If we receive a report of malware in an npm package, we try to contact you privately. If you don't address the issue in a timely manner, we will disclose it. For more information, see "[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" on the npm Docs website.
+**ノート**: _npmの場合のみ_ - npmパッケージ内でマルウェアの報告を受け取った場合、私たちは非公開であなたに連絡しようとします。 あなたが適時問題に対応しない場合、私たちはその問題を開示します。 詳しい情報についてはnpmドキュメントWebサイトの「[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)」を参照してください。
 
 {% endnote %}
 
- If you've found a security vulnerability in {% data variables.product.prodname_dotcom_the_website %}, please report the vulnerability through our coordinated disclosure process. For more information, see the [{% data variables.product.prodname_dotcom %} Security Bug Bounty](https://bounty.github.com/) website.
+ {% data variables.product.prodname_dotcom_the_website %}でセキュリティ脆弱性を発見したら、私たちの調整された開示プロセスを通じてその脆弱性を報告してください。 詳しい情報については「[{% data variables.product.prodname_dotcom %} Security Bug Bounty](https://bounty.github.com/) Webサイトを参照してください。
 
- If you are a maintainer, you can take ownership of the process at the very beginning of the pipeline by setting up a security policy for your repository, or otherwise making security reporting instructions clearly available, for example in your project’s README file. For information about adding a security policy, see "[About security policies](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)." If there is no security policy, it's likely that a vulnerability reporter will try to email you or otherwise privately contact you. Alternatively, someone may open a (public) issue with details of a security issue.
+ あなたがメンテナなら、リポジトリのセキュリティポリシーを設定するか、たとえばプロジェクトのREADMEファイルでセキュリティの報告方法を明確にしておくことによって、このパイプラインの開始時点からプロセスの所有権を取ることができます。 セキュリティポリシーの追加に関する情報については「[セキュリティポリシーについて](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)」を参照してください。 セキュリティポリシーがない場合、セキュリティの報告者はおそらくあなたにメールするか、非公開であなたに連絡しようとするでしょう。 あるいは、誰かがセキュリティの問題の詳細を含む（パブリックな）Issueをオープンするかもしれません。
 
- As a maintainer, to disclose a vulnerability in your code, you first create a draft security advisory in the package's repository in {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.security-advisory-overview %} 詳しい情報については、「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+ メンテナとしてコード中の脆弱性を開示するために、まずは{% data variables.product.prodname_dotcom %}でパッケージのリポジトリにドラフトのセキュリティアドバイザリを作成します。 {% data reusables.security-advisory.security-advisory-overview %} 詳しい情報については、「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 
 
  作成方法については、「[セキュリティアドバイザリを作成する](/github/managing-security-vulnerabilities/creating-a-security-advisory)」を参照してください。
-
-

@@ -10,15 +10,17 @@ redirect_from:
   - /admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% data variables.product.prodname_github_connect %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - GitHub Connect
   - Infrastructure
   - Networking
+shortTitle: Connect to GHEC
 ---
-### {% data variables.product.prodname_github_connect %} について
+
+## {% data variables.product.prodname_github_connect %} について
 
 {% data variables.product.prodname_github_connect %}を有効化するには、{% data variables.product.product_location_enterprise %}と{% data variables.product.prodname_ghe_cloud %} のOrganizationまたはEnterpriseアカウントの両方で接続を設定しなければなりません。
 
@@ -44,23 +46,17 @@ topics:
 {% data variables.product.prodname_github_connect %} を有効化しても、{% data variables.product.prodname_dotcom_the_website %} のユーザは {% data variables.product.prodname_ghe_server %} を変更できるようになりません。
 
 GraphQL APIを利用したEnterpriseアカウントの管理に関する詳しい情報については、「[Enterprise アカウント](/graphql/guides/managing-enterprise-accounts)」を参照してください。
-### {% data variables.product.prodname_github_connect %} の有効化
+## {% data variables.product.prodname_github_connect %} の有効化
 
-1. まず、
+1. {% data variables.product.product_location_enterprise %}と{% data variables.product.prodname_dotcom_the_website %}にサインインしてください。
+{% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}
+1. 「{% data variables.product.prodname_dotcom_the_website %} is not enabled yet」の下で、「**Enable{% data variables.product.prodname_github_connect %}**」をクリックします。 「**Enable {% data variables.product.prodname_github_connect %}**,」をクリックすると、 <a href="/articles/github-connect-addendum-to-the-github-enterprise-license-agreement/" class="dotcom-only">{% data variables.product.prodname_enterprise %} ライセンスアグリーメントの {% data variables.product.prodname_github_connect %} に関する補遺</a>に合意したことになります。 ![「Enable GitHub Connect」ボタン](/assets/images/enterprise/business-accounts/enable-github-connect-button.png)
+1. 接続したいEnterpriseアカウントまたはOrganizationの横にある「**Connect**」をクリックします。 ![Enterprise アカウントまたはビジネスアカウントの横にある [Connect] ボタン](/assets/images/enterprise/business-accounts/choose-enterprise-or-org-connect.png)
 
-{% data variables.product.product_location_enterprise %} および {% data variables.product.prodname_dotcom_the_website %} にサインインします。
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-5. 「{% data variables.product.prodname_dotcom_the_website %} is not enabled yet」の下で、「**Enable{% data variables.product.prodname_github_connect %}**」をクリックします。 「**Enable {% data variables.product.prodname_github_connect %}**,」をクリックすると、 <a href="/articles/github-connect-addendum-to-the-github-enterprise-license-agreement/" class="dotcom-only">{% data variables.product.prodname_enterprise %} ライセンスアグリーメントの {% data variables.product.prodname_github_connect %} に関する補遺</a>に合意したことになります。 ![「Enable GitHub Connect」ボタン](/assets/images/enterprise/business-accounts/enable-github-connect-button.png)
-6. 接続したいEnterpriseアカウントまたはOrganizationの横にある「**Connect**」をクリックします。 ![Enterprise アカウントまたはビジネスアカウントの横にある [Connect] ボタン](/assets/images/enterprise/business-accounts/choose-enterprise-or-org-connect.png)
-
-### {% data variables.product.product_location_enterprise %}{% data variables.product.prodname_ghe_cloud %}OrganizationまたはEnterpriseアカウントを切断する
+## {% data variables.product.product_location_enterprise %}{% data variables.product.prodname_ghe_cloud %}OrganizationまたはEnterpriseアカウントを切断する
 
 {% data variables.product.prodname_ghe_cloud %}から切断すると、EnterpriseアカウントまたはOrganizationから{% data variables.product.prodname_github_connect %}{% data variables.product.prodname_github_app %}が削除され、{% data variables.product.product_location_enterprise %}に保存されているクレデンシャルが削除されます。
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.github-connect-tab %}
-5. 切断しようとするEnterpriseアカウントまたはOrganizationの横にある「**Disable {% data variables.product.prodname_github_connect %}**」をクリックします。 ![EnterpriseアカウントまたはOrganization名の横にある「Disable GitHub Connect」ボタン](/assets/images/enterprise/business-accounts/disable-github-connect-button.png)
-6. 切断に関する情報を読み、「 **Disable {% data variables.product.prodname_github_connect %}**」をクリックします。 ![切断に関する警告情報が表示され確定ボタンがあるモーダル](/assets/images/enterprise/business-accounts/confirm-disable-github-connect.png)
+{% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}
+1. 切断しようとするEnterpriseアカウントまたはOrganizationの横にある「**Disable {% data variables.product.prodname_github_connect %}**」をクリックします。 ![EnterpriseアカウントまたはOrganization名の横にある「Disable GitHub Connect」ボタン](/assets/images/enterprise/business-accounts/disable-github-connect-button.png)
+1. 切断に関する情報を読み、「 **Disable {% data variables.product.prodname_github_connect %}**」をクリックします。 ![切断に関する警告情報が表示され確定ボタンがあるモーダル](/assets/images/enterprise/business-accounts/confirm-disable-github-connect.png)

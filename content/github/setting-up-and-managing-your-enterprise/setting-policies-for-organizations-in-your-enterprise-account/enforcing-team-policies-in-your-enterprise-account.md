@@ -9,11 +9,12 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Enforce team policies
 ---
-### Enforcing a policy for team discussions
+## Enforcing a policy for team discussions
 
 Across all organizations owned by your enterprise account, you can enable or disable team discussions, or allow owners to administer the setting on the organization level. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions/)."
 

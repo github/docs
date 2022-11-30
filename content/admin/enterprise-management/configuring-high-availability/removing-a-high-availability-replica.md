@@ -6,15 +6,16 @@ redirect_from:
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
   - /admin/enterprise-management/removing-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - High availability
   - Enterprise
   - Infrastructure
+shortTitle: Remove a HA replica
 ---
-### Stopping replication temporarily
+## Stopping replication temporarily
 
 1. If necessary, stop a geo-replication replica from serving user traffic by removing the Geo DNS entries for the replica.
 2. On the replica where you wish to temporarily stop replication, run ghe-repl-stop.
@@ -26,7 +27,7 @@ topics:
   $ ghe-repl-start
   ```
 
-### Removing replication permanently
+## Removing replication permanently
 
 1. If necessary, stop a geo-replication replica from serving user traffic by removing the Geo DNS entries for the replica.
 2. On the replica you wish to remove replication from, run `ghe-repl-stop`.
@@ -38,7 +39,7 @@ topics:
   $ ghe-repl-teardown
   ```
 
-  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  {% ifversion ghes > 2.22 %}
   {% note %}
   
   **Note:** If you have {% data variables.product.prodname_actions %} enabled, you should decommission the former replica server or update its {% data variables.product.prodname_actions %} configuration to use different external storage. For more information, see "[High availability for {% data variables.product.prodname_actions %}](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)."

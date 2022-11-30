@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### 关于键盘快捷键
 
 在 {% data variables.product.product_name %} 中输入 <kbd>?</kbd> 可弹出一个对话框，列出可用于该页面的键盘快捷键。 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
@@ -35,8 +36,8 @@ versions:
 | <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | 转到 **Actions（操作）**选项卡。 更多信息请参阅“[关于 Actions](/actions/getting-started-with-github-actions/about-github-actions)”。{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                                                           |
-| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% if currentVersion == "free-pro-team@latest" %}
-| <kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
+| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% if currentVersion == "free-pro-team@latest" %}
+| <kbd>g</kbd> <kbd>g</kbd> | 转到 **Discussions（讨论）**选项卡。 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。{% endif %}
 
 ### 源代码编辑
 

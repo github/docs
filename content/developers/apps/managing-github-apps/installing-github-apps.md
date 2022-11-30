@@ -1,13 +1,13 @@
 ---
 title: Installing GitHub Apps
-intro: 'When your app is public, anyone can use {% if currentVersion == "free-pro-team@latest" %} the {% data variables.product.prodname_marketplace %} or {% endif %}an installation URL to install the app on their repository. When your app is private, only you can install the app on repositories that you own.'
+intro: 'When your app is public, anyone can use {% ifversion fpt %} the {% data variables.product.prodname_marketplace %} or {% endif %}an installation URL to install the app on their repository. When your app is private, only you can install the app on repositories that you own.'
 redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---
@@ -17,7 +17,7 @@ topics:
 
 {% endnote %}
 
-### Installing your private GitHub App on your repository
+## Installing your private GitHub App on your repository
 
 Once you create a private GitHub App, you can install it on one of your org or user repositories. For more information, see "[Private installation flow](/apps/managing-github-apps/making-a-github-app-public-or-private/#private-installation-flow)."
 
@@ -28,8 +28,8 @@ Once you create a private GitHub App, you can install it on one of your org or u
 ![App installation permissions](/assets/images/install_permissions.png)
 5. Once installed, you will see configuration options for the app on your selected account. You can make changes here, or repeat the previous steps to install the app on another account.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Offering your app in the GitHub Marketplace
+{% ifversion fpt %}
+## Offering your app in the GitHub Marketplace
 
 You can offer a paid or free version of your app in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), where people can search for and view details about your app. {% data variables.product.prodname_marketplace %} automatically installs a GitHub App when an order is complete.
 
@@ -39,7 +39,7 @@ To learn more about how users can install your app from {% data variables.produc
 
 {% endif %}
 
-### Allowing people to install your public app on their repository
+## Allowing people to install your public app on their repository
 
 You can enable others to install your public app by providing the installation URL in places like your app's homepage. You can then point to your app's homepage from the landing page on GitHub.
 
@@ -54,12 +54,12 @@ These steps assume you have [built a {% data variables.product.prodname_github_a
 ![Public link](/assets/images/github-apps/github_apps_public_link.png)
 4. Create a homepage for your app that includes the app installation URL: `{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new`.
 
-### Authorizing users during installation
+## Authorizing users during installation
 
 You can simplify the authorization process by completing it during app installation. To do this, select **Request user authorization (OAuth) during installation** when creating or modifying your app in GitHub. See "[Creating a GitHub App](/apps/building-github-apps/creating-a-github-app/)" to learn more.
 
 Once someone has installed your app, you will need to get an access token for the user. See steps 2 and 3 in "[Identifying users on your site](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site)" to learn more.
-### Preserving an application state during installation
+## Preserving an application state during installation
 
 You can provide a `state` parameter in an app's installation URL to preserve the state of the application page and return people back to that state after they install, authenticate, or accept updates to your GitHub App. For example, you could use the `state` to correlate an installation to a user or account.
 

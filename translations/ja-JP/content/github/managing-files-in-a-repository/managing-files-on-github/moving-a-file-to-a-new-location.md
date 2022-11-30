@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ファイルの場所を変えるだけでなく、同じコミットで[ファイルの内容を更新](/articles/editing-files-in-your-repository)したり、
 ファイルの名前を変更したりすることもできます。</p> 
 

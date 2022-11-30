@@ -5,7 +5,7 @@ redirect_from:
   - /articles/dmca-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ Devido ao tipo de conteúdo que o GitHub hospeda (principalmente código de soft
 
 Como em todas as questões jurídicas, é sempre melhor consultar um profissional sobre suas dúvidas ou situação específica. Incentivamos a fazê-lo antes de tomar quaisquer medidas que possam impactar seus direitos. Este guia não é um aconselhamento jurídico e não deve ser tomado como tal.
 
-### Antes de começar
+## Antes de começar
 
 ***Diga a verdade.*** A DMCA requer que você jure pelos fatos relatados na reclamação dos direitos autorais, *sob pena de perjúrio*. Nos Estados Unidos, é crime federal mentir intencionalmente numa declaração juramentada. (*Veja* [Código dos EUA, Título 18, Seção 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm). Código, Título 18, Seção 1621</a>.) O envio de informações falsas também poderia resultar em responsabilidade civil — ou seja, você poderia ser processado por danos financeiros. A própria DMCA [prevê danos](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) contra qualquer pessoa que, intencionalmente, deturpe materialmente o material ou a atividade que está sendo alvo de denúncia de violação de direitos autorais.
 
@@ -49,14 +49,14 @@ Esta lista não é exaustiva, e é por isso que falar com um advogado sobre a qu
 
 ***O GitHub não é juiz.*** O GitHub se envolve pouco no processo, limitando-se a determinar se os avisos atendem aos requisitos mínimos da DMCA. Cabe às partes (e aos seus advogados) avaliar o mérito das suas reivindicações, tendo em conta que os avisos devem ser feitos corretamente sob pena de perjúrio.
 
-### Sua reclamação deve...
+## Sua reclamação deve...
 
 1. **Incluir a seguinte declaração: "Eu li e compreendi o Guia do GitHub para o Preenchimento de um Aviso DMCA".** Não nos recusaremos a processar um aviso, caso você não inclua essa declaração. Mas saberemos que você não leu essas diretrizes e poderemos pedir para que o faça.
 
 2. **Identificar o trabalho protegido por direitos autorais que você acredita ter sido violado.** Essa informação é importante porque ajuda o usuário afetado a avaliar sua reivindicação e a dar a ele a capacidade de comparar seu trabalho com o dele. A especificidade da sua identificação dependerá da natureza do trabalho que você acredita ter sido violado. Se você publicou seu trabalho, talvez consiga fornecer um link para a página web onde ele está hospedado. Se você for proprietário e não tiver publicado, poderá descrevê-lo e explicar que detém a propriedade. Se você o registrou no Escritório de Direitos Autorais, inclua o número de registro. Se você está alegando que o conteúdo hospedado é uma cópia direta e literal do seu trabalho, também pode explicar esse fato.
 
 3. **Identificar o material que você alega estar violnado o trabalho protegido por direitos autorais listado no item #2 acima.** É importante ser o mais específico possível em sua identificação. Essa identificação precisa ser razoavelmente suficiente para permitir que o GitHub localize o material. No mínimo, isso significa que você deve incluir a URL do material que alegadamente viola seus direitos autorais. Se você alegar que um repositório não infringe os direitos autorais como um todo, identifique o(s) arquivo(s) específico(s) ou números de linhas dentro de um arquivo que você alega infringir. Se você alegar que todo o conteúdo de uma URL infringe os direitos, por favor, seja explícito a respeito disso também.
-   - Please note that GitHub will *not* automatically disable [forks](/articles/dmca-takedown-policy#b-what-about-forks-or-whats-a-fork) when disabling a parent repository. Se você investigou e analisou as bifurcações de um repositório e acredita que elas também estão infringindo direitos, por favor, identifique explicitamente cada bifurcação supostamente violadora. Por favor, confirme também que você investigou cada caso individual e que suas declarações juramentadas se aplicam a cada bifurcação identificada. Em casos raros, você pode estar alegando a violação de direitos autorais em um repositório completo que está sendo ativamente bifurcado. Se, no momento em que você enviou a notificação, você identificou todas as bifurcações existentes do repositório como supostamente violadas, nós processaríamos uma reivindicação válida contra todas as bifurcações dessa rede no momento em que processamos a notificação. Nós faríamos isso tendo em conta a probabilidade de todas as novas bifurcações criadas conterem o mesmo conteúdo. Além disso se a rede relatada que contém o conteúdo supostamente violador for superior a 100 (cem) repositórios, seria difícil, portanto, revisá-la na sua totalidade, e podemos considerar a desabilitação de toda a rede se você declarar na sua notificação que, "Com base no número representativo de bifurcações que você analisou, acredito que todos ou a maioria das bifurcações estão cometendo violações na mesma medida que o repositório principal". A sua declaração juramentada será aplicada a esta declaração.
+   - Observe que o GitHub *não* desabilitará automaticamente [bifurcações](/articles/dmca-takedown-policy#b-what-about-forks-or-whats-a-fork) ao desabilitar um repositório principal. Se você investigou e analisou as bifurcações de um repositório e acredita que elas também estão infringindo direitos, por favor, identifique explicitamente cada bifurcação supostamente violadora. Por favor, confirme também que você investigou cada caso individual e que suas declarações juramentadas se aplicam a cada bifurcação identificada. Em casos raros, você pode estar alegando a violação de direitos autorais em um repositório completo que está sendo ativamente bifurcado. Se, no momento em que você enviou a notificação, você identificou todas as bifurcações existentes do repositório como supostamente violadas, nós processaríamos uma reivindicação válida contra todas as bifurcações dessa rede no momento em que processamos a notificação. Nós faríamos isso tendo em conta a probabilidade de todas as novas bifurcações criadas conterem o mesmo conteúdo. Além disso se a rede relatada que contém o conteúdo supostamente violador for superior a 100 (cem) repositórios, seria difícil, portanto, revisá-la na sua totalidade, e podemos considerar a desabilitação de toda a rede se você declarar na sua notificação que, "Com base no número representativo de bifurcações que você analisou, acredito que todos ou a maioria das bifurcações estão cometendo violações na mesma medida que o repositório principal". A sua declaração juramentada será aplicada a esta declaração.
 
 4. **Explicar o que o usuário afetado precisa fazer para corrigir a infração.** Novamente, ser específico é importante. Ao passarmos sua reclamação para o usuário, ela precisa mostrar claramente o que ele precisa fazer para evitar que o resto do conteúdo seja desabilitado. O usuário precisa apenas adicionar uma declaração de atribuição? Ele precisa excluir determinadas linhas dentro do código deles, ou arquivos inteiros? Compreendemos que, em alguns casos, todo o conteúdo de um usuário pode supostamente estar infringido direitos e não há nada que ele possa fazer a não ser deletar tudo. Se esse for o caso, por favor, deixe isso claro.
 
@@ -70,11 +70,14 @@ Esta lista não é exaustiva, e é por isso que falar com um advogado sobre a qu
 
 9. **Incluir sua assinatura física ou eletrônica.**
 
-### Queixas sobre Tecnologia Anticircunvenção
+## Queixas sobre Tecnologia Anticircunvenção
 
-A Lei de Direitos Autorais proíbe, igualmente, que se burle medidas tecnológicas que controlem efetivamente o acesso às obras protegidas pelos direitos de autor. Se você acredita que o conteúdo hospedado no GitHub viola esta proibição, envie-nos um relatório através de nosso {% data variables.contact.contact_dmca %}, e inclua informações específicas sobre o conteúdo que viola essa proibição, quais as medidas tecnológicas em vigor e por que razão o conteúdo viola a proibição.
+A Lei de Direitos Autorais proíbe, igualmente, que se burle medidas tecnológicas que controlem efetivamente o acesso às obras protegidas pelos direitos de autor. Se você acredita que o conteúdo hospedado no GitHub viola esta proibição, envie-nos um relatório por meio de nossa {% data variables.contact.contact_dmca %}. Uma alegação de circunvenção deve incluir os pormenores a seguir sobre as medidas técnicas em vigor e a forma como o projeto acusado as contorna. Principalmente, o aviso ao GitHub deve incluir declarações detalhadas que descrevem:
+1. Quais são as medidas técnicas;
+2. Como controlam, de forma eficaz, o acesso ao material protegido por direitos autorais; e
+3. O modo como o projecto acusado foi concebido para contornar as medidas de proteção tecnológica anteriormente descritas.
 
-### Como enviar sua reclamação
+## Como enviar sua reclamação
 
 A maneira mais rápida de obter uma resposta é inserir suas informações e responder todas as perguntas em nosso {% data variables.contact.contact_dmca %}.
 

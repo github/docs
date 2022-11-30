@@ -5,10 +5,11 @@ redirect_from:
   - /articles/using-saved-replies
   - /github/writing-on-github/using-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 2. Clique na pull request ou no problema desejado.
@@ -23,7 +24,7 @@ versions:
 
 {% endtip %}
 
-### Leia mais
+## Leia mais
 
 - "[Criar uma resposta salva](/articles/creating-a-saved-reply)"
 - "[Editar uma resposta salva](/articles/editing-a-saved-reply)"

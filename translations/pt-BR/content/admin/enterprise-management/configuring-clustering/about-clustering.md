@@ -8,19 +8,20 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
   - /admin/enterprise-management/about-clustering
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering
   - Enterprise
 ---
-### Arquitetura de clustering
+
+## Arquitetura de clustering
 
 O {% data variables.product.prodname_ghe_server %} é formado por um conjunto de serviços. Em um cluster, esses serviços são executados em vários nós e as solicitações são balanceadas por carga entre eles. As alterações são armazenadas automaticamente com cópias redundantes em nós separados. A maioria dos serviços são pares iguais com outras instâncias do mesmo serviço. As exceções são os serviços `mysql-server` e `redis-server`, que operam em um único nó _primário_ com um ou mais nós _réplica_.
 
 Saiba mais sobre os [serviços necessários para os agrupamentos](/enterprise/{{ currentVersion }}/admin/enterprise-management/about-cluster-nodes#services-required-for-clustering).
 
-### Clustering é a opção ideal para a minha organização?
+## Clustering é a opção ideal para a minha organização?
 
 {% data reusables.enterprise_clustering.clustering-scalability %} No entanto, configurar um cluster redundante e dimensionável pode ser uma tarefa complexa e requer planejamento cuidadoso. A complexidade adicional deve ser planejada para a instalação, os cenários de recuperação de desastre e as atualizações.
 
@@ -30,6 +31,6 @@ O clustering fornece redundância, mas não foi feito para substituir uma config
 
 {% data reusables.package_registry.packages-cluster-support %}
 
-### Como faço para obter acesso ao clustering?
+## Como faço para obter acesso ao clustering?
 
 O clustering foi feito para situações específicas de dimensionamento e não se aplica a todas as organizações. Se você está pensando em usar o clustering, converse com seu representante exclusivo ou {% data variables.contact.contact_enterprise_sales %}.

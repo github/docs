@@ -6,16 +6,17 @@ redirect_from:
   - /articles/adding-content-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: 将内容添加到 Pages 站点
 ---
 
 拥有仓库写入权限的人员可以使用 Jekyll 向 {% data variables.product.prodname_pages %} 站点添加内容。
 
-### 关于 Jekyll 站点中的内容
+## 关于 Jekyll 站点中的内容
 
 必须先创建一个 Jekyll 站点，然后才可将内容添加到 {% data variables.product.prodname_pages %} 上的 Jekyll 站点。 更多信息请参阅“[使用 Jekyll 创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site-with-jekyll)”。
 
@@ -29,7 +30,7 @@ Jekyll 站点中内容的主要类型是页面和帖子。 页面是指与某个
 
 {% data reusables.pages.test-locally %}
 
-### 向站点添加新页面
+## 向站点添加新页面
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -45,8 +46,13 @@ Jekyll 站点中内容的主要类型是页面和帖子。 页面是指与某个
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+{% data reusables.files.choose_pull_request %}
+{% data reusables.files.merge_pull_request %}
+{% data reusables.files.write_commit_message_pull_request %}
+{% data reusables.files.confirm_merge %}
+{% data reusables.files.delete_branch %}
 
-### 向站点添加新帖子
+## 向站点添加新帖子
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -64,9 +70,14 @@ Jekyll 站点中内容的主要类型是页面和帖子。 页面是指与某个
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+{% data reusables.files.choose_pull_request %}
+{% data reusables.files.merge_pull_request %}
+{% data reusables.files.write_commit_message_pull_request %}
+{% data reusables.files.confirm_merge %}
+{% data reusables.files.delete_branch %}
 
 您的帖子现在应该显示在您的站点上！ 如果站点的基础 URL 是 `https://octocat.github.io`，则您的新帖子将位于 `https://octocat.github.io/YYYY/MM/DD/TITLE.html`。
 
-### 后续步骤
+## 后续步骤
 
 {% data reusables.pages.add-jekyll-theme %}更多信息请参阅“[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)”。

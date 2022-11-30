@@ -5,7 +5,7 @@ intro: 'You can use a tenant in Azure Active Directory (Azure AD) as an identity
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,7 +16,7 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
 ---
-### About authentication and user provisioning with Azure AD
+## About authentication and user provisioning with Azure AD
 
 Azure Active Directory (Azure AD) is a service from Microsoft that allows you to centrally manage user accounts and access to web applications. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) in the Microsoft Docs.
 
@@ -31,7 +31,7 @@ After you enable SAML SSO and SCIM for {% data variables.product.prodname_ghe_ma
 
 For more information about managing identity and access for your enterprise on {% data variables.product.product_location %}, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)." For more information about synchronizing teams with IdP groups, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
-### Prerequisites
+## Prerequisites
 
 To configure authentication and user provisioning for {% data variables.product.product_name %} using Azure AD, you must have an Azure AD account and tenant. For more information, see the [Azure AD website](https://azure.microsoft.com/free/active-directory) and [Quickstart: Create an Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in the Microsoft Docs.
 
@@ -39,9 +39,9 @@ To configure authentication and user provisioning for {% data variables.product.
 
 {% data reusables.saml.create-a-machine-user %}
 
-### Configuring authentication and user provisioning with Azure AD
+## Configuring authentication and user provisioning with Azure AD
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 1. In Azure AD, add {% data variables.product.ae_azure_ad_app_link %} to your tenant and configure single sign-on. For more information, see [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs.
 

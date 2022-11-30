@@ -1,14 +1,17 @@
 ---
 title: Gerenciando codespaces para a sua organização
-intro: 'Você pode gerenciar e revisar como os usuários da sua organização podem usar  {% data variables.product.prodname_github_codespaces %}.'
+intro: 'Você pode gerenciar e revisar como os usuários da sua organização podem usar {% data variables.product.prodname_github_codespaces %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
 children:
+  - /enabling-codespaces-for-your-organization
+  - /managing-billing-for-codespaces-in-your-organization
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
-  - /managing-access-and-security-for-your-organizations-codespaces
-  - /managing-user-permissions-for-your-organization
+  - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-codespaces
+shortTitle: Gerenciando sua organização
 ---
-{% data reusables.codespaces.release-stage %}
+

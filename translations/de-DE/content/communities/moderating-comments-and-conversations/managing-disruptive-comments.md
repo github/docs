@@ -1,20 +1,21 @@
 ---
 title: Störende Kommentare verwalten
-intro: 'You can {% if currentVersion == "free-pro-team@latest" %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
+intro: 'Du kannst Kommentare zu Issues, Pull Requests und Commits {% ifversion fpt %}ausblenden, bearbeiten{% else %}bearbeiten{% endif %} oder löschen.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Manage comments
 ---
 
-### Einen Kommentar ausblenden
+## Einen Kommentar ausblenden
 
 Jeder mit Schreibzugriff auf ein Repository kann Kommentare zu Issues, Pull Requests und Commits ausblenden.
 
@@ -25,13 +26,13 @@ Wenn ein Kommentar nicht zum Thema passt, veraltet oder gelöst ist, kannst Du i
 1. Navigiere zum Kommentar, den Du ausblenden möchtest.
 2. Klicke oben rechts im Kommentar auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} und anschließend auf **Hide** (Ausblenden). ![Horizontales 3-Punkte-Symbol und Menü zum Moderieren der Unterhaltung mit den Optionen zum Bearbeiten, Ausblenden und Löschen](/assets/images/help/repository/comment-menu.png)
 3. Wähle im Dropdownmenü „Choose a reason" (Grund auswählen) einen Grund für das Ausblenden des Kommentars aus. Klicke anschließend auf **Hide comment** (Kommentar ausblenden).
-  {% if currentVersion == "free-pro-team@latest" %}
+  {% ifversion fpt %}
   ![Dropdownmenü zur Auswahl des Grundes für das Ausblenden des Kommentars](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
   ![Dropdownmenü zur Auswahl des Grundes für das Ausblenden des Kommentars](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
   {% endif %}
 
-### Einen ausgeblendeten Kommentar wieder anzeigen
+## Einen ausgeblendeten Kommentar wieder anzeigen
 
 Jeder mit Schreibzugriff auf ein Repository kann Kommentare zu Issues, Pull Requests und Commits wieder anzeigen.
 
@@ -39,11 +40,11 @@ Jeder mit Schreibzugriff auf ein Repository kann Kommentare zu Issues, Pull Requ
 2. Klicke in der oberen rechten Ecke des Kommentars auf **{% octicon "fold" aria-label="The fold icon" %} Show comment** (Kommentar anzeigen). ![Text „Show comment“ (Kommentar anzeigen)](/assets/images/help/repository/hidden-comment-show.png)
 3. Klicke auf der rechten Seite des angezeigten Kommentars auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} und anschließend auf **Unhide** (Wieder anzeigen). ![Horizontales 3-Punkte-Symbol und Menü zum Moderieren der Unterhaltung mit den Optionen zum Bearbeiten, Wiederanzeigen und Löschen](/assets/images/help/repository/comment-menu-hidden.png)
 
-### Einen Kommentar bearbeiten
+## Einen Kommentar bearbeiten
 
 Jeder mit Schreibzugriff auf ein Repository kann Kommentare zu Issues, Pull Requests und Commits bearbeiten.
 
-It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
+Es ist angemessen, einen Kommentar zu bearbeiten und Inhalte zu entfernen, wenn der Kommentar nicht zu einer sachlichen Unterhaltung beiträgt oder den Verhaltenskodex Deiner Community{% ifversion fpt %} oder die [Community-Richtlinien](/articles/github-community-guidelines) von GitHub{% endif %} verletzt.
 
 Wenn Du einen Kommentar bearbeitest, notiere den Ort, von dem der Inhalt entfernt wurde, und optional den Grund für das Entfernen.
 
@@ -59,11 +60,11 @@ Verfasser von Kommentaren und Personen mit Schreibzugriff auf ein Repository kö
 4. Gib unten im Kommentar eine Notiz ein, in der Du auf die Bearbeitung hinweist und optional den Grund dafür nennst. ![Kommentarfenster mit hinzugefügtem Hinweis, dass Inhalte redigiert wurden](/assets/images/help/issues/note-content-redacted-comment.png)
 5. Klicke auf **Update comment** (Kommentar aktualisieren).
 
-### Einen Kommentar löschen
+## Einen Kommentar löschen
 
 Personen mit Schreibzugriff auf ein Repository können Kommentare zu Issues, Pull Requests und Commits löschen. Organisationsinhaber, Team-Betreuer und die Verfasser des Kommentars können auch einen Kommentar auf einer Teamseite löschen.
 
-Das Löschen eines Kommentars ist die letzte Option für Dich als Moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
+Das Löschen eines Kommentars ist die letzte Option für Dich als Moderator. Es ist angemessen, einen Kommentar zu löschen, wenn er nicht zu einer sachlichen Unterhaltung beiträgt oder dem Verhaltenskodex Ihrer Community{% ifversion fpt %} oder den [Community-Richtlinien](/articles/github-community-guidelines) von GitHub{% endif %} widerspricht.
 
 Das Löschen eines Kommentars erstellt ein Zeitleistenereignis, das für alle Benutzer mit Lesezugriff auf das Repository sichtbar ist. Der Benutzername der Person, die den Kommentar gelöscht hat, ist jedoch nur für Benutzer mit Schreibzugriff auf das Repository zu sehen. Für Personen ohne Schreibzugriff ist das Zeitleistenereignis anonymisiert.
 

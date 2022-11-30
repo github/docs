@@ -3,23 +3,25 @@ title: Solucionar problemas no GitHub Actions para a sua empresa
 intro: 'Solucionar problemas comuns que ocorrem ao usar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}.'
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
+shortTitle: Solução de problemas do GitHub Actions
 ---
-### Configurar executores auto-hospedados ao usar um certificado autoassinado por {% data variables.product.prodname_ghe_server %}
+
+## Configurar executores auto-hospedados ao usar um certificado autoassinado por {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.actions.enterprise-self-signed-cert %} Para obter mais informações, consulte "[Configurar TLS](/admin/configuration/configuring-tls)".
 
-#### Instalar o certificado na máquina do executor
+### Instalar o certificado na máquina do executor
 
 Para um executor auto-hospedado conectar-se a um {% data variables.product.prodname_ghe_server %} usando um certificado autoassinado, você deverá instalar o certificado na máquina do executor para que a conexão seja mais rígida.
 
 Para as etapas necessárias para instalar um certificado, consulte a documentação do sistema operacional do seu executor.
 
-#### Configurar o Node.JS para usar o certificado
+### Configurar o Node.JS para usar o certificado
 
 A maioria das ações são escritas em JavaScript e são executadas usando Node.js, que não usa o armazenamento de certificados do sistema operacional. Para o aplicativo runner auto-hospedado usar o certificado, você deve definir a variável de ambiente `NODE_EXTRA_CA_CERTS` na máquina do executor.
 
@@ -33,17 +35,17 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 
 As variáveis de ambiente são lidas quando o aplicativo do executor auto-hospedado é iniciado. Portanto, você deve definir a variável de ambiente antes de configurar ou iniciar o aplicativo do executor auto-hospedado. Se a sua configuração de certificado for alterada, você deverá reiniciar o aplicativo do executor auto-hospedado.
 
-#### Configurar contêineres do Docker para usar o certificado
+### Configurar contêineres do Docker para usar o certificado
 
 Se você usa ações do contêiner do Docker ou contêineres de serviço nos seus fluxos de trabalho, você também deverá instalar o certificado na sua imagem do Docker, além de definir a variável de ambiente acima.
 
-### Configurar as definições de proxy HTTP para {% data variables.product.prodname_actions %}
+## Configurar as definições de proxy HTTP para {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.enterprise-http-proxy %}
 
 Se estas configurações não estiverem definidas corretamente, você poderá receber erros como `Recurso movido inesperadamente para https://<IP_ADDRESS>` ao definir ou mudar a configuração de {% data variables.product.prodname_actions %}.
 
-### Os executores que não se conectam a {% data variables.product.prodname_ghe_server %} depois de mudar o hostname
+## Os executores que não se conectam a {% data variables.product.prodname_ghe_server %} depois de mudar o hostname
 
 Se você alterar o nome do host de {% data variables.product.product_location %}, os executores auto-hospedados não poderão conectar-se ao host antigo e não executarão nenhum trabalho.
 
@@ -52,19 +54,19 @@ Você precisará atualizar a configuração dos seus executores auto-hospedados 
 * No diretório de do aplicativo do executor auto-hospedado, edite os arquivos de `.runner` e `.credentials` para substituir todas as menções do nome de host antigo pelo novo nome de host. Em seguida, reinicie o aplicativo do executor auto-hospedado.
 * Remova o executor de {% data variables.product.prodname_ghe_server %} usando a interface do usuário e adicione-o novamente. Para obter mais informações, consulte "[Removendo os executores auto-hospedados](/actions/hosting-your-own-runners/removing-self-hosted-runners)" e "[Adicionando executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
-### Trabalhos travados e limites de CPU e de memória das {% data variables.product.prodname_actions %}
+## Trabalhos travados e limites de CPU e de memória das {% data variables.product.prodname_actions %}
 
 {% data variables.product.prodname_actions %} é composto de vários serviços em execução em {% data variables.product.product_location %}. Por padrão, esses serviços são configurados com limites padrão de CPU e memória que devem funcionar para a maioria das instâncias. No entanto, usuários assíduos de {% data variables.product.prodname_actions %} talvez precisem para ajustar essas configurações.
 
 É possível que você atinja o limite de CPU ou memória se você notar que os trabalhos não estão sendo iniciados (ainda que existam executores inativos), ou se o progresso do trabalho não estiver sendo atualizado ou alterando na interface do usuário.
 
-#### 1. Verifique o uso total da CPU e memória no console de gerenciamento
+### 1. Verifique o uso total da CPU e memória no console de gerenciamento
 
 Acesse o console de gerenciamento e use o painel do monitor para inspecionar os gráficos gerais de CPU e memória em "Saúde do Sistema". Para obter mais informações, consulte "[Acessar o painel do monitor](/admin/enterprise-management/accessing-the-monitor-dashboard)".
 
 Se o uso geral de "Saúde do Sistema" da CPU estiver próximo a 100% ou não houver mais memória livre, {% data variables.product.product_location %} será executado na capacidade e precisará ser dimensionado. Para obter mais informações, consulte "[Increasing CPU or memory resources](/admin/enterprise-management/increasing-cpu-or-memory-resources)."
 
-#### 2. Verifique o uso de CPU e a memória dos trabalhos Nomad no console de gerenciamento
+### 2. Verifique o uso de CPU e a memória dos trabalhos Nomad no console de gerenciamento
 
 Se a "Saúde do Sistema" para o uso total da CPU e da memória estiver OK, acesse a seção "Trabalhos Normad" na parte inferior do painel e observe os gráficos "Valor porcentual da CPU" e "Uso da memória".
 
@@ -79,7 +81,7 @@ Cada seção nesses gráficos corresponde a um serviço. Para os serviços de {%
 
 Se qualquer um destes serviços estiver em ou perto de 100% de utilização da CPU ou se a memória estiver próxima do seu limite (2 GB por padrão), talvez seja necessário aumentar a atribuição de recursos para estes serviços. Tome nota de quais dos serviços acima estão no ou próximo do seu limite.
 
-#### 3. Aumenta a alocação de recursos para serviços em seu limite
+### 3. Aumenta a alocação de recursos para serviços em seu limite
 
 1. Efetue o login no shell administrativo usando SSH. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)".
 1. Execute o comando a seguir para ver quais recursos estão disponíveis para alocação:

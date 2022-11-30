@@ -7,11 +7,13 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: webhook イベント
 ---
-### {% data variables.product.prodname_marketplace %}購入webhookのペイロード
+
+## {% data variables.product.prodname_marketplace %}購入webhookのペイロード
 
 webhookの`POST`リクエストには、特別なヘッダがあります。 詳細については「[webhookの配信ヘッダ](/webhooks/event-payloads/#delivery-headers)」を参照してください。 GitHubは、失敗した配信の試行を再送信しません。 GitHubが送信したすべてのwebhookのペイロードを、アプリケーションが確実に受信できるようにしてください。
 
@@ -26,14 +28,14 @@ webhookの`POST`リクエストには、特別なヘッダがあります。 詳
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `action`               | `string` | webhookを生成するために行われたアクション。 `purchased`、`cancelled`、`pending_change`、`pending_change_cancelled`、`changed`のいずれかになります。 詳しい情報については、以下のwebhookペイロードの例を参照してください。 **ノート:** `pending_change`及び`pending_change_cancelled`ペイロードには、[`changed`ペイロードの例](#example-webhook-payload-for-a-changed-event)に示されているものと同じキーが含まれます。 |
 | `effective_date`       | `string` | `action`が有効になる日付。                                                                                                                                                                                                                                                                                            |
-| `sender`               | `object` | webhookをトリガーした`action`を行った人。                                                                                                                                                                                                                                                                                 |
-| `marketplace_purchase` | `object` | {% data variables.product.prodname_marketplace %}の購入情報。                                                                                                                                                                                                                                                      |
+| `sender`               | `オブジェクト` | webhookをトリガーした`action`を行った人。                                                                                                                                                                                                                                                                                 |
+| `marketplace_purchase` | `オブジェクト` | {% data variables.product.prodname_marketplace %}の購入情報。                                                                                                                                                                                                                                                      |
 
 `marketplace_purchase`オブジェクトは、以下のキーを持ちます。
 
 | キー                   | 種類        | 説明                                                                                                                                                                                                                                      |
 | -------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account`            | `object`  | サブスクリプションに関連づけられた`organization`もしくあは`user`アカウント。 Organizationアカウントは、そのOrganizationの管理者のメールアドレスである`organization_billing_email`を含みます。 個人アカウントのメールアドレスを知るには、[認証されたユーザの取得](/rest/reference/users#get-the-authenticated-user)エンドポイントが利用できます。 |
+| `アカウント`              | `オブジェクト`  | サブスクリプションに関連づけられた`organization`もしくあは`user`アカウント。 Organizationアカウントは、そのOrganizationの管理者のメールアドレスである`organization_billing_email`を含みます。 個人アカウントのメールアドレスを知るには、[認証されたユーザの取得](/rest/reference/users#get-the-authenticated-user)エンドポイントが利用できます。 |
 | `billing_cycle`      | `string`  | `yearly`もしくは`monthly`のいずれかになります。 `account`の所有者が無料のGitHubのプランを使っており、無料の{% data variables.product.prodname_marketplace %}プランを購入した場合、`billing_cycle`は`nil`になります。                                                                           |
 | `unit_count`         | `integer` | 購入したユーザ数。                                                                                                                                                                                                                               |
 | `on_free_trial`      | `boolean` | `account`が無料トライアル中の場合`true`になります。                                                                                                                                                                                                       |
@@ -57,17 +59,17 @@ webhookの`POST`リクエストには、特別なヘッダがあります。 詳
 
 <br/>
 
-#### `purchased`イベントのサンプルwebhookペイロード
+### `purchased`イベントのサンプルwebhookペイロード
 次の例は、`purchased`イベントのペイロードを示しています。
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-#### `changed`イベントのサンプルwebhookペイロード
+### `changed`イベントのサンプルwebhookペイロード
 
 プランの変更には、アップグレードとダウンロードがあります。 この例は、`changed`、`pending_change`、および`pending_change_cancelled`イベントのペイロードを表しています。 このアクションは、これら3つのイベントのうちどれが発生したかを示します。
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-#### `cancelled`イベントのサンプルwebhookペイロード
+### `cancelled`イベントのサンプルwebhookペイロード
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

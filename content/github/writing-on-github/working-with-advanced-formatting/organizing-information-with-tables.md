@@ -5,11 +5,12 @@ redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Organized data with tables
 ---
-### Creating a table
+## Creating a table
 
 You can create tables with pipes `|` and hyphens `-`. Hyphens are used to create each column's header, while pipes separate each column. You must include a blank line before your table in order for it to correctly render.
 
@@ -36,7 +37,7 @@ Cells can vary in width and do not need to be perfectly aligned within columns. 
 
 ![Rendered table with varied cell width](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-### Formatting content within your table
+## Formatting content within your table
 
 You can use [formatting](/articles/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:
 
@@ -71,7 +72,7 @@ To include a pipe `|` as content within your cell, use a `\` before the pipe:
 
 ![Rendered table with an escaped pipe](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-### Further reading
+## Further reading
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
 - "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

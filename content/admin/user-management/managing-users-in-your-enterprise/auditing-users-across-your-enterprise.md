@@ -7,8 +7,8 @@ redirect_from:
   - /admin/user-management/auditing-users-across-your-instance
   - /admin/user-management/auditing-users-across-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,8 +16,9 @@ topics:
   - Organizations
   - Security
   - User account
+shortTitle: Audit users
 ---
-### Accessing the audit log
+## Accessing the audit log
 
 The audit log dashboard gives you a visual display of audit data across your enterprise.
 
@@ -29,7 +30,7 @@ The audit log dashboard gives you a visual display of audit data across your ent
 
 Within the map, you can pan and zoom to see events around the world. Hover over a country to see a quick count of events from that country.
 
-### Searching for events across your enterprise
+## Searching for events across your enterprise
 
 The audit log lists the following information about actions made within your enterprise:
 
@@ -49,7 +50,7 @@ The audit log lists the following information about actions made within your ent
 
 {% endwarning %}
 
-#### Search based on the repository
+### Search based on the repository
 
 The `repo` qualifier limits actions to a specific repository owned by your organization. For example:
 
@@ -59,7 +60,7 @@ The `repo` qualifier limits actions to a specific repository owned by your organ
 
 You must include your organization's name within the `repo` qualifier; searching for just `repo:our-repo` will not work.
 
-#### Search based on the user
+### Search based on the user
 
 The `actor` qualifier scopes events based on the member of your organization that performed the action. For example:
 
@@ -69,7 +70,7 @@ The `actor` qualifier scopes events based on the member of your organization tha
 
 You can only use a {% data variables.product.product_name %} username, not an individual's real name.
 
-#### Search based on the organization
+### Search based on the organization
 
 The `org` qualifier limits actions to a specific organization. For example:
 
@@ -77,7 +78,7 @@ The `org` qualifier limits actions to a specific organization. For example:
 * `org:my-org action:team` finds all team events performed within the `my-org` organization.
 * `-org:my-org` excludes all events that occurred for the `my-org` organization.
 
-#### Search based on the action performed
+### Search based on the action performed
 
 The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[Audited actions](/admin/user-management/audited-actions)".
 
@@ -98,7 +99,7 @@ Each category has a set of associated events that you can filter on. For example
 * `action:team.create` finds all events where a team was created.
 * `-action:billing.change_email` excludes all events where the billing email was changed.
 
-#### Search based on the location
+### Search based on the location
 
 The `country` qualifier filters actions by the originating country.
 - You can use a country's two-letter short code or its full name.
@@ -107,7 +108,7 @@ The `country` qualifier filters actions by the originating country.
   * `country:Mexico` finds all events that occurred in Mexico.
   * `country:"United States"` all finds events that occurred in the United States.
 
-#### Search based on the time of action
+### Search based on the time of action
 
 The `created` qualifier filters actions by the time they occurred.
 - Define dates using the format of `YYYY-MM-DD`--that's year, followed by month, followed by day.

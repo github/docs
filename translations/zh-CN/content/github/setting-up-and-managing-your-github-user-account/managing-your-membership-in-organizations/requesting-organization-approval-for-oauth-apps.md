@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### 请求组织批准您已为个人帐户授权的 {% data variables.product.prodname_oauth_app %}
 
 {% data reusables.user_settings.access_settings %}

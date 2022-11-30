@@ -6,14 +6,15 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: 使用 HTTPS 保护站点
 ---
 
 拥有仓库管理员权限的人可对 {% data variables.product.prodname_pages %} 站点实施 HTTPS。
 
-### 关于 HTTPS 和 {% data variables.product.prodname_pages %}
+## 关于 HTTPS 和 {% data variables.product.prodname_pages %}
 
 所有 {% data variables.product.prodname_pages %} 站点（包括使用自定义域正确配置的站点）均支持 HTTPS 和 HTTPS 强制实施。 有关自定义域的更多信息，请参阅“[关于自定义域和 {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)”以及“[自定义域和 {% data variables.product.prodname_pages %} 疑难解答](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)”。
 
@@ -21,14 +22,20 @@ topics:
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-### 对您的 {% data variables.product.prodname_pages %} 站点强制实施 HTTPS
+{% note %}
+
+**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+
+{% endnote %}
+
+## 对您的 {% data variables.product.prodname_pages %} 站点强制实施 HTTPS
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. 在 "{% data variables.product.prodname_pages %}" 下，选择 **Enforce HTTPS（实施 HTTPS）**。 ![强制实施 HTTPS 复选框](/assets/images/help/pages/enforce-https-checkbox.png)
 
-### 解决具有混合内容的问题
+## 解决具有混合内容的问题
 
 如果您对 {% data variables.product.prodname_pages %} 站点启用了 HTTPS，但站点的 HTML 仍通过 HTTP 引用图像、CSS 或 JavaScript，则您的站点将提供*混合内容*。 提供混合内容可能会降低站点的安全性，并导致在加载资产时出现问题。
 
@@ -46,7 +53,7 @@ topics:
 
 {% endtip %}
 
-#### HTML 文件中引用的资产示例
+### HTML 文件中引用的资产示例
 
 |   前端资源类型   |                                                       HTTP                                                       |                                                       HTTPS                                                        |
 |:----------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|

@@ -1,6 +1,6 @@
 ---
 title: Protokollweiterleitung
-intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward {% if enterpriseServerVersions contains currentVersion %}system{% elsif currentVersion == "github-ae@latest" %}Git{% endif %} and application logs to the server you specify.'
+intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward {% ifversion ghes %}system{% elsif ghae %}Git{% endif %} and application logs to the server you specify.'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding/
   - /enterprise/admin/installation/log-forwarding
@@ -8,8 +8,8 @@ redirect_from:
   - /admin/enterprise-management/log-forwarding
   - /admin/user-management/log-forwarding
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -17,18 +17,19 @@ topics:
   - Logging
   - Security
 ---
+
 Unterstützt werden Protokollsammlungssysteme, die Protokollstreams im Syslog-Stil unterstützen (z. B. [Logstash](http://logstash.net/) und [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
-### Protokollweiterleitung aktivieren
+## Protokollweiterleitung aktivieren
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 1. Klicken Sie auf der Seite mit den Einstellungen der {% data variables.enterprise.management_console %} auf der linken Seitenleiste auf **Monitoring** (Überwachung).
 1. Wählen Sie **Enable log forwarding** (Protokollweiterleitung aktivieren) aus.
 1. Geben Sie im Feld **Server address** (Serveradresse) die Adresse des Servers ein, an den Sie Protokolle weiterleiten möchten. Sie können mehrere Adressen in einer kommagetrennten Liste angeben.
 1. Wählen Sie im Dropdownmenü „Protocol“ (Protokoll) das Protokoll aus, das für die Kommunikation mit dem Protokollserver verwendet werden soll. Das Protokoll wird auf alle angegebenen Protokollziele angewendet.
 1. Wählen Sie **Enable TLS** (TLS aktivieren) aus.
 1. Klicken Sie auf **Choose File** (Datei auswählen), und wählen Sie ein CA-Zertifikat aus, um die Kommunikation zwischen Syslog-Endpunkten zu verschlüsseln. Die gesamte Zertifikatkette wird validiert und muss in einem Root-Zertifikat beendet werden. Weitere Informationen finden Sie in der Dokumentation zu den „[TLS-Optionen in syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599)“.
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **Log forwarding**. ![Log forwarding tab](/assets/images/enterprise/business-accounts/log-forwarding-tab.png)
@@ -40,9 +41,8 @@ Unterstützt werden Protokollsammlungssysteme, die Protokollstreams im Syslog-St
 1. Klicke auf **Save** (Speichern). ![Save button for log forwarding](/assets/images/enterprise/business-accounts/save-button-log-forwarding.png)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Problemlösungen
-If you run into issues with log forwarding, contact
+{% ifversion ghes %}
+## Problemlösungen
 
-{% data variables.contact.contact_ent_support %} and attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email.
+Wenden Sie sich bei Protokollweiterleitungsproblemen an den {% data variables.contact.contact_ent_support %}, und hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an.
 {% endif %}

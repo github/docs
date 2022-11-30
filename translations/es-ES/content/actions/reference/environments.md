@@ -50,7 +50,7 @@ Los secretos que se almacenan en un ambiente sólo se encuentran disponibles par
 
 {% note %}
 
-**Note:** Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level as security as repository and organization secrets. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)".
+**Nota:** Los flujos de trabajo que se ejecutan en ejecutores auto-hospedados no se ejecutan en un contenedor aislado, incluso si utilizan ambientes. Los secretos de ambiente deben tratarse con el mismo nivel de seguridad que un secreto de repositorio u organización. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)".
 
 {% endnote %}
 
@@ -89,7 +89,7 @@ El borrar un ambiente borrará todos los secretos y reglas de protección asocia
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
-1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
+1. Junto al ambiente que quieres borrar, haz clic en {% octicon "trash" aria-label="The trash icon" %}.
 2. Da clic en **Entiendo, borra este ambiente**.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}También puedes borrar los ambientes a través de la API de REST Para obtener más información, consulta la sección "[Ambientes](/rest/reference/repos#environments)".{% endif %}

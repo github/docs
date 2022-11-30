@@ -1,48 +1,54 @@
 ---
-title: Upgrading from Dependabot.com to GitHub-native Dependabot
-intro: You can upgrade to GitHub-native Dependabot by merging a pull request that will allow your dependencies to continue being updated.
+title: Dependabot.comからGitHubネイティブのDependabotへのアップグレード
+intro: 依存関係を継続的に更新できるようにするPull Requestをマージすることによって、GitHubネイティブのDependabotへアップグレードできます。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
 redirect_from:
   - /code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot
+shortTitle: Dependabot.comのアップグレード
 ---
+
 {% warning %}
 
-Dependabot Preview will be shut down on August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot before then.
+Dependabot Preview has been shut down as of August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot.
 
-After that date, any open pull requests from Dependabot Preview will remain open, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
+Open pull requests from Dependabot Preview will remain open, including the pull request to upgrade to GitHub-native Dependabot, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
 
 {% endwarning %}
 
-### About upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
+## Dependabot Previewから{% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}へのアップグレードについて
 
-Dependabot Preview has been built directly into {% data variables.product.prodname_dotcom %}, so you can use {% data variables.product.prodname_dependabot %} alongside all the other functionality in {% data variables.product.prodname_dotcom %} without having to install and use a separate application. By migrating to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, we can also focus on bringing lots of exciting new features to {% data variables.product.prodname_dependabot %}, including more [ecosystem updates](https://github.com/github/roadmap/issues/150), [improved notifications](https://github.com/github/roadmap/issues/133), and {% data variables.product.prodname_dependabot %} support for [{% data variables.product.prodname_ghe_server %}](https://github.com/github/roadmap/issues/86) and [{% data variables.product.prodname_ghe_managed %}](https://github.com/github/roadmap/issues/135).
+Dependabot Previewは{% data variables.product.prodname_dotcom %}に直接組み込まれているので、別個のアプリケーションをインストールして使うことなく、{% data variables.product.prodname_dotcom %}のすべての他の機能とともに{% data variables.product.prodname_dependabot %}を使用できます。 {% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}に移行することによって、より多くの[エコシステムの更新](https://github.com/github/roadmap/issues/150)、[改善された通知](https://github.com/github/roadmap/issues/133)、[{% data variables.product.prodname_ghe_server %}](https://github.com/github/roadmap/issues/86)及び[{% data variables.product.prodname_ghe_managed %}](https://github.com/github/roadmap/issues/135)に対する{% data variables.product.prodname_dependabot %}サポートを含む、多くの素晴らしい機能を{% data variables.product.prodname_dependabot %}へもたらすことに私たちが集中できるようにもなります。
 
-### Differences between Dependabot Preview and {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
+## Dependabot Previewと{% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}との違い
 
-While most of the Dependabot Preview features exist in {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, a few remain unavailable:
-- **Live updates:** We hope to bring these back in the future. For now, you can run {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_dependabot %} daily to catch new packages within one day of release.
-- **PHP environment variable registries:** For now, you can use {% data variables.product.prodname_actions %} to fetch dependencies from these registries.
-- **Auto-merge:** We always recommend verifying your dependencies before merging them; therefore, auto-merge will not be supported for the foreseeable future. For those of you who have vetted your dependencies, or are only using internal dependencies, we recommend adding third-party auto-merge apps, or setting up GitHub Actions to merge.
+Dependabot Previewのほとんどの機能は{% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}にありますが、いくつか利用できないものもあります。
+- **ライブアップデート** これは将来復活させたいと考えています。 現時点では、新しいパッケージをリリース後1日以内に取得するために、{% data variables.product.prodname_dotcom %} {% data variables.product.prodname_dependabot %}を毎日実行することができます。
+- **PHP環境変数レジストリ** 環境変数`ACF_PRO_KEY`に依存しているプロジェクトでは、Advanced Custom Fieldsプラグインのライセンスされたコピーを取り入れることができます。 たとえば、[dependabot/acf-php-example](https://github.com/dependabot/acf-php-example#readme)を参照してください。 他の環境変数については、{% data variables.product.prodname_actions %}を使ってそれらのレジストリから依存関係をフェッチできます。
+- **自動マージ** 依存関係をマージする前には、必ずそれらを検証することをおすすめします。そのため、自動マージは予想される将来においてはサポートされません。 依存関係を詳しく吟味していたり、内部的な依存関係のみを使っている場合には、サードパーティの自動マージアプリケーションを追加するか、マージのためのGitHub Actionsをセットアップすることをおすすめします。 We have provided the [`dependabot/fetch-metadata`](https://github.com/marketplace/actions/fetch-metadata-from-dependabot-prs) action to help developers [enable GitHub's automerge](https://github.com/dependabot/fetch-metadata/#enabling-auto-merge).
 
-In {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, you can configure all version updates using the configuration file. This file is similar to the Dependabot Preview configuration file with a few changes and improvements that will be automatically included in your upgrade pull request. For more information about the upgrade pull request, see "[Upgrading to GitHub-native Dependabot](/code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot#upgrading-to-github-native-dependabot)".
+{% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}では、設定ファイルを使ってすべてのバージョン更新を設定できます。 このファイルはDependabot Previewの設定ファイルに似ていますが、アップグレードのPull Requestに自動的に含まれるいくつかの変更と改善点があります。 アップグレードのPull Requestに関する詳しい情報については「[GitHubネイティブDependabotへのアップグレード](/code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot#upgrading-to-github-native-dependabot)」を参照してください。
 
-To see update logs for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} that were previously on the Dependabot.com dashboard:
+以前はDependabot.comダッシュボードにあった{% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}の更新ログを参照するには以下のようにします。
 
-  1. Navigate to your repository’s **Insights** page.
-  2. Click **Dependency graph** to the left.
-  3. Click **{% data variables.product.prodname_dependabot %}**.
+  1. リポジトリの**Insights**ページにアクセスしてください。
+  2. 左にある**Dependency graph（依存関係グラフ）**をクリックしてください。
+  3. **{% data variables.product.prodname_dependabot %}**をクリックしてください。
 
-For more information about version updates with {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, see "[About Dependabot version updates](/code-security/supply-chain-security/about-dependabot-version-updates)."
+{% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}でのバージョン更新に関する詳しい情報については「[Dependabotのバージョン更新について](/code-security/supply-chain-security/about-dependabot-version-updates)」を参照してください。
 
-### Upgrading to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
+## {% data variables.product.prodname_dotcom %}ネイティブ{% data variables.product.prodname_dependabot %}へのアップグレード
 
-Upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} requires you to merge the *Upgrade to GitHub-native Dependabot* pull request in your repository. This pull request includes the updated configuration file needed for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}.
+Dependabot Previewから{% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}へアップグレードするには、リポジトリ中の*Upgrade to GitHub-native Dependabot* Pull Requestをマージすることが必要です。 このPull Requestには、{% data variables.product.prodname_dotcom %}ネイティブの{% data variables.product.prodname_dependabot %}が必要とする更新された設定ファイルが含まれています。
 
-If you are using private repositories, you will have to grant Dependabot access to these repositories in your organization's security and analysis settings. For more information, see "[Allowing Dependabot to access private dependencies](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)". Previously, Dependabot had access to all repositories within an organization, but we implemented this change because it is much safer to use the principle of least privilege for Dependabot.
+プライベートリポジトリを使っているなら、Organizationのセキュリティと分析の設定でDependabotにそれらのリポジトリへのアクセスを許可しなければなりません。 詳しい情報については「[Dependabotに対するプライベートな依存関係へのアクセスの許可](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)」を参照してください。 以前はDependabotはOrganization内のすべてのリポジトリにアクセスできましたが、最小権限の原則をDependabotに適用するほうがはるかに安全であることから、この変更を実装しました。
 
-If you are using private registries, you will have to add your existing Dependabot Preview secrets to your repository's or organization's "Dependabot secrets". For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot)".
+プライベートリポジトリを使っているなら、既存のDependabot PreviewのシークレットをリポジトリもしくはOrganizationの"Dependabot secrets"に追加しなければなりません。 詳しい情報については「[Dependabotの暗号化されたシークレットの管理](/code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot)」を参照してください。
 
-If you have any questions or need help migrating, you can view or open issues in the [dependabot/dependabot-core](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=) repository.
+移行に関する質問があったり支援が必要な場合は、[dependabot/dependabot-core](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=)リポジトリでIssueを見たりオープンしたりできます。

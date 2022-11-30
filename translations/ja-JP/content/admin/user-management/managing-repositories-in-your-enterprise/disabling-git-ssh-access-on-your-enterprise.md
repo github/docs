@@ -16,16 +16,18 @@ redirect_from:
   - /admin/user-management/disabling-git-ssh-access-on-your-enterprise
 intro: Enterprise 内の特定のリポジトリまたはすべてのリポジトリで、ユーザが SSH 経由で Git を使用できないようにすることができます。
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Security
   - SSH
+shortTitle: Disable SSH for Git
 ---
-### 特定のリポジトリへのGit SSHアクセスの無効化
+
+## 特定のリポジトリへのGit SSHアクセスの無効化
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -37,7 +39,7 @@ topics:
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 1. [Git SSH access] で、ドロップダウンメニューを使用して [**Disabled**] を選択します。 ![無効化オプションが選択されたGit SSHアクセスドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/git-ssh-access-repository-setting.png)
 
-### ユーザもしくは組織が所有するすべてのリポジトリへのGit SSHアクセスの無効化
+## ユーザもしくは組織が所有するすべてのリポジトリへのGit SSHアクセスの無効化
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
@@ -47,10 +49,10 @@ topics:
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 7. [Git SSH access] で、ドロップダウンメニューを使用して [**Disabled**] を選択します。 続いて、**Enforce on all repositories（すべてのリポジトリで強制）**を選択してください。 ![無効化オプションが選択されたGit SSHアクセスドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
 
-### Enterprise 内のすべてのリポジトリへの Git SSH アクセスを無効化する
+## Enterprise 内のすべてのリポジトリへの Git SSH アクセスを無効化する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-your-profile-readme
 ---
+
 ### 关于您的个人资料自述文件
 
 通过创建个人资料自述文件，您可以与 {% data variables.product.prodname_dotcom %} 上的社区分享有关自己的信息。 {% data variables.product.prodname_dotcom %} 在个人资料页面的顶部显示您的个人资料自述文件。

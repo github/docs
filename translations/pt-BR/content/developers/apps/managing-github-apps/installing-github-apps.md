@@ -1,23 +1,24 @@
 ---
 title: Instalar aplicativos GitHub
-intro: 'Quando seu aplicativo é público, qualquer pessoa pode usar {% if currentVersion == "free-pro-team@latest" %} o {% data variables.product.prodname_marketplace %} ou {% endif %}uma URL de instalação para instalar o aplicativo no seu repositório. Quando seu app é privado, somente você pode instalar o aplicativo em repositórios que você possui.'
+intro: 'Quando seu aplicativo é público, qualquer pessoa pode usar {% ifversion fpt %} o {% data variables.product.prodname_marketplace %} ou {% endif %}uma URL de instalação para instalar o aplicativo no seu repositório. Quando seu app é privado, somente você pode instalar o aplicativo em repositórios que você possui.'
 redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---
+
 {% note %}
 
 **Observação:** Seu {% data variables.product.prodname_github_app %} terá acesso a quaisquer repositórios que o aplicativo criar, mesmo que alguém instale apenas seu aplicativo em repositórios selecionados.
 
 {% endnote %}
 
-### Instalar o seu aplicativo GitHub privado no seu repositório
+## Instalar o seu aplicativo GitHub privado no seu repositório
 
 Depois de criar um aplicativo GitHub privado, é possível instalá-lo em um dos repositórios de organização ou usuário. Para obter mais informações, consulte "[Fluxo de instalação privado](/apps/managing-github-apps/making-a-github-app-public-or-private/#private-installation-flow)".
 
@@ -27,8 +28,8 @@ Depois de criar um aplicativo GitHub privado, é possível instalá-lo em um dos
 4. Instale o aplicativo em todos os repositórios ou repositórios selecionados. ![Permissões de instalação do aplicativo](/assets/images/install_permissions.png)
 5. Uma vez instalado, você verá as opções de configuração para o aplicativo na conta selecionada. Você pode fazer alterações aqui ou pode repetir as etapas anteriores para instalar o aplicativo em outra conta.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Oferecer seu aplicativo no GitHub Marketplace
+{% ifversion fpt %}
+## Oferecer seu aplicativo no GitHub Marketplace
 
 Você pode oferecer uma versão paga ou gratuita do seu aplicativo em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), onde as pessoas podem pesquisar e ver informações sobre seu aplicativo. O {% data variables.product.prodname_marketplace %} instala automaticamente um aplicativo GitHub quando um pedido é concluído.
 
@@ -38,7 +39,7 @@ Para saber mais sobre como os usuários podem instalar seu aplicativo a partir d
 
 {% endif %}
 
-### Permitir que pessoas instalem seu aplicativo público no repositório deles
+## Permitir que pessoas instalem seu aplicativo público no repositório deles
 
 Você pode habilitar outros para instalar seu aplicativo público, fornecendo a URL de instalação em locais como a página inicial do seu aplicativo. Em seguida, você pode apontar para a página inicial do aplicativo a partir da página inicial do GitHub.
 
@@ -51,12 +52,12 @@ Essas etapas pressupõem que você [criou um {% data variables.product.prodname_
 3. O GitHub fornece uma página inicial para o seu aplicativo que inclui um link para a "URL da página inicial" do seu aplicativo. Para visitar a página inicial no GitHub, copie a URL do "Link público" e cole-a em um navegador. ![Link público](/assets/images/github-apps/github_apps_public_link.png)
 4. Crie uma página inicial para o seu aplicativo que inclui a URL de instalação do aplicativo: `{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new`.
 
-### Autorizar usuários durante a instalação
+## Autorizar usuários durante a instalação
 
 Você pode simplificar o processo de autorização concluindo-o durante a instalação do aplicativo. Para fazer isso, selecione **Solicitar autorização de usuário (OAuth) durante a instalação** ao criar ou modificar seu aplicativo no GitHub. Consulte "[Criando um aplicativo GitHub](/apps/building-github-apps/creating-a-github-app/)" para saber mais.
 
 Assim que alguém tiver instalado seu aplicativo, você deverá obter um token de acesso para o usuário. Veja as etapas 2 e 3 em "[Identificar usuários no seu site](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site)" para saber mais.
-### Preservar o estado do aplicativo durante a instalação
+## Preservar o estado do aplicativo durante a instalação
 
 Você pode fornecer um parâmetro de `estado` na URL de instalação de um aplicativo para preservar o estado da página do aplicativo e fazer com que as pessoas retornem para seu estado após efetuarem a instalação, autenticação ou aceitarem as atualizações no seu aplicativo GitHub. Por exemplo, você poderia usar o `estado` para correlacionar uma instalação a um usuário ou conta.
 

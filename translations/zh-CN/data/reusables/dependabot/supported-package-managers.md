@@ -19,14 +19,14 @@
 | Maven          | `maven`          | N/A（无版本）<sup>[2]</sup> | **✓** | **✓** |       |
 | npm            | `npm`            | v6, v7                 | **✓** | **✓** |       |
 | NuGet          | `nuget`          | <= 4.8<sup>[3]</sup>   | **✓** | **✓** |       |
-| pip            | `pip`            | v20                    |       | **✓** |       |
-| pipenv         | `pip`            | <= 2018.11.26          |       | **✓** |       |
-| pip-compile    | `pip`            | 5.5.0                  |       | **✓** |       |
+| pip            | `pip`            | v21.1.2                |       | **✓** |       |
+| pipenv         | `pip`            | <= 2021-05-29          |       | **✓** |       |
+| pip-compile    | `pip`            | 6.1.0                  |       | **✓** |       |
 | poetry         | `pip`            | v1                     |       | **✓** |       |
-| Terraform      | `terraform`      | <= 0.11                | **✓** | **✓** |       |
+| Terraform      | `terraform`      | >= 0.13, <= 1.0        | **✓** | **✓** |       |
 | yarn           | `npm`            | v1                     | **✓** | **✓** |       |
 
-[1] {% data variables.product.prodname_dependabot %} 不运行 Gradle，但支持更新以下文件：`build.gradle` 和 `build.gradle.kts`（用于 Kotlin 项目）。
+[1] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files: `build.gradle`, `build.gradle.kts` (for Kotlin projects), and files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 [2] {% data variables.product.prodname_dependabot %} 不运行 Maven ，但支持更新 `pom.xml` 文件。
 

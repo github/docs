@@ -1,21 +1,21 @@
 ---
 title: Acerca de las mejoras a los nuevos lanzamientos
 shortTitle: Acerca de las mejoras
-intro: '{% if currentVersion == "github-ae@latest" %}Tu empresa de {% data variables.product.product_name %} se actualiza constantemente con las últimas características y correcciones de errores mediante {% data variables.product.company_short %}.{% else %}Puedes beneficiarte de las características nuevas y de las correcciones de errores para {% data variables.product.product_name %} si mejoras tu empresa a una versión que se haya lanzado recientemente.{% endif %}'
+intro: '{% ifversion ghae %}Tu empresa de {% data variables.product.product_name %} se actualiza constantemente con las últimas características y correcciones de errores mediante {% data variables.product.company_short %}.{% else %}Puedes beneficiarte de las características nuevas y de las correcciones de errores para {% data variables.product.product_name %} si mejoras tu empresa a una versión que se haya lanzado recientemente.{% endif %}'
 versions:
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
   - Upgrades
 ---
 
-{% data variables.product.product_name %} está en mejora contínua, con una funcionalidad nueva y correcciones de errores que se presentan mediante lanzamientos mayores y menores. {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} es un servicio completamente administrado, así que {% data variables.product.company_short %} completa el proceso de mejora para tu empresa.{% endif %}
+{% data variables.product.product_name %} está en mejora contínua, con una funcionalidad nueva y correcciones de errores que se presentan mediante lanzamientos mayores y menores. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} es un servicio completamente administrado, así que {% data variables.product.company_short %} completa el proceso de mejora para tu empresa.{% endif %}
 
-Los lanzamientos mayores incluyen nuevas funcionalidades y mejoras de características y, habitualmente, ocurren {% if currentVersion == "github-ae@latest" %}cada pocas semanas o meses{% else %} trimestralmente{% endif %}. {% if currentVersion == "github-ae@latest" %}{% data variables.product.company_short %} actualizará tu empresa al último lanzamiento mayor. Se te notificará previamente sobre cualquier tiempo de inactividad que se planee para tu empresa.{% endif %}
+Los lanzamientos principales incluyen funcionalidades nuevas y mejoras de características y habitualmente se presentan cada trimestre. {% ifversion ghae %}{% data variables.product.company_short %} actualizará tu empresa al último lanzamiento mayor. Se te notificará previamente sobre cualquier tiempo de inactividad que se planee para tu empresa.{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 Iniciando con {% data variables.product.prodname_ghe_server %} 3.0, todos los lanzamientos principales comenzarán con por lo menos un candidato de lanzamiento. Los candidatos de lanzamiento son lanzamientos principales propuestos con un conjunto completo de características. Puede que haya errores o problemas en un lanzamiento candidato que solo pueden encontrarse mediante la retroalimentación de los clientes que actualmente utilizan {% data variables.product.product_name %}.
 
@@ -33,7 +33,7 @@ Utilizaremos tu retroalimentación para aplicar las correcciones de errores y cu
 
 {% endwarning %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 Los lanzamientos menores, los cuales consisten únicamente de parches y correcciones de errores, ocurren con mayor frecuencia. Los lanzamientos menores se encuentran generalmente disponibles cuando se lanzan por primera vez, sin candidatos de lanzamiento. El mejorar a un lanzamiento menor habitualmente requiere menos de cinco minutos de tiempo de inactividad.
 
@@ -41,9 +41,8 @@ Para mejorar tu empresa a un lanzamiento nuevo, consulta las secciones "[Notas d
 
 {% endif %}
 
-### Leer más
+## Leer más
 
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) en el repositorio `github/roadmap`
-{% if currentVersion == "github-ae@latest" %}
-- [ {% data variables.product.prodname_ghe_managed %} notas de lanzamiento](/admin/overview/github-ae-release-notes)
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) en el repositorio `github/roadmap`{% ifversion ghae %}
+- [ {% data variables.product.prodname_ghe_managed %} notas de lanzamiento](/admin/release-notes)
 {% endif %}

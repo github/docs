@@ -10,12 +10,14 @@ redirect_from:
   - /admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - GitHub Connect
+shortTitle: 启用统一贡献
 ---
+
 作为站点管理员，您可以允许最终用户将进行过匿名处理的工作贡献计数从 {% data variables.product.prodname_ghe_server %} 发送到其 {% data variables.product.prodname_dotcom_the_website %} 贡献图。
 
 启用 {% data variables.product.prodname_github_connect %} 并在两个环境中启用 {% data variables.product.prodname_unified_contributions %} 后，实例上的最终用户可以连接到其 {% data variables.product.prodname_dotcom_the_website %} 帐户并将贡献计数从 {% data variables.product.prodname_ghe_server %} 发送至 {% data variables.product.prodname_dotcom_the_website %}。 {% data reusables.github-connect.sync-frequency %} 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送至 {% data variables.product.prodname_dotcom_the_website %} 个人资料](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile/)”。
@@ -27,8 +29,9 @@ topics:
 在 {% data variables.product.product_location_enterprise %} 上启用 {% data variables.product.prodname_unified_contributions %} 前，必须将 {% data variables.product.product_location_enterprise %} 连接到 {% data variables.product.prodname_dotcom_the_website %}。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)”。
 
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 4. 在“Users can share contribution counts to {% data variables.product.prodname_dotcom_the_website %}”下，单击 **Request access**。 ![请求访问统一贡献选项](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png)
 5. [登录](https://enterprise.github.com/login) {% data variables.product.prodname_ghe_server %} 站点以接收其他说明。

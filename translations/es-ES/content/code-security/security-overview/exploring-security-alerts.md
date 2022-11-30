@@ -5,6 +5,13 @@ product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
   github-ae: next
+type: how_to
+topics:
+  - Security overview
+  - Advanced Security
+  - Alerts
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.security-center.beta %}
@@ -13,7 +20,7 @@ versions:
 
 Puedes utilizar el resumen de seguirdad para tener una vista de nivel alto del estado de seguridad de tu organización o para identificar repositorios problemáticos que requieren intervención. A nivel organizacional, el resumen de seguridad muestra seguridad agregada y específica del repositorio para aquellos que pertenezcan a tu organización. A nivel de equipo, el resumen de seguridad muestra la información de seguridad específica del repositorio para aquellos en los que el equipo tenga privilegios de administración. Para obtener más información, consulta la sección "[Administrar el acceso de un equipo a un repositorio organizacional](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
 
-El resumen de seguridad indica si las características de la {% data variables.product.prodname_GH_advanced_security %} se habilitaron para los repositorios que pertenezcan a tu organización y consolida alertas de las características de la {% data variables.product.prodname_advanced_security %}, incluyendo las alertas del {% data variables.product.prodname_code_scanning %}, las {% data variables.product.prodname_dependabot_alerts %}, y las alertas del {% data variables.product.prodname_secret_scanning %}. Para obtener más información, consulta la sección "[Acerca de asegurar tu repositorio](/code-security/getting-started/about-securing-your-repository)".
+El resumen de seguridad indica si las características de la {% data variables.product.prodname_GH_advanced_security %} se habilitaron para los repositorios que pertenezcan a tu organización y consolida alertas de las características de la {% data variables.product.prodname_advanced_security %}, incluyendo las alertas del {% data variables.product.prodname_code_scanning %}, las {% data variables.product.prodname_dependabot_alerts %}, y las alertas del {% data variables.product.prodname_secret_scanning %}. Para obtener más información, consulta las secciones [Asegurar tu repositorio](/code-security/getting-started/securing-your-repository)" y "[Asegurar tu organización](/code-security/getting-started/securing-your-organization)".
 
 En el resumen de seguridad, puedes ver, clasificar y filtrar las alertas para entender los riesgos de seguridad en tu organización y en los repositorios específicos. Puedes aplicar varios filtros para enfocarte en áreas de interés. Por ejemplo, puedes identificar repositorios privados que tengan una gran cantidad de {% data variables.product.prodname_dependabot_alerts %} o repositorios que no tengan alertas del {% data variables.product.prodname_code_scanning %}.
 
@@ -48,8 +55,8 @@ Los propietarios de las organizaciones pueden ver el resumen de seguridad de est
 
 Los miembros de un equipo pueden ver el resumen de seguridad de los repositorios para los cuales dicho equipo tiene privilegios administrativos.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

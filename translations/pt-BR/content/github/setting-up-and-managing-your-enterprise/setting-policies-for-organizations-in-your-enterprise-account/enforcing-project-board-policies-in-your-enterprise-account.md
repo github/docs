@@ -9,13 +9,15 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-project-board-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Políticas para projetos
 ---
+
 Para obter mais informações sobre tipos de quadros de projeto, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
 
-### Aplicar política para quadros de projeto de toda a organização
+## Aplicar política para quadros de projeto de toda a organização
 
 Em todas as organizações pertencentes à conta corporativa, é possível habilitar ou desabilitar quadros de projeto em toda a organização ou permitir que os proprietários administrem a configuração no nível da organização.
 
@@ -25,7 +27,7 @@ Em todas as organizações pertencentes à conta corporativa, é possível habil
 4. Em "Organization projects" (Projetos da organização), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Em "Organization projects" (Projetos da organização), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de quadros de projeto da organização](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
 
-### Aplicar política para quadros de projeto de repositório
+## Aplicar política para quadros de projeto de repositório
 
 Em todas as organizações pertencentes à conta corporativa, é possível habilitar ou desabilitar quadros de projeto no nível de repositório ou permitir que os proprietários administrem a configuração no nível da organização.
 

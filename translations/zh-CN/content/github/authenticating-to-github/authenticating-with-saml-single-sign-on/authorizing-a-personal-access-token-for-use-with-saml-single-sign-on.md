@@ -10,6 +10,7 @@ versions:
 topics:
   - SSO
 ---
+
 您可以授权现有的个人访问令牌，或者[创建新的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)，然后再授权。
 
 {% data reusables.user_settings.access_settings %}

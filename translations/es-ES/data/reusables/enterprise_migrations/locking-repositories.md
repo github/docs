@@ -1,6 +1,7 @@
 {% tip %}
 
-**Nota:**Cerrar un repositorio previene que los usuarios suban información al mismo o que modifiquen sus recursos como informes de problemas, etiquetas, hitos, wikis, y comentarios. Los nuevos equipos y colaboradores no podrán asociarse con un repositorio cerrado.
+**Nota:** El bloquear un repositorio previene todo acceso de lectura y escritura al repositorio. No puedes asociar equipos o colaboradores nuevos con un repositorio bloqueado.
+Si estás llevando a cabo una ejecución de prueba, no necesitas bloquear el repositorio. Cuando migras los datos desde un repositorio que está en uso,
 
-Si estás realizando una ejecución de prueba, no necesitas cerrar el repositorio. En el resto de los casos, se recomienda ampliamente. Para obtener más información, consulta "[Acerca de las migraciones](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
+{% data variables.product.company_short %} recomienda fuertemente que lo bloquees. Para obtener más información, consulta "[Acerca de las migraciones](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
 {% endtip %}

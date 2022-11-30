@@ -5,19 +5,21 @@ redirect_from:
   - /articles/troubleshooting-search-queries
   - /github/searching-for-information-on-github/troubleshooting-search-queries
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
+shortTitle: Solucionar problemas de consultas de pesquisa
 ---
-### Possíveis tempos limite
+
+## Possíveis tempos limite
 
 Algumas consultas têm uma computação dispendiosa para a nossa infraestrutura de pesquisa executar. Para manter a pesquisa rápida para todos, limitamos o tempo de execução das consultas individuais. Nas raras situações em que uma consulta excede o tempo limite, a pesquisa retorna todas as correspondências encontradas antes do tempo limite e informa a ocorrência dele.
 
 Atingir um tempo limite não significa necessariamente que os resultados da pesquisa estão incompletos. Significa apenas que a consulta foi interrompida antes que ela pesquisasse todos os dados possíveis.
 
-### Limitações no tamanho da consulta
+## Limitações no tamanho da consulta
 
 Há alguns limites no tamanho das consultas ao pesquisar no {% data variables.product.product_name %}:
 
@@ -26,6 +28,6 @@ Há alguns limites no tamanho das consultas ao pesquisar no {% data variables.pr
 
 Determinados tipos de pesquisa, como pesquisa de código, podem ter limitações adicionais. Consulte a documentação desses tipos de pesquisa para obter mais informações.
 
-### Leia mais
+## Leia mais
 
 - "[Sobre a pesquisa no GitHub](/articles/about-searching-on-github)"

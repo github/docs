@@ -22,6 +22,7 @@ topics:
   - Notifications
   - Accounts
 ---
+
 ### Usar o Git
 
 Para usar o Git na linha de comando, você precisará fazer download, instalar e configurar o Git no computador. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" or currentVersion == "github-ae@latest" %} Você também pode instalar {% data variables.product.prodname_cli %} para usar {% data variables.product.product_name %} na linha de comando. Para obter mais informações sobre {% data variables.product.prodname_cli %}, consulte a documentação de [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) .{% endif %}

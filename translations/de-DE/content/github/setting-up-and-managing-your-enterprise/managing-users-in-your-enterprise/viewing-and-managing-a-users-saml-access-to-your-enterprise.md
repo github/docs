@@ -8,26 +8,23 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: View & manage SAML access
 ---
-### Über SAML Zugriff auf Dein Enterprise-Konto
+
+## Über SAML Zugriff auf Dein Enterprise-Konto
 
 Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes Enterprise-Mitglied seine externe Identität auf Deinem Identitätsanbieter (IdP) mit seinem bestehenden {% data variables.product.product_name %}-Konto verknüpfen. {% data reusables.saml.about-saml-access-enterprise-account %}
 
-### Eine verknüpfte Identität anschauen und widerrufen
+If your enterprise is uses {% data variables.product.prodname_emus %}, your members will use accounts provisioned through your IdP. {% data variables.product.prodname_managed_users_caps %} will not use their existing user account on {% data variables.product.product_name %}. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+## Eine verknüpfte Identität anschauen und widerrufen
 
 {% data reusables.saml.about-linked-identities %}
 
-{% warning %}
-
-**Warning:** For organizations using SCIM:
-- Revoking a linked user identity on {% data variables.product.product_name %} will also remove the SAML and SCIM metadata. As a result, the identity provider will not be able to synchronize or deprovision the linked user identity.
-- An admin must revoke a linked identity through the identity provider.
-- To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.product_name %} application. For more information, see your identity provider's docs.
-
-{% endwarning %}
+If your enterprise uses {% data variables.product.prodname_emus %}, you will not be able to deprovision or remove user accounts from the enterprise on {% data variables.product.product_name %}. Any changes you need to make to your enterprise's {% data variables.product.prodname_managed_users %} should be made through your IdP.
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
@@ -39,7 +36,7 @@ Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes En
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-### Eine aktive SAML-Sitzung ansehen und widerrufen
+## Eine aktive SAML-Sitzung ansehen und widerrufen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -48,7 +45,7 @@ Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes En
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-### Autorisierte Anmeldeinformationen anschauen und widerrufen
+## Autorisierte Anmeldeinformationen anschauen und widerrufen
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -60,6 +57,6 @@ Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes En
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[SAML-Zugriff eines Mitglieds auf Deine Organisation ansehen und verwalten](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

@@ -12,13 +12,14 @@ versions:
 topics:
   - Accounts
 ---
+
 {% note %}
 
 **注：**您必须是组织成员才能查看组织中人员的角色。
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. 您将看到组织中人员的列表。 要按角色过滤列表，请单击 **Role（角色）**并选择您搜索的角色。 ![单击角色](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)

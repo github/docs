@@ -1,0 +1,1 @@
+Maintainers can use categories with the announcement format to share information, releases, or events. To keep discussions in these categories focused on important updates, only people with maintain or admin permissions can create new discussions, but anyone can comment and reply.

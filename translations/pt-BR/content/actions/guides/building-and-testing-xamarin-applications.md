@@ -24,10 +24,10 @@ topics:
 
 Este guia mostra como criar um fluxo de trabalho que executa a integração contínua (CI) para o seu projeto Xamarin. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável.
 
-O executor do macOS hospedado em {% data variables.product.prodname_actions %} armazena versões do Xamarin SDK e versões Mono associadas como links simbólicos para as localidades o Xamarin SDK que estão disponíveis por um link simbólico único do pacote. Para obter uma lista completa das versões do Xamarin SDK e seus pacotes correspondentes, consulte a documentação dos executores:
+For a full list of available Xamarin SDK versions on the {% data variables.product.prodname_actions %}-hosted macOS runners, see the documentation:
 
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
-* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md#xamarin-bundles)
+* [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
 {% data reusables.github-actions.macos-runner-preview %}
 
@@ -41,7 +41,7 @@ Recomendamos que você tenha um entendimento básico do Xamarin, .NET Core SDK, 
 
 ### Criando aplicativos Xamarin.iOS
 
-O exemplo abaixo demonstra como alterar o pacote padrão do Xamarin e criar um aplicativo Xamarin.iOS.
+The example below demonstrates how to change the default Xamarin SDK versions and build a Xamarin.iOS application.
 
 {% raw %}
 ```yaml
@@ -55,34 +55,33 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Select default Xamarin bundle to 6_12_6
-        run: |
-          XAMARIN_SDK=6_12_6
-          $VM_ASSETS/select-xamarin-sdk.sh $XAMARIN_SDK
+    - uses: actions/checkout@v2
+    - name: Set default Xamarin SDK versions
+      run: |
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
 
-      - name: Set default Xcode 12.3
-        run: |
-          XCODE_ROOT=/Applications/Xcode_12.3.0.app
-          echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
-          sudo xcode-select -s $XCODE_ROOT
+    - name: Set default Xcode 12.3
+      run: |
+        XCODE_ROOT=/Applications/Xcode_12.3.0.app
+        echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
+        sudo xcode-select -s $XCODE_ROOT
 
-      - name: Setup .NET Core SDK 5.0.x
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.0.x'
+    - name: Setup .NET Core SDK 5.0.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
 
-      - name: Install dependencies
-        run: nuget restore <sln_file_path>
+    - name: Install dependencies
+      run: nuget restore <sln_file_path>
 
-      - name: Build
-        run: msbuild <csproj_file_path> /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
+    - name: Build
+      run: msbuild <csproj_file_path> /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
 ```
 {% endraw %}
 
 ### Criando aplicativos Xamarin.Android
 
-O exemplo abaixo demonstra como alterar o padrão do pacote Xamarin e construir um aplicativo Xamarin.Android.
+The example below demonstrates how to change default Xamarin SDK versions and build a Xamarin.Android application.
 
 {% raw %}
 ```yaml
@@ -96,22 +95,21 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Select default Xamarin bundle to 6_12_6
-        run: |
-          XAMARIN_SDK=6_12_6
-          $VM_ASSETS/select-xamarin-sdk.sh $XAMARIN_SDK
+    - uses: actions/checkout@v2
+    - name: Set default Xamarin SDK versions
+      run: |
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.10 --android=10.2
 
-      - name: Setup .NET Core SDK 5.0.x
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.0.x'
+    - name: Setup .NET Core SDK 5.0.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
 
-      - name: Install dependencies
-        run: nuget restore <sln_file_path>
+    - name: Install dependencies
+      run: nuget restore <sln_file_path>
 
-      - name: Build
-        run: msbuild <csproj_file_path> /t:PackageForAndroid /p:Configuration=Debug
+    - name: Build
+      run: msbuild <csproj_file_path> /t:PackageForAndroid /p:Configuration=Debug
 ```
 {% endraw %}
 

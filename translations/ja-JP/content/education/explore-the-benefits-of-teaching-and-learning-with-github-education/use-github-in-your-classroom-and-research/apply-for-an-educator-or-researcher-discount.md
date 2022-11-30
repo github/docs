@@ -11,9 +11,11 @@ redirect_from:
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Apply for a discount
 ---
-### 教育者および研究者に対する割引について
+
+## 教育者および研究者に対する割引について
 
 {% data reusables.education.about-github-education-link %}
 
@@ -21,7 +23,7 @@ versions:
 
 {% data variables.product.product_name %}のユーザアカウント作成に関する詳しい情報については「[新規{% data variables.product.prodname_dotcom %}アカウントにサインアップする](/github/getting-started-with-github/signing-up-for-a-new-github-account)」を参照してください。
 
-### 教育者割引または研究者割引に応募する
+## 教育者割引または研究者割引に応募する
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -31,16 +33,16 @@ versions:
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### Organization をアップグレードする
+## Organization をアップグレードする
 
 教育者もしくは研究者割引のリクエストが承認されると、学習コミュニティで利用する Organization を {% data variables.product.prodname_team %} にアップグレードできます。これで、無料で無制限のユーザとプライベートリポジトリの全ての機能が利用できるようになります。 既存の Organization をアップグレードするか、アップグレードする新しい Organization を作成できます。
 
-#### 既存の Organization をアップグレードする
+### 既存の Organization をアップグレードする
 
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-#### 新しい Organization をアップグレードする
+### 新しい Organization をアップグレードする
 
 {% data reusables.education.upgrade-page %}
 1. [{% octicon "plus" aria-label="The plus symbol" %} **Create an organization**] をクリックします。 ![[Create an organization] ボタン](/assets/images/help/education/create-org-button.png)
@@ -50,7 +52,7 @@ versions:
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-### 参考リンク
+## 参考リンク
 
 - [教育者あるいは研究者割引が承認されなかった理由は？](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)
 - [{% data variables.product.prodname_education %}](https://education.github.com)

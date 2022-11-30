@@ -4,12 +4,16 @@ intro: 'A formatação (como tabelas, realce de sintaxe e vinculação automáti
 redirect_from:
   - /articles/working-with-advanced-formatting
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /organizing-information-with-tables
   - /creating-and-highlighting-code-blocks
   - /autolinked-references-and-urls
+  - /attaching-files
+  - /creating-a-permanent-link-to-a-code-snippet
+  - /using-keywords-in-issues-and-pull-requests
+shortTitle: Trabalhar com formatação avançada
 ---
 

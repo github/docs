@@ -6,16 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
   - /admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
+shortTitle: Aumentar CPU ou memória
 ---
+
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-### Adicionar recursos de CPU ou memória para AWS
+## Adicionar recursos de CPU ou memória para AWS
 
 {% note %}
 
@@ -23,14 +25,14 @@ topics:
 
 {% endnote %}
 
-#### Considerações de redimensionamento
+### Considerações de redimensionamento
 
 Antes de aumentar recursos de CPU ou memória do {% data variables.product.product_location %}:
 
 - **Amplie sua memória com CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
 - **Atribua um endereço IP elástico à instância**. Se não houver IP elástica atribuída, você terá que ajustar os registros DNS A do seu host do {% data variables.product.prodname_ghe_server %} após o reinício para explicar a alteração no endereço IP público. Depois que a instância for reiniciada, a IP elástica (EIP) será automaticamente mantida se a instância for iniciada em uma VPC. Se a instância for iniciada no EC2-Classic, a IP elástica deverá ser associada outra vez manualmente.
 
-#### Tipos de instância do AWS compatíveis
+### Tipos de instância do AWS compatíveis
 
 É necessário determinar o tipo de instância para a qual você pretende atualizar com base nas especificações de CPU/memória.
 
@@ -38,7 +40,7 @@ Antes de aumentar recursos de CPU ou memória do {% data variables.product.produ
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-#### Redimensionar para o AWS
+### Redimensionar para o AWS
 
 {% note %}
 
@@ -53,7 +55,7 @@ Não é possível adicionar recursos de CPU ou memória a uma instância atual d
 3. Inicie a instância.
 {% data reusables.enterprise_installation.configuration-recognized %}
 
-### Adicionar recursos de CPU ou memória para OpenStack KVM
+## Adicionar recursos de CPU ou memória para OpenStack KVM
 
 Não é possível adicionar recursos de CPU ou memória a uma instância atual do OpenStack KVM. Faça o seguinte:
 
@@ -61,7 +63,7 @@ Não é possível adicionar recursos de CPU ou memória a uma instância atual d
 2. Interrompa a instância.
 3. Selecione um novo tipo de instância que tenha os recursos de CPU e/ou memória desejados.
 
-### Adicionar recursos de memória ou CPU para VMware
+## Adicionar recursos de memória ou CPU para VMware
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 

@@ -14,6 +14,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### プルリクエストに使用されるブランチを削除する
 
 プルリクエストがマージまたはクローズされていて、ブランチを参照している他のオープンなプルリクエストがない場合は、プルリクエストに関連付けられているブランチを削除できます。 プルリクエストに関連付けられていないブランチをクローズする方法については、「[リポジトリ内でブランチを作成および削除する](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」をご覧ください。

@@ -1,6 +1,6 @@
 ---
-title: About anonymized URLs
-intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
+title: Sobre URLs anônimas
+intro: 'Se você fizer o upload de uma imagem ou vídeo para {% data variables.product.product_name %}, a URL da imagem ou vídeo será modificada para que suas informações não sejam rastreáveis.'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls/
   - /articles/about-anonymized-image-urls
@@ -12,11 +12,12 @@ topics:
   - Identity
   - Access management
 ---
-Para hospedar imagens, o {% data variables.product.product_name %} usa o [Camo do projeto de código aberto](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. A URL começa `https://<subdomain>.githubusercontent.com/`, com subdomínios diferentes dependendo de como você fez o upload da imagem.
 
-Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
+Para hospedar imagens, o {% data variables.product.product_name %} usa o [Camo do projeto de código aberto](https://github.com/atmos/camo). A Camo gera um proxy de URL anônimo para cada arquivo que oculta os detalhes do seu navegador e informações relacionadas de outros usuários. A URL começa `https://<subdomain>.githubusercontent.com/`, com subdomínios diferentes dependendo de como você fez o upload da imagem.
 
-Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
+Os vídeos também recebem URLs anônimas com o mesmo formato que as URLs da imagem, mas não são processados através da Camo. Isto ocorre porque {% data variables.product.prodname_dotcom %} não é compatível vídeos hospedados externamente. Portanto, a URL anônima é um link para o vídeo enviado hospedado por {% data variables.product.prodname_dotcom %}.
+
+Qualquer pessoa que receber a sua URL anônima, direta ou indiretamente, poderá visualizar a sua imagem ou vídeo. Para manter arquivos de mídia sensíveis privados, restrinja-os a uma rede privada ou a um servidor que exige autenticação em vez de usar a Camo.
 
 ### Solucionar problemas com o Camo
 
@@ -34,7 +35,7 @@ Os usuários do Windows precisam usar o Git Powershell (que é instalado com o [
 
 #### Uma imagem não está sendo exibida
 
-If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
+Se uma imagem estiver sendo exibida no seu navegador mas não em {% data variables.product.prodname_dotcom %}, você poderá tentar solicitá-la localmente.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Solicite os headers da imagem usando `curl`.

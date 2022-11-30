@@ -11,14 +11,16 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export from your enterprise
 ---
-### {% data variables.product.prodname_ghe_server %} ソースインスタンスを準備する
+
+## {% data variables.product.prodname_ghe_server %} ソースインスタンスを準備する
 
 1. {% data variables.product.prodname_ghe_server %} ソースのサイト管理者であることを確認します。 そのための最善の方法は、[インスタンスへのSSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)が可能であることを確認することです。
 
@@ -26,7 +28,7 @@ topics:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### {% data variables.product.prodname_ghe_server %} ソースリポジトリをエクスポートする
+## {% data variables.product.prodname_ghe_server %} ソースリポジトリをエクスポートする
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 

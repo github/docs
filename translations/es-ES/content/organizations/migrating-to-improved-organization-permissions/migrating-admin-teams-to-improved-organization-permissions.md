@@ -6,11 +6,12 @@ redirect_from:
   - /articles/migrating-admin-teams-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/migrating-admin-teams-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Migrar el equipo administrativo
 ---
 
 Por defecto, todos los miembros de la organización pueden crear repositorios. Si restringes los [permisos de creación de repositorios](/articles/restricting-repository-creation-in-your-organization) a los propietarios de la organización y tu organización fue creada dentro de la estructura heredada de permisos de organización, los miembros de los equipos de administración heredados seguirán teniendo la capacidad de crear repositorios.
@@ -27,7 +28,7 @@ Para obtener más información, consulta "[Niveles de permiso del repositorio pa
 
 {% endwarning %}
 
-### Migrar todos tus equipos de administradores heredados de tu organización
+## Migrar todos tus equipos de administradores heredados de tu organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -35,9 +36,9 @@ Para obtener más información, consulta "[Niveles de permiso del repositorio pa
 1. Revisa tus equipos de administradores heredados de la organización, después haz clic en **Migrate all teams (Migrar todos los equipos)**. ![Botón Migrar todos los equipos](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. Lee la información sobre los posibles cambios en permisos para los miembros de estos equipos, después haz clic en **Migrate all teams (Migrar todos los equipos).** ![Botón Confirmar migración](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
-### Migrar un equipo de administradores único
+## Migrar un equipo de administradores único
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. En la casilla de descripción de equipo, haz clic en **Migrate team (Migrar equipo)**. ![Botón Migrar equipo](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

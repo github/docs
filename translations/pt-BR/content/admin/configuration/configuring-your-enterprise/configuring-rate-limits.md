@@ -6,18 +6,19 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-rate-limits
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
 ---
-### Habilitar limites de taxa para a {% data variables.product.prodname_enterprise_api %}
+
+## Habilitar limites de taxa para a {% data variables.product.prodname_enterprise_api %}
 
 Habilitar limites de taxa na {% data variables.product.prodname_enterprise_api %} pode impedir o uso excessivo de recursos por usuários individuais ou não autenticados. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 Habilitar limites de taxa na {{ site.data.variables.product.prodname_enterprise_api }} pode impedir o uso excessivo de recursos por usuários individuais ou não autenticados. Para obter mais informações, consulte "[Limitação de taxa](/enterprise/{{ page.version }}/v3/#rate-limiting)".
 {% endif %}
 
@@ -29,21 +30,25 @@ Habilitar limites de taxa na {{ site.data.variables.product.prodname_enterprise_
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Em "Limites de taxa", selecione **Enable API Rate Limiting** (Habilitar limite de taxa da API). ![Caixa de seleção para habilitar limite de taxas de API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+2. Em "Limitede taxa", selecione **Habilitar limite de taxa para a API HTTP**. ![Caixa de seleção para habilitar limite de taxas de API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
 3. Informe os limites para solicitações autenticadas e não autenticadas de cada API ou aceite os limites padrão sugeridos.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Habilitar limites de taxa de abuso
+## Habilitar limites de taxa secundária
 
-Definir limites de taxa de abuso protege o nível geral de serviço na {% data variables.product.product_location %}.
+A configuração dos limites de taxa secundária protege o nível geral do serviço em {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
+{% ifversion ghes > 3.1 %}
+2. Em "Limite de taxa", selecione **Habilitar taxa de limite secundária**. ![Caixa de seleção para habilitar o limite de taxa secundária](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
+{% else %}
 2. Em "Limites de taxa", selecione **Enable Abuse Rate Limiting** (Habilitar limite de taxa de abuso). ![Caixa de seleção para habilitar limite de taxas de abuso](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
+{% endif %}
 3. Informe os limites para Solicitações totais, Limite de CPU e Limite de CPU para pesquisa ou aceite os limites padrão sugeridos.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Habilitar limites de taxa do Git
+## Habilitar limites de taxa do Git
 
 É possível aplicar limites de taxa do Git por rede de repositório ou ID do usuário. Os limites da taxa do Git são expressos em operações simultâneas por minuto e são adaptáveis com base na carga atual da CPU.
 

@@ -9,15 +9,17 @@ redirect_from:
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Solicitação recusada
 ---
+
 {% tip %}
 
 **Dica:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
-### Falta de clareza em documentos de afiliação acadêmica
+## Falta de clareza em documentos de afiliação acadêmica
 
 Se as datas ou cronogramas mencionados na sua imagem carregada não corresponderem aos nossos critérios de elegibilidade, precisaremos de mais provas do seu status acadêmico.
 
@@ -25,13 +27,13 @@ Se a imagem que você subiu não identificar claramente o seu status acadêmico 
 
 {% data reusables.education.pdf-support %}
 
-### Uso de e-mail acadêmico com domínio não verificado
+## Uso de e-mail acadêmico com domínio não verificado
 
 Se o seu endereço de e-mail acadêmico tiver um domínio não verificado, exigiremos mais provas do seu status acadêmico. {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
-### Uso de e-mail acadêmico de uma escola com políticas de e-mail pouco rígidas
+## Uso de e-mail acadêmico de uma escola com políticas de e-mail pouco rígidas
 
 Se os seus endereços de e-mail concedidos pela instituição de ensino forem anteriores à inscrição paga por aluno, exigiremos mais provas do seu status acadêmico. {% data reusables.education.upload-proof-reapply %}
 
@@ -39,9 +41,9 @@ Se os seus endereços de e-mail concedidos pela instituição de ensino forem an
 
 Se você tiver outras dúvidas sobre o domínio da instituição de ensino, peça à equipe de TI dela para entrar em contato conosco.
 
-### Endereço de e-mail acadêmico já usado
+## Endereço de e-mail acadêmico já usado
 
-Se o seu endereço de e-mail acadêmico já tiver sido usado para solicitar um {% data variables.product.prodname_student_pack %} para outra conta do {% data variables.product.prodname_dotcom %}, você não poderá reutilizá-lo para se candidatar a outro {% data variables.product.prodname_student_pack %} enquanto o desconto estiver válido.
+Se seu endereço de e-mail acadêmico já foi usado para solicitar um {% data variables.product.prodname_student_pack %} para uma conta de {% data variables.product.prodname_dotcom %} diferente, você não poderá reutilizar o endereço de e-mail acadêmico para se inscrever com sucesso em outro {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 
@@ -56,7 +58,7 @@ Para obter mais informações, consulte:
 - "[Alterar seu nome de usuário do {% data variables.product.prodname_dotcom %}](/articles/changing-your-github-username)"
 - "[Adicionar um endereço de e-mail à sua conta do {% data variables.product.prodname_dotcom %}](/articles/adding-an-email-address-to-your-github-account)"
 
-### Status de aluno não qualificado
+## Status de aluno não qualificado
 
 Você não estará qualificado para um {% data variables.product.prodname_student_pack %} se:
 - Você está inscrito em um programa de aprendizagem informal que não faz parte de [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) e não está inscrito em curso que irá conceder uma título ou diploma.
@@ -65,7 +67,7 @@ Você não estará qualificado para um {% data variables.product.prodname_studen
 
 Seu instrutor ainda poderá se candidatar a um desconto {% data variables.product.prodname_education %} para uso em sala de aula. Se você é um estudante em uma escola de programação ou bootcamp, você irá tornar-se elegível a {% data variables.product.prodname_student_pack %}, caso sua escola ingresse em [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
-### Leia mais
+## Leia mais
 
 - "[Candidatar-se a um pacote de desenvolvedor para estudante](/articles/applying-for-a-student-developer-pack)"
 - "[Solicite um pacote de desenvolvedor para estudante](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)"

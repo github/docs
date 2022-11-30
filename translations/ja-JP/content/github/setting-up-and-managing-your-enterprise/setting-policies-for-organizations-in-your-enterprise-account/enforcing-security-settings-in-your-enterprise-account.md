@@ -2,7 +2,7 @@
 title: Enterprise アカウントでセキュリティ設定を強制する
 intro: Enterprise のオーナーは、Enterprise アカウントが所有するすべての Organization について、特定のセキュリティポリシーを施行できます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
@@ -11,11 +11,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Enforce security settings
 ---
-### Enterprise アカウントで Organization の 2 要素認証を必須にする
+
+## Enterprise アカウントで Organization の 2 要素認証を必須にする
 
 Enterprise のオーナーは、Enterprise アカウントが所有するすべての Organization で、Organization のメンバー、支払いマネージャー、外部コラボレーターに対して個人アカウントをセキュアに保つために 2 要素認証の使用を義務化できます。
 
@@ -41,17 +43,17 @@ Enterprise のオーナーは、Enterprise アカウントが所有するすべ�
 6. 求められた場合には、自分の Enterprise アカウントが所有する Organization から削除するメンバーおよび外部コラボレーターに関する情報を読んでください。 変更を確定するには、自分の Enterprise アカウントの名前を入力し、[**Remove members & require two-factor authentication**] をクリックします。 ![2 要素の施行の確定ボックス](/assets/images/help/business-accounts/confirm-require-2fa.png)
 7. または、自分の Enterprise アカウント が所有する Organization から削除されるメンバーまたは外部コラボレーターが存在する場合、彼らに招待状を送信して、元の権限と Organization へのアクセス権を復元できるようにすることをおすすめします。 彼らが招待状を受け取ることができるようにするには、まず各ユーザーが 2 要素認証を有効にする必要があります。
 
-### Enterprise アカウントで Organization に対する許可 IP アドレスを管理する
+## Enterprise アカウントで Organization に対する許可 IP アドレスを管理する
 
 Enterprise のオーナーは、特定の IP アドレスに対する許可リストを設定することで、Enterprise アカウントの Organization が所有するアセットへのアクセスを制限できます。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 許可 IP アドレスを、Organization ごとに設定することもできます。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
 
-#### 許可 IP アドレスを追加する
+### 許可 IP アドレスを追加する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -60,7 +62,11 @@ Enterprise のオーナーは、特定の IP アドレスに対する許可リ�
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-#### 許可 IP アドレスを有効化する
+### {% data variables.product.prodname_github_apps %}によるアクセスの許可
+
+{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
+
+### 許可 IP アドレスを有効化する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -68,7 +74,7 @@ Enterprise のオーナーは、特定の IP アドレスに対する許可リ�
 3. [IP allow list] で、「**Enable IP allow list**」を選択します。 ![IP アドレスを許可するチェックボックス](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
 4. [**Save**] をクリックします。
 
-#### 許可 IP アドレスを編集する
+### 許可 IP アドレスを編集する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -78,7 +84,7 @@ Enterprise のオーナーは、特定の IP アドレスに対する許可リ�
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. [**Update**] をクリックします。
 
-#### 許可 IP アドレスを削除する
+### 許可 IP アドレスを削除する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -86,17 +92,17 @@ Enterprise のオーナーは、特定の IP アドレスに対する許可リ�
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-#### IP許可リストで {% data variables.product.prodname_actions %} を使用する
+### IP許可リストで {% data variables.product.prodname_actions %} を使用する
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-### Enterprise アカウントの SSH 認証局を管理する
+## Enterprise アカウントの SSH 認証局を管理する
 
 Enterprise オーナーは、Enterprise アカウントの SSH 認証局 (CA) を追加および削除できます。
 
 Enterprise アカウントに SSH CA を追加することにより、その Enterprise アカウントが所有する Organization のメンバー誰でも、その Enterprise アカウントが提供する SSH 認証を使用して Organization のリポジトリにアクセスできるようになります。 {% data reusables.organizations.can-require-ssh-cert %}詳細については、「[SSH認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。
 
-#### SSH 認証局を追加する
+### SSH 認証局を追加する
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -106,7 +112,7 @@ Enterprise アカウントに SSH CA を追加することにより、その Ent
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
-#### SSH認証局を削除する
+### SSH認証局を削除する
 
 CAを削除すると、元に戻すことはできません。 同じCAを使用したくなった場合には、そのCAを再びアップロードする必要があります。
 
@@ -115,6 +121,6 @@ CAを削除すると、元に戻すことはできません。 同じCAを使用
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-### 参考リンク
+## 参考リンク
 
 - 「[Enterprise アカウントのアイデンティおよびアクセス管理を設定する](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)」

@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
   - /admin/enterprise-management/upgrading-a-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - Upgrades
 ---
-### Upgrade mit einem Hotpatch
+
+## Upgrade mit einem Hotpatch
 {% data reusables.enterprise_installation.hotpatching-explanation %} Das Hotpatch-Installationsskript installiert den Hotpatch auf jedem Knoten im Cluster und startet die Dienste zum Vermeiden von Ausfallzeiten in ihrer entsprechenden Abfolge neu.
 
 1. Sichern Sie Ihre Daten mit [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
@@ -22,10 +23,10 @@ topics:
   $ ghe-cluster-hotpatch https://<em>HOTPATCH-URL/FILENAME</em>.hpkg
   ```
 
-### Upgrade mit einem Upgrade-Paket
+## Upgrade mit einem Upgrade-Paket
 Verwenden Sie ein Upgrade-Paket, um ein Upgrade eines {% data variables.product.prodname_ghe_server %}-Clusters auf die neueste Feature-Veröffentlichung vorzunehmen. Beispielsweise können Sie ein Upgrade von `2.11` auf `2.13` vornehmen.
 
-#### Upgrade vorbereiten
+### Upgrade vorbereiten
 
 1. Überprüfe [Clusternetzwerk-Konfiguration](/enterprise/admin/guides/clustering/cluster-network-configuration) bezüglich der Version, auf die Du ein Upgrade durchführst, und aktualisiere Deine Konfiguration nach Bedarf.
 2. Sichern Sie Ihre Daten mit [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
@@ -52,7 +53,7 @@ Verwenden Sie ein Upgrade-Paket, um ein Upgrade eines {% data variables.product.
   ```
 6. Identifizieren Sie den primären MySQL-Knoten, der in `cluster.conf` als `mysql-master = <hostname>` definiert ist. Dieser Knoten wird zuletzt upgegradet.
 
-#### Clusterknoten upgraden
+### Clusterknoten upgraden
 
 1. Aktivieren Sie den Wartungsmodus entsprechend Ihrem geplanten Fenster. Verbinden Sie sich dazu mit der Verwaltungsshell auf einem beliebigen Clusterknoten, und führen Sie `ghe-cluster-maintenance -s` aus.
 2. Stellen Sie **mit Ausnahme des primären MySQL-Knotens** eine Verbindung zur Verwaltungsshell der jeweiligen {% data variables.product.prodname_ghe_server %}-Knoten her. Führen Sie den Befehl `ghe-upgrade` aus, und geben Sie den Namen der Paketdatei an, die Sie in Schritt 4 [Upgrade vorbereiten](#preparing-to-upgrade) heruntergeladen haben:
@@ -78,5 +79,7 @@ Verwenden Sie ein Upgrade-Paket, um ein Upgrade eines {% data variables.product.
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. Der Upgrade-Prozess startet den primären MySQL-Knoten nach dem Abschluss neu. Verifizieren Sie, dass Sie jeden Knoten nach dem Neustart `pingen` können.
-6. Führen Sie an der Verwaltungsshell eines beliebigen Knotens den Befehl `ghe-cluster-maintenance -u` aus, um den Wartungsmodus zu beenden.
+5. Der Upgrade-Prozess startet den primären MySQL-Knoten nach dem Abschluss neu. Verify that you can `ping` each node after it reboots.{% ifversion ghes > 2.22 %}
+6. Connect to the administrative shell of the primary MySQL node and run the `ghe-cluster-config-apply` command.
+7. When `ghe-cluster-config-apply` is complete, check that the services are in a healthy state by running `ghe-cluster-status`.{% endif %}
+8. Führen Sie an der Verwaltungsshell eines beliebigen Knotens den Befehl `ghe-cluster-maintenance -u` aus, um den Wartungsmodus zu beenden.
