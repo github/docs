@@ -1,6 +1,6 @@
 ---
-title: Suppression d’une étiquette lorsqu’une carte est ajoutée à une colonne de tableau de projet
-intro: 'Vous pouvez utiliser {% data variables.product.prodname_actions %} pour supprimer automatiquement une étiquette quand un problème ou une demande de tirage est ajouté à une colonne spécifique d’un tableau de projet.'
+title: Removing a label when a card is added to a project board column
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
@@ -13,74 +13,73 @@ topics:
   - Workflows
   - Project management
 shortTitle: Remove label when adding card
-ms.openlocfilehash: c23edb495719c7059c9c5d8dab1c29acb0e78cb6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147410106'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
+
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
-Ce tutoriel montre comment utiliser [l’action `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler) avec une condition pour supprimer une étiquette des problèmes et des demandes de tirage qui sont ajoutées à une colonne spécifique sur une carte de projet. Par exemple, vous pouvez supprimer l’étiquette `needs review` lorsque les cartes de projet sont déplacées vers la colonne `Done`.
+This tutorial demonstrates how to use the [`actions/github-script` action](https://github.com/marketplace/actions/github-script) along with a conditional to remove a label from issues and pull requests that are added to a specific column on a {% data variables.projects.projects_v1_board %}. For example, you can remove the `needs review` label when project cards are moved into the `Done` column.
 
-Dans le tutoriel, vous allez d’abord créer un fichier de workflow qui utilise [l’action `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler). Ensuite, vous personnaliserez le workflow en fonction de vos besoins.
+In the tutorial, you will first make a workflow file that uses the [`actions/github-script` action](https://github.com/marketplace/actions/github-script). Then, you will customize the workflow to suit your needs.
 
-## Création du workflow
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-2. Choisissez un projet qui appartient au référentiel. Ce workflow ne peut pas être utilisé avec des projets appartenant à des utilisateurs ou à des organisations. Vous pouvez utiliser un projet existant ou en créer un nouveau. Pour plus d’informations sur la création d’un projet, consultez « [Création d’un tableau de projet](/github/managing-your-work-on-github/creating-a-project-board) ».
+2. Choose a {% data variables.projects.projects_v1_board %} that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing {% data variables.projects.projects_v1_board %}, or you can create a new {% data variables.projects.projects_v1_board %}. For more information about creating a project, see "[Creating a {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/creating-a-project-board)."
 3. {% data reusables.actions.make-workflow-file %}
-4. Copiez le contenu YAML suivant dans votre fichier de workflow.
+4. Copy the following YAML contents into your workflow file.
+
     ```yaml{:copy}
-{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
-
-{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
-
-    name: Remove labels
+    name: Remove a label
     on:
       project_card:
         types:
           - moved
     jobs:
-      remove_labels:
+      remove_label:
         if: github.event.project_card.column_id == '12345678'
         runs-on: ubuntu-latest
         permissions:
           issues: write
           pull-requests: write
         steps:
-          - name: remove labels
-            uses: andymckay/labeler@5c59dabdfd4dd5bd9c6e6d255b01b9d764af4414
+          - uses: {% data reusables.actions.action-github-script %}
             with:
-              remove-labels: "needs review"
-              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              script: |
+                // this gets the number at the end of the content URL, which should be the issue/PR number
+                const issue_num = context.payload.project_card.content_url.split('/').pop()
+                github.rest.issues.removeLabel({
+                  issue_number: issue_num,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: ["needs review"]
+                })
     ```
 
-5. Personnalisez les paramètres dans votre fichier de workflow :
-   - Dans `github.event.project_card.column_id == '12345678'`, remplacez `12345678` par l’ID de la colonne dans laquelle vous souhaitez annuler l’étiquette des problèmes et les demandes de tirage déplacées vers cet emplacement.
+5. Customize the parameters in your workflow file:
+   - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
 
-    Pour rechercher l’ID de colonne, accédez à votre carte de projet. En regard du titre de la colonne, cliquez sur {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} puis cliquez sur **Copier le lien de colonne**. L’ID de colonne est le numéro affiché à la fin du lien copié. Par exemple, `24687531` est l’ID de colonne pour `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
+     To find the column ID, navigate to your {% data variables.projects.projects_v1_board %}. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
 
-     Si vous souhaitez agir sur plusieurs colonnes, séparez les conditions avec `||`. Par exemple, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` intervient chaque fois qu’une carte de projet est ajoutée à la colonne `12345678` ou `87654321`. Les colonnes peuvent se trouver sur différents tableaux de projet.
-   - Remplacez la valeur par `remove-labels` la liste des étiquettes que vous souhaitez supprimer des problèmes ou des demandes de tirage qui sont déplacées vers la ou les colonnes spécifiées. Séparez plusieurs étiquettes par des virgules. Par exemple : `"help wanted, good first issue"`. Pour plus d’informations sur les étiquettes, consultez « [Gestion des étiquettes](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests) ».
+     If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different project boards.
+   - Change the value for `name` in the `github.rest.issues.removeLabel()` function to the name of the label that you want to remove from issues or pull requests that are moved to the specified column(s). For more information on labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
 6. {% data reusables.actions.commit-workflow %}
 
-## Test du workflow
+## Testing the workflow
 
-Chaque fois qu’une carte de projet sur un projet dans votre référentiel se déplace, ce workflow s’exécute. Si la carte est un problème ou une demande de tirage et est déplacée dans la colonne que vous avez spécifiée, le workflow supprime les étiquettes spécifiées du problème ou d’une demande de tirage. Les cartes qui sont des notes ne seront pas affectées.
+Every time a project card on a {% data variables.projects.projects_v1_board %} in your repository moves, this workflow will run. If the card is an issue or a pull request and is moved into the column that you specified, then the workflow will remove the specified label from the issue or a pull request. Cards that are notes will not be affected.
 
-Testez votre workflow en déplaçant un problème sur votre projet vers la colonne cible.
+Test your workflow out by moving an issue on your {% data variables.projects.projects_v1_board %} into the target column.
 
-1. Ouvrez un problème dans votre référentiel. Pour plus d’informations, consultez « [Création d’un problème](/github/managing-your-work-on-github/creating-an-issue) ».
-2. Étiquetez le problème avec les étiquettes que vous souhaitez supprimer du workflow. Pour plus d’informations, consultez « [Gestion des étiquettes](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests) ».
-3. Ajoutez le problème à la colonne de projet que vous avez spécifiée dans votre fichier de workflow. Pour plus d’informations, consultez « [Ajout de problèmes et de demandes de tirage à un tableau de projet](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board) ».
-4. Pour afficher l’exécution du workflow qui a été déclenchée en ajoutant le problème au projet, affichez l’historique de vos exécutions de workflow. Pour plus d’informations, consultez « [Affichage de l’historique des exécutions de workflows](/actions/managing-workflow-runs/viewing-workflow-run-history) ».
-5. Une fois le workflow terminé, le problème que vous avez ajouté à la colonne de projet doit avoir supprimé les étiquettes spécifiées.
+1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
+2. Label the issue with the label that you want the workflow to remove. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+3. Add the issue to the {% data variables.projects.projects_v1_board %} column that you specified in your workflow file. For more information, see "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)."
+4. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+5. When the workflow completes, the issue that you added to the project column should have the specified label removed.
 
-## Étapes suivantes
+## Next steps
 
-- Pour en savoir plus sur d’autres opérations que vous pouvez effectuer avec l’action`andymckay/labeler`, notamment l’ajout d’étiquettes ou l’annulation de cette action si le problème est affecté ou a une étiquette spécifique, consultez la [documentation de l’action `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler).
-- [Visitez GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) pour trouver des exemples de workflow utilisant cette action.
+- To learn more about additional things you can do with the `actions/github-script` action, see the [`actions/github-script` action documentation](https://github.com/marketplace/actions/github-script).
+- [Search GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) for examples of workflows using this action.
