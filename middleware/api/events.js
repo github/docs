@@ -4,10 +4,9 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { eventSchema, hydroNames } from '../../lib/schema-event.js'
 import catchMiddlewareError from '../catch-middleware-error.js'
-import { cacheControlFactory } from '../cache-control.js'
+import { noCacheControl } from '../cache-control.js'
 
 const router = express.Router()
-const noCacheControl = cacheControlFactory(0)
 const ajv = new Ajv()
 addFormats(ajv)
 const OMIT_FIELDS = ['type']
