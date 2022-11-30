@@ -4,13 +4,15 @@ intro: 'Nimm mithilfe Deines bevorzugten Texteditors wie z.B. [Atom](https://ato
 redirect_from:
   - /desktop/contributing-to-projects/making-changes-in-a-branch
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /managing-branches
   - /committing-and-reviewing-changes-to-your-project
   - /stashing-changes
-  - /viewing-the-branch-history
   - /pushing-changes-to-github
-shortTitle: Make changes in a branch
+  - /reverting-a-commit
+  - /cherry-picking-a-commit
+  - /managing-tags
+  - /viewing-the-branch-history
 ---
 

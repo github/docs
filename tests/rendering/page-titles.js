@@ -1,6 +1,5 @@
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import { getDOM } from '../helpers/supertest.js'
-import { jest } from '@jest/globals'
+const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
+const { getDOM } = require('../helpers/supertest')
 
 describe('page titles', () => {
   jest.setTimeout(300 * 1000)
@@ -16,9 +15,7 @@ describe('page titles', () => {
   })
 
   test('enterprise English article', async () => {
-    const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/user/github/authenticating-to-github/authorizing-oauth-apps`
-    )
+    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/authenticating-to-github/authorizing-oauth-apps`)
     expect($('title').text()).toBe('Authorizing OAuth Apps - GitHub Docs')
   })
 
@@ -46,7 +43,6 @@ describe('page titles', () => {
   // TODO enable this once translated content has synced with the versioning changes
   // Note the expected translations may need to be updated, since the English title changed
   // from `GitHub.com Help Documentation` to `GitHub Documentation`
-  // Docs Engineering issue: 967
   test.skip('displays only the site name on localized homepages', async () => {
     expect((await getDOM('/cn'))('title').text()).toBe('GitHub 帮助文档')
     expect((await getDOM('/ja'))('title').text()).toBe('GitHub ヘルプドキュメント')

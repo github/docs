@@ -1,6 +1,6 @@
 ---
 title: GitHub 上でプロジェクトを探索する
-intro: 'Discover interesting projects on {% data variables.product.product_name %} and contribute to open source by collaborating with other people.'
+intro: ''
 redirect_from:
   - /categories/stars/
   - /categories/87/articles/

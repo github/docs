@@ -13,7 +13,6 @@ redirect_from:
 topics:
   - Repositories
 ---
-
 ### Sobre mudar o branch-padrão
 
 Você pode escolher o branch-padrão para um repositório. O branch-padrão é o branch de base para pull requests e commits de código. Para obter mais informações sobre o branch padrão, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".
@@ -26,7 +25,7 @@ Você pode escolher o branch-padrão para um repositório. O branch-padrão é o
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
 
 Você também pode renomear o branch padrão. Para obter mais informações, consulte "[Renomear um branch](/github/administering-a-repository/renaming-a-branch).
 

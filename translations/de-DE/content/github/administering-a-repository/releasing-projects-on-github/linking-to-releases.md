@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. Finde den Release, den Du verknüpfen willst und klicke auf die Versionsnummer. ![Informationen zu Release-Tags](/assets/images/help/releases/release_tag_name.png)

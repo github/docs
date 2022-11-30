@@ -12,7 +12,6 @@ topics:
   - Identity
   - Access management
 ---
-
 ### 审查授权的 {% data variables.product.prodname_oauth_app %}
 
 {% data reusables.user_settings.access_settings %}

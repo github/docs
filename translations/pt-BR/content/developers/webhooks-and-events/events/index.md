@@ -2,9 +2,9 @@
 title: Eventos
 intro: 'Suas integrações podem assinar e reagir a eventos em {% data variables.product.prodname_dotcom %}.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Events
 children:

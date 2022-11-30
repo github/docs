@@ -11,7 +11,6 @@ versions:
 topics:
   - Profiles
 ---
-
 ### Contribuições que são contabilizadas
 
 #### Problemas, pull requests e discussões

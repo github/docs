@@ -11,7 +11,6 @@ versions:
 topics:
   - Profiles
 ---
-
 {% data reusables.profile.activity-overview-summary %} 詳細は「[プロフィールでコントリビューションを表示する](/articles/viewing-contributions-on-your-profile)」を参照してください。
 
 ![プロフィール上のアクティビティオーバービューセクション](/assets/images/help/profile/activity-overview-section.png)

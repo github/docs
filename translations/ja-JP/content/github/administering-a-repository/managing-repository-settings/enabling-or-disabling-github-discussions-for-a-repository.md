@@ -10,7 +10,6 @@ topics:
 redirect_from:
   - /github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository
 ---
-
 {% data reusables.discussions.beta %}
 
 ### リポジトリで Discussions を有効化または無効化する

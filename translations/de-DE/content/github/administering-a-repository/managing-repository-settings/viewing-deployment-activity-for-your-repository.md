@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% note %}
 
 **Hinweis:** Das Dashboard für Bereitstellungen liegt derzeit als Beta-Version vor und kann sich jederzeit ändern.

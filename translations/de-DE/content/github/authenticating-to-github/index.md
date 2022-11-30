@@ -18,7 +18,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 2FA
+  - 2fa
   - Identity
   - Access management
   - Usernames
@@ -32,4 +32,4 @@ children:
   - /managing-commit-signature-verification
   - /troubleshooting-commit-signature-verification
 ---
-
+### Inhaltsverzeichnis

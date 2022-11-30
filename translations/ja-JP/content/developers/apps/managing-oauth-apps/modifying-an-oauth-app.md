@@ -6,13 +6,12 @@ redirect_from:
   - /apps/managing-oauth-apps/modifying-an-oauth-app
   - /developers/apps/modifying-an-oauth-app
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - OAuth Apps
 ---
-
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}

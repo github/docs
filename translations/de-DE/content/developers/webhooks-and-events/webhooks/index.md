@@ -2,9 +2,9 @@
 title: Webhooks
 intro: 'Learn to set up, test, and secure webhooks to integrate with {% data variables.product.prodname_dotcom %}.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Webhooks
 children:

@@ -13,7 +13,6 @@ redirect_from:
 topics:
   - Repositories
 ---
-
 ### デフォルトブランチの変更について
 
 リポジトリのデフォルトブランチは選択できます。 デフォルトブランチは、プルリクエストやコードのコミットを行う基点となるブランチです。 デフォルトブランチの詳細については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
@@ -26,7 +25,7 @@ topics:
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
 
 デフォルトブランチの名前は変更することもできます。 詳しい情報については、「[ブランチの名前を変更する](/github/administering-a-repository/renaming-a-branch)」を参照してください。
 

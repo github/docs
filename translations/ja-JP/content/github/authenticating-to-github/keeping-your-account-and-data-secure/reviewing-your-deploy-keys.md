@@ -12,7 +12,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. 左サイドバーで [**Deploy keys**] をクリックします。 ![デプロイキーの設定](/assets/images/help/settings/settings-sidebar-deploy-keys.png)

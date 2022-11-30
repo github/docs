@@ -3,10 +3,9 @@ title: Introdução à API
 redirect_from:
   - /articles/getting-started-with-the-api
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Primeiros passos com a API
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para automatizar tarefas comuns, fazer backup dos seus dados ou criar integrações que estendem o {% data variables.product.product_name %}, você poderá usar a API do {% data variables.product.product_name %}.
@@ -16,7 +15,7 @@ Para obter mais informações sobre a API, consulte a [API REST do GitHub](/rest
 
 
 
-## Leia mais
+### Leia mais
 
-- "[Backup de um repositório](/articles/backing-up-a-repository)"{% ifversion fpt %}
+- "[Fazer backup de um repositório](/articles/backing-up-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Sobre integrações](/articles/about-integrations)"{% endif %}

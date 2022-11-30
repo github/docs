@@ -6,9 +6,8 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/launching-github-desktop-from-the-command-line
   - /desktop/installing-and-configuring-github-desktop/launching-github-desktop-from-the-command-line
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 ---
-
 {% mac %}
 
 1. Na barra de menu, selecione o menu **{% data variables.product.prodname_desktop %}** e, em seguida, clique em **Instalar Ferramenta da Linha de Comando**. ![Instalar opção de Ferramenta de Linha de Comando no menu suspenso {% data variables.product.prodname_desktop %}](/assets/images/help/desktop/mac-install-command-line-tool.png)

@@ -1,11 +1,11 @@
 ---
-title: GitHub Sponsors ガイド
+title: GitHub Sponsors guides
 shortTitle: ガイド
-intro: '{% data variables.product.prodname_sponsors %} を最大限に活用する方法を学びましょう。'
+intro: 'Learn how to make the most of {% data variables.product.prodname_sponsors %}.'
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 includeGuides:
   - /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
   - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization

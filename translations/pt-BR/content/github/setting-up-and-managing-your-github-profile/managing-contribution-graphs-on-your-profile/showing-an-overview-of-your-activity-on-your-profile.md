@@ -11,7 +11,6 @@ versions:
 topics:
   - Profiles
 ---
-
 {% data reusables.profile.activity-overview-summary %} Para obter mais informações, consulte "[Exibir contribuições no perfil](/articles/viewing-contributions-on-your-profile)".
 
 ![Seção Visão geral de atividade no perfil](/assets/images/help/profile/activity-overview-section.png)

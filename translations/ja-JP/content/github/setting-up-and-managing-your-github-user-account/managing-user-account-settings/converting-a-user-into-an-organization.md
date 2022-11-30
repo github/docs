@@ -12,7 +12,6 @@ versions:
 topics:
   - Accounts
 ---
-
 {% warning %}
 
 **警告**: ユーザを Organization に変換する前に、以下の点についてご注意ください:

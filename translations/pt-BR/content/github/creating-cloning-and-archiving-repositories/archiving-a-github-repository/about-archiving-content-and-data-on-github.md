@@ -9,7 +9,6 @@ versions:
 topics:
   - Repositories
 ---
-
 ### Persistência de repositórios públicos
 
 O {% data variables.product.product_name %} tem a intenção de manter os repositórios públicos disponíveis, a menos que você os remova. Em alguns casos, podemos tornar conteúdo público indisponível se, por exemplo:

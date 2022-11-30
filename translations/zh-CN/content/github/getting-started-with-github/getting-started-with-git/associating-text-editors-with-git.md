@@ -13,7 +13,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 {% mac %}
 
 ### 使用 Atom 作为编辑器

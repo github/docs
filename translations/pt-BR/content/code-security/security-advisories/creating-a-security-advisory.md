@@ -6,19 +6,16 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
-  fpt: '*'
-type: how_to
+  free-pro-team: '*'
 topics:
-  - Security advisories
-  - Vulnerabilities
-shortTitle: Criar consultorias
+  - Security
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode criar uma consultoria de segurança.
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-## Criar uma consultoria de segurança
+### Criar uma consultoria de segurança
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -31,7 +28,7 @@ Qualquer pessoa com permissões de administrador em um repositório pode criar u
 {% data reusables.repositories.security-advisory-edit-description %}
 11. Clique em **Criar rascunho de consultoria de segurança**. ![Botão para criar consultoria de segurança](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
-## Próximas etapas
+### Próximas etapas
 
 - Faça um comentário sobre o rascunho da consultoria de segurança para discutir a vulnerabilidade com sua equipe.
 - Adicione colaboradores à consultora de segurança. Para obter mais informações, consulte "[Adicionar um colaborador a uma consultoria de segurança](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory)".

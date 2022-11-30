@@ -1,9 +1,9 @@
 ---
-title: Verificando ou aprovando um domínio para a sua conta corporativa
-intro: 'Você pode verificar a propriedade de domínios com {% data variables.product.company_short %} para confirmar a identidade de organizações pertencentes à sua conta corporativa. Você também pode aprovar domínios que {% data variables.product.company_short %} pode enviar notificações de e-mail para integrantes de organizações pertencentes à sua conta corporativa.'
-product: '{% data reusables.gated-features.verify-and-approve-domain %}'
+title: Verifying or approving a domain for your enterprise account
+intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm the identity of organizations owned by your enterprise account. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of organizations owned by your enterprise account.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain
@@ -16,25 +16,23 @@ topics:
   - Notifications
   - Organizations
   - Policy
-shortTitle: Verificar ou aprovar um domínio
 ---
-
-## Sobre a verificação do domínio
+### Sobre a verificação do domínio
 
 {% data reusables.enterprise-accounts.domains-about-verification %}
 
-## Sobre a aprovação de domínio
+### About domain approval
 
 {% data reusables.enterprise-accounts.domains-about-approval %}
 
-## Verificando um domínio para a conta corporativa
+### Verifying a domain for your enterprise account
 
 {% data reusables.enterprise-accounts.domains-verifying %}
 
-## Aprovando um domínio para a sua conta corporativa
+### Approving a domain for your enterprise account
 
 {% data reusables.enterprise-accounts.domains-approving %}
 
-## Removendo um domínio aprovado ou verificado
+### Removing an approved or verified domain
 
 {% data reusables.enterprise-accounts.domains-removing %}

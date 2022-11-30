@@ -5,13 +5,12 @@ redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Teamのアクセスの管理
 ---
 
 {% warning %}
@@ -22,7 +21,7 @@ shortTitle: Teamのアクセスの管理
 
 {% endwarning %}
 
-## プロジェクトボードへのアクセスをチームに付与する
+### プロジェクトボードへのアクセスをチームに付与する
 
 あるプロジェクトボードに対する同じ権限レベルをチーム全体に付与することができます。
 
@@ -32,8 +31,8 @@ shortTitle: Teamのアクセスの管理
 
 {% endnote %}
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -42,12 +41,12 @@ shortTitle: Teamのアクセスの管理
 9. チームを追加する場合は、[**Add a team: Select team**] をクリックします。 次に、ドロップダウン メニューからチームを選択するか、追加したいチームを検索します。 ![Organization のチームのリストが表示される [Add a team] ドロップダウン メニュー](/assets/images/help/projects/add-a-team.png)
 10. チーム名の隣にあるドロップダウン メニューを使って、目的の権限レベルを [**Read**]、[**Write**]、[**Admin**] から選択します。 ![[Read]、[Write]、[Admin] のオプションがあるチームの権限](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
-## プロジェクトボードへのチームのアクセスを設定する
+### プロジェクトボードへのチームのアクセスを設定する
 
 チームのプロジェクトボードへのアクセスが親チームから継承されている場合は、その子チームへのアクセスを更新するために、親チームのプロジェクトボードへのアクセスを変更する必要があります。
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. チームの会話の上にある {% octicon "project" aria-label="The Projects icon" %}[**Projects**] をクリックします。 ![チームの [Repositories] タブ](/assets/images/help/organizations/team-project-board-button.png)
 5. 権限レベルを変更するには、更新するプロジェクトボードの右にあるドロップダウンを使用します。 プロジェクトボードを削除するには、[**{% octicon "trash" aria-label="The trash icon" %}**] をクリックします。 ![チームからプロジェクトボードを削除する [Trash] ボタン](/assets/images/help/organizations/trash-button.png)

@@ -1,0 +1,1 @@
+1. En la barra lateral izquierda, da clic en **Administradores de la App**. ![Botón de administradores de la app en la barra lateral](/assets/images/help/organizations/app-managers-sidebar-button.png)

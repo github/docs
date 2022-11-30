@@ -1,0 +1,1 @@
+Si tienes permisos administrativos en un repositorio, puedes cambiar la rama predeterminada para que sea otra rama existente. Para obtener más información, consulta la sección "[Configurar la rama predeterminada](/github/administering-a-repository/setting-the-default-branch)".

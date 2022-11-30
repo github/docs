@@ -1,16 +1,16 @@
 ---
-title: Administrar los paquetes de GitHub utilizando flujos de trabajo de GitHub Actions
-shortTitle: Administrar los paquetes de GitHub con flujos de trabajo
-intro: 'Puedes publicar con seguridad y consumir paquetes si creas flujos de trabajo personalizados que también puedan compilar, probar y desplegar tu código.'
+title: Managing GitHub packages using GitHub Actions workflows
+shortTitle: Managing GitHub packages with workflows
+intro: 'You can safely publish and consume packages by building custom workflows that can also build, test, and deploy your code.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-children:
-  - /publishing-and-installing-a-package-with-github-actions
-  - /example-workflows-for-publishing-a-package
-  - /about-github-packages-and-github-actions
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
+
+{% link_in_list /publishing-and-installing-a-package-with-github-actions %}
+{% link_in_list /example-workflows-for-publishing-a-package %}
+{% link_in_list /about-github-packages-and-github-actions %}

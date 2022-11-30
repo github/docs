@@ -1,0 +1,21 @@
+---
+date: '2020-02-27'
+sections:
+  security_fixes:
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/19116, https://github.com/github/enterprise2/pull/19110, https://github.com/github/enterprise2/pull/19154, https://github.com/github/enterprise2/pull/19142 {% endcomment %}'
+  bugs:
+    - 'El hacer restauraciones desde los respaldos fallará con un error de tipo `Invalid RDB version number`. {% comment %} https://github.com/github/enterprise2/pull/19117, https://github.com/github/enterprise2/pull/19109 {% endcomment %}'
+    - 'El mejorar una replica de HA estancó indefinidamente la espera para que iniciara MySQL. {% comment %} https://github.com/github/enterprise2/pull/19168, https://github.com/github/enterprise2/pull/19101 {% endcomment %}'
+    - 'Los comentarios de revisión de las PR con valores inesperados para "position" o "original_position" ocasionó que fallaran las importaciones. {% comment %} https://github.com/github/github/pull/135439, https://github.com/github/github/pull/135374 {% endcomment %}'
+    - 'Las entradas de webhook duplicadas en la base de datos podría causar que las mejoras de las versiones previas fallaran. {% comment %} https://github.com/github/hookshot/pull/1541, https://github.com/github/hookshot/pull/1426, https://github.com/github/hookshot/pull/1540 {% endcomment %}'
+  known_issues:
+    - 'En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Las reglas de cortafuegos personalizadas no se mantienen durante una mejora. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Las propuestas no pueden cerrarse si contienen un enlace permanente a un blob en el mismo repositorio en donde la ruta es mayor a 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Cuando se sube información a un gist, una excepción pudo haberse activado durante el gancho de post-recepción. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Las mejoras y actualizaciones de configuración fallarán si se personalizaron las configuraciones en segundo plano de los trabajadores. {% comment %} https://github.com/github/enterprise2/issues/19119, {% endcomment %}'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Cuando se actualiza desde versiones anteriores, los trabajadores de jobs en segundo plano no pueden generar, lo cual impide las características esenciales tales como fusionar las solicitudes de cambios. (actualizado 2020-04-07) {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Las alertas de seguridad no se reportan cuando se sube información a un repositorio en la líneade comandos. (actualizado 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'La gráficade dependencias no detecta las dependencias cuando se despliega en una configuración de un agrupamiento con nodos múltiples de Redis. (updated 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

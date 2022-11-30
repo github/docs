@@ -9,7 +9,6 @@ versions:
 topics:
   - SSH
 ---
-
 {% tip %}
 
 **{% data variables.product.prodname_ghe_server %} 用户**：目前不支持经 SSH 通过 HTTPS 端口访问 {% data variables.product.prodname_ghe_server %}。

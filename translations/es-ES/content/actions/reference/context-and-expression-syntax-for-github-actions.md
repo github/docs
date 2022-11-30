@@ -12,7 +12,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,9 +32,7 @@ Debes usar una sintaxis específica para decirle a {% data variables.product.pro
 
 {% data reusables.github-actions.expression-syntax-if %} Para obtener más información acerca de los condicionales `if`, consulta la sección "[sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
-{% data reusables.github-actions.context-injection-warning %}
-
-##### Expresión de ejemplo en un condicional `if`
+#### Expresión de ejemplo en un condicional `if`
 
 ```yaml
 steps:
@@ -43,12 +40,12 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-##### Ejemplo de parámetros en una variable de entorno
+#### Ejemplo de parámetros en una variable de entorno
 
 {% raw %}
 ```yaml
 env:
-  MY_ENV_VAR: ${{ <expression> }}
+  my_env_var: ${{ <expression> }}
 ```
 {% endraw %}
 
@@ -76,7 +73,7 @@ Como parte de una expresión, puedes acceder a la información del contexto usan
 - Sintaxis de índice: `github['sha']`
 - Sintaxis de desreferencia de propiedad: `github.sha`
 
-Para usar la sintaxis de desreferencia de propiedad, el nombre de la propiedad debe cumplir con lo siguiente:
+Para usar la sintaxis de desreferencia de propiedad, el nombre de la propiedad debe cumplir los siguientes requisitos:
 - comenzar con `a-Z` o `_`.
 - estar seguida por `a-Z` `0-9` `-` o `_`.
 
@@ -89,7 +86,6 @@ Para usar la sintaxis de desreferencia de propiedad, el nombre de la propiedad d
 El contexto de `github` contiene información sobre la ejecución del flujo de trabajo y el evento que desencadenó la ejecución. Puedes leer la mayoría de los datos de contexto de `github` en las variables del entorno. Para más información sobre las variables de entorno, consulta "[Utilizando variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
 {% data reusables.github-actions.github-context-warning %}
-{% data reusables.github-actions.context-injection-warning %}
 
 | Nombre de la propiedad    | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -128,7 +124,7 @@ Si quieres usar el valor de una variable de entorno dentro de un ejecutor, usa e
 
 #### contexto de `job`
 
-El contexto de `job` contiene información sobre el trabajo de ejecución actual.
+El contexto `trabajo` contiene información sobre el trabajo de ejecución actual.
 
 | Nombre de la propiedad                    | Tipo        | Descripción                                                                                                                                                                                                                                                                            |
 | ----------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -144,7 +140,7 @@ El contexto de `job` contiene información sobre el trabajo de ejecución actual
 
 #### contexto de `steps`
 
-El contexto de `steps` contiene información sobre los pasos del trabajo actual que ya se han ejecutado.
+El contexto `steps` contiene información sobre los pasos en el trabajo actual que ya se ha ejecutado.
 
 | Nombre de la propiedad                              | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                          |
 | --------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -176,9 +172,9 @@ El contexto `needs` contiene salidas de todos los jobs que se definen como depen
 | `needs.<job id>.outputs.<output name>` | `secuencia` | El valor de un resultado específico para un job del cual depende el job actual.                                                 |
 | `needs.<job id>.result`                      | `secuencia` | El resultado de un job del cual depende el job actual. Los valores posibles son `success`, `failure`, `cancelled`, o `skipped`. |
 
-##### Ejemplo de impresión de información de contexto de un archivo de registro
+#### Ejemplo de impresión de información de contexto de un archivo de registro
 
-Para revisar la información accesible en cada contexto, puedes utilizar este ejemplo de archivo de flujo de trabajo.
+Para inspeccionar la información accesible en cada contexto, puedes utilizar este ejemplo de archivo de flujo de trabajo.
 
 {% data reusables.github-actions.github-context-warning %}
 
@@ -229,7 +225,7 @@ Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `num
 | `number`      | Cualquier formato de número compatible con JSON.                                        |
 | `secuencia`   | Debes usar comillas simples. Escapar comillas simples literales con una comilla simple. |
 
-##### Ejemplo
+#### Ejemplo
 
 {% raw %}
 ```yaml
@@ -279,7 +275,7 @@ env:
 
 ### Funciones
 
-{% data variables.product.prodname_dotcom %} ofrece un conjunto de funciones integradas que puedes usar en expresiones. Algunas funciones fusionan valores en una cadena para realizar las comparaciones. {% data variables.product.prodname_dotcom %} fusiona los tipos de datos con una cadena usando estas conversiones:
+{% data variables.product.prodname_dotcom %} ofrece un conjunto de funciones integradas que puedes usar en expresiones. Algunas funciones fusionan valores en una cadena para realizar las comparaciones. {% data variables.product.prodname_dotcom %} fusiona tipos de datos con una cadena usando las siguientes conversiones:
 
 | Tipo     | Resultado                                         |
 | -------- | ------------------------------------------------- |
@@ -307,7 +303,7 @@ Arroja `true` si `search` contiene `item`. Si `search` es una matriz, esta funci
 
 `startsWith( searchString, searchValue )`
 
-Arroja `true` cuando `searchString` empieza con `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
+Devuelve `verdadero` cuando `searchString` contiene `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
 
 ##### Ejemplo
 
@@ -317,7 +313,7 @@ Arroja `true` cuando `searchString` empieza con `searchValue`. Esta función no 
 
 `endsWith( searchString, searchValue )`
 
-Arroja `true` si `searchString` termina con `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
+Devuelve `verdadero` si `searchString` contiene `searchValue`. Esta función no distingue mayúsculas de minúsculas. Fusiona valores en una cadena.
 
 ##### Ejemplo
 
@@ -327,11 +323,11 @@ Arroja `true` si `searchString` termina con `searchValue`. Esta función no dist
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Reemplaza valores en la `string`, con la variable `replaceValueN`. Las variables en la `string` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `string`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar las llaves utilizando llaves dobles.
+Reemplaza valores en la `cadena`, con la variable `replaceValueN`. Las variables en la `cadena` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `cadena`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar las llaves utilizando llaves dobles.
 
 ##### Ejemplo
 
-Arroja 'Hello Mona the Octocat'
+Devuelve 'Hello Mona the Octocat'
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
@@ -359,7 +355,7 @@ El valor para `array` puede ser una matriz o una cadena. Todos los valores en `a
 
 `toJSON(value)`
 
-Arroja una representación JSON con formato mejorado de `value`. Puedes usar esta función para depurar la información suministrada en contextos.
+Devuelve una representación JSON con formato mejorado de `valor`. Puedes usar esta función para depurar la información suministrada en contextos.
 
 ##### Ejemplo
 
@@ -440,7 +436,7 @@ Crea un hash para cualquier archivo de `package-lock.json` y de `Gemfile.lock` e
 
 ### Funciones de verificación de estado del trabajo
 
-Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if`. Si la expresión `if` no contiene ninguna de las funciones de estado, se obtendrá automáticamente con `success()`. Para obtener información sobre los condicionales `if`, consulta "[Sintaxis de flujo de trabajo para acciones de GitHub](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Si la expresión `if` no contiene ninguna de las funciones de estado, se obtendrá automáticamente con `success()`. Para obtener información sobre los condicionales `if`, consulta "[Sintaxis de flujo de trabajo para acciones de GitHub](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
 #### success
 
@@ -467,7 +463,7 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 #### cancelled
 
-Arroja `true` si se canceló el flujo de trabajo.
+Devuelve `verdadero` si se canceló el flujo de trabajo.
 
 ##### Ejemplo
 
@@ -502,4 +498,4 @@ Por ejemplo, considera una matriz de objetos llamada `fruits`.
 ]
 ```
 
-El filtro `fruits.*.name` arroja la matriz `[ "apple", "orange", "pear" ]`
+El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`

@@ -5,15 +5,14 @@ redirect_from:
   - /articles/converting-an-organization-into-a-user
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-into-a-user
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 将组织转换为用户
 ---
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 1. [注册](/articles/signing-up-for-a-new-github-account)新 GitHub 用户帐户。
 2. [将用户的角色更改为所有者](/articles/changing-a-person-s-role-to-owner)。

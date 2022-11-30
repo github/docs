@@ -7,9 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 2FA
+  - 2fa
 ---
-
 お住まいの国でテキストメッセージによる 2 要素認証がサポートされていない場合、TOTP モバイルアプリケーションにより認証を設定できます。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
 
 ### SMS 認証がサポートされている国

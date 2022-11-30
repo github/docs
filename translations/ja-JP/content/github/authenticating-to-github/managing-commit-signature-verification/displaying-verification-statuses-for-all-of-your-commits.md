@@ -10,7 +10,6 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits
 ---
-
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
 ### 警戒モードについて

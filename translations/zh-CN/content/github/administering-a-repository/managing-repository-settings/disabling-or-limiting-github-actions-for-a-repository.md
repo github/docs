@@ -10,7 +10,6 @@ topics:
 redirect_from:
   - /github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository
 ---
-
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 

@@ -13,7 +13,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% mac %}
 
 ### 将您的 GPG 密钥告知 Git

@@ -12,7 +12,6 @@ versions:
 topics:
   - SSH
 ---
-
 Ao usar uma chave não verificada para operações no Git, será solicitada uma auditoria de suas chaves SSH.
 
 ```shell

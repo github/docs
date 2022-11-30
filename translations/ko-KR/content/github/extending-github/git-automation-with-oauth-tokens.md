@@ -6,19 +6,18 @@ redirect_from:
   - /articles/git-automation-with-oauth-tokens
 intro: 'You can use OAuth tokens to interact with {% data variables.product.product_name %} via automated scripts.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Automate with OAuth tokens
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
-## Step 1: Get an OAuth token
+### Step 1: Get an OAuth token
 
 Create a personal access token on your application settings page. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 {% tip %}
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 **팁:**
 - You must verify your email address before you can create a personal access token. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -28,9 +27,9 @@ Create a personal access token on your application settings page. For more infor
 
 {% endtip %}
 
-{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-## Step 2: Clone a repository
+### Step 2: Clone a repository
 
 {% data reusables.command_line.providing-token-as-password %}
 
@@ -42,6 +41,6 @@ To avoid these prompts, you can use Git password caching. For information, see "
 
 {% endwarning %}
 
-## 더 읽을거리
+### 더 읽을거리
 
 - "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"

@@ -5,15 +5,13 @@ redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
-  ghes: '*'
-  ghae: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
-shortTitle: Prepare a ticket
 ---
-
 Bevor Sie ein Ticket absenden, sollten Sie folgende Schritte durchführen:
 
 - Sammle Informationen, die dem {% data variables.contact.github_support %} helfen können, das Problem zu verfolgen, zu priorisieren, zu reproduzieren oder zu untersuchen.
@@ -23,7 +21,7 @@ Bevor Sie ein Ticket absenden, sollten Sie folgende Schritte durchführen:
 - Stelle fest, ob es in irgend einer laufenden Kommunikation mit {% data variables.contact.github_support %} eine vorhandene Ticketnummer gibt.
 - Bestimmen Sie die am besten geeignete Person zur Kontaktaufnahme mit dem {% data variables.contact.github_support %}.
 
-## Ansprechpartner auswählen
+### Ansprechpartner auswählen
 
 Die Person die mit dem {% data variables.contact.github_support %} Kontakt aufnimmt, sollte speziell für Tickets mit Priorität „{% data variables.product.support_ticket_priority_urgent %}“ (dringend):
 

@@ -1,8 +1,5 @@
-import { getDOM } from '../helpers/supertest.js'
-import languages from '../../lib/languages.js'
-import { jest } from '@jest/globals'
-
-jest.useFakeTimers()
+const { getDOM } = require('../helpers/supertest')
+const languages = require('../../lib/languages')
 
 describe('<head>', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -13,7 +10,7 @@ describe('<head>', () => {
     expect($hreflangs.length).toEqual(Object.keys(languages).length)
     expect($('link[href="https://docs.github.com/cn"]').length).toBe(1)
     expect($('link[href="https://docs.github.com/ja"]').length).toBe(1)
-    expect($('link[hrefLang="en"]').length).toBe(1)
+    expect($('link[hreflang="en"]').length).toBe(1)
   })
 
   test('includes page intro in `description` meta tag', async () => {
@@ -26,14 +23,8 @@ describe('<head>', () => {
     const $ = await getDOM('/en/articles/about-pull-request-merges')
     const $description = $('meta[name="description"]')
     // plain text intro
-    expect(
-      $description.attr('content').startsWith('You can merge pull requests by retaining')
-    ).toBe(true)
+    expect($description.attr('content').startsWith('You can merge pull requests by retaining')).toBe(true)
     // HTML intro
-    expect(
-      $('[data-testid="lead"]')
-        .html()
-        .startsWith('<p>You can <a href="/articles/merging-a-pull-request">merge pull requests</a>')
-    )
+    expect($('div.lead-mktg').html().startsWith('<p>You can <a href="/articles/merging-a-pull-request">merge pull requests</a>'))
   })
 })

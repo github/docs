@@ -1,1 +1,0 @@
-Para obter mais informações sobre a aprovação de execuções de fluxo de trabalho para as quais esta política se aplica, consulte "[Aprovando execuções de fluxo de trabalho a partir de bifurcações públicas](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)".

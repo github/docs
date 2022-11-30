@@ -8,7 +8,6 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account
 ---
-
 ### セキュリティおよび分析設定の管理について
 
 {% data variables.product.prodname_dotcom %} を使用してリポジトリを保護できます。 このトピックでは、既存または新規のすべてのリポジトリのセキュリティおよび分析機能を管理する方法について説明します。
@@ -19,7 +18,7 @@ redirect_from:
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-For an overview of repository-level security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
+リポジトリレベルのセキュリティの概要については、「[リポジトリのセキュリティ保護について](/github/administering-a-repository/about-securing-your-repository)」を参照してください。
 
 ### 既存のリポジトリに対して機能を有効または無効にする
 

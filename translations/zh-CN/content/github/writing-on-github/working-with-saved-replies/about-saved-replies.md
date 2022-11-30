@@ -5,11 +5,10 @@ redirect_from:
   - /articles/about-saved-replies
   - /github/writing-on-github/about-saved-replies
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
-
 ![已保存回复](/assets/images/help/settings/saved-replies.png)
 
 已保存回复用于创建可重复使用的议题和拉取请求响应。 创建回复作为常用响应可节省时间。
@@ -20,7 +19,7 @@ versions:
 
 您也可以使用 {% data variables.product.product_name %} 提供“重复议题”已保存回复来将议题标记为重复，并用类似的议题跟踪它。
 
-## 延伸阅读
+### 延伸阅读
 
 - "[创建已保存回复](/articles/creating-a-saved-reply)"
 - "[使用已保存回复](/articles/using-saved-replies)"

@@ -100,6 +100,7 @@ children:
   - /deploying-to-amazon-elastic-container-service
   - /deploying-to-azure-app-service
   - /deploying-to-google-kubernetes-engine
+  - /deploying-to-google-kubernetes-engine
   - /using-github-actions-for-project-management
   - /closing-inactive-issues
   - /scheduling-issue-creation
@@ -109,3 +110,4 @@ children:
   - /removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /managing-github-actions-with-github-cli
 ---
+

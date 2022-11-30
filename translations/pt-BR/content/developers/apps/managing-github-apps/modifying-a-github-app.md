@@ -6,13 +6,12 @@ redirect_from:
   - /apps/managing-github-apps/modifying-a-github-app
   - /developers/apps/modifying-a-github-app
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - GitHub Apps
 ---
-
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}

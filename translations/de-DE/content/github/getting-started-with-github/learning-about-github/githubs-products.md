@@ -16,7 +16,6 @@ topics:
   - Desktop
   - Security
 ---
-
 ### About {% data variables.product.prodname_dotcom %}'s products
 
 {% data variables.product.prodname_dotcom %} bietet kostenlose und kostenpflichtige Produkte an. Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {% data variables.product.pricing_url %}. {% data reusables.products.product-roadmap %}

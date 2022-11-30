@@ -13,7 +13,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 1. Para assinar uma tag, adicione `-s` ao comando `git tag`.

@@ -1,0 +1,9 @@
+<nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  {%- for breadcrumb in breadcrumbs -%}
+    {%- if breadcrumb.href == '' -%}
+     <span title="{{ breadcrumb.documentType }}: {{ breadcrumb.title }}">{{ breadcrumb.title }}</span>
+    {%- else -%}
+      <a title="{{ breadcrumb.documentType }}: {{ breadcrumb.title }}" href="{{ breadcrumb.href }}" class="d-inline-block {% if breadcrumb.href == currentPath %}color-text-tertiary{% endif %}">{{ breadcrumb.title }}</a>
+    {%- endif -%}
+  {%- endfor -%}
+</nav>

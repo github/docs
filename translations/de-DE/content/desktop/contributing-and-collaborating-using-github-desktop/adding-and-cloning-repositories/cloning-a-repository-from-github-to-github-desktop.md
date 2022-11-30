@@ -5,10 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop
 versions:
-  fpt: '*'
-shortTitle: Clone a GitHub repo
+  free-pro-team: '*'
 ---
-
 {% tip %}
 
 **Tipp:** Darüber hinaus kannst Du {% data variables.product.prodname_desktop %} verwenden, um Repositorys zu klonen, die sich auf {% data variables.product.prodname_dotcom %} befinden.  Weitere Informationen findest Du unter „[Repository von {% data variables.product.prodname_desktop %} klonen](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)“.
@@ -17,7 +15,9 @@ shortTitle: Clone a GitHub repo
 
 {% mac %}
 
-1. Melde Dich bei {% data variables.product.product_location %} und {% data variables.product.prodname_desktop %} an, bevor Du den Klonvorgang startest.
+1. Sign in to
+
+{% data variables.product.product_location %} and {% data variables.product.prodname_desktop %} before you start to clone.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. Klicke auf **Choose...** (Auswählen), und navigiere mithilfe des Finder-Fensters zu einem lokalen Pfad, wo Du das Repository klonen möchtest. ![Die Schaltfläche „choose“ (Auswählen) auf der URL-Registerkarte](/assets/images/help/desktop/clone-choose-button-url-mac.png)
@@ -34,7 +34,9 @@ shortTitle: Clone a GitHub repo
 
 {% windows %}
 
-1. Melde Dich bei {% data variables.product.product_location %} und {% data variables.product.prodname_desktop %} an, bevor Du den Klonvorgang startest.
+1. Sign in to
+
+{% data variables.product.product_location %} and {% data variables.product.prodname_desktop %} before you start to clone.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. Klicke auf **Choose...** (Auswählen), und navigiere mithilfe des Windows-Explorers zu einem lokalen Pfad, wohin Du das Repository klonen möchtest. ![Die Schaltfläche „choose“ (Auswählen)](/assets/images/help/desktop/clone-choose-button-url-win.png)

@@ -8,12 +8,10 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Enterprise
-shortTitle: View organization audit logs
 ---
-
 Jeder Eintrag im Auditprotokoll zeigt die zutreffenden Informationen zu einem Ereignis an, beispielsweise:
 
 - die Organisation, in der eine Aktion ausgeführt wurde,

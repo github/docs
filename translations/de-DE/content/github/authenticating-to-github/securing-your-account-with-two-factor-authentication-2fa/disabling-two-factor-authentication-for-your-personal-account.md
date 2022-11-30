@@ -8,9 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2FA
+  - 2fa
 ---
-
 Wir empfehlen dringend, Dein Konto mit der Zwei-Faktor-Authentifizierung zu schützen. Wenn Du die 2FA deaktivieren musst, empfehlen wir, sie so bald wie möglich wieder zu aktivieren.
 
 {% warning %}

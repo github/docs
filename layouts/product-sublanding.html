@@ -1,0 +1,122 @@
+<!doctype html>
+{% assign guideTypes = site.data.ui.product_sublanding.guide_types %}
+
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
+  {% include head %}
+
+  <body class="d-lg-flex">
+    {% include sidebar %}
+
+    <main class="width-full overflow-auto">
+      {% include header %}
+      {% include deprecation-banner %}
+
+      <div class="color-bg-tertiary">
+        <div class="container-xl px-3 px-md-6 pt-3 pb-2">
+          <header class="d-flex gutter mb-6">
+            <div class="col-12">
+              <span class="text-mono color-text-secondary text-uppercase">{% include breadcrumbs %}</span>
+              <h1 class="my-3 font-mktg">{% data ui.product_sublanding.guides %}</h1>
+              <div class="lead-mktg color-text-secondary f4 description-text">{{ page.intro }}</div>
+            </div>
+          </header>
+
+          <!-- Featured track -->
+          {% if page.featuredTrack %}
+          {% assign featuredTrack = page.featuredTrack %}
+          <div class="mb-6 position-relative overflow-hidden mr-n3 ml-n3 px-3">
+            <ul class="list-style-none d-flex flex-nowrap overflow-x-scroll px-2 feature-track">
+              <li class="px-2 d-flex flex-shrink-0">
+                <div class="d-inline-block Box p-5 bg-gradient--blue-pink color-text-inverse">
+                  <div class="circle color-text-inverse d-inline-flex" style="border: 2px white solid;">{% octicon "star-fill" height="24" class="v-align-middle m-2"%}</div>
+                  <h3 class="font-mktg h3-mktg my-4">{{ featuredTrack.title }}</h3>
+                  <div class="lead-mktg color-text-inverse f5 my-4">{{ featuredTrack.description }}</div>
+                  <a class="d-inline-block border color-border-inverse color-text-inverse px-4 py-2 f5 no-underline text-bold" role="button" href="{{ featuredTrack.guides[0].href }}?learn={{ featuredTrack.trackName }}">
+                    <span class="mr-2">{% octicon "arrow-right" height="20" %}</span>
+                    {% data ui.product_sublanding.start_path %}
+                  </a>
+                </div>
+              </li>
+              {% for guide in featuredTrack.guides %}
+                <li class="px-2 d-flex flex-shrink-0">
+                  <a href="{{ guide.href }}?learn={{ featuredTrack.trackName }}" class="d-inline-block Box p-5 color-bg-primary color-border-primary no-underline">
+                    <div class="d-flex flex-justify-between flex-items-center">
+                      <div class="circle color-bg-primary color-text-link border-gradient--pink-blue-dark d-inline-flex">
+                        <span class="m-2 f2 lh-condensed-ultra text-center text-bold step-circle-text" style="width: 24px; height: 24px;">{{ forloop.index }}</span>
+                      </div>
+                      <div class="color-text-tertiary h6 text-uppercase">{{ guideTypes[guide.page.type] }}</div>
+                    </div>
+                    <h3 class="font-mktg h3-mktg my-4 color-text-primary">{{ guide.title }}</h3>
+                    <div class="lead-mktg color-text-secondary f5 my-4 truncate-overflow-8">{{ guide.intro }}</div>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+            <div class="position-absolute top-0 bottom-0 left-0 ml-3 pl-3 fade-background-left"></div>
+            <div class="position-absolute top-0 bottom-0 right-0 mr-3 pr-3 fade-background-right"></div>
+          </div>
+          {% endif %}
+
+          {% assign learningTracks = page.learningTracks %}
+          {% if learningTracks and learningTracks.size > 0 %}
+          <div class="border-top py-6">
+            <h2 class="mb-3 font-mktg" id="learning-paths"><a href="#learning-paths">{% data ui.product_sublanding.learning_paths %}</a></h2>
+            <div class="lead-mktg color-text-secondary f4 description-text">{% data ui.product_sublanding.learning_paths_desc %}</div>
+
+            <!-- Learning tracks -->
+            <div class="d-flex flex-wrap flex-items-start my-5 gutter">
+              {% for track in learningTracks %}
+                <div class="my-3 px-4 col-12 col-md-6 learning-track">
+                  <div class="Box js-show-more-container d-flex flex-column">
+                    <div class="Box-header bg-gradient--blue-pink p-4 d-flex flex-1 flex-items-start flex-wrap">
+                      <div class="d-flex flex-auto flex-items-start col-8 col-md-12 col-xl-8">
+                        <div class="my-xl-0 mr-xl-3">
+                          <h5 class="mb-3 color-text-inverse font-mktg h3-mktg ">
+                            {{ track.title }}
+                          </h5>
+                          <p class="color-text-inverse truncate-overflow-3 learning-track--description">{{ track.description }}</p>
+                        </div>
+                      </div>
+                      <a class="d-inline-block border color-border-inverse color-text-inverse px-3 py-2 f5 no-underline text-bold no-wrap mt-3 mt-md-0" role="button" href="{{ track.guides[0].href }}?learn={{ track.trackName }}">
+                        {% data ui.product_sublanding.start %}
+                        <span class="ml-2">{% octicon "arrow-right" height="20" %}</span>
+                      </a>
+                    </div>
+                    <div>
+                      {% for guide in track.guides %}
+                        <a class="Box-row d-flex flex-items-center color-text-primary no-underline js-show-more-item {% if forloop.index > 4 %}d-none{% endif %}" href="{{ guide.href }}?learn={{ track.trackName }}">
+                          <div class="circle color-bg-tertiary d-inline-flex mr-4">
+                            <span class="m-2 f3 lh-condensed-ultra text-center text-bold step-circle-text" style="min-width: 20px; height: 20px;">{{ forloop.index }}</span>
+                          </div>
+                          <h5 class="flex-auto pr-2">{{ guide.title }}</h5>
+                          <div class="color-text-tertiary h6 text-uppercase">{{ guideTypes[guide.page.type] }}</div>
+                        </a>
+                      {% endfor %}
+                    </div>
+                    {% if track.guides.size > 4 %}
+                      <a class="Box-footer btn-link border-top-0 position-relative text-center text-bold color-text-link pt-1 pb-3 col-12 js-show-more-button">
+                        <div class="position-absolute left-0 right-0 py-5 fade-background-bottom" style="; bottom: 50px;"></div>
+                        <span>{{ track.guides.size | minus: 4 }} {% data ui.product_sublanding.more_guides %}</span>
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if page.includeGuides %}
+        <div class="py-6 border-top color-border-primary">
+          {% include article-cards %}
+        </div>
+      {% endif %}
+
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
+    </main>
+  </body>
+</html>

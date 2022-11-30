@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 Personen mit Administratorberechtigungen für ein Repository können die automatische Löschung von Branches aktivieren oder deaktivieren.
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% tip %}
 
 **ヒント**:

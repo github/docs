@@ -13,7 +13,6 @@ versions:
 topics:
   - SSH
 ---
-
 {% mac %}
 
 If you [configured your SSH passphrase with the macOS keychain](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain), you may be able to recover it.

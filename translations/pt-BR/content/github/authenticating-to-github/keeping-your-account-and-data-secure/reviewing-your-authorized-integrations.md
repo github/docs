@@ -12,7 +12,6 @@ topics:
   - Identity
   - Access management
 ---
-
 ### Revisar os {% data variables.product.prodname_oauth_app %} autorizados
 
 {% data reusables.user_settings.access_settings %}

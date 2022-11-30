@@ -8,12 +8,10 @@ redirect_from:
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Marketplace
-shortTitle: View listing metrics
 ---
-
 You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
 
 {% note %}
@@ -22,7 +20,7 @@ You can view metrics for the past day (24 hours), week, month, or for the entire
 
 {% endnote %}
 
-## Performance metrics
+### Performance metrics
 
 The Insights page displays these performance metrics, for the selected time period:
 
@@ -36,7 +34,7 @@ The Insights page displays these performance metrics, for the selected time peri
 
 {% endnote %}
 
-### Conversion performance
+#### Conversion performance
 
 * **Unique visitors to landing page:** Number of people who viewed your GitHub App's landing page.
 * **Unique visitors to checkout page:** Number of people who viewed one of your GitHub App's checkout pages.
@@ -49,7 +47,8 @@ To access {% data variables.product.prodname_marketplace %} Insights:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view Insights for.
+4. Select the
+{% data variables.product.prodname_github_app %} that you'd like to view Insights for.
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. Click the **Insights** tab.
 7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Insights page. ![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)

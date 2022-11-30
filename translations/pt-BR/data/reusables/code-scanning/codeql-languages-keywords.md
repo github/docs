@@ -1,1 +1,1 @@
-`cpp`, `csharp`, `go`, `java`, `javascript` e `python`
+`cpp`, `csharp`, `go`, `java`, `javascript`, and `python`

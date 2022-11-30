@@ -12,7 +12,6 @@ versions:
 topics:
   - Accounts
 ---
-
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% warning %}

@@ -11,7 +11,6 @@ versions:
 topics:
   - Enterprise
 ---
-
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
 ### Über SAML und SCIM mit Okta

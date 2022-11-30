@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
+  {% include head %}
+
+  <body class="d-lg-flex">
+    {% include sidebar %}
+
+    <main class="width-full">
+      {% include header %}
+      {% include deprecation-banner %}
+
+      <main class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+        <article class="markdown-body width-full">
+          <div class="d-lg-flex flex-justify-between">
+            <div class="d-flex flex-items-center breadcrumbs-wrapper">
+              {% include breadcrumbs %}
+            </div>
+          </div>
+
+          <h1 class="border-bottom-0">{{ page.title }}</h1>
+
+          <div class="mt-2">
+            <div>
+              {% if AIRGAP %}
+                <p>GraphQL explorer is not available on this environment.</p>
+              {% else %}
+                <iframe id="graphiql" class="graphql-explorer" scrolling="no" src="{{ graphql.explorerUrl }}">
+                  <p>You must have iframes enabled to use this feature.</p>
+                </iframe>
+              {% endif %}
+            </div>
+          </div>
+        </article>
+      </main>
+
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
+    </main>
+  </body>
+</html>

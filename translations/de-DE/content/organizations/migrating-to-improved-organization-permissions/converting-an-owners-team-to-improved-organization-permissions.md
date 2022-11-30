@@ -7,12 +7,11 @@ redirect_from:
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Convert Owners team
 ---
 
 Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
@@ -20,7 +19,7 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 - Gib dem Team einen neuen Namen, der die Mitglieder kennzeichnet, die einen besonderen Status in der Organisation haben.
 - Lösche das Team, nachdem Du sichergestellt hast, dass alle Mitglieder zu Teams hinzugefügt wurden, die den benötigten Zugriff auf die Repositorys der Organisation haben.
 
-## Dem Inhaberteam einen neuen Namen geben
+### Dem Inhaberteam einen neuen Namen geben
 
 {% tip %}
 
@@ -28,8 +27,8 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 
 {% endtip %}
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. Lege im Feld für den Teamnamen einen neuen Namen für das Inhaberteam fest. Ein Beispiel:
@@ -38,7 +37,7 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 6. Klicke unter der Teambeschreibung auf **Save and continue** (Speichern und fortfahren). ![Schaltfläche „Save and continue“ (Speichern und fortfahren)](/assets/images/help/teams/owners-team-save-and-continue.png)
 7. Optional kannst Du [das Team auch *öffentlich* machen](/articles/changing-team-visibility).
 
-## Das alte Inhaberteam löschen
+### Das alte Inhaberteam löschen
 
 {% warning %}
 
@@ -46,8 +45,8 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 
 {% endwarning %}
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. Lies unten auf der Seite die Warnung, und klicke dann auf **Delete the Owners team** (Inhaberteam löschen). ![Link zum Löschen des Inhaberteams](/assets/images/help/teams/owners-team-delete.png)

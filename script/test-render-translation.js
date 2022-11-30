@@ -6,26 +6,22 @@
 //
 // [end-readme]
 
-import { fileURLToPath } from 'url'
-import path from 'path'
-import renderContent from '../lib/render-content/index.js'
-import loadSiteData from '../lib/site-data.js'
-import { loadPages } from '../lib/page-data.js'
-import languages from '../lib/languages.js'
-import { promisify } from 'util'
-import ChildProcess, { execSync } from 'child_process'
-import fs from 'fs'
-import frontmatter from '../lib/frontmatter.js'
-import chalk from 'chalk'
-import { YAMLException } from 'js-yaml'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const exec = promisify(ChildProcess.exec)
+const renderContent = require('../lib/render-content')
+const loadSiteData = require('../lib/site-data')
+const { loadPages } = require('../lib/pages')
+const languages = require('../lib/languages')
+const path = require('path')
+const { promisify } = require('util')
+const { execSync } = require('child_process')
+const exec = promisify(require('child_process').exec)
+const fs = require('fs')
+const frontmatter = require('../lib/frontmatter')
+const chalk = require('chalk')
+const { YAMLException } = require('js-yaml')
 
 main()
 
-async function main() {
+async function main () {
   const siteData = await loadAndPatchSiteData()
   const pages = await loadPages()
   const contextByLanguage = {}
@@ -36,19 +32,16 @@ async function main() {
     contextByLanguage[crowdinLangCode] = {
       site: siteData[langObj.code].site,
       currentLanguage: langObj.code,
-      currentVersion: 'free-pro-team@latest',
+      currentVersion: 'free-pro-team@latest'
     }
   }
 
   const rootDir = path.join(__dirname, '..')
 
-  const changedFilesRelPaths = execSync(
-    'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.md$"',
-    { maxBuffer: 1024 * 1024 * 100 }
-  )
+  const changedFilesRelPaths = execSync('git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.md$"', { maxBuffer: 1024 * 1024 * 100 })
     .toString()
     .split('\n')
-    .filter((path) => path !== '' && !path.endsWith('README.md'))
+    .filter(path => path !== '' && !path.endsWith('README.md'))
     .sort()
 
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
@@ -59,8 +52,8 @@ async function main() {
     const context = {
       ...contextByLanguage[lang],
       pages,
-      page: pages.find((page) => page.fullPath === fullPath),
-      redirects: {},
+      page: pages.find(page => page.fullPath === fullPath),
+      redirects: {}
     }
     if (!context.page && !relPath.includes('data/reusables')) continue
     const fileContents = await fs.promises.readFile(fullPath, 'utf8')
@@ -74,7 +67,7 @@ async function main() {
   }
 }
 
-async function loadAndPatchSiteData(filesWithKnownIssues = {}) {
+async function loadAndPatchSiteData (filesWithKnownIssues = {}) {
   try {
     const siteData = loadSiteData()
     return siteData

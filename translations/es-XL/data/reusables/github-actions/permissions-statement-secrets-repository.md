@@ -1,0 +1,1 @@
+Para crear secretos para un repositorio de una cuenta de usuario, deberás ser el propietario de éste. Para crear secretos para un repositorio de una organización, deberás tener acceso de `administrador`.

@@ -9,7 +9,6 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/github-for-mobile
 ---
-
 {% data reusables.mobile.ghes-release-phase %}
 
 ### {% data variables.product.prodname_mobile %} について

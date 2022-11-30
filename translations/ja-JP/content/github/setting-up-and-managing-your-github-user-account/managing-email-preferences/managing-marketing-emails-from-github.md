@@ -10,7 +10,6 @@ topics:
   - Accounts
   - Notifications
 ---
-
 ### {% data variables.product.prodname_dotcom %} マーケティング メールのサブスクライブを解除する
 
 {% tip %}

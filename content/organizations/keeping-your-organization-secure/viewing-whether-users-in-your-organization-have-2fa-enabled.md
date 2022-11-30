@@ -5,17 +5,16 @@ redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
   - /github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Usage of 2FA in organization
 ---
 
 {% note %}
 
-**Note:** You can require that all members{% ifversion fpt %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. For more information, see "[Requiring two-factor authentication in your organization](/articles/requiring-two-factor-authentication-in-your-organization)."
+**Note:** You can require that all members{% if currentVersion == "free-pro-team@latest" %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. For more information, see "[Requiring two-factor authentication in your organization](/articles/requiring-two-factor-authentication-in-your-organization)."
 
 {% endnote %}
 
@@ -29,6 +28,6 @@ shortTitle: Usage of 2FA in organization
 6. To view which outside collaborators have enabled or disabled two-factor authentication, on the right, click **2FA**, and select **Enabled** or **Disabled**.
 ![filter-outside-collaborators-by-2fa](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)
 
-## Further reading
+### Further reading
 
 - "[Viewing people's roles in an organization](/articles/viewing-people-s-roles-in-an-organization)"

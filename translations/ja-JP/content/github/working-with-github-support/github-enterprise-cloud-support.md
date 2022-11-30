@@ -6,10 +6,9 @@ redirect_from:
   - /articles/github-enterprise-cloud-support
 intro: '{% data variables.product.prodname_ghe_cloud %} では、優先サポートリクエストは現地時間月～金曜日、目標応答時間 8 時間としています。'
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Jobs
-shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}

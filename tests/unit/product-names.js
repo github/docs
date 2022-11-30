@@ -1,4 +1,4 @@
-import productNames from '../../lib/product-names.js'
+const productNames = require('../../lib/product-names')
 
 describe('productNames module', () => {
   test('is an object with product codes as keys and human-friendly names as values', () => {

@@ -1,15 +1,9 @@
-import FailBot from '../../lib/failbot.js'
-import nock from 'nock'
+const fetch = require('node-fetch')
+const FailBot = require('../../lib/failbot')
+
+jest.mock('node-fetch')
 
 describe('FailBot', () => {
-  beforeEach(() => {
-    nock('https://haystack.com')
-      .post('/')
-      .reply(200, (uri, requestBody) => {
-        return requestBody
-      })
-  })
-
   afterEach(() => {
     delete process.env.HAYSTACK_URL
   })
@@ -23,16 +17,21 @@ describe('FailBot', () => {
     it('sends the expected report', async () => {
       process.env.HAYSTACK_URL = 'https://haystack.com'
       const err = new Error('Kaboom')
-      const result = await FailBot.report(err)
+      await FailBot.report(err)
 
       // Check that we made a request
-      expect(result.status).toBe(200)
+      expect(fetch).toHaveBeenCalled()
 
       // Verify the basic fetch params
-      expect(result.headers.get('content-type')).toBe('application/json')
+      const params = fetch.mock.calls[0]
+      expect(params[0]).toBe('https://haystack.com')
+      expect(params[1]).toMatchObject({
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      })
 
       // Check that we send the expected body
-      const body = await result.json()
+      const body = JSON.parse(params[1].body)
       expect(body).toMatchObject({
         app: 'docs',
         backtrace: expect.stringContaining('Error: Kaboom'),
@@ -40,7 +39,7 @@ describe('FailBot', () => {
         created_at: expect.any(String),
         js_environment: expect.stringMatching(/^Node\.js\sv[\d.]+/),
         message: 'Kaboom',
-        rollup: expect.any(String),
+        rollup: expect.any(String)
       })
     })
   })

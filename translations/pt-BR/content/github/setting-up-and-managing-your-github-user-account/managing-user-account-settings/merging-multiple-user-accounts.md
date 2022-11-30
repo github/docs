@@ -11,7 +11,6 @@ versions:
 topics:
   - Accounts
 ---
-
 {% tip %}
 
 **Dicas::** recomendamos que você use apenas uma conta de usuário para gerenciar os repositórios pessoal e profissional.

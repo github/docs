@@ -11,7 +11,6 @@ versions:
 topics:
   - Accounts
 ---
-
 ### Überblick über die Berechtigungen
 
 Es gibt nur einen Inhaber eines Benutzer-Projektboards. Diese Berechtigung kann nicht mit einem anderen Benutzerkonto geteilt werden. Neben dem Inhaber können auch andere Personen an Projektboards mitarbeiten.

@@ -8,12 +8,10 @@ redirect_from:
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Marketplace
-shortTitle: リストのメトリクスの表示
 ---
-
 過去の日（24時間）、週、月、あるいは{% data variables.product.prodname_github_app %}がリストされた期間全体に対するメトリクスを見ることができます。
 
 {% note %}
@@ -22,7 +20,7 @@ shortTitle: リストのメトリクスの表示
 
 {% endnote %}
 
-## パフォーマンスメトリクス
+### パフォーマンスメトリクス
 
 Insightsページには、選択された期間に対する以下のパフォーマンスメトリクスが表示されます。
 
@@ -36,7 +34,7 @@ Insightsページには、選択された期間に対する以下のパフォー
 
 {% endnote %}
 
-### コンバージョンパフォーマンス
+#### コンバージョンパフォーマンス
 
 * **Unique visitors to landing page:** GitHub Appのランディングページを閲覧した人数。
 * **Unique visitors to checkout page:** GitHub Appのチェックアウトページのいずれかを閲覧した人数。
@@ -49,7 +47,7 @@ Insightsページには、選択された期間に対する以下のパフォー
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Insightを表示させる{% data variables.product.prodname_github_app %}を選択します。
+4. Insightを表示させたい{% data variables.product.prodname_github_app %}を選択してください。
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. **Insights**タブをクリックしてください。
 7. Insightsページの右上にあるPeriod（期間）ドロップダウンをクリックして、異なる期間を選択することもできます。 ![Marketplaceの期間](/assets/images/marketplace/marketplace_insights_time_period.png)

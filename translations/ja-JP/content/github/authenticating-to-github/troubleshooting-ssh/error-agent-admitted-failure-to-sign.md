@@ -12,7 +12,6 @@ versions:
 topics:
   - SSH
 ---
-
 Linux コンピュータで {% data variables.product.product_location %}に SSH 接続しようとすると、ターミナルに以下のメッセージが表示されることがあります:
 
 ```shell

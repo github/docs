@@ -5,13 +5,11 @@ redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Organized data with tables
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
-
-## 表を作成する
+### 表を作成する
 
 表は、パイプ文字 (`|`) とハイフン (`-`) を使って作成できます。 ハイフンでヘッダを作成し、パイプ文字で各列を分けます。 正しく表示されるように、表の前には空白行を 1 行追加してください。
 
@@ -38,7 +36,7 @@ shortTitle: Organized data with tables
 
 ![異なるセル幅で表示された表](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-## 表の内容をフォーマットする
+### 表の内容をフォーマットする
 
 表では、リンク、インラインのコードブロック、テキストスタイルなどの[フォーマット](/articles/basic-writing-and-formatting-syntax)を使用できます。
 
@@ -62,7 +60,7 @@ shortTitle: Organized data with tables
 
 ![テキストを左寄せ、右寄せ、センタリングして表示された表](/assets/images/help/writing/table-aligned-text-rendered.png)
 
-セルでパイプ文字 (`|`) を使用するには、パイプ文字の前に `\` を追加します。
+セルでパイプ文字 (`|`) を使用するには、パイプ文字の前に "\" を追加します。
 
 ```markdown
 | Name     | Character |
@@ -73,7 +71,7 @@ shortTitle: Organized data with tables
 
 ![パイプ文字をエスケープして表示された表](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-## 参考リンク
+### 参考リンク
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
 - [基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)

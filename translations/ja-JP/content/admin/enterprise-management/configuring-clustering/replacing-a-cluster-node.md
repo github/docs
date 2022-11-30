@@ -6,21 +6,20 @@ redirect_from:
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
   - /admin/enterprise-management/replacing-a-cluster-node
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - Infrastructure
 ---
-
 {% warning %}
 
 **警告：**衝突を避けるため、入れ替えるノードはそれまでクラスタ中で使われていないホスト名を使わなければなりません。
 
 {% endwarning %}
 
-## 関数ノードの入れ替え
+### 関数ノードの入れ替え
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
@@ -31,7 +30,7 @@ topics:
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
 
-## 緊急時のノードの入れ替え
+### 緊急時のノードの入れ替え
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}

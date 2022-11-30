@@ -6,10 +6,9 @@ redirect_from:
   - /articles/viewing-users-youve-blocked-from-your-personal-account
   - /github/building-a-strong-community/viewing-users-youve-blocked-from-your-personal-account
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Community
-shortTitle: View blocked users in account
 ---
 
 {% data reusables.user_settings.access_settings %}
@@ -17,7 +16,7 @@ shortTitle: View blocked users in account
 3. Under "Blocked users", review the list of users you've blocked from your account.
   ![List of blocked users](/assets/images/help/settings/list-of-blocked-users.png)
 
-## Further reading
+### Further reading
 
 - "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
 - "[Unblocking a user from your personal account](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"

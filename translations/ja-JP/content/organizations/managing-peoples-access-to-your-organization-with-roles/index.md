@@ -6,9 +6,9 @@ redirect_from:
   - /articles/managing-peoples-access-to-your-organization-with-roles
   - /github/setting-up-and-managing-organizations-and-teams/managing-peoples-access-to-your-organization-with-roles
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
@@ -18,6 +18,5 @@ children:
   - /giving-team-maintainer-permissions-to-an-organization-member
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
-shortTitle: ロールでのアクセス管理
 ---
 

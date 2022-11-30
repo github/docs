@@ -13,7 +13,6 @@ versions:
 topics:
   - Repositories
 ---
-
 管理者あるいはオーナー権限を持つ人は、リポジトリ中に CODEOWNERS ファイルをセットアップできます。
 
 コードオーナーに指定する人は、リポジトリへの書き込み権限を持っていなければなりません。 コードオーナーが Team である場合、Team の個々のメンバーが直接、書き込み権限を持っているときでも、Organization のメンバーであることまたは他の Team のメンバーであることを通じて、Team が書き込み権限を持っている必要があります。
@@ -27,7 +26,8 @@ topics:
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Team がコードレビューの割り当てを有効にしている場合、個々の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-ファイルにコードオーナーがいる場合、プルリクエストをオープンする前にコードオーナーを確認できます。 リポジトリで、ファイルを参照して {% octicon "shield-lock" aria-label="The edit icon" %} にカーソルを合わせることができます。
+ファイルにコードオーナーがいる場合、プルリクエストをオープンする前にコードオーナーを確認できます。 リポジトリでは、ファイルを参照して
+{% octicon "shield-lock" aria-label="The edit icon" %}.
 
 ![リポジトリ内のファイルのコードオーナー](/assets/images/help/repository/code-owner-for-a-file.png)
 {% endif %}
@@ -88,7 +88,7 @@ apps/ @octocat
 ```
 #### 構文の例外
 gitignore ファイルには、CODEOWNERS ファイルでは動作しないいくつかの構文ルールがあります。
-- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
+- コメントではなくパターンとして扱われるように、`\` を使用して `#` で始まるパターンをエスケープする
 - `!` を使用してパターンを否定する
 - `[ ]` を使用して文字範囲を定義する
 

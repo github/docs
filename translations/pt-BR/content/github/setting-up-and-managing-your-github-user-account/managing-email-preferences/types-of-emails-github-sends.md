@@ -10,7 +10,6 @@ topics:
   - Accounts
   - Notifications
 ---
-
 ### E-mails de notificação
 
 Você pode optar por receber algumas ou todas as notificações de atividade por e-mail. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)". Os e-mails de notificação podem incluir:

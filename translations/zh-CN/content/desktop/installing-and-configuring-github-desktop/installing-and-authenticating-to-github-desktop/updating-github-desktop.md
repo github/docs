@@ -5,9 +5,8 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/updating-github-desktop
   - /desktop/installing-and-configuring-github-desktop/updating-github-desktop
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 ---
-
 {% mac %}
 
 1. 在 **GitHub Desktop** 菜单中，单击 **About GitHub Desktop（关于 GitHub Desktop）**。 ![关于 GitHub Desktop 菜单选项](/assets/images/help/desktop/desktop-menu-about-desktop-mac.png)

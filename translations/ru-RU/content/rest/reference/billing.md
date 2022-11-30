@@ -1,10 +1,9 @@
 ---
 title: Billing
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 You can monitor your {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} charges and usage for a user and organization through the Billing API.

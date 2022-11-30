@@ -9,7 +9,6 @@ versions:
 topics:
   - SSH
 ---
-
 {% tip %}
 
 **{% data variables.product.prodname_ghe_server %} ユーザ**: HTTPS ポートを介した SSH 経由での {% data variables.product.prodname_ghe_server %} へのアクセスは現在サポートされていません。

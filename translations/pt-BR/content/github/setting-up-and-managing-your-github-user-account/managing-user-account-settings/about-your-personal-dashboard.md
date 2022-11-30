@@ -13,7 +13,6 @@ versions:
 topics:
   - Accounts
 ---
-
 ### Acessar seu painel pessoal
 
 Seu quadro pessoal é a primeira página que você verá quando entrar no {% data variables.product.product_name %}.

@@ -4,16 +4,13 @@ intro: 'Du kannst einen Sicherheitshinweis, den Du veröffentlicht hast, auch wi
 redirect_from:
   - /github/managing-security-vulnerabilities/withdrawing-a-security-advisory
 versions:
-  fpt: '*'
-type: how_to
+  free-pro-team: '*'
 topics:
-  - Security advisories
-  - Vulnerabilities
-shortTitle: Withdraw advisories
+  - Security
 ---
 
 Wenn Du einen Sicherheitshinweis fälschlicherweise veröffentlichst, kannst Du den Hinweis zurückziehen, indem Du {% data variables.contact.contact_support %} kontaktierst.
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - [Einen Sicherheitshinweis bearbeiten](/github/managing-security-vulnerabilities/editing-a-security-advisory)

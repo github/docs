@@ -4,12 +4,11 @@ intro: You can manage the email address that receives updates from accounts your
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
   - Organizations
   - Teams
-shortTitle: Manage sponsorship updates
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -23,6 +22,6 @@ You can also disable updates from accounts your organization sponsors. Weitere I
 1. Under "Sponsors update email (Private)", type the email address you want to receive updates from accounts your organization sponsors. ![Textbox to enter the email address to receive updates from sponsored accounts](/assets/images/help/sponsors/organization-update-email-textbox.png)
 1. Klicke auf **Update profile** (Profil aktualisieren). ![Schaltfläche „Update profile" (Aktualisieren des Profils)](/assets/images/help/organizations/update-profile-button.png)
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - "[{% data variables.product.prodname_sponsors %}](/sponsors)"

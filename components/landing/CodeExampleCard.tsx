@@ -1,6 +1,5 @@
 import { RepoIcon } from '@primer/octicons-react'
 import { CodeExample } from 'components/context/ProductLandingContext'
-import { TruncateLines } from 'components/ui/TruncateLines'
 
 type Props = {
   example: CodeExample
@@ -9,11 +8,10 @@ export const CodeExampleCard = ({ example }: Props) => {
   return (
     <a
       className="Box d-flex flex-column flex-justify-between height-full color-shadow-medium hover-shadow-large no-underline color-text-primary"
-      data-testid="code-example-card"
       href={`https://github.com/${example.href}`}
     >
       <div className="p-4">
-        <h4 dangerouslySetInnerHTML={{ __html: example.title }} />
+        <h4>{example.title}</h4>
         <p className="mt-2 mb-4 color-text-tertiary">{example.description}</p>
         <div className="d-flex flex-wrap">
           {example.tags.map((tag) => {
@@ -30,13 +28,7 @@ export const CodeExampleCard = ({ example }: Props) => {
       </div>
       <footer className="border-top p-4 color-text-secondary d-flex flex-items-center">
         <RepoIcon className="flex-shrink-0" />
-        <TruncateLines
-          as="span"
-          maxLines={1}
-          className="ml-2 text-mono text-small color-text-link line-break-anywhere"
-        >
-          {example.href}
-        </TruncateLines>
+        <span className="ml-2 text-mono text-small color-text-link">{example.href}</span>
       </footer>
     </a>
   )

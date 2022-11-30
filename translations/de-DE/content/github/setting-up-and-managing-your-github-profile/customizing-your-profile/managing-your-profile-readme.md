@@ -9,7 +9,6 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-your-profile-readme
 ---
-
 ### About your profile README
 
 You can share information about yourself with the community on {% data variables.product.prodname_dotcom %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.

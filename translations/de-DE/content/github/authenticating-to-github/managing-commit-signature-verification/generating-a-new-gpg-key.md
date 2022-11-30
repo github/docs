@@ -12,7 +12,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 ### Einen GPG-Schlüssel erzeugen

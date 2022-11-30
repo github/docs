@@ -5,11 +5,10 @@ redirect_from:
   - /articles/deleting-a-saved-reply
   - /github/writing-on-github/deleting-a-saved-reply
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
-
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
 3. Em "Saved replies" (Respostas salvas), ao lado da resposta salva que deseja excluir, clique em {% octicon "x" aria-label="The X" %}.  

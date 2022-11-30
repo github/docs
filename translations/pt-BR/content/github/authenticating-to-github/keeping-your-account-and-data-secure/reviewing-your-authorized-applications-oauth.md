@@ -12,7 +12,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}
 {% data reusables.user_settings.access_authorized_oauth_apps %}

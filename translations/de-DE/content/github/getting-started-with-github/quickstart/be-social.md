@@ -16,7 +16,6 @@ topics:
   - Notifications
   - Accounts
 ---
-
 Informationen zum Zugriff auf Dein persönliches Dashboard findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
 
 ### Personen folgen

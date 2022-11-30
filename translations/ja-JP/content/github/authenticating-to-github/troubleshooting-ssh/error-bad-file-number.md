@@ -11,7 +11,6 @@ versions:
 topics:
   - SSH
 ---
-
 リモート Git コマンドや SSH の実行時に、接続がタイムアウトする場合があります:
 
 ```shell

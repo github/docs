@@ -3,9 +3,9 @@ title: 参考
 shortTitle: 参考
 intro: 查看参考文档以了解 GitHub REST API 中可用的资源。
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 children:
@@ -42,4 +42,4 @@ children:
   - /users
   - /permissions-required-for-github-apps
 ---
-
+### 目录

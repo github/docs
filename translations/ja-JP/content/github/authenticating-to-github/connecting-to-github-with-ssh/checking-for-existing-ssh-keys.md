@@ -11,7 +11,6 @@ versions:
 topics:
   - SSH
 ---
-
 {% data reusables.ssh.dsa-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

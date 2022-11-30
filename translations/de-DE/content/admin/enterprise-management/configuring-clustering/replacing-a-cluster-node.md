@@ -6,21 +6,20 @@ redirect_from:
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
   - /admin/enterprise-management/replacing-a-cluster-node
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - Infrastructure
 ---
-
 {% warning %}
 
 **Warnung:** Zum Vermeiden von Konflikten muss der Ersatzknoten einen Hostnamen verwenden, der noch nicht im Cluster verwendet wurde.
 
 {% endwarning %}
 
-## Funktionierenden Knoten ersetzen
+### Funktionierenden Knoten ersetzen
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
@@ -31,7 +30,7 @@ topics:
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
 
-## Knoten in einem Notfall ersetzen
+### Knoten in einem Notfall ersetzen
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}

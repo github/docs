@@ -1,6 +1,6 @@
 ---
 title: Git を使用する
-intro: 'Use Git to manage your {% data variables.product.product_name %} repositories from your computer.'
+intro: ''
 redirect_from:
   - /articles/using-common-git-commands
   - /github/using-git/using-common-git-commands

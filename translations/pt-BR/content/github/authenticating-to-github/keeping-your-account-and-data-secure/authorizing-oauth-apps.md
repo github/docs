@@ -12,7 +12,6 @@ topics:
   - Identity
   - Access management
 ---
-
 Quando um {% data variables.product.prodname_oauth_app %} quiser identificar você pela sua conta do {% data variables.product.product_name %}, será exibida uma página com as informações de contato do desenvolvedor do aplicativo e uma lista dos dados específicos que estão sendo solicitados.
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -49,8 +48,6 @@ Quando quiser usar um {% data variables.product.prodname_oauth_app %} que se int
 **Observação:** no momento, não é possível usar o escopo de acesso de código-fonte para somente leitura.
 
 {% endtip %}
-
-{% data reusables.apps.oauth-token-limit %}
 
 #### Tipos de dados solicitados
 

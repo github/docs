@@ -12,7 +12,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 ### Ignorierte Dateien für ein einzelnes Repository konfigurieren
 
 Du kannst eine *.gitignore*-Datei im Stammverzeichnis Deines Repository erstellen, um Git mitzuteilen, welche Dateien und Verzeichnisse zu ignorieren sind, wenn Du einen Commit machst. Um diese Ignorierregeln mit anderen Benutzern zu teilen, die das Repository klonen, musst Du die *.gitignore*-Datei in Dein Repository freigeben.

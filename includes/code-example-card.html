@@ -1,0 +1,20 @@
+<div class="col-12 col-xl-4 col-lg-6 mb-4 js-filter-card {% if forloop.index0 > 5 %}d-none{% endif %}" data-tags="{{ example.tags | join: ', ' }}" data-title="{{ example.title }}" data-description="{{ example.description }}">
+  <a
+    class="Box d-flex flex-column flex-justify-between height-full color-shadow-medium hover-shadow-large no-underline color-text-primary"
+    href="https://github.com/{{ example.href }}"
+  >
+    <div class="p-4">
+      <h4>{{ example.title }}</h4>
+      <p class="mt-2 mb-4 color-text-tertiary">{{ example.description }}</p>
+      <div class="d-flex flex-wrap">
+        {% for tag in example.tags %}
+          <span class="IssueLabel color-text-inverse color-bg-info-inverse mr-2 mb-1">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <footer class="border-top p-4 color-text-secondary d-flex flex-items-center">
+      {% octicon "repo" class="flex-shrink-0" %}
+      <span class="ml-2 text-mono text-small color-text-link">{{ example.href }}</span>
+    </footer>
+  </a>
+</div>

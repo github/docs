@@ -8,10 +8,10 @@
 //
 // [end-readme]
 
-import rimraf from 'rimraf'
-import fs from 'fs'
-import path from 'path'
-import program from 'commander'
+const rimraf = require('rimraf').sync
+const fs = require('fs')
+const path = require('path')
+const program = require('commander')
 
 // Early Access details
 const earlyAccessRepo = 'docs-early-access'
@@ -20,10 +20,7 @@ const earlyAccessRepoUrl = `https://github.com/github/${earlyAccessRepo}`
 
 program
   .description(`Create or destroy symlinks to your local "${earlyAccessRepo}" repository.`)
-  .option(
-    '-p, --path-to-early-access-repo <PATH>',
-    `path to a local checkout of ${earlyAccessRepoUrl}`
-  )
+  .option('-p, --path-to-early-access-repo <PATH>', `path to a local checkout of ${earlyAccessRepoUrl}`)
   .option('-u, --unlink', 'remove the symlinks')
   .parse(process.argv)
 
@@ -47,29 +44,27 @@ if (!unlink && pathToEarlyAccessRepo) {
   }
 
   if (!dirStats) {
-    throw new Error(
-      `The local "${earlyAccessRepo}" repo directory does not exist:`,
-      earlyAccessLocalRepoDir
-    )
+    throw new Error(`The local "${earlyAccessRepo}" repo directory does not exist:`, earlyAccessLocalRepoDir)
   }
   if (dirStats && !dirStats.isDirectory()) {
-    throw new Error(
-      `A non-directory entry exists at the local "${earlyAccessRepo}" repo directory location:`,
-      earlyAccessLocalRepoDir
-    )
+    throw new Error(`A non-directory entry exists at the local "${earlyAccessRepo}" repo directory location:`, earlyAccessLocalRepoDir)
   }
 }
 
 const destinationDirNames = ['content', 'data', 'assets/images']
-const destinationDirsMap = destinationDirNames.reduce((map, dirName) => {
-  map[dirName] = path.join(process.cwd(), dirName, earlyAccessDirName)
-  return map
-}, {})
+const destinationDirsMap = destinationDirNames
+  .reduce(
+    (map, dirName) => {
+      map[dirName] = path.join(process.cwd(), dirName, earlyAccessDirName)
+      return map
+    },
+    {}
+  )
 
 // Remove all existing early access directories from this repo
 destinationDirNames.forEach((dirName) => {
   const destDir = destinationDirsMap[dirName]
-  rimraf.sync(destDir)
+  rimraf(destDir)
   console.log(`- Removed symlink for early access directory '${dirName}' from this repo`)
 })
 
@@ -104,9 +99,7 @@ destinationDirNames.forEach((dirName) => {
     throw new Error(`The early access directory '${dirName}' entry is not a symbolic link!`)
   }
   if (!fs.statSync(destDir).isDirectory()) {
-    throw new Error(
-      `The early access directory '${dirName}' entry's symbolic link does not refer to a directory!`
-    )
+    throw new Error(`The early access directory '${dirName}' entry's symbolic link does not refer to a directory!`)
   }
 
   console.log(`+ Added symlink for early access directory '${dirName}' into this repo`)

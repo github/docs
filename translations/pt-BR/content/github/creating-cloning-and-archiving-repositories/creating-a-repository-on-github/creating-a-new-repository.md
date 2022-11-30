@@ -17,7 +17,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% tip %}
 
 **Dica:** os proprietários podem restringir as permissões de criação de repositório em uma organização. Para obter mais informações, consulte "[Restringir a criação de repositórios na organização](/articles/restricting-repository-creation-in-your-organization)".

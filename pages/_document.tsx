@@ -32,11 +32,15 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    const { colorMode, nightTheme, dayTheme } = (this.props as any).cssThemeProps
+    const { colorMode, nightScheme, dayScheme } = (this.props as any).cssThemeProps
     return (
       <Html>
         <Head />
-        <body data-color-mode={colorMode} data-dark-theme={nightTheme} data-light-theme={dayTheme}>
+        <body
+          data-color-mode={colorMode}
+          data-dark-theme={nightScheme}
+          data-light-theme={dayScheme}
+        >
           <Main />
           <NextScript />
         </body>

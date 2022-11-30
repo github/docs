@@ -3,7 +3,7 @@ title: Deprecated site policy articles
 allowTitleToDifferFromFilename: true
 hidden: true
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 children:
   - /amendment-to-github-terms-of-service-applicable-to-us-federal-government-users
   - /github-ae-data-protection-agreement
@@ -15,4 +15,3 @@ children:
   - /github-enterprise-subscription-agreement
   - /github-supplemental-terms-for-microsoft-volume-licensing
 ---
-

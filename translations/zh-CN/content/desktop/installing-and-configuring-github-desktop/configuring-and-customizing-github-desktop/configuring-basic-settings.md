@@ -5,10 +5,8 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-basic-settings
   - /desktop/installing-and-configuring-github-desktop/configuring-basic-settings
 versions:
-  fpt: '*'
-shortTitle: 配置基本设置
+  free-pro-team: '*'
 ---
-
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
@@ -25,6 +23,6 @@ shortTitle: 配置基本设置
 
 {% endwindows %}
 
-## 延伸阅读
+### 延伸阅读
 
 - "[设置 {% data variables.product.prodname_desktop %} 的主题](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"

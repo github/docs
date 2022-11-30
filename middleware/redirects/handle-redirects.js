@@ -1,25 +1,13 @@
-import patterns from '../../lib/patterns.js'
-import { URL } from 'url'
-import languages from '../../lib/languages.js'
+const patterns = require('../../lib/patterns')
+const { URL } = require('url')
 
-export default function handleRedirects(req, res, next) {
+module.exports = function handleRedirects (req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
-  // blanket redirects for languageless homepage
+  // blanket redirects for languageless homepage to English homepage
   if (req.path === '/') {
-    let language = 'en'
-
-    // if set, redirect to user's preferred language translation or else English
-    if (
-      req.context.userLanguage &&
-      languages[req.context.userLanguage] &&
-      !languages[req.context.userLanguage].wip
-    ) {
-      language = req.context.userLanguage
-    }
-
-    return res.redirect(301, `/${language}`)
+    return res.redirect(301, '/en')
   }
 
   // begin redirect handling
@@ -39,8 +27,7 @@ export default function handleRedirects(req, res, next) {
   // look for a redirect in the global object
   // for example, given an incoming path /v3/activity/event_types
   // find /en/developers/webhooks-and-events/github-event-types
-  redirectWithoutQueryParams =
-    req.context.redirects[redirectWithoutQueryParams] || redirectWithoutQueryParams
+  redirectWithoutQueryParams = req.context.redirects[redirectWithoutQueryParams] || redirectWithoutQueryParams
 
   // add query params back in
   redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
@@ -63,6 +50,6 @@ export default function handleRedirects(req, res, next) {
   return res.redirect(301, redirect)
 }
 
-function removeQueryParams(redirect) {
+function removeQueryParams (redirect) {
   return new URL(redirect, 'https://docs.github.com').pathname
 }

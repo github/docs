@@ -1,7 +1,7 @@
-import path from 'path'
-import patterns from '../lib/patterns.js'
-import isArchivedVersion from '../lib/is-archived-version.js'
-import got from 'got'
+const path = require('path')
+const patterns = require('../lib/patterns')
+const isArchivedVersion = require('../lib/is-archived-version')
+const got = require('got')
 
 const ONE_DAY = 24 * 60 * 60 // 1 day in seconds
 
@@ -11,7 +11,7 @@ const ONE_DAY = 24 * 60 * 60 // 1 day in seconds
 //
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 
-export default async function archivedEnterpriseVersionsAssets(req, res, next) {
+module.exports = async function archivedEnterpriseVersionsAssets (req, res, next) {
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived) return next()
 
@@ -22,9 +22,7 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
   const proxyPath = path.join('/', requestedVersion, assetPath)
 
   try {
-    const r = await got(
-      `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`
-    )
+    const r = await got(`https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`)
     res.set('accept-ranges', 'bytes')
     res.set('content-type', r.headers['content-type'])
     res.set('content-length', r.headers['content-length'])
@@ -34,6 +32,6 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
     res.set('cache-control', `public, max-age=${ONE_DAY}`)
     return res.send(r.body)
   } catch (err) {
-    return next(404)
+    return next()
   }
 }

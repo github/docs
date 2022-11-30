@@ -6,7 +6,7 @@ intro: Remove liquid and content
 ## 1
 <div class="example1">
 
-{% ifversion ghes = 2.13 %}
+{% if currentVersion == "enterprise-server@2.13" %}
 
 Alpha
 
@@ -17,7 +17,7 @@ Alpha
 ## 2
 <div class="example2">
 
-{% ifversion not fpt and ghes = 2.13 %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion == "enterprise-server@2.13" %}
 
 Alpha
 
@@ -28,7 +28,7 @@ Alpha
 ## 3
 <div class="example3">
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 Alpha
 
@@ -36,12 +36,11 @@ Alpha
 
 Bravo
 
-{% ifversion ghes = 2.13 %}
+{% if currentVersion == "enterprise-server@2.13" %}
 
 Charlie
 
 {% endif %}
-
 {% endif %}
 
 </div>
@@ -49,11 +48,11 @@ Charlie
 ## 4
 <div class="example4">
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 Alpha
 
-{% ifversion ghes = 2.13 %}
+{% if currentVersion == "enterprise-server@2.13" %}
 
 Bravo
 
@@ -70,11 +69,11 @@ Charlie
 ## 5
 <div class="example5">
 
-{% ifversion ghes = 2.13 %}
+{% if currentVersion == "enterprise-server@2.13" %}
 
 Alpha
 
-{% ifversion fpt %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 Bravo
 
@@ -91,7 +90,7 @@ Charlie
 ## 6
 <div class="example6">
 
-{% ifversion ghes = 2.13 %}
+{% if currentVersion == "enterprise-server@2.13" %}
 
 Alpha
 
@@ -99,7 +98,7 @@ Alpha
 
 Charlie
 
-{% ifversion fpt or ghes > 2.13 %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.13" %}
 
 Bravo
 

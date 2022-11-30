@@ -13,7 +13,6 @@ versions:
 topics:
   - Accounts
 ---
-
 ### Auf Dein persönliches Dashboard zugreifen
 
 Ihr persönliches Dashboard ist die erste Seite, die Sie sehen, wenn Sie sich bei {% data variables.product.product_name %} anmelden.

@@ -1,0 +1,1 @@
+1. En la barra lateral izquierda, da clic en **Autenticación**. ![Pestaña de autenticación en la barra lateral de configuración](/assets/images/enterprise/management-console/sidebar-authentication.png)

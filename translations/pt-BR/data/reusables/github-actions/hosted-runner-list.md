@@ -1,1 +1,1 @@
-1. Clique na aba "Executores auto-hospedados" e localize a lista de executores.
+1. Click the "Self-hosted runners" tab, and locate the list of runners.

@@ -1,3 +1,3 @@
-1. En la barra de actividad, haz clic en la vista de **Control de código fuente**.
+1. In the Activity Bar, click the **Source Control** view.
 
-  ![Vista de control de código fuente](/assets/images/help/codespaces/codespaces-commit-activity.png)
+  ![Source control view](/assets/images/help/codespaces/codespaces-commit-activity.png)

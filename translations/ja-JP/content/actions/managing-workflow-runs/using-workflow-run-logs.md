@@ -108,29 +108,29 @@ versions:
 2. ログファイルを削除するには、**Delete all logs（すべてのログを削除）**ボタンをクリックして、確認の要求を見てください 。 ![Delete all logs](/assets/images/help/repository/delete-all-logs.png)ログが削除されると、[**Delete all logs**] ボタンが削除され、ワークフローの実行にログファイルが残っていないことを示します。
 {% endif %}
 
-### {% data variables.product.prodname_cli %} でログを表示する
+### Viewing logs with {% data variables.product.prodname_cli %}
 
 {% data reusables.actions.actions-cli %}
 
-特定のジョブのログを表示するには、`run view` サブコマンドを使用します。 `run-id` を、ログを表示する実行の ID に置き換えます。 {% data variables.product.prodname_cli %} は、実行からジョブを選択するためのインタラクティブメニューを返します。 `run-id` を指定しない場合、{% data variables.product.prodname_cli %} は最近の実行を選択するためのインタラクティブメニューを返し、次に実行からジョブを選択するための別のインタラクティブメニューを返します。
+To view the log for a specific job, use the `run view` subcommand. Replace `run-id` with the ID of run that you want to view logs for. {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a job from the run. If you don't specify `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run, and then returns another interactive menu for you to choose a job from the run.
 
 ```shell
 gh run view <em>run-id</em> --log
 ```
 
-`--job` フラグを使用してジョブ ID を指定することもできます。 `job-id` を、ログを表示するジョブの ID に置き換えます。
+You can also use the `--job` flag to specify a job ID. Replace `job-id` with the ID of the job that you want to view logs for.
 
 ```shell
 gh run view --job <em>job-id</em> --log
 ```
 
-`grep` を使用してログを検索できます。 たとえば、このコマンドは `error` という単語を含むすべてのログエントリを返します。
+You can use `grep` to search the log. For example, this command will return all log entries that contain the word `error`.
 
 ```shell
 gh run view --job <em>job-id</em> --log | grep error
 ```
 
-失敗したステップのログをフィルタするには、`--log` の代わりに `--log-failed` を使用します。
+To filter the logs for any failed steps, use `--log-failed` instead of `--log`.
 
 ```shell
 gh run view --job <em>job-id</em> --log-failed

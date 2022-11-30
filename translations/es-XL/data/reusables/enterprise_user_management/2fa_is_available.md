@@ -1,0 +1,1 @@
+Cuando utilices LDAP o una autenticación integrada, la autenticación de dos factores será compatible. Los administradores de la organización le pueden solicitar a los miembros que tengan la autenticación de dos factores activada.

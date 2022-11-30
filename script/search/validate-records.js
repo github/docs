@@ -1,22 +1,21 @@
-#!/usr/bin/env node
-import assert from 'assert'
-import { isArray, isString, inRange } from 'lodash-es'
-import isURL from 'is-url'
-import countArrayValues from 'count-array-values'
-import { maxRecordLength } from '../../lib/search/config.js'
+const assert = require('assert')
+const { isArray, isString, inRange } = require('lodash')
+const isURL = require('is-url')
+const countArrayValues = require('count-array-values')
+const { maxRecordLength } = require('../../lib/search/config')
 
-export default function validateRecords(name, records) {
+module.exports = function validateRecords (name, records) {
   assert(isString(name) && name.length, '`name` is required')
   assert(isArray(records) && records.length, '`records` must be a non-empty array')
 
   // each ID is unique
-  const objectIDs = records.map((record) => record.objectID)
+  const objectIDs = records.map(record => record.objectID)
   const dupes = countArrayValues(objectIDs)
     .filter(({ value, count }) => count > 1)
     .map(({ value }) => value)
   assert(!dupes.length, `every objectID must be unique. dupes: ${dupes.join('; ')}`)
 
-  records.forEach((record) => {
+  records.forEach(record => {
     assert(
       isString(record.objectID) && record.objectID.length,
       `objectID must be a string. received: ${record.objectID}, ${JSON.stringify(record)}`

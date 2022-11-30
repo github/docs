@@ -22,7 +22,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 ### Adding a remote repository
 
 To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.

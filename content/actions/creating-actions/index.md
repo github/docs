@@ -8,19 +8,19 @@ redirect_from:
   - /actions/building-actions
   - /articles/creating-a-github-action/
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 children:
-  - /about-custom-actions
+  - /about-actions
   - /creating-a-docker-container-action
   - /creating-a-javascript-action
-  - /creating-a-composite-action
+  - /creating-a-composite-run-steps-action
   - /metadata-syntax-for-github-actions
   - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions
   - /publishing-actions-in-github-marketplace
-  - /developing-a-third-party-cli-action
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}

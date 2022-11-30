@@ -12,7 +12,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 In der Regel verwendest Du `git rebase` in folgenden Fällen:
 
 * Frühere Commit-Mitteilungen bearbeiten

@@ -10,7 +10,6 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/github-desktop
 ---
-
 ### Informationen zum {% data variables.product.prodname_desktop %}
 
 {% data reusables.desktop.about-github-desktop %}

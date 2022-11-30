@@ -11,7 +11,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 `git push` コマンドは、2 つの引数を取ります:
 
 * リモート名。たとえば `origin`

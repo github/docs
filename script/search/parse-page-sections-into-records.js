@@ -1,18 +1,24 @@
-#!/usr/bin/env node
-import { chain } from 'lodash-es'
-import { maxContentLength } from '../../lib/search/config.js'
 // This module takes cheerio page object and divides it into sections
-// using H1,H2 heading elements as section delimiters. The text
+// using H1,h2,h3 heading elements as section delimiters. The text
 // that follows each heading becomes the content of the search record.
 
+const { chain } = require('lodash')
 const urlPrefix = 'https://docs.github.com'
-const ignoredHeadingSlugs = ['in-this-article', 'further-reading']
+const ignoredHeadingSlugs = [
+  'in-this-article',
+  'further-reading'
+]
+const { maxContentLength } = require('../../lib/search/config')
 
-export default function parsePageSectionsIntoRecords(href, $) {
+module.exports = function parsePageSectionsIntoRecords (href, $) {
   const title = $('h1').text().trim()
   const breadcrumbsArray = $('nav.breadcrumbs a')
     .map((i, el) => {
-      return $(el).text().trim().replace(/\n/g, ' ').replace(/\s+/g, ' ')
+      return $(el)
+        .text()
+        .trim()
+        .replace(/\n/g, ' ')
+        .replace(/\s+/g, ' ')
     })
     .get()
     .slice(0, -1)
@@ -30,7 +36,7 @@ export default function parsePageSectionsIntoRecords(href, $) {
 
   let records
 
-  const $sections = $('[data-search=article-content] h2')
+  const $sections = $('.article-grid-body h3')
     .filter('[id]')
     .filter((i, el) => {
       return !ignoredHeadingSlugs.includes($(el).attr('id'))
@@ -46,7 +52,7 @@ export default function parsePageSectionsIntoRecords(href, $) {
         const content = $(el)
           // Platform-specific content is nested in a DIV
           // GraphQL content in nested in two DIVS
-          .nextUntil('h2, div > h2, div > div > h2')
+          .nextUntil('h2, h3, div > h2, div > h3, div > div > h2, div > div > h3')
           .map((i, el) => $(el).text())
           .get()
           .join(' ')
@@ -60,7 +66,7 @@ export default function parsePageSectionsIntoRecords(href, $) {
           heading,
           title,
           content,
-          topics,
+          topics
         }
       })
       .get()
@@ -68,26 +74,24 @@ export default function parsePageSectionsIntoRecords(href, $) {
     // There are no sections. Treat the entire article as the record.
     const objectID = href
     const url = [urlPrefix, objectID].join('')
-    const content = $(
-      '[data-search=article-body] p, [data-search=article-body] ul, [data-search=article-body] ol, [data-search=article-body] table'
-    )
+    const content = $('.article-grid-body p, .article-grid-body ul, .article-grid-body ol, .article-grid-body table')
       .map((i, el) => $(el).text())
       .get()
       .join(' ')
       .trim()
       .slice(0, maxContentLength)
 
-    records = [
-      {
-        objectID,
-        url,
-        breadcrumbs,
-        title,
-        content,
-        topics,
-      },
-    ]
+    records = [{
+      objectID,
+      url,
+      breadcrumbs,
+      title,
+      content,
+      topics
+    }]
   }
 
-  return chain(records).uniqBy('objectID').value()
+  return chain(records)
+    .uniqBy('objectID')
+    .value()
 }

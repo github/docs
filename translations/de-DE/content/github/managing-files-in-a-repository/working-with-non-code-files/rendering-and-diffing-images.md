@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% note %}
 
 **Hinweis:** Bei Verwendung des Firefox-Browsers werden SVGs auf {% data variables.product.prodname_dotcom %} unter Umständen nicht gerendert.

@@ -1,15 +1,13 @@
 ---
 title: 反应
-intro: 反应 API 使您能够创建、列出和删除评论中的反应。
 redirect_from:
   - /v3/reactions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 ### 反应类型

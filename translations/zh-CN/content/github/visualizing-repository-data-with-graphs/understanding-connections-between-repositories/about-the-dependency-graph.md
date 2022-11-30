@@ -8,7 +8,6 @@ topics:
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
 ---
-
 <!--See /content/code-security/supply-chain-security/about-the-dependency-graph for the latest version of this article -->
 
 ### 依赖关系图可用性

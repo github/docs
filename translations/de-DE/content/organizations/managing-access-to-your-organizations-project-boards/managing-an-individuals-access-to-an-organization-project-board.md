@@ -6,13 +6,12 @@ redirect_from:
   - /articles/managing-an-individuals-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Manage individual access
 ---
 
 {% note %}
@@ -21,10 +20,10 @@ shortTitle: Manage individual access
 
 {% endnote %}
 
-## Einem Organisationsmitglied Zugriff auf ein Projektboard gewähren
+### Einem Organisationsmitglied Zugriff auf ein Projektboard gewähren
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -34,10 +33,10 @@ shortTitle: Manage individual access
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Den Zugriff eines Organisationsmitglieds auf ein Projektboard ändern
+### Den Zugriff eines Organisationsmitglieds auf ein Projektboard ändern
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -45,12 +44,12 @@ shortTitle: Manage individual access
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.collaborator-permissions %}
 
-## Einem Organisationsmitglied den Zugriff auf ein Projektboard entziehen
+### Einem Organisationsmitglied den Zugriff auf ein Projektboard entziehen
 
 Wenn Du einen Mitarbeiter von einem Projektboard entfernst, kann er je nach den Berechtigungen seiner anderen Rollen möglicherweise dennoch weiterhin auf das Projektboard zugreifen. Um den Zugriff auf ein Projektboard komplett zu verhindern, musst Du den Zugriff für jede Rolle dieses Mitarbeiters entfernen. Eine Person kann beispielsweise als Organisationsmitglied oder Teammitglied Zugriff auf das Projektboard haben. Weitere Informationen finden Sie unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“.
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -58,6 +57,6 @@ Wenn Du einen Mitarbeiter von einem Projektboard entfernst, kann er je nach den 
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.remove-collaborator %}
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“

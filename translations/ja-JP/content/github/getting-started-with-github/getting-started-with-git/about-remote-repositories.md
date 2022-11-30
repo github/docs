@@ -15,7 +15,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 ### リモートリポジトリについて
 
 リモート URL は、「コードがここに保存されています」ということを表現する Git のしゃれた方法です。 That URL could be your repository on GitHub, or another user's fork, or even on a completely different server.

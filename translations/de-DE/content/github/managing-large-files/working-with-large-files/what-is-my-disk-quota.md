@@ -8,7 +8,6 @@ intro: '{% data variables.product.product_name %} versucht genügend Speicher f�
 versions:
   free-pro-team: '*'
 ---
-
 {% data reusables.large_files.use_lfs_tip %}
 
 ### Größenbeschränkungen für Dateien und Repositorys

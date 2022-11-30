@@ -1,15 +1,13 @@
 ---
 title: 拉取
-intro: 拉取 API 允许您列出、查看、编辑、创建甚至合并拉取请求。
 redirect_from:
   - /v3/pulls
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 ---
 
 拉取请求 API 允许您列出、查看、编辑、创建甚至合并拉取请求。 可以通过[议题评论 API](/rest/reference/issues#comments) 管理对拉取请求的评论。
@@ -28,6 +26,8 @@ miniTocMaxHeadingLevel: 3
     application/vnd.github.VERSION.patch
 
 更多信息请参阅“[自定义媒体类型](/rest/overview/media-types)”。
+
+<a id="diff-error">
 
 如果 diff 损坏，请联系 {% data variables.contact.contact_support %}。 在您的消息中包括仓库名称和拉取请求 ID。
 

@@ -5,10 +5,8 @@ redirect_from:
   - /desktop/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/adding-a-repository-from-your-local-computer-to-github-desktop
 versions:
-  fpt: '*'
-shortTitle: Add a repository
+  free-pro-team: '*'
 ---
-
 {% tip %}
 
 **ヒント：**フォルダを{% data variables.product.prodname_desktop %}ウィンドウにドラッグすることで、GitリポジトリをローカルコンピュータからGitHub Desktopに追加することができます。 {% data variables.product.prodname_desktop %}に同時に複数のフォルダをドラッグする場合、各フォルダが別々のGitリポジトリとして追加されます。

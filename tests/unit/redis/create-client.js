@@ -1,4 +1,4 @@
-import createRedisClient from '../../../lib/redis/create-client.js'
+const createRedisClient = require('../../../lib/redis/create-client')
 
 const redisUrl = 'http://localhost:6379'
 

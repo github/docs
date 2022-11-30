@@ -9,7 +9,6 @@ versions:
 topics:
   - Repositories
 ---
-
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 ### Sobre a navegação do código no {% data variables.product.prodname_dotcom %}

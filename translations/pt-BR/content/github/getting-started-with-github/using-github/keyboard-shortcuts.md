@@ -12,7 +12,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 ### Sobre atalhos do teclado
 
 Digitar <kbd>?</kbd> no {% data variables.product.product_name %} exibe uma caixa de diálogo que lista os atalhos de teclado disponíveis para aquela página. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.

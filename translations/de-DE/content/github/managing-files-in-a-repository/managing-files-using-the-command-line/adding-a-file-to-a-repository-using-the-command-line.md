@@ -12,7 +12,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% tip %}
 
 **Tipp:** Du kannst auch [eine vorhandene Datei über die {% data variables.product.product_name %}-Website zu einem Repository hinzufügen](/articles/adding-a-file-to-a-repository).
@@ -23,7 +22,9 @@ topics:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. Verschiebe auf Deinem Computer die Datei, die Du zu {% data variables.product.product_name %} hochladen möchtest, in das lokale Verzeichnis, das beim Klonen des Repositorys erstellt wurde.
+1. On your computer, move the file you'd like to upload to
+
+{% data variables.product.product_name %} into the local directory that was created when you cloned the repository.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
 {% data reusables.git.stage_for_commit %}

@@ -51,12 +51,7 @@ Cada vez que você criar uma nova versão, você poderá acionar um fluxo de tra
 
 {% raw %}
 ```groovy{:copy}
-plugins {
-  ...
-  id 'maven-publish'
-}
-
-publishing {
+publicando {
   ...
 
   repositories {
@@ -119,12 +114,7 @@ Por exemplo, se sua organização é denominado "octocat" e seu repositório é 
 
 {% raw %}
 ```groovy{:copy}
-plugins {
-  ...
-  id 'maven-publish'
-}
-
-publishing {
+publicando {
   ...
 
   repositories {
@@ -183,12 +173,7 @@ Se sua organização for denominada "octocat" e seu repositório for denominado 
 
 {% raw %}
 ```groovy{:copy}
-plugins {
-  ...
-  id 'maven-publish'
-}
-
-publishing {
+publicando {
   ...
 
   repositories {

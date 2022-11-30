@@ -1,6 +1,6 @@
 ---
 title: Usar o GitHub
-intro: 'Explore {% data variables.product.company_short %}''s products from different platforms and devices.'
+intro: ''
 redirect_from:
   - /articles/using-github
 versions:

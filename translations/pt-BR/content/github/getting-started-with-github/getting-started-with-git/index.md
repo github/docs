@@ -1,6 +1,6 @@
 ---
 title: Primeiros passos com o Git
-intro: 'Set up Git, a distributed version control system, to manage your {% data variables.product.product_name %} repositories from your computer.'
+intro: ''
 redirect_from:
   - /articles/getting-started-with-git-and-github
   - /github/using-git/getting-started-with-git-and-github

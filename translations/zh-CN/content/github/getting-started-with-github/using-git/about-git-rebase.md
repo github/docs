@@ -12,7 +12,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 通常，您会使用 `git rebase` 来：
 
 * 编辑之前的提交消息

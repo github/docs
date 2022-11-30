@@ -13,9 +13,9 @@ redirect_from:
   - /articles/organizing-members-into-teams
   - /github/setting-up-and-managing-organizations-and-teams/organizing-members-into-teams
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
@@ -23,10 +23,10 @@ children:
   - /about-teams
   - /creating-a-team
   - /setting-your-teams-profile-picture
-  - /adding-organization-members-to-a-team
+  - /setting-your-teams-profile-picture
   - /managing-code-review-assignment-for-your-team
   - /renaming-a-team
-  - /changing-team-visibility
+  - /renaming-a-team
   - /synchronizing-a-team-with-an-identity-provider-group
   - /moving-a-team-in-your-organizations-hierarchy
   - /requesting-to-add-a-child-team
@@ -35,6 +35,5 @@ children:
   - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
-shortTitle: Organize members into teams
 ---
 

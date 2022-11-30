@@ -5,12 +5,12 @@ redirect_from:
   - /categories/automation/
   - /categories/extending-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 children:
   - /getting-started-with-the-api
   - /git-automation-with-oauth-tokens
   - /about-webhooks
 ---
-
+### Índice

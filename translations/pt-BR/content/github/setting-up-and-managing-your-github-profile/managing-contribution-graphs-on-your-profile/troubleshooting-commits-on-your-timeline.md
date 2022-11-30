@@ -11,7 +11,6 @@ versions:
 topics:
   - Profiles
 ---
-
 ### Comportamento esperado para exibir detalhes do commit
 
 Na linha do tempo da sua página de perfil, você pode clicar no número de commits ao lado de um determinado repositório para ver mais detalhes sobre os commits nesse período de tempo, inclusive um diff de alterações específicas feitas em um repositório.

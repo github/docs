@@ -22,7 +22,7 @@ topics:
 
 ### はじめに
 
-このガイドでは、Docker Hubの`postgres`イメージを使ってサービスコンテナを設定するワークフローの例を紹介します。 ワークフローの実行スクリプトは、PostgreSQL サービスに接続し、テーブルを作成してから、データを入力します。 ワークフローが PostgreSQL テーブルを作成してデータを入力することをテストするために、スクリプトはテーブルからコンソールにデータを出力します。
+このガイドでは、Docker Hubの`postgres`イメージを使ってサービスコンテナを設定するワークフローの例を紹介します。 The workflow runs a script that connects to the PostgreSQL service, creates a table, and then populates it with data. To test that the workflow creates and populates the PostgreSQL table, the script prints the data from the table to the console.
 
 {% data reusables.github-actions.docker-container-os-support %}
 
@@ -47,23 +47,23 @@ name: PostgreSQL service example
 on: push
 
 jobs:
-  # コンテナジョブのラベル
+  # Label of the container job
   container-job:
-    # コンテナは Linux ベースのオペレーティングシステムで実行しなければならない
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # `container-job` が実行される Docker Hub イメージ
+    # Docker Hub image that `container-job` executes in
     container: node:10.18-jessie
 
-    # `container-job` で実行するサービスコンテナ
+    # Service containers to run with `container-job`
     services:
-      # サービスコンテナへのアクセスに使用されるラベル
+      # Label used to access the service container
       postgres:
-        # Docker Hub のイメージ
+        # Docker Hub image
         image: postgres
-        # postgres のパスワードを入力する
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # postgres が起動するまで待機するようにヘルスチェックを設定する
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -71,20 +71,20 @@ jobs:
           --health-retries 5
 
     steps:
-      # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
+      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # `package.json` ファイル内のすべての依存関係のクリーンインストールを実行する
-      # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # PostgreSQLテーブルを作成し、テーブルにデータを入力してから
-        # データを取得するスクリプトを実行する。
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data.
         run: node client.js
-        # `client.js` スクリプトが新しいPostgreSQLクライアントの作成に使う環境変数。
+        # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
           # PostgreSQLサービスコンテナとの通信に使われるホスト名
           POSTGRES_HOST: postgres
@@ -131,21 +131,21 @@ jobs:
 
 ```yaml{:copy}
 steps:
-  # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
+  # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
     uses: actions/checkout@v2
 
-  # `package.json` ファイル内のすべての依存関係のクリーンインストールを実行する
-  # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照する
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
   - name: Install dependencies
     run: npm ci
 
   - name: Connect to PostgreSQL
-    # PostgreSQL テーブルを作成し、テーブルにデータを入力してから
-    # データを取得するスクリプトを実行する。
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data.
     run: node client.js
-    # 新しい PostgreSQL クライアントを作成するために
-    # `client.js` スクリプトによって使用される環境変数。
+    # Environment variable used by the `client.js` script to create
+    # a new PostgreSQL client.
     env:
       # PostgreSQLサービスコンテナとの通信に使われるホスト名
       POSTGRES_HOST: postgres
@@ -169,46 +169,46 @@ name: PostgreSQL Service Example
 on: push
 
 jobs:
-  # ランナージョブのラベル
+  # Label of the runner job
   runner-job:
-    # サービスコンテナまたはコンテナジョブを使用する場合は Linux 環境を使用する必要がある
+    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
 
-    # `runner-job` で実行されるサービスコンテナ
+    # Service containers to run with `runner-job`
     services:
-      # サービスコンテナへのアクセスに使用されるラベル
+      # Label used to access the service container
       postgres:
-        # Docker Hub イメージ
+        # Docker Hub image
         image: postgres
-        # postgres のパスワードを入力する
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # postgres が起動するまで待機するようにヘルスチェックを設定する
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
         ports:
-          # サービスコンテナの tcp ポート 5432 をホストにマップする
+          # Maps tcp port 5432 on service container to the host
           - 5432:5432
 
     steps:
-      # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
+      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # `package.json` ファイル内のすべての依存関係のクリーンインストールを実行する
-      # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照する
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # PostgreSQLテーブルを作成し、テーブルにデータを入力してから
-        # データを取得するスクリプトを実行する
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data
         run: node client.js
-        # `client.js` スクリプトが新しいPostgreSQLクライアントの
-        # 作成に使う環境変数
+        # Environment variables used by the `client.js` script to create
+        # a new PostgreSQL table.
         env:
           # PostgreSQLサービスコンテナとの通信に使われるホスト名
           POSTGRES_HOST: localhost
@@ -258,21 +258,21 @@ jobs:
 
 ```yaml{:copy}
 steps:
-  # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
+  # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
     uses: actions/checkout@v2
 
-  # `package.json` ファイル内のすべての依存関係のクリーンインストールを実行する
-  # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照する
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
   - name: Install dependencies
     run: npm ci
 
   - name: Connect to PostgreSQL
-    # PostgreSQL テーブルを作成し、テーブルにデータを入力してから
-    # データを取得するスクリプトを実行する
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data
     run: node client.js
-    # `client.js` スクリプトが新しいPostgreSQLクライアントの
-    # 作成に使う環境変数
+    # Environment variables used by the `client.js` script to create
+    # a new PostgreSQL table.
     env:
       # PostgreSQLサービスコンテナとの通信に使われるホスト名
       POSTGRES_HOST: localhost
@@ -286,9 +286,9 @@ steps:
 
 ### PostgreSQLサービスコンテナのテスト
 
-次のスクリプトを使用してワークフローをテストできます。このスクリプトは、PostgreSQL サービスに接続し、プレースホルダーデータを含む新しいテーブルを追加します。 そしてそのスクリプトは PostgreSQL テーブルに保存されている値をターミナルに出力します。 スクリプトには好きな言語を使えますが、この例ではNode.jsとnpmモジュールの`pg`を使っています。 詳しい情報については[npm pgモジュール](https://www.npmjs.com/package/pg)を参照してください。
+You can test your workflow using the following script, which connects to the PostgreSQL service and adds a new table with some placeholder data. The script then prints the values stored in the PostgreSQL table to the terminal. スクリプトには好きな言語を使えますが、この例ではNode.jsとnpmモジュールの`pg`を使っています。 詳しい情報については[npm pgモジュール](https://www.npmjs.com/package/pg)を参照してください。
 
-*client.js*を修正して、ワークフローで必要なPostgreSQLの操作を含めることができます。 この例では、スクリプトは PostgreSQL サービスに接続し、`postgres` データベースにテーブルを追加し、プレースホルダーデータを挿入してから、データを取得します。
+*client.js*を修正して、ワークフローで必要なPostgreSQLの操作を含めることができます。 In this example, the script connects to the PostgreSQL service, adds a table to the `postgres` database, inserts some placeholder data, and then retrieves the data.
 
 {% data reusables.github-actions.service-container-add-script %}
 
@@ -324,11 +324,11 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-このスクリプトは、PostgreSQL サービスへの新しい接続を作成し、`POSTGRES_HOST` および `POSTGRES_PORT` 環境変数を使用して PostgreSQL サービスの IP アドレスとポートを指定します。 `host`と`port`が定義されていない場合、デフォルトのホストは`localhost`で、デフォルトのポートは5432になります。
+The script creates a new connection to the PostgreSQL service, and uses the `POSTGRES_HOST` and `POSTGRES_PORT` environment variables to specify the PostgreSQL service IP address and port. `host`と`port`が定義されていない場合、デフォルトのホストは`localhost`で、デフォルトのポートは5432になります。
 
-スクリプトはテーブルを作成し、そのテーブルにプレースホルダーデータを展開します。 `postgres` データベースにデータが含まれていることをテストするために、スクリプトはテーブルの内容をコンソールログに出力します。
+スクリプトはテーブルを作成し、そのテーブルにプレースホルダーデータを展開します。 To test that the `postgres` database contains the data, the script prints the contents of the table to the console log.
 
-このワークフローを実行すると、「PostgreSQL への接続」ステップに次の出力が表示されます。これにより、PostgreSQL テーブルが正常に作成されてデータが追加されたことを確認できます。
+When you run this workflow, you should see the following output in the "Connect to PostgreSQL" step, which confirms that you successfully created the PostgreSQL table and added data:
 
 ```
 null [ { id: 1,

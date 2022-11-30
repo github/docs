@@ -10,7 +10,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 在使用 `git rebase` 重新排序和操作提交后，如果发生合并冲突，Git 会告知您，并将以下消息打印到终端：
 
 ```shell

@@ -7,12 +7,11 @@ redirect_from:
   - /github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Pages
-shortTitle: Create custom 404 page
 ---
 
 {% data reusables.pages.navigate-site-repo %}
@@ -32,6 +31,6 @@ shortTitle: Create custom 404 page
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-## Further reading
+### Further reading
 
 - [Front matter](http://jekyllrb.com/docs/frontmatter) in the Jekyll documentation

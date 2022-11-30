@@ -1,0 +1,1 @@
+Si una persona cuenta con múltiples avenidas de acceso a un tablero de proyecto de una organización (individualmente, a través de un equipo o como miembro de una organización), el nivel de permiso más alto del tablero de proyecto invalida los niveles de permiso más bajos.

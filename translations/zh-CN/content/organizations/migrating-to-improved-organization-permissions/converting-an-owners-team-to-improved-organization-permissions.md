@@ -7,12 +7,11 @@ redirect_from:
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
-  fpt: '*'
-  ghes: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 转换所有者团队
 ---
 
 您可以通过几种方式转换旧所有者团队：
@@ -20,7 +19,7 @@ shortTitle: 转换所有者团队
 - 给团队一个新名称以表明其成员在组织中具有特殊地位。
 - 在确保所有成员已被添加到对组织仓库具有必要权限的其他团队后，删除该团队。
 
-## 给所有者团队一个新名称
+### 给所有者团队一个新名称
 
 {% tip %}
 
@@ -28,8 +27,8 @@ shortTitle: 转换所有者团队
 
 {% endtip %}
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. 在团队名称字段中，为所有者团队选择一个新名称。 例如：
@@ -38,7 +37,7 @@ shortTitle: 转换所有者团队
 6. 在团队说明下，单击 **Save and continue（保存并继续）**。 ![保存并继续按钮](/assets/images/help/teams/owners-team-save-and-continue.png)
 7. （可选）[让团队*公开*](/articles/changing-team-visibility)。
 
-## 删除旧所有者团队
+### 删除旧所有者团队
 
 {% warning %}
 
@@ -46,8 +45,8 @@ shortTitle: 转换所有者团队
 
 {% endwarning %}
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. 在页面底部，查看警告，然后单击 **Delete the Owners team（删除所有者团队）**。 ![删除所有者团队的链接](/assets/images/help/teams/owners-team-delete.png)

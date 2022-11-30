@@ -12,7 +12,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% tip %}
 
 **Dica:** também é possível [adicionar um arquivo existente a um repositório do site do {% data variables.product.product_name %}](/articles/adding-a-file-to-a-repository).
@@ -23,7 +22,9 @@ topics:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. No seu computador, mova o arquivo do qual deseja fazer upload para o {% data variables.product.product_name %}, no diretório local que foi criado quando o repositório foi clonado.
+1. No seu computador, mova o arquivo para o qual você gostaria de fazer o upload
+
+{% data variables.product.product_name %} para o diretório local que foi criado quando você clonou o repositório.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
 {% data reusables.git.stage_for_commit %}

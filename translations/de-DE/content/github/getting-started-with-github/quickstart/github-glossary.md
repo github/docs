@@ -1,6 +1,6 @@
 ---
 title: GitHub-Glossar
-intro: 'This glossary introduces common Git and {% data variables.product.prodname_dotcom %} terminology.'
+intro: 'In diesem Artikel findest Du eine Liste einiger Git- und {% data variables.product.prodname_dotcom %}-spezifischer Begriffe, die wir übergreifend auf unseren Websites und in unseren Dokumentationen verwenden.'
 redirect_from:
   - /articles/github-glossary
   - /github/getting-started-with-github/github-glossary
@@ -9,7 +9,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 {% for term in site.data.glossaries.external %}
   ### {% data glossaries.external[forloop.index0].term %}
   {% data glossaries.external[forloop.index0].description %}

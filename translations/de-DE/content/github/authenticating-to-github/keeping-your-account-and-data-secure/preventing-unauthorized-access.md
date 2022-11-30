@@ -11,7 +11,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data variables.product.product_name %} schreibt ein Passwort vor, um vertrauliche Aktionen durchzuführen, beispielsweise das Hinzufügen neuer SSH-Schlüssel, das Autorisieren von Anwendungen oder die Bearbeitung von Teammitgliedern.
 
 Wenn Du Dein Passwort geändert hast, solltest Du zum Schutz Deines Kontos die folgenden Aktionen durchführen:

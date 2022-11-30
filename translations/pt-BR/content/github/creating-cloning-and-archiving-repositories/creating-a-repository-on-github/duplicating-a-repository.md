@@ -12,7 +12,6 @@ versions:
 topics:
   - Repositories
 ---
-
 Para poder duplicar um repositório e fazer push (ou seja, _espelhamento_) na nova cópia do repositório, é preciso [criar o novo repositório](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Nesses exemplos, `exampleuser/new-repository` ou `exampleuser/mirrored` são os espelhos.
 
 ### Espelhar um repositório

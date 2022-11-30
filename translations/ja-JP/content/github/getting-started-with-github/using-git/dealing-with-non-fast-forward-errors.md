@@ -10,7 +10,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 別の人が同じブランチにすでにプッシュしてしまった場合、Git はあなたの変更をプッシュできません:
 
 ```shell

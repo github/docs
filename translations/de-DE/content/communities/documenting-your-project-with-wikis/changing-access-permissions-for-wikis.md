@@ -6,18 +6,17 @@ redirect_from:
   - /articles/changing-access-permissions-for-wikis
   - /github/building-a-strong-community/changing-access-permissions-for-wikis
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Community
-shortTitle: Change access permissions
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. Entferne unter „Features“ (Features) die Auswahl von **Restrict edits to collaborators only** (Bearbeitungen auf Mitarbeiter begrenzen). ![Wiki-Bearbeitung einschränken](/assets/images/help/wiki/wiki_restrict_editing.png)
 
-## Weiterführende Informationen
+### Weiterführende Informationen
 
 - „[Wikis deaktivieren](/communities/documenting-your-project-with-wikis/disabling-wikis)“

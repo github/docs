@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 

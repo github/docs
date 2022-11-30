@@ -4,17 +4,14 @@ intro: You can edit the metadata and description for a security advisory if you 
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
-  fpt: '*'
-type: how_to
+  free-pro-team: '*'
 topics:
-  - Security advisories
-  - Vulnerabilities
-shortTitle: Edit advisories
+  - Security
 ---
 
 People with admin permissions to a security advisory can edit the security advisory.
 
-## About credits for security advisories
+### About credits for security advisories
 
 You can credit people who helped discover, report, or fix a security vulnerability. If you credit someone, they can choose to accept or decline credit.
 
@@ -22,7 +19,7 @@ If someone accepts credit, the person's username appears in the "Credits" sectio
 
 If you believe you should be credited for a security advisory, please contact the person who created the advisory and ask them to edit the advisory to include your credit. Only the creator of the advisory can credit you, so please don't contact GitHub Support about credits for security advisories.
 
-## Editing a security advisory
+### Editing a security advisory
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -37,9 +34,9 @@ If you believe you should be credited for a security advisory, please contact th
 11. Optionally, edit the "Credits" for the security advisory.
   ![Credits for a security advisory](/assets/images/help/security/security-advisory-credits.png)
 12. Click **Update security advisory**.
-  !["Update security advisory" button](/assets/images/help/security/update-advisory-button.png)
+  ![Add button](/assets/images/help/security/update-advisory-button.png)
 13. The people listed in the "Credits" section will receive an email or web notification inviting them to accept credit. If a person accepts, their username will be publicly visible once the security advisory is published.
 
-## Further reading
+### Further reading
 
 - "[Withdrawing a security advisory](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"

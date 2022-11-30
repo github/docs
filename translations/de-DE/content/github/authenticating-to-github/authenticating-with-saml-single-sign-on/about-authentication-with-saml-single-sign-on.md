@@ -11,7 +11,6 @@ versions:
 topics:
   - SSO
 ---
-
 ### About authentication with SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}

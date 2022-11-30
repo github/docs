@@ -13,7 +13,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% mac %}
 
 ### Git Deinen GPG-Schlüssel mitteilen

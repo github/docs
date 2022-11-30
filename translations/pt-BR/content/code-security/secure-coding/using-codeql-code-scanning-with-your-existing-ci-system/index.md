@@ -9,13 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
-type: how_to
 topics:
-  - Advanced Security
-  - Code scanning
-  - Integration
-  - CI
-  - CodeQL
+  - Security
 children:
   - /about-codeql-code-scanning-in-your-ci-system
   - /running-codeql-cli-in-your-ci-system
@@ -23,5 +18,4 @@ children:
   - /configuring-codeql-runner-in-your-ci-system
   - /troubleshooting-codeql-runner-in-your-ci-system
 ---
-
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

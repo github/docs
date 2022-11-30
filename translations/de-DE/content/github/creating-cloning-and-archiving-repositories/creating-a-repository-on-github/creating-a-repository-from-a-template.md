@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 ### About repository templates
 
 Jeder, der über Leseberechtigung auf eine Repository-Vorlage verfügt, kann ein Repository anhand dieser Vorlage erstellen. Weitere Informationen findest Du unter „[Repository-Vorlage erstellen](/articles/creating-a-template-repository).“

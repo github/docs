@@ -5,19 +5,18 @@ redirect_from:
   - /articles/adding-support-resources-to-your-project
   - /github/building-a-strong-community/adding-support-resources-to-your-project
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Community
-shortTitle: Adicionar recursos de suporte
 ---
 
 Para direcionar pessoas a recursos de suporte específicos, é possível adicionar um arquivo SUPPORT à pasta raiz, `docs` ou `.github` do seu repositório. Quando uma pessoa cria um problema no seu repositório, ela vê um link para o arquivo SUPPORT do projeto.
 
 ![Diretrizes de suporte](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-{% ifversion fpt or ghes %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 Você pode criar recursos padrão de suporte para a sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
@@ -29,7 +28,7 @@ Você pode criar recursos padrão de suporte para a sua organização ou conta d
 
 {% endtip %}
 
-## Adicionar recursos de suporte ao projeto
+### Adicionar recursos de suporte ao projeto
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

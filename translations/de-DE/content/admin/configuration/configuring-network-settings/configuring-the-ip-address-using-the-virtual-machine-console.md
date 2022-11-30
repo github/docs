@@ -6,16 +6,14 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
   - /admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
-  ghes: '*'
+  enterprise-server: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: Set the IP using the console
 ---
-
 {% note %}
 
 **Note:** We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.

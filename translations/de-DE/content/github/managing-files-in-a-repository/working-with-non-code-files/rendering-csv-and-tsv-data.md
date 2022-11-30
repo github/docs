@@ -10,7 +10,6 @@ versions:
 topics:
   - Repositories
 ---
-
 GitHub unterstützt das Rendering von Tabellendaten in den Formaten *.csv* (kommagetrennt) und *.tsv* (tabulatorgetrennt).
 
 ![Beispiel für eine gerenderte CSV-Datei](/assets/images/help/repository/rendered_csv.png)

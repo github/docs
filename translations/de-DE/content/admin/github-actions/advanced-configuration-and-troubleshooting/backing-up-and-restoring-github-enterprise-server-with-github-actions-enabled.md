@@ -3,7 +3,7 @@ title: Backing up and restoring GitHub Enterprise Server with GitHub Actions ena
 shortTitle: Backing up and restoring
 intro: '{% data variables.product.prodname_actions %} data on your external storage provider is not included in regular {% data variables.product.prodname_ghe_server %} backups, and must be backed up separately.'
 versions:
-  ghes: '>=3.0'
+  enterprise-server: '>=3.0'
 type: how_to
 topics:
   - Actions
@@ -13,7 +13,6 @@ topics:
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
 ---
-
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
 If you use {% data variables.product.prodname_enterprise_backup_utilities %} to back up {% data variables.product.product_location %}, it's important to note that {% data variables.product.prodname_actions %} data stored on your external storage provider is not included in the backup.

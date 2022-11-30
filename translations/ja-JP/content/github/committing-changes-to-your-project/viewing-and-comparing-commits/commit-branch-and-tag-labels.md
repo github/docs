@@ -5,12 +5,10 @@ redirect_from:
   - /articles/commit-branch-and-tag-labels
   - /github/committing-changes-to-your-project/commit-branch-and-tag-labels
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-shortTitle: Branch & tag labels
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
-
 コミットがデフォルトブランチにない場合、コミットを含むブランチが表示されます。 コミットがマージされていないプルリクエストの一部である場合は、リンクが表示されます。
 
 ![コミットブランチのラベル](/assets/images/help/commits/Commit-branch-label.png)
@@ -19,7 +17,7 @@ shortTitle: Branch & tag labels
 
 ![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
-## 参考リンク
+### 参考リンク
 
 * 「[コミットに署名する](/articles/signing-commits)」
 * 「[タグに署名する](/articles/signing-tags)」

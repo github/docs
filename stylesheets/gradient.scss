@@ -1,0 +1,104 @@
+$gradients: (
+  "-purple-pink":
+    linear-gradient(
+      135deg,
+      var(--color-auto-purple-5) 0%,
+      var(--color-auto-pink-5) 100%
+    ),
+  /*"-aquamarine-mauve":  linear-gradient(130deg, #3bf0e4 -6.8%, #bca1f7 70%),
+  "-purple-coral":  linear-gradient(87.54deg, #9867f0 -6.8%, #ed4e50 84.14%),
+  "-purple-coral-dark": linear-gradient(92deg, #bca1f7 15%, #e577b4 45%, #ff7170 85%),
+  "-coral-yellow":  linear-gradient(267.91deg, #ffe57f 9.35%, #ff7170 96.48%),
+  "-coral-yellow-dark": linear-gradient(-70deg, #ff7170 0%, #ffe57f 100%),
+  "-dark-mint":  linear-gradient(90deg, #05aa82, #1c8df0),
+  "-mint-blue":  linear-gradient(271.72deg, #a2facf 7.09%, #64acff 96.61%),
+  "-mint-blue-dark": linear-gradient(-70deg, #a2facf 0%, #64acff 100%),
+  "-turq-purple-dark": linear-gradient(-70deg, #3bf0e4 0%, #bca1f7 100%),
+  "-blue-green": linear-gradient(-70deg, #2188ff 0%, #01a49e 100%),
+  "-red-orange": linear-gradient(-70deg, #ed4e50 0%, #f06f00 100%),
+  "-blue-purple": linear-gradient(-70deg, #2188ff 0%, #804eda 100%), */
+    "-pink-blue":
+    linear-gradient(
+      90deg,
+      var(--color-auto-pink-5) -50%,
+      var(--color-auto-blue-5) 150%
+    ),
+  "-pink-blue-dark":
+    linear-gradient(
+      -70deg,
+      var(--color-auto-pink-3) 0%,
+      var(--color-auto-blue-3) 100%
+    ),
+  "-blue-pink":
+    linear-gradient(
+      -70deg,
+      var(--color-auto-blue-5) 0%,
+      var(--color-auto-pink-5) 100%
+    )
+) !default;
+
+@mixin bg-gradient($parent, $gradient) {
+  #{$parent} {
+    background: $gradient;
+  }
+}
+
+/*
+@mixin text-gradient($parent, $gradient) {
+  #{parent} {
+    background-image: $gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+*/
+
+$border-width: 2px;
+@mixin border-gradient($parent, $gradient) {
+  #{$parent} {
+    position: relative;
+    background-clip: padding-box;
+    &:before {
+      content: "";
+      position: absolute;
+      background: var(--color-bg-primary);
+      border-radius: inherit;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+    &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: $gradient;
+      content: "";
+      z-index: 0;
+      border-radius: inherit;
+      margin: -$border-width;
+    }
+    & > span {
+      z-index: 2;
+    }
+  }
+}
+
+@each $gradient, $value in $gradients {
+  @include bg-gradient(".bg-gradient-#{$gradient}", $value);
+}
+
+/*
+@each $gradient, $value in $gradients {
+  @include text-gradient(".text-gradient-#{gradient}", $value);
+}
+*/
+
+@each $gradient, $value in $gradients {
+  @include border-gradient(".border-gradient-#{$gradient}", $value);
+}

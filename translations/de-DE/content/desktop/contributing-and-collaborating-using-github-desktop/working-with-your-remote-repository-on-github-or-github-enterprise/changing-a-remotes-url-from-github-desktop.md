@@ -6,10 +6,8 @@ redirect_from:
   - /desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop
 versions:
-  fpt: '*'
-shortTitle: Change a remote's URL
+  free-pro-team: '*'
 ---
-
 {% mac %}
 
 1. Klicke im Menü **Repository** auf **Repository Settings...** (Repository-Einstellungen). ![Menüoption „Repository Settings“ (Repository-Einstellungen)](/assets/images/help/desktop/repository-settings-mac.png)

@@ -9,7 +9,6 @@ versions:
 topics:
   - Early access
 ---
-
 ### {% data variables.product.prodname_dotcom %} のリリースサイクル
 
 {% data variables.product.product_name %} の製品と機能は、複数のリリースフェーズを経る場合があります。

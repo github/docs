@@ -1,17 +1,14 @@
 ---
-title: Managing security advisories for vulnerabilities in your project
+title: Gerenciar consultorias de segurança para vulnerabilidades no seu projeto
 shortTitle: Consultorias de segurança
 intro: 'Discuta, corrija e publique vulnerabilidades de segurança nos seus repositórios usando consultorias de segurança.'
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
-  - Security advisories
-  - Vulnerabilities
-  - Repositories
-  - CVEs
+  - Security
 children:
   - /about-coordinated-disclosure-of-security-vulnerabilities
   - /about-github-security-advisories
@@ -24,4 +21,4 @@ children:
   - /editing-a-security-advisory
   - /withdrawing-a-security-advisory
 ---
-
+### Índice

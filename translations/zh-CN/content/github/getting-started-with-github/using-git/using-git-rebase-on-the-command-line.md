@@ -11,8 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
-### 使用 Git 变基
+### Using Git rebase
 
 在本例中，我们将涵盖所有可用的 `git rebase` 命令，`exec` 除外。
 

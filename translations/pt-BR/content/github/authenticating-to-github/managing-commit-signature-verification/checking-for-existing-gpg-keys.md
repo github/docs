@@ -12,12 +12,11 @@ topics:
   - Identity
   - Access management
 ---
-
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 {% note %}
 
-**Observação:** O GPG não vem instalado por padrão no macOS ou Windows. Para instalar ferramentas de linha de comando GPG, consulte a [página de download da GnuPG](https://www.gnupg.org/download/).
+**Note:** GPG does not come installed by default on macOS or Windows. Para instalar ferramentas de linha de comando GPG, consulte a [página de download da GnuPG](https://www.gnupg.org/download/).
 
 {% endnote %}
 

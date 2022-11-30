@@ -13,7 +13,6 @@ topics:
   - Accounts
   - Notifications
 ---
-
 {% mac %}
 
 ### {% data variables.product.prodname_desktop %} 用户

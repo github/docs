@@ -12,7 +12,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% tip %}
 
 **Tipp:** {% data reusables.repositories.protected-branches-block-web-edits-uploads %}

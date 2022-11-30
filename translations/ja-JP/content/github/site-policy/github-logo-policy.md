@@ -5,7 +5,7 @@ redirect_from:
   - /articles/using-an-octocat-to-link-to-github-or-your-github-profile/
   - /articles/github-logo-policy
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - Policy
   - Legal

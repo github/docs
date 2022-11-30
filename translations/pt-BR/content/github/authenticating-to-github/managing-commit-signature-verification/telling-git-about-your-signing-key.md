@@ -13,7 +13,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% mac %}
 
 ### Informar ao Git sobre a chave GPG

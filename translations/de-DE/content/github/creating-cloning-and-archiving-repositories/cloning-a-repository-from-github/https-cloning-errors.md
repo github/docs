@@ -15,7 +15,6 @@ versions:
 topics:
   - Repositories
 ---
-
 Hier siehst Du ein Beispiel für einen möglichen HTTPS-Fehler:
 
 ```shell

@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 Die meisten Dateien können [direkt auf {% data variables.product.product_name %} verschoben werden](/articles/moving-a-file-to-a-new-location), bei manchen Dateien, beispielsweise bei Bilddateien, ist dies jedoch nur über die Befehlszeile möglich.
 
 {% data reusables.command_line.manipulating_file_prereqs %}

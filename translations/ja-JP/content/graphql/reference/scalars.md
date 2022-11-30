@@ -4,14 +4,14 @@ redirect_from:
   - /v4/scalar
   - /v4/reference/scalar
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---
 
-## スカラについて
+### スカラについて
 
 [スカラ](https://graphql.github.io/graphql-spec/June2018/#sec-Scalars)は、`Int`、`Float`、`String`、`Boolean`、`ID`といったプリミティブな値です。
 

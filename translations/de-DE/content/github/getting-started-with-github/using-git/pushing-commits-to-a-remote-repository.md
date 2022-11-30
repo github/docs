@@ -11,7 +11,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
 Der Befehl `git push` hat zwei Argumente:
 
 * einen Remote-Namen, z. B. `origin`

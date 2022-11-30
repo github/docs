@@ -6,13 +6,12 @@ redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-display-of-member-names-in-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 管理成员名称的显示
 ---
 
 组织所有者可管理组织中成员名称的显示。

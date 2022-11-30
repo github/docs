@@ -4,7 +4,7 @@ intro: '要构建与 {% data variables.product.prodname_dotcom %} 集成的工�
 redirect_from:
   - /program
 versions:
-  fpt: '*'
+  free-pro-team: '*'
 topics:
   - API
 ---

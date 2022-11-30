@@ -4,9 +4,9 @@ intro: 'Aprende sobre las API de {% data variables.product.prodname_dotcom %} pa
 redirect_from:
   - /v3/versions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
 ---

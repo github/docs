@@ -1,4 +1,4 @@
-{% ifversion ghes = 3.0 or ghae %}
+{% if  currentVersion == "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 **ノート:** Organizationが所有するリポジトリのための{% data variables.product.prodname_secret_scanning_caps %}は現在ベータで、変更されることがあります。
@@ -6,7 +6,7 @@
 {% endnote %}
 
 {% endif %}
-{% ifversion ghes > 3.0 %}
+{% if currentVersion ver_gt "enterprise-server@3.0" %}
 
 {% note %}
 

@@ -1,1 +1,1 @@
-1. Haz clic en **Actualizar** junto a "Plan actual".
+1. Click **Upgrade** next to "Current plan".

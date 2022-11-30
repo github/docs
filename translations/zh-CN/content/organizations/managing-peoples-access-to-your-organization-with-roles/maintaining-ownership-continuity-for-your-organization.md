@@ -9,16 +9,15 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
 permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: 保持所有权连续性
 ---
 
-## 关于保持组织的所有权连续性
+### 关于保持组织的所有权连续性
 
 {% data reusables.organizations.org-ownership-recommendation %}
 
@@ -30,10 +29,10 @@ shortTitle: 保持所有权连续性
 
 {% endnote %}
 
-## 任命组织所有者
+### 任命组织所有者
 
+{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. 选择要晋升为所有者的人员。 ![选择了两名成员的成员列表](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. 在成员列表的上方，使用下拉菜单并单击 **Change role（更改角色）**。 ![包含删除成员选项的下拉菜单](/assets/images/help/teams/user-bulk-management-options.png)

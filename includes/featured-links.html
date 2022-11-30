@@ -1,0 +1,27 @@
+<div class="featured-links container-xl">
+  <div class="gutter gutter-xl-spacious clearfix">
+
+    <!-- Getting Started articles -->
+    <div class="col-12 col-lg-6 float-left">
+      <div class="featured-links-heading pb-4">
+        <h3 class="f5 text-normal text-mono underline-dashed color-text-secondary">{% data ui.toc.getting_started %}</h3>
+      </div>
+
+      {% for link in featuredLinks.gettingStarted %}
+        {% include featured-link %}
+      {% endfor %}
+    </div>
+
+    <!-- Popular articles -->
+    <div class="col-12 col-lg-6 float-left">
+      <div class="featured-links-heading pb-4">
+        <h3 class="f5 text-normal text-mono underline-dashed color-text-secondary">{% data ui.toc.popular %}</h3>
+      </div>
+
+      {% for link in featuredLinks.popular %}
+        {% include featured-link %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

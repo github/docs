@@ -12,7 +12,6 @@ topics:
 redirect_from:
   - /admin/configuration/configuring-data-encryption-for-your-enterprise
 ---
-
 {% note %}
 
 **注：**在休息时使用客户管理的密钥配置加密当前处于测试阶段，可能会更改。

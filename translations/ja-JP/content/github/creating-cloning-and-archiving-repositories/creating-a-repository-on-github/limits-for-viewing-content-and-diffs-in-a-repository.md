@@ -12,7 +12,6 @@ versions:
 topics:
   - Repositories
 ---
-
 以下の制限の多くは {% data variables.product.product_name %}と API の両方に影響します。
 
 ### テキストの制限

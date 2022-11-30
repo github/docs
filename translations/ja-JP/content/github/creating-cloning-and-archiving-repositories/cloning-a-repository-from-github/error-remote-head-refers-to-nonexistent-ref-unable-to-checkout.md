@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 このエラーの検出方法は簡単です。リポジトリのクローンを試みると Git により警告されます:
 
 ```shell

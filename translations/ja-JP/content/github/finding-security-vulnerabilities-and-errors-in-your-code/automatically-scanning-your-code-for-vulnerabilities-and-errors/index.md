@@ -4,7 +4,7 @@ shortTitle: 自動的にスキャンする
 intro: 'プロジェクトのコードの脆弱性とエラーは、{% data variables.product.prodname_dotcom %} で確認できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  ghes: '2.22'
+  enterprise-server: '2.22'
 topics:
   - Security
 children:
@@ -17,5 +17,4 @@ children:
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
 ---
-
 <!--See /content/code-security/secure-coding for the latest version of this article -->

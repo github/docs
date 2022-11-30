@@ -6,12 +6,9 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors
 versions:
-  fpt: '*'
-children:
-  - /sponsoring-an-open-source-contributor
-  - /managing-your-sponsorship
-  - /attributing-sponsorships-to-your-organization
-  - /paying-for-github-sponsors-by-invoice
-shortTitle: Sponsor contributors
+  free-pro-team: '*'
 ---
 
+{% link_with_intro /sponsoring-an-open-source-contributor %}
+{% link_with_intro /managing-your-sponsorship %}
+{% link_with_intro /attributing-sponsorships-to-your-organization %}

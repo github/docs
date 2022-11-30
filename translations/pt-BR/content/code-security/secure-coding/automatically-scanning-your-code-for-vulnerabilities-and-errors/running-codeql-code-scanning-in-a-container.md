@@ -10,17 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
-type: how_to
 topics:
-  - Advanced Security
-  - Code scanning
-  - CodeQL
-  - Actions
-  - Repositories
-  - Containers
-  - Java
+  - Security
 ---
-
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}

@@ -13,7 +13,6 @@ topics:
   - Identity
   - Access management
 ---
-
 {% mac %}
 
 ### Git へ GPG キーを伝える

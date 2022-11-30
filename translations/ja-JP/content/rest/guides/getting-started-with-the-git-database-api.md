@@ -2,15 +2,14 @@
 title: Git Database APIを使ってみる
 intro: 'Git Database APIでは、{% data variables.product.product_name %}上のGitデータベースに対してRaw形式のGitオブジェクトを読み書きしたり、リファレンス (ブランチheadやタグ) をリストおよび更新したりすることができます。'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 topics:
   - API
-shortTitle: 始めましょう - GitデータベースAPI
 ---
 
-## 概要
+### 概要
 
 これにより、さまざまなGitの機能を、APIを介して再実装することができます。Raw形式オブジェクトのオブジェクトをデータベースに直接作成し、ブランチリファレンスを更新することにより、Gitをインストールしなくても、Gitができることのほとんどを行えるのです。
 
@@ -32,7 +31,7 @@ Gitオブジェクトデータベースについての詳細は、Pro Gitブッ�
 
 複雑に見えるかもしれませんが、実際にはモデルを理解していれば非常に単純で、理解することによりAPIでできることが広がるでしょう。
 
-## プルリクエストのマージ可能性を確認
+### プルリクエストのマージ可能性を確認
 
 {% warning %}
 

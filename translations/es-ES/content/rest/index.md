@@ -5,12 +5,11 @@ intro: 'Puedes utilizar la API de REST de {% data variables.product.prodname_dot
 redirect_from:
   - /v3
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-children:
-  - /overview
-  - /reference
-  - /guides
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% link_with_intro /overview %}
+{% link_with_intro /reference %}
+{% link_with_intro /guides %}

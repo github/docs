@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 ### リポジトリのクローンについて
 
 {% data variables.product.product_location %} からローカルコンピューターにリポジトリのクローンを作成して、マージの競合の修正、ファイルの追加または削除、より大きなコミットのプッシュを簡単に行うことができます。 リポジトリのクローンを作成する場合は、リポジトリを {% data variables.product.product_location %} からローカルマシンにコピーします。

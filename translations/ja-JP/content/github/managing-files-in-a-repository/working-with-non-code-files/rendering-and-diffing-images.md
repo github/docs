@@ -11,7 +11,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% note %}
 
 **メモ:** Firefox ブラウザを使用している場合、{% data variables.product.prodname_dotcom %} では SVG がレンダリングされない可能性があります。

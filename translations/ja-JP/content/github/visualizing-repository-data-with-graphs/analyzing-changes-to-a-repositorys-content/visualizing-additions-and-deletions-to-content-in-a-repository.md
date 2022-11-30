@@ -12,7 +12,6 @@ versions:
 topics:
   - Repositories
 ---
-
 {% if currentVersion == "free-pro-team@latest" %}
 
 ![コード更新頻度グラフ](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)

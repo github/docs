@@ -165,9 +165,9 @@ on:
 
 ### webhook イベント
 
-webhook イベントが {% data variables.product.product_name %} で生成されたときに実行されるようにワークフローを設定できます イベントによっては、そのイベントをトリガーするアクティビティタイプが 複数あります。 イベントをトリガーするアクティビティタイプが複数ある場合は、ワークフローの実行をトリガーするアクティビティタイプを指定できます。 詳しい情報については、「[webhook](/webhooks)」を参照してください。
+You can configure your workflow to run when webhook events are generated on {% data variables.product.product_name %}. イベントによっては、そのイベントをトリガーするアクティビティタイプが 複数あります。 イベントをトリガーするアクティビティタイプが複数ある場合は、ワークフローの実行をトリガーするアクティビティタイプを指定できます。 詳しい情報については、「[webhook](/webhooks)」を参照してください。
 
-すべての webhook イベントがワークフローをトリガーするわけではありません。 使用可能な webhook イベントとそのペイロードの完全なリストについては、「[webhook イベントとペイロード](/developers/webhooks-and-events/webhook-events-and-payloads)」を参照してください。
+Not all webhook events trigger workflows. For the complete list of available webhook events and their payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
 
 #### `check_run`
 
@@ -181,7 +181,7 @@ webhook イベントが {% data variables.product.product_name %} で生成さ�
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-たとえば、チェック実行が `rerequested` または `completed` であったときにワークフローを実行できます。
+For example, you can run a workflow when a check run has been `rerequested` or `completed`.
 
 ```yaml
 on:
@@ -556,7 +556,7 @@ on:
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-たとえば、プルリクエストレビューが `edited` または `dismissed` だったときにワークフローを実行する例は、次のとおりです。
+たとえば、プルリクエストレビューが `eidted` または `dismissed` だったときにワークフローを実行する例は、次のとおりです。
 
 ```yaml
 on:
@@ -679,7 +679,7 @@ on:
 
 {% note %}
 
-**注釈:** `prereleased` タイプは、ドラフトリリースから公開されたプレリリースではトリガーされませんが、`published` タイプはトリガーされます。 安定版*および*プレリリースの公開時にワークフローを実行する場合は、`released` および `prereleased` ではなく `published` にサブスクライブします。
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
 {% endnote %}
 
@@ -736,7 +736,7 @@ on:
 
 このイベントからブランチをフィルタする必要がある場合は、`branches` または `branches-ignore` を使用できます。
 
-この例では、ワークフローは個別の「Run Tests」ワークフローの完了後に実行されるように設定されています。
+In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
 
 ```yaml
 on:
@@ -750,7 +750,7 @@ on:
 
 {% endif %}
 
-前回のワークフロー実行の結果に基づいて条件付きでワークフロージョブを実行する場合、[`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) または [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) 条件を前回の実行の `conclusion` と組み合わせて使用できます。 例:
+To run a workflow job conditionally based on the result of the previous workflow run, you can use the [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) or [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) conditional combined with the `conclusion` of the previous run. 例:
 
 ```yaml
 on:

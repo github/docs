@@ -10,7 +10,6 @@ versions:
 topics:
   - Repositories
 ---
-
 GitHub では PDF ドキュメントのレンダリングをサポートしています。
 
 ![レンダリングされた PDF ドキュメント](/assets/images/help/repository/rendered-pdf.png)

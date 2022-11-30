@@ -9,7 +9,6 @@ versions:
 topics:
   - Repositories
 ---
-
 Alle Benutzer können gelöschte Repositorys wiederherstellen, die zu ihrem eigenen Benutzerkonto gehörten. Organisationsinhaber können gelöschte Repositorys wiederherstellen, die im Eigentum der Organisation standen.
 
 ### Informationen zur Repository-Wiederherstellung

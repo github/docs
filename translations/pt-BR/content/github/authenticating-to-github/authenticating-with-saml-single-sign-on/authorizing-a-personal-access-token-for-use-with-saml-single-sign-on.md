@@ -10,7 +10,6 @@ versions:
 topics:
   - SSO
 ---
-
 Você pode autorizar um token de acesso pessoal existente ou [criar um](/github/authenticating-to-github/creating-a-personal-access-token) e autorizá-lo.
 
 {% data reusables.user_settings.access_settings %}

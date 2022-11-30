@@ -11,13 +11,11 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Advanced Security
-  - Code scanning
-  - CodeQL
+  - Security
 children:
   - /automatically-scanning-your-code-for-vulnerabilities-and-errors
-  - /integrating-with-code-scanning
+  - /managing-results-from-code-scanning
   - /using-codeql-code-scanning-with-your-existing-ci-system
 ---
-
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+### Índice

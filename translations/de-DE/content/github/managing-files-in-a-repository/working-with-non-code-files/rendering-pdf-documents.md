@@ -10,7 +10,6 @@ versions:
 topics:
   - Repositories
 ---
-
 GitHub unterstützt das Rendering von PDF-Dokumenten.
 
 ![Gerendertes PDF-Dokument](/assets/images/help/repository/rendered-pdf.png)

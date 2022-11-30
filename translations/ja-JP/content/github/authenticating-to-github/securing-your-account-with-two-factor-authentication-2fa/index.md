@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2FA
+  - 2fa
 children:
   - /about-two-factor-authentication
   - /configuring-two-factor-authentication
