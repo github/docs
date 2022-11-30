@@ -17,30 +17,48 @@ export function getReleaseNotes(prefix, langCode) {
   // data/release-notes/**/*.yml file from the translation.
   // If the language is 'en', don't even bother merging.
   const releaseNotes = getDeepDataByLanguage(`release-notes.${prefix}`, 'en')
+  if (langCode === 'en') {
+    // Exit early because nothing special needs to be done.
+    return releaseNotes
+  }
 
   // The reason we're doing this is because we can't trust
   // getDeepDataByLanguage() in the translations because it depends on
   // loading in all possible files in the directory. Translations often
   // don't delete files, so we use the English data as a guide for which
   // data files to bother reading.
-  if (langCode !== 'en') {
-    // Now, let's iterated over all nested keys and for each one load in the
-    // translated value.
-    for (const [key, value] of Object.entries(releaseNotes)) {
-      for (const subKey of Object.keys(value)) {
-        const data = getDataByLanguage(`release-notes.${prefix}.${key}.${subKey}`, langCode)
-        // A simple but powerful validation. If the `sections:` key/value
-        // is incorrectly translated so it's no longer an array, then we
-        // don't pick this up from the translation.
-        const validSections = Object.values(data.sections).every((sectionValue) =>
-          Array.isArray(sectionValue)
-        )
-        if (validSections) {
-          value[subKey] = data
-        }
+
+  // We start with the English release notes and iterate over the keys,
+  // then for each nested key, try to pull it from the translation.
+  // If we encounter valid sections, use it. If not valid,
+  // use the English ones.
+  // The output of `getDeepDataByLanguage()` is a mutatable object
+  // from a memoize cache, so don't mutate it to avoid confusing bugs.
+  const translatedReleaseNotes = {}
+
+  // Now, let's iterated over all nested keys and for each one load in the
+  // translated releases.
+  for (const [majorVersion, releases] of Object.entries(releaseNotes)) {
+    // Major version is things like '3-7'
+    translatedReleaseNotes[majorVersion] = {}
+    for (const minorVersion of Object.keys(releases)) {
+      // Minor version is things like '0-rc1' or '3'
+      const data = getDataByLanguage(
+        `release-notes.${prefix}.${majorVersion}.${minorVersion}`,
+        langCode
+      )
+      // A simple but powerful validation. If the `sections:` thing
+      // is incorrectly translated so it's no longer an array, then we
+      // don't pick this up from the translation.
+      const validSections = Object.values(data.sections).every((sectionValue) =>
+        Array.isArray(sectionValue)
+      )
+      if (validSections) {
+        translatedReleaseNotes[majorVersion][minorVersion] = data
+      } else {
+        translatedReleaseNotes[majorVersion][minorVersion] = releases[minorVersion]
       }
     }
   }
-
-  return releaseNotes
+  return translatedReleaseNotes
 }
