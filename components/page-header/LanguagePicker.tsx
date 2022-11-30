@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { useLanguages } from 'components/context/LanguagesContext'
 import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
 
 function rememberPreferredLanguage(value: string) {
   try {
@@ -16,7 +16,7 @@ function rememberPreferredLanguage(value: string) {
     // need this in the client-side which is used to determine
     // the UI about displaying notifications about preferred
     // language if your cookie doesn't match the current URL.
-    Cookies.set(PREFERRED_LOCALE_COOKIE_NAME, value, {
+    Cookies.set(USER_LANGUAGE_COOKIE_NAME, value, {
       expires: 365,
       secure: document.location.protocol !== 'http:',
     })
