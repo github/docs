@@ -1,23 +1,30 @@
 ---
-title: Customer experience best practices for apps
-intro: Guidelines for creating an app that will be easy to use and understand.
+title: Bewährte Methoden für Kundenfreundlichkeit für Apps
+intro: 'Richtlinien zum Erstellen einer App, die einfach zu verwenden und zu verstehen ist.'
 shortTitle: Customer experience best practice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:
   - /developers/github-marketplace/customer-experience-best-practices-for-apps
+ms.openlocfilehash: f45e3f88e7fdeb4c1d82264abb4e59c1057fe711
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145089787'
 ---
-If you follow these best practices it will help you to provide a good customer experience.
+Wenn du diese bewährten Verfahren befolgst, trägst du zur Kundenfreundlichkeit bei.
 
-### Customer communication
+## Kundenkommunikation
 
-- Marketing materials for the app should accurately represent the app's behavior.
-- Apps should include links to user-facing documentation that describe how to set up and use the app.
-- Customers should be able to see what type of plan they have in the billing, profile, or account settings section of the app.
-- Customers should be able to install and use your app on both a personal account and an organization account. They should be able to view and manage the app on those accounts separately.
+- In Marketingmaterialien zur App sollte das Verhalten der App genau dargestellt werden.
+- Apps sollten Links zur Benutzerdokumentation enthalten, die beschreiben, wie die App eingerichtet und verwendet wird.
+- Kunden sollten im Abschnitt zu Abrechnungs-, Profil-oder Kontoeinstellungen der App sehen können, welche Art von Plan sie haben.
+- Kunden sollten deine App sowohl auf einem persönlichen Konto als auch auf einem Organisationskonto installieren und verwenden können. Du solltest die App für diese Konten separat anzeigen und verwalten können.
 
-### Plan management
+## Planverwaltung
 
 {% data reusables.marketplace.marketplace-billing-ui-requirements %}

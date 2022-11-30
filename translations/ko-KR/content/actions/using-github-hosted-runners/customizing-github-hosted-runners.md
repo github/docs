@@ -1,28 +1,32 @@
 ---
-title: Customizing GitHub-hosted runners
-intro: You can install additional software on GitHub-hosted runners as a part of your workflow.
-product: '{% data reusables.gated-features.actions %}'
+title: GitHub 호스팅 실행기 사용자 지정
+intro: 워크플로의 일부로 GitHub 호스팅 실행기에 추가 소프트웨어를 설치할 수 있습니다.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
+shortTitle: Customize runners
+ms.openlocfilehash: d6793216b099fe3dcec44572da0b3d65cbb13fd9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145121087'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-If you require additional software packages on {% data variables.product.prodname_dotcom %}-hosted runners, you can create a job that installs the packages as part of your workflow.
+{% data variables.product.prodname_dotcom %} 호스팅 실행기에서 추가 소프트웨어 패키지가 필요한 경우 워크플로의 일부로 패키지를 설치하는 작업을 만들 수 있습니다. 
 
-To see which packages are already installed by default, see "[Preinstalled software](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
+기본적으로 이미 설치된 패키지를 보려면 “[사전 설치된 소프트웨어](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)”를 참조하세요.
 
-This guide demonstrates how to create a job that installs additional software on a {% data variables.product.prodname_dotcom %}-hosted runner.
+이 가이드에서는 {% data variables.product.prodname_dotcom %} 호스팅 실행기에서 추가 소프트웨어를 설치하는 작업을 만드는 방법을 보여 줍니다.
 
-### Installing software on Ubuntu runners
+## Ubuntu 실행기에서 소프트웨어 설치
 
-The following example demonstrates how to install an `apt` package as part of a job.
+다음 예제에서는 작업의 일부로 `apt` 패키지를 설치하는 방법을 보여 줍니다.
 
-{% raw %}
 ```yaml
 name: Build on Ubuntu
 on: push
@@ -32,25 +36,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install jq tool
         run: |
           sudo apt-get update
           sudo apt-get install jq
 ```
-{% endraw %}
 
 {% note %}
 
-**Note:** Always run `sudo apt-get update` before installing a package. In case the `apt` index is stale, this command fetches and re-indexes any available packages, which helps prevent package installation failures.
+**참고:** 패키지를 설치하기 전에 항상 `sudo apt-get update`을 실행합니다. `apt` 인덱스가 부실한 경우 이 명령은 사용 가능한 패키지를 가져오고 다시 인덱싱하여 패키지 설치 오류를 방지하는 데 도움이 됩니다. 
 
 {% endnote %}
 
-### Installing software on macOS runners
+## macOS 실행기에서 소프트웨어 설치
 
-The following example demonstrates how to install Brew packages and casks as part of a job.
+다음 예제에서는 작업의 일부로 Brew 패키지 및 캐스크를 설치하는 방법을 보여 줍니다.
 
-{% raw %}
 ```yaml
 name: Build on macOS
 on: push
@@ -60,7 +62,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install GitHub CLI
         run: |
           brew update
@@ -70,11 +72,10 @@ jobs:
           brew update
           brew install --cask microsoft-edge
 ```
-{% endraw %}
 
-### Installing software on Windows runners
+## Windows 실행기에서 소프트웨어 설치
 
-The following example demonstrates how to use [Chocolatey](https://community.chocolatey.org/packages) to install the {% data variables.product.prodname_dotcom %} CLI as part of a job.
+다음 예제에서는 [Chocolatey](https://community.chocolatey.org/packages) 를 사용하여 작업의 일부로 {% data variables.product.prodname_dotcom %} CLI를 설치하는 방법을 보여 줍니다.
 
 {% raw %}
 ```yaml

@@ -1,2 +1,10 @@
-1. Click **Save changes** at the bottom of the page.
-1. If you've installed the app on your account, check your email and follow the link to accept the new permissions. Any time you change your app's permissions or webhooks, users who have installed the app (including yourself) will need to accept the new permissions before the changes take effect. You can also accept the new permissions by navigating to your [installations page](https://github.com/settings/installations) and clicking on "Configure" next to your app. You'll see a banner at the top of the page letting you know that the app is requesting different permissions. Click "Details" and click "Accept new permissions."
+---
+ms.openlocfilehash: a3d4fcc265b7fcbde8f78975e9894270fff42e3d
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145113944"
+---
+1. Нажмите **Сохранить изменения** в нижней части страницы.
+1. Если вы установили приложение в своей учетной записи, проверьте свой почтовый ящик и перейдите по ссылке, чтобы принять новые разрешения. Каждый раз, когда вы изменяете разрешения или веб-перехватчики приложения, пользователи, которые установили приложение (включая вас самих), должны принять новые разрешения, прежде чем изменения вступят в силу. Чтобы принять новые разрешения, можно также перейти на [страницу установки](https://github.com/settings/installations) и щелкнуть "Настроить" рядом с приложением. В верхней части страницы появится баннер, сообщающий, что приложение запрашивает различные разрешения. Щелкните "Сведения" и нажмите "Принять новые разрешения".

@@ -1,10 +1,19 @@
+---
+ms.openlocfilehash: e4a946e027ffef0f6e52a55d3591eb0a00556625
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145092594"
+---
 {% tip %}
 
-**Tips**:
-- If required reviews are enabled and a collaborator with _write_, _admin_, or _owner_ access to the repository submits a review requesting changes, the pull request cannot be merged until the same collaborator submits another review approving the changes in the pull request.
-- Repository owners and administrators can merge a pull request even if it hasn't received an approving review, or if a reviewer who requested changes has left the organization or is unavailable.
-- If both required reviews and stale review dismissal are enabled and a code-modifying commit is pushed to the branch of an approved pull request, the approval is dismissed. The pull request must be reviewed and approved again before it can be merged.
-- When several open pull requests each have a head branch pointing to the same commit, you won’t be able to merge them if one or both have a pending or rejected review.
-- Pull request authors cannot approve their own pull requests.
+**Совет**.
+- Если включены обязательные проверки и участник совместной работы с правами на _запись_, _администрирование_ или правами _владельца_ репозитория отправляет проверку с запросом изменений, запрос на вытягивание нельзя объединить, пока тот же участник не отправит еще одну проверку с утверждением изменений в запросе на вытягивание.
+- Владельцы и администраторы репозитория могут объединить запрос на вытягивание, даже если он не получил утверждение или если рецензент, запросивший изменения, покинул организацию либо недоступен.
+- Если включены как обязательные проверки, так и отклонение устаревших проверок, то при отправке фиксации с изменением кода в ветвь утвержденного запроса на вытягивание утверждение отклоняется. Прежде чем запрос на вытягивание можно будет объединить, его необходимо будет проверить и утвердить еще раз.
+- Если несколько открытых запросов на вытягивание имеют головную ветвь, указывающую на одну и ту же фиксацию, вы не сможете объединить их, если хотя бы для одного из них имеется ожидающая выполнения или отклоненная проверка.
+- Если репозиторий требует утверждения проверок от пользователей с разрешениями на запись или администрирование, все утверждения от пользователей с этими разрешениями помечаются зеленой галочкой, а утверждения от пользователей без этих разрешений — серой галочкой. Утверждения с серой галочкой не влияют на возможность объединения запроса на вытягивание.
+- Авторы запросов на вытягивание не могут утверждать собственные запросы на вытягивание.
 
 {% endtip %}

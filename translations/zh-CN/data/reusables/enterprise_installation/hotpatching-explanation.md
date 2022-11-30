@@ -1,1 +1,7 @@
-您可以使用热更新将 {% data variables.product.prodname_ghe_server %} 升级为最新的补丁版本，它不需要维护时间窗，通常不需要重启。 您可以使用热更新来升级到更新的补丁版本，但不能升级到功能版本。 例如，您可以从 `2.10.1` 升级到 `2.10.5`，因为它们属于相同的功能系列，但不能从 `2. 0.9` 升级到 `2.11.0`，因为它们处于不同的功能系列中。
+You can upgrade {% data variables.product.prodname_ghe_server %} to the latest patch release using a hotpatch.
+
+You can use hotpatching to upgrade to a newer patch release, but not a feature release. For example, you can upgrade from `2.10.1` to `2.10.5` because they are in the same feature series, but not from `2.10.9` to `2.11.0` because they are in a different feature series.
+
+Hotpatches do not generally require a reboot. If a hotpatch does require a reboot, the {% data variables.product.product_name %} release notes will indicate the requirement.
+
+Hotpatches require a configuration run, which can cause a brief period of errors or unresponsiveness for some or all services on {% data variables.location.product_location %}. You are not required to enable maintenance mode during installation of a hotpatch, but doing so will guarantee that users see a maintenance page instead of errors or timeouts. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."

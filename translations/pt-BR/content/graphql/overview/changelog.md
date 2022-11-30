@@ -1,43 +1,20 @@
 ---
-title: Registro de alterações
+title: Log de alteração
 intro: 'O registro de alterações do GraphQL é uma lista de alterações recentes e futuras no nosso esquema da API do GraphQL. Ele inclui alterações compatíveis com versões anteriores, pré-visualizações de esquema, bem como as próximas alterações significativas.'
 redirect_from:
   - /v4/changelog
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 34f0baed8b75614c939281ed6a2393d7c809c82f
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107853'
 ---
-
-As alterações significativas incluem alterações que modificarão as consultas existentes ou podem afetar o comportamento do tempo de execução dos clientes. Para obter uma lista de alterações significativas e quando ocorrerão, consulte o nosso [registro de alterações significativas](/graphql/overview/breaking-changes).
-
-{% for entry in graphql.changelog %}
-### Alterações de esquema para {{ entry.date }}
-
-{% for schemaChange in entry.schemaChanges %}
-{{ schemaChange.title }}
-
-{% for change in schemaChange.changes %}
-* {{ change }}
-{% endfor %}
-{% endfor %}
-
-{% for previewChange in entry.previewChanges %}
-{{ previewChange.title }}
-
-{% for change in previewChange.changes %}
-* {{ change }}
-{% endfor %}
-{% endfor %}
-
-{% for upcomingChange in entry.upcomingChanges %}
-{{ upcomingChange.title }}
-
-{% for change in upcomingChange.changes %}
-* {{ change }}
-{% endfor %}
-{% endfor %}
-
-{% endfor %}
+As alterações significativas incluem alterações que modificarão as consultas existentes ou podem afetar o comportamento do tempo de execução dos clientes. Para ver uma lista de alterações interruptivas e quando elas ocorrerão, confira nosso [log de alterações interruptivas](/graphql/overview/breaking-changes).

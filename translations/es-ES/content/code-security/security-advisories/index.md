@@ -1,25 +1,26 @@
 ---
-title: Administrar las asesorías de seguridad para las vulnerabilidades en tu proyecto
-shortTitle: Asesorías de seguridad
-intro: 'Debate, arregla y divulga las vulnerabilidades de seguridad en tus repositorios utilizando asesorías de seguridad.'
-redirect_from:
-  - /articles/managing-security-vulnerabilities-in-your-project
-  - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
+title: Trabajo con asesorías de seguridad
+shortTitle: Security advisories
+intro: 'Obtén información sobre cómo trabajar con asesorías de seguridad en {% data variables.product.prodname_dotcom %},{% ifversion fpt or ghec %} si deseas contribuir a una asesoría global existente o crear una asesoría de seguridad para un repositorio,{% endif %} mejorando la colaboración entre los mantenedores de repositorios y los investigadores de seguridad.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Repositories
+  - CVEs
+children:
+  - /global-security-advisories
+  - /repository-security-advisories
+  - /guidance-on-reporting-and-writing
+ms.openlocfilehash: a42c57006a05bd1fffc09c8241d22eddc67ed8f1
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148114149'
 ---
 
-### Índice
-
-{% link_in_list /about-coordinated-disclosure-of-security-vulnerabilities %}
-{% link_in_list /about-github-security-advisories %}
-{% link_in_list /permission-levels-for-security-advisories %}
-{% link_in_list /creating-a-security-advisory %}
-{% link_in_list /adding-a-collaborator-to-a-security-advisory %}
-{% link_in_list /removing-a-collaborator-from-a-security-advisory %}
-{% link_in_list /collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability %}
-{% link_in_list /publishing-a-security-advisory %}
-{% link_in_list /editing-a-security-advisory %}
-{% link_in_list /withdrawing-a-security-advisory %}

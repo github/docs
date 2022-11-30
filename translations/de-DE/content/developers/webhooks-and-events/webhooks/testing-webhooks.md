@@ -1,38 +1,47 @@
 ---
-title: Testing webhooks
-intro: 'Review your webhook deliveries on {% data variables.product.prodname_dotcom %}, including the HTTP Request and payload as well as the response.'
+title: Testen von Webhooks
+intro: 'Überprüfe deine Webhookübermittlungen auf {% data variables.product.prodname_dotcom %} einschließlich HTTP-Anforderung und Nutzlast sowie der Antwort.'
 redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
+  - /articles/testing-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+ms.openlocfilehash: 5b9287030169ecac751b407ad915d4fa69bf8182
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145996217'
 ---
-Now that you've [configured your local server](/webhooks/configuring/), you might be interested in pushing your code to the limits. To that end, GitHub's webhooks view provides some tooling for testing your deployed payloads.
+Nachdem du deinen [lokalen Server konfiguriert hast](/webhooks/configuring/), möchtest du vielleicht die Grenzen deines Codes austesten. Zu diesem Zweck bietet die Webhookansicht von GitHub einige Tools zum Testen deiner bereitgestellten Nutzdaten.
 
-### Listing recent deliveries
+## Auflisten der letzten Übermittlungen
 
-Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a delivery was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
+Jeder Webhook verfügt über einen eigenen Abschnitt „Letzte Übermittlungen“, der auf einen Blick zeigt, ob eine Übermittlung erfolgreich war (grünes Häkchen) oder fehlgeschlagen ist (rotes X). Du kannst auch feststellen, wann die einzelnen Übermittlungsversuche stattgefunden haben.
 
-{% data variables.product.product_name %} keeps a log of each webhook delivery for {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} days.
+{% data variables.product.product_name %} speichert ein Protokoll jeder Webhookübermittlung für {% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %}Tage.
 
-![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
+![Ansicht „Aktuelle Übermittlungen“](/assets/images/webhooks_recent_deliveries.png)
 
-### Digging into results
+## Untersuchen der Ergebnisse
 
-By expanding an individual delivery, you'll be able to witness *precisely* what information GitHub is attempting to send to your server. This includes both the HTTP Request and Response.
+Indem du eine einzelne Übermittlung erweiterst, kannst du *genau* sehen, welche Informationen GitHub an deinen Server zu senden versucht. Dies schließt sowohl die HTTP-Anforderung als auch die Antwort ein.
 
-#### Request
+### Anforderung
 
-The webhook delivery view provides information on which Headers were sent by GitHub. It also includes details about the JSON payload.
+Die Ansicht zur Webhookübermittlung gibt Auskunft darüber, welche Header von GitHub gesendet wurden.
+Sie enthält außerdem Details zu den JSON-Nutzdaten.
 
-![Viewing a payload request](/assets/images/payload_request_tab.png)
+![Anzeigen einer Nutzdatenanforderung](/assets/images/payload_request_tab.png)
 
-#### Response
+### Antwort
 
-The response tab lists how your server replied once it received the payload from GitHub. This includes the status code, the headers, and any additional data within the response body.
+Die Registerkarte „Antwort“ zeigt, wie dein Server geantwortet hat, nachdem er die Nutzdaten von GitHub empfangen hat. Dies schließt den Statuscode, die Header und alle zusätzlichen Daten innerhalb des Antworttexts ein.
 
-![Viewing a payload response](/assets/images/payload_response_tab.png)
+![Anzeigen einer Nutzlastantwort](/assets/images/payload_response_tab.png)

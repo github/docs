@@ -1,24 +1,27 @@
 ---
 title: Mantener segura tu organización
-intro: 'Los propietarios de la organización tienen varias funciones que los ayudan a mantener seguros los proyectos y los datos. Si eres el propietario de una organización, deberás revisar frecuentemente las bitácoras de auditoría de la misma{% if currentVersion != "github-ae@latest" %}, los estados de 2FA de los miembros,{% endif %} y la configuración de las aplicaciones para garantizar que no haya ocurrido ningún tipo de actividad maliciosa o no autorizada.'
+intro: 'Puedes fortalecer la seguridad de tu organización si administras los ajustes de segurdad,{% ifversion not ghae %} requiriendo una autenticación bifactorial (2FA){% endif %} y revisando la actividad e integraciones dentro de tu organización.'
 redirect_from:
-  - /articles/preventing-unauthorized-access-to-organization-information/
+  - /articles/preventing-unauthorized-access-to-organization-information
   - /articles/keeping-your-organization-secure
   - /github/setting-up-and-managing-organizations-and-teams/keeping-your-organization-secure
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+children:
+  - /managing-two-factor-authentication-for-your-organization
+  - /managing-security-settings-for-your-organization
+shortTitle: Organization security
+ms.openlocfilehash: 21d2d6e6ee641dd1be2441c4ba00baf172bedb2d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145135150'
 ---
 
-{% link_in_list /viewing-whether-users-in-your-organization-have-2fa-enabled %}
-{% link_in_list /preparing-to-require-two-factor-authentication-in-your-organization %}
-{% link_in_list /requiring-two-factor-authentication-in-your-organization %}
-{% link_in_list /managing-security-and-analysis-settings-for-your-organization %}
-{% link_in_list /managing-allowed-ip-addresses-for-your-organization %}
-{% link_in_list /restricting-email-notifications-for-your-organization %}
-{% link_in_list /reviewing-the-audit-log-for-your-organization %}
-{% link_in_list /reviewing-your-organizations-installed-integrations %}

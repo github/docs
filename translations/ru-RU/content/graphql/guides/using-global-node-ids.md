@@ -1,43 +1,49 @@
 ---
-title: Using global node IDs
-intro: You can get global node IDs of objects via the REST API and use them in GraphQL operations.
+title: Использование глобальных идентификаторов узлов
+intro: Глобальные идентификаторы узлов объектов можно получить с помощью REST API и использовать их в операциях GraphQL.
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: f7c31bf50d547fbc3aa030baf095c2fec2603315
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148009859'
 ---
-
-You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. With a [recent update](https://developer.github.com/changes/2017-12-19-graphql-node-id/), you can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations.
+К большинству объектов в GitHub (пользователи, проблемы, запросы на включение внесенных изменений и т. д.) можно получить доступ с помощью REST API или API GraphQL. **Глобальный идентификатор узла** многих объектов можно получить через REST API и использовать эти идентификаторы в операциях GraphQL. Дополнительные сведения см. в разделе [Предварительный просмотр идентификаторов узлов API GraphQL в ресурсах REST API](https://developer.github.com/changes/2017-12-19-graphql-node-id/).
 
 {% note %}
 
-**Note:** In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#node)."
+**Примечание.** В REST поле глобального идентификатора узла называется `node_id`. В GraphQL это поле `id` в интерфейсе `node`. Сведения о том, что означает "узел" в GraphQL, см. в разделе "[Введение в GraphQL](/graphql/guides/introduction-to-graphql#node)".
 
 {% endnote %}
 
-### Putting global node IDs to use
+## Использование глобальных идентификаторов узлов
 
-You can follow three steps to use global node IDs effectively:
+Использовать глобальные идентификаторы узлов можно тремя способами:
 
-1. Call a REST endpoint that returns an object's `node_id`.
-2. Find the object's type in GraphQL.
-3. Use the ID and type to do a direct node lookup in GraphQL.
+1. Вызов конечной точки REST, которая возвращает объект `node_id`.
+2. Поиск типа объекта в GraphQL.
+3. Прямой поиск узла в GraphQL с помощью идентификатора и типа.
 
-Let's walk through an example.
+Рассмотрим следующий пример.
 
-### 1. Call a REST endpoint that returns an object's node ID
+## 1. Вызов конечной точки REST, которая возвращает объект .
 
-If you [request the authenticated user](/rest/reference/users#get-the-authenticated-user):
+Если [запросить имя пользователя, прошедшего проверку подлинности](/rest/reference/users#get-the-authenticated-user):
 
 ```shell
-$ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
+$ curl -i -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
-you'll get a response that includes the `node_id` of the authenticated user:
+вы получите ответ, в который входит идентификатор `node_id` такого пользователя.
 
 ```json
 {
@@ -87,11 +93,11 @@ you'll get a response that includes the `node_id` of the authenticated user:
 }
 ```
 
-### 2. Find the object type in GraphQL
+## 2. Поиск типа объекта в GraphQL.
 
-In this example, the `node_id` value is `MDQ6VXNlcjU4MzIzMQ==`. You can use this value to query the same object in GraphQL.
+В этом примере `node_id` имеет значение `MDQ6VXNlcjU4MzIzMQ==`. С помощью данного значения можно запросить этот объект в GraphQL.
 
-You'll need to know the object's _type_ first, though. You can check the type with a simple GraphQL query:
+Однако сначала необходимо узнать _тип_ объекта. Это можно сделать с помощью простого запроса GraphQL:
 
 ```graphql
 query {
@@ -101,13 +107,13 @@ query {
 }
 ```
 
-This type of query&mdash;that is, finding the node by ID&mdash;is known as a "direct node lookup."
+Запрос такого типа &mdash; то есть поиск узла по идентификатору &mdash; называется "прямым поиском узла".
 
-When you run this query, you'll see that the `__typename` is [`User`](/graphql/reference/objects#user).
+При выполнении этого запроса вы увидите, что `__typename` имеет значение [`User`](/graphql/reference/objects#user).
 
-### 3. Do a direct node lookup in GraphQL
+## 3. Прямой поиск узла в GraphQL.
 
-Once you've confirmed the type, you can use an [inline fragment](https://graphql.github.io/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
+После подтверждения типа можно с помощью [встроенного фрагмента](https://graphql.github.io/learn/queries/#inline-fragments) получить доступ к объекту по его идентификатору и вернуть дополнительные данные. В этом примере мы определим поля `User`, которые будут использоваться в запросе:
 
 ```graphql
 query {
@@ -120,8 +126,8 @@ query {
 }
 ```
 
-This type of query is the standard approach for looking up an object by its global node ID.
+Запрос такого типа представляет собой стандартный способ поиска объекта по глобальному идентификатору узла.
 
-### Using global node IDs in migrations
+## Использование глобальных идентификаторов узлов при миграции
 
-When building integrations that use either the REST API or the GraphQL API, it's best practice to persist the global node ID so you can easily reference objects across API versions. For more information on handling the transition between REST and GraphQL, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
+При создании интеграций, в которых используется REST API или API GraphQL, рекомендуется сохранить глобальный идентификатор узла, чтобы можно было легко ссылаться на объекты в разных версиях API. Дополнительные сведения о переходе с REST на GraphQL см. в разделе "[Миграция из REST в GraphQL](/graphql/guides/migrating-from-rest-to-graphql)".

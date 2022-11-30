@@ -1,25 +1,30 @@
 ---
-title: Managing bots and service accounts with SAML single sign-on
-intro: Organizations that have enabled SAML single sign-on can retain access for bots and service accounts.
-product: '{% data reusables.gated-features.saml-sso %}'
+title: Управление ботами и учетными записями служб с помощью единого входа SAML
+intro: 'Организации, которые включили единый вход SAML, могут сохранять доступ к ботам и учетным записям служб.'
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/managing-bots-and-service-accounts-with-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage bots & service accounts
+ms.openlocfilehash: 57f1150929db674a658d52a5cb7e455444cc48de
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '145135176'
 ---
-
-To retain access for bots and service accounts, organization administrators can [enable](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), but **not** [enforce](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML single sign-on for their organization. If you need to enforce SAML single sign-on for your organization, you can create an external identity for the bot or service account with your identity provider (IdP).
+Чтобы сохранить доступ к ботам и учетным записям служб, администраторы организации могут [включить](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), но **не** [применять](/articles/enforcing-saml-single-sign-on-for-your-organization) единый вход SAML для своей организации. Если требуется применить единый вход SAML для вашей организации, можно создать внешнее удостоверение для бота или учетной записи службы с помощью поставщика удостоверений (IdP).
 
 {% warning %}
 
-**Note:** If you enforce SAML single sign-on for your organization and **do not** have external identities set up for bots and service accounts with your IdP, they will be removed from your organization.
+**Примечание.** Если вы применяете единый вход SAML для организации и **не** настроили внешние удостоверения для ботов и учетных записей служб с помощью поставщика удостоверений, они будут удалены из вашей организации.
 
 {% endwarning %}
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- [Сведения об управлении удостоверениями и доступом с помощью единого входа SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)

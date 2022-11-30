@@ -1,8 +1,12 @@
-以下のクエリスイートは{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}に組み込まれており、利用可能です。
-
-  | クエリスイート                | 説明                                           |
-  |:---------------------- |:-------------------------------------------- |
-  | `security-extended`    | デフォルトのクエリよりも重要度と精度が低いクエリ                     |
-  | `security-and-quality` | `security-extended` からのクエリ、および保守性と信頼性に関するクエリ |
-
-クエリスイートを指定すると、{% data variables.product.prodname_codeql %}の分析エンジンは、デフォルトのクエリセットに加えてスイート内に含まれるクエリを実行します。
+---
+ms.openlocfilehash: 7ef928cc8f56a997197c06b1aa3bbfa5e718a174
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147785207"
+---
+  | クエリ スイート | 説明 |
+  | :- | :- |
+  | `security-extended` | 既定のスイートからのクエリ、および重要度と精度の低いクエリ |
+  | `security-and-quality` | `security-extended` からのクエリに加え、保守性および信頼性のクエリ。 |

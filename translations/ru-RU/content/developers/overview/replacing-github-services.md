@@ -1,73 +1,78 @@
 ---
-title: Replacing GitHub Services
-intro: 'If you''re still relying on the deprecated {% data variables.product.prodname_dotcom %} Services, learn how to migrate your service hooks to webhooks.'
+title: Замена служб GitHub
+intro: 'Если вы по-прежнему используете устаревшие службы {% data variables.product.prodname_dotcom %}, узнайте, как перенести перехватчики службы в веб-перехватчики.'
 redirect_from:
-  - /guides/replacing-github-services/
-  - /v3/guides/automating-deployments-to-integrators/
+  - /guides/replacing-github-services
+  - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - API
+ms.openlocfilehash: ddbe9552b1520f2238e531afca06e449ba2f2ff8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112424'
 ---
-
-
-We have deprecated GitHub Services in favor of integrating with webhooks. This guide helps you transition to webhooks from GitHub Services. For more information on this announcement, see the [blog post](https://developer.github.com/changes/2018-10-01-denying-new-github-services).
+Мы заменили службы GitHub интеграцией с веб-перехватчиками. Это руководство поможет вам перейти на веб-перехватчики из служб GitHub. Дополнительные сведения см. в [этой записи блога](https://developer.github.com/changes/2018-10-01-denying-new-github-services).
 
 {% note %}
 
-As an alternative to the email service, you can now start using email notifications for pushes to your repository. See "[About email notifications for pushes to your repository](/github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository/)" to learn how to configure commit email notifications.
+В качестве альтернативы службе электронной почты теперь можно начать использовать уведомления по электронной почте для отправки в репозиторий. Сведения о настройке уведомлений по электронной почте о фиксации см. в разделе [Об уведомлениях по электронной почте для отправки в репозиторий](/github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository/).
 
 {% endnote %}
 
-### Deprecation timeline
+## Временная шкала прекращения поддержки
 
-- **October 1, 2018**: GitHub discontinued allowing users to install services. We removed GitHub Services from the GitHub.com user interface.
-- **January 29, 2019**: As an alternative to the email service, you can now start using email notifications for pushes to your repository. See "[About email notifications for pushes to your repository](/github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository/)" to learn how to configure commit email notifications.
-- **January 31, 2019**: GitHub will stop delivering installed services' events on GitHub.com.
+- **1 октября 2018 г.** : GitHub запретил пользователям устанавливать службы. Мы удалили службы GitHub из пользовательского интерфейса GitHub.com.
+- **29 января 2019 г.** : в качестве альтернативы службе электронной почты теперь можно начать использовать уведомления по электронной почте для отправки в репозиторий. Сведения о настройке уведомлений по электронной почте о фиксации см. в разделе [Об уведомлениях по электронной почте для отправки в репозиторий](/github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository/).
+- **31 января 2019 г.** : GitHub прекратит доставку событий установленных служб на сайте GitHub.com.
 
-### GitHub Services background
+## Фон служб GitHub
 
-GitHub Services (sometimes referred to as Service Hooks) is the legacy method of integrating where GitHub hosted a portion of our integrator’s services via [the `github-services` repository](https://github.com/github/github-services). Actions performed on GitHub trigger these services, and you can use these services to trigger actions outside of GitHub.
+Службы GitHub (иногда называемые перехватчиками событий) — это устаревший метод интеграции, где GitHub размещал часть служб интегратора через [ `github-services`репозитория](https://github.com/github/github-services). Действия, выполняемые на GitHub, активируют эти службы, которые можно использовать для активации действий за пределами GitHub.
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-### Finding repositories that use GitHub Services
-We provide a command-line script that helps you identify which repositories on your appliance use GitHub Services. For more information, see [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report).{% endif %}
+{% ifversion ghes %}
+## Поиск репозиториев, использующих службы GitHub
+Мы предоставляем скрипт командной строки, который помогает определить, какие репозитории на устройстве используют службы GitHub. Дополнительные сведения см. в статье [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report).{% endif %}
 
-### GitHub Services vs. webhooks
+## Службы GitHub и веб-перехватчики
 
-The key differences between GitHub Services and webhooks:
-- **Configuration**: GitHub Services have service-specific configuration options, while webhooks are simply configured by specifying a URL and a set of events.
-- **Custom logic**: GitHub Services can have custom logic to respond with multiple actions as part of processing a single event, while webhooks have no custom logic.
-- **Types of requests**: GitHub Services can make HTTP and non-HTTP requests, while webhooks can make HTTP requests only.
+Основные различия между службами GitHub и веб-перехватчиками:
+- **Конфигурация**. Службы GitHub имеют параметры конфигурации для конкретной службы, а веб-перехватчики просто настраиваются путем указания URL-адреса и набора событий.
+- **Пользовательская логика**. Службы GitHub могут иметь пользовательскую логику для реагирования несколькими действиями в рамках обработки одного события, а веб-перехватчики не имеют пользовательской логики.
+- **Типы запросов**. Службы GitHub могут выполнять HTTP-запросы и запросы, отличные от HTTP, а веб-перехватчики — только HTTP-запросы.
 
-### Replacing Services with webhooks
+## Замена служб веб-перехватчиками
 
-To replace GitHub Services with Webhooks:
+Чтобы заменить службы GitHub веб-перехватчиками:
 
-1. Identify the relevant webhook events you’ll need to subscribe to from [this list](/webhooks/#events).
+1. Определите соответствующие события веб-перехватчика, на которые необходимо подписаться, из [этого списка](/webhooks/#events).
 
-2. Change your configuration depending on how you currently use GitHub Services:
+2. Измените конфигурацию в зависимости от способа использования служб GitHub:
 
-   - **GitHub Apps**: Update your app's permissions and subscribed events to configure your app to receive the relevant webhook events.
-   - **OAuth Apps**: Request either the `repo_hook` and/or `org_hook` scope(s) to manage the relevant events on behalf of users.
-   - **GitHub Service providers**: Request that users manually configure a webhook with the relevant events sent to you, or take this opportunity to build an app to manage this functionality. For more information, see "[About apps](/apps/about-apps/)."
+   - **Приложения GitHub**. Обновите разрешения приложения и подписки на события, чтобы настроить приложение для получения соответствующих событий веб-перехватчика.
+   - **Приложения OAuth**. Запросите области `repo_hook` и/или `org_hook` для управления соответствующими событиями от имени пользователей.
+   - **Поставщики служб GitHub**. Попросите пользователей вручную настроить веб-перехватчик с соответствующими событиями, отправленными вам, или воспользоваться этой возможностью для создания приложения для управления данной функцией. Дополнительные сведения см. в разделе [Сведения о приложениях](/apps/about-apps/).
 
-3. Move additional configuration from outside of GitHub. Some GitHub Services require additional, custom configuration on the configuration page within GitHub. If your service does this, you will need to move this functionality into your application or rely on GitHub or OAuth Apps where applicable.
+3. Перемещение дополнительной конфигурации за пределами GitHub. Для некоторых служб GitHub требуется дополнительная настраиваемая конфигурация на странице конфигурации в GitHub. Если служба выполняет это, вам потребуется переместить данную функцию в приложение или использовать приложения GitHub либо OAuth, если это применимо.
 
-### Supporting {% data variables.product.prodname_ghe_server %}
+## Установка {% data variables.product.prodname_ghe_server %}
 
-- **{% data variables.product.prodname_ghe_server %} 2.17**: {% data variables.product.prodname_ghe_server %} release 2.17 and higher will discontinue allowing admins to install services. Admins will continue to be able to modify existing service hooks and receive service hooks in {% data variables.product.prodname_ghe_server %} release 2.17 through 2.19. As an alternative to the email service, you will be able to use email notifications for pushes to your repository in {% data variables.product.prodname_ghe_server %} 2.17 and higher. See [this blog post](https://developer.github.com/changes/2019-01-29-life-after-github-services) to learn more.
-- **{% data variables.product.prodname_ghe_server %} 2.20**: {% data variables.product.prodname_ghe_server %} release 2.20 and higher will stop delivering all installed services' events.
+- **{% data variables.product.prodname_ghe_server %} версии 2.17**: {% data variables.product.prodname_ghe_server %} версии 2.17 и более поздних версий не позволит администраторам устанавливать службы. Администраторы по-прежнему смогут изменять имеющиеся перехватчики событий и получать перехватчики событий в {% data variables.product.prodname_ghe_server %} версий 2.17–2.19. В качестве альтернативы службе электронной почты вы сможете использовать уведомления по электронной почте для отправки в репозиторий в {% data variables.product.prodname_ghe_server %} версии 2.17 и более поздних версий. Дополнительные сведения см. [в этой записи блога](https://developer.github.com/changes/2019-01-29-life-after-github-services).
+- **{% data variables.product.prodname_ghe_server %} версии 2.20**: {% data variables.product.prodname_ghe_server %} версии 2.20 и более поздних версий прекратит доставку всех событий установленных служб.
 
-The {% data variables.product.prodname_ghe_server %} 2.17 release will be the first release that does not allow admins to install GitHub Services. We will only support existing GitHub Services until the {% data variables.product.prodname_ghe_server %} 2.20 release. We will also accept any critical patches for your GitHub Service running on {% data variables.product.prodname_ghe_server %} until October 1, 2019.
+Выпуск {% data variables.product.prodname_ghe_server %} версии 2.17 будет первым выпуском, который не позволяет администраторам устанавливать службы GitHub. Мы будем поддерживать имеющиеся службы GitHub только до выпуска {% data variables.product.prodname_ghe_server %} версии 2.20. Мы также будем принимать критические исправления для службы GitHub, работающей на {% data variables.product.prodname_ghe_server %}, до 1 октября 2019 г.
 
-### Migrating with our help
+## Миграция с нашей помощью
 
-Please [contact us](https://github.com/contact?form%5Bsubject%5D=GitHub+Services+Deprecation) with any questions.
+Свяжитесь [с нами](https://github.com/contact?form%5Bsubject%5D=GitHub+Services+Deprecation), чтобы задать интересующие вас вопросы.
 
-As a high-level overview, the process of migration typically involves:
-  - Identifying how and where your product is using GitHub Services.
-  - Identifying the corresponding webhook events you need to configure in order to move to plain webhooks.
-  - Implementing the design using either [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/) or [{% data variables.product.prodname_github_app %}s. {% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) are preferred. To learn more about why {% data variables.product.prodname_github_app %}s are preferred, see "[Reasons for switching to {% data variables.product.prodname_github_app %}s](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."
+Как общий обзор процесс миграции обычно включает в себя:
+  - определение того, как и где ваш продукт использует службы GitHub;
+  - определение соответствующих событий веб-перехватчика, которые необходимо настроить, чтобы перейти на обычные веб-перехватчики.
+  - Реализация структуры с помощью [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) или [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) предпочтительнее. Дополнительные сведения о том, почему {% data variables.product.prodname_github_apps %} предпочтительнее, см. на странице [Причины перехода на {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps).

@@ -1,1 +1,9 @@
-If you use Okta as an IdP and participate in a private beta for enterprise accounts, you can manage membership in your enterprise account's organizations with SCIM. SCIM automatically invites people to or removes people from organizations in your enterprise account based on whether they are members of the group that corresponds to each organization in your IdP.
+---
+ms.openlocfilehash: 2c5eda60cc47d3956c814e403137124e3272c5cb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145137689"
+---
+Если вы используете Okta в качестве поставщика удостоверений и участвуете в частной бета-версии для корпоративных учетных записей, то можете управлять членством в организациях корпоративной учетной записи с помощью SCIM. SCIM автоматически приглашает пользователей в организации вашей корпоративной учетной записи или удаляет их из нее в зависимости от того, являются ли они членами группы, соответствующей каждой организации у вашего поставщика удостоверений.

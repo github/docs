@@ -1,7 +1,7 @@
 ---
-title: Working with a GitHub Packages registry
+title: Работа с реестром GitHub Packages
 shortTitle: Working with a GitHub Packages registry
-intro: 'Learn how to use a supported {% data variables.product.prodname_registry %} registry.'
+intro: 'Узнайте, как использовать поддерживаемый реестр {% data variables.product.prodname_registry %}.'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-your-projects-ecosystem
   - /packages/using-github-packages-with-your-projects-ecosystem
@@ -9,32 +9,24 @@ redirect_from:
   - /packages/guides/package-client-guides-for-github-packages
   - /packages/guides/container-guides-for-github-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+children:
+  - /working-with-the-container-registry
+  - /working-with-the-docker-registry
+  - /working-with-the-rubygems-registry
+  - /working-with-the-npm-registry
+  - /working-with-the-apache-maven-registry
+  - /working-with-the-gradle-registry
+  - /working-with-the-nuget-registry
+  - /migrating-to-the-container-registry-from-the-docker-registry
+ms.openlocfilehash: 69cfbe84b6c443a29066a4234ae29f557c305d38
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140446'
 ---
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-![Diagram showing packages support for Docker, Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
-
-{% else %}
-
-![Diagram showing packages support for Docker, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
-
-{% endif %}
-
-### Table of Contents
-
-{% link_in_list /working-with-the-npm-registry %}
-{% link_in_list /working-with-the-rubygems-registry %}
-{% link_in_list /working-with-the-apache-maven-registry %}
-{% link_in_list /working-with-the-gradle-registry %}
-{% link_in_list /working-with-the-nuget-registry %}
-{% link_in_list /working-with-the-docker-registry %}
-{% link_in_list /working-with-the-container-registry %}
-{% link_in_list /enabling-improved-container-support-with-the-container-registry %}
-{% link_in_list /migrating-to-the-container-registry-from-the-docker-registry %}
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %} {% ifversion fpt or ghec %} ![Схема, демонстрирующая поддержку пакетов для Docker, Реестра контейнеров, RubyGems, npm, Apache Maven, NuGet и Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png) {% else %} ![Схема, демонстрирующая поддержку пакетов для Docker, RubyGems, npm, Apache Maven, Gradle, NuGet и Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png) {% endif %}

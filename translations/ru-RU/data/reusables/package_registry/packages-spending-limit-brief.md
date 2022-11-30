@@ -1,1 +1,9 @@
-If you are a monthly-billed customer, your account will have a default spending limit of $0, which prevents additional usage of storage or data transfer after you reach the included amounts. If you pay your account by invoice, your account will have an unlimited default spending limit.
+---
+ms.openlocfilehash: 0ba3510a3aae6ecf9cfcaa75ded74d544ab5996a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145121851"
+---
+Если счета выставляются ежемесячно, ваша учетная запись будет иметь предельную сумму расходов по умолчанию, равную 0 долларам США (USD), что делает невозможным дополнительное использование хранилища и передачу данных после достижения предельных объемов. Если вы оплачиваете учетную запись по счету, предельная сумма расходов по умолчанию для вашей учетной записи будет неограниченной.

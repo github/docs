@@ -1,4 +1,12 @@
-- **Software crashes**, either due to operating system failure or unrecoverable applications.
-- **Hardware failures**, including storage hardware, CPU, RAM, network interfaces, etc.
-- **Virtualization host system failures**, including unplanned and [scheduled maintenance events on AWS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html).
-- **Logically or physically severed network**, if the failover appliance is on a separate network not impacted by the failure.
+---
+ms.openlocfilehash: 3f831f487921774e868fcff040ce1bf9ce33d226
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145111608"
+---
+- **Аварийное завершение программного обеспечения** из-за сбоя операционной системы или неустранимых ошибок приложений.
+- **Сбои оборудования**, включая оборудование для хранения данных, ЦП, ОЗУ, сетевые интерфейсы и т. д.
+- **Сбои системы узла виртуализации**, включая незапланированные и [запланированные события обслуживания в AWS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html).
+- **Обрыв логической или физической структуры сети**, если резервное устройство находится в отдельной сети, не затронутой сбоем.

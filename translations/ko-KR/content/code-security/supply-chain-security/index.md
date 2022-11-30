@@ -1,40 +1,27 @@
 ---
-title: Securing your software supply chain
+title: 소프트웨어 공급망 보호
 shortTitle: Supply chain security
-intro: 'Visualize, maintain, and secure the dependencies in your software supply chain.'
+intro: '소프트웨어 공급망의 종속성을 시각화, 유지 관리 및 보호합니다.'
 redirect_from:
   - /categories/managing-security-vulnerabilities
   - /github/managing-security-vulnerabilities
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - Security
+  - Dependabot
+  - Dependencies
+  - Repositories
+children:
+  - /understanding-your-software-supply-chain
+  - /end-to-end-supply-chain
+ms.openlocfilehash: bb0b22132fc705d457b017f901dd797df9ac1d61
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145087676'
 ---
 
-### Table of Contents
-
-{% topic_link_in_list /understanding-your-software-supply-chain %}
-    {% link_in_list /about-the-dependency-graph %}
-    {% link_in_list /about-dependency-review %}
-    {% link_in_list /exploring-the-dependencies-of-a-repository %}
-{% topic_link_in_list /keeping-your-dependencies-updated-automatically %}
-    {% link_in_list /about-dependabot-version-updates %}
-    {% link_in_list /upgrading-from-dependabotcom-to-github-native-dependabot %}
-    {% link_in_list /enabling-and-disabling-version-updates %}
-    {% link_in_list /listing-dependencies-configured-for-version-updates %}
-    {% link_in_list /managing-pull-requests-for-dependency-updates %}
-    {% link_in_list /managing-encrypted-secrets-for-dependabot %}
-    {% link_in_list /customizing-dependency-updates %}
-    {% link_in_list /configuration-options-for-dependency-updates %}
-    {% link_in_list /keeping-your-actions-up-to-date-with-dependabot %}
-{% topic_link_in_list /managing-vulnerabilities-in-your-projects-dependencies %}
-    {% link_in_list /about-managing-vulnerable-dependencies %}
-    {% link_in_list /browsing-security-vulnerabilities-in-the-github-advisory-database %}
-    {% link_in_list /about-alerts-for-vulnerable-dependencies %}
-    {% link_in_list /configuring-notifications-for-vulnerable-dependencies %}
-    {% link_in_list /about-dependabot-security-updates %}
-    {% link_in_list /configuring-dependabot-security-updates %}
-    {% link_in_list /viewing-and-updating-vulnerable-dependencies-in-your-repository %}
-    {% link_in_list /troubleshooting-the-detection-of-vulnerable-dependencies %}
-    {% link_in_list /troubleshooting-dependabot-errors %}

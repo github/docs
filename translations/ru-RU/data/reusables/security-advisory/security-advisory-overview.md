@@ -1,1 +1,9 @@
-{% data variables.product.prodname_security_advisories %} allow repository maintainers to privately discuss and fix a security vulnerability in a project. After collaborating on a fix, repository maintainers can publish the security advisory to publicly disclose the security vulnerability to the project's community. By publishing security advisories, repository maintainers make it easier for their community to update package dependencies and research the impact of the security vulnerabilities.
+---
+ms.openlocfilehash: 329fc14d26f27da725619bc862b99ff239c9aa14
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/27/2022
+ms.locfileid: "148114075"
+---
+Рекомендации по безопасности репозитория позволяют обслуживателям репозитория в частном порядке обсуждать и устранять уязвимость системы безопасности в проекте. После совместной работы над исправлением разработчики репозиториев могут публиковать рекомендации по безопасности, чтобы сообщить об уязвимости системы безопасности сообществу проекта. Публикуя рекомендации по безопасности, разработчики репозитория упрощают для сообщества обновление зависимостей пакетов и ознакомление с последствиями уязвимостей системы безопасности.

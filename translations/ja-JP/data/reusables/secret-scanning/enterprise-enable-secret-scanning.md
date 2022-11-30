@@ -1,8 +1,9 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes %}
 
 {% note %}
 
-**ノート:** この機能を使う前には、サイト管理者が{% data variables.product.product_location %}の{% data variables.product.prodname_secret_scanning %}を有効化していなければなりません。 詳しい情報については「[アプライアンスのための{% data variables.product.prodname_secret_scanning %}の設定](/enterprise/admin/configuration/configuring-secret-scanning-for-your-appliance)」を参照してください。
+**Note:** Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %} before you can use this feature. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/enterprise/admin/configuration/configuring-secret-scanning-for-your-appliance)."   
+{% ifversion security-feature-enablement-policies %} You may not be able to enable or disable {% data variables.product.prodname_secret_scanning %}, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing policies for code security and analysis for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."{% endif %}
 
 {% endnote %}
 

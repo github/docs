@@ -2,27 +2,31 @@
 title: Representar dados como gráficos
 intro: Aprenda a visualizar as linguagens de programação do seu repositório usando a biblioteca D3.js e o Ruby Octokit.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+ms.openlocfilehash: e613c2f707db1030b9e2e5c40de98f2628c0ca3b
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147875477'
 ---
- 
+Neste guia, vamos usar a API para buscar informações sobre os repositórios dos quais somos proprietários e as linguagens de programação que os compõem. Em seguida, visualizaremos essas informações de algumas maneiras diferentes usando a biblioteca [D3.js][D3.js]. Para interagir com a API do {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, usaremos a excelente biblioteca do Ruby, [Octokit][Octokit].
 
-
-Neste guia, vamos usar a API para obter informações sobre repositórios dos quais somos proprietários e as linguagens de programação que as compõem. Em seguida, vamos visualizar essas informações de algumas formas diferentes usando a biblioteca [D3.js][D3.js]. Para interagir com a API de {% data variables.product.product_name %}, vamos usar a excelente biblioteca do Ruby, [Octokit][Octokit].
-
-Caso você ainda não o tenha feito, você deve ler o guia ["Princípios básicos da autentifcação"][basics-of-authentication] antes de iniciar este exemplo. Você pode encontrar o código-fonte completo para este projeto no repositório de [platform-samples][platform samples].
+Caso ainda não tenha feito isso, leia o guia ["Noções básicas de autenticação"][basics-of-authentication] antes de iniciar este exemplo. Encontre o código-fonte completo deste projeto no repositório [platform-samples][platform samples].
 
 Vamos começar imediatamente!
 
-### Configurar um aplicativo OAuth
+## Configurar um aplicativo OAuth
 
-Primeiro, [registra um novo aplicativo ][new oauth application] no {% data variables.product.product_name %}. Define as URLs principais e a chamada de retorno para `http://localhost:4567/`. Assim como fizemos[anteriormente][basics-of-authentication], vamos gerenciar a autenticação da API implementando um Rack middleware usando [sinatra-auth-github][sinatra auth github]:
+Primeiro, [registre um novo aplicativo][new oauth application] no {% data variables.product.product_name %}. Defina as URLs principal e de retorno de chamada como `http://localhost:4567/`. Como [antes][basics-of-authentication], trataremos a autenticação da API implementando um middleware de rack usando [sinatra-auth-github][sinatra auth github]:
 
 ``` ruby
 require 'sinatra/auth/github'
@@ -73,11 +77,11 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### Buscar informações do repositório
+## Buscar informações do repositório
 
-Dessa vez, para falar com a API {% data variables.product.product_name %}, vamos usar a [a biblioteca do Ruby, Octokit][Octokit]. Isso é muito mais fácil do que fazer diretamente um monte de chamadas de REST. Além disso, o Octokit foi desenvolvido por um GitHubber e é mantido ativamente, para que você saiba que vai funcionar.
+Desta vez, para nos comunicarmos com a API do {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}, usaremos a [biblioteca Octokit do Ruby][Octokit]. Isso é muito mais fácil do que fazer diretamente um monte de chamadas REST. Além disso, o Octokit foi desenvolvido por um usuário do GitHub e é mantido ativamente, ou seja, você sabe que ele vai funcionar.
 
-É fácil a autenticação com a API através do Octokit. Basta passar seu login e token para o `Octokit::Client` do cliente:
+É fácil a autenticação com a API através do Octokit. Basta transmitir seu logon e o token para o construtor `Octokit::Client`:
 
 ``` ruby
 if !authenticated?
@@ -87,13 +91,14 @@ else
 end
 ```
 
-Vamos fazer algo interessante com os dados sobre nossos repositórios. Vamos ver as diferentes linguagens de programação que eles usam e contar quais são usadas com maior frequência. Para fazer isso, primeiro precisaremos de uma lista dos nossos repositórios na API. Com o Octokit, será algo parecido com isso:
+Vamos fazer algo interessante com os dados sobre nossos repositórios. Vamos ver as diferentes linguagens de programação que eles usam e contar quais são usadas com mais frequência. Para fazer isso, primeiro precisaremos de uma lista dos nossos repositórios na API.
+Com o Octokit, será algo parecido com isso:
 
 ``` ruby
 repos = client.repositories
 ```
 
-Em seguida, vamos iterar sobre cada repositório e contar a linguagem que {% data variables.product.product_name %} associa a ele:
+Em seguida, vamos iterar em cada repositório e contar a linguagem que o {% data variables.product.product_name %} associa a ele:
 
 ``` ruby
 language_obj = {}
@@ -111,19 +116,20 @@ end
 languages.to_s
 ```
 
-Ao reiniciar seu servidor, sua página web deve exibir algo que se parece com isso:
+Quando você reiniciar seu servidor, a página da Web exibirá algo parecido com isto:
 
 ``` ruby
 {"JavaScript"=>13, "PHP"=>1, "Perl"=>1, "CoffeeScript"=>2, "Python"=>1, "Java"=>3, "Ruby"=>3, "Go"=>1, "C++"=>1}
 ```
 
-Até agora, tudo bem, mas isso não é não muito intuitivo para uma pessoa. Uma visualização seria excelente para nos ajudar a entender como as contagens de linguagens são distribuídas. Vamos alimentar nossas contagens em D3 para obter um gráfico de barras que represente a popularidade dos idiomas que usamos.
+Até agora, tudo bem, mas isso não é não muito intuitivo para uma pessoa. Uma visualização será excelente para nos ajudar a entender como as contagens de linguagens são distribuídas. Vamos alimentar nossas contagens no D3 para obter um excelente gráfico de barras que representa a popularidade das linguagens que usamos.
 
-### Visualizar contagens de linguagem
+## Visualizar contagens de linguagem
 
-D3.js, ou apenas D3, é uma biblioteca abrangente para criar muitos tipos de gráficos, gráficos e visualizações interativas. Usar D3 em detalhes está fora do âmbito deste guia, mas para um bom artigo introdutório consulte ["D3 para mortais"][D3 mortals].
+D3.js, ou apenas D3, é uma biblioteca abrangente para criar muitos tipos de gráficos, gráficos e visualizações interativas.
+O uso detalhado do D3 não está no escopo deste guia, mas para ver um bom artigo introdutório, confira ["D3 para mortais"][D3 mortals].
 
-D3 é uma biblioteca JavaScript, e gosta de trabalhar com dados como arrays. Então, vamos converter o nosso hash do Ruby em um array de JSON para uso por JavaScript no navegador.
+D3 é uma biblioteca JavaScript, e gosta de trabalhar com dados como arrays. Então, vamos converter o hash do Ruby em uma matriz JSON para uso do JavaScript no navegador.
 
 ``` ruby
 languages = []
@@ -134,9 +140,10 @@ end
 erb :lang_freq, :locals => { :languages => languages.to_json}
 ```
 
-Estamos simplesmente iterando sobre cada par chave-valor no nosso objeto e empurrando-os para um novo array. A razão pela qual não fizemos isso anteriormente foi porque não queríamos iterar sobre o nosso objeto `language_obj` enquanto o estávamos criando.
+Estamos simplesmente iterando em cada par chave-valor no objeto e colocando-o em uma nova matriz. A razão pela qual não fizemos isso anteriormente foi porque não queríamos iterar no objeto `language_obj` durante a criação dele.
 
-Agora, _lang_freq.erb_ vai precisar de um pouco de JavaScript para ajudar a interpretação de um gráfico de barras. Por enquanto, você pode simplesmente usar o código fornecido aqui e consultar os recursos vinculados acima se quiser saber mais sobre como o D3 funciona:
+Agora, _lang_freq.erb_ vai precisar de um pouco de JavaScript para ajudar na renderização de um gráfico de barras.
+Por enquanto, basta usar o código fornecido aqui e ver os recursos vinculados acima se você deseja saber mais sobre como o D3 funciona:
 
 ``` html
 <!DOCTYPE html>
@@ -217,15 +224,15 @@ Agora, _lang_freq.erb_ vai precisar de um pouco de JavaScript para ajudar a inte
 </html>
 ```
 
-Ufa! Novamente, não se preocupe com o que a maior parte deste código está fazendo. Aqui, a parte relevante é uma linha na parte superior--`var data = <%= languages %>;`--que indica que estamos passando o nosso array de `linguagens` criado previamente para o ERB para manipulação.
+Ufa! Novamente, não se preocupe com o que a maior parte deste código está fazendo. A parte relevante aqui é uma linha na parte superior, `var data = <%= languages %>;`, que indica que estamos transmitindo nossa matriz `languages` já criada para o ERB para manipulação.
 
-Como o guia "D3 para mortais" sugere, este não é necessariamente a melhor forma de utilizar o D3. No entanto, serve para ilustrar como você pode usar a biblioteca, junto com Octokit, para fazer algumas coisas realmente incríveis.
+Como o guia "D3 para mortais" sugere, essa não é necessariamente a melhor forma de usar o D3. No entanto, serve para ilustrar como você pode usar a biblioteca, com o Octokit, para fazer coisas realmente incríveis.
 
-### Combinar diferentes chamadas de API
+## Combinar diferentes chamadas de API
 
-Agora é hora de fazer uma confissão: o atributo da `linguagem` dentro dos repositórios identifica apenas a linguagem "primária" definida. Isso significa que se você tiver um repositório que combina várias linguagens. aquela que tiver mais bytes de código será considerada a linguagem primária.
+Agora é hora de fazer uma confissão: o atributo `language` nos repositórios identifica apenas a linguagem "primária" definida. Isso significa que se você tiver um repositório que combina várias linguagens, aquela que tiver mais bytes de código será considerada a linguagem primária.
 
-Vamos combinar algumas chamadas de API para obter uma _verdadeira_ representação de qual linguagem tem o maior número de bytes escritos em todo o nosso código. Um [treemap][D3 treemap] deve ser uma ótima forma de visualizar os tamanhos das nossas linguagens de codificação usadas, em vez de simplesmente contar. Precisamos construir um array de objetos que se pareçam com isto:
+Vamos combinar algumas chamadas à API para obter uma _verdadeira_ representação de qual linguagem tem o maior número de bytes escritos em todo o código. Um [mapa de árvore][D3 treemap] deve ser uma ótima forma de visualizar os tamanhos das linguagens de codificação usadas, em vez de apenas a contagem. Precisaremos construir uma matriz de objetos parecida com esta:
 
 ``` json
 [ { "name": "language1", "size": 100},
@@ -234,7 +241,7 @@ Vamos combinar algumas chamadas de API para obter uma _verdadeira_ representaç�
 ]
 ```
 
-Como já temos uma lista de repositórios acima, vamos inspecionar cada um e chamar o [método da API para listar a linguagem][language API]:
+Como já temos uma lista de repositórios acima, vamos inspecionar cada um deles e chamar o [método de API de listagem de linguagens][language API]:
 
 ``` ruby
 repos.each do |repo|
@@ -266,7 +273,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(Para obter mais informações sobre um mapa de árvore do D3, confira [este tutorial simples][language API].)
+(Para obter mais informações sobre o magic do mapa de árvore D3, confira [este tutorial simples][language API]).
 
 Para concluir, passamos esta informação JSON para o mesmo modelo de ERB:
 
@@ -274,7 +281,7 @@ Para concluir, passamos esta informação JSON para o mesmo modelo de ERB:
 erb :lang_freq, :locals => { :languages => languages.to_json, :language_byte_count => language_bytes.to_json}
 ```
 
-Conforme fizemos anteriormente, aqui está um monte de JavaScript que você pode soltar diretamente no seu modelo:
+Como já fizemos, aqui está um monte de JavaScript que você pode soltar diretamente no modelo:
 
 ``` html
 <div id="byte_freq"></div>
@@ -324,18 +331,16 @@ Conforme fizemos anteriormente, aqui está um monte de JavaScript que você pode
 </script>
 ```
 
-Et voila! São lindos retângulos que contém suas linguagens de repositório, com proporções relativas de que são fáceis de ver rapidamente. Talvez você precise ajustar a altura e a largura do diagrama da sua árvore, passado como os dois primeiros argumentos para `drawTreemap` acima, para obter todas as informações para serem exibidas corretamente.
+Et voila! São lindos retângulos que contém suas linguagens de repositório, com proporções referentes de que são fáceis de serem vistos rapidamente. Talvez você precise ajustar a altura e a largura do mapa de árvore, transmitido como os dois primeiros argumentos para `drawTreemap` acima, a fim de mostrar todas as informações corretamente.
 
 
 [D3.js]: http://d3js.org/
 [basics-of-authentication]: /rest/guides/basics-of-authentication
-[basics-of-authentication]: /rest/guides/basics-of-authentication
 [sinatra auth github]: https://github.com/atmos/sinatra_auth_github
 [Octokit]: https://github.com/octokit/octokit.rb
-[Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html 
 [language API]: /rest/reference/repos#list-repository-languages
-[language API]: /rest/reference/repos#list-repository-languages
+[simple tree map]: http://2kittymafiasoftware.blogspot.com/2011/09/simple-treemap-visualization-with-d3.html
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

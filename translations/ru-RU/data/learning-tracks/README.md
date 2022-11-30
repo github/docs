@@ -1,12 +1,22 @@
-# Learning Tracks (aka Learning Paths)
+---
+ms.openlocfilehash: dcc6cf1e8adf15c4997d4d62cd34bde99f7d37cd
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145109723"
+---
+# Обучающие курсы (также называемые схемами обучения)
 
-Learning tracks are a collection of articles that help you master a particular subject. Learning tracks are defined on a per-product basis. For example, see https://docs.github.com/en/actions/guides.
+Обучающие курсы — это коллекция статей, которые помогут вам освоить определенную тему. Доступны курсы для каждого продукта. Пример см. в разделе https://docs.github.com/en/actions/guides.
 
-Learning track data for a product is defined in two places:
+## Принцип работы
 
-1. A simple array of learning track names is defined in the product sublanding index page frontmatter.
+Данные обучающего курса по продукту указываются в двух местах:
 
-    For example, in `content/actions/guides/index.md`:
+1. Простой массив имен обучающих курсов указывается на титульном листе страницы индексов руководств по продуктам.
+
+    Например, для `content/actions/guides/index.md`:
     ```
     learningTracks:
       - getting_started
@@ -17,14 +27,38 @@ Learning track data for a product is defined in two places:
       - create_actions
     ```
 
-2. Additional data for each track is defined in a YAML file named for the **product** in the `data` directory.
+2. Дополнительные данного для каждого курса указываются в YAML-файле с именем **продукта** в каталоге `data`.
 
-    For example, in `data/learning-tracks/actions.yml`, each of the items from the content file's `learningTracks` array is represented with additional data such as `title`, `description`, and an array of `guides` links.
+    Например, в `data/learning-tracks/actions.yml` каждый элемент из массива `learningTracks` файла содержимого представлен дополнительными данными, такими как `title`, `description`, и массивом ссылок `guides`.
 
-    One learning track in this YAML **per version** must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product sublanding page. A test will fail if this property is missing.
+    Один учебный курс в этом YAML-файле **для каждой версии** должен быть назначен "рекомендуемым" с помощью `featured_track: true`, в результате чего он будет отображаться в верхней части страницы руководств по продукту. Если это свойство отсутствует, тест завершится ошибкой.
 
-    The `featured_track` property can be a simple boolean (i.e., `featured_track: true`) or it can be a string that includes versioning statements (e.g., `featured_track: '{% if currentVersion == "free-pro-team@latest" %}true{% else %}false{% endif %}'`). If you use versioning, you'll have multiple `featured_track`s per YML file, but make sure that only one will render in each currently supported version. A test will fail if there are more or less than one featured link for each version.
+    Это свойство `featured_track` может иметь простое логическое значение (например, `featured_track: true`) или быть строкой, включающей инструкции управления версиями (например, `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`). Если вы используете управление версиями, у вас будет несколько `featured_track` для каждого YML-файла, но в каждой поддерживаемой версии должен отображаться только один. Тест завершится ошибкой, если для каждой версии имеется больше или меньше одной ссылки на рекомендуемый курс.
 
-Versioning for learning tracks is processed at page render time. The code lives in [`lib/learning-tracks.js`](lib/learning-tracks.js), which is called by `page.render()`. The processed learning tracks are then rendered by `layouts/product-sublanding.html`.
+## Управление версиями
 
-The schema for validating the learning track YAML lives in [`tests/helpers/schemas/learning-tracks-schema.js`](tests/helpers/schemas/learning-tracks-schema.js) and is exercised by [`tests/content/lint-files.js`](tests/content/lint-files.js).
+Управление версиями для обучающих курсов обрабатывается во время отрисовки страницы. Код находится в файле [`lib/learning-tracks.js`](lib/learning-tracks.js), который вызывается с помощью метода `page.render()`. Затем `components/guides` отрисовывает обработанные обучающие курсы.
+
+Условные выражения Liquid **не** должны использоваться для управления версиями в YAML-файле для руководств. Автоматически отрисовывается только руководства по обучающим курсам, применяемые к текущей версии. Если курсы с руководствами, принадлежащими текущей версии, отсутствуют, раздел курсов не будет отображаться вообще.
+
+Кроме того, для данных YML-файлов обучающих курсов поддерживается явное управление версиями. Формат и допустимые значения совпадают с форматом и значениями [свойства версий титульного листа](/content#versions).
+
+Пример:
+
+```
+learning_track_name:
+  title: 'Learning track title'
+  description: 'Learning track description'
+  featured_track: true
+  versions:
+    ghes: '>=3.0'
+  guides:
+   - /path/to/guide1
+   - /path/to/guide2
+```
+
+Если свойство `versions` не включено, предполагается, что курс доступен во всех версиях.
+
+## Принудительное применение схем
+
+Схема проверки YAML обучающего курса находится в [`tests/helpers/schemas/learning-tracks-schema.js`](tests/helpers/schemas/learning-tracks-schema.js) и реализуется с помощью [`tests/content/lint-files.js`](tests/content/lint-files.js).

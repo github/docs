@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: e5599974bb123d5ff904a3ccc0564dc4258f0cfe
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145123675"
+---
 {% warning %}
 
-**Note:** You can always scale up your CPU or memory by resizing your instance. However, because resizing your CPU or memory requires downtime for your users, we recommend over-provisioning resources to account for scale.
+**Примечание.** Вы всегда можете увеличить масштаб ЦП или памяти, изменив размер экземпляра. Тем не менее так как для изменения размера ЦП или памяти требуется время простоя для пользователей, рекомендуется использовать ресурсы избыточной подготовки для компенсации масштабирования.
 
 {% endwarning %}

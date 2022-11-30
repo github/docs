@@ -1,67 +1,82 @@
 ---
-title: Устранение проблем
-intro: Learn how to resolve the most common problems people encounter in the REST API.
+title: Устранение неполадок
+intro: 'Узнайте, как устранить наиболее распространенные проблемы, с которыми сталкиваются пользователи в REST API.'
 redirect_from:
   - /v3/troubleshooting
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+ms.openlocfilehash: ecfa3a360ef9b042d96a1f80a2f0cde49390727f
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184238'
 ---
+Если у вас в API возникли некоторые трудности, далее приведен список решений некоторых проблем, которые могут возникнуть.
 
+{% ifversion api-date-versioning %}
 
+## `400` ошибка для неподдерживаемой версии API
 
-If you're encountering some oddities in the API, here's a list of resolutions to some of the problems you may be experiencing.
+Чтобы указать версию API, `X-GitHub-Api-Version` следует использовать заголовок . Например:
 
-### `404` error for an existing repository
+```shell
+$ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
+```
 
-Typically, we send a `404` error when your client isn't properly authenticated. You might expect to see a `403 Forbidden` in these cases. However, since we don't want to provide _any_ information about private repositories, the API returns a `404` error instead.
+Если указать версию, которая не существует, появится сообщение об ошибке `400` .
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), and [third-party application restrictions][oap-guide] are not blocking access.
+Дополнительные сведения см. в разделе [Версии API](/rest/overview/api-versions).
 
-### Not all results returned
+{% endif %}
 
-Most API calls accessing a list of resources (_e.g._, users, issues, _etc._) support pagination. If you're making requests and receiving an incomplete set of results, you're probably only seeing the first page. You'll need to request the remaining pages in order to get more results.
+## Ошибка `404` существующего репозитория
 
-It's important to *not* try and guess the format of the pagination URL. Not every API call uses the same structure. Instead, extract the pagination information from [the Link Header](/rest#pagination), which is sent with every request.
+Как правило, при неправильной проверке подлинности клиента отправляется сообщение об ошибке `404`.
+В таких случаях может потребоваться просмотреть `403 Forbidden`. Но так как мы не хотим предоставлять _никаких_ сведений о частных репозиториях, API возвращает ошибку `404`.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Basic authentication errors
+Чтобы устранить неполадки, убедитесь, что [проверка подлинности выполнена правильно](/guides/getting-started/), [маркер доступа OAuth имеет необходимые области](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [ограничения сторонних приложений][oap-guide] не блокируют доступ и что [маркер не был отозван и его срок действия не истек](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
-On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.
+## Возвращены не все результаты
 
-#### Using `username`/`password` for basic authentication
+Большинство вызовов API, обращающегося к списку ресурсов (_например_, пользователей, проблем _и т. д._ ), поддерживают разбиение на страницы. Если вы создаете запросы и получаете неполный набор результатов, вероятно, вы просматриваете только первую страницу. Чтобы получить больше результатов, вам потребуется отправить запрос на оставшиеся страницы.
 
-If you're using `username` and `password` for API calls, then they are no longer able to authenticate. Например:
+*Не пытайтесь* угадать формат URL-адреса разбиения на страницы. Не для каждого вызова API используется одна и та же структура. Вместо этого извлеките сведения о разбиении на страницы из [заголовка ссылки](/rest#pagination), который отправляется с каждым запросом.
+
+[oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
+
+{% ifversion fpt or ghec %}
+## Ошибки обычной проверки подлинности
+
+С 13 ноября 2020 г. не рекомендуется использовать проверку подлинности с помощью имени пользователя и пароля для REST API и API авторизации OAuth; они больше не будут работать.
+
+### Использование `username`/`password` для обычной проверки подлинности
+
+Если вы используете `username` и `password` для вызовов API, они больше не смогут пройти проверку подлинности. Пример:
 
 ```bash
 curl -u my_user:my_password https://api.github.com/user/repos
 ```
 
-Instead, use a [personal access token](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
+Вместо этого используйте [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) при тестировании конечных точек или локальной разработке:
 
 ```bash
-curl -H 'Authorization: token my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
-For OAuth Apps, you should use the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate an OAuth token to use in the API call's header:
+Для приложений OAuth следует использовать [процесс веб-приложения](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow), чтобы создать маркер OAuth для применения в заголовке вызова API:
 
 ```bash
-curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
-#### Calls to OAuth Authorizations API
+## Истекшее время ожидания
 
-If you're making [OAuth Authorization API](/enterprise-server/rest/reference/oauth-authorizations) calls to manage your OAuth app's authorizations or to generate access tokens, similar to this example:
-
-```bash
-curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'
-```
-
-Then you must switch to the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate access tokens.
+Если {% data variables.product.product_name %} обрабатывает запрос API более 10 секунд, {% data variables.product.product_name %} завершит запрос и вы получите ответ о времени ожидания.
 
 {% endif %}
-
-[oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/

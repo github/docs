@@ -1,10 +1,18 @@
+---
+ms.openlocfilehash: aadf6a8e4452758098031014ad7ade2ca28ac09a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145068484"
+---
 # GraphQL
 
-The `/content/graphql` directory is where the GitHub GraphQL API docs live!
+Im `/content/graphql`-Verzeichnis befinden sich die GitHub GraphQL-API-Dokumente!
 
-* The `/content/graphql/guides` and `/content/graphql/overview` directories contain articles that are human-editable.
-* The `/content/graphql/reference` directory contains an article for each GraphQL data type used in the GitHub GraphQL API. Most of the content in this directory is rendered using `include` tags.
+* Die Verzeichnisse `/content/graphql/guides` und `/content/graphql/overview` enthalten Artikel, die von Personen bearbeitet werden können.
+* Das `/content/graphql/reference`-Verzeichnis enthält einen Artikel für jeden GraphQL-Datentyp, der in der GitHub GraphQL-API verwendet wird. Die meisten Inhalte in diesem Verzeichnis werden mithilfe von `include`-Tags gerendert.
 
-  The content rendered by `include` tags is sourced from the `/lib/graphql/static` directory, which is automatically generated from the API source code internally in GitHub, and should not be edited by a human. For more information, see the [`/lib/graphql/README.md`](/lib/graphql/README.md).
+  Der von `include`-Tags gerenderte Inhalt stammt aus dem `/lib/graphql/static`-Verzeichnis, das intern in GitHub automatisch aus dem API-Quellcode generiert wird, und sollte nicht von einer Person bearbeitet werden. Weitere Informationen findest du unter [`/lib/graphql/README.md`](/lib/graphql/README.md).
 
-  **As a result, we cannot accept contributions to GraphQL API reference content in this repository.**
+  **Daher können wir keine Beiträge zu GraphQL-API-Referenzinhalten in diesem Repository akzeptieren.**

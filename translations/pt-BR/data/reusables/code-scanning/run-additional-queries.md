@@ -1,9 +1,26 @@
-Ao usar {% data variables.product.prodname_codeql %} para fazer a varredura do código, o mecanismo de análise de {% data variables.product.prodname_codeql %} gera um banco de dados do código e executa consultas no mesmo. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)".
+When you use {% data variables.product.prodname_codeql %} to scan code, the {% data variables.product.prodname_codeql %} analysis engine generates a database from the code and runs queries on it. {% data variables.product.prodname_codeql %} analysis uses a default set of queries, but you can specify more queries to run, in addition to the default queries.
 
-A análise de {% data variables.product.prodname_codeql %} usa um conjunto-padrão de consultas, mas você pode especificar outras consultas a serem executadas, além das consultas-padrão. The queries you want to run must belong to a {% data variables.product.prodname_ql %} pack in a repository. Para obter mais informações, consulte "[Sobre os pacotes de {% data variables.product.prodname_ql %}](https://codeql.github.com/docs/codeql-cli/about-ql-packs/).
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+{% tip %}
 
-As consultas só devem depender das bibliotecas-padrão (ou seja, as bibliotecas referenciadas por uma declaração de `LINGUAGEM de importação` na sua consulta), ou bibliotecas no mesmo pacote do {% data variables.product.prodname_ql %} da consulta. As bibliotecas-padrão estão localizadas no repositório [github/codeql](https://github.com/github/codeql). Para obter mais informações, consulte "[Sobre consultas do CodeQL](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)".
+You can also specify the queries you want to exclude from analysis, or include in the analysis. This requires the use of a custom configuration file. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)" and "[Excluding specific queries from analysis](#excluding-specific-queries-from-analysis) " below.
 
-Você pode especificar um único arquivo _.ql_, um diretório que contém múltiplos arquivos _.ql_, um arquivo de definição de suite de consultas _.qls_ ou qualquer outra combinação. Para obter mais informações sobre definições do conjunto de consultas, consulte "[Criar as conjuntos de consulta do {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)".
+{% endtip %}
+{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}Não recomendamos fazer referências a conjuntos de consulta diretamente a partir do repositório `github/codeql`, como `github/codeql/cpp/ql/src@main`. Tais consultas não podem ser compiladas com a mesma versão do {% data variables.product.prodname_codeql %} que é usada para outras consultas, que poderia gerar erros durante a análise.{% endif %}
+{% ifversion codeql-packs %}
+You can run extra queries if they are part of a {% data variables.product.prodname_codeql %} pack (beta) published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} or a {% data variables.product.prodname_ql %} pack stored in a repository. For more information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
+
+The options available to specify the additional queries you want to run are:
+
+- `packs` to install one or more {% data variables.product.prodname_codeql %} query packs (beta) and run the default query suite or queries for those packs.
+- `queries` to specify a single _.ql_ file, a directory containing multiple _.ql_ files, a _.qls_ query suite definition file, or any combination. For more information about query suite definitions, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)."
+
+You can use both `packs` and `queries` in the same workflow.
+{% else %}
+Any additional queries you want to run must belong to a {% data variables.product.prodname_ql %} pack in a repository. For more information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
+
+You can specify a single _.ql_ file, a directory containing multiple _.ql_ files, a _.qls_ query suite definition file, or any combination. For more information about query suite definitions, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)."
+{% endif %}
+
+{% ifversion fpt or ghec %}We don't recommend referencing query suites directly from the `github/codeql` repository, for example, `github/codeql/cpp/ql/src@main`. Such queries would have to be recompiled, and may not be compatible with the version of {% data variables.product.prodname_codeql %} currently active on {% data variables.product.prodname_actions %}, which could lead to errors during analysis.{% endif %}

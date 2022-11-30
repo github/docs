@@ -1,8 +1,16 @@
-{% if currentVersion == "free-pro-team@latest" %}
+---
+ms.openlocfilehash: b36f385f08632181d3a4cc7150e655683bc016f1
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147887161"
+---
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note**: To open a pull request in a public repository, you must have write access to the head or the source branch or, for organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.
+**Примечание.** Чтобы открыть запрос на вытягивание в общедоступном репозитории, необходимо иметь доступ на запись в головную или исходную ветвь или (для репозиториев, принадлежащих организации) необходимо быть участником организации, которая владеет репозиторием, чтобы открыть запрос на вытягивание.
 
 {% endnote %}
 

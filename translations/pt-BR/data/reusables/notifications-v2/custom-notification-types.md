@@ -1,2 +1,9 @@
-{%- if currentVersion == "free-pro-team@latest" %}issues, pulls requests, releases, security alerts, or discussions{% endif %}
-{%- if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}issues, pull requests, releases, or discussions{% endif %}
+---
+ms.openlocfilehash: a58ac1efeb08c3c10884942df4d8b86d3638ce93
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107960"
+---
+problemas, solicitações de pull, versões, alertas de segurança ou discussões

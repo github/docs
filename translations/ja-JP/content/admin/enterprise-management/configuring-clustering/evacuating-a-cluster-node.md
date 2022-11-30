@@ -6,62 +6,85 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
   - /admin/enterprise-management/evacuating-a-cluster-node
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
+ms.openlocfilehash: 775e53aafadae8c5c76a9f1dfef43ebaf7ceb9f1
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120629'
 ---
-データサービスクラスタにノードが3つしかない場合、ノードからの待避はできません。`ghe-spokes`に、コピーを作成する別の場所がないからです。 ノードが4つ以上ある場合は、`ghe-spokes`によってすべてのリポジトリが待避元のノードから移動されます。
+## クラスター ノードの待避について
 
-データサービス (Git、ページ、ストレージ) があるノードをオフラインにする場合、ノードをオフラインにする前に各ノードからの待避を実行してください。
+{% data variables.product.product_name %} のクラスターの構成では、ノードをオフラインにする前にノードを待避できます。 待避することで、サービス レベル内の残りのノードに、サービスのすべてのデータが確実に含まれます。 たとえば、クラスター内のノードの仮想マシンを置き換える場合は、最初にノードを待避する必要があります。
 
-1. `ghe-config`コマンドでクラスタ内のノードの`uuid`を見つけてください。
+{% data variables.product.prodname_ghe_server %} のノードとサービス レベルについて詳しくは、「[クラスター ノードについて](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)」をご覧ください。
 
-    ```
-    $ ghe-config cluster._hostname_.uuid
-    ```
+{% warning %}
 
-2. データのコピー中は、ノードのステータスをモニターする必要があります。 コピーが完了するまで、ノードはオフラインにしないでください。 ノードのステータスをモニターするには、次のいずれかのコマンドを実行します。
+**警告**:
 
-    Git:
-    ```
-    ghe-spokes evac-status
-    ```
-    {% data variables.product.prodname_pages %}:
-    {% raw %}
-    ```
-    echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
-    ```
-    {% endraw %}
-    ストレージ:
-    ```
-    ghe-storage evacuation-status
-    ```
+- データが失われるのを避けるため、{% data variables.product.company_short %} は、ノードをオフラインにする前にノードを待避することを強くお勧めします。 
 
-3. コピーが完了したら、ストレージサービスを待避させます。 実行するコマンドは次のいずれかです。
+- データ サービス クラスターにノードが 3 つしかない場合、`ghe-spokes` でコピーを作成する別の場所がないため、ノードを待避することはできません。 4 つ以上ある場合は、`ghe-spokes` によって待避元のノードからすべてのリポジトリが移動されます。
 
-    Git:
-    {% raw %}
-    ```
-    ghe-spokes server evacuate git-server-<uuid>
-    ```
-    {% endraw %}
-    {% data variables.product.prodname_pages %}:
-    {% raw %}
-    ```
-    ghe-dpages evacuate pages-server-<uuid>
-    ```
-    {% endraw %}
-    ストレージに対して、ノードをオフラインにします。
-    {% raw %}
-    ```
-    ghe-storage offline storage-server-<uuid>
-    ```
-    {% endraw %}
-      次に、待避を実行します。
-    {% raw %}
-    ```
-    ghe-storage evacuate storage-server-<uuid>
-    ```
-    {% endraw %}
+{% endwarning %}
+
+## クラスタノードからの待避
+
+オフラインにする予定のノードで、`git-server`、`pages-server`、`storage-server` などのデータ サービス ロールが実行されている場合は、ノードをオフラインにする前に各ノードを待避します。
+
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
+1. 待避するノードの UUID を見つけるには、次のコマンドを実行します。 `HOSTNAME` は、ノードのホスト名に置き換えます。
+
+   ```shell
+   $ ghe-config cluster.<em>HOSTNAME</em>.uuid
+   ```
+1. {% data variables.product.product_name %} がデータをコピーしている間、ノードの状態を監視します。 コピーが完了するまで、ノードをオフラインにしないでください。 ノードの状態を監視するには、次のいずれかのコマンドを実行します。`UUID` は、ステップ 2 の UUID に置き換えます。
+
+   - **Git**:
+
+     ```shell
+     $ ghe-spokes evac-status git-server-<em>UUID</em>
+     ```
+
+   - **{% data variables.product.prodname_pages %}** :
+
+     ```shell
+     $ echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
+     ```
+
+   - **ストレージ**:
+
+     ```shell
+     $ ghe-storage evacuation-status storage-server-<em>UUID</em>
+     ```
+1. コピーが完了したら、次のいずれかのコマンドを実行して、ノードを待避できます。`UUID` は、ステップ 2 の UUID に置き換えます。
+
+   - **Git**:
+
+     ```shell
+     $ ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
+     ```
+
+   - **{% data variables.product.prodname_pages %}** :
+
+     ```shell
+     $ ghe-dpages evacuate pages-server-<em>UUID</em>
+     ```
+
+   - **ストレージ** の場合は、最初に次のコマンドを実行してノードをオフラインにします。
+
+     ```shell
+     $ ghe-storage offline storage-server-<em>UUID</em>
+     ```
+
+     ストレージ ノードがオフラインになった後、次のコマンドを実行してノードを待避できます。
+
+     ```shell
+     $ ghe-storage evacuate storage-server-<em>UUID</em>
+     ```

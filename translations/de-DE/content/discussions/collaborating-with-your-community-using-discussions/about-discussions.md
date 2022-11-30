@@ -1,54 +1,78 @@
 ---
-title: About discussions
-intro: 'Use discussions to ask and answer questions, share information, make announcements, and conduct or participate in a conversation about a project on {% data variables.product.product_name %}.'
+title: Informationen zu Diskussionen
+intro: 'Du kannst in Diskussionen Fragen stellen und beantworten, Informationen freigeben, Ankündigungen tätigen und an Unterhaltungen über ein Projekt auf {% data variables.product.product_name %} teilnehmen.'
 versions:
-  free-pro-team: '*'
+  feature: discussions
+ms.openlocfilehash: 4ac74c35b34310b62595bd5ac9a5588a7ef3476a
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147886950'
 ---
+## Informationen zu {% data variables.product.prodname_discussions %}
 
-{% data reusables.discussions.beta %}
+Mit {% data variables.product.prodname_discussions %} kann die Community für dein Projekt Unterhaltungen im Repository oder in der Organisation des Projekts erstellen und daran teilnehmen. Diskussionen ermöglichen es den Maintainern, Mitwirkenden und Besuchern eines Projekts, die folgenden Ziele ohne Tools von Drittanbietern an einem zentralen Ort zu erfassen und zu erreichen.
 
-### About discussions
+- Freigeben von Ankündigungen und Informationen, Erfassen von Feedback, Planen und Treffen von Entscheidungen
+- Stellen von Fragen, Erörtern und Beantworten der Fragen und Kennzeichnen von Diskussionen als „Beantwortet“
+- Erstellen von Umfragen zum Sondieren der Community-Meinung
+- Fördern einer einladenden Atmosphäre für Besucher und Mitwirkende zur Erörterung von Zielen, Entwicklung, Verwaltung und Workflows
 
-With {% data variables.product.prodname_discussions %}, the community for your project can create and participate in conversations within the project's repository. Discussions empower a project's maintainers, contributors, and visitors to gather and accomplish the following goals in a central location, without third-party tools.
+![Registerkarte „Diskussionen“ für ein Repository](/assets/images/help/discussions/hero.png)
 
-- Share announcements and information, gather feedback, plan, and make decisions
-- Ask questions, discuss and answer the questions, and mark the discussions as answered
-- Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
+Mittels Repositorydiskussionen kannst du Themen erörtern, die für das Repository spezifisch sind. Wenn dein Projekt mehrere Repositorys umfasst, kannst du mittels Organisationsdiskussionen Themen erörtern, die nicht für einzelne Repositorys in deiner Organisation spezifisch sind.
 
-![Discussions tab for a repository](/assets/images/help/discussions/hero.png)
+Du musst eine Diskussion nicht schließen wie einen Issue oder Pull Request.
 
-You don't need to close a discussion like you close an issue or a pull request.
+Wenn ein Repositoryadministrator oder Projektmaintainer {% data variables.product.prodname_discussions %} für ein Repository aktiviert, können alle Personen mit Zugriff auf das Repository Diskussionen für das Repository erstellen und daran teilnehmen. Wenn ein Organisationsbesitzer {% data variables.product.prodname_discussions %} für eine Organisation aktiviert, kann jeder, der das Quellrepository anzeigen kann, eine Organisationsdiskussion erstellen.
 
-If a repository administrator or project maintainer enables discussions for a repository, anyone who visits the repository can create and participate in discussions for the repository. Repository administrators and project maintainers can manage discussions and discussion categories in a repository, and pin discussions to increase the visibility of the discussion. Moderators and collaborators can mark comments as answers, lock discussions, and convert issues to discussions. Weitere Informationen findest Du unter„[Berechtigungsebenen für die Repositorys einer Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization).“
+Repositoryadministratoren und Projektmaintainer können Diskussionen und Diskussionskategorien in einem Repository verwalten und Diskussionen anheften, um die Sichtbarkeit der Diskussion zu erhöhen. Moderatoren und Projektmitarbeiter können Kommentare als Antworten kennzeichnen, Diskussionen sperren und Issues in Diskussionen konvertieren. Genauso bestimmt die Rolle eines Benutzers im Quellrepository, wie er mit Organisationsdiskussionen interagieren kann. Weitere Informationen findest du unter [Repositoryrollen für eine Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization).
 
-For more information about management of discussions for your repository, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)."
+Weitere Informationen zur Verwaltung von Diskussionen findest du unter „[Verwalten von Diskussionen](/discussions/managing-discussions-for-your-community/managing-discussions)“.
 
-### About categories and formats for discussions
+## Informationen zu Umfragen
+
+Du kannst Umfragen in der Kategorie „Umfragen“ erstellen, um das Interesse an neuen Ideen und der Projektrichtung zu sondieren. Alle Personen mit Lesezugriff auf dein Repository können Umfragen erstellen, an Umfragen teilnehmen und deren Ergebnisse einsehen.{% ifversion fpt or ghec %} Abgemeldete Benutzer können die Ergebnisse von Umfragen in öffentlichen Repositorys einsehen.{% endif %}
+
+Umfragen erfordern eine Frage und mindestens zwei Optionen. Du kannst maximal acht Optionen hinzufügen, und die Optionen können maximal 128 Zeichen enthalten. 
+
+Wähler können die von ihnen abgegebene Stimme nicht ändern. Durch das Bearbeiten einer Umfrage werden alle bereits abgegebenen Stimmen zurückgesetzt.
+
+Weitere Informationen zum Erstellen eines Auftrags findest du unter „[Erstellen einer Umfrage](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion#creating-a-poll)“.
+
+## Informationen zur Organisation von Diskussionen
+
+Du kannst Diskussionen anhand von Kategorien und Bezeichnungen organisieren.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
-For discussions with a question/answer format, an individual comment within the discussion can be marked as the discussion's answer. {% data reusables.discussions.github-recognizes-members %}
+Für Diskussionen mit einem Frage/Antwort-Format kann ein einzelner Kommentar innerhalb der Diskussion als Antwort gekennzeichnet werden. {% data reusables.discussions.github-recognizes-members %}
 
-For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
+{% data reusables.discussions.about-announcement-format %}
 
-### Best practices for discussions
+Weitere Informationen findest du unter „[Verwalten von Kategorien für Diskussionen](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)“.
 
-As a community member or maintainer, start a discussion to ask a question or discuss information that affects the community. For more information, see "[Collaborating with maintainers using discussions](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)."
+{% data reusables.discussions.you-can-label-discussions %}
 
-Participate in a discussion to ask and answer questions, provide feedback, and engage with the project's community. For more information, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
+## Bewährte Methoden für {% data variables.product.prodname_discussions %}
 
-You can spotlight discussions that contain important, useful, or exemplary conversations among members in the community. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)."
+Als Communitymitglied oder -maintainer startest du eine Diskussion, um eine Frage zu stellen oder Informationen zu erörtern, die sich auf die Community auswirken. Weitere Informationen findest du unter „[Zusammenarbeiten mit Maintainern mithilfe von Diskussionen](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)“.
 
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions in your repository](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+Nimm an einer Diskussion teil, um Fragen zu stellen und zu beantworten, Feedback zu geben und mit der Community des Projekts ins Gespräch zu kommen. Weitere Informationen findest du unter „[Teilnehmen an einer Diskussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)“.
 
-### Feedback teilen
+Du kannst Diskussionen hervorheben, die wichtige, nützliche oder beispielhafte Unterhaltungen zwischen Mitgliedern in der Community enthalten. Weitere Informationen findest du unter „[Verwalten von Diskussionen](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)“.
 
-You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+{% data reusables.discussions.you-can-convert-an-issue %} Weitere Informationen findest du unter „[Moderieren von Diskussionen](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)“.
 
-### Weiterführende Informationen
+## Feedback teilen
 
-- "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
-- „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- „[Kommentare und Unterhaltungen moderieren](/communities/moderating-comments-and-conversations)“
-- „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/communities/maintaining-your-safety-on-github)"
+Du kannst dein Feedback zu {% data variables.product.prodname_discussions %} mit {% data variables.product.company_short %} teilen. Zur Teilnahme an der Unterhaltung siehe [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/discussions).
+
+## Weiterführende Themen
+
+- „[Informationen zum Schreiben und Formatieren auf {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)“
+- „[Durchsuchen von Diskussionen](/search-github/searching-on-github/searching-discussions)“
+- „[Informationen zu Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications)“
+- [Moderieren von Kommentaren und Unterhaltungen](/communities/moderating-comments-and-conversations){% ifversion fpt or ghec %}
+- [Aufrechterhalten der Sicherheit auf {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github) {% endif %}

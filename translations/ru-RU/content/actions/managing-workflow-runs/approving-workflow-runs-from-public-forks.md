@@ -1,19 +1,25 @@
 ---
-title: Approving workflow runs from public forks
-intro: 'When a first-time contributor submits a pull request to a public repository, a maintainer with write access must approve any workflow runs.'
-product: '{% data reusables.gated-features.actions %}'
+title: 'Утверждение рабочих процессов, запускаемых из общедоступных вилок'
+intro: 'Когда сторонний участник отправляет запрос на вытягивание в общедоступный репозиторий, ответственному специалисту с доступом на запись может потребоваться утверждать все запуски рабочего процесса.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Approve public fork runs
+ms.openlocfilehash: 74918a7d2e0081d6332ab267ef18ae148a2cff5e
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164126'
 ---
+## Сведения о запуске рабочих процессов из общедоступных вилок
 
-Forks of public repositories can submit pull requests that propose changes to a repository's {% data variables.product.prodname_actions %} workflows. Although workflows from forks do not have access to sensitive data such as secrets, they can be an annoyance for maintainers if they are modified for abusive purposes. To help prevent this, workflows on pull requests are not run automatically if they are received from first-time contributors, and must be approved first.
+{% data reusables.actions.workflow-run-approve-public-fork %}
 
-Maintainers with write access to the repository can use the following procedure to review and run workflows on pull requests from first-time contributors. After a contributor has at least one pull request merged into a project's repository, any future pull requests from that contributor's fork will automatically run workflows.
+Вы можете настроить требования к утверждению рабочих процессов для [репозитория](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [отдела](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks) или [организации](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise).
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
-1. Inspect the proposed changes in the pull request and ensure that you are comfortable running your workflows on the pull request branch. You should be especially alert to any proposed changes in the `.github/workflows/` directory that affect workflow files.
-1. If you are comfortable with running workflows on the pull request branch, return to the {% octicon "comment-discussion" aria-label="The discussion icon" %} **Conversation** tab, and under "Workflow(s) awaiting approval", click **Approve and run**.
+Запуски рабочих процессов, ожидающие утверждения более 30 дней, автоматически удаляются.
 
-   ![Approve and run workflows](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+## Утверждение запусков рабочего процесса при запросе на вытягивание из общедоступной вилки
+
+{% data reusables.actions.workflows.approve-workflow-runs %}

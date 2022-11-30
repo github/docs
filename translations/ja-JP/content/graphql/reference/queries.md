@@ -1,37 +1,33 @@
 ---
 title: クエリ
-miniTocMaxHeadingLevel: 2
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
   - /v4/reference/query
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: d5c31e8e00788d2e75f27b0bb161249f01fcfb1d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109043'
 ---
+## クエリについて
 
-### クエリについて
+すべてのGraphQLスキーマは、クエリとミューテーションの両方についてルート型を持っています。 [クエリの種類](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)によって、サーバーからデータを取得する GraphQL 操作が定義されます。
 
-すべてのGraphQLスキーマは、クエリとミューテーションの両方についてルート型を持っています。 [クエリ型](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)は、サーバーからデータを取り出すGraphQLの操作を定義します。
-
-詳しい情報については「[クエリについて](/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
+詳細については、「[クエリについて](/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
 
 {% note %}
 
-**注釈:** For [user-to-server](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %}リクエストの場合は、Issueとプルリクエストに別々のクエリを使用する必要があります。 たとえば、`is:issue`または`is:pull-request`フィルタと、それと同等のフィルタを使用します。 `search`接続を使用してIssueとプルリクエストの組み合わせを1つのクエリで返すと、ノードのセットが空になります。
+**注:** [ユーザーからサーバーへの](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} 要求の場合は、issue と pull request に対して個別のクエリを使う必要があります。 たとえば、`is:issue` または `is:pull-request` のフィルターと同等のものを使います。 `search` 接続を使って issue と pull request の組み合わせを 1 つのクエリで返すと、ノードのセットが空になります。
 
 {% endnote %}
 
-## コネクション
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## フィールド
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

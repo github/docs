@@ -1,29 +1,35 @@
 ---
-title: OpenAPI description
-intro: 'The {% data variables.product.product_name %} REST API is fully described in an OpenAPI 3.0 compliant document.'
+title: Описание OpenAPI
+intro: 'REST API {% data variables.product.product_name %} полностью описан в документе по OpenAPI 3.0.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - API
+ms.openlocfilehash: 84c81c856da1da67320463fba4b9b52bca88c844
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145125043'
 ---
+## Сведения об описаниях OpenAPI
 
-### About OpenAPI descriptions
+[OpenAPI](https://swagger.io/docs/specification/about/) является стандартной спецификацией для описания REST API. Описания OpenAPI позволяют как людям, так и компьютерам обнаруживать возможности API без необходимости предварительного чтения документации или изучения реализации. {% data variables.product.company_short %} сделал свои REST API общедоступными в виде документа, совместимого с OpenAPI 3.0.
 
-[OpenAPI](https://swagger.io/docs/specification/about/) is a standard specification for describing REST APIs. OpenAPI descriptions allow both humans and machines to discover the capabilities of an API without needing to first read documentation or understand the implementation. {% data variables.product.company_short %} has made its REST API publicly available as an OpenAPI 3.0 compliant document.
+## Получение описания OpenAPI {% data variables.product.company_short %}
 
-### Getting the {% data variables.product.company_short %} OpenAPI description
+Это описание можно найти в репозитории [Описание OpenAPI REST API](https://github.com/github/rest-api-description) с открытым кодом.
 
-You can find the description in the open source [REST API OpenAPI Description](https://github.com/github/rest-api-description) repository.
+Описание предоставляется в двух форматах. Пакетная версия работает в большинстве случаев, так как она включает компоненты OpenAPI для неоднократного использования и удобочитаемости. Если ваши средства не поддерживают встроенные ссылки на компоненты, мы также предоставляем полностью разыменованную версию.
 
-We provide the description in two formats. The bundled version works for most cases, as it includes OpenAPI components for reuse and readability. If your tooling does not support inline references to components, we also provide a fully dereferenced version.
+## Использование описания OpenAPI {% data variables.product.company_short %}
 
-### Using the {% data variables.product.company_short %} OpenAPI description
+Существует множество способов использования описания OpenAPI. Например, можно сделать следующее:
 
-There are many uses for an OpenAPI description. For example, you could:
+* Создать собственный клиент API.
+* Проверять и тестировать интеграцию REST API {% data variables.product.company_short %}.
+* Исследовать и взаимодействовать с REST API {% data variables.product.product_name %} с помощью сторонних средств, таких как Insomnia или Postman.
 
-* Generate your own API client.
-* Validate and test a {% data variables.product.company_short %} REST API integration.
-* Explore and interact with the {% data variables.product.product_name %} REST API using third-party tools, such as Insomnia or Postman.
-
-For example, {% data variables.product.company_short %} uses the REST OpenAPI description to generate the {% data variables.product.product_name %} [REST API reference documentation](/rest/reference).
+Например, {% data variables.product.company_short %} использует описание OpenAPI REST для создания [справочной документации по REST API](/rest) {% data variables.product.product_name %}.

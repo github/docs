@@ -1,48 +1,59 @@
 ---
-title: Viewing a wiki's history of changes
-intro: 'Because wikis are Git repositories, every change you make is a commit that you can view.'
+title: Просмотр истории изменений вики-сайта
+intro: 'Так как вики-сайты являются репозиториями Git, каждое изменение, которое вы вносите, будет фиксацией, которую можно просмотреть.'
 product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
   - /articles/viewing-a-wikis-history-of-changes
   - /github/building-a-strong-community/viewing-a-wikis-history-of-changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: View a history of changes
+ms.openlocfilehash: 1c5330a9067749b4bf0d1f2ed4e6fb9f10b38602
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145092426'
 ---
+## Просмотр журнала вики-сайта
 
-### Viewing wiki history
+Журнал вики-сайта содержит следующие сведения:
+- пользователь, внесший изменение;
+- предоставленное им сообщение о фиксации;
+- время внесения изменения.
 
-Wiki history includes:
-- The user who made the change
-- The commit message they provided
-- When the change was made
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+3. С помощью боковой панели вики-сайта перейдите на страницу, историю которой нужно просмотреть.
+4. В верхней части вики-сайта щелкните ссылку на редакцию.
+   ![Ссылка на редакцию вики-сайта](/assets/images/help/wiki/wiki_revision_link.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-3. Using the wiki sidebar, navigate to the page whose history you want to view.
-4. At the top of the wiki, click the revision link. ![Wiki revision link](/assets/images/help/wiki/wiki_revision_link.png)
+## Просмотр предыдущего содержимого
 
-### Viewing previous content
+В таблице журнала вики-сайта можно щелкнуть [хэш SHA-1](http://en.wikipedia.org/wiki/SHA-1) (последовательность букв и цифр справа), чтобы увидеть вики-страницу в том состоянии, в каком она была в определенный момент времени.
 
-On the wiki history table, you can click a [SHA-1 hash](http://en.wikipedia.org/wiki/SHA-1) (the sequence of letters and numbers to the far right) to see a wiki page as it existed at a particular point in time.
+![Число SHA вики-сайта](/assets/images/help/wiki/wiki_sha_number.png)
 
-![Wiki SHA number](/assets/images/help/wiki/wiki_sha_number.png)
+## Сравнение двух редакций
 
-### Comparing two revisions
+1. Выберите две строки, которые требуется сравнить.
+2. В верхней части таблицы журнала нажмите кнопку **Сравнить редакции**.
+   ![Кнопка для сравнения редакций вики-сайта](/assets/images/help/wiki/wiki_compare_revisions.png)
+3. Вы увидите различия: какие строки были добавлены, удалены и изменены.
 
-1. Select two rows that you want to compare.
-2. At the top of the history table, click **Compare Revisions**. ![Wiki compare revisions button](/assets/images/help/wiki/wiki_compare_revisions.png)
-3. You'll see a diff of the changes showing which lines were added, removed, and modified.
+## Отмена предыдущих изменений
 
-### Reverting previous changes
+Отменять изменения можно только при наличии разрешения на изменение вики-сайта.
 
-You can only revert changes if you have permission to edit the wiki.
-
-1. Select a row that you want to revert.
-2. At the top of the history table, click **Compare Revisions**. ![Wiki compare revisions button](/assets/images/help/wiki/wiki_compare_revisions.png)
-3. You'll see a diff of the changes showing which lines were added, removed, and modified. ![Wiki revision diff](/assets/images/help/wiki/wiki_revision_diff.png)
-4. To revert the newer changes, click **Revert Changes**. ![Wiki revert changes button](/assets/images/help/wiki/wiki_revert_changes.png)
+1. Выберите строку, которую требуется отменить.
+2. В верхней части таблицы журнала нажмите кнопку **Сравнить редакции**.
+   ![Кнопка для сравнения редакций вики-сайта](/assets/images/help/wiki/wiki_compare_revisions.png)
+3. Вы увидите различия: какие строки были добавлены, удалены и изменены.
+   ![Различия между редакциями вики-сайта](/assets/images/help/wiki/wiki_revision_diff.png)
+4. Чтобы отменить новые изменения, нажмите кнопку **Отменить изменения**.
+   ![Кнопка для отмены изменений на вики-сайте](/assets/images/help/wiki/wiki_revert_changes.png)

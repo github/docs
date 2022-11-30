@@ -1,40 +1,65 @@
 ---
-title: About GitHub AE
-intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
+title: "Сведения о GitHub\_AE"
+intro: "{% data variables.product.prodname_ghe_managed %}\_— это улучшенный в плане безопасности и совместимый способ использования {% data variables.product.prodname_dotcom %} в облаке."
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
   - Fundamentals
+ms.openlocfilehash: 388e271c17c182a318e8c2d095811ac27633a414
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180183'
 ---
+## Сведения о {% data variables.product.prodname_ghe_managed %}
 
-### About {% data variables.product.prodname_ghe_managed %}
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} является полностью управляемым, надежным и масштабируемым, что позволяет ускорить доставку без ущерба для управления рисками и соответствия требованиям.
 
-{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} is fully managed, reliable, and scalable, allowing you to accelerate delivery without sacrificing risk management.
+{% data variables.product.prodname_ghe_managed %} предлагает одну платформу разработчика от идеи до производства. Вы можете повысить скорость разработки с помощью средств, которые команды знают и любят, при этом поддерживая соответствие отрасли и нормативным требованиям путем использования средств управления безопасностью и доступом, автоматизации рабочих процессов и применения политик. 
 
-{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with unique security and access controls, workflow automation, and policy enforcement.
+{% data reusables.enterprise.about-github-for-enterprises %}
 
-### A highly available and planet-scale cloud
+## Высокодоступное глобальное облако
 
-{% data variables.product.prodname_ghe_managed %} is a fully managed service, hosted in a high availability architecture. {% data variables.product.prodname_ghe_managed %} is hosted globally in a cloud that can scale to support your full development lifecycle without limits. {% data variables.product.prodname_dotcom %} fully manages backups, failover, and disaster recovery, so you never need to worry about your service or data.
+{% data variables.product.prodname_ghe_managed %} — это полностью управляемая служба, размещенная в архитектуре с высоким уровнем доступности. {% data variables.product.prodname_ghe_managed %} размещается глобально в облаке, которое может масштабироваться для поддержки полного жизненного цикла разработки без ограничений. {% data variables.product.prodname_dotcom %} полностью управляет резервными копиями, отработкой отказа и аварийным восстановлением, благодаря чему вам не нужно беспокоиться о службе или данных. 
 
-### Data residency
+## Местонахождение данных
 
-All of your data is stored within the geographic region of your choosing. You can comply with GDPR and global data protection standards by keeping all of your data within your chosen region.
+Все ваши данные хранятся в выбранном географическом регионе. Вы можете обеспечить соответствие требованиям к месту расположения данных регламента GDPR и стандартам защиты глобальных данных путем сохранения всех данных в выбранном регионе.
 
-### Encryption on your terms
+## Изолированные учетные записи
 
-All customer data is encrypted at rest. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
+По умолчанию все учетные записи разработчика на {% data variables.product.product_name %} полностью изолированы от других служб, включая продукты из {% data variables.product.company_short %}. Вы можете контролировать учетные записи с помощью поставщика удостоверений, в обязательном порядке используя единый вход SAML. SCIM гарантирует, что сотрудники будут иметь доступ только к необходимым ресурсам, в соответствии с определением в центральной системе управления удостоверениями. Дополнительные сведения см. в статье [Управление удостоверениями и доступом для вашего предприятия](/admin/authentication/managing-identity-and-access-for-your-enterprise).
 
-### Isolated accounts
+При необходимости владельцы предприятия могут включить ограниченную интеграцию между {% data variables.product.product_name %} и {% data variables.product.prodname_dotcom_the_website %}. Дополнительные сведения см. в разделе [Сведения о {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect).
 
-All developer accounts are fully isolated in {% data variables.product.prodname_ghe_managed %}. You can fully control the accounts through your identity provider, with SAML single sign on as mandatory. SCIM enables you to ensure that employees only have access to the resources they should, as defined in your central identity management system. For more information, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
+## Ограниченный доступ к сети
 
-### Restricted network access
+Защитите доступ к вашему предприятию в {% data variables.product.prodname_ghe_managed %} с ограниченным доступом к сети, чтобы ваши данные были доступны только в вашей сети. Дополнительные сведения см. в разделе [Ограничение сетевого трафика для предприятия с помощью списка разрешенных IP-адресов](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
 
-Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."
+## Коммерческие и государственные среды
 
-### Commercial and government environments
+{% data variables.product.prodname_ghe_managed %} доступен в облаке Azure для государственных организаций — доверенном облаке для государственных учреждений США и их партнеров. {% data variables.product.prodname_ghe_managed %} также доступен в коммерческом облаке, так что вы можете выбрать среду размещения, подходящую для вашей организации.
 
-{% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
+## Аккредитации соответствия требованиям
+
+{% data variables.product.company_short %} постоянно инвестирует средства в рекомендации по безопасности, чтобы гарантировать, что ваши данные в безопасности, ваши разработчики продуктивны, а ваша команда может сосредоточиться на решении проблем. В рамках этого обязательства по обеспечению безопасности {% data variables.product.prodname_ghe_managed %} обеспечивает соответствие следующим аккредитациям.
+
+- Приоритетная авторизация (ATO) для FedRAMP
+- SOC 1, SOC 2 Type II и SOC 3
+- Сертификации ISO/IEC
+   - ISO/IEC 27001:2013 
+   - ISO/IEC 27701:2019
+   - ISO/IEC 9001:2015
+   - ISO/IEC 22301:2019 
+   - ISO/IEC 27018:2014 
+   - ISO/IEC 20000-1:2018 
+   - ISO/IEC 27017:2015
+
+## Дополнительные материалы
+
+- [Сведения о версиях {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)
+- [Получение справки из поддержки {% data variables.product.company_short %}](/admin/enterprise-support/receiving-help-from-github-support)

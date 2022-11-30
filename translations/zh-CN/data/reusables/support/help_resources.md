@@ -1,7 +1,7 @@
-有关 {% data variables.product.prodname_github_app %}、{% data variables.product.prodname_oauth_app %} 和 API 开发的问题、漏洞报告和讨论，请访问 {% data variables.product.prodname_support_forum_with_url %}。 该论坛由 {% data variables.product.company_short %} 工作人员管理和维护，但不能保证发布到论坛的问题都会得到 {% data variables.product.company_short %} 工作人员的回复。
+For questions, bug reports, and discussions about {% data variables.product.prodname_github_apps %},  {% data variables.product.prodname_oauth_apps %}, and API development, explore the  {% data reusables.support.prodname_support_forum_with_url %}. The discussions are moderated and maintained by {% data variables.product.company_short %} staff, but questions posted to the forum are not guaranteed to receive a reply from {% data variables.product.company_short %} staff.
 
-对于以下问题，请考虑使用联系表直接联系 [GitHub Support](https://github.com/contact)：
-  - 要保证得到 {% data variables.product.product_name %} 工作人员的回应
-  - 涉及敏感数据或私人问题的支持请求
-  - 功能请求
-  - 关于 {% data variables.product.product_name %} 产品的反馈
+Consider reaching out to [GitHub Support](https://support.github.com/) directly using the contact form for:
+  - guaranteed response from {% data variables.product.product_name %} staff
+  - support requests involving sensitive data or private concerns
+  - feature requests
+  - feedback about {% data variables.product.product_name %} products

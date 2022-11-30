@@ -1,8 +1,8 @@
 ---
-title: High availability for GitHub Actions
-intro: 'There are some special considerations for administering {% data variables.product.prodname_actions %} in a high availability configuration.'
+title: Hohe Verfügbarkeit für GitHub Actions
+intro: 'Beim Verwalten von {% data variables.product.prodname_actions %} in einer Konfiguration mit Hochverfügbarkeit müssen einige Besonderheiten berücksichtigt werden.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
 type: reference
 topics:
   - Actions
@@ -12,26 +12,33 @@ topics:
   - Storage
 redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
+shortTitle: HA for GitHub Actions
+ms.openlocfilehash: c8b71ddb651baa0757100c356ce3f9edb0e1edee
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145102947'
 ---
-### Replication or redundancy of your {% data variables.product.prodname_actions %} data
+## Replikation oder Redundanz deiner {% data variables.product.prodname_actions %}-Daten
 
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
-We strongly recommend that you configure your {% data variables.product.prodname_actions %} external storage to use data redundancy or replication. For more information, refer to your storage provider's documentation:
+Es wird dringend empfohlen, dass du deine externen {% data variables.product.prodname_actions %}-Speicher so konfigurierst, dass du die Datenredundanz oder -replikation nutzen kannst. Weitere Informationen findest du in der Dokumentation deines Speicheranbieters:
 
-* [Azure Storage redundancy documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
-* [Amazon S3 replication documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
+* [Azure Storage-Redundanzdokumentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
+* [Amazon S3-Replikationsdokumentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
 
-### High availability replicas
+## Hochverfügbarkeitsreplikate
 
-#### Promoting a replica
+### Fördern eines Replikats
 
-When enabling a high availability configuration, any replicas are automatically configured to use the {% data variables.product.prodname_actions %} external storage configuration. If you need to initiate a failover to promote a replica, no extra configuration changes are required for {% data variables.product.prodname_actions %}.
+Bei der Aktivierung einer Hochverfügbarkeitskonfiguration werden sämtliche Replikate automatisch so konfiguriert, dass sie die externe {% data variables.product.prodname_actions %}-Speicherkonfiguration nutzen. Wenn du einen Failover initiieren musst, um ein Replikat zu fördern, sind keine zusätzlichen Konfigurationsänderungen für {% data variables.product.prodname_actions %} erforderlich.
 
-For more information, see "[Initiating a failover to your replica appliance](/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance)."
+Weitere Informationen findest du unter "[Initiieren eines Failovers für deine Replikat-Appliance](/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance)".
 
-#### Hochverfügbarkeitsreplikat entfernen
+### Hochverfügbarkeitsreplikat entfernen
 
-Avoid letting multiple instances to write to the same {% data variables.product.prodname_actions %} external storage. This could occur when using the `ghe-repl-teardown` command to stop and permanently remove a {% data variables.product.prodname_actions %}-enabled replica. This is because the replica will be converted into a standalone {% data variables.product.prodname_ghe_server %}, and after the teardown it will still use the same external storage configuration as the primary.
+Vermeide, dass mehrere Instanzen in denselben externen {% data variables.product.prodname_actions %}-Speicher schreiben können. Dies kann der Fall sein, wenn der `ghe-repl-teardown` Befehl verwendet wird, um ein aktiviertes {% data variables.product.prodname_actions %}-Replikat zu beenden und dauerhaft zu entfernen. Dies liegt daran, dass das Replikat in einen eigenständigen {% data variables.product.prodname_ghe_server %} konvertiert wird und dass nach dem Abbruch weiterhin dieselbe externe Speicherkonfiguration wie die primäre verwendet wird.
 
-To help avoid this issue, we recommend either decommissioning the replica server or updating its {% data variables.product.prodname_actions %} configuration with different external storage.
+Um dieses Problem zu umgehen, empfiehlt es sich, den Replikatserver zu deaktivieren oder seine {% data variables.product.prodname_actions %}-Konfiguration mit einem anderen externen Speicher zu aktualisieren.

@@ -1,1 +1,2 @@
-1. De forma opcional, para sugerir algún cambio específico a la línea{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} o líneas{% endif %}, da clic en {% octicon "diff" aria-label="The diff symbol" %} y luego edita el texto dentro del bloque de sugerencias. ![Bloque de sugerencia](/assets/images/help/pull_requests/suggestion-block.png)
+1. Optionally, to suggest a specific change to the line or lines, click {% octicon "file-diff" aria-label="The file diff icon" %}, then edit the text within the suggestion block.
+![Suggestion block](/assets/images/help/pull_requests/suggestion-block.png)

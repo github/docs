@@ -1,66 +1,70 @@
 ---
-title: Getting started with the Checks API
-intro: 'The Check Runs API enables you to build GitHub Apps that run powerful checks against code changes in a repository. You can create apps that perform continuous integration, code linting, or code scanning services and provide detailed feedback on commits.'
+title: Начало работы с API проверок
+intro: 'API проверки запусков позволяет создавать приложения GitHub, которые выполняют эффективные проверки для любых изменений кода в репозитории. Вы можете создавать приложения, которые выполняют непрерывную интеграцию, структурирование кода или службы сканирования кода и предоставляют подробные отзывы о фиксациях.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Get started - Checks API
+ms.openlocfilehash: 6d98940d9cf4f4fd534034e142aa3d86a0900406
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147710246'
 ---
+## Общие сведения
 
-### Обзор
+Вместо бинарных состояний сборки (выполнено или не выполнено) приложения GitHub могут сообщать расширенные состояния, добавлять к строкам кода заметки с подробными сведениями и повторно проводить тесты. Функциональные возможности API проверок доступны исключительно приложениям GitHub.
 
-Rather than binary pass/fail build statuses, GitHub Apps can report rich statuses, annotate lines of code with detailed information, and re-run tests. The Checks API functionality is available exclusively to your GitHub Apps.
+Пример использования API проверок с {% data variables.product.prodname_github_app %} см. в разделе [Создание тестов непрерывной интеграции с помощью API проверок](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/).
 
-For an example of how to use the Checks API with a {% data variables.product.prodname_github_app %}, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)."
+## Сведения о наборах проверок
 
-### About check suites
+Когда кто-нибудь отправляет код в репозиторий, GitHub создает набор проверок для последней фиксации. Набор проверок — это коллекция [запусков проверок](/rest/reference/checks#check-runs), созданных одним приложением GitHub для определенной фиксации. Набор проверок позволяет получить общее заключение о состоянии выполнения проверок, входящих в состав набора.
 
-When someone pushes code to a repository, GitHub creates a check suite for the last commit. A check suite is a collection of the [check runs](/rest/reference/checks#check-runs) created by a single GitHub App for a specific commit. Check suites summarize the status and conclusion of the check runs that a suite includes.
+![Рабочий процесс набора проверок](/assets/images/check_suites.png)
 
-![Check suites workflow](/assets/images/check_suites.png)
+Набор проверок сообщает значение `conclusion` выполнения проверки с наивысшим приоритетом из всех значений `conclusion` набора проверок. Например, если для трех выполнений проверок получены заключения `timed_out`, `success` и `neutral`, заключением для набора проверок будет `timed_out`.
 
-The check suite reports the highest priority check run `conclusion` in the check suite's `conclusion`. For example, if three check runs have conclusions of `timed_out`, `success`, and `neutral` the check suite conclusion will be `timed_out`.
+По умолчанию GitHub автоматически создает набор проверок при отправке кода в репозиторий. В рамках этого процесса по умолчанию событие `check_suite` (с действием `requested`) отправляется всем приложениям GitHub с разрешением `checks:write`. Когда приложение GitHub получает событие `check_suite`, оно может создать новые выполнения проверок для последней фиксации. GitHub автоматически добавляет новые выполнения проверок в соответствующий [набор проверок](/rest/reference/checks#check-suites) с учетом репозитория и SHA.
 
-By default, GitHub creates a check suite automatically when code is pushed to the repository. This default flow sends the `check_suite` event (with `requested` action) to all GitHub App's that have the `checks:write` permission. When your GitHub App receives the `check_suite` event, it can create new check runs for the latest commit. GitHub automatically adds new check runs to the correct [check suite](/rest/reference/checks#check-suites) based on the check run's repository and SHA.
-
-If you don't want to use the default automatic flow, you can control when you create check suites. To change the default settings for the creation of check suites, use the [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites) endpoint. All changes to the automatic flow settings are recorded in the audit log for the repository. If you have disabled the automatic flow, you can create a check suite using the [Create a check suite](/rest/reference/checks#create-a-check-suite) endpoint. You should continue to use the [Create a check run](/rest/reference/checks#create-a-check-run) endpoint to provide feedback on a commit.
+Если вы не хотите использовать автоматический процесс по умолчанию, то можете управлять созданием наборов проверок. Чтобы изменить параметры по умолчанию для создания наборов проверок, используйте конечную точку [обновления параметров наборов проверок для репозитория](/rest/reference/checks#update-repository-preferences-for-check-suites). Все изменения параметров автоматического процесса записываются в журнал аудита репозитория. Если вы отключили автоматический процесс, набор проверок можно создать с помощью конечной точки [создания набора проверок](/rest/reference/checks#create-a-check-suite). Далее следует использовать конечную точку [создания выполнения проверки](/rest/reference/checks#create-a-check-run) для предоставления отзывов о фиксации.
 
 {% data reusables.apps.checks-availability %}
 
-To use the check suites API, the GitHub App must have the `checks:write` permission and can also subscribe to the [check_suite](/webhooks/event-payloads/#check_suite) webhook.
+Чтобы использовать API наборов проверок, приложение GitHub должно иметь разрешение `checks:write` и может подписаться на веб-перехватчик [check_suite](/webhooks/event-payloads/#check_suite).
 
 {% data reusables.shortdesc.authenticating_github_app %}
 
-### About check runs
+## Сведения о выполнениях проверок
 
-A check run is an individual test that is part of a check suite. Each run includes a status and conclusion.
+Выполнение проверки — это отдельный тест, входящий в состав набора проверок. Каждое выполнение имеет состояние и заключение.
 
-![Check runs workflow](/assets/images/check_runs.png)
+![Рабочий процесс выполнения проверки](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-If a check run is in a incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on
-{% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Only {% data variables.product.prodname_dotcom %} can mark check runs as `stale`. For more information about possible conclusions of a check run, see the [`conclusion` parameter](/rest/reference/checks#create-a-check-run--parameters).
-{% endif %}
+Если выполнение проверки находится в незавершенном состоянии дольше 14 дней, его значение `conclusion` становится равным `stale` и выполнение отображается на {% data variables.product.prodname_dotcom %} как устаревшее со значком {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Выполнения проверок могут помечаться как `stale` только на {% data variables.product.prodname_dotcom %}. Дополнительные сведения о возможных заключениях для выполнения проверки см. в [описании параметра `conclusion`](/rest/reference/checks#create-a-check-run--parameters).
 
-As soon as you receive the [`check_suite`](/webhooks/event-payloads/#check_suite) webhook, you can create the check run, even if the check is not complete. You can update the `status` of the check run as it completes with the values `queued`, `in_progress`, or `completed`, and you can update the `output` as more details become available. A check run can contain timestamps, a link to more details on your external site, detailed annotations for specific lines of code, and information about the analysis performed.
+Как только вы получите веб-перехватчик [`check_suite`](/webhooks/event-payloads/#check_suite), вы можете создать выполнение проверки, даже если проверка не завершена. Вы можете изменить состояние (`status`) выполнения проверки после его завершения на значение `queued`, `in_progress` или `completed`, а также обновлять `output` по мере получения дополнительных сведений. Выполнение проверки может содержать метки времени, ссылку на дополнительные сведения на внешнем сайте, подробные заметки для определенных строк кода и сведения о проведенном анализе.
 
-![Check run annotation](/assets/images/check_run_annotations.png)
+![Заметки выполнения проверки](/assets/images/check_run_annotations.png)
 
-A check can also be manually re-run in the GitHub UI. See "[About status checks](/articles/about-status-checks#checks)" for more details. When this occurs, the GitHub App that created the check run will receive the [`check_run`](/webhooks/event-payloads/#check_run) webhook requesting a new check run. If you create a check run without creating a check suite, GitHub creates the check suite for you automatically.
+Проверку также можно выполнить повторно вручную в пользовательском интерфейсе GitHub. Дополнительные сведения см. в разделе [Сведения о проверках состояния](/articles/about-status-checks#checks). В этом случае приложение GitHub, создавшее выполнение проверки, получит веб-перехватчик [`check_run`](/webhooks/event-payloads/#check_run), запрашивающий новое выполнение проверки. Если вы создаете выполнение проверки без набора проверок, GitHub создает набор проверок автоматически.
 
 {% data reusables.apps.checks-availability %}
 
-To use the Check Runs API, the GitHub App must have the `checks:write` permission and can also subscribe to the [check_run](/webhooks/event-payloads#check_run) webhook.
+Чтобы использовать API выполнений проверок, приложение GitHub должно иметь разрешение `checks:write` и может подписаться на веб-перехватчик [check_run](/webhooks/event-payloads#check_run).
 
-### Check runs and requested actions
+## Выполнения проверок и запрошенные действия
 
-When you set up a check run with requested actions (not to be confused with {% data variables.product.prodname_actions %}), you can display a button in the pull request view on {% data variables.product.prodname_dotcom %} that allows people to request your {% data variables.product.prodname_github_app %} to perform additional tasks.
+При настройке выполнения проверки с запрошенными действиями (не путать с {% data variables.product.prodname_actions %}) в представлении запроса на вытягивание на {% data variables.product.prodname_dotcom %} можно отобразить кнопку, с помощью которой пользователь может запросить у {% data variables.product.prodname_github_app %} выполнение дополнительных задач.
 
-For example, a code linting app could use requested actions to display a button in a pull request to automatically fix detected syntax errors.
+Например, приложение для анализа кода может использовать запрошенные действия с целью отображения в запросе на вытягивание кнопки для автоматического исправления обнаруженных синтаксических ошибок.
 
-To create a button that can request additional actions from your app, use the [`actions` object](/rest/reference/checks#create-a-check-run--parameters) when you [Create a check run](/rest/reference/checks/#create-a-check-run). For example, the `actions` object below displays a button in a pull request with the label "Fix this." The button appears after the check run completes.
+Чтобы создать кнопку для запроса дополнительных действий в приложении, используйте [объект `actions`](/rest/reference/checks#create-a-check-run--parameters) при [создании выполнения проверки](/rest/reference/checks/#create-a-check-run). Например, приведенный ниже объект `actions` отображает в запросе на вытягивание кнопку с меткой Fix this (Исправить). Кнопка появляется после завершения выполнения проверки.
 
    ```json
   "actions": [{
@@ -70,8 +74,13 @@ To create a button that can request additional actions from your app, use the [`
     }]
   ```
 
-  ![Check run requested action button](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
+  ![Кнопка для запрошенного действия выполнения проверки](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
 
-When a user clicks the button, {% data variables.product.prodname_dotcom %} sends the [`check_run.requested_action` webhook](/webhooks/event-payloads/#check_run) to your app. When your app receives a `check_run.requested_action` webhook event, it can look for the `requested_action.identifier` key in the webhook payload to determine which button was clicked and perform the requested task.
+Когда пользователь нажимает эту кнопку, {% data variables.product.prodname_dotcom %} отправляет в приложение [веб-перехватчик `check_run.requested_action`](/webhooks/event-payloads/#check_run). Когда приложение получает событие веб-перехватчика `check_run.requested_action`, оно может найти ключ `requested_action.identifier` в полезных данных веб-перехватчика, чтобы определить, какая кнопка была нажата, и выполнить запрошенную задачу.
 
-For a detailed example of how to set up requested actions with the Checks API, see "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test)."
+Подробный пример настройки запрошенных действий с помощью API проверок см. в разделе [Создание тестов непрерывной интеграции с помощью API проверок](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/#part-2-creating-the-octo-rubocop-ci-test).
+
+{% ifversion fpt or ghec %}
+## Хранение данных о проверках
+
+{% data reusables.pull_requests.retention-checks-data %} {% endif %}

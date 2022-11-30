@@ -1,48 +1,55 @@
 ---
-title: Getting started with the Git Database API
-intro: 'The Git Database API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags).'
+title: Начало работы с API базы данных Git
+intro: 'API базы данных Git предоставляет доступ на чтение и запись необработанных объектов Git в базе данных Git в {% data variables.product.product_name %}, а также на перечисление и обновление ссылок (заголовки ветвей и теги).'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Get started - Git Database API
+ms.openlocfilehash: b7044e299602de42a2c880df8da4a6f19ef9334b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145135920'
 ---
+## Общие сведения 
 
-### Обзор
+Вы можете повторно реализовывать множество функциональных возможностей Git через API — создавая необработанные объекты непосредственно в базе данных и обновляя ссылки на ветви, вы можете делать практически все, что позволяет делать Git, при этом не устанавливая Git.
 
-This basically allows you to reimplement a lot of Git functionality over our API - by creating raw objects directly into the database and updating branch references you could technically do just about anything that Git can do without having Git installed.
+Функции API базы данных Git возвращают значение `409 Conflict`, если репозиторий Git пуст или недоступен.  Недоступный репозиторий обычно означает, что {% data variables.product.product_name %} находится в процессе создания репозитория. Для пустого репозитория можно использовать конечную точку [Создание или обновление содержимого файла](/rest/reference/repos#create-or-update-file-contents), чтобы создать содержимое и инициализировать репозиторий, а затем использовать API базы данных Git. Если этот статус ответа сохраняется, вам поможет {% data variables.contact.contact_support %}.
 
-Git Database API functions will return a `409 Conflict` if the Git repository is empty or unavailable.  An unavailable repository typically means {% data variables.product.product_name %} is in the process of creating the repository. For an empty repository, you can use the "[Create or update file contents](/rest/reference/repos#create-or-update-file-contents)" endpoint to create content and initialize the repository so you can use the Git Database API. Contact {% data variables.contact.contact_support %} if this response status persists.
+![Схема базы данных Git](/assets/images/git-database-overview.png)
 
-![git database overview](/assets/images/git-database-overview.png)
+Дополнительные сведения о базе данных объектов Git см. в главе [Основы Git](http://git-scm.com/book/en/v1/Git-Internals) книги "Pro Git".
 
-For more information on the Git object database, please read the [Git Internals](http://git-scm.com/book/en/v1/Git-Internals) chapter of the Pro Git book.
+Например, если вы хотите зафиксировать изменение файла в репозитории, выполните следующие действия:
 
-As an example, if you wanted to commit a change to a file in your repository, you would:
+* Получите текущий объект фиксации.
+* Извлеките дерево, на которое он указывает.
+* Извлеките содержимое BLOB-объекта этого дерева для конкретного пути к файлу.
+* Измените содержимое и опубликуйте новый BLOB-объект с новым содержимым, получив SHA BLOB-объекта.
+* Опубликуйте новый объект дерева, заменив указатель пути к файлу на SHA BLOB-объекта, чтобы получить SHA дерева.
+* Создайте объект фиксации с текущим SHA фиксации в качестве родительского и SHA нового дерева, получив SHA фиксации.
+* Обновите ссылку на ветвь, чтобы указать на новый SHA фиксации.
 
-* Get the current commit object
-* Retrieve the tree it points to
-* Retrieve the content of the blob object that tree has for that particular file path
-* Change the content somehow and post a new blob object with that new content, getting a blob SHA back
-* Post a new tree object with that file path pointer replaced with your new blob SHA getting a tree SHA back
-* Create a new commit object with the current commit SHA as the parent and the new tree SHA, getting a commit SHA back
-* Update the reference of your branch to point to the new commit SHA
+Это может показаться сложной процедурой, но на самом деле все довольно просто, если вы понимаете принцип. Использование API дает вам много возможностей.
 
-It might seem complex, but it's actually pretty simple when you understand the model and it opens up a ton of things you could potentially do with the API.
-
-### Checking mergeability of pull requests
+## Проверка возможности слияния запросов на вытягивание
 
 {% warning %}
 
-**Warning!** Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference)  for updates to `merge` Git refs, because this content becomes outdated without warning.
+**Предупреждение.** Не используйте Git напрямую или [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) для обновлений ссылок Git `merge`, так как это содержимое устаревает без предупреждения.
 
 {% endwarning %}
 
-A consuming API needs to explicitly request a pull request to create a _test_ merge commit. A _test_ merge commit is created when you view the pull request in the UI and the "Merge" button is displayed, or when you [get](/rest/reference/pulls#get-a-pull-request), [create](/rest/reference/pulls#create-a-pull-request), or [edit](/rest/reference/pulls#update-a-pull-request) a pull request using the REST API. Without this request, the `merge` Git refs will fall out of date until the next time someone views the pull request.
+Потребляющий API должен явно запросить запрос на вытягивание для создания _тестовой_ фиксации слияния. _Тестовая_ фиксация слияния создается при просмотре запроса на вытягивание в пользовательском интерфейсе и отображении кнопки "Слияние" или при [получении](/rest/reference/pulls#get-a-pull-request), [создании](/rest/reference/pulls#create-a-pull-request) или [изменении](/rest/reference/pulls#update-a-pull-request) запроса на вытягивание с помощью REST API. Без этого запроса ссылки Git `merge` будут устаревать до того, как кто-то просмотрит запрос на вытягивание.
 
-If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the default branch:
+Если вы используете методы опроса, которые создают устаревшие ссылки Git `merge`, GitHub рекомендует выполнить следующие действия, чтобы получить последние изменения из ветви по умолчанию:
 
-1. Receive the pull request webhook.
-2. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) to start a background job for creating the merge commit candidate.
-3. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.
+1. Получите веб-перехватчик запроса на вытягивание.
+2. Вызовите [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request), чтобы запустить фоновое задание для создания кандидата на фиксацию слияния.
+3. Опросите репозиторий, используя [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request), чтобы узнать, является ли атрибут `mergeable` `true` или `false`. Вы можете использовать Git напрямую или [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) для обновления только ссылок Git `merge` после выполнения предыдущих шагов.

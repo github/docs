@@ -1,1 +1,9 @@
-1. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}Decide{% else %}If you're creating a project site, decide{% endif %} which publishing source you want to use. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're creating a user or organization site, you must store your site's source code on the `master` branch.{% endif %} For more information, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)."
+---
+ms.openlocfilehash: ec4658691c5147aecfb83c20a4c35be184314dad
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147428285"
+---
+1. 사용할 게시 원본을 결정합니다. 자세한 내용은 "[GitHub Pages 사이트에 대한 게시 원본 구성](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)"을(를) 참조하세요.

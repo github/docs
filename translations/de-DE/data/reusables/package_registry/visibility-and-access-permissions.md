@@ -1,13 +1,19 @@
-{% if currentVersion == "free-pro-team@latest" %}
-If you have admin permissions to a container image, you can set the access permissions for the container image to private or public. Public images allow anonymous access and can be pulled without authentication or signing in via the CLI.
+---
+ms.openlocfilehash: 42d6bbb15a1f147d9eea0c908b17ec30790a54c3
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145107484"
+---
+Wenn du über Administratorberechtigungen für ein Containerimage verfügst, kannst du die Zugriffsberechtigungen für das Containerimage auf „privat“ oder „öffentlich“ festlegen. Öffentliche Images erlauben anonymen Zugriff und können ohne Authentifizierung oder Anmeldung über die CLI gepullt werden.
 
-As an admin, you can also grant access permissions for a container image that are separate from the permissions you've set at the organization and repository levels.
+Als Administrator kannst du auch Zugriffsberechtigungen für ein Containerimage erteilen, die unabhängig von den Berechtigungen sind, die du auf Organisations- und Repositoryebene festgelegt hast.
 
-For container images published and owned by a user account, you can give any person an access role. For container images published and owned by an organization, you can give any person or team in the organization an access role.
+Für Containerimages, die über ein persönliches Konto veröffentlicht werden und in dessen Besitz sind, kannst du jeder Person eine Zugriffsrolle zuweisen. Für Containerimages, die von einer Organisation veröffentlicht werden und in deren Besitz sind, kannst du jeder Person oder jedem Team in der Organisation eine Zugriffsrolle zuweisen.
 
-| Berechtigung | Access description                                                                                                                               |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Lesen        | Can download package. <br> Can read package metadata.                                                                                      |
-| schreiben    | Can upload and download this package. <br> Can read and write package metadata.                                                            |
-| verwalten    | Can upload, download, delete, and manage this package. <br> Can read and write package metadata. <br> Can grant package permissions. |
-{% endif %}
+| Berechtigung | Zugriffsbeschreibung |
+|------------|--------------------|
+| Lesen       | Kann Paket herunterladen. <br> Kann Paketmetadaten lesen. |
+| Schreiben      | Kann dieses Paket hochladen und herunterladen. <br> Kann Paketmetadaten lesen und schreiben. |
+| Administrator      | Kann dieses Paket hochladen, herunterladen, löschen und verwalten. <br> Kann Paketmetadaten lesen und schreiben. <br> Kann Paketberechtigungen erteilen.

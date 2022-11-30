@@ -1,116 +1,133 @@
 ---
-title: Änderungen an Deinem Projekt sowohl per Commit übertragen als auch überprüfen
-intro: '{% data variables.product.prodname_desktop %} verfolgt alle Änderungen an allen Dateien, während Sie sie bearbeiten. Du kannst festlegen, wie die Änderungen gruppiert werden sollen, um aussagekräftige Commits zu erstellen.'
+title: Committen und Überprüfen von Änderungen an deinem Projekt
+intro: '{% data variables.product.prodname_desktop %} verfolgt alle Änderungen an allen Dateien nach, während du sie bearbeitest. Du kannst festlegen, wie die Änderungen gruppiert werden sollen, um aussagekräftige Commits zu erstellen.'
 redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Commit & review changes
+ms.openlocfilehash: ecc12722a7d0eebeedc13878972d138ca894db5a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145105372'
 ---
-### Informationen zu Commits
+## Informationen zu Commits
 
-{% data reusables.commits.about-commits %} You can also add a co-author on any commits you collaborate on.
+{% data reusables.commits.about-commits %} Du kannst außerdem Mitautor*innen zu allen Commits hinzufügen, an denen du mitarbeitest.
 
-{% data reusables.desktop.update-email-address %} For more information, see ["Configuring Git for GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
+{% data reusables.desktop.update-email-address %} Weitere Informationen findest du unter [Konfigurieren von Git für GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop).
 
-### 1. Branch auswählen und Änderungen vornehmen
+## Branch auswählen und Änderungen vornehmen
 
-1. [Erstelle einen neuen Branch](/desktop/guides/contributing-to-projects/managing-branches), oder wähle einen vorhandenen Branch aus. Klicke dazu auf der Symbolleiste auf {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** (Aktueller Branch), und wähle den Branch aus der Liste aus.
+1. [Erstelle einen neuen Branch](/desktop/guides/contributing-to-projects/managing-branches), oder wähle einen vorhandenen Branch aus, indem du auf der Symbolleiste auf {% octicon "git-branch" aria-label="The branch icon" %} **Aktueller Branch** klickst und den Branch aus der Liste auswählst.
 
-  ![Dropdownmenü, um Deinen aktuellen Branch zu wechseln](/assets/images/help/desktop/select-branch-from-dropdown.png)
-{% data reusables.desktop.make-changes %}
+  ![Dropdownmenü zum Wechseln des aktuellen Branches](/assets/images/help/desktop/select-branch-from-dropdown.png) {% data reusables.desktop.make-changes %}
 
-### 2. Die in einen Commit einzubeziehenden Änderungen auswählen
+## Auswählen der Anzeige von Unterschieden
 
-Wenn Sie in Ihrem Texteditor Änderungen an Dateien vornehmen und Sie diese lokal speichern, werden die Änderungen auch in {% data variables.product.prodname_desktop %} angezeigt.
+Du kannst die Art der Anzeige von Unterschieden {% data variables.product.prodname_desktop %} an deine Anforderungen bei der Überprüfung anpassen.
+
+Um die Anzeige der Unterschiede zu ändern, klicke in der rechten oberen Ecke der Diff-Ansicht auf {% octicon "gear" aria-label="The Gear icon" %}.
+- Um die gesamte Darstellung der Unterschiede zu ändern, wähle unter „Diff-Anzeige“ die Optionen **Einheitlich** oder **Geteilt** aus. Die einheitliche Ansicht zeigt Änderungen linear an, während die geteilte Ansicht alte Inhalte auf der linken Seite und neue Inhalte auf der rechten Seite anzeigt.
+- Um Leerraumänderungen auszublenden, damit du dich auf wichtigere Änderungen konzentrieren kannst, wähle **Leerraumänderungen ausblenden** aus.
+
+![Diff-Optionsmenü](/assets/images/help/desktop/diff-selection.png)
+
+Wenn du mehr von der Datei sehen möchtest, als {% data variables.product.prodname_desktop %} standardmäßig anzeigt, kannst du die Diff-Ansicht erweitern.
+- Um die nächsten Zeilen über oder unter den hervorgehobenen Änderungen zu sehen, klicke auf den Pfeil über oder unter den Zeilennummern.
+- Um die gesamte Datei zu sehen, klicke mit der rechten Maustaste in die Diff-Ansicht, und klicke auf **Gesamte Datei erweitern**.
+
+![Erweitern der Diff-Ansicht](/assets/images/help/desktop/expand-diff-view.png)
+
+## Die in einen Commit einzubeziehenden Änderungen auswählen
+
+Wenn du in deinem Texteditor Änderungen an Dateien vornimmst und diese lokal speicherst, werden die Änderungen auch in {% data variables.product.prodname_desktop %} angezeigt.
 
 * Das rote {% octicon "diff-removed" aria-label="The diff removed icon color-red" %}-Symbol weist auf entfernte Dateien hin.
-* Das gelbe {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %}-Symbol weist auf geänderte Dateien hin.
+* Das gelbe {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %}-Symbol verweist auf geänderte Dateien.
 * Das grüne {% octicon "diff-added" aria-label="The diff added icon color-green" %}-Symbol weist auf hinzugefügte Dateien hin.
-* Klicke auf **„Stashed Changes“ (Versteckte Änderungen)**, um auf versteckte Änderungen zuzugreifen.
+* Wenn du auf gestashte Änderungen zugreifen möchtest, klicke auf **Gestashte Änderungen**.
 
-  ![Option für gestashte Änderungen](/assets/images/help/desktop/stashed-changes.png)
+  ![Option für versteckte Änderungen](/assets/images/help/desktop/stashed-changes.png)
 * {% data reusables.desktop.commit-all-desc %}
 
-  ![Kontrollkästchen zum Committen von allen geänderten Dateien aktivieren](/assets/images/help/desktop/commit-all.png)
+  ![Kontrollkästchen, um allen geänderten Dateien per Commit zu übertragen](/assets/images/help/desktop/commit-all.png)
 * {% data reusables.desktop.commit-some-desc %}
 
-  ![Kontrollkästchen neben den zu committenden Dateien aktivieren](/assets/images/help/desktop/commit-some.png)
+  ![Kontrollkästchen neben den Dateien, die zur Übertragung per Commit ausgewählt werden](/assets/images/help/desktop/commit-some.png)
 
-#### Partiellen Commit erstellen
+### Partiellen Commit erstellen
 
-If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. Der Rest Deiner Änderungen bleibt erhalten, sodass Du zusätzliche Änderungen und Commits vornehmen kannst. Dadurch kannst Du separate, aussagekräftige Commits erstellen, beispielsweise kannst Du Änderungen der Zeilenumbrüche in einem Commit vom Code oder von Fließtextänderungen getrennt halten.
+Wenn eine Datei mehrere Änderungen enthält, du aber nur einen Teil dieser Änderungen in einen Commit einbeziehen möchtest, kannst du einen partiellen Commit erstellen. Der Rest deiner Änderungen bleibt erhalten, sodass du zusätzliche Änderungen und Commits vornehmen kannst. Dadurch kannst du separate, aussagekräftige Commits erstellen, beispielsweise kannst du Änderungen der Zeilenumbrüche in einem Commit vom Code oder von Fließtextänderungen getrennt halten.
 
-{% note %}
-
-**Note:** Split diff displays are currently in beta and subject to change.
-
-{% endnote %}
-
-1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**.
-
-  ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
-2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
+Um geänderte Zeilen aus deinem Commit auszuschließen, klicke auf eine oder mehrere geänderte Zeilen, um sie nicht länger blau zu markieren. Die Zeilen, die weiterhin blau markiert sind, werden in den Commit aufgenommen.
 
   ![Zeilen in einer Datei aus der Auswahl entfernen](/assets/images/help/desktop/partial-commit.png)
 
-### 3. Änderungen verwerfen
-If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
+## Änderungen verwerfen
+Wenn ausgecheckte Änderungen vorhanden sind, die du nicht beibehalten möchtest, kannst du die Änderungen verwerfen. Dadurch werden die Änderungen aus den Dateien auf deinem Computer entfernt. Du kannst alle ausgecheckten Änderungen in einer oder mehreren Dateien verwerfen, oder du kannst bestimmte Zeilen verwerfen, die du hinzugefügt hast.
 
-Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
+Verworfene Änderungen werden in einer datierten Datei im Papierkorb gespeichert. Du kannst verworfene Änderungen wiederherstellen, bis der Papierkorb geleert wird.
 
-#### Discarding changes in one or more files
+### Verwerfen von Änderungen in einer oder mehreren Dateien
 
-{% data reusables.desktop.select-discard-files %}
-{% data reusables.desktop.click-discard-files %}
+{% data reusables.desktop.select-discard-files %} {% data reusables.desktop.click-discard-files %}
 
-  ![Option „Discard Changes“ (Änderungen verwerfen) im Kontextmenü](/assets/images/help/desktop/discard-changes-mac.png)
-{% data reusables.desktop.confirm-discard-files %}
+  ![Option „Änderungen verwerfen“ im Kontextmenü](/assets/images/help/desktop/discard-changes-mac.png) {% data reusables.desktop.confirm-discard-files %}
 
-  ![Schaltfläche „Discard Changes“ (Änderungen verwerfen) im Bestätigungsdialogfeld](/assets/images/help/desktop/discard-changes-confirm-mac.png)
+  ![Schaltfläche „Discard Changes“ (Änderungen verwerfen) im Bestätigungsdialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-#### Discarding changes in one or more lines
-You can discard one or more changed lines that are uncommitted.
+### Verwerfen von Änderungen in einer oder mehreren Zeilen
+Du kannst eine oder mehrere geänderte Zeilen verwerfen, für die noch kein Commit durchgeführt wurde.
 
 {% note %}
 
-**Note:** Discarding single lines is disabled in a group of changes that adds and removes lines.
+**Hinweis:** Das Verwerfen einzelner Zeilen ist bei einer Gruppe von Änderungen, die Zeilen hinzufügen und entfernen, deaktiviert.
 
 {% endnote %}
 
-To discard one added line, in the list of changed lines, right click on the line you want to discard and select **Discard added line**.
+Um eine hinzugefügte Zeile zu verwerfen, klickst du in der Liste der geänderten Zeilen mit der rechten Maustaste auf die Zeile, die du verwerfen möchtest, und wählst **Zeile verwerfen** aus.
 
-  ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
+  ![Verwerfen einer einzelnen Zeile im Bestätigungsdialogfeld](/assets/images/help/desktop/discard-single-line.png)
 
-To discard a group of changed lines, right click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
+Um eine Gruppe geänderter Zeilen zu verwerfen, klickst du mit der rechten Maustaste auf den vertikalen Balken rechts neben den Zeilennummern der Zeilen, die du verwerfen möchtest, und wählst dann **Hinzufügte Zeilen verwerfen** aus.
 
-  ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
+  ![Verwerfen einer Gruppe hinzugefügter Zeilen im Bestätigungsdialogfeld](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### 4. Eine Commit-Mitteilung schreiben und Deine Änderungen per Push übertragen
+## Eine Commit-Mitteilung schreiben und deine Änderungen per Push übertragen
 
-Sobald Sie mit den Änderungen zufrieden sind, die Sie in Ihren Commit aufnehmen möchten, schreiben Sie Ihre Commit-Mitteilung, und übertragen Sie Ihre Änderungen per Push-Vorgang. Wenn Sie an einem Commit mitgewirkt haben, können Sie einen Commit auch mehr als einem Autor zuweisen.
+Sobald du mit den Änderungen zufrieden bist, die du in deinen Commit aufnehmen möchtest, schreibest du deine Commit-Mitteilung, und überträgst deine Änderungen per Push. Wenn du an einem Commit mitgewirkt hast, kannst du einen Commit auch mehr als einem Autor zuweisen.
 
 {% note %}
 
-**Hinweis**: {% data reusables.desktop.tags-push-with-commits %} Weitere Informationen findest Du unter „[Tags verwalten](/desktop/contributing-to-projects/managing-tags)“.
+**Hinweis**: {% data reusables.desktop.tags-push-with-commits %} Weitere Informationen findest du unter [Verwalten von Tags](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags).
 
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
 
   ![Feld für Commit-Mitteilung](/assets/images/help/desktop/commit-message.png)
-2. Um einen Commit einem anderen Autor zuzuweisen, können Sie optional auf das Symbol zum Hinzufügen von Co-Autoren klicken und den bzw. die Benutzername(n) eingeben, den bzw. die Sie hinzufügen möchten.
+1. Um einen Commit einem anderen Autor zuzuweisen, kannst du optional auf das Symbol zum Hinzufügen von Co-Autoren klicken und den bzw. die Benutzername(n) eingeben, den bzw. die du hinzufügen möchtest.
 
-  ![Einen Co-Autor zur Commit-Mitteilung hinzufügen](/assets/images/help/desktop/add-co-author-commit.png)
-{% data reusables.desktop.commit-button %}
+  ![Hinzufügen eines Co-Autors zur Commitmeldung](/assets/images/help/desktop/add-co-author-commit.png) {% data reusables.desktop.commit-button %}
 
-  ![Schaltfläche zur Übertragung per Commit](/assets/images/help/desktop/commit-button.png)
-4. Wenn der Branch, zu dem Du per Commit übertragen möchtest, geschützt ist, wirst Du von Desktop benachrichtigt.
-    - Um Deine Änderungen zu verschieben, klickst Du auf **„switch branches“ (Branches umschalten)**.
-    - Um Deine Änderungen in den geschützten Branch zu übertragen, klickst Du auf **„Commit to _BRANCH_“ (Per Commit an _BRANCH_ übertragen)**.
+  ![Schaltfläche „Commit“](/assets/images/help/desktop/commit-button.png)
+4. Wenn der Branch, zu dem du per Commit übertragen möchtest, geschützt ist, wirst du von Desktop benachrichtigt.
+    - Wenn du deine Änderungen verschieben möchtest, klicke auf **Branches wechseln**.
+    - Um deine Änderungen an den geschützten Branch zu committen, klicke auf **Commit an _BRANCH_**.
 
-  Weitere Informationen über geschützte Branches findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches)“.
+  Weitere Informationen zu geschützten Branches findest du unter [Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).
 
-  ![Warnung wegen geschütztem Branch](/assets/images/help/desktop/protected-branch-warning.png)
-{% data reusables.desktop.push-origin %}
+  ![Warnung zu geschütztem Branch](/assets/images/help/desktop/protected-branch-warning.png) {% data reusables.desktop.push-origin %}
+
+6. Wenn du über einen Pull Request verfügst, der auf dem Branch basiert, an dem du gerade arbeitest, zeigt {% data variables.product.prodname_desktop %} den Status der Überprüfungen an, die für den Pull Request durchgeführt wurden. Weitere Informationen zu Überprüfungen findest du unter [Anzeigen und erneutes Ausführen von Überprüfungen in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop).
+
+ ![Überprüfungsanzeige neben dem Branchnamen](/assets/images/help/desktop/checks-dialog.png)
+
+ Wenn für den aktuellen Zweig noch kein Pull Request erstellt wurde, gibt {% data variables.product.prodname_desktop %} dir die Möglichkeit, einen Pull Request zu erstellen. Weitere Informationen findest du unter [Erstellen eines Issues oder Pull Requests](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request).
+
+ ![Erstellen eines Pull Requests](/assets/images/help/desktop/mac-create-pull-request.png)

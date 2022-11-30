@@ -1,43 +1,51 @@
 ---
-title: Limiting interactions in your organization
-intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your organization.
+title: Ограничение взаимодействий в организации
+intro: 'Вы можете временно применить период ограниченной активности для определенных пользователей во всех общедоступных репозиториях, принадлежащих вашей организации.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
-  free-pro-team: '*'
-permissions: Organization owners can limit interactions in an organization.
+  fpt: '*'
+  ghec: '*'
+permissions: Organization owners and moderators can limit interactions in an organization.
 topics:
   - Community
+shortTitle: Limit interactions in org
+ms.openlocfilehash: 03bfad7a0da3386b6205517deb66e6b923de8386
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066685'
 ---
+## Сведения о временных ограничениях взаимодействия
 
-### About temporary interaction limits
+Ограничение взаимодействий в организации обеспечивает временные ограничения взаимодействия для всех общедоступных репозиториев, принадлежащих организации. {% data reusables.community.interaction-limits-restrictions %}
 
-Limiting interactions in your organization enables temporary interaction limits for all public repositories owned by the organization. {% data reusables.community.interaction-limits-restrictions %}
-
-{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your organization's public repositories.
+{% data reusables.community.interaction-limits-duration %} По истечении срока действия ограничения пользователи могут возобновить нормальную работу в общедоступных репозиториях организации.
 
 {% data reusables.community.types-of-interaction-limits %}
 
-Members of the organization are not affected by any of the limit types.
+Члены организации не затрагиваются ни одним из типов ограничений.
 
-When you enable organization-wide activity limitations, you can't enable or disable interaction limits on individual repositories. For more information on limiting activity for an individual repository, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
+При включении ограничений действий на уровне организации не удастся включить или отключить ограничения взаимодействия для отдельных репозиториев. Дополнительные сведения об ограничении действий для отдельного репозитория см. в разделе "[Ограничение взаимодействий в репозитории](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
 
-Organization owners can also block users for a specific amount of time. After the block expires, the user is automatically unblocked. For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+Владельцы и модераторы организации также могут блокировать пользователей на определенный период времени. После истечения срока действия блокировки пользователь автоматически разблокируется. Дополнительные сведения см. в разделе "[Блокировка пользователя из организации](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
 
-### Limiting interactions in your organization
+## Ограничение взаимодействий в организации
 
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the organization settings sidebar, click **Moderation settings**. !["Moderation settings" in the organization settings sidebar](/assets/images/help/organizations/org-settings-moderation-settings.png)
-1. Under "Moderation settings", click **Interaction limits**. !["Interaction limits" in the organization settings sidebar](/assets/images/help/organizations/org-settings-interaction-limits.png)
-{% data reusables.community.set-interaction-limit %}
-  ![Temporary interaction limit options](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. _Для владельцев организации:_ в разделе "Доступ" на боковой панели выберите **{% octicon "report" aria-label="The report icon" %} Модерация**, а затем нажмите кнопку **Ограничения взаимодействия**.
 
-### Дополнительная литература
-- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)"
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+   _Для модераторов организации:_ на боковой панели щелкните **Ограничения взаимодействия**.
+
+{% data reusables.community.set-interaction-limit %} ![Параметры временного ограничения взаимодействия](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
+
+## Дополнительные материалы
+- [Сообщение о нарушении или спаме](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
+- [Управление доступом пользователя к репозиторию организации](/articles/managing-an-individual-s-access-to-an-organization-repository)
+- [Уровни разрешений для репозитория личной учетной записи](/articles/permission-levels-for-a-user-account-repository)
+- [Роли репозитория для организации](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)
+- [Управление модераторами в организации](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)

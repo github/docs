@@ -1,8 +1,5 @@
----
-- 
-  title: Access to package version deletion
-  description: >-
-    This preview adds support for the DeletePackageVersion mutation which enables deletion of private package versions.
+- title: Доступ к удалению версии пакета
+  description: 'В этой предварительной версии добавлена поддержка изменения DeletePackageVersion, которое позволяет удалять версии частных пакетов.'
   toggled_by: ':package-deletes-preview'
   announcement: null
   updates: null
@@ -10,10 +7,8 @@
     - Mutation.deletePackageVersion
   owning_teams:
     - '@github/pe-package-registry'
-- 
-  title: Deployments
-  description: >-
-    This preview adds support for deployments mutations and new deployments features.
+- title: Развернутые приложения
+  description: В этой предварительной версии добавлена поддержка изменений развертывания и новых функций развертывания.
   toggled_by: ':flash-preview'
   announcement: null
   updates: null
@@ -26,12 +21,9 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
-- 
-  title: >-
-    MergeInfoPreview - More detailed information about a pull request's merge state.
-  description: >-
-    This preview adds support for accessing fields that provide more detailed information about a pull request's merge state.
+    - '@github/c2c-actions-service'
+- title: "MergeInfoPreview\_— более подробные сведения о состоянии слияния для запроса на вытягивание."
+  description: 'В этой предварительной версии добавлена поддержка доступа к полям, предоставляющим более подробные сведения о состоянии слияния для запроса на вытягивание.'
   toggled_by: ':merge-info-preview'
   announcement: null
   updates: null
@@ -40,9 +32,8 @@
     - PullRequest.mergeStateStatus
   owning_teams:
     - '@github/pe-pull-requests'
-- 
-  title: UpdateRefsPreview - Update multiple refs in a single operation.
-  description: This preview adds support for updating multiple refs in a single operation.
+- title: "UpdateRefsPreview\_— обновление нескольких ссылок в одной операции."
+  description: В этой предварительной версии добавлена поддержка обновления нескольких ссылок в одной операции.
   toggled_by: ':update-refs-preview'
   announcement: null
   updates: null
@@ -54,9 +45,8 @@
     - UpdateRefsPayload
   owning_teams:
     - '@github/reponauts'
-- 
-  title: Access to a Repositories Dependency Graph
-  description: This preview adds support for reading a dependency graph for a repository.
+- title: Доступ к графу зависимостей репозиториев
+  description: В этой предварительной версии добавлена поддержка чтения графа зависимостей для репозитория.
   toggled_by: ':hawkgirl-preview'
   announcement: null
   updates: null
@@ -71,10 +61,8 @@
     - DependencyGraphPackageRelease.dependencies
   owning_teams:
     - '@github/dsp-dependency-graph'
-- 
-  title: Project Event Details
-  description: >-
-    This preview adds project, project card, and project column details to project-related issue events.
+- title: Сведения о событиях проекта
+  description: 'В этой предварительной версии добавлены сведения о проекте, карточке проекта и столбце проекта в число событий, связанных с проблемами проекта.'
   toggled_by: ':starfox-preview'
   announcement: null
   updates: null
@@ -93,20 +81,8 @@
     - RemovedFromProjectEvent.projectColumnName
   owning_teams:
     - '@github/github-projects'
-- 
-  title: Create content attachments
-  description: This preview adds support for creating content attachments.
-  toggled_by: ':corsair-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.createContentAttachment
-  owning_teams:
-    - '@github/feature-lifecycle'
-- 
-  title: Labels Preview
-  description: >-
-    This preview adds support for adding, updating, creating and deleting labels.
+- title: Метки (предварительная версия)
+  description: 'В этой предварительной версии добавлена поддержка добавления, обновления, создания и удаления меток.'
   toggled_by: ':bane-preview'
   announcement: null
   updates: null
@@ -122,9 +98,8 @@
     - UpdateLabelInput
   owning_teams:
     - '@github/pe-pull-requests'
-- 
-  title: Import Project
-  description: This preview adds support for importing projects.
+- title: Импорт проекта
+  description: В этой предварительной версии добавлена поддержка импорта проектов.
   toggled_by: ':slothette-preview'
   announcement: null
   updates: null
@@ -132,10 +107,8 @@
     - Mutation.importProject
   owning_teams:
     - '@github/pe-issues-projects'
-- 
-  title: Team Review Assignments Preview
-  description: >-
-    This preview adds support for updating the settings for team review assignment.
+- title: Назначения проверки команды (предварительная версия)
+  description: В этой предварительной версии добавлена поддержка обновления параметров для назначений проверки команды.
   toggled_by: ':stone-crop-preview'
   announcement: null
   updates: null

@@ -1,32 +1,42 @@
 ---
-title: Configuring the self-hosted runner application as a service
-intro: You can configure the self-hosted runner application as a service to automatically start the runner application when the machine starts.
+title: Настройка приложения локального средства выполнения как службы
+shortTitle: Run the runner app as a service
+intro: 'Вы можете настроить локальное средство выполнения в качестве службы, чтобы автоматически запускать его при запуске компьютера.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
+ms.openlocfilehash: 264a668616624e216be0d7bc60f8633c24ebc249
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148010052'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
+{% capture service_first_step %}1. Остановите приложение локального средства выполнения, если в данный момент оно запущено.{% endcapture %} {% capture service_non_windows_intro_shell %}На компьютере средства выполнения откройте оболочку в каталоге, где установлено приложение локального средства выполнения. Используйте приведенные ниже команды, чтобы установить службу локального средства выполнения и управлять ею. {% endcapture %}
 
-{% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
-{% capture service_non_windows_intro_shell %}On the runner machine, open a shell in the directory where you installed the self-hosted runner application. Use the commands below to install and manage the self-hosted runner service.{% endcapture %}
-{% capture service_nonwindows_intro %}You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
+{% capture service_nonwindows_intro %}
+
+{% note %}
+
+**Примечание.** Добавьте средство выполнения в {% data variables.product.product_name %}, прежде чем настроить приложение локального средства выполнения в качестве службы. Дополнительные сведения см. в разделе [Добавление локальных средств выполнения](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners).
+
+{% endnote %} {% endcapture %}
+
 {% capture service_win_name %}actions.runner.*{% endcapture %}
-
 
 {% linux %}
 
 {{ service_nonwindows_intro }}
 
-For Linux systems that use `systemd`, you can use the `svc.sh` script distributed with the self-hosted runner application to install and manage using the application as a service.
+Для систем Linux, использующих `systemd`, можно воспользоваться скриптом `svc.sh`, который создан после успешного добавления средства выполнения, для установки приложения в качестве службы и управления им.
 
 {{ service_non_windows_intro_shell }}
 
@@ -36,13 +46,13 @@ For Linux systems that use `systemd`, you can use the `svc.sh` script distribute
 
 {% note %}
 
-**Note:** Configuring the self-hosted runner application as a service on Windows is part of the application configuration process. If you have already configured the self-hosted runner application but did not choose to configure it as a service, you must remove the runner from {% data variables.product.prodname_dotcom %} and re-configure the application. When you re-configure the application, choose the option to configure the application as a service.
+**Примечание.** Настройка приложения локального средства выполнения в качестве службы в Windows является частью процесса настройки приложения. Если вы уже настроили приложение локального средства выполнения, но не в качестве службы, необходимо удалить средство выполнения из {% data variables.product.prodname_dotcom %} и повторно настроить приложение. При повторной настройке приложения выберите параметр настройки приложения как службы.
 
-For more information, see "[Removing self-hosted runners](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)" and "[Adding self-hosted runners](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
+Дополнительные сведения см. в разделах [Удаление локальных средств выполнения](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners) и [Добавление локальных средств выполнения](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners).
 
 {% endnote %}
 
-You can manage the runner service in the Windows **Services** application, or you can use PowerShell to run the commands below.
+Вы можете управлять службой средства выполнения в приложении **Службы** Windows или использовать PowerShell для выполнения приведенных ниже команд.
 
 {% endwindows %}
 
@@ -56,106 +66,105 @@ You can manage the runner service in the Windows **Services** application, or yo
 
 {% linux %}
 
-### Installing the service
+## Установка службы
 
 {{ service_first_step }}
-1. Install the service with the following command:
+1. Установите службу с помощью следующей команды:
 
    ```shell
    sudo ./svc.sh install
    ```
 
+1. Эта команда принимает необязательный аргумент `user` для установки службы в качестве другого пользователя.
+
+  ```shell
+  ./svc.sh install USERNAME
+  ```
+
 {% endlinux %}
+
 {% mac %}
 
-### Installing the service
+## Установка службы
 
 {{ service_first_step }}
-1. Install the service with the following command:
+1. Установите службу с помощью следующей команды:
 
    ```shell
    ./svc.sh install
    ```
 {% endmac %}
 
-### Starting the service
+## Запуск службы
 
-Start the service with the following command:
+Запустите службу с помощью следующей команды:
 
 {% linux %}
 ```shell
 sudo ./svc.sh start
 ```
-{% endlinux %}
-{% windows %}
+{% endlinux %} {% windows %}
 ```shell
 Start-Service "{{ service_win_name }}"
 ```
-{% endwindows %}
-{% mac %}
+{% endwindows %} {% mac %}
 ```shell
 ./svc.sh start
 ```
 {% endmac %}
 
-### Checking the status of the service
+## Проверка состояния службы
 
-Check the status of the service with the following command:
+Проверьте состояние службы с помощью следующей команды:
 
 {% linux %}
 ```shell
 sudo ./svc.sh status
 ```
-{% endlinux %}
-{% windows %}
+{% endlinux %} {% windows %}
 ```shell
 Get-Service "{{ service_win_name }}"
 ```
-{% endwindows %}
-{% mac %}
+{% endwindows %} {% mac %}
 ```shell
 ./svc.sh status
 ```
 {% endmac %}
 
- For more information on viewing the status of your self-hosted runner, see  "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+ Дополнительные сведения о просмотре состояния локального средства выполнения см. в разделе [Мониторинг и устранение неполадок локальных средств выполнения](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners).
 
-### Stopping the service
+## Остановка службы
 
-Stop the service with the following command:
+Остановите службу с помощью следующей команды:
 
 {% linux %}
 ```shell
 sudo ./svc.sh stop
 ```
-{% endlinux %}
-{% windows %}
+{% endlinux %} {% windows %}
 ```shell
 Stop-Service "{{ service_win_name }}"
 ```
-{% endwindows %}
-{% mac %}
+{% endwindows %} {% mac %}
 ```shell
 ./svc.sh stop
 ```
 {% endmac %}
 
-### Uninstalling the service
+## Удаление службы
 
-1. Stop the service if it is currently running.
-1. Uninstall the service with the following command:
+1. Остановите службу, если она работает в данный момент.
+1. Удалите службу с помощью следующей команды:
 
     {% linux %}
     ```shell
     sudo ./svc.sh uninstall
     ```
-    {% endlinux %}
-    {% windows %}
+    {% endlinux %}  {% windows %}
     ```shell
     Remove-Service "{{ service_win_name }}"
     ```
-    {% endwindows %}
-    {% mac %}
+    {% endwindows %}  {% mac %}
     ```shell
     ./svc.sh uninstall
     ```
@@ -164,16 +173,16 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-### Customizing the self-hosted runner service
+## Настройка службы локального средства выполнения
 
-If you don't want to use the above default `systemd` service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `serviced` template at `actions-runner/bin/actions.runner.service.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
+Если вы не хотите использовать указанную выше конфигурацию службы `systemd` по умолчанию, можно создать настраиваемую службу или использовать любой предпочитаемый механизм службы. Рассмотрите возможность использования шаблона `serviced` в `actions-runner/bin/actions.runner.service.template` качестве справки. Если вы используете настроенную службу, служба локального средства выполнения всегда должна вызываться с помощью точки входа `runsvc.sh`.
 
 {% endlinux %}
 
 {% mac %}
 
-### Customizing the self-hosted runner service
+## Настройка службы локального средства выполнения
 
-If you don't want to use the above default launchd service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `plist` template at `actions-runner/bin/actions.runner.plist.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
+Если вы не хотите использовать указанную выше конфигурацию службы launchd по умолчанию, можно создать настраиваемую службу или использовать любой предпочитаемый механизм службы. Рассмотрите возможность использования шаблона `plist` в `actions-runner/bin/actions.runner.plist.template` качестве справки. Если вы используете настроенную службу, служба локального средства выполнения всегда должна вызываться с помощью точки входа `runsvc.sh`.
 
 {% endmac %}

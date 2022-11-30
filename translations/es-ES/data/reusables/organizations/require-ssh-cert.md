@@ -1,1 +1,8 @@
-1. Opcionalmente, para requerir que los miembros utilicen certificados SSH, selecciona **Requerir Certificados SSH** y después da clic en **Guardar**. ![Casilla de Requerir Certificado SSH y botón de guardar](/assets/images/help/organizations/require-ssh-cert.png)
+1. Optionally, to require members to use SSH certificates, select **Require SSH Certificates**, then click **Save**.
+    ![Require SSH Certificate checkbox and save button](/assets/images/help/organizations/require-ssh-cert.png)
+
+   {% note %}
+
+   **Note:** When you require SSH certificates, the requirement does not apply to authorized third-party integrations or to {% data variables.product.prodname_dotcom %} features such as {% data variables.product.prodname_actions %}{% ifversion fpt or ghec %} and {% data variables.product.prodname_codespaces %}{% endif %}, which are trusted environments within the {% data variables.product.prodname_dotcom %} ecosystem.
+
+   {% endnote %}

@@ -1,1 +1,0 @@
-La restricción de notificaciones por correo electrónico para el correo del dominio se encuentra disponible con {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta la sección "[Productos de GitHub](/articles/githubs-products)".

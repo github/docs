@@ -1,4 +1,12 @@
-This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see "[Running additional queries](#running-additional-queries)."
+---
+ms.openlocfilehash: 77c9b4b73d2d839bc9c0bdaa73ffc148f0eda6ca
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109231"
+---
+Этот файл конфигурации добавляет набор запросов `security-and-quality` в список запросов, выполняемых {% data variables.product.prodname_codeql %} при сканировании кода. Дополнительные сведения о наборах запросов, доступных для использования, см. в разделе [Выполнение дополнительных запросов](#running-additional-queries).
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -7,7 +15,7 @@ queries:
   - uses: security-and-quality
 ```
 
-The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the _src_ directory (relative to the root), except for the _src/node_modules_ directory, and except for files whose name ends in _.test.js_. Files in _src/node_modules_ and files with names ending _.test.js_ are therefore excluded from analysis.
+Следующий файл конфигурации отключает запросы по умолчанию и задает набор пользовательских запросов для выполнения. Он также настраивает {% data variables.product.prodname_codeql %} на сканирование файлов в каталоге _src_ (относительно корневого каталога), кроме каталога _src/node_modules_ и кроме файлов, имя которых заканчивается на _.test.js_. Поэтому файлы в папке _src/node_modules_ и файлы с именами, заканчивающимися на _.test.js_, исключаются из анализа.
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -30,3 +38,22 @@ paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
+
+{% ifversion code-scanning-exclude-queries-from-analysis %}
+
+Следующий файл конфигурации выполняет только запросы, которые создают оповещения об ошибке. Сначала конфигурация выбирает все запросы по умолчанию, все запросы в `./my-queries` и набор по умолчанию в `codeql/java-queries`, а затем исключает все запросы, которые создают предупреждения или рекомендации. 
+
+``` yaml
+queries:
+  - name: Use an in-repository QL pack (run queries in the my-queries directory)
+    uses: ./my-queries
+packs:
+  - codeql/java-queries
+query-filters:
+- exclude:
+    problem.severity:
+      - warning
+      - recommendation
+```
+
+{% endif %}

@@ -1,1 +1,1 @@
-Para ver todas las suscripciones para tu cuenta de {% data variables.product.product_name %}, consulta [Ver tus suscripciones y la fecha de facturación](/articles/viewing-your-subscriptions-and-billing-date)".
+To view all the subscriptions for your account on {% data variables.location.product_location %}, see "[Viewing your subscriptions and billing date](/articles/viewing-your-subscriptions-and-billing-date)."

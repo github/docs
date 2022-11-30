@@ -1,12 +1,22 @@
+---
+ms.openlocfilehash: dcc6cf1e8adf15c4997d4d62cd34bde99f7d37cd
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145093229"
+---
 # Trilhos de aprendizado (também conhecido como caminhos de aprendizado)
 
-Os trilhos de aprendizado são uma coleção de artigos que ajudam você a dominar um assunto específico. Os caminhos de aprendizado são definidos por produto. For example, see https://docs.github.com/en/actions/guides.
+Os trilhos de aprendizado são uma coleção de artigos que ajudam você a dominar um assunto específico. Os caminhos de aprendizado são definidos por produto. Por exemplo, veja https://docs.github.com/en/actions/guides.
 
-Learning track data for a product is defined in two places:
+## Como ele funciona
 
-1. A simple array of learning track names is defined in the product sublanding index page frontmatter.
+Os dados do caminho de aprendizagem para um produto são definidos em dois lugares:
 
-    For example, in `content/actions/guides/index.md`:
+1. Uma simples matriz de nomes de faixas de aprendizagem está definida nos guias de indexação da página inicial.
+
+    Por exemplo, em `content/actions/guides/index.md`:
     ```
     learningTracks:
       - getting_started
@@ -17,14 +27,38 @@ Learning track data for a product is defined in two places:
       - create_actions
     ```
 
-2. Additional data for each track is defined in a YAML file named for the **product** in the `data` directory.
+2. Dados adicionais para cada faixa são definidos em um arquivo YAML nomeado para o **produto** no diretório `data`.
 
-    For example, in `data/learning-tracks/actions.yml`, each of the items from the content file's `learningTracks` array is represented with additional data such as `title`, `description`, and an array of `guides` links.
+    Por exemplo, em `data/learning-tracks/actions.yml`, cada um dos itens da matriz `learningTracks` do arquivo de conteúdo é representado com alguns dados adicionais, como `title`, `description` e uma matriz de links `guides`.
 
-    One learning track in this YAML **per version** must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product sublanding page. A test will fail if this property is missing.
+    Uma faixa de aprendizado neste YAML **por versão** precisa ser designada como uma faixa de aprendizagem "em destaque" por meio de `featured_track: true`, o que a definirá para ser exibida na parte superior da página das guias do produto. Um teste falhará se esta propriedade estiver ausente.
 
-    The `featured_track` property can be a simple boolean (i.e., `featured_track: true`) or it can be a string that includes versioning statements (e.g., `featured_track: '{% if currentVersion == "free-pro-team@latest" %}true{% else %}false{% endif %}'`). If you use versioning, you'll have multiple `featured_track`s per YML file, but make sure that only one will render in each currently supported version. A test will fail if there are more or less than one featured link for each version.
+    A propriedade `featured_track` pode ser um booliano simples (ou seja, `featured_track: true`) ou pode ser uma cadeia de caracteres que inclui instruções de controle de versão (por exemplo, `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`). Se você usar o controle de versão, terá várias `featured_track`s por arquivo YML, mas garanta que apenas uma será renderizada em cada versão compatível no momento. Um teste irá falhar se houver mais ou menos do que um link em destaque para cada versão.
 
-Versioning for learning tracks is processed at page render time. The code lives in [`lib/learning-tracks.js`](lib/learning-tracks.js), which is called by `page.render()`. The processed learning tracks are then rendered by `layouts/product-sublanding.html`.
+## Controle de versão
 
-The schema for validating the learning track YAML lives in [`tests/helpers/schemas/learning-tracks-schema.js`](tests/helpers/schemas/learning-tracks-schema.js) and is exercised by [`tests/content/lint-files.js`](tests/content/lint-files.js).
+O versionamento para faixas de aprendizagem é processado na página tempo de interpretação. O código está localizado em [`lib/learning-tracks.js`](lib/learning-tracks.js), que é chamado por `page.render()`. As faixas de aprendizagem processadas são renderizadas por `components/guides`.
+
+Os condicionais do Liquid **não** precisam ser usados para controle de versão no arquivo YAML para guias. Apenas os guias do caminho de aprendizagem que se aplicam à versão atual serão processados automaticamente. Se não houver nenhuma faixa com guias que pertençam à versão atual, a seção de faixas de aprendizado não será interpretada.
+
+versionamento explícito dentro das faixas de aprendizado de um produto YML também é compatível. O formato e os valores permitidos são os mesmos da [propriedade de versões de frontmatter](/content#versions).
+
+Por exemplo:
+
+```
+learning_track_name:
+  title: 'Learning track title'
+  description: 'Learning track description'
+  featured_track: true
+  versions:
+    ghes: '>=3.0'
+  guides:
+   - /path/to/guide1
+   - /path/to/guide2
+```
+
+Se a propriedade `versions` não está incluída, supõe-se que a faixa esteja disponível em todas as versões.
+
+## Imposição de esquema
+
+O esquema usado para validar o YAML da faixa de aprendizagem está localizado em [`tests/helpers/schemas/learning-tracks-schema.js`](tests/helpers/schemas/learning-tracks-schema.js) e é exercido por [`tests/content/lint-files.js`](tests/content/lint-files.js).

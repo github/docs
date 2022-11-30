@@ -1,14 +1,22 @@
+---
+ms.openlocfilehash: 6401640a3202133edc0d35cc683a65e314474bdb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145105608"
+---
 {% warning %}
 
-**Warnung:** `git add`, `commit`, oder `push` niemals sensitive Informationen in ein entferntes Repository. Sensitive Informationen können folgendes beinhalten, sind aber nicht beschränkt auf:
+**Warnung:** Niemals `git add`, `commit` oder `push` vertrauliche Informationen zu einem Remoterepository. Sensitive Informationen können folgendes beinhalten, sind aber nicht beschränkt auf:
 
-- Passworte
-- SSH keys
+- Kennwörter
+- SSH-Schlüssel
 - [AWS-Zugriffsschlüssel](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html)
 - API-Schlüssel
-- Kreditkartennummern
+- Kreditkartennummer
 - PIN-Nummern
 
-Weitere Informationen findest Du unter „[Sensible Daten aus einem Repository entfernen](/articles/removing-sensitive-data-from-a-repository)“.
+Weitere Informationen findest du unter [Entfernen sensibler Daten aus einem Repository](/articles/removing-sensitive-data-from-a-repository).
 
 {% endwarning %}

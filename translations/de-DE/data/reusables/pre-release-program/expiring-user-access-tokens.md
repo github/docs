@@ -1,15 +1,16 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" and currentVersion ver_lt "enterprise-server@3.1" %}
+---
+ms.openlocfilehash: dd38b5506d6696876419f48fada5abbfe373d21c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145107292"
+---
+{% ifversion fpt or ghes or ghae %}
+
 {% note %}
 
-**Note:** Expiring user tokens are currently part of the user-to-server token expiration beta and subject to change. To opt-in to the user-to-server token expiration beta feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)." For more information, see "[Expiring user-to-server access tokens for GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)."
-
-{% endnote %}
-
-{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-
-{% note %}
-
-**Note:** Expiring user tokens are currently an optional feature and subject to change. To opt in or out of the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)." For more information, see "[Expiring user-to-server access tokens for GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)."
+**Hinweis:** Auslaufende Benutzertoken sind derzeit ein optionales Feature und unterliegen Änderungen. Informationen zum Aktivieren oder Deaktivieren des Ablaufs von Benutzer-zu-Server-Token findest du unter [Aktivieren optionaler Features für Apps](/developers/apps/activating-optional-features-for-apps). Weitere Informationen findest du unter [Ablauf von Benutzer-zu-Server-Zugriffstoken für GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps).
 
 {% endnote %}
 

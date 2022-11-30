@@ -1,30 +1,30 @@
 ---
-title: Visualizar resultados da avaliação automática
-intro: Você pode ver os resultados da avaliação automática dentro do repositório para sua atividade.
+title: View autograding results
+intro: You can see results from autograding within the repository for your assignment.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
 ---
-### Sobre a avaliação automática
+## About autograding
 
-Seu professor pode configurar testes que verificam automaticamente seu trabalho quando você faz push para um repositório de atividades em {% data variables.product.product_location %}.
+Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.location.product_location %}.
 
-Se você é um aluno e seu instrutor configurou a avaliação automática para sua atribuição em {% data variables.product.prodname_classroom %}, você encontrará os resultados dos testes de avaliação automática no repositório da atividade. Se todos os testes tiverem êxito para um commit, você verá um sinal verde. Se qualquer teste falhar em um commit, você verá um X vermelho. Você pode ver os registros detalhados clicando na marca verde ou X vermelho.
+If you're a student and your instructor has configured autograding for your assignment in {% data variables.product.prodname_classroom %}, you'll find autograding test results throughout your assignment repository. If all tests succeed for a commit, you'll see a green checkmark. If any tests fail for a commit, you'll see a red X. You can see detailed logs by clicking the green checkmark or red X.
 
-### Visualizar resultados de avaliação automática para um repositório de atividade
+## Viewing autograding results for an assignment repository
 
-{% data variables.product.prodname_classroom %} usa {% data variables.product.prodname_actions %} para executar testes de avaliação automática. Para obter mais informações sobre a visualização dos registros para um teste de avaliação automática, consulte "[Usar registros de execução de fluxo de trabalho](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)".
+{% data variables.product.prodname_classroom %} uses {% data variables.product.prodname_actions %} to run autograding tests. For more information about viewing the logs for an autograding test, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
 
-A aba **Ações** mostra o histórico completo de execuções de teste.
+The **Actions** tab shows the full history of test runs.
 
-![Aba "Ações" com "Todos os fluxos de trabalho" selecionados](/assets/images/help/classroom/autograding-actions-tab.png)
+!["Actions" tab with "All workflows" selected](/assets/images/help/classroom/autograding-actions-tab.png)
 
-Você pode clicar em uma execução de teste específico para revisar o resultado do registro, como erros de compilação e falhas de teste.
+You can click a specific test run to review log output, like compilation errors and test failures.
 
-![O " fluxo de trabalho de avaliação automática de {% data variables.product.prodname_classroom %}" resultados de teste em {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![The "{% data variables.product.prodname_classroom %} Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
-### Leia mais
+## Further reading
 
-- "[Sobre verificações de status](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"
+- "[About status checks](/github/collaborating-with-issues-and-pull-requests/about-status-checks)"

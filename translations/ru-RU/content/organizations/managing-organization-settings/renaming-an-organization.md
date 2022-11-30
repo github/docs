@@ -1,49 +1,55 @@
 ---
-title: Renaming an organization
-intro: 'If your project or company has changed names, you can update the name of your organization to match.'
+title: Переименование организации
+intro: 'Если название проекта или компании изменилось, можно обновить имя организации в соответствии с этими изменениями.'
 redirect_from:
-  - /articles/what-happens-when-i-change-my-organization-s-name/
+  - /articles/what-happens-when-i-change-my-organization-s-name
   - /articles/renaming-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/renaming-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+ms.openlocfilehash: 088094a03e2416b4da0e3011978ab5e9edd316b2
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145119251'
 ---
-
 {% tip %}
 
-**Tip:** Only organization owners can rename an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+**Подсказки.** Переименовывать организацию могут только владельцы. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
-### What happens when I change my organization's name?
+## Что происходит при изменении имени организации?
 
-After changing your organization's name, your old organization name becomes available for someone else to claim. When you change your organization's name, most references to your repositories under the old organization name automatically change to the new name. However, some links to your profile won't automatically redirect.
+Если вы смените имя своей организации, ее старое название сможет взять себе кто-то другой. При изменении имени организации большинство ссылок на репозитории под именем старой организации автоматически изменяются в соответствии с новым именем. При этом автоматическая переадресация работает не со всеми ссылками на ваш профиль.
 
-#### Changes that occur automatically
+### Изменения, которые происходят автоматически
 
-- {% data variables.product.prodname_dotcom %} automatically redirects references to your repositories.  Web links to your organization's existing **repositories** will continue to work. This can take a few minutes to complete after you initiate the change.
-- You can continue pushing your local repositories to the old remote tracking URL without updating it. However, we recommend you update all existing remote repository URLs after changing your organization name. Because your old organization name is available for use by anyone else after you change it, the new organization owner can create repositories that override the redirect entries to your repository. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
-- Previous Git commits will also be correctly attributed to users within your organization.
+- {% data variables.product.prodname_dotcom %} автоматически переадресует ссылки на ваши репозитории.  Веб-ссылки на существующие **репозитории** вашей организации продолжать работать. Они начнут функционировать в течение нескольких минут после того, как вы произведете изменение.
+- Вы можете и дальше отправлять данные из локальных репозиториев по старому URL-адресу удаленного отслеживания без каких-либо изменений. И все же после изменения имени организации мы рекомендуем обновлять все существующие URL-адреса удаленных репозиториев. Поскольку после изменения старое имя организации станет доступно для использования кому угодно, новый владелец организации может создать репозитории, переопределяющие записи переадресации в ваш репозиторий. Дополнительные сведения см. в разделе [Управление удаленными репозиториями](/github/getting-started-with-github/managing-remote-repositories).
+- Предыдущие фиксации Git также будут правильно соотноситься с пользователями в вашей организации.
 
-#### Changes that aren't automatic
+### Изменения, которые не являются автоматическими
 
-After changing your organization's name:
-- Links to your previous organization profile page, such as `https://{% data variables.command_line.backticks %}/previousorgname`, will return a 404 error. We recommend you update links to your organization from other sites{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profiles{% endif %}.
-- API requests that use the old organization's name will return a 404 error. We recommend you update the old organization name in your API requests.
-- There are no automatic [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) redirects for teams that use the old organization's name.{% if currentVersion == "free-pro-team@latest" %}
-- If SAML single sign-on (SSO) is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name on your IdP, members of the organization will no longer be able to authenticate with your IdP to access the organization's resources. For more information, see "[Connecting your identity provider to your organization](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
+После изменения имени организации:
+- Ссылки на предыдущую страницу профиля организации, такие как `https://{% data variables.command_line.backticks %}/previousorgname`, будут возвращать ошибку 404. Мы рекомендуем обновить ссылки на вашу организацию с других сайтов{% ifversion fpt or ghec %}, например профили LinkedIn или Twitter{% endif %}.
+- Запросы API с использованием старого имени организации будут возвращать ошибку 404. Рекомендуем обновлять имя название организации в запросах API.
+- Переадресация с помощью функции [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) не будет автоматически работать для команд, использующих старое имя организации.{% ifversion ghec %}
+- Если для организации включен единый вход SAML, необходимо обновить имя организации в приложении для {% data variables.product.prodname_ghe_cloud %} в поставщике удостоверений. Если вы не обновите имя организации в поставщике удостоверений, участники организации больше не смогут проходить проверку подлинности для доступа к ресурсам организации через вашего поставщика удостоверений. Дополнительные сведения см. в разделе [Подключение поставщика удостоверений для организации](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization).{% endif %}
 
-### Changing your organization's name
+## Изменение имени организации
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-4. Near the bottom of the settings page, under "Rename organization", click **Rename Organization**. ![Rename organization button](/assets/images/help/settings/settings-rename-organization.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+4. В нижней части страницы параметров в разделе "Переименовать организацию" нажмите **Переименовать организацию**.
+  ![Кнопка "Переименовать организацию"](/assets/images/help/settings/settings-rename-organization.png)
 
-### Дополнительная литература
+## Дополнительные материалы
 
-* "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"
+* [Почему мои фиксации связаны с неправильным пользователем?](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)

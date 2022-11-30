@@ -1,38 +1,37 @@
 ---
-title: Canceling a workflow
-intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
-product: '{% data reusables.gated-features.actions %}'
+title: 워크플로 취소
+shortTitle: Cancel a workflow
+intro: '진행 중인 워크플로 실행을 취소할 수 있습니다. 워크플로 실행을 취소하면 {% data variables.product.prodname_dotcom %}가 해당 워크플로의 일부인 모든 작업과 단계를 취소합니다.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+ms.openlocfilehash: 4da063adbb14b2090245a0a0cc0b444dac4a737f
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148009617'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
-### Canceling a workflow run
+## 워크플로 실행 취소
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel. ![Name of workflow run](/assets/images/help/repository/in-progress-run.png)
-1. In the upper-right corner of the workflow, click **Cancel workflow**.
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
- ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite-updated.png)
-{% else %}
- ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %}
+1. 워크플로 실행 목록에서 취소하려는 `queued` 실행 또는 `in progress` 실행의 이름을 클릭합니다.
+![워크플로 실행의 이름](/assets/images/help/repository/in-progress-run.png)
+1. 워크플로의 오른쪽 위 모서리에서 **워크플로 취소** 를 클릭합니다.
+![확인 도구 모음 취소 단추](/assets/images/help/repository/cancel-check-suite-updated.png)
 
-### Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
+## 워크플로 실행을 취소하기 위해 {% data variables.product.prodname_dotcom %}가 수행하는 단계
 
-When canceling workflow run, you may be running other software that uses resources that are related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.
+워크플로 실행을 취소할 때 워크플로 실행과 관련된 리소스를 사용하는 다른 소프트웨어를 실행 중일 수 있습니다. 워크플로 실행을 취소하기 위해 {% data variables.product.prodname_dotcom %}가 수행하는 단계를 이해하는 것이 워크플로 실행과 관련된 리소스를 확보하는 데 도움이 될 수 있습니다.
 
-1. To cancel the workflow run, the server re-evaluates `if` conditions for all currently running jobs. If the condition evaluates to `true`, the job will not get canceled. For example, the condition `if: always()` would evaluate to true and the job continues to run. When there is no condition, that is the equivalent of the condition `if: success()`, which only runs if the previous step finished successfully.
-2. For jobs that need to be canceled, the server sends a cancellation message to all the runner machines with jobs that need to be canceled.
-3. For jobs that continue to run, the server re-evaluates `if` conditions for the unfinished steps. If the condition evaluates to `true`, the step continues to run.
-4. For steps that need to be canceled, the runner machine sends `SIGINT/Ctrl-C` to the step's entry process (`node` for javascript action, `docker` for container action, and `bash/cmd/pwd` when using `run` in a step). If the process doesn't exit within 7500 ms, the runner will send `SIGTERM/Ctrl-Break` to the process, then wait for 2500 ms for the process to exit. If the process is still running, the runner kills the process tree.
-5. After the 5 minutes cancellation timeout period, the server will force terminate all jobs and steps that don't finish running or fail to complete the cancellation process.
+1. 워크플로 실행을 취소하기 위해 서버는 현재 실행 중인 모든 작업에 대한 `if` 조건을 다시 평가합니다. 조건이 `true`로 평가되면 작업이 취소되지 않습니다. 예를 들어 `if: always()` 조건은 true로 평가되고 작업이 계속 실행됩니다. 조건이 없으면 이전 단계가 성공적으로 완료된 경우에만 실행되는 `if: success()` 조건과 동일합니다.
+2. 취소해야 하는 작업의 경우 서버는 취소해야 하는 작업이 있는 모든 실행기 컴퓨터에 취소 메시지를 보냅니다.
+3. 계속 실행되는 작업의 경우 서버는 완료되지 않은 단계에 대해 `if` 조건을 다시 평가합니다. 조건이 `true`로 평가되면 단계가 계속 실행됩니다.
+4. 취소해야 하는 단계의 경우 실행기 컴퓨터는 단계의 입력 프로세스(javascript 작업의 경우 `node`, 컨테이너 작업의 경우 `docker`, 단계에서 `run`을 사용할 경우 `bash/cmd/pwd`)로 `SIGINT/Ctrl-C`를 보냅니다. 프로세스가 7500ms 이내에 끝나지 않으면 실행기는 `SIGTERM/Ctrl-Break`를 프로세스로 보낸 다음 프로세스가 종료될 때까지 2,500ms를 기다립니다. 프로세스가 계속 실행 중이면 실행기에서 프로세스 트리를 종료합니다.
+5. 5분 취소 시간 제한 기간이 지나면 서버는 실행을 완료하지 않거나 취소 프로세스를 완료하지 못한 모든 작업 및 단계를 강제로 종료합니다.

@@ -1,5 +1,13 @@
-| Состояние                   | Description                                                                                                                                                                                                                                                                              |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Verified**                | The commit is signed, the signature was successfully verified, and the committer is the only author who has enabled vigilant mode.                                                                                                                                                       |
-| **Partially&nbsp;verified** | The commit is signed, and the signature was successfully verified, but the commit has an author who: a) is not the committer and b) has enabled vigilant mode. In this case, the commit signature doesn't guarantee the consent of the author, so the commit is only partially verified. |
-| **Unverified**              | Any of the following is true:<br>- The commit is signed but the signature could not be verified.<br>- The commit is not signed and the committer has enabled vigilant mode.<br>- The commit is not signed and an author has enabled vigilant mode.<br>           |
+---
+ms.openlocfilehash: 383458a6038400299b6ab8759b8bbfd1ebbd3a2d
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "147886220"
+---
+| Состояние         | Описание |
+| -------------- | ----------- |
+| **Проверено**   | Фиксация подписана, подпись успешно проверена, а пользователь, выполнивший фиксацию — единственный автор, который включил строгий режим. 
+| **Частично&nbsp;проверено** | Фиксация подписана, и подпись успешно проверена, но у фиксации есть автор, который: a) не является автором фиксации, и б) включил строгий режим. В этом случае подписывание фиксации не гарантирует согласие автора, поэтому фиксация проверяется только частично.
+| **Непроверенные** | Любое из следующих утверждений верно:<br>— фиксация подписана, но подпись невозможно проверить;<br>— фиксация не подписана, и автор фиксации включил строгий режим;<br>— фиксация не подписана, и автор включил строгий режим.<br>

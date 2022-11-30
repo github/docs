@@ -1,5 +1,14 @@
-{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, {% if currentVersion == "github-ae@latest" %}or {% endif %} workaround instructions{% if enterpriseServerVersions contains currentVersion %}, or by advising you of an available release that addresses the issue{% endif %}.
+---
+ms.openlocfilehash: eaad0d11cd3a86394c0ec4e547ed63dbcac7483f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145068823"
+---
+{% data variables.contact.enterprise_support %} kann ein Ticket als gelöst betrachten, wenn es eine Erklärung, eine Empfehlung, eine Gebrauchsanweisung, {% ifversion ghae %}oder {% endif %} eine Anleitung zur Umgehung des Problems{% ifversion ghes %} enthält oder wenn es dich auf eine verfügbare Version hinweist, die das Problem behebt{% endif %}.
 
-Wenn Du ein eigenes oder nicht unterstütztes Plug-in, Modul oder einen benutzerdefinierten Code verwendest, kann der {% data variables.contact.enterprise_support %} Dich auffordern, das nicht unterstützte Plug-in, Modul oder den Code auszubauen, während er versucht, das Problem zu beheben. Wenn das Problem nach dem Ausbau des nicht unterstützten Plug-ins, Moduls oder des benutzerdefinierten Codes behoben ist, kann der {% data variables.contact.enterprise_support %} das Problem als gelöst betrachten.
+{% ifversion ghes or ghae %} Wenn du zusätzliche Software von Drittanbietern installiert oder Änderungen vorgenommen hast, kannst du {% data variables.product.product_name %} außerhalb der Empfehlungen von {% data variables.contact.enterprise_support %}{% data variables.contact.enterprise_support %} bitten, die Software und/oder Änderungen zu entfernen, während du versuchst, das Problem zu beheben. Wenn das Problem behoben ist, nachdem die nicht unterstützte Software oder Änderungen entfernt wurden, kann {% data variables.contact.enterprise_support %} das Ticket als gelöst betrachten.
+{% endif %}
 
-{% data variables.contact.enterprise_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. Wenn {% data variables.contact.enterprise_support %} ein Ticket aufgrund fehlender Antwort schließt, kannst Du verlangen, dass {% data variables.contact.enterprise_support %} das Ticket erneut öffnet.
+{% data variables.contact.enterprise_support %} schließt ein Ticket möglicherweise, wenn es nicht in den Zuständigkeitsbereich des Supports fällt oder wenn mehrere Versuche, dich zu kontaktieren, unbeantwortet geblieben sind. Wenn {% data variables.contact.enterprise_support %} ein Ticket aufgrund fehlender Antwort schließt, kannst du verlangen, dass {% data variables.contact.enterprise_support %} das Ticket erneut öffnet.

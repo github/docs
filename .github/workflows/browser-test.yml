@@ -6,40 +6,85 @@ name: Browser Tests
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
   pull_request:
+    paths:
+      - '**.js'
+      - '**.mjs'
+      - '**.ts'
+      - '**.tsx'
+      - jest.config.js
+      - package.json
+      # In case something like eslint or tsc or prettier upgrades
+      - package-lock.json
+      # Ultimately, for debugging this workflow itself
+      - .github/workflows/browser-test.yml
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+env:
+  ELASTICSEARCH_URL: http://localhost:9200/
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
-      # Each of these ifs needs to be repeated at each step to make sure the required check still runs
-      # Even if if doesn't do anything
+      - name: Install a local Elasticsearch for testing
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+        with:
+          # Make sure this matches production and `sync-search-pr.yml`
+          elasticsearch version: '7.11.1'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+
       - name: Checkout
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          lfs: true
+
+      - name: Checkout LFS objects
+        run: git lfs checkout
 
       - name: Setup Node
-        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: 16.x
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: '16.17.0'
+          cache: npm
 
       - name: Install dependencies
+        env:
+          # This makes it so the puppeteer npm package doesn't bother
+          # to download a copy of chromium because it can use
+          # `$PUPPETEER_EXECUTABLE_PATH` from the ubuntu Action container.
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
         run: npm ci --include=optional
 
-      - name: Run brower-test
+      - name: Cache nextjs build
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
+      - name: Run build script
+        run: npm run build
+
+      - name: Index fixtures into the local Elasticsearch
+        run: npm run index-test-fixtures
+
+      - name: Check that Elasticsearch is accessible
+        run: |
+          curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
+
+      - name: Run browser-test
         run: npm run browser-test

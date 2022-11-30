@@ -1,5 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
-1. 如果您有多个电子邮件地址关联到您的
-{% data variables.product.product_name %} 帐户，请单击电子邮件地址下拉菜单并选择电子邮件地址作为 Git 作者电子邮件地址。 只有经过验证的电子邮件地址才会出现在此下拉菜单中。 如果您启用了电子邮件地址隐私保护，则 `<username>@users.noreply.github.com` 为默认的提交作者电子邮件地址。  更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。
-![选择提交电子邮件地址](/assets/images/help/repository/choose-commit-email-address.png)
+{% ifversion fpt or ghec %}
+1. If you have more than one email address associated with your account on {% data variables.location.product_location %}, click the email address drop-down menu and select the email address to use as the Git author email address. Only verified email addresses appear in this drop-down menu. If you enabled email address privacy, then `<username>@users.noreply.github.com` is the default commit author email address.  For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+![Choose commit email addresses](/assets/images/help/repository/choose-commit-email-address.png)
 {% endif %}

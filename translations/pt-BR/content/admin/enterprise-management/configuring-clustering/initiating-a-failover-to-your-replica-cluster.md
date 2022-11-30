@@ -5,29 +5,36 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Initiate a failover to replica
+ms.openlocfilehash: 14889e5d861475bc2d887062fb12450194cd6505
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145095951'
 ---
-### Sobre failover para seu cluster de réplicas
+## Sobre failover para seu cluster de réplicas
 
 Na hipótese de falha no seu centro de dados primário, você pode gerar falha para os nós de réplica no centro de dados secundário se você configurar um nó de réplica passiva para cada nó no seu cluster ativo.
 
 O tempo necessário para gerar a falha depende do tempo que leva para promover manualmente o cluster de réplicas e redirecionar o tráfego.
 
-Promover um cluster de réplica não configura automaticamente a replicação para o cluster existente. Após promover um grupo de réplicas, você poderá reconfigurar a replicação no novo grupo ativo. Para obter mais informações, consulte "[Configurar alta disponibilidade para um cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)".
+Promover um cluster de réplica não configura automaticamente a replicação para o cluster existente. Após promover um grupo de réplicas, você poderá reconfigurar a replicação no novo grupo ativo. Para obter mais informações, confira "[Como configurar a alta disponibilidade para um cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)".
 
-### Pré-requisitos
+## Pré-requisitos
 
-Para gerar falha em nós de réplica passiva, você deve ter configurado alta disponibilidade para seu cluster. Para obter mais informações, consulte "[Configurar alta disponibilidade para um cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)".
+Para gerar falha em nós de réplica passiva, você deve ter configurado alta disponibilidade para seu cluster. Para obter mais informações, confira "[Como configurar a alta disponibilidade para um cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)".
 
-### Iniciar uma failover no seu cluster de réplicas
+## Iniciar uma failover no seu cluster de réplicas
 
-1. SSH em qualquer nó passivo no centro de dados secundário para o seu cluster. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)".
+1. SSH em qualquer nó passivo no centro de dados secundário para o seu cluster. Para obter mais informações, confira "[Como acessar o shell administrativo (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)".
 
 2. Inicialize a failover para o cluster secundário e configure-o para atuar como nós ativos.
 

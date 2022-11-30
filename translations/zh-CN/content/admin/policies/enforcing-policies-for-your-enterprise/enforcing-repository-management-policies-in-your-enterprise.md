@@ -1,6 +1,7 @@
 ---
-title: 在企业中实施仓库管理策略
-intro: 企业所有者可为企业帐户拥有的所有组织实施特定仓库管理策略，或允许在每个组织中设置策略。
+title: Enforcing repository management policies in your enterprise
+intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
+permissions: Enterprise owners can enforce policies for repository management in an enterprise.
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -8,150 +9,262 @@ redirect_from:
   - /enterprise/admin/user-management/restricting-repository-creation-in-your-instance
   - /enterprise/admin/user-management/preventing-users-from-deleting-organization-repositories
   - /enterprise/admin/installation/setting-git-push-limits
-  - /enterprise/admin/guides/installation/git-server-settings/
-  - /enterprise/admin/articles/setting-git-push-limits/
+  - /enterprise/admin/guides/installation/git-server-settings
+  - /enterprise/admin/articles/setting-git-push-limits
   - /enterprise/admin/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories
   - /enterprise/admin/installation/disabling-the-merge-conflict-editor-for-pull-requests-between-repositories
   - /enterprise/admin/developer-workflow/blocking-force-pushes-on-your-appliance
   - /enterprise/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization
   - /enterprise/admin/developer-workflow/blocking-force-pushes-to-a-repository
-  - /enterprise/admin/articles/blocking-force-pushes-on-your-appliance/
-  - /enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access-to-a-repository/
+  - /enterprise/admin/articles/blocking-force-pushes-on-your-appliance
+  - /enterprise/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access-to-a-repository
   - /enterprise/admin/user-management/preventing-users-from-changing-anonymous-git-read-access
-  - /enterprise/admin/articles/blocking-force-pushes-to-a-repository/
-  - /enterprise/admin/articles/block-force-pushes/
-  - /enterprise/admin/articles/blocking-force-pushes-for-a-user-account/
-  - /enterprise/admin/articles/blocking-force-pushes-for-an-organization/
-  - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization/
+  - /enterprise/admin/articles/blocking-force-pushes-to-a-repository
+  - /enterprise/admin/articles/block-force-pushes
+  - /enterprise/admin/articles/blocking-force-pushes-for-a-user-account
+  - /enterprise/admin/articles/blocking-force-pushes-for-an-organization
+  - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization
   - /enterprise/admin/developer-workflow/blocking-force-pushes
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
+  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account
+  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account
+  - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
+  - Repositories
   - Security
+shortTitle: Repository management policies
 ---
-### 配置企业中新仓库的默认可见性
 
-每次有人在您的企业上创建新仓库时，此人必须选择仓库的可见性。 当您配置企业的默认可见性设置时，需要选择默认可见性。 有关仓库可见性的更多信息，请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)。”
+## About policies for repository management in your enterprise
 
-如果企业所有者不允许成员创建某种类型的仓库，成员将无法创建此类仓库，即使可见性设置默认为此类型。 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
+You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage repositories. You can also allow organization owners to manage policies for repository management. For more information, see "[Creating and managing repositories](/repositories/creating-and-managing-repositories) and "[Organizations and teams](/organizations)."
+
+{% ifversion ghes or ghae %}
+
+## Configuring the default visibility of new repositories
+
+Each time someone creates a new repository within your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+
+If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-1. 在“默认仓库可见性”下，使用下拉菜单并选择默认可见性。 ![用于选择企业的默认仓库可见性的下拉菜单](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
+1. Under "Default repository visibility", use the drop-down menu and select a default visibility.
+  ![Drop-down menu to choose the default repository visibility for your enterprise](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-### 设置有关更改仓库可见性的策略
+{% endif %}
 
-当您阻止成员更改仓库可见性时，只有企业所有者可以更改仓库的可见性。
+## Enforcing a policy for base repository permissions
 
-如果企业所有者仅允许组织所有者创建仓库，则成员将无法更改仓库可见性。 如果企业所有者只允许私有仓库成员创建私有仓库，则成员只能将仓库的可见性更改为私有。 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
+Across all organizations owned by your enterprise, you can set a base repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. 在“Repository visibility change”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "Base permissions", use the drop-down menu and choose a policy.
+  ![Drop-down menu with repository permissions policy options](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
 
-{% data reusables.enterprise-accounts.repository-visibility-policy %}
 
-### 设置仓库创建策略
+## Enforcing a policy for repository creation
+
+Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level. 
+
+If you allow members to create repositories in your organizations, you can choose which types of repositories (public, private, and internal) that members can create.
+
+{% ifversion enterprise-namespace-repo-setting %}
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can also prevent users from creating repositories owned by their user accounts.
+{% endif %}
+
+{% data reusables.repositories.internal-repo-default %} For more information about internal repositories, see "[Creating an internal repository](/articles/creating-an-internal-repository)."
 
 {% data reusables.organizations.repo-creation-constants %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. 在“Repository creation”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+5. Under "Repository creation", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
-{% data reusables.enterprise-accounts.repo-creation-types %}
-{% else %}
-6. 在“Repository creation（仓库创建）”下，使用下拉菜单并选择策略。 ![包含仓库创建策略的下拉菜单](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
+{% data reusables.enterprise-accounts.repo-creation-types %}{% ifversion enterprise-namespace-repo-setting %}
+1. Optionally, {% ifversion ghec %}if your enterprise uses {% data variables.product.prodname_emus %} and you want {% endif %}to prevent enterprise members from creating repositories owned by their user accounts, select **Block the creation of user namespace repositories**.
+  ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
+
+## Enforcing a policy for forking private or internal repositories
+Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
+
+{% ifversion org-owners-limit-forks-creation %}
+People with admin permissions can set a more granular forking policy. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 {% endif %}
 
-### 实施有关复刻私有或内部仓库的策略
+{% ifversion enterprise-namespace-repo-setting %}
+{% note %}
 
-在企业拥有的所有组织中，您可以允许有权访问私有或内部仓库的人员复刻仓库、永远不允许分支私有或内部仓库，或者允许所有者在组织级别管理设置。
+**Note:** If {% ifversion ghec %}your enterprise uses {% data variables.product.prodname_emus %} and {% endif %}your "Repository creation" policy prevents enterprise members from creating repositories owned by their user accounts, members will not be allowed to fork a repository in their user accounts, regardless of your "Repository forking" policy.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-3. 在 **Repository policies（仓库策略）**选项卡中的“Repository forking（仓库复刻）”下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. 在“Repository forking（仓库复刻）”下，使用下拉菜单并选择策略。 ![带有仓库复刻策略选项的下拉菜单](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
-
-### 设置仓库删除和转移的策略
+{% endnote %}
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. 在“Repository deletion and transfer”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+2. Under "Repository forking", use the dropdown menu and choose a policy.
+
+  ![Drop-down menu with repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
+5. If forking is enabled, you can specify where users are allowed to fork repositories. Review the information about changing the setting and choose a policy.
+
+    ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-settings.png){% endif %}
+  
+## Enforcing a policy for inviting{% ifversion ghec %} outside{% endif %} collaborators to repositories
+
+Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, {% ifversion prevent-org-admin-add-outside-collaborator %}restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to enterprise owners, {% endif %}or allow organization owners to administer the setting on the organization level.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+3. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", use the drop-down menu and choose a policy.
+
+  {% ifversion ghec %}
+  ![Drop-down menu with outside collaborator invitation policy options](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+  {% elsif ghes or ghae %}
+  ![Drop-down menu with invitation policy options](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)  
+  {% endif %}
+
+## Enforcing a policy for the default branch name
+
+Across all organizations owned by your enterprise, you can set the default branch name for any new repositories that members create. You can choose to enforce that default branch name across all organizations or allow individual organizations to set a different one.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. On the **Repository policies** tab, under "Default branch name", enter the default branch name that new repositories should use.
+    ![Text box for entering default branch name](/assets/images/help/business-accounts/default-branch-name-text.png)
+4. Optionally, to enforce the default branch name for all organizations in the enterprise, select **Enforce across this enterprise**.
+    ![Enforcement checkbox](/assets/images/help/business-accounts/default-branch-name-enforce.png)
+5. Click **Update**.
+    ![Update button](/assets/images/help/business-accounts/default-branch-name-update.png)
+
+## Enforcing a policy for changes to repository visibility
+
+Across all organizations owned by your enterprise, you can allow members with admin access to change a repository's visibility, restrict repository visibility changes to organization owners, or allow owners to administer the setting on the organization level. When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.
+
+If an enterprise owner has restricted repository creation to organization owners only, then members will not be able to change repository visibility. If an enterprise owner has restricted member repository creation to private repositories only, then members will only be able to change the visibility of a repository to private. For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+1. Under "Repository visibility change", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Repository visibility change", use the drop-down menu and choose a policy.
+   ![Drop-down menu with repository visibility policy options](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)
+
+## Enforcing a policy for repository deletion and transfer
+
+Across all organizations owned by your enterprise, you can allow members with admin permissions to delete or transfer a repository, restrict repository deletion and transfers to organization owners, or allow owners to administer the setting on the organization level.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+5. Under "Repository deletion and transfer", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
-### 设置 Git 推送限制策略
+## Enforcing a policy for deleting issues
 
-要使仓库大小保持可管理并防止发生性能问题，可以为企业中的仓库配置文件大小限制。
-
-默认情况下，强制执行仓库上传限制时，无法添加或上传超过 100 MB 的文件。
-
-{% if currentVersion ver_lt "enterprise-server@2.20" %}
-{% tip %}
-
-**注**：仅会根据 Git 推送限制检查大于 {% data variables.large_files.warning_size %} 的文件。 如果需要设置较低的推送限制，请联系 {% data variables.contact.contact_ent_support %} 获得帮助。
-
-{% endtip %}
-{% endif %}
+Across all organizations owned by your enterprise, you can allow members with admin access to delete issues in a repository, restrict issue deletion to organization owners, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. On the **Repository policies** tab, under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Under "Repository issue deletion", use the drop-down menu and choose a policy.
+
+  ![Drop-down menu with issue deletion policy options](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+
+{% ifversion ghes or ghae %}
+
+## Enforcing a policy for Git push limits
+
+To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
+
+By default, when you enforce repository upload limits, people cannot add or update files larger than 100 MB.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
+4. Under "Repository upload limit", use the drop-down menu and click a maximum object size.
+![Drop-down menu with maximum object size options](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
+5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
+![Enforce maximum object size on all repositories option](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+
+{% ifversion profile-name-enterprise-setting %}
+
+## Enforcing a policy for the display of member names in your repositories
+
+Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
+
+![Commenter's profile name displayed in comment](/assets/images/help/issues/commenter-full-name.png)
+
+{% note %}
+
+**Note:** When this policy is enforced for all repositories in the enterprise, it overrides the organization setting for private repositories. For more information, see "[Managing the display of member names in your organization](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)".
+
+{% endnote %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
+4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy.
+![Screenshot of Options page with policy drop down emphasized](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
+5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**.
+![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
+
+{% endif %}
+
+## Configuring the merge conflict editor for pull requests between repositories
+
+Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. 在“Repository upload limit”下，使用下拉菜单，然后单击最大对象大小。 ![包含最大对象大小选项的下拉菜单](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
-5. （可选）要对企业中的所有仓库实施最大上传限制，请选择 **Enforce on all repositories（对所有仓库强制执行）** ![对所有仓库选项强制执行最大对象限制](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+1. Under "Conflict editor for pull requests between repositories", use the drop-down menu, and click **Disabled**.
+ ![Drop-down menu with option to disable the merge conflict editor](/assets/images/enterprise/settings/conflict-editor-settings.png)
 
-### 为仓库之间的拉取请求配置合并冲突编辑器
+## Configuring force pushes
 
-要求用户在其计算机上本地解决合并冲突可以避免用户因疏忽而从分叉写入到上游仓库。
+Each repository inherits a default force push setting from the settings of the user account or organization that owns the repository. Each organization and user account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, the policy applies to all repositories owned by any user or organization.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
-{% data reusables.enterprise-accounts.options-tab %}
-1. 在“Conflict editor for pull requests between repositories”下，使用下拉菜单，然后单击 **Disabled**。 ![包含用于禁用合并冲突编辑器的选项的下拉菜单](/assets/images/enterprise/settings/conflict-editor-settings.png)
-
-### 配置强制推送
-
-每个仓库都从其所属的用户帐户或组织的设置继承了默认强制推送设置。 同样，每个组织和用户帐户都会从企业的强制推送设置继承默认强制推送设置。 如果更改企业的强制推送设置，则会更改任何用户或组织拥有的所有仓库。
-
-#### 阻止设备上的所有强制推送
+### Blocking force pushes to all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. 在“Force pushes（强制推送）”下，使用下拉菜单，然后单击 **Allow（允许）**、**Block（阻止）**或 **Block to the default branch（阻止到默认分支）**。 ![强制推送下拉菜单](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
-5. 可以视情况选择 **Enforce on all repositories**，这将覆盖强制推送的组织和仓库级别设置。
+4. Under "Force pushes", use the drop-down menu, and click **Allow**, **Block** or **Block to the default branch**.
+![Force pushes dropdown](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
+5. Optionally, select **Enforce on all repositories**, which will override organization and repository level settings for force pushes.
 
-#### 阻止特定仓库的强制推送
+### Blocking force pushes to a specific repository
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -161,13 +274,14 @@ topics:
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-4. 在 **Push and Pull（推送和拉取）**下，选择 **Block（阻止）**或 **Block to the default branch（阻止到默认分支）**。 ![阻止强制推送](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
+4. Select **Block** or **Block to the default branch** under **Push and Pull**.
+   ![Block force pushes](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
 
-#### 阻止对用户帐户或组织拥有的仓库进行强制推送
+### Blocking force pushes to repositories owned by a user account or organization
 
-仓库从它们所属的用户帐户或组织继承强制推送设置。 反过来，用户帐户和组织从企业的强制推送设置继承其强制推送设置。
+Repositories inherit force push settings from the user account or organization to which they belong. User accounts and organizations in turn inherit their force push settings from the force push settings for the enterprise.
 
-您可以通过配置用户帐户或组织的设置来覆盖默认的继承设置。
+You can override the default inherited settings by configuring the settings for a user account or organization.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -175,58 +289,80 @@ topics:
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. 在“Force pushes”部分的“Repository default settings”下，选择
-    - **Block** 来阻止对所有分支进行强制推送。
-    - **Block to the default branch** 来仅阻止对默认分支进行强制推送。 ![阻止强制推送](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
-6. 可以视情况选择 **Enforce on all repositories** 来覆盖仓库特定的设置。 注意，这**不**会覆盖企业范围的策略。 ![阻止强制推送](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+5. Under "Repository default settings" in the "Force pushes" section, select
+    - **Block** to block force pushes to all branches.
+    - **Block to the default branch** to only block force pushes to the default branch.
+  ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
+6. Optionally, select **Enforce on all repositories** to override repository-specific settings. Note that this will **not** override an enterprise-wide policy.
+   ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% endif %}
 
-### 配置匿名 Git 读取访问
+{% ifversion ghes %}
+
+## Configuring anonymous Git read access
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-{% if enterpriseServerVersions contains currentVersion %}如果您已经在企业上[启用私密模式](/enterprise/admin/configuration/enabling-private-mode)，{% else %}您{% endif %}可以允许仓库管理员启用对公共仓库的匿名 Git 读取访问。
+If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) for {% data variables.location.product_location %}, you can allow repository administrators to enable anonymous Git read access to public repositories.
 
-启用匿名 Git 读取允许用户在企业上为自定义工具绕过身份验证。 当您或仓库管理员为仓库启用此权限设置时，未经过身份验证的 Git 操作（和具有 {% data variables.product.product_name %} 的网络访问权限的任何人）将获得仓库的读取权限（无需身份验证）。
+Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.product.product_name %}) will have read access to the repository without authentication.
 
-如有必要，您可以通过锁定仓库的访问设置，阻止仓库管理员更改企业上仓库的匿名 Git 访问设置。 在您锁定仓库的 Git 读取权限设置后，只有站点管理员可以更改设置。
+Anonymous Git read access is disabled by default.{% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 or ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
+
+```
+The unauthenticated git protocol on port 9418 is no longer supported.
+```
+
+{% ifversion ghes > 3.5 %}
+
+If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. Run the following commands after your upgrade:
+
+```ShellSession
+$ sudo ghe-config app.gitauth.git-protocol true
+$ sudo ghe-config-apply
+```
+
+{% endif %}
+
+Anonymous Git read access will be entirely removed in a future release of {% data variables.product.prodname_ghe_server %}. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. For more information about this change, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
+
+{% endif %}
+
+
+
+If necessary, you can prevent repository administrators from changing anonymous Git access settings for repositories on your enterprise by locking the repository's access settings. After you lock a repository's Git read access setting, only a site administrator can change the setting.
 
 {% data reusables.enterprise_site_admin_settings.list-of-repos-with-anonymous-git-read-access-enabled %}
 
 {% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}
 
-#### 设置所有仓库的匿名 Git 读取访问
+### Setting anonymous Git read access for all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. 在“Anonymous Git read access”下，使用下列菜单并单击 **Enabled**。 ![匿名 Git 读取权限下拉菜单显示菜单选项"Enabled（已启用）"和"Disabled（已禁用）"](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
-3. 或者，如果要阻止仓库管理员为企业上的所有仓库更改匿名 Git 读取权限设置，请选择 **Prevent repository admins from changing anonymous Git read access**。 ![选中复选框可阻止仓库管理员更改企业上所有仓库的匿名 Git 读取权限设置。](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
+4. Under "Anonymous Git read access", use the drop-down menu, and click **Enabled**.
+![Anonymous Git read access drop-down menu showing menu options "Enabled" and "Disabled"](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
+3. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**.
+![Select checkbox to prevent repository admins from changing anonymous Git read access settings for all repositories on your enterprise](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 
-#### 设置特定仓库的匿名 Git 读取访问
+### Setting anonymous Git read access for a specific repository
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.repository-search %}
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-6. 在“Danger Zone”下的“Enable Anonymous Git read access”旁，请单击 **Enable**。 ![仓库站点管理员设置的危险区域中“Enable anonymous Git read access”下的“Enabled”按钮 ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
-7. 审查更改。 要确认，请单击 **Yes, enable anonymous Git read access（是，启用匿名 Git 读取权限）**。 ![在弹出窗口中确认匿名 Git 读取权限设置](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
-8. 或者，如果要阻止仓库管理员为此仓库更改设置，请选择 **Prevent repository admins from changing anonymous Git read access**。 ![选中复选框可阻止仓库管理员更改此仓库的匿名 Git 读取权限。](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
+6. Under "Danger Zone", next to "Enable Anonymous Git read access", click **Enable**.
+!["Enabled" button under "Enable anonymous Git read access" in danger zone of a repository's site admin settings ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
+7. Review the changes. To confirm, click **Yes, enable anonymous Git read access.**
+![Confirm anonymous Git read access setting in pop-up window](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
+8. Optionally, to prevent repository admins from changing this setting for this repository, select **Prevent repository admins from changing anonymous Git read access**.
+![Select checkbox to prevent repository admins from changing anonymous Git read access for this repository](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
 
-{% endif %}
-
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### 对默认分支名称实施策略
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-3. 在 **Repository policies（仓库策略）**选项卡的“Default branch name（默认分支名称）”下，输入新仓库应使用的默认分支名称。 ![输入默认分支名称的文本框](/assets/images/help/business-accounts/default-branch-name-text.png)
-4. （可选）要对企业中的所有组织强制实施默认分支名称，请选择 **Enforce across this enterprise（在整个企业中实施）**。 ![强制实施复选框](/assets/images/help/business-accounts/default-branch-name-enforce.png)
-5. 单击 **Update（更新）**。 ![更新按钮](/assets/images/help/business-accounts/default-branch-name-update.png)
 {% endif %}

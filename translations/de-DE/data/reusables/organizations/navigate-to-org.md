@@ -1,1 +1,1 @@
-1. Navigiere auf {% data variables.product.product_name %} zur Hauptseite der Organisation.
+1. On {% data variables.location.product_location %}, navigate to the main page of the organization.

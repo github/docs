@@ -1,39 +1,52 @@
 ---
 title: Habilitar o GitHub Actions com armazenamento do Amazon S3
-intro: 'Você pode habilitar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} e usar o armazenamento Amazon S3 para armazenar artefatos gerados por execuções de fluxo de trabalho.'
+intro: 'Você pode habilitar o {% data variables.product.prodname_actions %} no {% data variables.product.prodname_ghe_server %} e usar o armazenamento do Amazon S3 para armazenar dados gerados por execuções de fluxo de trabalho.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Infrastructure
+  - Storage
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
+shortTitle: Amazon S3 storage
+ms.openlocfilehash: 23fd8eabe502a6a29610de451cae72542ceca53f
+ms.sourcegitcommit: 8f7c8d52755cc3af0f366cc74c6db9e9be4d2ecd
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132645'
 ---
-### Pré-requisitos
+## Pré-requisitos
 
-{% data reusables.actions.enterprise-s3-support-warning %}
+{% note %}
+
+**Observação:** os únicos provedores de armazenamento S3 com suporte {% data variables.product.prodname_dotcom %} são o Amazon S3 e o Gateway do MinIO para NAS.
+
+{% data reusables.actions.enterprise-s3-tech-partners %}
+
+{% endnote %}
 
 Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se de que você realizou os seguintes passos:
 
-* Crie seu bucket do Amazon S3 para armazenar artefatos gerados pelas execuções do fluxo de trabalho. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
-
+* Crie seu bucket do Amazon S3 para armazenar dados gerados pelas execuções do fluxo de trabalho. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
+  
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### Habilitar {% data variables.product.prodname_actions %} com armazenamento do Amazon S3
+## Habilitar {% data variables.product.prodname_actions %} com armazenamento do Amazon S3
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.actions %}
-{% data reusables.actions.enterprise-enable-checkbox %}
-1. Em "Artefato & Registro de Armazenamento", selecione **Amazon S3**, e insira as informações do seu grupo de armazenamento:
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.actions %} {% data reusables.actions.enterprise-enable-checkbox %}
+1. Em "Armazenamento de Logs e Artefatos", selecione **Amazon S3** e insira os detalhes do bucket de armazenamento:
 
-   * **URL de serviço do AWS**: A URL do serviço para seu bucket. Por exemplo, se o seu bucket S3 foi criado na região `us-west-2`, esse valor deverá ser `https://s3.us-west-2.amazonaws.com`.
+   * **URL de Serviço da AWS**: a URL de serviço do bucket. Por exemplo, se o bucket S3 foi criado na região `us-west-2`, esse valor deve ser `https://s3.us-west-2.amazonaws.com`.
 
-     Para obter mais informações, consulte "[pontos de extremidade do serviço AWS](https://docs.aws.amazon.com/general/latest/gr/rande.html)" na documentação do AWS.
-   * **Balde S3 AWS**: O nome do seu bucket S3.
-   * **Chave de acesso do AWS S3** e **Chave de segredo do AWS S3**: A chave de acesso AWS e chave do segredo para o seu bucket. Para mais informações sobre como gerenciar as chaves de acesso do AWS, consulte a "[Documentação de identidade do AWS e gerenciamento de acesso](https://docs.aws.amazon.com/iam/index.html)".
+     Para obter mais informações, confira "[Pontos de extremidade de serviço da AWS](https://docs.aws.amazon.com/general/latest/gr/rande.html)" na documentação da AWS.
+   * **Bucket da AWS S3**: o nome do bucket S3.
+   * **Chave de Acesso da AWS S3** e **Chave Secreta da AWS S3**: a ID da chave de acesso da AWS e a chave secreta do bucket. Para obter mais informações sobre como gerenciar chaves de acesso da AWS, confira a "[Documentação de gerenciamento de identidades e acesso da AWS](https://docs.aws.amazon.com/iam/index.html)".
 
-   ![Botão de opção para selecionar o armazenamento do Amazon S3 e campos para configuração S3](/assets/images/enterprise/management-console/actions-aws-s3-storage.png)
-{% data reusables.enterprise_management_console.save-settings %}
+   ![Botão de opção usado para selecionar o Amazon S3 Storage e campos para a configuração do S3](/assets/images/enterprise/management-console/actions-aws-s3-storage.png) {% data reusables.enterprise_management_console.test-storage-button %} {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.actions.enterprise-postinstall-nextsteps %}

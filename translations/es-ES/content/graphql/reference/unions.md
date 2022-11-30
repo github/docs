@@ -1,24 +1,25 @@
 ---
-title: Uniones
+title: Unions
 redirect_from:
   - /v4/union
   - /v4/reference/union
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Acerca de las uniones
+## About unions
 
-Una [unión](https://graphql.github.io/graphql-spec/June2018/#sec-Unions) es un tipo de objeto que representa muchos otros objetos.
+A [union](https://graphql.github.io/graphql-spec/June2018/#sec-Unions) is a type of object representing many objects.
 
-Por ejemplo, un campo marcado como un [`ProjectCardItem`](/graphql/reference/unions#projectcarditem) podría ser un [`Issue`](/graphql/reference/objects#issue) o una [`PullRequest`](/graphql/reference/objects#pullrequest) ya que cada uno de estos objetos puede estar dentro de una tarjeta de proyecto. Utilizar una unión en vez de un objeto te otorga flexibilidad.
+For example, a field marked as an [`ProjectCardItem`](/graphql/reference/unions#projectcarditem) could be an [`Issue`](/graphql/reference/objects#issue) or a [`PullRequest`](/graphql/reference/objects#pullrequest) because each of those objects can be inside a project card. Using a union instead of an object gives you flexibility.
 
-Para obtener más información, consulta la sección "[Introducción a GraphQL](/graphql/guides/introduction-to-graphql)".
+For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
 
-{% for item in graphql.schemaForCurrentVersion.unions %}
-  {% include graphql-union %}
-{% endfor %}
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

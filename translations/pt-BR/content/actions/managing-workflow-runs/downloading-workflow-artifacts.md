@@ -1,61 +1,64 @@
 ---
 title: Fazer o download de artefatos do fluxo de trabalho
 intro: Você pode fazer o download de artefatos arquivados antes que expirem automaticamente.
-product: '{% data reusables.gated-features.actions %}'
+permissions: 'People who are signed into {% data variables.product.product_name %} and have read access to a repository can download workflow artifacts.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Download workflow artifacts
+ms.openlocfilehash: dcb2d97095f6cdd704207084b776db05a4d1bd44
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160629'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} Por padrão, {% data variables.product.product_name %} armazena registros de criação por 90 dias e você pode personalizar este período de retenção, dependendo do tipo de repositório. Para obter mais informações, consulte "[Configurar o período de retenção para artefatos e registros do GitHub Actions no seu repositório](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)".{% endif %}
-{% if currentVersion == "enterprise-server@2.22" %} {% data variables.product.product_name %} armazena registros de criação completos e artefatos por 90 dias.{% endif %}
-
-### Faça o download dos artefatos com a interface do usuário de {% data variables.product.prodname_dotcom %}
+Por padrão, {% data variables.product.product_name %} armazena registros e artefatos de compilação por 90 dias, e você pode personalizar este período de retenção dependendo do tipo de repositório. Para obter mais informações, confira "[Como gerenciar as configurações do {% data variables.product.prodname_actions %} de um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)".
 
 {% data reusables.repositories.permissions-statement-read %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
+{% webui %}
+
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %}
 1. Em **Artefatos**, clique no artefato que deseja baixar.
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+    
     ![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down-updated.png)
-    {% else %}
-    ![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down.png)
-    {% endif %}
+    
 
-### Faça o download dos artefatos com {% data variables.product.prodname_cli %}
+{% endwebui %}
 
-{% data reusables.actions.actions-cli %}
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
 
 {% data variables.product.prodname_cli %} irá fazer o download de cada artefato em diretórios separados baseados no nome do artefato. Se apenas um único artefato for especificado, ele será extraído para o diretório atual.
 
-Para fazer o download de todos os artefatos gerados pela execução de um fluxo de trabalho, use o subcomando `fazer download`. Substitua `run-id` pelo ID da execução do qual você deseja fazer o download dos artefatos. Se você não especificar um `run-id`, {% data variables.product.prodname_cli %} irá retornar um menu interativo para você escolher uma execução recente.
+Para baixar todos os artefatos gerados por uma execução de fluxo de trabalho, use o subcomando `run download`. Substitua `run-id` pela ID da execução da qual deseja baixar artefatos. Se você não especificar uma `run-id`, a {% data variables.product.prodname_cli %} retornará um menu interativo para você escolher uma execução recente.
 
 ```shell
-gh run download <em>run-id</em>
+gh run download RUN_ID
 ```
 
-Para fazer o download de um artefato específico de uma execução, use o subcomando `fazer download`. Substitua `run-id` pelo ID da execução do qual você deseja fazer o download dos artefatos. Substitua `artifact-name` pelo nome do artefato que você deseja baixar.
+Para baixar um artefato específico de uma execução, use o subcomando `run download`. Substitua `run-id` pela ID da execução da qual deseja baixar artefatos. Substitua `artifact-name` pelo nome do artefato que deseja baixar.
 
 ```shell
-gh run download <em>run-id</em> -n <em>artifact-name</em>
+gh run download RUN_ID -n ARTIFACT_NAME
 ```
 
 Você pode especificar mais de um artefato.
 
 ```shell
-gh run download <em>run-id</em> -n <em>artifact-name-1</em> -n <em>artifact-name-2</em>
+gh run download RUN_ID> -n ARTIFACT_NAME-1 -n ARTIFACT_NAME-2
 ```
 
-Para fazer o download de artefatos específicos em todas as execuções em um repositório, use o subcomando `fazer download`.
+Para baixar artefatos específicos em todas as execuções em um repositório, use o subcomando `run download`.
 
 ```shell
-gh run download -n <em>artifact-name-1</em> -n <em>artifact-name-2</em>
+gh run download -n ARTIFACT_NAME-1 ARTIFACT_NAME-2
 ```
+
+{% endcli %}

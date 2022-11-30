@@ -1,22 +1,23 @@
 ---
-title: ミューテーション
+title: Mutations
 redirect_from:
   - /v4/mutation
   - /v4/reference/mutation
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### ミューテーションについて
+## About mutations
 
-すべてのGraphQLスキーマは、クエリとミューテーションの両方についてルート型を持っています。 [ミューテーション型](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)は、サーバー上のデータを変更するGraphQLの操作を定義します。 これは、`POST`、`PATCH`、`DELETE`といったHTTPのメソッドを実行するのに似ています。
+Every GraphQL schema has a root type for both queries and mutations. The [mutation type](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) defines GraphQL operations that change data on the server. It is analogous to performing HTTP verbs such as `POST`, `PATCH`, and `DELETE`.
 
-詳しい情報については「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
+For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
-{% for item in graphql.schemaForCurrentVersion.mutations %}
-  {% include graphql-mutation %}
-{% endfor %}
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

@@ -1,3 +1,9 @@
-1. 在 {% data variables.product.product_name %} 的右上角，单击您的个人资料照片，然后单击 **Your codespaces（您的代码空间）**。
-
-  ![“您的代码空间”菜单选项](/assets/images/help/codespaces/your-codespaces-option.png)
+---
+ms.openlocfilehash: e7e3c99d5666152f58d5ffb73a6b7ddad22fb18b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108147"
+---
+1. 导航到 [github.com/codespaces](https://github.com/codespaces) 上的“你的 codespace”页面。

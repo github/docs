@@ -1,49 +1,63 @@
 ---
-title: About team discussions
-intro: 'Your team can plan together, update one another, or talk about any topic you''d like in discussion posts on your team''s page in an organization.'
+title: Сведения об обсуждениях в команде
+intro: 'Ваша команда может совместно планировать работу, делиться новостями или обсуждать различные темы в публикациях на странице группы в организации.'
 redirect_from:
   - /articles/about-team-discussions
   - /github/building-a-strong-community/about-team-discussions
   - /github/setting-up-and-managing-organizations-and-teams/about-team-discussions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 173a067c99ff6ab10ceb6d7f0a7ef288de58b658
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145135209'
 ---
-
 {% data reusables.organizations.team-discussions-purpose %}
 
-Any organization member can post on your team's page or participate in a public discussion. {% data reusables.organizations.team-discussions-permissions %}
+Любой участник организации может делать публикации на странице вашей команды или участвовать в публичном обсуждении. {% data reusables.organizations.team-discussions-permissions %}
 
-![Discussions tab of team page with public and private discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
+![Вкладка "Обсуждения" на странице команды с общедоступными и частными обсуждениями](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-You can link to any team discussion to reference it elsewhere. You can pin important posts to your team's page for quick reference later. For more information, see "[Pinning a team discussion](/organizations/collaborating-with-your-team/pinning-a-team-discussion)."
+Вы можете создать ссылку на любое обсуждение команды, чтобы ссылаться на него в других местах. Вы можете закрепить важные записи на странице вашей команды, создавать на нее быструю ссылку в дальнейшем. Дополнительные сведения см. в разделе [Закрепление обсуждения команды](/organizations/collaborating-with-your-team/pinning-a-team-discussion).
 
-![Pinned discussions tab of team page with pinned discussion](/assets/images/help/organizations/team-discussions-pinned.png)
+![Вкладка закрепленных обсуждений на странице группы с закрепленным обсуждением](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{% data reusables.organizations.team-discussions-default %} Owners can disable team discussions for the entire organization. For more information, see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)."
+{% data reusables.organizations.team-discussions-default %} Владельцы могут отключить обсуждения команды для всей организации. Дополнительные сведения см. в разделе [Отключение обсуждений группы для вашей организации](/articles/disabling-team-discussions-for-your-organization).
 
-### Notifications for team discussions
+## Уведомления для обсуждений группы
 
-When someone posts or replies to a public discussion on a team's page, members of the team and members of any child teams receive email or web notifications. When someone posts or replies to a private discussion on a team's page, only members of the team receive notifications.
+Когда кто-то публикует или отвечает на публичное обсуждение на странице команды, участники команды и участники любых дочерних команд будут получать уведомления по электронной почте или веб-уведомления. Когда кто-то публикует или отвечает на частное обсуждение на странице команды, уведомления будут получать только участники команды.
 
 {% tip %}
 
-**Tip:** Depending on your notification settings, you'll receive updates by email, the web notifications page on {% data variables.product.product_name %}, or both. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" and "[About web notifications](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**Совет.** В зависимости от параметров уведомлений вы будете получать обновления по электронной почте, на странице веб-уведомлений в {% data variables.product.product_name %} или по обоим каналам. Дополнительные сведения см. в разделе [Настройка уведомлений](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications).
 
 {% endtip %}
 
-By default, if your username is mentioned in a team discussion, you'll receive notifications for the post mentioning your username and any replies to that post. Also, by default, if you reply to a post, you will receive notifications for other replies to the post.
+По умолчанию, если ваше имя пользователя упоминается в обсуждении команды, вы будете получать уведомления о публикации, в котором упоминается ваше имя пользователя, а также обо всех ответах на эту публикацию. Кроме того, по умолчанию при ответе на публикацию вы будете получать уведомления о других ответах на публикацию.
 
-To turn off notifications for team discussions, you can unsubscribe to a specific discussion post or change your notification settings to unwatch or completely ignore a specific team's discussions. You can subscribe to notifications for a specific discussion post even if you're unwatching that team's discussions.
+Чтобы отключить уведомления для обсуждений группы, вы можете отменить подписку на конкретную публикацию обсуждения или изменить параметры уведомлений, чтобы отменить отслеживание или полностью игнорировать обсуждения конкретной команды. Вы можете подписаться на уведомления для конкретной публикации обсуждения, даже если вы отменили отслеживание обсуждения этой команды.
 
-For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
+Дополнительные сведения см. в разделах [Просмотр подписок](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions) и [Вложенные команды](/articles/about-teams/#nested-teams).
 
-### Дополнительная литература
+{% ifversion fpt or ghec %}
 
-- "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
-- "[About teams](/articles/about-teams)"
-- "[Creating a team discussion](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
-- "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"
+## Обсуждения в организации
+
+Такие обсуждения также способны улучшить коммуникацию в организации. Дополнительные сведения см. в разделе [Включение или отключение GitHub Discussions для организации](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization).
+
+{% endif %}
+
+## Дополнительные материалы
+
+- [Краткое руководство по обмену данными в {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)
+- [Сведения о командах](/articles/about-teams)
+- [Создание обсуждения команды](/organizations/collaborating-with-your-team/creating-a-team-discussion)
+- [Редактирование или удаление обсуждения команды](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)

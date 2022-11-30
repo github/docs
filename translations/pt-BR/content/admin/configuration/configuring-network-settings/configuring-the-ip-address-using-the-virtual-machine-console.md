@@ -6,21 +6,29 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
   - /admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Set the IP using the console
+ms.openlocfilehash: db183677409757e516515a5ac7def5a70affd01f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145095991'
 ---
 {% note %}
 
-**Observação:** Não suportamos a inclusão de adaptadores de rede adicionais para {% data variables.product.prodname_ghe_server %}.
+**Observação:** não damos suporte à inclusão de adaptadores de rede adicionais no {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-3. Escolha configurar o protocolo `IPv4` ou `IPv6`. ![Escolha entre os protocolos IPv4 ou IPv6](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
-4. Configure as opções para o protocolo escolhido. ![Menu com opções de protocolo IP](/assets/images/enterprise/network-configuration/network-settings-selection.png)
-{% data reusables.enterprise_installation.vm-console-done %}
+3. Escolha entre a configuração do protocolo `IPv4` ou `IPv6`.
+  ![Opções para escolha entre os protocolos IPv4 ou IPv6](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
+4. Configure as opções para o protocolo escolhido.
+  ![Menu com opções de protocolo IP](/assets/images/enterprise/network-configuration/network-settings-selection.png) {% data reusables.enterprise_installation.vm-console-done %}

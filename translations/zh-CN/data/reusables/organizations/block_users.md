@@ -1,1 +1,9 @@
-1. 在组织的 Settings（设置）侧边栏中，单击 **Blocked users（被阻止的用户）**。 ![组织设置中被阻止的用户](/assets/images/help/organizations/org-settings-block-users.png)
+---
+ms.openlocfilehash: fdb7938e6fd3a8f9a1ccebffd1ca40cc76fb1073
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145100608"
+---
+1. 在边栏中，选择“{% octicon "report" aria-label="The report icon" %} 审核”，然后单击“阻止的用户” 。

@@ -1,59 +1,29 @@
 ---
-title: 'Managing users, organizations, and repositories'
-shortTitle: 'Managing users, organizations, and repositories'
-intro: 'This guide describes authentication methods for users signing in to your enterprise, how to create organizations and teams for repository access and collaboration, and suggested best practices for user security.'
+title: '사용자, 조직, 리포지토리 관리'
+shortTitle: 'Manage users, organizations, and repositories'
+intro: '이 가이드에서는 엔터프라이즈에 로그인하는 사용자를 위한 인증 방법, 리포지토리 액세스 및 협업을 위한 조직 및 팀을 만드는 방법, 사용자 보안을 위한 모범 사례를 설명합니다.'
 redirect_from:
-  - /enterprise/admin/categories/user-management/
+  - /enterprise/admin/categories/user-management
   - /enterprise/admin/developer-workflow/using-webhooks-for-continuous-integration
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
+children:
+  - /managing-users-in-your-enterprise
+  - /managing-organizations-in-your-enterprise
+  - /managing-repositories-in-your-enterprise
+  - /migrating-data-to-and-from-your-enterprise
+ms.openlocfilehash: 2ef2c71037a4aef92aa3b3946813993b06b44786
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145115196'
 ---
 
-
-### Table of Contents
-
-{% topic_link_in_list /managing-users-in-your-enterprise %}
-    {% link_in_list /promoting-or-demoting-a-site-administrator %}
-    {% link_in_list /best-practices-for-user-security %}
-    {% link_in_list /auditing-users-across-your-enterprise %}
-    {% link_in_list /managing-dormant-users %}
-    {% link_in_list /suspending-and-unsuspending-users %}
-    {% link_in_list /placing-a-legal-hold-on-a-user-or-organization %}
-    {% link_in_list /auditing-ssh-keys %}
-    {% link_in_list /customizing-user-messages-for-your-enterprise %}
-    {% link_in_list /rebuilding-contributions-data %}
-    {% link_in_list /managing-global-webhooks %}
-{% topic_link_in_list /managing-organizations-in-your-enterprise %}
-    {% link_in_list /configuring-visibility-for-organization-membership %}
-    {% link_in_list /preventing-users-from-creating-organizations %}
-    {% link_in_list /requiring-two-factor-authentication-for-an-organization %}
-    {% link_in_list /creating-teams %}
-    {% link_in_list /adding-people-to-teams %}
-    {% link_in_list /removing-users-from-teams-and-organizations %}
-    {% link_in_list /managing-projects-using-jira %}
-    {% link_in_list /continuous-integration-using-jenkins %}
-{% topic_link_in_list /managing-repositories-in-your-enterprise %}
-    {% link_in_list /configuring-git-large-file-storage-for-your-enterprise %}
-    {% link_in_list /migrating-to-internal-repositories %}
-    {% link_in_list /disabling-git-ssh-access-on-your-enterprise %}
-    {% link_in_list /troubleshooting-service-hooks %}
-{% topic_link_in_list /monitoring-activity-in-your-enterprise %}
-    {% link_in_list /activity-dashboard %}
-    {% link_in_list /audit-logging %}
-    {% link_in_list /searching-the-audit-log %}
-    {% link_in_list /audited-actions %}
-    {% link_in_list /viewing-push-logs %}
-    {% link_in_list /log-forwarding %}
-{% topic_link_in_list /migrating-data-to-and-from-your-enterprise %}
-    {% link_in_list /about-migrations %}
-    {% link_in_list /exporting-migration-data-from-your-enterprise %}
-    {% link_in_list /exporting-migration-data-from-githubcom %}
-    {% link_in_list /preparing-to-migrate-data-to-your-enterprise %}
-    {% link_in_list /migrating-data-to-your-enterprise %}
-    {% link_in_list /importing-data-from-third-party-version-control-systems %}

@@ -1,5 +1,13 @@
-To enable team synchronization for Okta, you or your IdP administrator must:
+---
+ms.openlocfilehash: bc73b3b92f131cf0af80606a2650ac5ce898055e
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147878750"
+---
+Прежде чем включить синхронизацию команд для Okta, вам или администратору поставщика удостоверений необходимо выполнить следующие действия:
 
-- Enable SAML SSO and SCIM for your organization using Okta. For more information, see "[Configuring SAML single sign-on and SCIM using Okta](/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta)."
-- Provide the tenant URL for your Okta instance.
-- Generate a valid SSWS token with read-only admin permissions for your Okta installation as a service user. For more information, see [Create the token](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/) and [Service users](https://help.okta.com/en/prod/Content/Topics/Adv_Server_Access/docs/service-users.htm) in Okta's documentation.
+- Настроить SAML, единый вход и интеграцию SCIM для вашей организации с помощью Okta. Дополнительные сведения см. в разделе [Настройка единого входа SAML и SCIM с помощью Okta](/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta).
+- Указать URL-адрес клиента для экземпляра Okta.
+- Создать допустимый токен SSWS с разрешениями администратора только для чтения для установки Okta в качестве пользователя службы. Дополнительные сведения см. в разделах [Создание токена](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/) и [Пользователи службы](https://help.okta.com/asa/en-us/Content/Topics/Adv_Server_Access/docs/service-users.htm) в документации Okta.

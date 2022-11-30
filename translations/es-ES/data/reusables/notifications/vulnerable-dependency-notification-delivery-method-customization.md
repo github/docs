@@ -1,7 +1,9 @@
-{% if currentVersion == "free-pro-team@latest" %}
-You can choose the delivery method and frequency of notifications about
-{% data variables.product.prodname_dependabot_alerts %} on repositories that you are watching or where you have subscribed to notifications for security alerts.
-{% else %}
-You can choose the delivery method for notifications about
-{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} on repositories that you are watching, as well as the frequency at which the notifications are sent to you.
-{% endif %}
+---
+ms.openlocfilehash: f86f510de500452b6eedc962e18e93632697b0a6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147062390"
+---
+Puedes elegir el método de entrega y la frecuencia de las notificaciones sobre {% data variables.product.prodname_dependabot_alerts %} en los repositorios que inspecciones, o bien donde te hayas suscrito a notificaciones de alertas de seguridad.

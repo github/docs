@@ -1,37 +1,35 @@
 ---
 title: ワークフロー実行を管理する
-shortTitle: ワークフロー実行を管理する
-intro: 'ワークフローの各ステップのステータスと結果の表示、保留中のワークフローのキャンセル、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}デプロイメントのレビュー、{% endif %}支払い可能なジョブの実行分の表示、失敗したワークフローのデバッグと再実行、ログの検索とダウンロード、成果物のダウンロードを行うことができます。'
+shortTitle: Manage workflow runs
+intro: 'ワークフローの再実行または取り消し、{% ifversion fpt or ghes or ghae %}デプロイの確認、{% endif %}課金対象のジョブ実行時間 (分) の表示、成果物のダウンロードを行うことができます。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
-  - /articles/viewing-your-repository-s-workflows
-  - /articles/viewing-your-repositorys-workflows
   - /articles/managing-a-workflow-run
   - /github/automating-your-workflow-with-github-actions/managing-a-workflow-run
   - /actions/automating-your-workflow-with-github-actions/managing-a-workflow-run
   - /actions/configuring-and-managing-workflows/configuring-and-managing-workflow-files-and-runs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
-  - /using-the-visualization-graph
-  - /viewing-workflow-run-history
-  - /using-workflow-run-logs
   - /manually-running-a-workflow
-  - /re-running-a-workflow
+  - /re-running-workflows-and-jobs
   - /canceling-a-workflow
   - /approving-workflow-runs-from-public-forks
+  - /approving-workflow-runs-from-private-forks
   - /reviewing-deployments
   - /disabling-and-enabling-a-workflow
+  - /skipping-workflow-runs
   - /deleting-a-workflow-run
-  - /viewing-job-execution-time
   - /downloading-workflow-artifacts
   - /removing-workflow-artifacts
-  - /enabling-debug-logging
-  - /adding-a-workflow-status-badge
+ms.openlocfilehash: 9e7d6f9c29fdfb2a387b84373c1140dbb3ef6713
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164091'
 ---
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}{% endif %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}

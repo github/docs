@@ -1,80 +1,92 @@
 ---
-title: Blocking a user from your personal account
-intro: 'You can block a user to deny them access to your activity and repositories, and to prevent them from sending you notifications.'
+title: Блокировка пользователя из вашей личной учетной записи
+intro: 'Вы можете запретить пользователю доступ к действиям и репозиториям, а также запретить отправку вам уведомлений.'
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Block from your account
+ms.openlocfilehash: bd657c221b007b6b574e97f54f2b330401b8fd9b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147422879'
 ---
+## Сведения о блокировке пользователей
 
-### About blocking users
-
-You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
+Вы можете заблокировать пользователя в параметрах вашей учетной записи или из профиля пользователя. {% data variables.product.prodname_dotcom %} не уведомляет пользователя о том, что вы его заблокировали. Если вы хотите избежать участия в том же проекте, что и заблокированный вами пользователь, вы можете отобразить предупреждение во всех репозиториях с предыдущими вкладами заблокированного пользователя. Дополнительные сведения см. в разделе [Блокировка пользователя в параметрах учетной записи](#blocking-a-user-in-your-account-settings). Вы по-прежнему сможете видеть активность заблокированных пользователей в общих пространствах, а заблокированные пользователи смогут удалить свое существующее содержимое.
 
 {% tip %}
 
-**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
+**Совет.** Если вы блокируете пользователя из-за накаленной беседы, рассмотрите возможность блокировки беседы, чтобы комментировать могли только участники совместной работы. Дополнительные сведения см. в разделе [Блокировка бесед](/communities/moderating-comments-and-conversations/locking-conversations).
 
 {% endtip %}
 
-When you block a user:
-- The user stops following you
-- The user stops watching and unpins your repositories
-- The user is not able to join any organizations you are an owner of
-- The user's stars and issue assignments are removed from your repositories
-- The user's votes on discussions or comments in your repositories are deleted
-- The user is removed as a collaborator on your repositories
-- The user's contributions to your repositories are no longer counted as contributions for them
-- Your contributions to the blocked user's repositories are no longer counted as contributions for you
-- You are removed as a collaborator on their repositories
-- Their sponsorship of you is cancelled
-- Any pending repository or account successor invitations to or from the blocked user are cancelled
+Когда вы блокируете пользователя, происходит следующее.
+- Пользователь перестает быть вашим подписчиком
+- Пользователь перестает отслеживать ваши репозитории и открепляет их
+- Пользователь не может присоединиться к каким-либо организациям, в которых вы являетесь владельцем
+- Звезды и назначения проблем пользователя удаляются из ваших репозиториев
+- Голоса пользователя в обсуждениях или комментарии в ваших репозиториях удаляются
+- Пользователь удаляется как участник совместной работы в ваших репозиториях
+- Вклады пользователя в ваши репозитории больше не учитываются как вклады в них
+- Ваши вклады в репозитории заблокированного пользователя больше не учитываются как вклады в них
+- Вы удаляетесь как участник совместной работы в репозиториях заблокированного пользователя
+- Его спонсорство вас отменяется
+- Все ожидающие приглашения репозитория или последователя учетной записи для заблокированного пользователя или от него отменяются
+- Пользователь удаляется в качестве участника совместной работы из всех проектов и {% data variables.projects.projects_v1_boards %}, принадлежащих вам
+- Вы удаляетесь в качестве участника совместной работы из всех проектов и {% data variables.projects.projects_v1_boards %}, принадлежащих пользователю
 
-After you've blocked a user, they cannot:
-- Send you any notifications, including by [@mentioning](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) your username
-- Comment on or edit issues or pull requests that you've created
-- React to your comments on issues, pull requests, and commits
-- Follow you or see your content in their activity feed
-- Assign you to issues or pull requests
-- Invite you as a collaborator on their repositories
-- Invite you as a collaborator on a security advisory
-- Cross-reference your repositories in comments
-- Fork, watch, pin, or star your repositories
-- Sponsor you
+После блокировки пользователя он не сможет выполнять следующее.
+- Отправлять вам какие-либо уведомления, в том числе путем упоминания ([@mentioning](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)) вашего имени пользователя
+- Комментировать или редактировать проблемы или запросы на вытягивание, созданные вами
+- Реагировать на ваши комментарии в проблемах, запросах на вытягивание и фиксациях
+- Стать вашим подписчиком или видеть ваше содержимое в своем веб-канале действий
+- Назначать вас для проблем или запросов на вытягивание
+- Приглашать вас как участника совместной работы в его репозиториях
+- Приглашать вас как участника совместной работы по рекомендациям по безопасности
+- Делать перекрестные ссылки на ваши репозитории в комментариях
+- Создавать вилки, отслеживать, закреплять или отмечать звездочкой ваши репозитории
+- Спонсировать вас
+- Добавлять вас в качестве участника совместной работы в своих проектах и {% data variables.projects.projects_v1_boards %}
+- Вносить изменения в общедоступные проекты и {% data variables.projects.projects_v1_boards %}
 
-In repositories you own, blocked users also cannot:
-- Open issues
-- Send, close, or merge pull requests
-- Comment on issues, pull requests, or commits
-- Add or edit wiki pages
+Кроме того, в принадлежащих вам репозиториях заблокированные пользователи не смогут выполнять следующее.
+- Открывать проблемы
+- Отправлять, закрывать или объединять запросы на вытягивание
+- Оставлять комментарии по проблемам, запросам на вытягивание или фиксациям
+- Добавлять и изменять вики-страницы
 
-### Blocking a user in your account settings
+## Блокировка пользователя в параметрах учетной записи
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
-3. Under "Block a user", type the username of the user you'd like to block, then click **Block user**. ![Username field and block button](/assets/images/help/settings/user-settings-block-user.png)
-4. Optionally, to display a warning when you visit a repository where a blocked user is a contributor, select **Warn me when a blocked user is a prior contributor to a repository**. ![Warn about blocked users option](/assets/images/help/settings/warn-block-user.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.blocked_users %}
+3. В разделе "Блокировать пользователя" введите имя пользователя, которого вы хотите заблокировать, а затем нажмите кнопку **Блокировать пользователя**.
+  ![Поле имени пользователя и кнопка блокировки](/assets/images/help/settings/user-settings-block-user.png)
+4. При желании вы можете задать, чтобы при посещении вами репозитория, где заблокированный пользователь является участником, отображалось предупреждение. Для этого установите флажок **Предупреждать меня, если заблокированный пользователь является предыдущим участником репозитория**.
+  ![Параметр предупреждения о заблокированных пользователях](/assets/images/help/settings/warn-block-user.png)
 
-### Blocking a user from their profile page
+## Блокировка пользователя на его странице профиля
 
-{% data reusables.profile.user_profile_page_navigation %}
-{% data reusables.profile.user_profile_page_block_or_report %}
-3. Click **Block user**. ![Modal box with options to block user or report abuse](/assets/images/help/profile/profile-blockuser.png)
+{% data reusables.profile.user_profile_page_navigation %} {% data reusables.profile.user_profile_page_block_or_report %}
+3. Нажмите кнопку **Заблокировать пользователя**.
+   ![Модальное поле с вариантами для блокировки пользователя или сообщения о нарушении](/assets/images/help/profile/profile-blockuser.png)
 
 {% note %}
 
-Use {% data variables.contact.report_abuse %} to contact us if you're being harassed. {% data reusables.policies.abuse %}
+Используйте кнопку {% data variables.contact.report_abuse %}, чтобы связаться с нами, если вы подверглись преследованиям. {% data reusables.policies.abuse %}
 
 {% endnote %}
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[Viewing users you've blocked from your personal account](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
-- "[Unblocking a user from your personal account](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-- "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"
+- [Просмотр пользователей, заблокированных из вашей личной учетной записи](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)
+- [Разблокировка пользователя из вашей личной учетной записи](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)
+- [Блокировка пользователя из вашей организации](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)
+- [Разблокировка пользователя из вашей организации](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)
+- [Сообщение о нарушении или спаме](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
+- [Ограничение взаимодействий в вашем репозитории](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)

@@ -1,3 +1,21 @@
-You can create up to ten sponsorship tiers for sponsors to choose from. Each tier has its own monthly or one-time payment amount in US dollars and benefits, such as receiving early access to new versions or being featured in the project's README. In addition, you can choose to enable tiers for custom amounts (monthly and one-time).
+---
+ms.openlocfilehash: 17801362579b28d816e3e5a4a07c1399884814b2
+ms.sourcegitcommit: 474603237fcc20c82947e5c8c68624749c445b21
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/03/2022
+ms.locfileid: "148008745"
+---
+Вы можете опубликовать до 10 однократных уровней спонсорства и 10 ежемесячных уровней для спонсоров, чтобы выбрать один из них. Каждый уровень имеет собственную одноразовую или ежемесячную сумму платежа в долларах США. Уровни публикации являются необязательными.
 
-Once you have published a tier, you can't edit the price of that tier. Instead, you must retire the tier and create a new tier. Existing sponsors will remain on the retired tier until they change their sponsorship tier, cancel their sponsorship, or their one-time sponsorship period expires.
+Для каждого уровня можно настроить вознаграждения. Например, можно определить следующие вознаграждения для уровня:
+- ранний доступ к новым версиям; 
+- включение логотипа или имени в файл README;
+- обновления еженедельного бюллетеня;
+- другие вознаграждения, которые могут привлечь спонсоров. ✨ 
+
+{% data reusables.sponsors.sponsors-only-repos %} Дополнительные сведения см. в разделе [Добавление репозитория для уровня спонсорского предложения](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier).
+
+Вы можете добавить приветственное сообщение со сведениями о доступе к вознаграждениям или их получении, которое будет отображаться после оплаты и в приветственном сообщении электронной почты.
+
+После публикации уровня изменить его цену нельзя. Чтобы сделать это, вам придется прекратить использование уровня и создать вместо него новый. Существующие спонсоры будут оставаться на уровне, использование которого прекращено, до тех пор, пока они не изменят свой уровень спонсорского предложения, не отменят спонсорское предложение или пока не истечет срок действия спонсорского предложения с разовым платежом.

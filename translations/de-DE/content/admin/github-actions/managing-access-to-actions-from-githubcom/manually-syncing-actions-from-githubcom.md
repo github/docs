@@ -1,52 +1,67 @@
 ---
-title: Manually syncing actions from GitHub.com
-intro: 'For users that need access to actions from {% data variables.product.prodname_dotcom_the_website %}, you can sync specific actions to your enterprise.'
+title: Manuelles Synchronisieren von Aktionen über GitHub.com
+intro: 'Für Benutzer*innen, die Zugriff auf Aktionen von {% data variables.product.prodname_dotcom_the_website %} benötigen, kannst du bestimmte Aktionen in deinem Unternehmen synchronisieren.'
 redirect_from:
   - /enterprise/admin/github-actions/manually-syncing-actions-from-githubcom
   - /admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: '*'
+type: tutorial
 topics:
+  - Actions
   - Enterprise
+shortTitle: Manually sync actions
+ms.openlocfilehash: f4fe3aaecfa805b2a5966c0b2c41399529c2040e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107269'
 ---
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %} . For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+{% ifversion ghes or ghae %}
 
-However, if you want stricter control over which actions are allowed in your enterprise, you can follow this guide to use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise.
+Wenn du Zugriff auf Aktionen von {% data variables.product.prodname_dotcom_the_website %} aktivieren möchtest, besteht die empfohlene Vorgehensweise darin, automatischen Zugriff auf alle Aktionen zu aktivieren. Dazu verwendest du {% data variables.product.prodname_github_connect %}, um {% data variables.product.product_name %} mit {% data variables.product.prodname_ghe_cloud %} zu integrieren. Weitere Informationen findest du unter [Aktivieren des automatischen Zugriffs auf {% data variables.product.prodname_dotcom_the_website %}-Aktionen mithilfe von {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
-### About the `actions-sync` tool
+Wenn du jedoch eine strengere Kontrolle darüber wünschst, welche Aktionen in deinem Unternehmen zulässig sind, kannst{% else %}du{% endif %} diesem Leitfaden folgen, um das Open-Source-[`actions-sync`](https://github.com/actions/actions-sync)-Tool von {% data variables.product.company_short %} dazu zu verwenden, einzelne Aktionsrepositorys von {% data variables.product.prodname_dotcom_the_website %} mit deinem Unternehmen zu synchronisieren.
 
-The `actions-sync` tool must be run on a machine that can access the {% data variables.product.prodname_dotcom_the_website %} API and your {% data variables.product.product_name %} instance's API. The machine doesn't need to be connected to both at the same time.
+## Informationen zum `actions-sync`-Tool
 
-If your machine has access to both systems at the same time, you can do the sync with a single `actions-sync sync` command. If you can only access one system at a time, you can use the `actions-sync pull` and `push` commands.
+Das `actions-sync`-Tool muss auf einem Computer ausgeführt werden, von dem auf die {% data variables.product.prodname_dotcom_the_website %}-API sowie auf die API deiner {% data variables.product.product_name %}-Instanz zugegriffen werden kann. Der Computer muss nicht gleichzeitig mit beiden APIs verbunden sein.
 
-The `actions-sync` tool can only download actions from {% data variables.product.prodname_dotcom_the_website %} that are stored in public repositories.
+Wenn mit dem Computer auf beide Systeme gleichzeitig zugegriffen werden kann, kannst du die Synchronisierung mit einem einzelnen `actions-sync sync`-Befehl ausführen. Wenn du jeweils nur auf ein System zugreifen kannst, kannst du die Befehle `actions-sync pull` und `push` verwenden.
 
-### Vorrausetzungen
+Mit dem `actions-sync`-Tool können nur Aktionen von {% data variables.product.prodname_dotcom_the_website %} heruntergeladen werden, die in öffentlichen Repositorys gespeichert sind.
 
-* Before using the `actions-sync` tool, you must ensure that all destination organizations already exist in your enterprise. The following example demonstrates how to sync actions to an organization named `synced-actions`. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
-* You must create a personal access token (PAT) on your enterprise that can create and write to repositories in the destination organizations. Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
-* If you want to sync the bundled actions in the `actions` organization on {% data variables.product.product_location %}, you must be an owner of the `actions` organization.
+{% note %}
+
+**Hinweis:** Das `actions-sync`-Tool ist für die Verwendung auf Systemen vorgesehen, auf denen {% data variables.product.prodname_github_connect %} nicht aktiviert ist. Wenn du das Tool auf einem System ausführst, auf dem {% data variables.product.prodname_github_connect %} aktiviert ist, wird möglicherweise der Fehler `The repository <repo_name> has been retired and cannot be reused` angezeigt. Dies deutet darauf hin, dass ein Workflow die Aktion direkt auf {% data variables.product.prodname_dotcom_the_website %} verwendet hat und der Namespace auf {% data variables.location.product_location %} deaktiviert ist. Weitere Informationen findest du unter [Automatisches Deaktivieren von Namespaces für Aktionen, auf die über {% data variables.product.prodname_dotcom_the_website%} zugegriffen wird](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom). 
+
+{% endnote %}
+
+## Voraussetzungen
+
+* Bevor du das `actions-sync`-Tool verwendest, musst du dich vergewissern, dass alle Zielorganisationen bereits in deinem Unternehmen vorhanden bist. Im folgenden Beispiel wird veranschaulicht, wie Aktionen mit einer Organisation namens `synced-actions` synchronisiert werden. Weitere Informationen findest du unter [Erstellen einer neuen Organisation von Grund auf](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
+* Du musst ein persönliches Zugriffstoken {% data variables.product.pat_generic %} für dein Unternehmen erstellen, mit dem das Erstellen und Schreiben in Repositorys in den Zielorganisationen möglich ist. Weitere Informationen findest du unter [Erstellen eines {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token).{% ifversion ghes %}
+* Wenn du die gebündelten Aktionen in der Organisation `actions` in {% data variables.location.product_location %} synchronisieren möchtest, musst du Besitzer der Organisation `actions` sein.
 
   {% note %}
-
-  **Note:** By default, even site administrators are not owners of the bundled `actions` organization.
-
+  
+  **Hinweis:** Standardmäßig sind nicht einmal Websiteadministratoren Besitzer der Organisation `actions` mit den gebündelten Aktionen.
+  
   {% endnote %}
 
-  Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)."
+  Websiteadministratoren können den Befehl `ghe-org-admin-promote` in der Verwaltungsshell verwenden, um einen Benutzer zum Besitzer der Organisation `actions` mit den gebündelten Aktionen hochzustufen. Weitere Informationen findest du unter [Zugreifen auf die Verwaltungsshell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh) und [`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote).
 
   ```shell
-  ghe-org-admin-promote -u <em>USERNAME</em> -o actions
-  ```
+  ghe-org-admin-promote -u USERNAME -o actions
+  ```{% endif %}
 
-### Example: Using the `actions-sync` tool
+## Example: Using the `actions-sync` tool
 
 This example demonstrates using the `actions-sync` tool to sync an individual action from {% data variables.product.prodname_dotcom_the_website %} to an enterprise instance.
 
@@ -65,23 +80,23 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
      --cache-dir "cache" \
      --destination-token "aabbccddeeffgg" \
      --destination-url "https://my-ghes-instance" \
-     --repo-name "docker/build-push-action:synced-actions/docker-build-push-action"
+     --repo-name "actions/stale:synced-actions/actions-stale"
    ```
 
-   The above command uses the following arguments:
+   Im obigen Befehl werden die folgenden Argumente verwendet:
 
-   * `--cache-dir`: The cache directory on the machine running the command.
-   * `--destination-token`: A personal access token for the destination enterprise instance.
-   * `--destination-url`: The URL of the destination enterprise instance.
-   * `--repo-name`: The action repository to sync. This takes the format of `owner/repository:destination_owner/destination_repository`.
-
-     * The above example syncs the [`docker/build-push-action`](https://github.com/docker/build-push-action) repository to the `synced-actions/docker-build-push-action` repository on the destination enterprise instance. You must create the organization named `synced-actions` in your enterprise before running the above command.
-     * If you omit `:destination_owner/destination_repository`, the tool uses the original owner and repository name for your enterprise. Before running the command, you must create a new organization in your enterprise that matches the owner name of the action. Consider using a central organization to store the synced actions in your enterprise, as this means you will not need to create multiple new organizations if you sync actions from different owners.
-     * You can sync multiple actions by replacing the `--repo-name` parameter with `--repo-name-list` or `--repo-name-list-file`. For more information, see the [`actions-sync` README](https://github.com/actions/actions-sync#actions-sync).
-1. After the action repository is created in your enterprise, people in your enterprise can use the destination repository to reference the action in their workflows. For the example action shown above:
-
+   * `--cache-dir`: Das Cacheverzeichnis auf dem Computer, auf dem der Befehl ausgeführt wird.
+   * `--destination-token`: Ein {% data variables.product.pat_generic %} für die Zielunternehmensinstanz.
+   * `--destination-url`: Die URL der Zielunternehmensinstanz.
+   * `--repo-name`: Das Aktionsrepository, das synchronisiert werden soll. Dieses nimmt das Format `owner/repository:destination_owner/destination_repository` an.
+     
+     * Im obigen Beispiel wird das Repository [`actions/stale`](https://github.com/actions/stale) mit dem Repository `synced-actions/actions-stale` in der Zielunternehmensinstanz synchronisiert. Du musst die Organisation namens `synced-actions` in deinem Unternehmen erstellen, bevor du den obigen Befehl ausführst.
+     * Wenn du `:destination_owner/destination_repository` weglässt, wird vom Tool der ursprüngliche Besitzer- und Repositoryname für dein Unternehmen verwendet. Bevor du den Befehl ausführst, musst du eine neue Organisation in deinem Unternehmen erstellen, die dem Besitzernamen der Aktion entspricht. Verwende am besten eine zentrale Organisation, um die synchronisierten Aktionen in deinem Unternehmen zu speichern, da dies bedeutet, dass du nicht mehrere neue Organisationen erstellen musst, wenn du Aktionen von verschiedenen Besitzern synchronisierst.
+     * Du kannst mehrere Aktionen synchronisieren, indem du den Parameter `--repo-name` durch `--repo-name-list` oder `--repo-name-list-file` ersetzt. Weitere Informationen findest du in der [`actions-sync`-Infodatei](https://github.com/actions/actions-sync#actions-sync).
+1. Nachdem das Aktionsrepository in deinem Unternehmen erstellt wurde, können Personen in deinem Unternehmen das Zielrepository verwenden, um in ihren Workflows auf die Aktion zu verweisen. Für die oben gezeigte Beispielaktion:
+   
    ```yaml
-   uses: synced-actions/docker-build-push-action@v1
+   uses: synced-actions/actions-stale@v1
    ```
 
-   Weitere Informationen findest Du unter „[Workflow-Syntax für GitHub-Aktionen](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
+   Weitere Informationen findest du unter [Workflowsyntax für GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses).

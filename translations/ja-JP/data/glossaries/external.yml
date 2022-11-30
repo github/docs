@@ -1,763 +1,788 @@
----
-- 
-  term: '@メンション'
-  description: ユーザ名の前に「@」を使用して GitHub 上の個人に通知。GitHub 上の Organization 内のユーザも、メンション可能な Team の一部になることができます。
-- 
-  term: アクセストークン
-  description: >-
-    Git 操作を HTTPS 経由で実行する際、Git がコマンドラインと API のいずれでも、パスワードの代わりに使用されるトークン。個人アクセストークンともいいます。
-- 
-  term: アカウントリカバリトークン
-  description: >-
-    Recover Accounts Elsewhere というアカウントリカバリセットアップの一部として格納される認証資格情報。このバックアップ資格情報を格納できるようにします。
-- 
-  term: APIプレビュー
-  description: >-
-    新規の API や既存の API メソッドへの変更が公式 GitHub API の一部になる前に試すための方法。
-- 
-  term: アプライアンス
-  description: >-
-    Just Enough Operating System（JeOS）と結合して業界標準ハードウェア（通常はサーバ）または仮想マシンで最適に動作するソフトウエアアプリケーション。
-- 
-  term: assignee
-  description: Issue に割り当てられたユーザ。
-- 
-  term: 認証コード
-  description: >-
-    ブラウザから2FA でサインインする際、GitHub パスワードに加えて入力するコード。このコードは、アプリケーションで生成されるか、テキストメッセージによってスマートフォンに送信されます。「2FA 認証コード」ともいいます。
-- 
-  term: ベースブランチ
-  description: プルリクエストをマージする際に変更が組み込まれるブランチ。プルリクエストを作成する際には、必要であればベースブランチをリポジトリのデフォルトブランチから他のブランチに変更できます。
-- 
-  term: Basic認証
-  description: >-
-    認証情報が暗号化されていないテキストで送信された場合の認証の方法。
-- 
-  term: 略歴
-  description: >-
-    プロフィールに存在する、ユーザが生成した記述:[プロフィールに略歴を追加](/articles/adding-a-bio-to-your-profile)
-- 
-  term: 支払いサイクル
-  description: 特定の支払いプランの時間間隔。
-- 
-  term: 支払い請求先メールアドレス
-  description: >-
-    GitHub から領収書やクレジットカードまたは PayPal の費用など支払い関連の連絡事項を送信する、Organization のメール アドレス。
-- 
-  term: 支払いマネージャー
-  description: Organization の支払い設定を管理する Organization メンバー。
-- 
-  term: 支払いプラン
-  description: >-
-    ユーザおよび Organization の支払いプランで、プランの各タイプの機能セットを含むもの。
-- 
-  term: blame
-  description: >-
-    Git の「blame」機能とは、ファイルの各行で最後に行われた修正について説明するものであり、通常はリビジョン、作者、および日時を表示します。これは、機能が追加された日時や特定のバグを引き起こしたコミットを突き止める場合などに有用です。
-- 
-  term: ブロック
-  description: >-
-    ユーザから Organization のリポジトリでコラボレーションをする資格を削除すること。
-- 
-  term: ブランチ
-  description: >-
-    ブランチとは、リポジトリの並列バージョンです。リポジトリの中に含まれますが、プライマリブランチやmainブランチには影響を与えず、「本番」のバージョンを乱すことなく自由に作業できるようにします。意図して変更を加えた場合、そのブランチをmainブランチにマージすると、変更内容を公開することができます。
-- 
-  term: ブランチ制限
-  description: >-
-    リポジトリの管理者が有効化できる制限で、特定のユーザまたは Team のみがブランチをプッシュしたりブランチに変更を加えたりできるようにするもの。
-- 
-  term: Businessプラン
-  description: >-
-    Organization の支払いプランで、無制限のパブリックリポジトリおよびプライベートリポジトリでのコラボレーションをすることや、Organization のメンバーに対し GitHub への SAML SSO を使用した認証を許可したり要求したりすることや、SAML or SCIM によるアクセスをプロビジョニングおよびデプロビジョニングすることができるもの。
-- 
-  term: CA証明書
-  description: >-
-    証明書認証局（CA）から発行されるデジタル証明書。2 つのマシン（ユーザのコンピュータと GitHub.com など）の間の有効な接続を確保し、サイトの所有権を検証します。
-- 
-  term: カード
-  description: Issue またはプルリクエストに関連付けられたプロジェクトボード内にある、移動可能な正方形。
-- 
-  term: チェック
-  description: >-
-    チェックは、{% data variables.product.product_name %}上のステータスチェックの一種です。「[ステータスチェック](#status-checks)」を参照してください。
-- 
-  term: チェックアウト
-  description: >-
-    「git checkout」は、コマンドラインで使用して、新規ブランチを作成したり、作業中のブランチを別のブランチに変更したりします。「git checkout [branchname] [ファイルへのパス]」と指定すれば、別のブランチからファイルの別のバージョンに切り替えることができます。「チェックアウト」アクションでは、ワーキングツリーの全部または一部をオブジェクトデータベースのツリーオブジェクトまたは blob で更新します。また、ワーキングツリー全体が新規ブランチをポイントしている場合は、インデックスおよび HEAD を更新します。
-- 
-  term: チェリーピック（する）
-  description: >-
-    変更のサブセットを一連の変更（通常はコミット）から選択して、新しい一連の変更を別の codebase 上に記録すること。Git では、これは「git cherry-pick」コマンドで実行するもので、別のブランチ上に存在するコミットによって引き起された変更を抽出し、現在のブランチの先端に基づき新規コミットとして記録します。詳しい情報については、Gitのドキュメンテーションの[git-cherry-pick](https://git-scm.com/docs/git-cherry-pick)を参照してください。
-- 
-  term: 子チーム
-  description: >-
-    入れ子チーム内で、親チームのアクセス権限と@メンションを継承するサブチーム。
-- 
-  term: クリーン
-  description: >-
-    ワーキングツリーは、現在のHEADによって参照されるリビジョンに対応していればクリーンです。「ダーティ」も参照してください。
-- 
-  term: クローン
-  description: >-
-    クローンとは、コンピュータ上に存在するリポジトリのコピーです。ウェブサイトのサーバ上のどこかにあるのではなく、またそのコピーを作成する動作とも異なります。クローンを作成すると、お気に入りのエディタでファイルを編集できるようになり、オンラインになっていなくても Git を使用して変更を追跡できます。クローン作成元のリポジトリもリモートバージョンへの接続が切れることはないので、オンラインになればローカルでの変更をリモートにプッシュすることで同期が取れます。
-- 
-  term: クラスタリング
-  description: >-
-    複数のノードにわたって、また当該ノード間のロードバランスリクエスト間で、GitHub Enterprise サービスを実行する機能。
-- 
-  term: コード更新頻度グラフ
-  description: >-
-    リポジトリの履歴にある各週のコンテンツの追加と削除を表示するリポジトリグラフ。
-- 
-  term: 行動規範
-  description: コミュニティへの参加方法の基準を定義したドキュメント。
-- 
-  term: コードオーナー'
-  description: >-
-    リポジトリのコードのある部分のオーナーに指名された個人。コードオーナーは、そのコードオーナーが所有するコードに対して変更を加えるプルリクエスト（ドラフトモードでないもの）を誰かがオープンした際、レビューをするよう自動的にリクエストされます。
-- 
-  term: コラボレータ
-  description: >-
-    コラボレータとは、リポジトリに対する読み取りおよび書き込みアクセスがあり、コントリビューションをするようリポジトリオーナーから招待されている個人です。
-- 
-  term: コミット
-  description: >-
-    コミット、または「リビジョン」とは、ファイル（またはファイルのセット）に対する個々の変更です。コミットをして変更を保存すると、Git では一意の ID（別名「SHA」または「ハッシュ」）が作成され、コミットした特定の変更に加え、誰がいつ変更したかの記録を保持できます。コミットには通常、何の変更が加えられたかを手短に記載したコミットメッセージ が含まれます。
-- 
-  term: コミット作者
-  description: コミットをするユーザ。
-- 
-  term: コミットグラフ
-  description: >-
-    あるリポジトリに対して行われた過去 1 年間のすべてのコミットを表示するリポジトリグラフ。
-- 
-  term: コミットID
-  description: 別名 SHA。コミットを特定する 40 文字のチェックサムハッシュ。
-- 
-  term: コミットメッセージ
-  description: >-
-    コミットに付随し、コミットで導入されてくる変更について伝達する、手短な説明のテキスト。
-- 
-  term: 比較ブランチ
-  description: >-
-    プルリクエストを作成するのに使うブランチ。このブランチは、プルリクエストについて選択したベースブランチと比較され、変更分が特定されます。プルリクエストがマージされる際には、ベースブランチは比較ブランチからの変更分で更新されます。プルリクエストの「headブランチ」とも呼ばれます。
-- 
-  term: 継続的インテグレーション
-  description: >-
-    別名 CI。自動化されたビルドを実行し、GitHub 上に設定されたリポジトリに対して個人が変更をコミットしたらテストするプロセス。CI はソフトウェア開発で一般的なベストプラクティスであり、エラーの検出を支援します。
-- 
-  term: コントリビューショングラフ
-  description: >-
-    ユーザのプロフィールの一部であり、最大 1 年の期間にわたるコントリビューションを 1 日ごとに表示するもの。
-- 
-  term: コントリビューションガイドライン
-  description: 各個人がプロジェクトにコントリビューションをする方法を説明したドキュメント。
-- 
-  term: コントリビューション
-  description: >-
-    GitHub で次のことを行う特定のアクティビティ。- ユーザのコントリビューショングラフに正方形を追加：「[コントリビューションとしてカウントされるもの]（/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution）」- ユーザのプロフィール上でタイムラインにアクティビティを追加：「[コントリビューションアクティビティ]（/articles/viewing-contributions-on-your-profile/#contribution-activity）」
-- 
-  term: コントリビューター
-  description: >-
-    コントリビュータとは、リポジトリへのコラボレーターアクセスはないが、プロジェクトへのコントリビューションをしており、 オープンしたプルリクエストがリポジトリにマージされた個人です。
-- 
-  term: コントリビュータグラフ
-  description: リポジトリへのコントリビュータ上位 100 人を表示するリポジトリグラフ。
-- 
-  term: クーポン
-  description: >-
-    ユーザや Organization が全部または一部のプランの支払いをするのに使用できる、GitHub 提供のコード。
-- 
-  term: クーロン
-  description: Unix のようなコンピュータオペレーティングシステムでの、時間ベースのジョブスケジューラ。
-- 
-  term: cURL
-  description: データを転送するためにコマンドラインまたはスクリプトで使用。
-- 
-  term: ダッシュボード
-  description: >-
-    パーソナルダッシュボードは、GitHub上のアクティビティのメインハブです。パーソナルダッシュボードから、フォローまたは作業をしているIssueやプルリクエストを追跡したり、トップリポジトリやTeamページにアクセスしたり、Watchまたは参加しているリポジトリ内の最近のアクティビティについて学ぶことができます。また、フォローしているユーザーやStarしたリポジトリに基づいて推薦された、新しいリポジトリを発見することもできます。特定のOrganizationのアクティビティだけを見るには、Organizationのダッシュボードにアクセスしてください。詳しい情報については「[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)」もしくは「[Organizationダッシュボードについて](/articles/about-your-organization-dashboard)」を参照してください。
-- 
-  term: デフォルトブランチ
-  description: >-
-    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
-- 
-  term: 依存グラフ
-  description: >-
-    パブリックリポジトリに依存するパッケージ、プロジェクト、リポジトリを表示するリポジトリグラフ。
-- 
-  term: 依存関係グラフ
-  description: >-
-    リポジトリが依存するパッケージおよびプロジェクトを表示するリポジトリグラフ。
-- 
-  term: デプロイキー
-  description: >-
-    デプロイキーとは、サーバに格納され、GitHub リポジトリ 1 つにアクセスを許可する SSH キーです。このキーはリポジトリに直接アタッチされ、個人のユーザアカウントの代わりとなります。
-- 
-  term: 切り離されたHEAD (detached HEAD)
-  description: >-
-    Git では、切り離された HEAD を変更しようとすると、Git ではブランチをポイントしていない、コミットをしてもコミット履歴には表示されない、という警告を発します。たとえば、任意のコミットをチェックアウトしても、それがどの特定のブランチでも最新のコミットではない場合、それは「切り離された HEAD」を変更しようとしているのです。
-- 
-  term: Diagnostics
-  description: GitHub Enterprise インスタンスの設定および環境の概要。
-- 
-  term: diff
-  description: >-
-    diff とは、2 つのコミット（保存された変更）間での変更の差異です。diff では、最後のコミットから後にファイルで追加または削除されたものが視覚的に描写されます。
-- 
-  term: ダーティ
-  description: >-
-    ワーキングツリーは、現在のブランチに対してコミットされていない修正が含まれている場合、「ダーティ」と見なされます。
-- 
-  term: メール通知
-  description: ユーザのメールアドレスに送信される通知。
-- 
-  term: Enterprise アカウント
-  description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
-- 
-  term: Explorer
-  description: >-
-    GraphiQL（「グラフィカルインタラクティブインブラウザ GraphQL IDE」のこと）のインスタンス。
-- 
-  term: fast-forward
-  description: >-
-    fast-forward とは特別なタイプのマージであり、リビジョンがあって別のブランチでの変更を「マージしようとしている」 が、その変更箇所が偶然に当のリビジョンの下位である場合に行われます。こうしたケースでは、新たなマージコミットはしない代わりに、単にそのリビジョンを更新します。これはリモートリポジトリのリモート追跡ブランチで頻繁に発生します。
-- 
-  term: フィーチャブランチ
-  description: >-
-    新しい機能の実験や本番環境にない Issue の修正に使用されるブランチ。トピックブランチともいいます。
-- 
-  term: コードブロック
-  description: 'コードのインデントされているブロック。GitHub Flavored Markdown でコードブロックの前後に 3 つのバッククォート（¥`¥`¥`）を使用することで作成できます。[example]（/articles/creating-and-highlighting-code-blocks#fenced-code-blocks）を参照。'
-- 
-  term: フェッチ
-  description: >-
-    「git fetch」を使用するのは、ローカルで変更中のブランチにリモートリポジトリから変更をコミットなしで追加する場合です。「git pull」とは異なり、フェッチすると、ローカルブランチに対してコミットする前に変更をレビューすることができます。
-- 
-  term: フォロー
-  description: 別のユーザのコントリビューションとアクティビティについて通知を受けること。
-- 
-  term: フォースプッシュ
-  description: >-
-    コンフリクトを考慮せずにリモートリポジトリをローカルでの変更で上書きする git push。
-- 
-  term: フォーク
-  description: >-
-    フォークとは、個人が別のユーザのリポジトリをコピーしたものであり、その個人のアカウントに存在します。フォークであれば、元の上流リポジトリに影響を与えることなしに、プロジェクトに対して自由に変更を加えることができます。また、いずれのリポジトリも接続は切れていないので、上流リポジトリでプルリクエストをオープンしてフォークと最新の変更とが常に同期されるようにすることもできます。
-- 
-  term: Freeプラン
-  description: >-
-    ユーザアカウントの支払いプランで、無料のもの。ユーザがコラボレーションできるパブリックリポジトリは無制限、コラボレータも無制限です。
-- 
-  term: Gist
-  description: >-
-    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% if currentVersion == "github-ae@latest" %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% if currentVersion == "github-ae@latest" %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
-- 
-  term: Git
-  description: >-
-    Git とは、テキストファイルでの変更を追跡するためのオープンソースプログラムです。Linux オペレーティングシステムの作者によって記述された、この重要な技術の上に、ソーシャルおよびユーザインターフェース GitHub は構築されているのです。
-- 
-  term: GitHub App
-  description: >-
-    GitHub App は、Organization 全体に対してサービスを提供し、その機能を実行する際は独自の ID を使用します。Organization や ユーザアカウントに直接インストールでき、特定のリポジトリへのアクセス権を付与できます。精細なアクセス権限が付いており、webhook が組み込まれています。
-- 
-  term: GitHub Flavored Markdown
-  description: GitHub 特有の Markdown であり、GitHub 全体で文章やコードをフォーマットするのに使用されます。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
-- 
-  term: GitHub Importer
-  description: >-
-    ソースコードリポジトリ（コミットやリビジョン履歴を含む）を素早くインポートするツール。
-- 
-  term: GitHub Jobs
-  description: >-
-    GitHub ユーザが興味を持ちそうなジョブを雇用者がポストできる GitHub サイト。
-- 
-  term: GitHub Marketplace
-  description: >-
-    GitHub ユーザや Organization がワークフローを拡張したり補足したりするアプリケーションを購入してインストールするためのサブサイト。
-- 
-  term: GitHub Pages
-  description: >-
-    別名 Pages。個人、Organization、またはプロジェクトのページを GitHub リポジトリから直接ホストするように設計された静的サイトホスティングサービス。
-- 
-  term: GitHub Wiki
-  description: wiki スタイルのドキュメントを GitHub リポジトリ上でホストするためのセクション。
-- 
-  term: gitfile
-  description: >-
-    プレーン「.git」ファイル。常にワーキングツリーのルートにあり、Git ディレクトリ（Git リポジトリとそのメタデータの全体がある）をポイントします。このファイルは、自分のリポジトリ、実リポジトリであれば、コマンドラインで「git rev-parse --git-dir」によって表示できます。
-- 
-  term: GraphQL
-  description: >-
-    API のクエリ言語、およびそのクエリに既存のデータを入力するためのランタイム。
-- 
-  term: HEAD
-  description: ブランチの定義済みコミット。通常はブランチの先頭にある最新のコミットです。
-- 
-  term: headブランチ
-  description: プルリクエストをマージする際にベースブランチに変更が組み込まれるブランチ。「比較ブランチ」とも呼ばれます。
-- 
-  term: 'Hello, World'
-  description: >-
-    「Hello, World!」プログラムは、ユーザに対し「Hello, World!」を出力または表示するコンピュータプログラムです。このプログラムは非常にシンプルであることが多く、プログラミング言語の基本構文の例としてよく使用され、新しいプログラミング言語の学習で一般的な最初の演習となります。
-- 
-  term: High Availability
-  description: >-
-    動作を長時間継続することが望ましいシステムまたはコンポーネント。
-- 
-  term: フック
-  description: >-
-    いくつかの Git コマンドでは、通常の実行中にオプションのスクリプトが呼び出され、開発者が機能やチェックを追加できるようになります。通常は、フックによってコマンドが事前検証され、場合によっては中止され、 また動作の完了後に事後通知がされるようになります。
-- 
-  term: ホスト名
-  description: >-
-    ネットワークに接続されているデバイスのアドレスに対応する、人間が読めるニックネーム。
-- 
-  term: アイデンティコン
-  description: >-
-    ユーザが GitHub にサインアップした際にデフォルトのプロフィール画像として使用される、自動生成された画像。ユーザは自分のアイデンティコンを独自のプロフィール画像に置き換えることができます。
-- 
-  term: アイデンティティプロバイダ
-  description: >-
-    別名 IdP。ウェブサイトへのアクセスに SAML シングルサインオン（SSO）を使用できるようにする、信頼されているプロバイダ。
-- 
-  term: インスタンス
-  description: >-
-    Organization による GitHub のプライベートコピー。Organization で設定して制御する仮想マシン内に含まれています。
-- 
-  term: インテグレーション
-  description: >-
-    サードパーティ製アプリケーションで、GitHub に統合されるもの。GitHub App、OAuth App、webhook などです。
-- 
-  term: Issue
-  description: >-
-    Issue とは、 リポジトリに関して提起された改善、タスクまたは質問です。Issue は（パブリックリポジトリについては）誰でも作成でき、リポジトリコラボレータによるモデレーションがされます。Issue ごとに専用のディスカッションスレッドが含まれます。Issue をラベルによって分類すれば、誰かに割り当てることもできます。
-- 
-  term: Jekyll
-  description: 個人、Organization、またはプロジェクトのサイト向け静的サイトジェネレータ。
-- 
-  term: Jekyll テーマ選択画面
-  description: >-
-    Jekyll サイトで CSS ファイルを編集したりコピーしたりせずにビジュアルテーマを選択するための、自動化された方法。
-- 
-  term: キーフィンガープリント
-  description: 長い公開鍵を識別するのに使用される、短いシーケンスのバイト。
-- 
-  term: キーチェーン
-  description: macOS のパスワード管理システム。
-- 
-  term: キーワード
-  description: プルリクエスト内で使用される場合に Issue をクローズする、特定のワード。
-- 
-  term: ラベル
-  description: >-
-    Issue またはプルリクエストのタグ。リポジトリにはデフォルトで少数のラベルが付いてきますが、ユーザはカスタムラベルを作成できます。
-- 
-  term: LFS
-  description: >-
-    Git Large File Storage。大きいファイルのバージョン管理に向けた Git のオープンソース拡張。
-- 
-  term: ライセンス
-  description: >-
-    ソースコードでできることとできないこととを各個人に把握してもらうために、プロジェクトに含めるドキュメント。
-- 
-  term: Linguist
-  description: >-
-    GitHub で使用されるライブラリであり、blob 言語を検出し、バイナリファイルやベンダーされたファイルを無視し、diff で生成されたファイルを非表示にし、言語別グラフを生成するもの。
-- 
-  term: 行コメント
-  description: プルリクエスト内でコードの特定の行にあるコメント。
-- 
-  term: 行終端
-  description: >-
-    テキストファイルの行末をシンボル化した、1 つ以上の非表示文字。
-- 
-  term: ロックされた個人アカウント
-  description: >-
-    ユーザがアクセスできない個人アカウント。ユーザが有料アカウントを無料のものにダウングレードした場合、または有料プランの支払いが期限を過ぎた場合、アカウントはロックされます。
-- 
-  term: Management Console
-  description: >-
-    GitHub Enterprise インターフェース内で、管理機能を含むセクション。
-- 
-  term: Markdown
-  description: >-
-    Markdown は非常にシンプルでセマンティックファイル形式であり、.doc、.rtf 、.txtと大差ありません。Markdown はウェブパブリッシングの素養がない人でも簡単に文章（リンク、リスト、箇条書きなど）を書いたりウェブサイトのように表示したりできます。GitHub では Markdown をサポートしており、GitHub Flavored Markdown という特定の形式の Markdown を使用します。[GitHub Flavored Markdown の仕様](https://github.github.com/gfm/)または [GitHub で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)を参照。
-- 
-  term: マークアップ
-  description: ドキュメントのアノテーションおよびフォーマットのためのシステム。
-- 
-  term: main
-  description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}デフォルトの開発ブランチ。Gitリポジトリを作成すると、`main`という名前のブランチが作成され、アクティブなブランチになります。ほとんどの場合、これにはローカルの開発が含まれますが、これは純粋に慣例によるものであり、必須ではありません。{% else %}リポジトリのデフォルトブランチに対して、`master`の代わりとしてしばしば選択される名前。{% endif %}
-- 
-  term: master
-  description: >-
-    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
-- 
-  term: メンバーグラフ
-  description: リポジトリのすべてのフォークを表示するリポジトリグラフ。
-- 
-  term: メンション
-  description: >-
-    ユーザ名の前に @ 記号を付けることによってユーザに送信される通知。GitHub 上の Organization 内のユーザも、メンション可能な Team の一部になることができます。
-- 
-  term: マージ
-  description: >-
-    マージとは、1 つのブランチから（同じリポジトリ内で、またはフォークから）変更を取得し、その変更を別のブランチに適用することです。これは多くの場合、「プルリクエスト」として（マージのリクエストと考えることができます）、またはコマンドライン経由で発生します。マージは、コンフリクトのある変更がない場合、GitHub.com ウェブインターフェース経由のプルリクエストによって実行できます。コマンドライン経由なら、いつでも実行できます。
-- 
-  term: マージコンフリクト
-  description: >-
-    マージされるブランチ間で起こる差異。マージコンフリクトが発生するのは、複数の個人が同じファイルの同じ行に異なった変更を加えた場合や、ある個人があるファイルを編集して別の個人がそれと同じファイルを削除した場合です。マージコンフリクトが解決されないと、ブランチをマージできません。
-- 
-  term: マイルストーン
-  description: >-
-    リポジトリ内にある Issue やプルリクエストのグループに関する進行状況を追跡するための方法。
-- 
-  term: ミラー
-  description: リポジトリの新規コピー。
-- 
-  term: 入れ子チーム
-  description: >-
-    親チームの子チーム。子（または入れ子）チームは複数持つことができます。
-- 
-  term: ネットワークグラフ
-  description: >-
-    リポジトリネットワーク全体のブランチ履歴を表示するリポジトリグラフ。ルートリポジトリのブランチと、ネットワークに固有のコミットを含むフォークのブランチが含まれます。
-- 
-  term: ニュースフィード
-  description: >-
-    Watch しているリポジトリまたは個人のアクティビティビュー。Organization のニュースフィードには、Organization が所有するリポジトリでのアクティビティが表示されます。
-- 
-  term: non-fast-forward
-  description: >-
-    リポジトリのローカルコピーが上流リポジトリと同期されていないこと。ローカルの変更をプッシュする前に、上流の変更をフェッチする必要があります。
-- 
-  term: 通知
-  description: >-
-    興味のあるアクティビティについての情報を提供するアップデート。設定によってウェブかメールのいずれかで配布されます。
-- 
-  term: OAuth App
-  description: >-
-    ユーザにまつわる情報にアクセスするためにパスワードよりもアクセストークンを使用するサードパーティアプリケーション。
-- 
-  term: OAuthトークン
-  description: OAuth App でユーザにまつわる情報にアクセスするために使用されるアクセストークン。
-- 
-  term: 外部のコラボレータ
-  description: >-
-    Organization の 1 つ以上のリポジトリに対するアクセス権が付与されているが、その Organization に対する他のアクセス権がなく、その Organization のメンバーでもないユーザ。
-- 
-  term: オープンソース
-  description: >-
-    オープンソースソフトウェアとは、誰でも自由に使用、修正、および（修正済みと未修正のいずれの形式でも）共有できるソフトウェアです。今日では、「オープンソース」の概念はソフトウェアの枠を超えてコラボレーションの哲学をいうことが多く、そのコラボレーションの素材について誰でもオンラインでフォーク、修正、ディスカッション、コントリビューションができます。
-- 
-  term: Organization
-  description: >-
-    Organization とは 2 人以上のユーザのグループであり、通常は実際の組織をミラーしたものです。ユーザによって管理され、リポジトリと Team のいずれも含めることができます。
-- 
-  term: Organizationのオーナー
-  description: 所有する Organization の管理機能にフルアクセスできるユーザ。
-- 
-  term: origin
-  description: >-
-    デフォルトの上流リポジトリ。ほとんどのプロジェクトでは少なくとも上流プロジェクトを 1 つ追跡しています。デフォルトでは、origin がその目的に使用されます。
-- 
-  term: コードオーナー
-  description: >-
-    Organization の管理機能にフルアクセスできる Organization メンバー。
-- 
-  term: 親チーム
-  description: >-
-    入れ子チーム内で、子チームによるアクセス権限と@メンションの継承元になっているメイン Team。
-- 
-  term: 参加通知
-  description: >-
-    ユーザ名または Team がメンションされたか以前にコメントで返信した Issue またはプルリクエスト内の会話にある、アップデートについての通知。
-- 
-  term: パーマリンク
-  description: 特定のウェブページへの永続的な静的ハイパーリンク。
-- 
-  term: 個人アカウント
-  description: >-
-    個々のユーザに帰属する GitHub アカウント。
-- 
-  term: プライマリメールアドレス
-  description: >-
-    GitHub から領収書やクレジットカードまたは PayPal の料金など支払い関連の連絡事項を送信するメインメールアドレス。
-- 
-  term: 固定リポジトリ
-  description: >-
-    ユーザがプロフィール内で目立たせて表示するよう決定したリポジトリ。
-- 
-  term: pre-receive フック
-  description: >-
-    GitHub Enterpriseサーバ上で動作するスクリプトで、品質チェックの実装に利用できるもの。
-- 
-  term: プライベートコントリビューション
-  description: プライベート（パブリックでなく）リポジトリに対して行われるコントリビューション。
-- 
-  term: プライベートリポジトリ
-  description: >-
-    プライベートリポジトリは、コードオーナーが指定したリポジトリオーナーおよびコラボレータのみが参照できます。
-- 
-  term: 本番ブランチ
-  description: >-
-    使用またはアプリケーションやサイトへデプロイするための準備ができている最終変更のあるブランチ。
-- 
-  term: プロフィール
-  description: GitHub 上でのユーザのアクティビティについての情報を表示するページ。
-- 
-  term: プロフィール画像
-  description: >-
-    ユーザが GitHub にアップロードするカスタム画像で、アクティビティを特定するもの。通常はユーザ名に付随します。これはアバターとしても参照されます。
-- 
-  term: プロジェクトボード
-  description: >-
-    列内でカードに分類される Issue、プルリクエスト、ノートから成る、GitHub 内のボード。
-- 
-  term: 保護されたブランチ
-  description: >-
-    保護されたブランチとは、リポジトリ管理者が保護するよう選択したブランチ上で Git のいくつかの機能がブロックされているものです。フォースプッシュ、削除、必須のチェックをパスしていないか必須の承認済みレビューがない変更をマージすること、ファイルを GitHub からアップロードすることはできません。ウェブインターフェースから 保護されたブランチは通常、デフォルトブランチです。
-- 
-  term: パブリックコントリビューション
-  description: パブリック（プライベートでなく）リポジトリに対して行われるコントリビューション。
-- 
-  term: パブリックリポジトリ
-  description: >-
-    パブリックリポジトリは、GitHub ユーザでない個人を含め、誰でも参照できます。
-- 
-  term: プル
-  description: >-
-    プルとは、変更をフェッチしてマージすることをいいます。たとえば、誰かがリモートファイルを編集したが自分もそのファイルを変更している場合に、その変更を自分のローカルコピーにプルして、最新の状態になるようにします。フェッチも参照。
-- 
-  term: プルアクセス
-  description: 読み取りアクセスの同義語。
-- 
-  term: プルリクエスト
-  description: >-
-    プルリクエストとは、リポジトリに対して提案された変更のことです。ユーザがサブミットし、リポジトリのコラボレータが受け入れるか拒否します。Issue と同様、プルリクエストにはそれぞれ独自のディスカッションフォーラムがあります。
-- 
-  term: Pull Requestレビュー
-  description: >-
-    プルリクエストについてのコラボレータからのコメントで、変更を受け入れたり、プルリクエストがマージされる前にさらなる変更をリクエストしたりするもの。
-- 
-  term: パルスグラフ
-  description: リポジトリのアクティビティの概要を示すリポジトリグラフ。
-- 
-  term: パンチグラフ
-  description: >-
-    リポジトリへのアップデートの頻度を曜日または 1 日内の時間に基づいて表示するリポジトリグラフ。
-- 
-  term: プッシュ
-  description: >-
-    プッシュとは、コミットした変更を GitHub.com 上のリモートリポジトリに送信することをいいます。たとえば、ローカルで何かを変更した場合、他の人がその変更にアクセスできるようプッシュします。
-- 
-  term: ブランチをプッシュ
-  description: >-
-    リモートリポジトリへのブランチのプッシュに成功すると、リモートブランチをローカルブランチからの変更分で更新することになります。「ブランチをプッシュ」すると、Gitはリモートリポジトリ中のブランチのHEAD refを探し、それがブランチのローカルのHEAD refの直接の先祖であることを検証します。検証されれば、Gitはすべてのオブジェクト（ローカルのHEAD refから到達でき、リモートのリポジトリにないもの）をリモートオブジェクトデータベースにプッシュし、そしてリモートのHEAD refを更新します。リモートのHEADがローカルのHEADの先祖でなければ、プッシュは失敗します。
-- 
-  term: プッシュアクセス
-  description: 書き込みアクセスの同義語。
-- 
-  term: 読み取りアクセス
-  description: >-
-    リポジトリ上の権限レベルで、リポジトリからの情報をプルする（読み取る）ことをユーザに許可するもの。すべてのパブリックリポジトリでは、すべての GitHub ユーザに読み取りアクセスを付与します。プルアクセスの同義語。
-- 
-  term: README
-  description: リポジトリにあるファイルについての情報を記載したテキストファイルで、通常の場合、リポジトリの訪問者へ最初に表示されるファイル。README ファイルと、リポジトリライセンス、コントリビューションガイドライン、行動規範は、プロジェクトについて期待されることを共有したりコントリビューションを管理したりすることを支援します。
-- 
-  term: リベース
-  description: >-
-    ブランチからの一連の変更を異なるベースに再適用し、そのブランチのHEADをその結果にリセットすること。
-- 
-  term: Recovery Accounts Elsewhere
-  description: >-
-    ユーザに対し、2 要素認証方法やリカバリコードへのアクセスを失った場合に備えて、自分の GitHub アカウントにセキュリティ要素をさらに追加することを許可するもの。ユーザは自分の GitHub アカウントの認証の資格情報をアカウントリカバリトークンの形で Facebook に格納すれば、GitHub アカウントを Facebook アカウントに関連付けることができます。
-- 
-  term: リカバリコード
-  description: GitHub アカウントへのアクセスを再取得できるようにするコード。
-- 
-  term: リリース
-  description: GitHub での、ソフトウェアをパッケージ化してユーザに提供する方法。
-- 
-  term: リモート
-  description: >-
-    これは、サーバ（大体は GitHub.com）上でホストされるリポジトリやブランチのバージョンです。変更が同期されるようにするには、リモートバージョンをローカルのクローンに接続します。
-- 
-  term: リモートリポジトリ
-  description: >-
-    別の場所にある同じプロジェクトを追跡するのに使用されるリポジトリ。
-- 
-  term: リモートURL
-  description: >-
-    コードが格納されている場所。GitHub 上のリポジトリや別のユーザのフォーク、あるいは別のサーバという場合もあります。
-- 
-  term: レプリカ
-  description: >-
-    GitHub Enterprise のプライマリインスタンスに対し冗長性を与える GitHub Enterprise インスタンス。
-- 
-  term: リポジトリ
-  description: >-
-    リポジトリは GitHub の最も基本的な要素です。プロジェクトのフォルダとして最も想像しやすいものです。リポジトリ 1 つに（ドキュメントを含む）すべてのプロジェクトファイルが含まれ、各ファイルのリビジョン履歴が格納されます。リポジトリはコラボレータを複数持つことができ、またパブリックとプライベートのいずれの場合もあります。
-- 
-  term: リポジトリグラフ
-  description: リポジトリのデータの視覚的表現。
-- 
-  term: リポジトリメンテナ
-  description: >-
-    リポジトリを管理する個人。この個人は、Issue のトリアージやラベルの使用など、リポジトリでの変更を管理するための機能を支援します。また、この個人は、README の保持やアップデートされたファイルのコントリビューションに対する責任を負います。
-- 
-  term: Pull Requestレビュー必須
-  description: >-
-    必須レビューにより、保護されたブランチにコラボレーターが変更を加える前に、プルリクエストには少なくとも 1 つの承認済みレビューが存在するようになります。
-- 
-  term: ステータスチェック必須
-  description: >-
-    プルリクエストに対するチェックで、コラボレータが保護されたブランチに変更を加える前に、すべての必須 CI テストにパスしているようにするもの。
-- 
-  term: 解決
-  description: 失敗した自動マージによって残されたものを手動で修正するアクション。
-- 
-  term: 打ち消し
-  description: >-
-    GitHub 上でプルリクエストの打ち消しをすると、新たなプルリクエストが自動でオープンし、そこには元のマージ済みプルリクエストにあるマージコミットを打ち消すコミットが 1 つ含まれます。Git では、「git revert」でコミットを打ち消します。
-- 
-  term: レビュー
-  description: >-
-    レビューにより、他の人でも、リポジトリへのアクセス権限があれば、プルリクエストで提案されている変更に対してコメントしたり、変更を承認したり、プルリクエストがマージされる前にさらなる変更をリクエストしたりできます。
-- 
-  term: ルートディレクトリ
-  description: 階層の最初にあるディレクトリ。
-- 
-  term: ルートファイルシステム
-  description: 基本オペレーティングシステムと GitHub Enterprise アプリケーション環境。
-- 
-  term: 返信テンプレート
-  description: >-
-    GitHub 全体にわたって Issue とプルリクエストに使用できるよう、保存して GitHub ユーザアカウントに追加することのできるコメント。
-- 
-  term: スコープ
-  description: >-
-    OAuth App がパブリックと非パブリックの両方のデータへのアクセスをリクエストできるようにする権限をグループにして、名前を付けたもの。
-- 
-  term: シート
-  description: >-
-    GitHub Enterprise の Organization 内のユーザ。これは「シート数」ということもあります。
-- 
-  term: シークレットチーム
-  description: >-
-    Team の他の個人とコードオーナー権限のある個人のみに表示される Team。
-- 
-  term: セキュリティログ
-  description: >-
-    直近の 50 個のアクションまたは過去 90 日間に実行されたアクションを一覧表示するログ。
-- 
-  term: サービスフック
-  description: >-
-    「webhook」ともいいます。webhook により、特定のアクションがリポジトリあるいはOrganizationで発生したら必ず外部のウェブサーバへ通知を配信するための方法が得られます。
-- 
-  term: シングルサインオン
-  description: >-
-    SSO ともいいます。ある 1 つの場所 - アイデンティティプロバイダ（IdP）- へのサインインをユーザに許可してから、そのユーザに他のサービスプロバイダへのアクセス権限を付与します。
-- 
-  term: スナップショット
-  description: ある時点での仮想マシンのチェックポイント。
-- 
-  term: squash
-  description: 複数のコミットを結合して 1 つのコミットにすること。Git コマンドでもあります。
-- 
-  term: SSH キー
-  description: >-
-    SSH キーとは、暗号化されたメッセージを使用して、自身をオンラインサーバに識別させるための方法です。ご使用のコンピュータが、あたかも別のサービスへの一意のパスワードを独自に持っているかのようになります。{% data variables.product.product_name %}では SSH キーを使用して、ご使用のコンピュータに情報を安全に送信します。
-- 
-  term: ステージングインスタンス
-  description: >-
-    変更を実際の GitHub Enterprise インスタンスに適用する前にテストするための方法。
-- 
-  term: ステータス
-  description: >-
-    コミットがコントリビューション先リポジトリに設定されている条件を満たしていることを、プルリクエスト内で視覚的に表現したもの。
-- 
-  term: ステータスチェック
-  description: >-
-    ステータスチェックは、継続的インテグレーションのビルドのような外部プロセスで、リポジトリにコミットを行うたびに実行されます。詳しい情報については「[ステータスチェックについて](/articles/about-status-checks)」を参照してください。
-- 
-  term: Star
-  description: >-
-    ブックマーク、またはリポジトリについての感謝の表示。Star とは、プロジェクトの人気度を手動でランク付けする方法です。
-- 
-  term: プラン
-  description: ユーザまたは Organization の GitHub プラン。
-- 
-  term: Team
-  description: >-
-    Organization メンバーのグループ。アクセス権限とメンションのカスケードによって、会社やグループの構造を反映します。
-- 
-  term: チームメンテナ
-  description: >-
-    Organizationのオーナーが Team の管理に使用できる権限のサブセットが付与されているOrganization メンバー。
-- 
-  term: Teamプラン
-  description: >-
-    Organization の支払いプランで、パブリックリポジトリとプライベートリポジトリの取得に制限がないもの。
-- 
-  term: タイムライン
-  description: プルリクエストまたはユーザプロフィールでの一連のイベント。
-- 
-  term: トピックブランチ
-  description: >-
-    開発者が開発のコンセプチュアルラインを定めるのに使用する一般的な Git ブランチ。ブランチは簡便で安価なので、多くの場合、小さめのブランチをいくつか設け、それぞれに十分定義されているコンセプトや、小さくてインクリメンタルだが関連する変更を持たせるのが望ましいです。フィーチャブランチと呼ぶこともあります。
-- 
-  term: Topics
-  description: >-
-    GitHub で、特定の領域に関するリポジトリを調べたり、コントリビュートするプロジェクトを探したり、特定の問題に対する新たなソリューションを見つけ出したりするための方法。
-- 
-  term: トラフィックグラフ
-  description: >-
-    フルクローン（フェッチではない）、過去 14 日間の訪問者、参照サイト、人気コンテンツなど、リポジトリのトラフィックを表示するリポジトリグラフ。
-- 
-  term: 移譲
-  description: >-
-    リポジトリの移譲とは、リポジトリのオーナーを変更することです。新しいオーナーはすぐに、リポジトリのコンテンツ、Issue、プルリクエスト、リリース、設定を管理できるようになります。
-- 
-  term: 上流
-  description: >-
-    ブランチまたはフォークについていう場合、元のリポジトリのプライマリブランチは、多くの場合「上流」といいます。他の変更の取得元となる主要な場所であるためです。よって、変更しているブランチ/フォークは「下流」と呼びます。origin も参照。
-- 
-  term: 上流ブランチ
-  description: >-
-    問題のブランチ（または問題のブランチのリベース先）にマージされるデフォルトブランチ。「branch.<name>.remote」および「branch.<name>.merge」で設定されます。A の上流ブランチが origin/B であるとすると、「A が origin/B を追跡している」と言うことがあります。
-- 
-  term: ユーザ
-  description: >-
-    ユーザとは、GitHub の個人アカウントを持つ個人です。各ユーザには個人プロフィールがあり、複数のリポジトリを（パブリックでもプライベートでも）所有できます。 Organization への参加や別のユーザのリポジトリでのコラボレーションを作成することができ、また招待されることもあります。
-- 
-  term: ユーザ名
-  description: GitHub 上でのユーザのハンドル。
-- 
-  term: 参照可能なチーム
-  description: Organization の各メンバーが表示および @メンションできる Team。
-- 
-  term: Watch
-  description: >-
-    リポジトリや Issue を Watch すれば、Issue やプルリクエストにアップデートがあった際に通知を受け取ることができます。
-- 
-  term: Watch対象の通知
-  description: ユーザがサブスクライブしているリポジトリでのアクティビティについての通知。
-- 
-  term: Web通知
-  description: >-
-    GitHubのウェブインターフェースに表示される通知（https://github.com/notifications）
-- 
-  term: webhook
-  description: >-
-    webhook は、GitHub.com の特定のイベントにサブスクライブする GitHub App のビルドやセットアップができるようにするものです。webhook により、特定のアクションがリポジトリあるいはOrganizationで発生したら必ず外部のウェブサーバへ通知を配信するための方法が得られます。サービスフックともいいます。
-- 
-  term: Works with GitHub
-  description: GitHub で行うインテグレーションの一覧。
-- 
-  term: 書き込みアクセス
-  description: >-
-    リポジトリの権限レベルで、リポジトリへのプッシュ、書き込み、変更をユーザに許可するもの。
+- term: '@mention'
+  description:
+    To notify a person on GitHub by using `@` before their username. Users in an organization on GitHub can also be a part of a team that can be
+    mentioned.
+- term: access token
+  description: >-
+    A token that is used in place of a password when performing Git operations
+    over HTTPS with Git on the command line or the API. Also called a personal
+    access token.
+- term: API preview
+  description: >-
+    A way to try out new APIs and changes to existing API methods before they
+    become part of the official GitHub API.
+- term: appliance
+  description: >-
+    A software application combined with just enough operating system (JeOS) to
+    run optimally on industry-standard hardware (typically a server) or in a
+    virtual machine.
+- term: assignee
+  description: The user that is assigned to an issue.
+- term: authentication code
+  description: >-
+    A code you'll supply, in addition to your GitHub password, when signing in
+    with 2FA via the browser. This code is either generated by an application or delivered to
+    your phone via text message. Also called a "2FA authentication code."
+- term: base branch
+  description:
+    The branch into which changes are combined when you merge a pull request.
+    When you create a pull request, you can change the base branch from the repository's default branch to another branch if required.
+- term: basic authentication
+  description: >-
+    A method of authentication where the credentials are sent as
+    unencrypted text.
+- term: bio
+  description: >-
+    The user-generated description found on a profile:
+    [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
+- term: billing cycle
+  description: The interval of time for your specific billing plan.
+- term: billing email
+  description: >-
+    The organization email address where GitHub sends receipts, credit card or
+    PayPal charges, and other billing-related communication.
+- term: billing manager
+  description: The organization member that manages billing settings for an organization.
+- term: billing plan
+  description: >-
+    Payment plans for users and organizations that include set features for each
+    type of plan.
+- term: blame
+  description: >-
+    The "blame" feature in Git describes the last modification to each line of a
+    file, which generally displays the revision, author and time. This is
+    helpful, for example, in tracking down when a feature was added, or which
+    commit led to a particular bug.
+- term: block
+  description: >-
+    To remove a user's ability to collaborate on an organization's repositories.
+- term: branch
+  description: >-
+    A branch is a parallel version of a repository. It is contained within the
+    repository, but does not affect the primary or main branch allowing you to
+    work freely without disrupting the "live" version. When you've made the
+    changes you want to make, you can merge your branch back into the main
+    branch to publish your changes.
+- term: branch restriction
+  description: >-
+    A restriction that repository admins can enable so that only certain users
+    or teams can push or make certain changes to the branch.
+- term: Business plan
+  description: >-
+    An organization billing plan where you can collaborate on unlimited public
+    and private repositories, allow or require organization members to
+    authenticate to GitHub using SAML SSO, and provision and deprovision access
+    with SAML or SCIM.
+- term: CA certificate
+  description: >-
+    A digital certificate issued by Certificate Authority (CA) that ensures there are valid connections between two machines, such as a user's computer and GitHub.com and verifies the ownership of a site.
+- term: card
+  description: A movable square within a project board associated with an issue or pull request.
+- term: check
+  description: >-
+    A check is a type of status check on {% data variables.product.product_name %}. See "[Status checks](#status-checks)."
+- term: checkout
+  description: >-
+    You can use `git checkout` on the command line to create a new branch, change your current working branch to a different branch, or even to switch to a different version of a file from a different branch with `git checkout [branchname] [path to file]`. The "checkout" action updates all or part of the working tree with a tree object or
+    blob from the object database, and updates the index and HEAD if the whole
+    working tree is pointing to a new branch.
+- term: cherry-picking
+  description: >-
+    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
+- term: child team
+  description: >-
+    Within nested teams, the subteam that inherits the parent team's access
+    permissions and @mentions.
+- term: clean
+  description: >-
+    A working tree is clean if it corresponds to the revision referenced by the
+    current HEAD. Also see "dirty".
+- term: clone
+  description: >-
+    A clone is a copy of a repository that lives on your computer instead of on
+    a website's server somewhere, or the act of making that copy. When you make a
+    clone, you can edit the files in your preferred editor and use Git to keep
+    track of your changes without having to be online. The repository you cloned
+    is still connected to the remote version so that you can push your local
+    changes to the remote to keep them synced when you're online.
+- term: clustering
+  description: >-
+    The ability to run GitHub Enterprise services across multiple nodes and load
+    balance requests between them.
+- term: code frequency graph
+  description: >-
+    A repository graph that shows the content additions and deletions for each
+    week in a repository's history.
+- term: code of conduct
+  description: A document that defines standards for how to engage in a community.
+- term: code owner
+  description: >-
+    A person who is designated as an owner of a portion of a repository's code. The code owner is automatically requested for review when someone opens a pull request (not in draft mode) that makes changes to code the code owner owns.
+- term: collaborator
+  description: >-
+    A collaborator is a person with read and write access to a repository who
+    has been invited to contribute by the repository owner.
+- term: commit
+  description: >-
+    A commit, or "revision", is an individual change to a file (or set of
+    files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a
+    commit message which is a brief description of what changes were made.
+- term: commit author
+  description: The user who makes the commit.
+- term: Commit graph
+  description: >-
+    A repository graph that shows all the commits made to a repository in the
+    past year.
+- term: commit ID
+  description: Also known as SHA. A 40-character checksum hash that identifies the commit.
+- term: commit message
+  description: >-
+    Short, descriptive text that accompanies a commit and communicates the change
+    the commit is introducing.
+- term: compare branch
+  description: >-
+    The branch you use to create a pull request.
+    This branch is compared to the base branch you choose for the pull request, and the changes are identified.
+    When the pull request is merged, the base branch is updated with the changes from the compare branch.
+    Also known as the "head branch" of the pull request.
+- term: continuous integration
+  description: >-
+    Also known as CI. A process that runs automated builds and tests once a person commits a change to a configured repository on GitHub. CI is a common best practice in software development that helps detect errors.
+- term: contribution graph
+  description: >-
+    The part of a user's profile that shows their contributions over a period of
+    up to one year, day by day.
+- term: contribution guidelines
+  description: A document explaining how people should contribute to your project.
+- term: contributions
+  description: >-
+    Specific activities on GitHub that will:
+    - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)"
+    - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+- term: contributor
+  description: >-
+    A contributor is someone who does not have collaborator access to a repository but has contributed to a project and had a pull request they opened merged into the repository.
+- term: contributors graph
+  description: A repository graph that displays the top 100 contributors to a repository.
+- term: coupon
+  description: >-
+    A GitHub-provided code that users or organizations can use to pay for all or
+    part of their subscription.
+- term: cron
+  description: A time-based job scheduler in Unix-like computer operating systems.
+- term: cURL
+  description: Used in command lines or scripts to transfer data.
+- term: dashboard
+  description: >-
+    Your personal dashboard is the main hub of your activity on GitHub. From your personal dashboard, you can keep track of issues and pull requests you're following or working on, navigate to your top repositories and team pages, and learn about recent activity in repositories you're watching or participating in. You can also discover new repositories, which are recommended based on users you're following and repositories you have starred. To only view activity for a specific organization, visit your organization's dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)" or "[About your organization dashboard](/articles/about-your-organization-dashboard)."
+- term: default branch
+  description: >-
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+- term: dependents graph
+  description: >-
+    A repository graph that shows the packages, projects, and repositories that depend on a
+    public repository.
+- term: dependency graph
+  description: >-
+    A repository graph that shows the packages and projects that the repository depends on.
+- term: deploy key
+  description: >-
+    A deploy key is an SSH key that is stored on your server and grants access
+    to a single GitHub repository. This key is attached directly to the
+    repository instead of to a personal user account.
+- term: detached HEAD
+  description: >-
+    Git will warn you if you're working on a detached HEAD, which means that Git
+    is not pointing to a branch and that any commits you make will not appear in
+    commit history.  For example, when you check out an arbitrary commit that
+    is not the latest commit of any particular branch, you're working on a
+    "detached HEAD."
+- term: diagnostics
+  description: An overview of a GitHub Enterprise instance's settings and environment.
+- term: diff
+  description: >-
+    A diff is the difference in changes between two commits, or saved changes.
+    The diff will visually describe what was added or removed from a file since
+    its last commit.
+- term: directory
+  description: >-
+    A folder containing one or more files or folders. You can create directories to organize the contents of a repository.
+- term: dirty
+  description: >-
+    A working tree is considered "dirty" if it contains modifications that have
+    not been committed to the current branch.
+- term: email notifications
+  description: Notifications sent to a user's email address.
+- term: enterprise account
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
+- term: Explorer
+  description: >-
+    An instance of GraphiQL, which is a "graphical interactive in-browser GraphQL
+    IDE."
+- term: fast-forward
+  description: >-
+    A fast-forward is a special type of merge where you have a revision and you
+    are "merging" another branch's changes that happen to be a descendant of
+    what you have. In such a case, you do not make a new merge commit but
+    instead just update to this revision. This will happen frequently on a
+    remote-tracking branch of a remote repository.
+- term: feature branch
+  description: >-
+    A branch used to experiment with a new feature or fix an issue that is not in production. Also called a topic branch.
+- term: fenced code block
+  description: An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).
+- term: fetch
+  description: >-
+    When you use `git fetch`, you're adding changes from the remote repository to
+    your local working branch without committing them. Unlike `git pull`, fetching
+    allows you to review changes before committing them to your local branch.
+- term: following (users)
+  description: To get notifications about another user's contributions and activity.
+- term: force push
+  description: >-
+    A Git push that overwrites the remote repository with local changes without
+    regard for conflicts.
+- term: fork
+  description: >-
+    A fork is a personal copy of another user's repository that lives on your
+    account. Forks allow you to freely make changes to a project without
+    affecting the original upstream repository. You can also open a pull request in
+    the upstream repository and keep your fork synced with the latest changes since
+    both repositories are still connected.
+- term: Free plan
+  description: >-
+    A user account billing plan that is free. Users can collaborate on unlimited
+    public repositories with unlimited collaborators.
+- term: gist
+  description: >-
+    A gist is a shareable file that you can edit, clone, and fork on GitHub.
+    You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be
+    available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
+- term: Git
+  description: >-
+    Git is an open source program for tracking changes in text files. It was
+    written by the author of the Linux operating system, and is the core
+    technology that GitHub, the social and user interface, is built on top of.
+- term: GitHub App
+  description: >-
+    GitHub Apps provide a service to an entire organization and use their own
+    identity when performing their function. They can be installed directly on
+    organizations and user accounts and granted access to specific repositories.
+    They come with granular permissions and built-in webhooks.
+- term: GitHub Flavored Markdown
+  description: GitHub-specific Markdown used to format prose and code across GitHub. See [GitHub Flavored Markdown Spec](https://github.github.com/gfm/) or [Getting started with writing and formatting on GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
+- term: GitHub Importer
+  description: >-
+    A tool that quickly imports source code repositories, including commits and
+    revision history, to GitHub for users.
+- term: GitHub Jobs
+  description: >-
+    A GitHub site where employers can post jobs that GitHub users may be
+    interested in.
+- term: GitHub Marketplace
+  description: >-
+    A subsite for GitHub users and organizations to purchase and install
+    applications that extend and complement their workflow.
+- term: GitHub Pages
+  description: >-
+    Also referred to as Pages. A static site hosting service designed to host
+    your personal, organization, or project pages directly from a GitHub
+    repository.
+- term: GitHub Wiki
+  description: A section for hosting wiki style documentation on a GitHub repository.
+- term: gitfile
+  description: >-
+    A plain `.git` file, which is always at the root of a working tree and points to the Git directory, which has the entire Git repository and its meta data. You can view this file for your repository on the command line with `git rev-parse --git-dir`.
+    that is the real repository.
+- term: GraphQL
+  description: >-
+    A query language for APIs and a runtime for fulfilling those queries with
+    your existing data.
+- term: HEAD
+  description: A defined commit of a branch, usually the most recent commit at the tip of the branch.
+- term: head branch
+  description: The branch whose changes are combined into the base branch
+    when you merge a pull request.
+    Also known as the "compare branch."
+- term: 'Hello, World'
+  description: >-
+    A "Hello, World!" program is a computer program that outputs or displays
+    "Hello, World!" to a user. Since this program is usually very simple, it is
+    often used as an example of a programming language's basic syntax and
+    serves as a common first exercise for learning a new programming language.
+- term: high-availability
+  description: >-
+    A system or component that is continuously operational for a desirably long
+    length of time.
+- term: hook
+  description: >-
+    During the normal execution of several Git commands, call-outs are made to
+    optional scripts that allow a developer to add functionality or checking.
+    Typically, the hooks allow for a command to be pre-verified and potentially
+    aborted, and allow for a post-notification after the operation is done.
+- term: hostname
+  description: >-
+    Human-readable nicknames that correspond to the address of a device
+    connected to a network.
+- term: identicon
+  description: >-
+    An auto-generated image used as a default profile photo when users sign up for
+    GitHub. Users can replace their identicon with their own profile photo.
+- term: identity provider
+  description: >-
+    Also known as an IdP. A trusted provider that lets you use SAML single
+    sign-on (SSO) to access other websites.
+- term: instance
+  description: >-
+    An organization's private copy of GitHub contained within a virtual machine
+    that they configure and control.
+- term: integration
+  description: >-
+    A third-party application that integrates with GitHub. These can be GitHub
+    Apps, OAuth Apps, or webhooks.
+- term: issue
+  description: >-
+    Issues are suggested improvements, tasks or questions related to the
+    repository. Issues can be created by anyone (for public repositories), and
+    are moderated by repository collaborators. Each issue contains its own discussion thread. You can also categorize an issue with labels and assign it to someone.
+- term: Jekyll
+  description: A static site generator for personal, project, or organization sites.
+- term: Jekyll Theme Chooser
+  description: >-
+    An automated way to select a visual theme for your Jekyll site without editing or
+    copying CSS files.
+- term: key fingerprint
+  description: A short sequence of bytes used to identify a longer public key.
+- term: keychain
+  description: A password management system in macOS.
+- term: keyword
+  description: A specific word that closes an issue when used within a pull request.
+- term: label
+  description: >-
+    A tag on an issue or pull request. Repositories come with a handful of
+    default labels, but users can create custom labels.
+- term: LFS
+  description: >-
+    Git Large File Storage. An open source Git extension for versioning large
+    files.
+- term: license
+  description: >-
+    A document that you can include with your project to let people know what
+    they can and can't do with your source code.
+- term: Linguist
+  description: >-
+    A library used on GitHub to detect blob languages, ignore binary or vendored
+    files, suppress generated files in diffs, and generate language breakdown
+    graphs.
+- term: line comment
+  description: A comment within a pull request on a specific line of code.
+- term: line ending
+  description: >-
+    An invisible character or characters that symbolize the end of a line in a
+    text file.
+- term: locked personal account
+  description: >-
+    A personal account that cannot be accessed by the user. Accounts are locked
+    when users downgrade their paid account to a free one, or if their paid plan
+    is past due.
+- term: management console
+  description: >-
+    A section within the GitHub Enterprise interface that contains
+    administrative features.
+- term: Markdown
+  description: >-
+    Markdown is an incredibly simple semantic file format, not too dissimilar
+    from .doc, .rtf and .txt. Markdown makes it easy for even those without a
+    web-publishing background to write prose (including with links, lists,
+    bullets, etc.) and have it displayed like a website. GitHub supports
+    Markdown and uses a particular form of Markdown called GitHub Flavored Markdown. See [GitHub Flavored Markdown Spec](https://github.github.com/gfm/) or [Getting started with writing and formatting on GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
+- term: markup
+  description: A system for annotating and formatting a document.
+- term: main
+  description: >-
+    The default development branch. Whenever you create a Git repository,
+    a branch named `main` is created, and becomes the active branch.
+    In most cases, this contains the local development, though that is purely by
+    convention and is not required.
+- term: master
+  description: >-
+    The default branch in many Git repositories. By default, when you create
+    a new Git repository on the command line, a branch called `master` is created.
+    Many tools now use an alternative name for the default branch. For example,
+    when you create a new repository on GitHub, the default branch is called `main`.
+- term: members graph
+  description: A repository graph that shows all the forks of a repository.
+- term: mention
+  description: >-
+    A notification sent to a user by prefacing their username with the @ symbol.
+    Users in an organization on GitHub can also be a part of a team that can be
+    mentioned.
+- term: merge
+  description: >-
+    Merging takes the changes from one branch (in the same repository or from a
+    fork), and applies them into another. This often happens as a "pull request"
+    (which can be thought of as a request to merge), or via the command line. A
+    merge can be done through a pull request via the GitHub.com web
+    interface if there are no conflicting changes, or can always be done via the
+    command line.
+- term: merge conflict
+  description: >-
+    A difference that occurs between merged branches. Merge conflicts happen
+    when people make different changes to the same line of the same file, or
+    when one person edits a file and another person deletes the same file. The
+    merge conflict must be resolved before you can merge the branches.
+- term: milestone
+  description: >-
+    A way to track the progress on groups of issues or pull requests in a
+    repository.
+- term: mirror
+  description: A new copy of a repository.
+- term: nested team
+  description: >-
+    A child team of a parent team. You can have multiple children (or nested)
+    teams.
+- term: network graph
+  description: >-
+    A repository graph that shows the branch history of the entire repository
+    network, including branches of the root repository and branches of forks
+    that contain commits unique to the network.
+- term: news feed
+  description: >-
+    An activity view of repositories or people you watch. An organization's News
+    Feed shows activity on repositories owned by the organization.
+- term: non-fast-forward
+  description: >-
+    When your local copy of a repository is out-of-sync with the upstream
+    repository and you need to fetch the upstream changes before you push your
+    local changes.
+- term: notification
+  description: >-
+    Updates, delivered by either the web or email depending on your settings,
+    that give you information about the activities you're interested in.
+- term: OAuth App
+  description: >-
+    A third-party application that uses access tokens rather than passwords to
+    access information for users.
+- term: OAuth token
+  description: The access token used in OAuth Apps to access information for users.
+- term: outside collaborator
+  description: >-
+    A user who has been given access to one or more of an organization’s
+    repositories, but has no other access to the organization and is not a
+    member of the organization.
+- term: open source
+  description: >-
+    Open source software is software that can be freely used, modified, and
+    shared (in both modified and unmodified form) by anyone. Today the concept
+    of "open source" is often extended beyond software, to represent a
+    philosophy of collaboration in which working materials are made available
+    online for anyone to fork, modify, discuss, and contribute to.
+- term: organization
+  description: >-
+    Organizations are a group of two or more users that typically mirror
+    real-world organizations. They are administered by users and can contain
+    both repositories and teams.
+- term: organization owner
+  description: Users who have full administrative access to the organization they own.
+- term: origin
+  description: >-
+    The default upstream repository. Most projects have at least one upstream
+    project that they track. By default, origin is used for that purpose.
+- term: owner
+  description: >-
+    Organization members that have complete administrative access to the
+    organization.
+- term: parent team
+  description: >-
+    Within nested teams, the main team from which child teams inherit access
+    permissions and @mentions.
+- term: participating notifications
+  description: >-
+    A notification about an update in a conversation in an issue or pull request
+    where your username or team was mentioned or where you have previously replied
+    in a comment.
+- term: permalink
+  description: A permanent static hyperlink to a particular web page.
+- term: personal account
+  description: >-
+    A GitHub account that belongs to an individual user.
+- term: primary email address
+  description: >-
+    The main email address where GitHub sends receipts, credit card or PayPal
+    charges, and other billing-related communication.
+- term: pinned repository
+  description: >-
+    A repository that a user has decided to display prominently on their
+    profile.
+- term: pre-receive hooks
+  description: >-
+    Scripts that run on the GitHub Enterprise server that you can use to
+    implement quality checks.
+- term: private contributions
+  description: Contributions made to a private (vs. public) repository.
+- term: private repository
+  description: >-
+    Private repositories are only visible to the repository owner and
+    collaborators that the owner specified.
+- term: production branch
+  description: >-
+    A branch with final changes that are ready to be used or deployed to an application or site.
+- term: profile
+  description: The page that shows information about a user's activity on GitHub.
+- term: profile photo
+  description: >-
+    A custom image users upload to GitHub to identify their activity, usually
+    along with their username. This is also referred to as an avatar.
+- term: project board
+  description: >-
+    Boards within GitHub that are made up of issues, pull requests, and notes
+    that are categorized as cards in columns.
+- term: protected branch
+  description: >-
+    Protected branches block several features of Git on a branch that a
+    repository administrator chooses to protect. They can't be force pushed,
+    deleted, have changes merged without required checks passing or required
+    reviews approved, or have files uploaded to it from the GitHub web
+    interface. A protected branch is usually the default branch.
+- term: public contributions
+  description: Contributions made to a public (vs. private) repository.
+- term: public repository
+  description: >-
+    A public repository can be viewed by anyone, including people who aren't
+    GitHub users.
+- term: pull
+  description: >-
+    Pull refers to when you are fetching in changes and merging them. For
+    instance, if someone has edited the remote file you're both working on,
+    you'll want to pull in those changes to your local copy so that it's up to
+    date. See also fetch.
+- term: pull access
+  description: A synonym for read access.
+- term: pull request
+  description: >-
+    Pull requests are proposed changes to a repository submitted by a user and
+    accepted or rejected by a repository's collaborators. Like issues, pull
+    requests each have their own discussion forum.
+- term: pull request review
+  description: >-
+    Comments from collaborators on a pull request that approve the changes or
+    request further changes before the pull request is merged.
+- term: pulse graph
+  description: A repository graph that gives you an overview of a repository's activity.
+- term: punch graph
+  description: >-
+    A repository graph that shows the frequency of updates to a repository based
+    on the day of week and time of day
+- term: push
+  description: >-
+    To push means to send your committed changes to a remote repository on
+    GitHub.com. For instance, if you change something locally, you can push those changes so that others may access them.
+- term: push a branch
+  description: >-
+    When you successfully push a branch to a remote repository, you update the remote branch with changes from your local branch. When you "push a branch", Git will search for the branch's HEAD ref in the remote repository and verify that it is a direct ancestor to the branch's local HEAD ref. Once verified, Git pulls all objects (reachable from the local HEAD ref and missing from the remote repository) into the remote object database and then updates the remote HEAD ref. If the remote HEAD is not an ancestor to the local HEAD, the push fails.
+- term: push access
+  description: A synonym for write access.
+- term: read access
+  description: >-
+    A permission level on a repository that allows the user to pull, or read,
+    information from the repository. All public repositories give read access to
+    all GitHub users. A synonym for pull access.
+- term: README
+  description: A text file containing information about the files in a repository that is typically the first file a visitor to your repository will see. A README file, along with a repository license, contribution guidelines, and a code of conduct, helps you share expectations and manage contributions to your project.
+- term: rebase
+  description: >-
+    To reapply a series of changes from a branch to a different base, and reset
+    the HEAD of that branch to the result.
+- term: recovery code
+  description: A code that helps you regain access to your GitHub account.
+- term: release
+  description: GitHub's way of packaging and providing software to your users.
+- term: remote
+  description: >-
+    This is the version of a repository or branch that is hosted on a server, most likely
+    GitHub.com. Remote versions can be connected to local clones so that changes can be
+    synced.
+- term: remote repository
+  description: >-
+    A repository that is used to track the same project but resides somewhere
+    else.
+- term: remote URL
+  description: >-
+    The place where your code is stored: a repository on GitHub, another user's
+    fork, or even a different server.
+- term: replica
+  description: >-
+    A GitHub Enterprise instance that provides redundancy for the primary GitHub
+    Enterprise instance.
+- term: repository
+  description: >-
+    A repository is the most basic element of GitHub. They're easiest to imagine
+    as a project's folder. A repository contains all of the project files
+    (including documentation), and stores each file's revision history.
+    Repositories can have multiple collaborators and can be either public or
+    private.
+- term: repository cache
+  description: >-
+    A read-only mirror of repositories for your GitHub Enterprise server instance, located near
+    distributed teams and CI clients.
+- term: repository graph
+  description: A visual representation of your repository's data.
+- term: repository maintainer
+  description: >-
+    Someone who manages a repository. This person may help triage issues and use labels and other features to manage the work of the repository. This person may also be responsible for keeping the README and contributing files updated.
+- term: required pull request review
+  description: >-
+    Required reviews ensure that pull requests have at least one approved review
+    before collaborators can make changes to a protected branch.
+- term: required status check
+  description: >-
+    Checks on pull requests that ensure all required CI tests are passing before
+    collaborators can make changes to a protected branch.
+- term: resolve
+  description: The action of fixing up manually what a failed automatic merge left behind.
+- term: revert
+  description: >-
+    When you revert a pull request on GitHub, a new pull request is automatically opened, which has one commit that reverts the merge commit
+    from the original merged pull request. In Git, you can revert commits with `git revert`.
+- term: review
+  description: >-
+    Reviews allow others with access to your repository to comment on the changes proposed in pull
+    requests, approve the changes, or request further changes before the pull
+    request is merged.
+- term: root directory
+  description: The first directory in a hierarchy.
+- term: root filesystem
+  description: The base operating system and the GitHub Enterprise application environment.
+- term: saved reply
+  description: >-
+    A comment you can save and add to your GitHub user account so that you can
+    use it across GitHub in issues and pull requests.
+- term: scope
+  description: >-
+    Named groups of permissions that an OAuth App can request to access both
+    public and non-public data.
+- term: seat
+  description: >-
+    A user within a GitHub Enterprise organization. This may be referred to as
+    "seat count."
+- term: secret team
+  description: >-
+    A team that is only visible to the other people on the team and people with owner
+    permissions.
+- term: security log
+  description: >-
+    A log that lists the last 50 actions or those performed within the last 90
+    days.
+- term: server-to-server request
+  description: >-
+    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via [the GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app). See also, "[user-to-server request](#user-to-server-request)."
+- term: service hook
+  description: >-
+    Also called "webhook." Webhooks provide a way for notifications to be
+    delivered to an external web server whenever certain actions occur on a
+    repository or organization.
+- term: single sign-on
+  description: >-
+    Also called SSO. Allows users to sign in to a single location - an identity
+    provider (IdP) - that then gives the user access to other service providers.
+- term: snapshot
+  description: A checkpoint of a virtual machine at a point in time.
+- term: squash
+  description: To combine multiple commits into a single commit. Also a Git command.
+- term: SSH key
+  description: >-
+    SSH keys are a way to identify yourself to an online server, using an encrypted message. It's as if your computer has its own unique password to another service. {% data variables.product.product_name %} uses SSH keys to securely transfer information to your computer.
+- term: staging instance
+  description: >-
+    A way to test modifications before they are applied to your actual GitHub
+    Enterprise instance.
+- term: status
+  description: >-
+    A visual representation within a pull request that your commits meet the
+    conditions set for the repository you're contributing to.
+- term: status checks
+  description: >-
+    Status checks are external processes, such as continuous integration builds, which run for each commit you make in a repository. For more information, see "[About status checks](/articles/about-status-checks)."
+- term: star
+  description: >-
+    A bookmark or display of appreciation for a repository. Stars are a manual
+    way to rank the popularity of projects.
+- term: subscription
+  description: A user or organization's GitHub plan.
+- term: team
+  description: >-
+    A group of organization members that reflect your company or group's
+    structure with cascading access permissions and mentions.
+- term: team maintainer
+  description: >-
+    Organization members that have a subset of permissions available to
+    organization owners to manage teams.
+- term: Team plan
+  description: >-
+    An organization billing plan that gives you unlimited public and private
+    repositories.
+- term: timeline
+  description: A series of events in a pull request or on a user profile.
+- term: topic branch
+  description: >-
+    A regular Git branch that is used by a developer to identify a conceptual
+    line of development. Since branches are very easy and inexpensive, it is
+    often desirable to have several small branches that each contain very well
+    defined concepts or small incremental yet related changes. Can also be called a feature branch.
+- term: topics
+  description: >-
+    A way to explore repositories in a particular subject area, find projects to
+    contribute to, and discover new solutions to a specific problem on GitHub.
+- term: traffic graph
+  description: >-
+    A repository graph that shows a repository's traffic, including full clones
+    (not fetches), visitors from the past 14 days, referring sites, and popular
+    content.
+- term: transfer
+  description: >-
+    To transfer a repository means to change the owner of a repository. The new owner will be able to
+    immediately administer the repository's contents, issues, pull requests,
+    releases, and settings.
+- term: upstream
+  description: >-
+    When talking about a branch or a fork, the primary branch on the original
+    repository is often referred to as the "upstream", since that is the main
+    place that other changes will come in from. The branch/fork you are working
+    on is then called the "downstream". Also called origin.
+- term: upstream branch
+  description: >-
+    The default branch that is merged into the branch in question (or the branch
+    in question is rebased onto). It is configured via `branch.<name>.remote` and
+    `branch.<name>.merge`. If the upstream branch of A is origin/B sometimes we
+    say "A is tracking origin/B".
+- term: user
+  description: >-
+    Users are people with personal GitHub accounts. Each user has a personal profile, and
+    can own multiple repositories, public or private. They can create or be
+    invited to join organizations or collaborate on another user's repository.
+- term: username
+  description: A user's handle on GitHub.
+- term: user-to-server request
+  description: >-
+    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)." See also, "[server-to-server request](#server-to-server-request)."
+- term: visible team
+  description: A team that can be viewed and @mentioned by every organization member.
+- term: watch
+  description: >-
+    You can watch a repository or issue to receive notifications when updates are made to an issue or pull request.
+- term: watching notifications
+  description: A notification about activity in a repository a user has subscribed to.
+- term: web notifications
+  description: >-
+    Notifications displayed in the web interface on GitHub:
+    https://github.com/notifications
+- term: webhooks
+  description: >-
+    Webhooks allow you to build or set up GitHub Apps which subscribe to certain
+    events on GitHub.com. Webhooks provide a way for notifications to be
+    delivered to an external web server whenever certain actions occur on a
+    repository or organization. Also called a service hook.
+- term: write access
+  description: >-
+    A permission level on a repository that allows the user to push, or write,
+    changes to the repository.

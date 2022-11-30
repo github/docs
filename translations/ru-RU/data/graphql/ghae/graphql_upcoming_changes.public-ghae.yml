@@ -1,114 +1,110 @@
----
+### YamlMime:Yaml
+ms.openlocfilehash: 6aac12f52762d20ae022d06f4e1482726d7d27c2
+ms.sourcegitcommit: ea9a577cff7ec16ded25ed57417c83ec04816428
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141520798"
 upcoming_changes:
-  - 
-    location: LegacyMigration.uploadUrlTemplate
-    description: '`uploadUrlTemplate` will be removed. Use `uploadUrl` instead.'
-    reason: '`uploadUrlTemplate` is being removed because it is not a standard URL and adds an extra user step.'
-    date: '2019-04-01T00:00:00+00:00'
-    criticality: breaking
-    owner: tambling
-  - 
-    location: AssignedEvent.user
-    description: '`user` will be removed. Use the `assignee` field instead.'
-    reason: Assignees can now be mannequins.
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: tambling
-  - 
-    location: EnterpriseBillingInfo.availableSeats
-    description: '`availableSeats` will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses instead.'
-    reason: '`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
-    location: EnterpriseBillingInfo.seats
-    description: '`seats` will be removed. Use EnterpriseBillingInfo.totalLicenses instead.'
-    reason: '`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
-    location: UnassignedEvent.user
-    description: '`user` will be removed. Use the `assignee` field instead.'
-    reason: Assignees can now be mannequins.
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: tambling
-  - 
-    location: Sponsorship.maintainer
-    description: '`maintainer` will be removed. Use `Sponsorship.sponsorable` instead.'
-    reason: '`Sponsorship.maintainer` will be removed.'
-    date: '2020-04-01T00:00:00+00:00'
-    criticality: breaking
-    owner: antn
-  - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All pending members consume a license
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOwnerInfo.pendingCollaborators
-    description: '`pendingCollaborators` will be removed. Use the `pendingCollaboratorInvitations` field instead.'
-    reason: Repository invitations can now be associated with an email, not only an invitee.
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
-  - 
-    location: Issue.timeline
-    description: '`timeline` will be removed. Use Issue.timelineItems instead.'
-    reason: '`timeline` will be removed'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: mikesea
-  - 
-    location: PullRequest.timeline
-    description: '`timeline` will be removed. Use PullRequest.timelineItems instead.'
-    reason: '`timeline` will be removed'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: mikesea
-  - 
-    location: RepositoryInvitationOrderField.INVITEE_LOGIN
-    description: '`INVITEE_LOGIN` will be removed.'
-    reason: '`INVITEE_LOGIN` is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee.'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
-  - 
-    location: Sponsorship.sponsor
-    description: '`sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead.'
-    reason: '`Sponsorship.sponsor` will be removed.'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: nholden
-  - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All members consume a license
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All outside collaborators consume a license
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterprisePendingCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All pending collaborators consume a license
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: MergeStateStatus.DRAFT
-    description: '`DRAFT` will be removed. Use PullRequest.isDraft instead.'
-    reason: DRAFT state will be removed from this enum and `isDraft` should be used instead
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: nplasterer
+- location: LegacyMigration.uploadUrlTemplate
+  description: '`uploadUrlTemplate` будет удалено. Взамен рекомендуется использовать `uploadUrl`.'
+  reason: '`uploadUrlTemplate` is being removed because it is not a standard URL and adds an extra user step.'
+  date: 2019-04-01T00:00:00+00:00
+  criticality: breaking
+  owner: tambling
+- location: AssignedEvent.user
+  description: '`user` будет удалено. Вместо него используйте поле `assignee`.'
+  reason: Assignees can now be mannequins.
+  date: 2020-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: tambling
+- location: EnterpriseBillingInfo.availableSeats
+  description: '`availableSeats` будет удалено. Вместо него используйте EnterpriseBillingInfo.totalAvailableLicenses.'
+  reason: '`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned'
+  date: 2020-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: BlakeWilliams
+- location: EnterpriseBillingInfo.seats
+  description: '`seats` будет удалено. Вместо него используйте EnterpriseBillingInfo.totalLicenses.'
+  reason: '`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned'
+  date: 2020-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: BlakeWilliams
+- location: UnassignedEvent.user
+  description: '`user` будет удалено. Вместо него него используйте поле `assignee`.'
+  reason: Assignees can now be mannequins.
+  date: 2020-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: tambling
+- location: EnterprisePendingMemberInvitationEdge.isUnlicensed
+  description: '`isUnlicensed` будет удалено.'
+  reason: All pending members consume a license
+  date: 2020-07-01T00:00:00+00:00
+  criticality: breaking
+  owner: BrentWheeldon
+- location: Issue.timeline
+  description: '`timeline` будет удалено. Вместо него используйте Issue.timelineItems.'
+  reason: '`timeline` will be removed'
+  date: 2020-10-01T00:00:00+00:00
+  criticality: breaking
+  owner: mikesea
+- location: PullRequest.timeline
+  description: '`timeline` будет удалено. Вместо него используйте PullRequest.timelineItems.'
+  reason: '`timeline` will be removed'
+  date: 2020-10-01T00:00:00+00:00
+  criticality: breaking
+  owner: mikesea
+- location: EnterpriseMemberEdge.isUnlicensed
+  description: '`isUnlicensed` будет удалено.'
+  reason: All members consume a license
+  date: 2021-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: BrentWheeldon
+- location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
+  description: '`isUnlicensed` будет удалено.'
+  reason: All outside collaborators consume a license
+  date: 2021-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: BrentWheeldon
+- location: MergeStateStatus.DRAFT
+  description: '`DRAFT` будет удалено. Вместо него используйте PullRequest.isDraft.'
+  reason: DRAFT state will be removed from this enum and `isDraft` should be used instead
+  date: 2021-01-01T00:00:00+00:00
+  criticality: breaking
+  owner: nplasterer
+- location: PackageType.DOCKER
+  description: '`DOCKER` будет удалено.'
+  reason: DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.
+  date: 2021-06-21
+  criticality: breaking
+  owner: reybard
+- location: ReactionGroup.users
+  description: '`users` будет удалено. Вместо него используйте поле `reactors`.'
+  reason: Reactors can now be mannequins, bots, and organizations.
+  date: 2021-10-01T00:00:00+00:00
+  criticality: breaking
+  owner: synthead
+- location: PullRequest.viewerCanOverrideMergeQueue
+  description: '`viewerCanOverrideMergeQueue` будет удалено. Вместо него используйте PullRequest.viewerCanMergeAsAdmin.'
+  reason: '`viewer_can_override_merge_queue` will be removed'
+  date: 2022-04-01
+  criticality: breaking
+  owner: cbeaman
+- location: Repository.defaultMergeQueue
+  description: '`defaultMergeQueue` будет удалено. Взамен рекомендуется использовать `Repository.mergeQueue`.'
+  reason: '`defaultMergeQueue` will be removed.'
+  date: 2022-04-01
+  criticality: breaking
+  owner: colinshum
+- location: AddPullRequestToMergeQueueInput.branch
+  description: '`branch` будет удалено.'
+  reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+  date: 2022-07-01T00:00:00+00:00
+  criticality: breaking
+  owner: jhunschejones
+- location: Enterprise.userAccounts
+  description: '`userAccounts` будет удалено. Вместо него используйте поле `Enterprise.members`.'
+  reason: The `Enterprise.userAccounts` field is being removed.
+  date: 2022-07-01T00:00:00+00:00
+  criticality: breaking
+  owner: jdennes

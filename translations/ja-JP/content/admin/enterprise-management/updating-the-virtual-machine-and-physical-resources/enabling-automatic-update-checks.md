@@ -1,37 +1,39 @@
 ---
-title: 自動アップデートチェックの有効化
-intro: '自動アップデートチェックを有効にすると、{% data variables.product.product_location %} が最新の {% data variables.product.prodname_ghe_server %} リリースをチェックしてダウンロードします。'
+title: Enabling automatic update checks
+intro: 'You can enable automatic update checks so that {% data variables.location.product_location %} checks for and downloads the latest {% data variables.product.prodname_ghe_server %} release.'
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-update-checks
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
   - /admin/enterprise-management/enabling-automatic-update-checks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Enable automatic update checks
 ---
-{% data variables.product.product_location %} のアップグレードパッケージが自動的にダウンロードされると、{% data variables.product.prodname_ghe_server %} をアップグレードできることを知らせるメッセージを受け取ります。 パッケージは{% data variables.product.product_location %}の `/var/lib/ghe-updates`ディレクトリへダウンロードされます。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)」を参照してください。
+When an upgrade package is automatically downloaded for {% data variables.location.product_location %}, you'll receive a message letting you know you can upgrade {% data variables.product.prodname_ghe_server %}. Packages download to the `/var/lib/ghe-updates` directory on {% data variables.location.product_location %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server)."
 
-アップグレードにホットパッチが利用できる場合、`.hpkg` は自動的にダウンロードします。 管理コンソールでは、ホットパッチを直ちにインストールするか、後でインストールするようにスケジュール設定するかを選択できます。 詳細は「[ホットパッチ付きでアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)」を参照してください。
+If a hotpatch is available for an upgrade, the `.hpkg` will download automatically. In the management console you can choose to install the hotpatch immediately or schedule installation for a later time. For more information, see "[Upgrading with a hotpatch](/enterprise/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)."
 
 {% tip %}
 
-**Tip:** 自動アップデートチェックを有効化するには、{% data variables.product.product_location %}は`https://github-enterprise.s3.amazonaws.com`に接続できなければなりません。
+**Tip:** To enable automatic update checks, {% data variables.location.product_location %} must be able to connect to `https://github-enterprise.s3.amazonaws.com`.
 
 {% endtip %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}
-4. **Yes, automatically check for updates（はい、アップデートを自動的にチェックする）**をクリックしてください。 ![自動更新を有効化するためのボタン](/assets/images/enterprise/management-console/enable_updates_button.png)
+4. Click **Yes, automatically check for updates**.
+![Button for enabling automatic updates](/assets/images/enterprise/management-console/enable_updates_button.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-インスタンスが最新の状態になっているかを知るには、Updatesタブのバナーを調べてください。
+To see if your instance is up-to-date, check the banner on the Updates tab.
 
-![GitHub Enterprise Server のリリースを示すバナー](/assets/images/enterprise/management-console/up-to-date-banner.png)
+![Banner indicating your release of GitHub Enterprise Server](/assets/images/enterprise/management-console/up-to-date-banner.png)
 
-**Logs（ログ）**の下で、最も直近のアップデートチェックのステータスを確認できます。
+Under **Logs**, you can see the status of the most recent update check.
 
-![アップデートのログ](/assets/images/enterprise/management-console/update-log.png)
+![Logs for update](/assets/images/enterprise/management-console/update-log.png)

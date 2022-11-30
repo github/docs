@@ -1,5 +1,13 @@
-1. Under "Tracked repositories," choose which repositories you'd like the team to receive pull request review reminders for.
-   - To receive reminders for all repositories that the chosen team has access to, click **All repositories**.
-   - To receive reminders for a subset of repositories, click **Only select repositories**, then select one or more repositories that the chosen team has access to.
-
-  ![Choose tracked repositories](/assets/images/help/settings/scheduled-reminders-tracked-repos.png)
+---
+ms.openlocfilehash: 70c50cf04a2ec2f58522902c2d0bc78ee87a3489
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145118440"
+---
+1. В разделе «Отслеживаемые репозитории» выберите репозитории, для которых команда должна получать напоминания о проверке запроса на вытягивание.  
+   - Чтобы получить напоминания для всех репозиториев, к которым у выбранной команды есть доступ, щелкните **Все репозитории**.  
+   - Чтобы получать напоминания для набора репозиториев, щелкните **Только выбранные репозитории**, а затем выберите один или несколько репозиториев, к которым у выбранной команды есть доступ.
+   
+  ![Выбор отслеживаемых репозиториев](/assets/images/help/settings/scheduled-reminders-tracked-repos.png)

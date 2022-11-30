@@ -1,28 +1,32 @@
 ---
 title: Personalizando executores hospedados no GitHub
 intro: Você pode instalar software adicional em executores hospedados no GitHub como parte do seu fluxo de trabalho.
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
+shortTitle: Customize runners
+ms.openlocfilehash: d6793216b099fe3dcec44572da0b3d65cbb13fd9
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145096070'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Se você precisar de pacotes de software adicionais em executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá criar um trabalho que instale os pacotes como parte de seu fluxo de trabalho.
+Se você precisar de pacotes de software adicionais em executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá criar um trabalho que instale os pacotes como parte de seu fluxo de trabalho. 
 
-Para ver quais pacotes já estão instalados por padrão, consulte "[Software pré-instalado](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)".
+Para ver os pacotes que já estão instalados por padrão, confira "[Programas de software pré-instalados](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)".
 
 Este guia demonstra como criar um trabalho que instale software adicional em um executor hospedado em {% data variables.product.prodname_dotcom %}.
 
-### Instalando software nos executores do Ubuntu
+## Instalando software nos executores do Ubuntu
 
 O exemplo a seguir demonstra como instalar um pacote `apt` como parte de um trabalho.
 
-{% raw %}
 ```yaml
 name: Build on Ubuntu
 on: push
@@ -32,25 +36,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install jq tool
         run: |
           sudo apt-get update
           sudo apt-get install jq
 ```
-{% endraw %}
 
 {% note %}
 
-**Observação:** Sempre execute `sudo apt-get update` antes de instalar um pacote. Caso o índice `apt` seja obsoleto, este comando busca e indexa novamente quaisquer pacotes disponíveis, o que ajuda a prevenir falhas na instalação do pacote.
+**Observação:** sempre execute `sudo apt-get update` antes de instalar um pacote. Caso o índice `apt` esteja obsoleto, esse comando busca e indexa novamente todos os pacotes disponíveis, o que ajuda a evitar falhas de instalação do pacote. 
 
 {% endnote %}
 
-### Instalando o software nos executores do macOS
+## Instalando o software nos executores do macOS
 
 O exemplo a seguir demonstra como instalar pacotes de Brew e cascas como parte de um trabalho.
 
-{% raw %}
 ```yaml
 name: Build on macOS
 on: push
@@ -60,7 +62,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install GitHub CLI
         run: |
           brew update
@@ -70,11 +72,10 @@ jobs:
           brew update
           brew install --cask microsoft-edge
 ```
-{% endraw %}
 
-### Instalando software em executores do Windows
+## Instalando software em executores do Windows
 
-O exemplo a seguir demonstra como usar o [Chocolatey](https://community.chocolatey.org/packages) para instalar a CLI de {% data variables.product.prodname_dotcom %} como parte de um trabalho.
+O exemplo a seguir demonstra como usar o [Chocolatey](https://community.chocolatey.org/packages) para instalar a CLI do {% data variables.product.prodname_dotcom %} como parte de um trabalho.
 
 {% raw %}
 ```yaml

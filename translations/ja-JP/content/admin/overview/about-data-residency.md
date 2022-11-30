@@ -1,16 +1,16 @@
 ---
-title: データの常駐について
-intro: '{% data variables.product.product_name %} は Enterprise のすべての顧客データを保存する地域を選択できます。'
+title: About data residency
+intro: 'You can choose the geography where {% data variables.product.product_name %} stores all customer data for your enterprise.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
   - Fundamentals
 ---
 
-{% data reusables.github-ae.github-ae-enables-you %}{% data variables.product.product_location %} のすべての顧客データを保存する地域を選択できます。そして、Enterprise のメンバーは世界中のどこからでも {% data variables.product.product_name %} にアクセスできます。
+{% data reusables.github-ae.github-ae-enables-you %} You can choose the geography where you store all the customer data for {% data variables.location.product_location %}, and members of your enterprise can access {% data variables.product.product_name %} from anywhere in the world.
 
-Enterprise を作成するときに、顧客データの保存場所を {% data variables.contact.contact_enterprise_sales %} に指示できます。 {% data variables.product.company_short %} は、選択した地域以外に Enterprise のデータを保存または移動しません。
+When creating your enterprise, you can tell {% data variables.contact.contact_enterprise_sales %} where to store your customer data. {% data variables.product.company_short %} will not store or move any of your enterprise's data outside of the geography you choose.
 
-利用可能な地域の詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
+For more information about the available geographies, contact {% data variables.contact.contact_enterprise_sales %}.

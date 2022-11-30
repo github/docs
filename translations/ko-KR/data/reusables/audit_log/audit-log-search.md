@@ -1,41 +1,17 @@
-The log lists the following information about each action:
+---
+ms.openlocfilehash: c07593d1a115835538cc98ad351414704a14e737
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145113716"
+---
+{% data reusables.audit_log.audit-log-search-list-info-about-action %}
 
-* Which repository an action was performed in
-* The user that performed the action
-* The action that was performed
-* Which country the action took place in
-* The date and time the action occurred
+텍스트를 사용하여 항목을 검색할 수 없습니다. 그러나 다양한 필터를 사용하여 검색 쿼리를 생성할 수 있습니다. `-`, `>` 또는 `<`과 같이 로그를 쿼리할 때 사용되는 많은 연산자는 {% data variables.product.product_name %}에서 검색하는 것과 동일한 형식입니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %}에서의 검색](/github/searching-for-information-on-github/about-searching-on-github)”을 참조하세요.
 
-Note that you cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
+{% data reusables.audit_log.audit-log-search-by-operation %}
 
-#### Search based on operation
+{% data reusables.audit_log.audit-log-search-by-repo %}
 
-Use the `operation` qualifier to limit actions to specific types of operations. 예시:
-
-  * `operation:access` finds all events where a resource was accessed.
-  * `operation:authentication` finds all events where an authentication event was performed.
-  * `operation:create` finds all events where a resource was created.
-  * `operation:modify` finds all events where an existing resource was modified.
-  * `operation:remove` finds all events where an existing resource was removed.
-  * `operation:restore` finds all events where an existing resource was restored.
-  * `operation:transfer` finds all events where an existing resource was transferred.
-
-#### Search based on repository
-
-Use the `repo` qualifier to limit actions to a specific repository. 예시:
-
-  * `repo:my-org/our-repo` finds all events that occurred for the `our-repo` repository in the `my-org` organization.
-  * `repo:my-org/our-repo repo:my-org/another-repo` finds all events that occurred for both the `our-repo` and `another-repo` repositories in the `my-org` organization.
-  * `-repo:my-org/not-this-repo` excludes all events that occurred for the `not-this-repo` repository in the `my-org` organization.
-
-Note that you must include the account name within the `repo` qualifier; searching for just `repo:our-repo` will not work.
-
-#### Search based on the user
-
-The `actor` qualifier can scope events based on who performed the action. 예시:
-
-  * `actor:octocat` finds all events performed by `octocat`.
-  * `actor:octocat actor:hubot` finds all events performed by both `octocat` and `hubot`.
-  * `-actor:hubot` excludes all events performed by `hubot`.
-
-Note that you can only use a {% data variables.product.product_name %} username, not an individual's real name.
+{% data reusables.audit_log.audit-log-search-by-user %}

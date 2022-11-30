@@ -76,8 +76,8 @@
 				<guid isPermaLink="false">https://github.blog/changelog/2021-03-22-compare-rest-api-now-supports-pagination</guid>
 
 					<description><![CDATA[Compare REST API now supports pagination]]></description>
-										<content:encoded><![CDATA[<p>The <a href="https://docs.github.com/rest/reference/repos#compare-two-commits">&quot;Compare two commits&quot;</a> REST API, which returns a list of commits reachable from one commit (or branch) but not reachable from another, now supports pagination. It can also now return the results for comparisons over 250 commits.</p>
-<p>To learn more, see the <a href="https://docs.github.com/rest/reference/repos#compare-two-commits">compare two commits</a> API reference or the guide for <a href="https://docs.github.com/en/rest/guides/traversing-with-pagination">using pagination</a>.</p>
+										<content:encoded><![CDATA[<p>The <a href="https://docs.github.com/rest/reference/commits#compare-two-commits">&quot;Compare two commits&quot;</a> REST API, which returns a list of commits reachable from one commit (or branch) but not reachable from another, now supports pagination. It can also now return the results for comparisons over 250 commits.</p>
+<p>To learn more, see the <a href="https://docs.github.com/rest/reference/commits#compare-two-commits">compare two commits</a> API reference or the guide for <a href="https://docs.github.com/en/rest/guides/traversing-with-pagination">using pagination</a>.</p>
 ]]></content:encoded>
 					
 		
@@ -93,7 +93,7 @@
 
 					<description><![CDATA[GitHub Discussions GraphQL API public beta]]></description>
 										<content:encoded><![CDATA[<p>The GitHub Discussions GraphQL API public beta is now available. Get started with the <a href="https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions">GitHub Discussions API</a>.</p>
-<p>For questions or feedback, visit <a href="https://github.com/github/feedback/discussions/categories/discussions-feedback">GitHub Discussions feedback</a>.</p>
+<p>For questions or feedback, visit <a href="https://github.com/community/community/discussions/categories/discussions">GitHub Discussions feedback</a>.</p>
 ]]></content:encoded>
 					
 		

@@ -1,4 +1,12 @@
-Teams can be visible or secret:
+---
+ms.openlocfilehash: 4382f549f709e0ecdeb5a578cbfa8bd05bab4ce8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145122139"
+---
+Команды могут быть видимыми или секретными:
 
-- Visible teams can be [viewed and @mentioned](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) by every organization member.
-- Secret teams are only visible to the people on the team and people with owner permissions. They're great for hiding teams with sensitive names or members, such as those used for working with external partners or clients. Secret teams cannot be nested under parent teams or have child teams.
+- Видимые команды могут [просматриваться и упоминаться (@mentioned](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)) каждым участником организации.
+- Секретные команды видны только людям в команде и людям с разрешениями владельца. Они хорошо подходят для скрытия команд с конфиденциальными названиями или участниками, например, тех, которые используются для работы с внешними партнерами или клиентами. Секретные команды не могут быть вложены в родительские команды или иметь дочерние команды.

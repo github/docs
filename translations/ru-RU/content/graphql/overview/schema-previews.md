@@ -1,53 +1,30 @@
 ---
-title: Schema previews
-intro: 'You can preview upcoming features and changes to the {% data variables.product.prodname_dotcom %} GraphQL schema before they are added to the {% data variables.product.prodname_dotcom %} GraphQL API.'
+title: Предварительные версии схемы
+intro: 'Вы можете просматривать предстоящие функции и изменения в схеме GraphQL {% data variables.product.prodname_dotcom %} перед их добавлением в API GraphQL {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 038afd8cbdd60863213eae385ec9a26f707f62d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109052'
 ---
+## Сведения о предварительных версиях схемы
 
-### About schema previews
+В течение периода предварительной версии мы можем изменить некоторые функции на основе отзывов разработчиков. В случае изменений мы объявим о них в [блоге разработчиков](https://developer.github.com/changes/) без предварительного уведомления.
 
-During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
-
-To access a schema preview, you'll need to provide a custom [media type](/rest/overview/media-types) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
+Чтобы получить доступ к предварительной версии схемы, необходимо указать пользовательский [тип носителя](/rest/overview/media-types) в заголовке `Accept` запросов. В документации по функциям для каждой предварительной версии указывается, какой пользовательский тип носителя следует указывать.
 
 {% note %}
 
-**Note:** The GraphQL schema members under preview cannot be accessed via the Explorer at this time.
+**Примечание.** Члены схемы GraphQL, доступные в предварительной версии, в настоящее время недоступны через обозреватель.
 
 {% endnote %}
-
-{% for preview in graphql.previewsForCurrentVersion %}
-### {{ preview.title }}
-
-{{ preview.description }}
-
-To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:
-
-```
-{{ preview.accept_header }}
-```
-
-Previewed schema members:
-
-{% for schemaMemberPath in preview.toggled_on %}
-- `{{ schemaMemberPath }}`
-{% endfor %}
-
-{% if preview.announcement %}
-**Announced:** [{{ preview.announcement.date }}]({{ preview.announcement.url }})
-{% endif %}
-
-{% if preview.updates %}
-{% for update in preview.updates %}
-**Updated:** [{{ update.date }}]({{ update.url }})
-{% endfor %}
-{% endif %}
-
-{% endfor %}

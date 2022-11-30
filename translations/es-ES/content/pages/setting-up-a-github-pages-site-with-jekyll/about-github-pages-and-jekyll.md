@@ -7,37 +7,44 @@ redirect_from:
   - /articles/configuring-jekyll-plugins
   - /articles/using-syntax-highlighting-on-github-pages
   - /articles/files-that-start-with-an-underscore-are-missing
-  - /articles/sitemaps-for-github-pages/
-  - /articles/search-engine-optimization-for-github-pages/
-  - /articles/repository-metadata-on-github-pages/
-  - /articles/atom-rss-feeds-for-github-pages/
-  - /articles/redirects-on-github-pages/
-  - /articles/emoji-on-github-pages/
-  - /articles/mentions-on-github-pages/
-  - /articles/using-jekyll-plugins-with-github-pages/
-  - /articles/adding-jekyll-plugins-to-a-github-pages-site/
+  - /articles/sitemaps-for-github-pages
+  - /articles/search-engine-optimization-for-github-pages
+  - /articles/repository-metadata-on-github-pages
+  - /articles/atom-rss-feeds-for-github-pages
+  - /articles/redirects-on-github-pages
+  - /articles/emoji-on-github-pages
+  - /articles/mentions-on-github-pages
+  - /articles/using-jekyll-plugins-with-github-pages
+  - /articles/adding-jekyll-plugins-to-a-github-pages-site
   - /articles/about-github-pages-and-jekyll
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: GitHub Pages & Jekyll
+ms.openlocfilehash: 15551d849842c0b8866c0820c4a42397f412d6ea
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145140258'
 ---
+## <a name="about-jekyll"></a>Acerca de Jekyll
 
-### Acerca de Jekyll
+Jekill es un generador de sitio estático con soporte incorporado para {% data variables.product.prodname_pages %} y un proceso de construcción simplificado. Jekyll toma los archivos Markdown y HTML y crea un sitio web estático completo en función de la opción de diseño. Jekyll soporta Markdown y Liquid, un lenguaje de plantillas que carga contenido dinámico en tu sitio. Para más información, vea [Jekyll](https://jekyllrb.com/).
 
-Jekill es un generador de sitio estático con soporte incorporado para {% data variables.product.prodname_pages %} y un proceso de construcción simplificado. Jekyll toma los archivos Markdown y HTML y crea un sitio web estático completo en función de la opción de diseño. Jekyll soporta Markdown y Liquid, un lenguaje de plantillas que carga contenido dinámico en tu sitio. Para obtener más información, consulta [Jekyll](https://jekyllrb.com/).
+Jekyll no está oficialmente admitido por Windows. Para más información, vea "[Jekyll en Windows](http://jekyllrb.com/docs/windows/#installation)" en la documentación de Jekyll.
 
-Jekyll no está oficialmente admitido por Windows. Para obtener más información, consulta "[Jekyll en Windows](http://jekyllrb.com/docs/windows/#installation)" en la documentación de Jekyll.
+Recomandamos usar Jekyll con {% data variables.product.prodname_pages %}. Si lo prefieres, puedes usar otros generadores de sitio estático o personalizar tu propio proceso de compilación localmente o en otro servidor. Para más información, vea "[Acerca de {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)".
 
-Recomandamos usar Jekyll con {% data variables.product.prodname_pages %}. Si lo prefieres, puedes usar otros generadores de sitio estático o personalizar tu propio proceso de compilación localmente o en otro servidor. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)".
+## <a name="configuring-jekyll-in-your--data-variablesproductprodname_pages--site"></a>Configurando Jekyll en tu sitio {% data variables.product.prodname_pages %}
 
-### Configurando Jekyll en tu sitio {% data variables.product.prodname_pages %}
-
-Puedes configurar la mayoría de los parámetros de Jekyll, como los temas y los plugins del sitio, al editar tu archivo *_config.yml*. Para obtener más información, consulte "[Configuración](https://jekyllrb.com/docs/configuration/)" en la documentación de Jekyll.
+Puede configurar la mayoría de los valores de Jekyll, como los temas y los plugins del sitio, si edita el archivo *_config.yml*. Para más información, vea "[Configuración](https://jekyllrb.com/docs/configuration/)" en la documentación de Jekyll.
 
 Algunos parámetros de configuración no pueden cambiarse para los sitios {% data variables.product.prodname_pages %} sites.
 
@@ -55,33 +62,32 @@ kramdown:
 ```
 
 De manera predeterminada, Jekyll no compila archivos o carpetas que:
-- están situados en una carpeta denominada `/node_modules` o `/vendor`
-- comienza con `_`, `.`, o `#`
-- termina con `~`
-- están excluidos por el parámetro `exclude` en tu archivo de configuración
+- se encuentran en una carpeta denominada `/node_modules` o `/vendor`
+- comienzan por `_`, `.` o `#`
+- terminan con `~`
+- se excluyen mediante el valor `exclude` del archivo de configuración
 
-Si deseas que Jekyll procese alguno de estos archivos, puedes usar el parámetro `includes` en tu archivo de configuración.
+Si quiere que Jekyll procese cualquiera de estos archivos, puede usar el valor `include` del archivo de configuración.
 
-### Texto preliminar
+## <a name="front-matter"></a>Texto preliminar
 
 {% data reusables.pages.about-front-matter %}
 
-Puedes añadir `site.github` a una publicación o página para añadir cualquier metadato de referencias de repositorio a tu sitio. Para obtener más información, consulta "[Usar `site.github`](https://jekyll.github.io/github-metadata/site.github/)" en la documentación de metadatos de Jekyll.
+Puede agregar `site.github` a una publicación o página para agregar los metadatos de referencias del repositorio al sitio. Para más información, vea "[Uso de `site.github`](https://jekyll.github.io/github-metadata/site.github/)" en la documentación de metadatos de Jekyll.
 
-### Temas
+## <a name="themes"></a>Temas
 
-{% data reusables.pages.add-jekyll-theme %} Para obtenerr más información, consulta "[Temas](https://jekyllrb.com/docs/themes/)" en la documentación de Jekyll.
+{% data reusables.pages.add-jekyll-theme %} Para más información, vea "[Temas](https://jekyllrb.com/docs/themes/)" en la documentación de Jekyll.
 
-{% if currentVersion == "free-pro-team@latest" %}
-Puedes agregar un tema soportado a tu sitio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Temas soportados](https://pages.github.com/themes/)" en el sitio {% data variables.product.prodname_pages %} y "[Agregar un tema a tu sitio de {% data variables.product.prodname_pages %} con el selector de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)."
+{% ifversion fpt or ghec %} Puede agregar un tema compatible al sitio en {% data variables.product.prodname_dotcom %}. Para más información, vea "[Temas admitidos](https://pages.github.com/themes/)" en el sitio de {% data variables.product.prodname_pages %} y "[Adición de un tema al sitio de {% data variables.product.prodname_pages %} con el selector de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)".
 
-Para usar cualquier otro tema de código abierto de Jekyll que se hospede en {% data variables.product.prodname_dotcom %}, puedes añadirlo manualmente.{% else %} Puedes añadir el tema a tu sitio manualmente. {% endif %} Para obtener más información, consulta {% if currentVersion == "free-pro-team@latest" %}los "[temas hospedados en {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) y {% else %}los "[Temas compatibles](https://pages.github.com/themes/)" en el sitio de {% data variables.product.prodname_pages %} y {% endif %}la sección"[Añadir un tema a tu sitio de {% data variables.product.prodname_pages %} usando Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
+Para usar cualquier otro tema de Jekyll código abierto hospedado en {% data variables.product.prodname_dotcom %}, puede agregar el tema manualmente.{% else %} Puede agregar manualmente un tema al sitio. {% endif %} Para más información, vea{% ifversion fpt or ghec %} [Temas hospedados en {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) y{% else %} "[Temas admitidos](https://pages.github.com/themes/)" en el sitio de {% data variables.product.prodname_pages %} y{% endif %} "[Adición de un tema al sitio de {% data variables.product.prodname_pages %} mediante Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
 
-Puedes sobrescribir cualquiera de los valores por defecto de tu tema editando los archivos del tema. Para obtener más información, consulta la documentación de tu tema y "[Sobrescribir los valores predeterminados del tema](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" en la documentación de Jekyll.
+Puedes sobrescribir cualquiera de los valores por defecto de tu tema editando los archivos del tema. Para más información, vea la documentación del tema e "[Invalidación de los valores predeterminados del tema](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" en la documentación de Jekyll.
 
-### Plugins
+## <a name="plugins"></a>Complementos
 
-Puedes descargar o crear plugins Jekyll para ampliar la funcionalidad de Jekyll para tu sitio. Por ejemplo, el plugin [jemoji](https://github.com/jekyll/jemoji) te permite usar el emoji con formato {% data variables.product.prodname_dotcom %} en cualquier página de tu sitio del mismo modo que lo harías en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Plugins](https://jekyllrb.com/docs/plugins/)" en la documentación de Jekyll.
+Puedes descargar o crear plugins Jekyll para ampliar la funcionalidad de Jekyll para tu sitio. Por ejemplo, el complemento [jemoji](https://github.com/jekyll/jemoji) le permite usar emoji de estilo {% data variables.product.prodname_dotcom %} en cualquier página del sitio de la misma manera que lo haría en {% data variables.product.prodname_dotcom %}. Para más información, vea "[Complementos](https://jekyllrb.com/docs/plugins/)" en la documentación de Jekyll.
 
 {% data variables.product.prodname_pages %} usa plugins que están habilitados por defecto y no pueden estar inhabilitados:
 - [`jekyll-coffeescript`](https://github.com/jekyll/jekyll-coffeescript)
@@ -94,25 +100,25 @@ Puedes descargar o crear plugins Jekyll para ampliar la funcionalidad de Jekyll 
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-Puedes habilitar plugins adicionales al agregar la gema del plugin en los ajustes de `plugins` en tu archivo *_config.yml*. Para obtener más información, consulte "[Configuración](https://jekyllrb.com/docs/configuration/)" en la documentación de Jekyll.
+Puede habilitar complementos adicionales si agrega la gema del complemento al valor `plugins` en el archivo *_config.yml*. Para más información, vea "[Configuración](https://jekyllrb.com/docs/configuration/)" en la documentación de Jekyll. 
 
-Para conocer la lista de los plugins soportados, consulta "[Versiones de dependencia](https://pages.github.com/versions/)" en el sitio {% data variables.product.prodname_pages %}.  Para obtener información de uso de un plugin específico, consulta la documentación del plugin.
+Para obtener una lista de los complementos admitidos, vea "[Versiones de dependencia](https://pages.github.com/versions/)" en el sitio de {% data variables.product.prodname_pages %}.  Para obtener información de uso de un plugin específico, consulta la documentación del plugin.
 
 {% tip %}
 
-**Sugerencia:** Puedes asegurarte de que estás usando la versión más reciente de todos los plugins al mantener actualizada la gema de {% data variables.product.prodname_pages %}. Para obtener más información, consulta "[Comprobar tus páginas de GitHub localmente con Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" y "[Versiones de dependencia](https://pages.github.com/versions/)" en el sitio de {% data variables.product.prodname_pages %}.
+**Sugerencia:** Puede asegurarse de que usa la versión más reciente de todos los complementos si mantiene actualizada la gema de {% data variables.product.prodname_pages %}. Para más información, vea "[Prueba del sitio de GitHub Pages localmente con Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" y "[Versiones de dependencia](https://pages.github.com/versions/)" en el sitio de {% data variables.product.prodname_pages %}.
 
 {% endtip %}
 
 {% data variables.product.prodname_pages %} no puede compilar sitios mediante plugins no compatibles. Si deseas usar plugins no compatibles, genera tu sitio localmente y luego sube los archivos estáticos del sitio a {% data variables.product.product_name %}.
 
-### Resaltado de la sintaxis
+## <a name="syntax-highlighting"></a>Resaltado de sintaxis
 
-Para facilitar la lectura de tu sitio, los fragmentos de código se resaltan en los sitios de {% data variables.product.prodname_pages %} de la misma manera que se resaltan en {% data variables.product.product_name %}. Para más información sobre como enfatizar sintaxis en {% data variables.product.product_name %}, vea "[Creando y resaltando bloques de código](/articles/creating-and-highlighting-code-blocks)."
+Para facilitar la lectura de tu sitio, los fragmentos de código se resaltan en los sitios de {% data variables.product.prodname_pages %} de la misma manera que se resaltan en {% data variables.product.product_name %}. Para más información sobre el resaltado de sintaxis en {% data variables.product.product_name %}, vea "[Creación y resaltado de bloques de código](/articles/creating-and-highlighting-code-blocks)".
 
-Por defecto, los bloques de código en su sitio serán resaltados por Jekyll. Jekyll utiliza el resaltador de [Rouge](https://github.com/jneen/rouge), compatible con [Pygments](http://pygments.org/). Si especificas Pygments en tu archivo *_config.yml*, el Rouge se utilizará en su lugar. Jekyll no puede usar ningún otro resaltador de sintaxis, y obtendrás una advertencia de compilación de página si especificas otro en tu archivo *_config.yml*. Para más información, vea "[Acerca de los errores de construcción de sitios Jekyll {% data variables.product.prodname_pages %} ](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+Por defecto, los bloques de código en su sitio serán resaltados por Jekyll. Jekyll usa el resaltado [Rouge](https://github.com/jneen/rouge), que es compatible con [Pygments](http://pygments.org/). Pygments se obsoletizó y no es compatible con Jekyll 4. Si especifica Pygments en el archivo *_config.yml*, Rouge se usará como reserva en su lugar. Jekyll no puede usar ningún otro resaltador de sintaxis, y obtendrá una advertencia de compilación de página si especifica otro distinto en el archivo *_config.yml*. Para más información, vea "[Acerca de los errores de compilación de Jekyll para sitios de {% data variables.product.prodname_pages %}](/articles/about-jekyll-build-errors-for-github-pages-sites)".
 
-Si quieres usar otro resaltador, como `highlight.js`, debes desactivar el resaltador de sintaxis de Jekyll actualizando el archivo de tu proyecto *_config.yml*.
+Si quiere usar otro resaltador, como `highlight.js`, debe deshabilitar el resaltado de sintaxis de Jekyll mediante la actualización del archivo *_config.yml* del proyecto.
 
 ```yaml
 kramdown:
@@ -120,12 +126,12 @@ kramdown:
     disable : true
 ```
 
-Si tu tema no incluye CSS para resaltar la sintaxis, puedes generar la sintaxis de {% data variables.product.prodname_dotcom %} resaltando CSS y añadirlo a tu archivo `style.css` de proyecto.
+Si en el tema no se incluye CSS para el resaltado de sintaxis, puede generar CSS de resaltado de sintaxis de {% data variables.product.prodname_dotcom %} y agregarlo al archivo `style.css` del proyecto.
 
 ```shell
 $ rougify style github > style.css
 ```
 
-### Construyendo tu sitio localmente
+## <a name="building-your-site-locally"></a>Construyendo tu sitio localmente
 
 {% data reusables.pages.test-locally %}

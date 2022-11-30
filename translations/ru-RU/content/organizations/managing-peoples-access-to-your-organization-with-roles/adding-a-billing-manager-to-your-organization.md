@@ -1,56 +1,74 @@
 ---
-title: Adding a billing manager to your organization
-intro: 'A *billing manager* is a user who manages the billing settings for your organization, such as updating payment information. This is a great option if regular members of your organization don''t typically have access to billing resources.'
+title: Добавление менеджера по выставлению счетов в организацию
+intro: "*Менеджер выставления счетов*\_— это пользователь, который управляет параметрами выставления счетов для вашей организации, например обновляет сведения об оплате. Это полезная функция, если у постоянных членов вашей организации обычно нет доступа к ресурсам выставления счетов."
 redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
   - Billing
+shortTitle: Add a billing manager
+ms.openlocfilehash: f7b4e6d17ff0e6680fdf9509b467f314b1a9e4ec
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145119227'
 ---
-
-Members of your organization's Owners team can give *billing manager* permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
+Участники команды владельцев вашей организации могут предоставлять пользователям разрешения *менеджера по выставлению счетов*. После того как пользователь примет приглашение стать менеджером по выставлению счетов для вашей организации, он сможет приглашать в качестве менеджеров по выставлению счетов дополнительных пользователей.
 
 {% note %}
 
-**Note:** Billing managers do not use paid licenses in your organization's subscription.
+**Примечание.** Менеджеры по выставлению счетов не используют платные лицензии в подписке вашей организации.
 
 {% endnote %}
 
-### Permissions for billing managers
+## Разрешения для менеджеров по выставлению счетов
 
-Billing managers can:
+Менеджеры по выставлению счетов могут выполнять следующие действия:
 
-- Upgrade or downgrade the account
-- Add, update, or remove payment methods
-- View payment history
-- Download receipts
-- View, invite, and remove billing managers
+- Повышение или понижение уровня учетной записи
+- Добавление, обновление и удаление методов оплаты
+- Просмотр журнала платежей
+- Квитанции о скачивании
+- Просмотр, приглашение и удаление менеджеров по выставлению счетов
+- Запуск, изменение и отмена спонсорства
 
-In addition, all billing managers will receive billing receipts by email on the organization's billing date.
+Кроме того, все менеджеры по выставлению счетов будут получать квитанции о выставлении счетов по электронной почте в день выставления счетов организации.
 
-Billing managers **are not** able to:
+Менеджеры по выставлению счетов **не могут** выполнять следующие действия:
 
-- Create or access repositories in your organizations
-- See private members of your organization
-- Be seen in the list of organization members
-- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
+- Создание репозиториев в организациях и доступ к репозиториям
+- Просмотр частных участников организации
+- Отображение в списке участников организации
+- Приобретение, изменение или отмена подписок на приложения {% data variables.product.prodname_marketplace %}
 
 {% tip %}
 
-**Tip:**  If your organization [requires members, billing managers, and outside collaborators to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), the user must enable two-factor authentication before they can accept your invitation to become a billing manager for the organization.
+**Совет.** Если ваша организация [требует, чтобы участники, менеджеры по выставлению счетов и внешние участники совместной работы использовали двухфакторную проверку подлинности](/articles/requiring-two-factor-authentication-in-your-organization), пользователь должен включить двухфакторную проверку подлинности, иначе он не сможет принять ваше приглашение стать менеджером по выставлению счетов в вашей организации.
 
 {% endtip %}
 
-### Inviting a billing manager
+## Приглашение менеджера по выставлению счетов
 
-The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
+{% ifversion ghec %} {% note %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-1. Under "Billing management", next to "Billing managers", click **Add**. ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
-6. Type the username or email address of the person you want to add and click **Send invitation**. ![Invite billing manager page](/assets/images/help/billing/billing_manager_invite.png)
+**Примечание.** Если ваша организация принадлежит учетной записи предприятия, вы не сможете приглашать менеджеров по выставлению счетов на уровне организации. Дополнительные сведения см. в статье [Сведения об учетных записях предприятия](/admin/overview/about-enterprise-accounts).
+
+{% endnote %} {% endif %}
+
+Приглашенный пользователь получит электронное письмо с предложением стать менеджером по выставлению счетов в вашей организации. Когда приглашенный пользователь нажмет на ссылку "Принять" в полученном приглашении, он автоматически будет добавлен в организацию в качестве менеджера по выставлению счетов. Если у такого пользователя нет учетной записи GitHub, он будет перенаправлен на страницу регистрации и автоматически добавлен в организацию в качестве менеджера по выставлению счетов после того, как создаст учетную запись.
+
+{% data reusables.organizations.billing-settings %}
+1. В разделе "Управление выставлением счетов" рядом с пунктом "Менеджеры по выставлению счетов" нажмите **"Добавить**".
+  ![Приглашение менеджера по выставлению счетов](/assets/images/help/billing/settings_billing_managers_list.png)
+6. Введите имя пользователя или адрес электронной почты пользователя, которого вы хотите добавить, и нажмите **Отправить приглашение**.
+  ![Страница приглашения менеджеров по выставлению счетов](/assets/images/help/billing/billing_manager_invite.png)
+
+## Дополнительные материалы
+
+- [Приглашение пользователей к управлению организацией](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} в документации по {% data variables.product.prodname_ghe_cloud %}{% endif %}

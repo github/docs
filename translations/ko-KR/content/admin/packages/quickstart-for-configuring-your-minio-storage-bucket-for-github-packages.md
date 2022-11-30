@@ -1,51 +1,56 @@
 ---
-title: Quickstart for configuring your MinIO storage bucket for GitHub Packages
-intro: 'Configure your custom MinIO storage bucket for use with {% data variables.product.prodname_registry %}.'
+title: GitHub 패키지에 대한 MinIO 스토리지 버킷을 구성하기 위한 빠른 시작
+intro: '{% data variables.product.prodname_registry %}에 사용할 사용자 지정 MinIO 스토리지 버킷을 구성합니다.'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 type: quick_start
 topics:
   - Packages
   - Enterprise
   - Storage
+shortTitle: Quickstart for MinIO
+ms.openlocfilehash: 2d26aa879b0a59d8c6bd4d80a04ec2aa30f8c422
+ms.sourcegitcommit: 8f1801040a84ca9353899a2d1e6782c702aaed0d
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148166555'
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your third-party storage solution.
+{% data variables.location.product_location_enterprise %}에서 {% data variables.product.prodname_registry %}을(를) 사용하도록 설정하고 구성하려면 타사 스토리지 솔루션을 준비해야 합니다.
 
-MinIO offers object storage with support for the S3 API and {% data variables.product.prodname_registry %} on your enterprise.
+MinIO는 엔터프라이즈에서 S3 API 및 {% data variables.product.prodname_registry %}를 지원하는 개체 스토리지를 제공합니다.
 
-This quickstart shows you how to set up MinIO using Docker for use with {% data variables.product.prodname_registry %} but you have other options for managing MinIO besides Docker. For more information about MinIO, see the official [MinIO docs](https://docs.min.io/).
+이 빠른 시작에서는 {% data variables.product.prodname_registry %}와 함께 사용하기 위해 Docker를 사용하여 MinIO를 설정하는 방법을 보여 주지만 Docker 외에 MinIO를 관리하는 다른 옵션이 있습니다. MinIO에 대한 자세한 내용은 공식 [MinIO 문서](https://docs.min.io/)를 참조하세요.
 
-### 1. Choose a MinIO mode for your needs
+## 1. 필요에 따라 MinIO 모드 선택
 
-| MinIO mode                                      | Optimized for                  | Storage infrastructure required      |
-| ----------------------------------------------- | ------------------------------ | ------------------------------------ |
-| Standalone MinIO (on a single host)             | Fast setup                     | N/A                                  |
-| MinIO as a NAS gateway                          | NAS (Network-attached storage) | NAS devices                          |
-| Clustered MinIO (also called Distributed MinIO) | Data security                  | Storage servers running in a cluster |
+| MinIO 모드 | 최적화 기준 | 필요한 스토리지 인프라 |
+|----|----|----|
+| 독립 실행형 MinIO(단일 호스트) | 빠른 설정 |  해당 없음 |
+| 클러스터형 MinIO(분산 MinIO라고도 함)|  데이터 보안 | 클러스터에서 실행되는 스토리지 서버 |
 
-For more information about your options, see the official [MinIO docs](https://docs.min.io/).
+옵션에 대한 자세한 내용은 공식 [MinIO 문서를 참조하세요](https://docs.min.io/).
 
-### 2. Install, run, and sign in to MinIO
+## 2. MinIO 설치, 실행, 로그인
 
-1. Set up your preferred environment variables for MinIO.
+1. MinIO에 대한 기본 설정 환경 변수를 설정합니다.
 
-    These examples use `MINIO_DIR`:
+    예제에서는 `MINIO_DIR`을 사용합니다.
     ```shell
     $ export MINIO_DIR=$(pwd)/minio
     $ mkdir -p $MINIO_DIR
     ```
 
-2. Install MinIO.
+2. MinIO를 설치합니다.
 
     ```shell
     $ docker pull minio/minio
     ```
-    For more information, see the official "[MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide)."
+    자세한 내용은 공식 “[MinIO 빠른 시작 가이드](https://docs.min.io/docs/minio-quickstart-guide)”를 참조하세요.
 
-3. Sign in to MinIO using your MinIO access key and secret.
+3. MinIO 액세스 키 및 비밀을 사용하여 MinIO에 로그인합니다.
 
     {% linux %}
     ```shell
@@ -63,16 +68,16 @@ For more information about your options, see the official [MinIO docs](https://d
     ```
     {% endmac %}
 
-    You can access your MinIO keys using the environment variables:
+    환경 변수를 사용하여 MinIO 키에 액세스할 수 있습니다.
 
     ```shell
     $ echo $MINIO_ACCESS_KEY
     $ echo $MINIO_SECRET_KEY
     ```
 
-4. Run MinIO in your chosen mode.
+4. 선택한 모드에서 MinIO를 실행합니다.
 
-   * Run MinIO using Docker on a single host:
+   * 단일 호스트에서 Docker를 사용하여 MinIO를 실행합니다.
 
      ```shell
      $ docker run -p 9000:9000 \
@@ -82,56 +87,42 @@ For more information about your options, see the official [MinIO docs](https://d
              minio/minio server /data
      ```
 
-     For more information, see "[MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)."
+     자세한 내용은 “[MinIO Docker 빠른 시작 가이드](https://docs.min.io/docs/minio-docker-quickstart-guide.html)”를 참조하세요.
 
-   * Run MinIO using Docker as a NAS gateway:
+   * Docker를 클러스터로 사용하여 MinIO를 실행합니다. MinIO 배포는 가장 강력한 데이터 보호를 위해 여러 호스트 및 MinIO의 지우기 코딩을 사용합니다. 클러스터 모드에서 MinIO를 실행하려면 “[분산 MinIO 빠른 시작 가이드](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)”를 참조하세요.
 
-     This setup is useful for deployments where there is already a NAS you want to use as the backup storage for {% data variables.product.prodname_registry %}.
+## 3. {% data variables.product.prodname_registry %}에 대한 MinIO 버킷 만들기
 
-     ```shell
-     $ docker run -p 9000:9000 \
-             -v $MINIO_DIR:/data \
-             -e "MINIO_ACCESS_KEY=$MINIO_ACCESS_KEY" \
-             -e "MINIO_SECRET_KEY=$MINIO_SECRET_KEY" \
-             minio/minio gateway nas /data
-     ```
-
-     For more information, see "[MinIO Gateway for NAS](https://docs.min.io/docs/minio-gateway-for-nas.html)."
-
-   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
-
-### 3. Create your MinIO bucket for {% data variables.product.prodname_registry %}
-
-1. Install the MinIO client.
+1. MinIO 클라이언트를 설치합니다.  
 
     ```shell
     $ docker pull minio/mc
     ```
 
-2. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
+2. {% data variables.product.prodname_ghe_server %}에서 액세스할 수 있는 호스트 URL을 사용하여 버킷을 만듭니다.
 
-   * Local deployments example:
+   * 로컬 배포 예제:
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
-     $ docker run minio/mc <em>BUCKET-NAME</em>
+     $ docker run minio/mc BUCKET-NAME
      ```
 
-     This example can be used for MinIO standalone or MinIO as a NAS gateway.
+     이 예제는 MinIO 독립 실행형에 사용할 수 있습니다.
 
-   * Clustered deployments example:
+   * 클러스터형 배포 예제:
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @minioclustername.example.com:9000"
      $ docker run minio/mc mb packages
      ```
 
-### 다음 단계
+## 다음 단계
 
-To finish configuring storage for {% data variables.product.prodname_registry %}, you'll need to copy the MinIO storage URL:
+{% data variables.product.prodname_registry %}에 대한 스토리지 구성을 완료하려면 MinIO 스토리지 URL을 복사해야 합니다.
 
   ```
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."
+다음 단계는 “[MinIO를 사용하여 {% data variables.product.prodname_registry %} 사용](/admin/packages/enabling-github-packages-with-minio)”을 참조하세요.

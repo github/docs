@@ -17,7 +17,7 @@ export const CommunityExamples = () => {
   return (
     <div>
       <div className="d-flex flex-wrap gutter">
-        {productCommunityExamples.slice(0, numVisible).map((repo, i) => {
+        {productCommunityExamples.slice(0, numVisible).map((repo) => {
           return (
             <div key={repo.repo} className="col-12 col-xl-4 col-lg-6 mb-4">
               <RepoCard repo={repo} />

@@ -1,33 +1,36 @@
 ---
-title: Setting exit codes for actions
-shortTitle: Setting exit codes
-intro: 'You can use exit codes to set the status of an action. {% data variables.product.prodname_dotcom %} displays statuses to indicate passing or failing actions.'
-product: '{% data reusables.gated-features.actions %}'
+title: 작업의 종료 코드 설정
+shortTitle: Set exit codes
+intro: '종료 코드를 사용하여 작업의 상태를 설정할 수 있습니다. {% data variables.product.prodname_dotcom %}는 합격 또는 불합격 작업을 나타내는 상태를 표시합니다.'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: how_to
+ms.openlocfilehash: 394b17dc03c4998797df222fe7c81c3269003ec9
+ms.sourcegitcommit: d3929a033c42c99b153910685256d079d7d87467
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148114279'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
+## 종료 코드 정보
 
-### About exit codes
+{% data variables.product.prodname_dotcom %}는 종료 코드를 사용하여 작업의 검사 실행 상태를 설정합니다. 상태는 `success` 또는 `failure`일 수 있습니다.
 
-{% data variables.product.prodname_dotcom %} uses the exit code to set the action's check run status, which can be `success` or `failure`.
+종료 상태 | 실행 상태 검사 | 설명
+------------|------------------|------------
+`0` | `success` | 작업이 성공적으로 완료되었으며 작업에 의존하는 다른 작업이 시작될 수 있습니다.
+0이 아닌 값(0이 아닌 정수)| `failure` | 다른 종료 코드는 작업이 실패했음을 나타냅니다. 작업이 실패하면 모든 동시 작업이 취소되고 이후 작업은 건너뜁니다. 검사 실행 및 검사 모음 모두 `failure` 상태를 가져옵니다.
 
-| Exit status                       | Check run status | 설명                                                                                                                                                                                                    |
-| --------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0`                               | `success`        | The action completed successfully and other tasks that depends on it can begin.                                                                                                                       |
-| Nonzero value (any integer but 0) | `failure`        | Any other exit code indicates the action failed. When an action fails, all concurrent actions are canceled and future actions are skipped. The check run and check suite both get a `failure` status. |
+## JavaScript 작업에서 실패 종료 코드 설정
 
-### Setting a failure exit code in a JavaScript action
-
-If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failure exit code. 예시:
+JavaScript 작업을 만드는 경우 작업 도구 키트 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 패키지를 사용하여 메시지를 로그하고 실패 종료 코드를 설정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 try {
@@ -37,11 +40,11 @@ try {
 }
 ```
 
-For more information, see "[Creating a JavaScript action](/articles/creating-a-javascript-action)."
+자세한 내용은 “[JavaScript 작업 만들기](/articles/creating-a-javascript-action)”를 참조하세요.
 
-### Setting a failure exit code in a Docker container action
+## Docker 컨테이너 작업에서 오류 종료 코드 설정
 
-If you are creating a Docker container action, you can set a failure exit code in your `entrypoint.sh` script. 예시:
+Docker 컨테이너 작업을 만드는 경우 `entrypoint.sh` 스크립트에서 실패 종료 코드를 설정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 if <condition> ; then
@@ -50,4 +53,4 @@ if <condition> ; then
 fi
 ```
 
-For more information, see "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+자세한 내용은 “[Docker 컨테이너 작업 만들기](/articles/creating-a-docker-container-action)”를 참조하세요.

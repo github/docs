@@ -2,9 +2,13 @@
 title: Enabling GitHub Packages with Azure Blob Storage
 intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
+type: tutorial
 topics:
   - Enterprise
+  - Packages
+  - Storage
+shortTitle: Enable Packages with Azure
 ---
 
 {% warning %}
@@ -16,20 +20,28 @@ topics:
 
 {% endwarning %}
 
-### Требования
+## Prerequisites
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
 
-### Enabling {% data variables.product.prodname_registry %} with Azure Blob Storage
+## Enabling {% data variables.product.prodname_registry %} with Azure Blob Storage
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string. ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
+1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
+  ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
+
+  {% note %}
+
+  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. 
+  Usage of a SAS Token or SAS URL as connection string is not currently supported.
+  
+  {% endnote %}
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Дальнейшие шаги
+## Next steps
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

@@ -1,14 +1,14 @@
 ---
-title: Empfohlene Schwellenwerte für Meldungen
-intro: 'Sie können eine Meldung so konfigurieren, dass Sie in Bezug auf Systemressourcenprobleme benachrichtigt werden, bevor sie sich auf die Leistung Ihrer {% data variables.product.prodname_ghe_server %}-Appliance auswirken.'
+title: Recommended alert thresholds
+intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
+  - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/recommended-alert-thresholds
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds
   - /admin/enterprise-management/recommended-alert-thresholds
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -16,36 +16,37 @@ topics:
   - Monitoring
   - Performance
   - Storage
+shortTitle: Recommended alert thresholds
 ---
-### Speicher überwachen
+## Monitoring storage
 
-Sie sollten die Root- und Benutzerspeichergeräte überwachen und eine Meldung mit Werten konfigurieren, die eine ausreichende Antwortzeit gestatten, wenn der verfügbare Disk-Speicher niedrig ist.
+We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
 
-| Schweregrad  | Schwellenwert                                                       |
-| ------------ | ------------------------------------------------------------------- |
-| **Warnung**  | Disk-Nutzung überschreitet 70 % des insgesamt verfügbaren Speichers |
-| **Kritisch** | Disk-Nutzung überschreitet 85 % des insgesamt verfügbaren Speichers |
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning** | Disk use exceeds 70% of total available |
+| **Critical** | Disk use exceeds 85% of total available |
 
-Sie können diese Werte basierend auf der insgesamt zugeordneten Speicherkapazität, historischen Wachstumsmustern und der erwarteten Antwortzeit anpassen. Wir empfehlen eine übermäßige Zuordnung an Speicherressourcen, um Wachstum zu ermöglichen und die zum Zuordnen des zusätzlichen Speichers erforderliche Ausfallzeit zu verhindern.
+You can adjust these values based on the total amount of storage allocated, historical growth patterns, and expected time to respond. We recommend over-allocating storage resources to allow for growth and prevent the downtime required to allocate additional storage.
 
-### CPU- und durchschnittliche Auslastung überwachen
+## Monitoring CPU and load average usage
 
-Obwohl es normal ist, dass die CPU-Nutzung basierend auf ressourcenintensiven Git-Vorgängen schwankt, sollten Sie eine Meldung für ungewöhnlich hohe CPU-Auslastungen konfigurieren, da verlängerte Spitzen darauf hindeuten können, dass Ihre Instanz unterversorgt ist. Es wird empfohlen, die fünfzehnminütige durchschnittliche Auslastung des Systems auf Werte zu überwachen, die der Anzahl der der virtuellen Maschine zugeordneten CPU-Kerne nahekommen oder diese überschreiten.
+Although it is normal for CPU usage to fluctuate based on resource-intense Git operations, we recommend configuring an alert for abnormally high CPU utilization, as prolonged spikes can mean your instance is under-provisioned. We recommend monitoring the fifteen-minute system load average for values nearing or exceeding the number of CPU cores allocated to the virtual machine.
 
-| Schweregrad  | Schwellenwert                                                            |
-| ------------ | ------------------------------------------------------------------------ |
-| **Warnung**  | Fünfzehnminütige durchschnittliche Auslastung überschreitet 1x CPU-Kerne |
-| **Kritisch** | Fünfzehnminütige durchschnittliche Auslastung überschreitet 2x CPU-Kerne |
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning** | Fifteen minute load average exceeds 1x CPU cores |
+| **Critical** | Fifteen minute load average exceeds 2x CPU cores |
 
-Darüber hinaus wird empfohlen, dass Sie die „Diebstahlzeit“ der Virtualisierung überwachen, um sicherzustellen, dass andere virtuelle Maschinen, die auf demselben Hostsystem ausgeführt werden, nicht alle Ressourcen der Instanz verwenden.
+We also recommend that you monitor virtualization "steal" time to ensure that other virtual machines running on the same host system are not using all of the instance's resources.
 
-### Arbeitsspeicherauslastung überwachen
+## Monitoring memory usage
 
-Die {% data variables.product.product_location %} zugeordnete Menge an physischem Arbeitsspeicher kann eine große Auswirkung auf die Gesamtleistung und Anwendungsreaktionsfähigkeit haben. Zum Beschleunigen von Git-Vorgängen soll das System den Kernel-Disk-Cache intensiv verwenden. Es wird empfohlen, dass der normale RSS-Arbeitssatz bei maximaler Nutzung 50 % des gesamten verfügbaren RAMs abdeckt.
+The amount of physical memory allocated to {% data variables.location.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
 
-| Schweregrad  | Schwellenwert                                                                         |
-| ------------ | ------------------------------------------------------------------------------------- |
-| **Warnung**  | Nachhaltige RSS-Nutzung überschreitet 50 % des insgesamt verfügbaren Arbeitsspeichers |
-| **Kritisch** | Nachhaltige RSS-Nutzung überschreitet 70 % des insgesamt verfügbaren Arbeitsspeichers |
+| Severity | Threshold |
+| -------- | --------- |
+| **Warning**  | Sustained RSS usage exceeds 50% of total available memory |
+| **Critical** | Sustained RSS usage exceeds 70% of total available memory |
 
-Wenn der Arbeitsspeicher erschöpft ist, versucht der OOM-Killer des Kernels Arbeitsspeicherressourcen freizugeben. Dazu werden zwangsweise RAM-intensive Anwendungsprozesse beendet, was zu einer Dienstunterbrechung führen kann. Sie sollten der virtuellen Maschine mehr Arbeitsspeicher zuordnen, als dies im normalen Betriebsablauf erforderlich ist.
+If memory is exhausted, the kernel OOM killer will attempt to free memory resources by forcibly killing RAM heavy application processes, which could result in a disruption of service. We recommend allocating more memory to the virtual machine than is required in the normal course of operations.

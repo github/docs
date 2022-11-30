@@ -1,8 +1,8 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
 {% note %}
 
-**Observação:** O administrador do site deve habilitar {% data variables.product.prodname_code_scanning %} para {% data variables.product.product_location %} antes de usar este recurso. Se você desejar usar o {% data variables.product.prodname_actions %} para fazer a varredura do seu código, o administrador do site também deverá habilitar o {% data variables.product.prodname_actions %} e configurar a infraestrutura necessária. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_code_scanning %} para seu aplicativo ](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance)".
+**Note:** Your site administrator must enable {% data variables.product.prodname_code_scanning %} for {% data variables.location.product_location %} before you can use this feature. If you want to use {% data variables.product.prodname_actions %} to scan your code, the site administrator must also enable {% data variables.product.prodname_actions %} and set up the infrastructure required. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance)."
 
 {% endnote %}
 

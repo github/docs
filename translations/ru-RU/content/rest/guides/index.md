@@ -1,33 +1,35 @@
 ---
-title: Руководства
-intro: 'Learn about getting started with the REST API, authentication, and how to use the REST API for a variety of tasks.'
+title: Guides
+intro: 'Узнайте о том, как начать работу с REST API, настроить проверку подлинности и применять REST API для разных задач.'
 redirect_from:
-  - /guides/
+  - /guides
   - /v3/guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+children:
+  - /getting-started-with-the-rest-api
+  - /basics-of-authentication
+  - /discovering-resources-for-a-user
+  - /delivering-deployments
+  - /rendering-data-as-graphs
+  - /working-with-comments
+  - /traversing-with-pagination
+  - /building-a-ci-server
+  - /best-practices-for-integrators
+  - /getting-started-with-the-git-database-api
+  - /getting-started-with-the-checks-api
+ms.openlocfilehash: 6441ccaa503fd348fa67ab4c896cb5470690149a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146200133'
 ---
-
-This section of the documentation is intended to get you up-and-running with real-world {% data variables.product.product_name %} API applications. We'll cover everything you need to know, from authentication, to manipulating results, to combining results with other apps.
-
-Every tutorial here will have a project, and every project will be stored and documented in our public [platform-samples](https://github.com/github/platform-samples) repository.
-
-![The Electrocat](/assets/images/electrocat.png)
-
-### Table of Contents
-
-{% link_in_list /getting-started-with-the-rest-api %}
-{% link_in_list /basics-of-authentication %}
-{% link_in_list /discovering-resources-for-a-user %}
-{% link_in_list /delivering-deployments %}
-{% link_in_list /rendering-data-as-graphs %}
-{% link_in_list /working-with-comments %}
-{% link_in_list /traversing-with-pagination %}
-{% link_in_list /building-a-ci-server %}
-{% link_in_list /best-practices-for-integrators %}
-{% link_in_list /getting-started-with-the-git-database-api %}
-{% link_in_list /getting-started-with-the-checks-api %}
+Этот раздел документации призван помочь вам приступить к работе с реальными приложениями API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. Мы рассмотрим все аспекты, которые вам нужно знать: от проверки подлинности до обработки результатов и их объединения с результатами, полученными от других приложений.
+Каждый учебник будет содержать проект, который хранится вместе с документацией в нашем общедоступном репозитории [platform-samples](https://github.com/github/platform-samples).
+![Octocat](/assets/images/electrocat.png)

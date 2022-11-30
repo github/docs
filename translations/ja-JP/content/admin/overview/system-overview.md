@@ -1,11 +1,11 @@
 ---
-title: システムの概要
-intro: '{% data variables.product.prodname_ghe_server %} は仮想化アプライアンス内に含まれる {% data variables.product.prodname_dotcom %} のお客様の Organization のプライベートなコピーで、オンプレミスあるいはクラウド上でホストされ、お客様が設定およびコントロールできます。'
+title: System overview
+intro: 'Learn more about {% data variables.product.product_name %}''s system internals, functionality, and security.'
 redirect_from:
   - /enterprise/admin/installation/system-overview
   - /enterprise/admin/overview/system-overview
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -15,135 +15,153 @@ topics:
   - Storage
 ---
 
-### ストレージアーキテクチャ
+## About {% data variables.product.product_name %}
 
-{% data variables.product.prodname_ghe_server %} は、2 つのストレージボリュームを必要とします。1 つは*ルートファイルシステム*パス (`/`) にマウントされるもので、もう 1 つは*ユーザファイルシステム*パス (`/data/user`) にマウントされるものです。 このアーキテクチャは、動作するソフトウェアの環境を永続的なアプリケーションデータから分離することによって、アップグレード、ロールバック、リカバリの手続きをシンプルにします。
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} For more information, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
 
-ルートファイルシステムは、配布されているマシンイメージに含まれています。 ルートファイルシステムにはベースのオペレーティングシステムと {% data variables.product.prodname_ghe_server %} アプリケーション環境が含まれています。 ルートファイルシステムは、一過性のものとして扱われなければなりません。 ルートファイルシステム上にあるデータは、すべて将来の {% data variables.product.prodname_ghe_server %} リリースへのアップグレード時に置き換えられます。
+## Storage architecture
 
-ルートファイルシステムには以下が含まれます:
-  - カスタムの認証局 (CA) 証明書 (*/usr/local/share/ca-certificates*)
-  - カスタムのネットワーク設定
-  - カスタムのファイアウォール設定
-  - レプリケーションの状態
+{% data variables.product.product_name %} requires two storage volumes, one mounted to the *root filesystem* path (`/`) and the other to the *user filesystem* path (`/data/user`). This architecture simplifies the upgrade, rollback, and recovery procedures by separating the running software environment from persistent application data.
 
-ユーザファイルシステムには、以下のようなユーザ設定とデータが含まれます:
-  - Git リポジトリ
-  - データベース
-  - 検索インデックス
-  - {% data variables.product.prodname_pages %} サイトで公開されたコンテンツ
-  - {% data variables.large_files.product_name_long %} からの大きなファイル
-  - pre-receive フック環境
+The root filesystem is included in the distributed machine image. It contains the base operating system and the {% data variables.product.product_name %} application environment. The root filesystem should be treated as ephemeral. Any data on the root filesystem will be replaced when upgrading to future {% data variables.product.product_name %} releases.
 
-### デプロイメントの選択肢
+The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a 200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB reserved for the upgrades and rollbacks.
 
-{% data variables.product.prodname_ghe_server %} は単一の仮想アプライアンスとしても、High Availability 構成としてもデプロイできます。 詳細は「[High Availability 用に {% data variables.product.prodname_ghe_server %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。
+The root filesystem contains files that store the following information. This list is not exhaustive.
 
-数万人の開発者がいる組織の場合、{% data variables.product.prodname_ghe_server %} クラスタリングも有益かもしれません。 詳しい情報については「[クラスタリングについて](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-clustering)」を参照してください。
+- Custom certificate authority (CA) certificates (in `/usr/local/share/ca-certificates*`)
+- Custom networking configurations
+- Custom firewall configurations
+- The replication state
 
-### データのリテンションとデータセンターの冗長性
+The user filesystem contains files that store following configuration and data. This list is not exhaustive.
 
-{% danger %}
+- Git repositories
+- Databases
+- Search indexes
+- Content published on {% data variables.product.prodname_pages %} sites
+- Large files from {% data variables.large_files.product_name_long %}
+- Pre-receive hook environments
 
-{% data variables.product.prodname_ghe_server %} を本番環境で使う前に、バックアップとシステム災害復旧計画をセットアップしておくことを強くおすすめします。 詳しい情報については、「[アプライアンスでのバックアップの設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)」を参照してください。
+## Deployment topologies
 
-{% enddanger %}
+You can deploy {% data variables.product.product_name %} in a variety of topologies, such as a high availability pair. For more information, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server#about-deployment-topologies)."
 
-{% data variables.product.prodname_ghe_server %} には、[{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils) でのオンラインおよびインクリメンタルバックアップのサポートが含まれています。 インクリメンタルスナップショットは、オフサイトや地理的に離れたストレージのために長距離を経てセキュアなネットワークリンク（SSH管理ポート）経由で取ることができます。 スナップショットは、プライマリデータセンターにおける災害時のリカバリにおいて、新たにプロビジョニングされたアプライアンスにネットワーク経由でリストアできます。
+## Data retention and datacenter redundancy
 
-ネットワークバックアップに加えて、アプライアンスがオフラインになっているかメンテナンスモードになっている間に、ユーザストレージボリュームのAWS（EBS）やVMWareのディスクスナップショットがサポートされています。 サービスレベルの要求が定期的なオフラインメンテナンスを許せるものであれば、定期的なボリュームのスナップショットは、{% data variables.product.prodname_enterprise_backup_utilities %}のネットワークバックアップの低コストで複雑さの低い代替になります。
+{% warning %}
 
-詳しい情報については、「[アプライアンスでのバックアップの設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)」を参照してください。
+**Warning**: Before using {% data variables.product.product_name %} in a production environment, we strongly recommend you set up backups and a disaster recovery plan.
 
-### セキュリティ
+{% endwarning %}
 
-{% data variables.product.prodname_ghe_server %} は、お客様のインフラストラクチャ上で動作する仮想アプライアンスで、ファイアウォール、IAM、監視、VPNなどの既存のセキュリティ情報管理により統御されます。 {% data variables.product.prodname_ghe_server %} を使うと、クラウドベースのソリューションから生じる、規制の遵守に関する問題の回避に役立ちます。
+{% data variables.product.product_name %} includes support for online and incremental backups with {% data variables.product.prodname_enterprise_backup_utilities %}. You can take incremental snapshots over a secure network link (the SSH administrative port) over long distances for off-site or geographically dispersed storage. You can restore snapshots over the network into a newly provisioned instance at time of recovery in case of disaster at the primary datacenter.
 
-{% data variables.product.prodname_ghe_server %} には、追加のセキュリティ機能も含まれています。
+In addition to network backups, both AWS (EBS) and VMware disk snapshots of the user storage volumes are supported while the instance is offline or in maintenance mode. Regular volume snapshots can be used as a low-cost, low-complexity alternative to network backups with {% data variables.product.prodname_enterprise_backup_utilities %} if your service level requirements allow for regular offline maintenance.
 
-- [オペレーティングシステム、ソフトウェア、パッチ](#operating-system-software-and-patches)
-- [ネットワークのセキュリティ](#network-security)
-- [アプリケーションのセキュリティ](#application-security)
-- [外部サービスおよびサポートへのアクセス](#external-services-and-support-access)
-- [暗号化通信](#encrypted-communication)
-- [ユーザおよびアクセス権限](#users-and-access-permissions)
-- [認証](#authentication)
-- [監査およびアクセスのログ取得](#audit-and-access-logging)
+For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-#### オペレーティングシステム、ソフトウェア、パッチ
+## Security
 
-{% data variables.product.prodname_ghe_server %} は、必要なアプリケーションとサービスのみを備える、カスタマイズされた Linux を実行します。 {% data variables.product.prodname_dotcom %} は、標準的な製品リリースサイクルの一環として、アプライアンスのコアオペレーティングシステムに対するパッチを管理します。 パッチは、{% data variables.product.prodname_dotcom %} アプライアンスの機能、安定性、および重大でないセキュリティ問題に対処するものです。 また、{% data variables.product.prodname_dotcom %} は、必要に応じて標準的なリリースサイクル外でも重大なセキュリティパッチを提供します。
+{% data reusables.enterprise.ghes-runs-on-your-infrastructure %}
 
-#### ネットワークのセキュリティ
+{% data variables.product.product_name %} also includes additional security features.
 
-{% data variables.product.prodname_ghe_server %} の内部ファイアウォールは、アプライアンスのサービスへのネットワークアクセスを制限します。 アプライアンスが機能するために必要なサービスだけが、ネットワークを通じて利用できます。 詳しい情報については、「[ネットワークポート](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports)」を参照してください。
+- [Operating system, software, and patches](#operating-system-software-and-patches)
+- [Network security](#network-security)
+- [Application security](#application-security)
+- [External services and support access](#external-services-and-support-access)
+- [Encrypted communication](#encrypted-communication)
+- [Users and access permissions](#users-and-access-permissions)
+- [Authentication](#authentication)
+- [Audit and access logging](#audit-and-access-logging)
 
-#### アプリケーションのセキュリティ
+### Operating system, software, and patches
 
-{% data variables.product.prodname_dotcom %} の、アプリケーションのセキュリティチームは、{% data variables.product.prodname_ghe_server %} も含めた {% data variables.product.prodname_dotcom %} 製品に対し、脆弱性評価、ペネトレーションテスト、およびコードレビューをフルタイムで重点的に取り組んでいます。 また、{% data variables.product.prodname_dotcom %} は、{% data variables.product.prodname_dotcom %} 製品の特定時点におけるセキュリティ評価を行なうため、外部セキュリティ企業と契約しています。
+{% data variables.product.product_name %} runs a customized Linux operating system with only the necessary applications and services. {% data variables.product.company_short %} distributes patches for the instance's core operating system as part of its standard product release cycle. Patches address functionality, stability, and non-critical security issues for {% data variables.product.product_name %}. {% data variables.product.company_short %} also provides critical security patches as needed outside of the regular release cycle.
 
-#### 外部サービスおよびサポートへのアクセス
+{% data variables.product.product_name %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
 
-{% data variables.product.prodname_ghe_server %} は、お客様のネットワークから外部サービスにアクセスすることなしに運用できます。 また、メール配信、外部モニタリング、およびログ転送のため、外部サービスとのインテグレーションを有効にすることも可能です。 詳しい情報については、「[通知のためのメール設定](/admin/configuration/configuring-email-for-notifications)」、「[外部モニタリングのセットアップ](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)」、「[ログの転送](/admin/user-management/log-forwarding)」を参照してください。
+Currently, the base operating system for {% data variables.product.product_name %} is Debian 9 (Stretch), which receives support under the Debian Long Term Support program.  There are plans to move to a newer base operating system before the end of the Debian LTS period for Stretch.
 
-トラブルシューティングデータを手動で収集し、{% data variables.contact.github_support %} に送信できます。 詳しい情報については、「[{% data variables.contact.github_support %} へのデータ提供](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)」を参照してください。
+Regular patch updates are released on the {% data variables.product.product_name %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.product_name %} patch release.
 
-#### 暗号化通信
+### Network security
 
-{% data variables.product.prodname_dotcom %} は、{% data variables.product.prodname_ghe_server %} がお客様の社内ファイアウォールの背後で動作するよう設計しています。 回線を介した通信を保護するため、Transport Layer Security (TLS) を有効化するようお勧めします。 {% data variables.product.prodname_ghe_server %} は、HTTPS トラフィックに対して、2048 ビット以上の商用 TLS 証明書をサポートしています。 詳しい情報については、「[TLSの設定](/enterprise/{{ currentVersion }}/admin/installation/configuring-tls)」を参照してください。
+{% data variables.product.product_name %}'s internal firewall restricts network access to the instance's services. Only services necessary for the appliance to function are available over the network. For more information, see "[Network ports](/admin/configuration/configuring-network-settings/network-ports)."
 
-デフォルトでは、Git によるリポジトリへのアクセスと管理目的との両方で、アプライアンスは Secure Shell (SSH) アクセスも提供します。 詳しい情報については、「[SSH について](/enterprise/user/articles/about-ssh)」および「[管理シェル (SSH) にアクセスする](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
+### Application security
 
-#### ユーザおよびアクセス権限
+{% data variables.product.company_short %}'s application security team focuses full-time on vulnerability assessment, penetration testing, and code review for {% data variables.product.company_short %} products, including {% data variables.product.product_name %}. {% data variables.product.company_short %} also contracts with outside security firms to provide point-in-time security assessments of {% data variables.product.company_short %} products.
 
-{% data variables.product.prodname_ghe_server %} は、3 種類のアカウントを提供しています。
+### External services and support access
 
-- `admin` Linux ユーザアカウントは、ファイルシステムやデータベースへの直接的なアクセスを含め、基底のオペレーティングシステムに対して限定的にアクセスできます。 このアカウントには、少数の信頼できる管理者がアクセスできるようにすべきで、SSH を介してアクセスできます。 詳しい情報については、「[管理シェル (SSH) にアクセスする](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
-- アプライアンスのウェブアプリケーション内のユーザアカウントは、自らのデータ、および他のユーザや Organization が明示的に許可したあらゆるデータにフルアクセスできます。
-- アプライアンスのウェブアプリケーション内サイト管理者は、高レベルのウェブアプリケーションおよびアプライアンスの設定、ユーザおよび Organization のアカウント設定、ならびにリポジトリデータを管理できるユーザアカウントです。
+{% data variables.product.product_name %} can operate without any egress access from your network to outside services. You can optionally enable integration with external services for email delivery, external monitoring, and log forwarding. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)," "[Setting up external monitoring](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring)," and "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 
-{% data variables.product.prodname_ghe_server %} のユーザ権限に関する詳しい情報については「[GitHub 上のアクセス権限](/enterprise/user/articles/access-permissions-on-github)」を参照してください。
+You can manually collect and send troubleshooting data to {% data variables.contact.github_support %}. For more information, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support)."
 
-#### 認証
+### Encrypted communication
 
-{% data variables.product.prodname_ghe_server %} は、4 つの認証方式を提供しています。
+{% data variables.product.company_short %} designs {% data variables.product.product_name %} to run behind your corporate firewall. To secure communication over the wire, we encourage you to enable Transport Layer Security (TLS). {% data variables.product.product_name %} supports 2048-bit and higher commercial TLS certificates for HTTPS traffic. For more information, see "[Configuring TLS](/admin/configuration/configuring-network-settings/configuring-tls)."
 
-- SSH 公開鍵認証は、Git によるリポジトリへのアクセスと、管理シェルアクセスの両方を提供します。 詳しい情報については、「[SSH について](/enterprise/user/articles/about-ssh)」および「[管理シェル (SSH) にアクセスする](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
-- HTTP クッキーを用いたユーザ名とパスワードによる認証では、ウェブアプリケーションのアクセスおよびセッションの管理、そして任意で 2 要素認証 (2FA) を提供します。 詳しい情報については、「[ビルトイン認証の利用](/enterprise/{{ currentVersion }}/admin/user-management/using-built-in-authentication)」を参照してください。
-- LDAP サービス、SAML アイデンティティプロバイダ (IdP)、またはその他互換性のあるサービスを用いた外部 LDAP、SAML、および CAS 認証は、ウェブアプリケーションへのアクセスを提供します。 詳しい情報については、「[GitHub Enterprise Server インスタンスでユーザを認証する](/enterprise/{{ currentVersion }}/admin/user-management/authenticating-users-for-your-github-enterprise-server-instance)」を参照してください。
-- OAuth および個人アクセストークンは、外部クライアントとサービスの両方に対して、Git リポジトリデータおよび API へのアクセスを提供します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+By default, the instance also offers Secure Shell (SSH) access for both repository access using Git and administrative purposes. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
-#### 監査およびアクセスのログ取得
+{% ifversion ghes > 3.3 %}
 
-{% data variables.product.prodname_ghe_server %} は、従来型オペレーティングシステムおよびアプリケーションの両方のログを保存します。 また、アプリケーションは詳細な監査およびセキュリティログも記録し、{% data variables.product.prodname_ghe_server %} はこれを永続的に保存します。 `syslog-ng` プロトコルを介して、両タイプのログをリアルタイムで複数の宛先に転送できます。 詳しい情報については、「[ログの転送](/admin/user-management/log-forwarding)」を参照してください。
+If you configure SAML authentication for {% data variables.location.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
 
-アクセスログと監査ログには、以下のような情報が含まれています。
+{% endif %}
 
-##### アクセスログ
+### Users and access permissions
 
-- ブラウザと API アクセスの両方の、ウェブサーバーの完全なログ
-- Git、HTTPS、および SSH プロトコルを介した、リポジトリデータへのアクセスの完全なログ
-- HTTPS および SSH を介した、管理アクセスのログ
+{% data variables.product.product_name %} provides three types of accounts.
 
-##### 監査ログ
+- The `admin` Linux user account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+- User accounts in the instance's web application have full access to their own data and any data that other users or organizations explicitly grant.
+- Site administrators in the instance's web application are user accounts that can manage high-level web application and instance settings, user and organization account settings, and repository data.
 
-- ユーザのログイン、パスワードのリセット、2 要素認証のリクエスト、メール設定の変更、ならびに許可されたアプリケーションおよび API への変更
-- ユーザアカウントやリポジトリのアンロックなどの、サイト管理者のアクション
-- リポジトリのプッシュイベント、アクセス許可、移譲、および名前の変更
-- チームの作成および破棄を含む、Organization のメンバーシップ変更
+For more information about {% data variables.product.product_name %}'s user permissions, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/access-permissions-on-github)."
 
-### {% data variables.product.prodname_ghe_server %} のオープンソース依存性
+### Authentication
 
-使用しているアプライアンスのバージョンの {% data variables.product.prodname_ghe_server %} における依存対象の完全なリストは、それぞれのプロジェクトのライセンスと合わせて `http(s)://HOSTNAME/site/credits` で見ることができます。
+{% data variables.product.product_name %} provides four authentication methods.
 
-依存関係と関連するメタデータの完全なリストと合わせて、Tarball 群はアプライアンス上にあります。
-- すべてのプラットフォームに共通の依存関係は `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz` にあります。
-- プラットフォームに固有の依存関係は `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz` にあります。
+- SSH public key authentication provides both repository access using Git and administrative shell access. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+- Username and password authentication with HTTP cookies provides web application access and session management, with optional two-factor authentication (2FA). For more information, see "[Using built-in authentication](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication)."
+- External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see "[Managing IAM for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
+- OAuth and {% data variables.product.pat_generic %}s provide access to Git repository data and APIs for both external clients and services. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-依存対象とメタデータの完全なリストとともにTarball群も`https://enterprise.github.com/releases/<version>/download.html`にあります。
+### Audit and access logging
 
-### 参考リンク
+{% data variables.product.product_name %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.product_name %} stores permanently. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)" and "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 
-- [{% data variables.product.prodname_ghe_server %} のトライアルをセットアップする](/articles/setting-up-a-trial-of-github-enterprise-server)
-- [{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)
-- `github/roadmap` リポジトリの [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
+Access and audit logs include information like the following.
+
+#### Access logs
+
+- Full web server logs for both browser and API access
+- Full logs for access to repository data over Git, HTTPS, and SSH protocols
+- Administrative access logs over HTTPS and SSH
+
+#### Audit logs
+
+- User logins, password resets, 2FA requests, email setting changes, and changes to authorized applications and APIs
+- Site administrator actions, such as unlocking user accounts and repositories
+- Repository push events, access grants, transfers, and renames
+- Organization membership changes, including team creation and destruction
+
+## Open source dependencies for {% data variables.product.product_name %}
+
+You can see a complete list of dependencies in your instance's version of {% data variables.product.product_name %}, as well as each project's license, at `http(s)://HOSTNAME/site/credits`.
+
+Tarballs with a full list of dependencies and associated metadata are available on your instance.
+
+- For dependencies common to all platforms, at `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
+- For dependencies specific to a platform, at `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
+
+Tarballs are also available, with a full list of dependencies and metadata, at `https://enterprise.github.com/releases/<version>/download.html`.
+
+## Further reading
+
+- "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)"
+- "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)"

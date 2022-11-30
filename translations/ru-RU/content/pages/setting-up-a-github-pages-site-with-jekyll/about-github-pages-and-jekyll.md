@@ -1,45 +1,52 @@
 ---
-title: About GitHub Pages and Jekyll
-intro: 'Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %}.'
+title: Сведения о GitHub Pages и Jekyll
+intro: "Jekyll\_— это генератор статических сайтов со встроенной поддержкой {% data variables.product.prodname_pages %}."
 redirect_from:
   - /articles/about-jekyll-themes-on-github
   - /articles/configuring-jekyll
   - /articles/configuring-jekyll-plugins
   - /articles/using-syntax-highlighting-on-github-pages
   - /articles/files-that-start-with-an-underscore-are-missing
-  - /articles/sitemaps-for-github-pages/
-  - /articles/search-engine-optimization-for-github-pages/
-  - /articles/repository-metadata-on-github-pages/
-  - /articles/atom-rss-feeds-for-github-pages/
-  - /articles/redirects-on-github-pages/
-  - /articles/emoji-on-github-pages/
-  - /articles/mentions-on-github-pages/
-  - /articles/using-jekyll-plugins-with-github-pages/
-  - /articles/adding-jekyll-plugins-to-a-github-pages-site/
+  - /articles/sitemaps-for-github-pages
+  - /articles/search-engine-optimization-for-github-pages
+  - /articles/repository-metadata-on-github-pages
+  - /articles/atom-rss-feeds-for-github-pages
+  - /articles/redirects-on-github-pages
+  - /articles/emoji-on-github-pages
+  - /articles/mentions-on-github-pages
+  - /articles/using-jekyll-plugins-with-github-pages
+  - /articles/adding-jekyll-plugins-to-a-github-pages-site
   - /articles/about-github-pages-and-jekyll
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: GitHub Pages & Jekyll
+ms.openlocfilehash: 15551d849842c0b8866c0820c4a42397f412d6ea
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/13/2022
+ms.locfileid: '145140257'
 ---
+## <a name="about-jekyll"></a>Сведения о Jekyll
 
-### About Jekyll
+Jekyll — это генератор статических сайтов со встроенной поддержкой {% data variables.product.prodname_pages %} и упрощенным процессом сборки. Jekyll принимает файлы Markdown и HTML и создает полный статический веб-сайт на основе вашего выбора макетов. Jekyll поддерживает Markdown и Liquid, язык шаблонов, который загружает динамическое содержимое на вашем сайте. Дополнительные сведения см. в разделе [Jekyll](https://jekyllrb.com/).
 
-Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. Jekyll takes Markdown and HTML files and creates a complete static website based on your choice of layouts. Jekyll supports Markdown and Liquid, a templating language that loads dynamic content on your site. For more information, see [Jekyll](https://jekyllrb.com/).
+Jekyll для Windows официально не поддерживается. Дополнительные сведения см. в разделе [Jekyll в Windows](http://jekyllrb.com/docs/windows/#installation) в документации по Jekyll.
 
-Jekyll is not officially supported for Windows. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
+Рекомендуется использовать Jekyll с {% data variables.product.prodname_pages %}. При желании вы можете использовать другие генераторы статических сайтов или настроить собственный процесс сборки локально или на другом сервере. Дополнительные сведения см. в статье [Сведения о {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators).
 
-We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)."
+## <a name="configuring-jekyll-in-your--data-variablesproductprodname_pages--site"></a>Настройка Jekyll на вашем сайте {% data variables.product.prodname_pages %}
 
-### Configuring Jekyll in your {% data variables.product.prodname_pages %} site
+Вы можете настроить большинство параметров Jekyll, таких как тема и подключаемые модули сайта, изменив файл *_config.yml*. Дополнительные сведения см. в разделе [Настройка](https://jekyllrb.com/docs/configuration/) в документации по Jekyll.
 
-You can configure most Jekyll settings, such as your site's theme and plugins, by editing your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
-
-Some configuration settings cannot be changed for {% data variables.product.prodname_pages %} sites.
+Некоторые параметры конфигурации для сайтов {% data variables.product.prodname_pages %} изменять нельзя.
 
 ```yaml
 lsi: false
@@ -54,36 +61,35 @@ kramdown:
   syntax_highlighter: rouge
 ```
 
-By default, Jekyll doesn't build files or folders that:
-- are located in a folder called `/node_modules` or `/vendor`
-- start with `_`, `.`, or `#`
-- end with `~`
-- are excluded by the `exclude` setting in your configuration file
+По умолчанию Jekyll не создает файлы или папки, которые:
+- находятся в папке с именем `/node_modules` или `/vendor`;
+- начинаются с `_`, `.` или `#`;
+- заканчиваются на `~`;
+- исключены параметром `exclude` в файле конфигурации.
 
-If you want Jekyll to process any of these files, you can use the `includes` setting in your configuration file.
+Если вы хотите, чтобы Jekyll обрабатывал какой-либо из этих файлов, можно использовать параметр `include` в файле конфигурации.
 
-### Front matter
+## <a name="front-matter"></a>Титульный лист
 
 {% data reusables.pages.about-front-matter %}
 
-You can add `site.github` to a post or page to add any repository references metadata to your site. For more information, see "[Using `site.github`](https://jekyll.github.io/github-metadata/site.github/)" in the Jekyll Metadata documentation.
+Вы можете добавить `site.github` в публикацию или на страницу, чтобы добавить на ваш сайт любые метаданные ссылок на репозитории. Дополнительные сведения см. в разделе [Использование `site.github`](https://jekyll.github.io/github-metadata/site.github/) в документации по метаданным Jekyll.
 
-### Themes
+## <a name="themes"></a>Темы
 
-{% data reusables.pages.add-jekyll-theme %} For more information, see "[Themes](https://jekyllrb.com/docs/themes/)" in the Jekyll documentation.
+{% data reusables.pages.add-jekyll-theme %} Дополнительные сведения см. в разделе [Темы](https://jekyllrb.com/docs/themes/) в документации по Jekyll.
 
-{% if currentVersion == "free-pro-team@latest" %}
-You can add a supported theme to your site on {% data variables.product.prodname_dotcom %}. For more information, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and "[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)."
+{% ifversion fpt or ghec %} Вы можете добавить поддерживаемую тему на свой сайт в {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделах [Поддерживаемые темы](https://pages.github.com/themes/) на сайте {% data variables.product.prodname_pages %} и [Добавление темы на сайт {% data variables.product.prodname_pages %} с помощью инструмента выбора темы](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser).
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% if currentVersion == "free-pro-team@latest" %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+Чтобы использовать любую другую тему Jekyll с открытым кодом, размещенную в {% data variables.product.prodname_dotcom %}, вы можете добавить ее вручную.{% else %} Вы можете добавить тему на ваш сайт вручную.{% endif %} Дополнительные сведения см. в разделе{% ifversion fpt or ghec %} [Темы, размещенные в {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) и{% else %} [Поддерживаемые темы](https://pages.github.com/themes/) на сайте {% data variables.product.prodname_pages %} и{% endif %} [Добавление темы на ваш сайт {% data variables.product.prodname_pages %} с помощью Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).
 
-You can override any of your theme's defaults by editing the theme's files. For more information, see your theme's documentation and "[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" in the Jekyll documentation.
+Вы можете переопределять любые значения по умолчанию вашей темы, изменяя ее файлы. Дополнительные сведения см. в документации по теме и в разделе [Переопределение значений по умолчанию темы](https://jekyllrb.com/docs/themes/#overriding-theme-defaults) документации по Jekyll.
 
-### Plugins
+## <a name="plugins"></a>Подключаемые модули
 
-You can download or create Jekyll plugins to extend the functionality of Jekyll for your site. For example, the [jemoji](https://github.com/jekyll/jemoji) plugin lets you use {% data variables.product.prodname_dotcom %}-flavored emoji in any page on your site the same way you would on {% data variables.product.prodname_dotcom %}. For more information, see "[Plugins](https://jekyllrb.com/docs/plugins/)" in the Jekyll documentation.
+Для расширения функциональных возможностей Jekyll на вашем сайте вы можете скачать или создать подключаемые модули Jekyll. Например, подключаемый модуль [jemoji](https://github.com/jekyll/jemoji) позволяет использовать эмодзи {% data variables.product.prodname_dotcom %} на любой странице сайта так же, как вы это делали бы в {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Подключаемые модули](https://jekyllrb.com/docs/plugins/) в документации по Jekyll.
 
-{% data variables.product.prodname_pages %} uses plugins that are enabled by default and cannot be disabled:
+{% data variables.product.prodname_pages %} использует подключаемые модули, которые включены по умолчанию и не могут быть отключены:
 - [`jekyll-coffeescript`](https://github.com/jekyll/jekyll-coffeescript)
 - [`jekyll-default-layout`](https://github.com/benbalter/jekyll-default-layout)
 - [`jekyll-gist`](https://github.com/jekyll/jekyll-gist)
@@ -94,25 +100,25 @@ You can download or create Jekyll plugins to extend the functionality of Jekyll 
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
+Вы можете включить дополнительные подключаемые модули, добавив зависимость подключаемого модуля в параметр `plugins` в файле *_config.yml*. Дополнительные сведения см. в разделе [Настройка](https://jekyllrb.com/docs/configuration/) в документации по Jekyll. 
 
-For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.  For usage information for a specific plugin, see the plugin's documentation.
+Список поддерживаемых подключаемых модулей см. в разделе [Версии зависимостей](https://pages.github.com/versions/) на сайте {% data variables.product.prodname_pages %}.  Сведения об использовании для определенного подключаемого модуля см. в документации этого подключаемого модуля.
 
 {% tip %}
 
-**Tip:** You can make sure you're using the latest version of all plugins by keeping the {% data variables.product.prodname_pages %} gem updated. For more information, see "[Testing your GitHub Pages site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" and "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
+**Совет.** Чтобы всегда использовать последнюю версию всех подключаемых модулей, поддерживайте своевременное обновление зависимости {% data variables.product.prodname_pages %}. Дополнительные сведения см. в разделах [Тестирование сайта GitHub Pages локально с помощью Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem) и [Версии зависимостей](https://pages.github.com/versions/) на сайте {% data variables.product.prodname_pages %}.
 
 {% endtip %}
 
-{% data variables.product.prodname_pages %} cannot build sites using unsupported plugins. If you want to use unsupported plugins, generate your site locally and then push your site's static files to {% data variables.product.product_name %}.
+{% data variables.product.prodname_pages %} не может создавать сайты с помощью неподдерживаемых подключаемых модулей. Если вы хотите использовать неподдерживаемые подключаемые модули, создайте сайт локально, а затем отправьте статические файлы сайта в {% data variables.product.product_name %}.
 
-### Syntax highlighting
+## <a name="syntax-highlighting"></a>Выделение синтаксиса
 
-To make your site easier to read, code snippets are highlighted on {% data variables.product.prodname_pages %} sites the same way they're highlighted on {% data variables.product.product_name %}. For more information about syntax highlighting on {% data variables.product.product_name %}, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+Чтобы вам было удобнее читать сайт, фрагменты кода на сайтах {% data variables.product.prodname_pages %} выделяются так же, как они выделяются в {% data variables.product.product_name %}. Дополнительные сведения о выделении синтаксиса в {% data variables.product.product_name %} см. в разделе [Создание и выделение блоков кода](/articles/creating-and-highlighting-code-blocks).
 
-By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses the [Rouge](https://github.com/jneen/rouge) highlighter, which is compatible with [Pygments](http://pygments.org/). If you specify Pygments in your *_config.yml* file, Rouge will be used instead. Jekyll cannot use any other syntax highlighter, and you'll get a page build warning if you specify another syntax highlighter in your *_config.yml* file. For more information, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+По умолчанию блоки кода на сайте будут выделяться Jekyll. Jekyll использует средство выделения [Rouge](https://github.com/jneen/rouge), совместимое с [Pygments](http://pygments.org/). Средство Pygments устарело и не поддерживается в Jekyll 4. Если в файле *_config.yml* вы укажете Pygments, вместо него будет использоваться Rouge. Jekyll не может использовать какое-либо другое средство выделения синтаксиса, и если вы укажете в файле *_config.yml* другое средство выделения синтаксиса, то во время сборки страницы получите предупреждение. Дополнительные сведения см. в разделе [Сведения об ошибках сборки Jekyll для сайтов {% data variables.product.prodname_pages %}](/articles/about-jekyll-build-errors-for-github-pages-sites).
 
-If you want to use another highlighter, such as `highlight.js`, you must disable Jekyll's syntax highlighting by updating your project's *_config.yml* file.
+Если вы хотите использовать другое средство выделения, например `highlight.js`, необходимо отключить выделение синтаксиса Jekyll, обновив файл *_config.yml* вашего проекта.
 
 ```yaml
 kramdown:
@@ -120,12 +126,12 @@ kramdown:
     disable : true
 ```
 
-If your theme doesn't include CSS for syntax highlighting, you can generate {% data variables.product.prodname_dotcom %}'s syntax highlighting CSS and add it to your project's `style.css` file.
+Если тема не содержит каскадные таблицы стилей для выделения синтаксиса, можно создать каскадные таблицы стилей выделения синтаксиса {% data variables.product.prodname_dotcom %} и добавить их в файл проекта `style.css`.
 
 ```shell
 $ rougify style github > style.css
 ```
 
-### Building your site locally
+## <a name="building-your-site-locally"></a>Локальное создание сайта
 
 {% data reusables.pages.test-locally %}

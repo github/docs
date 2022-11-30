@@ -5,46 +5,54 @@ redirect_from:
   - /articles/about-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
   - Fundamentals
+ms.openlocfilehash: 7fd54eb981d9083b1c5a0cc843834ecdfc895a8a
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145149700'
 ---
-
-### Informationen zu {% data variables.product.prodname_sponsors %}
+## Informationen zu {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.sponsorship-details %}
 
-{% data reusables.sponsors.no-fees %} Weitere Informationen finden Sie unter „[Informationen zur Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)“.
+{% data reusables.sponsors.no-fees %} Weitere Informationen findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors).
 
-{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[About {% data variables.product.prodname_sponsors %} for open source contributors](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)" and "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
+{% data reusables.sponsors.you-can-be-a-sponsored-developer %} Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_sponsors %} für Open-Source-Mitwirkende](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors) und [Einrichten von {% data variables.product.prodname_sponsors %} für dein persönliches Konto](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account).
 
-{% data reusables.sponsors.you-can-be-a-sponsored-organization %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+{% data reusables.sponsors.you-can-be-a-sponsored-organization %} Weitere Informationen findest du unter [Einrichten von {% data variables.product.prodname_sponsors %} für deine Organisation](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization).
 
-Wenn du ein unterstützter Entwickler oder eine unterstütze Organisation wirst, gelten zusätzliche Bedingungen für {% data variables.product.prodname_sponsors %}. Weitere Informationen findest Du unter „[GitHub Sponsors Zusätzliche Bedingungen](/github/site-policy/github-sponsors-additional-terms)."
+Wenn du ein unterstützter Entwickler oder eine unterstütze Organisation wirst, gelten zusätzliche Bedingungen für {% data variables.product.prodname_sponsors %}. Weitere Informationen findest du unter [Zusätzliche Bedingungen für GitHub-Sponsoren](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
-### Informationen zu {% data variables.product.prodname_matching_fund %}
+## Informationen zu {% data variables.product.prodname_matching_fund %}
 
 {% note %}
 
-**Note:** {% data reusables.sponsors.matching-fund-eligible %}
+**Hinweis:** {% data reusables.sponsors.matching-fund-eligible %}
 
 {% endnote %}
 
-Der {% data variables.product.prodname_matching_fund %} zielt darauf ab, Mitgliedern der {% data variables.product.prodname_dotcom %}-Community zu helfen, die Open-Source-Software entwickeln, welche die [{% data variables.product.prodname_dotcom %}-Community-Richtlinien](/github/site-policy/github-community-guidelines) fördert. Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
+Der {% data variables.product.prodname_matching_fund %} zielt darauf ab, Mitgliedern der {% data variables.product.prodname_dotcom %}-Community zu helfen, die Open-Source-Software entwickeln, welche die [{% data variables.product.prodname_dotcom %}-Community-Richtlinien](/free-pro-team@latest/github/site-policy/github-community-guidelines) fördert. Für Zahlungen an gesponserte Organisationen und Zahlungen von Organisationen ist der {% data variables.product.prodname_matching_fund %} nicht bestimmt.
 
-Um für {% data variables.product.prodname_matching_fund %} berechtigt zu sein, musst Du ein Profil erstellen, das eine Community anzieht, die Dich langfristig unterstützen wird. For more information about creating a strong profile, see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)."
+Um für {% data variables.product.prodname_matching_fund %} berechtigt zu sein, musst Du ein Profil erstellen, das eine Community anzieht, die Dich langfristig unterstützen wird. Weitere Informationen findest du unter [Bearbeiten deiner Profildetails für {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors).
 
-Donations between sponsored developers will not be matched.
+Spenden zwischen gesponserten Entwicklern werden nicht gegeneinander aufgerechnet.
 
 {% data reusables.sponsors.legal-additional-terms %}
 
-### Feedback zu {% data variables.product.prodname_sponsors %} geben
+## Feedback zu {% data variables.product.prodname_sponsors %} geben
 
 {% data reusables.sponsors.feedback %}
 
-### Weiterführende Informationen
-- "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"
-- "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
-- „[Häufig gestellte Fragen mit dem {% data variables.product.prodname_sponsors %}-Team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)“ auf {% data variables.product.prodname_blog %}
+## Weiterführende Themen
+- [Unterstützen von Open-Source-Mitwirkenden](/sponsors/sponsoring-open-source-contributors)
+- [Empfangen von Sponsoring über {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)
+- [Suche von Nutzern und Organisationen nach der Eignung als Sponsor](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)
+- [Suche von Repositorys nach der Eignung als Sponsor](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)
+- [Häufig an das {% data variables.product.prodname_sponsors %}-Team gestellte Fragen](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/) auf {% data variables.product.prodname_blog %}

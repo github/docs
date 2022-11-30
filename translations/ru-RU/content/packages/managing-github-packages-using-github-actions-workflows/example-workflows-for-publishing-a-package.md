@@ -1,18 +1,24 @@
 ---
-title: Example workflows for publishing a package
-intro: To help you get started with your own custom workflows, review some example workflows for publishing packages.
+title: Примеры рабочих процессов для публикации пакета
+intro: 'Чтобы вам было проще применять собственные рабочие процессы, изучите примеры рабочих процессов для пакетов публикации.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Example workflows
+ms.openlocfilehash: 7fea4fc0be69505843fb0857338fc7f6d6be555e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145140494'
 ---
+{% data reusables.package_registry.packages-ghes-release-stage %} {% data reusables.package_registry.packages-ghae-release-stage %}
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
+Примеры рабочих процессов можно найти в разделе [Публикация и установка пакета с {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions) или в любом из этих руководств по {% data variables.product.prodname_actions %}:
 
-You can find example workflows in "[Publishing and installing a package with {% data variables.product.prodname_actions %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" or in any of these {% data variables.product.prodname_actions %} guides:
-
-  - [Publishing Node.js packages](/actions/guides/publishing-nodejs-packages)
-  - [Publishing Docker images](/actions/guides/publishing-docker-images)
-  - [Publishing Java packages with Maven](/actions/guides/publishing-java-packages-with-maven)
-  - [Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle)
+  - [Публикация пакетов Node.js](/actions/guides/publishing-nodejs-packages)
+  - [Публикация образов Docker](/actions/guides/publishing-docker-images)
+  - [Публикация пакетов Java с помощью Maven](/actions/guides/publishing-java-packages-with-maven)
+  - [Публикация пакетов Java с помощью Gradle](/actions/guides/publishing-java-packages-with-gradle)

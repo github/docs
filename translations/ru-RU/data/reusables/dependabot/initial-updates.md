@@ -1,5 +1,13 @@
-When you first enable version updates, you may have many dependencies that are outdated and some may be many versions behind the latest version. {% data variables.product.prodname_dependabot %} checks for outdated dependencies as soon as it's enabled. You may see new pull requests for version updates within minutes of adding the configuration file, depending on the number of manifest files for which you configure updates. {% data variables.product.prodname_dependabot %} will also run an update on subsequent changes to the configuration file.
+---
+ms.openlocfilehash: 8adf896da9e4748cfaa5d0d0562172af14264f97
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145138777"
+---
+При первом включении обновлений версий может присутствовать много устаревших зависимостей, а некоторые из них могут быть устаревшими на много версий по сравнению с последней. {% data variables.product.prodname_dependabot %} проверяет наличие устаревших зависимостей сразу после включения. Новые запросы на вытягивание обновлений версий могут отобразиться в течение нескольких минут после добавления файла конфигурации в зависимости от количества файлов манифеста, для которых настроены обновления. {% data variables.product.prodname_dependabot %} также запустит обновление последующих изменений в файле конфигурации.
 
-{% data variables.product.prodname_dependabot %} may also create pull requests when you change a manifest file after an update has failed. This is because changes to a manifest, such as removing the dependency that caused the update to fail, may cause the newly triggered update to succeed.
+{% data variables.product.prodname_dependabot %} может также создавать запросы на вытягивание при изменении файла манифеста после сбоя обновления. Это связано с тем, что изменения манифеста, например удаление зависимости, вызвавшей сбой обновления, могут привести к успешному завершению нового обновления.
 
-To keep pull requests manageable and easy to review, {% data variables.product.prodname_dependabot %} raises a maximum of five pull requests to start bringing dependencies up to the latest version. If you merge some of these first pull requests before the next scheduled update, remaining pull requests will be opened on the next update, up to that maximum. You can change the maximum number of open pull requests by setting the [`open-pull-requests-limit` configuration option](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit).
+Для обеспечения управляемости запросов на вытягивание и упрощения их проверки {% data variables.product.prodname_dependabot %} создает не более пяти запросов на вытягивание, чтобы приступить к обновлению зависимостей до последней версии. В случае слияния некоторых из этих первых запросов на вытягивание до следующего запланированного обновления оставшиеся запросы на вытягивание откроются в том же максимальном количестве при следующем обновлении. Вы можете изменить максимальное количество открытых запросов на вытягивание, задав [параметр конфигурации`open-pull-requests-limit`](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit).

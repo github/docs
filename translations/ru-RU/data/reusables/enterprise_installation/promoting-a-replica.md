@@ -1,1 +1,9 @@
-Promoting a replica does not automatically set up replication for existing appliances. After promoting a replica, if desired, you can set up replication from the new primary to existing appliances and the previous primary.
+---
+ms.openlocfilehash: 0bff270f123a2504197b9580acb8111d6b4c7c6a
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884521"
+---
+При повышении уровня реплики настройка репликации для существующих устройств не выполняется автоматически. После повышения уровня реплики при необходимости можно настроить репликацию из новой в предыдущую основную реплику и на существующие устройства.

@@ -1,26 +1,22 @@
 ---
 title: Explora los beneficios de enseñar y aprender con GitHub Education
-shortTitle: Explorar
+shortTitle: Explore
 intro: 'Aprende cómo {% data variables.product.prodname_education %} puede beneificiar a tu aula, trabajo escolar o investigación y cómo postularse para obtener acceso gratuito a varias herramientas de desarrollo de los socios de {% data variables.product.company_short %}.'
 redirect_from:
   - /education/teach-and-learn-with-github-education
   - /github/teaching-and-learning-with-github-education
   - /categories/teaching-and-learning-with-github-education
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+children:
+  - /github-global-campus-for-students
+  - /github-global-campus-for-teachers
+  - /use-github-at-your-educational-institution
+ms.openlocfilehash: 0305b65dc5286123f9cba978fe36ef9b0a05c907
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147684730'
 ---
 
-### Índice
-
-{% topic_link_in_list /use-github-at-your-educational-institution %}
-    {% link_in_list /about-github-campus-program %}
-    {% link_in_list /about-campus-experts %}
-    {% link_in_list /about-campus-advisors %}
-{% topic_link_in_list /use-github-for-your-schoolwork %}
-    {% link_in_list /about-github-education-for-students %}
-    {% link_in_list /apply-for-a-student-developer-pack %}
-    {% link_in_list /why-wasnt-my-application-for-a-student-developer-pack-approved %}
-{% topic_link_in_list /use-github-in-your-classroom-and-research %}
-    {% link_in_list /about-github-education-for-educators-and-researchers %}
-    {% link_in_list /apply-for-an-educator-or-researcher-discount %}
-    {% link_in_list /why-wasnt-my-application-for-an-educator-or-researcher-discount-approved %}

@@ -1,5 +1,14 @@
-{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, {% if currentVersion == "github-ae@latest" %}or {% endif %} workaround instructions{% if enterpriseServerVersions contains currentVersion %}, or by advising you of an available release that addresses the issue{% endif %}.
+---
+ms.openlocfilehash: eaad0d11cd3a86394c0ec4e547ed63dbcac7483f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145069977"
+---
+{% data variables.contact.enterprise_support %} может отметить запрос поддержки как выполненный после того, как предоставит вам объяснение, рекомендацию, инструкции по использованию, {% ifversion ghae %}или {% endif %} обходу проблемы{% ifversion ghes %} либо сообщит вам о существовании выпуска, который решает вашу проблему{% endif %}.
 
-If you use a custom or unsupported plug-in, module, or custom code, {% data variables.contact.enterprise_support %} may ask you to remove the unsupported plug-in, module, or code while attempting to resolve the issue. If the problem is fixed when the unsupported plug-in, module, or custom code is removed, {% data variables.contact.enterprise_support %} may consider the ticket solved.
+{% ifversion ghes or ghae %} Если вы установили дополнительное стороннее программное обеспечение или внесли изменения в {% data variables.product.product_name %} в разрез с рекомендациями {% data variables.contact.enterprise_support %}, {% data variables.contact.enterprise_support %} может попросить вас удалить это программное обеспечение и (или) изменения на время решения вашей проблемы. Если удаление неподдерживаемого программного обеспечения или изменений приведут к решению проблему, {% data variables.contact.enterprise_support %} может отметить запрос поддержки как выполненный.
+{% endif %}
 
-{% data variables.contact.enterprise_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.enterprise_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.enterprise_support %} reopen the ticket.
+{% data variables.contact.enterprise_support %} может закрыть запрос, если он не входит в сферу ее компетенции либо служба поддержки несколько раз попыталась с вами связаться и не получила ответа. Если {% data variables.contact.enterprise_support %} закрывает запрос из-за отсутствия ответа, можно попросить {% data variables.contact.enterprise_support %} открыть его повторно.

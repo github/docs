@@ -1,3 +1,13 @@
-1. If you chose a paid plan, review your payment method.
-    - To change the existing payment method on file for your personal account, click **Edit...**, then complete the form to add a new payment method. After you successfully add a new payment method, you will automatically return to the order page. ![Link to add a payment method to your personal account](/assets/images/help/marketplace/marketplace-edit-payment-method-personal.png)
-    - If there isn't a payment method on file for your personal account, click **Add a Payment Method**, then complete the form to add a credit card or PayPal account. ![Link to add a payment method to your personal account](/assets/images/help/marketplace/marketplace-add-payment-method-personal.png)
+---
+ms.openlocfilehash: c6853b47b11a1606dc425ae7541d1b83c1426d3b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145123371"
+---
+1. Если вы выбрали платный план, просмотрите метод оплаты.
+    - Чтобы изменить существующий способ оплаты для своей личной учетной записи, нажмите кнопку **Изменить...** , а затем заполните форму, чтобы добавить новый способ оплаты. После успешного добавления нового способа оплаты вы автоматически вернетесь на страницу заказа.
+      ![Ссылка для добавления способа оплаты в личную учетную запись](/assets/images/help/marketplace/marketplace-edit-payment-method-personal.png)
+    - Если для вашей личной учетной записи нет способа оплаты, нажмите кнопку **Добавить способ оплаты**, а затем заполните форму, чтобы добавить кредитную карту или учетную запись PayPal.
+      ![Ссылка для добавления способа оплаты в личную учетную запись](/assets/images/help/marketplace/marketplace-add-payment-method-personal.png)

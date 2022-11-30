@@ -1,3 +1,12 @@
-5. Confirm team synchronization.
-    - If you have IdP access, click **Enable team synchronization**. You'll be redirected to your identity provider's SAML SSO page and asked to select your account and review the requested permissions.
-    - If you don't have IdP access, copy the IdP redirect link and share it with your IdP administrator to continue enabling team synchronization. ![Enable team synchronization redirect button](/assets/images/help/teams/confirm-team-synchronization-redirect.png)
+---
+ms.openlocfilehash: fb72e50f286435094c56c642081e6d99833fbac5
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145109931"
+---
+5. Подтверждение синхронизации команд.
+    - Если у вас есть доступ к поставщику удостоверений, щелкните **Включить синхронизацию команд**. Вы будете перенаправлены на страницу единого входа SAML поставщика удостоверений, где вам предложат выбрать свою учетную запись и проверить запрашиваемые разрешения.
+    - Если у вас нет доступа к поставщику удостоверений, скопируйте ссылку для перенаправления на страницу поставщика удостоверений и передайте ее администратору поставщика удостоверений, чтобы продолжить синхронизацию команд.
+    ![Кнопка перенаправления для включения синхронизации команд](/assets/images/help/teams/confirm-team-synchronization-redirect.png)

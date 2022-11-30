@@ -1,7 +1,9 @@
-您需要访问令牌才能发布、安装和删除 {% data variables.product.prodname_registry %} 中的包。
+{% data reusables.package_registry.packages-classic-pat-only %}
 
-您可以使用个人访问令牌 (PAT) 向 {% data variables.product.prodname_registry %} 或 {% data variables.product.prodname_dotcom %} API 验证。 创建个人访问令牌时，可根据需要为令牌分配不同的作用域。 有关 PAT 与包相关的域的更多信息，请参阅“[关于 GitHub Packages 的权限](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)”。
+You need an access token to publish, install, and delete private, internal, and public packages.
 
-要在 {% data variables.product.prodname_actions %} 工作流程内向 {% data variables.product.prodname_registry %} 注册表验证，您可以使用：
-- `GITHUB_TOKEN` 来发布与工作流程仓库相关联的包。
-- PAT 来安装与其他私有仓库（`GITHUB_TOKEN` 无法访问）相关联的包。
+You can use a {% data variables.product.pat_v1 %} to authenticate to {% data variables.product.prodname_registry %} or the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. When you create a {% data variables.product.pat_v1 %}, you can assign the token different scopes depending on your needs. For more information about packages-related scopes for a {% data variables.product.pat_v1 %}, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
+
+To authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, you can use:
+- `GITHUB_TOKEN` to publish packages associated with the workflow repository.
+- a {% data variables.product.pat_v1 %} with at least `packages:read` scope to install packages associated with other private repositories (which `GITHUB_TOKEN` can't access).

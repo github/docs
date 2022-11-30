@@ -4,29 +4,39 @@ intro: Puedes configurar la aplicación del ejecutor autoalojado como un servici
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Run runner app on startup
+ms.openlocfilehash: d9f89bafe27314d321a30e2ce6c4eb8c98ec7dbb
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147705200'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
+{% capture service_first_step %}1. Detenga la aplicación del ejecutor autohospedado si está actualmente en ejecución.{% endcapture %} {% capture service_non_windows_intro_shell %}En la máquina del ejecutor, abra un shell en el directorio donde ha instalado la aplicación de ejecutor autohospedado. Usa los comandos que se indican a continuación para instalar y administrar el servicio de ejecutor autoalojado.{% endcapture %}
 
-{% capture service_first_step %}1. Detén la aplicación del ejecutor autoalojado si se está ejecutando actualmente.{% endcapture %}
-{% capture service_non_windows_intro_shell %}En la máquina del ejecutor, abre un shell en el directorio en el que instalaste la aplicación del ejecutor autoalojado. Usa los comandos que se indican a continuación para instalar y administrar el servicio de ejecutor autoalojado.{% endcapture %}
-{% capture service_nonwindows_intro %} Debes agregar un ejecutor a {% data variables.product.product_name %} antes de que puedas configurar la aplicación del ejecutor auto-hospedado como servicio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
+{% capture service_nonwindows_intro %}
+
+{% note %}
+
+**Nota:** Debes agregar un ejecutor a {% data variables.product.product_name %} antes de que puedas configurar la aplicación del ejecutor auto-hospedado como servicio. Para más información, vea "[Adición de ejecutores autohospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".
+
+{% endnote %} {% endcapture %}
+
 {% capture service_win_name %}actions.runner.*{% endcapture %}
-
 
 {% linux %}
 
 {{ service_nonwindows_intro }}
 
-Para los sistemas Linux que usan `systemd`, puedes usar el script `svc.sh` distribuido con la aplicación del ejecutor autoalojado para instalar y administrar el uso de la aplicación como un servicio.
+En los sistemas Linux que usan `systemd`, puedes usar el script `svc.sh` que se crea después de agregar el ejecutor para realizar la instalación y la administración mediante la aplicación como servicio.
 
 {{ service_non_windows_intro_shell }}
 
@@ -36,13 +46,13 @@ Para los sistemas Linux que usan `systemd`, puedes usar el script `svc.sh` distr
 
 {% note %}
 
-**Nota:** Configurar la aplicación del ejecutor autoalojado como un servicio en Windows es parte del proceso de configuración de la aplicación. Si ya configuraste la aplicación del ejecutor auto-hospedado pero no elegiste configurarla como servicio, debes eliminar el ejecutor de {% data variables.product.prodname_dotcom %} y volver a configurar la aplicación. Cuando vuelvas a configurar la aplicación, elige la opción para configurar la aplicación como un servicio.
+**Nota:** La configuración de la aplicación de ejecutor autohospedado como un servicio en Windows forma parte del proceso de configuración de la aplicación. Si ya configuraste la aplicación del ejecutor auto-hospedado pero no elegiste configurarla como servicio, debes eliminar el ejecutor de {% data variables.product.prodname_dotcom %} y volver a configurar la aplicación. Cuando vuelvas a configurar la aplicación, elige la opción para configurar la aplicación como un servicio.
 
-Para obtener más información, consulta "[Eliminar ejecutores autoalojados](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners) y [Agregar ejecutores autoalojados](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
+Para más información, vea "[Eliminación de ejecutores autohospedados](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)" y "[Adición de ejecutores autohospedados](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".
 
 {% endnote %}
 
-Puedes administrar el servicio de ejecutor en la aplicación de **Servicios** de Windows, o puedes usar PowerShell para ejecutar los comandos que se indican a continuación.
+Puede administrar el servicio de ejecutor en la aplicación Windows **Services**, o bien puede usar PowerShell para ejecutar los comandos siguientes.
 
 {% endwindows %}
 
@@ -56,29 +66,36 @@ Puedes administrar el servicio de ejecutor en la aplicación de **Servicios** de
 
 {% linux %}
 
-### Instalar el servicio
+## Instalar el servicio
 
 {{ service_first_step }}
-1. Instala el servicio con el siguiente comando:
+1. Instalar el servicio con el siguiente comando:
 
    ```shell
    sudo ./svc.sh install
    ```
 
+1. De forma alternativa, el comando toma un argumento opcional `user` para instalar el servicio como un usuario diferente.
+
+  ```shell
+  ./svc.sh install <em>USERNAME</em>
+  ```
+
 {% endlinux %}
+
 {% mac %}
 
-### Instalar el servicio
+## Instalar el servicio
 
 {{ service_first_step }}
-1. Instala el servicio con el siguiente comando:
+1. Instalar el servicio con el siguiente comando:
 
    ```shell
    ./svc.sh install
    ```
 {% endmac %}
 
-### Iniciar el servicio
+## Iniciar el servicio
 
 Inicia el servicio con el siguiente comando:
 
@@ -86,19 +103,17 @@ Inicia el servicio con el siguiente comando:
 ```shell
 sudo ./svc.sh start
 ```
-{% endlinux %}
-{% windows %}
+{% endlinux %} {% windows %}
 ```shell
 Start-Service "{{ service_win_name }}"
 ```
-{% endwindows %}
-{% mac %}
+{% endwindows %} {% mac %}
 ```shell
 ./svc.sh start
 ```
 {% endmac %}
 
-### Comprobar el estado del servicio
+## Comprobar el estado del servicio
 
 Verifica el estado del servicio con el siguiente comando:
 
@@ -106,21 +121,19 @@ Verifica el estado del servicio con el siguiente comando:
 ```shell
 sudo ./svc.sh status
 ```
-{% endlinux %}
-{% windows %}
+{% endlinux %} {% windows %}
 ```shell
 Get-Service "{{ service_win_name }}"
 ```
-{% endwindows %}
-{% mac %}
+{% endwindows %} {% mac %}
 ```shell
 ./svc.sh status
 ```
 {% endmac %}
 
- Para obtener más información sobre la visualización del estado de tu ejecutor auto-hospedado, consulta la sección "[Monitoreo y solución de problemas para ejecutores auto-hospedados](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)".
+ Para más información sobre cómo ver el estado del ejecutor autohospedado, vea "[Supervisión y solución de problemas de ejecutores autohospedados](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)".
 
-### Detener el servicio
+## Detener el servicio
 
 Detiene el servicio con el siguiente comando:
 
@@ -128,19 +141,17 @@ Detiene el servicio con el siguiente comando:
 ```shell
 sudo ./svc.sh stop
 ```
-{% endlinux %}
-{% windows %}
+{% endlinux %} {% windows %}
 ```shell
 Stop-Service "{{ service_win_name }}"
 ```
-{% endwindows %}
-{% mac %}
+{% endwindows %} {% mac %}
 ```shell
 ./svc.sh stop
 ```
 {% endmac %}
 
-### Desinstalar el servicio
+## Desinstalar el servicio
 
 1. Detiene el servicio si se está ejecutando actualmente.
 1. Desinstala el servicio con el siguiente comando:
@@ -149,13 +160,11 @@ Stop-Service "{{ service_win_name }}"
     ```shell
     sudo ./svc.sh uninstall
     ```
-    {% endlinux %}
-    {% windows %}
+    {% endlinux %}  {% windows %}
     ```shell
     Remove-Service "{{ service_win_name }}"
     ```
-    {% endwindows %}
-    {% mac %}
+    {% endwindows %}  {% mac %}
     ```shell
     ./svc.sh uninstall
     ```
@@ -164,16 +173,16 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-### Personalizar el servicio del ejecutor auto-hospedado
+## Personalizar el servicio del ejecutor auto-hospedado
 
-Si no quieres utilizar la configuración de servicio predeterminada para `systemd` antes mencionada, puedes crear un servicio personalizado o utilizar cualquier mecanismo de servicio que prefieras. Considera utilizar la plantilla de `serviced` en `actions-runner/bin/actions.runner.service.template` como referencia. Si utilizas un servicio personalizado, el servicio del ejecutor auto-hospedado siempre debe invocarse utilizando el punto de entrada `runsvc.sh`.
+Si no quiere usar la configuración predeterminada del servicio `systemd` anterior, puede crear un servicio personalizado o utilizar el mecanismo de servicio que prefiera. Considere la posibilidad de usar la plantilla `serviced` en `actions-runner/bin/actions.runner.service.template` como referencia. Si usa un servicio personalizado, el servicio del ejecutor autohospedado siempre se debe invocar mediante el punto de entrada `runsvc.sh`.
 
 {% endlinux %}
 
 {% mac %}
 
-### Personalizar el servicio del ejecutor auto-hospedado
+## Personalizar el servicio del ejecutor auto-hospedado
 
-Si no quieres utilizar la configuración predeterminada del servicio launchd antes mencionada, puedes crear un servicio personalizado o cualquier mecanismo de servicio que prefieras. Considera utilizar la plantilla de `plist` en `actions-runner/bin/actions.runner.plist.template` como referencia. Si utilizas un servicio personalizado, el servicio del ejecutor auto-hospedado siempre debe invocarse utilizando el punto de entrada `runsvc.sh`.
+Si no quieres utilizar la configuración predeterminada del servicio launchd antes mencionada, puedes crear un servicio personalizado o cualquier mecanismo de servicio que prefieras. Considere la posibilidad de usar la plantilla `plist` en `actions-runner/bin/actions.runner.plist.template` como referencia. Si usa un servicio personalizado, el servicio del ejecutor autohospedado siempre se debe invocar mediante el punto de entrada `runsvc.sh`.
 
 {% endmac %}

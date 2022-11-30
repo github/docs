@@ -1,154 +1,112 @@
-const { get } = require('lodash')
-const { liquid } = require('../lib/render-content')
-const patterns = require('../lib/patterns')
-const layouts = require('../lib/layouts')
-const getMiniTocItems = require('../lib/get-mini-toc-items')
-const Page = require('../lib/page')
-const statsd = require('../lib/statsd')
-const RedisAccessor = require('../lib/redis-accessor')
-const { isConnectionDropped } = require('./halt-on-dropped-connection')
-const { nextHandleRequest } = require('./next')
+import { get } from 'lodash-es'
 
-const { HEROKU_RELEASE_VERSION, FEATURE_NEXTJS } = process.env
-const pageCacheDatabaseNumber = 1
-const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
+import FailBot from '../lib/failbot.js'
+import patterns from '../lib/patterns.js'
+import getMiniTocItems from '../lib/get-mini-toc-items.js'
+import Page from '../lib/page.js'
+import statsd from '../lib/statsd.js'
+import { allVersions } from '../lib/all-versions.js'
+import { isConnectionDropped } from './halt-on-dropped-connection.js'
+import { nextApp, nextHandleRequest } from './next.js'
+import { defaultCacheControl } from './cache-control.js'
 
-const pageCache = new RedisAccessor({
-  databaseNumber: pageCacheDatabaseNumber,
-  prefix: (HEROKU_RELEASE_VERSION ? HEROKU_RELEASE_VERSION + ':' : '') + 'rp',
-  // Allow for graceful failures if a Redis SET operation fails
-  allowSetFailures: true,
-  // Allow for graceful failures if a Redis GET operation fails
-  allowGetFailures: true,
-  name: 'page-cache'
-})
+async function buildRenderedPage(req) {
+  const { context } = req
+  const { page } = context
+  const path = req.pagePath || req.path
 
-// a list of query params that *do* alter the rendered page, and therefore should be cached separately
-const cacheableQueries = ['learn']
+  const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [`path:${path}`])
 
-function modifyOutput (req, text) {
-  return addColorMode(req, addCsrf(req, text))
+  const renderedPage = await pageRenderTimed(context)
+
+  return renderedPage
 }
 
-function addCsrf (req, text) {
-  return text.replace('$CSRFTOKEN$', req.csrfToken())
-}
+async function buildMiniTocItems(req) {
+  const { context } = req
+  const { page } = context
 
-function addColorMode (req, text) {
-  let colorMode = 'auto'
-  let darkTheme = 'dark'
-  let lightTheme = 'light'
-
-  try {
-    const cookieValue = JSON.parse(decodeURIComponent(req.cookies.color_mode))
-    colorMode = encodeURIComponent(cookieValue.color_mode) || colorMode
-    darkTheme = encodeURIComponent(cookieValue.dark_theme.name) || darkTheme
-    lightTheme = encodeURIComponent(cookieValue.light_theme.name) || lightTheme
-  } catch (e) {
-    // do nothing
+  // get mini TOC items on articles
+  if (!page.showMiniToc) {
+    return
   }
 
-  return text
-    .replace('$COLORMODE$', colorMode)
-    .replace('$DARKTHEME$', darkTheme)
-    .replace('$LIGHTTHEME$', lightTheme)
+  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '')
 }
 
-module.exports = async function renderPage (req, res, next) {
-  const page = req.context.page
+export default async function renderPage(req, res) {
+  const { context } = req
+
+  // This is a contextualizing the request so that when this `req` is
+  // ultimately passed into the `Error.getInitialProps` function,
+  // which NextJS executes at runtime on errors, so that we can
+  // from there send the error to Failbot.
+  req.FailBot = FailBot
+
+  const { page } = context
+  const path = req.pagePath || req.path
 
   // render a 404 page
   if (!page) {
-    if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
-      console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
-    }
-    return res.status(404).send(
-      modifyOutput(
-        req,
-        await liquid.parseAndRender(layouts['error-404'], req.context)
+    if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
+      console.error(
+        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`
       )
-    )
+    }
+    return nextApp.render404(req, res)
   }
 
+  // Just finish fast without all the details like Content-Length
   if (req.method === 'HEAD') {
-    return res.status(200).end()
+    return res.status(200).send('')
   }
 
-  // Remove any query string (?...) and/or fragment identifier (#...)
-  const { pathname, searchParams } = new URL(req.originalUrl, 'https://docs.github.com')
+  // Updating the Last-Modified header for substantive changes on a page for engineering
+  // Docs Engineering Issue #945
+  if (page.effectiveDate) {
+    // Note that if a page has an invalidate `effectiveDate` string value,
+    // it would be caught prior to this usage and ultimately lead to
+    // 500 error.
+    res.setHeader('Last-Modified', new Date(page.effectiveDate).toUTCString())
+  }
 
-  for (const queryKey in req.query) {
-    if (!cacheableQueries.includes(queryKey)) {
-      searchParams.delete(queryKey)
+  // collect URLs for variants of this page in all languages
+  page.languageVariants = Page.getLanguageVariants(path)
+
+  // Stop processing if the connection was already dropped
+  if (isConnectionDropped(req, res)) return
+
+  req.context.renderedPage = await buildRenderedPage(req)
+  req.context.miniTocItems = await buildMiniTocItems(req)
+
+  // Stop processing if the connection was already dropped
+  if (isConnectionDropped(req, res)) return
+
+  // Create string for <title> tag
+  page.fullTitle = page.titlePlainText
+
+  // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
+  if (!patterns.homepagePath.test(path)) {
+    if (
+      req.context.currentVersion === 'free-pro-team@latest' ||
+      !allVersions[req.context.currentVersion]
+    ) {
+      page.fullTitle += ' - ' + context.site.data.ui.header.github_docs
+    } else {
+      const { versionTitle } = allVersions[req.context.currentVersion]
+      page.fullTitle += ' - '
+      // Some plans don't have the word "GitHub" in them.
+      // E.g. "Enterprise Server 3.5"
+      // In those cases manually prefix the word "GitHub" before it.
+      if (!versionTitle.includes('GitHub')) {
+        page.fullTitle += 'GitHub '
+      }
+      page.fullTitle += versionTitle + ' Docs'
     }
   }
-  const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
-
-  // Serve from the cache if possible (skip during tests)
-  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
 
   // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
-
-  // Should the current path be rendered by NextJS?
-  const renderWithNextjs = 'nextjs' in req.query && FEATURE_NEXTJS
-
-  if (isCacheable && !isRequestingJsonForDebugging && !renderWithNextjs) {
-    // Stop processing if the connection was already dropped
-    if (isConnectionDropped(req, res)) return
-
-    const cachedHtml = await pageCache.get(originalUrl)
-    if (cachedHtml) {
-      // Stop processing if the connection was already dropped
-      if (isConnectionDropped(req, res)) return
-
-      console.log(`Serving from cached version of ${originalUrl}`)
-      statsd.increment('page.sent_from_cache')
-      return res.send(modifyOutput(req, cachedHtml))
-    }
-  }
-
-  // add page context
-  const context = Object.assign({}, req.context, { page })
-
-  // collect URLs for variants of this page in all languages
-  context.page.languageVariants = Page.getLanguageVariants(req.path)
-
-  // Stop processing if the connection was already dropped
-  if (isConnectionDropped(req, res)) return
-
-  // render page
-  context.renderedPage = await page.render(context)
-
-  // Stop processing if the connection was already dropped
-  if (isConnectionDropped(req, res)) return
-
-  // get mini TOC items on articles
-  if (page.showMiniToc) {
-    context.miniTocItems = getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
-  }
-
-  // handle special-case prerendered GraphQL objects page
-  if (req.path.endsWith('graphql/reference/objects')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
-    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
-  }
-
-  // handle special-case prerendered GraphQL input objects page
-  if (req.path.endsWith('graphql/reference/input-objects')) {
-    // concat the markdown source miniToc items and the prerendered miniToc items
-    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
-    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
-  }
-
-  // Create string for <title> tag
-  context.page.fullTitle = context.page.title
-
-  // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
-  if (!patterns.homepagePath.test(req.path)) {
-    context.page.fullTitle = context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
-  }
 
   // `?json` query param for debugging request context
   if (isRequestingJsonForDebugging) {
@@ -158,25 +116,14 @@ module.exports = async function renderPage (req, res, next) {
     } else {
       // dump all the keys: ?json
       return res.json({
-        message: 'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
-        keys: Object.keys(context)
+        message:
+          'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
+        keys: Object.keys(context),
       })
     }
   }
 
-  if (renderWithNextjs) {
-    nextHandleRequest(req, res)
-  } else {
-    // currentLayout is added to the context object in middleware/contextualizers/layouts
-    const output = await liquid.parseAndRender(req.context.currentLayout, context)
+  defaultCacheControl(res)
 
-    // First, send the response so the user isn't waiting
-    // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-    res.send(modifyOutput(req, output))
-
-    // Finally, save output to cache for the next time around
-    if (isCacheable) {
-      await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
-    }
-  }
+  return nextHandleRequest(req, res)
 }

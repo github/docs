@@ -1,21 +1,21 @@
 ---
 title: GitHub Educationのドキュメント
-shortTitle: 教育
+shortTitle: Education
 intro: '{% data variables.product.prodname_education %}は、{% data variables.product.company_short %}のプラットフォームとコミュニティの支援により、ソフトウェア開発の教育や学習に役立ちます。'
 introLinks:
   quickstart: /education/quickstart
 featuredLinks:
   guides:
-    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
-    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
+    - education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution
   guideCards:
     - /github/getting-started-with-github/signing-up-for-a-new-github-account
     - /github/getting-started-with-github/git-and-github-learning-resources
     - /education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom
   popular:
-    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork
-    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers
     - /desktop
     - /github/getting-started-with-github/github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
@@ -23,9 +23,18 @@ changelog:
   label: education
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
+  - /quickstart
   - /explore-the-benefits-of-teaching-and-learning-with-github-education
+  - /contribute-with-github-community-exchange
   - /manage-coursework-with-github-classroom
+  - /guides
+ms.openlocfilehash: 7aa1b7c97f34dd2224abece6c85289316e7e06f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573941'
 ---
 

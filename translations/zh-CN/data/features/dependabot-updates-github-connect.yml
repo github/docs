@@ -1,0 +1,3 @@
+versions:
+  ghes: '>=3.4'
+  ghae: 'issue-5867'

@@ -1,24 +1,27 @@
 ---
-title: Berechtigungen für die Teamerstellung in Deiner Organisation festlegen
-intro: 'Du kannst allen Organisationsmitgliedern erlauben, Teams zu erstellen, oder Du kannst die Möglichkeit der Teamerstellung auf Organisationsinhaber beschränken.'
+title: Setting team creation permissions in your organization
+intro: You can allow all organization members to create teams or limit team creation to organization owners.
 redirect_from:
   - /articles/setting-team-creation-permissions-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/setting-team-creation-permissions-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Restrict team creation
 ---
 
-Organisationsinhaber können die Berechtigungen für die Teamerstellung festlegen.
+Organization owners can set team creation permissions.
 
-Wenn Du keine Berechtigungen für die Teamerstellung festlegst, dürfen standardmäßig alle Organisationsmitglieder Teams erstellen.
+If you do not set team creation permissions, all organization members will be able to create teams by default.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Aktiviere oder deaktiviere unter „Team creation rules“ (Regeln für die Teamerstellung) das Kontrollkästchen **Allow members to create teams** (Mitgliedern die Erstellung von Teams erlauben). ![Kontrollkästchen zur Erlaubnis der Teamerstellung durch Mitglieder](/assets/images/help/organizations/allow-members-to-create-teams.png)
-6. Klicke auf **Save** (Speichern).
+5. Under "Team creation rules", select or deselect **Allow members to create teams**.
+![Checkbox to allow members to create teams](/assets/images/help/organizations/allow-members-to-create-teams.png)
+6. Click **Save**.

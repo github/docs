@@ -1,68 +1,71 @@
 ---
-title: 关于自定义域名和 GitHub 页面
-intro: '{% data variables.product.prodname_pages %} 支持使用自定义域名，或者将网站的 URL 根目录从默认值（如 `octocat.github.io`）更改为您拥有的任何域名。'
+title: About custom domains and GitHub Pages
+intro: '{% data variables.product.prodname_pages %} supports using custom domains, or changing the root of your site''s URL from the default, like `octocat.github.io`, to any domain you own.'
 redirect_from:
-  - /articles/about-custom-domains-for-github-pages-sites/
-  - /articles/about-supported-custom-domains/
-  - /articles/custom-domain-redirects-for-your-github-pages-site/
+  - /articles/about-custom-domains-for-github-pages-sites
+  - /articles/about-supported-custom-domains
+  - /articles/custom-domain-redirects-for-your-github-pages-site
   - /articles/about-custom-domains-and-github-pages
   - /github/working-with-github-pages/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Custom domains in GitHub Pages
 ---
 
-### 支持的自定义域
+## Supported custom domains
 
-{% data variables.product.prodname_pages %} 可使用两种类型的域名：子域名和 apex 域名。 有关不支持的自定义域名列表，请参阅“[自定义域名和 {% data variables.product.prodname_pages %} 疑难解答](/articles/troubleshooting-custom-domains-and-github-pages/#custom-domain-names-that-are-unsupported)“。
+{% data variables.product.prodname_pages %} works with two types of domains: subdomains and apex domains. For a list of unsupported custom domains, see "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages/#custom-domain-names-that-are-unsupported)."
 
-| 支持的自定义域类型 | 示例                 |
-| --------- | ------------------ |
-| `www` 子域  | `www.example.com`  |
-| 自定义子域     | `blog.example.com` |
-| Apex 域    | `example.com`      |
+| Supported custom domain type | Example |
+|---|---|
+| `www` subdomain | `www.example.com` |
+| Custom subdomain | `blog.example.com` |
+| Apex domain        | `example.com` |
 
-您可以为您的网站设置 apex 和 `www` 子域配置。 有关 apex 域的更多信息，请参阅“[对您的 {% data variables.product.prodname_pages %} 网站使用 apex 域](#using-an-apex-domain-for-your-github-pages-site)”。
+You can set up either or both of apex and `www` subdomain configurations for your site. For more information on apex domains, see "[Using an apex domain for your {% data variables.product.prodname_pages %} site](#using-an-apex-domain-for-your-github-pages-site)."
 
-建议始终使用 `www` 子域名，即使您也同时使用 apex 域。 当您创建具有 apex 域的新站点时，我们会自动尝试保护 `www` 子域以供在提供网站内容时使用。 如果您配置 `www` 子域，我们会自动尝试保护相关的 apex 域。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+We recommend always using a `www` subdomain, even if you also use an apex domain. When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content, but you need to make the DNS changes to use the `www` subdomain. If you configure a `www` subdomain, we automatically attempt to secure the associated apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
-在配置用户或组织网站的自定义域后，自定义域名将替换未配置自定义域的帐户所拥有的任何项目网站 URL 的 `<user>.github.io` 或 `<organization>.github.io` 部分。 例如，如果您的用户网站的自定义域名为 `www.octocat.com`，并且您拥有一个未自定义域名的项目网站，该网站从名为 `octo-project` 的仓库发布，则该仓库的 {% data variables.product.prodname_pages %} 网站将在 `www.octocat.com/octo-project` 上提供。
+After you configure a custom domain for a user or organization site, the custom domain will replace the `<user>.github.io` or `<organization>.github.io` portion of the URL for any project sites owned by the account that do not have a custom domain configured. For example, if the custom domain for your user site is `www.octocat.com`, and you have a project site with no custom domain configured that is published from a repository called `octo-project`, the {% data variables.product.prodname_pages %} site for that repository will be available at `www.octocat.com/octo-project`.
+For more information about each type of site and handling custom domains, see "[Types of {% data variables.product.prodname_pages %} sites](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
-### 对您的 {% data variables.product.prodname_pages %} 网站使用子域名
+## Using a subdomain for your {% data variables.product.prodname_pages %} site
 
-子域名是根域前 URL 的一部分。 您可以将子域名配置为 `www` 或网站的独特部分，如 `blog.example.com`。
+A subdomain is the part of a URL before the root domain. You can configure your subdomain as `www` or as a distinct section of your site, like `blog.example.com`.
 
-子域名配置通过 DNS 提供商使用 `CNAME` 记录配置。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)。
+Subdomains are configured with a `CNAME` record through your DNS provider. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)."
 
-#### `www` 子域
+### `www` subdomains
 
-`www` 子域名是最常用的一种子域名。 例如，`www.example.com` 包含 `www` 子域名。
+A `www` subdomain is the most commonly used type of subdomain. For example, `www.example.com` includes a `www` subdomain.
 
-`www` 子域名是最稳定的一种自定义域，因为 `www` 子域名不受 {% data variables.product.product_name %} 服务器 IP 地址变动的影响。
+`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.product_name %}'s servers.
 
-#### 自定义子域
+### Custom subdomains
 
-自定义子域是一种不使用标准 `www` 变体的子域。 自定义子域主要在您需要将网站分为两个不同的部分时使用。 例如，您可以创建一个名为 `blog.example.com` 并自定义该部分与 `www.example.com` 分开。
+A custom subdomain is a type of subdomain that doesn't use the standard `www` variant. Custom subdomains are mostly used when you want two distinct sections of your site. For example, you can create a site called `blog.example.com` and customize that section independently from `www.example.com`.
 
-### 对您的 {% data variables.product.prodname_pages %} 网站使用 apex 域
+## Using an apex domain for your {% data variables.product.prodname_pages %} site
 
-Apex 域是一个不包含子域的自定义域，如 `example.com`。 Apex 域也称为基础域、裸域、根 apex 域或区域 apex 域。
+An apex domain is a custom domain that does not contain a subdomain, such as `example.com`. Apex domains are also known as base, bare, naked, root apex, or zone apex domains.
 
-Apex 域配置通过 DNS 提供商使用 `A`, `ALAS` 或 `ANAME` 记录配置。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)。
+An apex domain is configured with an `A`, `ALIAS`, or `ANAME` record through your DNS provider. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
 
-{% data reusables.pages.www-and-apex-domain-recommendation %}更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)”。
+{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain)."
 
-### 在 {% data variables.product.prodname_pages %} 站点禁用时更新自定义域
+## Securing the custom domain for your {% data variables.product.prodname_pages %} site
 
-如果您的 {% data variables.product.prodname_pages %} 站点设置了自定义域，并且站点已禁用，您应立即通过 DNS 提供商更新或删除 DNS 记录，以避免域接管的风险。 在您的网站被禁用时拥有通过 DNS 提供商配置的自定义域，可能会导致其他人在您的一个子域上托管网站。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)" and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
-有许多原因会导致您的网站被自动禁用。
+There are a couple of reasons your site might be automatically disabled.
 
-- 如果您从 {% data variables.product.prodname_pro %} 降级到 {% data variables.product.prodname_free_user %}，则目前发布自您的帐户中私有仓库的任何 {% data variables.product.prodname_pages %} 站点都会取消发布。 更多信息请参阅“[Downgrading your {% data variables.product.prodname_dotcom %} 结算方案](/articles/downgrading-your-github-billing-plan)”。
-- 如果将私人仓库转让给使用 {% data variables.product.prodname_free_user %} 的个人帐户，仓库将失去对 {% data variables.product.prodname_pages %} 功能的访问，当前发布的 {% data variables.product.prodname_pages %} 站点将取消发布。 更多信息请参阅“[转让仓库](/articles/transferring-a-repository)”。
+- If you downgrade from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, any {% data variables.product.prodname_pages %} sites that are currently published from private repositories in your account will be unpublished. For more information, see "[Downgrading your {% data variables.product.prodname_dotcom %} billing plan](/articles/downgrading-your-github-billing-plan)."
+- If you transfer a private repository to a personal account that is using {% data variables.product.prodname_free_user %}, the repository will lose access to the {% data variables.product.prodname_pages %} feature, and the currently published {% data variables.product.prodname_pages %} site will be unpublished. For more information, see "[Transferring a repository](/articles/transferring-a-repository)."
 
-### 延伸阅读
+## Further reading
 
-- "[自定义域名和 {% data variables.product.prodname_pages %} 疑难解答](/articles/troubleshooting-custom-domains-and-github-pages)"
+- "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"

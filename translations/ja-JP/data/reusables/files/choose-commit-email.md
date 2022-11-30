@@ -1,5 +1,4 @@
-{% if currentVersion == "free-pro-team@latest" %}
-1. 複数のメールアドレスが
-{% data variables.product.product_name %}アカウントに関連づけられているなら、メールアドレスのドロップダウンメニューをクリックし、Gitの作者のメールアドレスとして使いたいメールアドレスを選択してください。 このドロップダウンメニューには、検証済みのメールアドレスだけが表示されます。 メールアドレスのプライバシーを有効化している場合、`<username>@users.noreply.github.com`がデフォルトのコミット作者メールアドレスになります。  詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。
-![コミットメールアドレスの選択](/assets/images/help/repository/choose-commit-email-address.png)
+{% ifversion fpt or ghec %}
+1. If you have more than one email address associated with your account on {% data variables.location.product_location %}, click the email address drop-down menu and select the email address to use as the Git author email address. Only verified email addresses appear in this drop-down menu. If you enabled email address privacy, then `<username>@users.noreply.github.com` is the default commit author email address.  For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+![Choose commit email addresses](/assets/images/help/repository/choose-commit-email-address.png)
 {% endif %}

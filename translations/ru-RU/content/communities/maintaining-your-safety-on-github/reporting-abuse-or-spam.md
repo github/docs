@@ -1,63 +1,73 @@
 ---
-title: Reporting abuse or spam
-intro: You can report behavior and content that violates community guidelines and terms.
+title: Сообщение о нарушении или спаме
+intro: 'Вы можете сообщать о поведении и о содержимом, которое нарушает правила сообщества.'
 redirect_from:
   - /articles/reporting-abuse-or-spam
   - /github/building-a-strong-community/reporting-abuse-or-spam
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: 288ba817cfeaeec0d695157fb6310ba6ab6a662f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145092401'
 ---
+Владельцы, участники совместной работы, предыдущие участники и пользователи с доступом на запись могут сообщать о проблемах, запросах на вытягивание и комментариях к проблемам, запросам на вытягивание и фиксациям. Любой пользователь может сообщить о приложениях в {% data variables.product.prodname_marketplace %}.
 
-Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.
-
-### About reporting abuse or spam
+## Сведения о сообщении о нарушении или спаме
 
 {% data reusables.policies.github-community-guidelines-and-terms %}
 
-You can report users that have violated {% data variables.product.prodname_dotcom %}'s Community Guidelines or Terms of Service through {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. You can also report issues, pull requests, or comments on issues, pull requests, and commits.
+Вы можете сообщить о пользователях, которые нарушили рекомендации сообщества или условия использования {% data variables.product.prodname_dotcom %} с помощью {% data variables.contact.report_abuse %} или {% data variables.contact.report_content %}. Кроме того, можно сообщать о проблемах, запросах на вытягивание или комментариях к проблемам, запросам на вытягивание и фиксациям.
 
-If reported content is enabled for a public repository, you can also report content directly to repository maintainers.
+Если сообщаемое содержимое касается общедоступного репозитория, вы также можете сообщать о содержимом прямо специалистам, обслуживающим репозиторий.
 
-### Reporting a user
+Пользователи в Индии могут связаться со специалистом GitHub по принятию жалоб [здесь](https://support.github.com/contact/india-grievance-officer).
 
-{% data reusables.profile.user_profile_page_navigation %}
-{% data reusables.profile.user_profile_page_block_or_report %}
-3. Click **Report abuse**. ![Modal box with options to block user or report abuse](/assets/images/help/profile/profile-report-abuse.png)
-4. Complete the contact form to tell {% data variables.contact.contact_support %} about the user's behavior, then click **Send request**.
+## Сообщение о пользователе
 
-### Reporting an issue or pull request
+{% data reusables.profile.user_profile_page_navigation %} {% data reusables.profile.user_profile_page_block_or_report %}
+3. Нажмите **Сообщить о нарушении**.
+  ![Модальное поле с вариантами для блокировки пользователя или сообщения о нарушении](/assets/images/help/profile/profile-report-abuse.png)
+4. Заполните форму контакта, чтобы сообщить {% data variables.contact.contact_support %} о поведении пользователя, а затем нажмите кнопку **Отправить запрос**.
 
-1. Navigate to the issue or pull request you'd like to report.
-2. In the upper-right corner of the issue or pull request, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**. ![Button to report a comment](/assets/images/help/repository/menu-report-issue-or-pr.png)
-{% data reusables.community.report-content %}
+## Сообщение о проблеме или запросе на вытягивание
 
-### Reporting a comment
+1. Перейдите к проблеме или запросу на вытягивание, о котором вы хотите сообщить.
+2. В правом верхнем углу проблемы или запроса на вытягивание щелкните {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, а затем нажмите **Сообщить о содержимом**.
+  ![Кнопка для сообщения о комментарии](/assets/images/help/repository/menu-report-issue-or-pr.png) {% data reusables.community.report-content %}
 
-1. Navigate to the comment you'd like to report.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**. ![Kebab menu with option to report a comment](/assets/images/help/repository/menu-report-comment.png)
-{% data reusables.community.report-content %}
+## Сообщение о комментарии
 
-### Reporting an app in {% data variables.product.prodname_marketplace %}
+1. Перейдите к комментарию, о котором хотите сообщить.
+2. В правом верхнем углу комментария щелкните {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, а затем нажмите **Сообщить о содержимом**.
+![Параметр меню для сообщения о комментарии](/assets/images/help/repository/menu-report-comment.png) {% data reusables.community.report-content %}
+
+## Сообщение о приложении в {% data variables.product.prodname_marketplace %}
 
 {% data reusables.marketplace.visit-marketplace %}
-2. Browse to the app you'd like to report.
-3. In the left sidebar, under the "Developer links" section, click {% octicon "report" aria-label="The report symbol" %} **Report abuse**. ![Button to report an app in {% data variables.product.prodname_marketplace %}](/assets/images/help/marketplace/marketplace-report-app.png)
-4. Complete the contact form to tell {% data variables.contact.contact_support %} about the app's behavior, then click **Send request**.
+2. Перейдите к приложению, о котором хотите сообщить.
+3. На боковой панели слева в разделе "Ссылки для разработчиков" щелкните {% octicon "report" aria-label="The report symbol" %} **Сообщить о нарушении**.
+  ![Кнопка для сообщения о приложении в {% data variables.product.prodname_marketplace %}](/assets/images/help/marketplace/marketplace-report-app.png)
+4. Заполните форму контакта, чтобы сообщить {% data variables.contact.contact_support %} о поведении приложения, а затем нажмите кнопку **Отправить запрос**.
 
-### Reporting contact link abuse in the template chooser
+## Сообщение о нарушении в ссылке для обратной связи в средстве выбора шаблона
 
-1. Navigate to the repository that contains the contact link you'd like to report.
-2. Under the repository name, click {% octicon "issue-opened" aria-label="The issues icon" %} **Issues**.
-3. In the lower-right corner of the template chooser, click **Report abuse**. ![Link to report an abuse](/assets/images/help/repository/template-chooser-report-abuse.png)
-4. Complete the contact form to tell {% data variables.contact.contact_support %} about the contact link's behavior, then click **Send request**.
+1. Перейдите к репозиторию, содержащему ссылку для обратной связи, о которой хотите сообщить.
+2. Под именем репозитория щелкните {% octicon "issue-opened" aria-label="The issues icon" %} **Проблемы**.
+3. В правом нижнем углу окна средства выбора шаблона нажмите кнопку **Сообщить о нарушении**.
+  ![Ссылка на сообщение о нарушении](/assets/images/help/repository/template-chooser-report-abuse.png)
+4. Заполните форму контакта, чтобы сообщить {% data variables.contact.contact_support %} о поведении ссылки для обратной связи, а затем нажмите кнопку **Отправить запрос**.
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
-- "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
-- "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
-- "[Tracking changes in a comment](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)"
+- [Настройка проекта для внесения действенных вкладов](/communities/setting-up-your-project-for-healthy-contributions)
+- [Использование шаблонов для описания важных проблем и выполнения запросов на вытягивание](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)
+- [Управление деструктивными комментариями](/communities/moderating-comments-and-conversations/managing-disruptive-comments){% ifversion fpt or ghec %}
+- [Обеспечение безопасности в {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)
+- [Ограничение взаимодействий в вашем репозитории](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository){% endif %}
+- [Отслеживание изменений в комментарии](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)

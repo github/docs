@@ -1,0 +1,5 @@
+# Reference: #7070
+# Actions Runner Container Hooks
+versions:
+  fpt: '*'
+  ghec: '*'

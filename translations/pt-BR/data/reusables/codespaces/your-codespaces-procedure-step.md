@@ -1,3 +1,9 @@
-1. In the top right corner of {% data variables.product.product_name %}, click your profile photo, then click **Your codespaces**.
-
-  !['Your codespaces' menu option](/assets/images/help/codespaces/your-codespaces-option.png)
+---
+ms.openlocfilehash: e7e3c99d5666152f58d5ffb73a6b7ddad22fb18b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148107893"
+---
+1. Navegue até a página "Seus codespaces" em [github.com/codespaces](https://github.com/codespaces).

@@ -1,3 +1,9 @@
-{% if currentVersion == "free-pro-team@latest" %}詳しい情報については「[{% data variables.product.prodname_advisory_database %}でのセキュリティ脆弱性を参照する](/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)」及び「[{% data variables.product.prodname_security_advisories %}について](/code-security/security-advisories/about-github-security-advisories)」を参照してください。
-{% else %}アドバイザリデータに関する詳しい情報については、「<a href="/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database" class="dotcom-only">{% data variables.product.prodname_advisory_database %} のセキュリティ脆弱性を参照する</a>」を参照してください。
-{% endif %}
+---
+ms.openlocfilehash: 9bd9a97aac8ee24742aacd8f37472811372d06ea
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147410564"
+---
+詳しくは、「[{% data variables.product.prodname_advisory_database %} でのセキュリティ アドバイザリの参照](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database)」をご覧ください。

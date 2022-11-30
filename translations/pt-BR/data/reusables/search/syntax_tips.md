@@ -1,8 +1,8 @@
 {% tip %}
 
-**Dicas:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-  - Este artigo contém links para pesquisas de exemplo no site de {% data variables.product.prodname_dotcom_the_website %}, mas você pode usar os mesmos filtros de pesquisa com {% data variables.product.product_name %}. Nas pesquisas de exemplo vinculadas, substitua `github.com` pelo nome de host para {% data variables.product.product_location %}.{% endif %}
-  - Para obter uma lista de sintaxes de pesquisa que podem ser adicionadas a qualquer qualificador de pesquisa para melhorar ainda mais os resultados, consulte "[Entender a sintaxe de pesquisa](/articles/understanding-the-search-syntax)".
-  - Use aspas em termos de pesquisa com várias palavras. Por exemplo, se quiser pesquisar problemas com a etiqueta "In progress," pesquise `label:"in progress"`. A pesquisa não faz distinção entre maiúsculas e minúsculas.
+**Tips:**{% ifversion ghes or ghae %}
+  - This article contains links to example searches on the {% data variables.product.prodname_dotcom_the_website %} website, but you can use the same search filters with {% data variables.product.product_name %}. In the linked example searches, replace `github.com` with the hostname for {% data variables.location.product_location %}.{% endif %}
+  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax)".
+  - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
 
 {% endtip %}

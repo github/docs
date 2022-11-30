@@ -5,42 +5,50 @@ redirect_from:
   - /marketplace/github-marketplace-transactions
   - /developers/github-marketplace/viewing-transactions-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: View listing transactions
+ms.openlocfilehash: f0e02ca4038131752d4a5fab54de1f1f539289c2
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083959'
 ---
 {% note %}
 
-**Observação:** Como leva tempo para agregar dados, você notará um pequeno atraso nas datas exibidas. Ao selecionar um período de tempo, você poderá ver datas exatas para as métricas no topo da página.
+**Observação:** como leva tempo para agregar os dados, você observará um pequeno atraso nas datas mostradas. Ao selecionar um período de tempo, você poderá ver datas exatas para as métricas no topo da página.
 
 {% endnote %}
 
 
-Você pode visualizar ou fazer o download dos dados de transação para acompanhar suas atividades de assinatura. Clique no botão **Exportar CSV** para fazer o download de um arquivo `.csv`. Você também pode selecionar um período de tempo para visualizar e pesquisar na página de transação.
+Você pode visualizar ou fazer o download dos dados de transação para acompanhar suas atividades de assinatura. Clique no botão **Exportar CSV** para baixar um arquivo `.csv`. Você também pode selecionar um período de tempo para visualizar e pesquisar na página de transação.
 
-### Campos de dados transação
+## Campos de dados transação
 
-* **Data:** A data da transação no formato `aaaa-mm-dd.`.
-* **app_name:** O nome do aplicativo.
-* **user_login:** O login do usuário com a assinatura.
-* **user_id:** O identificador do usuário com a assinatura.
-* **user_type:** O tipo de conta do GitHub, que pode ser `Usuário` ou `Organização`.
-* **country:** O código do país com três letras.
-* **amount_in_centes:** O valor da transação em centavos. Quando um valor for inferior ao montante do plano, o usuário fez a atualização e o novo plano será rateado. Um valor zero indica que o usuário cancelou seu plano.
-* **renewal_frequency:** A frequência de renovação da assinatura, seja `Mensal` ou `Anual`.
-* **The following place_listing_plan_id:** O `id` do plano de assinatura.
+* **date:** a data da transação no formato `yyyy-mm-dd`.
+* **app_name:** o nome do aplicativo.
+* **user_login:** o logon do usuário com a assinatura.
+* **user_id:** a ID do usuário com a assinatura.
+* **user_type:** o tipo de conta do GitHub, `User` ou `Organization`.
+* **country:** o código de três letras do país.
+* **amount_in_cents:** o valor da transação em centavos. Quando um valor for inferior ao montante do plano, o usuário fez a atualização e o novo plano será rateado. Um valor zero indica que o usuário cancelou seu plano.
+* **renewal_frequency:** a frequência de renovação da assinatura, `Monthly` ou `Yearly`.
+* **marketplace_listing_plan_id:** a `id` do plano de assinatura.
+* **region:** o nome da região presente no endereço para cobrança.
+* **postal_code:** o valor do CEP presente no endereço para cobrança.
 
-![Perspectivas do Marketplace](/assets/images/marketplace/marketplace_transactions.png)
+![Insights do Marketplace](/assets/images/marketplace/marketplace_transactions.png)
 
-### Acessar as transações do {% data variables.product.prodname_marketplace %}
+## Acessar as transações do {% data variables.product.prodname_marketplace %}
 
 Para acessar as transações do {% data variables.product.prodname_marketplace %}:
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.marketplace_apps %}
-4. Selecione o
-{% data variables.product.prodname_github_app %} para o qual você gostaria de ver as transações.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.marketplace_apps %}
+4. Selecione o {% data variables.product.prodname_github_app %} cujas transações você gostaria de ver.
 {% data reusables.user-settings.edit_marketplace_listing %}
-6. Clique na aba **Transações**.
-7. Opcionalmente, selecione um período de tempo diferente, clicando no período suspenso no canto superior direito da página de transações. ![Período de tempo do Marketplace](/assets/images/marketplace/marketplace_insights_time_period.png)
+6. Clique na guia **Transações**.
+7. Opcionalmente, selecione um período de tempo diferente, clicando no período suspenso no canto superior direito da página de transações.
+![Período do Marketplace](/assets/images/marketplace/marketplace_insights_time_period.png)

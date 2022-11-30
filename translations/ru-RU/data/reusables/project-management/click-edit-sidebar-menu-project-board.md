@@ -1,1 +1,10 @@
-1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**. ![Edit option in drop-down menu from project board sidebar](/assets/images/help/projects/project-board-edit-settings.png)
+---
+ms.openlocfilehash: f78f0ce2e9edffa3b529710b5edb864a1ba95501
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145092961"
+---
+1. Щелкните {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, а затем **Изменить**.
+![Параметр "Изменить" в раскрывающемся меню на боковой панели доски проекта](/assets/images/help/projects/project-board-edit-settings.png)

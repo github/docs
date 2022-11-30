@@ -1,53 +1,58 @@
 ---
-title: Adding a code of conduct to your project
-intro: 'Adopt a code of conduct to define community standards, signal a welcoming and inclusive project, and outline procedures for handling abuse.'
+title: Добавление правил поведения в проект
+intro: 'Выработка кодекса поведения для определения стандартов сообщества свидетельствует о дружественном инклюзивном проекте, а также определяет процедуры для работы с нарушениями.'
 redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
   - /github/building-a-strong-community/adding-a-code-of-conduct-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Add a code of conduct
+ms.openlocfilehash: dcf1e589ae4f803017752f9e919aad304c570fbc
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145092361'
 ---
+*Правила поведения* — это документ, определяющий стандарты участия в деятельности сообщества. Он свидетельствует о создании инклюзивной среды, в которой уважают любые вклады. В нем также описываются процедуры решения проблем между членами сообщества проекта. Дополнительные сведения о том, почему правила поведения определяют стандарты и ожидания участия в работе сообществе, см. в [руководстве по открытому коду](https://opensource.guide/code-of-conduct/).
 
-A *code of conduct* defines standards for how to engage in a community. It signals an inclusive environment that respects all contributions. It also outlines procedures for addressing problems between members of your project's community. For more information on why a code of conduct defines standards and expectations for how to engage in a community, see the [Open Source Guide](https://opensource.guide/code-of-conduct/).
+Перед принятием правил поведения для проекта необходимо выполнить следующие задачи:
 
-Before adopting a code of conduct for your project:
+* изучить различные правила поведения, предназначенные для проектов с открытым кодом; выбрать те, которые отражают стандарты вашего сообщества;
+* тщательно продумать возможность их реализации.
 
-* Research different codes of conduct designed for open source projects. Choose one that reflects your community's standards.
-* Consider carefully whether you are willing and able to enforce it.
+Правила поведения можно добавить в проект с помощью шаблона или вручную создать пользовательские правила. Правила поведения будут доступны в любом случае, но "Правила поведения" будут помечены в профиле сообщества репозитория как завершенные, только если для исх создания использовался шаблон. Если вы используете правила поведения, написанные другим человеком или организацией, обязательно следуйте любым рекомендациям из источника. Дополнительные сведения о профилях сообщества см. в статье "[Сведения о профилях сообщества для общедоступных репозиториев](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)".
 
-You can add a code of conduct to your project by using a template or manually creating a custom code of conduct. Your code of conduct will be available either way, but "Code of conduct" will only be marked as complete in your repository's community profile if you use a template. If you use a code of conduct written by another person or organization, be sure to follow any attribution guidelines from the source. For more information about community profiles, see "[About community profiles for public repositories](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
+Можно создать стандартные правила поведения для организации или личной учетной записи. Дополнительные сведения см. в статье "[Создание файла работоспособности сообщества по умолчанию](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)".
 
-You can create a default code of conduct for your organization or user account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+## Добавление правил поведения с помощью шаблона
 
-### Adding a code of conduct using a template
+{% data variables.product.product_name %} предоставляет шаблоны для распространенных правил поведения, которые упростят добавление правил в проект.
 
-{% data variables.product.product_name %} provides templates for common codes of conduct to help you quickly add a code of conduct to your project.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
+3. В поле имени файла введите *CODE_OF_CONDUCT.md*.
+4. Щелкните **Выбрать шаблон правил поведения**.
+  ![Кнопка выбора шаблона правил поведения](/assets/images/help/repository/code-of-conduct-tool.png)
+5. В левой части страницы выберите правила поведения для предварительного просмотра и добавления в проект.
+  ![Выбор шаблона правил поведения](/assets/images/help/repository/code-of-conduct-tool-picker.png)
+6. В правой части страницы заполните поля, чтобы указать в выбранных правилах поведения соответствующие сведения.
+7. Щелкните **Проверить и отправить**.
+  ![Проверка и отправка правил поведения в проект](/assets/images/help/repository/code-of-conduct-tool-review.png)
+8. Просмотрите содержимое правил поведения в текстовой области.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_new_file %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-3. In the file name field, type *CODE_OF_CONDUCT.md*.
-4. Click **Choose a code of conduct template**. ![Button to choose a code of conduct template](/assets/images/help/repository/code-of-conduct-tool.png)
-5. On the left side of the page, select a code of conduct to preview and add to your project. ![Selection of a code of conduct template](/assets/images/help/repository/code-of-conduct-tool-picker.png)
-6. On the right side of the page, complete the fields to populate the selected code of conduct with the appropriate information.
-7. Click **Review and submit**. ![Review and submit code of conduct to project](/assets/images/help/repository/code-of-conduct-tool-review.png)
-8. Review the contents of the code of conduct that's in the text area.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
+## Добавление правил поведения вручную
 
-### Adding a code of conduct manually
+Если нужные правила поведения недоступны в предоставленных шаблонах, можно добавить правила вручную.
 
-If the code of conduct you want to use isn't available in the provided templates, you can manually add a code of conduct.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-3. In the file name field, type the name and extension for the file. ![New code of conduct file name](/assets/images/help/repository/new-code-of-conduct-file-name.png)
-    - To make your code of conduct visible in the repository's root directory, type *CODE_OF_CONDUCT* in the file name field.
-    - To make your code of conduct visible in the repository's `docs` directory, type *docs/CODE_OF_CONDUCT*.
-    - To make your code of conduct visible in the repository's `.github` directory, type *.github/CODE_OF_CONDUCT*.
-4. In the new file, add your custom code of conduct.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
+3. В поле имени файла введите имя и расширение файла.
+  ![Новое имя файла правил поведения](/assets/images/help/repository/new-code-of-conduct-file-name.png)
+    - Чтобы сделать правила поведения видимыми в корневом каталоге репозитория, введите *CODE_OF_CONDUCT* в поле имени файла.
+    - Чтобы сделать правила поведения видимыми в каталоге `docs` репозитория, введите *docs/CODE_OF_CONDUCT*.
+    - Чтобы сделать правила поведения видимыми в каталоге `.github` репозитория, введите *.github/CODE_OF_CONDUCT*.
+4. Добавьте пользовательские правила поведения в новый файл.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_new_file %}

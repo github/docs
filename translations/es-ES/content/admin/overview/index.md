@@ -1,24 +1,29 @@
 ---
-title: Resumen
-intro: 'Puedes aprender sobre {% data variables.product.product_name %} y administrar cuentas de{% if enterpriseServerVersions contains currentVersion %} y accesos, licencias, y{% endif %} facturación.'
+title: Información general
+intro: 'Puedes aprender sobre {% data variables.product.product_name %} y administrar{% ifversion ghes %} cuentas y acceso, licencias y{% endif %} facturación.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+children:
+  - /about-github-for-enterprises
+  - /about-github-enterprise-server
+  - /about-github-ae
+  - /about-upgrades-to-new-releases
+  - /about-data-residency
+  - /about-enterprise-accounts
+  - /system-overview
+  - /about-the-github-enterprise-api
+  - /best-practices-for-enterprises
+  - /creating-an-enterprise-account
+  - /accessing-compliance-reports-for-your-enterprise
+ms.openlocfilehash: f0322eef087f09b029051fc08ac61bc4e529d6dc
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163572'
 ---
-
-Para obtener más información, o para comprar {% data variables.product.prodname_enterprise %}, consulta [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
-
-### Índice
-
-{% link_in_list /about-github-ae %}
-{% link_in_list /about-upgrades-to-new-releases %}
-{% link_in_list /about-data-residency %}
-{% link_in_list /about-enterprise-accounts %}
-{% link_in_list /managing-your-github-enterprise-license %}
-{% link_in_list /managing-billing-for-your-enterprise %}
-{% link_in_list /about-upgrades-to-new-releases %}
-{% link_in_list /system-overview %}
-{% link_in_list /about-the-github-enterprise-api %}
-{% link_in_list /github-ae-release-notes %}
+Para obtener más información, o bien para comprar {% data variables.product.prodname_enterprise %}, consulta [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).

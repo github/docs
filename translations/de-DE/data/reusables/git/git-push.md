@@ -1,5 +1,5 @@
-1. [Übergib die Änderungen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in Deinem lokalen Repository per Push an {% data variables.product.product_location %}.
+1. [Push the changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.location.product_location %}.
   ```shell
-  $ git push origin <em>your-branch</em>
-  # Uebertraegt die Aenderungen in Deinem lokalen Repository per Push auf das von Dir als Ursprung festgelegte Remote-Repository
+  $ git push origin YOUR_BRANCH
+  # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```

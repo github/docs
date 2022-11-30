@@ -1,5 +1,9 @@
 {% warning %}
 
-**Nota:** Si habilitas al acceso de lectura anónimo de Git, eres responsable de todos los accesos y usos de esta característica. {% data variables.product.company_short %} no será responsable de ningún acceso no deseado o uso indebido de la función. También puede que no utilices esta característica para violar tu licencia desde {% data variables.product.company_short %}, incluyendo el límite de la cantidad de licencias de usuario que has comprado con nosotros.
+**Warnings:**
+
+- The Git protocol is unauthenticated and unencrypted. An attacker could intercept repository data transferred over connections using this protocol.
+- If you enable anonymous Git read access, you're responsible for all access and use of the feature. {% data variables.product.company_short %} is not responsible for any unintended access, security risks, or misuse of the feature.
+- You may not use this feature to violate your license from {% data variables.product.company_short %}, including the limit on the number of user licenses for {% data variables.location.product_location %}.
 
 {% endwarning %}

@@ -1,0 +1,1 @@
+The {% data variables.actions.hosted_runner %}s feature is currently in beta for organizations and enterprises using the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plans, and is subject to change. To request access to the beta, visit the [sign up page](https://github.com/features/github-hosted-runners/signup).

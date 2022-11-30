@@ -1,29 +1,37 @@
 ---
-title: Resource limitations
-intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitations in place to protect against excessive or abusive calls to {% data variables.product.prodname_dotcom %}''s servers.'
+title: Ограничения ресурсов
+intro: 'API GraphQL {% data variables.product.prodname_dotcom %} имеет ограничения для защиты от чрезмерных вызовов к серверам {% data variables.product.prodname_dotcom %} или злоупотребления ими.'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 7a0f040b86435573171c4022a72f8d558ad06c29
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146381427'
 ---
+## Предельное число узлов
 
-## Node limit
+Чтобы пройти проверку [схемы](/graphql/guides/introduction-to-graphql#schema), все [вызовы](/graphql/guides/forming-calls-with-graphql) API GraphQL должны соответствовать следующим стандартам:
 
-To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API v4 [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
+* Клиенты должны предоставлять аргумент `first` или `last` для любого [подключения](/graphql/guides/introduction-to-graphql#connection).
+* Значения `first` и `last` должны находиться в пределах 1–100.
+* В отдельных вызовах не может запрашивать более 500 000 [узлов](/graphql/guides/introduction-to-graphql#node).
 
-* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
-* Values of `first` and `last` must be within 1-100.
-* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
+### Подсчет узлов в вызове
 
-#### Calculating nodes in a call
+В этих двух примерах показано, как вычислить общее количество узлов в вызове.
 
-These two examples show how to calculate the total nodes in a call.
+1. Простой запрос:
 
-1. Simple query: <pre>query {
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -45,13 +53,17 @@ These two examples show how to calculate the total nodes in a call.
     }
   }</pre>
 
-  Calculation: <pre><span class="redbox">50</span>         = 50 repositories
+  Расчет:
+
+  <pre><span class="redbox">50</span>         = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
 
               = 550 total nodes</pre>
 
-2. Complex query: <pre>query {
+2. Сложный запрос:
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -105,7 +117,9 @@ These two examples show how to calculate the total nodes in a call.
     }
   }</code></pre>
 
-  Calculation: <pre><span class="redbox">50</span>              = 50 repositories
+  Расчет:
+
+  <pre><span class="redbox">50</span>              = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
    +
@@ -119,32 +133,32 @@ These two examples show how to calculate the total nodes in a call.
 
                    = 22,060 total nodes</pre>
 
-## Rate limit
+## Ограничение скорости
 
-The GraphQL API v4 limit is different from the REST API v3's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
+Ограничение скорости для API GraphQL версии 4 отличается от [ограничения скорости](/rest/overview/resources-in-the-rest-api#rate-limiting) для REST API.
 
-Why are the API rate limits different? With [GraphQL](/graphql), one GraphQL call can replace [multiple REST calls](/graphql/guides/migrating-from-rest-to-graphql). A single complex GraphQL call could be the equivalent of thousands of REST requests. While a single GraphQL call would fall well below the REST API rate limit, the query might be just as expensive for GitHub's servers to compute.
+Почему различаются ограничения скорости API? Один вызов [GraphQL](/graphql) может заменять [несколько вызовов REST](/graphql/guides/migrating-from-rest-to-graphql). Один сложный вызов GraphQL может быть эквивалентен тысячам запросов REST. Хотя вызов GraphQL может спокойно укладываться в ограничение скорости REST API, запрос может быть столь же затратным для обработки на серверах GitHub.
 
-To accurately represent the server cost of a query, the GraphQL API v4 calculates a call's **rate limit score** based on a normalized scale of points. A query's score factors in first and last arguments on a parent connection and its children.
+Чтобы точно представить затраты на обработку запроса на сервере, API GraphQL вычисляет **оценку ограничения скорости** для вызова на основе нормализованной шкалы баллов. При оценке запроса учитываются первый и последний аргументы родительского соединения и его дочерних элементов.
 
-* The formula uses the `first` and `last` arguments on a parent connection and its children to pre-calculate the potential load on GitHub's systems, such as MySQL, ElasticSearch, and Git.
-* Each new connection has its own point value. Points are combined with other points from the call into an overall rate limit score.
+* Формула использует аргументы `first` и `last` родительского соединения и его дочерних элементов для предварительного вычисления потенциальной нагрузки на системы GitHub, такие как MySQL, ElasticSearch и GIT.
+* Каждое новое соединение имеет собственное значение. Баллы объединяются с другими баллами вызова в общую оценку ограничения скорости.
 
-The GraphQL API v4 rate limit is **5,000 points per hour**.
+Ограничение скорости в API GraphQL составляет **5000 баллов в час**. 
 
-Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API v4 and REST API v3 use different rate limits.
+Обратите внимание, что 5000 баллов в час — это не то же самое, что 5000 вызовов в час: в API GraphQL и REST API используются разные ограничения скорости.
 
 {% note %}
 
-**Note**: The current formula and rate limit are subject to change as we observe how developers use the GraphQL API v4.
+**Примечание**. Текущая формула и ограничение скорости могут изменяться по мере наблюдения за тем, как разработчики используют API GraphQL.
 
 {% endnote %}
 
-#### Returning a call's rate limit status
+### Возвращение состояния ограничения скорости для вызова
 
-With the REST API v3, you can check the rate limit status by [inspecting](/rest/overview/resources-in-the-rest-api#rate-limiting) the returned HTTP headers.
+При использовании REST API состояние ограничения скорости можно проверить, [просмотрев](/rest/overview/resources-in-the-rest-api#rate-limiting) возвращенные заголовки HTTP.
 
-With the GraphQL API v4, you can check the rate limit status by querying fields on the `rateLimit` object:
+При использовании API GraphQL состояние ограничения скорости можно проверить, запросив поля объекта `rateLimit`:
 
 ```graphql
 query {
@@ -160,28 +174,28 @@ query {
 }
 ```
 
-* The `limit` field returns the maximum number of points the client is permitted to consume in a 60-minute window.
+* В поле `limit` возвращается максимальное количество баллов, которое клиент может использовать за 60-минутный период.
 
-* The `cost` field returns the point cost for the current call that counts against the rate limit.
+* В поле `cost` возвращается стоимость в баллах для текущего вызова, который засчитывается при определении ограничения скорости.
 
-* The `remaining` field returns the number of points remaining in the current rate limit window.)
+* В поле `remaining` возвращается количество баллов, оставшихся в текущем периоде ограничения скорости.
 
-* The `resetAt` field returns the time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+* В поле `resetAt` возвращается время сброса текущего интервала ограничения скорости в [секундах с эпохи UTC](http://en.wikipedia.org/wiki/Unix_time).
 
-#### Calculating a rate limit score before running the call
+### Вычисление оценки ограничения скорости перед выполнением вызова
 
-Querying the `rateLimit` object returns a call's score, but running the call counts against the limit. To avoid this dilemma, you can calculate the score of a call before you run it. The following calculation works out to roughly the same cost that `rateLimit { cost }` returns.
+При запросе объекта `rateLimit` возвращается оценка для вызова, но этот запрос учитывается при расчете ограничения. Чтобы избежать этой проблемы, можно вычислить оценку для вызова перед его выполнением. Приведенный ниже расчет дает примерно тот же результат, что и `rateLimit { cost }`.
 
-1. Add up the number of requests needed to fulfill each unique connection in the call. Assume every request will reach the `first` or `last` argument limits.
-2. Divide the number by **100** and round the result to get the final aggregate cost. This step normalizes large numbers.
+1. Сложите количество запросов, необходимых для выполнения каждого уникального подключения в вызове. Предположим, что каждый запрос будет достигать ограничений для аргумента `first` или `last`.
+2. Разделите число на **100** и округлите результат, чтобы получить итоговые совокупные затраты. На этом шаге нормализуется большое число.
 
 {% note %}
 
-**Note**: The minimum cost of a call to the GraphQL API v4 is **1**, representing a single request.
+**Примечание.** Минимальная стоимость вызова API GraphQL равна **1**, что соответствует одному запросу.
 
 {% endnote %}
 
-Here's an example query and score calculation:
+Ниже приведен пример запроса и вычисления оценки.
 
 ```graphql
 query {
@@ -215,11 +229,11 @@ query {
 }
 ```
 
-This query requires 5,101 requests to fulfill:
+Для выполнения этого запроса требуется 5101 вызов:
 
-* Although we're returning 100 repositories, the API has to connect to the viewer's account **once** to get the list of repositories. So, requests for repositories = **1**
-* Although we're returning 50 issues, the API has to connect to each of the **100** repositories to get the list of issues. So, requests for issues = **100**
-* Although we're returning 60 labels, the API has to connect to each of the **5,000** potential total issues to get the list of labels. So, requests for labels = **5,000**
-* Total = **5,101**
+* Хотя возвращается 100 репозиториев, API должен подключиться к учетной записи зрителя **один раз**, чтобы получить список репозиториев. Таким образом, число запросов для репозиториев = **1**.
+* Хотя возвращается 50 проблем, API должен подключиться к каждому из **100** репозиториев, чтобы получить список проблем. Таким образом, число запросов для проблем = **100**.
+* Хотя возвращается 60 меток, API должен подключиться к каждой из **5000** потенциальных проблем, чтобы получить список меток. Таким образом, число запросов для меток = **5000**.
+* Всего **5101** запрос.
 
-Dividing by 100 and rounding gives us the final score of the query: **51**
+Разделим на 100, округлим, и получим окончательную оценку для запроса: **51**.

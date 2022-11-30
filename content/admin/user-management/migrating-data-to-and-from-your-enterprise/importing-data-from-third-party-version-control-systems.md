@@ -6,72 +6,73 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import from another VCS
 ---
-### Importing projects from Mercurial
+## Importing projects from Mercurial
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Make a raw clone of the project using the command below, specifying the URL of the source project, and a path to a temporary repository:
   ```shell
-  $ git-import-hg-raw <em>HG-CLONE-URL</em> /<em>PATH</em>/<em>REPO-NAME</em>.git
+  $ git-import-hg-raw HG-CLONE-URL/PATH/REPO-NAME.git
   # Creates a new repository with one or more Git refs in "refs/import/" in the specified path.
   ```
 {% data reusables.enterprise_migrations.review-the-import-csv %}
 4. Rewrite the authors and branches using the CSV file:
   ```shell
-  $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
+  $ git-import-rewrite --flavor hg --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO-NAME.git
   ```
-5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
   ```shell
-  $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
+  $ git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
   ```
 
-### Importing projects from Subversion
+## Importing projects from Subversion
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Make a raw clone of the project using the command below, specifying the URL of the source project, and a path to a temporary repository:
   ```shell
-  $ git-import-svn-raw <em>SVN-CLONE-URL</em> /<em>PATH</em>/<em>REPO-NAME</em>.git
+  $ git-import-svn-raw SVN-CLONE-URL /PATH/REPO-NAME.git
   # Creates a new repository with one or more Git refs in "refs/import/" in the specified path.
   ```
 {% data reusables.enterprise_migrations.review-the-import-csv %}
 4. Rewrite the authors and branches using the CSV file:
   ```shell
-  $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
+  $ git-import-rewrite --flavor svn --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO-NAME.git
   ```
-5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
   ```shell
-  $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
+  $ git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
   ```
 
-### Importing projects from Team Foundation Version Control
+## Importing projects from Team Foundation Version Control
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Make a raw clone of the project using the command below, specifying the URL of the source project, and a path to a temporary repository:
   ```shell
-  $ git-import-tfs-raw <em>TEAM-FOUNDATION-CLONE-URL</em> /<em>PATH</em>/<em>REPO-NAME</em>.git
+  $ git-import-tfs-raw TEAM-FOUNDATION-CLONE-URL /PATH/REPO-NAME.git
   # Creates a new repository with one or more Git refs in "refs/import/" in the specified path.
   ```
 {% data reusables.enterprise_migrations.review-the-import-csv %}
 4. Rewrite the authors and branches using the CSV file:
   ```shell
-  $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
+  $ git-import-rewrite --flavor tfs --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO_NAME.git
   ```
-5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
   ```shell
-  $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
+  $ git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
   ```
 
-### Further reading
+## Further reading
 
-- "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[Command-line-utilities](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"

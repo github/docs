@@ -1,48 +1,89 @@
 ---
-title: Colaborar con los mantenedores utilizando debates
-shortTitle: Colaborar con los mantenedores
-intro: 'Puedes contribuir a las metas, planes, salud y comunidad de un proyecto en {% data variables.product.product_name %} si te comunicas con los mantenedores del proyecto en un debate.'
-permissions: People with read permissions to a repository can start and participate in discussions in the repository.
+title: Collaborating with maintainers using discussions
+shortTitle: Collaborating with maintainers
+intro: 'You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.'
+permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  free-pro-team: '*'
+  feature: discussions
 ---
 
-{% data reusables.discussions.beta %}
 
-### Acerca de la colaboración con los mantenedores utilizando debates
+## About collaboration with maintainers using {% data variables.product.prodname_discussions %}
 
-{% data reusables.discussions.about-discussions %} Si utilizas o contribuyes con un proyecto, puedes iniciar un debate para hacer sugerencias e interactuar con los manenedores y miembros de la comunidad con respecto a tus planes, preguntas, ideas y retroalimentación. Para obtener más información, consulta la sección "[‎Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
+{% data reusables.discussions.about-discussions %} If you use or contribute to a project, you can start a discussion to make suggestions and engage with maintainers and community members about your plans, questions, ideas, and feedback. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
-{% data reusables.discussions.about-categories-and-formats %} Los administradores de repositorio y mantenedores de proyecto pueden borrar un debate. Para obtener más información, consulta la sección "[Administrar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)".
+{% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %} 
 
-{% data reusables.discussions.github-recognizes-members %} Estos miembros aparecen en una lista de los contribuyentes más útiles en los debates del proyecto. Conforme crezca tu proyecto, podrás otorgar permisos de acceso superiores a los miembros activos de tu comunidad. Para obtener más información, consulta la sección "[Otorgar permisos superiores a los colaboradores principales](/discussions/guides/granting-higher-permissions-to-top-contributors)"
+Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
 
-![Contribuyentes más útiles para los debates de un proyecto](/assets/images/help/discussions/most-helpful.png)
+{% data reusables.discussions.github-recognizes-members %} These members appear in a list of the most helpful contributors to the project's discussions. As your project grows, you can grant higher access permissions to active members of your community. For more information, see "[Granting higher permissions to top contributors](/discussions/guides/granting-higher-permissions-to-top-contributors)"
 
-Para obtener más información acerca de la participación en los debates, consulta la sección "[Participar en un debate](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)".
+![Most helpful contributors to discussions for a project](/assets/images/help/discussions/most-helpful.png)
 
-### Prerrequisitos
+Community members can upvote discussions and top-level comments inside discussions to communicate with maintainers about ideas that matter to them. Project maintainers can then sort discussions and comments based on upvotes to gain insight into what community members value.
 
-Para colaborar con los mantenedores utilizando debates, un administrador de repositorio o mantenedor de proyecto debe habilitar los debates para el repositorio. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los debates para el repositorio](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
+For more information about participation in discussions, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
 
-### Iniciar un debate
+## Prerequisites
+
+To collaborate with maintainers in repository discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+
+To collaborate with maintainers in organization discussions, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+
+## Starting a discussion
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Filtrar la lista de debates
+## Starting a poll
 
-Puedes buscar debates y filtrar la lista de éstos en un repositorio. Para obtener más información, consulta la sección "[Buscar buscar debates](/github/searching-for-information-on-github/searching-discussions)".
+{% data reusables.discussions.starting-a-poll %}
 
-{% data reusables.repositories.navigate-to-repo %}
+## Filtering the list of discussions
+
+You can search for discussions and filter the list of discussions in a repository or organization. For more information, see "[Searching discussions](/search-github/searching-on-github/searching-discussions)."
+
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. En el campo de **Buscar todos los debates**, teclea una consulta de búsqueda. Opcionalmente, a la derecha del campo de búsqueda, da clic en un botón para filtrar aún más los resultados. ![Barra de búsqueda y botones para filtrar los debates](/assets/images/help/discussions/search-and-filter-controls.png)
-1. En la lista de debates, da clic en el debate que quieras ver. ![Resultados de búsqueda para debates](/assets/images/help/discussions/search-result.png)
+1. In the **Search all discussions** field, type a search query. Optionally, to the right of the search field, click a button to further filter the results.
+  ![Search bar and buttons for filtering discussions](/assets/images/help/discussions/search-and-filter-controls.png)
+1. In the list of discussions, click the discussion you want to view.
+  ![Discussion search results](/assets/images/help/discussions/search-result.png)
 
-### Convertir una propuesta en un debate
+## Sorting the list of discussions
 
-{% data reusables.discussions.you-can-convert-an-issue %} Para obtener más información, consulta la sección "[Moderar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion#converting-an-issue-to-a-discussion)".
+You can choose how to sort the list of discussions.
 
-### Leer más
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+1. To the right of the **Search all discussions** field, select **New**, or select **Top** and choose a time period from the drop down menu.
 
-- "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
+   ![Buttons for sorting discussions](/assets/images/help/discussions/sort-discussions-buttons.png)
+
+    - Sort by **New** to display the discussions with the most recent activity at the top of the list.
+    - Sort by **Top** to display the discussions with the most upvotes at the top of the list. You can limit the list to only display discussions from a specific time period.
+
+## Sorting top-level comments in discussions
+
+You can choose how to sort top-level comments in discussions. Comment threads do not impact the order comments are sorted in.
+
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. Under the main discussion post, select **Oldest**, **Newest**, or **Top**.
+
+   ![Buttons for sorting comments in discussions](/assets/images/help/discussions/sort-comments-buttons.png)
+
+    - Sort by **Oldest** to display the oldest top-level comments first.
+    - Sort by **Newest** to display the newest top-level comments first.
+    - Sort by **Top** to display the most upvoted top-level comments first.
+
+## Converting an issue to a discussion
+
+{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+
+## Further reading
+
+- "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
+{%- ifversion fpt or ghec %}
+- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
+{%- endif %}

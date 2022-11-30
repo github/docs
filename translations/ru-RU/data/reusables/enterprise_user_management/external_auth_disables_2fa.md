@@ -1,1 +1,9 @@
-When using SAML or CAS, two-factor authentication is not supported or managed on the {% data variables.product.prodname_ghe_server %} appliance, but may be supported by the external authentication provider. Two-factor authentication enforcement on organizations is not available. For more information about enforcing two-factor authentication on organizations, see "[Requiring two-factor authentication in your organization](/enterprise/{{ currentVersion }}/user/articles/requiring-two-factor-authentication-in-your-organization/)."
+---
+ms.openlocfilehash: 8892790c359353b634712895ee217b84965db88c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146332051"
+---
+При использовании SAML или CAS двухфакторная аутентификация не поддерживается или не управляется устройством {% data variables.product.prodname_ghe_server %}, но может поддерживаться внешним поставщиком аутентификации. Двухфакторная проверка подлинности в организациях недоступна. Дополнительные сведения о применении двухфакторной проверки подлинности в организациях см. в разделе [Обязательная двухфакторная проверка подлинности в организации](/enterprise/user/articles/requiring-two-factor-authentication-in-your-organization/).

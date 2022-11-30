@@ -1,3 +1,11 @@
-Anyone with admin permissions to a repository can create a security advisory.
+---
+ms.openlocfilehash: 68d9ec76546df99c33306c7b76f6bd8e4ce076dc
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145118075"
+---
+Любой пользователь с правами администратора в репозитории может создать рекомендации по безопасности.
 
-Anyone with admin permissions to a repository also has admin permissions to all security advisories in that repository. People with admin permissions to a security advisory can add collaborators, and collaborators have write permissions to the security advisory.
+Любой пользователь с разрешениями администратора в репозитории также имеет разрешения администратора для всех рекомендаций по безопасности в этом репозитории. Пользователи с разрешениями администратора для рекомендаций по безопасности могут добавлять участников совместной работы, а участники совместной работы имеют разрешения на запись в рекомендации по безопасности.

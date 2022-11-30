@@ -1,39 +1,46 @@
 ---
-title: Zugriff auf ein Projektboard für Organisationsmitglieder verwalten
-intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du eine standardmäßige Berechtigungsebene für ein Projektboard für alle Organisationsmitglieder festlegen.
+title: 'Verwalten des Zugriffs auf ein {% data variables.product.prodname_project_v1 %} für Organisationsmitglieder'
+intro: 'Als Organisationsbesitzer*in oder {% data variables.projects.projects_v1_board %}administrator*in kannst du für alle Organisationsmitglieder eine Standardberechtigungsstufe für ein {% data variables.projects.projects_v1_board %} festlegen.'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage access for members
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 4c0b280f6c1b28532b191282db465b5ae5b3c274
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109441'
 ---
+{% data reusables.projects.project_boards_old %}
 
-Standardmäßig haben Organisationsmitglieder Schreibzugriff auf die Projektboards ihrer Organisation, sofern die Organisationsinhaber oder Projektboard-Administratoren keine abweichenden Berechtigungen für bestimmte Projektboards festgelegt haben.
+Standardmäßig haben Organisationsmitglieder Schreibzugriff auf die {% data variables.projects.projects_v1_boards %} ihrer Organisation, sofern Organisationsbesitzer*innen oder {% data variables.projects.projects_v1_board %}administrator*innen keine unterschiedlichen Berechtigungen für bestimmte {% data variables.projects.projects_v1_boards %} festgelegt haben.
 
-### Eine grundlegende Berechtigungsebene für alle Organisationsmitglieder festlegen
+## Eine grundlegende Berechtigungsebene für alle Organisationsmitglieder festlegen
 
 {% tip %}
 
-**Tipp:** Du kannst einem Organisationsmitglied höhere Berechtigungen für Projektboards erteilen. Weitere Informationen finden Sie unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“.
+**Tipp:** Du kannst einem Organisationsmitglied höhere Berechtigungen für ein {% data variables.projects.projects_v1_board %} erteilen. Weitere Informationen findest du unter [Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization).
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.organization-wide-project %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-8. Wähle unter „Organization member permission“ (Berechtigung für Organisationsmitglieder) eine grundlegende Berechtigungsebene für alle Organisationsmitglieder aus: **Read** (Lesen), **Write** (Schreiben), **Admin** (Administrator) oder **None** (Keine). ![Optionen für grundlegende Projektboard-Berechtigungen für alle Organisationsmitglieder](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
-9. Klicke auf **Save** (Speichern).
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Klicke auf **Projekte (klassisch)** {% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %}
+8. Wähle unter „Organisationsmitgliedsberechtigung“ eine Baselineberechtigungsebene für alle Organisationsmitglieder aus: **Lesen**, **Schreiben**, **Administrator** oder **Keine**.
+![Optionen für Baseline-Projektboardberechtigungen für alle Organisationsmitglieder](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
+9. Klicken Sie auf **Speichern**.
 
-### Weiterführende Informationen
+## Weiterführende Themen
 
-- „[Zugriff einer Einzelperson auf das Projektboard einer Organisation verwalten](/articles/managing-an-individual-s-access-to-an-organization-project-board)“
-- „[Teamzugriff auf ein Projektboard einer Organisation verwalten](/articles/managing-team-access-to-an-organization-project-board)“
-- „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“
+- [Verwalten des Zugriffs einer Einzelperson auf das {% data variables.product.prodname_project_v1 %} einer Organisation](/articles/managing-an-individual-s-access-to-an-organization-project-board)
+- [Verwalten des Teamzugriffs auf das {% data variables.product.prodname_project_v1 %} einer Organisation](/articles/managing-team-access-to-an-organization-project-board)
+- [{% data variables.product.prodname_project_v1_caps %}-Berechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)

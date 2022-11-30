@@ -1,49 +1,45 @@
 ---
-title: Removing workflow artifacts
-intro: 'You can reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.actions %}'
+title: Удаление артефактов рабочего процесса
+intro: 'Вы можете освободить хранилище {% data variables.product.prodname_actions %}, удалив артефакты до истечения срока действия {% data variables.product.product_name %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Remove workflow artifacts
+ms.openlocfilehash: e5fe2bb21f72785f55d22fffd9ba46420d791fce
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146199805'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-
-### Deleting an artifact
+## Удаление артефакта
 
 {% warning %}
 
-**Warning:** Once you delete an artifact, it can not be restored.
+**Предупреждение.** После удаления артефакта его нельзя восстановить.
 
 {% endwarning %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %}
+{% data reusables.actions.artifact-log-retention-statement %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. Under **Artifacts**, click
-{% octicon "trash" aria-label="The trash icon" %} next to the artifact you want to remove.
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
- ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact-updated.png)
-    {% else %}
-    ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact.png)
-    {% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.navigate-to-workflow %} {% data reusables.repositories.view-run %}
+1. В разделе **Артефакты** щелкните {% octicon "trash" aria-label="The trash icon" %} рядом с артефактом, который вы хотите удалить.
+    
+    ![Раскрывающееся меню удаления артефакта](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Setting the retention period for an artifact
+## Настройка периода хранения для артефакта
 
-Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."
+Периоды хранения артефактов и журналов можно настраивать на уровне репозитория, организации и предприятия. Дополнительные сведения см. в разделе {% ifversion fpt or ghec or ghes %}[Ограничения использования, выставление счетов и администрирование](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy).{% elsif ghae %}[Управление параметрами {% data variables.product.prodname_actions %} для репозитория](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository), [Настройка периода хранения для {% data variables.product.prodname_actions %} для артефактов и журналов в вашей организации](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) или [Принудительное применение политик для {% data variables.product.prodname_actions %} в вашем предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise).{% endif %}
 
-You can also define a custom retention period for individual artifacts using the `actions/upload-artifact` action in a workflow. For more information, see "[Storing workflow data as artifacts](/actions/guides/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period)."
+Вы также можете определить настраиваемый период хранения для отдельных артефактов с помощью действия `actions/upload-artifact` в рабочем процессе. Дополнительные сведения см. в разделе [Хранение данных рабочего процесса в качестве артефактов](/actions/guides/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period).
 
-### Finding the expiration date of an artifact
+## Поиск даты окончания срока действия артефакта
 
-You can use the API to confirm the date that an artifact is scheduled to be deleted. For more information, see the `expires_at` value returned by "[List artifacts for a repository](/rest/reference/actions#artifacts)."
-{% endif %}
+Вы можете использовать API для подтверждения даты запланированного удаления артефакта. Дополнительные сведения см. в описании значения `expires_at`, возвращаемого параметром [Список артефактов для репозитория](/rest/reference/actions#artifacts).

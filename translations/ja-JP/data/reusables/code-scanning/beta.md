@@ -1,16 +1,20 @@
-{% if currentVersion == "enterprise-server@2.22" %}
+---
+ms.openlocfilehash: 67190938682aae49ce571d8d6bb61e025c36bdad
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879486"
+---
+{% ifversion ghae %}
+
+<!-- Remove this reusable and all references for GA release -->
+
+{% elsif ghae %}
 
 {% note %}
 
-**ノート:** {% data variables.product.prodname_code_scanning_capc %}は{% data variables.product.prodname_ghe_server %} 2.22ではベータです。 Code Scanningの一般に利用なリリースについては、{% data variables.product.prodname_ghe_server %}の最新リリースにアップグレードしてください。
-
-{% endnote %}
-
-{% elsif currentVersion == "github-ae@latest" %}
-
-{% note %}
-
-**ノート:** {% data variables.product.prodname_code_scanning_capc %}は現在ベータで、変更されることがあります。
+**注:** {% data variables.product.prodname_code_scanning_capc %} は現在ベータ版であり、変更される可能性があります。
 
 {% endnote %}
 

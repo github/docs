@@ -1,17 +1,24 @@
 ---
-title: Guias
-intro: 'Aprenda a usar a API do {% data variables.product.prodname_dotcom %} com o seu aplicativo, integração contínua e como criar com aplicativos.'
+title: Guides
+intro: 'Aprenda a usar a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} com o seu aplicativo, integração contínua e como criar com os aplicativos.'
 redirect_from:
   - /apps/quickstart-guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 children:
   - /using-the-github-api-in-your-app
   - /using-content-attachments
   - /creating-ci-tests-with-the-checks-api
+ms.openlocfilehash: 2506f1adc637b8c9ce8ad9b54d569dbe37005136
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145084005'
 ---
 

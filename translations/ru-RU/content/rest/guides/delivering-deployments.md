@@ -1,37 +1,49 @@
 ---
-title: Delivering deployments
-intro: 'Using the Deployments REST API, you can build custom tooling that interacts with your server and a third-party app.'
+title: Доставка развертываний
+intro: С помощью REST API развертывания можно создавать пользовательские средства для взаимодействия с сервером и сторонним приложением.
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+ms.openlocfilehash: 7ac423a27fe8b1c145efa3c135d88f08487f153a
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132986'
 ---
- 
-  
+Интерфейс [API развертываний][deploy API] дает возможность запуска проектов, размещенных на {% data variables.product.product_name %}, на принадлежащем вам сервере. В сочетании с [API состояния][status API] он позволяет координировать развертывания, как только код окажется в ветви по умолчанию.
 
-The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on `master`.
+В этом руководстве данный интерфейс API используется для демонстрации возможной конфигурации.
+В описываемом сценарии мы выполним указанные ниже действия.
 
-This guide will use that API to demonstrate a setup that you can use. In our scenario, we will:
+* Выполним слияние запроса на вытягивание.
+* По завершении непрерывной интеграции мы зададим соответствующее состояние запроса на вытягивание.
+* После слияния запроса на вытягивание мы запустим развертывание на нашем сервере.
 
-* Merge a pull request
-* When the CI is finished, we'll set the pull request's status accordingly.
-* When the pull request is merged, we'll run our deployment to our server.
+Система непрерывной интеграции и сервер размещения будут вымышленными. Это может быть Heroku, Amazon или что-то совершенно иное. Основная цель этого руководства — настроить сервер, управляющий взаимодействием.
 
-Our CI system and host server will be figments of our imagination. They could be Heroku, Amazon, or something else entirely. The crux of this guide will be setting up and configuring the server managing the communication.
+Если вы еще этого не сделали, [скачайте `ngrok`][ngrok]и узнайте, как [использовать его][using ngrok]. Мы считаем, что это очень полезный инструмент для предоставления локальных приложений в Интернете.
 
-If you haven't already, be sure to [download ngrok][ngrok], and learn how to [use it][using ngrok]. We find it to be a very useful tool for exposing local connections.
+{% ifversion cli-webhook-forwarding %} {% note %}
 
-Note: you can download the complete source code for this project [from the platform-samples repo][platform samples].
+**Примечание:** Кроме того, вы можете использовать перенаправление веб-перехватчиков, чтобы настроить локальную среду для получения веб-перехватчиков. Дополнительные сведения см. в разделе [Получение веб-перехватчиков с помощью GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
 
-### Writing your server
+{% endnote %} {% endif %}
 
-We'll write a quick Sinatra app to prove that our local connections are working. Let's start with this:
+Примечание. Полный исходный код для этого проекта можно скачать из [репозитория platform-samples][platform samples].
+
+## Создание сервера
+
+Мы создадим небольшое приложение Sinatra, чтобы подтвердить работоспособность локальных подключений.
+Начнем с этого:
 
 ``` ruby
 require 'sinatra'
@@ -43,21 +55,25 @@ post '/event_handler' do
 end
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
+(Если вы не знакомы с тем, как работает Sinatra, рекомендуем [ознакомиться с руководством по Sinatra][Sinatra].)
 
-Start this server up. By default, Sinatra starts on port `4567`, so you'll want to configure ngrok to start listening for that, too.
+Запустите этот сервер. По умолчанию Sinatra запускается через порт `4567`, поэтому вам также потребуется настроить `ngrok` для этого прослушивание.
 
-In order for this server to work, we'll need to set a repository up with a webhook. The webhook should be configured to fire whenever a pull request is created, or merged. Go ahead and create a repository you're comfortable playing around in. Might we suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)? After that, you'll create a new webhook in your repository, feeding it the URL that ngrok gave you, and choosing `application/x-www-form-urlencoded` as the content type:
+Чтобы этот сервер работал, необходимо настроить репозиторий с веб-перехватчиком.
+Веб-перехватчик должен быть настроен так, чтобы он активировался каждый раз при создании или слиянии запроса на вытягивание.
+Давайте создадим репозиторий, с которым можно спокойно экспериментировать. Мы предлагаем [репозиторий @octocat Spoon/Knife](https://github.com/octocat/Spoon-Knife).
+После этого вы создадите новый веб-перехватчик в репозитории, подаете ему URL-адрес `ngrok` и выберите `application/x-www-form-urlencoded` в качестве типа контента:
 
-![A new ngrok URL](/assets/images/webhook_sample_url.png)
+![Новый URL-адрес ngrok](/assets/images/webhook_sample_url.png)
 
-Click **Update webhook**. You should see a body response of `Well, it worked!`. Great! Click on **Let me select individual events.**, and select the following:
+Щелкните **Обновить веб-перехватчик**. Вы должны увидеть текст ответа `Well, it worked!`.
+Отлично! Установите переключатель в положение **Разрешить мне выбрать отдельные события** и выберите следующее:
 
-* Deployment
-* Deployment status
-* Pull Request
+* Развертывание
+* Состояния развертывания
+* Запрос на вытягивание
 
-These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action occurs. We'll configure our server to *just* handle when pull requests are merged right now:
+Это события, которые {% data variables.product.product_name %} будет отправлять на наш сервер каждый раз, когда происходит соответствующее действие. Пока мы настроим сервер так, чтобы он обрабатывал *только* слияния запросов на вытягивание:
 
 ``` ruby
 post '/event_handler' do
@@ -72,15 +88,15 @@ post '/event_handler' do
 end
 ```
 
-What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event` HTTP header. We'll only care about the PR events for now. When a pull request is merged (its state is `closed`, and `merged` is `true`), we'll kick off a deployment.
+Что происходит? К каждому событию, которое отправляет {% data variables.product.product_name %}, прикреплен заголовок HTTP `X-GitHub-Event`. Пока нас интересуют только события, связанные с запросами на вытягивание. При слиянии запроса на вытягивание (состояние `closed`, `merged` имеет значение `true`) запускается развертывание.
 
-To test out this proof-of-concept, make some changes in a branch in your test repository, open a pull request, and merge it. Your server should respond accordingly!
+Чтобы проверить этот эксперимент, внесите какие-нибудь изменения в ветвь тестового репозитория, откройте запрос на вытягивание и выполните его слияние. Ваш сервер должен вернуть соответствующий ответ.
 
-### Working with deployments
+## Работа с развертываниями
 
-With our server in place, the code being reviewed, and our pull request merged, we want our project to be deployed.
+Реализовав сервер, проверив код и выполнив слияние запроса на вытягивание, теперь мы хотим развернуть проект.
 
-We'll start by modifying our event listener to process pull requests when they're merged, and start paying attention to deployments:
+Сначала мы изменим прослушиватель событий для обработки запросов на вытягивание при их слиянии и приступим к развертыванию:
 
 ``` ruby
 when "pull_request"
@@ -94,7 +110,7 @@ when "deployment_status"
 end
 ```
 
-Based on the information from the pull request, we'll start by filling out the `start_deployment` method:
+На основе сведений из запроса на вытягивание мы начнем заполнять метод `start_deployment`:
 
 ``` ruby
 def start_deployment(pull_request)
@@ -104,13 +120,13 @@ def start_deployment(pull_request)
 end
 ```
 
-Deployments can have some metadata attached to them, in the form of a `payload` and a `description`. Although these values are optional, it's helpful to use for logging and representing information.
+Развертывания могут сопровождаться метаданными в виде `payload` и `description`. Хотя эти значения являются необязательными, они полезны для ведения журнала и представления сведений.
 
-When a new deployment is created, a completely separate event is triggered. That's why we have a new `switch` case in the event handler for `deployment`. You can use this information to be notified when a deployment has been triggered.
+При создании нового развертывания активируется отдельное событие. Вот почему нужен новый случай `switch` в обработчике событий `deployment`. Эти сведения можно использовать для получения уведомления об активации развертывания.
 
-Deployments can take a rather long time, so we'll want to listen for various events, such as when the deployment was created, and what state it's in.
+Развертывания могут занимать довольно много времени, поэтому необходимо прослушивать различные события, например создание развертывания и изменение его состояния.
 
-Let's simulate a deployment that does some work, and notice the effect it has on the output. First, let's complete our `process_deployment` method:
+Давайте сымитируем развертывание, которое выполняет некоторые действия, и посмотрим, какое влияние оно оказывает на выходные данные. Сначала завершим метод `process_deployment`:
 
 ``` ruby
 def process_deployment
@@ -124,7 +140,7 @@ def process_deployment
 end
 ```
 
-Finally, we'll simulate storing the status information as console output:
+Наконец, сымитируем сохранение сведений о состоянии путем вывода их в консоли:
 
 ``` ruby
 def update_deployment_status
@@ -132,20 +148,21 @@ def update_deployment_status
 end
 ```
 
-Let's break down what's going on. A new deployment is created by `start_deployment`, which triggers the `deployment` event. From there, we call `process_deployment` to simulate work that's going on. During that processing, we also make a call to `create_deployment_status`, which lets a receiver know what's going on, as we switch the status to `pending`.
+Давайте разберемся, что происходит. Развертывание создается методом `start_deployment`, который активирует событие `deployment`. Далее мы вызываем метод `process_deployment`, который имитирует выполнение некоторых задач. Во время этой обработки мы также вызываем `create_deployment_status`, чтобы получатель мог узнать, что происходит, когда состояние переведено в `pending`.
 
-After the deployment is finished, we set the status to `success`.
+После завершения развертывания задается состояние `success`.
 
-### Conclusion
+## Заключение
 
-At GitHub, we've used a version of [Heaven][heaven] to manage our deployments for years. The basic flow is essentially the exact same as the server we've built above. At GitHub, we:
+В GitHub для управления развертываниями уже много лет используется одна из версий [Heaven][heaven]. Процесс в целом такой же, как и в случае с созданным выше сервером.
 
-* Wait for a response on the state of the CI
-* If the code is green, we merge the pull request
-* Heaven takes the merged code, and deploys it to our production and staging servers
-* In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
+* Ожидается ответ о состоянии проверок непрерывной интеграции (успешно или сбой).
+* Если необходимые проверки пройдены успешно, выполняется слияние запроса на вытягивание.
+* Heaven принимает объединенный код и развертывает его на промежуточных и рабочих серверах.
+* В то же время Heaven также уведомляет всех участников о сборке посредством бота [Hubot][hubot] в наших комнатах чата.
 
-That's it! You don't need to build your own deployment setup to use this example. You can always rely on [GitHub integrations][integrations].
+Вот и все! Чтобы использовать этот пример, не нужно создавать собственную конфигурацию развертывания.
+Всегда можно воспользоваться [интеграциями GitHub][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
@@ -153,6 +170,11 @@ That's it! You don't need to build your own deployment setup to use this example
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/delivering-deployments
 [Sinatra]: http://www.sinatrarb.com/
+[webhook]: /webhooks/
+[octokit.rb]: https://github.com/octokit/octokit.rb
+[access token]: /articles/creating-an-access-token-for-command-line-use
+[travis api]: https://api.travis-ci.org/docs/
+[janky]: https://github.com/github/janky
 [heaven]: https://github.com/atmos/heaven
 [hubot]: https://github.com/github/hubot
 [integrations]: https://github.com/integrations

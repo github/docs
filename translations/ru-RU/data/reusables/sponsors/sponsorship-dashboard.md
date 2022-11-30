@@ -1,4 +1,15 @@
-1. Navigate to your sponsorship dashboard for the account.
-   - If you're sponsoring a user account, under the user's name, click **Sponsoring**. ![Sponsoring button](/assets/images/help/profile/sponsoring-button.png)
-   -  If you're sponsoring an organization, to the right of the organization's name, click **Sponsoring**. ![Sponsoring button](/assets/images/help/sponsors/org-sponsoring-button.png)
-1. Optionally, to manage a sponsorship on behalf of an organization, on the right side of the page, use the **Sponsoring as** drop-down menu, and click the organization. ![Drop-down menu to choose the account you're sponsoring as](/assets/images/help/sponsors/sponsoring-as-drop-down-menu.png)
+---
+ms.openlocfilehash: 9f62baf2d7109144ce8827f30a5aefd324b64047
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145067550"
+---
+1. Перейдите на панель мониторинга спонсорской поддержки для учетной записи.
+   - Если вы спонсируете личную учетную запись, нажмите кнопку **Спонсорская поддержка** под именем пользователя.
+     ![Кнопка "Спонсорская поддержка"](/assets/images/help/profile/sponsoring-button.png)
+   -  Если вы спонсируете организацию, нажмите кнопку **Спонсорская поддержка** справа от имени организации.
+     ![Кнопка "Спонсорская поддержка"](/assets/images/help/sponsors/org-sponsoring-button.png)
+1. Если требуется управлять спонсорской поддержкой от имени организации, вы можете выбрать организацию в правой части страницы в меню **Спонсировать от имени**.
+    ![Раскрывающееся меню для выбора учетной записи, которую вы спонсируете от имени организации](/assets/images/help/sponsors/sponsoring-as-drop-down-menu.png)

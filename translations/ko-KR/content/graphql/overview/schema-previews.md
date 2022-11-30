@@ -1,53 +1,30 @@
 ---
-title: Schema previews
-intro: 'You can preview upcoming features and changes to the {% data variables.product.prodname_dotcom %} GraphQL schema before they are added to the {% data variables.product.prodname_dotcom %} GraphQL API.'
+title: 스키마 미리 보기
+intro: '{% data variables.product.prodname_dotcom %} GraphQL API에 추가되기 전에 {% data variables.product.prodname_dotcom %} GraphQL 스키마에 대한 예정된 기능 및 변경 내용을 미리 볼 수 있습니다.'
 redirect_from:
   - /v4/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 038afd8cbdd60863213eae385ec9a26f707f62d8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109053'
 ---
+## 스키마 미리 보기 정보
 
-### About schema previews
+미리 보기 기간에 개발자 피드백에 따라 일부 기능을 변경할 수 있습니다. 변경할 경우 사전 통보 없이 개발자 [블로그](https://developer.github.com/changes/)에서 공지할 것입니다.
 
-During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
-
-To access a schema preview, you'll need to provide a custom [media type](/rest/overview/media-types) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
+스키마 미리 보기에 액세스하려면 요청에 대한 `Accept` 헤더에 사용자 지정 [미디어 형식](/rest/overview/media-types)을 제공해야 합니다. 각 미리 보기에 대한 기능 문서는 제공할 사용자 지정 미디어 형식을 지정합니다.
 
 {% note %}
 
-**Note:** The GraphQL schema members under preview cannot be accessed via the Explorer at this time.
+**참고:** 현재는 Explorer를 통해 미리 보기 상태의 GraphQL 스키마 멤버에 액세스할 수 없습니다.
 
 {% endnote %}
-
-{% for preview in graphql.previewsForCurrentVersion %}
-### {{ preview.title }}
-
-{{ preview.description }}
-
-To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:
-
-```
-{{ preview.accept_header }}
-```
-
-Previewed schema members:
-
-{% for schemaMemberPath in preview.toggled_on %}
-- `{{ schemaMemberPath }}`
-{% endfor %}
-
-{% if preview.announcement %}
-**Announced:** [{{ preview.announcement.date }}]({{ preview.announcement.url }})
-{% endif %}
-
-{% if preview.updates %}
-{% for update in preview.updates %}
-**Updated:** [{{ update.date }}]({{ update.url }})
-{% endfor %}
-{% endif %}
-
-{% endfor %}

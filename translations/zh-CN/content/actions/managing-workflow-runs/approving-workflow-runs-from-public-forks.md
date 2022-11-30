@@ -1,19 +1,25 @@
 ---
 title: 批准复刻中的工作流程运行
-intro: 当贡献者第一次向公共仓库提交拉取请求时，拥有写入权限的维护者必须批准任何工作流程运行。
-product: '{% data reusables.gated-features.actions %}'
+intro: 当外部贡献者第一次向公共仓库提交拉取请求时，拥有写入权限的维护者可能必须批准任何工作流程运行。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Approve public fork runs
+ms.openlocfilehash: 74918a7d2e0081d6332ab267ef18ae148a2cff5e
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164121'
 ---
+## 关于公共复刻中的工作流程运行
 
-公共仓库的复刻可以提交拉取请求以提议对仓库的 {% data variables.product.prodname_actions %} 工作流程的更改。 虽然来自复刻的工作流程无法访问敏感数据（如密钥），但如果出于滥用目的进行修改，可能会让维护者感到烦恼。 为了帮助防止这种情况，从首次贡献者收到拉取请求的工作流程不会自动运行，而必须先获得批准。
+{% data reusables.actions.workflow-run-approve-public-fork %}
 
-Maintainers with write access to the repository can use the following procedure to review and run workflows on pull requests from first-time contributors. After a contributor has at least one pull request merged into a project's repository, any future pull requests from that contributor's fork will automatically run workflows.
+可以为[存储库](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)、[组织](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks)或[企业](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)配置工作流审批要求。
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
-1. Inspect the proposed changes in the pull request and ensure that you are comfortable running your workflows on the pull request branch. You should be especially alert to any proposed changes in the `.github/workflows/` directory that affect workflow files.
-1. If you are comfortable with running workflows on the pull request branch, return to the {% octicon "comment-discussion" aria-label="The discussion icon" %} **Conversation** tab, and under "Workflow(s) awaiting approval", click **Approve and run**.
+已等待批准超过 30 天的工作流程运行将自动删除。
 
-   ![Approve and run workflows](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+## 批准公共复刻中拉取请求的工作流程运行
+
+{% data reusables.actions.workflows.approve-workflow-runs %}

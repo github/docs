@@ -1,49 +1,52 @@
 ---
-title: About upgrades to new releases
+title: Сведения об обновлении до новых выпусков
 shortTitle: About upgrades
-intro: '{% if currentVersion == "github-ae@latest" %}Your {% data variables.product.product_name %} enterprise is updated with the latest features and bug fixes on a regular basis by {% data variables.product.company_short %}.{% else %}You can benefit from new features and bug fixes for {% data variables.product.product_name %} by upgrading your enterprise to a newly released version.{% endif %}'
+intro: '{% ifversion ghae %}Ваше предприятие в {% data variables.product.product_name %} регулярно обновляется с использованием последних функций и исправлений ошибок {% data variables.product.company_short %}.{% else %} Вы можете воспользоваться новыми функциями и исправлениями ошибок для {% data variables.product.product_name %}, обновив ваше предприятие до новой версии.{% endif %}'
 versions:
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
   - Upgrades
+ms.openlocfilehash: b3a2d340ef73ffe92f2117caf38a84e76ba0c8d1
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108853'
 ---
+{% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} — полностью управляемая служба, так что {% data variables.product.company_short %} завершает процесс обновления для предприятия.{% endif %}
 
-{% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through major and minor releases. {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} is a fully managed service, so {% data variables.product.company_short %} completes the upgrade process for your enterprise.{% endif %}
+Выпуски с новыми функциями включают новые возможности и обновления и обычно выходят ежеквартально. {% ifversion ghae %}{% data variables.product.company_short %} обновит ваше предприятие до последнего выпуска с новыми функциями. Вам будет предоставлено предварительное уведомление о любых запланированных простоях вашего предприятия.{% endif %}
 
-Major releases include new functionality and feature upgrades and typically occur {% if currentVersion == "github-ae@latest" %}every few weeks or months{% else %} quarterly{% endif %}. {% if currentVersion == "github-ae@latest" %}{% data variables.product.company_short %} will upgrade your enterprise to the latest major release. You will be given advance notice of any planned downtime for your enterprise.{% endif %}
+{% ifversion ghes %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+После {% data variables.product.prodname_ghe_server %} версии 3.0 все выпуски компонентов начинаются по крайней мере с одного релиз-кандидата. Релиз-кандидаты — это предлагаемые выпуски с новыми функциями с полным набором функций. В релиз-кандидате могут быть ошибки или проблемы, которые можно обнаружить только по отзывам клиентов, фактически использующих {% data variables.product.product_name %}. 
 
-Starting with {% data variables.product.prodname_ghe_server %} 3.0, all major releases begin with at least one release candidate. Release candidates are proposed major releases, with a complete feature set. There may be bugs or issues in a release candidate which can only be found through feedback from customers actually using {% data variables.product.product_name %}.
+Можно получить ранний доступ к новейшим функциям, протестировав релиз-кандидата, как только он станет доступен. Можно выполнить обновление до релиз-кандидата с поддерживаемой версии, а также обновить релиз-кандидата до более поздних версий, когда они будут выпущены. Стоит обновить любую среду, в которой работает релиз-кандидат, как только эта версия станет общедоступной. Дополнительные сведения см. в разделе [Требования для обновления](/admin/enterprise-management/upgrade-requirements).
 
-You can get early access to the latest features by testing a release candidate as soon as the release candidate is available. You can upgrade to a release candidate from a supported version and can upgrade from the release candidate to later versions when released. You should upgrade any environment running a release candidate as soon as the release is generally available. For more information, see "[Upgrade requirements](/admin/enterprise-management/upgrade-requirements)."
+Релиз-кандидаты должны быть развернуты в тестовых или промежуточных средах. При тестировании релиз-кандидата отправляйте отзыв, обратившись в службу поддержки. Дополнительные сведения см. в разделе [Работа с {% data variables.contact.github_support %}](/admin/enterprise-support).
 
-Release candidates should be deployed on test or staging environments. As you test a release candidate, please provide feedback by contacting support. For more information, see "[Working with {% data variables.contact.github_support %}](/admin/enterprise-support)."
-
-We'll use your feedback to apply bug fixes and any other necessary changes to create a stable production release. Each new release candidate adds bug fixes for issues found in prior versions. When the release is ready for widespread adoption, {% data variables.product.company_short %} publishes a stable production release.
+Мы будем использовать ваши отзывы для исправления ошибок и любых других необходимых изменений, чтобы создать стабильную рабочую версию. Каждый новый релиз-кандидат добавляет исправления ошибок, найденных в предыдущих версиях. Когда выпуск готов к широкому внедрению, {% data variables.product.company_short %} публикует стабильный рабочий выпуск.
 
 {% endif %}
 
 {% warning %}
 
-**Warning**: The upgrade to a new major release will cause a few hours of downtime, during which none of your users will be able to use the enterprise. You can inform your users about downtime by publishing a global announcement banner, using your enterprise settings or the REST API. For more information, see "[Customizing user messages on your instance](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)" and "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+**Предупреждение**. Обновление до выпуска с новыми функциями приведет к нескольким часам простоя, в течение которых ни один из пользователей не сможет применять предприятие. Можно информировать своих пользователей о простоях, опубликовав глобальный рекламный баннер, применяя настройки предприятия или REST API. Дополнительные сведения см. в разделах [Настройка сообщений пользователей в экземпляре](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner) и [{% data variables.product.prodname_enterprise %} Администрирование ](/rest/reference/enterprise-admin#announcements).
 
 {% endwarning %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-Minor releases, which consist of hot patches and bug fixes only, happen more frequently. Minor releases are generally available when first released, with no release candidates. Upgrading to a minor release typically requires less than five minutes of downtime.
+Выпуски исправлений, состоящие только из горячих исправлений и исправлений ошибок, происходят чаще. Выпуски исправлений общедоступны при первом выпуске без релиз-кандидатом. Для обновления до выпуска исправлений обычно требуется менее пяти минут простоя.
 
-To upgrade your enterprise to a new release, see "[Release notes](/enterprise-server/admin/release-notes)" and "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)."
+Чтобы обновить предприятие до нового выпуска, см. разделы [Заметки о выпуске](/enterprise-server/admin/release-notes) и [Обновление {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server). Поскольку можно выполнить обновление только с версии функции, которая отстает не более чем на две версии, используйте [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade), чтобы найти путь обновления с текущей версии выпуска.
 
 {% endif %}
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository
-{% if currentVersion == "github-ae@latest" %}
-- [ {% data variables.product.prodname_ghe_managed %} release notes](/admin/overview/github-ae-release-notes)
-{% endif %}
+- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) в репозитории `github/roadmap`{% ifversion ghae %}
+- [Заметки о выпуске {% data variables.product.prodname_ghe_managed %}](/admin/release-notes) {% endif %}

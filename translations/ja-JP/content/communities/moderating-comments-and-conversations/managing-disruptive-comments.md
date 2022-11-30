@@ -1,82 +1,100 @@
 ---
-title: 混乱を生むコメントを管理する
-intro: 'Issue、プルリクエスト、 およびコミットに対するコメントを{% if currentVersion == "free-pro-team@latest" %}非表示、編集{% else %}編集{% endif %}、削除できます。'
+title: 混乱を生じるコメントを管理する
+intro: 'Issue、pull request、コミットに対するコメントを{% ifversion fpt or ghec %}非表示、編集{% else %}編集{% endif %}、または削除できます。'
 redirect_from:
-  - /articles/editing-a-comment/
-  - /articles/deleting-a-comment/
+  - /articles/editing-a-comment
+  - /articles/deleting-a-comment
   - /articles/managing-disruptive-comments
   - /github/building-a-strong-community/managing-disruptive-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Manage comments
+ms.openlocfilehash: f27a310b0ee299839967f6db402c6fdebbc129f0
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145117654'
 ---
+## コメントを非表示にする
 
-### コメントを非表示にする
-
-リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを非表示にすることができます。
+{% ifversion fpt or ghec %}組織のモデレーターと、他のユーザー{% else %}リポジトリへの書き込みアクセス権を持つすべてのユーザー{% endif %}は、issue、pull request、コミットに関するコメントを非表示にできます。
 
 1 つのディスカッションに集中し、プルリクエストのナビゲーションとレビューがしやすいように、トピックから外れている、古い、または解決済みのコメントは非表示にすることができます。 非表示のコメントは最小化されますが、リポジトリに対する読み取りアクセスがあるユーザは展開することができます。
 
 ![最小化されたコメント](/assets/images/help/repository/hidden-comment.png)
 
 1. 非表示にするコメントに移動します。
-2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、[**Hide**] をクリックします。 ![編集、非表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
-3. [Choose a reason] ドロップダウン メニューで、コメントを非表示にする理由をクリックします。 次に、[**Hide comment**] をクリックします。
-  {% if currentVersion == "free-pro-team@latest" %}
-  ![[Choose reason for hiding comment] ドロップダウンメニュー](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
-  {% else %}
-  ![[Choose reason for hiding comment] ドロップダウンメニュー](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
-  {% endif %}
+2. コメントの右上隅で {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、次に **[非表示にする]** をクリックします。
+  ![編集、非表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
+3. [Choose a reason] ドロップダウン メニューで、コメントを非表示にする理由をクリックします。 **[コメントを表示しない]** をクリックします。
+  {% ifversion fpt or ghec %} ![[Choose reason for hiding comment]\(コメントを非表示にする理由を選択\) ドロップダウン メニュー](/assets/images/help/repository/choose-reason-for-hiding-comment.png) {% else %} ![[Choose reason for hiding comment]\(コメントを非表示にする理由を選択\) ドロップダウン メニュー](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png) {% endif %}
 
-### コメントを再表示する
+## コメントを再表示する
 
-リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを再表示することができます。
+{% ifversion fpt or ghec %}組織のモデレーターと、他のユーザー{% else %}リポジトリへの書き込みアクセス権を持つすべてのユーザー{% endif %}は、issue、pull request、コミットに関するコメントを再表示できます。
 
 1. 再表示するコメントに移動します。
-2. コメントの右上隅にある [**{% octicon "fold" aria-label="The fold icon" %}Show comment**] をクリックします。 ![コメント テキストの表示](/assets/images/help/repository/hidden-comment-show.png)
-3. 展開したコメントの右側にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックしてから、[**Unhide**] をクリックします。 ![編集、再表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーションメニュー](/assets/images/help/repository/comment-menu-hidden.png)
+2. コメントの右上隅にある **{% octicon "fold" aria-label="The fold icon" %} [コメントの表示]** をクリックします。
+   ![コメントの表示のテキスト](/assets/images/help/repository/hidden-comment-show.png)
+3. 展開したコメントの右側にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、 **[再表示]** をクリックします。
+   ![編集、再表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu-hidden.png)
 
-### コメントを編集する
+## コメントを編集する
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、およびコミットに対するコメントを編集することができます。
 
-会話に関係がない、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %}または GitHub の[コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反している場合は、コメントを編集して内容を削除するのが妥当です。
+会話に貢献せず、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反するコンテンツは、コメントを編集して削除するのが適切です。
 
-コメントを編集する際には、削除した内容があった元の場所がわかるように記録し、オプションで削除の理由を示します。
+編集とその正当性を明確に示すことが合理的である場合があります。
 
-リポジトリの読み取りアクセスがあれば、誰でもコミットの編集履歴を見ることができます。 コメントの上部にある [**edited**] ドロップダウンには編集履歴があり、編集したユーザとタイムスタンプが表示されます。
+つまり、リポジトリの読み取りアクセスがあれば、誰でもコミットの編集履歴を見ることができます。 コメントの上部にある **[編集済み]** ドロップダウンには編集履歴があり、それぞれの編集のユーザーとタイムスタンプが表示されます。
 
 ![内容を削除編集したというメモを追加したコメント](/assets/images/help/repository/content-redacted-comment.png)
 
-コメントの作者とリポジトリの書き込みアクセスがあるユーザは、コメントの編集履歴から機密情報を削除できます。 詳しい情報については、「[コメントの変更を追跡する](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)」を参照してください。
+## 機密情報の編集
+
+コメントの作者とリポジトリの書き込みアクセスがあるユーザは、コメントの編集履歴から機密情報を削除できます。 詳細については、「[コメントの変更を追跡する](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)」を参照してください。
 
 1. 編集したいコメントに移動します。
-2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、次に [**Edit**] をクリックします。 ![編集、非表示、削除、レポートのオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
-3. コメント ウィンドウで、問題のある部分を削除し、その場所に `[REDACTED]` と入力します。 ![内容を削除したコメント ウィンドウ](/assets/images/help/issues/redacted-content-comment.png)
-4. コメントの下部に、コメントを編集したことを示すメモを入力し、オプションで編集した理由も入力します。 ![内容を削除したというメモを追加したコメント ウィンドウ](/assets/images/help/issues/note-content-redacted-comment.png)
-5. [**Update comment**] をクリックします。
+2. コメントの右上隅で {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、次に **[編集]** をクリックします。
+  ![編集、非表示、削除、レポートのオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
+3. [コメント] ウィンドウで、削除するコンテンツを削除し、「`[REDACTED]`」と入力して置き換えます。
+  ![コンテンツを編集した [コメント] ウィンドウ](/assets/images/help/issues/redacted-content-comment.png)
+4. コメントの下部に、コメントを編集したことを示すメモを入力し、オプションで編集した理由も入力します。
+  ![コンテンツを編集したというメモが追加された [コメント] ウィンドウ](/assets/images/help/issues/note-content-redacted-comment.png)
+5. **[コメントの更新]** をクリックします。
 
-### コメントを削除する
+## コメントを削除する
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを削除することができます。 Organization オーナー、チームメンテナ、コメント作成者は、チームのページのコメントを削除することもできます。
 
-コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %}または GitHub の[コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが妥当です。
+Issue やプルリクエストで、会話に役立つ建設的な内容が部分的に含まれているコメントは、削除せず編集してください。
+
+コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが適切です。
 
 コメントを削除すると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、コメントを削除したユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 
 ![削除したコメントについて匿名化されたタイムラインイベント](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-Issue やプルリクエストで、会話に役立つ建設的な内容が部分的に含まれているコメントは、削除せず編集してください。
-
 {% note %}
 
-**メモ:** Issue またはプルリクエストの最初のコメント (本文) は削除できません。 かわりに、Issue やプルリクエストの本文を編集して、不要な内容を削除してください。
+**注:** issue または pull request の最初のコメント (または本文) を削除することはできません。 かわりに、Issue やプルリクエストの本文を編集して、不要な内容を削除してください。
 
 {% endnote %}
 
+### コメントを削除する手順
+
 1. 削除したいコメントに移動します。
-2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、[**Delete**] をクリックします。 ![編集、非表示、削除、レポートのオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
+2. コメントの右上で {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、次に **[削除]** をクリックします。
+  ![編集、非表示、削除、レポートのオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
 3. オプションで、コメントを削除したことを示すコメントとその理由を入力します。
+
+{% ifversion fpt or ghec %}
+## 参考資料
+- 「[組織のモデレーターの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)」 {% endif %} 

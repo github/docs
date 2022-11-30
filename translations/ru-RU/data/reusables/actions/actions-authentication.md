@@ -1,1 +1,9 @@
-This API is available for authenticated users, {% data variables.product.prodname_oauth_app %}s, and {% data variables.product.prodname_github_app %}s. Access tokens require [`repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes) for private repos and [`public_repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes) for {% if currentVersion == "github-ae@latest" %} for internal repos that are available to everyone on the enterprise.{% else %}public repos.{% endif %}
+---
+ms.openlocfilehash: e25ddf153153e38b0a37cd6a69d15215318efbe5
+ms.sourcegitcommit: 1309b46201604c190c63bfee47dce559003899bf
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145114784"
+---
+Этот API доступен для пользователей, прошедших проверку подлинности, {% data variables.product.prodname_oauth_apps %}, и {% data variables.product.prodname_github_apps %}. Маркерам доступа требуется [`repo` область](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes) для закрытых репозиториев и [`public_repo` область](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes) для репозиториев {% ifversion ghae %}internal{% else %}public{% endif %}.

@@ -1,7 +1,6 @@
----
 user_migrations_intro: >-
-  このAPIを使って{% data variables.product.product_name %}.comに保存されているユーザデータのレビュー、バックアップ、移行を行えます。
+  この API を使って、{% data variables.product.product_name %}.com に保存されているユーザー データのレビュー、バックアップ、移行を行うことができます。
 organization_migrations_intro: >-
-  Organization移行APIを使うと、リポジトリをGitHubから{% data variables.product.prodname_ghe_server %}に移動できます。
+  Organization 移行 API を使うと、リポジトリを {% data variables.product.prodname_dotcom_the_website %} から {% data variables.product.prodname_ghe_server %} へ移行できます。詳しくは、{% data variables.product.prodname_ghe_server %} ドキュメントで「[GitHub.comからの移行データのエクスポート](/enterprise-server@latest/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom)」を参照してください。
 source_imports_intro: >-
-  ソースインポートAPIを使用すると、Git、Subversion、Mercurial、Team Foundation Version Controlソースリポジトリからインポートを開始できます。これは{% data variables.product.prodname_dotcom %} Importerと同じ機能です。詳しい情報については「[{% data variables.product.prodname_dotcom %} Importerでのリポジトリのインポート](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)」を参照してください。
+  Source Import API を使うと、Git、Subversion、Mercurial、Team Foundation Version Control ソース リポジトリからのインポートを始めることができます。これは、{% data variables.product.prodname_dotcom %} Importer と同じ機能です。詳しくは、「[{% data variables.product.prodname_dotcom %} Importer でリポジトリをインポートする](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)」を参照してください。

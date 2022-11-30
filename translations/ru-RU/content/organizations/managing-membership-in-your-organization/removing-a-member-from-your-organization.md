@@ -1,28 +1,37 @@
 ---
-title: Removing a member from your organization
-intro: 'If members of your organization no longer require access to any repositories owned by the organization, you can remove them from the organization.'
+title: Удаление участника из организации
+intro: 'Если членам организации больше не требуется доступ к каким-либо репозиториям, принадлежащим организации, можно удалить их из организации.'
 redirect_from:
   - /articles/removing-a-member-from-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/removing-a-member-from-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Remove a member
+permissions: Organization owners can remove members from an organization.
+ms.openlocfilehash: 4266172bc2bae6fb95506b98309533919309ccfc
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147064701'
 ---
-
-Only organization owners can remove members from an organization.
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warning:** When you remove members from an organization:
-- The paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[Downgrading your organization's paid seats](/articles/downgrading-your-organization-s-paid-seats)."
-- Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
-- Any organization invitations sent by a removed member, that have not been accepted, are cancelled and will not be accessible.
+**Предупреждение.** При удалении участников из организации:
+- Число платных лицензий не уменьшается автоматически. Чтобы платить за меньшее число лицензий после удаления пользователей из вашей организации, выполните действия, описанные в разделе [Уменьшение количества платных рабочих мест в организации](/articles/downgrading-your-organization-s-paid-seats).
+- Удаленные участники потеряют доступ к закрытым вилкам частных репозиториев вашей организации, но они по-прежнему могут использовать локальные копии. Однако они не могут синхронизировать локальные копии с репозиториями в вашей организации. Закрытые вилки можно восстановить, если пользователь [восстановлен как участник организации](/articles/reinstating-a-former-member-of-your-organization) в течение трех месяцев после удаления из организации. В конечном счете вы несете ответственность за то, чтобы пользователи, которые потеряли доступ к репозиторию, удалили любую конфиденциальную информацию или интеллектуальную собственность.
+- Если вилки частных репозиториев создаются в других организациях, эти организации могут управлять доступом к сети вилок. Это означает, что пользователи могут сохранять доступ к вилкам даже после потери доступа к исходной организации, так как они по-прежнему будут иметь явный доступ через вилку. {%- ifversion ghec %}
+-  Удаленные участники также потеряют доступ к закрытым вилкам внутренних репозиториев вашей организации, если удаленный участник не является участником какой-либо другой организации, которая принадлежит к той же корпоративной учетной записи. Дополнительные сведения см. в разделе [Сведения об учетных записях предприятия](/admin/overview/about-enterprise-accounts).
+{%- endif %}
+- Все приглашения организации, отправленные удаленным участником, которые не были приняты, были отменены и не будут доступны.
 
 {% endwarning %}
 
@@ -30,31 +39,34 @@ Only organization owners can remove members from an organization.
 
 {% warning %}
 
-**Warning:** When you remove members from an organization:
- - Removed members will lose access to private forks of your organization's private repositories, but may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
- - Any organization invitations sent by the removed user, that have not been accepted, are cancelled and will not be accessible.
+**Предупреждение.** При удалении участников из организации:
+ - Удаленные участники потеряют доступ к закрытым вилкам частных репозиториев вашей организации, но они по-прежнему могут использовать локальные копии. Однако они не могут синхронизировать локальные копии с репозиториями в вашей организации. Закрытые вилки можно восстановить, если пользователь [восстановлен как участник организации](/articles/reinstating-a-former-member-of-your-organization) в течение трех месяцев после удаления из организации. В конечном счете вы несете ответственность за то, чтобы пользователи, которые потеряли доступ к репозиторию, удалили любую конфиденциальную информацию или интеллектуальную собственность.
+- Удаленные участники также потеряют доступ к закрытым вилкам внутренних репозиториев вашей организации, если удаленный участник не является участником какой-либо другой организации в вашем предприятии.
+ - Все приглашения организации, отправленные удаленным пользователем, которые не были приняты, были отменены и не будут доступны.
 
 {% endwarning %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
-To help the person you're removing from your organization transition and help ensure they delete confidential information or intellectual property, we recommend sharing a checklist of best practices for leaving your organization. For an example, see "[Best practices for leaving your company](/articles/best-practices-for-leaving-your-company/)."
+Чтобы помочь пользователю, которого вы удаляете из организации, и убедиться, что он удалит всю конфиденциальную информацию или интеллектуальную собственность, рекомендуется предоставить ему контрольный список рекомендаций по процедуре увольнения из организации. Пример см. в разделе [Рекомендации по процедуре увольнения из компании](/articles/best-practices-for-leaving-your-company/).
 
 {% endif %}
 
 {% data reusables.organizations.data_saved_for_reinstating_a_former_org_member %}
 
-### Revoking the user's membership
+## Отзыв членства для пользователя
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.people %}
-4. Select the member or members you'd like to remove from the organization. ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
-5. Above the list of members, use the drop-down menu, and click **Remove from organization**. ![Drop-down menu with option to remove members](/assets/images/help/teams/user-bulk-management-options.png)
-6. Review the member or members who will be removed from the organization, then click **Remove members**. ![List of members who will be removed and Remove members button](/assets/images/help/teams/confirm-remove-members-bulk.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
+4. Выберите одного или нескольких участников, которых вы хотите удалить из организации.
+  ![Список участников с двумя выбранными участниками](/assets/images/help/teams/list-of-members-selected-bulk.png)
+5. Над списком участников используйте раскрывающееся меню и нажмите щелкните **Удалить из организации**.
+  ![Раскрывающееся меню с параметром удаления участников](/assets/images/help/teams/user-bulk-management-options.png)
+6. Просмотрите участников, которые будут удалены из организации, а затем нажмите кнопку **Удалить участников**.
+  ![Список участников, которые будут удалены, и кнопка "Удалить участников"](/assets/images/help/teams/confirm-remove-members-bulk.png)
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
+- [Удаление членов организации из команды](/articles/removing-organization-members-from-a-team){% ifversion remove-enterprise-members %}
+- [Удаление участника из предприятия](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

@@ -1,1 +1,9 @@
-Setting a webhook secret allows you to ensure that `POST` requests sent to the payload URL are from {% data variables.product.product_name %}. When you set a secret, you'll receive the {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`X-Hub-Signature` and `X-Hub-Signature-256` headers{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature` header{% elsif currentVersion == "github-ae@latest" %}`X-Hub-Signature-256` header{% endif %} in the webhook `POST` request. For more information on how to use a secret with a signature header to secure your webhook payloads, see "[Securing your webhooks](/webhooks/securing/)."
+---
+ms.openlocfilehash: 3dcfb143f7ac70db7c1a197304c83a5b75642749
+ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878530"
+---
+Настройка секрета веб-перехватчика позволяет гарантировать, что запросы `POST`, отправленные на URL-адрес полезных данных, поступают из {% data variables.product.product_name %}. При установке секрета вы будете получать {% ifversion fpt or ghes or ghec %}заголовки `X-Hub-Signature` и `X-Hub-Signature-256`{% elsif ghae %}заголовок`X-Hub-Signature-256`{% endif %} в запросе `POST` веб-перехватчика. Дополнительные сведения об использовании секрета с заголовком сигнатуры для защиты полезных данных веб-перехватчика см. в разделе [Защита веб-перехватчиков](/webhooks/securing/).

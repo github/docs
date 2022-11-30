@@ -1,11 +1,11 @@
 ---
-title: 系统概述
-intro: '{% data variables.product.prodname_ghe_server %} 是包含在虚拟设备中属于您的组织的 {% data variables.product.prodname_dotcom %} 私有副本，此虚拟设备托管在您配置和控制的本地或云中。'
+title: System overview
+intro: 'Learn more about {% data variables.product.product_name %}''s system internals, functionality, and security.'
 redirect_from:
   - /enterprise/admin/installation/system-overview
   - /enterprise/admin/overview/system-overview
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -15,135 +15,153 @@ topics:
   - Storage
 ---
 
-### 存储架构
+## About {% data variables.product.product_name %}
 
-{% data variables.product.prodname_ghe_server %} 需要两个存储卷，一个安装在*根文件系统*路径下 (`/`)，另一个安装在*用户文件系统*路径下 (`/data/user`)。 这种架构将运行软件环境与持久应用程序数据分离，从而可以简化升级、回滚和恢复程序。
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} For more information, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
 
-根文件系统包含在分布式机器映像中。 它包含基本操作系统和 {% data variables.product.prodname_ghe_server %} 应用程序环境。 根文件系统应被视为临时性的。 升级到今后的 {% data variables.product.prodname_ghe_server %} 版本时，根文件系统中的所有数据都将被替代。
+## Storage architecture
 
-根文件系统包含：
-  - 自定义证书颁发机构 (CA) 证书（*/usr/local/share/ca-certificates* 中）
-  - 自定义网络配置
-  - 自定义防火墙配置
-  - 复制状态
+{% data variables.product.product_name %} requires two storage volumes, one mounted to the *root filesystem* path (`/`) and the other to the *user filesystem* path (`/data/user`). This architecture simplifies the upgrade, rollback, and recovery procedures by separating the running software environment from persistent application data.
 
-用户文件系统包含用户配置和数据，例如：
-  - Git 仓库
-  - 数据库
-  - 搜索索引
-  - 在 {% data variables.product.prodname_pages %} 站点上发布的内容
-  - {% data variables.large_files.product_name_long %} 中的大文件
-  - 预接收挂钩环境
+The root filesystem is included in the distributed machine image. It contains the base operating system and the {% data variables.product.product_name %} application environment. The root filesystem should be treated as ephemeral. Any data on the root filesystem will be replaced when upgrading to future {% data variables.product.product_name %} releases.
 
-### 部署选项
+The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a 200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB reserved for the upgrades and rollbacks.
 
-您可以将 {% data variables.product.prodname_ghe_server %} 部署为一个虚拟设备，也可采用高可用性配置。 更多信息请参阅“[配置 {% data variables.product.prodname_ghe_server %} 以实现高可用性](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)”。
+The root filesystem contains files that store the following information. This list is not exhaustive.
 
-某些拥有成千上万名开发者的组织还会从使用 {% data variables.product.prodname_ghe_server %} 集群中受益。 更多信息请参阅“[关于集群](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-clustering)。”
+- Custom certificate authority (CA) certificates (in `/usr/local/share/ca-certificates*`)
+- Custom networking configurations
+- Custom firewall configurations
+- The replication state
 
-### 数据保留和数据中心冗余
+The user filesystem contains files that store following configuration and data. This list is not exhaustive.
 
-{% danger %}
+- Git repositories
+- Databases
+- Search indexes
+- Content published on {% data variables.product.prodname_pages %} sites
+- Large files from {% data variables.large_files.product_name_long %}
+- Pre-receive hook environments
 
-在生产环境中使用 {% data variables.product.prodname_ghe_server %} 之前，我们强烈建议您设置备份和灾难恢复计划。 更多信息请参阅“[在设备上配置备份](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)”。
+## Deployment topologies
 
-{% enddanger %}
+You can deploy {% data variables.product.product_name %} in a variety of topologies, such as a high availability pair. For more information, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server#about-deployment-topologies)."
 
-{% data variables.product.prodname_ghe_server %} 支持通过 [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils) 进行在线和增量备份。 您可以通过安全网络链接（SSH 管理端口）远距离为场外或地理上分散的存储生成增量快照。 在主数据中心发生灾难时，您可以在恢复时通过网络将快照恢复到新配置的设备中。
+## Data retention and datacenter redundancy
 
-除网络备份外，在设备处于离线或维护模式时，还支持用户存储卷的 AWS (EBS) 和 VMware 磁盘快照。 如果您的服务级别要求允许定期离线维护，可以将定期卷快照用作低成本、低复杂性的方案，代替通过 {% data variables.product.prodname_enterprise_backup_utilities %} 进行网络备份。
+{% warning %}
 
-更多信息请参阅“[在设备上配置备份](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)”。
+**Warning**: Before using {% data variables.product.product_name %} in a production environment, we strongly recommend you set up backups and a disaster recovery plan.
 
-### 安全
+{% endwarning %}
 
-{% data variables.product.prodname_ghe_server %} 是一个在基础设施上运行的虚拟设备，受您现有的信息安全控制（如防火墙、IAM、监控和 VPN）所管辖。 使用 {% data variables.product.prodname_ghe_server %} 可以帮助您避免因云解决方案而产生的管理合规问题。
+{% data variables.product.product_name %} includes support for online and incremental backups with {% data variables.product.prodname_enterprise_backup_utilities %}. You can take incremental snapshots over a secure network link (the SSH administrative port) over long distances for off-site or geographically dispersed storage. You can restore snapshots over the network into a newly provisioned instance at time of recovery in case of disaster at the primary datacenter.
 
-{% data variables.product.prodname_ghe_server %} 还包含额外的安全功能。
+In addition to network backups, both AWS (EBS) and VMware disk snapshots of the user storage volumes are supported while the instance is offline or in maintenance mode. Regular volume snapshots can be used as a low-cost, low-complexity alternative to network backups with {% data variables.product.prodname_enterprise_backup_utilities %} if your service level requirements allow for regular offline maintenance.
 
-- [操作系统、软件和补丁](#operating-system-software-and-patches)
-- [网络安全性](#network-security)
-- [应用程序安全性](#application-security)
-- [外部服务和支持](#external-services-and-support-access)
-- [加密通信](#encrypted-communication)
-- [用户和访问权限](#users-and-access-permissions)
-- [身份验证](#authentication)
-- [审核和访问日志记录](#audit-and-access-logging)
+For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-#### 操作系统、软件和补丁
+## Security
 
-{% data variables.product.prodname_ghe_server %} 运行自定义的 Linux 操作系统，其中只包含必要的应用程序和服务。 {% data variables.product.prodname_dotcom %} 将管理设备核心操作系统的补丁作为其标准产品发布周期的一部分。 补丁可解决 {% data variables.product.prodname_dotcom %} 应用程序的功能、稳定性和非关键性安全问题。 {% data variables.product.prodname_dotcom %} 还根据需要在常规发布周期之外提供重要的安全补丁。
+{% data reusables.enterprise.ghes-runs-on-your-infrastructure %}
 
-#### 网络安全性
+{% data variables.product.product_name %} also includes additional security features.
 
-{% data variables.product.prodname_ghe_server %} 的内部防火墙限制对设备服务的网络访问。 网络上仅提供设备正常运行所需的服务。 更多信息请参阅“[网络端口](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports)”。
+- [Operating system, software, and patches](#operating-system-software-and-patches)
+- [Network security](#network-security)
+- [Application security](#application-security)
+- [External services and support access](#external-services-and-support-access)
+- [Encrypted communication](#encrypted-communication)
+- [Users and access permissions](#users-and-access-permissions)
+- [Authentication](#authentication)
+- [Audit and access logging](#audit-and-access-logging)
 
-#### 应用程序安全性
+### Operating system, software, and patches
 
-{% data variables.product.prodname_dotcom %} 的应用程序安全团队全时关注 {% data variables.product.prodname_dotcom %} 产品（包括 {% data variables.product.prodname_ghe_server %}）的漏洞评估、渗透测试和代码审查。 {% data variables.product.prodname_dotcom %} 还与外部安全公司签约，要求他们对 {% data variables.product.prodname_dotcom %} 产品定期进行安全性评估。
+{% data variables.product.product_name %} runs a customized Linux operating system with only the necessary applications and services. {% data variables.product.company_short %} distributes patches for the instance's core operating system as part of its standard product release cycle. Patches address functionality, stability, and non-critical security issues for {% data variables.product.product_name %}. {% data variables.product.company_short %} also provides critical security patches as needed outside of the regular release cycle.
 
-#### 外部服务和支持
+{% data variables.product.product_name %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
 
-{% data variables.product.prodname_ghe_server %} 无需从网络访问外部服务也可以正常运行。 您可以选择集成外部服务，以提供电子邮件传送、外部监控和日志转发等功能。 更多信息请参阅“[配置电子邮件通知](/admin/configuration/configuring-email-for-notifications)”、“[设置外部监控](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)”和“[日志转发](/admin/user-management/log-forwarding)”。
+Currently, the base operating system for {% data variables.product.product_name %} is Debian 9 (Stretch), which receives support under the Debian Long Term Support program.  There are plans to move to a newer base operating system before the end of the Debian LTS period for Stretch.
 
-您可以手动收集故障排除数据并发送至 {% data variables.contact.github_support %}。 更多信息请参阅“[向 {% data variables.contact.github_support %} 提供数据](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)”。
+Regular patch updates are released on the {% data variables.product.product_name %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.product_name %} patch release.
 
-#### 加密通信
+### Network security
 
-{% data variables.product.prodname_dotcom %} 将 {% data variables.product.prodname_ghe_server %} 设计为在公司防火墙后面运行。 为确保线路通信安全，我们建议您启用传输层安全协议 (TLS)。 {% data variables.product.prodname_ghe_server %} 在 HTTPS 流量方面支持 2048 位和更高的商业 TLS 证书。 更多信息请参阅“[配置 TLS](/enterprise/{{ currentVersion }}/admin/installation/configuring-tls)”。
+{% data variables.product.product_name %}'s internal firewall restricts network access to the instance's services. Only services necessary for the appliance to function are available over the network. For more information, see "[Network ports](/admin/configuration/configuring-network-settings/network-ports)."
 
-默认情况下，该设备还为使用 Git 的仓库访问和管理目的提供安全 Shell (SSH) 访问。 更多信息请参阅“[关于 SSH](/enterprise/user/articles/about-ssh)”和“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)“。
+### Application security
 
-#### 用户和访问权限
+{% data variables.product.company_short %}'s application security team focuses full-time on vulnerability assessment, penetration testing, and code review for {% data variables.product.company_short %} products, including {% data variables.product.product_name %}. {% data variables.product.company_short %} also contracts with outside security firms to provide point-in-time security assessments of {% data variables.product.company_short %} products.
 
-{% data variables.product.prodname_ghe_server %} 提供三种类型的帐户。
+### External services and support access
 
-- `管理员` Linux 用户帐户已控制对基础操作系统的访问，包括对直接文件系统和数据库的访问。 一小部分受信任的管理员应该有权访问此帐户，他们可以通过 SSH 访问。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)”。
-- 设备 Web 应用程序中的用户帐户对自己的数据以及其他用户或组织明确授予权限的任何数据具有完全访问权限。
-- 设备 Web 应用程序中的站点管理员是可以管理高级 Web 应用程序和设备设置、用户和组织帐户设置以及仓库数据的用户帐户。
+{% data variables.product.product_name %} can operate without any egress access from your network to outside services. You can optionally enable integration with external services for email delivery, external monitoring, and log forwarding. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)," "[Setting up external monitoring](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring)," and "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 
-关于 {% data variables.product.prodname_ghe_server %} 用户权限的更多信息，请参阅“[GitHub 上的访问权限](/enterprise/user/articles/access-permissions-on-github) ”。
+You can manually collect and send troubleshooting data to {% data variables.contact.github_support %}. For more information, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support)."
 
-#### 身份验证
+### Encrypted communication
 
-{% data variables.product.prodname_ghe_server %} 提供四种身份验证方法。
+{% data variables.product.company_short %} designs {% data variables.product.product_name %} to run behind your corporate firewall. To secure communication over the wire, we encourage you to enable Transport Layer Security (TLS). {% data variables.product.product_name %} supports 2048-bit and higher commercial TLS certificates for HTTPS traffic. For more information, see "[Configuring TLS](/admin/configuration/configuring-network-settings/configuring-tls)."
 
-- SSH 公钥身份验证提供使用 Git 的仓库访问权限和管理 shell 的访问权限。 更多信息请参阅“[关于 SSH](/enterprise/user/articles/about-ssh)”和“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)“。
-- 使用 HTTP cookie 的用户名和密码身份验证提供 Web 应用程序访问和会话管理权限，可选择双重身份验证 (2FA)。 更多信息请参阅“[使用内置身份验证](/enterprise/{{ currentVersion }}/admin/user-management/using-built-in-authentication)”。
-- 使用 LDAP 服务、SAML 身份提供程序 (IdP) 或其他兼容服务的外部 LDAP、SAML 或 CAS 身份验证提供对 Web 应用程序的访问权限。 更多信息请参阅“[为您的 GitHub Enterprise Server 实例验证用户身份](/enterprise/{{ currentVersion }}/admin/user-management/authenticating-users-for-your-github-enterprise-server-instance)“。
-- OAuth 和个人访问令牌为外部客户端和服务提供对 Git 仓库数据和 API 的访问权限。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+By default, the instance also offers Secure Shell (SSH) access for both repository access using Git and administrative purposes. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
-#### 审核和访问日志记录
+{% ifversion ghes > 3.3 %}
 
-{% data variables.product.prodname_ghe_server %} 存储传统的操作系统日志和应用程序日志。 应用程序还会编写详细的审核和安全日志，永久存储在 {% data variables.product.prodname_ghe_server %} 上。 您可以通过 `syslog-ng` 协议将两种类型的日志实时转发到多个目标。 更多信息请参阅“[日志转发](/admin/user-management/log-forwarding)。”
+If you configure SAML authentication for {% data variables.location.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
 
-访问和审核日志包括如下信息。
+{% endif %}
 
-##### 访问日志
+### Users and access permissions
 
-- 关于浏览器和 API 访问的完整 web 服务器日志
-- 通过 Git、HTTP 和 SSH 协议访问仓库数据的完整日志
-- 通过 HTTPS 和 SSH 的管理访问日志
+{% data variables.product.product_name %} provides three types of accounts.
 
-##### 审核日志
+- The `admin` Linux user account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+- User accounts in the instance's web application have full access to their own data and any data that other users or organizations explicitly grant.
+- Site administrators in the instance's web application are user accounts that can manage high-level web application and instance settings, user and organization account settings, and repository data.
 
-- 用户登录、密码重置、2FA 请求、电子邮件设置更改，以及对授权应用程序和 API 的更改
-- 站点管理员操作，例如解锁用户帐户和仓库
-- 仓库推送事件、访问授权、转让和重命名
-- 组织成员变更，包括团队创建和删除
+For more information about {% data variables.product.product_name %}'s user permissions, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/access-permissions-on-github)."
 
-### {% data variables.product.prodname_ghe_server %} 的开源依赖项
+### Authentication
 
-要查看您的设备 {% data variables.product.prodname_ghe_server %} 版本中依赖项的完整列表以及每个项目的许可，请访问 `http(s)://HOSTNAME/site/credits`。
+{% data variables.product.product_name %} provides four authentication methods.
 
-您的设备上提供包含依赖项和关联元数据完整列表的 tarball：
-- 要查看所有平台通用的依赖项，请访问 `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
-- 要查看平台特有的依赖项，请访问 `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
+- SSH public key authentication provides both repository access using Git and administrative shell access. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+- Username and password authentication with HTTP cookies provides web application access and session management, with optional two-factor authentication (2FA). For more information, see "[Using built-in authentication](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication)."
+- External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see "[Managing IAM for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
+- OAuth and {% data variables.product.pat_generic %}s provide access to Git repository data and APIs for both external clients and services. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-还提供包含依赖项和元数据完整列表的 tarball，地址为 `https://enterprise.github.com/releases/<version>/download.html`。
+### Audit and access logging
 
-### 延伸阅读
+{% data variables.product.product_name %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.product_name %} stores permanently. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)" and "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 
-- “[设置 {% data variables.product.prodname_ghe_server %} 的试用版](/articles/setting-up-a-trial-of-github-enterprise-server)”
-- “[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”
-- `github/roadmap` 仓库中的 [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
+Access and audit logs include information like the following.
+
+#### Access logs
+
+- Full web server logs for both browser and API access
+- Full logs for access to repository data over Git, HTTPS, and SSH protocols
+- Administrative access logs over HTTPS and SSH
+
+#### Audit logs
+
+- User logins, password resets, 2FA requests, email setting changes, and changes to authorized applications and APIs
+- Site administrator actions, such as unlocking user accounts and repositories
+- Repository push events, access grants, transfers, and renames
+- Organization membership changes, including team creation and destruction
+
+## Open source dependencies for {% data variables.product.product_name %}
+
+You can see a complete list of dependencies in your instance's version of {% data variables.product.product_name %}, as well as each project's license, at `http(s)://HOSTNAME/site/credits`.
+
+Tarballs with a full list of dependencies and associated metadata are available on your instance.
+
+- For dependencies common to all platforms, at `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
+- For dependencies specific to a platform, at `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
+
+Tarballs are also available, with a full list of dependencies and metadata, at `https://enterprise.github.com/releases/<version>/download.html`.
+
+## Further reading
+
+- "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)"
+- "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)"

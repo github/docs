@@ -1,58 +1,65 @@
 ---
-title: ウィキのコンテンツを編集する
-intro: ウィキ内のコンテンツに画像やリンクを追加したり、一部のサポートされている MediaWiki 形式を使用したりできます。
+title: Editing wiki content
+intro: 'You can add images and links to content in your wiki, and use some supported MediaWiki formats.'
 redirect_from:
-  - /articles/adding-links-to-wikis/
-  - /articles/how-do-i-add-links-to-my-wiki/
-  - /articles/how-do-i-add-or-upload-images-to-the-wiki/
-  - /articles/needs-writing-review-how-do-i-add-or-upload-images-to-the-wiki/
-  - /articles/how-do-i-add-images-to-my-wiki/
-  - /articles/adding-images-to-wikis/
-  - /articles/supported-mediawiki-formats/
+  - /articles/adding-links-to-wikis
+  - /articles/how-do-i-add-links-to-my-wiki
+  - /articles/how-do-i-add-or-upload-images-to-the-wiki
+  - /articles/needs-writing-review-how-do-i-add-or-upload-images-to-the-wiki
+  - /articles/how-do-i-add-images-to-my-wiki
+  - /articles/adding-images-to-wikis
+  - /articles/supported-mediawiki-formats
   - /articles/editing-wiki-content
   - /github/building-a-strong-community/editing-wiki-content
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
-### リンクの追加
+## Adding links
 
-ページでサポートされている標準的なマークアップや MediaWiki の構文を使ってウィキにリンクを作成できます。 例:
+You can create links in wikis using the standard markup supported by your page, or using MediaWiki syntax. For example:
 
-- ページが Markdown でレンダリングされる場合、リンクの構文は `[Link Text](full-URL-of-wiki-page)` です。
-- MediaWiki 構文では、リンクの構文は `[[Link Text|nameofwikipage]]` となります。
+- If your pages are rendered with Markdown, the link syntax is `[Link Text](full-URL-of-wiki-page)`.
+- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
 
-### 画像の追加
+## Adding images
 
-ウィキでは PNG、JPEG、および GIF 画像を表示できます。
+Wikis can display PNG, JPEG, and GIF images.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. ウィキ サイドバーを使って、変更したいページにアクセスし、[**Edit**] をクリックします。
-4. ウィキ ツールバーで [**Image**] をクリックします。 ![ウィキの画像追加ボタン](/assets/images/help/wiki/wiki_add_image.png)
-5. [Insert Image] ダイアログボックスで、画像の URL と代替テキスト (これは検索エンジンや画像リーダーで使われます) を入力します。
-6. [**OK**] をクリックします。
+3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
+4. On the wiki toolbar, click **Image**.
+   ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
+5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
+6. Click **OK**.
 
-#### リポジトリでの画像へのリンク
+### Linking to images in a repository
 
-{% data variables.product.product_name %}上のリポジトリにある画像は、ブラウザで URL をコピーし、それを画像へのパスとして利用することでリンクできます。 たとえば、Markdown を使ってウィキに画像を埋め込むと、以下のようになります:
+You can link to an image in a repository on {% data variables.product.product_name %} by copying the URL in your browser and using that as the path to the image. For example, embedding an image in your wiki using Markdown might look like this:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-### サポートされる MediaWiki 形式
+{% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
+## Adding mathematical expressions and diagrams{% endif %}
 
-ウィキがどのマークアップ言語で書かれたかにかかわらず、特定の MediaWiki 構文を常に使用できます。
-- リンク ([Asciidoc を除く](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
-- 水平罫線: `---`
-- 省略記号エンティティ (`&delta;` や `&euro;` など)
+{% data reusables.getting-started.math-and-diagrams %}
 
-セキュリティとパフォーマンス上の理由により、一部の構文はサポートされていません。
-- [トランスクルージョン](https://www.mediawiki.org/wiki/Transclusion)
-- 定義リスト
-- インデント
-- 目次
+## Supported MediaWiki formats
+
+No matter which markup language your wiki page is written in, certain MediaWiki syntax will always be available to you.
+- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Horizontal rules via `---`
+- Shorthand symbol entities (such as `&delta;` or `&euro;`)
+
+For security and performance reasons, some syntaxes are unsupported.
+- [Transclusion](https://www.mediawiki.org/wiki/Transclusion)
+- Definition lists
+- Indentation
+- Table of contents

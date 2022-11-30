@@ -1,7 +1,7 @@
 {% note %}
 
-**Notes:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-- Damit Commits mit Co-Autor auf Profil-Beteiligungsdiagrammen angezeigt werden, müssen sie dieselben Kriterien wie Commits mit einem Autor erfüllen.{% endif %}
-- Beim Rebasing von Commits erhalten die ursprünglichen Autoren des Commits und die Person, welche die Commits rebaset hat, den Beitragscredit, unabhängig davon, ob sie die Commits an der Befehlszeile oder auf {% data variables.product.product_location %} rebaset haben.
+**Notes:**{% ifversion ghes or ghae %}
+- To appear on your profile contributions graph, co-authored commits must meet the same criteria as commits with one author.{% endif %}
+- When rebasing commits, the original authors of the commit and the person who rebased the commits, whether on the command line or on {% data variables.location.product_location %}, receive contribution credit.
 
 {% endnote %}

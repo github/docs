@@ -1,58 +1,72 @@
 ---
-title: Publishing actions in GitHub Marketplace
-intro: 'You can publish actions in {% data variables.product.prodname_marketplace %} and share actions you''ve created with the {% data variables.product.prodname_dotcom %} community.'
-product: '{% data reusables.gated-features.actions %}'
+title: Публикация действий в GitHub Marketplace
+intro: 'Вы можете публиковать действия в {% data variables.product.prodname_marketplace %} и предоставлять общий доступ к созданным действиям в сообществе {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
+shortTitle: Publish in GitHub Marketplace
+ms.openlocfilehash: e16f65116d7aa7c327e937dc2eba8964195e547d
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147884304'
 ---
+Для публикации действий в {% data variables.product.prodname_marketplace %} необходимо принять условия предоставления услуг.
 
-{% data reusables.actions.ae-beta %}
+## Сведения о публикации действий
 
-You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
+Перед публикацией действия необходимо создать его в репозитории. Дополнительные сведения см. в статье "[Создание действий](/actions/creating-actions)".
 
-### About publishing actions
+При планировании публикации действия в {% data variables.product.prodname_marketplace %} необходимо убедиться в том, что в репозитории содержатся только файл метаданных, код и файлы, необходимые для действия. Создание отдельного репозитория для действия позволяет пометить, выпустить и упаковать код в одном блоке. На {% data variables.product.prodname_dotcom %} метаданные действия также используются на странице {% data variables.product.prodname_marketplace %}.
 
-Before you can publish an action, you'll need to create an action in your repository. For more information, see "[Creating actions](/actions/creating-actions)."
+Действия публикуются в {% data variables.product.prodname_marketplace %} немедленно и не проверяются {% data variables.product.prodname_dotcom %} при условии соответствия следующим требованиям:
 
-When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
+- Действие должно находиться в общедоступном репозитории.
+- Каждый репозиторий должен содержать одно действие.
+- Файл метаданных действия (`action.yml` или `action.yaml`) должен находиться в корневом каталоге репозитория.
+- Атрибут `name` в файле метаданных действия должен быть уникальным.
+  - Атрибут `name` не может совпадать с именем существующего действия, опубликованного в {% data variables.product.prodname_marketplace %}.
+  - Атрибут `name` не может совпадать с именем пользователя или организации на {% data variables.product.prodname_dotcom %}, если это действие не публикует пользователь или владелец организации. Например, только организация {% data variables.product.prodname_dotcom %} может опубликовать действие с именем `github`.
+  - Атрибут `name` не должен совпадать с существующей категорией {% data variables.product.prodname_marketplace %}.
+  - Имена функций {% data variables.product.prodname_dotcom %} на {% data variables.product.prodname_dotcom %} зарезервированы.
 
-Actions are published to {% data variables.product.prodname_marketplace %} immediately and aren't reviewed by {% data variables.product.prodname_dotcom %} as long as they meet these requirements:
+## Публикация действия
 
-- The action must be in a public repository.
-- Each repository must contain a single action.
-- The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
-- The `name` in the action's metadata file must be unique.
-  - The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
-  - The `name` cannot match a user or organization on {% data variables.product.prodname_dotcom %}, unless the user or organization owner is publishing the action. For example, only the {% data variables.product.prodname_dotcom %} organization can publish an action named `github`.
-  - The `name` cannot match an existing {% data variables.product.prodname_marketplace %} category.
-  - {% data variables.product.prodname_dotcom %} reserves the names of {% data variables.product.prodname_dotcom %} features.
+Вы можете добавить созданное вами действие в {% data variables.product.prodname_marketplace %}, пометив его как новый выпуск и опубликовав.
 
-### Publishing an action
-
-You can add the action you've created to {% data variables.product.prodname_marketplace %} by tagging it as a new release and publishing it.
-
-To draft a new release and publish the action to {% data variables.product.prodname_marketplace %}, follow these instructions:
+Чтобы создать черновик нового выпуска и опубликовать действие в {% data variables.product.prodname_marketplace %}, выполните приведенные ниже инструкции.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. When a repository contains an action metadata file (`action.yml` or `action.yaml`), you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. Click **Draft a release**. ![Publish this action to markeplace button](/assets/images/help/repository/publish-github-action-to-markeplace-button.png)
-1. Select **Publish this action to the {% data variables.product.prodname_marketplace %}**. If you can't select the **Publish this action to the {% data variables.product.prodname_marketplace %}** checkbox, you'll need to read and accept the {% data variables.product.prodname_marketplace %} agreement first. ![Select publish to Marketplace](/assets/images/help/repository/marketplace_actions_publish.png)
-1. If the labels in your metadata file contain any problems, you will see an error message. ![See notification](/assets/images/help/repository/marketplace_actions_fixerrors.png)
-1. If you see any on-screen suggestions, address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message. ![Fix errors](/assets/images/help/repository/marketplace_actions_looksgood.png)
-1. Choose a "Primary Category" and, optionally, "Another Category" which will help people find your action in {% data variables.product.prodname_marketplace %}. ![Choose category](/assets/images/help/repository/marketplace_actions_categories.png)
-1. Tag your Action with a version, and add a release title. This helps people know what changes or features the release includes. People will see the version in the action's dedicated {% data variables.product.prodname_marketplace %} page. ![Tag a version](/assets/images/help/repository/marketplace_actions_version.png)
-1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication/)." ![Публикация выпуска](/assets/images/help/repository/marketplace_actions_publishrelease.png)
+1. Перейдите к файлу метаданных действия в вашем репозитории (`action.yml` или `action.yaml`), и вы увидите баннер для публикации действия в {% data variables.product.prodname_marketplace %}. Нажмите кнопку **Создать черновик выпуска**.
 
-### Removing an action from {% data variables.product.prodname_marketplace %}
+   ![Кнопка публикации действия в Marketplace](/assets/images/help/repository/publish-github-action-to-marketplace-button.png)
+1. В разделе "Действие выпуска" установите флажок для публикации действия в {% data variables.product.prodname_marketplace %}. Если вы не можете установить флажок, сначала перейдите по ссылке, чтобы прочитать и принять {% data variables.product.prodname_marketplace %} Соглашение разработчика.
+![Выберите публикацию в Marketplace](/assets/images/help/repository/marketplace_actions_publish.png)
+1. Если метки в файле метаданных содержат какие-либо проблемы, появится сообщение об ошибке.
+![См. уведомление](/assets/images/help/repository/marketplace_actions_fixerrors.png)
+1. Если вы увидите какие-либо предложения на экране, внесите соответствующие изменения в файл метаданных. По завершении вы увидите сообщение "Все в порядке!" .
+![Исправление ошибок](/assets/images/help/repository/marketplace_actions_looksgood.png)
+1. Выберите основную категорию и при необходимости дополнительную категорию, чтобы пользователям было проще найти ваше действие в {% data variables.product.prodname_marketplace %}.
+![Выбор категории](/assets/images/help/repository/marketplace_actions_categories.png)
+1. Добавьте к действию тег версии и заголовок выпуска. Это поможет пользователям узнать, какие изменения или функции включены в выпуск. Пользователи будут видеть версию на странице действия в {% data variables.product.prodname_marketplace %}.
+![Пометка версии](/assets/images/help/repository/marketplace_actions_version.png)
+1. Заполните остальные поля и щелкните **Опубликовать выпуск**. Для публикации необходимо использовать двухфакторную проверку подлинности. Подробнее: [Настройка двухфакторной проверки подлинности](/articles/configuring-two-factor-authentication/).
+![Публикация выпуска](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
-To remove a published action from {% data variables.product.prodname_marketplace %}, you'll need to update each published release. Perform the following steps for each release of the action you've published to {% data variables.product.prodname_marketplace %}.
+## Удаление действия из {% data variables.product.prodname_marketplace %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.releases %}
-3. On the Releases page, to the right of the release you want to edit, click **Edit**. ![Release edit button](/assets/images/help/releases/release-edit-btn.png)
-4. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box. ![Publish this action button](/assets/images/help/repository/actions-marketplace-unpublish.png)
-5. Click **Update release** at the bottom of the page. ![Update release button](/assets/images/help/repository/actions-marketplace-update-release.png)
+Чтобы удалить опубликованное действие из {% data variables.product.prodname_marketplace %}, необходимо обновить каждый опубликованный выпуск. Выполните указанные ниже действия для каждого выпуска действия, опубликованного в {% data variables.product.prodname_marketplace %}.
+
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
+3. На странице "Выпуски" справа от выпуска, который нужно изменить, нажмите кнопку **Изменить**.
+![Кнопка изменения выпуска](/assets/images/help/releases/release-edit-btn.png)
+4. Выберите **Опубликовать это действие в {% data variables.product.prodname_marketplace %}** , чтобы снять флажок.
+![Кнопка "Опубликовать это действие"](/assets/images/help/repository/actions-marketplace-unpublish.png)
+5. В нижней части страницы щелкните **Обновить выпуск**.
+![Кнопка "Обновить выпуск"](/assets/images/help/repository/actions-marketplace-update-release.png)

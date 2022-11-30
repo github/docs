@@ -1,7 +1,11 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-{% note %}
-**Note:** If you enable
+---
+ms.openlocfilehash: 02bc16f3628ae7c778c81a8d5b7831703b5b725a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147877065"
+---
+{% ifversion ghes or ghec %} {% note %}
 
-{% data variables.product.prodname_GH_advanced_security %}, committers to these repositories will use seats on your {% data variables.product.prodname_GH_advanced_security %} license. This option is disabled if you have exceeded your license capacity. {% if currentVersion == "free-pro-team@latest" %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."{% endif %}
-{% endnote %}
-{% endif %}
+**Hinweis:** Wenn du {% data variables.product.prodname_GH_advanced_security %} aktivierst, verwenden die Committer in diesen Repositorys Plätze auf deiner {% data variables.product.prodname_GH_advanced_security %} Lizenz. Diese Option ist deaktiviert, wenn du deine Lizenzkapazität überschritten hast. {% ifversion fpt or ghec %} Weitere Informationen findest du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)“. {% endif %} {% endnote %} {% endif %}

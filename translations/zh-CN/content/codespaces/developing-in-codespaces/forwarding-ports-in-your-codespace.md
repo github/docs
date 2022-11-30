@@ -2,7 +2,8 @@
 title: 代码空间中的转发端口
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/forwarding-ports-in-your-codespace
 type: how_to
@@ -10,52 +11,128 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Forward ports
+ms.openlocfilehash: 320a2e42d647452056961d4f0f987c3c5db49476
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158907'
 ---
+{% jetbrains %}
 
-{% data reusables.codespaces.release-stage %}
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-### 关于转发的端口
+{% endjetbrains %}
 
-通过端口转发，您可以访问在代码空间内运行的 TCP 端口。 例如，如果您在端口 4000 上运行 Web 应用程序，您可以从浏览器访问该应用程序以测试和调试它。
+## 关于转发的端口
 
-在代码空间内运行的应用程序向控制台输出端口时，{% data variables.product.prodname_codespaces %} 将检测到 localhost URL 模式并自动转发端口。 您可以单击终端中的 URL 在浏览器中打开端口。 例如，如果应用程序向控制台输出 `http://127.0.0.1:4000` 或 `http://localhost:4000`，则日志会自动将输出转换为端口 4000 的可单击 URL。
+通过端口转发，您可以访问在代码空间内运行的 TCP 端口。 例如，如果要在代码空间中的特定端口上运行 Web 应用程序，则可以转发该端口。 这允许您从本地计算机上的浏览器访问应用程序以进行测试和调试。
 
-![自动端口转发](/assets/images/help/codespaces/automatic-port-forwarding.png)
+{% webui %}
 
-您还可以手动转发端口、标记转发的端口、公开共享转发的端口以及将转发的端口添加到代码空间配置中。
+{% data reusables.codespaces.port-forwarding-intro-non-jetbrains %} {% data reusables.codespaces.navigate-to-ports-tab %}
+1. 在端口列表下，单击“添加端口”。
 
-### 转发端口
+   ![添加端口按钮](/assets/images/help/codespaces/add-port-button.png)
 
-您可以手动转发未自动转发的端口。
+1. 键入端口编号或地址，然后按 Enter。
 
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. 在端口列表下，单击 **Add port（添加端口）**。 ![添加端口按钮](/assets/images/help/codespaces/add-port-button.png)
-1. 键入端口编号或地址，然后按 Enter。 ![输入端口按钮的文本框](/assets/images/help/codespaces/port-number-text-box.png)
+   ![输入端口按钮的文本框](/assets/images/help/codespaces/port-number-text-box.png)
 
-### 标记端口
+## 使用 HTTPS 转发
 
-您可以标记端口，使端口更容易在列表中识别。
-
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. 悬停在要标记的端口上，然后单击标签图标。 ![端口的标签图标](/assets/images/help/codespaces/label-icon.png)
-{% data reusables.codespaces.type-port-label %}
-
-### 共享端口
-
-如果您想与他人共享转发的端口，您可以公开该端口。 当您公开端口后，任何拥有端口 URL 的人都可以查看正在运行的应用程序，而无需进行身份验证。
+默认情况下，{% data variables.product.prodname_github_codespaces %} 使用 HTTP 转发端口，但你可以根据需要更新任何端口以使用 HTTPS。 如果将具有公共可见性的端口更新为使用 HTTPS，则该端口的可见性将自动更改为专用。
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. 右键单击要共享的端口，然后单击 **Make Public（公开）**。 ![右键菜单中公开端口的选项](/assets/images/help/codespaces/make-public-option.png)
-1. 在端口的本地地址右侧，单击复制图标。 ![端口 URL 的复制图标](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. 右键单击要更新的端口，然后单击“更改端口协议”。
+  ![更改端口协议的选项](/assets/images/help/codespaces/update-port-protocol.png)
+1. 选择此端口所需的协议。 您选择的协议将在代码空间的有效期内被记住用于此端口。
+
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
+
+{% data reusables.codespaces.navigate-to-ports-tab %}
+1. 右键单击要共享的端口，选择“端口可见性”菜单，然后单击“专用于组织”或“公共” 。
+  ![用于在右键单击菜单中选择端口可见性的选项](/assets/images/help/codespaces/make-public-option.png)
+1. 在端口的本地地址右侧，单击复制图标。
+  ![端口 URL 的复制图标](/assets/images/help/codespaces/copy-icon-port-url.png)
 1. 将复制的 URL 发送给您想要与其共享端口的人。
 
-### 将端口添加到代码空间配置
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %} {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
 
-您可以将转发的端口添加到仓库的 {% data variables.product.prodname_codespaces %} 配置中，因此该端口将自动为创建自仓库的所有代码空间转发。 更新配置后，必须重建任何以前创建的代码空间以应用更改。 更多信息请参阅“[为项目配置 {% data variables.product.prodname_codespaces %}](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)”。
+{% endwebui %}
 
-您可以使用 `forwardPorts` 属性在 `.devcontainer.json` 文件中手动配置转发的端口，也可以使用代码空间中的“端口”面板。
+{% vscode %}
+
+{% data reusables.codespaces.port-forwarding-intro-non-jetbrains %} {% data reusables.codespaces.navigate-to-ports-tab %}
+1. 在端口列表下，单击“添加端口”。
+
+   ![添加端口按钮](/assets/images/help/codespaces/add-port-button.png)
+
+1. 键入端口编号或地址，然后按 Enter。
+
+   ![输入端口按钮的文本框](/assets/images/help/codespaces/port-number-text-box.png)
+
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. 右键单击要添加到代码空间配置的端口，然后单击 **Set Label and Update devcontainer.json（设置标签和更新 devcontainer.json）**。 ![右键菜单中设置标签并将端口添加到 devcontainer.json 的选项](/assets/images/help/codespaces/update-devcontainer-to-add-port-option.png)
-{% data reusables.codespaces.type-port-label %}
+1. 右键单击要共享的端口，选择“端口可见性”菜单，然后单击“专用于组织”或“公共” 。
+  ![右键菜单中公开端口的选项](/assets/images/help/codespaces/make-public-option.png)
+1. 在端口的本地地址右侧，单击复制图标。
+  ![端口 URL 的复制图标](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. 将复制的 URL 发送给您想要与其共享端口的人。
 
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %} {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+
+{% endvscode %}
+
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+若要转发端口，请使用 `gh codespace ports forward` 子命令。 将 `codespace-port:local-port` 替换为要连接的远程端口和本地端口。 输入命令后，从显示的代码空间列表中进行选择。
+
+```shell
+gh codespace ports forward CODESPACE-PORT:LOCAL-PORT
+```
+
+有关此命令的详细信息，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_ports_forward)。
+
+若要查看转发端口的详细信息，请输入 `gh codespace ports` 并选择 codespace。
+
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
+
+若要更改转发端口的可见性，请使用 `gh codespace ports visibility` 子命令。 {% data reusables.codespaces.port-visibility-settings %}
+
+将 `codespace-port` 替换为转发的端口号。 将 `setting` 替换为 `private`、`org` 或 `public`。 输入命令后，从显示的代码空间列表中进行选择。
+
+```shell
+gh codespace ports visibility CODESPACE-PORT:SETTINGS
+```
+
+您可以使用一个命令设置多个端口的可见性。 例如：
+
+```shell
+gh codespace ports visibility 80:private 3000:public 3306:org
+```
+
+有关此命令的详细信息，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_ports_visibility)。
+
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
+
+列出 codespace 的转发端口时，可以看到端口标签。 为此，请使用 `gh codespace ports` 命令，然后选择 codespace。
+
+{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+
+{% endcli %}
+
+{% jetbrains %}
+
+## 转发端口
+
+若要了解如何将 codespace 中的端口转发到本地计算机上的端口的信息，请参阅 JetBrains 文档中“[安全模型](https://www.jetbrains.com/help/idea/security-model.html#port_forwarding)”一文的“端口转发”部分。
+
+或者，可以使用 {% data variables.product.prodname_cli %} 转发端口。 有关详细信息，请单击此页面顶部附近的“{% data variables.product.prodname_cli %}”选项卡。
+
+{% endjetbrains %}

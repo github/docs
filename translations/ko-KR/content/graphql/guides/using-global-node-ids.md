@@ -1,43 +1,49 @@
 ---
-title: Using global node IDs
-intro: You can get global node IDs of objects via the REST API and use them in GraphQL operations.
+title: 전역 노드 ID 사용
+intro: REST API를 통해 개체의 전역 노드 ID를 가져와서 GraphQL 작업에서 사용할 수 있습니다.
 redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: f7c31bf50d547fbc3aa030baf095c2fec2603315
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148009266'
 ---
-
-You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. With a [recent update](https://developer.github.com/changes/2017-12-19-graphql-node-id/), you can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations.
+REST API 또는 GraphQL API를 사용하여 GitHub의 대부분의 개체(사용자, 이슈, 끌어오기 요청 등)에 액세스할 수 있습니다. REST API 내에서 많은 개체의 **전역 노드 ID** 를 찾고 GraphQL 작업에서 이러한 ID를 사용할 수 있습니다. 자세한 내용은 “[REST API 리소스에서 GraphQL API 노드 ID 미리 보기](https://developer.github.com/changes/2017-12-19-graphql-node-id/)”를 참조하세요.
 
 {% note %}
 
-**Note:** In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#node)."
+**참고:** REST에서 전역 노드 ID 필드의 이름은 `node_id`입니다. GraphQL에서는 `node` 인터페이스의 `id` 필드입니다. GraphQL에서 “노드”의 의미에 대한 새로운 설명은 “[GraphQL 소개](/graphql/guides/introduction-to-graphql#node)”를 참조하세요.
 
 {% endnote %}
 
-### Putting global node IDs to use
+## 사용할 전역 노드 ID 배치
 
-You can follow three steps to use global node IDs effectively:
+전역 노드 ID를 효과적으로 사용하려면 다음 세 단계를 수행할 수 있습니다.
 
-1. Call a REST endpoint that returns an object's `node_id`.
-2. Find the object's type in GraphQL.
-3. Use the ID and type to do a direct node lookup in GraphQL.
+1. 개체의 `node_id`를 반환하는 REST 엔드포인트를 호출합니다.
+2. GraphQL에서 개체의 형식을 찾습니다.
+3. ID 및 형식을 사용하여 GraphQL에서 직접 노드 조회를 수행합니다.
 
-Let's walk through an example.
+예를 하나 살펴보겠습니다.
 
-### 1. Call a REST endpoint that returns an object's node ID
+## 1. 개체의 노드 ID를 반환하는 REST 엔드포인트 호출
 
-If you [request the authenticated user](/rest/reference/users#get-the-authenticated-user):
+[인증된 사용자를 요청하는](/rest/reference/users#get-the-authenticated-user) 경우:
 
 ```shell
-$ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
+$ curl -i -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
-you'll get a response that includes the `node_id` of the authenticated user:
+인증된 사용자의 `node_id`가 포함된 응답을 받게 됩니다.
 
 ```json
 {
@@ -87,11 +93,11 @@ you'll get a response that includes the `node_id` of the authenticated user:
 }
 ```
 
-### 2. Find the object type in GraphQL
+## 2. GraphQL에서 개체 형식 찾기
 
-In this example, the `node_id` value is `MDQ6VXNlcjU4MzIzMQ==`. You can use this value to query the same object in GraphQL.
+이 예제에서 `node_id` 값은 `MDQ6VXNlcjU4MzIzMQ==`입니다. 이 값을 사용하여 GraphQL에서 동일한 개체를 쿼리할 수 있습니다.
 
-You'll need to know the object's _type_ first, though. You can check the type with a simple GraphQL query:
+하지만 먼저 개체의 _형식_ 을 알아야 합니다. 간단한 GraphQL 쿼리를 사용하여 형식을 확인할 수 있습니다.
 
 ```graphql
 query {
@@ -101,13 +107,13 @@ query {
 }
 ```
 
-This type of query&mdash;that is, finding the node by ID&mdash;is known as a "direct node lookup."
+이 형식의 쿼리, 즉 ID로 노드를 찾는 것을 “직접 노드 조회”라고 합니다.
 
-When you run this query, you'll see that the `__typename` is [`User`](/graphql/reference/objects#user).
+이 쿼리를 실행하면 `__typename`이 [`User`](/graphql/reference/objects#user)로 표시됩니다.
 
-### 3. Do a direct node lookup in GraphQL
+## 3. GraphQL에서 직접 노드 조회 수행
 
-Once you've confirmed the type, you can use an [inline fragment](https://graphql.github.io/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
+형식을 확인한 후에는 [인라인 조각](https://graphql.github.io/learn/queries/#inline-fragments)을 사용하여 해당 ID로 개체에 액세스하고 추가 데이터를 반환할 수 있습니다. 이 예제에서는 쿼리하려는 `User`의 필드를 정의합니다.
 
 ```graphql
 query {
@@ -120,8 +126,8 @@ query {
 }
 ```
 
-This type of query is the standard approach for looking up an object by its global node ID.
+이 형식의 쿼리는 전역 노드 ID로 개체를 조회하는 표준 방식입니다.
 
-### Using global node IDs in migrations
+## 마이그레이션에서 전역 노드 ID 사용
 
-When building integrations that use either the REST API or the GraphQL API, it's best practice to persist the global node ID so you can easily reference objects across API versions. For more information on handling the transition between REST and GraphQL, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
+REST API 또는 GraphQL API를 사용하는 통합을 빌드하는 경우 API 버전에서 개체를 쉽게 참조할 수 있도록 전역 노드 ID를 유지하는 것이 가장 좋습니다. REST와 GraphQL 간 전환을 처리하는 방법에 대한 자세한 내용은 “[REST에서 GraphQL로 마이그레이션](/graphql/guides/migrating-from-rest-to-graphql)”을 참조하세요.

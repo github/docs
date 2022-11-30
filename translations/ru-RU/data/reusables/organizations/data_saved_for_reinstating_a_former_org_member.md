@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 211355092b45b411c98239c91aa0a87aac33ea8c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145122736"
+---
 {% note %}
 
-**Note:** When you remove a user from your organization, their membership data is saved for three months. You can restore their data, or any private forks they owned of your organization's repositories, if you invite the user to rejoin the organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
+**Примечание.** При удалении пользователя из организации данные о членстве сохраняются в течение трех месяцев. Можно восстановить свои данные и любые частные вилки, которые принадлежали им в репозиториях вашей организации, если вы приглашаете пользователя повторно присоединиться к организации в этот период времени. Дополнительные сведения см. в разделе [Восстановление бывшего участника вашей организации](/articles/reinstating-a-former-member-of-your-organization).
 
 {% endnote %}

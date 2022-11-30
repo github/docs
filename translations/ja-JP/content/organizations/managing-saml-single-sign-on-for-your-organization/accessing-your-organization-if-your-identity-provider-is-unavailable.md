@@ -1,31 +1,28 @@
 ---
 title: アイデンティティプロバイダが利用できない場合の Organization へのアクセス
 intro: 'アイデンティティプロバイダが利用できない場合でも、Organization の管理者はシングルサインオンをバイパスし、リカバリコードを利用して {% data variables.product.product_name %}にサインインできます。'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Unavailable identity provider
+ms.openlocfilehash: fd965c2c847378936e10ff5cc5560397a09ca372
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145119173'
 ---
+Organization の管理者は、[ダウンロードまたは保存したリカバリ コードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を使用して、シングル サインオンをバイパスできます。 これらを [LastPass](https://lastpass.com/) や [1Password](https://1password.com/) などのパスワード マネージャーに保存した可能性があります。
 
-Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 そうしたリカバリコードを、すでに [ LastPass](https://lastpass.com/)、[1Password](https://1password.com/)、[ Keeper](https://keepersecurity.com/) などのパスワードマネージャーに保存しているかもしれません。
+{% data reusables.saml.recovery-code-caveats %}
 
-{% note %}
+{% data reusables.saml.recovery-code-access %}
 
-**メモ:** リカバリコードは一度しか使えず、順番に使わなければなりません。 リカバリコードにより、アクセスが 24 時間許可されます。
+## 参考資料
 
-{% endnote %}
-
-1. シングルサインオンをバイパスするには、シングルサインオンダイアログの下部で、[**Use a recovery code**] をクリックします。 ![リカバリコードを入力するためのリンク](/assets/images/help/saml/saml_use_recovery_code.png)
-2. [Recovery Code] フィールドにリカバリコードを入力します。 ![リカバリコードを入力するフィールド](/assets/images/help/saml/saml_recovery_code_entry.png)
-3. [**Verify**] をクリックします。 ![リカバリコードを検証するボタン](/assets/images/help/saml/saml_verify_recovery_codes.png)
-
-一度使用したリカバリコードは二度と使用できないということを覚えておいてください。 リカバリコードは再利用できません。
-
-### 参考リンク
-
-- [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)
+- 「[SAML SSO を使用した ID およびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)」

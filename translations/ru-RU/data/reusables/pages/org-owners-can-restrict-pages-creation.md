@@ -1,7 +1,13 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-{% note %}
+---
+ms.openlocfilehash: 903315674c75be98b283ea361373d6e62b169497
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147884336"
+---
+{% ifversion fpt or ghes or ghec %} {% note %}
 
-**Note:** Organization owners can restrict the publication of {% data variables.product.prodname_pages %} sites from repositories owned by the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
+**Примечание.** Владельцы организации могут ограничить публикацию сайтов {% data variables.product.prodname_pages %} из репозиториев, принадлежащих организации. Дополнительные сведения см. в разделе [Управление публикацией сайтов {% data variables.product.prodname_pages %}](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}

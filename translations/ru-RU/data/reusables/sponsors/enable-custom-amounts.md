@@ -1,2 +1,12 @@
-1. When you have at least one tier, you'll see an option to enable custom amounts above the monthly and one-time tiers. If you want to allow sponsors to set their payment amount, then select **Enable custom amounts**. ![Enable custom amounts](/assets/images/help/sponsors/enable-custom-amounts.png)
-1. Optionally, if you enable custom amounts you can set a default amount to display for the custom tiers. Specify a whole dollar amount and click **Set default amount**. ![Set a default amount](/assets/images/help/sponsors/set-default-amount.png)
+---
+ms.openlocfilehash: 678ee22816d94082a8eca61c6681fd7736ee432c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145137366"
+---
+1. Если у вас есть хотя бы один уровень, вы увидите возможность включить пользовательские суммы сверх ежемесячных и разовых уровней. Если вы хотите разрешить спонсорам устанавливать сумму выплат, выберите параметр **Включить пользовательские суммы**.
+  ![Включить пользовательские суммы](/assets/images/help/sponsors/enable-custom-amounts.png)
+1. При включении пользовательских сумм можно указать сумму, которая будет отображаться для пользовательских уровней по умолчанию. Укажите всю сумму в долларах и нажмите **Указать сумму по умолчанию**.
+  ![Указать сумму по умолчанию](/assets/images/help/sponsors/set-default-amount.png)

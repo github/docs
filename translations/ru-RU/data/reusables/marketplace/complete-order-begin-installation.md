@@ -1,1 +1,10 @@
-1. Click **Complete order and begin installation**. ![Complete order and begin installation button](/assets/images/help/marketplace/marketplace-complete-order-begin-installation-button.png)
+---
+ms.openlocfilehash: 30e2460c0d56e5aa22c5432e4b5e26cc30e680fc
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145123291"
+---
+1. Нажмите кнопку **Завершить заказ и начать установку**.
+  ![Кнопка «Завершить заказ и начать установку»](/assets/images/help/marketplace/marketplace-complete-order-begin-installation-button.png).

@@ -1,13 +1,13 @@
 ---
-title: Configurar collectd
-intro: 'O {% data variables.product.prodname_enterprise %} pode coletar dados com `collectd` e enviá-los para um servidor externo `collectd`. Reunimos um conjunto padrão de dados e outras métricas, como uso de CPU, consumo de memória e disco, tráfego e erros da interface de rede e carga geral da VM.'
+title: Configuring collectd
+intro: '{% data variables.product.prodname_enterprise %} can gather data with `collectd` and send it to an external `collectd` server. Among other metrics, we gather a standard set of data such as CPU utilization, memory and disk consumption, network interface traffic and errors, and the VM''s overall load.'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
-  - /enterprise/admin/articles/configuring-collectd/
+  - /enterprise/admin/articles/configuring-collectd
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -16,14 +16,14 @@ topics:
   - Monitoring
   - Performance
 ---
-### Configurar um servidor externo `collectd`
+## Set up an external `collectd` server
 
-Se você ainda não configurou um servidor externo `collectd`, será preciso fazê-lo antes de ativar o encaminhamento `collectd` na {% data variables.product.product_location %}. Seu servidor `collectd` deve estar executando uma versão `collectd` 5.x ou superior.
+If you haven't already set up an external `collectd` server, you will need to do so before enabling `collectd` forwarding on {% data variables.location.product_location %}. Your `collectd` server must be running `collectd` version 5.x or higher.
 
-1. Faça login no servidor `collectd`.
-2. Crie ou edite o arquivo de configuração `collectd` para carregar o plugin de rede e preencher as diretivas de servidor e porta com os valores adequados. Na maioria das distribuições, esses dados ficam em `/etc/collectd/collectd.conf`
+1. Log into your `collectd` server.
+2. Create or edit the `collectd` configuration file to load the network plugin and populate the server and port directives with the proper values. On most distributions, this is located at `/etc/collectd/collectd.conf`
 
-Exemplo de *collectd.conf* para executar um servidor `collectd`:
+An example *collectd.conf* to run a `collectd` server:
 
     LoadPlugin network
     ...
@@ -32,34 +32,34 @@ Exemplo de *collectd.conf* para executar um servidor `collectd`:
         Listen "0.0.0.0" "25826"
     </Plugin>
 
-### Habilitar o encaminhamento collectd no {% data variables.product.prodname_enterprise %}
+## Enable collectd forwarding on {% data variables.product.prodname_enterprise %}
 
-Por padrão, o encaminhamento `collectd` fica desabilitado no {% data variables.product.prodname_enterprise %}. Siga as etapas abaixo para habilitar e configurar o encaminhamento `collectd`:
+By default, `collectd` forwarding is disabled on {% data variables.product.prodname_enterprise %}. Follow the steps below to enable and configure `collectd` forwarding:
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-1. Abaixo das configurações de encaminhamento de log, selecione **Enable collectd forwarding** (Habilitar encaminhamento collectd).
-1. No campo **Server address** (Endereço do servidor), digite o endereço do servidor `collectd` para o qual você deseja encaminhar as estatísticas do appliance do {% data variables.product.prodname_enterprise %}.
-1. No campo **Port** (Porta), digite a porta usada para conexão com o servidor `collectd` (o padrão é 25826).
-1. No menu suspenso **Cryptographic setup** (Configuração criptográfica), selecione o nível de segurança das comunicações com o servidor `collectd` (nenhum, pacotes assinados ou pacotes criptografados).
+1. Below the log forwarding settings, select **Enable collectd forwarding**.
+1. In the **Server address** field, type the address of the `collectd` server to which you'd like to forward {% data variables.product.prodname_enterprise %} appliance statistics.
+1. In the **Port** field, type the port used to connect to the `collectd` server. (Defaults to 25826)
+1. In the **Cryptographic setup** dropdown menu, select the security level of communications with the `collectd` server. (None, signed packets, or encrypted packets.)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Exportar dados coletados com `ghe-export-graphs`
+## Exporting collectd data with `ghe-export-graphs`
 
-A ferramenta de linha de comando `ghe-export-graphs` exportará os dados que `collectd` armazenar em bancos de dados RRD. O comando transforma os dados em XML e os exporta para um único tarball (.tgz).
+The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (`.tgz`).
 
-Seu uso principal é fornecer à equipe do {% data variables.contact.contact_ent_support %} dados sobre o desempenho de uma VM sem que seja necessário baixar um pacote de suporte completo. Ele não deve ser incluído nas exportações de backup regulares e não há contrapartida de importação. Se você entrar em contato com o {% data variables.contact.contact_ent_support %} para fins de solução de problemas, esses dados podem ser solicitados.
+Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
 
-#### Uso
+### Usage
 
 ```shell
 ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
 ```
 
-### Solução de Problemas
+## Troubleshooting
 
-#### Central do servidor collectd não recebe dados
+### Central collectd server receives no data
 
-{% data variables.product.prodname_enterprise %} vem com a versão 5.x. de `collectd`. `collectd` 5.x não é retrocompatível com a série de versões 4.x. Seu servidor central `collectd` precisa ser da versão 5.x para aceitar os dados enviados pela {% data variables.product.product_location %}.
+{% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. Your central `collectd` server needs to be at least version 5.x to accept data sent from {% data variables.location.product_location %}.
 
-Em caso de dúvidas ou perguntas, entre em contato com o {% data variables.contact.contact_ent_support %}.
+For help with further questions or issues, contact {% data variables.contact.contact_ent_support %}.

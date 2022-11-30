@@ -1,1 +1,9 @@
-1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** and then in the list of branches, click the branch that you want to base your new branch on.
+---
+ms.openlocfilehash: 2fb6184a83021ccfac66fa5c89a822b74cd7d229
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145138569"
+---
+1. В верхней части приложения щелкните {% octicon "git-branch" aria-label="The branch icon" %} **Текущая ветвь**, а затем выберите в списке ветвь, на основе которой вы хотите создать новую.

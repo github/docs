@@ -1,1 +1,0 @@
-上面的工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，并且使用 `build-push-action` 操作构建并推送 Docker 映像。 它设置 `build-pow-action` 选项 [`tag_with_ref`](https://github.com/marketplace/actions/build-and-push-docker-images#tag_with_ref) 自动使用工作流程事件的 Git 引用标记构建的 Docker 映像。 此工作流程在发布 {% data variables.product.prodname_dotcom %} 版本时触发，因此该引用将是该版本的 Git 标记。

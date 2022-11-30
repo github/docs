@@ -1,11 +1,19 @@
+---
+ms.openlocfilehash: 3aa2f76a2abdf35ef89c8e083cf01e5a021d23eb
+ms.sourcegitcommit: 22d665055b1bee7a5df630385e734e3a149fc720
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/13/2022
+ms.locfileid: "145093327"
+---
 
-### Contando ao Git sobre sua chave X.509
+### <a name="telling-git-about-your-x509-key"></a>Contando ao Git sobre sua chave X.509
 
-Você pode usar [smimesign](https://github.com/github/smimesign) para assinar commits e tags usando S/MIME em vez de GPG.
+Use o [smimesign](https://github.com/github/smimesign) para assinar commits e tags usando o S/MIME em vez do GPG.
 
 {% data reusables.gpg.smime-git-version %}
 
-1. Instale [smimesign](https://github.com/github/smimesign#installation).
+1. Instale o [smimesign](https://github.com/github/smimesign#installation).
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Configure o Git para usar o S/MIME para assinar commits e tags. No Git 2.19 ou posterior, use os comandos `git config gpg.x509.program` e `git config gpg.format`:
   - Para usar o S/MIME para assinar todos os repositórios:
@@ -30,11 +38,11 @@ Você pode usar [smimesign](https://github.com/github/smimesign) para assinar co
   $ git config --local gpg.program smimesign
   ```
   Se você estiver usando uma chave X.509 que corresponde à sua identidade do committer, poderá começar a assinar commits e tags.
-4. If you're not using an X.509 key that matches your committer identity, list X.509 keys for which you have both a certificate and private key using the `smimesign --list-keys` command.
+4. Se você não estiver usando uma chave X.509 que corresponda à identidade do autor do commit, liste as chaves X.509 para as quais você tem um certificado e uma chave privada usando o comando `smimesign --list-keys`.
   ```shell
   $ smimesign --list-keys
   ```
-5. Da lista de chaves X.509, copie o ID de certificado da chave X.509 que gostaria de usar. Neste exemplo, o ID do certificado é `0ff455a2708394633e4bb2f88002e3cd80cbd76f`:
+5. Da lista de chaves X.509, copie o ID de certificado da chave X.509 que gostaria de usar. Neste exemplo, a ID do certificado é `0ff455a2708394633e4bb2f88002e3cd80cbd76f`:
   ```shell
   $ smimesign --list-keys
                ID: 0ff455a2708394633e4bb2f88002e3cd80cbd76f

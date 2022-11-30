@@ -1,81 +1,89 @@
 ---
 title: 新しい購入や無料トライアルの処理
-intro: '顧客が有料プラン、無料のトライアル、あるいは{% data variables.product.prodname_marketplace %}アプリケーションの無料バージョンを購入した場合、`purchased`アクションが付いた[`marketplace_purchase`イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhookを受信することになり、それによって購入フローが開始されます。'
+intro: 'お客様が有料プラン、無料試用版、または {% data variables.product.prodname_marketplace %} アプリの無料バージョンを購入すると、`purchased` アクションを含む [`marketplace_purchase` イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) Webhook を受け取り、購入フローが開始されます。'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps/
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /developers/github-marketplace/handling-new-purchases-and-free-trials
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: New purchases & free trials
+ms.openlocfilehash: b0c1cf055d912cd83e2167bfcbd0136a2644b1aa
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145089624'
 ---
 {% warning %}
 
-If you offer a {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate {% data variables.product.prodname_oauth_app %} to support this flow. See "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+{% data variables.product.prodname_marketplace %}で{% data variables.product.prodname_github_app %}を提供している場合、アプリケーションはOAuthの認可フローに従ってユーザを識別しなければなりません。 このフローをサポートするために、別の{% data variables.product.prodname_oauth_app %}を設定する必要はありません。 詳細については、「[{% data variables.product.prodname_github_apps %} のユーザの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
 
 {% endwarning %}
 
-### ステップ 1. 最初の購入とwebhookイベント
+## 手順 1. 最初の購入とwebhookイベント
 
-{% data variables.product.prodname_marketplace %}アプリケーションを購入する前に、顧客は[リストプラン](/marketplace/selling-your-app/github-marketplace-pricing-plans/)を選択します。 顧客は、アプリケーションの購入を自分の個人アカウントから行うのか、あるいはOrganizationアカウントから行うのかも選択します。
+顧客は {% data variables.product.prodname_marketplace %} アプリを購入する前に、[登録情報プラン](/marketplace/selling-your-app/github-marketplace-pricing-plans/)を選択します。 顧客は、アプリケーションの購入を自分の個人アカウントから行うのか、あるいはOrganizationアカウントから行うのかも選択します。
 
-**Complete order and begin installation（注文を完了してインストールを開始）**をクリックすることで、顧客は購入を完了します。
+**[注文を完了してインストール開始]** をクリックすることで、顧客は購入を完了します。
 
-{% data variables.product.product_name %} then sends the [`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) webhook with the `purchased` action to your app.
+{% data variables.product.product_name %} は続いて、[`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) webhook を `purchased` アクションでアプリに送信します。
 
-`marketplace_purchase` webhookから`effective_date`と`marketplace_purchase`を読み取り、顧客が購入したプラン、支払いサイクルの開始時点、次の支払いサイクルの開始時点を判断してください。
+`marketplace_purchase` webhook からの `effective_date` および `marketplace_purchase` オブジェクトを読み取って、顧客が購入したプラン、請求サイクルの開始時期、および次の請求サイクルの開始時期を特定します。
 
-アプリケーションが無料トライアルを提供しているなら、webhookから`marketplace_purchase[on_free_trial]`属性を読んでください。 この値が`true`なら、アプリケーションは無料トライアルの開始日(`effective_date`)と、無料トライアルの終了日(`free_trial_ends_on`)を追跡しなければなりません。 アプリケーションのUIに無料トライアルの残日数を表示するのには、`free_trial_ends_on`の日付を使ってください。 これはバナーか、[支払いUI](/marketplace/selling-your-app/billing-customers-in-github-marketplace/#providing-billing-services-in-your-apps-ui)のいずれでも行えます。 無料トライアルの終了前のキャンセルの処理方法を学ぶには、「[プランのキャンセルの処理](/developers/github-marketplace/handling-plan-cancellations)」を参照してください。 無料トライアルの終了時点での無料トライアルから有料プランへの移行方法を知るには、「[プランの変更の処理](/developers/github-marketplace/handling-plan-changes)」を参照してください。
+アプリで無料試用版が提供されている場合は、webhook から `marketplace_purchase[on_free_trial]` 属性を読み取ってください。 値が `true` である場合、アプリは無料試用版の開始日 (`effective_date`) と無料試用版の終了日 (`free_trial_ends_on`) を追跡する必要があります。 アプリケーションの UI に無料トライアルの残日数を表示するのには、`free_trial_ends_on` の日付を使ってください。 これは、バナーか[支払い UI](/marketplace/selling-your-app/billing-customers-in-github-marketplace/#providing-billing-services-in-your-apps-ui) のどちらかで行うことができます。 無料試用版が終了する前にキャンセルを処理する方法については、「[プランのキャンセルの処理](/developers/github-marketplace/handling-plan-cancellations)」を参照してください。 無料試用版の有効期限が切れたときに無料試用版を有料プランに移行する方法については、「[プラン変更の処理](/developers/github-marketplace/handling-plan-changes)」を参照してください。
 
-`marketplace_purchase`イベントペイロードの例については「[{% data variables.product.prodname_marketplace %} webhookイベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)」を参照してください。
+`marketplace_purchase` イベント ペイロードの例については、[{% data variables.product.prodname_marketplace %} Webhook イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)に関する記事を参照してください。
 
-### ステップ 2. インストール
+## 手順 2. インストール
 
-If your app is a {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} prompts the customer to select which repositories the app can access when they purchase it. {% data variables.product.product_name %} then installs the app on the account the customer selected  and grants access to the selected repositories.
+アプリケーションが{% data variables.product.prodname_github_app %}なら、{% data variables.product.product_name %}は顧客に対してアプリケーションの購入時にそのアプリケーションがアクセスできるリポジトリの選択を求めます。 そして{% data variables.product.product_name %}は、顧客が選択したアカウントにそのアプリケーションをインストールし、選択されたリポジトリへのアクセスを許可します。
 
-At this point, if you specified a **Setup URL** in your {% data variables.product.prodname_github_app %} settings, {% data variables.product.product_name %} will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your {% data variables.product.prodname_github_app %}.
+この時点で、{% data variables.product.prodname_github_app %}の設定で **Setup URL** を指定している場合、{% data variables.product.product_name %} は顧客をその URL へリダイレクトさせます。 Setup URLを指定していない場合、{% data variables.product.prodname_github_app %}の購入を処理することはできません
 
 {% note %}
 
-**Note:** The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}.
+**注:** **Setup URL** は、{% data variables.product.prodname_github_app %} の設定中でオプションとされていますが、アプリケーションを {% data variables.product.prodname_marketplace %} で提供したい場合には必須のフィールドです。
 
 {% endnote %}
 
-If your app is an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} does not install it anywhere. Instead, {% data variables.product.product_name %} redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls).
+アプリケーションが{% data variables.product.prodname_oauth_app %}である場合、 {% data variables.product.product_name %}はそれをどこにもインストールしません。 代わりに、{% data variables.product.product_name %} により、[{% data variables.product.prodname_marketplace %} の一覧](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls)で指定した **Installation URL** に顧客はリダイレクトされます。
 
-When a customer purchases an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
+顧客が {% data variables.product.prodname_oauth_app %} を購入すると、{% data variables.product.product_name %} によって顧客は選択された URL (Setup URL または Installation URL) にリダイレクトされ、その URL には顧客が選択した価格プランがクエリ パラメータの `marketplace_listing_plan_id` として含まれます。
 
-### ステップ 3. 認可
+## 手順 3. 承認
 
 顧客がアプリケーションを購入したら、顧客をOAuthの認可フローに送らなければなりません。
 
-* If your app is a {% data variables.product.prodname_github_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Setup URL**. Follow the steps in "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+* アプリケーションが {% data variables.product.prodname_github_app %} である場合、{% data variables.product.product_name %} が顧客を **Setup URL** にリダイレクトした後すぐに認可フローを始めます。 「[{% data variables.product.prodname_github_apps %} のユーザの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」の手順に従います。
 
-* If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in "[Authorizing {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)."
+* アプリケーションが {% data variables.product.prodname_oauth_app %} である場合、{% data variables.product.product_name %} が顧客を **Installation URL** にリダイレクトした後すぐに認可フローを始めます。 [{% data variables.product.prodname_oauth_apps %} の認可](/apps/building-oauth-apps/authorizing-oauth-apps/)に関するページの手順に従います。
 
-どちらの種類のアプリケーションでも、最初のステップは顧客をhttps://github.com/login/oauth/authorizeにリダイレクトさせることです。
+どちらの種類のアプリでも、最初の手順は顧客を [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize) にリダイレクトすることです。
 
 顧客が認可を完了すると、アプリケーションは顧客のOAuthアクセストークンを受け取ります。 このトークンは、次のステップで必要になります。
 
 {% note %}
 
-**ノート:** 顧客を無料トライアルで認可する場合は、有料プランの場合と同じアクセス権を付与してください。  それらの顧客は、無料の期間が終了したら有料プランに移行させます。
+**注:** 顧客を無料トライアルで認可する場合は、有料プランの場合と同じアクセス権を付与してください。  それらの顧客は、無料の期間が終了したら有料プランに移行させます。
 
 {% endnote %}
 
-### ステップ 4. 顧客アカウントのプロビジョニング
+## 手順 4. 顧客アカウントのプロビジョニング
 
-アプリケーションは、すべての新規購入に対して顧客アカウントをプロビジョニングしなければなりません。 [ステップ3 認可](#step-3-authorization)で受け取った顧客のアクセストークンを使い、 「[認証されたユーザのサブスクリプションのリスト](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)」エンドポイントを呼び出してください。 レスポンスには顧客の`account`情報が含まれ、その顧客が無料トライアルを利用しているかが示されます（`on_free_trial`）。 この情報を使って、セットアップとプロビジョニングを完了させてください。
+アプリケーションは、すべての新規購入に対して顧客アカウントをプロビジョニングしなければなりません。 「[手順 3. 承認](#step-3-authorization)」で顧客に対して受け取ったアクセス トークンを使用して、"[認証されたユーザーのサブスクリプションの一覧表示](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)" エンドポイントを呼び出します。 応答には顧客の `account` 情報が含まれ、無料試用版 (`on_free_trial`) に含まれているかどうかが示されます。 この情報を使って、セットアップとプロビジョニングを完了させてください。
 
 {% data reusables.marketplace.marketplace-double-purchases %}
 
 購入がOrganizationのためのものであり、ユーザごとであるなら、顧客に対して購入されたアプリケーションにアクセスできるOrganizationのメンバーの選択を求めることができます。
 
-Organizationのメンバーがアプリケーションへのアクセスを受け取る方法は、カスタマイズできます。 いくつかの例を挙げましょう。
+Organizationのメンバーがアプリケーションへのアクセスを受け取る方法は、カスタマイズできます。 いくつかの推奨事項を次に示します。
 
-**定額料金:** Organizationに対して定額料金での購入が行われたなら、アプリケーションはAPI経由で[Organizationの全メンバーを取得](/rest/reference/orgs#list-organization-members)して、Organizationの管理者に対してどのメンバーがインテグレーター側で有料ユーザとなるかの選択を求めることができます。
+**定額料金:** Organization に対して定額料金での購入が行われたなら、アプリケーションは API 経由で [Organization の全メンバーを取得](/rest/reference/orgs#list-organization-members)して、Organization の管理者に対してどのメンバーがインテグレーター側で有料ユーザとなるかの選択を求めることができます。
 
-**ユニット単位の料金:** ユニットシートごとにプロビジョニングする方法の1つは、ユーザがアプリケーションにログインしたときにシートを使用できるようにすることです。 顧客がシートカウントの閾値に達した場合、アプリケーションはユーザに対して{% data variables.product.prodname_marketplace %}を通じてアップグレードする必要があることを警告できます。
+**ユニット単位の料金:** ユニット シートごとにプロビジョニングする方法の 1 つは、ユーザーがアプリケーションにログインしたときにシートを使用できるようにすることです。 顧客がシートカウントの閾値に達した場合、アプリケーションはユーザに対して{% data variables.product.prodname_marketplace %}を通じてアップグレードする必要があることを警告できます。

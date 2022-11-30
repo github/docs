@@ -1,1 +1,9 @@
-1. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}Decide{% else %}Si estás creando un sitio de proyecto, decide{% endif %} qué fuente de publicación quieres utilizar. {% if currentVersion ver_lt "enterprise-server@2.23" %}Si estás creando un sitio de usuario o de organización, debes almacenar el código fuente de tu sitio en la rama `master`.{% endif %} Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)".
+---
+ms.openlocfilehash: ec4658691c5147aecfb83c20a4c35be184314dad
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147428288"
+---
+1. Decide qué fuente de publicación quieres utilizar. Para más información, consulta "[Configuración de una fuente de publicación para el sitio de GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."

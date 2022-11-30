@@ -1,24 +1,25 @@
 ---
-title: Enumeradores
+title: Enums
 redirect_from:
   - /v4/enum
   - /v4/reference/enum
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Acerca de los enumeradores
+## About enums
 
-Los [Enumeradores](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) representan conjuntos de valores posibles para un campo.
+[Enums](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) represent possible sets of values for a field.
 
-Por ejemplo, el objeto [`Issue`](/graphql/reference/objects#issue) tiene un campo llamado `state`. El estado es un enumerador (específicamente, de tipo [`IssueState`](/graphql/reference/enums#issuestate)) ya que éste puede ser `OPEN` o `CLOSED`.
+For example, the [`Issue`](/graphql/reference/objects#issue) object has a field called `state`. The state is an enum (specifically, of type [`IssueState`](/graphql/reference/enums#issuestate)) because it may be `OPEN` or `CLOSED`.
 
-Para obtener más información, consulta la sección "[Introducción a GraphQL](/graphql/guides/introduction-to-graphql)".
+For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
 
-{% for item in graphql.schemaForCurrentVersion.enums %}
-  {% include graphql-enum %}
-{% endfor %}
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

@@ -1,1 +1,1 @@
-1. En {% data variables.product.product_name %}, visita la página principal del repositorio.
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository.

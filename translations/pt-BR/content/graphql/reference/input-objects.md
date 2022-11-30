@@ -1,23 +1,25 @@
 ---
-title: Objetos de entrada
+title: Input objects
 redirect_from:
   - /v4/input_object
   - /v4/reference/input_object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### Sobre objetos de entrada
+## About input objects
 
-[Objetos de entrada](https://graphql.github.io/graphql-spec/June2018/#sec-Input-Objects) podem ser descritos como "objetos estruturáveis", pois incluem um conjunto de campos de entrada que definem o objeto.
+[Input objects](https://graphql.github.io/graphql-spec/June2018/#sec-Input-Objects) can be described as "composable objects" because they include a set of input fields that define the object.
 
-Por exemplo, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) toma um campo denominado `e-mails`. Fornecer um valor para `e-mails` transforma `CommitAuthor` em uma lista de objetos de `usuário` que contém esse endereço de e-mail. Observe que [objetos](/graphql/reference/objects) **pode ter** objetos de entrada, enquanto [mutações](/graphql/reference/mutations) **exigem** objetos de entrada.
+For example, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) takes a field called `emails`. Providing a value for `emails` transforms `CommitAuthor` into a list of `User` objects containing that email address. Note that [objects](/graphql/reference/objects) **may** have input objects, whereas [mutations](/graphql/reference/mutations) **require** input objects.
 
-Para obter mais informações, consulte "[Sobre mutações](/graphql/guides/forming-calls-with-graphql#about-mutations)".
+For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-input-objects.json -->
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

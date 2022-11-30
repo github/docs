@@ -1,18 +1,16 @@
 ---
-title: Fazer alterações em um branch
-intro: 'Faça alterações no projeto usando seu editor de texto favorito, como o [Atom] (https://atom.io/). Em seguida, use o {% data variables.product.prodname_desktop %} para exibir commits relevantes.'
+title: Making changes in a branch
+intro: 'Use your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), to make changes to your project, then use {% data variables.product.prodname_desktop %} to visualize useful commits.'
 redirect_from:
   - /desktop/contributing-to-projects/making-changes-in-a-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /managing-branches
   - /committing-and-reviewing-changes-to-your-project
   - /stashing-changes
-  - /pushing-changes-to-github
-  - /reverting-a-commit
-  - /cherry-picking-a-commit
-  - /managing-tags
   - /viewing-the-branch-history
+  - /pushing-changes-to-github
+shortTitle: Make changes in a branch
 ---
 

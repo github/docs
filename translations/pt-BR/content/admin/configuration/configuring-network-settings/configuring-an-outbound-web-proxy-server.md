@@ -1,33 +1,43 @@
 ---
-title: Configurar servidor proxy web de saída
-intro: 'Servidores proxy geram uma camada extra de segurança para a {% data variables.product.product_location %}.'
+title: Configuring an outbound web proxy server
+intro: 'A proxy server provides an additional level of security for {% data variables.location.product_location %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-a-proxy-server/
+  - /enterprise/admin/guides/installation/configuring-a-proxy-server
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure an outbound proxy
 ---
-Quando houver um servidor proxy habilitado para a {% data variables.product.product_location %}, as mensagens de saída enviadas para o {% data variables.product.prodname_ghe_server %} sairão primeiramente pelo servidor proxy, a menos que o host de destino seja adicionado como exclusão de proxy HTTP. Os tipos de mensagens de saída incluem webhooks de saída, pacotes para upload e fetch de avatares herdados. A URL do servidor proxy é o protocolo, domínio ou endereço IP e o número da porta, por exemplo: `http://127.0.0.1:8123`.
+
+## About proxies with {% data variables.product.product_name %}
+
+When a proxy server is enabled for {% data variables.location.product_location %}, outbound messages sent by {% data variables.product.prodname_ghe_server %} are first sent through the proxy server, unless the destination host is added as an HTTP proxy exclusion. Types of outbound messages include outgoing webhooks, uploading bundles, and fetching legacy avatars. The proxy server's URL is the protocol, domain or IP address, plus the port number, for example `http://127.0.0.1:8123`.
 
 {% note %}
 
-**Observação:** para conectar a {% data variables.product.product_location %} ao {% data variables.product.prodname_dotcom_the_website %}, a sua configuração de proxy deve permitir conectividade com `github.com` e `api.github.com`. Para obter mais informações, consulte "[Conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)".
+**Note:**  To connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, your proxy configuration must allow connectivity to `github.com` and `api.github.com`. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 {% endnote %}
+
+{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+
+## Configuring an outbound web proxy server
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-4. Em **HTTP Proxy Server** (Servidor proxy HTTP), digite a URL do seu servidor proxy. ![Campo para digitar a URL do servidor proxy HTTP](/assets/images/enterprise/management-console/http-proxy-field.png)
-
-5. Você também pode ir até **HTTP Proxy Exclusion** (Exclusão de proxy HTTP) e digitar qualquer host que não exija acesso por proxy, separando os hosts por vírgulas. Para excluir todos os hosts de um domínio que exige acesso ao proxy, você pode usar `.` como um prefixo curinga.  Por exemplo: `octo-org.tentacle` ![Campo para digitar qualquer exclusão de proxy HTTP](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+1. Under **HTTP Proxy Server**, type the URL of your proxy server.
+  ![Field to type the HTTP Proxy Server URL](/assets/images/enterprise/management-console/http-proxy-field.png)
+  
+5. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix.  For example: `.octo-org.tentacle`
+  ![Field to type any HTTP Proxy Exclusions](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
 
 {% data reusables.enterprise_management_console.save-settings %}

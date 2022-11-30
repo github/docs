@@ -1,60 +1,73 @@
 ---
-title: Adding or editing wiki pages
-intro: 'You can add and edit wiki pages directly on {% data variables.product.product_name %} or locally using the command line.'
+title: Добавление и редактирование вики-страниц
+intro: 'Вы можете добавлять и изменять страницы вики-сайта непосредственно в {% data variables.product.product_name %} или локально с помощью командной строки.'
 redirect_from:
-  - /articles/adding-wiki-pages-via-the-online-interface/
-  - /articles/editing-wiki-pages-via-the-online-interface/
-  - /articles/adding-and-editing-wik-pages-locally/
-  - /articles/adding-and-editing-wiki-pages-locally/
+  - /articles/adding-wiki-pages-via-the-online-interface
+  - /articles/editing-wiki-pages-via-the-online-interface
+  - /articles/adding-and-editing-wik-pages-locally
+  - /articles/adding-and-editing-wiki-pages-locally
   - /articles/adding-or-editing-wiki-pages
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Manage wiki pages
+ms.openlocfilehash: f58cb44a7e6360f87fa417b5f5854d958b00d74b
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148008876'
 ---
+## Добавление вики-страниц
 
-### Adding wiki pages
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+3. В правом верхнем углу страницы щелкните **Новая страница**.
+  ![Кнопка создания вики-страницы](/assets/images/help/wiki/wiki_new_page_button.png)
+4. При необходимости записи в формате, отличном от Markdown, в раскрывающемся меню "Режим правки" выберите другой формат.
+  ![Выбор разметки вики-сайта](/assets/images/help/wiki/wiki_dropdown_markup.gif)
+5. Используйте текстовый редактор для добавления содержимого страницы.
+  ![Режим точного отображения вики-сайта](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. Введите сообщение о фиксации с описанием добавляемого файла.
+  ![Сообщение фиксации для вики-сайта](/assets/images/help/wiki/wiki_commit_message.png)
+7. Чтобы зафиксировать изменения на вики-сайте, нажмите **Сохранить страницу**.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-3. In the upper-right corner of the page, click **New Page**. ![Wiki new page button](/assets/images/help/wiki/wiki_new_page_button.png)
-4. Optionally, to write in a format other than Markdown, use the Edit mode drop-down menu, and click a different format. ![Wiki markup selection](/assets/images/help/wiki/wiki_dropdown_markup.gif)
-5. Use the text editor to add your page's content. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing the new file you’re adding. ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+## Изменение вики-страниц
 
-### Editing wiki pages
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-wiki %}
+4. На боковой панели вики-сайта перейдите на страницу, которую нужно изменить. В правом верхнем углу страницы щелкните **Изменить**.
+   ![Кнопка изменения вики-страницы](/assets/images/help/wiki/wiki_edit_page_button.png)
+5. В текстовом редакторе измените содержимое страницы.
+   ![Режим точного отображения вики-сайта](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. Введите сообщение о фиксации, описывающее ваши изменения.
+   ![Сообщение фиксации для вики-сайта](/assets/images/help/wiki/wiki_commit_message.png)
+7. Чтобы зафиксировать изменения на вики-сайте, нажмите **Сохранить страницу**.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-wiki %}
-4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**. ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor edit the page's content. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing your changes. ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+## Добавление или изменение вики-страниц на локальном компьютере
 
-### Adding or editing wiki pages locally
+Вики-сайты являются частью репозиториев GIT, поэтому в них можно вносить изменения локально, а затем отправлять их в репозиторий с помощью рабочего процесса GIT.
 
-Wikis are part of Git repositories, so you can make changes locally and push them to your repository using a Git workflow.
+### Клонирование вики-сайтов на компьютер
 
-#### Cloning wikis to your computer
-
-Every wiki provides an easy way to clone its contents down to your computer. You can clone the repository to your computer with the provided URL:
+Каждый вики-сайт предоставляет простой способ клонирования содержимого на компьютер.
+После создания начальной страницы на {% data variables.product.product_name %} можно клонировать репозиторий на компьютер с указанным URL-адресом:
 
 ```shell
-$ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
+$ git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.wiki.git
 # Clones the wiki locally
 ```
 
-Once you have cloned the wiki, you can add new files, edit existing ones, and commit your changes. You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
+После клонирования вики-сайта можно добавить новые файлы, изменить существующие и зафиксировать изменения. Вы и другие участники совместной работы можете создавать ветви при работе с вики-сайтами, но читателям будут доступны только изменения, отправленные в ветвь по умолчанию.
 
-### About wiki filenames
+## Сведения об именах файлов для вики-сайтов
 
-The filename determines the title of your wiki page, and the file extension determines how your wiki content is rendered.
+Имя файла определяет название вики-страницы, а расширение файла — то, как отображается ее содержимое.
 
-Wikis use [our open-source Markup library](https://github.com/github/markup) to convert the markup, and it determines which converter to use by a file's extension. For example, if you name a file *foo.md* or *foo.markdown*, wiki will use the Markdown converter, while a file named *foo.textile* will use the Textile converter.
+Вики-сайты используют [нашу библиотеку разметки с открытым кодом](https://github.com/github/markup) для преобразования разметки. Она определяет то, какой преобразователь следует использовать для того или иного расширения имени файла. Например, файл имеет имя *foo.md* или *foo.markdown*, вики-сайт будет использовать преобразователь Markdown, а для файла с именем *foo.textile* будет применяться преобразователь Textile.
 
-Don't use the following characters in your wiki page's titles: `\ / : * ? " < > |`. Users on certain operating systems won't be able to work with filenames containing these characters. Be sure to write your content using a markup language that matches the extension, or your content won't render properly.
+Не используйте следующие символы в заголовках вики-страниц: `\ / : * ? " < > |` Пользователи определенных операционных систем не смогут работать с именами файлов, содержащими эти символы. При написании содержимого используйте язык разметки, соответствующий расширению, иначе содержимое будет отрисовываться неправильно.

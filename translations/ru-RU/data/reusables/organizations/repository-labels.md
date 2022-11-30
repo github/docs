@@ -1,1 +1,9 @@
-1. In the left sidebar, click **Repository labels**. ![Repository labels tab](/assets/images/help/organizations/repo-labels-tab.png)
+---
+ms.openlocfilehash: 2e8b7d6bec8d94c6e70391341b3e1465a8356f3f
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145122395"
+---
+1. На левой боковой панели щелкните **Метки репозитория**.

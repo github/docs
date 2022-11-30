@@ -1,27 +1,33 @@
 ---
-title: Reviewing deployments
-intro: You can approve or reject jobs awaiting review.
+title: Проверка развертываний
+shortTitle: Review deployments
+intro: 'Задания, ожидающие проверки, можно утвердить или отклонить.'
 product: '{% data reusables.gated-features.environments %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+ms.openlocfilehash: 88b3b68a48f3b3850c4a5e8d376f38da935942b3
+ms.sourcegitcommit: 7b86410fc3bc9fecf0cb71dda4c7d2f0da745b85
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/05/2022
+ms.locfileid: '148009971'
 ---
+## Сведения о необходимых проверках в рабочих процессах
 
-{% data reusables.actions.environments-beta %}
-{% data reusables.actions.ae-beta %}
+Задания, ссылающиеся на среду, настроенную с обязательными рецензентами, будут ожидать утверждения перед запуском. Во время ожидания утверждения, оно находится в состоянии "Ожидание". Если задание не утверждено в течение 30 дней, выполнение рабочего процесса будет автоматически отменено.
 
-### About required reviews in workflows
+Дополнительные сведения о средах и необходимых утверждениях см. в разделе "[Использование сред для развертывания](/actions/deployment/using-environments-for-deployment)". Сведения о проверке развертываний с помощью REST API см. в разделе "[Запуски рабочих процессов](/rest/reference/actions#workflow-runs)".
 
-Jobs that reference an environment configured with required reviewers will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, the workflow run will be automatically canceled.
+## Утверждение или отклонение задания
 
-For more information about environments and required approvals, see "[Environments](/actions/reference/environments)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
-
-### Approving or rejecting a job
-
-1. Navigate to the workflow run that requires review. For more information about navigating to a workflow run, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-2. Click **Review deployments**. ![Review deployments](/assets/images/actions-review-deployments.png)
-3. Select the job environment(s) to approve or reject. Optionally, leave a comment. ![Approve deployments](/assets/images/actions-approve-deployments.png)
-4. Approve or reject:
-   - To approve the job, click **Approve and deploy**. Once a job is approved (and any other environment protection rules have passed), the job will proceed. At this point, the job can access any secrets stored in the environment.
-   - To reject the job, click **Reject**. If a job is rejected, the workflow will fail.
+1. Перейдите к выполнению рабочего процесса, требующего проверки. Дополнительные сведения о переходе к выполнению рабочего процесса см. в разделе [Просмотр журнала выполнения рабочего процесса](/actions/managing-workflow-runs/viewing-workflow-run-history).
+2. Щелкните **Проверка развертываний**. 
+   ![Проверка развертываний](/assets/images/actions-review-deployments.png)
+3. Выберите среды заданий для утверждения или отклонения. При необходимости оставьте комментарий.
+   ![Утверждение развертываний](/assets/images/actions-approve-deployments.png)
+4. Утвердить или отклонить:
+   - Чтобы утвердить задание, щелкните **Утвердить и развернуть**. После утверждения задания (и прохождения всех других правил защиты среды) задание будет продолжено. На этом этапе задание может получить доступ к любым секретам, хранящимся в среде.
+   - Чтобы отклонить задание, щелкните **Отклонить**. Если задание отклонено, рабочий процесс завершится ошибкой.

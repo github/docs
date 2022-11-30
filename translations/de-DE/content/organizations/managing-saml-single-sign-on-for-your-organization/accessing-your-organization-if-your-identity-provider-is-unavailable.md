@@ -1,31 +1,28 @@
 ---
-title: Zugriff auf Deine Organisation bei nicht verfügbarem Identitätsanbieter
+title: Zugriff auf Ihre Organisation bei nicht verfügbarem Identity Provider
 intro: 'Administratoren von Organisationen können sich bei {% data variables.product.product_name %} anmelden, auch wenn ihr Identitätsanbieter nicht verfügbar ist, indem sie Single Sign-On umgehen und ihre Wiederherstellungscodes verwenden.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Unavailable identity provider
+ms.openlocfilehash: fd965c2c847378936e10ff5cc5560397a09ca372
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145106180'
 ---
+Organisationsadministratoren können [einen ihrer heruntergeladenen oder gespeicherten Wiederherstellungscodes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) verwenden, um einmaliges Anmelden zu umgehen. Möglicherweise hast du diese in einem Kennwort-Manager wie [LastPass](https://lastpass.com/) oder [1Password](https://1password.com/) gespeichert.
 
-Administratoren von Organisationen können [einen ihrer heruntergeladenen oder gespeicherten Wiederherstellungscodes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) verwenden, um Single-Sign-On zu umgehen. Möglicherweise hast Du diese in einem Passwort-Manager wie [LastPass](https://lastpass.com/), [1Password](https://1password.com/) oder [Keeper](https://keepersecurity.com/) gespeichert.
+{% data reusables.saml.recovery-code-caveats %}
 
-{% note %}
+{% data reusables.saml.recovery-code-access %}
 
-**Hinweis:** Du kannst Wiederherstellungscodes nur einmal und in aufeinanderfolgender Reihenfolge verwenden. Wiederherstellungscodes gewähren den Zugriff für 24 Stunden.
+## Weiterführende Themen
 
-{% endnote %}
-
-1. Klicke unten im Single Sign-On-Dialog auf **Use a recovery code** (Wiederherstellungscode verwenden), um Single Sign-On zu umgehen. ![Link zum Eingeben Deines Wiederherstellungscodes](/assets/images/help/saml/saml_use_recovery_code.png)
-2. Gib im Feld „Recovery Code“ (Wiederherstellungscode) Deinen Wiederherstellungscode ein. ![Feld zum Eingeben Deines Wiederherstellungscodes](/assets/images/help/saml/saml_recovery_code_entry.png)
-3. Klicke auf **Verify** (Bestätigen). ![Schaltfläche zum Bestätigen Deines Wiederherstellungscodes](/assets/images/help/saml/saml_verify_recovery_codes.png)
-
-Denke daran, dass ein Wiederherstellungscode nicht mehr gültig ist, nachdem Du ihn verwendet hast. Du kannst den Wiederherstellungscode nicht erneut verwenden.
-
-### Weiterführende Informationen
-
-- „[Informationen zum Identitäts- und Zugriffsmanagement mit SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)“
+- [Informationen zur Identitäts- und Zugriffsverwaltung mit SAML-SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)

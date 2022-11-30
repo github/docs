@@ -1,5 +1,13 @@
-1. You may also want to review the source diff, because there could be changes to the manifest or lock file that don't change dependencies, or there could be dependencies that {% data variables.product.prodname_dotcom %} can't parse and which, as a result, don't appear in the dependency review.
+---
+ms.openlocfilehash: 5c9f5fcc7d8c9ad75b9ce14ee3f952e4f3551975
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145090564"
+---
+1. Du solltest auch das Quell-Diff überprüfen, da es möglicherweise Änderungen an der Manifest- oder Sperrdatei gibt, die keine Abhängigkeiten ändern. Zudem besteht die Möglichkeit, dass Abhängigkeiten verfügbar sind, die {% data variables.product.prodname_dotcom %} nicht analysieren kann und die daher nicht in der Abhängigkeitsüberprüfung angezeigt werden.
 
-   To return to the source diff view, click the **{% octicon "code" aria-label="The source diff icon" %}** button.
+   Klicke auf die Schaltfläche **{% octicon "code" aria-label="The source diff icon" %}** , um zur Ansicht für das Quell-Diff zurückzukehren.
 
-   ![The source diff button](/assets/images/help/pull_requests/dependency-review-source-diff.png)
+   ![Schaltfläche für das Quell-Diff](/assets/images/help/pull_requests/dependency-review-source-diff.png)

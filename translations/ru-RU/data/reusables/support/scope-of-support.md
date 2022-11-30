@@ -1,12 +1,18 @@
+---
+ms.openlocfilehash: e36f9c75564f0cb539740d9d8235feae76309c93
+ms.sourcegitcommit: bddda0c0814770ee64e378692891931c618247ec
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181783"
+---
+Если ваш запрос на поддержку не входит в сферу компетенции нашей команды, рекомендуем выполнить следующие действия по устранению проблемы за пределами {% data variables.contact.github_support %}. Ваш запрос на поддержку может не входить в сферу компетенции команды {% data variables.contact.github_support %}, если он в основном касается следующего:
+- Сторонние интеграции, такие как Jira{% ifversion ghes %}
+- Настройка оборудования{% endif %}
+- CI/CD, например Jenkins.
+- Написание скриптов.
+- Настройка внешних систем проверки подлинности, таких как поставщики удостоверений SAML.
+- Проекты с открытым исходным кодом
+- Написание или отладка новых запросов для {% data variables.product.prodname_codeql %}
 
-### Scope of support
-
-If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
-- Third party integrations
-- Hardware setup
-- CI/CD, such as Jenkins
-- Writing scripts
-- Configuration of external authentication systems, such as SAML identity providers
-- Open Source projects
-
-If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed.
+Если вы не знаете, входит ли ваша проблема в сферу компетенции нашей команды, создайте запрос в службу поддержки, и мы поможем вам определить оптимальный путь решения.

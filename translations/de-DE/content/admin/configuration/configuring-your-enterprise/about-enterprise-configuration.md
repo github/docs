@@ -1,9 +1,9 @@
 ---
-title: About enterprise configuration
-intro: 'You can use the site admin dashboard{% if enterpriseServerVersions contains currentVersion %}, {% data variables.enterprise.management_console %}, and administrative shell (SSH) {% elsif currentVersion == "github-ae@latest" %} and enterprise settings or contact support{% endif %} to manage your enterprise.'
+title: Informationen zur Unternehmenskonfiguration
+intro: 'Du kannst das Websiteadministrator-Dashboard{% ifversion ghes %}, {% data variables.enterprise.management_console %} und die Verwaltungsshell (SSH) verwenden {% elsif ghae %} und Unternehmenseinstellungen verwenden, oder dich an den Support wenden{% endif %}, um dein Unternehmen zu verwalten.'
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
@@ -11,25 +11,31 @@ topics:
   - SSH
 redirect_from:
   - /admin/configuration/about-enterprise-configuration
+shortTitle: About configuration
+ms.openlocfilehash: 86012c1fc7b56367d171fd271c5f3d12125cf461
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145103040'
 ---
-{% if enterpriseServerVersions contains currentVersion %}
-{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} For more information, see "[Site admin dashboard](/admin/configuration/site-admin-dashboard)."
+{% ifversion ghes %} {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} Weitere Informationen findest du unter [Websiteadministratordashboard](/admin/configuration/site-admin-dashboard).
 
-{% data reusables.enterprise_site_admin_settings.about-the-management-console %} For more information, see "[Accessing the management console](/admin/configuration/accessing-the-management-console)."
+{% data reusables.enterprise_site_admin_settings.about-the-management-console %} Weitere Informationen findest du unter [Zugreifen auf die Verwaltungskonsole](/admin/configuration/accessing-the-management-console).
 
-{% data reusables.enterprise_site_admin_settings.about-ssh-access %} For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+{% data reusables.enterprise_site_admin_settings.about-ssh-access %} Weitere Informationen findest du unter [Zugreifen auf die Verwaltungsshell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh).
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
-The first time you access your enterprise, you will complete an initial configuration to get
-{% data variables.product.product_name %} ready to use. The initial configuration includes connecting your enterprise with an identity provider (IdP), authenticating with SAML SSO, configuring policies for repositories and organizations in your enterprise, and configuring SMTP for outbound email. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
+{% ifversion ghae %} Um mit {% data variables.product.product_name %} zu beginnen, musst du zuerst {% data variables.product.product_name %} bereitstellen. Weitere Informationen findest du unter [Bereitstellen von {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae).
 
-Later, you can use the site admin dashboard and enterprise settings to further configure your enterprise, manage users, organizations and repositories, and set policies that reduce risk and increase quality.
+Wenn du zum ersten Mal auf dein Unternehmen zugreifst, führst du eine anfängliche Konfiguration aus, um {% data variables.product.product_name %} einsatzbereit zu machen. Die anfängliche Konfiguration umfasst das Herstellen der Verbindung deines Unternehmens mit einem Identitätsanbieter (IdP), Authentifizieren mit SAML SSO, Konfigurieren von Richtlinien für Repositorys und Organisationen in deinem Unternehmen und Konfigurieren von SMTP für ausgehende E-Mails. Weitere Informationen findest du unter [Initialisieren von {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae).
 
-All enterprises are configured with subdomain isolation and support for TLS 1.2 and higher for encrypted traffic only.
+Später kannst du über das Websiteadministrator-Dashboard und die Unternehmenseinstellungen dein Unternehmen weiter konfigurieren, Benutzer, Organisationen und Repositorys verwalten und Richtlinien festzulegen, die Risiken reduzieren und die Qualität erhöhen. 
+
+Alle Unternehmen sind mit Subdomain-Isolation und Unterstützung für TLS 1.2 und höher nur für verschlüsselten Datenverkehr konfiguriert.
 {% endif %}
 
-### Weiterführende Informationen
+## Weiterführende Themen
 
-- "[Managing users, organizations, and repositories](/admin/user-management)"
-- "[Setting policies for your enterprise](/admin/policies)"
+- [Verwalten von Benutzern, Organisationen und Repositorys](/admin/user-management)
+- [Festlegen von Richtlinien für dein Unternehmen](/admin/policies)

@@ -1,8 +1,16 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@3.0" %}
+---
+ms.openlocfilehash: 09ebb9f33daaa2de46afdf61cf5f65398219b0f9
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145130379"
+---
+{% ifversion ghes or ghae %}
 
 {% note %}
 
-**ノート:** {% data variables.product.prodname_secret_scanning %} APIは現在ベータで、変更されることがあります。
+**注:** {% data variables.product.prodname_secret_scanning %} API は現在ベータ段階であり、変更されることがあります。
 
 {% endnote %}
 

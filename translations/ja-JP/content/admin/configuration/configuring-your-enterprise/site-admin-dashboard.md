@@ -1,208 +1,249 @@
 ---
-title: サイトアドミンのダッシュボード
+title: Site admin dashboard
 intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
-  - /enterprise/admin/articles/site-admin-dashboard/
+  - /enterprise/admin/articles/site-admin-dashboard
   - /enterprise/admin/installation/site-admin-dashboard
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - Enterprise
   - Fundamentals
 ---
-ダッシュボードへアクセスするには、ページ右上の隅にある {% octicon "rocket" aria-label="The rocket ship" %}をクリックしてください。 ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
+![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes or ghae %}
 
-### 検索
+## Search
 
-ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {{ site.data.variables.enterprise.management_console }}を起動することができます。
+Refer to this section of the site admin dashboard to search for users and repositories, and to query the [audit log](#audit-log).
 
 {% else %}
 
-### ライセンスの情報と検索
+## License info & search
 
-現在の {% data variables.product.prodname_enterprise %} のライセンスを確認する、ユーザとリポジトリを検索する、そして [Audit log](#audit-log) を照会するには、サイトアドミンのダッシュボードのこのセクションを参照してください。
+Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
 
 {% endif %}
+{% ifversion ghes %}
+## {% data variables.enterprise.management_console %}
 
-### {% data variables.enterprise.management_console %}
+Here you can launch the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
+{% endif %}
+## Explore
 
-ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {% data variables.enterprise.management_console %}を起動することができます。
+Data for GitHub's [trending page][] is calculated into daily, weekly, and monthly time spans for both repositories and developers. You can see when this data was last cached and queue up new trending calculation jobs from the **Explore** section.
 
-### Explorer
+  [trending page]: https://github.com/blog/1585-explore-what-is-trending-on-github
 
-GitHub の[ 流行ページ][] のためのデータは、リポジトリとデベロッパーの両方において、日ごと、週ごと、月ごとの期間で計算されます。 **Explore** のセクションで、このデータが最後にいつキャッシュされたのかの確認や、新規流行計算ジョブをキューに挿入することができます。
+## Audit log
 
-### Audit log
+{% data variables.product.product_name %} keeps a running log of audited actions that you can query.
 
-{% data variables.product.prodname_enterprise %}は、クエリで確認できる、監査されたアクションのログを保持しています。
+By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)."
 
-デフォルトでは、Audit log は、監査されたアクション全てを新しい順で表示します。 「[Audit log を検索する](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)」で説明されているように、[**Query**] テキストボックスにキーと値のペアを入力して [**Search**] をクリックすることで、このリストをフィルタリングできます。
+For more information on audit logging in general, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)." For a full list of audited actions, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
-一般的な監査ログの詳細については、「[監査ログ](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)」を参照してください。 監査済みのアクションの全リストについては、「[監査済みのアクション](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)」を参照してください。
+## Reports
 
-### 報告
+If you need to get information on the users, organizations, and repositories in {% data variables.location.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
 
-{% data variables.product.product_location %}にある、ユーザやOrganization、リポジトリについての情報が必要な場合、一般的には、[GitHub API](/rest) を使って、JSON のデータをフェッチします。 残念ながら、API は、必要なデータを提供しない可能性があり、使用するのには専門知識が必要です。 サイトアドミンのダッシュボードには代替手段として [**Reports**] セクションがあり、ユーザー、Organization、およびリポジトリに必要と思われるほぼすべての情報を掲載した CSV レポートを簡単にダウンロードできます。
+Specifically, you can download CSV reports that list
 
-具体的には、次の情報を含む CSV 報告をダウンロードできます。
+- all users
+- all active users
+- all [dormant users](/admin/user-management/managing-dormant-users)
+- all users who have been suspended
+- all organizations
+- all repositories
 
-- 全ユーザ
-- 過去一ケ月の間、アクティブだった全ユーザ
-- 過去一ケ月、アクティブでなかった全ユーザ
-- 停止されている全ユーザ
-- 全ての Organization
-- 全ての リポジトリ
+You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-サイトアドミンのアカウントを用いて標準の HTTP 認証を使用すれば、これらのレポートにプログラムでアクセスすることもできます。 `site_admin` スコープで個人アクセストークンを使用する必要があります。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
-
-たとえば、cURL を使用して "all users" レポートをダウンロードする方法は次のとおりです:
+For example, here is how you would download the "all users" report using cURL:
 
 ```shell
-curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftools/reports/all_users.csv
+curl -L -u USERNAME:TOKEN http(s)://HOSTNAME/stafftools/reports/all_users.csv
 ```
 
-他の報告にプログラムでアクセスするには、 `all_users` を `active_users`や、 `dormant_users`、`suspended_users`、`all_organizations`、`all_repositories` に置き換えてください。
+To access the other reports programmatically, replace `all_users` with `active_users`, `dormant_users`, `suspended_users`, `all_organizations`, or `all_repositories`.
 
 {% note %}
 
-**注：** キャッシュされた報告がない場合、最初の `curl` リクエストは、 202の HTTP レスポンスを返して、報告は背景で生成されます。 もう一度リクエストを送れば、その報告をダウンロードすることができます。 パスワードの代わりに、`site_admin` スコープでのパスワードまたはOAuthトークンを使うことができます。
+**Note:** The initial `curl` request will return a 202 HTTP response if there are no cached reports available; a report will be generated in the background. You can send a second request to download the report. You can use a password or an OAuth token with the `site_admin` scope in place of a password.
 
 {% endnote %}
 
-#### ユーザ報告
+### User reports
 
-|                キー | 説明                                     |
-| -----------------:| -------------------------------------- |
-|      `created_at` | ユーザアカウントの作成時間（ISO 8601 のタイムスタンプ）       |
-|              `id` | ユーザまたはOrganization のアカウント ID           |
-|           `login` | アカウントのログイン名                            |
-|           `email` | アカウントのプライマリメールアドレス                     |
-|             `ロール` | アカウントがアドミンか一般ユーザか                      |
-|      `suspended?` | アカウントが停止されているか                         |
-|  `last_logged_ip` | 最後にアカウントにログインしたときの IP アドレス             |
-|           `repos` | アカウントが所有しているリポジトリの数                    |
-|        `ssh_keys` | アカウントに登録されているSSHキーの数                   |
-| `org_memberships` | アカウントが所属している Organization の数           |
-|        `dormant?` | アカウントが休眠であるかどうか                        |
-|     `last_active` | アカウントが最後にアクティブだったとき（ISO 8601 のタイムスタンプ） |
-|       `raw_login` | （JSON フォーマットでの）未処理のログイン情報              |
-|    `2fa_enabled?` | ユーザが二段階認証を有効にしているかどうか                  |
+Key               | Description
+-----------------:| ------------------------------------------------------------
+`created_at`      | When the user account was created (as an ISO 8601 timestamp)
+`id`              | Account ID for the user or organization
+`login`           | Account's login name
+`email`           | Account's primary email address
+`role`            | Whether the account is an admin or an ordinary user
+`suspended?`      | Whether the account has been suspended
+`last_logged_ip`  | Most recent IP address to log into the account
+`repos`           | Number of repositories owned by the account
+`ssh_keys`        | Number of SSH keys registered to the account
+`org_memberships` | Number of organizations to which the account belongs
+`dormant?`        | Whether the account is dormant
+`last_active`     | When the account was last active (as an ISO 8601 timestamp)
+`raw_login`       | Raw login information (in JSON format)
+`2fa_enabled?`    | Whether the user has enabled two-factor authentication
 
-#### Organization の報告
+### Organization reports
 
-|              キー | 説明                              |
-| ---------------:| ------------------------------- |
-|            `id` | Organization の ID               |
-|    `created_at` | Organization の作成時間              |
-|         `login` | Organization のログイン名             |
-|         `email` | Organization のプライマリメールアドレス      |
-|        `owners` | Organizationのオーナーの数             |
-|       `members` | Organization のメンバーの数            |
-|         `teams` | Organization のチームの数             |
-|         `repos` | Organization のリポジトリの数           |
-| `2fa_required?` | Organization が二段階認証を有効にしているかどうか |
+Key            | Description
+--------------:| ------------------------------------
+`id`           | Organization ID
+`created_at`   | When the organization was created
+`login`        | Organization's login name
+`email`        | Organization's primary email address
+`owners`       | Number of organization owners
+`members`      | Number of organization members
+`teams`        | Number of organization teams
+`repos`        | Number of organization repositories
+`2fa_required?`| Whether the organization requires two-factor authentication
 
-#### リポジトリ の報告
+### Repository reports
 
-|              キー | 説明                            |
-| ---------------:| ----------------------------- |
-|    `created_at` | リポジトリの作成時間                    |
-|      `owner_id` | リポジトリのコードオーナーの ID             |
-|    `owner_type` | リポジトリの所有者がユーザか Organization か |
-|    `owner_name` | リポジトリの所有者の名前                  |
-|            `id` | リポジトリの ID                     |
-|          `name` | リポジトリの名前                      |
-|    `visibility` | リポジトリが公開かプライベートか              |
-| `readable_size` | 人間が読める形式のリポジトリのサイズ            |
-|      `raw_size` | 数字でのリポジトリのサイズ                 |
-| `collaborators` | リポジトリのコラボレータの数                |
-|         `fork?` | リポジトリがフォークであるかどうか             |
-|      `deleted?` | リポジトリが削除されているかどうか             |
+Key             | Description
+---------------:| ------------------------------------------------------------
+`created_at`    | When the repository was created
+`owner_id`      | ID of the repository's owner
+`owner_type`    | Whether the repository is owned by a user or an organization
+`owner_name`    | Name of the repository's owner
+`id`            | Repository ID
+`name`          | Repository name
+`visibility`    | Whether the repository is public or private
+`readable_size` | Repository's size in a human-readable format
+`raw_size`      | Repository's size as a number
+`collaborators` | Number of repository collaborators
+`fork?`         | Whether the repository is a fork
+`deleted?`      | Whether the repository has been deleted
 
-### インデックス化
+{% ifversion ghes %}
+## Indexing
 
-GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動されています。 サイトアドミンのダッシュボードのこのセクションには、ElasticSearch クラスターの現在のステータスが表示され、検索とインデックス作成の動作を制御するためのいくつかのツールが用意されています。 このツールは、次の3つのカテゴリーに分類されています。
+GitHub's search features are powered by Elasticsearch. This section of the site admin dashboard shows you the current status of your Elasticsearch cluster and provides you with several tools to control search and index behavior.
 
-#### コード検索
+For more information about code search, see "[Searching for information on {% data variables.product.prodname_dotcom %}](/search-github)." For more information about Elasticsearch, see the [Elasticsearch website](https://elastic.co).
 
-これによって、ソースコードに対する検索とインデックスの作業を有効または無効にすることができます。
+{% note %}
 
-#### コード検索インデックスの修復
+**Note**: In normal use, site administrators do not need to create new indices or schedule repair jobs. For troubleshooting or other support purposes, {% data variables.contact.github_support %} may instruct you to run a repair job.
 
-これはコード検索インデックスがどのように修復されるかを制御します。 次のことができます:
+{% endnote %}
 
-- インデックスの修理ジョブを有効または無効にする
-- 新規インデックス修理ジョブを開始する
-- インデックス修理状態を全てリセットする
+### Index management
 
-{% data variables.product.prodname_enterprise %}は、修理ジョブを使って、検索インデックスの状態をデータベースで保存されているデータ（Issueやプルリクエスト、リポジトリ、ユーザ）と Git リポジトリに保存されているデータ（ソースコード）を照合することができます。 これは次の場合に使用されます。
+{% data variables.product.product_name %} reconciles the state of the search index with data on the instance automatically and regularly.
 
-- 新規検索インデックスが作成される
-- 欠損データを埋め戻ししなければいけない場合
-- 古い検索データを更新しなければいけない場合
+- Issues, pull requests, repositories, and users in the database
+- Git repositories (source code) on disk
 
-すなわち、修理ジョブは、必要に応じて開始され、背景で作動しています。サイトアドミンが修理ジョブの開始時間を決めるわけではありません。
+Your instance uses repair jobs to reconcile the data, and schedules a repair job in the background when the following events occur.
 
-さらに、修理ジョブは、並列化のために"修理オフセット"を使っています。 これは照合されているレコードのデータベーステーブルへのオフセットです。 このオフセットによって、複数の背景ジョブの作業を同期化できます。
+- A new search index is created.
+- Missing data needs to be backfilled.
+- Old search data needs to be updated.
 
-プログレスバーは、全ての背景ワーカープロセスによる、現在の修理ステータスを表示します。 それは、データベースの中の最高レコード ID と修理オフセットでのパーセント差です。 修復ジョブが完了した後にプログレスバーに表示される値については心配しないでください。それは修復オフセットとデータベース内の最大レコード ID の差を示すものであるため、たとえリポジトリが実際にインデックス付けされていても、{% data variables.product.product_location %} にリポジトリが追加されるにつれて値は減少します。
+You can create a new index, or you can click on an existing index in the list to manage the index. You can perform the following operations on an index.
 
-いつでも新規コード検索インデックスの修理ジョブを開始できます。 1つの CPU を使って、検索インデックスをデータベース及びGitのリポジトリデータと照合します。 I/O パフォーマンスに与える影響を最小限にするため、および、オペレーションがタイムアウトする可能性を減少するために混雑していない時間帯に修理ジョブを実行してみてください。 `top` のようなユーティリティで、システム負荷と CPU 使用率の平均を監視しましょう。大差がない場合は、混雑している時間帯にもインデックスの修理ジョブを実行しても安全なはずです。
+- Make the index searchable.
+- Make the index writable.
+- Update the index.
+- Delete the index
+- Reset the index repair state.
+- Start a new index repair job.
+- Enable or disable index repair jobs.
 
-#### Issue インデックスの修復
+A progress bar shows the current status of a repair job across background workers. The bar is the percentage difference of the repair offset with the highest record ID in the database. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.location.product_location %} even though those repositories are actually indexed.
 
-これは [Issues][] インデックスがどのように修復されるかを制御します。 次のことができます:
+To minimize the effects on I/O performance and reduce the chances of operations timing out, run the repair job during off-peak hours. As the job reconciles the search index with database and Git repository data, one CPU will be used. Monitor your system's load averages and CPU usage with a utility like `top`. If you don't notice any significant increase in resource consumption, it should also be safe to run an index repair job during peak hours.
 
-- インデックスの修理ジョブを有効または無効にする
-- 新規インデックス修理ジョブを開始する
-- インデックス修理状態を全てリセットする
+Repair jobs use a "repair offset" for parallelization. This is an offset into the database table for the record being reconciled. Multiple background jobs can synchronize work based on this offset.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+### Code search
 
-### 全ユーザ
-
-ここでは、{{ site.data.variables.product.product_location_enterprise }} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+This allows you to enable or disable both search and index operations on source code.
 
 {% endif %}
+## Reserved logins
 
-### リポジトリ
+Certain words are reserved for internal use in {% data variables.location.product_location %}, which means that these words cannot be used as usernames.
 
-これは {% data variables.product.product_location %} 上のリポジトリのリストです。 リポジトリ名をクリックしてリポジトリを管理するための機能にアクセスできます。
+For example, the following words are reserved, among others:
 
-- [リポジトリへのフォースプッシュをブロックする](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
-- [{% data variables.large_files.product_name_long %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
-- [リポジトリのアーカイブへの保管と削除](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
+- `admin`
+- `enterprise`
+- `login`
+- `staff`
+- `support`
 
-### 全ユーザ
+For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
 
-ここでは、{% data variables.product.product_location %} 上のすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+{% ifversion ghas-committers-calculator %}
+## {% data variables.product.prodname_advanced_security %} Committers
 
-### サイトアドミン
+You can see the number of active committers that are currently using seats for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many additional seats would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.
 
-ここでは、{% data variables.product.product_location %} 上のすべての管理者を確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+Under "Current active committer count", you can see the number of active committers for repositories with {% data variables.product.prodname_GH_advanced_security %} enabled. This is the number of licensed seats that are currently being used.
 
-### 休眠ユーザ
+Under "Maximum committers across entire instance", you can see the number of active committers across all the repositories in your enterprise. This is the number of seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for every repository in your enterprise.
 
-ここでは、{% data variables.product.product_location %} 上のすべての非アクティブなユーザーを確認して、[一時停止](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)することができます。 ユーザアカウントは、次の場合において、非アクティブ（休眠）とみなされます。
+Under "Calculate Additional Advanced Committers", you can calculate how many more additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. 
 
-- {% data variables.product.product_location %} 用に設定されている休眠しきい値よりも長く存在している。
-- その期間内にどのアクティビティも生成していない。
-- サイト管理人ではない
+```
+example-org
+octo-org/octo-repo
+```
 
-{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} 詳細は「[休眠ユーザを管理する](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)」を参照してください。
+The result is the number of additional seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for those organizations and repositories.
 
-### 停止されたユーザ
+For more information about billing for {% data variables.product.prodname_advanced_security %}, see "[About billing for {% data variables.product.prodname_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+{% endif %}
 
-ここでは、{% data variables.product.product_location %} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+## Enterprise overview
 
-  [ 流行ページ]: https://github.com/blog/1585-explore-what-is-trending-on-github
+Refer to this section of the site admin dashboard to manage organizations, people, policies, and settings.
 
-  [コード検索]: https://github.com/blog/1381-a-whole-new-code-search
-  [Elasticsearch]: http://www.elasticsearch.org/
+## Repositories
 
-  [Issues]: https://github.com/blog/831-issues-2-0-the-next-generation
+This is a list of the repositories on {% data variables.location.product_location %}. You can click on a repository name and access functions for administering the repository.
+
+- [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
+- [Configuring {% data variables.large_files.product_name_long %}](/enterprise/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
+- [Archiving and unarchiving repositories](/enterprise/admin/guides/user-management/archiving-and-unarchiving-repositories/)
+
+## All users
+
+Here you can see all of the users on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+
+## Site admins
+
+Here you can see all of the administrators on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+
+## Dormant users
+{% ifversion ghes %}
+Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
+{% endif %}
+{% ifversion ghae %}
+Here you can see and suspend all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
+{% endif %}
+
+- Has existed for longer than the dormancy threshold that's set for {% data variables.location.product_location %}.
+- Has not generated any activity within that time period.
+- Is not a site administrator.
+
+{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} For more information, see "[Managing dormant users](/enterprise/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
+
+## Suspended users
+
+Here you can see all of the users who have been suspended on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).

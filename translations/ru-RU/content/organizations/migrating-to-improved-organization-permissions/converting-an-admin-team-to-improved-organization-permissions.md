@@ -1,32 +1,39 @@
 ---
-title: Converting an admin team to improved organization permissions
-intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. Members of legacy admin teams automatically retain the ability to create repositories until those teams are migrated to the improved organization permissions model.'
+title: Преобразование команды администраторов в улучшенные разрешения организации
+intro: 'Если ваша организация была создана позднее, чем в сентябре 2015 года, по умолчанию у нее есть улучшенные разрешения организации. Организациям, созданным до сентября 2015 года, может потребоваться перенести прежние команды "Владельцы" и "Администраторы" в улучшенную модель разрешений. Участники прежних команд администраторов автоматически сохраняют возможность создавать репозитории до тех пор, пока эти команды не будут перенесены в улучшенную модель разрешений организации.'
 redirect_from:
-  - /articles/converting-your-previous-admin-team-to-the-improved-organization-permissions/
+  - /articles/converting-your-previous-admin-team-to-the-improved-organization-permissions
   - /articles/converting-an-admin-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-admin-team-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Convert admin team
+ms.openlocfilehash: 183ccd5d1252265ed6ac94924703ceb75ed8adad
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145125600'
 ---
+Вы можете лишить участников устаревших команд администраторов возможности создавать репозитории, создав новую команду для этих участников, обеспечив необходимый доступ команды к репозиториям организации, а затем удалив прежнюю команду администраторов.
 
-You can remove the ability for members of legacy admin teams to create repositories by creating a new team for these members, ensuring that the team has necessary access to the organization's repositories, then deleting the legacy admin team.
-
-For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization/)."
+Дополнительные сведения см. в разделе [Роли репозитория для организации](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization).
 
 {% warning %}
 
-**Warnings:**
-- If there are members of your legacy Admin team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
-- To prevent the loss of private forks made by members of the legacy Admin team, you must follow steps 1-3 below before deleting the legacy Admin team.
-- Because "admin" is a term for organization members with specific [access to certain repositories](/articles/repository-permission-levels-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
+**Предупреждения.**
+- Если в вашей прежней команде администраторов нет участников других команд, удаление команды приведет к удалению этих участников из организации. Перед удалением команды убедитесь, что участники уже являются непосредственными участниками организации или имеют доступ к необходимым репозиториям.
+- Чтобы предотвратить потерю закрытых вилок, созданных членами прежней команды администрирования, необходимо выполнить шаги 1–3 ниже, прежде чем удалить прежнюю команду администрирования.
+- Так как "admin" — это термин, которым обозначают участников организации с определенными правами [доступа к конкретным репозиториям](/articles/repository-permission-levels-for-an-organization) в организации, мы рекомендуем избегать использования этого термина в любом выбранном вами имени группы.
 
 {% endwarning %}
 
-1. [Create a new team](/articles/creating-a-team).
-2. [Add each of the members](/articles/adding-organization-members-to-a-team) of your legacy admin team to the new team.
-3. [Give the new team equivalent access](/articles/managing-team-access-to-an-organization-repository) to each of the repositories the legacy team could access.
-4. [Delete the legacy admin team](/articles/deleting-a-team).
+1. [Создайте команду](/articles/creating-a-team).
+2. [Добавьте каждого из участников](/articles/adding-organization-members-to-a-team) прежней команды администрирования в новую команду.
+3. [Предоставьте новой команде равноценный доступ](/articles/managing-team-access-to-an-organization-repository) к каждому из репозиториев, доступ к которой был у прежней команды.
+4. [Удалите прежнюю группу администраторов](/articles/deleting-a-team).

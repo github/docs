@@ -1,7 +1,15 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+---
+ms.openlocfilehash: 96d8c710c36e57c753d2fd4d45613f0e4152292f
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145114448"
+---
+{% ifversion ghes %}
 
-#### Using self-hosted runners on {% data variables.product.prodname_ghe_server %}
+### Использование локальных средств выполнения тестов для {% data variables.product.prodname_ghe_server %}
 
-When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.prodname_ghe_server %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see "[Setting up the tool cache on self-hosted runners without internet access](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
+При использовании действий установки (таких как `actions/setup-LANGUAGE`) в {% data variables.product.prodname_ghe_server %} с использованием локальных средств выполнения тестов может потребоваться настроить в них кэш инструментов, у которых отсутствует доступ к Интернету. Дополнительные сведения см. в разделе [Настройка кэша инструментов для локально размещенных средств выполнения без доступа к Интернету](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access).
 
 {% endif %}

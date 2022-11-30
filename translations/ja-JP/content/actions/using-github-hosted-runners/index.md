@@ -1,19 +1,23 @@
 ---
-title: Using GitHub-hosted runners
-intro: You can use GitHub's runners to execute your GitHub Actions workflows.
+title: GitHub ホステッド ランナーの使用
+intro: GitHub のランナーを使用して、GitHub Actions ワークフローを実行できます。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 children:
   - /about-github-hosted-runners
+  - /using-larger-runners
+  - /controlling-access-to-larger-runners
+  - /monitoring-your-current-jobs
   - /customizing-github-hosted-runners
-  - /about-ae-hosted-runners
-  - /adding-ae-hosted-runners
-  - /using-ae-hosted-runners-in-a-workflow
-  - /using-labels-with-ae-hosted-runners
-  - /using-groups-to-manage-access-to-ae-hosted-runners
-  - /creating-custom-images
+  - /connecting-to-a-private-network
+shortTitle: Use GitHub-hosted runners
+ms.openlocfilehash: 23875a8bb301d0246b33903312782ed3d76cc371
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147763685'
 ---
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -6,9 +6,10 @@ redirect_from:
   - /v3/guides/basics-of-authentication
   - /rest/basics-of-authentication
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -24,7 +25,7 @@ You can download the complete source code for this project [from the platform-sa
 
 {% endtip %}
 
-### Registering your app
+## Registering your app
 
 First, you'll need to [register your application][new oauth app]. Every
 registered OAuth application is assigned a unique Client ID and Client Secret.
@@ -37,9 +38,9 @@ up your application. It's the callback URL that {% data variables.product.produc
 successful authentication.
 
 Since we're running a regular Sinatra server, the location of the local instance
-is set to `http://localhost:4567`. Let's fill in the callback URL as `http://localhost:4567/callback`.
+is set to `http://127.0.0.1:4567`. Let's fill in the callback URL as `http://127.0.0.1:4567/callback`.
 
-### Accepting user authorization
+## Accepting user authorization
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -59,7 +60,7 @@ end
 ```
 
 Your client ID and client secret keys come from [your application's configuration
-page][app settings].{% if currentVersion == "free-pro-team@latest" %} You should **never, _ever_** store these values in
+page][app settings].{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
 {% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
@@ -75,7 +76,7 @@ Next, in _views/index.erb_, paste this content:
     </p>
     <p>
       We're going to now talk to the GitHub API. Ready?
-      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!</a>
+      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!
     </p>
     <p>
       If that link doesn't work, remember to provide your own <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">Client ID</a>!
@@ -90,7 +91,7 @@ Also, notice that the URL uses the `scope` query parameter to define the
 [scopes][oauth scopes] requested by the application. For our application, we're
 requesting `user:email` scope for reading private email addresses.
 
-Navigate your browser to `http://localhost:4567`. After clicking on the link, you
+Navigate your browser to `http://127.0.0.1:4567`. After clicking on the link, you
 should be taken to {% data variables.product.product_name %}, and presented with a dialog that looks something like this:
 ![GitHub's OAuth Prompt](/assets/images/oauth_prompt.png)
 
@@ -101,7 +102,7 @@ Well, remember when we specified a Callback URL to be `callback`? We didn't prov
 a route for it, so {% data variables.product.product_name %} doesn't know where to drop the user after they authorize
 the app. Let's fix that now!
 
-#### Providing a callback
+### Providing a callback
 
 In _server.rb_, add a route to specify what the callback should do:
 
@@ -128,7 +129,7 @@ To simplify our GET and POST HTTP requests, we're using the [rest-client][REST C
 Note that you'll probably never access the API through REST. For a more serious
 application, you should probably use [a library written in the language of your choice][libraries].
 
-#### Checking granted scopes
+### Checking granted scopes
 
 Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
 
@@ -166,12 +167,12 @@ or `401` status, or return a different subset of information.
 To help you gracefully handle these situations, all API responses for requests
 made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
 This header contains the list of scopes of the token that was used to make the
-request. In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+request. In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes or ghec %}
 [check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}.
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 
-#### Making authenticated requests
+### Making authenticated requests
 
 At last, with this access token, you'll be able to make authenticated requests as
 the logged in user:
@@ -210,11 +211,11 @@ We can do whatever we want with our results. In this case, we'll just dump them 
 </p>
 ```
 
-### Implementing "persistent" authentication
+## Implementing "persistent" authentication
 
 It'd be a pretty bad model if we required users to log into the app every single
 time they needed to access the web page. For example, try navigating directly to
-`http://localhost:4567/basic`. You'll get an error.
+`http://127.0.0.1:4567/basic`. You'll get an error.
 
 What if we could circumvent the entire
 "click here" process, and just _remember_ that, as long as the user's logged into
@@ -313,7 +314,7 @@ end
 ```
 
 Much of the code should look familiar. For example, we're still using `RestClient.get`
-to call out to the {% data variables.product.product_name %} API, and we're still passing our results to be rendered
+to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered
 in an ERB template (this time, it's called `advanced.erb`).
 
 Also, we now have the `authenticated?` method which checks if the user is already
@@ -347,7 +348,7 @@ Next, create a file in _views_ called _advanced.erb_, and paste this markup into
 
 From the command line, call `ruby advanced_server.rb`, which starts up your
 server on port `4567` -- the same port we used when we had a simple Sinatra app.
-When you navigate to `http://localhost:4567`, the app calls `authenticate!`
+When you navigate to `http://127.0.0.1:4567`, the app calls `authenticate!`
 which redirects you to `/callback`. `/callback` then sends us back to `/`,
 and since we've been authenticated, renders _advanced.erb_.
 

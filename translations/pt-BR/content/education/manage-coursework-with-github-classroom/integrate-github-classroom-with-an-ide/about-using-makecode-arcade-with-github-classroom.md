@@ -1,31 +1,31 @@
 ---
-title: Sobre o uso de MakeCode Arcade com GitHub Classroom
-shortTitle: Sobre o uso do Arcade MakeCode
-intro: 'Você pode configurar o MakeCode Arcade como o IDE online para atribuições em {% data variables.product.prodname_classroom %}.'
+title: About using MakeCode Arcade with GitHub Classroom
+shortTitle: About using MakeCode Arcade
+intro: 'You can configure MakeCode Arcade as the online IDE for assignments in {% data variables.product.prodname_classroom %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-makecode
   - /education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom
 ---
-### Sobre o MakeCode Arcade
+## About MakeCode Arcade
 
-O MakeCode Arcade é um ambiente de desenvolvimento integrado on-line (IDE) para o desenvolvimento de jogos retrô arcade que usa a programação de blocos de arrastar e soltar e JavaScript. Os alunos podem escrever, editar, executar, testar e depurar códigos em um navegador com o MakeCode Arcade. Para obter mais informações sobre IDEs on-line e {% data variables.product.prodname_classroom %}, consulte "[Integrar {% data variables.product.prodname_classroom %} com um IDE on-line](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)."
+MakeCode Arcade is an online integrated development environment (IDE) for developing retro arcade games using drag-and-drop block programming and JavaScript. Students can write, edit, run, test, and debug code in a browser with MakeCode Arcade. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
 {% data reusables.classroom.readme-contains-button-for-online-ide %}
 
-A primeira vez que o aluno clica no botão para acessar o MakeCode Arcade, o aluno deve entrar no MakeCode Arcade com as credenciais de {% data variables.product.product_name %}. Após efetuar o login, o aluno terá acesso a um ambiente de desenvolvimento que contém o código do repositório de tarefas, totalmente configurado no MakeCode Arcade.
+The first time the student clicks the button to visit MakeCode Arcade, the student must sign into MakeCode Arcade with {% data variables.product.product_name %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on MakeCode Arcade.
 
-Para obter mais informações sobre o trabalho no MakeCode Arcade, consulte a [Tour no MakeCode Arcade Tour](https://arcade.makecode.com/ide-tour) e [documentação](https://arcade.makecode.com/docs) no site do MakeCode Arcade.
+For more information about working on MakeCode Arcade, see the [MakeCode Arcade Tour](https://arcade.makecode.com/ide-tour) and [documentation](https://arcade.makecode.com/docs) on the MakeCode Arcade website.
 
-O MakeCode Arcade não é compatível com a edição de multijogador para atividades em grupo. Em vez disso, os alunos podem colaborar com os recursos do Git e de {% data variables.product.product_name %} como branches e pull requests.
+MakeCode Arcade does not support multiplayer-editing for group assignments. Instead, students can collaborate with Git and {% data variables.product.product_name %} features like branches and pull requests.
 
-### Sobre o envio das atividades com o MakeCode Arcade
+## About submission of assignments with MakeCode Arcade
 
-Por padrão, o MakeCode Arcade está configurado para realizar push no repositório de atividade em {% data variables.product.product_location %}. Após fazer progresso em uma atividade com MakeCode Arcade, os alunos devem fazer push das alterações para {% data variables.product.product_location %} usando o botão {% octicon "mark-github" aria-label="The GitHub mark" %}{% octicon "arrow-up" aria-label="The up arrow icon" %} na parte inferior da tela.
+By default, MakeCode Arcade is configured to push to the assignment repository on {% data variables.location.product_location %}. After making progress on an assignment with MakeCode Arcade, students should push changes to {% data variables.location.product_location %} using the {% octicon "mark-github" aria-label="The GitHub mark" %}{% octicon "arrow-up" aria-label="The up arrow icon" %} button at the bottom of the screen.
 
-![Funcionalidade de controle de versão MakeCode Arcade](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
+![MakeCode Arcade version control functionality](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
 
-### Leia mais
+## Further reading
 
-- "[Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"

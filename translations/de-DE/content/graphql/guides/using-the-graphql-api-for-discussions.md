@@ -1,23 +1,27 @@
 ---
-title: Using the GraphQL API for Discussions
-intro: Learn how to use the GitHub Discussions GraphQL API.
+title: Verwenden der GraphQL-API für Diskussionen
+intro: 'Erfahre, wie du die {% data variables.product.prodname_discussions %} GraphQL-API verwendest.'
 versions:
-  free-pro-team: '*'
+  feature: discussions
+shortTitle: Use GraphQL for Discussions
+ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408843'
 ---
+Die {% data variables.product.prodname_discussions %} GraphQL API ermöglicht es dir, Diskussionsbeiträge zu erhalten, zu erstellen, zu bearbeiten und zu löschen. Weitere Informationen zu {% data variables.product.prodname_discussions %} findest du unter [Informationen zu Diskussionen](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
-The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see "[‎About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+Diese API ist für authentifizierte Benutzer, OAuth Apps und GitHub Apps verfügbar. Zugriffstoken erfordern den `repo` Bereich für private Repositorys und den `public_repo` Bereich für öffentliche Repositorys. Weitere Informationen findest du unter "[Bereiche für OAuth-Apps](/developers/apps/scopes-for-oauth-apps)."
 
-This API is available for authenticated users, OAuth Apps, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[Scopes for OAuth apps](/developers/apps/scopes-for-oauth-apps)."
-
-To use this API, you must include `GraphQL-Features: discussions_api` in the `HTTP` header.
-
-## Fields
+## Felder
 
 ### Repository.discussions
 
-List the discussions within a repository. If `categoryId` is specified, only results within that category will be returned.
+Liste die Diskussionen innerhalb eines Repositorys auf. Wenn `categoryId` angegeben ist, werden nur Ergebnisse innerhalb dieser Kategorie zurückgegeben.
 
-_Signature:_
+_Unterschrift:_
 
 ```graphql
 discussions(
@@ -68,9 +72,9 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 10 categories. For more information about discussion categories, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Gib die verfügbaren Diskussionskategorien zurück, die in diesem Repository definiert sind. Jedes Repository kann bis zu 10 Kategorien aufweisen. Weitere Informationen zu Diskussionskategorien findest du unter "[Informationen zu Diskussionen](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
 
-_Signature:_
+_Unterschrift:_
 
 ```graphql
 discussionCategories(
@@ -83,9 +87,9 @@ discussionCategories(
 
 ### Repository.discussion
 
-Get a discussion. Returns `null` if discussion with the specified ID does not exist.
+Abrufen einer Diskussion. Gibt `null` zurück, wenn die Diskussion mit der angegebenen ID nicht vorhanden ist.
 
-_Signature:_
+_Unterschrift:_
 
 ```graphql
 discussion(number: Int!) : Discussion
@@ -93,9 +97,9 @@ discussion(number: Int!) : Discussion
 
 ### Repository.pinnedDiscussions
 
-Return discussions pinned to this repository, ordered by pin position.
+Zurückgeben von Diskussionen, die an dieses Repository angeheftet wurden, sortiert nach Pinposition.
 
-_Signature:_
+_Unterschrift:_
 
 ```graphql
 pinnedDiscussions(
@@ -106,9 +110,9 @@ pinnedDiscussions(
 ) : PinnedDiscussionConnection!
 ```
 
-## Objects
+## Objekte
 
-**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#connection)."
+**Hinweis:** Verbindungstypen werden hier nicht erweitert. Jeder im Schema erwähnte Verbindungstyp folgt demselben Muster wie andere Verbindungen in der GraphQL-API. Weitere Informationen findest du unter [Einführung in GraphQL](/graphql/guides/introduction-to-graphql#connection).
 
 ```graphql
 query {
@@ -143,10 +147,10 @@ query {
 }
 ```
 
-### Discussion
+### Diskussion
 
 <details>
-<summary>Fields:</summary>
+<summary>Felder:</summary>
 
 ```graphql
 """
@@ -401,7 +405,7 @@ type Discussion implements Comment & Deletable & Lockable & Node & Reactable & R
 ### DiscussionComment
 
 <details>
-<summary>Fields</summary>
+<summary>Felder</summary>
 
 ```graphql
 """
@@ -651,7 +655,7 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
 ### DiscussionCategory
 
 <details>
-<summary>Fields</summary>
+<summary>Felder</summary>
 
 ```graphql
 """
@@ -706,7 +710,7 @@ type DiscussionCategory implements Node & RepositoryNode {
 ### PinnedDiscussion
 
 <details>
-<summary>Fields:</summary>
+<summary>Felder:</summary>
 
 ```graphql
 """
@@ -766,7 +770,7 @@ type PinnedDiscussion implements Node & RepositoryNode {
 #### PinnedDiscussionPattern
 
 <details>
-<summary>Values</summary>
+<summary>Werte</summary>
 
 ```graphql
 """
@@ -810,7 +814,7 @@ enum PinnedDiscussionPattern {
 #### PinnedDiscussionGradient
 
 <details>
-<summary>Values</summary>
+<summary>Werte</summary>
 
 ```graphql
 """
@@ -846,14 +850,14 @@ enum PinnedDiscussionGradient {
 
 </details>
 
-## Interfaces
+## Schnittstellen
 
 ### RepositoryDiscussionAuthor
 
-Implemented by the `User` and `Organization` types. **Note:** An `Organization` will only have discussions associated with it if it was converted from a `User`.
+Implementiert durch die `User` und `Organization` Typen. **Hinweis:** Ein `Organization` wird nur dann mit Diskussionen verbunden, wenn es aus einem `User` konvertiert wurde.
 
 <details>
-<summary>Fields</summary>
+<summary>Felder</summary>
 
 ```graphql
 """
@@ -907,10 +911,10 @@ interface RepositoryDiscussionAuthor {
 
 ### RepositoryDiscussionCommentAuthor
 
-Also implemented by the `User` and `Organization` types.
+Außerdem implementiert durch die `User` und `Organization` Typen.
 
 <details>
-<summary>Fields</summary>
+<summary>Felder</summary>
 
 ```graphql
 """
@@ -956,11 +960,11 @@ interface RepositoryDiscussionCommentAuthor {
 
 </details>
 
-## Mutations
+## Mutationen
 
-These mutations follow the same implementation pattern that other mutations in the GraphQL API. Each mutation accepts a single argument of an `Input` type, named after the mutation, and returns a `Payload` type containing the fields specified.
+Diese Mutationen folgen demselben Implementierungsmuster wie andere Mutationen in der GraphQL-API. Jede Mutation akzeptiert ein einzelnes Argument eines `Input` Typs, der nach der Mutation benannt ist, und gibt einen `Payload` Typ zurück, der die angegebenen Felder enthält.
 
-For example, this is a basic `createDiscussion` mutation that will create a new discussion:
+Dies ist beispielsweise eine grundlegende `createDiscussion` Mutation, die eine neue Diskussion schafft:
 
 ```graphql
 mutation {
@@ -977,108 +981,108 @@ mutation {
 
 ### createDiscussion
 
-Input fields:
+Eingabefelder:
 
-* `body: String!` The body of the new discussion.
-* `title: String!` The title of the new discussion.
-* `repositoryId: ID!` The ID of a repository in which to create the discussion.
-* `categoryId: ID!` The ID of a `DiscussionCategory` within this repository.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` Der Textkörper der neuen Diskussion.
+* `title: String!` Der Titel der neuen Diskussion.
+* `repositoryId: ID!` Die ID eines Repositorys, in dem die Diskussion erstellt werden soll.
+* `categoryId: ID!` Die ID eines `DiscussionCategory` innerhalb dieses Repositorys.
+* `clientMutationId: String` Ein eindeutiger Bezeichner für den Client, der die Mutation ausführt.
 
-Return type fields:
+Rückgabetypfelder:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was created.
+* `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
+* `discussion: Discussion` Die Diskussion, die erstellt wurde.
 
 ### updateDiscussion
 
-Input fields:
+Eingabefelder:
 
-* `discussionId: ID!` The node ID of the discussion to update.
-* `body: String` The new contents of the discussion body.
-* `title: String` The new discussion title.
-* `categoryId: ID` The node ID of a `DiscussionCategory` within the same repository to change this discussion to.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `discussionId: ID!` Die Knoten-ID der zu aktualisierenden Diskussion.
+* `body: String` Der neue Inhalt des Diskussionstexts.
+* `title: String` Der neue Diskussionstitel.
+* `categoryId: ID` Die Knoten-ID eines `DiscussionCategory` innerhalb desselben Repositorys, um diese Diskussion zu ändern.
+* `clientMutationId: String` Ein eindeutiger Bezeichner für den Client, der die Mutation ausführt.
 
-Return type fields:
+Rückgabetypfelder:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was modified.
+* `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
+* `discussion: Discussion` Die Diskussion, die geändert wurde.
 
 ### deleteDiscussion
-Input fields:
+Eingabefelder:
 
-* `id: ID!` The node ID of the discussion to delete.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` Die Knoten-ID der zu löschenden Diskussion.
+* `clientMutationId: String` Ein eindeutiger Bezeichner für den Client, der die Mutation ausführt.
 
-Return type fields:
+Rückgabetypfelder:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was deleted.
+* `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
+* `discussion: Discussion` Die Diskussion, die gelöscht wurde.
 
 ### addDiscussionComment
 
-Input fields:
+Eingabefelder:
 
-* `body: String!` The contents of the comment.
-* `discussionId: ID!` The node ID of the discussion to comment on.
-* `replyToId: ID` The node ID of the discussion comment to reply to. If absent, the created comment will be a top-level comment.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` Der Inhalt des Kommentars.
+* `discussionId: ID!` Die Knoten-ID der Diskussion, um zu kommentieren.
+* `replyToId: ID` Die Knoten-ID des Diskussionskommentars, um darauf zu antworten. Falls nicht vorhanden, ist der erstellte Kommentar ein Kommentar auf oberster Ebene.
+* `clientMutationId: String` Ein eindeutiger Bezeichner für den Client, der die Mutation ausführt.
 
-Return type fields:
+Rückgabetypfelder:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was created.
+* `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
+* `comment: DiscussionComment` Der Diskussionskommentar, der erstellt wurde.
 
 ### updateDiscussionComment
 
-Input fields:
+Eingabefelder:
 
-* `body: String!` The new contents of the comment body.
-* `commentId: ID!` The node ID of the discussion comment to update.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` Der neue Inhalt des Kommentartexts.
+* `commentId: ID!` Die Knoten-ID des Diskussionskommentars, der aktualisiert werden soll.
+* `clientMutationId: String` Ein eindeutiger Bezeichner für den Client, der die Mutation ausführt.
 
-Return type fields:
+Rückgabetypfelder:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was updated.
+* `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
+* `comment: DiscussionComment` Der Diskussionskommentar, der aktualisiert wurde.
 
 ### deleteDiscussionComment
 
-Input fields:
+Eingabefelder:
 
-* `id: ID!` The node ID of the discussion comment to delete.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` Die Knoten-ID des zu löschenden Diskussionskommentars.
+* `clientMutationId: String` Ein eindeutiger Bezeichner für den Client, der die Mutation ausführt.
 
-Return type fields:
+Rückgabetypfelder:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was deleted.
+* `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
+* `comment: DiscussionComment` Der Diskussionskommentar, der gelöscht wurde.
 
 ### markDiscussionCommentAsAnswer
 
-Input fields:
+Eingabefelder:
 
-* `id: ID!` The node ID of the discussion comment to mark as an answer.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` Die Knoten-ID des Diskussionskommentars, der als Antwort markiert werden soll.
+* `clientMutationId: String` Ein eindeutiger Bezeichner für den Client, der die Mutation ausführt.
 
-Return type fields:
+Rückgabetypfelder:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that includes the chosen comment.
+* `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
+* `discussion: Discussion` Die Diskussion, die den ausgewählten Kommentar enthält.
 
 ### unmarkDiscussionCommentAsAnswer
 
-Input fields:
+Eingabefelder:
 
-* `id: ID!` The node ID of the discussion comment to unmark as an answer.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` Die Knoten-ID des Diskussionskommentars, um als Antwort zu deaktivieren.
+* `clientMutationId: String` Ein eindeutiger Bezeichner für den Client, der die Mutation ausführt.
 
-Return type fields:
+Rückgabetypfelder:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that includes the unmarked comment.
+* `clientMutationId: String` Der eindeutige Bezeichner, der als Eingabe bereitgestellt wird.
+* `discussion: Discussion` Die Diskussion, die den unmarkierten Kommentar enthält.
 
-## Suche
+## Suchen,
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+Die Diskussion kann von der obersten Ebene `search` Feld zurückgegeben werden. Um nach Diskussionen zu suchen, gibst du `type` als `DISCUSSION` an. Der `SearchResultItemConnection` Typ hat ein `discussionCount` Feld, um die Anzahl der zurückgegebenen Diskussionen zu melden, und der `Discussion` Typ wird der `SearchResultItem` Union hinzugefügt. Weitere Informationen findest du unter "[Abfragen](/graphql/reference/queries#searchresultitemconnection)" und "[Diskussionen durchsuchen](/search-github/searching-on-github/searching-discussions)."

@@ -1,30 +1,23 @@
 ---
-title: Endpoints available for GitHub Apps
-intro: Your app can make requests to the following REST endpoints.
+title: 'Конечные точки, доступные для приложений GitHub'
+intro: Ваше приложение может выполнять запросы к следующим конечным точкам REST.
+permissions: 'You must use an installation access token to access endpoints using your {% data variables.product.prodname_github_app %}. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."'
 redirect_from:
   - /v3/apps/available-endpoints
   - /rest/reference/endpoints-available-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: GitHub App-enabled endpoints
+ms.openlocfilehash: d8bb53e1844b8171a1ce742fc38e4c4bb29013e7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109520'
 ---
-
-You must use an installation access token to access endpoints using your {% data variables.product.prodname_github_app %}. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
-
-{% for thing in rest.operationsEnabledForApps[currentVersion] %}
-{% assign category = thing[0] %}
-{% assign operations = thing[1] %}
-{% if operations.size > 0 %}
-  <h3 id="{{category}}">
-    <a href="#{{category}}">{{ category }}</a>
-  </h3>  
-  <ul>
-  {% for operation in operations %}
-  <li><a href="/{{currentLanguage}}/rest/reference/{{operation.category}}#{{operation.slug}}"><code><span style="text-transform: uppercase">{{operation.verb}}</span> {{operation.requestPath}}</code></a></li>
-  {% endfor %}
-  </ul>
-{% endif %}
-{% endfor %}
+<!-- The content of this page is rendered as a NextJS page component. -->

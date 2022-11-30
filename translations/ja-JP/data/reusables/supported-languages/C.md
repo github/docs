@@ -1,1 +1,9 @@
-| C |{% if currentVersion == "free-pro-team@latest" %}| {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif currentVersion ver_gt "enterprise-server@2.21" %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif currentVersion == "github-ae@latest" %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %}| |{% endif %}
+---
+ms.openlocfilehash: 1171bfde25f2b42d8f1f63cc94c806ccbf1d4ef7
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109307"
+---
+| C {% ifversion fpt or ghec %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghes %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% elsif ghae %}| {% octicon "check" aria-label="The check icon" %} | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} |{% endif %}

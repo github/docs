@@ -1,9 +1,9 @@
 ---
-title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
+title: Sichern und Wiederherstellen von GitHub Enterprise Server mit aktivierten GitHub Actions
 shortTitle: Backing up and restoring
-intro: '{% data variables.product.prodname_actions %} data on your external storage provider is not included in regular {% data variables.product.prodname_ghe_server %} backups, and must be backed up separately.'
+intro: 'Um eine Sicherung von {% data variables.location.product_location %} wiederherzustellen, wenn {% data variables.product.prodname_actions %} aktiviert ist, musst du {% data variables.product.prodname_actions %} konfigurieren, bevor du die Sicherung mit {% data variables.product.prodname_enterprise_backup_utilities %} wiederherstellst.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions
@@ -12,18 +12,37 @@ topics:
   - Infrastructure
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+ms.openlocfilehash: 43279c6b99cce6618de9253c5d0451c0a661b095
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107309'
 ---
-{% data reusables.actions.enterprise-storage-ha-backups %}
+## Informationen zu Sicherungen von {% data variables.product.product_name %} bei Verwendung von {% data variables.product.prodname_actions %}
 
-If you use {% data variables.product.prodname_enterprise_backup_utilities %} to back up {% data variables.product.product_location %}, it's important to note that {% data variables.product.prodname_actions %} data stored on your external storage provider is not included in the backup.
+Du kannst {% data variables.product.prodname_enterprise_backup_utilities %} verwenden, um die Daten und die Konfiguration für {% data variables.location.product_location %} in einer neuen Instanz zu sichern und wiederherzustellen. Weitere Informationen findest du unter [Konfigurieren von Sicherungen auf deiner Appliance](/admin/configuration/configuring-backups-on-your-appliance).
 
-This is an overview of the steps required to restore {% data variables.product.product_location %} with {% data variables.product.prodname_actions %} to a new appliance:
+Allerdings sind nicht alle Daten für {% data variables.product.prodname_actions %} in diesen Sicherungen enthalten. {% data reusables.actions.enterprise-storage-ha-backups %}
 
-1. Confirm that the original appliance is offline.
-1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} appliance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`.
-1. Configure the replacement appliance to use the same {% data variables.product.prodname_actions %} external storage configuration as the original appliance.
-1. Enable {% data variables.product.prodname_actions %} on the replacement appliance. This will connect the replacement appliance to the same  external storage for {% data variables.product.prodname_actions %}.
-1. After {% data variables.product.prodname_actions %} is configured with the external storage provider, use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
-1. Re-register your self-hosted runners on the replacement appliance. For more information, see [Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners).
+## Wiederherstellen einer Sicherung von {% data variables.product.product_name %}, wenn {% data variables.product.prodname_actions %} aktiviert ist
 
-For more information on backing up and restoring {% data variables.product.prodname_ghe_server %}, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
+Um eine Sicherung von {% data variables.location.product_location %} mit {% data variables.product.prodname_actions %} wiederherzustellen, musst du die Netzwerkeinstellungen und den externen Speicher auf der Zielinstanz manuell konfigurieren, bevor du deine Sicherung aus {% data variables.product.prodname_enterprise_backup_utilities %} wiederherstellst. 
+
+1. Vergewissere dich, dass die Quellinstanz offline ist.
+1. Führe eine manuelle Konfiguration der Netzwerkeinstellungen auf der {% data variables.product.prodname_ghe_server %}-Ersatzinstanz durch. Netzwerkeinstellungen sind aus der Sicherungsmomentaufnahme ausgeschlossen und werden von `ghe-restore` nicht überschrieben. Weitere Informationen findest du unter [Konfigurieren von Netzwerkeinstellungen](/admin/configuration/configuring-network-settings).
+1. Stelle eine SSH-Verbindung mit der Zielinstanz her. Weitere Informationen findest du unter [Zugreifen auf die Verwaltungsshell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh).
+
+   ```shell{:copy}
+   $ ssh -p 122 admin@HOSTNAME
+   ```
+1. Konfiguriere die Zielinstanz so, dass sie denselben externen Speicherdienst für {% data variables.product.prodname_actions %} verwendet wie die Quellinstanz, indem du einen der folgenden Befehle eingibst.
+{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %} {% data reusables.actions.configure-storage-provider %}
+1. Um die Aktivierung von {% data variables.product.prodname_actions %} auf der Zielinstanz vorzubereiten, gibst du den folgenden Befehl ein.
+
+   ```shell{:copy}
+   ghe-config app.actions.enabled true
+   ```
+{% data reusables.actions.apply-configuration-and-enable %}
+1. Nachdem {% data variables.product.prodname_actions %} konfiguriert und aktiviert wurde, kannst du mit dem Befehl `ghe-restore` die übrigen Daten aus der Sicherung wiederherstellen. Weitere Informationen findest du unter [Wiederherstellen einer Sicherung](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup).
+1. Registriere deine selbstgehosteten Runner auf der Zielinstanz neu. Weitere Informationen findest du unter [Hinzufügen von selbstgehosteten Runnern](/actions/hosting-your-own-runners/adding-self-hosted-runners).

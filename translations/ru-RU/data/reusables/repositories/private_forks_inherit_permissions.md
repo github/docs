@@ -1,1 +1,9 @@
-Private forks inherit the permissions structure of the upstream or parent repository. For example, if the upstream repository is private and gives read/write access to a team, then the same team will have read/write access to any forks of the private upstream repository. This helps owners of private repositories maintain control over their code.
+---
+ms.openlocfilehash: 45674d15c03f99fb0dc936923880c2d000dfbb49
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881368"
+---
+Частные вилки наследуют структуру разрешений вышестоящего или родительского репозитория. Это помогает владельцам частных репозиториев контролировать свой код. Например, если вышестоящий репозиторий является частным и предоставляет доступ для чтения/записи команде, то у той же команды будет доступ для чтения/записи к любым вилкам частного вышестоящего репозитория. Частные вилки наследуют только разрешения команды (а не отдельные разрешения).

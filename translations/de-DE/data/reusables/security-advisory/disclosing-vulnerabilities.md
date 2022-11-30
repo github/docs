@@ -1,1 +1,9 @@
-Vulnerability disclosure is an area where collaboration between vulnerability reporters, such as security researchers, and project maintainers is very important. Both parties need to work together from the moment a potentially harmful security vulnerability is found, right until a vulnerability is disclosed to the world, ideally with a patch available. Typically, when someone lets a maintainer know privately about a security vulnerability, the maintainer develops a fix, validates it, and notifies the users of the project or package.
+---
+ms.openlocfilehash: c759dde3d7cef97722fb7c3a002714e08f0b8e45
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145133801"
+---
+Die Aufdeckung von Sicherheitsrisiken ist ein Bereich, in dem die Zusammenarbeit zwischen denjenigen, die Sicherheitsrisiken melden, z. B. Sicherheitsforscher, und den Projektbetreuern sehr wichtig ist. Beide Parteien müssen zusammenarbeiten, und zwar von dem Moment an, in dem eine potenziell gefährliche Sicherheitslücke gefunden wird, bis zu dem Zeitpunkt, an dem die Schwachstelle öffentlich gemacht wird, idealerweise mit einem entsprechenden Patch. Wenn ein Projektbetreuer privat über ein Sicherheitsrisiko informiert wird, entwickelt er in der Regel einen Fix, prüft ihn und benachrichtigt die Benutzer des Projekts oder Pakets.

@@ -1,39 +1,46 @@
 ---
-title: Informationen zum Dashboard Deiner Organisation
-intro: 'Als Organisationsmitglied kannst Du jederzeit das Dashboard Deiner Organisation aufrufen, um über die neuesten Aktivitäten auf dem Laufenden zu bleiben und Issues und Pull Requests zu beobachten, die Du in der Organisation bearbeitest oder verfolgst.'
+title: Informationen zum Dashboard Ihrer Organisation
+intro: 'Als Organisationsmitglied kannst du jederzeit das Dashboard Deiner Organisation aufrufen, um über die neuesten Aktivitäten auf dem Laufenden zu bleiben und Issues und Pull Requests zu beobachten, die du in der Organisation bearbeitest oder verfolgst.'
 redirect_from:
   - /articles/about-your-organization-dashboard
   - /github/setting-up-and-managing-organizations-and-teams/about-your-organization-dashboard
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Organization dashboard
+ms.openlocfilehash: c5f25d589e7b640fa411cd26f004961081c9d8e8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880774'
 ---
-
-### Auf das Dashboard Deiner Organisation zugreifen
+## Auf das Dashboard Deiner Organisation zugreifen
 
 {% data reusables.dashboard.access-org-dashboard %}
 
-### Neueste Aktivitäten finden
+## Neueste Aktivitäten finden
 
 Im Abschnitt „Recent activity" (Neueste Aktivitäten) Deines Newsfeed kannst Du schnell die zuletzt aktualisierten Issues und Pull Requests in Deiner Organisation finden und weiterverfolgen.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
-### Repositorys in Deiner Organisation finden
+## Repositorys in Deiner Organisation finden
 
 Über die linke Seitenleiste Deines Dashboards kannst Du auf die wichtigsten Repositorys Deines Unternehmens zugreifen, in denen Du aktiv bist.
 
 ![Liste der Repositorys, in denen Du in Deiner Organisation am aktivsten bist](/assets/images/help/dashboard/repositories-from-organization-dashboard.png)
 
-### Über Aktivitäten in der Organisation auf dem Laufenden bleiben
+## Über Aktivitäten in der Organisation auf dem Laufenden bleiben
 
 Im Bereich "Alle Aktivitäten" Deines Newsfeed kannst Du Aktualisierungen von anderen Teams und Repositorys in Deiner Organisation ansehen.
 
-Der Abschnitt "Alle Aktivitäten" zeigt alle aktuellen Aktivitäten in der Organisation, einschließlich Aktivitäten in Repositorys, die Du nicht abonniert hast, und von Personen, denen Du nicht folgst. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
+Der Abschnitt "Alle Aktivitäten" zeigt alle aktuellen Aktivitäten in der Organisation, einschließlich Aktivitäten in Repositorys, die Du nicht abonniert hast, und von Personen, denen Du nicht folgst. Weitere Informationen findest du unter „[Informationen zu Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" und „[Personen folgen](/articles/following-people)".
 
 Beispielsweise werden im Newsfeed der Organisation Aktualisierungen angezeigt, wenn jemand in der Organisation:
  - einen neuen Branch erstellt,
@@ -41,9 +48,9 @@ Beispielsweise werden im Newsfeed der Organisation Aktualisierungen angezeigt, w
  - einen Pull-Request-Review-Kommentar absendet,
  - ein Repository forkt,
  - eine Wiki-Seite erstellt,
- - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
- - Creates a public repository.{% endif %}
+ - Pusht Commits.{% ifversion fpt or ghes or ghec %}
+ - Ein öffentliches Repository erstellen{% endif %}
 
-### Weiterführende Informationen
+## Weitere Informationen
 
 - „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard)“

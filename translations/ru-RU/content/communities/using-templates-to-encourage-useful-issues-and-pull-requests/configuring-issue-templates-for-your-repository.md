@@ -1,82 +1,112 @@
 ---
-title: Configuring issue templates for your repository
-intro: You can customize the templates that are available for contributors to use when they open new issues in your repository.
+title: Настройка шаблонов проблем для репозитория
+intro: 'Вы можете настроить шаблоны, доступные участникам для использования при открытии новых проблем в репозитории.'
 redirect_from:
   - /github/building-a-strong-community/creating-issue-templates-for-your-repository
   - /articles/configuring-issue-templates-for-your-repository
   - /github/building-a-strong-community/configuring-issue-templates-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Configure
+ms.openlocfilehash: d415d95f8aeab1b053663437b6dbf6dd637e3039
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147431995'
 ---
-
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+## Создание шаблонов проблем
 
-### Creating issue templates
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. В разделе "Компоненты" под заголовком "Проблемы" щелкните **Настройка шаблонов**.
+![Кнопка запуска настройки шаблонов](/assets/images/help/repository/set-up-templates.png)
+4. В раскрывающемся меню добавления шаблона выберите тип шаблона, который хотите создать.
+![Раскрывающееся меню добавления шаблона](/assets/images/help/repository/add-template-drop-down-menu.png)
+5. Чтобы просмотреть или изменить шаблон перед его фиксацией в репозитории, нажмите кнопку **Просмотреть и изменить**.
+![Кнопка предварительного просмотра и изменения](/assets/images/help/repository/preview-and-edit-button.png)
+6. Чтобы изменить шаблон, щелкните {% octicon "pencil" aria-label="The edit icon" %} и внесите необходимые изменения в соответствующих полях.
+![Кнопка изменения шаблона проблемы](/assets/images/help/repository/issue-template-edit-button.png)
+7. Чтобы автоматически задать заголовок проблемы по умолчанию, назначьте проблему людям с доступом на чтение к репозиторию или примените метки к шаблону проблемы, введя эти сведения в разделе "Необязательные дополнительные сведения". Эти сведения также можно добавить в шаблон проблемы с помощью `title`, `labels` или `assignees` в формате титульного листа YAML.
+![Дополнительные сведения для шаблона проблемы](/assets/images/help/repository/additional-issue-template-info.png)
+8. Завершив редактирование и предварительный просмотр шаблона, нажмите кнопку **Предложить изменения** в правом верхнем углу страницы.
+![Кнопка "Предложить изменения"](/assets/images/help/repository/propose-changes-button.png)
+9. Введите сообщение фиксации, описывающее ваши изменения.
+![Поле сообщения фиксации шаблона проблемы](/assets/images/help/repository/issue-template-commit-message-field.png)
+10. Под полями сообщения фиксации укажите, где следует зафиксировать шаблон — непосредственно в ветви по умолчанию или создать новую ветвь и открыть запрос на вытягивание. Дополнительные сведения о запросах на вытягивание см. в разделе [Сведения о запросах на вытягивание](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+![Выбор фиксации шаблона проблемы в главной ветви или открытия запроса на вытягивание](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
+11. Щелкните **Зафиксировать изменения**. После объединения этих изменений в ветвь по умолчанию шаблон будет доступен участникам для использования при открытии новых проблем в репозитории.
+
+{% ifversion fpt or ghec %}
+
+## Создание форм проблем
+
+{% data reusables.community.issue-forms-beta %}
+
+С помощью форм проблем можно создавать шаблоны проблем с настраиваемыми полями веб-формы. Вы можете стимулировать участников включать конкретные структурированные сведения с помощью форм проблем в вашем репозитории. Формы проблем создаются в YAML с помощью схемы формы {% data variables.product.prodname_dotcom %}. Дополнительные сведения см. в разделе [Синтаксис схемы формы {% data variables.product.prodname_dotcom %}](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema). {% data reusables.actions.learn-more-about-yaml %}
+
+Чтобы использовать форму проблем в репозитории, необходимо создать новый файл и добавить его в папку `.github/ISSUE_TEMPLATE` в этом репозитории.
+
+Ниже приведен пример файла конфигурации формы проблем.
+
+{% data reusables.community.issue-forms-sample %}
+
+Ниже приведена преобразованная для просмотра версия формы проблем.
+  ![Форма проблем, преобразованная для просмотра](/assets/images/help/repository/sample-issue-form.png)
+
+1. Выберите репозиторий, в котором хотите создать форму проблем. Вы можете использовать существующий репозиторий, к которому у вас есть доступ для записи, или создать репозиторий. Дополнительные сведения о создании репозитория см. в разделе [Создание репозитория](/articles/creating-a-new-repository).
+2. В репозитории создайте файл с именем `.github/ISSUE_TEMPLATE/FORM-NAME.yml`, заменив `FORM-NAME` на имя вашей формы проблем. Дополнительные сведения о создании новых файлов в GitHub см. в разделе [Создание новых файлов](/github/managing-files-in-a-repository/creating-new-files).
+3. В тексте нового файла введите содержимое формы проблем. Дополнительные сведения см. в разделе [Синтаксис форм проблем](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms).
+4. Зафиксируйте этот файл в ветви по умолчанию вашего репозитория. Дополнительные сведения см. в статье "[Создание файлов](/github/managing-files-in-a-repository/creating-new-files)".
 
 {% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. In the "Features" section, under "Issues," click **Set up templates**. ![Start template setup button](/assets/images/help/repository/set-up-templates.png)
-4. Use the Add template drop-down menu, and click on the type of template you'd like to create. ![Add template drop-down menu](/assets/images/help/repository/add-template-drop-down-menu.png)
-5. To preview or edit the template before committing it to the repository, click **Preview and edit**. ![Preview and edit button](/assets/images/help/repository/preview-and-edit-button.png)
-6. To edit the template, click {% octicon "pencil" aria-label="The edit icon" %}, and type in the fields to edit their contents. ![Issue template edit button](/assets/images/help/repository/issue-template-edit-button.png)
-7. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to your issue template, enter these details under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, or `assignees` in a YAML frontmatter format. ![Additional info for issue template](/assets/images/help/repository/additional-issue-template-info.png)
-8. When you're finished editing and previewing your template, click **Propose changes** in the upper right corner of the page. ![Propose changes button](/assets/images/help/repository/propose-changes-button.png)
-9. Enter a commit message describing your changes. ![Issue template commit message field](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. Below the commit message fields, decide whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see "[About pull requests](/articles/about-pull-requests)." ![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
-11. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Configuring the template chooser
+## Настройка выбора шаблона
 
 {% data reusables.repositories.issue-template-config %}
 
-You can encourage contributors to use issue templates by setting `blank_issues_enabled` to `false`. If you set `blank_issues_enabled` to `true`, people will have the option to open a blank issue.
+Вы можете стимулировать участников использовать шаблоны проблем, задав для `blank_issues_enabled` значение `false`. Если задать для `blank_issues_enabled` значение `true`, люди смогут открывать пустую проблему.
 
 {% note %}
 
-**Note:** If you used the legacy workflow to manually create an `issue_template.md` file and enable blank issues in your *config.yml* file, the template in `issue_template.md` will be used when people chose to open a blank issue. If you disable blank issues, the template will never be used.
+**Примечание.** Если вы использовали устаревший рабочий процесс для создания файла `issue_template.md` вручную в папке `.github` и включения пустых проблем в файл *config.yml*, шаблон в `issue_template.md` будет использоваться, когда пользователи решат открыть пустую проблему. Если отключить пустые проблемы, этот шаблон никогда не будет использоваться.
 
 {% endnote %}
 
-If you prefer to receive certain reports outside of {% data variables.product.product_name %}, you can direct people to external sites with `contact_links`.
+Если вы предпочитаете получать некоторые отчеты вне {% data variables.product.product_name %}, то можете направлять людей на внешние сайты с помощью `contact_links`.
 
-Here is an example *config.yml* file.
+Ниже приведен пример файла *config.yml*.
 
-```shell
+```yaml{:copy}
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
-    url: https://github.community/
+    url: https://github.com/orgs/community/discussions
     about: Please ask and answer questions here.
   - name: {% data variables.product.prodname_dotcom %} Security Bug Bounty
     url: https://bounty.github.com/
     about: Please report security vulnerabilities here.
 ```
 
-Your configuration file will customize the template chooser when the file is merged into the repository's default branch.
+Ваш файл конфигурации будет настраивать выбор шаблонов при включении файла в ветвь репозитория по умолчанию.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-3. In the file name field, type `.github/ISSUE_TEMPLATE/config.yml`. ![Configuration filename](/assets/images/help/repository/template-config-file-name.png)
-4. In the body of the new file, type the contents of your configuration file. ![Configuration file content](/assets/images/help/repository/template-config-file-content.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
-{% endif %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
+3. В поле имени файла введите `.github/ISSUE_TEMPLATE/config.yml`.
+  ![Имя файла конфигурации](/assets/images/help/repository/template-config-file-name.png)
+4. В тексте нового файла введите содержимое вашего файла конфигурации.
+  ![Содержимое файла конфигурации](/assets/images/help/repository/template-config-file-content.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_new_file %}
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
-- "[Manually creating a single issue template for your repository](/articles/manually-creating-a-single-issue-template-for-your-repository)"
+- [Сведения о шаблонах проблем и запросов на вытягивание](/articles/about-issue-and-pull-request-templates)
+- [Создание одного шаблона проблем для репозитория вручную](/articles/manually-creating-a-single-issue-template-for-your-repository)

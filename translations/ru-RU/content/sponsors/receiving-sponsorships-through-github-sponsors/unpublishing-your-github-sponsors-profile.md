@@ -1,21 +1,29 @@
 ---
-title: Unpublishing your GitHub Sponsors profile
-intro: 'If you don''t have any sponsors, you can unpublish your {% data variables.product.prodname_sponsors %} profile.'
+title: Отмена публикации профиля GitHub Sponsors
+intro: 'Если у вас нет спонсоров, вы можете отменить публикацию своего профиля {% data variables.product.prodname_sponsors %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Unpublish your profile
+ms.openlocfilehash: 710b42b9a9474da0d62ad8e3c9022cd2b9cc422e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145140198'
 ---
+Если у вас есть спонсоры, вам потребуется обратиться в службу поддержки GitHub, чтобы отменить публикацию своей учетной записи {% data variables.product.prodname_sponsors %}.
 
-If you have sponsors, you'll need to contact GitHub Support to help you unpublish your {% data variables.product.prodname_sponsors %} account.
+После отмены публикации учетной записи {% data variables.product.prodname_sponsors %}:
+- Вы больше не будете получать спонсорские платежи.
+- Вы можете запросить повторную публикацию профиля.
 
-After your {% data variables.product.prodname_sponsors %} account is unpublished:
-- You'll no longer receive sponsorship payments.
-- You can request to re-publish your profile.
-
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-3. Under "Unpublish your GitHub Sponsors profile", click **Unpublish profile**. !["Unpublish profile" button](/assets/images/help/sponsors/unpublish-profile-button.png)
-4. To confirm, click "Unpublish GitHub Sponsors account". !["Unpublish GitHub Sponsors profile" button](/assets/images/help/sponsors/unpublish-profile-dialog.png)
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.settings-tab %}
+3. В разделе "Отменить публикацию профиля GitHub Sponsors" щелкните **Отменить публикацию профиля**.
+  ![Кнопка "Отменить публикацию профиля"](/assets/images/help/sponsors/unpublish-profile-button.png)
+4. Чтобы подтвердить, щелкните "Отменить публикацию учетной записи GitHub Sponsors".
+  ![Кнопка "Отменить публикацию профиля GitHub Sponsors"](/assets/images/help/sponsors/unpublish-profile-dialog.png)

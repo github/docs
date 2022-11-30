@@ -1,21 +1,29 @@
 ---
-title: Unpublishing your GitHub Sponsors profile
-intro: 'If you don''t have any sponsors, you can unpublish your {% data variables.product.prodname_sponsors %} profile.'
+title: Cancelando a publicação do seu perfil do GitHub Sponsors
+intro: 'Se você não tiver nenhum patrocinador, você poderá cancelar a publicação do seu perfil de {% data variables.product.prodname_sponsors %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Unpublish your profile
+ms.openlocfilehash: 710b42b9a9474da0d62ad8e3c9022cd2b9cc422e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145128193'
 ---
+Se você tiver patrocinadores, você deverá entrar em contato com o suporte do GitHub para ajudar você a cancelar a publicação da sua conta {% data variables.product.prodname_sponsors %}
 
-If you have sponsors, you'll need to contact GitHub Support to help you unpublish your {% data variables.product.prodname_sponsors %} account.
+Depois de sua conta {% data variables.product.prodname_sponsors %} ser a publicação cancelada:
+- Você não receberá mais pagamentos de patrocínio.
+- Você pode solicitar a nova publicação do seu perfil.
 
-After your {% data variables.product.prodname_sponsors %} account is unpublished:
-- You'll no longer receive sponsorship payments.
-- You can request to re-publish your profile.
-
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-3. Under "Unpublish your GitHub Sponsors profile", click **Unpublish profile**. !["Unpublish profile" button](/assets/images/help/sponsors/unpublish-profile-button.png)
-4. To confirm, click "Unpublish GitHub Sponsors account". !["Unpublish GitHub Sponsors profile" button](/assets/images/help/sponsors/unpublish-profile-dialog.png)
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.settings-tab %}
+3. Em "Cancelar publicação do seu perfil do GitHub Sponsors", clique em **Cancelar publicação de perfil**.
+  ![Botão "Cancelar publicação de perfil"](/assets/images/help/sponsors/unpublish-profile-button.png)
+4. Para confirmar, clique em "Cancelar publicação da conta do GitHub Sponsors".
+  ![Botão "Cancelar publicação do perfil do GitHub Sponsors"](/assets/images/help/sponsors/unpublish-profile-dialog.png)

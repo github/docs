@@ -1,5 +1,13 @@
-When you enable or disable {% data variables.product.prodname_advanced_security %} for repositories, {% data variables.product.prodname_dotcom %} displays an overview of changes to the use of your license. If you disable access to {% data variables.product.prodname_GH_advanced_security %}, any seats used by "unique" committers are freed up.
+---
+ms.openlocfilehash: c47a4efc23963dcfa0be69207387cd2d02704aef
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147877057"
+---
+Wenn du {% data variables.product.prodname_advanced_security %} für Repositorys aktivierst oder deaktivierst, zeigt {% data variables.product.prodname_dotcom %} eine Übersicht über Änderungen an der Verwendung deiner Lizenz an. Wenn du den Zugriff auf {% data variables.product.prodname_GH_advanced_security %} deaktivierst, werden alle von „eindeutigen“ Committern verwendeten Arbeitsplätze freigegeben.
 
-If you are over your license limit, {% data variables.product.prodname_GH_advanced_security %} continues to work on all repositories where it is already enabled. However, in organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled for new repositories, repositories will be created with the feature disabled. In addition, the option to enable {% data variables.product.prodname_GH_advanced_security %} for existing repositories will not be available.{% if currentVersion == "free-pro-team@latest" %} If you change the visibility of a public repository to private then {% data variables.product.prodname_GH_advanced_security %} will be disabled for that repository.{% endif %}
+Wenn du dein Lizenzlimit überschreitest, funktioniert {% data variables.product.prodname_GH_advanced_security %} weiterhin in allen Repositorys, in denen diese Option bereits aktiviert ist. In Organisationen, in denen {% data variables.product.prodname_GH_advanced_security %} für neue Repositorys aktiviert wird, werden Repositorys jedoch mit deaktiviertem Feature erstellt. Darüber hinaus ist die Option zum Aktivieren von {% data variables.product.prodname_GH_advanced_security %} für vorhandene Repositorys nicht verfügbar.{% ifversion fpt or ghec %} Wenn du die Sichtbarkeit eines öffentlichen Repositorys in „privat“ änderst, wird {% data variables.product.prodname_GH_advanced_security %} für dieses Repository deaktiviert.{% endif %}
 
-As soon as you free up some seats, by disabling {% data variables.product.prodname_GH_advanced_security %} for some repositories or by increasing your license size, the options for enabling {% data variables.product.prodname_GH_advanced_security %} will work again as normal.
+Sobald du einige Arbeitsplätze freigibst, indem du {% data variables.product.prodname_GH_advanced_security %} für einige Repositorys deaktivierst oder deine Lizenzgröße erhöhst, funktionieren die Optionen zum Aktivieren von {% data variables.product.prodname_GH_advanced_security %} wieder wie gewohnt.

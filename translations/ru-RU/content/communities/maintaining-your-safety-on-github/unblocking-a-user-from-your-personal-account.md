@@ -1,42 +1,51 @@
 ---
-title: Unblocking a user from your personal account
-intro: 'If you''ve mended fences with a {% data variables.product.prodname_dotcom %} user you''ve blocked, you can unblock their account.'
+title: Разблокировка пользователя в вашей личной учетной записи
+intro: 'Если вы провели согласование с {% data variables.product.prodname_dotcom %}, вы можете разблокировать эту учетную запись.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/unblocking-a-user-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Unblock from your account
+ms.openlocfilehash: a88a8613a8d787ee7e42ea9f6f5ef994353aedc8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145092398'
 ---
+При разблокировке пользователя он сможет пригласить вас стать участником совместной работы в репозитории. Если он [@mention вас](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) на GitHub, вы получите уведомления.
 
-When you unblock a user, they'll be able to invite you to be a collaborator to their repositories. If they [@mention you](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) anywhere on GitHub, you'll receive notifications.
+В ваших репозиториях пользователь сможет работать обычным образом.
 
-In repositories you own, the user will be able to collaborate normally.
+Вы можете разблокировать пользователя в параметрах своей учетной записи или на странице профиля пользователя.
 
-You can unblock a user in your account settings or from the user's profile page.
+## Разблокировка пользователя в параметрах учетной записи
 
-### Unblocking a user in your account settings
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.blocked_users %}
+3. В разделе "Заблокированные пользователи" нажмите **Разблокировать** рядом с пользователем, которого вы хотите разблокировать.
+![Кнопка для разблокировки пользователя](/assets/images/help/organizations/org-unblock-user-button.png)
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
-3. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**. ![Unblock user button](/assets/images/help/organizations/org-unblock-user-button.png)
-
-### Unblocking a user from their profile page
+## Разблокировка пользователя на его странице профиля
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. In the left sidebar, under the user's profile picture, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click  **Unblock or report user**. ![Unblock or report user link](/assets/images/help/profile/profile-unblock-or-report-user.png)
-3. Click **Unblock user**. ![Modal box with option to unblock user or report abuse](/assets/images/help/profile/profile-unblockuser.png)
+2. На левой боковой панели под изображением профиля пользователя выберите {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, а затем щелкните **Разблокировать пользователя или отправить жалобу на него**.
+![Ссылка, чтобы разблокировать пользователя или отправить жалобу на него](/assets/images/help/profile/profile-unblock-or-report-user.png)
+3. Нажмите **Разблокировать пользователя**.
+  ![Модальное поле, где можно выбрать, разблокировать пользователя или сообщить о нарушении](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}
 
-**Tip**: Settings that were removed when you blocked the user, such as collaborator status, stars, and follows, are not restored when you unblock the user.
+**Совет.** Параметры, которые были удалены при блокировке пользователя, например состояние участника совместной работы, звезды и подписки, не восстанавливаются после разблокировки.
 
 {% endtip %}
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-- "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-- "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- [Блокировка пользователя в вашей личной учетной записи](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)
+- [Блокировка пользователя из вашей организации](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)
+- [Разблокировка пользователя из вашей организации](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)
+- [Сообщение о нарушении или спаме](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)

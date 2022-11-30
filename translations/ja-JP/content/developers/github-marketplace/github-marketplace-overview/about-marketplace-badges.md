@@ -5,36 +5,42 @@ redirect_from:
   - /developers/github-marketplace/about-verified-creator-badges
   - /developers/github-marketplace/about-marketplace-badges
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+ms.openlocfilehash: bba9137fc39c1bc101a75650dcea03e651d37fff
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145089727'
 ---
-### For GitHub Apps
+## GitHub App
 
-Certain apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "Publisher domain and email verified". This means that the app is owned by an organization that has:
+{% data variables.product.prodname_marketplace %}の一部のアプリケーションには、{% octicon "verified" aria-label="The verified badge" %}バッジと「Publisher domain and email verified」と表示されるツールチップがあります。 これは、アプリケーションが以下の条件を満たしたOrganizationの所有であることを意味します。
 
-- Verified ownership of their domain and has a verified badge on their profile
-- Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
-- Required two-factor authentication for their organization. 詳しい情報については [Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)を参照してください。
+- ドメインの所有権を検証済みで、プロフィールに検証済みバッジがある
+- メールアドレスが確認済みで、{% data variables.product.prodname_dotcom %} SupportがOrganizationに連絡できる
+- Organizationで2要素認証を必須にしている。 詳細については、「[Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)」を参照してください。
 
-![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
+![GitHub アプリの Marketplace バッジ](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
 
-{% note %}
-{% data variables.product.prodname_dotcom %} does not analyze the app. The marketplace badge {% octicon "verified" aria-label="The verified badge" %} only confirms that the publisher meets the requirements listed above.
+{% note %} {% data variables.product.prodname_dotcom %}は、アプリケーションを分析しません。 Marketplaceバッジ{% octicon "verified" aria-label="The verified badge" %}は、パブリッシャーが上記の条件を満たしているということを確認しているだけに過ぎません。
 {% endnote %}
 
-To learn how you can add this badge to your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+このバッジをアプリに追加する方法については、「[Organization のパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」を参照してください。
 
-Some apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "App meets the requirements for listing" instead of, "Publisher domain and email verified." This means that the app meets the listing requirements described in "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)," but the publisher has not been verified, as described in "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)". Apps with this badge cannot change their pricing plan until the publisher successfully applies for verification.
+{% data variables.product.prodname_marketplace %}の一部のアプリケーションには、{% octicon "verified" aria-label="The verified badge" %}バッジと、「Publisher domain and email verified」ではなく「App meets the requirements for listing」と表示されるツールチップがあります。 つまり、アプリは「[アプリケーションのリストのための要件](/developers/github-marketplace/requirements-for-listing-an-app)」で説明されている一覧の要件を満たしていますが、「[Organization のパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」で説明されているように、パブリッシャーは検証されていません。 このバッジが付いたアプリケーションは、パブリッシャーが検証を申請して認められるまで、価格プランを変更できません。
 
-![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-unverified-publisher-badge-tooltip.png)
+![GitHub アプリの Marketplace バッジ](/assets/images/marketplace/apps-with-unverified-publisher-badge-tooltip.png)
 
-{% data variables.product.prodname_marketplace %}でアプリケーションをリストするための要件に関する情報については、「[{% data variables.product.prodname_marketplace %}上にアプリケーションをリストするための要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)」を参照してください。
+{% data variables.product.prodname_marketplace %} にアプリを一覧表示するための要件の詳細については、「[{% data variables.product.prodname_marketplace %} 上にアプリケーションをリストするための要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)」を参照してください。
 
-使用するアプリケーションの探し方に関する情報については、「[{% data variables.product.prodname_marketplace %}の検索](/github/searching-for-information-on-github/searching-github-marketplace)」を参照してください。
+使用するアプリの検索については、「[{% data variables.product.prodname_marketplace %} の検索](/search-github/searching-on-github/searching-github-marketplace)」を参照してください。
 
-### For GitHub actions
+## GitHub Actions 
 
-Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator  badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
+{% octicon "verified" aria-label="The verified badge" %} (検証済み作者バッジ) の付いたActionsは、{% data variables.product.prodname_dotcom %}がそのActionsの作者をパートナーOrganizationとして検証済みであることを示します。
 
-![Verified creator badge for GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
+![GitHub Actionsの検証済み作者バッジ](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 
-For information on how to publish a GitHub action to {% data variables.product.prodname_marketplace %}, see "[Publishing actions in GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)."
+GitHub アクションを {% data variables.product.prodname_marketplace %} に発行する方法については、「[GitHub Marketplace でのアクションの発行](/actions/creating-actions/publishing-actions-in-github-marketplace)」を参照してください。

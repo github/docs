@@ -1,35 +1,42 @@
 ---
-title: Initiating a failover to your replica cluster
-intro: 'If your {% data variables.product.prodname_ghe_server %} cluster fails, you can fail over to the passive replica .'
+title: Initiieren eines Failovers zu deinem Replikatcluster
+intro: 'Wenn bei deinem {% data variables.product.prodname_ghe_server %}-Cluster ein Fehler auftritt, kannst du ein Failover zum passiven Replikat ausführen.'
 redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Initiate a failover to replica
+ms.openlocfilehash: 14889e5d861475bc2d887062fb12450194cd6505
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145106900'
 ---
-### About failover to your replica cluster
+## Informationen zu einem Failover zu deinem Replikatcluster
 
-In the event of a failure at your primary datacenter, you can fail over to the replica nodes in the secondary datacenter if you configure a passive replica node for each node in your active cluster.
+Wenn ein Fehler im primären Rechenzentrum auftritt, kannst du ein Failover zu den Replikatknoten im sekundären Rechenzentrum ausführen, wenn du für jeden Knoten in deinem aktiven Cluster einen passiven Replikatknoten konfigurierst.
 
-The time required to fail over depends on how long it takes to manually promote the replica cluster and redirect traffic.
+Wie lange das Failover dauert, hängt davon ab, wie lange es dauert, den Replikatcluster manuell hochzustufen und den Datenverkehr dorthin umzuleiten.
 
-Promoting a replica cluster does not automatically set up replication for the existing cluster. After promoting a replica cluster, you can reconfigure replication from the new active cluster. For more information, see "[Configuring high availability for a cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)."
+Wenn ein Replikatcluster hochgestuft wird, wird nicht automatisch die Replikation für den vorhandenen Cluster eingerichtet. Nach dem Hochstufen eines Replikatclusters kannst du die Replikation aus dem neuen aktiven Cluster neu konfigurieren. Weitere Informationen findest du unter [Konfigurieren von Hochverfügbarkeit für einen Cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover).
 
-### Vorrausetzungen
+## Voraussetzungen
 
-To fail over to passive replica nodes, you must have configured high availability for your cluster. For more information, see "[Configuring high availability for a cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)."
+Um ein Failover zu passiven Replikatknoten auszuführen, musst du hohe Verfügbarkeit für deinen Cluster konfiguriert haben. Weitere Informationen findest du unter [Konfigurieren von Hochverfügbarkeit für einen Cluster](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster).
 
-### Initiating a failover to your replica cluster
+## Initiieren eines Failovers zu deinem Replikatcluster
 
-1. SSH into any passive node in the secondary datacenter for your cluster. Weitere Informationen findest Du unter "[Auf die administrative Shell (SSH) zugreifen](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
+1. Stelle eine SSH-Verbindung mit jedem passiven Knoten im sekundären Rechenzentrum für deinen Cluster her. Weitere Informationen findest du unter [Zugreifen auf die Verwaltungsshell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh).
 
-2. Initialize the failover to the secondary cluster and configure it to act as the active nodes.
+2. Initialisiere das Failover an den sekundären Cluster, und konfiguriere ihn, als aktiver Knoten zu fungieren.
 
     ```shell
   ghe-cluster-failover
@@ -37,6 +44,6 @@ To fail over to passive replica nodes, you must have configured high availabilit
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-3. Update the DNS record to point to the IP address of the load balancer for your passive cluster. Nach dem Verstreichen des TTL-Zeitraums wird der Traffic an das Replikat geleitet.
+3. Aktualisiere den DNS-Eintrag, um auf die IP-Adresse des Lastenausgleichs für deinen passiven Cluster zu verweisen. Nach dem Verstreichen des TTL-Zeitraums wird der Traffic an das Replikat geleitet.
 
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt and your DNS updates have propagated, you've finished failing over. Users can access {% data variables.product.prodname_ghe_server %} using the usual hostname for your cluster.
+Nachdem {% data variables.product.prodname_ghe_server %} dich zur Eingabeaufforderung zurückgeführt hat und die DNS-Updates übertragen wurden, ist das Failover abgeschlossen. Benutzer können mithilfe des üblichen Hostnamens für deinen Cluster auf {% data variables.product.prodname_ghe_server %} zugreifen.

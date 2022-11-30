@@ -1,1 +1,1 @@
-Los límites de tasa para las GitHub Apps ayudan a controlar la tasa de tráfico.
+Rate limits for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} help control the rate of traffic to {% data variables.location.product_location %}. 

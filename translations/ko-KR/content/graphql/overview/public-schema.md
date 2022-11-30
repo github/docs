@@ -1,33 +1,39 @@
 ---
-title: Public schema
-intro: 'Download the public schema for the {% data variables.product.prodname_dotcom %} GraphQL API.'
+title: 공용 스키마
+intro: '{% data variables.product.prodname_dotcom %} GraphQL API에 대한 공용 스키마를 다운로드합니다.'
 redirect_from:
   - /v4/public_schema
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: cb1c990506512c252b488b9d265cf8eb052435e2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145068377'
 ---
+GraphQL API에 대해 직접 [내적 검사를 수행](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)할 수 있습니다.
 
-You can [perform introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) against the GraphQL API directly.
+또는 여기에서 최신 버전의 공용 스키마를 다운로드할 수 있습니다.
 
-Alternatively, you can download the latest version of the public schema here:
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs.graphql`](/public/schema.docs.graphql)
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-enterprise.graphql`](/public/ghes-{{ allVersions[currentVersion].currentRelease }}/schema.docs-enterprise.graphql) ({{ allVersions[currentVersion].versionTitle }})
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-ghae.graphql`](/public/ghae/schema.docs-ghae.graphql) ({{ allVersions[currentVersion].versionTitle }})
 

@@ -1,11 +1,11 @@
 ---
-title: Descripción del sistema
-intro: 'El {% data variables.product.prodname_ghe_server %} es la copia privada de tu organización de {% data variables.product.prodname_dotcom %} contenida dentro de un aparato virtual, alojada localmente o en la nube, que configuras y controlas.'
+title: System overview
+intro: 'Learn more about {% data variables.product.product_name %}''s system internals, functionality, and security.'
 redirect_from:
   - /enterprise/admin/installation/system-overview
   - /enterprise/admin/overview/system-overview
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -15,135 +15,153 @@ topics:
   - Storage
 ---
 
-### Arquitectura de almacenamiento
+## About {% data variables.product.product_name %}
 
-El {% data variables.product.prodname_ghe_server %} requiere dos volúmenes de almacenamiento, uno instalado en la ruta del *sistema de archivos raíz* (`/`) y otro en la ruta del *sistema de archivos del usuario* (`/data/user`). Esta arquitectura simplifica los procedimientos de actualización, reversión y recuperación al separar el entorno del software que se ejecuta de los datos de aplicación persistentes.
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} For more information, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
 
-El sistema de archivos raíz está incluido en la imagen de máquina distribuida. Contiene el sistema operativo base y el entorno de aplicación {% data variables.product.prodname_ghe_server %}. El sistema de archivos raíz debería tratarse como efímero. Cualquier dato en el sistema de archivos raíz será reemplazado cuando se actualice con futuros lanzamientos del {% data variables.product.prodname_ghe_server %}.
+## Storage architecture
 
-El sistema de archivos raíz contiene:
-  - Los certificados de autoridad de certificación personalizados (CA) (en */usr/local/share/ca-certificates*)
-  - Las configuraciones de red personalizadas
-  - Las configuraciones de firewall personalizadas
-  - El estado de replicación
+{% data variables.product.product_name %} requires two storage volumes, one mounted to the *root filesystem* path (`/`) and the other to the *user filesystem* path (`/data/user`). This architecture simplifies the upgrade, rollback, and recovery procedures by separating the running software environment from persistent application data.
 
-El sistema de archivos del usuario contiene la configuración y los datos del usuario, tales como:
-  - Repositorios Git
-  - Bases de datos
-  - Índices de búsqueda
-  - Contenido publicado en los sitios {% data variables.product.prodname_pages %}
-  - Archivos grandes de {% data variables.large_files.product_name_long %}
-  - Entornos de enlaces de pre-recepción
+The root filesystem is included in the distributed machine image. It contains the base operating system and the {% data variables.product.product_name %} application environment. The root filesystem should be treated as ephemeral. Any data on the root filesystem will be replaced when upgrading to future {% data variables.product.product_name %} releases.
 
-### Opciones de implementación
+The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a 200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB reserved for the upgrades and rollbacks.
 
-Puedes implementar {% data variables.product.prodname_ghe_server %} como un aparato virtual único, o en una configuración de alta disponibilidad. Para obtener más información, consulta "[Configurar el {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+The root filesystem contains files that store the following information. This list is not exhaustive.
 
-Algunas organizaciones con decenas de miles de programadores podrían también beneficiarse de una Agrupación {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Acerca de las agrupaciones](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-clustering)."
+- Custom certificate authority (CA) certificates (in `/usr/local/share/ca-certificates*`)
+- Custom networking configurations
+- Custom firewall configurations
+- The replication state
 
-### Retención de datos y redundancia de centro de datos
+The user filesystem contains files that store following configuration and data. This list is not exhaustive.
 
-{% danger %}
+- Git repositories
+- Databases
+- Search indexes
+- Content published on {% data variables.product.prodname_pages %} sites
+- Large files from {% data variables.large_files.product_name_long %}
+- Pre-receive hook environments
 
-Antes de usar {% data variables.product.prodname_ghe_server %} en un entorno de producción, recomendamos firmemente que configures copias de seguridad y un plan de recuperación ante desastres. Para obtener más información, consulta "[Configurar copias de seguridad en tu aparato](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)".
+## Deployment topologies
 
-{% enddanger %}
+You can deploy {% data variables.product.product_name %} in a variety of topologies, such as a high availability pair. For more information, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server#about-deployment-topologies)."
 
-{% data variables.product.prodname_ghe_server %} incluye soporte para copias de seguridad en línea e incrementales con [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils). Puedes tomar instantáneas incrementales sobre un enlace de red seguro (el puerto administrativo SSH) sobre grandes distancias para el almacenamiento externo o geográficamente disperso. Puedes restaurar instantáneas a través de la red en un nuevo aparato virtual recientemente aprovisionado al momento de la recuperación en el caso de un desastre en el centro de datos principal.
+## Data retention and datacenter redundancy
 
-Además se admiten las copias de seguridad de red, las instantáneas de disco AWS (EBS) y VMware de los volúmenes de almacenamiento del usuario mientras que el aparato está fuera de línea o en modo mantenimiento. Las instantáneas de volumen regulares pueden usarse como una alternativa de bajo costo y baja complejidad para las copias de seguridad de red con {% data variables.product.prodname_enterprise_backup_utilities %} si tus requisitos de nivel de servicio permiten un mantenimiento fuera de línea regular.
+{% warning %}
 
-Para obtener más información, consulta "[Configurar copias de seguridad en tu aparato](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)".
+**Warning**: Before using {% data variables.product.product_name %} in a production environment, we strongly recommend you set up backups and a disaster recovery plan.
 
-### Seguridad
+{% endwarning %}
 
-El {% data variables.product.prodname_ghe_server %} es un aparato virtual que se ejecuta en tu infraestructura y está gobernado por tus controles de seguridad de información existentes, como cortafuegos, IAM, monitoreo y VPN. Usar el {% data variables.product.prodname_ghe_server %} puede ayudarte a evitar problemas de cumplimiento regulatorio que surgen de las soluciones basadas en la nube.
+{% data variables.product.product_name %} includes support for online and incremental backups with {% data variables.product.prodname_enterprise_backup_utilities %}. You can take incremental snapshots over a secure network link (the SSH administrative port) over long distances for off-site or geographically dispersed storage. You can restore snapshots over the network into a newly provisioned instance at time of recovery in case of disaster at the primary datacenter.
 
-El {% data variables.product.prodname_ghe_server %} también incluye características de seguridad adicionales.
+In addition to network backups, both AWS (EBS) and VMware disk snapshots of the user storage volumes are supported while the instance is offline or in maintenance mode. Regular volume snapshots can be used as a low-cost, low-complexity alternative to network backups with {% data variables.product.prodname_enterprise_backup_utilities %} if your service level requirements allow for regular offline maintenance.
 
-- [Sistema operativo, software y parches](#operating-system-software-and-patches)
-- [Seguridad de la red](#network-security)
-- [Seguridad de la aplicación](#application-security)
-- [Servicios externos y acceso de soporte](#external-services-and-support-access)
-- [Comunicación encriptada](#encrypted-communication)
-- [Usuarios y permisos de acceso](#users-and-access-permissions)
-- [Autenticación](#authentication)
-- [Auditoría y registro de acceso](#audit-and-access-logging)
+For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-#### Sistema operativo, software y parches
+## Security
 
-El {% data variables.product.prodname_ghe_server %} ejecuta un sistema operativo Linux personalizado con las aplicaciones y los servicios necesarios únicamente. El {% data variables.product.prodname_dotcom %} gestiona el parche del sistema operativo central del aparato como parte de su ciclo estándar de lanzamiento de productos. Los parches abordan problemas de funcionalidad, de estabilidad y de seguridad no críticos para las aplicaciones de {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_dotcom %} también proporciona parches de seguridad críticos según se necesita fuera del ciclo de lanzamiento regular.
+{% data reusables.enterprise.ghes-runs-on-your-infrastructure %}
 
-#### Seguridad de la red
+{% data variables.product.product_name %} also includes additional security features.
 
-El cortafuegos interno del {% data variables.product.prodname_ghe_server %} restringe el acceso de la red a los servicios del aparato. Están disponibles en la red únicamente los servicios necesarios para que el aparato funcione. Para obtener más información, consulta "[Puertos de red](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports)."
+- [Operating system, software, and patches](#operating-system-software-and-patches)
+- [Network security](#network-security)
+- [Application security](#application-security)
+- [External services and support access](#external-services-and-support-access)
+- [Encrypted communication](#encrypted-communication)
+- [Users and access permissions](#users-and-access-permissions)
+- [Authentication](#authentication)
+- [Audit and access logging](#audit-and-access-logging)
 
-#### Seguridad de la aplicación
+### Operating system, software, and patches
 
-El equipo de seguridad de la aplicación de {% data variables.product.prodname_dotcom %} se centra en la evaluación de vulnerabilidad, la prueba de penetración y la revisión del código para los productos de {% data variables.product.prodname_dotcom %} , incluido el {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_dotcom %} también contrata firmas de seguridad externas para proporcionar evaluaciones de seguridad puntuales de los productos de {% data variables.product.prodname_dotcom %}.
+{% data variables.product.product_name %} runs a customized Linux operating system with only the necessary applications and services. {% data variables.product.company_short %} distributes patches for the instance's core operating system as part of its standard product release cycle. Patches address functionality, stability, and non-critical security issues for {% data variables.product.product_name %}. {% data variables.product.company_short %} also provides critical security patches as needed outside of the regular release cycle.
 
-#### Servicios externos y acceso de soporte
+{% data variables.product.product_name %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
 
-El {% data variables.product.prodname_ghe_server %} puede funcionar sin ningún acceso de salida de tu red a servicios externos. De forma opcional, puedes habilitar la integración con servicios externos para la entrega de correo electrónico, el monitoreo externo y el reenvío de bitácoras. Para obtener más información, consulta las secciones "[Configurar las notificaciones por correo electrónico](/admin/configuration/configuring-email-for-notifications)", "[Configurar el monitoreo externo](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)", y "[Reenvío de bitácoras](/admin/user-management/log-forwarding)".
+Currently, the base operating system for {% data variables.product.product_name %} is Debian 9 (Stretch), which receives support under the Debian Long Term Support program.  There are plans to move to a newer base operating system before the end of the Debian LTS period for Stretch.
 
-Puedes recopilar y enviar manualmente datos de resolución de problemas a {% data variables.contact.github_support %}. Para obtener más información, consulta "[Proporcionar datos a {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)."
+Regular patch updates are released on the {% data variables.product.product_name %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.product_name %} patch release.
 
-#### Comunicación encriptada
+### Network security
 
-{% data variables.product.prodname_dotcom %} diseña {% data variables.product.prodname_ghe_server %} para ejecutar detrás de tu cortafuegos corporativo. Para asegurar la comunicación a través del cable, te alentamos a habilitar la seguridad de la capa de transporte (TLS). El {% data variables.product.prodname_ghe_server %} admite certificados TLS comerciales de 2048 bits y superiores para el tráfico HTTPS. Para obtener más información, consulta "[Configurar TLS](/enterprise/{{ currentVersion }}/admin/installation/configuring-tls)."
+{% data variables.product.product_name %}'s internal firewall restricts network access to the instance's services. Only services necessary for the appliance to function are available over the network. For more information, see "[Network ports](/admin/configuration/configuring-network-settings/network-ports)."
 
-Por defecto, el aparato también ofrece acceso a Secure Shell (SSH) para el acceso al repositorio utilizando Git y con fines administrativos. Para obtener más información, consulta "[Acerca de SSH](/enterprise/user/articles/about-ssh)" y "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)."
+### Application security
 
-#### Usuarios y permisos de acceso
+{% data variables.product.company_short %}'s application security team focuses full-time on vulnerability assessment, penetration testing, and code review for {% data variables.product.company_short %} products, including {% data variables.product.product_name %}. {% data variables.product.company_short %} also contracts with outside security firms to provide point-in-time security assessments of {% data variables.product.company_short %} products.
 
-El {% data variables.product.prodname_ghe_server %} proporciona tres tipos de cuentas.
+### External services and support access
 
-- La cuenta de usuario de Linux del `administrador` ha controlado el acceso al sistema operativo subyacente, incluido el sistema de archivos directo y el acceso a la base de datos. Un pequeño conjunto de administradores de confianza debería tener acceso a esta cuenta, a la que pueden acceder por medio de SSH. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)."
-- Las cuentas de usuario en la aplicación web del aparato tienen acceso completo a sus propios datos y a cualquier dato que otros usuarios u organizaciones concedan de manera explícita.
-- Los administradores del sitio en la aplicación web del aparato son cuentas de usuario que pueden administrar los ajustes de aplicaciones web y de aparatos de alto nivel, la configuración de cuenta de usuario y de organización y los datos del repositorio.
+{% data variables.product.product_name %} can operate without any egress access from your network to outside services. You can optionally enable integration with external services for email delivery, external monitoring, and log forwarding. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)," "[Setting up external monitoring](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring)," and "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 
-Para más información sobre los permisos de usuario del {% data variables.product.prodname_ghe_server %}, consulta "[Permisos de acceso en GitHub](/enterprise/user/articles/access-permissions-on-github)."
+You can manually collect and send troubleshooting data to {% data variables.contact.github_support %}. For more information, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support)."
 
-#### Autenticación
+### Encrypted communication
 
-El {% data variables.product.prodname_ghe_server %} proporciona cuatro métodos de autenticación.
+{% data variables.product.company_short %} designs {% data variables.product.product_name %} to run behind your corporate firewall. To secure communication over the wire, we encourage you to enable Transport Layer Security (TLS). {% data variables.product.product_name %} supports 2048-bit and higher commercial TLS certificates for HTTPS traffic. For more information, see "[Configuring TLS](/admin/configuration/configuring-network-settings/configuring-tls)."
 
-- La autenticación de claves públicas SSH proporciona acceso del repositorio usando Git y el shell administrativo. Para obtener más información, consulta "[Acerca de SSH](/enterprise/user/articles/about-ssh)" y "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)."
-- El nombre de usuario y la autenticación de contraseña con cookies HTTP proporciona acceso a la aplicación web y la gestión de sesiones, con autenticación opcional de dos factores (2FA). Para obtener más información, consulta "[Usar la autenticación incorporada](/enterprise/{{ currentVersion }}/admin/user-management/using-built-in-authentication)."
-- La autenticación externa LDAP, SAML o CAS mediante un servicio LDAP, SAML Identity Provider (IdP) u otro servicio compatible proporciona acceso a la aplicación web. Para más información, consulta "[Autenticar usuarios para tu instancia de servidor de GitHub Enterprise](/enterprise/{{ currentVersion }}/admin/user-management/authenticating-users-for-your-github-enterprise-server-instance)."
-- OAuth y los token de acceso personal proporcionan acceso a los datos del repositorio de Git y a API para clientes externos y servicios. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+By default, the instance also offers Secure Shell (SSH) access for both repository access using Git and administrative purposes. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
-#### Auditoría y registro de acceso
+{% ifversion ghes > 3.3 %}
 
-El {% data variables.product.prodname_ghe_server %} almacena tanto registros tradicionales de sistema operativo como de aplicación. La aplicación también escribe registros de auditoría y de seguridad detallados, que el {% data variables.product.prodname_ghe_server %} almacena de forma permanente. Puedes reenviar ambos tipos de bitácoras en tiempo real a varios destinos a través del protocolo `syslog-ng`. Para obtener más información, consulta la sección "[Reenvío de bitácoras](/admin/user-management/log-forwarding)".
+If you configure SAML authentication for {% data variables.location.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
 
-Los registros de acceso y de auditoría incluyen información como la siguiente.
+{% endif %}
 
-##### Registros de acceso
+### Users and access permissions
 
-- Registros completos de servidor web tanto para el navegador como para el acceso a la API
-- Registros completos para acceder a los datos del repositorio por medio de protocolos Git, HTTPS y SSH
-- Registros de acceso administrativo por medio de HTTPS y SSH
+{% data variables.product.product_name %} provides three types of accounts.
 
-##### Registros de auditoría
+- The `admin` Linux user account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+- User accounts in the instance's web application have full access to their own data and any data that other users or organizations explicitly grant.
+- Site administrators in the instance's web application are user accounts that can manage high-level web application and instance settings, user and organization account settings, and repository data.
 
-- Inicios de sesión del usuario, restablecimientos de contraseña, solicitudes 2FA, cambios en la configuración del correo electrónico y cambios en aplicaciones autorizadas y API
-- Acciones de administrador del sitio, como desbloquear cuentas de usuario y repositorios
-- Eventos push de repositorio, permisos de acceso, transferencias y renombres
-- Cambios de membresía de la organización, incluida la creación y la destrucción de equipo
+For more information about {% data variables.product.product_name %}'s user permissions, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/access-permissions-on-github)."
 
-### Dependencias de código abierto para {% data variables.product.prodname_ghe_server %}
+### Authentication
 
-Puedes consultar una lista completa de dependencias en la versión de tu aparato de {% data variables.product.prodname_ghe_server %}, y la licencia de cada proyecto, en `http(s)://HOSTNAME/site/credits`.
+{% data variables.product.product_name %} provides four authentication methods.
 
-Están disponibles en tu aparato los tarballes con una lista completa de dependencias y metadatos asociados:
-- Para conocer las dependencias comunes a todas las plataformas, ingresa en `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`.
-- Para conocer las dependencias específicas de una plataforma, ingresa en `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`.
+- SSH public key authentication provides both repository access using Git and administrative shell access. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+- Username and password authentication with HTTP cookies provides web application access and session management, with optional two-factor authentication (2FA). For more information, see "[Using built-in authentication](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication)."
+- External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see "[Managing IAM for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
+- OAuth and {% data variables.product.pat_generic %}s provide access to Git repository data and APIs for both external clients and services. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-También están disponibles los tarballes, con una lista completa de las dependencias y los metadatos, en `https://enterprise.github.com/releases/<version>/download.html`.
+### Audit and access logging
 
-### Leer más
+{% data variables.product.product_name %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.product_name %} stores permanently. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)" and "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 
-- "[Configurar una prueba de {% data variables.product.prodname_ghe_server %}](/articles/setting-up-a-trial-of-github-enterprise-server)"
-- "[Configurar una instancia del {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)"
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) en el repositorio `github/roadmap`
+Access and audit logs include information like the following.
+
+#### Access logs
+
+- Full web server logs for both browser and API access
+- Full logs for access to repository data over Git, HTTPS, and SSH protocols
+- Administrative access logs over HTTPS and SSH
+
+#### Audit logs
+
+- User logins, password resets, 2FA requests, email setting changes, and changes to authorized applications and APIs
+- Site administrator actions, such as unlocking user accounts and repositories
+- Repository push events, access grants, transfers, and renames
+- Organization membership changes, including team creation and destruction
+
+## Open source dependencies for {% data variables.product.product_name %}
+
+You can see a complete list of dependencies in your instance's version of {% data variables.product.product_name %}, as well as each project's license, at `http(s)://HOSTNAME/site/credits`.
+
+Tarballs with a full list of dependencies and associated metadata are available on your instance.
+
+- For dependencies common to all platforms, at `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
+- For dependencies specific to a platform, at `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
+
+Tarballs are also available, with a full list of dependencies and metadata, at `https://enterprise.github.com/releases/<version>/download.html`.
+
+## Further reading
+
+- "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)"
+- "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)"

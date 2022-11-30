@@ -1,0 +1,1 @@
+Security manager is an organization-level role that organization owners can assign to any team in an organization. When applied, it gives every member of the team permissions to manage security alerts and settings across your organization, as well as read permissions for all repositories in the organization.

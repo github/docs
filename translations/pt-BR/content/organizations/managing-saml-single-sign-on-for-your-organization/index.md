@@ -1,18 +1,18 @@
 ---
 title: Gerenciar o logon único SAML para sua organização
-intro: Administradores da organização podem gerenciar as identidades e acessos dos integrantes à organização com logon único SAML (SSO).
+intro: Os proprietários da organização podem gerenciar as identidades e acesso dos integrantes da organização com o logon único SAML (SSO).
 redirect_from:
-  - /articles/managing-member-identity-and-access-in-your-organization-with-saml-single-sign-on/
+  - /articles/managing-member-identity-and-access-in-your-organization-with-saml-single-sign-on
   - /articles/managing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 children:
   - /about-identity-and-access-management-with-saml-single-sign-on
-  - /about-scim
+  - /about-scim-for-organizations
   - /connecting-your-identity-provider-to-your-organization
   - /configuring-saml-single-sign-on-and-scim-using-okta
   - /enabling-and-testing-saml-single-sign-on-for-your-organization
@@ -21,5 +21,13 @@ children:
   - /downloading-your-organizations-saml-single-sign-on-recovery-codes
   - /managing-team-synchronization-for-your-organization
   - /accessing-your-organization-if-your-identity-provider-is-unavailable
+  - /troubleshooting-identity-and-access-management-for-your-organization
+shortTitle: Manage SAML single sign-on
+ms.openlocfilehash: fbceb30af76af31bc3b0ae1361da7c8766971563
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147093123'
 ---
-
+{% data reusables.saml.ghec-only %}

@@ -6,7 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
   - /admin/enterprise-management/monitoring-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: how_to
 topics:
   - Clustering
   - Enterprise
@@ -14,10 +15,16 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+ms.openlocfilehash: a5cab340f84d572a0a8e549d942b7b52ef522733
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120598'
 ---
-### クラスタのステータスの手動でのチェック
+## クラスタのステータスの手動でのチェック
 
-{% data variables.product.prodname_ghe_server %} には、クラスタの健全性をモニタリングするためのコマンドラインユーティリティが組み込まれています。 管理シェルから`ghe-cluster-status`コマンドを実行すると、接続性やサービスステータスの検証を含む一連のヘルスチェックが各ノード上で実行されます。 結果出力には、すべてのテスト結果にtext `ok`もしくは`error`が含まれます。 たとえば失敗したテストだけを表示するには以下のようにしてください。
+{% data variables.product.prodname_ghe_server %} には、クラスタの健全性をモニタリングするためのコマンドラインユーティリティが組み込まれています。 管理シェルから `ghe-cluster-status` コマンドを実行すると、接続とサービスの状態の検証を含む一連の正常性チェックが各ノードで実行されます。 出力には、`ok` または `error` のテキストを含むテスト結果が表示されます。 たとえば失敗したテストだけを表示するには以下のようにしてください。
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -26,19 +33,19 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 ```
 {% note %}
 
-**メモ:** すべてのテストにパスした場合、このコマンドは何も出力しません。 これはクラスタが健全であることを意味します。
+**注:** 失敗したテストがない場合、このコマンドは出力を生成しません。 これはクラスタが健全であることを意味します。
 
 {% endnote %}
 
-### Nagiosでのクラスタステータスのモニタリング
+## Nagiosでのクラスタステータスのモニタリング
 
-{% data variables.product.prodname_ghe_server %} をモニタリングするよう、[Nagios](https://www.nagios.org/) を設定できます。 各クラスタノードの基本的な接続性のモニタリングに加えて、`ghe-cluster-status -n`コマンドを使うようNagiosを設定してクラスタステータスをチェックできます。 これは、Nagiosが理解できるフォーマットの出力を返します。
+{% data variables.product.prodname_ghe_server %} を監視するように [Nagios](https://www.nagios.org/) を構成できます。 各クラスター ノードへの基本的な接続を監視することに加えて、`ghe-cluster-status -n` コマンドを使用するように Nagios を構成して、クラスターの状態を確認できます。 これは、Nagiosが理解できるフォーマットの出力を返します。
 
-#### 必要な環境
+### 前提条件
 * Nagiosを動作させるLinuxのホスト。
 * {% data variables.product.prodname_ghe_server %}クラスターへのネットワークアクセス。
 
-#### Nagiosホストの設定
+### Nagiosホストの設定
 1. 空のパスフレーズで SSH キーを生成してください。 Nagios はこれを使用して {% data variables.product.prodname_ghe_server %} クラスタへの認証を行います。
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>
@@ -51,26 +58,25 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   ```
   {% danger %}
 
- **セキュリティの警告:** パスフレーズを持たない SSH キーは、ホストへの完全なアクセスを承認されていた場合、セキュリティリスクになることがあります。 このキーの承認は、単一の読み取りのみのコマンドに限定してください。
+  **セキュリティの警告:** パスフレーズのない SSH キーがホストへの完全なアクセスを承認されていると、セキュリティ リスクになることがあります。 このキーの承認は、単一の読み取りのみのコマンドに限定してください。
 
-  {% enddanger %}
-  {% note %}
+  {% enddanger %} {% note %}
 
-  **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
+  **注:** Ed25519 アルゴリズムをサポートしていない Linux のディストリビューションを使用している場合は、次のコマンドを使用します。
   ```shell
   nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
 
   {% endnote %}
-2. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
+2. 秘密キー (`id_ed25519`) を `nagios` ホーム フォルダーにコピーし、適切な所有権を設定します。
   ```shell
   nagiosuser@nagios:~$ <em>sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/</em>
   nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
   ```
 
-3. `ghe-cluster-status -n` コマンド*のみ*を実行するために公開鍵を認証するには、`/data/user/common/authorized_keys` ファイル中で `command=` プレフィックスを使ってください。 任意のノードの管理シェルから、このファイルを変更してステップ1で生成した公開鍵を追加してください。 For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
+3. `ghe-cluster-status -n` コマンド *のみ* を実行する公開キーを承認するには、`/data/user/common/authorized_keys` ファイル内の `command=` プレフィックスを使用します。 任意のノードの管理シェルから、このファイルを変更してステップ1で生成した公開鍵を追加してください。 例: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
-4. `/data/user/common/authorized_keys` ファイルを変更したノード上で `ghe-cluster-config-apply` を実行し、設定を検証してクラスタ内の各ノードにコピーしてください。
+4. `/data/user/common/authorized_keys` ファイルを変更したノードで `ghe-cluster-config-apply` を実行して、構成を検証し、クラスター内の各ノードにコピーします。
 
   ```shell
   admin@ghe-data-node-0:~$ <em>ghe-cluster-config-apply</em>
@@ -86,7 +92,6 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   ```
 
 6. Nagios の設定中にコマンド定義を作成してください。
-
   ###### 定義の例
 
   ```
@@ -96,7 +101,6 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   }
   ```
 7. このコマンドを {% data variables.product.prodname_ghe_server %} クラスタ内のノードのサービス定義に追加します。
-
 
   ###### 定義の例
 

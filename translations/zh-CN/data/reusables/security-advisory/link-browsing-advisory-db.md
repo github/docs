@@ -1,5 +1,9 @@
-{% if currentVersion == "free-pro-team@latest" %}
-更多信息请参阅“[浏览 {% data variables.product.prodname_advisory_database %} 中的安全漏洞](/code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database)”和“[关于 {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)”。
-{% else %}
-有关公告数据的更多信息，请参阅“<a href="/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database" class="dotcom-only">浏览 {% data variables.product.prodname_advisory_database %} 中的安全漏洞</a>”。
-{% endif %}
+---
+ms.openlocfilehash: 9bd9a97aac8ee24742aacd8f37472811372d06ea
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147410561"
+---
+有关详细信息，请参阅“[在 {% data variables.product.prodname_advisory_database %} 中浏览安全公告](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database)”。

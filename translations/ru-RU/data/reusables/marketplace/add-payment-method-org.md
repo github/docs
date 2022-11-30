@@ -1,3 +1,13 @@
-1. If you chose a paid plan, review your payment method.
-   - To change the existing payment method on file for the organization, click **Edit...**, then complete the form to add a new payment method. After you successfully add a new payment method, you will automatically return to the order page. ![Link to add a payment method to your organization](/assets/images/help/marketplace/marketplace-edit-payment-method-org.png)
-   - If there isn't a payment method on file for the organization, click **Add a Payment Method**, then complete the form to add a credit card or PayPal account. ![Link to add a payment method to your organization](/assets/images/help/marketplace/marketplace-add-payment-method-org.png)
+---
+ms.openlocfilehash: 526dfdf837e9029147d9f04bb4d935f83798ba78
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145123379"
+---
+1. Если вы выбрали платный план, просмотрите метод оплаты.
+   - Чтобы изменить существующий способ оплаты для организации, нажмите кнопку **Изменить...** , а затем заполните форму, чтобы добавить новый способ оплаты. После успешного добавления нового способа оплаты вы автоматически вернетесь на страницу заказа.
+     ![Ссылка для добавления способа оплаты в организацию](/assets/images/help/marketplace/marketplace-edit-payment-method-org.png)
+   - Если для организации нет способа оплаты, нажмите кнопку **Добавить способ оплаты**, а затем заполните форму, чтобы добавить кредитную карту или учетную запись PayPal.
+     ![Ссылка для добавления способа оплаты в организацию](/assets/images/help/marketplace/marketplace-add-payment-method-org.png)

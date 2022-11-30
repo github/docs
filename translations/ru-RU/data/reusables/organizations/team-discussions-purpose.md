@@ -1,1 +1,9 @@
-On your team's page, you can use team discussions for conversations that span across projects or repositories and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
+---
+ms.openlocfilehash: 5db8536d25ed32f8f4810479d96f6fba4c2d0e72
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145122232"
+---
+На странице команды можно использовать обсуждения в команде для бесед, охватывающих несколько проектов или репозиториев и не относящихся к определенной проблеме или запросу на вытягивание. Вместо того, чтобы открыть вопрос в репозитории для обсуждения идеи, вы можете привлечь к беседе всю команду, проведя обсуждение в команде.

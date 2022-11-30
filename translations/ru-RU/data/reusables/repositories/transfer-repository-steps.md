@@ -1,10 +1,22 @@
-{% if currentVersion == "free-pro-team@latest" %}
-1. Under "Danger Zone", click **Transfer**. ![Transfer button](/assets/images/help/repository/repo-transfer.png)
-1. Read the information about transferring a repository, then type the name of the user or organization you'd like to transfer ownership of the repository to. ![Information about repository transfer and field to type the new owner's username](/assets/images/help/repository/transfer-repo-new-owner-name.png)
-1. Read the warnings about potential loss of features depending on the new owner's subscription. ![Warnings about transferring a repository to a person using a free product](/assets/images/help/repository/repo-transfer-free-plan-warnings.png)
-1. Type the name of the repository you'd like to transfer, then click **I understand, transfer this repository**. ![Transfer button](/assets/images/help/repository/repo-transfer-complete.png)
-{% else %}
-1. Click **Transfer**. ![Transfer button](/assets/images/help/repository/repo-transfer.png)
-1. Read the warnings and enter the repository name to confirm that you've done so.
-1. Type the name of the new owner and click **I understand, transfer this repo**. ![Transfer button](/assets/images/help/repository/repo-transfer-complete.png)
-{% endif %}
+---
+ms.openlocfilehash: 9a41cc0562eb6d67140e992eab9669b410f5795d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145117867"
+---
+{% ifversion fpt or ghec %}
+1. В разделе "Зона опасности" нажмите **Передать**.
+ ![Кнопка "Перенести"](/assets/images/help/repository/repo-transfer.png)
+1. Прочитайте сведения о передаче репозитория, а затем введите имя пользователя или организации, которой вы хотите передать владение репозиторием.
+  ![Сведения о передаче репозитория и поле для ввода имени пользователя нового владельца](/assets/images/help/repository/transfer-repo-new-owner-name.png)
+1. Прочитайте предупреждения о потенциальной потере функций в зависимости от подписки нового владельца.
+  ![Предупреждения о передаче репозитория пользователю, использующему бесплатный продукт](/assets/images/help/repository/repo-transfer-free-plan-warnings.png)
+1. Введите имя репозитория, который вы хотите передать, а затем щелкните **Я понимаю, передать этот репозиторий**.
+ ![Кнопка "Передать"](/assets/images/help/repository/repo-transfer-complete.png) {% else %}
+1. Нажмите кнопку **Передать**.
+ ![Кнопка "Перенести"](/assets/images/help/repository/repo-transfer.png)
+1. Прочтите предупреждения и введите имя репозитория, чтобы убедиться, что все выполнено.
+1. Введите имя нового владельца и щелкните **Я понимаю, передать этот репозиторий**.
+ ![Кнопка "Передать"](/assets/images/help/repository/repo-transfer-complete.png) {% endif %}

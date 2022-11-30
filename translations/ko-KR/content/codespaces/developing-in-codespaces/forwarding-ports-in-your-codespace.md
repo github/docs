@@ -1,8 +1,9 @@
 ---
-title: Forwarding ports in your codespace
+title: codespace에서 포트 전달
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/forwarding-ports-in-your-codespace
 type: how_to
@@ -10,52 +11,128 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+shortTitle: Forward ports
+ms.openlocfilehash: 320a2e42d647452056961d4f0f987c3c5db49476
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158911'
 ---
+{% jetbrains %}
 
-{% data reusables.codespaces.release-stage %}
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-### About forwarded ports
+{% endjetbrains %}
 
-Port forwarding gives you access to TCP ports running within your codespace. For example, if you're running a web application on port 4000, you can access the application from your browser to test and debug the application.
+## 전달된 포트 정보
 
-When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal to open the port in a browser. For example, if an application outputs `http://127.0.0.1:4000` or `http://localhost:4000` to the console, the log would automatically convert the output to a clickable URL for port 4000.
+포트 전달은 codespace 내에서 실행 중인 TCP 포트에 대한 액세스 권한을 제공합니다. 예를 들어 codespace의 특정 포트에서 웹 애플리케이션을 실행하는 경우 해당 포트를 전달할 수 있습니다. 이렇게 하면 테스트 및 디버깅을 위해 로컬 컴퓨터의 브라우저에서 애플리케이션에 액세스할 수 있습니다.
 
-![Automatic port forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
+{% webui %}
 
-You can also forward a port manually, label forwarded ports, share fowarded ports publicly, and add forwarded ports to the codespace configuration.
+{% data reusables.codespaces.port-forwarding-intro-non-jetbrains %} {% data reusables.codespaces.navigate-to-ports-tab %}
+1. 포트 목록에서 **포트 추가** 를 클릭합니다.
 
-### Forwarding a port
+   ![포트 단추 추가](/assets/images/help/codespaces/add-port-button.png)
 
-You can manually forward a port that wasn't forwarded automatically.
+1. 포트 번호 또는 주소를 입력한 다음 Enter 키를 누릅니다.
 
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. Under the list of ports, click **Add port**. ![Add port button](/assets/images/help/codespaces/add-port-button.png)
-1. Type the port number or address, then press enter. ![Text box to type port button](/assets/images/help/codespaces/port-number-text-box.png)
+   ![포트 단추를 입력할 텍스트 상자](/assets/images/help/codespaces/port-number-text-box.png)
 
-### Labeling a port
+## HTTPS 전달 사용
 
-You can label a port to make the port more easily identifiable in a list.
-
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. Hover over the port you want to label, then click the label icon. ![Label icon for port](/assets/images/help/codespaces/label-icon.png)
-{% data reusables.codespaces.type-port-label %}
-
-### Sharing a port
-
-If you want to share a forwarded port with others, you can make the port public. After you make a port public, anyone with the port's URL can view the running application without needing to authenticate.
+기본적으로 {% data variables.product.prodname_github_codespaces %}는 HTTP를 사용하여 포트를 전달하지만 필요에 따라 HTTPS를 사용하도록 모든 포트를 업데이트할 수 있습니다. HTTPS를 사용하도록 공용 표시 유형으로 포트를 업데이트하면 포트의 표시 유형이 자동으로 프라이빗으로 변경됩니다.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port you want to share, then click **Make Public**. ![Option to make port public in right-click menu](/assets/images/help/codespaces/make-public-option.png)
-1. To the right of the local address for the port, click the copy icon. ![Copy icon for port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
-1. Send the copied URL to the person you want to share the port with.
+1. 업데이트할 포트를 마우스 오른쪽 단추로 클릭한 다음 **포트 프로토콜 변경** 위로 마우스를 가져다 놓습니다.
+  ![포트 프로토콜을 변경하는 옵션](/assets/images/help/codespaces/update-port-protocol.png)
+1. 이 포트에 필요한 프로토콜을 선택합니다. 선택한 프로토콜은 codespace의 수명 동안 이 포트에 대해 기억됩니다.
 
-### Adding a port to the codespace configuration
-
-You can add a forwarded port to the {% data variables.product.prodname_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
-
-You can manually configure fowarded ports in a `.devcontainer.json` file using the `forwardPorts` property, or you can use the "Ports" panel in your codespace.
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port you want to add to the codespace configuration, then click **Set Label and Update devcontainer.json**. ![Option to set label and add port to devcontainer.json in the right-click menu](/assets/images/help/codespaces/update-devcontainer-to-add-port-option.png)
-{% data reusables.codespaces.type-port-label %}
+1. 공유하려는 포트를 마우스 오른쪽 단추로 클릭하고 “포트 표시 유형” 메뉴를 선택한 다음 **조직에 공개** 또는 **공개** 를 클릭합니다.
+  ![마우스 오른쪽 단추 클릭 메뉴에서 포트 표시 유형을 선택하는 옵션](/assets/images/help/codespaces/make-public-option.png)
+1. 포트의 로컬 주소 오른쪽에 있는 복사 아이콘을 클릭합니다.
+  ![포트 URL에 대한 복사 아이콘](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. 복사한 URL을 포트를 공유하려는 사람에게 보냅니다.
 
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %} {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+
+{% endwebui %}
+
+{% vscode %}
+
+{% data reusables.codespaces.port-forwarding-intro-non-jetbrains %} {% data reusables.codespaces.navigate-to-ports-tab %}
+1. 포트 목록에서 **포트 추가** 를 클릭합니다.
+
+   ![포트 단추 추가](/assets/images/help/codespaces/add-port-button.png)
+
+1. 포트 번호 또는 주소를 입력한 다음 Enter 키를 누릅니다.
+
+   ![포트 단추를 입력할 텍스트 상자](/assets/images/help/codespaces/port-number-text-box.png)
+
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
+
+{% data reusables.codespaces.navigate-to-ports-tab %}
+1. 공유하려는 포트를 마우스 오른쪽 단추로 클릭하고 “포트 표시 유형” 메뉴를 선택한 다음 **조직에 공개** 또는 **공개** 를 클릭합니다.
+  ![마우스 오른쪽 단추 클릭 메뉴에서 포트를 공개로 지정하는 옵션](/assets/images/help/codespaces/make-public-option.png)
+1. 포트의 로컬 주소 오른쪽에 있는 복사 아이콘을 클릭합니다.
+  ![포트 URL에 대한 복사 아이콘](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. 복사한 URL을 포트를 공유하려는 사람에게 보냅니다.
+
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %} {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+
+{% endvscode %}
+
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+포트를 전달하려면 `gh codespace ports forward` 하위 명령을 사용합니다. 연결하려는 원격 및 로컬 포트로 `codespace-port:local-port`를 바꿉니다. 명령을 입력한 후 표시되는 codespace 목록에서 선택합니다.
+
+```shell
+gh codespace ports forward CODESPACE-PORT:LOCAL-PORT
+```
+
+이 명령에 대한 자세한 내용은 [{% data variables.product.prodname_cli %} 설명서](https://cli.github.com/manual/gh_codespace_ports_forward)를 참조하세.
+
+전달된 포트의 세부 정보를 보려면 `gh codespace ports`를 입력 한 다음 codespace를 선택합니다.
+
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
+
+전달된 포트의 표시 유형을 변경하려면 `gh codespace ports visibility` 하위 명령을 사용합니다. {% data reusables.codespaces.port-visibility-settings %}
+
+전달된 포트 번호로 `codespace-port`를 바꿉니다. `setting`을 `private``org` 또는`public`으로 바꿉니다. 명령을 입력한 후 표시되는 codespace 목록에서 선택합니다.
+
+```shell
+gh codespace ports visibility CODESPACE-PORT:SETTINGS
+```
+
+하나의 명령을 사용하여 여러 포트에 대한 표시 유형을 설정할 수 있습니다. 예를 들면 다음과 같습니다.
+
+```shell
+gh codespace ports visibility 80:private 3000:public 3306:org
+```
+
+이 명령에 대한 자세한 내용은 [{% data variables.product.prodname_cli %} 설명서](https://cli.github.com/manual/gh_codespace_ports_visibility)를 참조하세요.
+
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
+
+codespace에 대해 전달된 포트를 나열하면 포트 레이블을 볼 수 있습니다. 이렇게 하려면 명령을 사용한 `gh codespace ports` 다음 codespace를 선택합니다.
+
+{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+
+{% endcli %}
+
+{% jetbrains %}
+
+## 포트 전달
+
+codespace의 포트를 로컬 컴퓨터의 포트로 전달하는 방법에 대한 자세한 내용은 JetBrains 설명서의 "[보안 모델](https://www.jetbrains.com/help/idea/security-model.html#port_forwarding)" 문서의 "포트 전달" 섹션을 참조하세요.
+
+또는 {% data variables.product.prodname_cli %}를 사용하여 포트를 전달할 수 있습니다. 자세한 내용은 이 페이지 맨 위에 있는 "{% data variables.product.prodname_cli %}" 탭을 클릭합니다.
+
+{% endjetbrains %}

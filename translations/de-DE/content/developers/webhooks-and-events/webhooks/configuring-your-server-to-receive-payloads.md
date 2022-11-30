@@ -1,29 +1,37 @@
 ---
-title: Configuring your server to receive payloads
-intro: Learn to set up a server to manage incoming webhook payloads.
+title: Konfigurieren des Servers zum Empfangen von Payloads
+intro: 'Hier erfährst du, wie du einen Server einrichtest, um eingehende Webhooknutzlasten zu verwalten.'
 redirect_from:
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+shortTitle: Configure server for webhooks
+ms.openlocfilehash: c306cadf4dd8d9cd573d694419a51179c8995797
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132982'
 ---
-Now that our webhook is ready to deliver messages, we'll set up a basic Sinatra server to handle incoming payloads.
+Nachdem unser Webhook bereit ist, Nachrichten zu übermitteln, richten wir einen grundlegenden Sinatra-Server ein, um eingehende Payloads zu verarbeiten.
 
 {% note %}
 
-**Note:** You can download the complete source code for this project [from the platform-samples repo][platform samples].
+**Hinweis**: Du kannst den vollständigen Quellcode für dieses Projekt [aus dem Repository mit den Plattformbeispielen][platform samples] herunterladen.
 
 {% endnote %}
 
-### Writing the server
+## Schreiben des Servers
 
-We want our server to listen to `POST` requests, at `/payload`, because that's where we told GitHub our webhook URL was. Because we're using ngrok to expose our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
+Wir möchten, dass unser Server unter `/payload` auf `POST`-Anforderungen lauscht, da wir GitHub mitgeteilt haben, dass sich dort unsere Webhook-URL befindet. Da wir `ngrok` verwenden, um unsere lokale Umgebung verfügbar zu machen, müssen wir keinen echten Server irgendwo online einrichten und können unseren Code einfach lokal testen.
 
-Let's set up a little Sinatra app to do something with the information. Our initial setup might look something like this:
+Richten wir eine kleine Sinatra-App ein, damit etwas mit den Informationen passiert. Die erste Einrichtung könnte ungefähr so aussehen:
 
 ``` ruby
 require 'sinatra'
@@ -35,11 +43,11 @@ post '/payload' do
 end
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
+(Wenn du nicht mit der Funktionsweise von Sinatra vertraut bist, solltest du den [Sinatra-Leitfaden][Sinatra] lesen.)
 
-Start this server up.
+Starte diesen Server.
 
-Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new issue on the repository you're testing with. Once you create it, switch back to your terminal. You should see something like this in your output:
+Da wir unseren Webhook so eingerichtet haben, dass er auf Ereignisse zu `Issues` lauscht, erstelle ein neues Issue in dem Repository, mit dem du testest. Wechsle nach der Erstellung wieder zum Terminal. In der Ausgabe sollte etwa Folgendes angezeigt werden:
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb
@@ -50,9 +58,9 @@ $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.
 > I got some JSON: {"action"=>"opened", "issue"=>{"url"=>"...
 ```
 
-Success! You've successfully configured your server to listen to webhooks. Your server can now process this information any way you see fit. For example, if you were setting up a "real" web application, you might want to log some of the JSON output to a database.
+Erfolg! Du hast deinen Server erfolgreich so konfiguriert, dass er auf Webhooks lauscht. Dein Server kann diese Informationen jetzt auf jede Weise verarbeiten, die dir gefällt. Wenn du beispielsweise eine echte Webanwendung einrichtest, kann es sinnvoll sein, die JSON-Ausgabe in einer Datenbank zu protokollieren.
 
-For additional information on working with webhooks for fun and profit, head on over to the [Testing Webhooks](/webhooks/testing) guide.
+Weitere Informationen zum Arbeiten mit Webhooks – ob beruflich oder rein aus Spaß – findest du im Leitfaden zum [Testen von Webhooks](/webhooks/testing).
 
 [platform samples]: https://github.com/github/platform-samples/tree/master/hooks/ruby/configuring-your-server
 [Sinatra]: http://www.sinatrarb.com/

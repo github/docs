@@ -1,17 +1,20 @@
-{% if  currentVersion == "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+---
+ms.openlocfilehash: 6651596e9f4ee39f1263196731ff03079c33598c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145130376"
+---
+{% ifversion ghae %}
+
+<!-- Remove this reusable and all references for GA release -->
+
+{% elsif ghae %}
+
 {% note %}
 
-**ノート:** Organizationが所有するリポジトリのための{% data variables.product.prodname_secret_scanning_caps %}は現在ベータで、変更されることがあります。
-
-{% endnote %}
-
-{% endif %}
-{% if currentVersion ver_gt "enterprise-server@3.0" %}
-
-{% note %}
-
-**ノート:** {% data variables.product.prodname_secret_scanning_caps %}は{% data variables.product.prodname_ghe_server %} 3.0ではベータでした。 {% data variables.product.prodname_secret_scanning %}の一般に利用なリリースについては、{% data variables.product.prodname_ghe_server %}の最新リリースにアップグレードしてください。
-
+**注:** Organization が所有するリポジトリのための {% data variables.product.prodname_secret_scanning_caps %} は現在ベータ段階であり、変更されることがあります。
 
 {% endnote %}
 

@@ -1,1 +1,9 @@
-{% data variables.product.prodname_dependabot %} raises pull requests to update dependencies. Depending on how your repository is configured, {% data variables.product.prodname_dependabot %} may raise pull requests for version updates and/or for security updates. You manage these pull requests in the same way as any other pull request, but there are also some extra commands available. For information about enabling {% data variables.product.prodname_dependabot %} dependency updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)" and "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)."
+---
+ms.openlocfilehash: 40caecb36e883a7330843fbe17a34ff1bf2c3bbb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "145133470"
+---
+{% data variables.product.prodname_dependabot %} löst Pull Requests zum Aktualisieren von Abhängigkeiten aus. Je nachdem, wie Dein Repository konfiguriert ist, kann {% data variables.product.prodname_dependabot %} Pull Requests für Versionsupdates und/oder für Sicherheitsupdates auslösen. Du verwaltest diese Pull Requests auf dieselbe Weise wie alle anderen Pull Requests, aber es sind auch einige zusätzliche Befehle verfügbar. Weitere Informationen zum Aktivieren von {% data variables.product.prodname_dependabot %} findest Du unter „[Konfigurieren von {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)“ und „[Aktivieren und Deaktivieren von {% data variables.product.prodname_dependabot %}-Versionsupdates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates)“.

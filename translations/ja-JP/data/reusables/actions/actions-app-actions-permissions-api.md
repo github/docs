@@ -1,1 +1,9 @@
-{% data variables.product.prodname_github_app %}がこの API を使用するためには `actions` 権限が必要です。
+---
+ms.openlocfilehash: 4572a1029c4ebbf3cf7507da62cf7da579407e0d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145117053"
+---
+{% data variables.product.prodname_github_apps %}には、この API を使用するための `actions` アクセス許可が必要です。

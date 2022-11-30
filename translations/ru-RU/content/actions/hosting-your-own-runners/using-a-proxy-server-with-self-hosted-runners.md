@@ -1,53 +1,59 @@
 ---
-title: Using a proxy server with self-hosted runners
-intro: 'You can configure self-hosted runners to use a proxy server to communicate with {% data variables.product.product_name %}.'
+title: Использование прокси-сервера с самостоятельно размещенными средствами выполнения
+intro: 'Можно настроить локальные средства выполнения, чтобы использовать прокси-сервер для обмена данными с {% data variables.product.product_name %}.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: tutorial
+shortTitle: Proxy servers
+ms.openlocfilehash: e6c9d36b052627726f73f6a07d989a192cd1e738
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145092509'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
+## Настройка прокси-сервера с помощью переменных среды
 
-### Configuring a proxy server using environment variables
+Если для обмена данными через прокси-сервер требуется локальное средство выполнения, приложение локального средства выполнения использует конфигурации прокси-сервера, заданные в следующих переменных среды:
 
-If you need a self-hosted runner to communicate via a proxy server, the self-hosted runner application uses proxy configurations set in the following environment variables:
-
-* `https_proxy`: Proxy URL for HTTPS traffic. You can also include basic authentication credentials, if required. Например:
+* `https_proxy`: URL-адрес прокси-сервера для трафика HTTPS. При необходимости можно также включить учетные данные обычной проверки подлинности. Пример:
   * `http://proxy.local`
   * `http://192.168.1.1:8080`
   * `http://username:password@proxy.local`
-* `http_proxy`: Proxy URL for HTTP traffic. You can also include basic authentication credentials, if required. Например:
+* `http_proxy`: URL-адрес прокси-сервера для трафика HTTP. При необходимости можно также включить учетные данные обычной проверки подлинности. Пример:
   * `http://proxy.local`
   * `http://192.168.1.1:8080`
   * `http://username:password@proxy.local`
-* `no_proxy`: Comma separated list of hosts that should not use a proxy. Only hostnames are allowed in `no_proxy`, you cannot use IP addresses. Например:
+* `no_proxy`: разделенный запятыми список узлов, которые не должны использовать прокси-сервер. В `no_proxy` нельзя использовать IP-адреса, только имена узлов. Пример:
   * `example.com`
   * `example.com,myserver.local:443,example.org`
 
-The proxy environment variables are read when the self-hosted runner application starts, so you must set the environment variables before configuring or starting the self-hosted runner application. If your proxy configuration changes, you must restart the self-hosted runner application.
+Переменные среды прокси-сервера считываются при запуске приложения локального средства выполнения, поэтому перед настройкой или запуском этого приложения необходимо задать переменные среды. При изменении конфигурации прокси необходимо перезапустить локальное приложение самостоятельного средства выполнения.
 
-On Windows machines, the proxy environment variable names are not case-sensitive. On Linux and macOS machines, we recommend that you use all lowercase environment variables. If you have an environment variable in both lowercase and uppercase on Linux or macOS, for example `https_proxy` and `HTTPS_PROXY`, the self-hosted runner application uses the lowercase environment variable.
+На компьютерах с Windows имена переменных среды прокси-сервера не учитывают регистр. На компьютерах с Linux и macOS рекомендуется использовать только строчные символы в переменных среды. Если у вас есть переменная среды в нижнем и верхнем регистре в Linux или macOS, например `https_proxy` и `HTTPS_PROXY`, локальное приложение Runner использует переменную среды в нижнем регистре.
 
-### Using a .env file to set the proxy configuration
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
 
-If setting environment variables is not practical, you can set the proxy configuration variables in a file named _.env_ in the self-hosted runner application directory. For example, this might be necessary if you want to configure the runner application as a service under a system account. When the runner application starts, it reads the variables set in _.env_ for the proxy configuration.
+## Использование файла .env для настройки конфигурации прокси-сервера
 
-An example _.env_ proxy configuration is shown below:
+Если параметры переменных среды не являются практическими, можно задать переменные конфигурации прокси-сервера в файле с именем _.env_ в каталоге приложения локального средства выполнения. Например, это может потребоваться, если вы хотите настроить приложение средства выполнения в качестве службы в системной учетной записи. Когда запускается приложение средства выполнения, оно считывает переменные, заданные в _.env_ для конфигурации прокси-сервера.
+
+Ниже приведен пример _.env_ конфигурации прокси-сервера:
 
 ```ini
 https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```
 
-### Setting proxy configuration for Docker containers
+## Настройка конфигурации прокси-сервера для контейнеров Docker
 
-If you use Docker container actions or service containers in your workflows, you might also need to configure Docker to use your proxy server in addition to setting the above environment variables.
+Если в рабочих процессах используются действия контейнера Docker или контейнеры служб, возможно, потребуется настроить Docker для применения прокси-сервера в дополнение к настройке вышеуказанных переменных среды.
 
-For information on the required Docker configuration, see "[Configure Docker to use a proxy server](https://docs.docker.com/network/proxy/)" in the Docker documentation.
+Сведения о требуемой конфигурации Docker см. в разделе [Настройка Docker для использования прокси-сервера](https://docs.docker.com/network/proxy/) в документации по Docker.

@@ -1,31 +1,39 @@
 ---
-title: ホスト名の設定
-intro: アプライアンスには、ハードコードされたIPアドレスを使うのではなくホスト名を設定することをおすすめします。
+title: Configuring a hostname
+intro: We recommend setting a hostname for your appliance instead of using a hard-coded IP address.
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-hostnames/
+  - /enterprise/admin/guides/installation/configuring-hostnames
   - /enterprise/admin/installation/configuring-a-hostname
   - /enterprise/admin/configuration/configuring-a-hostname
   - /admin/configuration/configuring-a-hostname
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
 ---
-ハードコードされたIPアドレスの代わりにホスト名を設定すれば、ユーザやクライアントソフトウェアに影響を与えることなく{% data variables.product.product_location %}を動作させる物理ハードウェアを変更できるようになります。
+If you configure a hostname instead of a hard-coded IP address, you will be able to change the physical hardware that {% data variables.location.product_location %} runs on without affecting users or client software.
 
-{% data variables.enterprise.management_console %} のホスト名の設定は、適切な完全修飾ドメイン名 (FQDN) に設定して、インターネット上または内部ネットワーク内で解決できるようにしてください。 たとえば、ホスト名の設定は `github.companyname.com` であるかもしれません。 また、選択したホスト名に対して Subdomain Isolation を有効にして、いくつかのクロスサイトスクリプティングスタイルの脆弱性を軽減することもおすすめします。 ホスト名の設定に関する詳しい情報については、[HTTP RFC の Section 2.1](https://tools.ietf.org/html/rfc1123#section-2) を参照してください。
+The hostname setting in the {% data variables.enterprise.management_console %} should be set to an appropriate fully qualified domain name (FQDN) which is resolvable on the internet or within your internal network. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}. Note that `localhost` is not a valid hostname setting. 
+
+Hostnames must be less than 63 characters in length per [Section 2.3.4 of the Domain Names Specification RFC](https://datatracker.ietf.org/doc/html/rfc1035#section-2.3.4).
+
+After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.location.product_location %}. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."
+
+For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.hostname-menu-item %}
-4. {% data variables.product.product_location %} に設定するホスト名を入力します。 ![ホスト名を設定するためのフィールド](/assets/images/enterprise/management-console/hostname-field.png)
-5. 新しいホスト名のためのDNS及びSSLの設定をテストするには**Test domain settings（ドメイン設定のテスト）**をクリックしてください。 ![[Test domain settings] ボタン](/assets/images/enterprise/management-console/test-domain-settings.png)
+4. Type the hostname you'd like to set for {% data variables.location.product_location %}.
+  ![Field for setting a hostname](/assets/images/enterprise/management-console/hostname-field.png)
+5. To test the DNS and SSL settings for the new hostname, click **Test domain settings**.
+  ![Test domain settings button](/assets/images/enterprise/management-console/test-domain-settings.png)
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-ホスト名を設定したら、{% data variables.product.product_location %}のSubdomain Isolationを有効化することをお勧めします。 詳しい情報については"[Subdomain Isolationの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)"を参照してください。
+To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.location.product_location %} after you configure a hostname. For more information, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation/)."

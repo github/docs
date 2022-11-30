@@ -1,3 +1,11 @@
-| Клавиша    | Тип      | Description                                                                                                                                                                                                                                           |
-| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `действие` | `строка` | The action that was performed. Can be one of:<ul><li>`published`: a release, pre-release, or draft of a release is published</li><li>`unpublished`: a release or pre-release is deleted</li><li>`created`: a draft is saved, or a release or pre-release is published without previously being saved as a draft</li><li>`edited`: a release, pre-release, or draft release is edited</li><li>`deleted`: a release, pre-release, or draft release is deleted</li><li>`prereleased`: a pre-release is created</li><li>`released`: a release or draft of a release is published, or a pre-release is changed to a release</li> |
+---
+ms.openlocfilehash: e25410532059b625a9d72984993f3d6d2fcec565
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145070212"
+---
+Ключ | Тип | Описание
+----|------|-------------
+`action`|`string` | Действие, которое было выполнено. Возможные значения:<ul><li>`published`: публикуется выпуск, предварительный выпуск или черновик выпуска.</li><li>`unpublished`: удаляется выпуск или предварительный выпуск.</li><li>`created`: сохраняется черновик, либо публикуется выпуск или предварительный выпуск, ранее не сохранный как черновик.</li><li>`edited`: редактируется выпуск, предварительный выпуск или черновик выпуска.</li><li>`deleted`: удаляется выпуск, предварительный выпуск или черновик выпуска.</li><li>`prereleased`: создается предварительный выпуск.</li><li>`released`: публикуется выпуск, или предварительный выпуск становится окончательным.</li>

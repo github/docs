@@ -1,1 +1,9 @@
-Vulnerability disclosure is an area where collaboration between vulnerability reporters, such as security researchers, and project maintainers is very important. Both parties need to work together from the moment a potentially harmful security vulnerability is found, right until a vulnerability is disclosed to the world, ideally with a patch available. Typically, when someone lets a maintainer know privately about a security vulnerability, the maintainer develops a fix, validates it, and notifies the users of the project or package.
+---
+ms.openlocfilehash: c759dde3d7cef97722fb7c3a002714e08f0b8e45
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145139390"
+---
+Раскрытие уязвимостей — это область, в которой очень важно сотрудничество между специалистами, сообщающими об уязвимостях, такими как исследователи по безопасности и специалисты по поддержке проектов. Обе стороны должны работать как одна команда с того момента, когда обнаружена потенциально вредная уязвимость безопасности, и до тех пор, пока уязвимость не будет раскрыта миру (в идеале — с доступным исправлением). Как правило, когда кто-то сообщает специалисту-специалисту об уязвимости системы безопасности в частном порядке, специалист по поддержке разрабатывает исправление, проверяет его и уведомляет пользователей о проекте или пакете.

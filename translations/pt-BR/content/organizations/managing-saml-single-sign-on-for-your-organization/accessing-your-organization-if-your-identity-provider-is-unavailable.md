@@ -1,31 +1,28 @@
 ---
 title: Acessar sua organização se o provedor de identidade não estiver disponível
 intro: 'Os administradores da organização podem entrar no {% data variables.product.product_name %} mesmo se o provedor de identidade deles estiver indisponível, ignorando o logon único e usando os respectivos códigos de recuperação.'
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Unavailable identity provider
+ms.openlocfilehash: fd965c2c847378936e10ff5cc5560397a09ca372
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145095591'
 ---
+Os administradores da organização podem usar [um dos códigos de recuperação baixados ou salvos](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) para ignorar o logon único. Talvez você os tenha salvo em um gerenciador de senhas, como o [LastPass](https://lastpass.com/) ou o [1Password](https://1password.com/).
 
-Os administradores da organização podem usar [um de seus códigos de recuperação baixados ou salvos](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) para ignorar o logon único. Você pode ter salvado eles em um gerenciador de senhas, como [LastPass](https://lastpass.com/), [1Password](https://1password.com/) ou [Keeper](https://keepersecurity.com/).
+{% data reusables.saml.recovery-code-caveats %}
 
-{% note %}
+{% data reusables.saml.recovery-code-access %}
 
-**Observação:** você pode usar os códigos de recuperação apenas uma vez e deve usá-los em ordem consecutiva. Os códigos de recuperação concedem acesso por 24 horas.
+## Leitura adicional
 
-{% endnote %}
-
-1. Na parte inferior da caixa de diálogo de logon único, clique em **Use a recovery code** (Usar um código de recuperação) para ignorar o logon único. ![Link para inserir código de recuperação](/assets/images/help/saml/saml_use_recovery_code.png)
-2. No campo "Recovery Code" (Código de Recuperação), digite seu código de recuperação. ![Campo para inserir código de recuperação](/assets/images/help/saml/saml_recovery_code_entry.png)
-3. Clique em **Verificar**. ![Botão para verificar código de recuperação](/assets/images/help/saml/saml_verify_recovery_codes.png)
-
-Depois de ter usado um código de recuperação, certifique-se de anotar que ele não é mais válido. Você não poderá reutilizar o código de recuperação.
-
-### Leia mais
-
-- "[Sobre gerenciamento de identidade e acesso com o SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[Sobre o gerenciamento de identidades e acesso com o SSO do SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

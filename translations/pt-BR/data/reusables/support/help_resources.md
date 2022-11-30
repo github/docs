@@ -1,7 +1,7 @@
-Para dúvidas, relatórios de erros e discussões sobre {% data variables.product.prodname_github_app %}s,  {% data variables.product.prodname_oauth_app %}e desenvolvimento da API, explore {% data variables.product.prodname_support_forum_with_url %}. O fórum é moderado e mantido por funcionários de {% data variables.product.company_short %}, mas as dúvidas postadas no fórum não têm garantia de recebimento de resposta por parte dos funcionários de {% data variables.product.company_short %}.
+For questions, bug reports, and discussions about {% data variables.product.prodname_github_apps %},  {% data variables.product.prodname_oauth_apps %}, and API development, explore the  {% data reusables.support.prodname_support_forum_with_url %}. The discussions are moderated and maintained by {% data variables.product.company_short %} staff, but questions posted to the forum are not guaranteed to receive a reply from {% data variables.product.company_short %} staff.
 
-Considere entrar em contato com o [Suporte do GitHub](https://github.com/contact) diretamente usando o formulário de contato para:
-  - resposta garantida dos funcionários de {% data variables.product.product_name %}
-  - solicitações de suporte que envolvem dados confidenciais ou questões privadas
-  - solicitações de recursos
-  - feedback sobre produtos de {% data variables.product.product_name %}
+Consider reaching out to [GitHub Support](https://support.github.com/) directly using the contact form for:
+  - guaranteed response from {% data variables.product.product_name %} staff
+  - support requests involving sensitive data or private concerns
+  - feature requests
+  - feedback about {% data variables.product.product_name %} products

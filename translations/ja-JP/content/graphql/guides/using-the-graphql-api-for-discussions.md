@@ -1,23 +1,27 @@
 ---
-title: Using the GraphQL API for Discussions
-intro: Learn how to use the GitHub Discussions GraphQL API.
+title: ディスカッションでのGraphQL APIの利用
+intro: '{% data variables.product.prodname_discussions %} GraphQL APIの使い方を学んでください。'
 versions:
-  free-pro-team: '*'
+  feature: discussions
+shortTitle: Use GraphQL for Discussions
+ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408844'
 ---
+{% data variables.product.prodname_discussions %} GraphQL APIを使うと、ディスカッションのポストの取得、作成、編集、削除ができます。 {% data variables.product.prodname_discussions %} の詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 
-The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see "[‎About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
-
-This API is available for authenticated users, OAuth Apps, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[Scopes for OAuth apps](/developers/apps/scopes-for-oauth-apps)."
-
-To use this API, you must include `GraphQL-Features: discussions_api` in the `HTTP` header.
+このAPIは、認証を受けたユーザ、OAuth App、GitHub Appが利用できます。 アクセス トークンには、プライベート リポジトリの `repo` スコープとパブリック リポジトリの `public_repo` スコープが必要です。 詳細については、「[OAuth アプリのスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。
 
 ## フィールド
 
 ### Repository.discussions
 
-List the discussions within a repository. If `categoryId` is specified, only results within that category will be returned.
+リポジトリ内のディスカッションをリストします。 `categoryId` が指定されている場合、そのカテゴリ内の結果だけが返されます。
 
-_Signature:_
+_シグニチャ:_
 
 ```graphql
 discussions(
@@ -68,9 +72,9 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 10 categories. For more information about discussion categories, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+このリポジトリ内で定義されている利用可能なディスカッションのカテゴリを返します。 各リポジトリは、最大で10個のカテゴリを持つことができます。 ディスカッション カテゴリの詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
 
-_Signature:_
+_シグニチャ:_
 
 ```graphql
 discussionCategories(
@@ -83,9 +87,9 @@ discussionCategories(
 
 ### Repository.discussion
 
-ディスカッションの取得. Returns `null` if discussion with the specified ID does not exist.
+ディスカッションを取得します。 指定された ID を持つディスカッションが存在しない場合、`null` を返します。
 
-_Signature:_
+_シグニチャ:_
 
 ```graphql
 discussion(number: Int!) : Discussion
@@ -93,9 +97,9 @@ discussion(number: Int!) : Discussion
 
 ### Repository.pinnedDiscussions
 
-Return discussions pinned to this repository, ordered by pin position.
+このリポジトリにピン止めされたディスカッションを、ピンの位置の順序で返します。
 
-_Signature:_
+_シグニチャ:_
 
 ```graphql
 pinnedDiscussions(
@@ -108,7 +112,7 @@ pinnedDiscussions(
 
 ## オブジェクト
 
-**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. 詳しい情報については「[GraphQLの紹介](/graphql/guides/introduction-to-graphql#connection)」を参照してください。
+**注:** 簡潔にするために、ここでは接続の種類は展開されません。 このスキーマで触れられているそれぞれのconnectionタイプは、GraphQL APIの他のconnectionと同じパターンに従います。 詳細については、「[GraphQL の概要](/graphql/guides/introduction-to-graphql#connection)」をご覧ください。
 
 ```graphql
 query {
@@ -143,7 +147,7 @@ query {
 }
 ```
 
-### ディスカッション
+### 考察 (Discussion)
 
 <details>
 <summary>フィールド:</summary>
@@ -846,11 +850,11 @@ enum PinnedDiscussionGradient {
 
 </details>
 
-## インターフェース
+## インターフェイス
 
 ### RepositoryDiscussionAuthor
 
-Implemented by the `User` and `Organization` types. **Note:** An `Organization` will only have discussions associated with it if it was converted from a `User`.
+`User` と `Organization` 型によって実装されます。 **注:** それが `User` から変換されたものである場合にのみ、`Organization` は、それに関連するディスカッションを行います。
 
 <details>
 <summary>フィールド</summary>
@@ -907,7 +911,7 @@ interface RepositoryDiscussionAuthor {
 
 ### RepositoryDiscussionCommentAuthor
 
-Also implemented by the `User` and `Organization` types.
+また、`User` および `Organization` 型によって実装されます。
 
 <details>
 <summary>フィールド</summary>
@@ -958,9 +962,9 @@ interface RepositoryDiscussionCommentAuthor {
 
 ## ミューテーション
 
-These mutations follow the same implementation pattern that other mutations in the GraphQL API. Each mutation accepts a single argument of an `Input` type, named after the mutation, and returns a `Payload` type containing the fields specified.
+以下のミューテーションは、GraphQL API中の他のミューテーションと同じ実装パターンに従っています。 それぞれのミューテーションは、そのミューテーションから名付けられた `Input` 型の引数を 1 つ取り、指定されたフィールドを含む `Payload` 型を返します。
 
-For example, this is a basic `createDiscussion` mutation that will create a new discussion:
+たとえば、これは基本の `createDiscussion` ミューテーションで、新しいディスカッションを作成します。
 
 ```graphql
 mutation {
@@ -979,106 +983,106 @@ mutation {
 
 入力フィールド:
 
-* `body: String!` The body of the new discussion.
-* `title: String!` The title of the new discussion.
-* `repositoryId: ID!` The ID of a repository in which to create the discussion.
-* `categoryId: ID!` The ID of a `DiscussionCategory` within this repository.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` 新しいディスカッションの本文。
+* `title: String!` 新しいディスカッションのタイトル。
+* `repositoryId: ID!` ディスカッションを作成するリポジトリの ID。
+* `categoryId: ID!` このリポジトリ内の `DiscussionCategory` の ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
-Return type fields:
+返値の型のフィールド:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was created.
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `discussion: Discussion` 作成されたディスカッション。
 
 ### updateDiscussion
 
 入力フィールド:
 
-* `discussionId: ID!` The node ID of the discussion to update.
-* `body: String` The new contents of the discussion body.
-* `title: String` The new discussion title.
-* `categoryId: ID` The node ID of a `DiscussionCategory` within the same repository to change this discussion to.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `discussionId: ID!` 更新するディスカッションのノード ID。
+* `body: String` ディスカッション本文の新しい内容。
+* `title: String` 新しいディスカッション タイトル。
+* `categoryId: ID` このディスカッションを変更する同じリポジトリ内の `DiscussionCategory` のノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
-Return type fields:
+返値の型のフィールド:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was modified.
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `discussion: Discussion` 変更されたディスカッション。
 
 ### deleteDiscussion
 入力フィールド:
 
-* `id: ID!` The node ID of the discussion to delete.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` 削除するディスカッションのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
-Return type fields:
+返値の型のフィールド:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was deleted.
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `discussion: Discussion` 削除されたディスカッション。
 
 ### addDiscussionComment
 
 入力フィールド:
 
-* `body: String!` The contents of the comment.
-* `discussionId: ID!` The node ID of the discussion to comment on.
-* `replyToId: ID` The node ID of the discussion comment to reply to. If absent, the created comment will be a top-level comment.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` コメントの内容。
+* `discussionId: ID!` コメントするディスカッションのノード ID。
+* `replyToId: ID` 返信するディスカッション コメントのノード ID。 存在しなければ、作成されるコメントはトップレベルのコメントになる。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
-Return type fields:
+返値の型のフィールド:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was created.
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `comment: DiscussionComment` 作成されたディスカッション コメント。
 
 ### updateDiscussionComment
 
 入力フィールド:
 
-* `body: String!` The new contents of the comment body.
-* `commentId: ID!` The node ID of the discussion comment to update.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` コメント本文の新しい内容。
+* `commentId: ID!` 更新するディスカッション コメントのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
-Return type fields:
+返値の型のフィールド:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was updated.
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `comment: DiscussionComment` 更新されたディスカッション コメント。
 
 ### deleteDiscussionComment
 
 入力フィールド:
 
-* `id: ID!` The node ID of the discussion comment to delete.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` 削除するディスカッション コメントのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
-Return type fields:
+返値の型のフィールド:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was deleted.
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `comment: DiscussionComment` 削除されたディスカッション コメント。
 
 ### markDiscussionCommentAsAnswer
 
 入力フィールド:
 
-* `id: ID!` The node ID of the discussion comment to mark as an answer.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` 解答としてマークするディスカッション コメントのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
-Return type fields:
+返値の型のフィールド:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that includes the chosen comment.
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `discussion: Discussion` 選択したコメントを含むディスカッション。
 
 ### unmarkDiscussionCommentAsAnswer
 
 入力フィールド:
 
-* `id: ID!` The node ID of the discussion comment to unmark as an answer.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` 解答としてのマークを解除するディスカッション コメントのノード ID。
+* `clientMutationId: String` ミューテーションを行っているクライアントの一意の識別子。
 
-Return type fields:
+返値の型のフィールド:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that includes the unmarked comment.
+* `clientMutationId: String` 入力として提供される一意の識別子。
+* `discussion: Discussion` マークされていないコメントを含むディスカッション。
 
 ## 検索
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+最上位の `search` フィールドからディスカッションが返される場合があります。 ディスカッションを検索するには、`DISCUSSION` として `type` を指定します。 `SearchResultItemConnection` 型には、返されたディスカッションの数を報告するための `discussionCount` フィールドがあり、`Discussion` 型が `SearchResultItem` ユニオンに追加されます。 詳細については、「[クエリ](/graphql/reference/queries#searchresultitemconnection)」および「[ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」を参照してください。

@@ -2,13 +2,14 @@
 title: Delivering deployments
 intro: 'Using the Deployments REST API, you can build custom tooling that interacts with your server and a third-party app.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -23,7 +24,7 @@ the moment your code lands on the default branch.
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
 
-* Merge a pull request
+* Merge a pull request.
 * When the CI is finished, we'll set the pull request's status accordingly.
 * When the pull request is merged, we'll run our deployment to our server.
 
@@ -31,14 +32,22 @@ Our CI system and host server will be figments of our imagination. They could be
 Heroku, Amazon, or something else entirely. The crux of this guide will be setting up
 and configuring the server managing the communication.
 
-If you haven't already, be sure to [download ngrok][ngrok], and learn how
+If you haven't already, be sure to [download `ngrok`][ngrok], and learn how
 to [use it][using ngrok]. We find it to be a very useful tool for exposing local
-connections.
+applications to the internet.
+
+{% ifversion cli-webhook-forwarding %}
+{% note %}
+
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
 
 Note: you can download the complete source code for this project
 [from the platform-samples repo][platform samples].
 
-### Writing your server
+## Writing your server
 
 We'll write a quick Sinatra app to prove that our local connections are working.
 Let's start with this:
@@ -56,14 +65,14 @@ end
 (If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
 
 Start this server up. By default, Sinatra starts on port `4567`, so you'll want
-to configure ngrok to start listening for that, too.
+to configure `ngrok` to start listening for that, too.
 
 In order for this server to work, we'll need to set a repository up with a webhook.
 The webhook should be configured to fire whenever a pull request is created, or merged.
 Go ahead and create a repository you're comfortable playing around in. Might we
 suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
 After that, you'll create a new webhook in your repository, feeding it the URL
-that ngrok gave you, and choosing `application/x-www-form-urlencoded` as the
+that `ngrok` gave you, and choosing `application/x-www-form-urlencoded` as the
 content type:
 
 ![A new ngrok URL](/assets/images/webhook_sample_url.png)
@@ -99,7 +108,7 @@ merged (its state is `closed`, and `merged` is `true`), we'll kick off a deploym
 To test out this proof-of-concept, make some changes in a branch in your test
 repository, open a pull request, and merge it. Your server should respond accordingly!
 
-### Working with deployments
+## Working with deployments
 
 With our server in place, the code being reviewed, and our pull request
 merged, we want our project to be deployed.
@@ -172,15 +181,15 @@ switch the status to `pending`.
 
 After the deployment is finished, we set the status to `success`.
 
-### Conclusion
+## Conclusion
 
 At GitHub, we've used a version of [Heaven][heaven] to manage
-our deployments for years. The basic flow is essentially the exact same as the
-server we've built above. At GitHub, we:
+our deployments for years. A common flow is essentially the same as the
+server we've built above:
 
-* Wait for a response on the state of the CI
-* If the code is green, we merge the pull request
-* Heaven takes the merged code, and deploys it to our production and staging servers
+* Wait for a response on the state of the CI checks (success or failure)
+* If the required checks succeed, merge the pull request
+* Heaven takes the merged code, and deploys it to staging and production servers
 * In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
 
 That's it! You don't need to build your own deployment setup to use this example.

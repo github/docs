@@ -1,5 +1,16 @@
+---
+ms.openlocfilehash: 0b7740ddd22bccfe9899f98ac44af4d4b94b4ed4
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145115496"
+---
 {% note %}
 
-**Note:** SARIF upload supports a maximum of {% if currentVersion == "github-ae@next" or currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}5000{% else %}1000{% endif %} results per upload. Any results over this limit are ignored. If a tool generates too many results, you should update the configuration to focus on results for the most important rules or queries.
+**Примечания.** 
+- Отправка SARIF поддерживает не более 5000 результатов на одну отправку. Все результаты вне этого предела игнорируются. Если средство создает слишком много результатов, следует обновить конфигурацию и сосредоточиться на результатах для наиболее важных правил или запросов.
+
+ - Максимальный размер файла SARIF в архиве `gzip`, поддерживаемый для каждой передачи, — 10 МБ. Любые отправки свыше этого ограничения будут отклонены. Если файл SARIF слишком большой, так как он содержит слишком много результатов, необходимо обновить конфигурацию, чтобы сосредоточиться на результатах для наиболее важных правил или запросов.
 
 {% endnote %}

@@ -1,39 +1,29 @@
 ---
-title: Breaking changes
-intro: 'Learn about recent and upcoming breaking changes to the {% data variables.product.prodname_dotcom %} GraphQL API.'
+title: Критические изменения
+intro: 'Узнайте о последних и предстоящих критических изменениях в API GraphQL {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/breaking_changes
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: c76520b1f9dc806659373771b42501e072319937
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109496'
 ---
+## Сведения о критических изменениях
 
-### About breaking changes
+Критические изменения — это любые изменения, которые могут потребовать действий от интеграторов. Эти изменения делятся на две категории:
 
-Breaking changes are any changes that might require action from our integrators. We divide these changes into two categories:
+- **Критические.** Изменения, которые прерывают выполнение текущих запросов к API GraphQL. Например, критическим изменением является удаление поля.
+- **Опасные.** Изменения, которые не прерывают выполнение существующих запросов, но могут повлиять на поведение среды выполнения клиентов. Опасным изменением является, например, добавление значения в перечисление.
 
-  - **Breaking:** Changes that will break existing queries to the GraphQL API. For example, removing a field would be a breaking change.
-  - **Dangerous:** Changes that won't break existing queries but could affect the runtime behavior of clients. Adding an enum value is an example of a dangerous change.
+Мы стремимся предоставлять стабильные API для наших интеграторов. Когда работа над новой функцией еще идет, мы выпускаем ее в рамках [предварительной версии схемы](/graphql/overview/schema-previews).
 
-We strive to provide stable APIs for our integrators. When a new feature is still evolving, we release it behind a [schema preview](/graphql/overview/schema-previews).
-
-We'll announce upcoming breaking changes at least three months before making changes to the GraphQL schema, to give integrators time to make the necessary adjustments. Changes go into effect on the first day of a quarter (January 1st, April 1st, July 1st, or October 1st). For example, if we announce a change on January 15th, it will be made on July 1st.
-
-{% for date in graphql.upcomingChangesForCurrentVersion %}
-### Changes scheduled for {{ date[0] }}
-
-{% for change in date[1] %}
-<ul>
-<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-info color-bg-info{% endif %}">{% if change.criticality == 'breaking' %}Breaking{% else %}Dangerous{% endif %}</span> A change will be made to <code>{{ change.location }}</code>.
-
-<p><b>Description:</b> {{ change.description }}</p>
-
-<p><b>Reason:</b> {{ change.reason }}</p>
-</li>
-</ul>
-
-{% endfor %}
-{% endfor %}
+Мы объявляем о предстоящих критических изменениях минимум за три месяца до их внедрения в схему GraphQL, чтобы дать интеграторам время для внесения необходимых корректировок. Изменения вступают в силу в первый день квартала (1 января, 1 апреля, 1 июля или 1 октября). Например, если об изменении объявлено 15 января, оно будет внедрено 1 июля.

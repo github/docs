@@ -1,1 +1,9 @@
-To display a "Verified" badge, the website and email information shown on an organization's profile must match the verified domain or domains. If the website and email address shown on your organization's profile are hosted on different domains, you must verify both domains. If the website and email address use variants of the same domain, you must verify both variants. For example, if the profile shows the website `www.example.com` and the email address `info@example.com`, you would need to verify both `www.example.com` and `example.com`.
+---
+ms.openlocfilehash: f91d17de8489b3a348382f36fd8c6925a06c3b31
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878642"
+---
+Чтобы отобразить значок "Проверено", веб-сайт и сведения электронной почты, отображаемые в профиле организации, должны соответствовать одному или нескольким проверенным доменам. Если веб-сайт и адрес электронной почты, отображаемые в профиле вашей организации, размещаются в разных доменах, необходимо проверить оба домена. Если веб-сайт и адрес электронной почты используют варианты одного домена, необходимо проверить оба варианта. Например, если в профиле отображается веб-сайт `www.example.com` и адрес электронной почты `info@example.com`, необходимо проверить как `www.example.com`, так и `example.com`.

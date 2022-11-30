@@ -1,4 +1,14 @@
-1. 新たにプロビジョニングされた置き換えノードを追加するには、任意のノードで`cluster.conf`ファイルを修正し、障害が起きたノードを取り除き、置き換えのノードを追加します。 たとえば以下の修正された`cluster.conf`ファイルは、`ghe-data-node-3`を新たにプロビジョニングされた`ghe-replacement-data-node-3`で置き換えます。 <pre>
+---
+ms.openlocfilehash: 66c4be7b876bad3641ec56200dd5c79e1d0433c5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145123814"
+---
+1. 任意のノードに対して、新たにプロビジョニングされた置換ノードを追加するには、`cluster.conf` ファイルを修正し、障害が起きたノードを取り除き、置換ノードを追加します。 たとえば、このように変更した `cluster.conf` ファイルでは、`ghe-data-node-3` を新しくプロビジョニングされた `ghe-replacement-data-node-3` ノードで置換します。
+
+  <pre>
   [cluster "<em>ghe-replacement-data-node-3</em>"]
     hostname = <em>ghe-replacement-data-node-3</em>
     ipv4 = <em>192.168.0.7</em>

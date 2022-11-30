@@ -1,2 +1,9 @@
-{% data variables.product.prodname_GH_advanced_security %} helps developers improve and maintain the security and quality of code.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
-{% endif %}
+---
+ms.openlocfilehash: 6bf73ca92cb1ff519f97c1a0312379ddbcfcdd8f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879353"
+---
+La {% data variables.product.prodname_GH_advanced_security %} ayuda a que los desarrolladores mejoren y mantengan la seguridad y la calidad del código. Para más información, consulte "[Acerca de {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)".

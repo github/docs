@@ -1,33 +1,44 @@
 ---
-title: 删除组织帐户
-intro: '删除组织时，所有仓库、私有仓库复刻、wiki、议题、拉取请求和项目或组织页面也被删除。 {% if currentVersion == "free-pro-team@latest" %}组织名称可用于新用户或组织帐户，并且计费将结束。{% endif %}'
+title: Deleting an organization account
+intro: 'When you delete an organization, all repositories, forks of private repositories, wikis, issues, pull requests, and Project or Organization Pages are deleted as well. {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Delete organization
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 {% tip %}
 
-**提示**：如果要取消已付费的订阅，可以[将组织下载到 {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) 而非删除组织及其内容。
+**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) instead of deleting the organization and its content.
 
 {% endtip %}
 
 {% endif %}
 
-### 1. 备份组织内容
+## 1. Back up your organization content
 
-删除组织后，GitHub **无法恢复内容**。 因此，在删除组织之前，请确保您拥有该帐户中所有仓库、wiki、议题和项目板的副本。
+{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
 
-### 2. 删除组织
+{% ifversion ghes %}
+{% note %}
+
+**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+
+{% endnote %}
+{% endif %}
+
+## 2. Delete the organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. 在组织设置页面底部附近，单击 **Delete this Organization（删除此组织）**。 ![删除此组织按钮](/assets/images/help/settings/settings-organization-delete.png)
+4. Near the bottom of the organization's settings page, click **Delete this Organization**.
+   ![Delete this organization button](/assets/images/help/settings/settings-organization-delete.png)

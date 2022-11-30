@@ -1,9 +1,9 @@
-Registramos e exibimos dois números de committers para {% data variables.product.prodname_GH_advanced_security %} em {% data variables.product.product_location %}:
+We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
 
-- **Committers** is the number of committers who contributed to at least one {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository in an organization and who use a seat in your enterprise license. Ou seja, eles também são integrantes da organização, um colaborador externo ou têm um convite pendente para ingressar em uma organização na sua empresa.
-- **Único para este repositório/organização** é o número de committers que contribuíram apenas para este repositório ou para repositórios nesta organização. Este número mostra a quantidade de estações de licença que você pode liberar, desabilitando {% data variables.product.prodname_GH_advanced_security %} para esse repositório ou organização.
+- **Committers** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a seat in your enterprise license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
+- **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
 
-If there are no unique committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Desabilitar o recurso para esse repositório ou organização não liberaria nenhuma estação na sua licença.
+If there are no unique committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
 
 When you remove a user from your enterprise account, the user's license is freed within 24 hours.
 

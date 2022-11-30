@@ -1,3 +1,12 @@
-4. 左のサイドバーで**{% if currentVersion ver_lt "enterprise-server@3.1" %} Beta Features（ベータの機能）{% else %} Optional Features（オプションの機能）{% endif %}**をクリックしてください。
-  {% if currentVersion ver_lt "enterprise-server@3.1" %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
-5. アプリケーションで有効化したい{% if currentVersion ver_lt "enterprise-server@3.1" %}ベータの{% else %}オプションの{% endif %}機能の隣の**Opt-in（オプトイン）**をクリックしてください。 ![オプション機能を有効にするオプトインボタン](/assets/images/github-apps/enable-optional-features.png)
+---
+ms.openlocfilehash: d5771c9c0954960982d76d828cdb36d7a0a2312e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145113838"
+---
+4. 左側のサイドバーで、 **[オプション機能]** をクリックします。
+   ![[オプション機能] タブ](/assets/images/github-apps/optional-features-option.png) 
+5. アプリで有効にするオプション機能の横にある **[オプトイン]** をクリックします。
+  ![オプション機能を有効にするオプトイン ボタン](/assets/images/github-apps/enable-optional-features.png)

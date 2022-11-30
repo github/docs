@@ -1,17 +1,27 @@
 ---
-title: Create an assignment from a template repository
-intro: 'You can create an assignment from a template repository to provide starter code, documentation, and other resources to your students.'
+title: Erstellen einer Aufgabe aus einem Vorlagenrepository
+intro: 'Du kannst einen Arbeitsauftrag anhand eines Vorlagenrepositorys erstellen, um Kursteilnehmern Code, Dokumentation und andere Ressourcen zur Verfügung zu stellen.'
+permissions: 'Organization owners who are admins for a classroom can create an assignment from a template repository that is public or owned by the organization. {% data reusables.classroom.classroom-admins-link %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/using-template-repos-for-assignments
   - /education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository
+shortTitle: Template repository
+ms.openlocfilehash: 4a4121a51f3138fca371b38797a7aa39e699cbfb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145102679'
 ---
-You can use a template repository on {% data variables.product.product_name %} as starter code for an assignment on {% data variables.product.prodname_classroom %}. Your template repository can contain boilerplate code, documentation, and other resources for your students. Weitere Informationen findest Du unter „[Repository-Vorlage erstellen](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository).“
+Du kannst ein Vorlagenrepository auf {% data variables.product.product_name %} als Startercode für eine Aufgabe in {% data variables.product.prodname_classroom %} verwenden. Dein Vorlagenrepository kann Codebausteine, Dokumentation und weitere Ressourcen für deine Kursteilnehmer enthalten. Weitere Informationen findest du unter [Erstellen eines Vorlagenrepositorys](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository).
 
-To use the template repository for your assignment, the template repository must be owned by your organization, or the visibility of the template repository must be public.
+Damit du das Vorlagenrepository für deine Aufgabe nutzen kannst, muss es im Besitz deiner Organisation sein, oder die Sichtbarkeit des Vorlagenrepositorys muss „Öffentlich“ lauten.
 
-### Weiterführende Informationen
+Du kannst eine vorhandene Aufgabe – selbst wenn diese eine Vorlage nutzt – in jedem anderen Kursraum wiederverwenden, auf den du als Administrator Zugriff hast. Dies gilt auch für Kursräume einer anderen Organisation. Weitere Informationen findest du unter [Wiederverwenden einer Aufgabe](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment).
 
-- "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"
-- "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)"
+## Weitere Informationsquellen
+
+- [Erstellen einer Einzelaufgabe](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
+- [Erstellen einer Gruppenaufgabe](/education/manage-coursework-with-github-classroom/create-a-group-assignment)

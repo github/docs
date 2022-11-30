@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
   - /admin/policies/creating-a-pre-receive-hook-environment
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Pre-receive hook environments
 ---
 A pre-receive environment for {% data variables.product.prodname_ghe_server %} is a Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) environment. Because pre-receive hooks execute on every push event, they should be fast and lightweight. The environment needed for such checks will typically be minimal.
 
@@ -19,7 +20,7 @@ A pre-receive environment for {% data variables.product.prodname_ghe_server %} i
 
 If you have a specific requirement that isn't met by this environment, such as support for a particular language, you can create and upload your own 64-bit Linux `chroot` environment.
 
-### Creating a pre-receive hook environment using Docker
+## Creating a pre-receive hook environment using Docker
 
 You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](http://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
 
@@ -55,7 +56,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 
    This file `alpine-3.3.tar.gz` is ready to be uploaded to the {% data variables.product.prodname_ghe_server %} appliance.
 
-### Creating a pre-receive hook environment using chroot
+## Creating a pre-receive hook environment using chroot
 
 1. Create a Linux `chroot` environment.
 2. Create a `gzip` compressed `tar` file of the `chroot` directory.
@@ -75,7 +76,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 
 For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the *Ubuntu Community Help Wiki*, or "[Installing Alpine Linux in a chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the *Alpine Linux Wiki*.
 
-### Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
+## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -91,7 +92,7 @@ For more information about creating a chroot environment see "[Chroot](https://w
 9. Click **Add environment**.
 ![Add environment button](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
 
-### Uploading a pre-receive hook environment via the administrative shell
+## Uploading a pre-receive hook environment via the administrative shell
 1. Upload a readable `*.tar.gz` file that contains your environment to a web host and copy the URL or transfer the file to the {% data variables.product.prodname_ghe_server %} appliance via `scp`. When using `scp`, you may need to adjust the `*.tar.gz` file permissions so that the file is world readable.
 1.  Connect to the administrative shell.
 2.  Use the `ghe-hook-env-create` command and type the name you want for the environment as the first argument and the full local path or URL of a `*.tar.gz` file that contains your environment as the second argument.

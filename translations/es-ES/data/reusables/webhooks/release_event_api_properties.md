@@ -1,3 +1,11 @@
-| Clave    | Type        | Descripción                                               |
-| -------- | ----------- | --------------------------------------------------------- |
-| `Acción` | `secuencia` | La acción que se realizó. Puede ponerse como `published`. |
+---
+ms.openlocfilehash: beaf2beead81fe82e58de7ab0adf91b5eb96a10e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145070218"
+---
+Clave | Tipo | Descripción
+----|------|-------------
+`action`|`string` | La acción que se ha realizado. Puede ser `published`.

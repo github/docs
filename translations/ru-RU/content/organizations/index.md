@@ -1,32 +1,59 @@
 ---
-title: Organizations and teams
+title: Организации и группы
 shortTitle: Organizations
-intro: Collaborate across many projects while managing access to projects and data and customizing settings for your organization.
+intro: 'Организации можно использовать для совместной работы с неограниченным количеством пользователей во многих проектах одновременно, управляя доступом к данным и настраивая параметры.'
 redirect_from:
-  - /articles/about-improved-organization-permissions/
+  - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams
   - /github/setting-up-and-managing-organizations-and-teams
+introLinks:
+  overview: /organizations/collaborating-with-groups-in-organizations/about-organizations
+featuredLinks:
+  guides:
+    - /get-started/learning-about-github/types-of-github-accounts
+    - /organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization
+    - /organizations/organizing-members-into-teams/about-teams
+  popular:
+    - /organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch
+    - /organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization
+    - /organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
+    - /organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions
+    - '{% ifversion ghae %}/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization{% endif %}'
+  guideCards:
+    - /organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization
+    - /organizations/managing-membership-in-your-organization/adding-people-to-your-organization
+    - /organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository
+    - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization
+layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+children:
+  - /collaborating-with-groups-in-organizations
+  - /managing-membership-in-your-organization
+  - /managing-peoples-access-to-your-organization-with-roles
+  - /organizing-members-into-teams
+  - /collaborating-with-your-team
+  - /managing-user-access-to-your-organizations-repositories
+  - /managing-access-to-your-organizations-project-boards
+  - /managing-programmatic-access-to-your-organization
+  - /managing-organization-settings
+  - /managing-oauth-access-to-your-organizations-data
+  - /keeping-your-organization-secure
+  - /managing-saml-single-sign-on-for-your-organization
+  - /granting-access-to-your-organization-with-saml-single-sign-on
+  - /managing-git-access-to-your-organizations-repositories
+  - /migrating-to-improved-organization-permissions
+ms.openlocfilehash: a8b733f7f943766b4a7598c6a955a0aba9d2b9c0
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099143'
 ---
 
-{% link_with_intro /collaborating-with-groups-in-organizations %}
-{% link_with_intro /managing-membership-in-your-organization %}
-{% link_with_intro /managing-peoples-access-to-your-organization-with-roles %}
-{% link_with_intro /organizing-members-into-teams %}
-{% link_with_intro /collaborating-with-your-team %}
-{% link_with_intro /managing-access-to-your-organizations-repositories %}
-{% link_with_intro /managing-access-to-your-organizations-project-boards %}
-{% link_with_intro /managing-access-to-your-organizations-apps %}
-{% link_with_intro /managing-organization-settings %}
-{% link_with_intro /restricting-access-to-your-organizations-data %}
-{% link_with_intro /keeping-your-organization-secure %}
-{% link_with_intro /managing-saml-single-sign-on-for-your-organization %}
-{% link_with_intro /granting-access-to-your-organization-with-saml-single-sign-on %}
-{% link_with_intro /managing-git-access-to-your-organizations-repositories %}
-{% link_with_intro /migrating-to-improved-organization-permissions %}

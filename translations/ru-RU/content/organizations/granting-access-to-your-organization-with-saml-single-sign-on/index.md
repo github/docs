@@ -1,16 +1,24 @@
 ---
-title: Granting access to your organization with SAML single sign-on
-intro: 'Organization administrators can grant access to their organization with SAML single sign-on. This access can be granted to organization members, bots, and service accounts.'
+title: Предоставление доступа к организации с помощью единого входа SAML
+intro: 'Администраторы организации могут предоставлять доступ к своей организации с использованием единого входа SAML. Такой доступ можно предоставить участникам организации, ботам и учетным записям служб.'
 redirect_from:
   - /articles/granting-access-to-your-organization-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/granting-access-to-your-organization-with-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+children:
+  - /managing-bots-and-service-accounts-with-saml-single-sign-on
+  - /viewing-and-managing-a-members-saml-access-to-your-organization
+  - /about-two-factor-authentication-and-saml-single-sign-on
+shortTitle: Grant access with SAML
+ms.openlocfilehash: bacc08fa00e639b8031939e9493b5b9c9487d14f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145135182'
 ---
 
-{% link_in_list /managing-bots-and-service-accounts-with-saml-single-sign-on %}
-{% link_in_list /viewing-and-managing-a-members-saml-access-to-your-organization %}
-{% link_in_list /about-two-factor-authentication-and-saml-single-sign-on %}

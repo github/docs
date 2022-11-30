@@ -1,22 +1,29 @@
 ---
 title: 概要
-intro: '{% data variables.product.product_name %} について学び、{% if enterpriseServerVersions contains currentVersion %}アカウントとアクセス、ライセンス、{% endif %}支払いを管理できます。'
+intro: '{% data variables.product.product_name %} について学習し、{% ifversion ghes %}アカウントとアクセス、ライセンス、{% endif %}課金を管理できます。'
 redirect_from:
   - /enterprise/admin/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 children:
+  - /about-github-for-enterprises
+  - /about-github-enterprise-server
   - /about-github-ae
   - /about-upgrades-to-new-releases
   - /about-data-residency
   - /about-enterprise-accounts
-  - /managing-your-github-enterprise-license
-  - /managing-billing-for-your-enterprise
-  - /about-upgrades-to-new-releases
   - /system-overview
   - /about-the-github-enterprise-api
-  - /github-ae-release-notes
+  - /best-practices-for-enterprises
+  - /creating-an-enterprise-account
+  - /accessing-compliance-reports-for-your-enterprise
+ms.openlocfilehash: d936542993310333e314efcc9d5bb5689be00701
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147389844'
 ---
-詳しい情報または {% data variables.product.prodname_enterprise %} の購入については [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) を参照してください。
-### 目次
+詳細については、または {% data variables.product.prodname_enterprise %} を購入する方法については、「[{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)」を参照してください。

@@ -1,37 +1,33 @@
 ---
-title: Queries
-miniTocMaxHeadingLevel: 2
+title: 쿼리
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
   - /v4/reference/query
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: d5c31e8e00788d2e75f27b0bb161249f01fcfb1d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109044'
 ---
+## 쿼리 정보
 
-### About queries
+모든 GraphQL 스키마에는 쿼리 및 변형 모두에 대한 루트 형식이 있습니다. [쿼리 형식](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)은 서버의 데이터를 검색하는 GraphQL 작업을 정의합니다.
 
-Every GraphQL schema has a root type for both queries and mutations. The [query type](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) defines GraphQL operations that retrieve data from the server.
-
-For more information, see "[About queries](/graphql/guides/forming-calls-with-graphql#about-queries)."
+자세한 내용은 “[쿼리 정보](/graphql/guides/forming-calls-with-graphql#about-queries)”를 참조하세요.
 
 {% note %}
 
-**Note:** For [user-to-server](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} requests, you should use separate queries for issues and pull requests. For example, use the `is:issue` or `is:pull-request` filters and their equivalents. Using the `search` connection to return a combination of issues and pull requests in a single query will result in an empty set of nodes.
+**참고:** [user-to-server](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} 요청의 경우, 이슈와 끌어오기 요청에 대해 별도의 쿼리를 사용해야 합니다. 예를 들어, `is:issue` 또는 `is:pull-request` 필터 및 그와 동등한 것을 사용하세요. `search` 연결을 사용하여 단일 쿼리에서 이슈 및 끌어오기 요청의 조합을 반환하면 빈 노드 집합이 생성됩니다.
 
 {% endnote %}
 
-## Connections
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## 필드
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

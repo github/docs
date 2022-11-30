@@ -6,32 +6,38 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
   - /admin/enterprise-management/upgrading-a-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - Upgrades
+ms.openlocfilehash: 040fe0d315f440c8d5489b04f808dbe1f6c67972
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120597'
 ---
-### ホットパッチでのアップグレード
+## ホットパッチでのアップグレード
 {% data reusables.enterprise_installation.hotpatching-explanation %}ホットパッチのインストールスクリプトは、ホットパッチをクラスタ内の各ノードにインストールし、サービスを適切な順序で再起動し、ダウンタイムを回避します。
 
-1. データを[{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme)でバックアップしてください。
-2. 任意のノードの管理シェルから `ghe-cluster-hotpatch` コマンドを使って最新のホットパッチをインストールしてください。 ホットパッチの URL を指定するか、手動でホットパッチをダウンロードしてローカルのファイル名を指定することができます。
+1. [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme) を使用してデータをバックアップします。
+2. 任意のノードの管理シェルから、`ghe-cluster-hotpatch` コマンドを使用して最新のホットパッチをインストールします。 ホットパッチの URL を指定するか、手動でホットパッチをダウンロードしてローカルのファイル名を指定することができます。
   ```shell
   $ ghe-cluster-hotpatch https://<em>HOTPATCH-URL/FILENAME</em>.hpkg
   ```
 
-### アップグレードパッケージでのアップグレード
-アップグレードパッケージを使用して、{% data variables.product.prodname_ghe_server %} クラスタを最新のフィーチャリリースにアップグレードします。 たとえば`2.11`から`2.13`へのアップグレードが行えます。
+## アップグレードパッケージでのアップグレード
+アップグレードパッケージを使用して、{% data variables.product.prodname_ghe_server %} クラスタを最新のフィーチャリリースにアップグレードします。 たとえば、`2.11` から `2.13` にアップグレードできます。
 
-#### アップグレードの準備
+### アップグレードの準備
 
-1. アップグレードしようとしているバージョンの[クラスタネットワーク設定](/enterprise/admin/guides/clustering/cluster-network-configuration)をレビューして、必要に応じて設定を更新してください。
-2. データを[{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme)でバックアップしてください。
+1. アップグレードするバージョンの [クラスター ネットワーク構成](/enterprise/admin/guides/clustering/cluster-network-configuration)を確認し、必要に応じて構成を更新します。
+2. [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme) を使用してデータをバックアップします。
 3. アップグレード中は通常どおりに使用できないため、{% data variables.product.prodname_ghe_server %}クラスタのエンドユーザーに対してメンテナンス期間をスケジュールします。 メンテナンスモードは、クラスタのアップグレードの進行中、ユーザーのアクセスをブロックし、データが変更されないようにします。
-4. [{% data variables.product.prodname_ghe_server %}のダウンロードページ](https://enterprise.github.com/download)で、アップグレード *.pkg* ファイルの URL をクリップボードにコピーします。
-5. 任意のノードの管理シェルから `ghe-cluster-each` コマンドを `curl` と組み合わせて使い、一度のステップでリリースパッケージを各ノードにダウンロードしてください。 先ほどのステップでコピーした URL を引数として使ってください。
+4. [{% data variables.product.prodname_ghe_server %} のダウンロード ページ](https://enterprise.github.com/download)で、アップグレード *.pkg* ファイルの URL をクリップボードにコピーします。
+5. 任意のノードの管理シェルから、`ghe-cluster-each` コマンドを `curl` と組み合わせて使用して、1 つの手順でリリース パッケージを各ノードにダウンロードします。 先ほどのステップでコピーした URL を引数として使ってください。
   ```shell
   $ ghe-cluster-each -- "cd /home/admin && curl -L -O  https://<em>PACKAGE-URL</em>.pkg"
   > ghe-app-node-1:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -52,10 +58,11 @@ topics:
   ```
 6. `cluster.conf` で `mysql-master = <hostname>` として定義されているプライマリ MySQL ノードを特定します。 このノードは最後にアップグレードされます。
 
-#### クラスタノードのアップグレード
+### クラスタノードのアップグレード
 
-1. 任意のクラスタノードの管理シェルに接続し、`ghe-cluster-maintenance -s` を実行して、スケジュールしたウィンドウに従ってメンテナンスモードを有効にします。
-2. **プライマリMySQLノードを除き**、{% data variables.product.prodname_ghe_server %}の各ノードの管理シェルに接続します。 [アップグレードの準備](#preparing-to-upgrade)のステップ 4 でダウンロードしたパッケージのファイル名を用いて、`ghe-upgrade` コマンドを実行してください。
+1. 任意のクラスター ノードの管理シェルに接続して `ghe-cluster-maintenance -s` を実行して、スケジュールされた期間に従ってメンテナンス モードを有効にします。
+2. **プライマリ MySQL ノードを除き**、{% data variables.product.prodname_ghe_server %} の各ノードの管理シェルに接続します。
+[アップグレードの準備](#preparing-to-upgrade)の手順 4 でダウンロードしたパッケージ ファイル名を指定して、`ghe-upgrade` コマンドを実行します。
   ```shell
   $ ghe-upgrade <em>PACKAGE-FILENAME</em>.pkg
   > *** verifying upgrade package signature...
@@ -66,8 +73,8 @@ topics:
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-3. アップグレードプロセスが完了すると、ノードが再起動します。 再起動後に各ノードを `ping` できることを確認してください。
-4. プライマリ MySQL ノードの管理シェルに接続してください。 [アップグレードの準備](#preparing-to-upgrade)のステップ 4 でダウンロードしたパッケージのファイル名を用いて、`ghe-upgrade` コマンドを実行してください。
+3. アップグレードプロセスが完了すると、ノードが再起動します。 再起動後に各ノードを `ping` できることを確認します。
+4. プライマリ MySQL ノードの管理シェルに接続してください。 [アップグレードの準備](#preparing-to-upgrade)の手順 4 でダウンロードしたパッケージ ファイル名を指定して、`ghe-upgrade` コマンドを実行します。
   ```shell
   $ ghe-upgrade <em>PACKAGE-FILENAME</em>.pkg
   > *** verifying upgrade package signature...
@@ -78,5 +85,7 @@ topics:
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. アップグレードプロセスが完了すると、プライマリ MySQL ノードが再起動します。 再起動後に各ノードを `ping` できることを確認してください。
-6. 任意のノードの管理シェルから `ghe-cluster-maintenance -u` を実行して管理モードを終了してください。
+5. アップグレードプロセスが完了すると、プライマリ MySQL ノードが再起動します。 再起動後に各ノードを `ping` できることを確認します。{% ifversion ghes %}
+6. プライマリ MySQL ノードの管理シェルに接続し、`ghe-cluster-config-apply` コマンドを実行します。
+7. `ghe-cluster-config-apply` が完了したら、`ghe-cluster-status` を実行してサービスが正常な状態であることを確認します。{% endif %}
+8. `ghe-cluster-maintenance -u` を実行して、任意のノードの管理シェルからメンテナンス モードを終了します。

@@ -1,20 +1,27 @@
 ---
-title: Accessing a project's community profile
-intro: View a public repository's community profile to check on a project's health and decide if you want to contribute.
+title: Доступ к профилю сообщества проекта
+intro: 'Просмотрите профиль сообщества общедоступного репозитория, чтобы проверить работоспособность проекта и решить, хотите ли вы внести свой вклад.'
 redirect_from:
   - /articles/accessing-a-project-s-community-profile
   - /articles/accessing-a-projects-community-profile
   - /github/building-a-strong-community/accessing-a-projects-community-profile
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Access community profiles
+ms.openlocfilehash: 02814d45f56c9a7883bf482beb6040506b248b44
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145117643'
 ---
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. На левой боковой панели щелкните **Сообщество**.
+![Сообщество в левой боковой панели](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Community**. ![Community in left sidebar](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
+## Дополнительные материалы
 
-### Дополнительная литература
-
-- "[About community profiles for public repositories](/articles/about-community-profiles-for-public-repositories)"
+- [Сведения о профилях сообщества для общедоступных репозиториев](/articles/about-community-profiles-for-public-repositories)

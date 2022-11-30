@@ -1,6 +1,14 @@
-To enable team synchronization with any IdP, you must obtain administrative access to your IdP or work with your IdP administrator to configure the IdP integration and groups. The person who configures your IdP integration and groups must have one of the required permissions.
+---
+ms.openlocfilehash: 9133d57ca07dc8abafdf5f8dca8b4cf6ffeb524a
+ms.sourcegitcommit: 770ed406ec075528ec9c9695aa4bfdc8c8b25fd3
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883887"
+---
+Чтобы включить синхронизацию команд с любым поставщиком удостоверений (IdP), необходимо получить административный доступ к IdP или обратиться к администратору IdP для настройки интеграции и групп IdP. Пользователь, который настраивает интеграцию поставщика удостоверений и группы, должен иметь одно из требуемых разрешений.
 
-  | IdP      | Required permissions      |
-  | -------- | ------------------------- |
-  | Azure AD | <ul><li>Global administrator</li><li>Privileged Role administrator</li></ul> |
-  | Okta     | <ul><li>Service user with read-only administrator permissions</li></ul> |
+  | IdP | Необходимые разрешения |
+  | --- | -------------------- |
+  | Azure AD | <ul><li>Глобальный администратор.</li><li>администратор привилегированных ролей;</li></ul>
+  | Okta | <ul><li>Пользователь службы с разрешениями администратора только для чтения</li></ul>

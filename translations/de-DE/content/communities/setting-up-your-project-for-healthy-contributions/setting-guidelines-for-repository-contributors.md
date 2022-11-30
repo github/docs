@@ -1,66 +1,68 @@
 ---
-title: Richtlinien für Repository-Mitarbeiter festlegen
-intro: 'Du kannst Richtlinien erstellen, wie Personen zu Deinem Projekt beitragen sollten.'
+title: Setting guidelines for repository contributors
+intro: You can create guidelines to communicate how people should contribute to your project.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 redirect_from:
-  - /articles/how-do-i-set-up-guidelines-for-contributors/
+  - /articles/how-do-i-set-up-guidelines-for-contributors
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
   - Community
+shortTitle: Contributor guidelines
 ---
+## About contributing guidelines
+To help your project contributors do good work, you can add a file with contribution guidelines to your project repository's root, `docs`, or `.github` folder. When someone opens a pull request or creates an issue, they will see a link to that file. The link to the contributing guidelines also appears on your repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute). 
 
-### About contributing guidelines
-Um die Beiträge Deiner Projektmitarbeiter zu optimieren, kannst Du ein Dokument mit Beitragsrichtlinien in das Stammverzeichnis, in das Verzeichnis `docs` oder in das Verzeichnis `.github` Deines Projekt-Repositorys hinzufügen. Bei der Eröffnung eines Pull-Requests oder der Erstellung eines Issues wird dem betreffenden Mitarbeiter dann ein Link zu dieser Datei angezeigt. The link to the contributing guidelines also appears on your repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
+![contributing-guidelines](/assets/images/help/pull_requests/contributing-guidelines.png)
 
-![Beitragsrichtlinien](/assets/images/help/pull_requests/contributing-guidelines.png)
+For the repository owner, contribution guidelines are a way to communicate how people should contribute.
 
-Für den Repositoryinhaber stellen Beitragsrichtlinien eine Möglichkeit dar, Mitarbeitern die Regeln für Beiträge zu kommunizieren.
+For contributors, the guidelines help them verify that they're submitting well-formed pull requests and opening useful issues.
 
-Mitarbeitern helfen die Richtlinien, korrekt formulierte Pull Requests einzureichen und sinnvolle Issues zu eröffnen.
+For both owners and contributors, contribution guidelines save time and hassle caused by improperly created pull requests or issues that have to be rejected and re-submitted.
 
-Sowohl Inhaber als auch Mitarbeiter sparen dank Beitragsrichtlinien Zeit und Mühen, die durch fehlerhaft formulierte Pull Requests oder Issues entstehen, die abgelehnt und erneut eingereicht werden müssen.
+{% ifversion fpt or ghes or ghec %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-
-You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default contribution guidelines for your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
 {% tip %}
 
-**Tipp:** Repository-Betreuer können mit Vorlagen für Issues oder Pull Requests spezifische Richtlinien für ihr Repository einrichten. Weitere Informationen findest Du unter „[Informationen zu Vorlagen für Issues und Pull Requests](/articles/about-issue-and-pull-request-templates)“
+**Tip:** Repository maintainers can set specific guidelines for issues by creating an issue or pull request template for the repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
 
 {% endtip %}
 
-### *CONTRIBUTING*-Datei hinzufügen
+## Adding a *CONTRIBUTING* file
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. Entscheide, ob die Beitragsrichtlinien im Stammverzeichnis, im Verzeichnis `docs` oder im Verzeichnis `.github` Deines Repositorys gespeichert werden sollen. Gib danach im Feld „Filename“ (Dateiname) den Namen und die Erweiterung der Datei ein. Contributing guidelines filenames are not case sensitive. Files are rendered in rich text format if the file extension is in a supported format. For more information, see "[Rendering differences in prose documents](/github/managing-files-in-a-repository/rendering-differences-in-prose-documents)." ![Neuer Dateiname](/assets/images/help/repository/new-file-name.png)
-    - Wenn Deine Beitragsrichtlinien im Stammverzeichnis Deines Repositorys erscheinen sollen, gib *CONTRIBUTING* ein.
-    - Wenn Deine Beitragsrichtlinien im Verzeichnis `docs` Deines Repositorys erscheinen sollen, gib zur Erstellung des neuen Verzeichnisses *docs/* ein und anschließend *CONTRIBUTING*.
+3. Decide whether to store your contributing guidelines in your repository's root, `docs`, or `.github` directory. Then, in the filename field, type the name and extension for the file. Contributing guidelines filenames are not case sensitive. Files are rendered in rich text format if the file extension is in a supported format. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)."
+  ![New file name](/assets/images/help/repository/new-file-name.png)
+    - To make your contributing guidelines visible in the repository's root directory, type *CONTRIBUTING*.
+    - To make your contributing guidelines visible in the repository's `docs` directory, type *docs/* to create the new directory, then *CONTRIBUTING*.
     - If a repository contains more than one *CONTRIBUTING* file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
-4. Füge der neuen Datei Beitragsrichtlinien hinzu. Diese könnten beinhalten:
-    - Schritte zur Erstellung korrekt formulierter Issues oder Pull Requests.
-    - Links zu externer Dokumentation, zu Verteilerlisten oder zu einem Verhaltenskodex.
-    - Erwartungen der Community und Verhaltensregeln
+4. In the new file, add contribution guidelines. These could include:
+    - Steps for creating good issues or pull requests.
+    - Links to external documentation, mailing lists, or a code of conduct.
+    - Community and behavioral expectations.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Beispiele für Beitragsrichtlinien
+## Examples of contribution guidelines
 
-Wenn Sie nun nicht wissen, was Sie hier festlegen sollen, finden Sie nachfolgend einige gute Beispiele für Beitragsrichtlinien:
+If you're stumped, here are some good examples of contribution guidelines:
 
-- [Beitragsrichtlinien](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) für den Editor Atom
-- [Beitragsrichtlinien](https://github.com/rails/rails/blob/master/CONTRIBUTING.md) für Ruby on Rails
-- [Beitragsrichtlinien](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md) des Open Government.
+- The {% data variables.product.prodname_docs %} [contribution guidelines](https://github.com/github/docs/blob/main/CONTRIBUTING.md).
+- The Ruby on Rails [contribution guidelines](https://github.com/rails/rails/blob/main/CONTRIBUTING.md).
+- The Open Government [contribution guidelines](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
-### Weiterführende Informationen
-- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+## Further reading
+- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
 - "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}

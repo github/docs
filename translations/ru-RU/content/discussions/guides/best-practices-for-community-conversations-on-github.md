@@ -1,49 +1,53 @@
 ---
-title: Best practices for community conversations on GitHub
+title: Рекомендации по беседам сообщества на GitHub
 shortTitle: Best practices for community conversations
-intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to a discussion when you are ready to scope out the work.'
+intro: 'Вы можете использовать обсуждения для проведения мозгового штурма вместе со своей командой и в конечном итоге перенести беседу в проблему, когда вы будете готовы определить объем и состав работ.'
 versions:
-  free-pro-team: '*'
+  feature: discussions
+ms.openlocfilehash: daa7dd67a1e760f51493ddbfba336725451a91d4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410230'
 ---
+## Беседы сообщества в {% data variables.product.prodname_discussions %}
 
-{% data reusables.discussions.beta %}
+Так как {% data variables.product.prodname_discussions %} — это открытый форум, вы можете быстро начинать совместную работу, не связанную с кодом, в рамках репозитория проекта или организации, чтобы собирать разнообразные мнения и идеи. Продуктивное взаимодействие можно наладить несколькими способами.
 
-### Community conversations in {% data variables.product.prodname_discussions %}
+- Задавайте вопросы по существу и уточняющие вопросы для получения отзывов.
+- Собирайте разнообразную информацию и вычленяйте основные факты.
+- Где это применимо, открывайте проблемы для принятия мер по результатам беседы.
 
-Since {% data variables.product.prodname_discussions %} is an open forum, there is an opportunity to bring non-code collaboration into a project's repository and gather diverse feedback and ideas more quickly. You can help drive a productive conversation by:
+Дополнительные сведения об открытии проблемы и перекрестных ссылках на обсуждение см. в разделе [Открытие проблемы из комментария](/github/managing-your-work-on-github/opening-an-issue-from-a-comment).
 
-- Asking pointed questions and follow-up questions to garner specific feedback
-- Capture a diverse experience and distill it down to main points
-- Open an issue to take action based on the conversation, where applicable
+## Сведения о беседах на GitHub
 
-For more information about opening an issue and cross-referencing a discussion, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+Вы можете создавать обсуждения, проблемы и запросы на вытягивание, а также участвовать в них в зависимости от требуемого типа взаимодействия.
 
-### Learning about conversations on GitHub
+Вы можете использовать {% data variables.product.prodname_discussions %} для обсуждения общих идей, проведения мозгового штурма и уточнения деталей проекта перед фиксацией проблемы, для которой затем можно определить область. {% data variables.product.prodname_discussions %} полезны для команд в следующих сценариях.
+- Проект находится на этапе исследования, и вы все еще пытаетесь понять, в каком направлении хочет двигаться ваша команда.
+- Вы хотите собрать отзывы о проекте от более широкого круга пользователей.
+- Вы не хотите смешивать обсуждение исправлений ошибок, запросов функций и общих вопросов.
+- Вы хотите оценивать интерес к новым идеям и мнение сообщества с помощью опросов.
 
-You can create and participate in discussions, issues, and pull requests, depending on the type of conversation you'd like to have.
+Вы можете использовать обсуждения репозитория для обсуждения тем, относящихся к репозиторию. Если проект охватывает несколько репозиториев, вы можете использовать обсуждения на уровне организации для обсуждения тем, которые не относятся к отдельному репозиторию.
 
-You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and spike out a project's specific details before committing it to an issue, which can then be scoped. Discussions are useful for teams if:
-- You are in the discovery phase of a project and are still learning which director your team wants to go in
-- You want to collect feedback from a wider community about a project
-- You want to keep bug fixes, feature requests, and general conversations separate
+Проблемы удобны для обсуждения конкретных сведений о проекте, например для отчетов об ошибках и сведений о запланированных улучшениях. Дополнительные сведения см. в разделе [Сведения о проблемах](/articles/about-issues). Запросы на вытягивание позволяют напрямую комментировать предложенные изменения. Дополнительные сведения см. в разделах [Сведения о запросах на вытягивание](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) и [Комментирование запроса на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
 
-Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/articles/about-pull-requests)" and "[Commenting on a pull request](/articles/commenting-on-a-pull-request)."
+## Соблюдение рекомендаций по участию
 
-{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+Прежде чем открывать обсуждение в репозитории, проверьте, имеются ли для репозитория рекомендации по участию. Файл CONTRIBUTING содержит пожелания ответственного за репозиторий касательно того, как следует вносить идеи в проект.
 
-### Following contributing guidelines
+Дополнительные сведения см. в разделе "[Настройка проекта для внесения действенных вкладов](/communities/setting-up-your-project-for-healthy-contributions)".
 
-Before you open a discussion, check to see if the repository has contributing guidelines. The CONTRIBUTING file includes information about how the repository maintainer would like you to contribute ideas to the project.
+## Дальнейшие действия
 
-For more information, see "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+Чтобы продолжить изучение {% data variables.product.prodname_discussions %} и быстро создать обсуждение для сообщества, см. [краткое руководство по {% data variables.product.prodname_discussions %}](/discussions/quickstart).
 
-### Дальнейшие шаги
+## Дополнительные материалы
 
-To continue learning about {% data variables.product.prodname_discussions %} and quickly create a discussion for your community, see "[Quickstart for {% data variables.product.prodname_discussions %}](/discussions/quickstart)."
-
-### Дополнительная литература
-
-- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
-- "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
-- "[Writing on {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"
+- [Настройка проекта для внесения действенных вкладов](/communities/setting-up-your-project-for-healthy-contributions)
+- [Использование шаблонов для описания важных проблем и выполнения запросов на вытягивание](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)
+- [Модерация комментариев и бесед](/communities/moderating-comments-and-conversations)
+- [Написание сообщений на {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)

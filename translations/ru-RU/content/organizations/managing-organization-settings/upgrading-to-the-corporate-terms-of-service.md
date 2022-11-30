@@ -1,24 +1,35 @@
 ---
-title: Upgrading to the Corporate Terms of Service
-intro: Organizations can upgrade from the Standard Terms of Service to the Corporate Terms of Service.
+title: Переход на корпоративные условия предоставления услуг
+intro: Организации могут перейти с условий обслуживания "Стандартные" на условия "Корпоративные".
 redirect_from:
   - /articles/upgrading-to-the-corporate-terms-of-service
   - /github/setting-up-and-managing-organizations-and-teams/upgrading-to-the-corporate-terms-of-service
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Upgrade to Corporate ToS
+ms.openlocfilehash: 071ff249ec112af507c3bb026065281173f64b8a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145119232'
 ---
+Стандартные условия предоставления услуг — это соглашение между {% data variables.product.prodname_dotcom %} и вами как отдельным лицом. Чтобы вступить в соглашение с {% data variables.product.prodname_dotcom %} от имени юридического лица, например компании, некоммерческой организации или группы, владельцы организации могут перейти на корпоративные условия предоставления услуг.
 
-The Standard Terms of Service is an agreement between {% data variables.product.prodname_dotcom %} and you as an individual. To enter into an agreement with {% data variables.product.prodname_dotcom %} on behalf of an entity, such as a company, non-profit, or group, organization owners can upgrade to the Corporate Terms of Service.
+1. Перейдите к параметрам своей организации и прокрутите к полю **Условия обслуживания**. ![прокрутить до условий обслуживания](/assets/images/help/organizations/account-settings-tos.png)
 
-1. Contact {% data variables.contact.contact_support %} to request an upgrade to the Corporate Terms of Service. They will enable a banner on your organization's dashboard that will allow you to accept the Corporate Terms of Service.
-{% data reusables.dashboard.access-org-dashboard %}
-3. At the top of the page, to the right of the Terms of Service banner, click **Sign now**. ![Sign now button](/assets/images/help/organizations/sign-now-button.png)
-4. Read the information about the Corporate Terms of Service, then select **Yes, I want to sign these terms on behalf of my business.** ![Check box to sign on behalf of your business](/assets/images/help/organizations/sign-on-behalf-business.png)
-5. Type the name of the company, non-profit, or group that owns the organization account. This is the entity that will enter into an agreement with {% data variables.product.prodname_dotcom %}. ![Business name field](/assets/images/help/organizations/business-name-field.png)
-6. To agree to the Corporate Terms of Service on behalf of your entity, click **Accept terms**. ![Accept terms button](/assets/images/help/organizations/accept-terms-button.png)
+2. После прочтения корпоративных условий предоставления услуг нажмите **Подписать корпоративные условия**. ![выбрать "Подписать корпоративные условия"](/assets/images/help/organizations/button-sign-corporate-tos.png)
 
-### Дополнительная литература
-- "[GitHub Corporate Terms of Service](/articles/github-corporate-terms-of-service/)"
+3. Выберите **Да, я хочу подписать эти условия от имени своего предприятия.** 
+  ![ Флажок для входа от имени вашего предприятия](/assets/images/help/organizations/sign-on-behalf-business.png)
+4. Введите название компании, некоммерческой организации или группы, которой принадлежит учетная запись организации. Это юридическое лицо, которое будет вступать в соглашение с {% data variables.product.prodname_dotcom %}.
+  ![Поле "Название предприятия"](/assets/images/help/organizations/business-name-field.png)
+5. Чтобы согласиться с корпоративными условиями предоставления услуг от имени вашего юридического лица, нажмите **Принять условия**.
+  ![Кнопка "Принять условия"](/assets/images/help/organizations/accept-terms-button.png)
+
+## Дополнительные материалы
+- [Корпоративные условия предоставления услуг GitHub](/free-pro-team@latest/github/site-policy/github-corporate-terms-of-service)

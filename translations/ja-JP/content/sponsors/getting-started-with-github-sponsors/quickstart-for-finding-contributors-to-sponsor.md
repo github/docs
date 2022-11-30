@@ -1,51 +1,58 @@
 ---
-title: Quickstart for finding contributors to sponsor
-intro: Learn some best practices for finding open source contributors to sponsor.
+title: スポンサーにコントリビューターを見つけるためのクイックスタート
+intro: スポンサーにオープンソース コントリビューターを見つけるためのベスト プラクティスを学びましょう。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source
+shortTitle: Quickstart
+ms.openlocfilehash: 334d0b78547732480d0bcf708c1d2194eebbae17
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145118837'
 ---
+## 依存しているプロジェクトを調べる
 
-### Explore projects you depend on
+スポンサーへのオープンソース コントリビューターを見つける場所を検討するときは、最初に https://github.com/sponsors/community を検討します。
 
-As you consider where to find open source contributors to sponsor, consider starting at https://github.com/sponsors/community.
+ログインしている場合、スポンサーの結果は、リポジトリが依存しているパブリックの依存関係から始まります。
 
-If you're logged in, the sponsors results will start with public dependencies that your repositories depend on.
+!["4 of your repositories depend on this" (リポジトリのうち 4 個がこれに依存しています) という強調表示されたテキストを含む Babel オープンソース プロジェクト](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
 
-![The Babel open source project with highlighted text that says "4 of your repositories depend on this"](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
+また、結果を表示するアカウントを切り替えて、さらにフィルタまたは検索することもできます。
 
-You can also toggle which of your accounts to view results for and further filter or search.
+![スポンサーコミュニティ検索ページの検索オプション](/assets/images/help/sponsors/sponsors-search-options.png)
 
-![Search options on sponsors community search page](/assets/images/help/sponsors/sponsors-search-options.png)
+## 他の人がスポンサーしている相手を調べる
 
-### Explore whom others sponsor
+{% data variables.product.prodname_dotcom %} プロフィールページで、ユーザまたは Organization がスポンサーしている人を確認できます。
 
-You can see whom a user or organization sponsors on their {% data variables.product.prodname_dotcom %} profile page.
+## さまざまなコントリビューションから利益を得る方法を検討する
 
-### Consider how you benefit from different contributions
-
-Consider whether you benefit from the work of open source contributions, such as:
+次のようなオープンソースコントリビューションの仕事から利益を得ることを検討します。
  - ドキュメント
- - Design
- - Translation
- - Newsletters
- - Code reviews
+ - デザイン
+ - 翻訳
+ - メールマガジン
+ - コード レビュー
  - チュートリアル
- - Mentoring
- - Triaging issues and helping with project management
- - Answering questions
- - Event planning
+ - メンタリング
+ - Issue のトリアージとプロジェクト管理の支援
+ - 質問への回答
+ - イベント計画
 
-For more information on different types of open source contributions, see the [Open source guide](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code).
+さまざまな種類のオープンソース コントリビューションについて詳しくは、[オープンソース ガイド](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code)をご覧ください。
 
-You can check if contributors you've benefited from have {% data variables.product.prodname_sponsors %} profiles by using search at https://github.com/sponsors/community.
+https://github.com/sponsors/community で検索を使って、恩恵を受けたコントリビューターが {% data variables.product.prodname_sponsors %} プロファイルを持っているかどうかを確認できます。
 
-### Search for a specific project or contributor
+## 特定のプロジェクトまたはコントリビューターを検索する
 
-At https://github.com/sponsors/community, you can search by ecosystem, most used, recently updated, and more. You can filter search results for your personal user account or for organizations that you're a member of.
+https://github.com/sponsors/community では、エコシステム、最も使われているもの、最近更新されたものなどで検索できます。 個人アカウントまたはメンバーになっている Organization で検索結果をフィルター処理できます。
 
-### 次のステップ
+## 次の手順
 
-For more information on starting your sponsorship, see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."
+スポンサー プランの開始について詳しくは、「[オープンソース コントリビューターに対するスポンサー](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)」をご覧ください。

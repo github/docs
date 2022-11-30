@@ -1,23 +1,32 @@
-##### Pull request events for forked repositories
+---
+ms.openlocfilehash: a314a101135f5b47bfd573b1be6d7867db4ac26d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145138070"
+---
+#### Рабочие процессы в вилках репозиториев
+
+Рабочие процессы по умолчанию не выполняются в вилках репозиториев. Вы должны включить GitHub Actions на вкладке **Действия** в вилке репозитория.
+
+{% data reusables.actions.forked-secrets %} `GITHUB_TOKEN` имеет разрешения только для чтения в вилках репозиториев. Дополнительные сведения см. в разделе [Проверка подлинности с помощью GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token).
+
+#### События запросов на вытягивание для вилок репозиториев
+
+Для запросов на вытягивание из вилки репозитория в базовый репозиторий {% data variables.product.product_name %} отправляет события `pull_request`, `issue_comment`, `pull_request_review_comment`, `pull_request_review` и `pull_request_target` в базовый репозиторий. В вилке репозитория никакие события запросов на вытягивание не происходят.
+
+{% ifversion fpt or ghec %} Когда новый участник отправляет запрос на вытягивание в общедоступный репозиторий, может потребоваться утверждение запущенных рабочих процессов в запросе на вытягивание ответственным лицом с правами на запись. Дополнительные сведения см. в разделе [Утверждение рабочих процессов из общедоступных вилок](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks).
+{% endif %}
 
 {% note %}
 
-**Note:** Workflows do not run on private base repositories when you open a pull request from a forked repository.
+**Примечание.** Рабочие процессы не запускаются в частных базовых репозиториях при открытии запроса на вытягивание из вилки репозитория.
 
 {% endnote %}
 
-When you create a pull request from a forked repository to the base repository, {% data variables.product.prodname_dotcom %} sends the `pull_request` event to the base repository and no pull request events occur on the forked repository.
-
-Workflows don't run on forked repositories by default. You must enable GitHub Actions in the **Actions** tab of the forked repository.
-
-{% if currentVersion == "free-pro-team@latest"%}
-When a first-time contributor submits a pull request to a public repository, a maintainer with write access must approve running workflows on the pull request. For more information, see "[Approving workflow runs from public forks](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)."
-{% endif %}
-
-{% data reusables.actions.forked-secrets %} The permissions for the `GITHUB_TOKEN` in forked repositories is read-only. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
-
 {% note %}
 
-**Note:** Workflows triggered by {% data variables.product.prodname_dependabot %} pull requests are treated as though they are from a forked repository, and are also subject to these restrictions.
+**Примечание.** Рабочие процессы, активированные запросами на вытягивание {% data variables.product.prodname_dependabot %}, обрабатываются так, как если бы они были из вилки репозитория как будто они находятся из вилки репозитория, и на них также распространяются эти ограничения.
 
 {% endnote %}

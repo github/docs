@@ -1,21 +1,25 @@
 ---
 title: Utilizar la API de GraphQL para los debates
-intro: Aprende cómo utilizar la API de GraphQL para los debates de GitHub.
+intro: 'Aprende a utilizar la API de GraphQL de los {% data variables.product.prodname_discussions %}.'
 versions:
-  free-pro-team: '*'
+  feature: discussions
+shortTitle: Use GraphQL for Discussions
+ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408847'
 ---
+La API de GraphQL de {% data variables.product.prodname_discussions %} te permite obtener, crear, editar y borrar las publicaciones de debate. Para más información sobre {% data variables.product.prodname_discussions %}, vea "[‎Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-La API de GraphQL de {% data variables.product.prodname_discussions %} te permite obtener, crear, editar y borrar las publicaciones de debate. Para obtener más información sobre los {% data variables.product.prodname_discussions %}, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
+Esta API se encuentra disponible para los usuarios autenticados, Apps de OAuth y GitHub Apps. Los tokens de acceso necesitan el ámbito `repo` para los repositorios privados y el ámbito `public_repo` para los repositorios públicos. Para más información, vea "[Ámbitos para aplicaciones de OAuth](/developers/apps/scopes-for-oauth-apps)".
 
-Esta API se encuentra disponible para los usuarios autenticados, Apps de OAuth y GitHub Apps. Los tokens de acceso requieren el alcance de `repo` para los repositorios privados y el de `public_repo` para los repositorios públicos. Para obtener más información, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps)".
-
-Para utilizar esta API debes incluir `GraphQL-Features: discussions_api` en el encabezado de `HTTP`.
-
-## Campos
+## Fields
 
 ### Repository.discussions
 
-Lista los debates dentro de un repositorio. Si se especifica la `categoryId`, solo se devolverán los resultados dentro de esta.
+Lista los debates dentro de un repositorio. Si se especifica `categoryId`, solo se devolverán los resultados de esa categoría.
 
 _Firma:_
 
@@ -68,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Devuelve las categorías de debate disponibles que se definen dentro de este repositorio. Cada repositorio puede tener hasta 10 categorías. Para obtener más información acerca de las categorías de debate, consulta la sección [Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
+Devuelve las categorías de debate disponibles que se definen dentro de este repositorio. Cada repositorio puede tener hasta 10 categorías. Para más información sobre las cateagorías de debate, vea "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
 
 _Firma:_
 
@@ -83,7 +87,7 @@ discussionCategories(
 
 ### Repository.discussion
 
-Obtener un debate. Devuelve `null` si el debate con la ID especificada no existe.
+Obtiene un debate. Devuelve `null` si no existe el debate con el identificador especificado.
 
 _Firma:_
 
@@ -108,7 +112,7 @@ pinnedDiscussions(
 
 ## Objetos
 
-**Nota:** Para efectos de brevedad, los tipos de conexión no se expanden en el ejemplo. Cada tipo de conexión que se menciona en el modelo sigue el mismo patrón que otras conexiones en la API de GraphQL. Para obtener más información, consulta la sección "[Introducción a GraphQL](/graphql/guides/introduction-to-graphql#connection)".
+**Nota:** Por motivos de brevedad, aquí no se amplían los tipos de conexión. Cada tipo de conexión que se menciona en el modelo sigue el mismo patrón que otras conexiones en la API de GraphQL. Para más información, vea "[Introducción a GraphQL](/graphql/guides/introduction-to-graphql#connection)".
 
 ```graphql
 query {
@@ -143,7 +147,7 @@ query {
 }
 ```
 
-### Discusión
+### Debate
 
 <details>
 <summary>Campos:</summary>
@@ -401,7 +405,7 @@ type Discussion implements Comment & Deletable & Lockable & Node & Reactable & R
 ### DiscussionComment
 
 <details>
-<summary>Campos</summary>
+<summary>Fields</summary>
 
 ```graphql
 """
@@ -651,7 +655,7 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
 ### DiscussionCategory
 
 <details>
-<summary>Campos</summary>
+<summary>Fields</summary>
 
 ```graphql
 """
@@ -850,10 +854,10 @@ enum PinnedDiscussionGradient {
 
 ### RepositoryDiscussionAuthor
 
-Se implementan según los tipos de `User` y `Organization`. **Nota:** Una `Organization` solo tendrá debates que se asocien con ella si se convirtió desde un `User`.
+Implementado por los tipos `User` y `Organization`. **Nota:** Un objeto `Organization` solo tendrá debates asociados si se ha convertido desde un elemento `User`.
 
 <details>
-<summary>Campos</summary>
+<summary>Fields</summary>
 
 ```graphql
 """
@@ -907,10 +911,10 @@ interface RepositoryDiscussionAuthor {
 
 ### RepositoryDiscussionCommentAuthor
 
-También se implementa de acuerdo a los tipos de `User` y `Organization`.
+También implementado por los tipos `User` y `Organization`.
 
 <details>
-<summary>Campos</summary>
+<summary>Fields</summary>
 
 ```graphql
 """
@@ -958,9 +962,9 @@ interface RepositoryDiscussionCommentAuthor {
 
 ## Mutaciones
 
-Estas mutaciones siguen el mismo patrón de implementación que otras en la API de GraphQL. Cada mutación acepta un argumento simple de un tipo de `Input`, el cual adquiere su nombre de acuerdo con una mutación y devuelve un tipo de `Payload` que contiene los campos especificados.
+Estas mutaciones siguen el mismo patrón de implementación que otras en la API de GraphQL. Cada mutación acepta un único argumento de un tipo `Input`, que tiene el nombre de la mutación, y devuelve un tipo `Payload` que contiene los campos especificados.
 
-Por ejemplo, esta es una mutación básica de `createDiscussion` que creará un debate nuevo:
+Por ejemplo, la siguiente es una mutación `createDiscussion` básica que creará un debate:
 
 ```graphql
 mutation {
@@ -979,106 +983,106 @@ mutation {
 
 Campos de entrada:
 
-* `body: String!` El cuerpo del debate nuevo.
-* `title: String!` El título del debate nuevo.
-* `repositoryId: ID!` La ID de un repositorio en donde se creará el debate.
-* `categoryId: ID!` La ID de una `DiscussionCategory` dentro de este repositorio.
-* `clientMutationId: String` Un identificador único para el cliente que realiza la mutación.
+* `body: String!` Cuerpo del nuevo debate.
+* `title: String!` Título del nuevo debate.
+* `repositoryId: ID!` Identificador de un repositorio en el que se va a crear el debate.
+* `categoryId: ID!` Identificador de un elemento `DiscussionCategory` dentro de este repositorio.
+* `clientMutationId: String` Identificador único para el cliente que realiza la mutación.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` El identificador único que se proporcionó como entrada.
-* `discussion: Discussion` El debate que se creó.
+* `clientMutationId: String` Identificador único proporcionado como entrada.
+* `discussion: Discussion` Debate que se ha creado.
 
 ### updateDiscussion
 
 Campos de entrada:
 
-* `discussionId: ID!` La ID de nodo del debate a actualizar.
-* `body: String` El contenido nuevo del cuerpo del debate.
-* `body: String` El título nuevo del debate.
-* `categoryId: ID` La ID de nodo de una `DiscussionCategory` dentro del mismo repositorio a la cual se cambiará este debate.
-* `clientMutationId: String` Un identificador único para el cliente que realiza la mutación.
+* `discussionId: ID!` Identificador de nodo del debate que se va a actualizar.
+* `body: String` Nuevo contenido del cuerpo del debate.
+* `title: String` Título del nuevo debate.
+* `categoryId: ID` Identificador de nodo de un elemento `DiscussionCategory` dentro del mismo repositorio al que se va a cambiar este debate.
+* `clientMutationId: String` Identificador único para el cliente que realiza la mutación.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` El identificador único que se proporcionó como entrada.
-* `discussion: Discussion` El debate que se modificó.
+* `clientMutationId: String` Identificador único proporcionado como entrada.
+* `discussion: Discussion` Debate que se ha modificado.
 
 ### deleteDiscussion
 Campos de entrada:
 
-* `id: ID!` La ID de nodo del debate a borrar.
-* `clientMutationId: String` Un identificador único para el cliente que realiza la mutación.
+* `id: ID!` Identificador de nodo del debate que se va a eliminar.
+* `clientMutationId: String` Identificador único para el cliente que realiza la mutación.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` El identificador único que se proporcionó como entrada.
-* `discussion: Discussion` El debate que se borró.
+* `clientMutationId: String` Identificador único proporcionado como entrada.
+* `discussion: Discussion` Debate que se ha eliminado.
 
 ### addDiscussionComment
 
 Campos de entrada:
 
-* `body: String!` El contenido del comentario.
-* `discussionId: ID!` La ID de nodo del debate en el cual se comentará.
-* `replyToId: ID` La ID de nodo del comentario del debate al cual se responderá. Si se encuentra ausente, el comentario que se crea será un comentario de nivel superior.
-* `clientMutationId: String` Un identificador único para el cliente que realiza la mutación.
+* `body: String!` Contenido del comentario.
+* `discussionId: ID!` Identificador de nodo del debate que se va a comentar.
+* `replyToId: ID` Identificador de nodo del comentario de debate al que se va a responder. Si se encuentra ausente, el comentario que se crea será un comentario de nivel superior.
+* `clientMutationId: String` Identificador único para el cliente que realiza la mutación.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` El identificador único que se proporcionó como entrada.
-* `comment: DiscussionComment` El comentario que se creó en el debate.
+* `clientMutationId: String` Identificador único proporcionado como entrada.
+* `comment: DiscussionComment` Comentario de debate que se ha creado.
 
 ### updateDiscussionComment
 
 Campos de entrada:
 
-* `body: String!` El contenido nuevo del cuerpo del comentario.
-* `commentId: ID!` La ID de nodo del comentario a actualizar en el debate.
-* `clientMutationId: String` Un identificador único para el cliente que realiza la mutación.
+* `body: String!` Nuevo contenido del cuerpo del comentario.
+* `commentId: ID!` Identificador de nodo del comentario de debate que se va a actualizar.
+* `clientMutationId: String` Identificador único para el cliente que realiza la mutación.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` El identificador único que se proporcionó como entrada.
-* `comment: DiscussionComment` El comentario del debate que se actualizó.
+* `clientMutationId: String` Identificador único proporcionado como entrada.
+* `comment: DiscussionComment` Comentario de debate que se que actualizado.
 
 ### deleteDiscussionComment
 
 Campos de entrada:
 
-* `id: ID!` La ID de nodo del comentario a borrar en el debate.
-* `clientMutationId: String` Un identificador único para el cliente que realiza la mutación.
+* `id: ID!` Identificador de nodo del comentario de debate que se va a eliminar.
+* `clientMutationId: String` Identificador único para el cliente que realiza la mutación.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` El identificador único que se proporcionó como entrada.
-* `comment: DiscussionComment` El comentario que se borró en el debate.
+* `clientMutationId: String` Identificador único proporcionado como entrada.
+* `comment: DiscussionComment` Comentario de debate que se que eliminado.
 
 ### markDiscussionCommentAsAnswer
 
 Campos de entrada:
 
-* `id: ID!` La ID de nodo del comentario que se marcará como respuesta en el debate.
-* `clientMutationId: String` Un identificador único para el cliente que realiza la mutación.
+* `id: ID!` Identificador de nodo del comentario de debate que se va a marcar como respuesta.
+* `clientMutationId: String` Identificador único para el cliente que realiza la mutación.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` El identificador único que se proporcionó como entrada.
-* `discussion: Discussion` El debate que incluye el comentario elegido.
+* `clientMutationId: String` Identificador único proporcionado como entrada.
+* `discussion: Discussion` Debate que incluye el comentario elegido.
 
 ### unmarkDiscussionCommentAsAnswer
 
 Campos de entrada:
 
-* `id: ID!` La ID de nodo del comentario que se dejará de marcar como respuesta en el debate.
-* `clientMutationId: String` Un identificador único para el cliente que realiza la mutación.
+* `id: ID!` Identificador de nodo del comentario de debate que se va a desmarcar como respuesta.
+* `clientMutationId: String` Identificador único para el cliente que realiza la mutación.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` El identificador único que se proporcionó como entrada.
-* `discussion: Discussion` El debate que incluye el comentario que se dejó de marcar.
+* `clientMutationId: String` Identificador único proporcionado como entrada.
+* `discussion: Discussion` Debate que incluye el comentario sin marcar.
 
 ## Buscar
 
-El debate puede devolverse desde el campo `search` de nivel superio. Para buscar un debate, especifica el `type` como `DISCUSSION`. El tipo `SearchResultItemConnection` tiene un campo de `discussionCount` para reportar la cantidad de debates devueltos y el tipo `Discussion` se agrega a la unión `SearchResultItem`. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+El debate se puede devolver desde el campo `search` de nivel superior. Para buscar un debate, especifique `type` como `DISCUSSION`. El tipo `SearchResultItemConnection` tiene un campo `discussionCount` para notificar el número de debates devueltos y el tipo `Discussion` se agrega a la unión `SearchResultItem`. Para más información, vea "[Consultas](/graphql/reference/queries#searchresultitemconnection)" y "[Búsqueda de debates](/search-github/searching-on-github/searching-discussions)".

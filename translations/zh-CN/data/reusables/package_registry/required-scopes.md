@@ -1,1 +1,1 @@
-您必须使用具有适当范围的个人访问令牌才可在 {% data variables.product.prodname_registry %} 中发布和安装。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages)”。
+You must use a {% data variables.product.pat_v1 %} with the appropriate scopes to publish and install packages in {% data variables.product.prodname_registry %}. For more information, see "[About {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages)."

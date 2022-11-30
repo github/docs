@@ -1,11 +1,19 @@
+---
+ms.openlocfilehash: 444e70adced8ef2f4fdc5f91b06a28bba89c898a
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879261"
+---
 {% warning %}
 
-**Warning:**
+**Внимание!**
 
-- If you remove a person’s access to a private repository, any of their forks of that private repository are deleted. Local clones of the private repository are retained. If a team's access to a private repository is revoked or a team with access to a private repository is deleted, and team members do not have access to the repository through another team, private forks of the repository will be deleted.{% if enterpriseServerVersions contains currentVersion %}
-- When [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync), if you remove a person from a repository, they will lose access but their forks will not be deleted. If the person is added to a team with access to the original organization repository within three months, their access to the forks will be automatically restored on the next sync.{% endif %}
-- You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+- При удалении доступа пользователя к частному репозиторию также удаляются все вилки этого частного репозитория, созданные этим пользователем. Сохраняются локальные клоны частного репозитория. Если доступ команды к частному репозиторию отзывается или удаляется команда с доступом к частному репозиторию, а члены команды не имеют доступа к репозиторию через другую команду, частные вилки репозитория будут удалены.{% ifversion ghes %}
+- Если [синхронизация LDAP включена](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync), то при удалении из репозитория пользователь теряет доступ, но его вилки сохраняются. Если в течение трех месяцев пользователь будет добавлен в команду с доступом к исходному репозиторию организации, он автоматически получит доступ к своим вилкам при следующей синхронизации.{% endif %}
+- Вы несете ответственность за то, чтобы пользователи, которые потеряли доступ к репозиторию, удалили любую конфиденциальную информацию или интеллектуальную собственность.
 
-- People with admin permissions to a private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} or internal{% endif %} repository can disallow forking of that repository, and organization owners can disallow forking of any private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} or internal{% endif %} repository in an organization. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)" and "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
+- Пользователи с разрешениями администратора в отношении частного{% ifversion ghes or ghae or ghec %} или внутреннего{% endif %} репозитория могут запретить ветвление этого репозитория, а владельцы организации — любого частного{% ifversion ghes or ghae or ghec %} или внутреннего {% endif %} репозитория в организации. Дополнительные сведения см. в статьях [Управление политикой ветвления для организации](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) и [Управление политикой ветвления для репозитория](/github/administering-a-repository/managing-the-forking-policy-for-your-repository).
 
 {% endwarning %}

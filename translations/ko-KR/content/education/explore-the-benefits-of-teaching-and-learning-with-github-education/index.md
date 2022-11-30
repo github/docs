@@ -1,26 +1,22 @@
 ---
-title: Explore the benefits of teaching and learning with GitHub Education
+title: GitHub Education을 사용하는 경우 교육 및 학습의 이점 살펴보기
 shortTitle: Explore
-intro: Learn how {% data variables.product.prodname_education %} can benefit your classroom, schoolwork, or research and how to apply for free access to various developer tools from {% data variables.product.company_short %}'s partners.
+intro: '{% data variables.product.prodname_education %}이 어떻게 교실, 학교 또는 연구에 도움이 될 수 있는지 살펴보고 {% data variables.product.company_short %}의 파트너가 제공하는 다양한 개발자 도구에 무료로 액세스하도록 신청하는 방법을 알아봅니다.'
 redirect_from:
   - /education/teach-and-learn-with-github-education
   - /github/teaching-and-learning-with-github-education
   - /categories/teaching-and-learning-with-github-education
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+children:
+  - /github-global-campus-for-students
+  - /github-global-campus-for-teachers
+  - /use-github-at-your-educational-institution
+ms.openlocfilehash: 0305b65dc5286123f9cba978fe36ef9b0a05c907
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147684728'
 ---
 
-### Table of Contents
-
-{% topic_link_in_list /use-github-at-your-educational-institution %}
-    {% link_in_list /about-github-campus-program %}
-    {% link_in_list /about-campus-experts %}
-    {% link_in_list /about-campus-advisors %}
-{% topic_link_in_list /use-github-for-your-schoolwork %}
-    {% link_in_list /about-github-education-for-students %}
-    {% link_in_list /apply-for-a-student-developer-pack %}
-    {% link_in_list /why-wasnt-my-application-for-a-student-developer-pack-approved %}
-{% topic_link_in_list /use-github-in-your-classroom-and-research %}
-    {% link_in_list /about-github-education-for-educators-and-researchers %}
-    {% link_in_list /apply-for-an-educator-or-researcher-discount %}
-    {% link_in_list /why-wasnt-my-application-for-an-educator-or-researcher-discount-approved %}

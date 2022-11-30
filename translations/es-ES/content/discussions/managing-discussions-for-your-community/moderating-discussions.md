@@ -1,39 +1,47 @@
 ---
-title: Moderar los debates
-intro: 'Puedes promover una colaboración sana si marcas los comentarios como respuestas, bloqueas o desbloqueas debates, y conviertes propuestas en debates. y editar o borrar comentarios, debates y categorías que no concuerden con el código de conducta de tu comunidad para los debates.'
-permissions: People with triage access to a repository can moderate discussions in the repository.
+title: Moderating discussions
+intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your{% ifversion fpt or ghec %} community''s code of conduct{% elsif ghes > 3.5 %} organization''s contribution guidelines{% endif %}.'
+permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
-  free-pro-team: '*'
+  feature: discussions
 ---
 
-{% data reusables.discussions.beta %}
 
-### Acerca de moderar los debates
+## About moderating discussions
 
-{% data reusables.discussions.about-discussions %} Si tienes permisos de clasificación en un repositorio, puedes ayudar a moderar el debate de un proyecto si marcas los comentarios como respuestas, bloqueas debates que ya no sean útiles o que dañen a la comunidad, y conviertes propuestas en debates cuando una idea aún se encuentre en una etapa temprana de desarrollo.
+{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, if you have triage permission for the source repository for organization discussions, you can moderate discussions for that organization.
 
-### Marcar un comentario como una respuesta
+## Marking a comment as an answer
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}
 
-### Bloquear debates
+## Locking discussions
 
-Es adecuado bloquear una conversación cuando ésta no sea constructiva o viole el código de conducta de tu comunidad o los [Lineamientos comunitarios](/github/site-policy/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. También puedes bloquear una conversación para prevenir que se hagan comentarios en un debate que quieres utilizar como un anuncio para la comunidad. Cuando bloqueas una conversación, las personas con acceso de escritura en el repositorio aún podrán comentar sobre el debate.
+It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion.
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
-1. En la lista de debates, da clic en aquél que quieras bloquear. ![Bloquear debate](/assets/images/help/discussions/unanswered-discussion.png)
-1. En el margen derecho de un debate, da clic en **Bloquear conversación**.
-1. Lee la información sobre bloquear los debates y da clic en **Bloquear conversación en este debate**.
-1. Cuando estés listo para desbloquear la conversación, da clic en **Desbloquear conversación** y luego en **Desbloquear conversación en este debate**.
+1. In the list of discussions, click the discussion you want to lock.
+  ![Lock discussion](/assets/images/help/discussions/unanswered-discussion.png)
+1. In the right margin of a discussion, click **Lock conversation**.
+1. Read the information about locking conversations and click **Lock conversation on this discussion**.
+1. When you're ready to unlock the conversation, click **Unlock conversation**, then click **Unlock conversation on this discussion**.
 
-### Convertir una propuesta en un debate
+## Converting an issue to a discussion
 
-Cuando conviertes una propuesta en un debate, ésta se creará automáticamente utilizando el contenido de la propuesta. Las personas con acceso de escritura en un repositorio pueden convertir propeustas por lote con base en las etiquetas. Para obtener más información, consulta la sección "[Administrar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
+When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.repositories.sidebar-issues %}
-1. En la lista de propuestas, da clic en aquella que quieras convertir.
-1. En el margen derecho de la propuesta, da clic en **Convertir en debate**.
-1. Selecciona el menú desplegable de **Elige una categoría** y da clic en aquella que quieras para tu debate.
-1. Da clic en **Entiendo, convertir esta propuesta en debate**.
+1. In the list of issues, click the issue you'd like to convert.
+1. In the right margin of an issue, click **Convert to discussion**.
+1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
+1. Click **I understand, convert this issue to a discussion**.
+
+{% ifversion discussions-hide-comments-on-block %}
+## Blocking a user from your organization
+
+Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+
+{% data reusables.organizations.blocking-a-user %} 
+{% endif %}

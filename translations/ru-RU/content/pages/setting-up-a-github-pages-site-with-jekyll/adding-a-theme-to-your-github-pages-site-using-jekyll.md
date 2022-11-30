@@ -1,71 +1,74 @@
 ---
-title: Adding a theme to your GitHub Pages site using Jekyll
-intro: You can personalize your Jekyll site by adding and customizing a theme.
+title: Добавление темы на сайт GitHub Pages с помощью Jekyll
+intro: 'Вы можете персонализировать свой сайт Jekyll, добавив и настроив тему оформления.'
 redirect_from:
-  - /articles/customizing-css-and-html-in-your-jekyll-theme/
-  - /articles/adding-a-jekyll-theme-to-your-github-pages-site/
+  - /articles/customizing-css-and-html-in-your-jekyll-theme
+  - /articles/adding-a-jekyll-theme-to-your-github-pages-site
   - /articles/adding-a-theme-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
+  - /pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Add theme to Pages site
+ms.openlocfilehash: 33969695e96aa0629b2811e2742ca3093e58139a
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147644798'
 ---
-
-People with write permissions for a repository can add a theme to a {% data variables.product.prodname_pages %} site using Jekyll.
+Пользователи с разрешениями на запись в репозитории могут добавить тему на сайт {% data variables.product.prodname_pages %} с помощью Jekyll.
 
 {% data reusables.pages.test-locally %}
 
-### Adding a theme
+## Добавление темы
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.pages.navigate-publishing-source %}
-2. Navigate to *_config.yml*.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %}
+2. Перейдите к *_config.yml*.
 {% data reusables.repositories.edit-file %}
-4. Add a new line to the file for the theme name.
-   - To use a supported theme, type `theme: THEME-NAME`, replacing _THEME-NAME_ with the name of the theme as shown in the README of the theme's repository. For a list of supported themes, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site. ![Supported theme in config file](/assets/images/help/pages/add-theme-to-config-file.png)
-   - To use any other Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, type `remote_theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the README of the theme's repository. ![Unsupported theme in config file](/assets/images/help/pages/add-remote-theme-to-config-file.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+4. Добавьте в файл новую строку для имени темы.
+   - Чтобы использовать поддерживаемую тему, введите `theme: THEME-NAME`, заменив _THEME-NAME_ именем темы, как показано в файле README репозитория темы. Полный список поддерживаемых тем см. в разделе [Поддерживаемые темы](https://pages.github.com/themes/) на сайте {% data variables.product.prodname_pages %}.
+   ![Поддерживаемая тема в файле конфигурации](/assets/images/help/pages/add-theme-to-config-file.png)
+   - Чтобы использовать любую другую тему Jekyll, размещенную на {% data variables.product.prodname_dotcom %}, введите `remote_theme: THEME-NAME`, заменив THEME-NAME именем темы, как показано в файле README репозитория темы.
+   ![Неподдерживаемая тема в файле конфигурации](/assets/images/help/pages/add-remote-theme-to-config-file.png) {% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %}
 
-### Customizing your theme's CSS
+## Настройка CSS-темы
 
 {% data reusables.pages.best-with-supported-themes %}
 
 {% data reusables.pages.theme-customization-help %}
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.pages.navigate-publishing-source %}
-1. Create a new file called _/assets/css/style.scss_.
-2. Add the following content to the top of the file:
+{% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %}
+1. Создайте файл под именем _/assets/css/style.scss_.
+2. Добавьте следующее содержимое в верхнюю часть файла:
   ```scss
   ---
   ---
 
-  @import "{{ site.theme }}";
+  @import "{% raw %}{{ site.theme }}{% endraw %}";
   ```
-3. Add any custom CSS or Sass (including imports) you'd like immediately after the `@import` line.
+3. Добавьте любые пользовательские CSS или Sass (включая импорты) сразу после строки `@import`.
 
-### Customizing your theme's HTML layout
+## Настройка макета HTML-темы
 
 {% data reusables.pages.best-with-supported-themes %}
 
 {% data reusables.pages.theme-customization-help %}
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to your theme's source repository. For example, the source repository for Minima is https://github.com/jekyll/minima.
-2. In the *_layouts* folder, navigate to your theme's _default.html_ file.
-3. Copy the contents of the file.
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.pages.navigate-publishing-source %}
-6. Create a file called *_layouts/default.html*.
-7. Paste the default layout content you copied earlier.
-8. Customize the layout as you'd like.
+1. Перейдите к исходному репозиторию вашей темы в {% data variables.product.prodname_dotcom %}. Например, исходный репозиторий для темы Minima — https://github.com/jekyll/minima.
+2. В папке *_layouts* перейдите к файлу _default.html_ вашей темы.
+3. Скопируйте содержимое файла.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %}
+6. Создайте файл с именем *_layouts/default.html*.
+7. Вставьте скопированное ранее содержимое макета по умолчанию.
+8. Настройте макет как вам нужно.
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[Creating new files](/articles/creating-new-files)"
+- [Создание файлов](/articles/creating-new-files)

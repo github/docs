@@ -1,1 +1,8 @@
-1. （可选）若要求会员使用 SSH 证书，请选择 **Require SSH Certificates（需要 SSH 证书）**，然后单击 **Save（保存）**。 ![“需要 SSH 证书”复选框和保存按钮](/assets/images/help/organizations/require-ssh-cert.png)
+1. Optionally, to require members to use SSH certificates, select **Require SSH Certificates**, then click **Save**.
+    ![Require SSH Certificate checkbox and save button](/assets/images/help/organizations/require-ssh-cert.png)
+
+   {% note %}
+
+   **Note:** When you require SSH certificates, the requirement does not apply to authorized third-party integrations or to {% data variables.product.prodname_dotcom %} features such as {% data variables.product.prodname_actions %}{% ifversion fpt or ghec %} and {% data variables.product.prodname_codespaces %}{% endif %}, which are trusted environments within the {% data variables.product.prodname_dotcom %} ecosystem.
+
+   {% endnote %}

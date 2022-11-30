@@ -1,5 +1,13 @@
+---
+ms.openlocfilehash: 2756814ec2c08dfce708645cec499588fbad330d
+ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2022
+ms.locfileid: "148111610"
+---
 {% note %}
 
-**注：**外部协作者无需使用 IdP 进行身份验证即可访问实施 SAML SSO 的组织中的资源。 有关外部协作者的更多信息，请参阅“[组织的权限级别](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)”。
+**注意：** 外部协作者不需要进行 SAML 身份验证。 有关外部协作者的详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)”。
 
 {% endnote %}

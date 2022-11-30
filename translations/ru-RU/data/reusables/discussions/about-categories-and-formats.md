@@ -1,1 +1,9 @@
-All discussions must be created in a category, and repository administrators and maintainers define the categories for a repository. Categories can contain open-ended conversations, or conversations with a question/answer format.
+---
+ms.openlocfilehash: 7ec4ca85d46512d5f8c6bd4344884e6fad7dcc6c
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145138062"
+---
+Все обсуждения должны создаваться в какой-либо категории. Для обсуждения репозиториев пользователи с разрешением на обслуживание или правами администратора в отношении соответствующего репозитория определяют категории обсуждений в этом репозитории. Для обсуждения организаций пользователи с разрешением на обслуживание или правами администратора в отношении исходного репозитория определяют категории обсуждений в этой организации. Каждая категория имеет определенный формат: открытое обсуждение, вопрос и ответ или объявление.

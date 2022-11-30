@@ -4,49 +4,50 @@ intro: 'Puedes ejecutar consultas en datos reales de {% data variables.product.p
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 19c534dd0cdcacdfd0d96bb93d055ff3fca8690b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146749493'
 ---
-
 ## Acerca del explorador de GraphQL
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
-El [Explorador de GraphQL](/graphql/overview/explorer) es una instancia de [GraphQL](https://github.com/graphql/graphiql), la cual es una "IDE de GraphQL gráfica e interactiva en el mismo buscador".
-
-{% note %}
-
-**Nota**: {% data variables.product.prodname_dotcom %} ha inhabilitado las [mutaciones](/graphql/reference/mutations) en el explorador, pero puedes utilizarlas en tu propia instancia de GraphiQL.
-
-{% endnote %}
+El [explorador de GraphQL](/graphql/overview/explorer) es una instancia de [GraphiQL](https://github.com/graphql/graphiql), que es un "IDE de GraphQL gráfico e interactivo en el explorador".
 
 {% else %}
 
-[GraphiQL](https://github.com/graphql/graphiql), también mencionado en esta documentación como el explorador de GraphQL, es una "IDE de GraphQL gráfica e interactiva en el mismo buscador".
+[GraphiQL](https://github.com/graphql/graphiql), también mencionado en esta documentación como el explorador de GraphQL, es un "IDE de GraphQL gráfico e interactivo en el explorador".
 
 {% endif %}
 
-### Utilizar GrpahiQL
+## Utilizar GrpahiQL
 
-Para utilizar la app de GraphiQL, descárgala e instálala desde https://github.com/skevy/graphiql-app.
+Para usar la aplicación GraphiQL, descárguela e instálela desde https://github.com/skevy/graphiql-app.
 
-#### Configurar GraphiQL
+### Configurar GraphiQL
 
-1. Obtén un [token de OAuth](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
-1. Lanzar GraphiQL.
-1. En la esquina superior derecha de GraphiQL, da clic en **Editar Encabezados de HTTP**.
-1. En el campo **Clave**, ingresa `Authorization`. En el campo **Valor**, ingresa `Bearer <token>`, en donde `<token>` es tu token de OAuth generado. ![encabezados de graphiql](/assets/images/developer/graphiql-headers.png)
-1. Da clic en la casilla a la derecha del token para guardarlo.
-1. Para gregresar al editor, da clic fuera de el modo **Editar Encabezados de HTTP**.
-1. En el campo **Terminal GraphQL** ingresa `{% data variables.product.graphql_url_pre %}`.
-1. En el menú desplegable **Método**, selecciona **POST**.
+1. Obtenga un [token de OAuth](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
+1. Inicie GraphiQL.
+1. En la esquina superior derecha de GraphiQL, haga clic en **Edit HTTP Headers** (Editar encabezados HTTP).
+1. En el campo **Key** (Clave), escriba `Authorization`. En el campo **Value** (Valor), escriba `Bearer <token>`, donde `<token>` es el token de OAuth generado.
+![Encabezados de GraphiQL](/assets/images/developer/graphiql-headers.png)
+1. Haga clic en la marca de verificación a la derecha del token para guardarlo.
+1. Para volver al editor, haga clic fuera del modal **Edit HTTP Headers** (Editar encabezados HTTP).
+1. En el campo **GraphQL Endpoint** (Punto de conexión de GraphQL), escriba `{% data variables.product.graphql_url_pre %}`.
+1. En el menú desplegable **Method** (Método), seleccione **POST**.
 
 {% note %}
 
-**Nota**: Para obtener más información acerca del porqué `POST` es el método, consulta la sección "[Comunicarse con GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)".
+**Nota**: Para obtener más información sobre por qué `POST` es el método, vea "[Comunicarse con GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)".
 
 {% endnote %}
 
@@ -62,19 +63,19 @@ query {
 
 Si todo funcionó correctamente, esto mostrará tu ingreso. Estás listo para comenzar a hacer consultas.
 
-### Acceder a los documentos de la barra lateral
+## Acceder a los documentos de la barra lateral
 
-Todos los tipos en el modelo de GraphQL incluyen un campo de `description` compilado en la documentación. El pánel retráctil **Docs** en el costado derecho de la página del explorador te permite buscar documentación acerca de tu tipo de sistema. Los documentos se actualizan automáticamente y eliminarán los campos obsoletos.
+Todos los tipos en el esquema de GraphQL incluyen un campo `description` compilado en la documentación. El panel contraíble **Docs** (Documentos) en el lado derecho de la página del explorador le permite buscar documentación acerca de su tipo de sistema. Los documentos se actualizan automáticamente y eliminarán los campos obsoletos.
 
 {% note %}
 
-La barra lateral de **Docs** tiene el mismo contenido que se genera automáticamente del modelo bajo "[Referencia](/graphql)", aunque con diferente formato en algunas partes.
+La barra lateral **Docs** (Documentos) incluye el mismo contenido que se genera automáticamente del esquema en "[Reference](/graphql)" (Referencia), aunque con diferente formato en algunas partes.
 
 {% endnote %}
 
-### Utilizar el pánel de variable
+## Utilizar el pánel de variable
 
-Algunos llamados de ejemplo incluyen [variables](/graphql/guides/forming-calls-with-graphql#working-with-variables) escritas como éstas:
+Algunas llamadas de ejemplo incluyen [variables](/graphql/guides/forming-calls-with-graphql#working-with-variables) escritas de la siguiente manera:
 
 ```graphql
 query($number_of_repos:Int!){
@@ -92,9 +93,9 @@ variables {
 }
 ```
 
-Este es el formato correcto para emitir la llamada a través de `POST` en cURL (mientras que [escapes las líneas nuevas](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
+Este es el formato correcto para enviar la llamada mediante un cURL `POST` (siempre que establezca un carácter de [escape en las líneas nuevas](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
 
-Si quieres ejecutar la llamada en el explorador, ingresa el segmento `query` en el panel principal y las variables en el panel de **Variables de Consulta** debajo de éste. Omite la palabra `variables` en el explorador:
+Si quiere ejecutar la llamada en el explorador, introduzca el segmento `query` en el panel principal y las variables en el panel **Query Variables** (Variables de Consulta) debajo de este. Omita la palabra `variables` del Explorador:
 
 ```graphql
 {
@@ -102,20 +103,20 @@ Si quieres ejecutar la llamada en el explorador, ingresa el segmento `query` en 
 }
 ```
 
-### Solicitar soporte
+## Solicitar soporte
 
 {% data reusables.support.help_resources %}
 
-### Solución de errores
+## Solucionar errores
 
-Ya que GraphQL es [introspectivo](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), el explorador soporta:
+Dado que GraphQL es [introspectivo](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), el Explorador admite lo siguiente:
 
 * Autocompleción inteligente consciente del modelo actual
 * Vistas previas de validación de errores mientras tecleas
 
-Si ingresas una consulta que no esté bien estructurada o no pase el [modelo de validación](/graphql/guides/introduction-to-graphql#schema), un mensaje emergente te avisará de un error. Si ejecutas la consulta, el error se devolverá en el panel de respuesta.
+Si escribe una consulta que no está bien formada o no pasa la [validación del esquema](/graphql/guides/introduction-to-graphql#schema), un elemento emergente le advierte de un error. Si ejecutas la consulta, el error se devolverá en el panel de respuesta.
 
-Una respuesta de GraphQL contiene varias claves: un hash de `data` y un arreglo de `errors`.
+Una respuesta de GraphQL contiene varias claves: un código hash `data` y una matriz `errors`.
 
 ```json
 {
@@ -149,6 +150,6 @@ Es posible que te encuentres con un error inesperado que no está relacionado co
 
 {% note %}
 
-**Nota:** {% data variables.product.prodname_dotcom %} recomienda que revises si hay errores antes de utilizar datos en un ambiente productivo. En GraphQL, la falla no es total: algunas porciones de las consultas de GraphQL pueden tener éxito y otras pueden fallar.
+**Nota**: {% data variables.product.prodname_dotcom %} recomienda que compruebe si hay errores antes de utilizar datos en un entorno de producción. En GraphQL, la falla no es total: algunas porciones de las consultas de GraphQL pueden tener éxito y otras pueden fallar.
 
 {% endnote %}

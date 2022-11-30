@@ -1,23 +1,32 @@
-##### Eventos de solicitud de extracción para repositorios bifurcados
+---
+ms.openlocfilehash: a314a101135f5b47bfd573b1be6d7867db4ac26d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145138069"
+---
+#### Flujos de trabajo en repositorios bifurcados
+
+Los flujos de trabajo no se ejecutan predeterminadamente en los repositorios bifurcados. Debe habilitar Acciones de GitHub en la pestaña **Acciones** del repositorio bifurcado.
+
+{% data reusables.actions.forked-secrets %} `GITHUB_TOKEN` tiene permisos de solo lectura en los repositorios bifurcados. Para más información, vea "[Autenticación con GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+
+#### Eventos de solicitud de extracción para repositorios bifurcados
+
+Para las solicitudes de incorporación de cambios de un repositorio bifurcado al repositorio base, {% data variables.product.product_name %} envía los eventos `pull_request`, `issue_comment`, `pull_request_review_comment`, `pull_request_review`y `pull_request_target` al repositorio base. No existirán eventos de solicitudes de cambio en el repositorio bifurcado.
+
+{% ifversion fpt or ghec %} Cuando un colaborador primerizo envía una solicitud de incorporación de cambios a un repositorio público, es posible que un mantenedor con acceso de escritura tenga que aprobar los flujos de trabajo en ejecución en la solicitud de incorporación de cambios. Para más información, vea "[Aprobación de ejecuciones de flujo de trabajo desde bifurcaciones públicas](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)".
+{% endif %}
 
 {% note %}
 
-**Nota:** los flujos de trabajo no se ejecutan en repositorios base privados cuando abres una solicitud de extracción desde un repositorio bifurcado.
+**Nota:** Los flujos de trabajo no se ejecutan en repositorios base privados cuando se abre una solicitud de incorporación de cambios desde un repositorio bifurcado.
 
 {% endnote %}
 
-Cuando creas una solicitud de extracción desde un repositorio bifurcado al repositorio base, {% data variables.product.prodname_dotcom %} envía el evento `pull_request` al repositorio base y no se producen eventos de solicitud de extracción en el repositorio bifurcado.
-
-Los flujos de trabajo no se ejecutan en repositorios bifurcados por defecto. Debes habilitar las Acciones de GitHub en la pestaña **Actions (Acciones)** del repositorio bifurcado.
-
-{% if currentVersion == "free-pro-team@latest"%}
-Cuando un colaborador de primera vez emite una solicitud de cambios a un repositorio púb lico, un mantenedor con acceso de escritura debe aprobar los flujos de trabajo que se estpen ejecutando en la solicitud de cambios. Para obtener más información, consulta la sección "[Aprobar flujos de trabajo desde bifurcaciones públicas](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)".
-{% endif %}
-
-{% data reusables.actions.forked-secrets %} Los permisos para el `GITHUB_TOKEN` en los repositorios bifurcados son de solo lectura. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
-
 {% note %}
 
-**Nota:** Los flujos de trabajo que se activan mediante las solicitudes de cambios del {% data variables.product.prodname_dependabot %} se tratan como si fueran de un repositorio bifurcado y también están sujetas a estas restricciones.
+**Nota:** Los flujos de trabajo que se desencadenan mediante solicitudes de incorporación de cambios de {% data variables.product.prodname_dependabot %} se tratan como si procedieran de un repositorio bifurcado y también están sujetos a estas restricciones.
 
 {% endnote %}

@@ -1,1 +1,0 @@
-Dieses Verfahren entfernt den selbst-gehosteten Läufer dauerhaft. Wenn Du nur vorübergehend verhindern möchtest, dass einem Läufer Aufträge zugewiesen werden, kannst Du entweder die Maschine herunterfahren oder die `run` Applikation beenden. Der Läufer bleibt im Status "Offline" zugewiesen und wird keine Aufträge ausführen, bis Du den Läufer mit der `run` Anwendung neu startest.

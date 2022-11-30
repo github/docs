@@ -1,1 +1,9 @@
-  1. To save the new label, click **Create label**.
+---
+ms.openlocfilehash: ef75310ad3d8638cd4a25b6210472d500d7f66eb
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145092930"
+---
+  1. Чтобы сохранить новую метку, нажмите кнопку **Создать метку**.

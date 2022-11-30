@@ -1,8 +1,9 @@
 ---
-title: Managing encrypted secrets for your codespaces
-intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
+title: Verwalten verschlüsselter Geheimnisse für Codespaces
+intro: "Du kannst vertrauliche Informationen (z.\_B. Token) speichern, auf die du über Umgebungsvariablen zugreifen möchtest."
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
@@ -11,62 +12,86 @@ topics:
   - Codespaces
   - Developer
   - Security
+  - Secret store
+shortTitle: Encrypted secrets
+ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160442'
 ---
+## Informationen zum Verwalten verschlüsselter Geheimnisse für {% data variables.product.prodname_github_codespaces %}
 
-{% data reusables.codespaces.release-stage %}
+Du kannst deinem persönlichen Konto verschlüsselte Geheimnisse hinzufügen, die du in deinen Codespaces verwenden möchtest. Du kannst beispielsweise die folgenden vertraulichen Informationen als verschlüsselte Geheimnisse speichern und darauf zugreifen.
 
+- Zugriffstoken für Clouddienste
+- Dienstprinzipale
+- Abonnementbezeichner
+- [Anmeldeinformationen für eine private Imageregistrierung](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
 
-### About encrypted secrets for {% data variables.product.prodname_codespaces %}
-
-You can add encrypted secrets to your user account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
-
-- Personal access tokens to cloud services
-- Service principals
-- Subscription identifiers
-- [Credentials for a private image registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
-
-You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret.
+Du kannst auswählen, welche Repositorys Zugriff auf das jeweilige Geheimnis haben sollen. Dann kannst du das Geheimnis in jedem Codespace verwenden, den du für ein Repository erstellst, das Zugriff auf dieses Geheimnis hat. Um ein Geheimnis für einen Codespace freizugeben, der mithilfe einer Vorlage erstellt wurde, musst du den Codespace in einem Repository auf {% data variables.product.prodname_dotcom %} veröffentlichen und dem Repository dann Zugriff auf das Geheimnis gewähren.
 
 {% data reusables.codespaces.secrets-on-start %}
 
-#### Naming secrets
+### Benennen von Geheimnissen
 
-{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
+{% data reusables.codespaces.secrets-naming %} Ein auf Repositoryebene erstelltes Geheimnis muss beispielsweise einen in diesem Repository eindeutigen Namen haben.
 
   {% data reusables.codespaces.secret-precedence %}
 
-#### Einschränkungen für Geheimnisse
+### Einschränkungen für Geheimnisse
 
-You can store up to 100 secrets for {% data variables.product.prodname_codespaces %}.
+Du kannst bis zu 100 Geheimnisse für {% data variables.product.prodname_github_codespaces %} speichern.
 
 Geheimnisse sind auf 64 KB beschränkt.
 
-### Adding a secret
+## Hinzufügen eines Geheimnisses
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
-1. To the right of "Codespaces secrets", click **New secret**. !["New secret" button](/assets/images/help/settings/codespaces-new-secret-button.png)
-1. Under "Name", type a name for your secret. !["Name" text box](/assets/images/help/settings/codespaces-secret-name-field.png)
-{% data reusables.user_settings.codespaces-secret-value %}
-{% data reusables.user_settings.codespaces-secret-repository-access %}
-1. Klicken Sie auf **Add secret** (Geheimnis hinzufügen).
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Klicke rechts neben „Codespacegeheimnisse“ auf **Neues Geheimnis**.
+  ![Schaltfläche „Neues Geheimnis“](/assets/images/help/settings/codespaces-new-secret-button.png)
+1. Gib unter „Name“ einen Namen für das Geheimnis ein.
+  ![Textfeld „Name“](/assets/images/help/settings/codespaces-secret-name-field.png) {% data reusables.user-settings.codespaces-secret-value %} {% data reusables.user-settings.codespaces-secret-repository-access %}
+1. Klicke auf **Geheimnis hinzufügen**.
 
-### Editing a secret
+## Bearbeiten eines Geheimnisses
 
-You can update the value of an existing secret, and you can change which repositories can access a secret.
+Du kannst den Wert eines vorhandenen Geheimnisse aktualisieren und ändern, welche Repositorys auf ein Geheimnis zugreifen können.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
-1. Under "Codespaces secrets", to the right of the secret you want to edit, click **Update**. !["Update" button](/assets/images/help/settings/codespaces-secret-update-button.png)
-1. Under "Value", click **enter a new value**. !["enter a new value" link](/assets/images/help/settings/codespaces-secret-update-value-text.png)
-{% data reusables.user_settings.codespaces-secret-value %}
-{% data reusables.user_settings.codespaces-secret-repository-access %}
-1. Optionally, to remove the secret's access to a repository, deselect the repository. ![Checkboxes to remove access to repositories](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
-1. Klicke auf **Save changes** (Änderungen speichern).
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Klicke unter „Codespacegeheimnisse“ rechts neben dem Geheimnis, das du bearbeiten möchtest, auf **Aktualisieren**.
+  ![Schaltfläche „Aktualisieren“](/assets/images/help/settings/codespaces-secret-update-button.png)
+1. Klicke unter „Wert“ auf **Neuen Wert eingeben**.
+  ![Link „Neuen Wert eingeben“](/assets/images/help/settings/codespaces-secret-update-value-text.png) {% data reusables.user-settings.codespaces-secret-value %} {% data reusables.user-settings.codespaces-secret-repository-access %}
+1. Optional kannst du auch optional den Zugriff des Geheimnisses auf ein Repository entfernen, indem du das Repository deaktivierst.
+  ![Kontrollkästchen zum Entfernen des Zugriffs auf Repositorys](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
+1. Klicke auf **Änderungen speichern**.
 
-### Deleting a secret
+## Löschen eines Geheimnisses
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
-1. Under "Codespaces secrets", to the right of the secret you want to delete, click **Delete**. !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
-1. Lies die Warnung, dann klicke auf **OK**. ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. Klicke unter „Codespacegeheimnisse“ rechts neben dem Geheimnis, das du löschen möchtest, auf **Löschen**.
+  ![Schaltfläche „Löschen“](/assets/images/help/settings/codespaces-secret-delete-button.png)
+1. Lies die Warnung, und klicke dann auf **OK**.
+  ![Bestätigung zum Löschen des Geheimnisses](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Verwenden von Geheimnissen
+
+Ein Geheimnis wird als Umgebungsvariable in die Terminalsitzung des Benutzers exportiert.
+
+  ![Anzeigen des Werts eines exportierten Geheimnisses im Terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+
+Du kannst geheime Schlüssel in einem Codespace verwenden, nachdem dieser erstellt und ausgeführt wurde. Ein Geheimnis kann beispielsweise in folgenden Fällen verwendet werden:
+
+* Beim Starten einer Anwendung über das integrierte Terminal oder die SSH-Sitzung.
+* Innerhalb des Lebenszyklusskripts eines Entwicklungscontainers, das nach Ausführung des Codespaces ausgeführt wird. Weitere Informationen zu Lebenszyklusskripts von Entwicklungscontainern findest du in der Dokumentation unter „containers.dev“: [Spezifikation](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+
+In folgenden Fällen können keine Codespacegeheimnisse verwendet werden:
+
+* Während der Codespacebuildzeit (d. h., innerhalb einer Dockerfile oder eines benutzerdefinierten Einstiegspunkts)
+* Innerhalb eines Entwicklungscontainerfeatures. Weitere Informationen findest du in der `features`-Eigenschaft in der [Entwicklungscontainerspezifikation](https://containers.dev/implementors/json_reference/#general-properties) auf „containers.dev“.
+
+## Weiterführende Themen
+
+- [Verwalten von verschlüsselten Geheimnissen für dein Repository und deine Organisation für {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)

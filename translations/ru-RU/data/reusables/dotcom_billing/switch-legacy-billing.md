@@ -1,1 +1,9 @@
-If your organization is using a legacy per-repository billing plan, you can switch to per-user pricing at any time. You will not be able to switch back to repository pricing once you've upgraded to per-user pricing.
+---
+ms.openlocfilehash: e0147d4d2717ca56870416a58889f7d02bbf5fe2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145124371"
+---
+Если в вашей организации используется устаревший план выставления счетов для каждого репозитория, вы можете в любое время переключиться на расценки в расчете на пользователя. Вы не сможете вернуться к ценам на репозиторий после обновления до расценок в расчете на пользователя.

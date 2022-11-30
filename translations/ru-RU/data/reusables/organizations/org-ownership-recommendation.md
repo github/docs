@@ -1,1 +1,9 @@
-Projects maintained and managed by one sole organization owner can easily become inaccessible if the organization owner is unreachable. We recommend an organization have at least two people with *owner* permissions to ensure no one will lose access to a project.
+---
+ms.openlocfilehash: 64c92d2427b9be166d820bf3fcb23d39d449a295
+ms.sourcegitcommit: c2aa10a61db44ee111c09565b6114dd5c97b6e2e
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/14/2022
+ms.locfileid: "148163472"
+---
+Если у организации есть только один владелец, проекты организации могут стать недоступными, если владелец недоступен. Чтобы никто не потерял доступ к проекту, рекомендуется, чтобы по крайней мере два человека в каждой организации имели роль владельца.

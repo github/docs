@@ -1,7 +1,6 @@
----
 gist_homepage: >-
-  {% if currentVersion == "free-pro-team@latest" %}[gist home page](https://gist.github.com/){% elsif currentVersion == "github-ae@latest" %}gist home page, `http(s)://gist.[hostname)`,{% else %}gist home page, `http(s)://[hostname]/gist` or `http(s)://gist.[hostname]` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[Домашняя страница gist](https://gist.github.com/){% elsif ghae %}Домашняя страница gist, http(s)://gist.[hostname]{% else %}Домашняя страница gist, http(s)://[hostname]/gist или http(s)://gist.[hostname], если поддерживаются поддомены{% endif %}
 gist_search_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Gist Search](https://gist.github.com/search){% elsif currentVersion == "github-ae@latest" %}Gist Search, `http(s)://gist.[hostname]/search`,{% else %}Gist Search, `http(s)://[hostname]/gist/search` or `http(s)://gist.[hostname]/search` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[Поиск Gist](https://gist.github.com/search){% elsif ghae %}Поиск Gist, http(s)://gist.[hostname]/search{% else %}Поиск Gist, http(s)://[hostname]/gist/search или http(s)://gist.[hostname]/search, если поддерживаются поддомены{% endif %}
 discover_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Discover](https://gist.github.com/discover){% elsif currentVersion == "github-ae@latest" %}Discover, `http(s)://gist.[hostname]/discover`,{% else %}Discover, `http(s)://[hostname]/gist/discover` or `http(s)://gist.[hostname]/discover` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[Страница поиска](https://gist.github.com/discover){% elsif ghae %}Страница поиска, http(s)://gist.[hostname]/discover{% else %}Страница поиска, http(s)://[hostname]/gist/discover или http(s)://gist.[hostname]/discover, если поддерживаются поддомены{% endif %}

@@ -1,4 +1,12 @@
-Dependency review helps you understand dependency changes and the security impact of these changes at every pull request. It provides an easily understandable visualization of dependency changes with a rich diff on the "Files Changed" tab of a pull request. Dependency review informs you of:
-- Which dependencies were added, removed, or updated, along with the release dates.
-- How many projects use these components.
-- Vulnerability data for these dependencies.
+---
+ms.openlocfilehash: 94ab0d8deea02a960ddd3c376d3954aeef8b4544
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/07/2022
+ms.locfileid: "148135725"
+---
+{% data reusables.dependency-review.short-summary %} Он обеспечивает понятную визуализацию изменений зависимостей с расширенным диффеном на вкладке "Измененные файлы" запроса на вытягивание. Функция проверки зависимостей позволяет получить следующую информацию:
+- Добавленные, удаленные и обновленные зависимости, а также даты их выпуска.
+- Количество проектов, в которых используются эти компоненты.
+- Данные об уязвимостях для этих зависимостей.

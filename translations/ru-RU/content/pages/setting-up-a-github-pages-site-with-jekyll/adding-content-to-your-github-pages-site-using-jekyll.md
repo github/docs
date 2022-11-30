@@ -1,72 +1,71 @@
 ---
-title: Adding content to your GitHub Pages site using Jekyll
-intro: 'You can add a new page or post to your Jekyll site on {% data variables.product.prodname_pages %}.'
+title: Добавление содержимого на сайт GitHub Pages с помощью Jekyll
+intro: 'Можно добавить новую страницу или сделать публикацию на сайте Jekyll в {% data variables.product.prodname_pages %}.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/adding-content-to-your-github-pages-site-using-jekyll
   - /github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Add content to Pages site
+ms.openlocfilehash: 030e4e7877c091ef3c05acb62bee37b455d5ce6b
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148009843'
 ---
+Люди с разрешениями на запись в репозитории могут добавлять содержимое на сайт {% data variables.product.prodname_pages %} с помощью Jekyll.
 
-People with write permissions for a repository can add content to a {% data variables.product.prodname_pages %} site using Jekyll.
+## О содержимом на сайтах Jekyll
 
-### About content in Jekyll sites
+Прежде чем добавлять содержимое на сайт Jekyll в {% data variables.product.prodname_pages %}, необходимо создать сайт Jekyll. Дополнительные сведения см. в разделе [Создание сайта {% data variables.product.prodname_pages %} с помощью Jekyll](/articles/creating-a-github-pages-site-with-jekyll).
 
-Before you can add content to a Jekyll site on {% data variables.product.prodname_pages %}, you must create a Jekyll site. For more information, see "[Creating a {% data variables.product.prodname_pages %} site with Jekyll](/articles/creating-a-github-pages-site-with-jekyll)."
+Основными типами содержимого для сайтов Jekyll являются страницы и записи. Страница предназначена для автономного содержимого, которое не связано с определенной датой, как, например, страница "Сведения". Сайт Jekyll по умолчанию содержит файл с именем `about.md`, который отображается как страница на вашем сайте в `YOUR-SITE-URL/about`. Вы можете изменять содержимое этого файла, чтобы персонализировать страницу "Сведения", а также использовать страницу "Сведения" в качестве шаблона для создания новых страниц. Дополнительные сведения см. в разделе [Страницы](https://jekyllrb.com/docs/pages/) в документации Jekyll.
 
-The main types of content for Jekyll sites are pages and posts. A page is for standalone content that isn't associated with a specific date, such as an "About" page. The default Jekyll site contains a file called `about.md`, which renders as a page on your site at `YOUR-SITE-URL/about`. You can edit the contents of that file to personalize your "About" page, and you can use the "About" page as a template to create new pages. For more information, see "[Pages](https://jekyllrb.com/docs/pages/)" in the Jekyll documentation.
+Запись — это запись блога. Сайт Jekyll по умолчанию содержит каталог с именем `_posts`, в котором находится файл записи по умолчанию. Вы можете изменять содержимое этой записи и использовать запись по умолчанию в качестве шаблона для создания новых записей. Дополнительные сведения см. в разделе [Записи](https://jekyllrb.com/docs/posts/) в документации Jekyll.
 
-A post is a blog post. The default Jekyll site contains a directory named `_posts` that contains a default post file. You can edit the contents of that post, and you can use the default post as a template to create new posts. For more information, see "[Posts](https://jekyllrb.com/docs/posts/)" in the Jekyll documentation.
-
-Your theme includes default layouts, includes, and stylesheets that will automatically be applied to new pages and posts on your site, but you can override any of these defaults. For more information, see "[About {% data variables.product.prodname_pages %} and Jekyll](/articles/about-github-pages-and-jekyll#themes)."
+Тема включает макеты по умолчанию, включаемые объекты и таблицы стилей, которые будут автоматически применяться к новым страницам и записям на сайте, но вы можете переопределить любой из этих стандартных объектов. Дополнительные сведения см. в разделе [Сведения о {% data variables.product.prodname_pages %} и Jekyll](/articles/about-github-pages-and-jekyll#themes).
 
 {% data reusables.pages.about-front-matter %}
 
 {% data reusables.pages.test-locally %}
 
-### Adding a new page to your site
+## Добавление на сайт новой страницы
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.pages.navigate-publishing-source %}
-3. In the root of your publishing source, create a new file for your page called _PAGE-NAME.md_, replacing _PAGE-NAME_ with a meaningful filename for the page.
-4. Add the following YAML frontmatter to the top of the file, replacing _PAGE TITLE_ with the page's title and _URL-PATH_ with a path you want for the page's URL. For example, if the base URL of your site is `https://octocat.github.io` and your _URL-PATH_ is `/about/contact/`, your page will be located at `https://octocat.github.io/about/contact`.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %}
+3. В корне источника публикации создайте новый файл для страницы с именем _PAGE-NAME.md_, заменив _PAGE-NAME_ понятным именем файла для страницы.
+4. Добавьте следующий заглавный блок YAML в начало файла, заменив _PAGE TITLE_ заголовком страницы, а _URL-PATH_ путем для URL-адреса страницы. Например, если базовый URL-адрес сайта — `https://octocat.github.io`, а ваш _URL-PATH_ — `/about/contact/`, страница будет находиться по адресу `https://octocat.github.io/about/contact`.
   ```shell
   layout: page
-  title: "<em>PAGE TITLE</em>"
-  permalink: /<em>URL-PATH</em>/
+  title: "PAGE-TITLE"
+  permalink: /URL-PATH
   ```
-5. Below the frontmatter, add content for your page.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+5. Под заглавным блоком добавьте содержимое для страницы.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %} {% data reusables.files.choose_pull_request %} {% data reusables.files.merge_pull_request %} {% data reusables.files.write_commit_message_pull_request %} {% data reusables.files.confirm_merge %} {% data reusables.files.delete_branch %}
 
-### Adding a new post to your site
+## Добавление на сайт новой записи
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.pages.navigate-publishing-source %}
-3. Navigate to the `_posts` directory.
-4. Create a new file called _YYYY-MM-DD-NAME-OF-POST.md_, replacing _YYYY-MM-DD_ with the date of your post and _NAME-OF-POST_ with the name of your post.
-4. Add the following YAML frontmatter to the top of the file, replacing _POST TITLE_ with the post's title, _YYYY-MM-DD hh:mm:ss -0000_ with the date and time for the post, and _CATEGORY-1_ and _CATEGORY-2_ with as many categories you want for your post.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.pages.navigate-publishing-source %}
+3. Перейдите к каталогу `_posts`.
+4. Создайте новый файл с именем _YYYY-MM-DD-NAME-OF-POST.md_, заменив _YYYY-MM-DD_ датой записи, а _NAME-OF-POST_ — названием записи.
+4. Добавьте следующий заглавный блок YAML в начало файла, заменив _POST TITLE_ на заголовок записи, _YYYY-MM-DD hh:mm:ss -0000_ на дату и время записи, а _CATEGORY-1_ и _CATEGORY-2_ — на нужное количество категорий для вашей записи.
   ```shell
   layout: post
-  title: "<em>POST TITLE</em>"
-  date: </em>YYYY-MM-DD hh:mm:ss -0000</em>
-  categories: <em>CATEGORY-1</em> <em>CATEGORY-2</em>
+  title: "POST-TITLE"
+  date: YYYY-MM-DD hh:mm:ss -0000
+  categories: CATEGORY-1 CATEGORY-2
   ```
-5. Below the frontmatter, add content for your post.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose-commit-email %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+5. Под заглавным блоком добавьте содержимое для записи.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose-commit-email %} {% data reusables.files.choose_commit_branch %} {% data reusables.files.propose_file_change %} {% data reusables.files.choose_pull_request %} {% data reusables.files.merge_pull_request %} {% data reusables.files.write_commit_message_pull_request %} {% data reusables.files.confirm_merge %} {% data reusables.files.delete_branch %}
 
-Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
+Теперь ваша запись должна появиться на вашем сайте! Если базовый URL-адрес вашего сайта — `https://octocat.github.io`, новая публикация будет размещена по адресу `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
 
-### Дальнейшие шаги
+## Дальнейшие действия
 
-{% data reusables.pages.add-jekyll-theme %} For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+{% data reusables.pages.add-jekyll-theme %} Дополнительные сведения см. в разделе [Добавление темы на сайт {% data variables.product.prodname_pages %} с помощью Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).

@@ -1,46 +1,42 @@
 ---
-title: Managing your sponsorship goal
-intro: You can set a goal for your sponsored developer or sponsored organization account to help the community understand the impact of sponsoring you.
+title: Управление целью спонсорства
+intro: 'Вы можете задать цель для учетной записи спонсируемого разработчика или спонсируемой организации, чтобы помочь сообществу оценить, какое внимание оказывает спонсорская поддержка вашей работы.'
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/manage-your-sponsorship-goal
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-goal
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors profile
+shortTitle: Manage sponsor goals
+ms.openlocfilehash: 53d814dfe96baa603fc1514da93252450d93df17
+ms.sourcegitcommit: 6edb015070d3f0fda4525c6c931f1324626345dc
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: '147887313'
 ---
+## Сведения о целях спонсорства
 
-### About sponsorship goals
+Можно задать цель финансирования для спонсируемой учетной записи и поделиться ею с сообществом. Цели помогают понять влияние на сообщество с открытым кодом, и укрепить присутствие в программе {% data variables.product.prodname_sponsors %}.
 
-You can set a funding goal for your sponsored account and share the goal with your community. Goals help you understand the impact you have in the open source community and build up your presence in the {% data variables.product.prodname_sponsors %} program.
+Цель может задать целевой объект для количества желаемых спонсоров или сумму денег, которую желательно зарабатывать каждый месяц. Одновременно можно задать только одну цель. После достижения цели можно задать другую цель.
 
-Your goal can set a target for the number of sponsors you want to have or the amount of money you want to earn each month. You can only set one goal up at a time. After you reach a goal, you can set another goal.
+## Установка цели
 
-### Setting a goal
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-your-goals-tab %} {% data reusables.sponsors.set-a-goal %} {% data reusables.sponsors.select-goal-type %} {% data reusables.sponsors.publish-goal %}
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-your-goals-tab %}
-{% data reusables.sponsors.set-a-goal %}
-{% data reusables.sponsors.select-goal-type %}
-{% data reusables.sponsors.publish-goal %}
+## Изменение цели
 
-### Editing a goal
+Во время изменения цели нельзя выбрать уже достигнутую цель. Например, если уже есть 5 спонсоров, нельзя изменить свою цель, чтобы стремиться к 4 спонсорам.
 
-When you edit a goal, you can't choose a goal you've already achieved. For example, if you already have 5 sponsors, you can't edit your goal so that you're aiming for 4 sponsors.
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-your-goals-tab %} {% data reusables.sponsors.edit-goal %} {% data reusables.sponsors.select-goal-type %} {% data reusables.sponsors.publish-goal %}
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-your-goals-tab %}
-{% data reusables.sponsors.edit-goal %}
-{% data reusables.sponsors.select-goal-type %}
-{% data reusables.sponsors.publish-goal %}
+## Отзыв цели
 
-### Retiring a goal
+После отзыва цели ее нельзя повторно активировать. Вместо этого необходимо создать новую цель.
 
-After you retire a goal, you won't be able to reactivate the goal. You must create a new goal instead.
-
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-your-goals-tab %}
-{% data reusables.sponsors.edit-goal %}
-{% data reusables.sponsors.retire-goal %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-your-goals-tab %} {% data reusables.sponsors.edit-goal %} {% data reusables.sponsors.retire-goal %}

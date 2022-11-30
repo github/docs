@@ -7,44 +7,40 @@ redirect_from:
   - /packages/using-github-packages-with-your-projects-ecosystem/using-github-packages-with-github-actions
   - /packages/guides/using-github-packages-with-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Publish & install with Actions
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
-### About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
+## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
 {% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} For more information, see "[About {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)."
 
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### Authenticating to the {% data variables.product.prodname_container_registry %}
+{% ifversion fpt or ghec %}
+### Authenticating to the {% data variables.packages.prodname_ghcr_and_npm_registry %}
 
-{% data reusables.package_registry.container-registry-beta %}
-
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
-
-For an authentication example, see "[Authenticating with the {% data variables.product.prodname_container_registry %}](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)."
+{% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 {% endif %}
 
-#### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
+### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
 
-{% if currentVersion == "free-pro-team@latest" %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}It has read and write permissions for packages in the repository where the workflow runs. {% endif %}For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.location.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a {% data variables.product.pat_generic %} for authentication. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
 You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
-### About permissions and package access for repository-owned packages
+## About permissions and package access for repository-owned packages
 
 {% note %}
 
-**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`.
+**Note:** Some registries, such as RubyGems, {% ifversion packages-npm-v2 %}{% else %}npm, {% endif %}Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle{% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`{% endif %}, only allow repository-owned packages. With {% data variables.packages.prodname_ghcr_and_npm_registry_full %} you can choose to allow packages to be owned by a user, an organization, or linked to a repository.
 
 {% endnote %}
 
@@ -52,14 +48,14 @@ When you enable GitHub Actions, GitHub installs a GitHub App on your repository.
 
 {% data variables.product.prodname_registry %} allows you to push and pull packages through the `GITHUB_TOKEN` available to a {% data variables.product.prodname_actions %} workflow.
 
-{% if currentVersion == "free-pro-team@latest" %}
-### About permissions and package access for {% data variables.product.prodname_container_registry %}
+{% ifversion fpt or ghec %}
+## About permissions and package access for {% data variables.packages.prodname_ghcr_and_npm_registry %}
 
-The {% data variables.product.prodname_container_registry %} (`ghcr.io`) allows users to create and administer containers as free-standing resources at the organization level. Containers can be owned by an organization or personal user account and you can customize access to each of your containers separately from repository permissions.
+The {% data variables.packages.prodname_ghcr_and_npm_registry_full %} allows users to create and administer packages as free-standing resources at the organization level. Packages can be owned by an organization or personal account and you can customize access to each of your packages separately from repository permissions.
 
-All workflows accessing the {% data variables.product.prodname_container_registry %} should use the `GITHUB_TOKEN` instead of a personal access token. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+All workflows accessing the {% data variables.packages.prodname_ghcr_and_npm_registry %} should use the `GITHUB_TOKEN` instead of a {% data variables.product.pat_generic %}. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
 
-### Default permissions and access settings for containers modified through workflows
+## Default permissions and access settings for containers modified through workflows
 
 When you create, install, modify, or delete a container through a workflow, there are some default permission and access settings used to ensure admins have access to the workflow. You can adjust these access settings as well.
 
@@ -79,139 +75,60 @@ You can also adjust access to containers in a more granular way or adjust some o
 
 {% endif %}
 
-### Publishing a package using an action
+## Publishing a package using an action
 
 You can use {% data variables.product.prodname_actions %} to automatically publish packages as part of your continuous integration (CI) flow. This approach to continuous deployment (CD) allows you to automate the creation of new package versions, if the code meets your quality standards. For example, you could create a workflow that runs CI tests every time a developer pushes code to a particular branch. If the tests pass, the workflow can publish a new package version to {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.actions-configuration %}
 
-The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build and test your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}:
+The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt or ghec %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}.
 
-- Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
-  ```yaml{:copy}
-  name: Create and publish a package
-  on:
-    push:
-      branches: ['release']
-  jobs:
-    run-npm-build:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: npm install and build webpack
-          run: |
-            npm install
-            npm run build
-        - uses: actions/upload-artifact@main
-          with:
-            name: webpack artifacts
-            path: public/
+Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
 
-    run-npm-test:
-      runs-on: ubuntu-latest
-      needs: run-npm-build
-      strategy:
-        matrix:
-          os: [ubuntu-latest]
-          node-version: [12.x, 14.x]
-      steps: {% raw %}
-        - uses: actions/checkout@v2
-        - name: Use Node.js ${{ matrix.node-version }}
-          uses: actions/setup-node@v1
-          with:
-            node-version: ${{ matrix.node-version }}{% endraw %}
-        - uses: actions/download-artifact@main
-          with:
-            name: webpack artifacts
-            path: public
-        - name: npm install, and test
-          run: |
-            npm install
-            npm test
-          env:
-            CI: true
+{% ifversion fpt or ghec %}
+{% data reusables.package_registry.publish-docker-image %}
 
-    build-and-push-image:
-      runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-      permissions: 
-        contents: read
-        packages: write {% endif %}
-      needs: run-npm-test
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Build container image
-          uses: docker/build-push-action@v1
-          with: {% raw %}
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
-            registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
-            repository: ${{ github.repository }}/octo-image {% endraw %}
-            tag_with_sha: true
-            tag_with_ref: true 
-  ```
+{% else %}
 
-  The relevant settings are explained in the following table:
+```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
-  <table>
-  <tr>
-  <td>
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
-{% raw %}
-```yaml
+name: Create and publish a Docker image
+
 on:
   push:
     branches: ['release']
-```
-{% endraw %}
-  </td>
-  <td>
-    Configures the <code>Create and publish a package</code> workflow to run every time a change is pushed to the branch called <code>release</code>.
-  </td>
-  </tr>
-  <tr>
-  <td>
 
-{% raw %}
-  ```yaml
+jobs:
   run-npm-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: npm install and build webpack
         run: |
           npm install
           npm run build
-      - uses: actions/upload-artifact@main
+      - uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: webpack artifacts
           path: public/
-  ```
-  {% endraw %}
-  </td>
-  <td>
-    This job installs NPM and uses it to build the app.
-  </td>
-  </tr>
-  <tr>
-  <td>
 
-{% raw %}
-  ```yaml
   run-npm-test:
     runs-on: ubuntu-latest
     needs: run-npm-build
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [14.x]
+        node-version: [12.x, 14.x]
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node-version }}
-      - uses: actions/download-artifact@main
+          node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
+      - uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: webpack artifacts
           path: public
@@ -221,179 +138,375 @@ on:
           npm test
         env:
           CI: true
-  ```
-{% endraw %}
-  </td>
-  <td>
-    This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
-  </td>
-  </tr> {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-  <tr>
-  <td>
 
-{% raw %}
-  ```yaml
-  permissions: 
-    contents: read
-    packages: write 
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
-  </td>
-  </tr> {% endif %}
-  <tr>
-  <td>
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    needs: run-npm-test {% ifversion ghes or ghae %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
+    steps:
+      - name: Checkout
+        uses: {% data reusables.actions.action-checkout %}
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          push: true
+          tags: |
+            {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+```
+{% endif %}
 
-{% raw %}
-  ```yaml
-  - name: Build container image
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Creates a new step called <code>Build container image</code>. This step runs as part of the <code>build-and-push-image</code> job. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
-  </td>
-  </tr>
-  <tr>
-  <td>
+The relevant settings are explained in the following table. For full details about each element in a workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)."
 
+<table>
+<tr>
+<td>
 {% raw %}
-  ```yaml
-uses: docker/build-push-action@v1
-  ```
+```yaml
+on:
+  push:
+    branches: ['release']
+```
 {% endraw %}
-  </td>
-  <td>
-    Uses the Docker <code>build-push-action</code> action to build the image, based on your repository's <code>Dockerfile</code>. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
-  </td>
-  </tr>
-  <tr>
-  <td>
+</td>
+<td>
+  Configures the <code>Create and publish a Docker image</code> workflow to run every time a change is pushed to the branch called <code>release</code>.
+</td>
+</tr>
 
+{% ifversion fpt or ghec %}
+
+<tr>
+<td>
 {% raw %}
-  ```yaml
+```yaml
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+```
+{% endraw %}
+</td>
+<td>
+  Defines two custom environment variables for the workflow. These are used for the {% data variables.product.prodname_container_registry %} domain, and a name for the Docker image that this workflow builds.
+</td>
+</tr>
+
+<tr>
+<td>
+{% raw %}
+```yaml
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+```
+{% endraw %}
+</td>
+<td>
+  There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
+</td>
+</tr>
+
+{% else %}
+
+<tr>
+<td>
+
+```yaml
+run-npm-build:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: npm install and build webpack
+      run: |
+        npm install
+        npm run build
+    - uses: {% data reusables.actions.action-upload-artifact %}
+      with:
+        name: webpack artifacts
+        path: public/
+```
+
+</td>
+<td>
+  This job installs NPM and uses it to build the app.
+</td>
+</tr>
+
+<tr>
+<td>
+
+```yaml
+run-npm-test:
+  runs-on: ubuntu-latest
+  needs: run-npm-build
+  strategy:
+    matrix:
+      os: [ubuntu-latest]
+      node-version: [12.x, 14.x]
+  steps:
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+      uses: {% data reusables.actions.action-setup-node %}
+      with:
+        node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
+    - uses: {% data reusables.actions.action-download-artifact %}
+      with:
+        name: webpack artifacts
+        path: public
+    - name: npm install, and test
+      run: |
+        npm install
+        npm test
+      env:
+        CI: true
+```
+
+</td>
+<td>
+  This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
+</td>
+</tr>
+
+<tr>
+<td>
+{% raw %}
+```yaml
+build-and-push-image:
+  runs-on: ubuntu-latest
+  needs: run-npm-test
+```
+{% endraw %}
+</td>
+<td>
+  This job publishes the package. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
+</td>
+</tr>
+
+{% endif %}
+
+<tr>
+<td>
+{% raw %}
+```yaml
+permissions: 
+  contents: read
+  packages: write 
+```
+{% endraw %}
+</td>
+<td>
+  Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
+</td>
+</tr> 
+
+{% ifversion fpt or ghec %}
+<tr>
+<td>
+{% raw %}
+```yaml
+- name: Log in to the Container registry
+  uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+  with:
+    registry: ${{ env.REGISTRY }}
+    username: ${{ github.actor }}
+    password: ${{ secrets.GITHUB_TOKEN }}
+```
+{% endraw %}
+</td>
+<td>
+  Creates a step called <code>Log in to the {% data variables.product.prodname_container_registry %}</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+</td>
+</tr>
+
+<tr>
+<td>
+{% raw %}
+```yaml
+- name: Extract metadata (tags, labels) for Docker
+  id: meta
+  uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+  with:
+    images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+```
+{% endraw %}
+</td>
+<td>
+  This step uses <code><a href="https://github.com/docker/metadata-action#about">docker/metadata-action</a></code> to extract tags and labels that will be applied to the specified image. The <code>id</code> "meta" allows the output of this step to be referenced in a subsequent step. The <code>images</code> value provides the base name for the tags and labels.
+</td>
+</tr>
+
+{% else %}
+<tr>
+<td>
+{% raw %}
+```yaml
+- name: Log in to GitHub Docker Registry
+  uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+  with:
+    registry: {% endraw %}{% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
+    username: ${{ github.actor }}
+    password: ${{ secrets.GITHUB_TOKEN }}
+```
+{% endraw %}
+</td>
+<td>
+  Creates a new step called <code>Log in to GitHub Docker Registry</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+</td>
+</tr>
+{% endif %}
+
+<tr>
+<td>
+{% raw %}
+```yaml
+- name: Build and push Docker image
+```
+{% endraw %}
+</td>
+<td>
+  Creates a new step called <code>Build and push Docker image</code>. This step runs as part of the <code>build-and-push-image</code> job.
+</td>
+</tr>
+
+<tr>
+<td>
+{% raw %}
+```yaml
+uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+```
+{% endraw %}
+</td>
+<td>
+  Uses the Docker <code>build-push-action</code> action to build the image, based on your repository's <code>Dockerfile</code>. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
+</td>
+</tr>
+
+<tr>
+<td>
+{% raw %}
+```yaml
 with:
-  ```
+```
 {% endraw %}
-  </td>
-  <td>
-    Sends the required parameters to the <code>build-push-action</code> action. This are defined in the subsequent lines.
-  </td>
-  </tr>
-  <tr>
-  <td>
+</td>
+<td>
+  Sends the required parameters to the <code>build-push-action</code> action. These are defined in the subsequent lines.
+</td>
+</tr>
 
+{% ifversion fpt or ghec %}
+<tr>
+<td>
 {% raw %}
-  ```yaml
-username: ${{ github.actor }}
-  ```
+```yaml
+context: .
+```
 {% endraw %}
-  </td>
-  <td>
-    Defines the user account that will publish the packages. Once published, the packages are owned by the account defined here.
-  </td>
-  </tr>
-  <tr>
-  <td>
+</td>
+<td>
+  Defines the build's context as the set of files located in the specified path. For more information, see "<a href="https://github.com/docker/build-push-action#usage">Usage</a>."
+</td>
+</tr>
+{% endif %}
 
+<tr>
+<td>
 {% raw %}
-  ```yaml
-password: ${{ secrets.GITHUB_TOKEN }}
-  ```
+```yaml
+push: true
+```
 {% endraw %}
-  </td>
-  <td>
-    Defines the password that is used to access {% data variables.product.prodname_registry %}.
-  </td>
-  </tr>
-  <tr>
-  <td>
+</td>
+<td>
+  Pushes this image to the registry if it is built successfully.
+</td>
+</tr>
 
-  ```yaml
-registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
-  ```
-  </td>
-  <td>
-    Defines the registry that will host the resulting packages. This example uses {% data variables.product.prodname_registry %}.{% if currentVersion == "github-ae@latest" %} Replace <code>YOUR-HOSTNAME</code> with the name of your enterprise.{% endif %} {% if currentVersion == "free-pro-team@latest" %} If you're using the {% data variables.product.prodname_container_registry %}, then use <code>ghcr.io</code> as the hostname.{% endif %}
-  </td>
-  </tr>
-  <tr>
-  <td>
-
+{% ifversion fpt or ghec %}
+<tr>
+<td>
 {% raw %}
-  ```yaml
-repository: ${{ github.repository }}/octo-image
-  ```
+```yaml
+tags: ${{ steps.meta.outputs.tags }}
+labels: ${{ steps.meta.outputs.labels }}
+```
 {% endraw %}
-  </td>
-  <td>
-    Defines which repository will host the resulting package, and sets the name of the published package. Replace <code>octo-image</code> with the name you want for your package.
-  </td>
-  </tr>
-  <tr>
-  <td>
+</td>
+<td>
+  Adds the tags and labels extracted in the "meta" step.
+</td>
+</tr>
 
+{% else %}
+<tr>
+<td>
+{% ifversion ghae %}
 {% raw %}
-  ```yaml
-tag_with_sha: true
-  ```
+```yaml
+tags: |
+docker.YOUR-HOSTNAME.com/${{ github.repository }}/octo-image:${{ github.sha }}
+```
 {% endraw %}
-  </td>
-  <td>
-    Tags the published package with the first seven characters of the commit's SHA. For example, <code>sha-2f2d842</code>.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
+{% else %}
 {% raw %}
-  ```yaml
-tag_with_ref: true
-  ```
+```yaml
+tags: |
+docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
+```
 {% endraw %}
-  </td>
-  <td>
-    Tags the published package with the git ref. This can be the name of the branch used to create the package.
-  </td>
-  </tr>
-  </table>
+{% endif %}
+</td>
+<td>
+  Tags the image with the SHA of the commit that triggered the workflow.
+</td>
+</tr>
+{% endif %}
 
-- This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
-- A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
+</table>
 
+This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
 
-### Installing a package using an action
+A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
+
+## Installing a package using an action
 
 You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
 
-Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."{% endif %}
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Upgrading a workflow that accesses `ghcr.io`
+{% ifversion fpt or ghec %}
+## Upgrading a workflow that accesses a registry using a {% data variables.product.pat_generic %}
 
-{% data reusables.package_registry.github-token-security-over-pat %}
+The {% data variables.packages.prodname_ghcr_and_npm_registry %} support the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a {% data variables.product.pat_generic %} to authenticate to the registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
-Using the `GITHUB_TOKEN` instead of a PAT, which includes the `repo` scope, increases the security of your repository as you don't need to use a long-lived PAT that offers unnecessary access to the repository where your workflow is run. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+
+Using the `GITHUB_TOKEN` instead of a {% data variables.product.pat_v1 %}, which includes the `repo` scope, increases the security of your repository as you don't need to use a long-lived {% data variables.product.pat_generic %} that offers unnecessary access to the repository where your workflow is run. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
 
 1. Navigate to your package landing page.
 1. In the left sidebar, click **Actions access**.
   !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. To ensure your container package has access to your workflow, you must add the repository where the workflow is stored to your container. Click **Add repository** and search for the repository you want to add.
+1. To ensure your container package has access to your workflow, you must add the repository where the workflow is stored to your container. Click **Add repository** and search for the repository you want to add.
    !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
   {% note %}
 
   **Note:** Adding a repository to your container through the **Actions access** menu option is different than connecting your container to a repository. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
   {% endnote %}
-3. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
+1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
   ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
-5. Open your workflow file. On the line where you login to `ghcr.io`, replace your PAT with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
+1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
-For example, this workflow publishes a Docker container using {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
+For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
 
 ```yaml{:copy}
 name: Demo Push
@@ -419,37 +532,37 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read{% endif %}
+      contents: read
 
-    {% raw %}steps:
-      - uses: actions/checkout@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
-      - name: Log into registry
-        # This is where you will update the PAT to GITHUB_TOKEN
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Log in to registry
+        # This is where you will update the {% data variables.product.pat_generic %} to GITHUB_TOKEN
+        run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+          IMAGE_ID=ghcr.io/{% raw %}${{ github.repository_owner }}{% endraw %}/$IMAGE_NAME
 
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          VERSION=$(echo "{% raw %}${{ github.ref }}{% endraw %}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          [[ "{% raw %}${{ github.ref }}{% endraw %}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION{% endraw %}
+          docker push $IMAGE_ID:$VERSION
 ```
 
 {% endif %}

@@ -1,16 +1,20 @@
-{% if currentVersion == "enterprise-server@2.22" %}
+---
+ms.openlocfilehash: 67190938682aae49ce571d8d6bb61e025c36bdad
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147879485"
+---
+{% ifversion ghae %}
+
+<!-- Remove this reusable and all references for GA release -->
+
+{% elsif ghae %}
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_code_scanning_capc %} is in beta in {% data variables.product.prodname_ghe_server %} 2.22. For the generally available release of code scanning, upgrade to the latest release of {% data variables.product.prodname_ghe_server %}.
-
-{% endnote %}
-
-{% elsif currentVersion == "github-ae@latest" %}
-
-{% note %}
-
-**Hinweis:** {% data variables.product.prodname_code_scanning_capc %} befindet sich derzeit in der Beta-Version und kann sich jederzeit verändern.
+**Hinweis**: {% data variables.product.prodname_code_scanning_capc %} befindet sich derzeit in der Betaversion und kann jederzeit geändert werden.
 
 {% endnote %}
 

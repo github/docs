@@ -1,7 +1,7 @@
 {% note %}
 
-**ノート:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-- プロフィールのコントリビューショングラフに表示されるためには、co-authoredコミットは一人の作者によるコミットと同じ条件を満たさなければなりません。{% endif %}
-- コミットをリベースする際には、コミットのオリジナルの作者と、コマンドラインか{% data variables.product.product_location %}かによらずコミットをリベースした人が、コントリビューションクレジットを受け取ります。
+**Notes:**{% ifversion ghes or ghae %}
+- To appear on your profile contributions graph, co-authored commits must meet the same criteria as commits with one author.{% endif %}
+- When rebasing commits, the original authors of the commit and the person who rebased the commits, whether on the command line or on {% data variables.location.product_location %}, receive contribution credit.
 
 {% endnote %}

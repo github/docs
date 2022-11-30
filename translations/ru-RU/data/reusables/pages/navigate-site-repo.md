@@ -1,1 +1,9 @@
-1. On {% data variables.product.product_name %}, navigate to your site's repository.
+---
+ms.openlocfilehash: 672690e0efedd330e8f1c8d940d50c528a193e55
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145121619"
+---
+1. В {% data variables.product.product_name %}перейдите в репозиторий сайта.

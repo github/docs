@@ -1,21 +1,18 @@
 ---
-title: Sobre conexões com o GitHub
-intro: '{% data variables.product.prodname_desktop %} usa HTTPS para trocar dados de forma segura com {% data variables.product.prodname_dotcom %}.'
+title: About connections to GitHub
+intro: '{% data variables.product.prodname_desktop %} uses HTTPS to securely exchange data with {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/about-connections-to-github
   - /desktop/installing-and-configuring-github-desktop/about-connections-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: About connections
 ---
-{% data variables.product.prodname_desktop %} conecta-se a {% data variables.product.prodname_dotcom %} quando você pull, push, clona e bifurca os repositórios remotos. Para se conectar a {% data variables.product.prodname_dotcom %} a partir de {% data variables.product.prodname_desktop %}, você deve autenticar sua conta. Para obter mais informações, consulte "
-Autenticar-se no {% data variables.product.prodname_dotcom %}."</p> 
+{% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} when you pull from, push to, clone, and fork remote repositories. To connect to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_desktop %}, you must authenticate your account. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
 
-Depois de se autenticar no {% data variables.product.prodname_dotcom %}, você poderá se conectar a repositórios remotos com o {% data variables.product.prodname_desktop %}. O {% data variables.product.prodname_desktop %} armazena suas credenciais (nome de usuário e senha ou token de acesso pessoal) e usa as credenciais para autenticar cada conexão ao repositório remoto.
+After you authenticate to {% data variables.product.prodname_dotcom %}, you can connect to remote repositories with {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} caches your credentials (username and password or {% data variables.product.pat_generic %}) and uses the credentials to authenticate for each connection to the remote repository.
 
-{% data variables.product.prodname_desktop %} se conecta ao {% data variables.product.prodname_dotcom %} usando HTTPS. Se você usar o {% data variables.product.prodname_desktop %} para acessar repositórios que foram clonados usando SSH, você poderá encontrar erros. Para se conectar a um repositório que foi clonado usando SSH, altere as URLs do remote. Para obter mais informações, consulte "[Gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
+{% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} using HTTPS. If you use {% data variables.product.prodname_desktop %} to access repositories that were cloned using SSH, you may encounter errors. To connect to a repository that was cloned using SSH, change the remote's URLs. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
-
-
-### Leia mais
-
-- "[Clonagem e bifurcação de repositórios no GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)"
+## Further reading
+- "[Cloning and forking repositories from GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)"

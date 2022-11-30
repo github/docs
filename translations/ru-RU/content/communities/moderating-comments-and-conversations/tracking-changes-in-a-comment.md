@@ -1,36 +1,44 @@
 ---
-title: Tracking changes in a comment
-intro: You can view the edit history of a comment or delete sensitive information from the edit history of a comment.
+title: Отслеживание изменений в комментарии
+intro: Вы можете просмотреть журнал изменений для комментария или удалить конфиденциальную информацию из журнала редактирования комментария.
 redirect_from:
   - /articles/tracking-changes-in-a-comment
   - /github/building-a-strong-community/tracking-changes-in-a-comment
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Track comment changes
+ms.openlocfilehash: 7da6b53f9b98ade8ee73411a80aaf2ff3f412700
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145092365'
 ---
+## Просмотр сведений в журнале редактирования комментария
 
-### Viewing a comment's edit history details
+Любой пользователь с доступом на чтение в репозитории может просматривать журнал редактирования комментария.
 
-Anyone with read access to a repository can view a comment's edit history.
-
-1. Navigate to the comment you'd like to view the edit history for.
+1. Перейдите к комментарию, журнал редактирования которого вы хотите просмотреть.
 {% data reusables.repositories.edited-comment-list %}
 
-### Deleting sensitive information from a comment's history
+## Удаление конфиденциальной информации из журнала комментария
 
-Comment authors and anyone with write access to a repository can delete sensitive information from a comment's edit history.
+Авторы комментариев и пользователи с доступом на запись в репозитории также могут удалять конфиденциальную информацию из журнала редактирования комментария.
 
-When you delete sensitive information from the comment's edit history, the person who made the edit and when they made the edit is still visible in the comment history but the content of the edit is no longer available.
+При удалении конфиденциальной информации из журнала редактирования комментария сведения о пользователе, который внес правки, и о том, когда он это сделал, по-прежнему отображаются в журнале комментария, но содержимое правок больше не доступно.
 
-1. Navigate to the comment where you would like to delete sensitive information from the edit history.
+1. Перейдите к комментарию, из журнала редактирования которого вы хотите удалить конфиденциальную информацию.
 {% data reusables.repositories.edited-comment-list %}
-3. In the top right of the edit history window, click **Options**. Then click **Delete revision from history** to delete the diff that shows the content being added. ![Delete comment edit details](/assets/images/help/repository/delete-comment-edit-details.png)
-4. To confirm deletion, click **OK**.
+3. В правом верхнем углу окна журнала редактирования нажмите **Параметры**. Затем нажмите **Удалить редакцию из журнала**, чтобы удалить различия, отображающие добавляемое содержимое.
+  ![Удаление сведений о редактировании комментария](/assets/images/help/repository/delete-comment-edit-details.png)
+4. Чтобы подтвердить удаление, нажмите кнопку **ОК**.
 
-### Дополнительная литература
+## Дополнительные материалы
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
-- "[Editing a comment](/articles/editing-a-comment)"
+{% ifversion fpt or ghec %}- [Сообщение о злоупотреблениях или спаме](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam){% endif %}
+- [Редактирование комментария](/articles/editing-a-comment)

@@ -1,33 +1,41 @@
 ---
-title: Handling plan cancellations
-intro: 'Cancelling a {% data variables.product.prodname_marketplace %} app triggers the [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhook with the `cancelled` action, which kicks off the cancellation flow.'
+title: Behandeln von Plankündigungen
+intro: 'Durch die Kündigung einer {% data variables.product.prodname_marketplace %}-App wird der [`marketplace_purchase`-Ereigniswebhook](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) mit der Aktion `cancelled` ausgelöst, wodurch der Kündigungsprozess gestartet wird.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans/
-  - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/cancelling-plans
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /marketplace/integrating-with-the-github-marketplace-api/cancelling-plans
   - /developers/github-marketplace/handling-plan-cancellations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
+shortTitle: Plan cancellations
+ms.openlocfilehash: 253506f1ac32f55649dd533559a7a16508cca98f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145089612'
 ---
-For more information about cancelling as it relates to billing, see "[Billing customers in {% data variables.product.prodname_marketplace %}](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)."
+Weitere Informationen zu Kündigungen im Zusammenhang mit der Abrechnung findest du unter [Abrechnen für Kunden im {% data variables.product.prodname_marketplace %}](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace).
 
-### Schritt 1. Cancellation event
+## Schritt 1: Kündigungsereignis
 
-If a customer chooses to cancel a {% data variables.product.prodname_marketplace %} order, GitHub sends a [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook with the action `cancelled` to your app when the cancellation takes effect. If the customer cancels during a free trial, your app will receive the event immediately. When a customer cancels a paid plan, the cancellation will occur at the end of the customer's billing cycle.
+Wenn ein Kunde eine {% data variables.product.prodname_marketplace %}-Bestellung kündigt, sendet GitHub einen [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)-Webhook mit der `cancelled`-Aktion an deine App, sobald die Kündigung wirksam wird. Wenn der Kunde während einer kostenlosen Testperiode kündigt, erhält deine App das Ereignis sofort. Wenn ein Kunde einen kostenpflichtigen Plan kündigt, erfolgt die Kündigung zum Ende des Abrechnungszeitraums des Kunden.
 
-### Schritt 2. Deactivating customer accounts
+## Schritt 2: Deaktivieren von Kundenkonten
 
-When a customer cancels a free or paid plan, your app must perform these steps to complete cancellation:
+Wenn ein Kunde einen kostenlosen oder kostenpflichtigen Plan kündigt, muss deine App die folgenden Schritte zum Abschließen der Kündigung ausführen:
 
-1. Deactivate the account of the customer who cancelled their plan.
-1. Revoke the OAuth token your app received for the customer.
-1. If your app is an OAuth App, remove all webhooks your app created for repositories.
-1. Remove all customer data within 30 days of receiving the `cancelled` event.
+1. Das Konto des Kunden deaktivieren, der seinen Plan gekündigt hat.
+1. Das OAuth-Token widerrufen, das deine App für den Kunden erhalten hat.
+1. Wenn es sich bei deiner App um eine OAuth-App handelt, entferne alle Webhooks, die deine App für Repositorys erstellt hat.
+1. Alle Kundendaten innerhalb von 30 Tagen nach Erhalt des `cancelled`-Ereignisses entfernen.
 
 {% note %}
 
-**Note:** We recommend using the [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhook's `effective_date` to determine when a plan change will occur and periodically synchronizing the [List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan). For more information on webhooks, see "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)."
+**Hinweis:** Es wird empfohlen, `effective_date` des [`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)-Webhooks zu verwenden, um festzustellen, wann eine Planänderung eintritt, und die [Auflistung von Konten für einen Plan](/rest/reference/apps#list-accounts-for-a-plan) regelmäßig zu synchronisieren. Weitere Informationen zu Webhooks findest du unter [{% data variables.product.prodname_marketplace %}-Webhookereignisse](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/).
 
 {% endnote %}

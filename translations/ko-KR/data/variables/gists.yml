@@ -1,7 +1,6 @@
----
 gist_homepage: >-
-  {% if currentVersion == "free-pro-team@latest" %}[gist home page](https://gist.github.com/){% elsif currentVersion == "github-ae@latest" %}gist home page, `http(s)://gist.[hostname)`,{% else %}gist home page, `http(s)://[hostname]/gist` or `http(s)://gist.[hostname]` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[gist 홈페이지](https://gist.github.com/){% elsif ghae %}gist 홈페이지, `http(s)://gist.[호스트 이름]`{% else %}gist 홈페이지, `http(s)://[호스트 이름]/gist` 또는 `http(s)://gist.[호스트 이름]` 하위 도메인이 사용하도록 설정된 경우{% endif %}
 gist_search_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Gist Search](https://gist.github.com/search){% elsif currentVersion == "github-ae@latest" %}Gist Search, `http(s)://gist.[hostname]/search`,{% else %}Gist Search, `http(s)://[hostname]/gist/search` or `http(s)://gist.[hostname]/search` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[Gist 검색](https://gist.github.com/search){% elsif ghae %}Gist 검색, `http(s)://gist.[호스트 이름]/search`{% else %}Gist 검색, `http(s)://[호스트 이름]/gist/search` 또는 `http(s)://gist.[호스트 이름]/search` 하위 도메인이 사용하도록 설정된 경우{% endif %}
 discover_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Discover](https://gist.github.com/discover){% elsif currentVersion == "github-ae@latest" %}Discover, `http(s)://gist.[hostname]/discover`,{% else %}Discover, `http(s)://[hostname]/gist/discover` or `http(s)://gist.[hostname]/discover` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[검색](https://gist.github.com/discover){% elsif ghae %}검색, `http(s)://gist.[호스트 이름]/discover`{% else %}검색, `http(s)://[호스트 이름]/gist/discover` 또는 `http(s)://gist.[호스트 이름]/discover` 하위 도메인이 사용하도록 설정된 경우{% endif %}

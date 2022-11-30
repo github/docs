@@ -1,12 +1,19 @@
 ---
 title: Gerenciando discussões para sua comunidade
-shortTitle: Gerenciando discussões
-intro: 'Você pode habilitar e configurar discussões para o seu repositório e pode usar ferramentas em {% data variables.product.product_name %} para moderar conversas entre os integrantes da comunidade.'
+shortTitle: Managing discussions
+intro: 'Você pode habilitar e configurar {% data variables.product.prodname_discussions %} para o seu repositório e você pode usar ferramentas em {% data variables.product.product_name %} para moderar conversas entre os membros da comunidade.'
 versions:
-  free-pro-team: '*'
+  feature: discussions
 children:
-  - /managing-discussions-in-your-repository
-  - /managing-categories-for-discussions-in-your-repository
+  - /managing-discussions
+  - /managing-categories-for-discussions
   - /moderating-discussions
+  - /viewing-insights-for-your-discussions
+ms.openlocfilehash: 156460ecfbb27820f11ccad388ceaff069f835b1
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147410296'
 ---
-{% data reusables.discussions.beta %}
+

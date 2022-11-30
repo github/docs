@@ -1,1 +1,9 @@
-When you're ready to get feedback on your pull request, you can mark your draft pull request as ready for review. Marking a pull request as ready for review will request reviews from any code owners.
+---
+ms.openlocfilehash: 6aa7979671f18000b58f29bf509a37d85f612ac6
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145118587"
+---
+Когда вы будете готовы получить отзыв о запросе на вытягивание, вы можете пометить черновик запроса на вытягивание как «Готовый к проверке». При пометке запроса на вытягивание как «Готового к проверке» будет запрашиваться проверка всеми владельцами кода.

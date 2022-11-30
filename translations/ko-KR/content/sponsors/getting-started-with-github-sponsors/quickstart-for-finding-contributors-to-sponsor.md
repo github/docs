@@ -1,51 +1,58 @@
 ---
-title: Quickstart for finding contributors to sponsor
-intro: Learn some best practices for finding open source contributors to sponsor.
+title: 후원할 기여자 찾기 빠른 시작
+intro: 스폰서에 대한 오픈 소스 기여자를 검색하기 위한 몇 가지 모범 사례를 알아봅니다.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source
+shortTitle: Quickstart
+ms.openlocfilehash: 334d0b78547732480d0bcf708c1d2194eebbae17
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145118836'
 ---
+## 참여하는 프로젝트 살펴보기
 
-### Explore projects you depend on
+후원할 오픈 소스 기여자를 찾을 때에는 https://github.com/sponsors/community 에서 시작해 보세요.
 
-As you consider where to find open source contributors to sponsor, consider starting at https://github.com/sponsors/community.
+로그인한 경우 스폰서 결과는 리포지토리가 사용하는 퍼블릭 종속성으로 시작됩니다.
 
-If you're logged in, the sponsors results will start with public dependencies that your repositories depend on.
+![“리포지토리 중 4개가 사용함”이라는 텍스트가 강조 표시된 Babel 오픈 소스 프로젝트](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
 
-![The Babel open source project with highlighted text that says "4 of your repositories depend on this"](/assets/images/help/sponsors/example-of-open-source-project-dependency.png)
+결과를 보고 필터링하거나 검색할 계정을 전환할 수도 있습니다.
 
-You can also toggle which of your accounts to view results for and further filter or search.
+![스폰서 커뮤니티 검색 페이지의 검색 옵션](/assets/images/help/sponsors/sponsors-search-options.png)
 
-![Search options on sponsors community search page](/assets/images/help/sponsors/sponsors-search-options.png)
+## 다른 사람이 후원하는 사람 살펴보기
 
-### Explore whom others sponsor
+{% data variables.product.prodname_dotcom %} 프로필 페이지에서 사용자 또는 조직이 후원하는 사람을 확인할 수 있습니다.
 
-You can see whom a user or organization sponsors on their {% data variables.product.prodname_dotcom %} profile page.
+## 다양한 기여로부터 혜택을 받는 방법 고려
 
-### Consider how you benefit from different contributions
-
-Consider whether you benefit from the work of open source contributions, such as:
- - 문서
- - Design
+다음과 같은 오픈 소스 기여 작업으로부터 혜택을 받을지 여부를 고려합니다.
+ - 설명서
+ - 디자인
  - Translation
- - Newsletters
- - Code reviews
- - 따라하기
- - Mentoring
- - Triaging issues and helping with project management
- - Answering questions
- - Event planning
+ - 뉴스레터
+ - 코드 검토
+ - 자습서
+ - 멘토링
+ - 이슈 심사 및 프로젝트 관리 지원
+ - 질문 답변
+ - 이벤트 계획
 
-For more information on different types of open source contributions, see the [Open source guide](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code).
+다양한 유형의 오픈 소스 기여에 대한 자세한 내용은 [오픈 소스 가이드](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code)를 참조하세요.
 
-You can check if contributors you've benefited from have {% data variables.product.prodname_sponsors %} profiles by using search at https://github.com/sponsors/community.
+https://github.com/sponsors/community 에서 검색을 사용하여 혜택을 받은 기여자에게 {% data variables.product.prodname_sponsors %} 프로필이 있는지 확인할 수 있습니다.
 
-### Search for a specific project or contributor
+## 특정 프로젝트 또는 기여자 검색
 
-At https://github.com/sponsors/community, you can search by ecosystem, most used, recently updated, and more. You can filter search results for your personal user account or for organizations that you're a member of.
+https://github.com/sponsors/community 에서 에코시스템, 가장 많이 사용되는 항목, 최근에 업데이트된 항목 등을 통해 검색할 수 있습니다. 개인 계정 또는 구성원으로 속해 있는 조직에 대한 검색 결과를 필터링할 수 있습니다.
 
-### 다음 단계
+## 다음 단계
 
-For more information on starting your sponsorship, see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."
+스폰서쉽 시작에 대한 자세한 내용은 “[오픈 소스 기여자 후원](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”을 참조하세요.

@@ -5,28 +5,37 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/unblocking-a-user-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Unblock from your account
+ms.openlocfilehash: a88a8613a8d787ee7e42ea9f6f5ef994353aedc8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145092399'
 ---
-
-Cuando desbloqueas un usuario, podrá invitarte a ser colaborador de sus repositorios. Si te [@mention menciona](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) en cualquier parte de GitHub, recibirás notificaciones.
+Cuando desbloqueas un usuario, podrá invitarte a ser colaborador de sus repositorios. Si te [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) en cualquier lugar de GitHub, recibirás notificaciones.
 
 En los repositorios que te pertenecen, el usuario podrá colaborar con normalidad.
 
 Puedes desbloquear un usuario en los parámetros de tu cuenta o desde la página de perfil del usuario.
 
-### Desbloquear a un usuario en tus parámetros de cuenta
+## Desbloquear a un usuario en tus parámetros de cuenta
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
-3. En "Blocked users" (Usuarios bloqueados), al lado del usuario que quieres desbloquear, haz clic en **Unblock** (Desbloquear). ![Botón Unblock user (Desbloquear usuario)](/assets/images/help/organizations/org-unblock-user-button.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.blocked_users %}
+3. En "Usuarios bloqueados", junto al usuario que quieras desbloquear, haz clic en **Desbloquear**.
+![Botón Desbloquear usuario](/assets/images/help/organizations/org-unblock-user-button.png)
 
-### Desbloquear un usuario desde su página de perfil
+## Desbloquear un usuario desde su página de perfil
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. En la barra lateral izquierda, debajo de la foto de perfil del usuario, da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Desbloquear o reportar usuario**. ![Enlace Unblock or report user (Desbloquear o informar usuario)](/assets/images/help/profile/profile-unblock-or-report-user.png)
-3. Haz clic en **Unblock user** (Desbloquear usuario). ![Casilla modal con la opción para desbloquear un usuario o informar abuso](/assets/images/help/profile/profile-unblockuser.png)
+2. En la barra lateral izquierda, debajo de la imagen de perfil del usuario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y, a continuación, haz clic en **Desbloquear o informar usuario**.
+![Enlace Desbloquear o informar usuario](/assets/images/help/profile/profile-unblock-or-report-user.png)
+3. Haz clic en **Desbloquear usuario**.
+  ![Casilla modal con la opción para desbloquear un usuario o informar de un uso indebido](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}
 
@@ -34,9 +43,9 @@ Puedes desbloquear un usuario en los parámetros de tu cuenta o desde la página
 
 {% endtip %}
 
-### Leer más
+## Información adicional
 
-- "[Bloquear a un usuario desde tu cuenta personal](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-- "[Bloquear a un usuario de tu organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-- "[Desbloquear a un usuario de tu organización](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[Bloquear a un usuario desde su cuenta personal](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
+- "[Bloquear a un usuario de la organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
+- "[Desbloqueo de usuarios de la organización](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
+- "[Notificar un abuso o correo no deseado](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

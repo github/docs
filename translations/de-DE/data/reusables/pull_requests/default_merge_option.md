@@ -1,5 +1,5 @@
-Wenn Du in einem Pull Request auf {% data variables.product.product_location %} auf die standardmäßige Option **Merge pull request** (Pull Request zusammenführen) klickst, werden alle Commits aus dem Feature-Branch zum Basisbranch in einem Merge-Commit hinzugefügt. Der Pull Request wird mithilfe der [Option `--no-ff`](https://git-scm.com/docs/git-merge#_fast_forward_merge) zusammengeführt.
+When you click the default **Merge pull request** option on a pull request on {% data variables.location.product_location %}, all commits from the feature branch are added to the base branch in a merge commit. The pull request is merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge).
 
-Zum Zusammenführen von Pull Requests musst Du über [Schreibberechtigungen](/articles/repository-permission-levels-for-an-organization/) im Repository verfügen.
+To merge pull requests, you must have [write permissions](/articles/repository-permission-levels-for-an-organization/) in the repository.
 
-![Standard-Merge-Commit-Diagramm](/assets/images/help/pull_requests/standard-merge-commit-diagram.png)
+![standard-merge-commit-diagram](/assets/images/help/pull_requests/standard-merge-commit-diagram.png)

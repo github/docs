@@ -5,21 +5,28 @@ redirect_from:
   - /articles/tracking-changes-in-a-comment
   - /github/building-a-strong-community/tracking-changes-in-a-comment
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Track comment changes
+ms.openlocfilehash: 7da6b53f9b98ade8ee73411a80aaf2ff3f412700
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145090222'
 ---
+## Änderungsverlauf eines Kommentars anzeigen
 
-### Änderungsverlauf eines Kommentars anzeigen
-
-Jede Person mit Lesezugriff auf ein Repository kann den Änderungsverlauf eines Kommentars anzeigen.
+Jede Person mit Lesezugriff auf ein Repository kann den Änderungsverlauf eines darin enthaltenen Kommentars anzeigen.
 
 1. Navigiere zu dem Kommentar, dessen Änderungsverlauf Du anzeigen möchtest.
 {% data reusables.repositories.edited-comment-list %}
 
-### Vertrauliche Informationen aus dem Verlauf eines Kommentars löschen
+## Vertrauliche Informationen aus dem Verlauf eines Kommentars löschen
 
 Verfasser von Kommentaren und Personen mit Schreibzugriff zu einem Repository können vertrauliche Informationen aus dem Änderungsverlauf eines Kommentars löschen.
 
@@ -27,10 +34,11 @@ Wenn Du sensible Informationen aus dem Änderungsverlauf eines Kommentars lösch
 
 1. Navigiere zu dem Kommentar, in dessen Änderungsverlauf Du vertrauliche Informationen löschen möchtest.
 {% data reusables.repositories.edited-comment-list %}
-3. Klicke rechts oben im Fenster mit dem Änderungsverlauf auf **Options** (Optionen). Klicke dann auf **Delete revision from history** (Revision aus Verlauf löschen), um das Diff zu löschen, das den hinzugefügten Inhalt zeigt. ![Änderungsdetails eines Kommentars löschen](/assets/images/help/repository/delete-comment-edit-details.png)
-4. Klicke zur Bestätigung der Löschanforderung auf **OK**.
+3. Klicke rechts oben im Änderungsverlaufsfenster auf **Optionen**. Klicke dann auf **Revision aus Verlauf löschen**, um das Diff zu löschen, das den hinzugefügten Inhalt zeigt.
+  ![Löschen der Änderungsdetails eines Kommentars](/assets/images/help/repository/delete-comment-edit-details.png)
+4. Klicke zum Bestätigen des Löschens auf **OK**.
 
-### Weiterführende Informationen
+## Weiterführende Themen
 
-{% if currentVersion == "free-pro-team@latest" %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“{% endif %}
-- „[Kommentar bearbeiten](/articles/editing-a-comment)“
+{% ifversion fpt or ghec %}- [Melden von Missbrauch oder Spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam){% endif %}
+- [Bearbeiten eines Kommentars](/articles/editing-a-comment)

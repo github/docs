@@ -1,45 +1,55 @@
 ---
-title: Guides for GitHub Education
-intro: 'These guides for {% data variables.product.prodname_education %} help you teach and learn both {% data variables.product.product_name %} and software development.'
+title: Руководства по GitHub Education
+intro: 'Эти инструкции по {% data variables.product.prodname_education %} помогут преподавателям и учащимся в работе с {% data variables.product.product_name %} и разработке программного обеспечения.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Guides
+ms.openlocfilehash: 05d8e1988ab793c2a00da48186b89158e776da1a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573959'
 ---
+## Начало работы с {% data variables.product.product_name %}
 
-### Get started with {% data variables.product.product_name %}
+Преподаватели, учащиеся и исследователи могут использовать инструменты из {% data variables.product.product_name %}, чтобы расширить возможности учебной программы разработки программного обеспечения и развить навыки совместной работы в реальном мире.
 
-Teachers, students, and researchers can use tools from {% data variables.product.product_name %} to enrich a software development curriculum and develop real-world collaboration skills.
+- [Регистрация для новой учетной записи {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-a-new-github-account)
+- [Краткое руководство Git и {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/quickstart)
+- [Сведения о {% data variables.product.prodname_global_campus %} для учащихся](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
+- [Заявка на {% data variables.product.prodname_global_campus %} в качестве преподавателя](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)
+- [Заявка на {% data variables.product.prodname_global_campus %} в качестве учащегося](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)
 
-- [Sign up for a new {% data variables.product.prodname_dotcom %}  account](/github/getting-started-with-github/signing-up-for-a-new-github-account)
-- [Git and {% data variables.product.prodname_dotcom %} quickstart ](/github/getting-started-with-github/quickstart)
-- [Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)
-- [Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)
+## Запуск курса разработки программного обеспечения с помощью {% data variables.product.company_short %}
 
-### Run a software development course with {% data variables.product.company_short %}
+Администрирование аудитории, назначение и проверка работы учащихся и обучение нового поколения разработчиков программного обеспечения с помощью {% data variables.product.prodname_classroom %}.
 
-Administer a classroom, assign and review work from your students, and teach the new generation of software developers with {% data variables.product.prodname_classroom %}.
+- [Сведения о {% data variables.product.prodname_global_campus %} для преподавателей](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)
+- [Основные принципы настройки {% data variables.product.prodname_classroom %} ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
+- [Управление аудиториями](/education/manage-coursework-with-github-classroom/manage-classrooms)
+- [Использование назначения начального уровня Git и {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)
+- [Создание отдельного задания](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
+- [Создание назначения группы](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
+- [Создание назначения на основе репозитория шаблонов](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)
+- [Передача обратной связи с помощью запросов на вытягивание](/education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests)
+- [Использование автоматической проверки](/education/manage-coursework-with-github-classroom/use-autograding)
 
-- [Basics of setting up {% data variables.product.prodname_classroom %} ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
-- [Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms)
-- [Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
-- [Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
-- [Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)
-- [Leave feedback with pull requests](/education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests)
-- [Use autograding](/education/manage-coursework-with-github-classroom/use-autograding)
+## Обучение разработке программного обеспечения
 
-### Learn to develop software
+Включите {% data variables.product.prodname_dotcom %} в свою программу образования и используйте те же средства, что и профессионалы.
 
-Incorporate {% data variables.product.prodname_dotcom %} into your education, and use the same tools as the professionals.
+- [Ресурсы обучения Git и {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/git-and-github-learning-resources)
+- [{% data variables.product.prodname_global_campus %} для учащихся](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students)
+- [Попробуйте {% data variables.product.prodname_desktop %}](/desktop)
+- [Попробуйте {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
 
-- [Git and {% data variables.product.prodname_dotcom %} learning resources](/github/getting-started-with-github/git-and-github-learning-resources)
-- [Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork)
-- [Try {% data variables.product.prodname_desktop %}](/desktop)
-- [Try {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
+## Участие в работе сообщества
 
-### Contribute to the community
+Участвуйте в сообществе, получите обучение от {% data variables.product.company_short %}, а также обучайтесь новым навыком или обучайте им.
 
-Participate in the community, get training from {% data variables.product.company_short %}, and learn or teach new skills.
-
-- [{% data variables.product.prodname_education_community %}](https://education.github.community)
-- [About Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
-- [About Campus Advisors](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
+- [Сведения о {% data variables.product.prodname_global_campus %} для учащихся](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
+- [Сведения об экспертах по кампусным сетям](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
+- [Участие в работе с помощью GitHub Community Exchange](/education/contribute-with-github-community-exchange)

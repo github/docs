@@ -1,25 +1,30 @@
 ---
-title: Managing your payouts from GitHub Sponsors
-intro: 'You can view information about past and future payouts from {% data variables.product.prodname_sponsors %} and edit your bank information.'
+title: Управление выплатами от спонсоров GitHub
+intro: 'Вы можете просмотреть сведения о прошлых и будущих выплатах из {% data variables.product.prodname_sponsors %} и изменить свои банковские реквизиты.'
 redirect_from:
   - /articles/managing-your-payouts-from-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-payouts-from-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Sponsors payments
   - Open Source
+shortTitle: Manage payouts
+ms.openlocfilehash: 223deb6a68cbf900e985ba08e8ab3ed3eaf19238
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147878726'
 ---
+## О выплатах от {% data variables.product.prodname_sponsors %}
 
-### About payouts from {% data variables.product.prodname_sponsors %}
-
-You can only manage your payouts from {% data variables.product.prodname_sponsors %} if you are paid through Stripe Connect. If you are paid through ACH transfer or wire transfer for your sponsored user account, you will not see the **Payouts** tab on your sponsored open source contributor dashboard. Sponsored organizations can only use Stripe Connect for payouts. For more information, see "[About {% data variables.product.prodname_sponsors %} for open source contributors](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)."
+Вы можете управлять своими выплатами от {% data variables.product.prodname_sponsors %}, только если получаете оплату через Stripe Connect. Если оплату для вашей спонсируемой личной учетной записи вы получаете переводом ACH или банковским переводом, то не увидите вкладку **Выплаты** на панели мониторинга спонсируемого участника разработки с открытым кодом. Спонсируемые организации могут использовать для выплат только Stripe Connect. Дополнительные сведения см. в разделе [Сведения о {% data variables.product.prodname_sponsors %} для участников разработки ПО с открытым кодом](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts).
 
 {% data reusables.sponsors.payout-info %}
 
-### Viewing and editing payout information
+## Просмотр и изменение сведений о выплатах
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-payouts-tab %}
-{% data reusables.sponsors.edit-bank-information %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.navigate-to-payouts-tab %} {% data reusables.sponsors.edit-bank-information %}

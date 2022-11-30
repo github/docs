@@ -1,6 +1,14 @@
-{% if currentVersion == "free-pro-team@latest" %}
-1. Add an organization member to the team or invite a non-member to join a team:
-   - If the person you want to add is already a member of your organization, type their username and click **Enter**. The user will immediately be added to the team.
-   - If the person you want to add is not member of your organization, type their username or email address and click **Enter**. The user will receive an email invitation to join your organization and will be added to the team once they accept the invitation.{% else %}
-1. Type the username of the person you want to add and click **Enter**. The user will immediately be added to the team. ![Add team member popup](/assets/images/help/organizations/Organization-add-team.png)
-{% endif %}
+---
+ms.openlocfilehash: 603c044bcd701d91b2f867ac15d29d0117ae80d5
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147883743"
+---
+{% ifversion fpt or ghec %}
+1. Добавьте участника организации в команду или пригласите пользователя, не являющегося участником, присоединиться к команде:
+   - Если пользователь, которого вы хотите добавить, уже является участником вашей организации, введите его имя пользователя и нажмите клавишу **ВВОД**. Пользователь сразу же будет добавлен в команду.
+   - Если пользователь, которого вы хотите добавить,еще не является участником вашей организации, введите его имя пользователя или адрес электронной почты и нажмите клавишу **ВВОД**. Пользователь получит по электронной почте приглашение присоединиться к организации и будет добавлен в команду после того, как примет приглашение.{% else %}
+1. Введите имя пользователя, которого вы хотите добавить, и нажмите клавишу **ВВОД**. Пользователь сразу же будет добавлен в команду.
+![Всплывающее окно для добавления участника команды](/assets/images/help/organizations/Organization-add-team.png) {% endif %}

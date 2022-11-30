@@ -1,52 +1,53 @@
 ---
-title: Repository von GitHub in GitHub Desktop klonen
-intro: 'Mit {% data variables.product.prodname_dotcom %} können Sie Remote-Repositorys in {% data variables.product.prodname_desktop %} klonen.'
+title: Cloning a repository from GitHub to GitHub Desktop
+intro: 'You can use {% data variables.product.prodname_dotcom %} to clone remote repositories to {% data variables.product.prodname_desktop %}.'
 redirect_from:
   - /desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Clone a GitHub repo
 ---
 {% tip %}
 
-**Tipp:** Darüber hinaus kannst Du {% data variables.product.prodname_desktop %} verwenden, um Repositorys zu klonen, die sich auf {% data variables.product.prodname_dotcom %} befinden.  Weitere Informationen findest Du unter „[Repository von {% data variables.product.prodname_desktop %} klonen](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)“.
+**Tip:**  You also can use {% data variables.product.prodname_desktop %} to clone repositories that exist on {% data variables.product.prodname_dotcom %}.  For more information, see "[Cloning a repository from {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)."
 
 {% endtip %}
 
 {% mac %}
 
-1. Sign in to
-
-{% data variables.product.product_location %} and {% data variables.product.prodname_desktop %} before you start to clone.
+1. Sign in to {% data variables.location.product_location %} and {% data variables.product.prodname_desktop %} before you start to clone.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
-5. Klicke auf **Choose...** (Auswählen), und navigiere mithilfe des Finder-Fensters zu einem lokalen Pfad, wo Du das Repository klonen möchtest. ![Die Schaltfläche „choose“ (Auswählen) auf der URL-Registerkarte](/assets/images/help/desktop/clone-choose-button-url-mac.png)
+5. Click **Choose...** and, using the Finder window, navigate to a local path where you want to clone the repository.
+![The choose button on the URL tab](/assets/images/help/desktop/clone-choose-button-url-mac.png)
 
   {% note %}
 
-  **Hinweis:** Wenn das Repository für die Verwendung von LFS konfiguriert ist, wirst Du aufgefordert, {% data variables.large_files.product_name_short %} zu initialisieren.
+  **Note:** If the repository is configured to use LFS, you will be prompted to initialize {% data variables.large_files.product_name_short %}.
 
   {% endnote %}
 
-5. Klicke auf **Clone** (Klonen). ![Die Schaltfläche „clone“ (Klonen) auf der URL-Registerkarte](/assets/images/help/desktop/clone-button-url-mac.png)
+5. Click **Clone**.
+![The clone button on the URL tab](/assets/images/help/desktop/clone-button-url-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-1. Sign in to
-
-{% data variables.product.product_location %} and {% data variables.product.prodname_desktop %} before you start to clone.
+1. Sign in to {% data variables.location.product_location %} and {% data variables.product.prodname_desktop %} before you start to clone.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
-5. Klicke auf **Choose...** (Auswählen), und navigiere mithilfe des Windows-Explorers zu einem lokalen Pfad, wohin Du das Repository klonen möchtest. ![Die Schaltfläche „choose“ (Auswählen)](/assets/images/help/desktop/clone-choose-button-url-win.png)
+5. Click **Choose...** and, using Windows Explorer, navigate to a local path where you want to clone the repository.
+![The choose button](/assets/images/help/desktop/clone-choose-button-url-win.png)
 
   {% note %}
 
-  **Hinweis:** Wenn das Repository für die Verwendung von LFS konfiguriert ist, wirst Du aufgefordert, {% data variables.large_files.product_name_short %} zu initialisieren.
+  **Note:** If the repository is configured to use LFS, you will be prompted to initialize {% data variables.large_files.product_name_short %}.
 
   {% endnote %}
 
-5. Klicke auf **Clone** (Klonen). ![Die Schaltfläche „clone“ (Klonen)](/assets/images/help/desktop/clone-button-url-win.png)
+5. Click **Clone**.
+![The clone button](/assets/images/help/desktop/clone-button-url-win.png)
 
 {% endwindows %}

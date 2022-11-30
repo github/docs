@@ -1,62 +1,91 @@
 ---
-title: About Jekyll build errors for GitHub Pages sites
-intro: 'If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you''ll receive an error message with more information.'
+title: Сведения об ошибках сборки Jekyll для сайтов GitHub Pages
+intro: 'Если Jekyll обнаруживает ошибку при создании сайта {% data variables.product.prodname_pages %} локально или на {% data variables.product.product_name %}, вы получите сообщение об ошибке, содержащее дополнительные сведения.'
 redirect_from:
-  - /articles/viewing-jekyll-build-error-messages/
-  - /articles/generic-jekyll-build-failures/
+  - /articles/viewing-jekyll-build-error-messages
+  - /articles/generic-jekyll-build-failures
   - /articles/about-jekyll-build-errors-for-github-pages-sites
   - /github/working-with-github-pages/about-jekyll-build-errors-for-github-pages-sites
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pages
+shortTitle: Jekyll build errors for Pages
+ms.openlocfilehash: c435d7857239ae4a8b1a09c86e10fe12b248a4b2
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147648242'
 ---
+## Сведения об ошибках сборки Jekyll
 
-### About Jekyll build errors
-
-Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% if currentVersion == "free-pro-team@latest" %}
-- The person who pushed the changes hasn't verified their email address. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
-- You're pushing with a deploy key. If you want to automate pushes to your site's repository, you can set up a machine user instead. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#machine-users)."
-- You're using a CI service that isn't configured to build your publishing source. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. For more information, see "[Customizing the build](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" on Travis CI, or your CI service's documentation.
+{% ifversion pages-custom-workflow %}Если публикация выполняется из ветви, иногда{% else %}Иногда{% endif %} {% data variables.product.prodname_pages %} не предпринимает попытки создать сайт после отправки изменений в источник публикации сайта.{% ifversion fpt or ghec %}
+- Пользователь, отправивший изменения, не проверил свой адрес электронной почты. Дополнительные сведения см. в статье [Проверка адреса электронной почты](/articles/verifying-your-email-address).{% endif %}
+- Вы выполняете отправку с помощью ключа развертывания. Если вы хотите автоматизировать отправки в репозиторий сайта, можно вместо этого настроить пользователя компьютера. Дополнительные сведения см. в разделе [Управление ключами развертывания](/developers/overview/managing-deploy-keys#machine-users).
+- Вы используете службу CI, которая не настроена для сборки источника публикации. Например, Travis CI не будет создавать ветвь `gh-pages`, если вы не добавите эту ветвь в список безопасных объектов. Дополнительные сведения см. в разделе [Настройка сборки](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches) в документации Travis CI или вашей службы CI.
 
 {% note %}
 
-**Note:** It can take up to 20 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
+**Примечание.** Публикация изменений на сайте после передачи изменений в {% data variables.product.product_name %} может занять до 10 минут.
 
 {% endnote %}
 
-If Jekyll does attempt to build your site and encounters an error, you will receive a build error message. There are two main types of Jekyll build error messages.
-- A "Page build warning" message means your build completed successfully, but you may need to make changes to prevent future problems.
-- A "Page build failed" message means your build failed to complete. If Jekyll is able to detect a reason for the failure, you'll see a descriptive error message.
+{% ifversion build-pages-with-actions %} Если Jekyll при попытке сборки сайта обнаружит ошибку, вы получите сообщение об ошибке сборки.
+{% else %} Если Jekyll при попытке сборки сайта обнаружит ошибку, вы получите сообщение об ошибке сборки. Существует два основных типа сообщений об ошибках сборки Jekyll.
+- Сообщение "Предупреждение о сборке страницы" означает успешное завершение сборки, но, возможно, необходимо внести изменения, чтобы предотвратить будущие проблемы.
+- Сообщение "Сбой сборки страницы" означает, что сборка завершилась неудачно. Если Jekyll может обнаружить причину сбоя, появится описательное сообщение об ошибке.
+{% endif %}
 
-For more information about troubleshooting build errors, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)."
+Дополнительные сведения об устранении ошибок сборки см. в разделе [Устранение ошибок сборки Jekyll для сайтов {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites).
 
-### Viewing Jekyll build error messages
+{% ifversion build-pages-with-actions %}
+## Просмотр сообщений об ошибках сборки Jekyll с помощью {% data variables.product.prodname_actions %}
 
-We recommend testing your site locally, which allows you to see build error messages on the command line, and addressing any build failures before pushing changes to {% data variables.product.product_name %}. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
+По умолчанию ваш сайт {% data variables.product.prodname_pages %} создается и развертывается с помощью рабочего процесса {% data variables.product.prodname_actions %}, если только вы не настроили сайт {% data variables.product.prodname_pages %} для использования другого средства CI. Чтобы найти потенциальные ошибки сборки, можно проверить выполнение рабочего процесса для сайта {% data variables.product.prodname_pages %}, просмотрев выполнение рабочего процесса репозитория. Дополнительные сведения см. в статье "[Просмотр журнала выполнения рабочего процесса](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)".  Дополнительные сведения о повторном запуске рабочего процесса в случае ошибки см. в разделе [Повторное выполнение рабочих процессов и заданий](/actions/managing-workflow-runs/re-running-workflows-and-jobs).
+{% endif %}
 
-When you create a pull request to update your publishing source on {% data variables.product.product_name %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see "[About status checks](/articles/about-status-checks)."
+{% ifversion build-pages-with-actions %}{% else %}
+## Просмотр сбоев сборки репозитория в {% data variables.product.product_name %}
 
-When you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. You'll also receive emails for build warnings. {% data reusables.pages.build-failure-email-server %}
+Вы можете просматривать сбои сборки (но не предупреждения сборки) для сайта в {% data variables.product.product_name %} на вкладке **Параметры** репозитория сайта.
+{% endif %}
 
-You can see build failures (but not build warnings) for your site on {% data variables.product.product_name %} in the **Settings** tab of your site's repository.
+## Просмотр сообщений об ошибках сборки Jekyll локально
 
-You can configure a third-party service, such as [Travis CI](https://travis-ci.org/), to display error messages after each commit.
+Рекомендуется тестировать сайт локально, так как это позволяет просматривать сообщения об ошибках сборки в командной строке и устранять все сбои сборки перед отправкой изменений в {% data variables.product.product_name %}. Дополнительные сведения см. в разделе [Локальное тестирование сайта {% data variables.product.prodname_pages %} с помощью Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll).
 
-1. If you haven't already, add a file called _Gemfile_ in the root of your publishing source, with the following content:
+## Просмотр сообщений об ошибках сборки Jekyll в запросе на вытягивание
+
+{% ifversion pages-custom-workflow %}Если публикация выполняется из ветви, при{% else %}При{% endif %} создании запроса на вытягивание для обновления источника публикации на {% data variables.product.product_name %} на вкладке **Проверки** запроса на вытягивание можно просмотреть сообщения об ошибках сборки. Дополнительные сведения см. в разделе [Сведения о проверках состояния](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
+
+{% ifversion pages-custom-workflow %}Если публикация выполняется с помощью пользовательского рабочего процесса {% data variables.product.prodname_actions %}, для просмотра сообщений об ошибках сборки в запросе на вытягивание необходимо настроить запуск рабочего процесса по триггеру `pull_request`. В таком случае рекомендуется пропустить все шаги развертывания, если рабочий процесс был активирован событием `pull_request`. Это позволит просматривать ошибки сборки без развертывания на сайте изменений из запроса на вытягивание. Дополнительные сведения см. в статьях "[События, активирующие рабочие процессы](/actions/using-workflows/events-that-trigger-workflows#pull_request)" и "[Выражения](/actions/learn-github-actions/expressions)".{% endif %}
+
+## Просмотр ошибок сборки Jekyll по электронной почте
+
+{% ifversion pages-custom-workflow %}Если публикация выполняется из ветви, при{% else %}При{% endif %} отправке изменений в источник публикации на {% data variables.product.product_name %} {% data variables.product.prodname_pages %} произведет попытку создать сайт. Если сборка завершится неудачно, вы получите сообщение по основному адресу электронной почты. {% data reusables.pages.build-failure-email-server %}
+
+{% ifversion pages-custom-workflow %}Если публикация выполняется с помощью пользовательского рабочего процесса {% data variables.product.prodname_actions %}, для получения сообщений электронной почты об ошибках сборки в запросе на вытягивание необходимо настроить запуск рабочего процесса по триггеру `pull_request`. В таком случае рекомендуется пропустить все шаги развертывания, если рабочий процесс был активирован событием `pull_request`. Это позволит просматривать ошибки сборки без развертывания на сайте изменений из запроса на вытягивание. Дополнительные сведения см. в статьях "[События, активирующие рабочие процессы](/actions/using-workflows/events-that-trigger-workflows#pull_request)" и "[Выражения](/actions/learn-github-actions/expressions)".{% endif %}
+
+## Просмотр сообщений об ошибках сборки Jekyll в запросе на вытягивание с помощью сторонней службы CI
+
+Вы можете настроить стороннюю службу, такую как [Travis CI](https://travis-ci.org/), для отображения сообщений об ошибках после каждой фиксации.
+
+1. Если вы еще этого не сделали, добавьте в корневую папку источника публикации файл с именем _Gemfile_ и со следующим содержимым:
   ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
-2. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.org/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
+2. Настройте репозиторий сайта для выбранной службы тестирования. Например, чтобы использовать [Travis CI](https://travis-ci.org/), добавьте в корневую папку источника публикации файл с именем _.travis.yml_ и со следующим содержимым:
   ```yaml
   language: ruby
   rvm:
     - 2.3
   script: "bundle exec jekyll build"
   ```
-3. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.
+3. Возможно, потребуется активировать репозиторий со сторонней службой тестирования. Дополнительные сведения см. в документации по вашей службе тестирования.

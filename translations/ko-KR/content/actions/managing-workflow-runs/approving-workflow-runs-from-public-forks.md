@@ -1,19 +1,25 @@
 ---
-title: Approving workflow runs from public forks
-intro: 'When a first-time contributor submits a pull request to a public repository, a maintainer with write access must approve any workflow runs.'
-product: '{% data reusables.gated-features.actions %}'
+title: 퍼블릭 포크에서 워크플로 실행 승인
+intro: 외부 기여자가 퍼블릭 리포지토리에 끌어오기 요청을 제출하는 경우 쓰기 액세스 권한이 있는 유지 관리자는 모든 워크플로 실행을 승인해야 할 수 있습니다.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Approve public fork runs
+ms.openlocfilehash: 74918a7d2e0081d6332ab267ef18ae148a2cff5e
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164125'
 ---
+## 퍼블릭 포크에서 워크플로 실행 정보
 
-Forks of public repositories can submit pull requests that propose changes to a repository's {% data variables.product.prodname_actions %} workflows. Although workflows from forks do not have access to sensitive data such as secrets, they can be an annoyance for maintainers if they are modified for abusive purposes. To help prevent this, workflows on pull requests are not run automatically if they are received from first-time contributors, and must be approved first.
+{% data reusables.actions.workflow-run-approve-public-fork %}
 
-Maintainers with write access to the repository can use the following procedure to review and run workflows on pull requests from first-time contributors. After a contributor has at least one pull request merged into a project's repository, any future pull requests from that contributor's fork will automatically run workflows.
+[리포지토리](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [조직](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks) 또는 [엔터프라이즈](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)에 대한 워크플로 승인 요구 사항을 구성할 수 있습니다.
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
-1. Inspect the proposed changes in the pull request and ensure that you are comfortable running your workflows on the pull request branch. You should be especially alert to any proposed changes in the `.github/workflows/` directory that affect workflow files.
-1. If you are comfortable with running workflows on the pull request branch, return to the {% octicon "comment-discussion" aria-label="The discussion icon" %} **Conversation** tab, and under "Workflow(s) awaiting approval", click **Approve and run**.
+30일 이상 승인을 기다리고 있던 워크플로 실행이 자동으로 삭제됩니다.
 
-   ![Approve and run workflows](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+## 승인 워크플로는 퍼블릭 포크의 끌어오기 요청에 따라 실행됩니다.
+
+{% data reusables.actions.workflows.approve-workflow-runs %}

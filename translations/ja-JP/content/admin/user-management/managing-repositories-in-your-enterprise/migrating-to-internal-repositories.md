@@ -7,17 +7,24 @@ redirect_from:
   - /admin/user-management/migrating-to-internal-repositories
 permissions: Site administrators can migrate to internal repositories.
 versions:
-  enterprise-server: '>=2.20'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Privacy
   - Repositories
   - Security
+shortTitle: Internal repository migration
+ms.openlocfilehash: 66a535d8fd2e20cbcc78791588ca2b50ae8ede79
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147878771'
 ---
-### インターナルリポジトリについて
+## インターナルリポジトリについて
 
-インターナルリポジトリは、{% data variables.product.prodname_ghe_server %} 2.20+で利用できます。 {% data reusables.repositories.about-internal-repos %} 詳しい情報については「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)」を参照してください。
+インターナルリポジトリは、{% data variables.product.prodname_ghe_server %} 2.20+で利用できます。 {% data reusables.repositories.about-internal-repos %} 詳細については、「[リポジトリについて](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)」を参照してください。
 
 {% data variables.product.prodname_ghe_server %}の将来のリリースでは、リポジトリの可視性の動作を調整し、パブリック、インターナル、プライベートという用語が{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_ghe_cloud %}の開発者に対して統一的な意味合いを持つようにします。
 
@@ -29,33 +36,35 @@ topics:
 
 インターナルもしくはプライベートになるパブリックリポジトリに対する匿名Git読み取りアクセスは、無効化されます。
 
-リポジトリに対する現在のデフォルトの可視性がパブリックであれば、デフォルトはインターナルになります。 現在のデフォルトがプライベートであれば、デフォルトは変更されません。 デフォルトはいつでも変更できます。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)」を参照してください。
+リポジトリに対する現在のデフォルトの可視性がパブリックであれば、デフォルトはインターナルになります。 現在のデフォルトがプライベートであれば、デフォルトは変更されません。 デフォルトはいつでも変更できます。 詳細については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)」を参照してください。
 
-インスタンスに対するリポジトリの作成ポリシーは、パブリックリポジトリの無効化とプライベート及びインターナルリポジトリの許可に変更されます。 このポリシーはいつでも更新できます。 詳しい情報については「[インスタンスでのリポジトリ作成の制限](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)」を参照してください。
+インスタンスに対するリポジトリの作成ポリシーは、パブリックリポジトリの無効化とプライベート及びインターナルリポジトリの許可に変更されます。 このポリシーはいつでも更新できます。 詳細については、「[インスタンス内でのリポジトリの作成を制限する](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)」を参照してください。
 
 プライベートモードを有効化していないなら、移行スクリプトは何もしません。
 
-### 移行の実施
+## 移行の実施
 
-1. 管理シェルに接続します。 詳しい情報については「[管理シェル（SSH）にアクセスする](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-2. 移行コマンドを実行してください。
+1. 管理シェルに接続します。 詳細については、「[管理シェル (SSH) にアクセスする](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
+{% ifversion ghes or ghae %}
+2. 移行コマンドを実行します。
+
    ```shell
    github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+
 {% else %}
-2. `/data/github/current`ディレクトリにアクセスしてください。
+2. `/data/github/current` ディレクトリに移動します。
    ```shell
    cd /data/github/current
    ```
-3. 移行コマンドを実行してください。
+3. 移行コマンドを実行します。
    ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
 {% endif %}
 
-ログの出力は、ターミナルと`/tmp/convert_public_ghes_repos_to_internal.log`に対して行われます。
+ログ出力がターミナルと `/tmp/convert_public_ghes_repos_to_internal.log` に表示されます。
 
-### 参考リンク
+## 参考資料
 
-- [プライベートモードの有効化](/enterprise/admin/installation/enabling-private-mode)
+- [プライベート モードの有効化](/enterprise/admin/installation/enabling-private-mode)

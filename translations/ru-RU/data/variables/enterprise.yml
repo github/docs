@@ -1,2 +1,3 @@
----
 management_console: 'Консоль управления'
+# https://support.github.com/enterprise/server-upgrade
+upgrade_assistant: 'Помощник по обновлению'

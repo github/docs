@@ -1,18 +1,19 @@
 ---
 title: Queries
-miniTocMaxHeadingLevel: 2
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
   - /v4/reference/query
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### About queries
+## About queries
 
 Every GraphQL schema has a root type for both queries and mutations. The [query type](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) defines GraphQL operations that retrieve data from the server.
 
@@ -24,14 +25,4 @@ For more information, see "[About queries](/graphql/guides/forming-calls-with-gr
 
 {% endnote %}
 
-## Connections
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## Fields
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

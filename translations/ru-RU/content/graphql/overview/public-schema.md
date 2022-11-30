@@ -1,33 +1,39 @@
 ---
-title: Public schema
-intro: 'Download the public schema for the {% data variables.product.prodname_dotcom %} GraphQL API.'
+title: Общедоступная схема
+intro: 'Загрузите общедоступную схему для API GraphQL {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/public_schema
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: cb1c990506512c252b488b9d265cf8eb052435e2
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145069680'
 ---
+Вы можете напрямую [выполнять интроспекцию](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) в API GraphQL.
 
-You can [perform introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) against the GraphQL API directly.
+Кроме того, последнюю версию общедоступной схемы можно скачать здесь:
 
-Alternatively, you can download the latest version of the public schema here:
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs.graphql`](/public/schema.docs.graphql)
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-enterprise.graphql`](/public/ghes-{{ allVersions[currentVersion].currentRelease }}/schema.docs-enterprise.graphql) ({{ allVersions[currentVersion].versionTitle }})
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-ghae.graphql`](/public/ghae/schema.docs-ghae.graphql) ({{ allVersions[currentVersion].versionTitle }})
 

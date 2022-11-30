@@ -7,17 +7,24 @@ redirect_from:
   - /admin/user-management/migrating-to-internal-repositories
 permissions: Site administrators can migrate to internal repositories.
 versions:
-  enterprise-server: '>=2.20'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Privacy
   - Repositories
   - Security
+shortTitle: Internal repository migration
+ms.openlocfilehash: 66a535d8fd2e20cbcc78791588ca2b50ae8ede79
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147875585'
 ---
-### Sobre repositórios internos
+## Sobre repositórios internos
 
-Os repositórios internos estão disponíveis em {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)".
+Os repositórios internos estão disponíveis em {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} Para obter mais informações, confira "[Sobre os repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
 Em versões futuras do {% data variables.product.prodname_ghe_server %}, ajustaremos como a visibilidade do repositório funciona para que os termos público, interno e privado tenham significados uniformes para desenvolvedores em {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}.
 
@@ -29,22 +36,24 @@ Todos os repositórios públicos pertencentes a contas de usuário na sua instâ
 
 O acesso de leitura anônimo Git será desativado para cada repositório público que se tornar interno ou privado.
 
-Se sua visibilidade padrão atual for pública, o padrão se tornará interno. Se o padrão atual for privado, o padrão não será alterado. Você pode alterar o padrão a qualquer momento. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)".
+Se sua visibilidade padrão atual for pública, o padrão se tornará interno. Se o padrão atual for privado, o padrão não será alterado. Você pode alterar o padrão a qualquer momento. Para obter mais informações, confira "[Como impor políticas de gerenciamento de repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)".
 
-A política de criação de repositórios para a instância mudará para desativar repositórios públicos e permitir repositórios privados e internos. Você pode atualizar a política a qualquer momento. Para obter mais informações, consulte "[Restringir a criação de repositórios nas suas instâncias](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)".
+A política de criação de repositórios para a instância mudará para desativar repositórios públicos e permitir repositórios privados e internos. Você pode atualizar a política a qualquer momento. Para obter mais informações, confira "[Como restringir a criação de repositórios nas suas instâncias](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)".
 
 Se você não tiver o modo privado ativado, o script de migração não terá efeito.
 
-### Executando a migração
+## Executando a migração
 
-1. Conecte-se ao shell administrativo. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/{}/admin/installation/accessing-the-administrative-shell-ssh)".
-{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+1. Conecte-se ao shell administrativo. Para obter mais informações, confira "[Como acessar o shell administrativo (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)".
+{% ifversion ghes or ghae %}
 2. Execute o comando de migração.
+
    ```shell
    github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+
 {% else %}
-2. Navegue no diretório `/data/github/current`.
+2. Navegue até o diretório `/data/github/current`.
    ```shell
    cd /data/github/current
    ```
@@ -54,8 +63,8 @@ Se você não tiver o modo privado ativado, o script de migração não terá ef
    ```
 {% endif %}
 
-O output do log aparecerá no terminal e no `/tmp/convert_public_ghes_repos_to_internal.log`.
+A saída do log será exibida no terminal e em `/tmp/convert_public_ghes_repos_to_internal.log`.
 
-### Leia mais
+## Leitura adicional
 
-- [Habilitar modo privado](/enterprise/{}/admin/guides/installation/enabling-private-mode)"
+- "[Como habilitar o modo privado](/enterprise/admin/installation/enabling-private-mode)"

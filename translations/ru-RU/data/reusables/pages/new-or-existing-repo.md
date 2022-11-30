@@ -1,5 +1,15 @@
-If your site is an independent project, you can create a new repository to store your site's source code. If your site is associated with an existing project, you can add the source code {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}to that project's repository, in a `/docs` folder on the default branch or on a different branch.{% else %}for your site to a `gh-pages` branch or a `docs` folder on the `master` branch in that project's repository.{% endif %} For example, if you're creating a site to publish documentation for a project that's already on {% data variables.product.product_name %}, you may want to store the source code for the site in the same repository as the project.
+---
+ms.openlocfilehash: 33f427d38193ad14c5df35ebab14bd08208c08e0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109512"
+---
+Для сайта можно создать новый репозиторий или выбрать существующий.
 
-{% if currentVersion == "free-pro-team@latest" %}If the account that owns the repository uses {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_free_team %} for organizations, the repository must be public.{% endif %}
+Если необходимо создать сайт {% data variables.product.prodname_pages %} для репозитория, в котором не все файлы имеют отношение к сайту, можно настроить источник публикации. Например, вы можете иметь выделенную ветвь и папку для хранения исходных файлов {% ifversion pages-custom-workflow %}, или использовать пользовательский рабочий процесс {% data variables.product.prodname_actions %} для создания и развертывания исходных файлов сайта. {% data reusables.actions.settings-ui.settings-actions-pages-custom-workflow %} {% else %}файлы. {% endif %}
 
-If you want to create a site in an existing repository, skip to the "[Creating your site](#creating-your-site)" section.
+{% ifversion fpt or ghec %}Если учетная запись, которой принадлежит репозиторий, использует {% data variables.product.prodname_free_user %} или {% data variables.product.prodname_free_team %} для организаций, репозиторий должен быть общедоступным.{% endif %}
+
+ Чтобы создать сайт в существующем репозитории, перейдите к разделу [Создание сайта](#creating-your-site).

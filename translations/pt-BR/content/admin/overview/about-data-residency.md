@@ -1,16 +1,16 @@
 ---
-title: Sobre a residência de dados
-intro: 'Você pode escolher a localidade onde {% data variables.product.product_name %} armazena todos os dados de clientes da sua empresa.'
+title: About data residency
+intro: 'You can choose the geography where {% data variables.product.product_name %} stores all customer data for your enterprise.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Enterprise
   - Fundamentals
 ---
 
-{% data reusables.github-ae.github-ae-enables-you %} Você pode escolher a localidade onde você armazena todos os dados do cliente para {% data variables.product.product_location %}, e os integrantes da sua empresa poderão acessar {% data variables.product.product_name %} de qualquer lugar do mundo.
+{% data reusables.github-ae.github-ae-enables-you %} You can choose the geography where you store all the customer data for {% data variables.location.product_location %}, and members of your enterprise can access {% data variables.product.product_name %} from anywhere in the world.
 
-Ao criar a sua empresa, você pode informar {% data variables.contact.contact_enterprise_sales %} onde armazenar os dados dos seus clientes. {% data variables.product.company_short %} não armazenará nem transferirá nenhum dos dados da sua empresa para fora da localidade escolhida.
+When creating your enterprise, you can tell {% data variables.contact.contact_enterprise_sales %} where to store your customer data. {% data variables.product.company_short %} will not store or move any of your enterprise's data outside of the geography you choose.
 
-Para obter mais informações sobre a localidade disponível, entre em contato com {% data variables.contact.contact_enterprise_sales %}.
+For more information about the available geographies, contact {% data variables.contact.contact_enterprise_sales %}.

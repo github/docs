@@ -1,23 +1,27 @@
 ---
-title: Using the GraphQL API for Discussions
-intro: Learn how to use the GitHub Discussions GraphQL API.
+title: 토론에 GraphQL API 사용
+intro: '{% data variables.product.prodname_discussions %} GraphQL API를 사용하는 방법을 알아봅니다.'
 versions:
-  free-pro-team: '*'
+  feature: discussions
+shortTitle: Use GraphQL for Discussions
+ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408845'
 ---
+{% data variables.product.prodname_discussions %} GraphQL API를 사용하면 토론 게시물을 다운로드, 생성, 편집, 삭제할 수 있습니다. {% data variables.product.prodname_discussions %}에 대한 자세한 내용은 “[토론 정보](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”를 참조하세요.
 
-The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see "[‎About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
-
-This API is available for authenticated users, OAuth Apps, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[Scopes for OAuth apps](/developers/apps/scopes-for-oauth-apps)."
-
-To use this API, you must include `GraphQL-Features: discussions_api` in the `HTTP` header.
+이 API는 인증된 사용자, OAuth 앱, GitHub 앱에서 사용할 수 있습니다. 액세스 토큰에는 프라이빗 리포지토리의 `repo` 범위와 퍼블릭 리포지토리의 `public_repo` 범위가 필요합니다. 자세한 내용은 “[OAuth 앱에 대한 범위](/developers/apps/scopes-for-oauth-apps)”를 참조하세요.
 
 ## 필드
 
 ### Repository.discussions
 
-List the discussions within a repository. If `categoryId` is specified, only results within that category will be returned.
+리포지토리 내의 토론을 나열합니다. `categoryId`를 지정하면 해당 범주 내의 결과만 반환됩니다.
 
-_Signature:_
+서명:
 
 ```graphql
 discussions(
@@ -68,9 +72,9 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 10 categories. For more information about discussion categories, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+이 리포지토리 내에 정의된 사용 가능한 토론 범주를 반환합니다. 각 리포지토리에는 최대 10개의 범주가 있을 수 있습니다. 토론 범주에 대한 자세한 내용은 “[토론 정보](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”를 참조하세요.
 
-_Signature:_
+서명:
 
 ```graphql
 discussionCategories(
@@ -83,9 +87,9 @@ discussionCategories(
 
 ### Repository.discussion
 
-Get a discussion. Returns `null` if discussion with the specified ID does not exist.
+토론을 가져옵니다. 지정된 ID를 사용하는 토론이 없는 경우 `null`을 반환합니다.
 
-_Signature:_
+서명:
 
 ```graphql
 discussion(number: Int!) : Discussion
@@ -93,9 +97,9 @@ discussion(number: Int!) : Discussion
 
 ### Repository.pinnedDiscussions
 
-Return discussions pinned to this repository, ordered by pin position.
+이 리포지토리에 고정된 토론을 고정 위치로 정렬하여 반환합니다.
 
-_Signature:_
+서명:
 
 ```graphql
 pinnedDiscussions(
@@ -106,9 +110,9 @@ pinnedDiscussions(
 ) : PinnedDiscussionConnection!
 ```
 
-## Objects
+## 개체
 
-**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#connection)."
+**참고:** 간단히 말하면 연결 형식은 여기서 확장되지 않습니다. 스키마에서 언급된 각 연결 형식은 GraphQL API의 다른 연결과 동일한 패턴을 따릅니다. 자세한 내용은 “[GraphQL 소개](/graphql/guides/introduction-to-graphql#connection)”를 참조하세요.
 
 ```graphql
 query {
@@ -143,7 +147,7 @@ query {
 }
 ```
 
-### 논의
+### 토론(Discussion)
 
 <details>
 <summary>필드:</summary>
@@ -846,11 +850,11 @@ enum PinnedDiscussionGradient {
 
 </details>
 
-## Interfaces
+## 인터페이스
 
 ### RepositoryDiscussionAuthor
 
-Implemented by the `User` and `Organization` types. **Note:** An `Organization` will only have discussions associated with it if it was converted from a `User`.
+`User` 및 `Organization` 형식에 의해 구현됩니다. **참고:** `Organization`은 `User`로부터 변환된 경우에만 관련 토론을 갖게 됩니다.
 
 <details>
 <summary>필드</summary>
@@ -907,7 +911,7 @@ interface RepositoryDiscussionAuthor {
 
 ### RepositoryDiscussionCommentAuthor
 
-Also implemented by the `User` and `Organization` types.
+역시 `User` 및 `Organization` 형식에 의해 구현됩니다.
 
 <details>
 <summary>필드</summary>
@@ -956,11 +960,11 @@ interface RepositoryDiscussionCommentAuthor {
 
 </details>
 
-## Mutations
+## 변형
 
-These mutations follow the same implementation pattern that other mutations in the GraphQL API. Each mutation accepts a single argument of an `Input` type, named after the mutation, and returns a `Payload` type containing the fields specified.
+이러한 변형은 GraphQL API의 다른 변형과 동일한 구현 패턴을 따릅니다. 각 변형은 변형의 이름을 따서 명명된 `Input` 형식의 단일 인수를 받아들이고, 지정된 필드가 포함된 `Payload` 형식을 반환합니다.
 
-For example, this is a basic `createDiscussion` mutation that will create a new discussion:
+예를 들어, 다음은 새 토론을 만드는 기본 `createDiscussion` 변형입니다.
 
 ```graphql
 mutation {
@@ -979,106 +983,106 @@ mutation {
 
 입력 필드:
 
-* `body: String!` The body of the new discussion.
-* `title: String!` The title of the new discussion.
-* `repositoryId: ID!` The ID of a repository in which to create the discussion.
-* `categoryId: ID!` The ID of a `DiscussionCategory` within this repository.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` 새 토론의 본문입니다.
+* `title: String!` 새 토론의 제목입니다.
+* `repositoryId: ID!` 토론을 만들 리포지토리의 ID입니다.
+* `categoryId: ID!` 이 리포지토리 내에 있는 `DiscussionCategory`의 ID입니다.
+* `clientMutationId: String` 변형을 수행하는 클라이언트에 대한 고유 식별자입니다.
 
-Return type fields:
+반환 형식 필드:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was created.
+* `clientMutationId: String` 입력으로서 제공되는 고유 식별자입니다.
+* `discussion: Discussion` 만들어진 토론입니다.
 
 ### updateDiscussion
 
 입력 필드:
 
-* `discussionId: ID!` The node ID of the discussion to update.
-* `body: String` The new contents of the discussion body.
-* `title: String` The new discussion title.
-* `categoryId: ID` The node ID of a `DiscussionCategory` within the same repository to change this discussion to.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `discussionId: ID!` 업데이트할 토론의 노드 ID입니다.
+* `body: String` 토론 본문의 새 내용입니다.
+* `title: String` 새 토론 제목입니다.
+* `categoryId: ID` 이 토론을 변경할 동일한 리포지토리 내에 있는 `DiscussionCategory`의 노드 ID입니다.
+* `clientMutationId: String` 변형을 수행하는 클라이언트에 대한 고유 식별자입니다.
 
-Return type fields:
+반환 형식 필드:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was modified.
+* `clientMutationId: String` 입력으로서 제공되는 고유 식별자입니다.
+* `discussion: Discussion` 수정된 토론입니다.
 
 ### deleteDiscussion
 입력 필드:
 
-* `id: ID!` The node ID of the discussion to delete.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` 삭제할 토론의 노드 ID입니다.
+* `clientMutationId: String` 변형을 수행하는 클라이언트에 대한 고유 식별자입니다.
 
-Return type fields:
+반환 형식 필드:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that was deleted.
+* `clientMutationId: String` 입력으로서 제공되는 고유 식별자입니다.
+* `discussion: Discussion` 삭제된 토론입니다.
 
 ### addDiscussionComment
 
 입력 필드:
 
-* `body: String!` The contents of the comment.
-* `discussionId: ID!` The node ID of the discussion to comment on.
-* `replyToId: ID` The node ID of the discussion comment to reply to. If absent, the created comment will be a top-level comment.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` 주석의 내용입니다.
+* `discussionId: ID!` 주석을 달 토론의 노드 ID입니다.
+* `replyToId: ID` 회신할 토론 주석의 노드 ID입니다. 없는 경우, 만들어진 주석은 최상위 주석이 됩니다.
+* `clientMutationId: String` 변형을 수행하는 클라이언트에 대한 고유 식별자입니다.
 
-Return type fields:
+반환 형식 필드:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was created.
+* `clientMutationId: String` 입력으로서 제공되는 고유 식별자입니다.
+* `comment: DiscussionComment` 만들어진 토론 주석입니다.
 
 ### updateDiscussionComment
 
 입력 필드:
 
-* `body: String!` The new contents of the comment body.
-* `commentId: ID!` The node ID of the discussion comment to update.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` 주석 본문의 새 내용입니다.
+* `commentId: ID!` 업데이트할 토론 주석의 노드 ID입니다.
+* `clientMutationId: String` 변형을 수행하는 클라이언트에 대한 고유 식별자입니다.
 
-Return type fields:
+반환 형식 필드:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was updated.
+* `clientMutationId: String` 입력으로서 제공되는 고유 식별자입니다.
+* `comment: DiscussionComment` 업데이트된 토론 주석입니다.
 
 ### deleteDiscussionComment
 
 입력 필드:
 
-* `id: ID!` The node ID of the discussion comment to delete.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` 삭제할 토론 주석의 노드 ID입니다.
+* `clientMutationId: String` 변형을 수행하는 클라이언트에 대한 고유 식별자입니다.
 
-Return type fields:
+반환 형식 필드:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `comment: DiscussionComment` The discussion comment that was deleted.
+* `clientMutationId: String` 입력으로서 제공되는 고유 식별자입니다.
+* `comment: DiscussionComment` 삭제된 토론 주석입니다.
 
 ### markDiscussionCommentAsAnswer
 
 입력 필드:
 
-* `id: ID!` The node ID of the discussion comment to mark as an answer.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` 답변으로 표시할 토론 주석의 노드 ID입니다.
+* `clientMutationId: String` 변형을 수행하는 클라이언트에 대한 고유 식별자입니다.
 
-Return type fields:
+반환 형식 필드:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that includes the chosen comment.
+* `clientMutationId: String` 입력으로서 제공되는 고유 식별자입니다.
+* `discussion: Discussion` 선택한 주석이 포함된 토론입니다.
 
 ### unmarkDiscussionCommentAsAnswer
 
 입력 필드:
 
-* `id: ID!` The node ID of the discussion comment to unmark as an answer.
-* `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` 답변으로 표시를 해제할 토론 주석의 노드 ID입니다.
+* `clientMutationId: String` 변형을 수행하는 클라이언트에 대한 고유 식별자입니다.
 
-Return type fields:
+반환 형식 필드:
 
-* `clientMutationId: String` The unique identifier provided as an input.
-* `discussion: Discussion` The discussion that includes the unmarked comment.
+* `clientMutationId: String` 입력으로서 제공되는 고유 식별자입니다.
+* `discussion: Discussion` 표시되지 않은 주석이 포함된 토론입니다.
 
 ## 검색
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+토론은 최상위 `search` 필드에서 반환될 수 있습니다. 토론을 검색하려면 `type`을 `DISCUSSION`으로 지정합니다. `SearchResultItemConnection` 형식에는 반환된 토론 수를 보고하는 `discussionCount` 필드가 있으며 `Discussion` 형식은 `SearchResultItem` 공용 구조체에 추가됩니다. 자세한 내용은 “[쿼리](/graphql/reference/queries#searchresultitemconnection)” 및 “[토론 검색](/search-github/searching-on-github/searching-discussions)”을 참조하세요.

@@ -6,20 +6,27 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
   - /admin/policies/creating-a-pre-receive-hook-environment
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Pre-receive hook environments
+ms.openlocfilehash: 2c2a31a4092b475170449ba138d6f0798424206b
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145094890'
 ---
-Um ambiente pre-receive para o {% data variables.product.prodname_ghe_server %} é um ambiente Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot). Como são executados em todos os eventos de push, os hooks pre-receive devem ser rápidos e leves. Em geral, o ambiente necessário para tais verificações é mínimo.
+Um ambiente de pré-recebimento do {% data variables.product.prodname_ghe_server %} é um ambiente [`chroot`](https://en.wikipedia.org/wiki/Chroot) do Linux. Como são executados em todos os eventos de push, os hooks pre-receive devem ser rápidos e leves. Em geral, o ambiente necessário para tais verificações é mínimo.
 
-O {% data variables.product.prodname_ghe_server %} fornece um ambiente padrão que inclui os seguintes pacotes: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
+O {% data variables.product.prodname_ghe_server %} fornece um ambiente padrão que inclui estes pacotes: `awk`, `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq` e `sed`.
 
-Se você tiver algum requisito específico não atendido por esse ambiente, como suporte a determinado idioma, é possível criar e fazer upload do seu próprio ambiente Linux `chroot` de 64 bits.
+Se você tiver um requisito específico que não é atendido por esse ambiente, como suporte para uma linguagem específica, crie e carregue seu ambiente `chroot` do Linux de 64 bits.
 
-### Criar um ambiente de hook pre-receive usando o Docker
+## Criar um ambiente de hook pre-receive usando o Docker
 
 Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para criar um ambiente de hook pre-receive. Este exemplo usa o [Alpine Linux](http://www.alpinelinux.org/) e o [Docker](https://www.docker.com/).
 
@@ -30,7 +37,7 @@ Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para cr
    FROM gliderlabs/alpine:3.3
    RUN apk add --no-cache git bash
    ```
-3. No diretório que contém `Dockerfile.alpine-3.3`, crie uma imagem:
+3. No diretório de trabalho que contém `Dockerfile.alpine-3.3`, compile uma imagem:
 
    ```shell
    $ docker build -f Dockerfile.alpine-3.3 -t pre-receive.alpine-3.3 .
@@ -47,18 +54,18 @@ Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para cr
    ```shell
    $ docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
    ```
-5. Exporte o contêiner Docker para um arquivo `tar` compactado por `gzip`:
+5. Exporte o contêiner do Docker para um arquivo `tar` compactado em `gzip`:
 
    ```shell
    $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
    ```
 
-   O arquivo `alpine-3.3.tar.gz` está pronto para o upload no appliance do {% data variables.product.prodname_ghe_server %}.
+   Este arquivo `alpine-3.3.tar.gz` está pronto para ser carregado no dispositivo do {% data variables.product.prodname_ghe_server %}.
 
-### Criar um ambiente de hook pre-receive usando chroot
+## Criar um ambiente de hook pre-receive usando chroot
 
-1. Crie um ambiente Linux `chroot`.
-2. Crie um arquivo `tar` do diretório `chroot` compactado em um `gzip`.
+1. Crie um ambiente `chroot` do Linux.
+2. Crie um arquivo `tar` compactado em `gzip` do diretório `chroot`.
    ```shell
    $ cd /path/to/chroot
    $ tar -czf /path/to/pre-receive-environment.tar.gz .
@@ -66,30 +73,33 @@ Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para cr
 
    {% note %}
 
-   **Notas:**
-   - Não inclua caminhos do diretório principal de arquivos dentro do arquivo tar, como `/path/to/chroot`.
-   - `/bin/sh` deve existir e ser executável, como o ponto de entrada no ambiente chroot.
-   - Ao contrário de chroots tradicionais, o diretório `dev` não é exigido pelo ambiente chroot para hooks pre-receive.
+   **Observações:**
+   - Não inclua os principais caminhos de diretório de arquivos no arquivo TAR, como `/path/to/chroot`.
+   - `/bin/sh` precisa existir e ser executável, como o ponto de entrada no ambiente chroot.
+   - Ao contrário dos chroots tradicionais, o diretório `dev` não é necessário para o ambiente chroot em ganchos de pré-recebimento.
 
    {% endnote %}
 
-Para obter mais informações sobre como criar um ambiente chroot, consulte "[Chroot](https://wiki.debian.org/chroot)" na *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" na *Ubuntu Community Help Wiki* ou "[Instalar Alpine Linux em chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" na *Alpine Linux Wiki*.
+Para obter mais informações sobre como criar um ambiente chroot, confira "[Chroot](https://wiki.debian.org/chroot)" no *wiki do Debian*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" no *wiki de Ajuda da Comunidade do Ubuntu* ou "[Como instalar o Alpine Linux em um chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" no *wiki do Alpine Linux*.
 
-### Fazer upload de um ambiente de hook pre-receive no {% data variables.product.prodname_ghe_server %}
+## Fazer upload de um ambiente de hook pre-receive no {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-5. Clique em **Manage environments** (Gerenciar ambientes). ![Gerenciar ambientes](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
-6. Clique em **Add environments** (Adicionar ambientes). ![Adicionar ambiente](/assets/images/enterprise/site-admin-settings/add-pre-receive-environment.png)
-7. Digite o nome desejado no campo **Environment name** (Nome do ambiente). ![Nome do ambiente](/assets/images/enterprise/site-admin-settings/pre-receive-environment-name.png)
-8. Informe a URL do arquivo `*.tar.gz` que contém o ambiente. ![Fazer upload de um ambiente a partir da URL](/assets/images/enterprise/site-admin-settings/upload-environment-from-url.png)
-9. Clique em **Add environments** (Adicionar ambientes). ![Botão Adicionar ambiente](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.hooks-tab %}
+5. Clique em **Gerenciar ambientes**.
+![Gerenciar ambientes](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
+6. Clique em **Adicionar ambiente**.
+![Adicionar ambiente](/assets/images/enterprise/site-admin-settings/add-pre-receive-environment.png)
+7. Insira o nome desejado no campo **Nome do ambiente**.
+![Nome do ambiente](/assets/images/enterprise/site-admin-settings/pre-receive-environment-name.png)
+8. Insira a URL do arquivo `*.tar.gz` que contém seu ambiente.
+![Carregar um ambiente por meio da URL](/assets/images/enterprise/site-admin-settings/upload-environment-from-url.png)
+9. Clique em **Adicionar ambiente**.
+![Botão Adicionar ambiente](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
 
-### Fazer upload de um ambiente de hook pre-receive via shell administrativo
-1. Faça upload do arquivo legível `*.tar.gz` que contém o seu ambiente para um host na web e copie a URL, ou transfira o arquivo para o appliance do {% data variables.product.prodname_ghe_server %} via `scp`. Ao usar o `scp`, você deve ajustar as permissões do arquivo `*.tar.gz` para que ele seja legível.
+## Fazer upload de um ambiente de hook pre-receive via shell administrativo
+1. Carregue um arquivo `*.tar.gz` legível que contém seu ambiente em um host da Web e copie a URL ou transfira o arquivo para o dispositivo do {% data variables.product.prodname_ghe_server %} por meio de `scp`. Quando `scp` é usado, talvez seja necessário ajustar as permissões do arquivo `*.tar.gz` para que o arquivo seja legível.
 1.  Conecte-se ao shell administrativo.
-2.  Use o comando `ghe-hook-env-create` e digite o nome que você deseja para o ambiente como o primeiro argumento. Em seguida, informe o caminho local completo ou a URL do arquivo `*.tar.gz` que contém seu ambiente como segundo argumento.
+2.  Use o comando `ghe-hook-env-create` e digite o nome desejado para o ambiente como o primeiro argumento e o caminho local completo ou a URL de um arquivo `*.tar.gz` que contém o ambiente como o segundo argumento.
 
    ```shell
    admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz

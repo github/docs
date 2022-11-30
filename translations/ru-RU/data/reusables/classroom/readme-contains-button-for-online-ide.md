@@ -1,1 +1,9 @@
-When a student accepts an assignment with an online IDE, the assignment repository will include a _README.md_ file with a special button at the top of the file. The button links the student directly to the workspace in the online IDE.
+---
+ms.openlocfilehash: 50bcd5a6f5429ab78a5891e88e5363444631b333
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145115715"
+---
+Когда учащийся принимает задание в интегрированной среде разработки, репозиторий заданий включает файл _README.md_ со специальной кнопкой в верхней части файла. Кнопка связывает учащегося непосредственно с рабочей областью в интегрированной среде разработки.

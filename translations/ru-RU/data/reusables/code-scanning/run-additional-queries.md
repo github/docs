@@ -1,9 +1,30 @@
-When you use {% data variables.product.prodname_codeql %} to scan code, the {% data variables.product.prodname_codeql %} analysis engine generates a database from the code and runs queries on it. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)."
+---
+ms.openlocfilehash: b4da828ed2825e0f6aa8ced7a0f6b90067e9bfdb
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147717648"
+---
+При использовании {% data variables.product.prodname_codeql %} для проверки кода подсистема анализа {% data variables.product.prodname_codeql %} создает базу данных из кода и выполняет запросы к нему. Анализ {% data variables.product.prodname_codeql %} использует набор запросов по умолчанию, но в дополнение к ним можно указать дополнительные запросы для выполнения.
 
-{% data variables.product.prodname_codeql %} analysis uses a default set of queries, but you can specify more queries to run, in addition to the default queries. The queries you want to run must belong to a {% data variables.product.prodname_ql %} pack in a repository. For more information, see "[About {% data variables.product.prodname_ql %} packs](https://codeql.github.com/docs/codeql-cli/about-ql-packs/)."
+{% ifversion code-scanning-exclude-queries-from-analysis %} {% tip %}
 
-Queries must only depend on the standard libraries (that is, the libraries referenced by an `import LANGUAGE` statement in your query), or libraries in the same {% data variables.product.prodname_ql %} pack as the query. The standard libraries are located in the [github/codeql](https://github.com/github/codeql) repository. For more information, see "[About CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)."
+Вы также можете указать запросы, которые необходимо исключить из анализа или включить в анализ. Для этого требуется использовать пользовательский файл конфигурации. Дополнительные сведения см. в разделах [Использование пользовательского файла конфигурации](#using-a-custom-configuration-file) и [Исключение конкретных запросов из анализа](#excluding-specific-queries-from-analysis).
 
-You can specify a single _.ql_ file, a directory containing multiple _.ql_ files, a _.qls_ query suite definition file, or any combination. For more information about query suite definitions, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)."
+{% endtip %} {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}We don't recommend referencing query suites directly from the `github/codeql` repository, like `github/codeql/cpp/ql/src@main`. Such queries may not be compiled with the same version of {% data variables.product.prodname_codeql %} as used for your other queries, which could lead to errors during analysis.{% endif %}
+{% ifversion codeql-packs %} Можно выполнять дополнительные запросы, если они являются частью пакета {% data variables.product.prodname_codeql %} (бета-версия), опубликованного в {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, или пакета {% data variables.product.prodname_ql %}, хранящегося в репозитории. Дополнительную информацию см. в разделе [Сведения о {% data variables.product.prodname_code_scanning %} с {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries).
+
+Параметры, которые можно использовать для указания дополнительных запросов:
+
+- `packs` для установки одного или нескольких пакетов запросов {% data variables.product.prodname_codeql %} (бета-версия) и выполнения набора запросов по умолчанию или запросов для этих пакетов.
+- `queries` для указания одного файла _.ql_, каталога, содержащего несколько файлов _.ql_, файла определения набора запросов _.qls_ или любого их сочетания. Дополнительные сведения об определениях набора тестов запросов см. в разделе [Создание наборов запросов {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/).
+
+В одном рабочем процессе можно использовать как `packs`, так и `queries`.
+{% else %} Любые дополнительные запросы, которые требуется выполнить, должны принадлежать к пакету {% data variables.product.prodname_ql %} в репозитории. Дополнительную информацию см. в разделе [Сведения о {% data variables.product.prodname_code_scanning %} с {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries).
+
+Можно указать один файл _.ql_, каталог, содержащий несколько файлов _.ql_, файл определения набора запросов _.qls_ или любое их сочетания. Дополнительные сведения об определениях набора тестов запросов см. в разделе [Создание наборов запросов {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/).
+{% endif %}
+
+{% ifversion fpt or ghec %}Не рекомендуется ссылаться на наборы запросов непосредственно из репозитория `github/codeql`, например `github/codeql/cpp/ql/src@main`. Такие запросы должны быть перекомпилированы и могут быть несовместимы с текущей активной версией {% data variables.product.prodname_codeql %} в {% data variables.product.prodname_actions %}, что может привести к ошибкам во время анализа.{% endif %}

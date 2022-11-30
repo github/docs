@@ -1,8 +1,8 @@
 {% tip %}
 
-**Tips:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-  - Este artículo contiene enlaces a las búsquedas de muestra en el sitio web de {% data variables.product.prodname_dotcom_the_website %}, pero puedes utilizar los mismos filtros de búsqueda con {% data variables.product.product_name %}. En las búsquedas de ejemplos vinculadas, reemplaza `github.com` con el nombre de host para {% data variables.product.product_location %}.{% endif %}
-  - Para obtener una lista de sintaxis de búsqueda que puedas agregar a cualquier calificador para mejorar aún más tus resultados, consulta "[Comprender la sintaxis de búsqueda](/articles/understanding-the-search-syntax)".
-  - Utiliza comillas alrededor de los términos de búsqueda que contengan varias palabras. Por ejemplo, si deseas buscar propuestas con la etiqueta "In progress" (En curso), buscarías por la etiqueta `label:"in progress"`. Buscar no distingue entre mayúsculas y minúsculas.
+**Tips:**{% ifversion ghes or ghae %}
+  - This article contains links to example searches on the {% data variables.product.prodname_dotcom_the_website %} website, but you can use the same search filters with {% data variables.product.product_name %}. In the linked example searches, replace `github.com` with the hostname for {% data variables.location.product_location %}.{% endif %}
+  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax)".
+  - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
 
 {% endtip %}

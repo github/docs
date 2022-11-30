@@ -1,10 +1,22 @@
-1. If prompted, upload proof of your academic status.
-   - Click **Use your camera to take a picture**. ![Button to use your camera to take a picture](/assets/images/help/education/upload-proof-status.png)
-   - Optionally, to change the camera you want to use, use the camera drop-down menu. ![Camera drop-down menu](/assets/images/help/education/camera-drop-down.png)
-   - Place your valid academic ID or other proof of current academic status in the frame, then click **Take photo**. ![Take photo button](/assets/images/help/education/take-photo-button.png)
-   - If you can't take a picture of your proof of academic status, to upload an image from your computer instead, click **Upload image**. ![Upload image link](/assets/images/help/education/upload-image-link.png)
-    {% note %}
+---
+ms.openlocfilehash: 1dd0713c375b42d394caba344cd0c12372077e93
+ms.sourcegitcommit: 04329ee7464efbb558d77d06664e8578cd154d87
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/15/2022
+ms.locfileid: "148046514"
+---
+1. Нажмите кнопку **"Продолжить**", а затем вам будет предложено отправить подтверждение вашего академического статуса.
+   - Нажмите кнопку **"Сделать фотографию** ", чтобы использовать камеру компьютера для отправки подтверждения.
+     ![Кнопка для использования камеры с целью сфотографироваться](/assets/images/help/education/upload-proof-status.png)
+   - Если необходимо сменить камеру, используйте раскрывающееся меню выбора камеры.
+    ![Раскрывающееся меню выбора камеры](/assets/images/help/education/camera-drop-down.png)
+   - Поместите в кадр действительный студенческий билет или другое подтверждение текущего академического статуса и нажмите кнопку **Сделать фотографию**.
+    ![Кнопка "Сделать фотографию"](/assets/images/help/education/take-photo-button.png)
+   - Если вы не можете сфотографировать подтверждение академического статуса, можно вместо этого отправить изображение с компьютера, щелкнув ссылку **Отправить изображение**.
+     ![Ссылка "Отправить изображение"](/assets/images/help/education/upload-image-link.png) {% note %}
 
-    **Note:** PDF files are not supported, and you cannot upload them as proof of academic status.
+    **Примечание**. PDF-файлы не поддерживаются; их нельзя отправлять в качестве подтверждения академического статуса.
 
     {% endnote %}
+   - В разделе "Тип подтверждения" используйте раскрывающийся список, чтобы выбрать тип создаваемого подтверждения.

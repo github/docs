@@ -1,1 +1,9 @@
-{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) is an open source extension to Git that allows you to work with large files the same way as other text files.
+---
+ms.openlocfilehash: 60230922c1de68ef231a4bd6ce2d324de65f221c
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145111208"
+---
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) — это расширение с открытым кодом для Git, которое позволяет работать с большими файлами так же, как и с другими текстовыми файлами.

@@ -1,24 +1,33 @@
 ---
-title: Managing SAML single sign-on for your organization
-intro: Organization administrators can manage organization members' identities and access to the organization with SAML single sign-on (SSO).
+title: 조직에 대한 SAML Single Sign-On 관리
+intro: 조직 소유자는 SAML SSO(Single Sign-On)를 사용하여 조직 구성원의 ID 및 조직에 대한 액세스를 관리할 수 있습니다.
 redirect_from:
-  - /articles/managing-member-identity-and-access-in-your-organization-with-saml-single-sign-on/
+  - /articles/managing-member-identity-and-access-in-your-organization-with-saml-single-sign-on
   - /articles/managing-saml-single-sign-on-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-saml-single-sign-on-for-your-organization
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+children:
+  - /about-identity-and-access-management-with-saml-single-sign-on
+  - /about-scim-for-organizations
+  - /connecting-your-identity-provider-to-your-organization
+  - /configuring-saml-single-sign-on-and-scim-using-okta
+  - /enabling-and-testing-saml-single-sign-on-for-your-organization
+  - /preparing-to-enforce-saml-single-sign-on-in-your-organization
+  - /enforcing-saml-single-sign-on-for-your-organization
+  - /downloading-your-organizations-saml-single-sign-on-recovery-codes
+  - /managing-team-synchronization-for-your-organization
+  - /accessing-your-organization-if-your-identity-provider-is-unavailable
+  - /troubleshooting-identity-and-access-management-for-your-organization
+shortTitle: Manage SAML single sign-on
+ms.openlocfilehash: fbceb30af76af31bc3b0ae1361da7c8766971563
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147093128'
 ---
-
-{% link_in_list /about-identity-and-access-management-with-saml-single-sign-on %}
-{% link_in_list /about-scim %}
-{% link_in_list /connecting-your-identity-provider-to-your-organization %}
-{% link_in_list /configuring-saml-single-sign-on-and-scim-using-okta %}
-{% link_in_list /enabling-and-testing-saml-single-sign-on-for-your-organization %}
-{% link_in_list /preparing-to-enforce-saml-single-sign-on-in-your-organization %}
-{% link_in_list /enforcing-saml-single-sign-on-for-your-organization %}
-{% link_in_list /downloading-your-organizations-saml-single-sign-on-recovery-codes %}
-{% link_in_list /managing-team-synchronization-for-your-organization %}
-{% link_in_list /accessing-your-organization-if-your-identity-provider-is-unavailable %}
+{% data reusables.saml.ghec-only %}

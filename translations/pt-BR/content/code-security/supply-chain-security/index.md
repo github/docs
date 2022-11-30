@@ -1,18 +1,27 @@
 ---
 title: Proteger a sua cadeia de suprimentos de software
-shortTitle: Segurança da cadeia de suprimento
+shortTitle: Supply chain security
 intro: 'Visualize, mantenha e proteja as dependências da cadeia de suprimentos do seu software.'
 redirect_from:
   - /categories/managing-security-vulnerabilities
   - /github/managing-security-vulnerabilities
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - Security
+  - Dependabot
+  - Dependencies
+  - Repositories
 children:
   - /understanding-your-software-supply-chain
-  - /keeping-your-dependencies-updated-automatically
-  - /managing-vulnerabilities-in-your-projects-dependencies
+  - /end-to-end-supply-chain
+ms.openlocfilehash: bb0b22132fc705d457b017f901dd797df9ac1d61
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145083375'
 ---
-### Índice
+

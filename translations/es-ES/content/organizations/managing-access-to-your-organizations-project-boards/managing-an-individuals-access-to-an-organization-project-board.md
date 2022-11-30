@@ -1,62 +1,54 @@
 ---
-title: Administrar un acceso individual a un tablero de proyecto de una organización
-intro: 'Como propietario de la organización o administrador de un tablero de proyecto, puedes administrar al acceso de un miembro individual a un tablero de proyecto propiedad de tu organización.'
+title: 'Administración del acceso de un individuo a una instancia de {% data variables.product.prodname_project_v1 %} de la organización'
+intro: 'Como propietario de la organización o administrador de {% data variables.projects.projects_v1_board %}, puedes administrar el acceso de un miembro individual a una instancia de {% data variables.projects.projects_v1_board %} propiedad de la organización.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage individual access
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: ceecfd317322f65541591f833c04f86d5b483c0e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148110027'
 ---
+{% data reusables.projects.project_boards_old %}
 
 {% note %}
 
-**Nota:** {% data reusables.project-management.cascading-permissions %} Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)."
+**Nota:** {% data reusables.project-management.cascading-permissions %} Para más información, consulta "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)". 
 
 {% endnote %}
 
-### Otorgarle acceso a un miembro de la organización a un tablero de proyecto
+## Concesión a un miembro de la organización de acceso a una instancia de {% data variables.projects.projects_v1_board %}
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.organization-wide-project %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.collaborator-option %}
-9. Debajo de "Search by username, full name or email address" (Buscar por nombre de usuario, nombre completo o dirección de correo electrónico), escribe el nombre, el nombre de usuario o el correo electrónico del colaborador {% data variables.product.prodname_dotcom %}. ![La sección Collaborators (Colaboradores) con el nombre de usuario de Octocat ingresado en el campo de búsqueda](/assets/images/help/projects/org-project-collaborators-find-name.png)
-{% data reusables.project-management.add-collaborator %}
-{% data reusables.project-management.collaborator-permissions %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Haz clic en **Proyectos (clásico)** {% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %}
+9. Debajo de "Search by username, full name or email address" (Buscar por nombre de usuario, nombre completo o dirección de correo electrónico), escribe el nombre, el nombre de usuario o el correo electrónico del colaborador {% data variables.product.prodname_dotcom %}.
+   ![La sección Collaborators con el nombre de usuario de Octocat escrito en el campo de búsqueda](/assets/images/help/projects/org-project-collaborators-find-name.png) {% data reusables.project-management.add-collaborator %} {% data reusables.project-management.collaborator-permissions %}
 
-### Cambiar el acceso de un miembro de la organización a un tablero de proyecto
+## Cambio del acceso de un miembro de la organización a una instancia de {% data variables.projects.projects_v1_board %}
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.organization-wide-project %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.collaborator-option %}
-{% data reusables.project-management.collaborator-permissions %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Haz clic en **Proyectos (clásico)** {% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %} {% data reusables.project-management.collaborator-permissions %}
 
-### Eliminar el acceso de un miembro de la organización a un tablero de proyecto
+## Eliminación del acceso de un miembro de la organización a una instancia de {% data variables.projects.projects_v1_board %}
 
-Cuando eliminas a un colaborador de un tablero de proyecto, es posible que conserve acceso a un tablero en base a los permisos que tiene por otros roles. Para eliminar de forma completa el acceso a un tablero de proyecto, debes eliminar el acceso para cada rol que tenga esa persona. Por ejemplo, una persona puede tener acceso al tablero de proyecto como miembro de la organización o miembro del equipo. Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+Cuando eliminas a un colaborador de una instancia de {% data variables.projects.projects_v1_board %}, es posible que conserve acceso al un tablero según los permisos que tenga para otros roles. Para eliminar definitivamente el acceso a una instancia de {% data variables.projects.projects_v1_board %}, debes eliminar el acceso para cada rol que tenga ese usuario. Por ejemplo, un usuario puede tener acceso a la instancia de {% data variables.projects.projects_v1_board %} como miembro de una organización o un equipo. Para más información, consulta "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.organization-wide-project %}
-{% data reusables.project-management.select-project %}
-{% data reusables.project-management.click-menu %}
-{% data reusables.project-management.access-collaboration-settings %}
-{% data reusables.project-management.collaborator-option %}
-{% data reusables.project-management.remove-collaborator %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
+1. Haz clic en **Proyectos (clásico)** {% endif %} {% data reusables.project-management.select-project %} {% data reusables.project-management.click-menu %} {% data reusables.project-management.access-collaboration-settings %} {% data reusables.project-management.collaborator-option %} {% data reusables.project-management.remove-collaborator %}
 
-### Leer más
+## Información adicional
 
-- [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"
+- "[Permisos de {% data variables.product.prodname_project_v1_caps %} para una organización](/articles/project-board-permissions-for-an-organization)".

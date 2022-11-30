@@ -5,25 +5,33 @@ redirect_from:
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+shortTitle: Configure server for webhooks
+ms.openlocfilehash: c306cadf4dd8d9cd573d694419a51179c8995797
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132983'
 ---
-webhookがメッセージを配信する準備ができたので、受信するペイロードを処理するための基本的なSinatraサーバーをセットアップしましょう。
+Webhook でメッセージを配信する準備ができたので、受信ペイロードを処理する基本的な Sinatra サーバーをセットアップします。
 
 {% note %}
 
-**Note:** You can download the complete source code for this project [from the platform-samples repo][platform samples].
+**注:** このプロジェクトの完全なソース コードは、[platform-samples リポジトリ][platform samples]からダウンロードできます。
 
 {% endnote %}
 
-### サーバーの作成
+## サーバーの作成
 
-サーバーを`/payload`で`POST`リクエストに対して待ち受けさせたいですが、これはGitHubにそこがwebhookのURLだと伝えたからです。 Because we're using ngrok to expose our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
+サーバーが `/payload` で `POST` 要求をリッスンするようにします。これは、GitHub にそこが Webhook の URL だと伝えたからです。 ここでは `ngrok` を使ってローカル環境を公開しているため、オンラインのどこかに実際のサーバーをセットアップする必要はなく、ローカルでコードを問題なくテストすることができます。
 
-小さなSinatraのアプリケーションをセットアップして、この情報で何かをさせてみましょう。 初期のセットアップは以下のようになるでしょう。
+小さなSinatraのアプリケーションをセットアップして、この情報で何かをさせてみましょう。 初期のセットアップは以下のようになります。
 
 ``` ruby
 require 'sinatra'
@@ -35,11 +43,11 @@ post '/payload' do
 end
 ```
 
-(Sinatraの仕組みに詳しくない方は、[Sinatraのガイド][Sinatra]を読むことをお勧めします。)
+(Sinatra のしくみに詳しくない場合は、[Sinatra ガイド][Sinatra]を読むことをお勧めします。)
 
 このサーバーを起動してください。
 
-Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new issue on the repository you're testing with. 作成できたら、ターミナルに戻ってください。 以下のような出力があるでしょう。
+`Issues` を処理するイベントをリッスンするように Webhook をセットアップしたので、先に進んで、テストしているリポジトリに新しい Issue を作成します。 作成したら、ターミナルに戻ります。 以下のような出力があるでしょう。
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb
@@ -50,9 +58,9 @@ $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.
 > I got some JSON: {"action"=>"opened", "issue"=>{"url"=>"...
 ```
 
-成功です! webhookを待ち受けるようにサーバーを設定することに成功しました。 これでサーバーは、適切だと考えられる方法でこの情報を処理できるようになりました。 たとえば、「本物の」Webアプリケーションをセットアップしているなら、JSONの出力をデータベースに記録したいかもしれません。
+成功です。 webhookを待ち受けるようにサーバーを設定することに成功しました。 サーバーで、この情報を適切な方法で処理できるようになりました。 たとえば、"実際の" Web アプリケーションをセットアップしている場合は、JSON 出力の一部をデータベースにログできます。
 
-楽しみと利益のためにwebhookを扱うための追加情報については、[webhookのテスト](/webhooks/testing)ガイドを参照してください。
+楽しく利益を得るために Webhook を操作する方法の詳細については、[Webhook のテスト](/webhooks/testing)のガイドに進んでください。
 
 [platform samples]: https://github.com/github/platform-samples/tree/master/hooks/ruby/configuring-your-server
 [Sinatra]: http://www.sinatrarb.com/

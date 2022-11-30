@@ -1,28 +1,32 @@
 ---
-title: Rendering data as graphs
-intro: Learn how to visualize the programming languages from your repository using the D3.js library and Ruby Octokit.
+title: 데이터를 그래프로 렌더링
+intro: D3.js 라이브러리 및 Ruby Octokit를 사용하여 리포지토리에서 프로그래밍 언어를 시각화하는 방법을 알아봅니다.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+ms.openlocfilehash: e613c2f707db1030b9e2e5c40de98f2628c0ca3b
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147878374'
 ---
- 
+이 가이드에서는 API를 사용하여 소유한 리포지토리 및 이를 구성하는 프로그래밍 언어에 대한 정보를 페치합니다. 그런 다음, [D3.js][D3.js] 라이브러리를 사용하여 몇 가지 다른 방법으로 해당 정보를 시각화합니다. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API와 상호 작용하려면 우수한 Ruby 라이브러리인 [Octokit][Octokit]를 사용합니다.
 
+아직 읽지 않은 경우 이 예제를 시작하기 전에 [“인증 기본 사항”][basics-of-authentication] 가이드를 읽어야 합니다. [platform-samples][platform samples] 리포지토리에서 이 프로젝트에 대한 전체 소스 코드를 찾을 수 있습니다.
 
-In this guide, we're going to use the API to fetch information about repositories that we own, and the programming languages that make them up. Then, we'll visualize that information in a couple of different ways using the [D3.js][D3.js] library. To interact with the {% data variables.product.product_name %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
+지금 바로 시작하겠습니다!
 
-If you haven't already, you should read the ["Basics of Authentication"][basics-of-authentication] guide before starting this example. You can find the complete source code for this project in the [platform-samples][platform samples] repository.
+## OAuth 애플리케이션 설정
 
-Let's jump right in!
-
-### Setting up an OAuth application
-
-First, [register a new application][new oauth application] on {% data variables.product.product_name %}. Set the main and callback URLs to `http://localhost:4567/`. As [before][basics-of-authentication], we're going to handle authentication for the API by implementing a Rack middleware using [sinatra-auth-github][sinatra auth github]:
+먼저 {% data variables.product.product_name %}에 [새 애플리케이션을 등록][new oauth application] 합니다. 기본 및 콜백 URL을 `http://localhost:4567/`로 설정합니다. [이전][basics-of-authentication]과 마찬가지로 [sinatra-auth-github][sinatra auth github]를 사용하여 랙 미들웨어를 구현하여 API에 대한 인증을 처리하려고 합니다.
 
 ``` ruby
 require 'sinatra/auth/github'
@@ -61,7 +65,7 @@ module Example
 end
 ```
 
-Set up a similar _config.ru_ file as in the previous example:
+이전 예제와 유사한 _config.ru_ 파일을 설정합니다.
 
 ``` ruby
 ENV['RACK_ENV'] ||= 'development'
@@ -73,11 +77,11 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### Fetching repository information
+## 리포지토리 정보 페치
 
-This time, in order to talk to the {% data variables.product.product_name %} API, we're going to use the [Octokit Ruby library][Octokit]. This is much easier than directly making a bunch of REST calls. Plus, Octokit was developed by a GitHubber, and is actively maintained, so you know it'll work.
+이번에는 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API와 통신하기 위해 [Octokit Ruby 라이브러리][Octokit]를 사용합니다. 이는 REST 호출을 직접 만드는 것보다 훨씬 쉽습니다. 또한 Octokit는 GitHubber에 의해 개발되었으며 활발하게 유지 관리되므로 작동에는 문제가 없습니다.
 
-Authentication with the API via Octokit is easy. Just pass your login and token to the `Octokit::Client` constructor:
+Octokit를 통해 API로 인증하는 것은 쉽습니다. 로그인 및 토큰을 `Octokit::Client` 생성자에 전달하기만 하면 됩니다.
 
 ``` ruby
 if !authenticated?
@@ -87,13 +91,14 @@ else
 end
 ```
 
-Let's do something interesting with the data about our repositories. We're going to see the different programming languages they use, and count which ones are used most often. To do that, we'll first need a list of our repositories from the API. With Octokit, that looks like this:
+리포지토리에 대한 데이터로 흥미로운 작업을 수행해 보겠습니다. 사용하는 다양한 프로그래밍 언어를 확인하고 어떤 것이 가장 자주 사용되는지 계산합니다. 이렇게 하려면 먼저 API의 리포지토리 목록이 필요합니다.
+Octokit에서는 다음과 같습니다.
 
 ``` ruby
 repos = client.repositories
 ```
 
-Next, we'll iterate over each repository, and count the language that {% data variables.product.product_name %} associates with it:
+다음으로 각 리포지토리를 반복하고 {% data variables.product.product_name %}이 연결된 언어를 계산합니다.
 
 ``` ruby
 language_obj = {}
@@ -111,19 +116,20 @@ end
 languages.to_s
 ```
 
-When you restart your server, your web page should display something that looks like this:
+서버를 다시 시작하면 웹 페이지에 다음과 같은 내용이 표시됩니다.
 
 ``` ruby
 {"JavaScript"=>13, "PHP"=>1, "Perl"=>1, "CoffeeScript"=>2, "Python"=>1, "Java"=>3, "Ruby"=>3, "Go"=>1, "C++"=>1}
 ```
 
-So far, so good, but not very human-friendly. A visualization would be great in helping us understand how these language counts are distributed. Let's feed our counts into D3 to get a neat bar graph representing the popularity of the languages we use.
+지금까지는 좋았지만, 인간 친화적이진 않습니다. 시각화는 이러한 언어 계산이 배포되는 방식을 이해하는 데 도움이 됩니다. 사용하는 언어의 인기를 나타내는 깔끔한 막대 그래프를 얻기 위해 D3에 카운트를 피드해 보겠습니다.
 
-### Visualizing language counts
+## 언어 개수 시각화
 
-D3.js, or just D3, is a comprehensive library for creating many kinds of charts, graphs, and interactive visualizations. Using D3 in detail is beyond the scope of this guide, but for a good introductory article, check out ["D3 for Mortals"][D3 mortals].
+D3.js(D3)는 다양한 종류의 차트, 그래프 및 대화형 시각화를 만들기 위한 포괄적인 라이브러리입니다.
+D3 사용을 자세히 살펴보는 것은 이 가이드에서 다루지 않습니다. 좋은 소개 문서는 [“일반인을 위한 D3”][D3 mortals]을 확인하세요.
 
-D3 is a JavaScript library, and likes working with data as arrays. So, let's convert our Ruby hash into a JSON array for use by JavaScript in the browser.
+D3은 JavaScript 라이브러리이며 데이터를 배열로 사용하는 것을 좋아합니다. 따라서 브라우저에서 JavaScript에서 사용할 JSON 배열로 Ruby 해시를 변환해 보겠습니다.
 
 ``` ruby
 languages = []
@@ -134,9 +140,10 @@ end
 erb :lang_freq, :locals => { :languages => languages.to_json}
 ```
 
-We're simply iterating over each key-value pair in our object and pushing them into a new array. The reason we didn't do this earlier is because we didn't want to iterate over our `language_obj` object while we were creating it.
+개체의 각 키-값 쌍을 반복하여 새 배열로 푸시하기만 하면 됩니다. 앞서 이 작업을 수행하지 않은 이유는 개체를 만드는 동안 `language_obj` 개체를 반복하고 싶지 않았기 때문입니다.
 
-Now, _lang_freq.erb_ is going to need some JavaScript to support rendering a bar graph. For now, you can just use the code provided here, and refer to the resources linked above if you want to learn more about how D3 works:
+이제 _lang_freq.erb_ 는 막대 그래프 렌더링을 지원하기 위해 일부 JavaScript가 필요합니다.
+지금은 여기에 제공된 코드를 사용하고 D3 작동 방식에 대해 자세히 알아보려면 위에 연결된 리소스를 참조할 수 있습니다.
 
 ``` html
 <!DOCTYPE html>
@@ -217,15 +224,15 @@ Now, _lang_freq.erb_ is going to need some JavaScript to support rendering a bar
 </html>
 ```
 
-Phew! Again, don't worry about what most of this code is doing. The relevant part here is a line way at the top--`var data = <%= languages %>;`--which indicates that we're passing our previously created `languages` array into ERB for manipulation.
+휴우! 다시 말하지만, 이 코드의 대부분이 수행하는 작업에 대해 걱정하지 마세요. 여기서 관련 부분은 맨 위에 있는 선 방식입니다. `var data = <%= languages %>;` 이는 이전에 만든 `languages` 배열을 조작을 위해 ERB에 전달하고 있음을 나타냅니다.
 
-As the "D3 for Mortals" guide suggests, this isn't necessarily the best use of D3. But it does serve to illustrate how you can use the library, along with Octokit, to make some really amazing things.
+“일반인을 위한 D3” 가이드에 나와 있듯이, 이것이 반드시 D3을 가장 잘 사용하는 것은 아닙니다. 하지만 그것은 어떻게 Octokit와 함께 라이브러리를 사용해서 정말 놀라운 것들을 만들 수 있는지를 보여 주는 역할을 합니다.
 
-### Combining different API calls
+## 다른 API 호출 결합
 
-Now it's time for a confession: the `language` attribute within repositories only identifies the "primary" language defined. That means that if you have a repository that combines several languages, the one with the most bytes of code is considered to be the primary language.
+이제 고백할 차례입니다. 리포지토리 내의 `language` 특성은 정의된 “기본” 언어만 식별합니다. 즉, 여러 언어를 결합하는 리포지토리가 있는 경우 코드 바이트가 가장 많은 리포지토리가 기본 언어로 간주됩니다.
 
-Let's combine a few API calls to get a _true_ representation of which language has the greatest number of bytes written across all our code. A [treemap][D3 treemap] should be a great way to visualize the sizes of our coding languages used, rather than simply the count. We'll need to construct an array of objects that looks something like this:
+몇 가지 API 호출을 결합하여 모든 코드에 기록된 바이트 수가 가장 많은 언어를 _실제로_ 표현해 보겠습니다. [트리맵][D3 treemap]은 단순히 개수가 아니라 사용되는 코딩 언어의 크기를 시각화하는 좋은 방법이어야 합니다. 다음과 같은 개체 배열을 구성해야 합니다.
 
 ``` json
 [ { "name": "language1", "size": 100},
@@ -234,7 +241,7 @@ Let's combine a few API calls to get a _true_ representation of which language h
 ]
 ```
 
-Since we already have a list of repositories above, let's inspect each one, and call [the language listing API method][language API]:
+위 리포지토리 목록이 이미 있으므로 각 리포지토리를 검사하고 [API 메서드를 나열하는 언어][language API]를 호출해 보겠습니다.
 
 ``` ruby
 repos.each do |repo|
@@ -243,7 +250,7 @@ repos.each do |repo|
 end
 ```
 
-From there, we'll cumulatively add each language found to a list of languages:
+여기에서 찾은 각 언어를 언어 목록에 누적적으로 추가합니다.
 
 ``` ruby
 repo_langs.each do |lang, count|
@@ -255,7 +262,7 @@ repo_langs.each do |lang, count|
 end
 ```
 
-After that, we'll format the contents into a structure that D3 understands:
+그런 다음, D3에서 이해할 수 있는 구조로 콘텐츠의 형식을 지정합니다.
 
 ``` ruby
 language_obj.each do |lang, count|
@@ -266,15 +273,15 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(For more information on D3 tree map magic, check out [this simple tutorial][language API].)
+(D3 트리 맵 매직에 대한 자세한 내용은 [이 간단한 자습서][language API]를 확인하세요.)
 
-To wrap up, we pass this JSON information over to the same ERB template:
+래핑을 위해 이 JSON 정보를 동일한 ERB 템플릿에 전달합니다.
 
 ``` ruby
 erb :lang_freq, :locals => { :languages => languages.to_json, :language_byte_count => language_bytes.to_json}
 ```
 
-Like before, here's a bunch of JavaScript that you can drop directly into your template:
+이전과 마찬가지로 템플릿에 직접 드롭할 수 있는 JavaScript는 다음과 같습니다.
 
 ``` html
 <div id="byte_freq"></div>
@@ -324,18 +331,16 @@ Like before, here's a bunch of JavaScript that you can drop directly into your t
 </script>
 ```
 
-Et voila! Beautiful rectangles containing your repo languages, with relative proportions that are easy to see at a glance. You might need to tweak the height and width of your treemap, passed as the first two arguments to `drawTreemap` above, to get all the information to show up properly.
+자, 보세요! 한눈에 보기 쉬운 상대적 비율이 포함된 리포지토리 언어를 포함하는 아름다운 사각형입니다. 모든 정보가 제대로 표시되도록 하려면 위의 `drawTreemap`에 처음 두 인수로 전달된 트리 맵의 높이와 너비를 조정해야 할 수 있습니다.
 
 
 [D3.js]: http://d3js.org/
 [basics-of-authentication]: /rest/guides/basics-of-authentication
-[basics-of-authentication]: /rest/guides/basics-of-authentication
 [sinatra auth github]: https://github.com/atmos/sinatra_auth_github
 [Octokit]: https://github.com/octokit/octokit.rb
-[Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html 
 [language API]: /rest/reference/repos#list-repository-languages
-[language API]: /rest/reference/repos#list-repository-languages
+[simple tree map]: http://2kittymafiasoftware.blogspot.com/2011/09/simple-treemap-visualization-with-d3.html
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

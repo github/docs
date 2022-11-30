@@ -1,7 +1,15 @@
-1. On user-owned forks, if you do not want to allow anyone with push access to the upstream repository to make changes to your pull request, unselect **Allow edits from maintainers**.
+---
+ms.openlocfilehash: 3c71b4f4d9bfae794b8325c01d85db55f91c2fa8
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882870"
+---
+1. Если вы хотите разрешить любому пользователю с правами доступа на отправку к вышестоящему репозиторию вносить изменения в ваш запрос на вытягивание в принадлежащих пользователю вилках, выберите **Разрешить изменения от координаторов**.
 
     {% warning %}
 
-    **Warning:** If your fork contains {% data variables.product.prodname_actions %} workflows, the option is  **Allow edits and access to secrets by maintainers**. Allowing edits on a fork's branch that contains {% data variables.product.prodname_actions %} workflows also allows a maintainer to edit the forked repository's workflows, which can potentially reveal values of secrets and grant access to other branches.
+    **Предупреждение**. Если вилка содержит рабочие процессы {% data variables.product.prodname_actions %}, этот параметр будет называться **Разрешить координаторам редактирование и доступ к секретам**. Если разрешено редактирование в ветви вилки, которая содержит рабочие процессы {% data variables.product.prodname_actions %}, координаторы также смогут изменять рабочие процессы разветвленного репозитория, что может привести к раскрытию значений секретов и получению доступа к другим ветвям.
 
     {% endwarning %}

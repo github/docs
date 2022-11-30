@@ -1,168 +1,263 @@
----
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
-  contact: 연락처
+  contact: Contact
   notices:
-    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
-    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'''
-    localization_complete: 문서에 대한 업데이트가 자주 게시되며, 이 페이지의 번역이 아직 진행 중일 수 있습니다. 최신 정보는<a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오. 이 페이지에서 번역에 문제가 있는 경우 <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">알려주십시오</a>.
-    localization_in_progress: 안녕하세요! 이 페이지는 현재 개발 중이거나 아직 번역 중입니다. 정확한 최신 정보를 확인하려면 <a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오.
-    early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
-    ghes_release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
-    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+    ghae_silent_launch: GitHub AE is currently under limited release.
+    release_candidate:
+      # The version name is rendered before the below text via includes/header-notification.html
+      ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
+    localization_complete:
+      We publish frequent updates to our documentation, and translation of this page may still be in progress.
+      For the most current information, please visit the
+      <a id="to-english-doc" href="/en">English documentation</a>.
+    early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
+    release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+    # GHES release notes
+    ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
+    ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
+    ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
+  sign_up_cta: Sign up
+picker:
+  language_picker_default_text: Choose a language
+  product_picker_default_text: All products
+  version_picker_default_text: Choose a version
+release_notes:
+  banner_text: GitHub began rolling these changes out to enterprises on
 search:
-  need_help: 도움이 필요하십니까?
-  placeholder: 검색 주제, 제품...
+  need_help: Need help?
+  placeholder: Search GitHub Docs
+  loading: Loading
+  no_results: No results found
+  search_results_for: Search results for
+  no_content: No content
+  matches_found: Results found
+  matches_displayed: Matches displayed
+  search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
+  results_found: Found {n} results in {s}ms
+  results_page: This is page {page} of {pages}.
+  nothing_found: Nothing found 😿
 homepage:
-  explore_by_product: 제품별 탐색
-  version_picker: 버전
+  explore_by_product: Explore by product
+  version_picker: Version
+  description: Help for wherever you are on your GitHub journey.
 toc:
-  getting_started: 시작하기
+  getting_started: Getting started
   popular: Popular
-  guides: 안내서
+  guides: Guides
   whats_new: What's new
+  videos: Videos
+  all_changelogs: All changelog posts
 pages:
-  article_version: '문서 버전:'
-  miniToc: 기사 내용
+  article_version: 'Article version'
+  miniToc: In this article
+  contributor_callout: This article is contributed and maintained by
+  all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
+  permissions_statement: Who can use this feature
 errors:
-  oops: 이런!
-  something_went_wrong: 뭔가 잘못된 것 같습니다.
-  we_track_errors: 우리는 자동으로 이러한 오류를 추적하지만, 문제가 지속되면 저희에게 연락 주시기 바랍니다.
-  page_doesnt_exist: 이 페이지가 존재하지 않는 것처럼 보입니다.
+  oops: Ooops!
+  something_went_wrong: It looks like something went wrong.
+  we_track_errors: We track these errors automatically, but if the problem persists please feel free to contact us.
+  page_doesnt_exist: It looks like this page doesn't exist.
 support:
   still_need_help: Still need help?
   contact_support: Contact support
   ask_community: Ask the GitHub community
-helpfulness:
-  able_to_find: 이 문서가 도움이 되었습니까?
-  yes: true
-  no: false
-  yes_feedback: 새로운 문서 기능 및 업데이트에 대해 배우고 싶으십니까? 업데이트에 가입하십시오!
+survey:
+  able_to_find: Did this doc help you?
+  yes: Yes
+  no: No
+  comment_yes_label: Let us know what we do well
+  comment_no_label: Let us know what we can do better
+  optional: Optional
+  required: Required
   email_placeholder: email@example.com
-  no_feedback: 지속적으로 문서를 개선하고 있습니다. 더욱 잘 개선할 수 있도록 고객의 의견을 듣고 싶습니다.
-  comment_label: 개선할 점을 알려주십시오.
-  optional: 선택 사항
-  required: 필수 사항
-  email_label: 더 많은 질문이 생기면 연락드려도 되겠습니까?
-  send: 보내기
-  feedback: 감사합니다! 고객님의 피드백이 제출되었습니다.
+  email_label: If we can contact you with more questions, please enter your email address
+  email_validation: Please enter a valid email address
+  send: Send
+  feedback: Thank you! We received your feedback.
+  not_support: If you need a reply, please contact support instead.
+  privacy_policy: Privacy policy
 contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
   button: Make a contribution
   or: Or,
   to_guidelines: learn how to contribute.
+parameter_table:
+  body: Body parameters
+  default: Default
+  description: Description
+  enum_description_title: Can be one of
+  headers: Headers
+  name: Name
+  path: Path parameters
+  query: Query parameters
+  required: Required
+  see_preview_notice: See preview notice
+  see_preview_notices: See preview notices
+  type: Type
+  single_enum_description: Value
 products:
   graphql:
     reference:
-      fields: 필드
-      arguments: 인자
-      name: 이름
-      type: 유형
-      description: 설명
-      input_fields: 입력 필드
-      return_fields: 반환 필드
-      implemented_by: 구현자
-      values: 값
-      possible_types: 가능한 유형
-      preview_notice: 미리 보기 알림
-      deprecation_notice: 감하 통지
+      implements: Implements
+      fields: Fields
+      arguments: Arguments
+      name: Name
+      type: Type
+      description: Description
+      input_fields: Input fields
+      return_fields: Return fields
+      implemented_by: Implemented by
+      values: Values
+      possible_types: Possible types
+      preview_notice: Preview notice
+      deprecation_notice: Deprecation notice
+      preview_period: During the preview period, the API may change without notice.
+    overview:
+      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
+      preview_schema_members: 'Previewed schema members'
+      announced: Announced
+      updates: Updates
   rest:
+    banner:
+      api_versioned: The REST API is now versioned.
+      api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>".
+      ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
+    versioning:
+      about_versions: About REST API versions
     reference:
-      parameters: 매개변수
-      response: 응답
-      code_sample: 코드 샘플
-      code_samples: 코드 샘플
-      preview_notice: 미리 보기 알림
-      preview_notices: 미리 보기 알림
-      see_preview_notice: 미리 보기 알림 참조
-      see_preview_notices: 미리 보기 알림 참조
-      preview_header_is_required: 이 헤더는 <strong>필수</strong>입니다.
+      in: In
+      description: Description
+      notes: Notes
+      parameters: Parameters
+      response: Response
+      example_response: Example response
+      status_code: Status code
+      http_status_code: HTTP response status codes
+      code_sample: Code sample
+      code_samples: Code samples
+      preview_notice: Preview notice
+      preview_notices: Preview notices
+      preview_header_is_required: This header is <strong>required</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with: Works with
+      api_reference: REST API reference
+      enum_description_title: Can be one of
+      required: Required
+      headers: Headers
+      query: Query parameters
+      path: Path parameters
+      body: Body parameters
+  webhooks:
+    action_type_switch_error: There was an error switching webhook action types.
+    action_type: Action type
+    availability: Availability
+    webhook_payload_object: Webhook payload object
+    webhook_payload_example: Webhook payload example
+    rephrase_availability:
+      repository: Repositories
+      organization: Organizations
+      app: GitHub Apps
+      business: Enterprises
+      marketplace: GitHub Marketplace
+      sponsors_listing: Sponsored accounts
 footer:
-  all_rights_reserved: 모든 권리 보유
-  terms: 약관
-  privacy: 개인 정보 보호
-  security: 보안
+  all_rights_reserved: All rights reserved
+  terms: Terms
+  privacy: Privacy
+  security: Security
   product:
-    heading: 제품
+    heading: Product
     links:
-      features: 기능
-      security: 보안
+      features: Features
+      security: Security
       enterprise: Enterprise
-      case_studies: 사례 연구
-      pricing: 가격 책정
-      resources: 리소스
+      case_studies: Case Studies
+      pricing: Pricing
+      resources: Resources
   platform:
-    heading: 플랫폼
+    heading: Platform
     links:
-      developer_api: 개발자 API
-      partners: 파트너
+      developer_api: Developer API
+      partners: Partners
       atom: Atom
       electron: Electron
       github_desktop: GitHub Desktop
   support:
-    heading: 지원
+    heading: Support
     links:
       help: Help
-      community_forum: 커뮤니티 포럼
-      training: 연습
-      status: 상태
-      contact_github: GitHub에 문의하기
+      community_forum: Community Forum
+      training: Training
+      status: Status
+      contact_github: Contact GitHub
   company:
-    heading: 회사
+    heading: Company
     links:
-      about: 정보
-      blog: 블로그
-      careers: 채용
-      press: 보도 자료
-      shop: 쇼핑
+      about: About
+      blog: Blog
+      careers: Careers
+      press: Press
+      shop: Shop
 product_landing:
   quickstart: Quickstart
   reference: Reference
-  overview: 개요
-  guides: 안내서
+  overview: Overview
+  guides: Guides
   code_examples: Code examples
   search_code_examples: Search code examples
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   show_more: Show more
   explore_people_and_projects: Explore people and projects
   sorry: Sorry, there is no result for
   no_example: It looks like we don't have an example that fits your filter.
   try_another: Try another filter or add your code example.
-  no_result: Sorry, there is no guide that match your filter.
+  no_result: Sorry, there are no guides that match your filter.
   learn: Learn how to add a code example
-  communities_using_discussions: Communities using discussions
+  communities_using_discussions: Communities on GitHub.com using discussions
   add_your_community: Add your community
   sponsor_community: GitHub Sponsors community
   supported_releases: Supported releases
   release_notes_for: Release notes for
   upgrade_from: Upgrade from
   browse_all_docs: Browse all docs
+  browse_all: Browse all
+  docs: docs
   explore_release_notes: Explore release notes
-product_sublanding:
-  start: Start
-  start_path: Start path
+  view: View all
+product_guides:
+  start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: more guides
   load_more: Load more guides
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  filter_instructions: Filter the guide list using these controls
   filters:
-    type: 유형
+    type: Type
     topic: Topic
     all: All
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
-    overview: 개요
+    overview: Overview
     quick_start: Quickstart
-    tutorial: 튜토리얼
+    tutorial: Tutorial
     how_to: How-to guide
     reference: Reference
 learning_track_nav:
   prevGuide: Previous guide
   nextGuide: Next guide
-contributor_callout: This article is contributed and maintained by
 toggle_images:
   off: Images are off, click to show
   on: Images are on, click to hide

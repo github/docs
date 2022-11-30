@@ -1,6 +1,14 @@
-    - Choose **Accounts** to add or remove a {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} account.
-    - Choose **Integrations** to pick an external editor or shell.
-    - Choose **Git** to edit your Git configuration.
-    - Choose **Appearance** to switch between the light or dark theme.
-    - Choose **Prompts** to enable or disable confirmation dialogs before performing destructive actions.
-    - Choose **Advanced** for more configuration options.
+---
+ms.openlocfilehash: 1830b28932a5480c65bc0f28cef13ccd93d60fb1
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881678"
+---
+    - Выберите **Учетные записи** для добавления или удаления учетной записи {% data variables.product.prodname_dotcom %} либо {% data variables.product.prodname_enterprise %}.
+    - Выберите **Интеграции**, чтобы выбрать внешний редактор или оболочку.
+    - Выберите **Git**, чтобы изменить конфигурацию Git.
+    - Выберите **Внешний вид**, чтобы переключаться между светлой и темной темами.
+    - Выберите **Запросы**, чтобы включить или отключить диалоговые окна подтверждения перед выполнением разрушительных действий.
+    - Выберите **Дополнительно** для получения дополнительных параметров конфигурации.

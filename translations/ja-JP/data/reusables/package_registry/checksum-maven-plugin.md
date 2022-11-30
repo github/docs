@@ -1,5 +1,13 @@
-{%- if currentVersion == "github-ae@latest" %}
-1. *pom.xml*ファイルの`plugins`要素に[checksum-maven-plugin](http://checksum-maven-plugin.nicoulaj.net/index.html)プラグインを追加し、そのプラグインを最低でもSHA-256のチェックサムを送信するように設定してください。
+---
+ms.openlocfilehash: 2ca2056a8941ee42d41803dd0e8570c1e2877a89
+ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878663"
+---
+{%- ifversion ghae %}
+1. *pom.xml* ファイルの `plugins` 要素で、[checksum-maven-plugin](https://search.maven.org/artifact/net.nicoulaj.maven.plugins/checksum-maven-plugin) プラグインを追加し、少なくとも SHA-256 チェックサムを送信するようにプラグインを構成します。
     ```xml
     <plugins>
         <plugin>

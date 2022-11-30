@@ -1,1 +1,10 @@
-1. Under {% octicon "law" aria-label="The law icon" %} **Policies**, click "Advanced Security." !["Advanced Security" policies in sidebar](/assets/images/help/enterprises/click-advanced-security.png)
+---
+ms.openlocfilehash: 8b90f1c0cf1a5e3a2fc45b5b8a578ad639cd6c83
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145096827"
+---
+1. Em {% octicon "law" aria-label="The law icon" %} **Políticas**, clique em "Segurança Avançada".
+  ![Políticas de "Segurança Avançada" na barra lateral](/assets/images/help/enterprises/click-advanced-security.png)

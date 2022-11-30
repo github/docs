@@ -1,15 +1,16 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" and currentVersion ver_lt "enterprise-server@3.1" %}
+---
+ms.openlocfilehash: dd38b5506d6696876419f48fada5abbfe373d21c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145121394"
+---
+{% ifversion fpt or ghes or ghae %}
+
 {% note %}
 
-**Nota:** Los tokens de usuario con caducidad son actualmente parte del beta de tokens de usuario a servidor y están sujetos a cambios. Para decidir unirse a la característica beta de vigencia determinada de los tokens de usuario a servidor, consulta la sección "[Activar las características opcionales para las apps](/developers/apps/activating-optional-features-for-apps)". Para obtener más información, consulta la sección "[Tokens de acceso con caducidad de usuario a servidor para las GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)".
-
-{% endnote %}
-
-{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-
-{% note %}
-
-**Nota:** Los tokens de usuario con vigencia determinada actualmente son una característica opcional y están sujetos a cambios. Para decidir unirse a o salir de la característica de vigencia determinada de los tokens de usuario a servidor, consulta la sección "[Activar las características opcionales para las apps](/developers/apps/activating-optional-features-for-apps)". Para obtener más información, consulta la sección "[Tokens de acceso con caducidad de usuario a servidor para las GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)".
+**Nota:** Actualmente, los tokens de usuario con vigencia determinada son una característica opcional y están sujetos a cambios. Para participar o no en la característica de expiración de tokens de usuario a servidor, consulta [Activar las características opcionales para las apps](/developers/apps/activating-optional-features-for-apps). Para obtener más información, consulta [Tokens de acceso con caducidad de usuario a servidor para las GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps).
 
 {% endnote %}
 

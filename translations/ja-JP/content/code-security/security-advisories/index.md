@@ -1,24 +1,26 @@
 ---
-title: Managing security advisories for vulnerabilities in your project
-shortTitle: セキュリティアドバイザリ
-intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using security advisories.'
-redirect_from:
-  - /articles/managing-security-vulnerabilities-in-your-project
-  - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
+title: セキュリティ アドバイザリの使用
+shortTitle: Security advisories
+intro: '{% ifversion fpt or ghec %}既存のグローバル アドバイザリに貢献する場合、またはリポジトリのセキュリティ アドバイザリを作成する場合に、{% endif %}{% data variables.product.prodname_dotcom %} に関するセキュリティ アドバイザリを使い、リポジトリ保守管理者とセキュリティ研究者間のコラボレーションを強化する方法について説明します。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Repositories
+  - CVEs
 children:
-  - /about-coordinated-disclosure-of-security-vulnerabilities
-  - /about-github-security-advisories
-  - /permission-levels-for-security-advisories
-  - /creating-a-security-advisory
-  - /adding-a-collaborator-to-a-security-advisory
-  - /removing-a-collaborator-from-a-security-advisory
-  - /collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability
-  - /publishing-a-security-advisory
-  - /editing-a-security-advisory
-  - /withdrawing-a-security-advisory
+  - /global-security-advisories
+  - /repository-security-advisories
+  - /guidance-on-reporting-and-writing
+ms.openlocfilehash: a42c57006a05bd1fffc09c8241d22eddc67ed8f1
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148114147'
 ---
-### 目次
+

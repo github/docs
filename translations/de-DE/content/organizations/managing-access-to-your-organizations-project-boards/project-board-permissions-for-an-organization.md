@@ -1,44 +1,56 @@
 ---
-title: Projektboardberechtigungen für eine Organisation
-intro: 'Organisationsinhaber und Personen mit Projektboard-Administratorberechtigungen können anpassen, wer Lese-, Schreib- und Administratorberechtigungen für die Projektboards Deiner Organisation hat.'
+title: '{% data variables.product.prodname_project_v1_caps %}berechtigungen für eine Organisation'
+intro: 'Organisationsbesitzer und Personen mit {% data variables.projects.projects_v1_board %}-Administratorberechtigungen können anpassen, wer Lese-, Schreib- und Administratorberechtigungen für die {% data variables.projects.projects_v1_boards %} deiner Organisation hat.'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: '{% data variables.product.prodname_project_v1_caps %} permissions'
+allowTitleToDifferFromFilename: true
+ms.openlocfilehash: fbc3ec7db52d6b4a417a4e9e93aea9ae717e2fca
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147614207'
 ---
+{% data reusables.projects.project_boards_old %}
 
-### Überblick über die Berechtigungen
+## Zuweisen von Benutzerrollen und Berechtigungen
 
-Bei Projektboards gibt es für Benutzer und Teams drei Berechtigungsstufen:
+Es gibt drei Berechtigungsstufen für ein {% data variables.projects.projects_v1_board %} für Personen und Teams:
 
 {% data reusables.project-management.project-board-permissions %}
 
-Organisationsinhaber und Personen mit Administratorberechtigungen können einer Person den Zugriff auf ein Projektboard der Organisation als Einzelperson, als externer Mitarbeiter oder Organisationsmitglied oder über ihre Mitgliedschaft in einem Team oder einer Organisation gewähren. Ein externer Mitarbeiter ist eine Person, die kein Organisationsmitglied ist, aber die Berechtigungen für die Mitarbeit in Deiner Organisation besitzt.
+Organisationbesitzer*innen und Personen mit Administratorberechtigungen können einer Person den Zugriff auf ein {% data variables.projects.projects_v1_board %} der Organisation als Einzelperson, externe*r Mitarbeiter*in oder Organisationsmitglied oder über ihre Mitgliedschaft in einem Team oder einer Organisation gewähren. Externe Mitarbeiter*innen sind Personen, die kein Organisationsmitglied sind, aber die Berechtigungen für die Mitarbeit in deiner Organisation besitzen.
 
-Organisationsinhaber und Personen mit Administratorberechtigungen für ein Projektboard können außerdem Folgendes tun:
+Organisationsbesitzer*innen und Personen mit Administratorberechtigungen für ein {% data variables.projects.projects_v1_board %} können auch:
 - Standardberechtigungen für das Projektboard für alle Organisationsmitglieder festlegen
-- den Zugriff auf das Projektboard für Organisationsmitglieder, Teams und externe Mitarbeiter verwalten Weitere Informationen findest Du unter „[Teamzugriff auf ein Projektboard einer Organisation verwalten](/articles/managing-team-access-to-an-organization-project-board)“, „[Zugriff einer Einzelperson auf das Projektboard einer Organisation verwalten](/articles/managing-an-individual-s-access-to-an-organization-project-board)“ oder „[Zugriff auf ein Projektboard für Organisationsmitglieder verwalten](/articles/managing-access-to-a-project-board-for-organization-members),“
-- die Sichtbarkeit des Projektboards verwalten (siehe „[Zugriff auf ein Projektboard für Organisationsmitglieder verwalten](/articles/managing-access-to-a-project-board-for-organization-members)“)
+- den Zugriff auf das Projektboard für Organisationsmitglieder, Teams und externe Mitarbeiter verwalten Weitere Informationen findest du unter [Verwalten des Teamzugriffs auf das {% data variables.product.prodname_project_v1 %} einer Organisation](/articles/managing-team-access-to-an-organization-project-board), [Verwalten des Zugriffs einer Einzelperson auf das {% data variables.product.prodname_project_v1 %} einer Organisation ](/articles/managing-an-individual-s-access-to-an-organization-project-board) oder [Verwalten des Zugriffs auf ein {% data variables.product.prodname_project_v1 %} für Organisationsmitglieder](/articles/managing-access-to-a-project-board-for-organization-members).
+- die Sichtbarkeit des Projektboards verwalten Weitere Informationen findest du unter [Verwalten des Zugriffs auf ein {% data variables.product.prodname_project_v1 %} für Organisationsmitglieder](/articles/managing-access-to-a-project-board-for-organization-members).
 
-### Berechtigungen für Projektboards kaskadieren
+## Kaskadierende Berechtigungen für {% data variables.projects.projects_v1_boards %}
 
 {% data reusables.project-management.cascading-permissions %}
 
-Wenn ein Organisationsinhaber beispielsweise allen Organisationsmitgliedern Leseberechtigungen für ein Projektboard erteilt hat und ein Projektboard-Administrator einem Organisationsmitglied Schreibberechtigungen als einzelner Mitarbeiter für dieses Projektboard erteilt, würde diese Person Schreibberechtigungen für das Projektboard haben.
+Wenn ein*e Organisationsbesitzer*in z. B. allen Organisationsmitgliedern Leseberechtigungen für ein {% data variables.projects.projects_v1_board %} erteilt hat und ein*e {% data variables.projects.projects_v1_board %}administrator*in einem Organisationsmitglied für dieses Board Schreibberechtigungen als einzelne*r Mitarbeiter*in erteilt, hätte diese Person Schreibberechtigungen für das {% data variables.projects.projects_v1_board %}.
 
-### Sichtbarkeit des Projektboards
+## Sichtbarkeit von {% data variables.projects.projects_v1_board_caps %}s
 
-{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. Weitere Informationen finden Sie unter „[Sichtbarkeit des Projektboards ändern](/articles/changing-project-board-visibility)“.
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
-### Weiterführende Informationen
+{% data reusables.project-management.project-board-visibility %} Du kannst die Sichtbarkeit des {% data variables.projects.projects_v1_board %}s von privat in {% ifversion ghae %}intern{% else %}öffentlich{% endif %} und umgekehrt ändern. Weitere Informationen findest du unter [Ändern der Sichtbarkeit von {% data variables.product.prodname_project_v1 %}s](/articles/changing-project-board-visibility).
 
-- „[Sichtbarkeit des Projektboards ändern](/articles/changing-project-board-visibility)“
-- „[Zugriff einer Einzelperson auf das Projektboard einer Organisation verwalten](/articles/managing-an-individual-s-access-to-an-organization-project-board)“
-- „[Teamzugriff auf ein Projektboard einer Organisation verwalten](/articles/managing-team-access-to-an-organization-project-board)“
-- „[Zugriff auf ein Projektboard für Organisationsmitglieder verwalten](/articles/managing-access-to-a-project-board-for-organization-members)“
+## Weiterführende Themen
+
+- [Ändern der Sichtbarkeit von {% data variables.product.prodname_project_v1 %}s](/articles/changing-project-board-visibility).
+- [Verwalten des Zugriffs einer Einzelperson auf das {% data variables.product.prodname_project_v1 %} einer Organisation](/articles/managing-an-individual-s-access-to-an-organization-project-board)
+- [Verwalten des Teamzugriffs auf das {% data variables.product.prodname_project_v1 %} einer Organisation](/articles/managing-team-access-to-an-organization-project-board)
+- [Verwalten des Zugriffs auf ein {% data variables.product.prodname_project_v1 %} für Organisationsmitglieder](/articles/managing-access-to-a-project-board-for-organization-members).

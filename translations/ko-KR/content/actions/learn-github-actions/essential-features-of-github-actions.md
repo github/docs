@@ -3,9 +3,10 @@ title: Essential features of GitHub Actions
 shortTitle: Essential features
 intro: '{% data variables.product.prodname_actions %} are designed to help you build robust and dynamic automations. This guide will show you how to craft {% data variables.product.prodname_actions %} workflows that include environment variables, customized scripts, and more.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -13,13 +14,12 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 개요
+## Overview
 
 {% data variables.product.prodname_actions %} allow you to customize your workflows to meet the unique needs of your application and team. In this guide, we'll discuss some of the essential customization techniques such as using variables, running scripts, and sharing data and artifacts between jobs.
 
-### Using variables in your workflows
+##  Using variables in your workflows
 
 {% data variables.product.prodname_actions %} include default environment variables for each workflow run. If you need to use custom environment variables, you can set these in your YAML workflow file. This example demonstrates how to create custom variables named `POSTGRES_HOST` and `POSTGRES_PORT`. These variables are then available to the `node client.js` script.
 
@@ -36,7 +36,7 @@ jobs:
 
 For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)."
 
-### Adding scripts to your workflow
+## Adding scripts to your workflow
 
 You can use actions to run scripts and shell commands, which are then executed on the assigned runner. This example demonstrates how an action can use the `run` keyword to execute `npm install -g bats` on the runner.
 
@@ -60,9 +60,9 @@ jobs:
 
 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-### Sharing data between jobs
+## Sharing data between jobs
 
-If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artifacts are the files created when you build and test your code. For example, artifacts might include binary or package files, test results, screenshots, or log files. Artifacts are associated with the workflow run where they were created and can be used by another job.
+If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artifacts are the files created when you build and test your code. For example, artifacts might include binary or package files, test results, screenshots, or log files. Artifacts are associated with the workflow run where they were created and can be used by another job. {% data reusables.actions.reusable-workflow-artifacts %}
 
 For example, you can create a file and then upload it as an artifact.
 
@@ -75,7 +75,7 @@ jobs:
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: output-log-file
           path: output.log
@@ -88,13 +88,15 @@ jobs:
   example-job:
     steps:
       - name: Download a single artifact
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: output-log-file
 ```
 
+To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
+
 For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
 
-### 다음 단계
+## Next steps
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."

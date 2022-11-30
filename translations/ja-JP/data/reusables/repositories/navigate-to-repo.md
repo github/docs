@@ -1,1 +1,1 @@
-1. {% data variables.product.product_name %}で、リポジトリのメインページにアクセスしてください。
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository.

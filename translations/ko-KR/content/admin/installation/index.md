@@ -1,38 +1,32 @@
 ---
-title: 'Installing {% data variables.product.prodname_enterprise %}'
+title: '{% data variables.product.prodname_enterprise %} 설치'
 shortTitle: Installing
-intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
+intro: '시스템 관리자와 운영 및 보안 전문가는 {% data variables.product.prodname_ghe_server %}를 설치할 수 있습니다.'
 redirect_from:
-  - /enterprise/admin-guide/
-  - /enterprise/admin/guides/installation/
-  - /enterprise/admin/categories/customization/
-  - /enterprise/admin/categories/general/
-  - /enterprise/admin/categories/logging-and-monitoring/
+  - /enterprise/admin-guide
+  - /enterprise/admin/guides/installation
+  - /enterprise/admin/categories/customization
+  - /enterprise/admin/categories/general
+  - /enterprise/admin/categories/logging-and-monitoring
   - /enterprise/admin/installation
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Set up
+children:
+  - /setting-up-a-github-enterprise-server-instance
+ms.openlocfilehash: 3c68586dada3fc76733611ad7a05d4119102736e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145112599'
 ---
-
-For more information, or to purchase {% data variables.product.prodname_enterprise %}, see [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
+자세한 내용을 확인하거나 {% data variables.product.prodname_enterprise %}를 구매하려면 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)를 참조하세요.
 
 {% data reusables.enterprise_installation.request-a-trial %}
 
-If you have questions about the installation process, see "[Working with {% data variables.product.prodname_enterprise %} Support](/enterprise/admin/guides/enterprise-support/)."
-
-### Table of Contents
-
-
-{% topic_link_in_list /setting-up-a-github-enterprise-server-instance %}
-    {% link_in_list /installing-github-enterprise-server-on-aws %}
-    {% link_in_list /installing-github-enterprise-server-on-azure %}
-    {% link_in_list /installing-github-enterprise-server-on-google-cloud-platform %}
-    {% link_in_list /installing-github-enterprise-server-on-hyper-v %}
-    {% link_in_list /installing-github-enterprise-server-on-openstack-kvm %}
-    {% link_in_list /installing-github-enterprise-server-on-vmware %}
-    {% link_in_list /installing-github-enterprise-server-on-xenserver %}
-    {% link_in_list /setting-up-a-staging-instance %}
+설치 프로세스에 대한 질문이 있는 경우 “[{% data variables.product.prodname_enterprise %} 지원 작업](/enterprise/admin/guides/enterprise-support/)”을 참조하세요.

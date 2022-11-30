@@ -1,4 +1,12 @@
-We recommend using [Bundler](http://bundler.io/) to install and run Jekyll. Bundler manages Ruby gem dependencies, reduces Jekyll build errors, and prevents environment-related bugs. To install Bundler:
+---
+ms.openlocfilehash: 119dcaf20e07fe3c0f8d5c03245e6fc1b76a7a2f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145121592"
+---
+Мы рекомендуем использовать [Средство увязки программ в пакеты](http://bundler.io/) для установки и запуска Jekyll. Средство увязки программ в пакеты управляет зависимостями Ruby, уменьшает ошибки сборки Jekyll и предотвращает ошибки, связанные со средой. Чтобы установить Средство увязки программ в пакеты, выполните следующие действия.
 
- 1. Install Ruby. For more information, see "[Installing Ruby](https://www.ruby-lang.org/en/documentation/installation/)" in the Ruby documentation.
- 2. Install Bundler. For more information, see "[Bundler](https://bundler.io/)."
+ 1. Установите Ruby. Дополнительные сведения см. в разделе [Установка Ruby](https://www.ruby-lang.org/en/documentation/installation/) документации по Ruby.
+ 2. Установка Средства увязки программ в пакеты. Дополнительную информацию см. в разделе [Средство увязки программ в пакеты](https://bundler.io/).

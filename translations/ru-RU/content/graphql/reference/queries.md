@@ -1,37 +1,33 @@
 ---
-title: Queries
-miniTocMaxHeadingLevel: 2
+title: Запросы
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
   - /v4/reference/query
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: d5c31e8e00788d2e75f27b0bb161249f01fcfb1d
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109045'
 ---
+## Сведения о запросах
 
-### About queries
+Каждая схема GraphQL имеет корневой тип как для запросов, так и для изменений. [Тип запроса](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) определяет операции GraphQL, которые извлекают данные с сервера.
 
-Every GraphQL schema has a root type for both queries and mutations. The [query type](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) defines GraphQL operations that retrieve data from the server.
-
-For more information, see "[About queries](/graphql/guides/forming-calls-with-graphql#about-queries)."
+Дополнительные сведения см. в разделе [Сведения о запросах](/graphql/guides/forming-calls-with-graphql#about-queries).
 
 {% note %}
 
-**Note:** For [user-to-server](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} requests, you should use separate queries for issues and pull requests. For example, use the `is:issue` or `is:pull-request` filters and their equivalents. Using the `search` connection to return a combination of issues and pull requests in a single query will result in an empty set of nodes.
+**Примечание**. Для запросов {% data variables.product.prodname_github_app %} от [пользователя к серверу](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) следует использовать отдельные запросы для проблем и запросов на вытягивание. Например, используйте фильтры `is:issue` или `is:pull-request` и их эквиваленты. Использование соединения `search` для возврата сочетания проблем и запросов на вытягивание в одном запросе приведет к пустому набору узлов.
 
 {% endnote %}
 
-## Connections
-
-{% for item in graphql.schemaForCurrentVersion.queries.connections %}
-  {% include graphql-query %}
-{% endfor %}
-
-## Fields
-
-{% for item in graphql.schemaForCurrentVersion.queries.fields %}
-  {% include graphql-query %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

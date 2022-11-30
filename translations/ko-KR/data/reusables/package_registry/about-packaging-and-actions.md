@@ -1,31 +1,35 @@
-### Packaging in continuous integration workflows
+---
+ms.openlocfilehash: 9e47cc05dec3bbdef729dfc6a06eff8056dd9502
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145122079"
+---
+### 연속 통합 워크플로의 패키징
 
-A packaging step is a common part of a continuous integration or continuous delivery workflow. Creating a package at the end of a continuous integration workflow can help during code reviews on a pull request.
+패키징 단계는 연속 통합 또는 지속적인 업데이트 워크플로의 일반적인 부분입니다. 연속 통합 워크플로가 끝날 때 패키지를 만들면 끌어오기 요청에 대한 코드 검토 중에 도움이 될 수 있습니다.
 
-After building and testing your code, a packaging step can produce a runnable or deployable artifact. Depending on the kind of application you're building, this package can be downloaded locally for manual testing, made available for users to download, or deployed to a staging or production environment.
+코드를 빌드하고 테스트한 후 패키징 단계에서 실행 가능하거나 배포 가능한 아티팩트를 생성합니다. 빌드하는 애플리케이션의 종류에 따라 이 패키지를 수동 테스트를 위해 로컬로 다운로드하거나 사용자가 다운로드할 수 있도록 하거나 스테이징 또는 프로덕션 환경에 배포할 수 있습니다.
 
-For example, a continuous integration workflow for a Java project may run `mvn package` to produce a JAR file. Or, a CI workflow for a Node.js application may create a Docker container.
+예를 들어 Java 프로젝트의 연속 통합 워크플로는 `mvn package`를 실행하여 JAR 파일을 생성할 수 있습니다. 또는 Node.js 애플리케이션에 대한 CI 워크플로가 Docker 컨테이너를 만들 수 있습니다.
 
-Now, when reviewing a pull request, you'll be able to look at the workflow run and download the artifact that was produced.
+이제 끌어오기 요청을 검토할 때 워크플로 실행을 확인하고 생성된 아티팩트 다운로드할 수 있습니다.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
-{% else %}
-![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)
-{% endif %}
+![아티팩트 드롭다운 메뉴 다운로드](/assets/images/help/repository/artifact-drop-down-updated.png)
 
-This will let you run the code in the pull request on your machine, which can help with debugging or testing the pull request.
+이렇게 하면 머신의 끌어오기 요청에서 코드를 실행할 수 있으며, 이는 끌어오기 요청을 디버그하거나 테스트하는 데 도움이 될 수 있습니다.
 
-### Workflows for publishing packages
+### 패키지를 게시하기 위한 워크플로
 
-In addition to uploading packaging artifacts for testing in a continuous integration workflow, you can create workflows that build your project and publish packages to a package registry.
+연속 통합 워크플로에서 테스트를 위해 패키징 아티팩트를 업로드하는 것 외에도 프로젝트를 빌드하고 패키지 레지스트리에 패키지를 게시하는 워크플로를 만들 수 있습니다.
 
-* **Publish packages to {% data variables.product.prodname_registry %}**
-  {% data variables.product.prodname_registry %} can act as a package hosting service for many types of packages. You can choose to share your packages with all of {% data variables.product.prodname_dotcom %}, or private packages to share with collaborators or an organization. For more information, see "[Introduction to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages)."
+* **{% data variables.product.prodname_registry %}에 패키지 게시**  
+  {% data variables.product.prodname_registry %}는 다양한 형식의 패키지에 대한 패키지 호스팅 서비스 역할을 할 수 있습니다. 모든 {% data variables.product.prodname_dotcom %}와 패키지를 공유하거나 협력자 또는 조직과 공유할 프라이빗 패키지와 공유하도록 선택할 수 있습니다. 자세한 내용은 “[GitHub 패키지 소개](/packages/learn-github-packages/introduction-to-github-packages)”를 참조하세요.
 
-  You may want to publish packages to {% data variables.product.prodname_registry %} on every push into the default branch. This will allow developers on your project to always be able to run and test the latest build from the default branch easily, by installing it from {% data variables.product.prodname_registry %}.
+  기본 분기에 푸시할 때마다 패키지를 {% data variables.product.prodname_registry %}에 게시할 수 있습니다. 이렇게 하면 프로젝트의 개발자가 {% data variables.product.prodname_registry %}에서 최신 빌드를 설치하여 기본 분기에서 항상 쉽게 실행하고 테스트할 수 있습니다.
 
-* **Publish packages to a package registry**  
-  For many projects, publishing to a package registry is performed whenever a new version of a project is released. For example, a project that produces a JAR file may upload new releases to the Maven Central repository. Or, a .NET project may produce a nuget package and upload it to the NuGet Gallery.
+* **패키지 레지스트리에 패키지 게시**  
+  많은 프로젝트의 경우 새 버전의 프로젝트가 릴리스될 때마다 패키지 레지스트리에 게시됩니다. 예를 들어 JAR 파일을 생성하는 프로젝트는 Maven 중앙 리포지토리에 새 릴리스를 업로드할 수 있습니다. 또는 .NET 프로젝트에서 nuget 패키지를 생성하여 NuGet 갤러리에 업로드할 수 있습니다.
 
-  You can automate this by creating a workflow that publishes packages to a package registry on every release creation. For more information, see "[Creating releases](/github/administering-a-repository/creating-releases)."
+  릴리스를 만들 때마다 패키지를 패키지 레지스트리에 게시하는 워크플로를 만들어 이를 자동화할 수 있습니다. 자세한 내용은 “[릴리스 만들기](/github/administering-a-repository/creating-releases)”를 참조하세요.

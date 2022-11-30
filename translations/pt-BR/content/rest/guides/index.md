@@ -1,13 +1,14 @@
 ---
-title: Guias
+title: Guides
 intro: 'Saiba mais sobre como começar com a API REST, sobre a autenticação e como usar a API REST para várias tarefas.'
 redirect_from:
-  - /guides/
+  - /guides
   - /v3/guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 children:
@@ -22,8 +23,13 @@ children:
   - /best-practices-for-integrators
   - /getting-started-with-the-git-database-api
   - /getting-started-with-the-checks-api
+ms.openlocfilehash: 6441ccaa503fd348fa67ab4c896cb5470690149a
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146200127'
 ---
-Esta seção da documentação tem o objetivo de ajudá-lo a começar a operar os aplicativos da API de {% data variables.product.product_name %} reais. Vamos cobrir tudo o que você precisa saber, desde a autenticação, passando pela a manipulação de resultados, até a combinação de resultados com outros aplicativos.
-Todos os tutoriais aqui terão um projeto, e cada projeto será armazenado e documentado no nosso repositório público de [platform-samples](https://github.com/github/platform-samples).
-![O Electrocat](/assets/images/electrocat.png)
-### Índice
+Esta seção da documentação tem o objetivo de ajudar você a executar os aplicativos de API do mundo real do {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. Abordaremos tudo o que você precisa saber, desde autenticação até manipulação e integração de resultados com outros aplicativos.
+Cada tutorial incluirá um projeto, e cada projeto será salvo e documentado em nosso repositório de [amostras de plataforma](https://github.com/github/platform-samples) pública.
+![O Octocat](/assets/images/electrocat.png)

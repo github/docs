@@ -1,6 +1,14 @@
-When you decide which repositories and organizations to prioritize for {% data variables.product.prodname_GH_advanced_security %}, you should review them and identify:
+---
+ms.openlocfilehash: 255dcb0346e9413e32492c34a7724df6284cd325
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "146455744"
+---
+Когда вы решите, какие репозитории и организации следует приоритезировать для {% data variables.product.prodname_GH_advanced_security %}, их следует проверить и определить:
 
-- Codebases that are the most critical to your company's success. These are the projects for which the introduction of vulnerable code, hard-coded secrets, or vulnerable dependencies would have the greatest impact on your company.
-- Codebases with the highest commit frequency. These are the most actively developed projects, consequently there is a higher risk that security problems could be introduced.
+- Базы кода, наиболее важные для успеха компании. Это проекты, для которых внедрение уязвимого кода, жестко запрограммированных секретов или небезопасных зависимостей окажет наибольшее влияние на компанию.
+- Базы кода с наибольшей частотой фиксации. Это наиболее активно разработанные проекты, поэтому существует повышенный риск возникновения проблем с безопасностью.
 
-When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, you should assess which other codebases you could add without adding any extra unique committers and using up more seats on your license. After this, review the next most important and busy codebases. If you want to increase the number of seats in your license, contact {% data variables.contact.contact_enterprise_sales %}.
+Если вы включили {% data variables.product.prodname_GH_advanced_security %} для этих организаций или репозиториев, оцените, какие другие базы кода можно добавить, не подвергаясь выставлению счетов за уникальных выполняющих фиксации. Наконец, проверьте оставшиеся важные и занятые базы кода. {% ifversion fpt or ghes or ghec %}Если вы хотите увеличить количество рабочих мест в лицензии, обратитесь к {% data variables.contact.contact_enterprise_sales %}.{% endif %}

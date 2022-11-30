@@ -1,66 +1,70 @@
 ---
-title: 使用 GraphQL 建立调用
-intro: 了解如何向 GraphQL API 验证身份，以及如何创建并运行查询和突变。
+title: Forming calls with GraphQL
+intro: 'Learn how to authenticate to the GraphQL API, then learn how to create and run queries and mutations.'
 redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Form calls with GraphQL
 ---
 
-### 使用 GraphQL 进行身份验证
+## Authenticating with GraphQL
 
-要与 GraphQL 服务器通信，需要具有正确作用域的 OAuth 令牌。
+{% data reusables.user-settings.graphql-classic-pat-only %}
 
-按照“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”中的步骤创建令牌。 您需要的作用域取决于您尝试请求的数据类型。 例如，选择 **User（用户）**作用域以请求用户数据。 如需访问仓库信息，请选择适当的 **Repository（仓库）**作用域。
+To communicate with the GraphQL server, you'll need a {% data variables.product.pat_generic %} with the right scopes.
 
-{% if currentVersion == "free-pro-team@latest" %}
+Follow the steps in "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. The scopes you require depends on the type of data you're trying to request. For example, select the **User** scopes to request user data. If you need access to repository information, select the appropriate **Repository** scopes.
 
-要匹配 [GraphQL Explorer](/graphql/guides/using-the-explorer) 的行为，需请求以下作用域：
+{% ifversion fpt or ghec %}
+
+To match the behavior of the [GraphQL Explorer](/graphql/guides/using-the-explorer), request the following scopes:
 
 {% else %}
 
-建议使用以下作用域：
+The following scopes are recommended:
 
 {% endif %}
 
 
 ```
-user{% if currentVersion != "github-ae@latest" %}
-public_repo{% endif %}
 repo
-repo_deployment
-repo:status
-read:repo_hook
+read:packages
 read:org
 read:public_key
+read:repo_hook
+user
+read:discussion
+read:enterprise
 read:gpg_key
 ```
 
-如果资源需要特定作用域，API 会通知您。
+The API notifies you if a resource requires a specific scope.
 
-### GraphQL 端点
+## The GraphQL endpoint
 
-REST API 有多个端点；GraphQL API 只有一个端点：
+The REST API has numerous endpoints; the GraphQL API has a single endpoint:
 
 <pre>{% data variables.product.graphql_url_pre %}</pre>
 
-无论执行什么操作，端点都保持不变。
+The endpoint remains constant no matter what operation you perform.
 
-### 与 GraphQL 通信
+## Communicating with GraphQL
 
-由于 GraphQL 操作由多行 JSON 组成，因此 GitHub 建议使用 [Explorer](/graphql/guides/using-the-explorer) 进行 GraphQL 调用。 也可以使用 cURL 或任何其他采用 HTTP 的库。
+Because GraphQL operations consist of multiline JSON, GitHub recommends using the [Explorer](/graphql/guides/using-the-explorer) to make GraphQL calls. You can also use cURL or any other HTTP-speaking library.
 
-在 REST 中，[HTTP 请求方法](/rest#http-verbs)确定执行的操作。 在 GraphQL 中，无论是执行查询还是突变，都要提供 JSON 编码的正文，因此 HTTP 请求方法是 `POST`。 唯一的例外是[内省查询](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)，它是一种简单的 `GET` 到端点查询。 有关 GraphQL 与 REST 的更多信息，请参阅“[从 REST 迁移到 GraphQL](/graphql/guides/migrating-from-rest-to-graphql)”。
+In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In GraphQL, you'll provide a JSON-encoded body whether you're performing a query or a mutation, so the HTTP verb is `POST`. The exception is an [introspection query](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), which is a simple `GET` to the endpoint. For more information on GraphQL versus REST, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
 
-要使用 cURL 查询 GraphQL，请利用 JSON 有效负载提出 `POST` 请求。 有效负载必须包含一个名为 `query` 的字符串：
+To query GraphQL using cURL, make a `POST` request with a JSON payload. The payload must contain a string called `query`:
 
 ```shell
-curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
+curl -H "Authorization: bearer TOKEN" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
@@ -69,66 +73,66 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
 
 {% tip %}
 
-**注**：`"query"` 的字符串值必须进行换行字符转义，否则架构将无法正确解析它。 对于 `POST` 正文，请使用外双引号和转义的内双引号。
+**Note**: The string value of `"query"` must escape newline characters or the schema will not parse it correctly. For the `POST` body, use outer double quotes and escaped inner double quotes.
 
 {% endtip %}
 
-#### 关于查询和突变操作
+### About query and mutation operations
 
-GitHub 的 GraphQL API 中允许的两种操作类型为_查询_和_突变_。 比较 GraphQL 与 REST，查询操作就像 `GET` 请求，而突变操作则像 `POST`/`PATCH`/`DELETE`。 [突变名称](/graphql/reference/mutations)确定执行哪些修改。
+The two types of allowed operations in GitHub's GraphQL API are _queries_ and _mutations_. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`. The [mutation name](/graphql/reference/mutations) determines which modification is executed.
 
-有关速率限制的信息，请参阅“[GraphQL 资源限制](/graphql/overview/resource-limitations)”。
+For information about rate limiting, see "[GraphQL resource limitations](/graphql/overview/resource-limitations)."
 
-查询和突变形式相似，但有一些重要差异。
+Queries and mutations share similar forms, with some important differences.
 
-#### 关于查询
+### About queries
 
-GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字段内的字段](/graphql/guides/introduction-to-graphql#field)（也称为_嵌套的子字段_），直到仅返回[标量](/graphql/reference/scalars)。
+GraphQL queries return only the data you specify. To form a query, you must specify [fields within fields](/graphql/guides/introduction-to-graphql#field) (also known as _nested subfields_) until you return only [scalars](/graphql/reference/scalars).
 
-查询的结构如下：
+Queries are structured like this:
 
 <pre>query {
-  <em>JSON objects to return</em>
+  JSON-OBJECT-TO-RETURN
 }</pre>
 
-有关真实示例，请参阅“[查询示例](#example-query)”。
+For a real-world example, see "[Example query](#example-query)."
 
-#### 关于突变
+### About mutations
 
-要建立突变，必须指定三个参数：
+To form a mutation, you must specify three things:
 
-1. _突变名称_。 您要执行的修改类型。
-2. _输入对象_。 您要发送至服务器的数据，由_输入字段_组成。 将其作为参数传递至突变名称。
-3. _有效负载对象_。 您要从服务器返回的数据，由_返回字段_组成。 将其作为突变名称的正文传递。
+1. _Mutation name_. The type of modification you want to perform.
+2. _Input object_. The data you want to send to the server, composed of _input fields_. Pass it as an argument to the mutation name.
+3. _Payload object_. The data you want to return from the server, composed of _return fields_. Pass it as the body of the mutation name.
 
-突变的结构如下：
+Mutations are structured like this:
 
 <pre>mutation {
-  <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
-    <em>MutationNamePayload</em>
+  MUTATION-NAME(input: {MUTATION-NAME-INPUT!}) {
+    MUTATION-NAME-PAYLOAD
   }
 }</pre>
 
-本示例中的输入对象为 `MutationNameInput`，有效负载对象为 `MutationNamePayload`。
+The input object in this example is `MutationNameInput`, and the payload object is `MutationNamePayload`.
 
-在引用的[突变](/graphql/reference/mutations)中，列出的_输入字段_即是作为输入对象传递的内容。 列出的_返回字段_即是作为有效负载对象传递的内容。
+In the [mutations](/graphql/reference/mutations) reference, the listed _input fields_ are what you pass as the input object. The listed _return fields_ are what you pass as the payload object.
 
-有关真实示例，请参阅“[突变示例](#example-mutation)”。
+For a real-world example, see "[Example mutation](#example-mutation)."
 
-### 使用变量
+## Working with variables
 
-[变量](https://graphql.github.io/learn/queries/#variables)可使查询更加动态和强大，并且可以在传递突变输入对象时降低复杂性。
+[Variables](https://graphql.github.io/learn/queries/#variables) can make queries more dynamic and powerful, and they can reduce complexity when passing mutation input objects.
 
 {% note %}
 
-**注**：如果使用的是 Explorer，请确保在单独的[查询变量窗格](/graphql/guides/using-the-explorer#using-the-variable-pane)中输入变量，且 JSON 对象之前不含 `variables` 一词。
+**Note**: If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
 
 {% endnote %}
 
-下面是一个单变量查询示例：
+Here's an example query with a single variable:
 
 ```graphql
-query($number_of_repos:Int!) query($number_of_repos:Int!) {
+query($number_of_repos:Int!) {
   viewer {
     name
      repositories(last: $number_of_repos) {
@@ -143,9 +147,9 @@ variables {
 }
 ```
 
-使用变量包含三个步骤：
+There are three steps to using variables:
 
-1. 在 `variables` 对象中定义操作以外的变量：
+1. Define the variable outside the operation in a `variables` object:
 
   ```graphql
   variables {
@@ -153,33 +157,33 @@ variables {
   }
   ```
 
-  此对象必须是有效的 JSON。 本示例显示了一个简单的 `Int` 变量类型，但可以定义更复杂的变量类型，如输入对象。 也可以在此定义多个变量。
+  The object must be valid JSON. This example shows a simple `Int` variable type, but it's possible to define more complex variable types, such as input objects. You can also define multiple variables here.
 
-2. 将变量作为参数传递至操作：
+2. Pass the variable to the operation as an argument:
 
   ```graphql
   query($number_of_repos:Int!){
   ```
 
-  此参数是一个键值对，其中键为以 `$` 开头的_名称_（例如，`$number_of_repos`），值为_类型_（例如，`Int`）。 添加 `!` 以指出是否需要此类型。 如果您已经定义了多个变量，请将它们作为多个参数加入此处。
+  The argument is a key-value pair, where the key is the _name_ starting with `$` (e.g., `$number_of_repos`), and the value is the _type_ (e.g., `Int`). Add a `!` to indicate whether the type is required. If you've defined multiple variables, include them here as multiple arguments.
 
-3. 在操作中使用变量：
+3. Use the variable within the operation:
 
   ```graphql
   repositories(last: $number_of_repos) {
   ```
 
-  在本示例中，我们用变量替换要检索的仓库编号。 在步骤 2 中指定类型，因为 GraphQL 会强制执行强类型化。
+  In this example, we substitute the variable for the number of repositories to retrieve. We specify a type in step 2 because GraphQL enforces strong typing.
 
-此流程会使查询参数具有动态性。 我们现在只需更改 `variables` 对象中的值，查询的其余部分则保持不变。
+This process makes the query argument dynamic. We can now simply change the value in the `variables` object and keep the rest of the query the same.
 
-将变量用作参数可支持您动态更新 `variables` 对象中的值，而无需更改查询。
+Using variables as arguments lets you dynamically update values in the `variables` object without changing the query.
 
-### 查询示例
+## Example query
 
-我们来演练一个较为复杂的查询，并将此信息放在上下文中。
+Let's walk through a more complex query and put this information in context.
 
-下面的查询用于查阅 `octocat/Hello-World` 仓库，查找 20 个最近关闭的议题，并返回每个议题的标题、URL 和前 5 个标签：
+The following query looks up the `octocat/Hello-World` repository, finds the 20 most recent closed issues, and returns each issue's title, URL, and first 5 labels:
 
 ```graphql
 query {
@@ -203,35 +207,35 @@ query {
 }
 ```
 
-逐行查看此查询的组成元素：
+Looking at the composition line by line:
 
 * `query {`
 
-  因为我们想从服务器读取数据，而不是修改，所以，`query` 是根操作。 （如果您不指定操作，`query` 也是默认操作。）
+  Because we want to read data from the server, not modify it, `query` is the root operation. (If you don't specify an operation, `query` is also the default.)
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  要开始查询，我们需要查找 [`repository`](/graphql/reference/objects#repository) 对象。 架构验证指示此对象需要 `owner` 和 `name` 参数。
+  To begin the query, we want to find a [`repository`](/graphql/reference/objects#repository) object. The schema validation indicates this object requires an `owner` and a `name` argument.
 
 * `issues(last:20, states:CLOSED) {`
 
-  为考虑仓库中的所有议题，我们调用 `issues` 对象。 （我们_可以_查询 `repository` 中的单个 `issue`，但这需要我们了解我们想返回的议题编号，并将其作为参数。）
+  To account for all issues in the repository, we call the `issues` object. (We _could_ query a single `issue` on a `repository`, but that would require us to know the number of the issue we want to return and provide it as an argument.)
 
-  关于 `issues` 对象的一些详细信息：
+  Some details about the `issues` object:
 
-  - [文档](/graphql/reference/objects#repository)告诉我们此对象的类型为 `IssueConnection`。
-  - 架构验证表明此对象需要将 `last` 或 `first` 个结果作为参数，因此我们提供了 `20`。
-  - [文档](/graphql/reference/objects#repository)还告诉我们此对象接受 `states` 参数，即一种 [`IssueState`](/graphql/reference/enums#issuestate) 枚举类型，可接受的值为 `OPEN` 或 `CLOSED`。 要仅查找关闭状态的议题，我们对 `states` 键赋值 `CLOSED`。
+  - The [docs](/graphql/reference/objects#repository) tell us this object has the type `IssueConnection`.
+  - Schema validation indicates this object requires a `last` or `first` number of results as an argument, so we provide `20`.
+  - The [docs](/graphql/reference/objects#repository) also tell us this object accepts a `states` argument, which is an  [`IssueState`](/graphql/reference/enums#issuestate) enum that accepts `OPEN` or `CLOSED` values. To find only closed issues, we give the `states` key a value of `CLOSED`.
 
 * `edges {`
 
-  我们知道 `issues` 是一种连接，因为它的类型为 `IssueConnection`。 要检索关于各个议题的数据，我们必须通过 `edges` 访问节点。
+  We know `issues` is a connection because it has the `IssueConnection` type. To retrieve data about individual issues, we have to access the node via `edges`.
 
 * `node {`
 
-  在本示例中，我们将检索边缘末尾的节点。 [`IssueConnection` 文档](/graphql/reference/objects#issueconnection)指示 `IssueConnection` 类型末尾的节点为 `Issue` 对象。
+  Here we retrieve the node at the end of the edge. The [`IssueConnection` docs](/graphql/reference/objects#issueconnection) indicate the node at the end of the `IssueConnection` type is an `Issue` object.
 
-* 我们已经知道要检索 `Issue` 对象，现在可以查看[文档](/graphql/reference/objects#issue)并指定要返回的字段了：
+* Now that we know we're retrieving an `Issue` object, we can look at the [docs](/graphql/reference/objects#issue) and specify the fields we want to return:
 
   ```graphql
   title
@@ -245,18 +249,18 @@ query {
   }
   ```
 
-  我们在此指定 `Issue` 对象的 `title`、`url` 和 `labels` 字段。
+  Here we specify the `title`, `url`, and `labels` fields of the `Issue` object.
 
-  `labels` 字段的类型为 [`LabelConnection`](/graphql/reference/objects#labelconnection)。 与 `issues` 对象一样，`labels` 也是一种连接，因此我们必须将其边缘传送至连接的节点：`label` 对象。 在此节点上，我们可以指定要返回的 `label` 对象字段，在本例中为 `name`。
+  The `labels` field has the type [`LabelConnection`](/graphql/reference/objects#labelconnection). As with the `issues` object, because `labels` is a connection, we must travel its edges to a connected node: the `label` object. At the node, we can specify the `label` object fields we want to return, in this case, `name`.
 
-您可能会注意到，在 Octobert 的 {% if currentVersion != "github-ae@latest" %}公共{% endif %} `Hello-World` 仓库上运行此查询不会返回许多标签。 尝试在您自己的其中一个使用标签的仓库中运行，很可能会看到不同的结果。
+You may notice that running this query on the Octocat's {% ifversion not ghae %}public{% endif %} `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
 
-### 突变示例
+## Example mutation
 
-突变通常需要只有先执行查询才能找到的信息。 本示例显示两个操作：
+Mutations often require information that you can only find out by performing a query first. This example shows two operations:
 
-1. 用于获取议题 ID 的查询。
-2. 用于向议题添加表情符号反应的突变。
+1. A query to get an issue ID.
+2. A mutation to add an emoji reaction to the issue.
 
 ```graphql
 query FindIssueID {
@@ -281,81 +285,81 @@ mutation AddReactionToIssue {
 
 {% tip %}
 
-如果您为查询和突变命名（在本示例中为 `FindIssueID` 和 `AddReactionToIssue`），则可以将二者放入同一个 Explorer 窗口，但操作将作为对 GraphQL 端点的单独调用执行。 不能同时执行查询和突变，反之亦然。
+Although you can include a query and a mutation in the same Explorer window if you give them names (`FindIssueID` and `AddReactionToIssue` in this example), the operations will be executed as separate calls to the GraphQL endpoint. It's not possible to perform a query at the same time as a mutation, or vice versa.
 
 {% endtip %}
 
-我们演练一遍这个示例。 任务听起来简单：向议题添加表情符号反应即可。
+Let's walk through the example. The task sounds simple: add an emoji reaction to an issue.
 
-那么，我们怎么知道从查询开始呢？ 还不知道。
+So how do we know to begin with a query? We don't, yet.
 
-因为我们想修改服务器上的数据（向议题添加表情符号），所以先搜索架构，查找有用的突变。 参考文档所示为 [`addReaction`](/graphql/reference/mutations#addreaction) 突变，其描述为：`Adds a reaction to a subject.` Perfect!
+Because we want to modify data on the server (attach an emoji to an issue), we begin by searching the schema for a helpful mutation. The reference docs show the [`addReaction`](/graphql/reference/mutations#addreaction) mutation, with this description: `Adds a reaction to a subject.` Perfect!
 
-突变文档列出了三个输入字段：
+The docs for the mutation list three input fields:
 
 * `clientMutationId` (`String`)
 * `subjectId` (`ID!`)
 * `content` (`ReactionContent!`)
 
-`!` 表示 `subjectId` 和 `content` 为必填字段。 必填字段 `content` 很有意义：我们想添加反应，因此需要指定要使用哪个表情符号。
+The `!`s indicate that `subjectId` and `content` are required fields. A required `content` makes sense: we want to add a reaction, so we'll need to specify which emoji to use.
 
-但 `subjectId` 为什么必填呢？ 这是因为，`subjectId` 是确定要对_哪个_仓库中的_哪个_议题做出反应的唯一方式。
+But why is `subjectId` required? It's because the `subjectId` is the only way to identify _which_ issue in _which_ repository to react to.
 
-因此，本示例要从查询开始：获取 `ID`。
+This is why we start this example with a query: to get the `ID`.
 
-让我们逐行检查查询：
+Let's examine the query line by line:
 
 * `query FindIssueID {`
 
-  我们将执行查询，并将其命名为 `FindIssueID`。 请注意，为查询命名是可选操作；我们在此为它命名，然后即可将它与突变放在同一个 Explorer 窗口中。
+  Here we're performing a query, and we name it `FindIssueID`. Note that naming a query is optional; we give it a name here so that we can include it in same Explorer window as the mutation.
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  我们通过查询 `repository` 对象并传递 `owner` 和 `name` 参数来指定仓库。
+  We specify the repository by querying the `repository` object and passing `owner` and `name` arguments.
 
 * `issue(number:349) {`
 
-  我们通过查询 `issue` 对象和传递 `number` 参数来指定要做出反应的议题。
+  We specify the issue to react to by querying the `issue` object and passing a `number` argument.
 
 * `id`
 
-  我们将检索 `https://github.com/octocat/Hello-World/issues/349` 的 `id`，并作为 `subjectId` 传递。
+  This is where we retrieve the `id` of `https://github.com/octocat/Hello-World/issues/349` to pass as the `subjectId`.
 
-运行查询时，我们将得到 `id`: `MDU6SXNzdWUyMzEzOTE1NTE=`
+When we run the query, we get the `id`: `MDU6SXNzdWUyMzEzOTE1NTE=`
 
 {% tip %}
 
-**注**：查询中返回的 `id` 是我们将在突变中作为 `subjectID` 传递的值。 文档和架构内省都不会显示这种关系；您需要理解这些名称背后的概念才能找出答案。
+**Note**: The `id` returned in the query is the value we'll pass as the `subjectID` in the mutation. Neither the docs nor schema introspection will indicate this relationship; you'll need to understand the concepts behind the names to figure this out.
 
 {% endtip %}
 
-在 ID 已知的情况下，可以继续进行突变操作：
+With the ID known, we can proceed with the mutation:
 
 * `mutation AddReactionToIssue {`
 
-  我们将执行突变，并将其命名为 `AddReactionToIssue`。 与查询一样，为突变命名是可选操作；我们在此为它命名，然后即可将它与查询放在同一个 Explorer 窗口中。
+  Here we're performing a mutation, and we name it `AddReactionToIssue`. As with queries, naming a mutation is optional; we give it a name here so we can include it in the same Explorer window as the query.
 
 * `addReaction(input:{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}) {`
 
-  让我们来检查这一行：
+  Let's examine this line:
 
-  - `addReaction` 是突变的名称。
-  - `input` 是必需的参数键。 突变的参数键始终是 `input`。
-  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` 是必需的参数值。 突变的参数值始终是由输入字段（在本例中为 `subjectId` 和 `content`）组成的[输入对象](/graphql/reference/input-objects)（因此带有大括号）。
+  - `addReaction` is the name of the mutation.
+  - `input` is the required argument key. This will always be `input` for a mutation.
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` is the required argument value. This will always be an [input object](/graphql/reference/input-objects) (hence the curly braces) composed of input fields (`subjectId` and `content` in this case) for a mutation.
 
-  我们怎么知道内容使用哪个值呢？ [`addReaction` 文档](/graphql/reference/mutations#addreaction)告诉我们 `content` 字段的类型为 [`ReactionContent`](/graphql/reference/enums#reactioncontent)，即一种[枚举类型](/graphql/reference/enums)，因为 GitHub 议题只支持某些表情符号反应。 这些是允许的反应值 （注意，某些值与其相应的表情符号名称不同）：
+  How do we know which value to use for the content? The [`addReaction` docs](/graphql/reference/mutations#addreaction) tell us the `content` field has the type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an [enum](/graphql/reference/enums) because only certain emoji reactions are supported on GitHub issues. These are the allowed values for reactions (note some values differ from their corresponding emoji names):
 
   {% data reusables.repositories.reaction_list %}
 
-* 调用的其余部分由有效负载对象组成。 我们将在此指定执行突变后由服务器返回的数据。 这几行来自 [`addReaction` 文档](/graphql/reference/mutations#addreaction)，其中包含三个可能返回的字段：
+* The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/mutations#addreaction), which three possible return fields:
 
     - `clientMutationId` (`String`)
     - `reaction` (`Reaction!`)
     - `subject` (`Reactable!`)
 
-  在本示例中，我们返回两个必填字段（`reaction` 和 `subject`），二者均包含必填子字段（分别为 `content` 和 `id`）。
+  In this example, we return the two required fields (`reaction` and `subject`), both of which have required subfields (respectively, `content` and `id`).
 
-我们运行突变时，响应如下：
+When we run the mutation, this is the response:
 
 ```json
 {
@@ -372,12 +376,12 @@ mutation AddReactionToIssue {
 }
 ```
 
-搞定！ 将鼠标悬停在 :tada: 上，查看您的[议题反应](https://github.com/octocat/Hello-World/issues/349)，从而查找您的用户名。
+That's it! Check out your [reaction to the issue](https://github.com/octocat/Hello-World/issues/349) by hovering over the :tada: to find your username.
 
-最后注意：当您在输入对象中传递多个字段时，语法可能会变笨拙。 将字段移入[变量](#working-with-variables)可以避免这种情况。 下面是您利用变量重写原始突变的方式：
+One final note: when you pass multiple fields in an input object, the syntax can get unwieldy. Moving the fields into a [variable](#working-with-variables) can help. Here's how you could rewrite the original mutation using a variable:
 
 ```graphql
-mutation($myVar:AddReactionInput!) mutation($myVar:AddReactionInput!) {
+mutation($myVar:AddReactionInput!) {
   addReaction(input:$myVar) {
     reaction {
       content
@@ -397,19 +401,19 @@ variables {
 
 {% note %}
 
-您可能会注意到，前文示例中的 `content` 字段值（直接用于突变）在 `HOORAY` 两侧没有引号，但在变量中使用时有引号。 原因是：
-* 当您直接在突变中使用 `content` 时，架构预计此值的类型为 [`ReactionContent`](/graphql/reference/enums#reactioncontent)，即一种_枚举类型_，而非字符串。 如果您在枚举值两侧添加引号，架构验证将出现错误，因为引号是为字符串保留的。
-* 当您在变量中使用 `content` 时，变量部分必须为有效的 JSON，因此需要引号。 当变量在执行过程中传递至突变时，架构验证将正确解释 `ReactionContent` 类型。
+You may notice that the `content` field value in the earlier example (where it's used directly in the mutation) does not have quotes around `HOORAY`, but it does have quotes when used in the variable. There's a reason for this:
+* When you use `content` directly in the mutation, the schema expects the value to be of type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an _enum_, not a string. Schema validation will throw an error if you add quotes around the enum value, as quotes are reserved for strings.
+* When you use `content` in a variable, the variables section must be valid JSON, so the quotes are required. Schema validation correctly interprets the `ReactionContent` type when the variable is passed into the mutation during execution.
 
-有关枚举类型与字符串之间差异的更多信息，请参阅[官方 GraphQL 规格](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)。
+For more information on the difference between enums and strings, see the [official GraphQL spec](https://graphql.github.io/graphql-spec/June2018/#sec-Enums).
 
 {% endnote %}
 
-### 延伸阅读
+## Further reading
 
-建立 GraphQL 调用时，您可以执行_更多_操作。 下面是接下来要阅读的一些内容：
+There is a _lot_ more you can do when forming GraphQL calls. Here are some places to look next:
 
-* [分页](https://graphql.github.io/learn/pagination/)
-* [分段](https://graphql.github.io/learn/queries/#fragments)
-* [行内分段](https://graphql.github.io/learn/queries/#inline-fragments)
-* [指令](https://graphql.github.io/learn/queries/#directives)
+* [Pagination](https://graphql.org/learn/pagination/)
+* [Fragments](https://graphql.org/learn/queries/#fragments)
+* [Inline fragments](https://graphql.org/learn/queries/#inline-fragments)
+* [Directives](https://graphql.org/learn/queries/#directives)

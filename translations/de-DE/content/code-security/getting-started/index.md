@@ -1,15 +1,26 @@
 ---
-title: Getting started with code security
-shortTitle: Erste Schritte
-intro: 'Introduction to code security with {% data variables.product.product_name %}.'
+title: Erste Schritte mit Codesicherheit
+shortTitle: Getting started
+intro: 'Einführung in Codesicherheit mit {% data variables.product.product_name %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - Security
+  - Repositories
+  - Dependencies
+  - Vulnerabilities
 children:
-  - /about-securing-your-repository
+  - /github-security-features
+  - /securing-your-repository
+  - /securing-your-organization
   - /adding-a-security-policy-to-your-repository
+ms.openlocfilehash: 43f115a71348c54da1004d24fdefae0d28cd0b0e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147145290'
 ---
-### Inhaltsverzeichnis
+

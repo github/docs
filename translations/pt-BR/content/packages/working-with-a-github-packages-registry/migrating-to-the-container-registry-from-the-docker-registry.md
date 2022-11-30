@@ -1,124 +1,69 @@
 ---
 title: Migrating to the Container registry from the Docker registry
-intro: 'If you''ve used the GitHub Packages Docker registry to store Docker images, you can migrate your images to the new {% data variables.product.prodname_container_registry %}.'
+intro: '{% ifversion docker-ghcr-enterprise-migration %}An enterprise owner can{% else %}{% data variables.product.company_short %} will{% endif %} migrate Docker images previously stored in the Docker registry on {% data variables.location.product_location %} to the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images
   - /packages/guides/container-guides-for-github-packages/migrating-to-github-container-registry-for-docker-images
   - /packages/guides/migrating-to-github-container-registry-for-docker-images
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  feature: docker-ghcr-enterprise-migration
+shortTitle: Migration to Container registry
+topics:
+  - Containers
+  - Docker
+  - Migration
 ---
 
-### Key differences between the {% data variables.product.prodname_container_registry %} and the Docker registry
+{% data reusables.package_registry.container-registry-ghes-beta %}
 
-{% data reusables.package_registry.container-registry-beta %}
+## About the {% data variables.product.prodname_container_registry %}
 
-The {% data variables.product.prodname_container_registry %} supersedes the existing {% data variables.product.prodname_registry %} Docker registry and is optimized to support some of the unique needs of containers.
+{% data reusables.package_registry.container-registry-benefits %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
-With the {% data variables.product.prodname_container_registry %} you can:
-- Armazenar imagens de contêiner na sua conta de organização e usuário, em vez de um repositório.
-- Set granular permissions and visibility independently of repository permissions and visibility.
-- Acessar imagens de contêineres públicos anonimamente.
+## About migration from the Docker registry
 
-|                      | Docker registry                                                                                                                                                                                                                                         | {% data variables.product.prodname_container_registry %}
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Locais de hospedagem | You can host multiple Docker images in one repository.                                                                                                                                                                                                  | Você pode hospedar várias imagens de contêiner em uma organização ou conta de usuário.                                                                                                                    |
-| Permissões           | Each image inherits the permissions of the repository where the image is hosted. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. | Para cada imagem de container, você pode escolher o nível de acesso que os outros têm. As permissões para acesso a imagens do contêiner são separadas da sua organização e das permissões do repositório. |
- Visibility          | {% data reusables.package_registry.public-or-private-packages %} | You can set the visibility of each of your container images. Uma imagem privada de contêiner só é visível para pessoas e equipes às quais é fornecido acesso na sua organização. Qualquer pessoa pode ver uma imagem pública de contêiner. | Anonymous access    | N/A | You can access public container images anonymously. Foreign layer support | Doesn't support foreign layers, such as Windows images. | Supports foreign layers, such as Windows images.
+{% data reusables.package_registry.container-registry-replaces-docker-registry %} If you've stored Docker images in the Docker registry, {% ifversion docker-ghcr-enterprise-migration %}an enterprise owner{% else %}{% data variables.product.company_short %}{% endif %} will gradually migrate the images to the {% data variables.product.prodname_container_registry %}. No action is required on your part.
 
-### Alterações de cobrança
+{% ifversion docker-ghcr-enterprise-migration %}
 
-During the {% data variables.product.prodname_container_registry %} beta, both the new {% data variables.product.prodname_container_registry %} and the existing {% data variables.product.prodname_registry %} Docker registry are free of charge. For more information about the {% data variables.product.prodname_registry %} Docker registry, see "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
+{% note %}
 
-After the beta, the same billing and storage rates that other {% data variables.product.prodname_registry %} registries use will apply to the {% data variables.product.prodname_container_registry %}. Para obter mais informações, consulte "[Sobre a cobrança para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)".
+**Note**: {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.product_name %} that you use, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
 
-### Alterações de domínio
+{% endnote %}
 
-O domínio para o {% data variables.product.prodname_container_registry %} é `ghcr.io`.
+{% endif %}
 
-| Registro                                                          | Exemplo de URL                                      |
-| ----------------------------------------------------------------- | --------------------------------------------------- |
-| Registro Docker de {% data variables.product.prodname_registry %} | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
-| {% data variables.product.prodname_container_registry %}        | `ghcr.io/OWNER/IMAGE_NAME`                          |
+After a Docker image has been migrated to the {% data variables.product.prodname_container_registry %}, you'll see the following changes to the details for the package.
 
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+- The icon will be the {% data variables.product.prodname_container_registry %} logo instead of the Docker logo.
+- The domain in the pull URL will be {% data variables.product.prodname_container_registry_namespace %} instead of {% data variables.product.prodname_docker_registry_namespace %}.
 
-{% data reusables.package_registry.feature-preview-for-container-registry %}
+{% ifversion fpt or ghec %}
 
-Você deverá efetuar a autenticação no {% data variables.product.prodname_container_registry %} com a URL de base `ghcr.io`. Recomendamos criar um novo token de acesso para usar o {% data variables.product.prodname_container_registry %}.
+![Screenshot of a Docker image migrated to the {% data variables.product.prodname_container_registry %}](/assets/images/help/package-registry/container-registry-details-page.png)
 
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+{% endif %}
 
-{% data reusables.package_registry.authenticate-to-container-registry-steps %}
+{% data reusables.package_registry.container-registry-migration-namespaces %}
 
-### Fazer a migração de uma imagem do Docker usando a CLI do Docker
+{% ifversion fpt or ghec %}
 
-Para mover imagens do Docker que você hospeda no registro do Docker do {% data variables.product.prodname_registry %}, você deve republicar as imagens para {% data variables.product.prodname_container_registry %}. Recomendamos republicar as imagens do Docker existentes usando a linha de comando na sua máquina local.
+After migration, you'll no longer be able to use the GraphQL API to query for packages with a `PackageType` of "DOCKER". Instead, you can use the REST API to query for packages with a `package_type` of "container". For more information, see "[Packages](/rest/reference/packages)" in the REST API documentation.
 
-1. Faça o login no registro do Docker usando um PAT temporário com pelo menos o escopo de `read:packages`. Este PAT só será usado para fazer o login no registro do Docker para puxar imagens e poderá ser excluído posteriormente.
-  {% raw %}
-  ```shell
-  $ echo $READ_PACKAGES_TOKEN | docker login docker.pkg.github.com -u USERNAME --password-stdin
-  ```
-  {% endraw %}
-2. Puxe para baixo a imagem que você gostaria de migrar, substituindo o PROPRIETÁRIO pelo nome do usuário ou conta de organização proprietária do repositório, REPOSITÓRIO pelo nome do repositório que contém seu projeto, IMAGE_NAME pelo o nome do pacote ou imagem, VERSÃO pela tag para a imagem que você deseja instalar. Por exemplo, `docker pull docker.pkg.github.com/octo-org/octoshift/octoshift:latest` move a tag mais recente da imagem `octoshift/octoshift` na organização octo-org.
-  ```shell
-  $ docker pull docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
-  ```
+## About billing for {% data variables.product.prodname_container_registry %}
 
-3. Remarque a imagem com o novo domínio e um novo nome de imagem. Para obter mais informações, consulte "[Tag do Docker](https://docs.docker.com/engine/reference/commandline/tag/)" na documentação Docker. Use a mesma URL que você usou na etapa anterior para a URL FONTE. Substitua TARGET_OWNER pelo usuário ou organização para o qual você está migrando a imagem do contêiner e substitua TARGET_IMAGE_NAME pelo novo nome de imagem de {% data variables.product.prodname_container_registry %}.
-  ```shell
-  $ docker tag docker.pkg.github.com/SOURCE_OWNER/SOURCE_REPOSITORY/SOURCE_IMAGE_NAME:VERSION ghcr.io/TARGET_OWNER/TARGET_IMAGE_NAME:VERSION
-  ```
+For more information about billing for the {% data variables.product.prodname_container_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
-4. Faça login no novo {% data variables.product.prodname_container_registry %}. Recomendamos criar um novo PAT limitado aos escopos `read:packages` e `write: packages` já que você não precisa mais do escopo `repositório` e seu PAT anterior pode não ter o escopo `write:packages`.
-  {% raw %}
-  ```shell
-  $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
-  ```
-  {% endraw %}
-5. Faça push da sua imagem re-etiquetada para o {% data variables.product.prodname_container_registry %}.
-  ```shell
-  $ docker push ghcr.io/OWNER/IMAGE_NAME:VERSION
-  ```
+{% endif %}
 
-### Atualizar o seu fluxo de trabalho de {% data variables.product.prodname_actions %}
+{% ifversion docker-ghcr-enterprise-migration %}
 
-{% data reusables.package_registry.feature-preview-for-container-registry %}
+## Further reading
 
-Se tiver um fluxo de trabalho de {% data variables.product.prodname_actions %} que usa uma imagem do Docker do registro Docker do {% data variables.product.prodname_registry %}, você deverá atualizar seu fluxo de trabalho para {% data variables.product.prodname_container_registry %} para permitir acesso anônimo para imagens públicas de contêiner, permissões de acesso refinado e melhor compatibilidade de armazenamento e largura de banda para contêineres.
+- "[Migrating your enterprise to the {% data variables.product.prodname_container_registry %} from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)"
 
-1. Migre as suas imagens do Docker para o novo {% data variables.product.prodname_container_registry %} em `ghcr.io`. Por exemplo, consulte "[Migrar uma imagem do Docker usando a CLI do Docker](#migrating-a-docker-image-using-the-docker-cli)".
-
-2. No seu arquivo de fluxo de trabalho do {% data variables.product.prodname_actions %}, atualize a URL do pacote de `https://docker.pkg.github.com` para `ghcr.io`.
-
-3. Adicione seu novo token de acesso de autenticação pessoal (PAT) de {% data variables.product.prodname_container_registry %} como um segredo do GitHub Action. The {% data variables.product.prodname_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
-
-4. No seu arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} atualize a autenticação do PAT substituindo o seu PAT do registro do Docker ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) por uma nova variável para o seu PAT de {% data variables.product.prodname_container_registry %}, como, por exemplo, {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
-
-#### Exemplo de fluxo de trabalho atualizado
-
-Se parte de seu fluxo de trabalho acessou uma imagem do Docker hospedada pelo registro Docker dessa forma:
-
-{% raw %}
-```yaml
-echo ${{ secrets.GITHUB_TOKEN }} | docker login https://docker.pkg.github.com -u $GITHUB_ACTOR --password-stdin
-docker pull docker.pkg.github.com/github/octoshift/octoshift:latest
-docker build . --tag docker.pkg.github.com/github/octoshift/octoshift:$GITHUB_SHA --cache-from docker.pkg.github.com/github/octoshift/octoshift:latest
-docker push docker.pkg.github.com/github/octoshift/octoshift:$GITHUB_SHA
-```
-{% endraw %}
-
-Você deverá atualizar o seu fluxo de trabalho com a nova URL de {% data variables.product.prodname_container_registry %} e PAT dessa forma:
-
-{% raw %}
-```yaml
-# new login with new container registry url and PAT
-echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
-# new container registry urls added
-docker pull ghcr.io/github/octoshift:latest
-docker build . --tag ghcr.io/github/octoshift:$GITHUB_SHA --cache-from ghcr.io/github/octoshift:latest
-docker push ghcr.io/github/octoshift:$GITHUB_SHA
-```
-{% endraw %}
+{% endif %}

@@ -1,1 +1,9 @@
-If you are using an apex domain as your custom domain, we recommend also setting up a `www` subdomain. If you configure the correct records for each domain type through your DNS provider, {% data variables.product.prodname_pages %} will automatically create redirects between the domains. For example, if you configure `www.example.com` as the custom domain for your site, and you have {% data variables.product.prodname_pages %} DNS records set up for the apex and `www` domains, then `example.com` will redirect to `www.example.com`. Note that automatic redirects only apply to the `www` subdomain. Automatic redirects do not apply to any other subdomains, such as `blog`.
+---
+ms.openlocfilehash: 9007a7541d3ee57656a975af1bf430673c796d09
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145121459"
+---
+Если вы используете домен вершины в качестве личного домена, рекомендуется также настроить поддомен `www`. Если вы настроите правильные записи для каждого типа домена с помощью поставщика DNS, {% data variables.product.prodname_pages %} автоматически создаст перенаправления между доменами. Например, если вы настраиваете `www.example.com` в качестве личного домена для сайта, а у вас есть записи DNS {% data variables.product.prodname_pages %}, настроенные для вершины и доменов `www`, то `example.com` выполняет перенаправление в `www.example.com`. Обратите внимание, что автоматические перенаправления применяются только к поддомену `www`. Автоматические перенаправления не применяются к другим поддоменам, таким как `blog`.

@@ -1,11 +1,11 @@
-You can run your codespace on a choice of three types of remote machine: Basic, Standard, or Premium. Each of these has a different level of resources and a different billing tier.<!-- For information, see "\[About billing for Codespaces\](/github/developing-online-with-codespaces/about-billing-for-codespaces)." -->{% note %}
+---
+ms.openlocfilehash: 9e66c56694869bc5479af2930548104fe373ec12
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148160215"
+---
+Как правило, codespace можно запускать на нескольких типах удаленных компьютеров. Эти типы машин предлагают выбор спецификаций оборудования в диапазоне от 2 до 32 ядер, хотя полный спектр типов компьютеров может быть не всегда доступен. Каждый тип компьютера имеет свой уровень ресурсов и уровень выставления счетов. Дополнительные сведения см. в статье [Сведения о выставлении счетов за {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
-**Note:** {% data reusables.codespaces.about-billing-for-codespaces %}
-
-{% endnote %}
-
-Switching machine types gives you the flexibility to choose the most appropriate resources for your work. Certain tasks may require different machine types:
-
-* **Basic** for updating a file and raising a pull request
-* **Standard** for editing a website
-* **Premium** for high compute tasks such as data analysis
+По умолчанию тип компьютера с наименьшими допустимыми ресурсами используется при создании codespace. 

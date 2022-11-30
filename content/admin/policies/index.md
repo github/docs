@@ -5,12 +5,14 @@ redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
   - /enforcing-policies-for-your-enterprise
   - /enforcing-policy-with-pre-receive-hooks
+shortTitle: Set policies
 ---
 

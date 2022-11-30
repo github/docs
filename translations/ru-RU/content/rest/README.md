@@ -1,10 +1,18 @@
+---
+ms.openlocfilehash: 059e56c6821926e1d6a604c95dd1fa167de2db6a
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145136445"
+---
 # REST
 
-The `/content/rest` directory is where the GitHub REST API docs live!
+В каталоге `/content/rest` находится документация по REST API GitHub.
 
-* The `/content/rest/guides` and `/content/rest/overview` directories contain regular articles. These are human-editable.
-* The `/content/rest/reference` directory contains an article for each group of endpoints in the GitHub REST API. Most of the content in this directory is rendered using `include` tags.
+* В каталогах `/content/rest/guides` и `/content/rest/overview` содержатся обычные статьи. Они доступны для редактирования пользователями.
+* Каталог `/content/rest/reference` содержит по одной статье для каждой группы конечных точек в REST API GitHub. Большая часть содержимого этого каталога отображается с помощью тегов `include`.
 
-  The content rendered by `include` tags is sourced from the `/lib/rest/static` directory, which is automatically generated from the API source code internally in GitHub, and should not be edited by a human. For more information, see the [`/lib/rest/README.md`](/lib/rest/README.md).
+  Содержимое, отображаемое с помощью тегов `include`, берется из каталога `/lib/rest/static`, который автоматически создается из исходного кода API внутри GitHub и не должен изменяться человеком. Более подробную информацию см. в разделе [`/lib/rest/README.md`](/lib/rest/README.md).
 
-  **As a result, we cannot accept contributions to REST API reference content in this repository.**
+  **Мы не принимаем изменения содержимого, которое отображается с помощью тегов `include`. Однако вы можете открыть проблему с описанием требуемых изменений.**

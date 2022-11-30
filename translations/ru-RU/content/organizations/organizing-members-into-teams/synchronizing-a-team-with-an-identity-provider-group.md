@@ -1,99 +1,100 @@
 ---
-title: Synchronizing a team with an identity provider group
-intro: 'You can synchronize a {% data variables.product.product_name %} team with an identity provider (IdP) group to automatically add and remove team members.'
+title: Синхронизация команды с группой поставщика удостоверений
+intro: 'Можно синхронизировать команду {% data variables.product.product_name %} с поддерживаемой группой поставщика удостоверений (IdP), чтобы автоматически добавлять и удалять членов команды.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
-product: '{% data reusables.gated-features.team-synchronization %}'
 permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
-  free-pro-team: '*'
-  github-ae: '*'
+  ghae: '*'
+  ghec: '*'
+  feature: scim-for-ghes
 topics:
   - Organizations
   - Teams
+shortTitle: Synchronize with an IdP
+ms.openlocfilehash: c4ea8dc13eee674b962108ba52c71e67e8462b87
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106984'
 ---
+{% data reusables.enterprise-accounts.emu-scim-note %}
 
-{% data reusables.gated-features.okta-team-sync %}
-
-### About team synchronization
+## Синхронизация команд
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
-{% if currentVersion == "free-pro-team@latest" %}You can connect up to five IdP groups to a {% data variables.product.product_name %} team.{% elsif currentVersion == "github-ae@latest" %}You can connect a team on {% data variables.product.product_name %} to one IdP group. All users in the group are automatically added to the team and also added to the parent organization as members. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization.{% endif %} You can assign an IdP group to multiple {% data variables.product.product_name %} teams.
+{% ifversion ghec %}Вы можете подключить до пяти групп поставщика удостоверений к команде {% data variables.product.product_name %}. {% elsif ghae %}Вы можете подключить команду в {% data variables.product.product_name %} к одной группе поставщика удостоверений. Все пользователи в группе автоматически добавляются в команду, а также добавляются в родительскую организацию в качестве участников. При отключении группы от команды пользователи, которые стали членами организации посредством членства в команде, удаляются из организации.{% endif %} Группу поставщика удостоверений можно назначить нескольким командам {% data variables.product.product_name %}.
 
-{% if currentVersion == "free-pro-team@latest" %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
+{% ifversion ghec %}При синхронизации команды группы поставщика удостоверений с более чем 5000 участниками не поддерживаются.{% endif %}
 
-Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} or using the API{% endif %}.
+После подключения команды {% data variables.product.prodname_dotcom %} к группе поставщика удостоверений администратор поставщика удостоверений должен внести изменения в членство в команде посредством поставщика удостоверений. Вы не можете управлять членством в группах в {% data variables.product.product_name %}{% ifversion ghec %} или с помощью API{% endif %}.
 
-{% if currentVersion == "free-pro-team@latest" %}
-All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Your IdP will send team membership data to {% data variables.product.prodname_dotcom %} once every hour. Connecting a team to an IdP group may remove some team members. For more information, see "[Requirements for members of synchronized teams](#requirements-for-members-of-synchronized-teams)."
+{% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
+
+{% ifversion ghec %} Все изменения членства в команде, внесенные с помощью поставщика удостоверений, будут отображаться в журнале аудита в {% data variables.product.product_name %} как изменения, внесенные ботом синхронизации команды. Ваш поставщик удостоверений отправляет данные о членстве в команде в {% data variables.product.prodname_dotcom %} один раз в час.
+Подключение команды к группе поставщика удостоверений может привести к удалению некоторых участников команды. Дополнительные сведения см. в разделе [Требования для участников синхронизированных команд](#requirements-for-members-of-synchronized-teams).
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
-When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.product_name %} according to the schedule determined by your IdP. Any requests that change {% data variables.product.prodname_dotcom %} team or organization membership will register in the audit log as changes made by the account used to configure user provisioning. For more information about this account, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)." For more information about SCIM request schedules, see "[Check the status of user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)" in the Microsoft Docs.
-{% endif %}
+{% ifversion ghae %} При изменении членства в группе поставщика удостоверений ваш поставщик удостоверений отправляет в {% data variables.product.product_name %} запрос SCIM с изменениями в соответствии с расписанием, определенным вашим поставщиком удостоверений. Все запросы, которые изменяют членство в команде {% data variables.product.prodname_dotcom %} или членство в организации, регистрируются в журнале аудита в качестве изменений, внесенных учетной записью, используемой для настройки подготовки пользователей. Дополнительные сведения об этой учетной записи см. в разделе [Настройка подготовки пользователей в организации](/admin/authentication/configuring-user-provisioning-for-your-enterprise). Дополнительные сведения о расписаниях запросов SCIM см. в разделе [Проверка состояния подготовки пользователей](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) в Документации Майкрософт. {% endif %}
 
-Parent teams cannot synchronize with IdP groups. If the team you want to connect to an IdP group is a parent team, we recommend creating a new team or removing the nested relationships that make your team a parent team. For more information, see "[About teams](/articles/about-teams#nested-teams)," "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)," and "[Moving a team in your organization's hierarchy](/articles/moving-a-team-in-your-organizations-hierarchy)."
+Родительские команды невозможно синхронизировать с группами поставщика удостоверений. Если команда, которую вы хотите подключить к группе поставщика удостоверений, является родительской командой, рекомендуется создать новую команду или удалить вложенные связи, которые делают вашу команду родительской. Дополнительные сведения см. в разделах [Сведения о командах](/articles/about-teams#nested-teams), [Создание команды](/organizations/organizing-members-into-teams/creating-a-team) и [Перемещение команды в иерархии организации](/articles/moving-a-team-in-your-organizations-hierarchy).
 
-To manage repository access for any {% data variables.product.prodname_dotcom %} team, including teams connected to an IdP group, you must make changes with {% data variables.product.product_name %}. For more information, see "[About teams](/articles/about-teams)" and "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)."
+Для управления доступом к репозиторию для любой команды {% data variables.product.prodname_dotcom %}, включая команды, подключенные к группе поставщика удостоверений, необходимо внести изменения в {% data variables.product.product_name %}. Дополнительные сведения см. в разделах [Сведения о командах](/articles/about-teams) и [Управление доступом команды к репозиторию организации](/articles/managing-team-access-to-an-organization-repository). 
 
-{% if currentVersion == "free-pro-team@latest" %}You can also manage team synchronization with the API. For more information, see "[Team synchronization](/rest/reference/teams#team-sync)."{% endif %}
+{% ifversion ghec %}Для управления синхронизацией команд можно также использовать API. Дополнительные сведения см. в разделе [Синхронизация команд](/rest/reference/teams#team-sync). {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Requirements for members of synchronized teams
+{% ifversion ghec %}
+## Требования для участников синхронизированных команд
 
-After you connect a team to an IdP group, team synchronization will add each member of the IdP group to the corresponding team on {% data variables.product.product_name %} only if:
-- The person is a member of the organization on {% data variables.product.product_name %}.
-- The person has already logged in with their user account on {% data variables.product.product_name %} and authenticated to the organization or enterprise account via SAML single sign-on at least once.
-- The person's SSO identity is a member of the IdP group.
+После подключения команды к группе поставщика удостоверений при синхронизации команд каждый участник группы поставщика удостоверений будет добавлен в соответствующую команду в {% data variables.product.product_name %} только в случае, если соблюдены следующие условия:
+- Пользователь является членом организации в {% data variables.product.product_name %}.
+- Пользователь уже выполнил вход со своей личной учетной записью {% data variables.product.product_name %} и прошел проверку подлинности в учетной записи организации или корпоративной посредством единого входа SAML по крайней мере один раз.
+- Удостоверение единого входа пользователя является членом группы поставщика удостоверений.  
 
-Existing teams or group members who do not meet these criteria will be automatically removed from the team on {% data variables.product.product_name %} and lose access to repositories. Revoking a user's linked identity will also remove the user from from any teams mapped to IdP groups. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" and "[Viewing and managing a user's SAML access to your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
+Существующие команды или участники группы, которые не соответствуют этим критериям, будут автоматически удалены из команды {% data variables.product.product_name %} и теряют доступ к репозиториям. Отзыв связанного удостоверения пользователя также приведет к удалению пользователя из всех команд, сопоставленных с группами поставщика удостоверений. Дополнительные сведения см. в разделах [Просмотр доступа SAML участника к вашей организации и управление им](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity) и [Просмотр доступа SAML пользователя к вашему предприятию и управление им](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity).
 
-A removed team member can be added back to a team automatically once they have authenticated to the organization or enterprise account using SSO and are moved to the connected IdP group.
+Удаленного участника команды можно добавить обратно в команду автоматически после проверки подлинности в учетной записи организации или предприятия с помощью единого входа и перемещения в подключенную группу поставщика удостоверений.
 
-To avoid unintentionally removing team members, we recommend enforcing SAML SSO in your organization or enterprise account, creating new teams to synchronize membership data, and checking IdP group membership before synchronizing existing teams. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
-
-If your organization is owned by an enterprise account, enabling team synchronization for the enterprise account will override your organization-level team synchronization settings. For more information, see "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
+Чтобы избежать непреднамеренного удаления участников команды, рекомендуется принудительно применить единый вход SAML в учетной записи вашей организации или предприятия, создать новые команды для синхронизации данных о членстве и проверять членство в группах поставщика удостоверений перед синхронизацией существующих команд. Дополнительные сведения см. в разделах [Применение единого входа SAML для организации](/articles/enforcing-saml-single-sign-on-for-your-organization) и [Настройка единого входа SAML для вашего предприятия](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise).
 
 {% endif %}
 
-### Требования
+## Предварительные требования
 
-{% if currentVersion == "free-pro-team@latest" %}
-Before you can connect a {% data variables.product.product_name %} team with an identity provider group, an organization or enterprise owner must enable team synchronization for your organization or enterprise account. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
+{% ifversion ghec %} Прежде чем подключить команду {% data variables.product.product_name %} к группе поставщика удостоверений, владелец организации или предприятия должен включить синхронизацию команд для учетной записи вашей организации или предприятия. Дополнительные сведения см. в разделах [Управление синхронизацией команд в организации](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization) и [Управление синхронизацией команд для организаций в корпоративной учетной записи](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise).
 
-To avoid unintentionally removing team members, visit the administrative portal for your IdP and confirm that each current team member is also in the IdP groups that you want to connect to this team. If you don't have this access to your identity provider, you can reach out to your IdP administrator.
+Чтобы избежать непреднамеренного удаления участников команды, перейдите на портал администрирования поставщика удостоверений и убедитесь, что каждый текущий участник команды также входит в группы поставщика удостоверений, к которым вы хотите подключить эту команду. Если у вас нет такого доступа к поставщику удостоверений, можете обратиться к администратору поставщика удостоверений.
 
-You must authenticate using SAML SSO. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+Необходимо пройти проверку подлинности с помощью единого входа SAML. Дополнительные сведения см. в разделе [Проверка подлинности с помощью единого входа SAML](/articles/authenticating-with-saml-single-sign-on).
 
-{% elsif currentVersion == "github-ae@latest" %}
-Before you can connect a {% data variables.product.product_name %} team with an IdP group, you must first configure user provisioning for {% data variables.product.product_location %} using a supported System for Cross-domain Identity Management (SCIM). For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
+{% elsif ghae %} Прежде чем подключить команду {% data variables.product.product_name %} к группе поставщика удостоверений, необходимо сначала настроить подготовку пользователей для {% data variables.location.product_location %} с помощью поддерживаемой системы управления междоменной идентификацией (SCIM). Дополнительные сведения см. в разделе [Настройка подготовки пользователей в организации](/admin/authentication/configuring-user-provisioning-for-your-enterprise).
 
-Once user provisioning for {% data variables.product.product_name %} is configured using SCIM, you can assign the {% data variables.product.product_name %} application to every IdP group that you want to use on {% data variables.product.product_name %}. For more information, see [Configure automatic user provisioning to GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) in the Microsoft Docs.
-{% endif %}
+После настройки подготовки пользователей в {% data variables.product.product_name %} с помощью SCIM можно назначить приложение {% data variables.product.product_name %} каждой группе поставщика удостоверений, которую вы хотите использовать в {% data variables.product.product_name %}. Дополнительные сведения см. в статье [Настройка автоматической подготовки пользователей в GitHub AE](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-ae-provisioning-tutorial#step-5-configure-automatic-user-provisioning-to-github-ae) в Документация Майкрософт.
 
-### Connecting an IdP group to a team
+{% elsif scim-for-ghes %} Необходимо настроить подготовку пользователей с помощью SCIM для {% data variables.location.product_location %}. Дополнительные сведения см. в разделе [Настройка подготовки пользователей с помощью SCIM для вашего предприятия](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).
 
-When you connect an IdP group to a {% data variables.product.product_name %} team, all users in the group are automatically added to the team. {% if currentVersion == "github-ae@latest" %}Any users who were not already members of the parent organization members are also added to the organization.{% endif %}
+{% data reusables.scim.ghes-beta-note %} {% endif %}
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team_settings %}
-{% if currentVersion == "free-pro-team@latest" %}
-6. Under "Identity Provider Groups", use the drop-down menu, and select up to 5 identity provider groups. ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png){% elsif currentVersion == "github-ae@latest" %}
-6. Under "Identity Provider Group", use the drop-down menu, and select an identity provider group from the list. ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png){% endif %}
-7. Click **Save changes**.
+## Подключение группы поставщика удостоверений к команде
 
-### Disconnecting an IdP group from a team
+При подключении группы поставщика удостоверений к команде {% data variables.product.product_name %} все пользователи в группе автоматически добавляются в команду. {% ifversion ghae %}Все пользователи, которые еще не были членами родительской организации, также добавляются в организацию.{% endif %}
 
-If you disconnect an IdP group from a {% data variables.product.prodname_dotcom %} team, team members that were assigned to the {% data variables.product.prodname_dotcom %} team through the IdP group will be removed from the team. {% if currentVersion == "github-ae@latest" %} Any users who were members of the parent organization only because of that team connection are also removed from the organization.{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team_settings %} {% ifversion ghec %}
+6. В разделе "Группы поставщика удостоверений" используйте раскрывающееся меню и выберите до 5 групп.
+    ![Раскрывающееся меню для выбора групп поставщика удостоверений](/assets/images/help/teams/choose-an-idp-group.png){% elsif ghae %}
+6. В разделе "Группа поставщика удостоверений" используйте раскрывающееся меню и выберите группу из списка.
+    ![Раскрывающееся меню для выбора группы поставщика удостоверений](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png){% endif %}
+7. Нажмите кнопку **Сохранить изменения**.
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team_settings %}
-{% if currentVersion == "free-pro-team@latest" %}
-6. Under "Identity Provider Groups", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. ![Unselect a connected IdP group from the GitHub team](/assets/images/help/teams/unselect-idp-group.png){% elsif currentVersion == "github-ae@latest" %}
-6. Under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png){% endif %}
-7. Click **Save changes**.
+## Отключение группы поставщика удостоверений от команды
+
+При отключении группы поставщика удостоверений от команды {% data variables.product.prodname_dotcom %} участники команды, назначенные команде {% data variables.product.prodname_dotcom %} посредством группы поставщика удостоверений, будут удалены из команды. {% ifversion ghae %} Все пользователи, которые были членами родительской организации только из-за этого подключения команды, также удаляются из организации.{% endif %}
+
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team_settings %} {% ifversion ghec %}
+6. В разделе "Группы поставщика удостоверений" справа от группы поставщика удостоверений, которую нужно отключить, нажмите {% octicon "x" aria-label="X symbol" %}. 
+    ![Отмена подключения выбранной группы поставщика удостоверений от команды GitHub](/assets/images/help/teams/unselect-idp-group.png){% elsif ghae %}
+6. В разделе "Группа поставщика удостоверений" справа от группы поставщика удостоверений, которую нужно отключить, нажмите {% octicon "x" aria-label="X symbol" %}. 
+    ![Отмена подключения выбранной группы поставщика удостоверений от команды GitHub](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png){% endif %}
+7. Нажмите кнопку **Сохранить изменения**.

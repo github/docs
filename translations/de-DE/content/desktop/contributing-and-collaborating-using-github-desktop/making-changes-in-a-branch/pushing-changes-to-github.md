@@ -1,39 +1,46 @@
 ---
-title: Pushing changes to GitHub
+title: Pushen von Änderungen an GitHub
 shortTitle: Pushing changes
-intro: 'As you commit changes to your project locally, you can push those changes to {% data variables.product.prodname_dotcom %} so that others may access them from the remote repository.'
+intro: 'Während du Änderungen an deinem Projekt lokal committest, kannst du diese Änderungen an {% data variables.product.prodname_dotcom %} pushen, damit andere Personen über das Remoterepository darauf zugreifen können.'
 permissions: People with write permissions can push changes to a repository.
 redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+ms.openlocfilehash: b881fa5d9e66c4a63b8c648d87072037a8cba543
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145090139'
 ---
-### About pushing changes to {% data variables.product.prodname_dotcom %}
+## Informationen zum Pushen von Änderungen an {% data variables.product.prodname_dotcom %}
 
-When you push changes, you send the committed changes in your local repository to the remote repository on {% data variables.product.prodname_dotcom %}. If you change your project locally and want other people to have access to the changes, you must push the changes to {% data variables.product.prodname_dotcom %}.
+Wenn du Änderungen pushst, sendest du die committeten Änderungen in deinem lokalen Repository an das Remoterepository auf {% data variables.product.prodname_dotcom %}. Wenn du dein Projekt lokal änderst und möchtest, dass andere Personen Zugriff auf die Änderungen haben, musst du die Änderungen an {% data variables.product.prodname_dotcom %} verschieben.
 
-Before pushing changes, you should update your local branch to include any commits that have been added to the remote repository. If someone has made commits on the remote that are not on your local branch, {% data variables.product.prodname_desktop %} will prompt you to fetch the new commits before pushing your changes to avoid merge conflicts. For more information, see "[Syncing your branch](/desktop/contributing-to-projects/syncing-your-branch)."
+Bevor du Änderungen pushst, solltest du deinen lokalen Branch aktualisieren, um alle Commits einzuschließen, die dem Remoterepository hinzugefügt wurden. Wenn jemand Commits auf dem Remoterepository vorgenommen hat, die sich nicht in deinem lokalen Branch befinden, wirst du von {% data variables.product.prodname_desktop %} aufgefordert, die neuen Commits abzurufen, bevor du deine Änderungen pushst, um Mergekonflikte zu vermeiden. Weitere Informationen findest du unter [Synchronisieren deines Branchs](/desktop/contributing-to-projects/syncing-your-branch).
 
 {% data reusables.desktop.protected-branches %}
 
-### Pushing changes to {% data variables.product.prodname_dotcom %}
+## Pushen von Änderungen an {% data variables.product.prodname_dotcom %}
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_desktop %} will reject a push if it exceeds certain limits.
+**Hinweis:** {% data variables.product.prodname_desktop %} lehnt einen Push ab, wenn bestimmte Grenzwerte überschritten werden.
 
-- A push contains a large file over {% data variables.large_files.max_github_size %} in size.
-- A push is over {% data variables.large_files.max_file_size %} in total size.
+- Ein Push enthält eine große Datei von über {% data variables.large_files.max_github_size %}.
+- Die Gesamtgröße eines Pushs liegt über {% data variables.large_files.max_file_size %}.
 
-If you configure {% data variables.large_files.product_name_long %} to track your large files, you can push large files that would normally be rejected. For more information, see "[About {% data variables.large_files.product_name_long %} and {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)."
+Wenn du {% data variables.large_files.product_name_long %} so konfigurierst, dass deine großen Dateien nachverfolgt werden, kannst du große Dateien pushen, die normalerweise abgelehnt werden. Weitere Informationen findest du unter [Informationen zu {% data variables.large_files.product_name_long %} und {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop).
 
 {% endnote %}
 
 {% data reusables.desktop.push-origin %}
-2. If {% data variables.product.prodname_desktop %} prompts you to fetch new commits from the remote, click **Fetch**. ![The Fetch button](/assets/images/help/desktop/fetch-newer-commits.png)
-3. Optionally, click **Create Pull Request** to open a pull request and collaborate on your changes. For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" ![The Create Pull Request button](/assets/images/help/desktop/create-pull-request.png)
+2. Wenn {% data variables.product.prodname_desktop %} dich auffordert, neue Commits aus dem Remoterepository abzurufen, klicke auf **Abrufen**.
+  ![Schaltfläche „Abrufen“](/assets/images/help/desktop/fetch-newer-commits.png)
+3. Klicke optional auf **Pull Request erstellen**, um einen Pull Request zur Zusammenzuarbeit an deinen Änderungen zu öffnen. Weitere Informationen findest du unter [Erstellen eines Issues oder Pull Requests](/desktop/contributing-to-projects/creating-an-issue-or-pull-request) und ![Schaltfläche „Pull Request erstellen“](/assets/images/help/desktop/create-pull-request.png).
 
-### Weiterführende Informationen
-- "[Push](/github/getting-started-with-github/github-glossary/#push)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)"
+## Weitere Informationsquellen
+- [Push](/github/getting-started-with-github/github-glossary/#push) im {% data variables.product.prodname_dotcom %}-Gossar
+- [Committen und Überprüfen von Änderungen an deinem Projekt](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)

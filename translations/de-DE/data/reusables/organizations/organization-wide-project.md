@@ -1,1 +1,2 @@
-1. Klicke unter Deinem Organisationsnamen auf {% octicon "project" aria-label="The Projects icon" %} **Projects** (Projekte). ![Registerkarte „Projects" für Deine Organisation](/assets/images/help/organizations/organization-projects-tab.png)
+1. Under your organization name, click   {% ifversion projects-v2 %}{% octicon "table" aria-label="The Projects icon" %}{% else %}{% octicon "project" aria-label="The Projects icon" %}{% endif %} **Projects**.
+  {% ifversion projects-v2 %}![Projects tab for your organization](/assets/images/help/organizations/organization-projects-tab-table.png){% else %}![Projects tab for your organization](/assets/images/help/organizations/organization-projects-tab-with-overview-tab.png){% endif %}

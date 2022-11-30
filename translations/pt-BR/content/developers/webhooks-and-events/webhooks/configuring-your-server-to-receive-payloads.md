@@ -5,25 +5,34 @@ redirect_from:
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+shortTitle: Configure server for webhooks
+ms.openlocfilehash: c306cadf4dd8d9cd573d694419a51179c8995797
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132976'
 ---
-Agora que nosso webhook está pronto para enviar mensagens, vamos configurar um servidor do Sinatra básico para gerenciar as cargas recebidas.
+Agora que nosso webhook está pronto para entregar mensagens, vamos configurar um servidor do Sinatra básico para processar o conteúdo recebido.
 
 {% note %}
 
-**Observação:** Você pode fazer o download do código-fonte completo para este projeto [no repositório de amostras de plataforma][platform samples].
+**Observação:** baixe o código-fonte completo deste projeto [no repositório platform-samples][platform samples].
 
 {% endnote %}
 
-### Escrevendo o servidor
+## Escrevendo o servidor
 
-Queremos que nosso servidor escute as solicitações de `POST`, em `/payload`, porque foi onde informamos ao GitHub que era a nossa URL. Uma vez que estamos usando ngrok para expor o nosso ambiente local, não precisamos configurar um servidor real on-line, e é possível testar tranquilamente o nosso código localmente.
+Queremos que nosso servidor ouça as solicitações `POST`, em `/payload`, porque foi nele que informamos ao GitHub a URL de webhook. Como você usou o `ngrok` para expor o ambiente local, não precisa configurar um servidor real em algum lugar online e pode testar o código localmente.
 
-Vamos configurar um pouco o aplicativo Sinatra para fazer algo com as informações. Nossa configuração inicial do a configuração pode parecer como isso:
+Vamos configurar um pouco o aplicativo Sinatra para fazer algo com as informações. Nossa configuração inicial 
+pode ficar parecida com esta:
 
 ``` ruby
 require 'sinatra'
@@ -35,11 +44,11 @@ post '/payload' do
 end
 ```
 
-(Se você não estiver familiarizado com a forma como Sinatra funciona, recomendamos [a leitura do guia do Sinatra][Sinatra].)
+(Se você não estiver familiarizado com o funcionamento do Sinatra, recomendamos [ler o guia do Sinatra][Sinatra]).
 
 Inicie este servidor.
 
-Desde que configuramos nosso webhook para ouvir eventos que gerenciam `Problemas`, siga em frente e crie uma novo problema no repositório que você está testando. Depois de criar, volte para o terminal. Você deve ver algo assim em sua saída:
+Como configuramos o webhook para ouvir os eventos que processam `Issues`, vá em frente e crie um problema no repositório com o qual você está testando. Depois de criá-lo, volte ao terminal. Você deve ver algo assim em sua saída:
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb
@@ -50,9 +59,9 @@ $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.
 > I got some JSON: {"action"=>"opened", "issue"=>{"url"=>"...
 ```
 
-Sucesso! Você configurou seu servidor com sucesso para ouvir webhooks. Seu servidor agora pode processar essas informações da forma que você achar melhor. Por exemplo, se você estiver configurando um aplicativo web "real", é possível que você queira registrar uma parte da saída do JSON em uma base de dados.
+Sucesso! Você configurou seu servidor com sucesso para ouvir webhooks. O servidor já pode processar essas informações da forma que você achar melhor. Por exemplo, se você estiver configurando um aplicativo Web "real", o ideal será registrar em log uma parte da saída JSON em um banco de dados.
 
-Para obter informações adicionais sobre como trabalhar com webhooks e divertir-se e lucrar, acesse o guia [Testando webhooks](/webhooks/testing).
+Para obter mais informações sobre como trabalhar com webhooks por diversão e para ganhar dinheiro, acesse o guia [Como testar webhooks](/webhooks/testing).
 
 [platform samples]: https://github.com/github/platform-samples/tree/master/hooks/ruby/configuring-your-server
 [Sinatra]: http://www.sinatrarb.com/

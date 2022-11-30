@@ -1,0 +1,63 @@
+name: Translations tests
+
+# **What it does**: Runs our translation tests on cron.
+# **Why we have it**: We want to know if translations act up, but they are in separate repositories.
+# **Who does it impact**: Docs engineering.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 9:20 PST
+
+permissions:
+  contents: read
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  test:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-20.04-xl
+    timeout-minutes: 60
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+
+      - name: Setup node
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.17.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache nextjs build
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
+      - name: Run build script
+        run: npm run build
+
+      - name: Run tests
+        run: npm test -- tests/translations
+
+  send-slack-notification-on-failure:
+    needs: [test]
+    runs-on: ubuntu-20.04-xl
+    if: ${{ failure() }}
+    steps:
+      - name: Send Slack notification if workflow failed
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        if: ${{ failure() }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Translations test failure. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

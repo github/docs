@@ -1,30 +1,37 @@
 ---
-title: Canceling or editing an invitation to join your organization
-intro: Organization owners can edit or cancel an invitation to become a member of your organization any time before the user accepts.
+title: Отмена или редактирование приглашения на присоединение к организации
+intro: 'Владельцы организации могут редактировать или отменять приглашение, чтобы стать участником вашей организации в любое время до принятия пользователем.'
 redirect_from:
   - /articles/canceling-or-editing-an-invitation-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Cancel or edit invitation
+ms.openlocfilehash: d9914764c4803ab503db5cacb2a61c27810d90cf
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145109824'
 ---
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %}
+4. На вкладке «Люди» нажмите кнопку **Ожидающие приглашения**.
+ ![Ссылка «Ожидающие приглашение»](/assets/images/help/organizations/pending-invitation-link.png)
+5. Рядом с именем или адресом электронной почты пользователя, для которого вы хотите изменить или отменить приглашение, нажмите кнопку **Изменить приглашение**.
+![Кнопка «Изменить приглашение»](/assets/images/help/organizations/edit-invitation-button.png)
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.people %}
-4. On the People tab, click **Pending invitation**. ![Pending invitation link](/assets/images/help/organizations/pending-invitation-link.png)
-5. Next to the username or email address of the person whose invitation you'd like to edit or cancel, click **Edit invitation**. ![Edit invitation button](/assets/images/help/organizations/edit-invitation-button.png)
+ Возможно, потребуется щелкнуть **Просмотреть все приглашения** в нижней части окна, чтобы найти нужного пользователя.
+6. Решите, следует ли изменить или отменить приглашение пользователя присоединиться к вашей организации.
+  ![Кнопки обновления и отмены приглашения](/assets/images/help/organizations/update-cancel-invitation-buttons-for-dotcom-and-2.8.png)
+    - Чтобы изменить приглашение пользователя выберите другую роль или команду, а затем нажмите **Обновить приглашение**.
+    - Чтобы отменить приглашение пользователя присоединиться к организации, нажмите кнопку **Отмена приглашения**.
 
- You may need to click **View all invitations** at the bottom of the window to find the person you're looking for.
-6. Decide whether to edit or cancel the user's invitation to join your organization. ![Update invitation and cancel invitation buttons](/assets/images/help/organizations/update-cancel-invitation-buttons-for-dotcom-and-2.8.png)
-    - To edit the user's invitation, select a different role or team, then click **Update invitation**.
-    - To cancel the user's invitation to join your organization, click **Cancel invitation**.
+## Дополнительные материалы
 
-### Дополнительная литература
-
-{% if currentVersion == "free-pro-team@latest" %}
-- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"
-{% endif %}
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+{% ifversion fpt or ghec %}
+- [Отправка пользователям приглашений присоединиться к вашей организации](/articles/inviting-users-to-join-your-organization) {% endif %}
+- [Добавление участников организации в команду](/articles/adding-organization-members-to-a-team)

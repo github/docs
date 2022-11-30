@@ -5,14 +5,18 @@ redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Migrate from REST to GraphQL
 ---
 
-### Differences in API logic
+## Differences in API logic
+
+{% data variables.product.company_short %} provides two APIs: a REST API and a GraphQL API. For more information about {% data variables.product.company_short %}'s APIs, see "[About {% data variables.product.company_short %}'s APIs](/developers/overview/about-githubs-apis)."
 
 Migrating from REST to GraphQL represents a significant shift in API logic. The differences between REST as a style and GraphQL as a specification make it difficult&mdash;and often undesirable&mdash;to replace REST API calls with GraphQL API queries on a one-to-one basis. We've included specific examples of migration below.
 
@@ -140,8 +144,7 @@ Consider an example of adding a comment to an issue or pull request using a Grap
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) mutation {
-  addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
+  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {
       node {
@@ -192,23 +195,6 @@ Wrapping `1234` in quotes transforms the value from an integer into a string, th
 
 ```graphql
 mutation {
-  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
-    clientMutationId
-    commentEdge {
-      node {
-        body
-        repository {
-          id
-          name
-          nameWithOwner
-        }
-        issue {
-          number
-        }
-      }
-    }
-  }
-} mutation {
   addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
     clientMutationId
     commentEdge {

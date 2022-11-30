@@ -1,1 +1,9 @@
-You can optionally configure an assignment to use an online integrated development environment (IDE). Online IDEs allow your students to write code, run programs, and collaborate in a browser, without installing Git and a full development toolchain on the student's computer. If you choose an online IDE for an assignment, students can still check out and run code locally on a computer with the necessary software.
+---
+ms.openlocfilehash: af104c796c482ea08dd21018c9c5f427b6e8aa77
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145113571"
+---
+Задание можно настроить на использование интегрированной среды разработки. IDE позволяют учащимся писать код, запускать программы и вместе работать над проектами, не устанавливая Git и не используя полную цепочку инструментов разработки на своем компьютере. Если вы выберете для задания интегрированную среду разработки, учащиеся смогут извлекать и запускать код локально на компьютере с необходимым программным обеспечением.

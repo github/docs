@@ -7,8 +7,14 @@ redirect_from:
   - /articles/about-campus-experts
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+ms.openlocfilehash: 4d938dc14229d68571dbcce02de39bdc82f27371
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147573961'
 ---
-Aprenda as habilidades de falar em público, escrita técnica, liderança de comunidade e desenvolvimento de software como um Especialista de campus do {% data variables.product.prodname_dotcom %}.
+Aprenda as habilidades de falar em público, escrita técnica, liderança de comunidade e desenvolvimento de software como um Especialista de campus do {% data variables.product.prodname_dotcom %}. 
 
-Para saber mais sobre programas de treinamento para líderes estudantis e professores, consulte "[especialistas de campus do {% data variables.product.prodname_dotcom %}](https://education.github.com/students/experts)" e "[consultores de campus](https://education.github.com/teachers/advisors)".
+Para saber mais sobre programas de treinamento para líderes estudantis, confira "[Especialistas de campus do {% data variables.product.prodname_dotcom %}](https://education.github.com/students/experts)".

@@ -1,12 +1,12 @@
 ---
-title: Auf das Überwachungs-Dashboard zugreifen
-intro: '{% data variables.product.prodname_ghe_server %} enthält ein webbasiertes Überwachungs-Dashboard, das Verlaufsdaten zu Ihrer {% data variables.product.prodname_ghe_server %}-Appliance anzeigt. Dazu zählen beispielsweise die CPU- und Speichernutzung, Anwendungs- und Authentifizierungsantwortzeiten und der allgemeine Systemzustand.'
+title: Accessing the monitor dashboard
+intro: '{% data variables.product.prodname_ghe_server %} includes a web-based monitoring dashboard that displays historical data about your {% data variables.product.prodname_ghe_server %} appliance, such as CPU and storage usage, application and authentication response times, and general system health.'
 redirect_from:
   - /enterprise/admin/installation/accessing-the-monitor-dashboard
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,27 +14,29 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Access the monitor dashboard
 ---
-### Auf das Überwachungs-Dashboard zugreifen
+## Accessing the monitor dashboard
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Klicken Sie im oberen Bereich der Seite auf **Monitor** (Überwachen). ![Link zum Überwachungs-Dashboard](/assets/images/enterprise/management-console/monitor-dash-link.png)
+2. At the top of the page, click **Monitor**.
+![The Monitor Dashboard link](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-### Fehlerbehebung bei allgemeinen Ressourcenzuordnungsproblemen auf Ihrer Appliance
+## Troubleshooting common resource allocation problems on your appliance
 
 {% note %}
 
-**Hinweis**: Da das regelmäßige automatische Abrufen von {% data variables.product.product_location %} mittels fortlaufender Integration (CI) oder Build-Servern effektiv zu Denial-of-Service-Angriffen führen kann, die zu Problemen führen, sollten Sie Webhooks verwenden, um Updates per Push-Vorgang zu übertragen. Weitere Informationen finden Sie unter „[Informationen zu Webhooks](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)“.
+**Note**: Because regularly polling {% data variables.location.product_location %} with continuous integration (CI) or build servers can effectively cause a denial of service attack that results in problems, we recommend using webhooks to push updates. For more information, see "[About webhooks](/enterprise/user/articles/about-webhooks/)".
 
 {% endnote %}
 
-Mit dem Überwachungs-Dashboard können Sie in Bezug auf den Ressourcenzustand Ihrer Appliance auf dem Laufenden bleiben und Entscheidungen treffen, wie Sie Probleme hinsichtlich hoher Nutzungen beheben können.
+Use the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues.  
 
-| Problem                                   | Mögliche Ursache(n)                                                               | Empfehlungen                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Hohe CPU-Auslastung                       | VM-Konflikte von anderen auf demselben Host ausgeführten Diensten oder Programmen | Konfigurieren Sie nach Möglichkeit andere Dienste oder Programme so neu, dass sie weniger CPU-Ressourcen beanspruchen. Informationen zum Erhöhen der CPU-Gesamtressourcen für die VM finden Sie unter „[CPU- und Arbeitsspeicherressourcen erhöhen](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-cpu-or-memory-resources/)“.                                |
-| Hohe Arbeitsspeicherauslastung            | VM-Konflikte von anderen auf demselben Host ausgeführten Diensten oder Programmen | Konfigurieren Sie nach Möglichkeit andere Dienste oder Programme so, dass sie weniger Arbeitsspeicher beanspruchen. Informationen zum Erhöhen des insgesamt auf der VM verfügbaren Arbeitsspeichers finden Sie unter „[CPU- und Arbeitsspeicherressourcen erhöhen](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-cpu-or-memory-resources/)“.                 |
-| Niedrige Festplattenspeicherverfügbarkeit | Große Binärdateien oder Protokolldateien, die Festplattenspeicher nutzen          | Hosten Sie große Binärdateien nach Möglichkeit auf einem separaten Server, und komprimieren oder archivieren Sie Protokolldateien. Erhöhen Sie ggf. den Festplattenspeicher auf der VM. Befolgen Sie dazu die unter „[Speicherkapazität erhöhen](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity/)“ für Ihre Plattform angegebenen Schritte.  |
-| Ungewöhnlich hohe Antwortzeiten           | Wird oft durch einen der obigen Issues verursacht                                 | Identifizieren und beheben Sie die zugrunde liegenden Issues. Kontaktieren Sie {% data variables.contact.contact_ent_support %}, falls die Antwortzeiten hoch bleiben.                                                                                                                                                                                                             |
-| Erhöhte Fehlerraten                       | Software-Issues                                                                   | Kontaktieren Sie {% data variables.contact.contact_ent_support %}, und fügen Sie Ihr Support-Bundle hinzu. Weitere Informationen finden Sie unter „[Daten für den {% data variables.product.prodname_enterprise %}-Support bereitstellen](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)“. |
+| Problem | Possible cause(s) | Recommendations |
+| -------- | ----------------- | --------------- |
+| High CPU usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use fewer CPU resources. To increase total CPU resources for the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
+| High memory usage | VM contention from other services or programs running on the same host | If possible, reconfigure other services or programs to use less memory. To increase the total memory available on the VM, see "[Increasing CPU or memory resources](/enterprise/admin/guides/installation/increasing-cpu-or-memory-resources/)." |
+| Low disk space availability | Large binaries or log files consuming disk space | If possible, host large binaries on a separate server, and compress or archive log files. If necessary, increase disk space on the VM by following the steps for your platform in "[Increasing storage capacity](/enterprise/admin/guides/installation/increasing-storage-capacity/)." |
+| Higher than usual response times | Often caused by one of the above issues | Identify and fix the underlying issues. If response times remain high, contact {% data variables.contact.contact_ent_support %}. |
+| Elevated error rates | Software issues  | Contact {% data variables.contact.contact_ent_support %} and include your support bundle. For more information, see "[Providing data to {% data variables.product.prodname_enterprise %} Support](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)." |

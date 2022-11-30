@@ -1,15 +1,16 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" and currentVersion ver_lt "enterprise-server@3.1" %}
+---
+ms.openlocfilehash: dd38b5506d6696876419f48fada5abbfe373d21c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145121395"
+---
+{% ifversion fpt or ghes or ghae %}
+
 {% note %}
 
-**Note:** Expiring user tokens are currently part of the user-to-server token expiration beta and subject to change. To opt-in to the user-to-server token expiration beta feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)." For more information, see "[Expiring user-to-server access tokens for GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)."
-
-{% endnote %}
-
-{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-
-{% note %}
-
-**Note:** Expiring user tokens are currently an optional feature and subject to change. To opt in or out of the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)." For more information, see "[Expiring user-to-server access tokens for GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)."
+**Примечание.** Ограничение срока действия маркеров в настоящее время являются необязательной функцией и может быть изменено. Сведения о том, как отказаться от функции ограничения срока действия маркеров, см. в разделе [Активация дополнительных функций для приложений](/developers/apps/activating-optional-features-for-apps). Дополнительные сведения см. в статье [Ограничение срока действия маркеров доступа пользователей к серверу для приложений GitHub](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps).
 
 {% endnote %}
 

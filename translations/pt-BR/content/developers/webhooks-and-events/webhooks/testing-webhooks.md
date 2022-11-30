@@ -4,35 +4,44 @@ intro: 'Revise as entregas de webhook em {% data variables.product.prodname_dotc
 redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
+  - /articles/testing-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+ms.openlocfilehash: 5b9287030169ecac751b407ad915d4fa69bf8182
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145996214'
 ---
-Agora que você [configurou seu servidor local](/webhooks/configuring/), você pode estar interessado em fazer push do seu código em seus limites. Para isso, a visualização de webhooks do GitHub fornece algumas ferramentas para testar suas cargas implantadas.
+Agora que você [configurou o servidor local](/webhooks/configuring/), talvez esteja interessado em levar seu código até o limite. Para isso, a exibição de webhooks do GitHub fornece algumas ferramentas para testar as cargas implantadas.
 
-### Listar as entregas recentes
+## Listar as entregas recentes
 
 Cada webhook tem sua própria seção "Entregas Recentes", que lista, se uma entrega foi bem sucedida (verificação verde) ou falhou (vermelho x). Você também pode identificar quando se tentou cada entrega.
 
-{% data variables.product.product_name %} mantém um registro de cada entrega de webhook para {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} dias.
+O {% data variables.product.product_name %} mantém um log de cada entrega de webhook por {% ifversion fpt or ghec %} 30 {% else %} oito {% endif %} dias.
 
 ![Vista das entregas recentes](/assets/images/webhooks_recent_deliveries.png)
 
-### Aprofundar os resultados
+## Aprofundar os resultados
 
-Ao expandir uma entrega individual, você poderá conhecer *precisamente* quais informações o GitHub está tentando enviar para o seu servidor. Isto inclui tanto a solicitação HTTP quanto a resposta.
+Expandindo uma entrega individual, você poderá testemunhar *precisamente* as informações que o GitHub está tentando enviar ao servidor. Isto inclui tanto a solicitação HTTP quanto a resposta.
 
-#### Solicitação
+### Solicitação
 
-A vista da entrega de webhook fornece informações sobre quais cabeçalhos foram enviados pelo GitHub. Também inclui detalhes sobre a carga do JSON.
+A vista da entrega de webhook fornece informações sobre quais cabeçalhos foram enviados pelo GitHub.
+Também inclui detalhes sobre a carga do JSON.
 
 ![Visualizar uma solicitação de carga](/assets/images/payload_request_tab.png)
 
-#### Resposta
+### Resposta
 
-A aba de resposta lista como seu servidor respondeu quando recebeu a carga do GitHub. Isso inclui o código de status, os cabeçalhos e quaisquer dados adicionais dentro do texto da resposta.
+A guia da resposta lista como seu servidor respondeu quando recebeu a carga do GitHub. Isso inclui o código de status, os cabeçalhos e todos os dados adicionais no texto da resposta.
 
 ![Visualizar uma resposta de carga](/assets/images/payload_response_tab.png)

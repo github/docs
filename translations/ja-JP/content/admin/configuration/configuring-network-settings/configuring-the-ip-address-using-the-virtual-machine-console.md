@@ -6,21 +6,29 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
   - /admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Set the IP using the console
+ms.openlocfilehash: db183677409757e516515a5ac7def5a70affd01f
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145120773'
 ---
 {% note %}
 
-**注釈:** {% data variables.product.prodname_ghe_server %} へのネットワークアダプタの追加はサポートされていません。
+**注:** {% data variables.product.prodname_ghe_server %} へのネットワーク アダプターの追加はサポートされていません。
 
 {% endnote %}
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-3. `IPv4`あるいは`IPv6`プロトコルの設定を選択してください。 ![IPv4 または IPv6 プロトコルを選択するためのオプション](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
-4. 選択したプロトコルのオプションを設定してください。 ![IP プロトコルオプションのメニュー](/assets/images/enterprise/network-configuration/network-settings-selection.png)
-{% data reusables.enterprise_installation.vm-console-done %}
+3. `IPv4` または `IPv6` プロトコルを選んで構成します。
+  ![IPv4 または IPv6 プロトコルを選ぶオプション](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
+4. 選択したプロトコルのオプションを設定してください。
+  ![IP プロトコル オプションを含むメニュー](/assets/images/enterprise/network-configuration/network-settings-selection.png) {% data reusables.enterprise_installation.vm-console-done %}

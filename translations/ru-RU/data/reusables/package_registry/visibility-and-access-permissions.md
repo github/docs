@@ -1,13 +1,19 @@
-{% if currentVersion == "free-pro-team@latest" %}
-If you have admin permissions to a container image, you can set the access permissions for the container image to private or public. Public images allow anonymous access and can be pulled without authentication or signing in via the CLI.
+---
+ms.openlocfilehash: 42d6bbb15a1f147d9eea0c908b17ec30790a54c3
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "145121779"
+---
+Если у вас есть разрешения администратора на доступ к образу контейнера, для него можно задать частный или общий доступ. Общедоступные образы разрешают анонимный доступ и могут быть извлечены без проверки подлинности или входа с помощью CLI.
 
-As an admin, you can also grant access permissions for a container image that are separate from the permissions you've set at the organization and repository levels.
+Администратор также может предоставить разрешения на доступ к образу контейнера отдельно от разрешений, заданных на уровнях организации и репозитория.
 
-For container images published and owned by a user account, you can give any person an access role. For container images published and owned by an organization, you can give any person or team in the organization an access role.
+Для образов контейнеров, опубликованных в личной учетной записи и принадлежащих ей, можно предоставить роль доступа любому пользователю. Для работы с образами контейнеров, которые опубликованы и принадлежат организации, роль доступа можно предоставить любому пользователю или команде в организации.
 
-| Permission | Access description                                                                                                                               |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| read       | Can download package. <br> Can read package metadata.                                                                                      |
-| write      | Can upload and download this package. <br> Can read and write package metadata.                                                            |
-| admin      | Can upload, download, delete, and manage this package. <br> Can read and write package metadata. <br> Can grant package permissions. |
-{% endif %}
+| Разрешение | Описание доступа |
+|------------|--------------------|
+| Чтение       | Может скачивать пакет. <br> Может считывать метаданные пакета. |
+| запись      | Может отправлять и скачивать этот пакет. <br> Может считывать и записывать метаданные пакета. |
+| Административный      | Может отправлять, скачивать, удалять этот пакет и управлять им. <br> Может считывать и записывать метаданные пакета. <br> Может предоставлять права доступа к пакету.

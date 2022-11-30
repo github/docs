@@ -1,1 +1,9 @@
-To prevent acceptance or submission of an assignment by students, deselect **Enable assignment invitation URL**. To edit the assignment, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit assignment**.
+---
+ms.openlocfilehash: 01207ef9ea3bd2c766df771f946fe8c3c06f4b9d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147882186"
+---
+Чтобы запретить учащимся принимать или отправлять то или иное задание, измените "Состояние задания" в представлении "Изменить задание". Если задание активно, учащиеся смогут принять его по ссылке-приглашению. Если оно неактивно, ссылка работать не будет.

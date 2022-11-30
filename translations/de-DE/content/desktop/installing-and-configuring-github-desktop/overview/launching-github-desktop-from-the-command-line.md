@@ -1,16 +1,23 @@
 ---
 title: GitHub Desktop an der Befehlszeile starten
 shortTitle: Launching from the command line
-intro: Sie können GitHub Desktop an der Befehlszeile starten.
+intro: Du kannst GitHub Desktop an der Befehlszeile starten.
 redirect_from:
   - /desktop/getting-started-with-github-desktop/launching-github-desktop-from-the-command-line
   - /desktop/installing-and-configuring-github-desktop/launching-github-desktop-from-the-command-line
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+ms.openlocfilehash: f1624bb5266183d09804d43cf0b04db580231957
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145105235'
 ---
 {% mac %}
 
-1. In the menu bar, select the **{% data variables.product.prodname_desktop %}** menu, then click **Install Command Line Tool**. ![Install Command Line Tool option in the {% data variables.product.prodname_desktop %} drop-down menu](/assets/images/help/desktop/mac-install-command-line-tool.png)
+1. Wähle auf der Menüleiste das **{% data variables.product.prodname_desktop %}** -Menü aus, und klicke dann auf **Befehlszeilentool installieren**.
+![Option „Befehlszeilentool installieren“ im {% data variables.product.prodname_desktop %}-Dropdownmenü](/assets/images/help/desktop/mac-install-command-line-tool.png)
 2. Öffne das Terminal.
 3. {% data reusables.desktop.launch-desktop-from-command-line %}
 
@@ -18,7 +25,7 @@ versions:
   $ github <em>/path/to/repo</em>
   ```
 
-  You can also change to your repository path and then type `github .` to open that repository.
+  Du kannst auch zu deinem Repositorypfad wechseln und dann `github .` eingeben, um dieses Repository zu öffnen.
 
   ```shell
   $ cd <em>/path/to/repo</em>
@@ -36,7 +43,7 @@ versions:
   C:\Users\octocat> github <em>path\to\repo</em>
   ```
 
- You can also change to your repository path and then type `github .` to open that repository.
+ Du kannst auch zu deinem Repositorypfad wechseln und dann `github .` eingeben, um dieses Repository zu öffnen.
 
   ```shell
   C:\Users\octocat> cd <em>repo\myrepo</em>

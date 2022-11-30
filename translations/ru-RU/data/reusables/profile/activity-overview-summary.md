@@ -1,1 +1,9 @@
-When you enable the activity overview section on your profile, viewers can see more information about the types of contributions you make and repositories you're most active in. A viewer can only see information in the activity overview about repositories they have read access to. Once enabled, a viewer can also filter your contribution graph and activity timeline for a specific organization.
+---
+ms.openlocfilehash: bdea9acea7d20b628a1aaff5f9a648009072ba5b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145093013"
+---
+При включении раздела "Обзор действий" в профиле средства просмотра смогут просмотреть дополнительные сведения о типах внесенных вкладов и репозиториях, в которые вы наиболее активны. Средство просмотра может просматривать только сведения в разделе "Обзор действий" о репозиториях, к которых у них есть доступ на чтение. После включения средство просмотра также может фильтровать граф вкладов и временную шкалу действий для конкретной организации.

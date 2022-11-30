@@ -1,26 +1,29 @@
 ---
-title: ウィキについて
-intro: リポジトリのドキュメンテーションをウィキでホストして、他者が利用してプロジェクトにコントリビュートすることを可能にできます。
+title: About wikis
+intro: 'You can host documentation for your repository in a wiki, so that others can use and contribute to your project.'
 redirect_from:
-  - /articles/about-github-wikis/
+  - /articles/about-github-wikis
   - /articles/about-wikis
   - /github/building-a-strong-community/about-wikis
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
-すべての {% data variables.product.product_name %} リポジトリには、ウィキと呼ばれる、ドキュメンテーションをホストするセクションが付属しています。 リポジトリのウィキは、プロジェクトの利用方法、設計方法、中核的な原理など、プロジェクトに関する長いコンテンツを共有するために利用できます。 README ファイルは、プロジェクトができることを手短に述べますが、ウィキを使えば追加のドキュメンテーションを提供できます。 詳細は「[README について](/articles/about-readmes)」を参照してください。
+Every repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} comes equipped with a section for hosting documentation, called a wiki. You can use your repository's wiki to  share long-form content about your project, such as how to use it, how you designed it, or its core principles. A README file quickly tells what your project can do, while you can use a wiki to provide additional documentation. For more information, see "[About READMEs](/articles/about-readmes)."
 
-ウィキでは、{% data variables.product.product_name %} のあらゆる他の場所と同じようにコンテンツを書くことができます。 詳細は「[{% data variables.product.prodname_dotcom %} で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)」を参照してください。 私たちは、さまざまなフォーマットを HTML に変更するのに[私たちのオープンソースマークアップライブラリ](https://github.com/github/markup)を使っているので、Markdown あるいはその他任意のサポートされているフォーマットで書くことができます。
+With wikis, you can write content just like everywhere else on {% data variables.product.product_name %}. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/getting-started-with-writing-and-formatting-on-github)." We use [our open-source Markup library](https://github.com/github/markup) to convert different formats into HTML, so you can choose to write in Markdown or any other supported format. 
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}パブリックリポジトリにenterprise を作成すると、{% if enterpriseServerVersions contains currentVersion %}{% data variables.product.product_location %} にアクセスできるユーザ{% else %}なら誰でもそのenterprise を利用できます{% endif %}。 {% endif %}内部またはプライベートリポジトリにenterprise を作成すると、リポジトリにアクセスできる{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}ユーザ{% elsif currentVersion == "github-ae@latest" %}Enterprise メンバー{% endif %}もenterprise にアクセスできます。 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
+{% data reusables.getting-started.math-and-diagrams %}
 
-ウィキは、{% data variables.product.product_name %} 上で直接編集することも、ウィキのファイルをローカルで編集することもできます。 デフォルトでは、リポジトリへの書き込みアクセス権を持つユーザのみがウィキに変更を加えることができますが、{% data variables.product.product_location %} の全員が{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %}リポジトリのウィキに貢献できるようにすることができます。 詳細は「[ウィキへのアクセス権限を変更する](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)」を参照してください。
+{% ifversion fpt or ghes or ghec %}If you create a wiki in a public repository, the wiki is available to {% ifversion ghes %}anyone with access to {% data variables.location.product_location %}{% else %}the public{% endif %}. {% endif %}If you create a wiki in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, only {% ifversion fpt or ghes or ghec %}people{% elsif ghae %}enterprise members{% endif %} with access to the repository can access the wiki. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
+
+You can edit wikis directly on {% data variables.product.product_name %}, or you can edit wiki files locally. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.location.product_location %} to contribute to a wiki in {% ifversion ghae %}an internal{% else %}a public{% endif %} repository. For more information, see "[Changing access permissions for wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
 
 {% note %}
 
@@ -28,10 +31,10 @@ topics:
 
 {% endnote %}
 
-### 参考リンク
+## Further reading
 
-- 「[ウィキページを追加または編集する](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)」
-- 「[ウィキにフッタやサイドバーを作成する](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)」
-- 「[ウィキのコンテンツを編集する](/communities/documenting-your-project-with-wikis/editing-wiki-content)」
-- [Wkiの変更履歴の表示](/articles/viewing-a-wiki-s-history-of-changes)
-- [Wikiの検索](/articles/searching-wikis)
+- "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"
+- "[Creating a footer or sidebar for your wiki](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
+- "[Editing wiki content](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
+- "[Viewing a wiki's history of changes](/articles/viewing-a-wiki-s-history-of-changes)"
+- "[Searching wikis](/search-github/searching-on-github/searching-wikis)"

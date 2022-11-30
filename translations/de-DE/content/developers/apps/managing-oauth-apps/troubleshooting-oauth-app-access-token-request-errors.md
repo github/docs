@@ -1,26 +1,34 @@
 ---
-title: Troubleshooting OAuth App access token request errors
+title: Problembehandlung bei OAuth App-Zugriffstoken-Anforderungsfehlern
 intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
-  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/
+  - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /developers/apps/troubleshooting-oauth-app-access-token-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
+shortTitle: Troubleshoot token request
+ms.openlocfilehash: 7764d0e1f23a3d2dac841412ea0120487c8f6560
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145089796'
 ---
 {% note %}
 
-**Note:** These examples only show JSON responses.
+**Hinweis**: Diese Beispiele zeigen nur JSON-Antworten.
 
 {% endnote %}
 
-### Incorrect client credentials
+## Falsche Clientanmeldeinformationen
 
-If the client\_id and or client\_secret you pass are incorrect you will receive this error response.
+Wenn die client\_id und/oder das client\_secret, falsch sind, die du übergibst, erhältst du diese Fehlermeldung.
 
 ```json
 {
@@ -30,11 +38,11 @@ If the client\_id and or client\_secret you pass are incorrect you will receive 
 }
 ```
 
-To solve this error, make sure you have the correct credentials for your {% data variables.product.prodname_oauth_app %}. Double check the `client_id` and `client_secret` to make sure they are correct and being passed correctly to {% data variables.product.product_name %}.
+Um diesen Fehler zu beheben, stelle sicher, dass du über die richtigen Anmeldeinformationen für deine {% data variables.product.prodname_oauth_app %} verfügst. Überprüfe `client_id` und `client_secret` genau, um sicherzustellen, dass sie richtig sind und ordnungsgemäß an {% data variables.product.product_name %} übergeben werden.
 
-### Redirect URI mismatch
+## Konflikt des Umleitungs-URIs
 
-If you provide a `redirect_uri` that doesn't match what you've registered with your {% data variables.product.prodname_oauth_app %}, you'll receive this error message:
+Wenn du einen `redirect_uri` angibst, der nicht der Angabe übereinstimmt, die du bei der {% data variables.product.prodname_oauth_app %} registriert hast, erhältst du diese Fehlermeldung:
 
 ```json
 {
@@ -44,9 +52,9 @@ If you provide a `redirect_uri` that doesn't match what you've registered with y
 }
 ```
 
-To correct this error, either provide a `redirect_uri` that matches what you registered or leave out this parameter to use the default one registered with your application.
+Um diesen Fehler zu beheben, gib entweder einen `redirect_uri` an, der mit dem URI übereinstimmt, den du registriert hast, oder lasse diesen Parameter aus, um die Standardangabe zu verwenden, die mit deiner Anwendung registriert wurde.
 
-### Bad verification code
+## Fehlerhafter Überprüfungscode
 
 ```json
 {
@@ -57,7 +65,7 @@ To correct this error, either provide a `redirect_uri` that matches what you reg
 }
 ```
 
-If the verification code you pass is incorrect, expired, or doesn't match what you received in the first request for authorization you will receive this error.
+Wenn der von dir übergebene Überprüfungscode falsch bzw. abgelaufen iat oder nicht mit dem übereinstimmt, was du in der ersten Anforderung zur Autorisierung erhalten hast, erhältst du diesen Fehler.
 
 ```json
 {
@@ -67,4 +75,4 @@ If the verification code you pass is incorrect, expired, or doesn't match what y
 }
 ```
 
-To solve this error, start the [OAuth authorization process again](/apps/building-oauth-apps/authorizing-oauth-apps/) and get a new code.
+Um diesen Fehler zu beheben, starte den [OAuth-Autorisierungsprozess erneut](/apps/building-oauth-apps/authorizing-oauth-apps/), und rufe einen neuen Code ab.

@@ -1,3 +1,9 @@
-1. {% data variables.product.product_name %}の右上で、自分のプロフィール写真をクリックし、続いて**Your codespaces（自分のcode spaces）**をクリックしてください。
-
-  !['自分のcodespaces'メニューオプション](/assets/images/help/codespaces/your-codespaces-option.png)
+---
+ms.openlocfilehash: e7e3c99d5666152f58d5ffb73a6b7ddad22fb18b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109180"
+---
+1. [github.com/codespaces](https://github.com/codespaces) の [Codespaces] ページに移動します。

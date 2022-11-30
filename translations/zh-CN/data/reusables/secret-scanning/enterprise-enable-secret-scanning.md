@@ -1,8 +1,9 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes %}
 
 {% note %}
 
-**注：**站点管理员必须为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_secret_scanning %}，然后您才可使用此功能。 更多信息请参阅“[为设备配置 {% data variables.product.prodname_secret_scanning %}](/enterprise/admin/configuration/configuring-secret-scanning-for-your-appliance)”。
+**Note:** Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %} before you can use this feature. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your appliance](/enterprise/admin/configuration/configuring-secret-scanning-for-your-appliance)."   
+{% ifversion security-feature-enablement-policies %} You may not be able to enable or disable {% data variables.product.prodname_secret_scanning %}, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing policies for code security and analysis for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."{% endif %}
 
 {% endnote %}
 

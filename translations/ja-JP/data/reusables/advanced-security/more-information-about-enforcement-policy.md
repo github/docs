@@ -1,1 +1,9 @@
-詳しい情報については「{% if currentVersion == "free-pro-team@latest" %}[Enterpriseアカウントでの{% data variables.product.prodname_advanced_security %}のポリシー適用](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account){% elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}[Enterpriseでの{% data variables.product.prodname_advanced_security %}のポリシー適用](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise){% endif %}」を参照してください。
+---
+ms.openlocfilehash: 1da05f80c01813e53ccdb66c877587e3b2268d34
+ms.sourcegitcommit: 8d9e10685cfb2556fba0ce07484a3b9579808703
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/18/2022
+ms.locfileid: "148172155"
+---
+詳細については、「[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise (エンタープライズで GitHub Actions のポリシーを適用する)]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)」を参照してください。

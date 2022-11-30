@@ -1,17 +1,20 @@
-{% if  currentVersion == "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+---
+ms.openlocfilehash: 6651596e9f4ee39f1263196731ff03079c33598c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145126281"
+---
+{% ifversion ghae %}
+
+<!-- Remove this reusable and all references for GA release -->
+
+{% elsif ghae %}
+
 {% note %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for organization-owned repositories is currently in beta and subject to change.
-
-{% endnote %}
-
-{% endif %}
-{% if currentVersion ver_gt "enterprise-server@3.0" %}
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} was in beta in {% data variables.product.prodname_ghe_server %} 3.0. For the generally available release of {% data variables.product.prodname_secret_scanning %}, upgrade to the latest release of {% data variables.product.prodname_ghe_server %}.
-
+**Observação:** atualmente, a {% data variables.product.prodname_secret_scanning_caps %} para repositórios pertencentes à organização está em versão beta e sujeita a alterações.
 
 {% endnote %}
 

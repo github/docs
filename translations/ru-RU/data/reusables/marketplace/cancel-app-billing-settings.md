@@ -1,1 +1,10 @@
-1. Next to the app you want to cancel, use the **Edit** drop-down and click **Cancel plan**. ![Cancel link in the Marketplace Purchases section of your personal account's billing settings](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)
+---
+ms.openlocfilehash: d2d2a73223587a995cd78691b0ad3b7525fb94a4
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145123352"
+---
+1. Рядом с приложением, которое вы хотите отменить, используйте раскрывающийся список **Редактирование** и нажмите кнопку **Отменить план**.
+  ![Ссылка «Отмена» в разделе «Покупки в Marketplace» в параметрах выставления счетов вашей личной учетной записи](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

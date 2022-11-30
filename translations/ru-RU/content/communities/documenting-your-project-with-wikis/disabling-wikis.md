@@ -1,24 +1,30 @@
 ---
-title: Disabling wikis
-intro: You can disable your repository's wiki.
+title: Отключение вики-сайтов
+intro: Можно отключить вики-сайт своего репозитория.
 product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/disabling-wikis
   - /github/building-a-strong-community/disabling-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+ms.openlocfilehash: e23f48fc904c18c2d8744966a97a7b7cab73fbc2
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145092433'
 ---
+При отключении вики-сайта содержимое скрывается, но не удаляется. Если позднее вы решите снова включить вики-сайт, его страницы будут восстановлены.
 
-When you turn off a wiki, the content is hidden, but not erased. If you choose to re-enable wikis later, your previous pages will be restored.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+3. В разделе "Компоненты" снимите флажок **Вики-сайт**.
+  ![Флажок для отключения вики-сайта](/assets/images/help/wiki/wiki_enable_disable.png)
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-3. Under Features, unselect **Wiki**. ![Wiki disable checkbox](/assets/images/help/wiki/wiki_enable_disable.png)
+## Дополнительные материалы
 
-### Дополнительная литература
-
-- "[Changing access permissions for wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)"
+- [Изменение прав доступа для вики-сайтов](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)

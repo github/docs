@@ -1,7 +1,7 @@
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
   {% tip %}
 
-  Solo recibiras un correo electrónico si habilitas la compatibilidad con correo externo en {% data variables.product.product_location %}. Para obtener más información, contacta a tu administrador de sitio.
+  You will only receive an email if outbound email support is enabled on {% data variables.location.product_location %}. For more information, contact your site administrator.
 
   {% endtip %}
 {% endif %}

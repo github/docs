@@ -1,1 +1,9 @@
-If your "Payload URL" is a secure site (HTTPS), you will have the option to configure the SSL verification settings. If your "Payload URL" is not secure (HTTP), GitHub will not display this option. By default, GitHub verifies the SSL certificate of your website when delivering webhook payloads. SSL verification helps ensure that hook payloads are delivered to your URL endpoint securely. You have the option to disable SSL, but we recommend keeping **Enable SSL verification** selected.
+---
+ms.openlocfilehash: 45ee82afe4ef468356d2c480a424ebca686b788f
+ms.sourcegitcommit: 9a7b3a9ccb983af5df2cd94da7fecf7a8237529b
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878493"
+---
+Если "URL-адрес полезных данных" является защищенным сайтом (HTTPS), можно настроить параметры проверки SSL. Если "URL-адрес полезных данных" не является защищенным (HTTP), GitHub не отображает этот параметр. По умолчанию GitHub проверяет SSL-сертификат веб-сайта при доставке полезных данных веб-перехватчика. Проверка SSL помогает обеспечить безопасную доставку полезных данных веб-перехватчиков в конечную точку URL-адреса. Вы можете отключить SSL, однако параметр **Включить проверку SSL** рекомендуется всегда устанавливать.

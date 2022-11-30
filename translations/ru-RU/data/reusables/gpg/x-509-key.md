@@ -1,40 +1,48 @@
+---
+ms.openlocfilehash: f277d0294224922a74ce406c5cfb2a06daa6db2d
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/04/2022
+ms.locfileid: "148008974"
+---
 
-### Telling Git about your X.509 key
+## Предоставление Git информации о вашем ключе X.509
 
-You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME instead of GPG.
+Вы можете использовать [smimesign](https://github.com/github/smimesign) для подписывания фиксаций и тегов с помощью S/MIME.
 
 {% data reusables.gpg.smime-git-version %}
 
-1. Install [smimesign](https://github.com/github/smimesign#installation).
+1. Установите [smimesign](https://github.com/github/smimesign#installation).
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Configure Git to use S/MIME to sign commits and tags. In Git 2.19 or later, use the `git config gpg.x509.program` and `git config gpg.format` commands:
-  - To use S/MIME to sign for all repositories:
+3. Настройте Git, чтобы использовать S/MIME для подписывания фиксаций и тегов. В Git 2.19 или более поздней версии используйте команды `git config gpg.x509.program` и `git config gpg.format`:
+  - Чтобы использовать S/MIME для подписывания во всех репозиториях, воспользуйтесь следующим кодом:
   ```shell
   $ git config --global gpg.x509.program smimesign
   $ git config --global gpg.format x509
   ```
-  - To use S/MIME to sign for a single repository:
+  - Чтобы использовать S/MIME для подписывания в одном репозитории, воспользуйтесь следующим кодом:
   ```shell
-  $ cd <em>/path/to/my/repository</em>
+  $ cd PATH-TO-REPOSITORY
   $ git config --local gpg.x509.program smimesign
   $ git config --local gpg.format x509
   ```
-  In Git 2.18 or earlier, use the `git config gpg.program` command:
-  - To use S/MIME to sign for all repositories:
+  В Git 2.18 или более ранней версии используйте команду `git config gpg.program`:
+  - Чтобы использовать S/MIME для подписывания во всех репозиториях, воспользуйтесь следующим кодом:
   ```shell
   $ git config --global gpg.program smimesign
   ```
-  - To use S/MIME to sign for a single repository:
+  - Чтобы использовать S/MIME для подписывания в одном репозитории, воспользуйтесь следующим кодом:
   ```shell
-  $ cd <em>/path/to/my/repository</em>
+  $ cd  PATH-TO-REPOSITORY
   $ git config --local gpg.program smimesign
   ```
-  If you're using an X.509 key that matches your committer identity, you can begin signing commits and tags.
-4. If you're not using an X.509 key that matches your committer identity, list X.509 keys for which you have both a certificate and private key using the `smimesign --list-keys` command.
+  Если вы используете ключ X.509, соответствующий вашему удостоверению вносителя фиксаций, можно начать подписывание фиксаций и тегов.
+4. Если вы не используете ключ X.509, соответствующий вашему удостоверению вносителя фиксаций, выведите список ключей X.509, для которых у вас есть сертификат и закрытый ключ, с помощью команды `smimesign --list-keys`.
   ```shell
   $ smimesign --list-keys
   ```
-5. From the list of X.509 keys, copy the certificate ID of the X.509 key you'd like to use. In this example, the certificate ID is `0ff455a2708394633e4bb2f88002e3cd80cbd76f`:
+5. В списке ключей X.509 скопируйте идентификатор сертификата ключа X.509, который вы хотите использовать. В этом примере идентификатором сертификата является `0ff455a2708394633e4bb2f88002e3cd80cbd76f`:
   ```shell
   $ smimesign --list-keys
                ID: 0ff455a2708394633e4bb2f88002e3cd80cbd76f
@@ -45,13 +53,13 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
           Subject: CN=Octocat,O=GitHub\, Inc.,L=San Francisco,ST=California,C=US
            Emails: octocat@github.com
   ```
-6. To set your X.509 signing key in Git, paste the text below, substituting in the certificate ID you copied earlier.
-  - To use your X.509 key to sign for all repositories:
+6. Чтобы задать ключ подписывания X.509 в Git, вставьте приведенный ниже текст, подставив скопированный ранее идентификатор сертификата.
+  - Чтобы использовать ключ X.509 для подписывания во всех репозиториях, воспользуйтесь следующим кодом:
   ```shell
-  $ git config --global user.signingkey <em>0ff455a2708394633e4bb2f88002e3cd80cbd76f</em>
+  $ git config --global user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
   ```
-  - To use your X.509 key to sign for a single repository:
+  - Чтобы использовать ключ X.509 для подписывания в одном репозитории, воспользуйтесь следующим кодом:
   ```shell
-  $ cd <em>/path/to/my/repository</em>
-  $ git config --local user.signingkey <em>0ff455a2708394633e4bb2f88002e3cd80cbd76f</em>
+  $ cd  PATH-TO-REPOSITORY
+  $ git config --local user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
   ```

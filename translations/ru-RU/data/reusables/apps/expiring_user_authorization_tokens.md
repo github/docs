@@ -1,3 +1,9 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-To keep user-to-server access tokens more secure, you can use access tokens that will expire after 8 hours, and a refresh token that can be exchanged for a new access token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
-{% endif %}
+---
+ms.openlocfilehash: fe5409ed1949cda159d56ac48e991e504b4125a7
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145113915"
+---
+Для укрепления защиты токенов доступа между пользователями и сервером можно использовать токены доступа, срок действия которых истекает через восемь часов, и токен обновления, который можно обменять на новый токен доступа. Дополнительные сведения см. в разделе [Обновление токенов доступа между пользователями и сервером](/apps/building-github-apps/refreshing-user-to-server-access-tokens/).

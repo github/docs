@@ -1,1 +1,9 @@
-Repository administrators can require that all pull requests receive a specific number of approving reviews before someone merges the pull request into a protected branch. You can require approving reviews from people with write permissions in the repository or from a designated code owner.
+---
+ms.openlocfilehash: 0a4745a59266ba23a3ccc0ea892356a6cb503f17
+ms.sourcegitcommit: 5b1461b419dbef60ae9dbdf8e905a4df30fc91b7
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "147878970"
+---
+Администраторы репозитория могут требовать, чтобы для всех запросов на вытягивание выполнялось определенное количество проверок с утверждением, прежде чем кто-то объединит запрос на вытягивание в защищенную ветвь. Вы можете требовать утверждения проверок от пользователей с разрешениями на запись в репозиторий или от назначенного владельца кода.

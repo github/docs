@@ -1,6 +1,6 @@
 ---
-title: Verifying or approving a domain for your organization
-intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization''s identity. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.'
+title: Verificar o aprobar un dominio para tu organización
+intro: 'Puedes verificar tu propiedad de dominios con {% data variables.product.company_short %} para confirmar la identidad de tu organización. También puedes aprobar los dominios a los cuales {% data variables.product.company_short %} puede enviar notificaciones de correo electrónico para los miembros de tu organización.'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -8,75 +8,75 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.2'
+  ghes: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise
   - Notifications
   - Organizations
   - Policy
+shortTitle: Verify or approve a domain
+ms.openlocfilehash: 3cdd2954798e8584d5803ea9254d626d9cb37ee5
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147061750'
 ---
+## Acerca de la verificación de dominios
 
-### Acerca de la verificación de dominios
+Después de verificar la propiedad de los dominios de tu organización, se mostrará un distintivo "Verified" (Verificado) en el perfil de la organización. {% ifversion ghec %} Si tu organización ha aceptado los Términos de servicio corporativos, los propietarios de la organización podrán comprobar la identidad de los miembros de la organización al ver la dirección de correo electrónico de cada miembro dentro del dominio verificado. Para más información, vea "[Acerca de la página de perfil de la organización](/articles/about-your-organization-s-profile/)" y "<a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">Actualización a los Términos del servicio corporativos</a>".{% endif %}
 
-Después de verificar la propiedad de los dominios de tu organización, se mostrará un distintivo "Verified" (Verificado) en el perfil de la organización. Si tu organización está en {% data variables.product.prodname_ghe_cloud %} y ha aceptado los Términos de servicio corporativos, los propietarios de la organización podrán verificar la identidad de los miembros de la organización al ver la dirección de correo electrónico de cada miembro dentro del dominio verificado. Para obtener más información, consulta "[Acerca de la página de perfil de tu organización](/articles/about-your-organization-s-profile/)" y "[Actualizar a los Términos de servicio corporativos](/articles/upgrading-to-the-corporate-terms-of-service)."
+{% ifversion ghec %}Si tu organización pertenece a una cuenta empresarial, la{% elsif ghes %}Una{% endif %} insignia "Verificada" se mostrará en el perfil de la organización para todos los dominios comprobados de la cuenta empresarial, además de cualquier dominio comprobado de la organización. Los propietarios de las organizaciones pueden ver cualquier dominio que haya verificado o aprobado el propietario de la empresa y pueden editar los dominios si el propietario de la organización es también un propietario de la empresa. Para más información, vea "[Comprobación o aprobación de un dominio para la empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".
 
-Si tu organización le pertenece a una cuenta empresarial, se mostrará una "insignia verificada" en el perfil de tu organización para cualquier dominio verificado en dicha cuenta, adicinalmente a cualquier dominio verificado para la organización. Organization owners can view any domains that an enterprise owner has verified or approved, and edit the domains if the organization owner is also an enterprise owners. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
+{% ifversion ghec %} {% note %}
+
+**Nota:** Para comprobar o aprobar dominios, la organización debe usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %} {% endif %}
 
 {% data reusables.organizations.verified-domains-details %}
 
-En {% data variables.product.prodname_ghe_cloud %}, después de verificar la propiedad del dominio de tu organización, puedes restringir las notificaciones por correo electrónico para la organización a ese dominio. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+{% ifversion ghec or ghes %} Después de comprobar la propiedad del dominio de tu organización, puedes restringir las notificaciones por correo electrónico para la organización a ese dominio. Para más información, vea "[Restricción de las notificaciones por correo electrónico para la organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
+{% endif %}
 
-### About domain approval
+{% ifversion ghec %}También puedes comprobar los dominios personalizados que se utilizan para que {% data variables.product.prodname_pages %} prevenga las adquisiciones de dominio cuando un dominio personalizado permanece configurado pero tu sitio de {% data variables.product.prodname_pages %} está deshabilitado o ya no usa el dominio. Para más información, vea "[Comprobación de un dominio personalizado para {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)".{% endif %}
+
+## Acerca de la probación de dominios
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
 {% data reusables.enterprise-accounts.approved-domains-about %}
 
-After you approve domains for your organization, you can restrict email notifications for activity within the organization to users with verified email addresses within verified or approved domains. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+Después de que apruebas dominios para tu organización, puedes restringir las notificaciones por correo electrónico de toda la actividad dentro de la organización para que solo lleguen a las direcciones de correo electrónico verificadas dentro de los dominios aprobados o verificados. Para más información, vea "[Restricción de las notificaciones por correo electrónico para la organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
 
-Enterprise owners cannot see which organization members or email addresses receive notifications within approved domains.
+Los propietarios de empresas no pueden ver qué miembros de las organizaciones o direcciones de correo electrónico reciben notificaciones dentro de los dominios aprobados.
 
-Enterprise owners can also approve additional domains for organizations owned by the enterprise. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."
+Los propietarios de las empresas también pueden aprobar dominios adicionales para las organizaciones que pertenezcan a la empresa. {% ifversion ghec %}Para obtener más información, consulta "[Comprobación o aprobación de un dominio para tu empresa](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}{% ifversion ghes %}Para obtener más información, consulta "[Comprobación o aprobación de un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)".{% endif %}
 
-### Verifying a domain for your organization
+## Verificar un dominio para tu organización
 
-To verify a domain, you must have access to modify domain records with your domain hosting service.
+Para verificar un dominio, debes tener acceso apra modificar registros de dominio con tu servicio de hospedaje de dominios.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-{% data reusables.organizations.add-a-domain %}
-{% data reusables.organizations.add-domain %}
-{% data reusables.organizations.add-dns-txt-record %}
-1. Espera a que cambie la configuración de tu DNS, lo cual puede llevar hasta 72 horas. Puedes confirmar que tu configuración de DNS cambió si ejecutas el comando `dig` en la línea de comandos, reemplazando `ORGANIZATION` con el nombre de tu organización y `example.com` con el dominio que te gustaría verificar. Deberías ver tu nuevo registro TXT enumerado en el resultado del comando.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %} {% data reusables.organizations.add-a-domain %} {% data reusables.organizations.add-domain %} {% data reusables.organizations.add-dns-txt-record %}
+1. Espera a que cambie la configuración de tu DNS, lo cual puede llevar hasta 72 horas. Puede confirmar que la configuración de DNS ha cambiado si ejecuta el comando `dig` en la línea de comandos y reemplaza `ORGANIZATION` por el nombre de la organización y `example.com` por el dominio que quiere comprobar. Deberías ver tu nuevo registro TXT enumerado en el resultado del comando.
    ```shell
    $ dig _github-challenge-<em>ORGANIZATION</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```
-1. After confirming your TXT record is added to your DNS, follow steps one through three above to navigate to your organization's approved and verified domains.
+1. Después de confirmar, tu registro de TXT se agrega a tu DNS, sigue los pasos uno a tres que se mencionan anteriormente para navegar a los dominios verificados y aprobados de tu organización.
 {% data reusables.organizations.continue-verifying-domain %}
-11. Como alternativa, una vez que la insignia "Verified" (Verificado) es visible en la página de perfil de tu organización, puedes eliminar la entrada de TXT desde el registro de DNS en tu servicio de alojamiento de dominio. ![Insignia Verificado](/assets/images/help/organizations/verified-badge.png)
+11. Como alternativa, una vez que la insignia "Verified" (Verificado) es visible en la página de perfil de tu organización, puedes eliminar la entrada de TXT desde el registro de DNS en tu servicio de alojamiento de dominio.
+![Insignia Verificado](/assets/images/help/organizations/verified-badge.png)
 
-### Approving a domain for your organization
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+## Aprobar un dominio para tu organización
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
-{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %} {% data reusables.organizations.add-a-domain %} {% data reusables.organizations.add-domain %} {% data reusables.organizations.domains-approve-it-instead %} {% data reusables.organizations.domains-approve-domain %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-{% data reusables.organizations.add-a-domain %}
-{% data reusables.organizations.add-domain %}
-{% data reusables.organizations.domains-approve-it-instead %}
-{% data reusables.organizations.domains-approve-domain %}
+## Eliminar un dominio verificado o aprobado
 
-### Removing an approved or verified domain
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.verified-domains %}
-1. To the right of the domain to remove, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**. !["Delete" for a domain](/assets/images/help/organizations/domains-delete.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.verified-domains %}
+1. A la derecha del dominio que quiera eliminar, haga clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y después en **Eliminar**.
+    !["Eliminar" para un dominio](/assets/images/help/organizations/domains-delete.png)

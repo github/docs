@@ -1,1 +1,7 @@
-Você pode atualizar {% data variables.product.prodname_ghe_server %} para a versão mais recente do patch usando um hotpatch, que não requer uma janela de manutenção e geralmente não requer reinicialização. Você pode usar hotpatching para atualizar para uma versão de patch mais recente, mas não uma versão de recursos. Por exemplo, você pode atualizar `2.10.1` para `2.10.5` porque eles estão na mesma série de recursos, mas não de `2.10.9` para `2.11.0` porque eles estão em uma série de recursos diferentes.
+You can upgrade {% data variables.product.prodname_ghe_server %} to the latest patch release using a hotpatch.
+
+You can use hotpatching to upgrade to a newer patch release, but not a feature release. For example, you can upgrade from `2.10.1` to `2.10.5` because they are in the same feature series, but not from `2.10.9` to `2.11.0` because they are in a different feature series.
+
+Hotpatches do not generally require a reboot. If a hotpatch does require a reboot, the {% data variables.product.product_name %} release notes will indicate the requirement.
+
+Hotpatches require a configuration run, which can cause a brief period of errors or unresponsiveness for some or all services on {% data variables.location.product_location %}. You are not required to enable maintenance mode during installation of a hotpatch, but doing so will guarantee that users see a maintenance page instead of errors or timeouts. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."

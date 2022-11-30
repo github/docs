@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 
+import { Link } from 'components/Link'
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { UserCard } from 'components/landing/UserCard'
@@ -24,10 +24,8 @@ export const SponsorsExamples = () => {
           )
         })}
       </div>
-      <Link href={`https://github.com/sponsors/community`}>
-        <a className="btn btn-outline float-right">
-          {t('explore_people_and_projects')} <ArrowRightIcon />
-        </a>
+      <Link href={`https://github.com/sponsors/community`} className="btn btn-outline float-right">
+        {t('explore_people_and_projects')} <ArrowRightIcon />
       </Link>
     </div>
   )

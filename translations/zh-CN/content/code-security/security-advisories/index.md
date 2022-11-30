@@ -1,24 +1,26 @@
 ---
-title: 管理项目中的漏洞安全通告
-shortTitle: 安全通告
-intro: 使用安全通告讨论、修正和披露您仓库中的安全漏洞。
-redirect_from:
-  - /articles/managing-security-vulnerabilities-in-your-project
-  - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
+title: 使用安全公告
+shortTitle: Security advisories
+intro: '了解如何在 {% data variables.product.prodname_dotcom %},{% ifversion fpt or ghec %} 上使用安全公告，无论是想要为现有的全局公告做出贡献，还是创建存储库安全公告，{% endif %}这样做都可以改进存储库维护人员和安全研究者之间的协作。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Repositories
+  - CVEs
 children:
-  - /about-coordinated-disclosure-of-security-vulnerabilities
-  - /about-github-security-advisories
-  - /permission-levels-for-security-advisories
-  - /creating-a-security-advisory
-  - /adding-a-collaborator-to-a-security-advisory
-  - /removing-a-collaborator-from-a-security-advisory
-  - /collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability
-  - /publishing-a-security-advisory
-  - /editing-a-security-advisory
-  - /withdrawing-a-security-advisory
+  - /global-security-advisories
+  - /repository-security-advisories
+  - /guidance-on-reporting-and-writing
+ms.openlocfilehash: a42c57006a05bd1fffc09c8241d22eddc67ed8f1
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148113997'
 ---
-### 目录
+

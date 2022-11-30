@@ -1,48 +1,51 @@
 ---
-title: Managing reported content in your organization's repository
-intro: 'After a contributor reports disruptive content in a repository, repository maintainers can view and manage the report.'
+title: 조직의 리포지토리에서 보고된 콘텐츠 관리
+intro: 기여자가 리포지토리에서 와해성 콘텐츠를 보고한 후 리포지토리 유지 관리자는 보고서를 보고 관리할 수 있습니다.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:
   - Community
+shortTitle: Manage reported content
+ms.openlocfilehash: 6b2107acd7a045e089814177dbabae24915d7ae1
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145117652'
 ---
+리포지토리에 대한 관리자 권한이 있는 모든 사용자는 리포지토리에 대해 보고된 콘텐츠를 보고 관리할 수 있습니다.
 
-Anyone with admin permissions to a repository can view and manage reported content for the repository.
+## 보고된 콘텐츠 관리 정보
 
-### About management of reported content
+보고된 콘텐츠를 보거나 관리하려면 먼저 리포지토리에 대해 보고된 콘텐츠를 사용하도록 설정해야 합니다. 자세한 내용은 “[참여자가 조직의 리포지토리에서 남용을 보고하는 방식 관리](/communities/moderating-comments-and-conversations/managing-how-contributors-report-abuse-in-your-organizations-repository)”를 참조하세요.
 
-Before you can view or manage reported content, you must enable reported content for the repository. For more information, see "[Managing how contributors report abuse in your organization's repository](/communities/moderating-comments-and-conversations/managing-how-contributors-report-abuse-in-your-organizations-repository)."
-
-You can track, triage, and respond to reports of disruptive content. In the "Abuse reports" list, you can view all reports and navigate directly to each reported comment on {% data variables.product.prodname_dotcom %}.
+문제성 콘텐츠의 보고서를 추적, 심사, 응답할 수 있습니다. “남용 보고서” 목록에서 모든 보고서를 보고 {% data variables.product.prodname_dotcom %}에 대해 보고된 각 댓글로 바로 이동할 수 있습니다.
 
 {% data reusables.community.tools-for-moderating %}
 
-After you finish moderating disruptive content, you can mark the report as resolved. If you decide that you're not done moderating, you can also mark the report as unresolved.
+문제성 콘텐츠 조정을 완료한 후에는 보고서를 해결됨으로 표시할 수 있습니다. 조정을 완료하지 않은 경우에는 보고서를 해결되지 않음으로 표시할 수 있습니다.
 
-### Viewing content that a contributor reported
+## 참여자가 보고한 콘텐츠 보기
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.sidebar-moderation-reported-content %}
-4. To the right of the reported content you'd like to view, click {% octicon "kebab-horizontal" aria-label="The edit icon" %}, then click **View content**. !["View content" in Edit drop-down for reported content](/assets/images/help/repository/reported-content-report-view-content.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.sidebar-moderation-reported-content %}
+4. 보려는 보고된 콘텐츠의 오른쪽에서 {% octicon "kebab-horizontal" aria-label="The edit icon" %}을 클릭한 다음 **콘텐츠 보기** 를 클릭합니다.
+  ![보고된 콘텐츠에 대한 편집 드롭다운의 “콘텐츠 보기”](/assets/images/help/repository/reported-content-report-view-content.png)
 
-### Resolving a report
+## 보고서 확인
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.sidebar-moderation-reported-content %}
-4. To the right of the report you'd like to resolve, click {% octicon "kebab-horizontal" aria-label="The edit icon" %}, then click **Mark as resolved**. !["Mark as resolved" in Edit drop-down for reported content](/assets/images/help/repository/reported-content-mark-report-as-resolved.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.sidebar-moderation-reported-content %}
+4. 확인하려는 보고서의 오른쪽에서 {% octicon "kebab-horizontal" aria-label="The edit icon" %}을 클릭한 다음 **확인됨으로 표시** 를 클릭합니다.
+  ![보고된 콘텐츠에 대한 편집 드롭다운의 “확인됨으로 표시”](/assets/images/help/repository/reported-content-mark-report-as-resolved.png)
 
-### Unresolving a report
+## 보고서 확인 취소
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.sidebar-moderation-reported-content %}
-{% data reusables.repositories.reported-content-resolved-tab %}
-5. To the right of the report you'd like to unresolve, click {% octicon "kebab-horizontal" aria-label="The edit icon" %}, then click **Mark as unresolved**. !["Mark as unresolved" in Edit drop-down for reported content](/assets/images/help/repository/reported-content-mark-report-as-unresolved.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.sidebar-moderation-reported-content %} {% data reusables.repositories.reported-content-resolved-tab %}
+5. 확인을 취소하려는 보고서의 오른쪽에서 {% octicon "kebab-horizontal" aria-label="The edit icon" %}을 클릭한 다음 **확인되지 않음으로 표시** 를 클릭합니다.
+  ![보고된 콘텐츠에 대한 편집 드롭다운의 “확인되지 않음으로 표시”](/assets/images/help/repository/reported-content-mark-report-as-unresolved.png)
 
-### 더 읽을거리
+## 추가 참고 자료
 
-- "[About community management and moderation](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation)"
+- “[커뮤니티 관리 및 조정 정보](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation)”

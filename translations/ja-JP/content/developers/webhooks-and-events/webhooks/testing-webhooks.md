@@ -4,35 +4,44 @@ intro: '{% data variables.product.prodname_dotcom %} で webhook のデリバリ
 redirect_from:
   - /webhooks/testing
   - /developers/webhooks-and-events/testing-webhooks
+  - /articles/testing-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+ms.openlocfilehash: 5b9287030169ecac751b407ad915d4fa69bf8182
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145996218'
 ---
-[ローカルサーバーを設定](/webhooks/configuring/)したら、次にコードを制限までプッシュしてみることができます。 そのために、GitHub の webhook ビューは、デプロイされたペイロードをテストするためのツールを提供しています。
+[ローカル サーバーを構成](/webhooks/configuring/)したので、コードを限界までプッシュすることに興味があるかもしれません。 そのために、GitHub の Webhook ビューには、デプロイされたペイロードをテストするためのツールが用意されています。
 
-### 最近のデリバリの一覧表示
+## 最近のデリバリの一覧表示
 
-すべての webhook には独自の \[Recent Deliveries\] (最近のデリバリ) セクションがあり、デリバリの成功（緑色のチェック）や失敗（赤色の x）が一目でわかります。 また、各デリバリの試行時期を特定することもできます。
+すべての webhook には独自の [Recent Deliveries] (最近のデリバリ) セクションがあり、デリバリの成功（緑色のチェック）や失敗（赤色の x）が一目でわかります。 また、各デリバリの試行時期を特定することもできます。
 
-{% data variables.product.product_name %} は、各 webhook デリバリのログを {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} 日間保持します。
+{% data variables.product.product_name %} では各 Webhook 配信のログが{% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %}日間保持されます。
 
 ![[Recent Deliveries] ビュー](/assets/images/webhooks_recent_deliveries.png)
 
-### 結果を詳しく確認する
+## 結果を詳しく確認する
 
-個別のデリバリを展開すると、GitHub がサーバーに送信しようとしている情報を*正確に*確認できます。 これには、HTTP リクエストとレスポンスの両方が含まれます。
+個別の配信を拡張することで、GitHub がサーバーに送信しようとしている情報を *正確に* 確認できます。 これには、HTTP 要求と応答の両方が含まれます。
 
-#### リクエスト
+### Request
 
-webhook デリバリ ビューには、GitHub によって送信されたヘッダに関する情報が表示されます。 これには、JSON ペイロードに関する詳細も含まれています。
+webhook デリバリ ビューには、GitHub によって送信されたヘッダに関する情報が表示されます。
+これには、JSON ペイロードに関する詳細も含まれています。
 
 ![ペイロードリクエストの表示](/assets/images/payload_request_tab.png)
 
-#### レスポンス
+### [応答]
 
-[Response] タブには、サーバーが GitHub からペイロードを受信した後の応答方法が一覧表示されます。 これには、ステータスコード、ヘッダ、およびレスポンス本文内の追加データが含まれます。
+[応答] タブには、サーバーが GitHub からペイロードを受信した後の応答方法が一覧表示されます。 これには、状態コード、ヘッダー、応答本文内の追加データが含まれます。
 
 ![ペイロードレスポンスの表示](/assets/images/payload_response_tab.png)

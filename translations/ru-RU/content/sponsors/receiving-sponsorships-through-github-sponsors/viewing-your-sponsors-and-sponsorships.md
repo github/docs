@@ -1,36 +1,68 @@
 ---
-title: Viewing your sponsors and sponsorships
-intro: You can view and export detailed information and analytics about your sponsors and sponsorships.
+title: Просмотр спонсоров и спонсорской поддержки
+intro: Вы можете просматривать и экспортировать подробные сведения и аналитические сведения о спонсорах и спонсорских предложениях.
 redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
   - /github/supporting-the-open-source-community-with-github-sponsors/viewing-your-sponsors-and-sponsorships
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Analytics
+shortTitle: View sponsors & sponsorships
+ms.openlocfilehash: 33c45171d28b77c302a04f734342b05beb04be1e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145140193'
 ---
+## Сведения о спонсорах и спонсорской поддержке
 
-### About sponsors and sponsorships
+Вы можете просмотреть аналитику по текущей и прошлой спонсорской поддержкой, платежам, полученным от спонсоров, и событиям, таким как отмена и изменение уровня спонсора для вашей спонсорской поддержки. Вы также можете просматривать такие действия, как новая спонсорская поддержка, изменения спонсорской поддержки и отмененная спонсорская поддержка. Список действий можно отфильтровать по дате. Вы также можете экспортировать данные о спонсорской поддержке для учетной записи, которую вы просматриваете в формате CSV или JSON.
 
-You can view analytics on your current and past sponsorships, the payments you've received from sponsors, and events, such as cancellations and sponsor tier changes for your sponsorships. You can also view activity such as new sponsorships, changes to sponsorships, and canceled sponsorships. You can filter the list of activities by date. You can also export sponsorship data for the account you're viewing in CSV or JSON format.
+## Сведения о метаданных транзакции
 
-### Viewing your sponsors and sponsorships
+Чтобы отслеживать, откуда поступает спонсорская поддержка, можно использовать настраиваемые URL-адреса с метаданными для вашего профиля {% data variables.product.prodname_sponsors %} или для страницы оформления заказа. Метаданные будут включены в экспорт транзакции в столбце метаданных. Дополнительные сведения об экспорте данных транзакций см. в разделе [Экспорт данных спонсорской поддержки](#exporting-your-sponsorship-data).
+
+Метаданные должны использовать формат `key=value` и могут быть добавлены в конец этих URL-адресов.
+
+- Профиль спонсируемой учетной записи: `https://github.com/sponsors/{account}`
+- Проверка спонсорской поддержки: `https://github.com/sponsors/{account}/sponsorships`
+
+Метаданные будут сохраняться в URL-адресе, когда потенциальный спонсор переключает учетные записи для спонсорской поддержки, выбирает ежемесячные или одноразовые платежи и выбирает другой уровень.
+
+### Требования к синтаксису
+
+Метаданные должны соответствовать следующим требованиям, которые не применяются к другим передаваемым параметрам URL-адреса.
+
+- Ключи должны быть предварительно зафиксированы `metadata_`, такими как `metadata_campaign`. В экспорте транзакции префикс `metadata_` будет удален из ключа.
+- Ключи и значения должны содержать только буквенно-цифровые значения, дефисы или символы подчеркивания. Если непринятые символы передаются в ключах или значениях, возникает ошибка 404.
+- Пробелы недопустимы.
+- Для каждого запроса принимается не более **10** пар "ключ-значение". Если передается больше пар, сохраняются только первые 10 из них.
+- Каждый ключ может содержать не более **25** символов. Если передается больше символов, сохраняются только первые 25 из них.
+- Каждое значение может содержать не более **100** символов. Если передается больше символов, сохраняются только первые 100 из них.
+
+Например, можно использовать `https://github.com/sponsors/{account}?metadata_campaign=myblog` для отслеживания спонсорских предложений, поступающей из вашего блога. `metadata_campaign` является ключом, а `myblog` — значением. В столбце метаданных экспорта транзакции ключ будет указан как `campaign`.
+
+## Просмотр спонсоров и спонсорской поддержки
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-1. Optionally, to filter your sponsors by tier, use the **Filter** drop-down menu, click **Active tiers** or **Retired tiers**, and select a tier. ![Drop-down menu to filter by tier](/assets/images/help/sponsors/filter-drop-down.png)
+1. При необходимости, чтобы отфильтровать спонсоров по уровням, используйте раскрывающееся меню **Фильтр**, выберите **Активные уровни** или **Устаревшие уровни** и выберите уровень.
+  ![Раскрывающееся меню для фильтрации по уровням](/assets/images/help/sponsors/filter-drop-down.png)
 
-### Viewing recent sponsorship activity
+## Просмотр недавних действий в рамках спонсорской поддержки
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.your-sponsors-tab %}
 
-### Exporting your sponsorship data
+## Экспорт данных о спонсорской поддержке
 
-You can export your sponsorship transactions by month. {% data variables.product.company_short %} will send you an email with transaction data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
+Вы можете экспортировать транзакции в рамках спонсорской поддержки по месяцам. {% data variables.product.company_short %} отправит вам сообщение электронной почте, которое содержит данные о транзакциях для всех спонсоров за выбранный месяц. После завершения экспорта можно экспортировать данные еще за один месяц. Вы можете экспортировать до 10 наборов данных в час для любой из спонсируемых учетных записей.
 
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
-1. Click {% octicon "download" aria-label="The download icon" %} **Export**. ![Export button](/assets/images/help/sponsors/export-all.png)
-1. Choose a time frame and a format for the data you'd like to export, then click **Start export**. ![Options for data export](/assets/images/help/sponsors/export-your-sponsors.png)
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %} {% data reusables.sponsors.your-sponsors-tab %}
+1. В правом верхнем углу экрана щелкните {% octicon "download" aria-label="The download icon" %} **Экспорт**.
+  ![Кнопка экспорта](/assets/images/help/sponsors/export-all.png)
+1. Выберите интервал времени и формат данных, которые требуется экспортировать, а затем нажмите кнопку **Начать экспорт**.
+  ![Параметры экспорта данных](/assets/images/help/sponsors/export-your-sponsors.png)

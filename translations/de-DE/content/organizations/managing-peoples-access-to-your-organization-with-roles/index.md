@@ -1,22 +1,33 @@
 ---
-title: Rollenbasierten Zugriff von Personen auf Deine Organisation verwalten
-intro: 'Die Rolle einer Person in Deiner Organisation bestimmt die Ebene ihres Zugriffs auf Deine Organisationen und deren Einstellungen und Deine Daten. Du kannst Personen zu Inhabern, Mitgliedern oder Abrechnungsmanagern für Deine Organisation machen oder ihnen Team-Betreuer-Berechtigungen erteilen.'
+title: Verwalten des Zugriffs von Personen auf deine Organisation mithilfe von Rollen
+intro: 'Du kannst den Zugriff auf die Einstellungen und Repositorys deiner Organisationen steuern, indem du den Benutzer*innen Organisations-, Repository- und Teamrollen zuweist.'
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles
   - /github/setting-up-and-managing-organizations-and-teams/managing-peoples-access-to-your-organization-with-roles
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 children:
-  - /permission-levels-for-an-organization
+  - /roles-in-an-organization
+  - /about-custom-repository-roles
+  - /managing-custom-repository-roles-for-an-organization
   - /maintaining-ownership-continuity-for-your-organization
-  - /giving-team-maintainer-permissions-to-an-organization-member
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
+  - /managing-security-managers-in-your-organization
+  - /managing-moderators-in-your-organization
+shortTitle: Manage access with roles
+ms.openlocfilehash: b687648202fc9e01f99aec644e167e014c1261b1
+ms.sourcegitcommit: ca040a1871ab5e929b596686ef955b02c5afa051
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/02/2022
+ms.locfileid: '148131013'
 ---
 

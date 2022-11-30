@@ -1,5 +1,17 @@
-10. 在“Provisioning to App（配置到 App）”的右侧，单击 **Edit（编辑）**。 ![用于 Okta 应用程序配置选项的"Edit（编辑）"按钮](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
-11. 在“Create Users（创建用户）”的右侧，选择 **Enable（启用）**。 ![用于 Okta 应用程序"Create Users（创建用户）"选项的"Enable（启用）"复选框](/assets/images/help/saml/okta-provisioning-enable-create-users.png)
-12. 在“Update User Attributes（更新用户属性）”的右侧，选择 **Enable（启用）**。 ![用于 Okta 应用程序"Update User Attributes（更新用户属性）"选项的"Enable（启用）"复选框](/assets/images/help/saml/okta-provisioning-enable-update-user-attributes.png)
-13. 在“Deactivate Users（停用用户）”的右侧，选择 **Enable（启用）**。 ![用于 Okta 应用程序"Deactivate Users（停用用户）"选项的"Enable（启用）"复选框](/assets/images/help/saml/okta-provisioning-enable-deactivate-users.png)
-14. 单击 **Save（保存）**。 ![用于 Okta 应用程序配置的"Save（保存）"按钮](/assets/images/help/saml/okta-provisioning-save.png)
+---
+ms.openlocfilehash: 0f66875581a4a1b2de98f49a12ad7069be1f9375
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "147093044"
+---
+1. 为避免同步错误并确认用户已启用 SAML 且拥有 SCIM 关联标识，建议你审核组织的用户。 有关详细信息，请参阅“[排除组织的标识和访问管理故障](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)”。
+
+1. 在“预配到应用”右侧，单击“编辑”。
+
+    ![Okta 应用程序预配选项的“编辑”按钮的屏幕截图](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
+1. 在“创建用户”、“更新用户属性”和“停用用户”的右侧，选择“启用”   。
+
+    ![“创建用户”、“更新用户属性”和“停用用户”选项的“启用”复选框的屏幕截图](/assets/images/help/saml/okta-provisioning-enable-options.png)
+1. 单击“保存” 。

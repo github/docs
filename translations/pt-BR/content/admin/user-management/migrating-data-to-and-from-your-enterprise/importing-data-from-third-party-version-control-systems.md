@@ -6,13 +6,20 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import from another VCS
+ms.openlocfilehash: 2647bf8eb0a08e4188d36ddc8bd7057ee1e2f208
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '146331998'
 ---
-### Importar projetos do Mercurial
+## Importar projetos do Mercurial
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Faça um clone bruto do projeto usando o comando abaixo. Especifique a URL do projeto de origem e um caminho para um repositório temporário:
@@ -25,14 +32,14 @@ topics:
   ```shell
   $ git-import-rewrite --flavor hg --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Se ainda não tiver feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
-7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
+7. Faça push do repositório para o {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Importar projetos do Subversion
+## Importar projetos do Subversion
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Faça um clone bruto do projeto usando o comando abaixo. Especifique a URL do projeto de origem e um caminho para um repositório temporário:
@@ -45,14 +52,14 @@ topics:
   ```shell
   $ git-import-rewrite --flavor svn --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Se ainda não tiver feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
-7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
+7. Faça push do repositório para o {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Importar projetos do Team Foundation
+## Importar projetos do Team Foundation
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Faça um clone bruto do projeto usando o comando abaixo. Especifique a URL do projeto de origem e um caminho para um repositório temporário:
@@ -65,13 +72,13 @@ topics:
   ```shell
   $ git-import-rewrite --flavor tfs --authors /<em>PATH</em>/<em>AUTHORS-MAP-FILE</em>.csv /<em>PATH</em>/<em>REPO-NAME</em>.git
   ```
-5. Caso ainda não tenha feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/creating-a-new-repository).
+5. Se ainda não tiver feito isso, [crie um repositório vazio no {% data variables.product.prodname_ghe_server %}](/enterprise/user/articles/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
-7. Faça push do repositório importado para o {% data variables.product.prodname_ghe_server %}:
+7. Faça push do repositório para o {% data variables.product.prodname_ghe_server %}:
   ```shell
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Leia mais
+## Leitura adicional
 
-- "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[Utilitários de linha de comando](/enterprise/admin/guides/installation/command-line-utilities/#import-and-export)"

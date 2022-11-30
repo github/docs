@@ -1,24 +1,28 @@
 ---
-title: Scalars
+title: 스칼라
 redirect_from:
   - /v4/scalar
   - /v4/reference/scalar
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+ms.openlocfilehash: 731b2085e9b207298b39b99b4b37907c517b5814
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109705'
 ---
+## 스칼라 정보
 
-### About scalars
+[스칼라](https://graphql.github.io/graphql-spec/June2018/#sec-Scalars)는 기본 값(`Int`, `Float`, `String`, `Boolean` 또는 `ID`)입니다.
 
-[Scalars](https://graphql.github.io/graphql-spec/June2018/#sec-Scalars) are primitive values: `Int`, `Float`, `String`, `Boolean`, or `ID`.
+GraphQL API를 호출할 경우, 스칼라만 반환할 때까지 중첩된 하위 필드를 지정해야 합니다.
 
-When calling the GraphQL API, you must specify nested subfields until you return only scalars.
+자세한 내용은 “[GraphQL 소개](/graphql/guides/introduction-to-graphql#field)”를 참조하세요.
 
-For more information, see  "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#field)."
-
-{% for item in graphql.schemaForCurrentVersion.scalars %}
-  {% include graphql-scalar %}
-{% endfor %}
+<!-- Content after this section is automatically generated -->

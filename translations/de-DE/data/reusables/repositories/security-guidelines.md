@@ -1,3 +1,9 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
-You can create a security policy to give people instructions for reporting security vulnerabilities in your project. Weitere Informationen findest Du unter „[Eine Sicherheitsrichtlinie zum Repository hinzufügen](/code-security/getting-started/adding-a-security-policy-to-your-repository)“.
-{% endif %}
+---
+ms.openlocfilehash: cacb54e3b13cf02d1decf4fa78af6f76427d1a5a
+ms.sourcegitcommit: 80842b4e4c500daa051eff0ccd7cde91c2d4bb36
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145105620"
+---
+Du kannst eine Sicherheitsrichtlinie erstellen, um Anweisungen für das Melden von Sicherheitsrisiken in deinem Projekt zu geben. Weitere Informationen findest du unter [Hinzufügen einer Sicherheitsrichtlinie zu deinem Repository](/code-security/getting-started/adding-a-security-policy-to-your-repository).

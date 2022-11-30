@@ -1,8 +1,8 @@
 {% tip %}
 
-**提示：**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-  - 本文章包含 {% data variables.product.prodname_dotcom_the_website %} 网站上示例搜索的链接，但您可以对 {% data variables.product.product_name %} 使用相同的搜索过滤器。 在链接的示例搜索中，将 `github.com` 替换为 {% data variables.product.product_location %} 的主机名。{% endif %}
-  - 有关可以添加到任何搜索限定符以进一步改善结果的搜索语法列表，请参阅“[了解搜索语法](/articles/understanding-the-search-syntax)”。
-  - 对多个字词的搜索词使用引号。 例如，如果要搜索具有标签 "In progress" 的议题，可搜索 `label:"in progress"`。 搜索不区分大小写。
+**Tips:**{% ifversion ghes or ghae %}
+  - This article contains links to example searches on the {% data variables.product.prodname_dotcom_the_website %} website, but you can use the same search filters with {% data variables.product.product_name %}. In the linked example searches, replace `github.com` with the hostname for {% data variables.location.product_location %}.{% endif %}
+  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax)".
+  - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
 
 {% endtip %}

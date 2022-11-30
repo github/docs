@@ -1,4 +1,15 @@
-1. Under "What is your goal based on?", select **Number of sponsors** or **Sponsorships a month**. ![Available goal types ](/assets/images/help/sponsors/select-goal-type.png)
-2. Type the number of sponsors you'd like to have, or the monthly amount you're aiming for.
-3. Under "Describe your goal", type a description for your goal. ![Goal settings](/assets/images/help/sponsors/goal-settings.png)
-5. If you chose a goal based on sponsorships per month, select "I understand that this will publicly display how much sponsorship funds I receive each month". ![Checkbox that you understand your sponsorships fund will be published](/assets/images/help/sponsors/sponsorships-published-checkbox.png)
+---
+ms.openlocfilehash: 3a5ef10ee703d24457f8b2b475089be45ae34243
+ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/12/2022
+ms.locfileid: "145067598"
+---
+1. В разделе "На чем основывается ваша цель?" выберите **Количество спонсоров** или **Сумма спонсорской поддержки в месяц**.
+![Доступные типы целей ](/assets/images/help/sponsors/select-goal-type.png)
+2. Введите желаемое количество спонсоров или целевую ежемесячную сумму.
+3. В разделе "Опишите свою цель" введите описание своей цели.
+![Параметры цели](/assets/images/help/sponsors/goal-settings.png)
+5. Если задана целевая сумма спонсорской поддержки в месяц, выберите "Я понимаю, что сумма получаемых мной ежемесячно спонсорских средств будет отображаться публично".
+![Флажок, с помощью которого вы подтверждаете, что сумма спонсорских предложений будет отображаться публично](/assets/images/help/sponsors/sponsorships-published-checkbox.png)

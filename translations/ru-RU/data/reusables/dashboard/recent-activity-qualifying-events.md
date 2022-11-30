@@ -1,8 +1,16 @@
-Open issues and pull requests appear in the recent activity section when:
-- You have opened an issue or pull request.
-- Someone has commented on an issue or pull request you opened.
-- Your issue or pull request was reopened.
-- Your review was requested on a pull request.
-- You were assigned to an issue or pull request.
-- You referenced an issue or pull request via a commit.
-- You commented on an issue or pull request.
+---
+ms.openlocfilehash: a891c9e393eae7dd2de2359d04b10fb4140baeab
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: "145138897"
+---
+Открытые проблемы и запросы на вытягивание отображаются в разделе последних действий, когда:
+- Вы открыли проблему или запрос на вытягивание.
+- Кто-то прокомментировал проблему или запрос на вытягивание, которые вы открыли.
+- Ваша проблема или запрос на вытягивание повторно открыты.
+- По запросу на вытягивание была запрошена проверка.
+- Вам назначена проблема или запрос на вытягивание.
+- Вы ссылались на проблему или запрос на вытягивание с помощью фиксации.
+- Вы прокомментировали проблему или запрос на вытягивание.

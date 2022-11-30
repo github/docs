@@ -1,1 +1,7 @@
-translations/
+/translations/
+includes/
+data/release-notes/
+script/bookmarklets/
+/.next/
+/.coverage
+/coverage

@@ -1,7 +1,15 @@
-The following rules apply to secret names:
+---
+ms.openlocfilehash: 817ada6565cff5ef91aae6e6b7306b520bf55d84
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: "145140065"
+---
+К именам секретов применяются следующие правила:
 
-* Secret names can only contain alphanumeric characters (`[a-z]`, `[A-Z]`, `[0-9]`) or underscores (`_`). Spaces are not allowed.
-* Secret names must not start with the `GITHUB_` prefix.
-* Secret names must not start with a number.
-* Secret names are not case-sensitive.
-* Secret names must be unique at the level they are created at.
+* Имена секретов могут содержать только буквы и цифры (`[a-z]`, `[A-Z]`, `[0-9]`) или символы подчеркивания (`_`). Пробелы недопустимы.
+* Имена секретов не должны начинаться с префикса `GITHUB_`.
+* Имена секретов не должны начинаться с цифры.
+* В именах секретов регистр не учитывается.
+* Имена секретов должны быть уникальными на том уровне, на котором они были созданы.

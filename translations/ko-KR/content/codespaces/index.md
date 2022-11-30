@@ -1,42 +1,63 @@
 ---
-title: GitHub Codespaces Documentation
-beta_product: true
+title: GitHub Codespaces 설명서
 shortTitle: GitHub Codespaces
-intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
+intro: 원하는 방법으로 원하는 곳에서 작동하는 안전하고 구성 가능한 전용 개발 환경에서 개발을 시작하는 코드스페이스를 만듭니다.
 introLinks:
-  quickstart: /codespaces/quickstart
-  overview: /codespaces/about-codespaces
+  overview: /codespaces/overview
+  quickstart: /codespaces/getting-started/quickstart
 featuredLinks:
   guides:
+    - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
+    - /codespaces/developing-in-codespaces/the-codespace-lifecycle
+    - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
+    - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
+    - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
+  guideCards:
+    - /codespaces/getting-started/deep-dive
+    - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+    - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
+    - /codespaces/developing-in-codespaces/opening-an-existing-codespace
+    - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
+  popular:
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
     - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
-  guideCards:
-    - /codespaces/developing-in-codespaces/creating-a-codespace
-    - /codespaces/developing-in-codespaces/developing-in-a-codespace
-    - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
-    - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
-  popular:
-    - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
-    - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
-    - /codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces
-    - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
-  popularHeading: Managing GitHub Codespaces
+  popularHeading: Set up your project
+changelog:
+  label: codespaces
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
+communityRedirect:
+  name: Provide GitHub Feedback
+  href: 'https://github.com/orgs/community/discussions/categories/codespaces'
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
 layout: product-landing
+examples_source: data/product-examples/codespaces/code-examples.yml
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+children:
+  - /overview
+  - /getting-started
+  - /developing-in-codespaces
+  - /setting-up-your-project-for-codespaces
+  - /customizing-your-codespace
+  - /prebuilding-your-codespaces
+  - /managing-your-codespaces
+  - /managing-codespaces-for-your-organization
+  - /codespaces-reference
+  - /troubleshooting
+  - /the-githubdev-web-based-editor
+  - /guides
+ms.openlocfilehash: 62723c1d4bf684e67420149c96586a91e7583031
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160436'
 ---
 
-<!-- {% link_in_list /about-codespaces %} -->
-<!-- {% link_in_list /quickstart %} -->
-<!-- {% link_in_list /getting-started-with-codespaces %} -->
-<!-- {% link_in_list /setting-up-your-codespace %} -->
-<!-- {% link_in_list /developing-in-codespaces %} -->
-<!-- {% link_in_list /managing-your-codespaces %} -->
-<!-- {% link_in_list /managing-codespaces-for-your-organization %} -->
-<!-- {% link_in_list /codespaces-reference %} -->

@@ -1,7 +1,6 @@
----
 user_migrations_intro: >-
-  You can use this API to review, backup, or migrate your user data stored on {% data variables.product.product_name %}.com.
+  이 API를 사용하여 {% data variables.product.product_name %}.com에 저장된 사용자 데이터를 검토, 백업 또는 마이그레이션할 수 있습니다.
 organization_migrations_intro: >-
-  The organization migrations API lets you move a repository from GitHub to {% data variables.product.prodname_ghe_server %}.
+  조직 마이그레이션 API를 사용하면 리포지토리를 {% data variables.product.prodname_dotcom_the_website %}에서 {% data variables.product.prodname_ghe_server %}로 마이그레이션할 수 있습니다. 자세한 내용은 {% data variables.product.prodname_ghe_server %} 문서의 “[GitHub.com에서 마이그레이션 데이터 내보내기](/enterprise-server@latest/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom)”를 참조하세요.
 source_imports_intro: >-
-  The Source Import API lets you start an import from a Git, Subversion, Mercurial, or Team Foundation Version Control source repository. This is the same functionality as the {% data variables.product.prodname_dotcom %} Importer. For more information, see "[Importing a repository with {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)."
+  원본 가져오기 API를 사용하면 Git, Subversion, Mercurial 또는 Team Foundation 버전 제어 원본 리포지토리에서 가져오기를 시작할 수 있습니다. 이는 {% data variables.product.prodname_dotcom %} 가져오기 도구와 동일한 기능입니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 가져오기 도구를 사용하여 리포지토리 가져오기](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)”를 참조하세요.

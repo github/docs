@@ -1,32 +1,33 @@
 ---
-title: Integrierte Firewallregeln konfigurieren
-intro: 'Sie können standardmäßige Firewallregeln anzeigen und Regeln für {% data variables.product.product_location %} anpassen.'
+title: Configuring built-in firewall rules
+intro: 'You can view default firewall rules and customize rules for {% data variables.location.product_location %}.'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-firewall-settings/
+  - /enterprise/admin/guides/installation/configuring-firewall-settings
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure firewall rules
 ---
-### Informationen zur Firewall der {% data variables.product.product_location %}
+## About {% data variables.location.product_location %}'s firewall
 
-{% data variables.product.prodname_ghe_server %} verwendet die Uncomplicated Firewall (UFW) von Ubuntu auf der virtuellen Appliance. Weitere Informationen finden Sie unter „[UFW](https://help.ubuntu.com/community/UFW)“ in der Ubuntu-Dokumentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
+{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see "[UFW](https://help.ubuntu.com/community/UFW)" in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
-Nachdem Sie {% data variables.product.prodname_ghe_server %} installiert haben, werden automatisch alle erforderlichen Netzwerkports zum Akzeptieren der Verbindungen geöffnet. Jeder nicht erforderliche Port wird automatisch als `deny` (verweigern) konfiguriert, und die standardmäßige Richtlinie für ausgehende Verbindungen wird als `allow` (zulassen) konfiguriert. Die Zustandsverfolgung ist für neue Verknüpfungen aktiviert. In der Regel handelt es sich dabei um Netzwerkpakete mit dem Bitsatz `SYN`. Weitere Informationen finden Sie unter „[Netzwerkports](/enterprise/admin/guides/installation/network-ports)“.
+After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see "[Network ports](/enterprise/admin/guides/installation/network-ports)."
 
-Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße Funktion von {% data variables.product.prodname_ghe_server %} erforderlich sind. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
-### Standardmäßige Firewallregeln anzeigen
+## Viewing the default firewall rules
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Führen Sie den Befehl `sudo ufw status` aus, um die standardmäßigen Firewallregeln anzuzeigen. Es sollte in etwa folgende Ausgabe angezeigt werden:
+2. To view the default firewall rules, use the `sudo ufw status` command. You should see output similar to this:
   ```shell
   $ sudo ufw status
   > Status: active
@@ -54,46 +55,46 @@ Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-### Benutzerdefinierte Firewallregeln hinzufügen
+## Adding custom firewall rules
 
 {% warning %}
 
-**Warnung:** Bevor Sie benutzerdefinierte Firewallregeln hinzufügen, sollten Sie Ihre aktuellen Regeln sichern, falls Sie in einen bekannten Betriebszustand zurückkehren müssen. Falls Ihr Server für Sie gesperrt ist, kontaktieren Sie {% data variables.contact.contact_ent_support %}, um die ursprünglichen Firewallregeln neu zu konfigurieren. Die Wiederherstellung der ursprünglichen Firewallregeln führt zu Ausfallzeiten für Ihren Server.
+**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, contact {% data variables.contact.contact_ent_support %} to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
 
 {% endwarning %}
 
-1. Konfigurieren Sie eine benutzerdefinierte Firewallregel.
-2. Führen Sie den Befehl `status numbered` aus, um den Status jeder neuen Regel zu überprüfen.
+1. Configure a custom firewall rule.
+2. Check the status of each new rule with the `status numbered` command.
   ```shell
   $ sudo ufw status numbered
   ```
-3. Führen Sie zum Sichern Ihrer benutzerdefinierten Firewallregeln den Befehl `cp` aus, um die Regeln in eine neue Datei zu verschieben.
+3. To back up your custom firewall rules, use the `cp`command to move the rules to a new file.
   ```shell
-  $ sudo cp -r /lib/ufw ~/ufw.backup
+  $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
-Nach dem Upgrade von {% data variables.product.product_location %} müssen Sie Ihre benutzerdefinierten Firewallregeln erneut anwenden. Sie sollten ein Skript erstellen, um Ihre benutzerdefinierten Firewallregeln erneut anzuwenden.
+After you upgrade {% data variables.location.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
 
-### Standardmäßige Firewallregeln wiederherstellen
+## Restoring the default firewall rules
 
-Wenn nach dem Ändern der Firewallregeln ein Fehler auftritt, können Sie die Regeln über das ursprüngliche Backup wiederherstellen.
+If something goes wrong after you change the firewall rules, you can reset the rules from your original backup.
 
 {% warning %}
 
-**Warnung:** Falls Sie die ursprünglichen Regeln nicht gesichert haben, bevor Sie Änderungen an der Firewall vorgenommen haben, kontaktieren Sie {% data variables.contact.contact_ent_support %}, um weitere Unterstützung zu erhalten.
+**Warning:** If you didn't back up the original rules before making changes to the firewall, contact {% data variables.contact.contact_ent_support %} for further assistance.
 
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Kopieren Sie zum Wiederherstellen der vorherigen Backup-Regeln diese mithilfe des Befehls `cp` zurück zur Firewall.
+2. To restore the previous backup rules, copy them back to the firewall with the `cp` command.
   ```shell
-  $ sudo cp -f ~/ufw.backup/*rules /lib/ufw
+  $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
-3. Führen Sie den Befehl `systemctl`aus, um die Firewall neu zu starten.
+3. Restart the firewall with the `systemctl` command.
   ```shell
   $ sudo systemctl restart ufw
   ```
-4. Führen Sie den Befehl `ufw status` aus, um zu bestätigen, dass die Regeln wieder ihre Standardwerte aufweisen.
+4. Confirm that the rules are back to their defaults with the `ufw status` command.
   ```shell
   $ sudo ufw status
   > Status: active

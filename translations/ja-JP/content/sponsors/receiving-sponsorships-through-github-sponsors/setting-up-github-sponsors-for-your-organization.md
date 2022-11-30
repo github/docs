@@ -1,35 +1,40 @@
 ---
-title: Organization の GitHub スポンサーシップを設定する
-intro: 'Organizationが{% data variables.product.prodname_sponsors %}に参加すると、作業に対する報酬を得られます。'
+title: Setting up GitHub Sponsors for your organization
+intro: 'Your organization can join {% data variables.product.prodname_sponsors %} to receive payments for your work.'
 redirect_from:
   - /articles/setting-up-github-sponsorship-for-your-organization
   - /articles/receiving-sponsorships-as-a-sponsored-organization
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Sponsors profile
   - Open Source
+shortTitle: Set up for organization
 ---
 
-### {% data variables.product.prodname_sponsors %} に参加する
+## Joining {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} {% data reusables.sponsors.stripe-supported-regions %}
 
-Organizationとして{% data variables.product.prodname_sponsors %} 参加する招待を受け取ったら、以下のステップを実行すればスポンサードOrganizationになることができます。
+After you receive an invitation for your organization to join {% data variables.product.prodname_sponsors %}, you can complete the steps below to become a sponsored organization.
 
-Organization 外の個人コントリビューターとして {% data variables.product.prodname_sponsors %} に参加するには、「[ユーザーアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照してください。
+To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
-3. Organization の右にある [**Join the waitlist**] をクリックします。
+3. To the right of your organization, click **Join the waitlist**.
 {% data reusables.sponsors.contact-info %}
+{% data reusables.sponsors.payout-choice %}
+  ![Screenshot of option to choose between a bank account and a fiscal host](/assets/images/help/sponsors/org-waitlist-payout-options.png)
+
 {% data reusables.sponsors.accept-legal-terms %}
 
-### スポンサードOrganizationプロフィールを記入する
+## Completing your sponsored organization profile
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
@@ -40,7 +45,7 @@ Organization 外の個人コントリビューターとして {% data variables.
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### スポンサーシップ層を作成する
+## Creating sponsorship tiers
 
 {% data reusables.sponsors.tier-details %}
 
@@ -50,42 +55,44 @@ Organization 外の個人コントリビューターとして {% data variables.
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### 銀行口座情報をサブミットする
+## Submitting your bank information
 
-スポンサードOrganizationは、組織の専用銀行口座への支払いを、サポートされている地域で受け取る必要があります。 業務用の銀行口座は、[Open Collective](https://opencollective.com/)や[Stripe Atlas](https://stripe.com/atlas)といったサービスで設置できます。 Organization が法的に運営されている地域と、銀行口座の地域は一致している必要があります。 Organization のために {% data variables.product.prodname_sponsors %} を設定するユーザーも、サポートされている同じ地域に住んでいる必要があります。 {% data reusables.sponsors.stripe-supported-regions %}
+As a sponsored organization, you will receive payouts to a bank account in a supported region or via a fiscal host.
+
+{% data reusables.sponsors.bank-info-fiscal-host-reminder %} For more information about setting up and using fiscal hosts, see "[Using a fiscal host to receive GitHub Sponsors payouts](/sponsors/receiving-sponsorships-through-github-sponsors/using-a-fiscal-host-to-receive-github-sponsors-payouts)."
+
+If you choose to receive payouts to a bank account, your bank account can be a dedicated bank account for your organization or a personal bank account. You can get a business bank account through services like [Stripe Atlas](https://stripe.com/atlas). The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
-Open Collective を使用して Stripe Connect を設定する方法については、Open Collective のドキュメンテーションで「[{% data variables.product.prodname_sponsors %} の設定](https://docs.opencollective.com/help/collectives/github-sponsors)」を参照してください。
-
-### 納税情報をサブミットする
+## Submitting your tax information
 
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### {% data variables.product.prodname_dotcom %} アカウントで 2 要素認証 (2FA) を有効にする
+## Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
 
-Organization がスポンサード Organization になるには、{% data variables.product.product_name %} アカウントで 2FA を有効化する必要があります。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
+Before your organization can become a sponsored organization, you must enable 2FA for your account on {% data variables.location.product_location %}. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
 
-### {% data variables.product.prodname_dotcom %} に申請をサブミットして承認を求める
+## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}
 
-### 参考リンク
-- [{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
+## Further reading
+
+- "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"

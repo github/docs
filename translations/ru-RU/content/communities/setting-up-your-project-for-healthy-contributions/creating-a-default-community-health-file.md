@@ -1,51 +1,52 @@
 ---
-title: Creating a default community health file
-intro: 'You can create default community health files, such as CONTRIBUTING and CODE_OF_CONDUCT. Default files will be used for any public repository owned by the account that does not contain its own file of that type.'
+title: Создание файла работоспособности сообщества по умолчанию.
+intro: 'Вы можете создать файлы работоспособности сообщества по умолчанию, такие как CONTRIBUTING и CODE_OF_CONDUCT. Файлы по умолчанию будут использоваться для любого репозитория, принадлежащего учетной записи, который не содержит собственный файл такого рода.'
 redirect_from:
   - /articles/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Community health file
+ms.openlocfilehash: 762af2fcbbc16e0bfc671df2409fede9ea6e2c67
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145117635'
 ---
+## Сведения о файлах работоспособности сообщества по умолчанию
 
-### About default community health files
+Файлы работоспособности сообщества по умолчанию можно добавить в общедоступный репозиторий `.github` в корневой каталог репозитория или в папки `docs` или`.github`.
 
-You can add default community health files to the root of a public repository called `.github` that is owned by an organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}.
+{% data variables.product.product_name %} будет использовать и отображать файлы по умолчанию для любого репозитория, принадлежащего учетной записи, которая не имеет собственного файла этого типа, в любом из следующих мест.
+- Корень репозитория
+- Папка `.github`
+- Папка `docs`
 
-{% data variables.product.product_name %} will use and display default files for any public repository owned by the account that does not have its own file of that type in any of the following places:
-- the root of the repository
-- the `.github` folder
-- the `docs` folder
+Например, любой пользователь, создающий проблему или запрос на вытягивание в репозитории, у которого нет собственного файла CONTRIBUTING, увидит ссылку на файл CONTRIBUTING по умолчанию. Если в репозитории есть файлы в собственной папке `.github/ISSUE_TEMPLATE`{% ifversion fpt or ghes or ghec %}, включая шаблоны проблем или файл *config.yml*,{% endif %} содержимое папки по умолчанию `.github/ISSUE_TEMPLATE` использоваться не будет.
 
-For example, anyone who creates an issue or pull request in a public repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}, including issue templates or a *config.yml* file,{% endif %} none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
+Файлы по умолчанию не включаются в клоны, пакеты или скачивания отдельных репозиториев, так как они хранятся только в репозитории `.github`.
 
-Default files are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
+## Поддерживаемые типы файлов
 
-### Supported file types
+Вы можете создать заданные по умолчанию сведения в вашей организации{% ifversion fpt or ghes or ghec %} или личной учетной записи {% endif %} для следующих файлов работоспособности сообщества:
 
-You can create defaults in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %} for the following community health files:
+Файл работоспособности сообщества | Описание --- | ---{% ifversion fpt or ghec %} *CODE_OF_CONDUCT.md* | Файл CODE_OF_CONDUCT определяет стандарты участия в деятельности сообщества. Дополнительные сведения см. в статье "[Добавление правил поведения в проект](/articles/adding-a-code-of-conduct-to-your-project/)".{% endif %} *CONTRIBUTING.md |* Файл CONTRIBUTEING содержит сведения о том, как люди должны участвовать в разработке проекта. Дополнительные сведения см. в статье "[Создание рекомендаций для участников репозитория](/articles/setting-guidelines-for-repository-contributors/)".{% ifversion fpt or ghec %} *FUNDING.yml* | Файл FUNDING отображает в репозитории кнопку спонсора, чтобы повысить видимость вариантов финансирования для проекта с открытым кодом. Дополнительные сведения см. в статье "[Отображение кнопки спонсора в репозитории](/articles/displaying-a-sponsor-button-in-your-repository)".{% endif %} Шаблоны проблем и запросов на вытягивание{% ifversion fpt or ghes or ghec %} и *config.yml*{% endif %} | Шаблоны проблем и запросов на вытягивание позволяют настраивать и стандартизовать сведения, которые участники должны указывать при открытии проблем и запросов на вытягивание в репозитории. Дополнительные сведения см. в статье "[Сведения о шаблонах проблем и запросов на вытягивание](/articles/about-issue-and-pull-request-templates/)".{% ifversion fpt or ghes or ghec %} *SECURITY.md |* Файл SECURITY содержит инструкции по отправке сведений об уязвимости системы безопасности в проекте. Дополнительные сведения см. в статье "[Добавление политики безопасности в репозиторий](/code-security/getting-started/adding-a-security-policy-to-your-repository)".{% endif %} *SUPPORT.md |* Файл SUPPORT содержит сведения о способах получения помощи по проекту. Дополнительные сведения см. в статье "[Добавление ресурсов поддержки в проект](/articles/adding-support-resources-to-your-project/)".
 
-| Community health file                                                                                                                                                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
-| *CODE_OF_CONDUCT.md*                                                                                                                                                                                  | A CODE_OF_CONDUCT file defines standards for how to engage in a community. For more information, see "[Adding a code of conduct to your project](/articles/adding-a-code-of-conduct-to-your-project/)."{% endif %}
-| *CONTRIBUTING.md*                                                                                                                                                                                       | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors/)."{% if currentVersion == "free-pro-team@latest" %}
-| *FUNDING.yml*                                                                                                                                                                                           | A FUNDING file displays a sponsor button in your repository to increase the visibility of funding options for your open source project. For more information, see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)."{% endif %}
-| Issue and pull request templates{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and *config.yml*{% endif %} | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates/)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-| *SECURITY.md*                                                                                                                                                                                           | A SECURITY file gives instructions for how to report a security vulnerability in your project. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% endif %}
-| *SUPPORT.md*                                                                                                                                                                                            | A SUPPORT file lets people know about ways to get help with your project. For more information, see "[Adding support resources to your project](/articles/adding-support-resources-to-your-project/)."                                                                                                                                                                                               |
+Создать файл лицензии по умолчанию невозможно. Файлы лицензий должны быть добавлены в отдельные репозитории, чтобы файл включался при клонировании, упаковке или скачивании проекта.
 
-You cannot create a default license file. License files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
-
-### Creating a repository for default files
+## Создание репозитория для файлов по умолчанию
 
 {% data reusables.repositories.create_new %}
-2. Use the **Owner** drop-down menu, and select the organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %} you want to create default files for. ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
-3. Type **.github** as the name for your repository, and an optional description. ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)
-4. Make sure the repository status is set to **Public** (a repository for default files cannot be private). ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
-7. In the repository, create one of the supported community health files. Issue templates{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files must be in the root of the repository. For more information, see "[Creating new files](/articles/creating-new-files/)."
+2. В раскрывающемся меню **Владелец** выберите организацию{% ifversion fpt or ghes or ghec %} или личную учетную запись{% endif %}, для которой нужно создать файлы по умолчанию.
+  ![Раскрывающееся меню "Владелец"](/assets/images/help/repository/create-repository-owner.png)
+3. Введите **.github** в качестве имени репозитория и необязательное описание.
+  ![Поле создания репозитория](/assets/images/help/repository/default-file-repository-name.png)
+4. Убедитесь, что для состояния репозитория задано значение **Общедоступный** (репозиторий для файлов по умолчанию не может быть частным).
+  ![Переключатели для выбора состояния: частный или общедоступный](/assets/images/help/repository/create-repository-public-private.png) {% data reusables.repositories.initialize-with-readme %} {% data reusables.repositories.create-repo %}
+7. В репозитории создайте один из поддерживаемых файлов работоспособности сообщества. Шаблоны проблем{% ifversion fpt or ghes or ghec %} и их файл конфигурации{% endif %} должны находиться в папке с именем `.github/ISSUE_TEMPLATE`. Все остальные поддерживаемые файлы могут находиться в корне репозитория, папке `.github` или папке `docs`. Дополнительные сведения см. в статье "[Создание файлов](/articles/creating-new-files/)".

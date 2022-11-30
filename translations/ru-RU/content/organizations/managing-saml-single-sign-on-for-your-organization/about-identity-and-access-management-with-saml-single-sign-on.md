@@ -1,62 +1,80 @@
 ---
-title: About identity and access management with SAML single sign-on
-intro: 'If you centrally manage your users'' identities and applications with an identity provider (IdP), you can configure Security Assertion Markup Language (SAML) single sign-on (SSO) to protect your organization''s resources on {% data variables.product.prodname_dotcom %}.'
-product: '{% data reusables.gated-features.saml-sso %}'
+title: Об управлении удостоверениями и доступом с помощью единого входа SAML
+intro: 'При централизованном управлении удостоверениями пользователей и приложениями с помощью поставщика удостоверений (IdP) можно настроить единый вход (SSO) с помощью языка разметки заявлений системы безопасности (SAML) для защиты ресурсов организации на {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: IAM with SAML SSO
+ms.openlocfilehash: 63ed023c1ca5d52ea7b06f5fd485c5e0b34c9750
+ms.sourcegitcommit: 6b649e03ca2fef38c9ebbeec92102219849380e2
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120620'
 ---
+{% data reusables.saml.ghec-only %}
 
-### About SAML SSO
+## Сведения о едином входе SAML
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
-After you configure SAML SSO, members of your {% data variables.product.prodname_dotcom %} organization will continue to log into their user accounts on {% data variables.product.prodname_dotcom %}. When a member accesses resources within your organization that uses SAML SSO, {% data variables.product.prodname_dotcom %} redirects the member to your IdP to authenticate. After successful authentication, your IdP redirects the member back to {% data variables.product.prodname_dotcom %}, where the member can access your organization's resources.
+{% data reusables.saml.saml-accounts %}
 
-Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. For more information, see "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+{% data reusables.saml.resources-without-sso %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-Before enabling SAML SSO for your organization, you'll need to connect your IdP to your organization. For more information, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+Владельцы организации могут применять единый вход SAML для отдельной организации, или владельцы предприятий могут применять его для всех организаций в корпоративной учетной записи. Дополнительные сведения см. в разделе [Настройка единого входа SAML для вашего предприятия](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise).
 
-For an organization, SAML SSO can be disabled, enabled but not enforced, or enabled and enforced. After you enable SAML SSO for your organization and your organization's members successfully authenticate with your IdP, you can enforce the SAML SSO configuration. For more information about enforcing SAML SSO for your {% data variables.product.prodname_dotcom %} organization, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
+Перед включением единого входа SAML для вашей организации необходимо подключить к организации поставщика удостоверений. Дополнительные сведения см. в разделе [Подключение поставщика удостоверений к организации](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization).
 
-Members must periodically authenticate with your IdP to authenticate and gain access to your organization's resources. The duration of this login period is specified by your IdP and is generally 24 hours. This periodic login requirement limits the length of access and requires users to re-identify themselves to continue.
+Для организации единый вход SAML можно отключить, включить, но не применять принудительно, включить и принудительно применять. После включения единого входа SAML для организации и ее участников можно принудительно применить конфигурацию единого входа SAML. Дополнительные сведения о применении единого входа SAML для организации {% data variables.product.prodname_dotcom %} см. в разделе [Применение единого входа SAML для вашей организации](/articles/enforcing-saml-single-sign-on-for-your-organization).
 
-To access the organization's protected resources using the API and Git on the command line, members must authorize and authenticate with a personal access token or SSH key. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
+Участники должны периодически проходить проверку подлинности с помощью поставщика удостоверений, чтобы пройти проверку подлинности и получить доступ к ресурсам вашей организации. Продолжительность этого периода для входа задается идентификатором поставщика удостоверений и обычно составляет 24 часа. Это требование о периодическом входе ограничивает продолжительность доступа и требует от пользователей повторной идентификации для продолжения работы.
 
-The first time a member uses SAML SSO to access your organization, {% data variables.product.prodname_dotcom %} automatically creates a record that links your organization, the member's {% data variables.product.prodname_dotcom %} account, and the member's account on your IdP. You can view and revoke the linked SAML identity, active sessions, and authorized credentials for members of your organization or enterprise account. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" and "[Viewing and managing a user's SAML access to your enterprise account](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)."
+Чтобы получить доступ к защищенным ресурсам организации с помощью API и Git в командной строке, участники должны авторизоваться и пройти проверку подлинности с помощью {% data variables.product.pat_generic %} или ключа SSH. Дополнительные сведения см. в разделах [Авторизация {% data variables.product.pat_generic %} для использования с единым входом SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) и [Авторизация ключа SSH для использования с единым входом SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).
 
-If members are signed in with a SAML SSO session when they create a new repository, the default visibility of that repository is private. Otherwise, the default visibility is public. For more information on repository visibility, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+При первом использовании единого входа SAML для доступа к организации {% data variables.product.prodname_dotcom %} автоматически создает запись, которая связывает вашу организацию, учетную запись участника в {% data variables.location.product_location %} и учетную запись участника в поставщике удостоверений. Вы можете просмотреть и отозвать связанное удостоверение SAML, активные сеансы и авторизованные учетные данные для участников организации или учетной записи предприятия. Дополнительные сведения см. в статье [Просмотр и контроль доступа SAML участника к организации](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization) и [Просмотр доступа SAML пользователя к корпоративной учетной записи и управление ею](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise).
 
-Organization members must also have an active SAML session to authorize an {% data variables.product.prodname_oauth_app %}. You can opt out of this requirement by contacting {% data variables.contact.contact_support %}. {% data variables.product.product_name %} does not recommend opting out of this requirement, which will expose your organization to a higher risk of account takeovers and potential data loss.
+Если участники выполнили вход в сеанс единого входа SAML при создании нового репозитория, для этого репозитория по умолчанию установлен параметр видимости "Частный". В противном случае видимость по умолчанию настраивается как "Общедоступный". Дополнительные сведения о видимости репозитория см. в разделе [О репозиториях](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
+
+Члены организации также должны иметь активный сеанс SAML для авторизации {% data variables.product.prodname_oauth_app %}. Вы можете отказаться от этого требования, обратившись к {% data variables.contact.contact_support %}. {% data variables.product.product_name %} не рекомендует отказываться от этого требования, поскольку из-за этого ваша организация будет более подвержена риску перехвата учетных записей и возможной потери данных.
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### Supported SAML services
+## Поддерживаемые службы SAML
 
 {% data reusables.saml.saml-supported-idps %}
 
-Some IdPs support provisioning access to a  {% data variables.product.prodname_dotcom %} organization via SCIM. For more information, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+Некоторые поставщики удостоверений поддерживают доступ для подготовки к организации {% data variables.product.prodname_dotcom %} посредством SCIM. Дополнительную информацию см. в разделе [Сведения о SCIM для организаций](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
 
-### Adding members to an organization using SAML SSO
+{% data reusables.scim.enterprise-account-scim %} 
 
-After you enable SAML SSO, there are multiple ways you can add new members to your organization. Organization owners can invite new members manually on {% data variables.product.product_name %} or using the API. For more information, see "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)" and "[Members](/rest/reference/orgs#add-or-update-organization-membership)."
+## Добавление участников в организацию с помощью единого входа SAML
 
-To provision new users without an invitation from an organization owner, you can use the URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, replacing _ORGANIZATION_ with the name of your organization. For example, you can configure your IdP so that anyone with access to the IdP can click a link on the IdP's dashboard to join your {% data variables.product.prodname_dotcom %} organization.
+После включения единого входа SAML можно добавить в организацию новых участников. Владельцы организации могут вручную отправить приглашение новым участникам в {% data variables.product.product_name %} или с помощью API. Дополнительные сведения см. в разделе [Отправка пользователям приглашений присоединиться к организации](/articles/inviting-users-to-join-your-organization) и [Участники](/rest/reference/orgs#add-or-update-organization-membership).
 
-If your IdP supports SCIM, {% data variables.product.prodname_dotcom %} can automatically invite members to join your organization when you grant access on your IdP. If you remove a member's access to your {% data variables.product.prodname_dotcom %} organization on your SAML IdP, the member will be automatically removed from the {% data variables.product.prodname_dotcom %} organization. For more information, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+Для подготовки новых пользователей без приглашения от владельца организации можно использовать URL-адрес `https://github.com/orgs/ORGANIZATION/sso/sign_up`, заменив _ORGANIZATION_ на название организации. Например, можно настроить IdP таким образом, чтобы любой пользователь с доступом к IdP мог щелкнуть ссылку на панели мониторинга IdP и присоединиться к {% data variables.product.prodname_dotcom %} организации.
+
+{% note %}
+
+**Примечание:** Подготовка новых пользователей с помощью `https://github.com/orgs/ORGANIZATION/sso/sign_up` поддерживается только в том случае, если единый вход SAML настроен на уровне организации, а не при настройке единого входа SAML на уровне корпоративной учетной записи. Дополнительные сведения о едином входе SAML для корпоративных учетных записей см. в разделе [Сведения о SAML для корпоративного IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam).
+
+{% endnote %}
+
+Если ваш поставщик удостоверений поддерживает SCIM, {% data variables.product.prodname_dotcom %} может автоматически приглашать участников присоединиться к организации при предоставлении доступа к поставщику удостоверений. При удалении доступа участника к вашей организации {% data variables.product.prodname_dotcom %} в поставщике удостоверений SAML участник автоматически удаляется из организации {% data variables.product.prodname_dotcom %}. Дополнительную информацию см. в разделе [Сведения о SCIM для организаций](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
 
 {% data reusables.organizations.team-synchronization %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[About two-factor authentication and SAML single sign-on ](/articles/about-two-factor-authentication-and-saml-single-sign-on)"
-- "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"
+- [Справочник по конфигурации SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)
+- [Сведения о двухфакторной проверке подлинности и едином входе SAML](/articles/about-two-factor-authentication-and-saml-single-sign-on)
+- [Сведения о проверке подлинности с помощью единого входа SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)

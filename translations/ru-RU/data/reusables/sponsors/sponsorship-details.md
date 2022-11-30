@@ -1,1 +1,9 @@
-You can sponsor anyone with a sponsored developer profile or sponsored organization profile on behalf of your user account or an organization. You can choose from multiple sponsorship tiers, with one-time or monthly payment amounts and benefits that are set by the sponsored account. Your sponsorship will share your account's existing billing date, payment method, and receipt.
+---
+ms.openlocfilehash: 698c4f4857f43049dac7d91c4f0b355acb5d2c79
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145067542"
+---
+От имени своей личной учетной записи или организации вы можете спонсировать любого пользователя с профилем спонсируемого разработчика или спонсируемой организации. Вы можете выбрать подходящий уровень спонсорства с разовыми или ежемесячными платежами и преимуществами, которые устанавливаются спонсируемой учетной записью. В спонсорском предложении будут использоваться дата выставления счета, способ оплаты и квитанция, которые определены в вашей учетной записи.

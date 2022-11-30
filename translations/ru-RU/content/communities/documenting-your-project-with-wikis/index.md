@@ -1,25 +1,33 @@
 ---
-title: Documenting your project with wikis
+title: Документирование проекта с помощью вики-сайтов
 shortTitle: Using wikis
-intro: 'You can use a wiki to share detailed, long-form information about your project.'
+intro: Вы можете использовать вики-сайт для предоставления подробной информации о проекте.
 redirect_from:
-  - /categories/49/articles/
-  - /categories/wiki/
+  - /categories/49/articles
+  - /categories/wiki
   - /articles/documenting-your-project-with-wikis
   - /github/building-a-strong-community/documenting-your-project-with-wikis
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+children:
+  - /about-wikis
+  - /adding-or-editing-wiki-pages
+  - /creating-a-footer-or-sidebar-for-your-wiki
+  - /editing-wiki-content
+  - /viewing-a-wikis-history-of-changes
+  - /changing-access-permissions-for-wikis
+  - /disabling-wikis
+ms.openlocfilehash: a8d90ea14031f629ae764847c18b09f922f57365
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145092429'
 ---
 
-{% link_in_list /about-wikis %}
-{% link_in_list /adding-or-editing-wiki-pages %}
-{% link_in_list /creating-a-footer-or-sidebar-for-your-wiki %}
-{% link_in_list /editing-wiki-content %}
-{% link_in_list /viewing-a-wikis-history-of-changes %}
-{% link_in_list /changing-access-permissions-for-wikis %}
-{% link_in_list /disabling-wikis %}

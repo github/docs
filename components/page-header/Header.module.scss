@@ -1,0 +1,22 @@
+@import "@primer/css/support/index.scss";
+
+.header {
+  display: unset;
+}
+
+// Need children of portal root to be higher z-index to show dropdown
+.portalRoot * {
+  z-index: 3 !important;
+}
+
+// Make the top-level window the scroll window by using the entire screen height to display
+.fullVerticalScroll {
+  max-height: 100vh;
+  overflow-y: scroll;
+
+  // When nav dropdown shifts to large layout, use overflow defaults
+  @include breakpoint(lg) {
+    max-height: inherit;
+    overflow-y: inherit;
+  }
+}

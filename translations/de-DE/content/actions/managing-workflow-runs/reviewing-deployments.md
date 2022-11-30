@@ -1,27 +1,32 @@
 ---
-title: Reviewing deployments
-intro: You can approve or reject jobs awaiting review.
+title: Überprüfen von Bereitstellungen
+intro: 'Du kannst Aufträge genehmigen oder ablehnen, die auf die Überprüfung warten.'
 product: '{% data reusables.gated-features.environments %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+ms.openlocfilehash: 6a01d89c0ad5355bd5e6774b1bdf5f19dd471df2
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147718101'
 ---
+## Informationen zu erforderlichen Überprüfungen in Workflows
 
-{% data reusables.actions.environments-beta %}
-{% data reusables.actions.ae-beta %}
+Aufträge, die auf eine Umgebung verweisen, die mit erforderlichen Reviewern konfiguriert wurde, warten auf eine Genehmigung, bevor sie gestartet werden. Während ein Auftrag auf die Genehmigung wartet, hat er den Status „Warten“. Wenn ein Auftrag innerhalb von 30 Tagen nicht genehmigt wird, wird die Workflowausführung automatisch abgebrochen.
 
-### About required reviews in workflows
+Weitere Informationen zu Umgebungen und erforderlichen Genehmigungen findest du unter [Verwenden von Umgebungen für die Bereitstellung](/actions/deployment/using-environments-for-deployment). Informationen zum Überprüfen von Bereitstellungen mit der REST-API findest du unter [Workflowausführungen](/rest/reference/actions#workflow-runs).
 
-Jobs that reference an environment configured with required reviewers will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, the workflow run will be automatically canceled.
+## Genehmigen oder Ablehnen eines Auftrags
 
-For more information about environments and required approvals, see "[Environments](/actions/reference/environments)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
-
-### Approving or rejecting a job
-
-1. Navigate to the workflow run that requires review. For more information about navigating to a workflow run, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-2. Click **Review deployments**. ![Review deployments](/assets/images/actions-review-deployments.png)
-3. Select the job environment(s) to approve or reject. Optionally, leave a comment. ![Approve deployments](/assets/images/actions-approve-deployments.png)
-4. Approve or reject:
-   - To approve the job, click **Approve and deploy**. Once a job is approved (and any other environment protection rules have passed), the job will proceed. At this point, the job can access any secrets stored in the environment.
-   - To reject the job, click **Reject**. If a job is rejected, the workflow will fail.
+1. Navigiere zu der Workflowausführung, die eine Überprüfung erfordert. Weitere Informationen zum Navigieren zu einer Workflowausführung findest du unter [Anzeigen des Ausführungsverlaufs eines Workflows](/actions/managing-workflow-runs/viewing-workflow-run-history).
+2. Klicke auf **Bereitstellungen überprüfen**. 
+   ![Überprüfen von Bereitstellungen](/assets/images/actions-review-deployments.png).
+3. Wähle die Auftragsumgebung(en) aus, die genehmigt oder abgelehnt werden soll(en). Hinterlasse optional einen Kommentar.
+   ![Genehmigen von Bereitstellungen](/assets/images/actions-approve-deployments.png)
+4. Genehmigen oder ablehnen:
+   - Um den Auftrag zu genehmigen, klicke auf **Genehmigen und bereitstellen**. Sobald ein Auftrag genehmigt wurde (und alle anderen Umgebungsschutzregeln eingehalten wurden), wird der Auftrag fortgesetzt. An diesem Punkt kann der Auftrag auf alle Geheimnisse zugreifen, die in der Umgebung gespeichert sind.
+   - Klicke auf **Ablehnen**, um den Auftrag abzulehnen. Wenn ein Auftrag abgelehnt wird, tritt beim Workflow ein Fehler auf.

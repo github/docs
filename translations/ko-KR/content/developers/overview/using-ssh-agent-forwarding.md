@@ -1,58 +1,64 @@
 ---
-title: Using SSH agent forwarding
-intro: 'To simplify deploying to a server, you can set up SSH agent forwarding to securely use local SSH keys.'
+title: SSH 에이전트 전달 사용
+intro: 서버에 대한 배포를 간소화하기 위해 로컬 SSH 키를 안전하게 사용하도록 SSH 에이전트 전달을 설정할 수 있습니다.
 redirect_from:
-  - /guides/using-ssh-agent-forwarding/
+  - /guides/using-ssh-agent-forwarding
   - /v3/guides/using-ssh-agent-forwarding
+  - /articles/using-ssh-agent-forwarding
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: SSH agent forwarding
+ms.openlocfilehash: b6d812bcaf979980233f99c5f614f480883375cc
+ms.sourcegitcommit: 248e974c64f2439c6756a2c644ec77a98b8d3ecd
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/13/2022
+ms.locfileid: '148045362'
 ---
+SSH 에이전트 전달을 사용하여 서버에 간단하게 배포할 수 있습니다.  서버에 키(암호 없음)를 두지 않고 로컬 SSH 키를 사용할 수 있습니다.
 
+{% data variables.product.product_name %}과(와) 상호 작용하도록 SSH 키를 이미 설정한 경우 아마 `ssh-agent`에 대해 잘 알고 있을 것입니다. 백그라운드에서 실행되고 키를 메모리에 로드된 상태로 유지하는 프로그램이므로 키를 사용해야 할 때마다 암호를 입력할 필요가 없습니다. 유용한 점은 이미 서버에서 실행 중인 것처럼 서버가 로컬 `ssh-agent`에 액세스하도록 선택할 수 있다는 것입니다. 이는 마치 친구의 컴퓨터를 사용할 수 있도록 친구에게 암호를 입력해 달라고 요청하는 것과 같습니다.
 
+SSH 에이전트 전달에 대한 자세한 설명은 [Steve Friedl의 기술 팁 가이드][tech-tips]를 확인하세요.
 
-SSH agent forwarding can be used to make deploying to a server simple.  It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
+## SSH 에이전트 전달 설정
 
-If you've already set up an SSH key to interact with {% data variables.product.product_name %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
+사용자 고유의 SSH 키가 설정되고 작동하는지 확인합니다. 아직 이 작업을 수행하지 않은 경우 [SSH 키 생성에 대한 가이드][generating-keys] 를 사용할 수 있습니다.
 
-Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explanation of SSH agent forwarding.
-
-### Setting up SSH agent forwarding
-
-Ensure that your own SSH key is set up and working. You can use [our guide on generating SSH keys][generating-keys] if you've not done this yet.
-
-You can test that your local key works by entering `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` in the terminal:
+터미널에 `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}`을 입력하여 로컬 키가 작동하는지 테스트할 수 있습니다.
 
 ```shell
-$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
 # Attempt to SSH in to github
-> Hi <em>username</em>! You've successfully authenticated, but GitHub does not provide
+> Hi USERNAME! You've successfully authenticated, but GitHub does not provide
 > shell access.
 ```
 
-We're off to a great start. Let's set up SSH to allow agent forwarding to your server.
+잘 시작하셨습니다. 에이전트가 서버로 전달되도록 SSH를 설정해 보겠습니다.
 
-1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
+1. 원하는 텍스트 편집기를 사용하여 `~/.ssh/config`에서 파일을 엽니다. 이 파일이 존재하지 않으면 터미널에 `touch ~/.ssh/config` 를 입력하여 만들 수 있습니다.
 
-2. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
-   
+2. 다음 텍스트를 파일에 입력하여 서버의 도메인 이름 또는 IP로 `example.com`을 바꿉니다.
+
         Host example.com
           ForwardAgent yes
 
 {% warning %}
 
-**Warning:** You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with *every* server you SSH into. They won't have direct access to the keys, but they will be able to use them *as you* while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
+**경고:** 이 설정을 모든 SSH 연결에 적용하기 위해 `Host *` 와일드카드를 사용하려는 경우가 있습니다. SSH로 연결하는 *모든* 서버와 로컬 SSH 키를 공유하게 되므로 이는 좋은 방법이 아닙니다. 서버가 키에 직접 액세스할 수는 없지만 연결이 설정된 동안에는 키를 *귀하로* 사용할 수 있습니다. **신뢰하고, 에이전트 전달에 사용하려는 서버만 추가해야 합니다.**
 
 {% endwarning %}
 
-### Testing SSH agent forwarding
+## SSH 에이전트 전달 테스트
 
-To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
+에이전트 전달이 서버에서 작동하는지 테스트하려면 서버에 SSH로 연결하고 `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}`을 한 번 실행힐 수 있습니다.  모두 문제 없이 실행되면 로컬에서 했던 것과 동일한 프롬프트가 다시 표시됩니다.
 
-If you're unsure if your local key is being used, you can also inspect the `SSH_AUTH_SOCK` variable on your server:
+로컬 키가 사용 중인지 확실하지 않은 경우 서버에서 `SSH_AUTH_SOCK` 변수를 검사할 수도 있습니다.
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
@@ -60,44 +66,44 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/ssh-4hNGMk8AZX/agent.79453
 ```
 
-If the variable is not set, it means that agent forwarding is not working:
+변수가 설정되지 않은 경우 에이전트 전달이 작동하지 않음을 의미합니다.
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
 # Print out the SSH_AUTH_SOCK variable
-> <em>[No output]</em>
-$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
+> [No output]
+$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
 # Try to SSH to github
 > Permission denied (publickey).
 ```
 
-### Troubleshooting SSH agent forwarding
+## SSH 에이전트 전달 문제 해결
 
-Here are some things to look out for when troubleshooting SSH agent forwarding.
+다음은 SSH 에이전트 전달 문제를 해결할 때 유의해야 할 몇 가지 사항입니다.
 
-#### You must be using an SSH URL to check out code
+### 코드를 체크 아웃하려면 SSH URL을 사용해야 합니다.
 
-SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the *.git/config* file on your server and ensure the URL is an SSH-style URL like below:
+SSH 전달은 HTTP(s) URL이 아니라 SSH URL에서만 작동합니다. 서버에서 `.git/config` 파일을 확인하고 URL이 아래와 같은 SSH 스타일 URL인지 확인합니다.
 
 ```shell
 [remote "origin"]
-  url = git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}:<em>yourAccount</em>/<em>yourProject</em>.git
+  url = git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}:YOUR_ACCOUNT/YOUR_PROJECT.git
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
-#### Your SSH keys must work locally
+### SSH 키는 로컬로 작동해야 합니다.
 
-Before you can make your keys work through agent forwarding, they must work locally first. [Our guide on generating SSH keys][generating-keys] can help you set up your SSH keys locally.
+에이전트 전달을 통해 키를 작동하려면 키가 먼저 로컬에서 작동해야 합니다. [SSH 키 생성에 대한 가이드][generating-keys]는 SSH 키를 로컬로 설정하는 데 유용할 수 있습니다.
 
-#### Your system must allow SSH agent forwarding
+### 시스템에서 SSH 에이전트 전달을 허용해야 합니다.
 
-Sometimes, system configurations disallow SSH agent forwarding. You can check if a system configuration file is being used by entering the following command in the terminal:
+경우에 따라 시스템 구성은 SSH 에이전트 전달을 허용하지 않습니다. 터미널에 다음 명령을 입력하여 시스템 구성 파일이 사용 중인지 확인할 수 있습니다.
 
 ```shell
-$ ssh -v <em>example.com</em>
-# Connect to example.com with verbose debug output
-> OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011</span>
-> debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
+$ ssh -v URL
+# Connect to the specified URL with verbose debug output
+> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
+> debug1: Reading configuration data /Users/YOU/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config
 > debug1: Applying options for *
@@ -105,7 +111,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-In the example above, the file *~/.ssh/config* is loaded first, then */etc/ssh_config* is read.  We can inspect that file to see if it's overriding our options by running the following commands:
+위의 예제에서 파일 `~/.ssh/config`가 먼저 로드된 다음 `/etc/ssh_config`를 읽습니다.  다음 명령을 실행하여 이 파일이 옵션을 재정의하는지 검사할 수 있습니다.
 
 ```shell
 $ cat /etc/ssh_config
@@ -115,17 +121,17 @@ $ cat /etc/ssh_config
 >   ForwardAgent no
 ```
 
-In this example, our */etc/ssh_config* file specifically says `ForwardAgent no`, which is a way to block agent forwarding. Deleting this line from the file should get agent forwarding working once more.
+이 예제에서 `/etc/ssh_config` 파일은 특히 `ForwardAgent no`를 나타내는데, 이는 에이전트 전달을 차단하는 방법입니다. 파일에서 이 줄을 삭제하면 에이전트 전달이 다시 한 번 작동하게 됩니다.
 
-#### Your server must allow SSH agent forwarding on inbound connections
+### 서버에서 인바운드 연결에 대한 SSH 에이전트 전달을 허용해야 합니다.
 
-Agent forwarding may also be blocked on your server. You can check that agent forwarding is permitted by SSHing into the server and running `sshd_config`. The output from this command should indicate that `AllowAgentForwarding` is set.
+서버에서 에이전트 전달이 차단될 수도 있습니다. 서버에 SSH로 연결하고 `sshd_config`를 실행하여 에이전트 전달이 허용되는지 확인할 수 있습니다. 이 명령의 출력은 `AllowAgentForwarding`이 설정되었음을 나타내야 합니다.
 
-#### Your local `ssh-agent` must be running
+### 로컬 `ssh-agent`가 실행 중이어야 합니다.
 
-On most computers, the operating system automatically launches `ssh-agent` for you.  On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
+대부분의 컴퓨터에서 운영 체제가 `ssh-agent`를 자동으로 시작합니다.  그러나 Windows에서는 이 작업을 수동으로 수행해야 합니다. [Git Bash를 열 때마다 `ssh-agent`를 시작하는 방법에 대한 가이드][autolaunch-ssh-agent]가 있습니다.
 
-To verify that `ssh-agent` is running on your computer, type the following command in the terminal:
+`ssh-agent`가 컴퓨터에서 실행 중인지 확인하려면 터미널에 다음 명령을 입력합니다.
 
 ```shell
 $ echo "$SSH_AUTH_SOCK"
@@ -133,31 +139,33 @@ $ echo "$SSH_AUTH_SOCK"
 > /tmp/launch-kNSlgU/Listeners
 ```
 
-#### Your key must be available to `ssh-agent`
+### 키를 `ssh-agent`에 사용할 수 있어야 합니다.
 
-You can check that your key is visible to `ssh-agent` by running the following command:
+다음 명령을 실행하여 키가 `ssh-agent`에 표시되는지 확인할 수 있습니다.
 
 ```shell
 ssh-add -L
 ```
 
-If the command says that no identity is available, you'll need to add your key:
+명령을 통해 사용할 수 있는 ID가 없다고 표시되면 키를 추가해야 합니다.
 
 ```shell
-$ ssh-add <em>yourkey</em>
+$ ssh-add YOUR-KEY
 ```
 
 {% tip %}
 
-On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+macOS에서 재부팅하는 동안 `ssh-agent`가 다시 시작되면 이 키를 “잊어버리게” 됩니다. 하지만 다음 명령을 사용하여 SSH 키를 키 집합으로 가져올 수 있습니다.
 
 ```shell
-$ ssh-add -K <em>yourkey</em>
+$ ssh-add --apple-use-keychain YOUR-KEY
 ```
+
+몬테레이 이전 MacOS 버전(12.0)의 `--apple-use-keychain`경우 대신 사용합니다`-K`. 자세한 내용은 “[ssh-agent에 SSH 키 추가](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)”를 참조하세요.
 
 {% endtip %}
 
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
 [generating-keys]: /articles/generating-ssh-keys
-[generating-keys]: /articles/generating-ssh-keys
+[ssh-passphrases]: /ssh-key-passphrases/
 [autolaunch-ssh-agent]: /github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows

@@ -1,51 +1,52 @@
 ---
-title: Creating a default community health file
-intro: 'You can create default community health files, such as CONTRIBUTING and CODE_OF_CONDUCT. Default files will be used for any public repository owned by the account that does not contain its own file of that type.'
+title: Creating a default community health file(기본 커뮤니티 상태 파일 만들기)
+intro: CONTRIBUTING 및 CODE_OF_CONDUCT 같은 기본 커뮤니티 상태 파일을 만들 수 있습니다. 기본 파일은 해당 형식의 자체 파일을 포함하지 않는 계정에서 소유한 모든 리포지토리에 사용됩니다.
 redirect_from:
   - /articles/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Community health file
+ms.openlocfilehash: 762af2fcbbc16e0bfc671df2409fede9ea6e2c67
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145117636'
 ---
+## 기본 커뮤니티 상태 파일 정보
 
-### About default community health files
+리포지토리의 루트 또는 `docs` 또는 `.github` 폴더에 있는 `.github`라는 이름의 공개 리포지토리에 기본 커뮤니티 상태 파일을 추가할 수 있습니다.
 
-You can add default community health files to the root of a public repository called `.github` that is owned by an organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}.
+{% data variables.product.product_name %}은(는) 해당 계정이 소유하고 있으며 다음과 같은 위치에 해당 유형의 파일이 없는 리포지토리에 대해 이러한 기본 파일을 사용하고 표시합니다.
+- 리포지토리의 루트
+- `.github` 폴더
+- `docs` 폴더
 
-{% data variables.product.product_name %} will use and display default files for any public repository owned by the account that does not have its own file of that type in any of the following places:
-- the root of the repository
-- the `.github` folder
-- the `docs` folder
+예를 들어 자체 CONTRIBUTING 파일이 없는 리포지토리에서 문제 또는 끌어오기 요청을 생성하는 사용자는 기본 CONTRIBUTING 파일에 대한 링크를 볼 수 있습니다. 리포지토리에 자체 `.github/ISSUE_TEMPLATE` 폴더가 있는 경우{% ifversion fpt or ghes or ghec %}(문제 템플릿 또는 *config.yml* 파일 포함),{% endif %} 기본 `.github/ISSUE_TEMPLATE` 폴더의 내용이 사용되지 않습니다.
 
-For example, anyone who creates an issue or pull request in a public repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}, including issue templates or a *config.yml* file,{% endif %} none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
+기본 파일은 `.github` 리포지토리에만 저장되므로 개별 리포지토리의 클론, 패키지 또는 다운로드에 포함되지 않습니다.
 
-Default files are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
+## 지원되는 파일 형식
 
-### Supported file types
+다음 커뮤니티 상태 파일에 대한 조직{% ifversion fpt or ghes or ghec %} 또는 개인 계정{% endif %}에서 기본값을 만들 수 있습니다.
 
-You can create defaults in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %} for the following community health files:
+커뮤니티 상태 파일 | 설명 --- | ---{% ifversion fpt or ghec %} *CODE_OF_CONDUCT.md* | CODE_OF_CONDUCT 파일은 커뮤니티에 참여하는 방법에 대한 표준을 정의합니다. 자세한 내용은 “[프로젝트에 사용 규정 추가](/articles/adding-a-code-of-conduct-to-your-project/)”를 참조하세요. {% endif %} *CONTRIBUTING.md* | CONTRIBUTEING 파일은 사용자가 프로젝트에 기여하는 방법을 전달합니다. 자세한 내용은 “[리포지토리 기여자에 대한 지침 설정](/articles/setting-guidelines-for-repository-contributors/)”을 참조하세요. {% ifversion fpt or ghec %} *FUNDING.yml* | FUNDING 파일은 리포지토리에 스폰서 단추를 표시하여 오픈 소스 프로젝트에 대한 자금 조달 옵션의 가시성을 높입니다. 자세한 내용은 “[리포지토리에 스폰서 단추 표시](/articles/displaying-a-sponsor-button-in-your-repository)”를 참조하세요. {% endif %} 문제 및 끌어오기 요청 템플릿{% ifversion fpt or ghes or ghec %} 및 *config.yml*{% endif %} | 문제 및 끌어오기 요청 템플릿은 리포지토리에서 문제 및 끌어오기 요청을 열 때 기여자가 포함할 정보를 사용자 지정하고 표준화합니다. 자세한 내용은 “[문제 및 끌어오기 요청 템플릿 정보](/articles/about-issue-and-pull-request-templates/)”를 참조하세요. {% ifversion fpt or ghes or ghec %} *SECURITY.md* | SECURITY 파일은 프로젝트에서 보안 취약성을 보고하는 방법에 대한 지침을 제공합니다. 자세한 내용은 “[리포지토리에 보안 정책 추가](/code-security/getting-started/adding-a-security-policy-to-your-repository)”를 참조하세요.{% endif %} *SUPPORT.md* | 지원 파일을 사용하면 프로젝트에 대한 도움말을 얻을 수 있는 방법을 알 수 있습니다. 자세한 내용은 “[프로젝트에 지원 리소스 추가](/articles/adding-support-resources-to-your-project/)”를 참조하세요.
 
-| Community health file                                                                                                                                                                                   | 설명                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
-| *CODE_OF_CONDUCT.md*                                                                                                                                                                                  | A CODE_OF_CONDUCT file defines standards for how to engage in a community. For more information, see "[Adding a code of conduct to your project](/articles/adding-a-code-of-conduct-to-your-project/)."{% endif %}
-| *CONTRIBUTING.md*                                                                                                                                                                                       | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors/)."{% if currentVersion == "free-pro-team@latest" %}
-| *FUNDING.yml*                                                                                                                                                                                           | A FUNDING file displays a sponsor button in your repository to increase the visibility of funding options for your open source project. For more information, see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)."{% endif %}
-| Issue and pull request templates{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and *config.yml*{% endif %} | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates/)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-| *SECURITY.md*                                                                                                                                                                                           | A SECURITY file gives instructions for how to report a security vulnerability in your project. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% endif %}
-| *SUPPORT.md*                                                                                                                                                                                            | A SUPPORT file lets people know about ways to get help with your project. For more information, see "[Adding support resources to your project](/articles/adding-support-resources-to-your-project/)."                                                                                                                                                                                               |
+기본 라이선스 파일을 만들 수 없습니다. 프로젝트를 복제, 패키지 또는 다운로드할 때 파일이 포함되도록 라이선스 파일을 개별 리포지토리에 추가해야 합니다.
 
-You cannot create a default license file. License files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
-
-### Creating a repository for default files
+## 기본 파일에 대한 리포지토리 만들기
 
 {% data reusables.repositories.create_new %}
-2. Use the **Owner** drop-down menu, and select the organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %} you want to create default files for. ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
-3. Type **.github** as the name for your repository, and an optional description. ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)
-4. Make sure the repository status is set to **Public** (a repository for default files cannot be private). ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
-7. In the repository, create one of the supported community health files. Issue templates{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files must be in the root of the repository. For more information, see "[Creating new files](/articles/creating-new-files/)."
+2. **소유자** 드롭다운 메뉴를 사용하고 기본 파일을 만들려는 조직{% ifversion fpt or ghes or ghec %} 또는 개인 계정{% endif %}을 선택합니다.
+  ![소유자 드롭다운 메뉴](/assets/images/help/repository/create-repository-owner.png)
+3. 리포지토리의 이름과 설명(선택 사항)에 **.github** 를 입력합니다.
+  ![리포지토리 만들기 필드](/assets/images/help/repository/default-file-repository-name.png)
+4. 리포지토리 상태가 **공개** 로 설정되어 있는지 확인합니다(기본 파일의 리포지토리는 비공개일 수 없음).
+  ![비공개 또는 공개 상태를 선택하는 라디오 단추](/assets/images/help/repository/create-repository-public-private.png) {% data reusables.repositories.initialize-with-readme %} {% data reusables.repositories.create-repo %}
+7. 리포지토리에서 지원되는 커뮤니티 상태 파일 중 하나를 만듭니다. 문제 템플릿{% ifversion fpt or ghes or ghec %} 및 해당 구성 파일{% endif %}은 `.github/ISSUE_TEMPLATE` 폴더에 있어야 합니다. 기타 지원되는 모든 파일은 리포지토리의 루트, `.github` 폴더 또는 `docs` 폴더에 있을 수 있습니다. 자세한 내용은 “[새 파일 만들기](/articles/creating-new-files/)”를 참조하세요.

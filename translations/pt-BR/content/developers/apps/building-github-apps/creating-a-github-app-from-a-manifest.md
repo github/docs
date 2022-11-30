@@ -5,17 +5,25 @@ redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
   - /developers/apps/creating-a-github-app-from-a-manifest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
+shortTitle: App creation manifest flow
+ms.openlocfilehash: 9ff6fa93e0f31de16e6ee2d96f1d7665742151d3
+ms.sourcegitcommit: 6bd8fe6d49214743f82fa2dc71847c241f140c87
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/07/2022
+ms.locfileid: '148135702'
 ---
-### Sobre os manifestos do aplicativo GitHub
+## Sobre os manifestos do aplicativo GitHub
 
-Quando alguém cria um aplicativo GitHub a partir de um manifesto, é necessário apenas seguir uma URL e nomear o aplicativo. O manifesto inclui as permissões, eventos e URL do webhook necessários para registrar o aplicativo automaticamente. O fluxo do manifesto cria o registro do aplicativo GitHub e recupera o segredo do webhook do aplicativo, a chave privada (arquivo PEM) e o ID do aplicativo GitHub. A pessoa que cria o aplicativo a partir do manifesto será proprietária do aplicativo e poderá escolher [editar as configurações do aplicativo](/apps/managing-github-apps/modifying-a-github-app/), excluí-lo ou transferi-lo para outra pessoa no GitHub.
+Quando alguém cria um aplicativo GitHub a partir de um manifesto, é necessário apenas seguir uma URL e nomear o aplicativo. O manifesto inclui as permissões, eventos e URL do webhook necessários para registrar o aplicativo automaticamente. O fluxo do manifesto cria o registro do aplicativo GitHub e recupera o segredo do webhook do aplicativo, a chave privada (arquivo PEM) e o ID do aplicativo GitHub. A pessoa que cria o aplicativo com base no manifesto será o proprietário do aplicativo e poderá optar por [editar as configurações do aplicativo](/apps/managing-github-apps/modifying-a-github-app/), excluí-lo ou transferi-lo para outra pessoa no GitHub.
 
-Você pode usar o [Probot](https://probot.github.io/) para começar com manifestos do aplicativo GitHub ou ver um exemplo de implementação. Consulte "[Usando o Probot para implementar o fluxo do manifesto do aplicativo GitHub](#using-probot-to-implement-the-github-app-manifest-flow)" para saber mais.
+Use o [Probot](https://probot.github.io/) para começar a usar os Manifestos de Aplicativo do GitHub ou ver um exemplo de implementação. Confira "[Como usar o Probot para implementar o fluxo do Manifesto do Aplicativo do GitHub](#using-probot-to-implement-the-github-app-manifest-flow)" para saber mais.
 
 Aqui estão alguns cenários em que você pode usar manifestos do aplicativo GitHub para criar aplicativos pré-configurados:
 
@@ -25,13 +33,13 @@ Aqui estão alguns cenários em que você pode usar manifestos do aplicativo Git
 * Certifique-se de implementar os aplicativos GitHub em ambientes de desenvolvimento e produção usando a mesma configuração.
 * Monitore as revisões de configuração do aplicativo GitHub.
 
-### Implemente o fluxo do manifesto do aplicativo GitHub
+## Implemente o fluxo do manifesto do aplicativo GitHub
 
-O fluxo do manifesto do aplicativo GitHub usa um processo de handshaking semelhante ao [fluxo do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/). O fluxo usa um manifesto para [registrar um aplicativo GitHub](/apps/building-github-apps/creating-a-github-app/) e recebe um `código temporário` usado para recuperar a chave privada do aplicativo, segredo de webhook e ID.
+O fluxo do Manifesto do Aplicativo do GitHub usa um processo de handshake semelhante ao [fluxo OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/). O fluxo usa um manifesto para [registrar um Aplicativo do GitHub](/apps/building-github-apps/creating-a-github-app/) e recebe um `code` temporário usado para recuperar a chave privada, o segredo do webhook e a ID do aplicativo.
 
 {% note %}
 
-**Observação:** Você deve concluir todos os três passos do fluxo do manifesto do aplicativo GitHub dentro de uma hora.
+**Observação:** você precisa concluir as três etapas do fluxo do Manifesto do Aplicativo do GitHub em uma hora.
 
 {% endnote %}
 
@@ -41,47 +49,47 @@ Siga estas etapas para implementar o fluxo do Manifesto do aplicativo GitHub:
 1. O GitHub redireciona as pessoas de volta para o seu site.
 1. Você troca o código temporário para recuperar a configuração do aplicativo.
 
-#### 1. Você redireciona as pessoas para o GitHub para criar um novo aplicativo GitHub
+### 1. Você redireciona as pessoas para o GitHub para criar um Aplicativo do GitHub
 
-Para redirecionar as pessoas para criar um novo aplicativo GitHub, [fornece um link](#examples) para que cliquem que envia uma solicitação `POST` para `https://github. om/settings/apps/new` para uma conta de usuário ou `https://github. om/organizações/ORGANIZAÇÃO/configurações/apps/novo` para uma conta de organização substituindo `ORGANIZAÇÃO` pelo nome da conta da organização, em que o aplicativo será criado.
+Para redirecionar as pessoas para criar um Aplicativo do GitHub, [forneça um link](#examples) para elas que envia uma solicitação `POST` em `https://github.com/settings/apps/new` para uma conta pessoal ou `https://github.com/organizations/ORGANIZATION/settings/apps/new` para uma conta de organização, substituindo `ORGANIZATION` pelo nome da conta de organização em que o aplicativo será criado.
 
-Você deve incluir os [parâmetros do manifesto do aplicativo GitHub](#github-app-manifest-parameters) como uma string codificada por JSON em um parâmetro denominado `manifesto`. Você também pode incluir um parâmetro `estado` [](#parameters) para segurança adicional.
+Você precisa incluir os [parâmetros do Manifesto do Aplicativo do GitHub](#github-app-manifest-parameters) como uma cadeia de caracteres codificada em JSON em um parâmetro chamado `manifest`. Você também pode incluir um `state`[parâmetro](#parameters) para segurança adicional.
 
-A pessoa que está criando o aplicativo será redirecionada para uma página do GitHub com um campo de entrada em que poderá editar o nome do aplicativo que você incluiu no parâmetro do `manifesto`. Se você não incluir um `nome` no `manifesto`, será possível definir seu próprio nome para o aplicativo neste campo.
+A pessoa que está criando o aplicativo será redirecionada para uma página do GitHub com um campo de entrada, em que poderá editar o nome do aplicativo que você incluiu no parâmetro `manifest`. Se você não incluir um `name` no `manifest`, ela poderá definir o nome dela para o aplicativo nesse campo.
 
 ![Criar um manifesto do aplicativo GitHub](/assets/images/github-apps/create-github-app-manifest.png)
 
-##### Parâmetros do manifesto do aplicativo GitHub
+#### Parâmetros do manifesto do aplicativo GitHub
 
- | Nome                  | Tipo               | Descrição                                                                                                                                                                                                                                                           |
- | --------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | `name`                | `string`           | O nome do aplicativo GitHub.                                                                                                                                                                                                                                        |
- | `url`                 | `string`           | **Obrigatório.** A página inicial do seu aplicativo GitHub.                                                                                                                                                                                                         |
- | `hook_attributes`     | `objeto`           | A configuração do webhook do aplicativo GitHub.                                                                                                                                                                                                                     |
- | `redirect_url`        | `string`           | A URL completa para a qual redirecionar após um usuário iniciar a criação de um aplicativo GitHub a partir de um manifesto.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
- | `callback_urls`       | `array de strigns` | Uma URL completa para a qual redirecionar após alguém autorizar uma instalação. Você pode fornecer até 10 URLs de chamada de retorno.{% else %}
- | `callback_url`        | `string`           | Uma URL completa para a qual redirecionar após alguém autorizar uma instalação.{% endif %}
- | `descrição`           | `string`           | Uma descrição do aplicativo GitHub.                                                                                                                                                                                                                                 |
- | `público`             | `boolean`          | Defina como `verdadeiro` quando o seu aplicativo GitHub estiver disponível para o público ou `falso` quando for acessível somente pelo proprietário do aplicativo.                                                                                                  |
- | `default_events`      | `array`            | Lista de [eventos](/webhooks/event-payloads) assinada pelo aplicativo GitHub.                                                                                                                                                                                       |
- | `default_permissions` | `objeto`           | O conjunto de [permissões](/rest/reference/permissions-required-for-github-apps) exigido pelo aplicativo GitHub. O formato do objeto usa o nome de permissão para a chave (por exemplo, `problemas`) e o tipo de acesso para o valor (por exemplo, `gravar`).       |
+ Nome | Tipo | Descrição
+-----|------|-------------
+`name` | `string` | O nome do aplicativo GitHub.
+`url` | `string` | **Necessário.** A home page do seu Aplicativo do GitHub.
+`hook_attributes` | `object` | A configuração do webhook do aplicativo GitHub.
+`redirect_url` | `string` | O URL completo para o qual fazer o redirecionamento após um usuário iniciar a criação de um aplicativo GitHub a partir de um manifesto.
+`callback_urls` | `array of strings` | Uma URL completa para a qual redirecionar após alguém autorizar uma instalação. Você pode fornecer até 10 URLs de retorno de chamada.
+`setup_url` | `string` | Uma URL completa para redirecionar os usuários após a instalação do aplicativo GitHub, caso seja necessária uma configuração adicional.
+`description` | `string` | Uma descrição do aplicativo GitHub.
+`public` | `boolean` | Defina-o como `true` quando seu Aplicativo do GitHub estiver disponível para o público ou `false` quando ele só estiver acessível ao proprietário do aplicativo.
+`default_events` | `array` | A lista de [eventos](/webhooks/event-payloads) nos quais o Aplicativo do GitHub se inscreveu.
+`default_permissions` | `object` | O conjunto de [permissões](/rest/reference/permissions-required-for-github-apps) necessário para o Aplicativo do GitHub. O formato do objeto usa o nome da permissão para a chave (por exemplo, `issues`) e o tipo de acesso para o valor (por exemplo, `write`).
 
-O objeto `hook_attributes` tem a chave a seguir:
+O objeto `hook_attributes` tem a seguinte chave:
 
-| Nome    | Tipo      | Descrição                                                                          |
-| ------- | --------- | ---------------------------------------------------------------------------------- |
-| `url`   | `string`  | **Obrigatório.** A URL do servidor que receberá as solicitações `POST` do webhook. |
-| `ativo` | `boolean` | Implementar detalhes do evento quando esse hook é acionado. O padrão é verdadeiro. |
+Nome | Tipo | Descrição
+-----|------|-------------
+`url` | `string` | **Necessário.** A URL do servidor que receberá as solicitações `POST` de webhook.
+`active` | `boolean` | Implementar detalhes do evento quando esse hook é acionado. O padrão é verdadeiro.
 
-##### Parâmetros
+#### Parâmetros
 
- | Nome     | Tipo     | Descrição                                   |
- | -------- | -------- | ------------------------------------------- |
- | `estado` | `string` | {% data reusables.apps.state_description %}
+ Nome | Tipo | Descrição
+-----|------|-------------
+`state`| `string` | {% data reusables.apps.state_description %}
 
-##### Exemplos
+#### Exemplos
 
-Este exemplo usa um formulário em uma página web com um botão que aciona a solicitação `POST` para uma conta de usuário:
+Este exemplo usa um formulário em uma página da Web com um botão que dispara a solicitação `POST` para uma conta pessoal:
 
 ```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
@@ -98,9 +106,9 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+   "callback_urls": [
      "https://example.com/callback"
-   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
+   ],
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -116,7 +124,7 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
 </script>
 ```
 
-Este exemplo usa um formulário em uma página web com um botão que aciona a solicitação `POST` para uma conta da organização. Substitua `ORGANIZAÇÃO` pelo nome da conta da organização em que você deseja criar o aplicativo.
+Este exemplo usa um formulário em uma página da Web com um botão que dispara a solicitação `POST` para uma conta de organização. Substitua `ORGANIZATION` pelo nome da conta de organização em que deseja criar o aplicativo.
 
 ```html
 <form action="https://github.com/organizations/ORGANIZATION/settings/apps/new?state=abc123" method="post">
@@ -133,9 +141,9 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+   "callback_urls": [
      "https://example.com/callback"
-   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
+   ],
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -151,54 +159,49 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
 </script>
 ```
 
-#### 2. O GitHub redireciona as pessoas de volta para o seu site
+### 2. O GitHub redireciona as pessoas novamente para o seu site
 
-Quando a pessoa clica em **Criar aplicativo GitHub**, O GitHub redireciona para o `redirect_url` com um `código` temporário em um parâmetro de código. Por exemplo:
+Quando a pessoa clica em **Criar Aplicativo do GitHub**, o GitHub redireciona-a novamente para a `redirect_url` com um `code` temporário em um parâmetro de código. Por exemplo:
 
     https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
 
-Se você forneceu um parâmetro `estado`, você também verá esse parâmetro em `redirect_url`. Por exemplo:
+Se você fornecer um parâmetro `state`, também verá esse parâmetro na `redirect_url`. Por exemplo:
 
     https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
 
-#### 3. Você troca o código temporário para recuperar a configuração do aplicativo
+### 3. Você troca o código temporário para recuperar a configuração do aplicativo
 
-Para concluir o handshake, enviar o código temporário `` em uma solicitação `POST` para [Criar um aplicativo GitHub a partir do ponto de extremidade](/rest/reference/apps#create-a-github-app-from-a-manifest) de um manifesto. A resposta incluirá o `id` (ID do aplicativo GitHub), `pem` (chave privada) e `webhook_secret`. O GitHub cria um segredo webhook para o aplicativo automaticamente. Você pode armazenar esses valores em variáveis de ambiente no servidor do aplicativo. Por exemplo, se o aplicativo usar [dotenv](https://github.com/bkeepers/dotenv) para armazenar variáveis de ambiente, você armazenará as variáveis no arquivo `.env` do seu aplicativo.
+Para concluir o handshake, envie o `code` temporário em uma solicitação `POST` ao ponto de extremidade [Criar um Aplicativo do GitHub por meio de um manifesto](/rest/reference/apps#create-a-github-app-from-a-manifest). A resposta incluirá a `id` (ID do Aplicativo do GitHub), a `pem` (a chave privada) e o `webhook_secret`. O GitHub cria um segredo webhook para o aplicativo automaticamente. Você pode armazenar esses valores em variáveis de ambiente no servidor do aplicativo. Por exemplo, se o seu aplicativo usar o [dotenv](https://github.com/bkeepers/dotenv) para armazenar variáveis de ambiente, você armazenará as variáveis no arquivo `.env` do aplicativo.
 
 Você deve concluir esta etapa do fluxo do manifesto do aplicativo GitHub em uma hora.
 
 {% note %}
 
-**Observação:** Esse ponto final tem limite de taxa. Consulte [Limites de taxa](/rest/reference/rate-limit) para saber como obter seu status atual do limite de taxa.
+**Observação:** esse ponto de extremidade tem limite de taxa. Confira [Limites de taxa](/rest/reference/rate-limit) para saber como obter o status do limite de taxa atual.
 
 {% endnote %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-{% data reusables.pre-release-program.fury-pre-release %}
-{% data reusables.pre-release-program.api-preview-warning %}
-{% endif %}
-
     POST /app-manifests/{code}/conversions
 
-Para obter mais informações sobre a resposta do ponto de extremidade, consulte [Criar um aplicativo GitHub a partir de um manifesto](/rest/reference/apps#create-a-github-app-from-a-manifest).
+Para obter mais informações sobre a resposta do ponto de extremidade, confira [Criar um Aplicativo do GitHub com base em um manifesto](/rest/reference/apps#create-a-github-app-from-a-manifest).
 
 Quando a etapa final do fluxo de manifesto for concluída, a pessoa que estiver criando o aplicativo a partir do fluxo será proprietária de um aplicativo GitHub registrado e poderá instalar em qualquer um dos seus repositórios pessoais. A pessoa pode optar por estender o aplicativo usando as APIs do GitHub, transferir a propriedade para outra pessoa ou excluí-lo a qualquer momento.
 
-### Usar o Probot para implementar o fluxo de manifesto do aplicativo GitHub
+## Usar o Probot para implementar o fluxo de manifesto do aplicativo GitHub
 
-[Probot](https://probot.github.io/) é uma estrutura construído com [Node.js](https://nodejs.org/) que realiza muitas das tarefas necessárias para todos os aplicativos GitHub, como, por exemplo, validar webhooks e efetuar a autenticação. O Probot implementa [fluxo do manifesto do aplicativo GitHub](#implementing-the-github-app-manifest-flow), facilitando a criação e o compartilhamento dos designs de referência do aplicativo GitHub com a comunidade do GitHub.
+O [Probot](https://probot.github.io/) é uma estrutura criada com o [Node.js](https://nodejs.org/) que executa muitas das tarefas necessárias para todos os Aplicativos do GitHub, como validar webhooks e realizar a autenticação. Ele implementa o [fluxo de manifesto do Aplicativo do GitHub](#implementing-the-github-app-manifest-flow), facilitando a criação e o compartilhamento de designs de referência do Aplicativo do GitHub com a comunidade do GitHub.
 
 Para criar um aplicativo Probot que você pode compartilhar, siga estas etapas:
 
-1. [Gerar um novo aplicativo GitHub](https://probot.github.io/docs/development/#generating-a-new-app).
-1. Abra o projeto que você criou e personalize as configurações no arquivo `app.yml`. O Probot usa as configurações no `app.yml` como [parâmetros do manifesto do aplicativo GitHub](#github-app-manifest-parameters).
+1. [Gerar um novo Aplicativo do GitHub](https://probot.github.io/docs/development/#generating-a-new-app).
+1. Abra o projeto que você criou e personalize as configurações no arquivo `app.yml`. O Probot usa as configurações em `app.yml` como os [parâmetros do Manifesto do Aplicativo do GitHub](#github-app-manifest-parameters).
 1. Adicione o código personalizado do seu aplicativo.
-1. [Execute o aplicativo GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally) ou [hospede-o em qualquer lugar que desejar](#hosting-your-app-with-glitch). Ao acessar a URL do aplicativo hospedado, você encontrará uma página web com o botão de **Registrar o aplicativo GitHub**, em que as pessoas podem clicar para criar um aplicativo pré-configurado. A página abaixo é a implementação do Probot da [etapa 1](#1-you-redirect-people-to-github-to-create-a-new-github-app) no fluxo do manifesto do aplicativo GitHub:
+1. [Executar o Aplicativo do GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally) ou [hospedá-lo em qualquer lugar desejado](#hosting-your-app-with-glitch). Ao navegar até a URL do aplicativo hospedado, você encontrará uma página da Web com um botão **Registrar um Aplicativo do GitHub**, em que as pessoas podem clicar para criar um aplicativo pré-configurado. A página da Web abaixo é a implementação do Probot da [etapa 1](#1-you-redirect-people-to-github-to-create-a-new-github-app) no fluxo do Manifesto do Aplicativo do GitHub:
 
 ![Registrar um aplicativo GitHub do Probot](/assets/images/github-apps/github_apps_probot-registration.png)
 
-Ao usar [dotenv](https://github.com/bkeepers/dotenv), o Probot cria um arquivo `.env` e define o `APP_ID`, a `PRIVATE_KEY`, e as variáveis de ambiente `WEBHOOK_SECRET` com os valores [recuperados da configuração do aplicativo](#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
+Usando o [dotenv](https://github.com/bkeepers/dotenv), o Probot cria um arquivo `.env` e define as variáveis de ambiente `APP_ID`, `PRIVATE_KEY` e `WEBHOOK_SECRET` com os valores [recuperados da configuração do aplicativo](#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 
-#### Hospedar seu aplicativo com Glitch
+### Hospedar seu aplicativo com Glitch
 
-Você pode ver um [exemplo do aplicativo Probot](https://glitch.com/~auspicious-aardwolf) que usa o [Glitch](https://glitch.com/) para hospedar e compartilhar o aplicativo. O exemplo usa a [API de verificação](/rest/reference/checks) e seleciona as verificações e permissões necessárias dos eventos da API e no arquivo `app.yml`. Glitch é uma ferramenta que permite que você "mescle seus próprios aplicativos". Mesclar um aplicativo cria uma cópia do aplicativo que a Glitch hospeda e implementa. Consulte "[Sobre a Glitch](https://glitch.com/about/)" para aprender sobre como mesclar aplicativos Glitch.
+Veja um [exemplo de aplicativo do Probot](https://glitch.com/~auspicious-aardwolf) que usa o [Glitch](https://glitch.com/) para hospedar e compartilhar o aplicativo. O exemplo usa a [API de Verificações](/rest/reference/checks) e seleciona as permissões e os eventos da API de Verificações necessários no arquivo `app.yml`. Glitch é uma ferramenta que permite que você "mescle seus próprios aplicativos". Mesclar um aplicativo cria uma cópia do aplicativo que a Glitch hospeda e implementa. Confira "[Sobre o Glitch](https://glitch.com/about/)" para saber mais sobre como remixar aplicativos do Glitch.

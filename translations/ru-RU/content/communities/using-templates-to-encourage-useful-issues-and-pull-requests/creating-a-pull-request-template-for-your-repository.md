@@ -1,46 +1,55 @@
 ---
-title: Creating a pull request template for your repository
-intro: 'When you add a pull request template to your repository, project contributors will automatically see the template''s contents in the pull request body.'
+title: Создание шаблона запроса на вытягивание для репозитория
+intro: 'Когда вы добавите шаблон запроса на вытягивание в репозиторий, участники проекта автоматически увидят содержимое шаблона в тексте запроса на вытягивание.'
 redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
   - /github/building-a-strong-community/creating-a-pull-request-template-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Create a PR template
+ms.openlocfilehash: 2a85c88944f1d46209429846bba1e7a3c930968e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145092341'
 ---
+Дополнительные сведения см. в статье "[Сведения о шаблонах проблем и запросов на вытягивание](/articles/about-issue-and-pull-request-templates).
 
-For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+Можно создать подкаталог *PULL_REQUEST_TEMPLATE/* в любой из поддерживаемых папок, чтобы он содержал шаблоны для нескольких запросов на вытягивание, и использовать параметр запроса `template`, чтобы указать шаблон, который будет заполнять текст запроса на вытягивание. Дополнительные сведения см. в разделе [Использование параметров запроса для создания запроса на вытягивание](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request).
 
-You can create a *PULL_REQUEST_TEMPLATE/* subdirectory in any of the supported folders to contain multiple pull request templates, and use the `template` query parameter to specify the template that will fill the pull request body. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
+{% ifversion fpt or ghes or ghec %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-
-You can create default pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Можно создать шаблоны запроса на вытягивание по умолчанию для организации{% ifversion fpt or ghes or ghec %} или личной учетной записи{% endif %}. Дополнительные сведения см. в статье "[Создание файла работоспособности сообщества по умолчанию](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)".
 
 {% endif %}
 
-### Adding a pull request template
+## Добавление шаблона запроса на вытягивание
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-3. In the file name field:
-    -  To make your pull request template visible in the repository's root directory, name the pull request template `pull_request_template.md`. ![New pull request template name in root directory](/assets/images/help/repository/pr-template-file-name.png)
-    - To make your pull request template visible in the repository's `docs` directory, name the pull request template `docs/pull_request_template.md`. ![New pull request template in docs directory](/assets/images/help/repository/pr-template-file-name-docs.png)
-    - To store your file in a hidden directory, name the pull request template `.github/pull_request_template.md`. ![New pull request template in hidden directory](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - To create multiple pull request templates and use the `template` query parameter to specify a template to fill the pull request body, type *.github/PULL_REQUEST_TEMPLATE/*, then the name of your pull request template. For example, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. You can also store multiple pull request templates in a `PULL_REQUEST_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)." ![New multiple pull request template in hidden directory](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
-4. In the body of the new file, add your pull request template. This could include:
-    - A [reference to a related issue](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) in your repository.
-    - A description of the changes proposed in the pull request.
-    - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) of the person or team responsible for reviewing proposed changes.
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
+3. В поле имени файла:
+    -  Чтобы сделать шаблон запроса на вытягивание видимым в корневом каталоге репозитория, присвойте шаблону запроса на вытягивание имя `pull_request_template.md`.
+  ![Имя нового шаблона запроса на вытягивание в корневом каталоге](/assets/images/help/repository/pr-template-file-name.png)
+    - Чтобы сделать шаблон запроса на вытягивание видимым в каталоге `docs` репозитория, присвойте шаблону запроса на вытягивание имя `docs/pull_request_template.md`.
+  ![Шаблон нового запроса на вытягивание в каталоге документации](/assets/images/help/repository/pr-template-file-name-docs.png)
+    - Чтобы сохранить файл в скрытом каталоге, присвойте шаблону запроса на вытягивание имя `.github/pull_request_template.md`.
+  ![Шаблон нового запроса на вытягивание в скрытом каталоге](/assets/images/help/repository/pr-template-hidden-directory.png)
+    - Чтобы создать шаблоны для нескольких запросов на вытягивание и использовать параметр запроса `template`, чтобы указать шаблон для заполнения текста проблемы, введите *.github/PULL_REQUEST_TEMPLATE/* , а затем имя шаблона запроса на вытягивание. Например, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. Можно также хранить шаблоны для нескольких запросов на вытягивание в подкаталоге `PULL_REQUEST_TEMPLATE`, в корне или каталогах `docs/`. Дополнительную информацию см. в разделе [Сведения об автоматизации проблем и запросов на вытягивание с параметрами запроса](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters).
+  ![Шаблон для нескольких новых запросов на вытягивание в скрытом каталоге](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
+4. Добавьте шаблон запроса на вытягивание в текст нового файла. Это может быть:
+    - [ссылка на связанную проблему](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) в репозитории;
+    - описание изменений, предлагаемых в запросе на вытягивание;
+    - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) пользователя или команды, ответственной за проверку предлагаемых изменений.
+{% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %} Шаблоны доступны участникам совместной работы при их слиянии в ветвь репозитория по умолчанию.
 {% data reusables.files.propose_new_file %}
 
-### Дополнительная литература
+## Дополнительные материалы
 
-- "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
-- "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
-- "[Creating a pull request](/articles/creating-a-pull-request)"
+- [Сведения о шаблонах проблем и запросов на вытягивание](/articles/about-issue-and-pull-request-templates)
+- [Сведения об автоматизации проблем и запросов на вытягивание с параметрами запроса](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)
+- [Создание запроса на вытягивание](/articles/creating-a-pull-request)

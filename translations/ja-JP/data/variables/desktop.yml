@@ -1,4 +1,5 @@
----
-#Supported platforms
-mac-osx-versions: macOS 10.10以降
-windows-versions: Windows 7 64-bit以降
+# Supported platforms
+
+mac-osx-versions: macOS 10.12 以降
+
+windows-versions: Windows 7 64-bit 以降

@@ -1,25 +1,26 @@
 ---
-title: Managing security advisories for vulnerabilities in your project
+title: Работа с рекомендациями по безопасности
 shortTitle: Security advisories
-intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using security advisories.'
-redirect_from:
-  - /articles/managing-security-vulnerabilities-in-your-project
-  - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
+intro: 'Узнайте, как работать с рекомендациями по безопасности в {% data variables.product.prodname_dotcom %},{% ifversion fpt or ghec %} независимо от того, хотите ли вы внести свой вклад в существующие глобальные рекомендации или создать рекомендации по безопасности для репозитория,{% endif %} улучшая совместную работу между хранителями репозитория и исследователями в области безопасности.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Repositories
+  - CVEs
+children:
+  - /global-security-advisories
+  - /repository-security-advisories
+  - /guidance-on-reporting-and-writing
+ms.openlocfilehash: a42c57006a05bd1fffc09c8241d22eddc67ed8f1
+ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148114148'
 ---
 
-### Table of Contents
-
-{% link_in_list /about-coordinated-disclosure-of-security-vulnerabilities %}
-{% link_in_list /about-github-security-advisories %}
-{% link_in_list /permission-levels-for-security-advisories %}
-{% link_in_list /creating-a-security-advisory %}
-{% link_in_list /adding-a-collaborator-to-a-security-advisory %}
-{% link_in_list /removing-a-collaborator-from-a-security-advisory %}
-{% link_in_list /collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability %}
-{% link_in_list /publishing-a-security-advisory %}
-{% link_in_list /editing-a-security-advisory %}
-{% link_in_list /withdrawing-a-security-advisory %}

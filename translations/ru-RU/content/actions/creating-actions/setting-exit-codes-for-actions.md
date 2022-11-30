@@ -1,33 +1,36 @@
 ---
-title: Setting exit codes for actions
-shortTitle: Setting exit codes
-intro: 'You can use exit codes to set the status of an action. {% data variables.product.prodname_dotcom %} displays statuses to indicate passing or failing actions.'
-product: '{% data reusables.gated-features.actions %}'
+title: Настройка кодов выхода для действий
+shortTitle: Set exit codes
+intro: 'Можно использовать коды выхода для настройки состояния действия. {% data variables.product.prodname_dotcom %} отображает состояния, указывающие на действия, которые прошли и не прошли проверку.'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 type: how_to
+ms.openlocfilehash: 394b17dc03c4998797df222fe7c81c3269003ec9
+ms.sourcegitcommit: d3929a033c42c99b153910685256d079d7d87467
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/27/2022
+ms.locfileid: '148114280'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
+## Сведения о кодах выхода
 
-### About exit codes
+{% data variables.product.prodname_dotcom %} использует код выхода, чтобы задать состояние выполнения проверки для действия, которое может иметь значение `success` или `failure`.
 
-{% data variables.product.prodname_dotcom %} uses the exit code to set the action's check run status, which can be `success` or `failure`.
+Состояние выхода | Состояние проверки выполнения | Описание
+------------|------------------|------------
+`0` | `success` | Действие успешно завершено, и могут начаться другие задачи, которые от него зависят.
+Ненулевое значение (любое целое число, кроме 0)| `failure` | Любой другой код выхода указывает на сбой действия. При сбое действия все параллельные действия отменяются, а будущие действия пропускаются. Выполнение проверки и набор проверки получают состояние `failure`.
 
-| Exit status                       | Check run status | Description                                                                                                                                                                                           |
-| --------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0`                               | `success`        | The action completed successfully and other tasks that depends on it can begin.                                                                                                                       |
-| Nonzero value (any integer but 0) | `failure`        | Any other exit code indicates the action failed. When an action fails, all concurrent actions are canceled and future actions are skipped. The check run and check suite both get a `failure` status. |
+## Задание кода выхода при сбое в действии JavaScript
 
-### Setting a failure exit code in a JavaScript action
-
-If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) package to log a message and set a failure exit code. Например:
+При создании действия JavaScript можно использовать пакет [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) набора средств действий для записи сообщения в журнал и задания кода выхода при сбое (failure). Пример:
 
 ```javascript
 try {
@@ -37,11 +40,11 @@ try {
 }
 ```
 
-For more information, see "[Creating a JavaScript action](/articles/creating-a-javascript-action)."
+Дополнительные сведения см. в разделе [Создание действия JavaScript](/articles/creating-a-javascript-action).
 
-### Setting a failure exit code in a Docker container action
+## Задание кода выхода при сбое в действии контейнера Docker
 
-If you are creating a Docker container action, you can set a failure exit code in your `entrypoint.sh` script. Например:
+Если вы создаете действие контейнера Docker, в скрипте `entrypoint.sh` можно задать код выхода при сбое. Пример:
 
 ```
 if <condition> ; then
@@ -50,4 +53,4 @@ if <condition> ; then
 fi
 ```
 
-For more information, see "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+Дополнительные сведения см. в разделе [Создание действия контейнера Docker](/articles/creating-a-docker-container-action).

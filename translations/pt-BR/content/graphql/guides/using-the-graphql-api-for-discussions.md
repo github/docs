@@ -1,21 +1,25 @@
 ---
 title: Usar a API do GraphQL para discussões
-intro: Aprenda a usar a API do GraphQL para as discussões do GitHub.
+intro: 'Aprenda a usar a API do GraphQL de {% data variables.product.prodname_discussions %}.'
 versions:
-  free-pro-team: '*'
+  feature: discussions
+shortTitle: Use GraphQL for Discussions
+ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147408840'
 ---
+A API do GraphQL do {% data variables.product.prodname_discussions %} permite que você obtenha, crie, edite e exclua publicações de discussão. Para obter mais informações sobre as {% data variables.product.prodname_discussions %}, confira "[Sobre as discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-A API do GraphQL do {% data variables.product.prodname_discussions %} permite que você obtenha, crie, edite e exclua publicações de discussão. Para obter mais informações sobre {% data variables.product.prodname_discussions %}, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
-
-Esta API está disponível para usuários autenticados, aplicativos OAuth e aplicativos GitHub. Os tokens de acesso exigem o escopo `repo` para repositórios privados e o escopo `public_repo` para repositórios públicos. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)".
-
-Para usar esta API, você deve incluir `GraphQL-Featus: discussions_api` no cabeçalho `HTTP`.
+Esta API está disponível para usuários autenticados, aplicativos OAuth e aplicativos GitHub. Os tokens de acesso exigem o escopo `repo` para repositórios privados e o escopo `public_repo` para repositórios públicos. Para obter mais informações, confira "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)".
 
 ## Campos
 
 ### Repository.discussions
 
-Liste as discussões dentro de um repositório. Se `categoriyId` for especificado, apenas os resultados dentro dessa categoria serão retornados.
+Liste as discussões dentro de um repositório. Se `categoryId` for especificado, somente os resultados nessa categoria serão retornados.
 
 _Assinatura:_
 
@@ -68,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Retorna as categorias de discussão disponíveis definidas neste repositório. Cada repositório pode ter até 10 categorias. Para obter mais informações sobre as categorias de discussão, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
+Retorna as categorias de discussão disponíveis definidas neste repositório. Cada repositório pode ter até 10 categorias. Para obter mais informações sobre as categorias de discussões, confira "[Sobre as discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)".
 
 _Assinatura:_
 
@@ -83,7 +87,7 @@ discussionCategories(
 
 ### Repository.discussion
 
-Obter discussão. Retorna `null` se a discussão com o ID especificado não existe.
+Obtenha uma discussão. Retornará `null` se a discussão com a ID especificada não existir.
 
 _Assinatura:_
 
@@ -108,7 +112,7 @@ pinnedDiscussions(
 
 ## Objetos
 
-**Observação:** Por brevidade, os tipos de conexão não são expandidos aqui. Cada tipo de conexão mencionada no esquema segue o mesmo padrão que outras conexões na API do GraphQL. Para obter mais informações, consulte "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql#connection)".
+**Observação:** para simplificar, os tipos de conexão não são expandidos aqui. Cada tipo de conexão mencionada no esquema segue o mesmo padrão que outras conexões na API do GraphQL. Para obter mais informações, confira "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql#connection)".
 
 ```graphql
 query {
@@ -850,7 +854,7 @@ enum PinnedDiscussionGradient {
 
 ### RepositoryDiscussionAuthor
 
-São implementados pelos tipos `Usuário` e `Organização`. **Observação:** Uma `Organização` só terá discussões associadas, se for tiver sido convertida a partir de um `Usuário`.
+Implementado pelos tipos `User` e `Organization`. **Observação:** uma `Organization` só terá discussões associadas se tiver sido convertida de um `User`.
 
 <details>
 <summary>Campos</summary>
@@ -907,7 +911,7 @@ interface RepositoryDiscussionAuthor {
 
 ### RepositoryDiscussionCommentAuthor
 
-Também são implementados pelos tipos de `Usuário` e `Organização`.
+Também implementado pelos tipos `User` e `Organization`.
 
 <details>
 <summary>Campos</summary>
@@ -958,9 +962,9 @@ interface RepositoryDiscussionCommentAuthor {
 
 ## Mutações
 
-Essas mutações seguem o mesmo padrão de implementação das outras mutações na API do GraphQL. Cada mutação aceita um único argumento de um tipo de `Input`, que leva o nome da mutação e retorna um tipo de `carga` que contém os campos especificados.
+Essas mutações seguem o mesmo padrão de implementação das outras mutações na API do GraphQL. Cada mutação aceita um só argumento de um tipo `Input`, nomeado com base na mutação, e retorna um tipo `Payload` que contém os campos especificados.
 
-Por exemplo, esta é uma mutação básica de `createDiscussion` que irá criar uma nova discussão:
+Por exemplo, essa é uma mutação `createDiscussion` básica que criará uma discussão:
 
 ```graphql
 mutation {
@@ -979,106 +983,106 @@ mutation {
 
 Campos de entrada:
 
-* `body: String!` O texto da nova discussão.
+* `body: String!` O corpo da nova discussão.
 * `title: String!` O título da nova discussão.
-* `repositoryId: ID!` TO ID de um repositório no qual criar uma discussão.
-* `categoryId: ID!` O ID de uma `DiscussionCategory` com esse repositório.
-* `clientMutationId: String` Um identificador único para o cliente que realiza a mutação.
+* `repositoryId: ID!` A ID de um repositório no qual a discussão será criada.
+* `categoryId: ID!` A ID de uma `DiscussionCategory` nesse repositório.
+* `clientMutationId: String` Um identificador exclusivo para o cliente que realiza a mutação.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` O identificador único fornecido como entrada.
+* `clientMutationId: String` O identificador exclusivo fornecido como uma entrada.
 * `discussion: Discussion` A discussão que foi criada.
 
 ### updateDiscussion
 
 Campos de entrada:
 
-* `discussionId: ID!` O ID do nó da discussão a ser atualizado.
-* `body: String` O novo conteúdo do texto da discussão.
+* `discussionId: ID!` A ID de nó da discussão a ser atualizada.
+* `body: String` O novo conteúdo do corpo da discussão.
 * `title: String` O novo título da discussão.
-* `CategyId: ID` O ID do nó de uma `DiscussionCategory` dentro do mesmo repositório para alterar esta discussão.
-* `clientMutationId: String` Um identificador único para o cliente que realiza a mutação.
+* `categoryId: ID` A ID de nó de uma `DiscussionCategory` no mesmo repositório para o qual essa discussão será alterada.
+* `clientMutationId: String` Um identificador exclusivo para o cliente que realiza a mutação.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` O identificador único fornecido como entrada.
+* `clientMutationId: String` O identificador exclusivo fornecido como uma entrada.
 * `discussion: Discussion` A discussão que foi modificada.
 
 ### deleteDiscussion
 Campos de entrada:
 
-* `id: ID!` O ID do nó da discussão a ser excluído.
-* `clientMutationId: String` Um identificador único para o cliente que realiza a mutação.
+* `id: ID!` A ID de nó da discussão a ser excluída.
+* `clientMutationId: String` Um identificador exclusivo para o cliente que realiza a mutação.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` O identificador único fornecido como entrada.
+* `clientMutationId: String` O identificador exclusivo fornecido como uma entrada.
 * `discussion: Discussion` A discussão que foi excluída.
 
 ### addDiscussionComment
 
 Campos de entrada:
 
-* `body: String!` Os conteúdos do comentário.
-* `discussionId: ID!` O ID do nó da discussão sobre o qual comentar.
-* `replyToId: ID` O ID do nó do comentário de discussão ao qual responder. Se ausente, o comentário criado será um comentário de nível superior.
-* `clientMutationId: String` Um identificador único para o cliente que realiza a mutação.
+* `body: String!` O conteúdo do comentário.
+* `discussionId: ID!` A ID de nó da discussão sobre a qual será feito um comentário.
+* `replyToId: ID` A ID de nó do comentário da discussão que será respondido. Se ausente, o comentário criado será um comentário de nível superior.
+* `clientMutationId: String` Um identificador exclusivo para o cliente que realiza a mutação.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` O identificador único fornecido como entrada.
+* `clientMutationId: String` O identificador exclusivo fornecido como uma entrada.
 * `comment: DiscussionComment` O comentário da discussão que foi criado.
 
 ### updateDiscussionComment
 
 Campos de entrada:
 
-* `body: String!` Os novos conteúdos do texto do comentário.
-* `commentId: ID!` O ID do nó do comentário da discussão a ser atualizado.
-* `clientMutationId: String` Um identificador único para o cliente que realiza a mutação.
+* `body: String!` O novo conteúdo do corpo do comentário.
+* `commentId: ID!` A ID de nó do comentário da discussão a ser atualizado.
+* `clientMutationId: String` Um identificador exclusivo para o cliente que realiza a mutação.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` O identificador único fornecido como entrada.
-* `comment: DiscussionComment` O comentário de discussão que foi atualizado.
+* `clientMutationId: String` O identificador exclusivo fornecido como uma entrada.
+* `comment: DiscussionComment` O comentário da discussão que foi atualizado.
 
 ### deleteDiscussionComment
 
 Campos de entrada:
 
-* `id: ID!` O ID do nó do comentário de discussão a ser excluído.
-* `clientMutationId: String` Um identificador único para o cliente que realiza a mutação.
+* `id: ID!` A ID de nó do comentário da discussão a ser excluído.
+* `clientMutationId: String` Um identificador exclusivo para o cliente que realiza a mutação.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` O identificador único fornecido como entrada.
-* `comment: DiscussionComment` O comentário das discussões que foi excluído.
+* `clientMutationId: String` O identificador exclusivo fornecido como uma entrada.
+* `comment: DiscussionComment` O comentário da discussão que foi excluído.
 
 ### markDiscussionCommentAsAnswer
 
 Campos de entrada:
 
-* `id: ID!` O ID do nó do comentário de discussão para marcar como uma resposta.
-* `clientMutationId: String` Um identificador único para o cliente que realiza a mutação.
+* `id: ID!` A ID de nó do comentário da discussão a ser marcado como uma resposta.
+* `clientMutationId: String` Um identificador exclusivo para o cliente que realiza a mutação.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` O identificador único fornecido como entrada.
+* `clientMutationId: String` O identificador exclusivo fornecido como uma entrada.
 * `discussion: Discussion` A discussão que inclui o comentário escolhido.
 
 ### unmarkDiscussionCommentAsAnswer
 
 Campos de entrada:
 
-* `ID: ID!` O ID do nó do comentário de discussão para desmarcar como uma resposta.
-* `clientMutationId: String` Um identificador único para o cliente que realiza a mutação.
+* `id: ID!` A ID de nó do comentário da discussão a ser desmarcado como uma resposta.
+* `clientMutationId: String` Um identificador exclusivo para o cliente que realiza a mutação.
 
 Campos de tipo de retorno:
 
-* `clientMutationId: String` O identificador único fornecido como entrada.
-* `discussion: Discussion` A discussão que inclui o comentário não avaliado.
+* `clientMutationId: String` O identificador exclusivo fornecido como uma entrada.
+* `discussion: Discussion` A discussão que inclui o comentário não marcado.
 
 ## Pesquisar
 
-A discussão pode ser retornada do campo de `pesquisa` de alto nível. Para pesquisar uma discussão, especifique o `tipo` como `DSCUSSÃO`. O tipo `SearchResultItemConnection` tem um campo `discussionCount` para relatar o número de discussões retornadas, e o tipo `Discussão` é adicionado à união DE `SearchResultItem`. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+A discussão pode ser retornada do campo `search` de nível superior. Para pesquisar uma discussão, especifique `type` como `DISCUSSION`. O tipo `SearchResultItemConnection` tem um campo `discussionCount` para relatar o número de discussões retornadas, e o tipo `Discussion` é adicionado à união `SearchResultItem`. Para obter mais informações, confira "[Consultas](/graphql/reference/queries#searchresultitemconnection)" e "[Pesquisa de discussões](/search-github/searching-on-github/searching-discussions)".

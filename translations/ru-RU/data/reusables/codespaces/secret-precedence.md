@@ -1,1 +1,9 @@
-If a secret with the same name exists at multiple levels, the secret at the lower level takes precedence. For example, if an organization-level secret has the same name as a repository-level secret, then the repository-level secret takes precedence.
+---
+ms.openlocfilehash: 1537360ab43c24d0eb3de5fed89f16630a0690a4
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "147881959"
+---
+Если секрет с одним и тем же именем существует на нескольких уровнях, приоритет имеет секрет самого низкого уровня. Например, если секрет уровня организации имеет то же имя, что и секрет уровня репозитория, то приоритет имеет секрет уровня репозитория.

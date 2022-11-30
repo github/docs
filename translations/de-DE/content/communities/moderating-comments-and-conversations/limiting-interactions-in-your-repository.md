@@ -1,38 +1,43 @@
 ---
-title: Interaktionen in Deinem Repository begrenzen
-intro: You can temporarily enforce a period of limited activity for certain users on a public repository.
+title: Einschränken von Interaktionen in deinem Repository
+intro: Du kannst für bestimmte Benutzer*innen vorübergehend beschränkte Aktivitäten in einem öffentlichen Repository erzwingen.
 redirect_from:
-  - /articles/limiting-interactions-with-your-repository/
+  - /articles/limiting-interactions-with-your-repository
   - /articles/limiting-interactions-in-your-repository
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
-  free-pro-team: '*'
-permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
+  fpt: '*'
+  ghec: '*'
+permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository.'
 topics:
   - Community
+shortTitle: Limit interactions in repo
+ms.openlocfilehash: 0b49e1bfdf29be5dc270a453512701c9369c5933
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147067250'
 ---
-
-### About temporary interaction limits
+## Informationen zu temporären Interaktionseinschränkungen
 
 {% data reusables.community.interaction-limits-restrictions %}
 
-{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your repository.
+{% data reusables.community.interaction-limits-duration %} Nachdem die Dauer deiner Beschränkung überschritten wurde, können Benutzer normale Aktivitäten in deinem Repository fortsetzen.
 
 {% data reusables.community.types-of-interaction-limits %}
 
-You can also enable activity limitations on all repositories owned by your user account or an organization. If a user-wide or organization-wide limit is enabled, you can't limit activity for individual repositories owned by the account. For more information, see "[Limiting interactions for your user account](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)."
+Du kannst auch Aktivitätseinschränkungen für alle Repositorys im Besitz deines persönlichen Kontos oder einer Organisation aktivieren. Wenn eine benutzerweite oder organisationsweite Beschränkung aktiviert ist, kannst du die Aktivität für einzelne Repositorys, die im Besitz des Kontos sind, nicht beschränken. Weitere Informationen findest du unter „[Einschränken von Interaktionen für dein persönliches Konto](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-personal-account)“ und „[Einschränken von Interaktionen in deiner Organisation](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)“.
 
-### Interaktionen in Deinem Repository begrenzen
+## Einschränken von Interaktionen in deinem Repository
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the left sidebar, click **Moderation settings**. !["Moderation settings" in repository settings sidebar](/assets/images/help/repository/repo-settings-moderation-settings.png)
-1. Under "Moderation settings", click **Interaction limits**. ![Interaktionsbeschränkungen in den Repository-Einstellungen ](/assets/images/help/repository/repo-settings-interaction-limits.png)
-{% data reusables.community.set-interaction-limit %}
-  ![Optionen für die temporäre Interaktionsbeschränkung](/assets/images/help/repository/temporary-interaction-limits-options.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. Wähle in der Seitenleiste **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderationsoptionen** aus und klicke dann auf **Interaktionsbeschränkungen**.
+{% data reusables.community.set-interaction-limit %} ![Optionen für temporäre Interaktionsbeschränkungen](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
-### Weiterführende Informationen
-- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“
-- „[Den Zugriff einer Person auf ein Repository einer Organisation verwalten](/articles/managing-an-individual-s-access-to-an-organization-repository)“
-- „[Berechtigungsebenen für ein Repository eines Benutzerkontos](/articles/permission-levels-for-a-user-account-repository)"
-- „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“
+## Weiterführende Themen
+- [Melden von Missbrauch oder Spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
+- [Verwalten des Zugriffs einer Person auf ein Repository einer Organisation](/articles/managing-an-individual-s-access-to-an-organization-repository)
+- [Berechtigungsebenen für ein Repository eines persönlichen Kontos](/articles/permission-levels-for-a-user-account-repository)
+- [Repositoryrollen für eine Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)
+- [Verwalten von Moderatoren in deiner Organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)

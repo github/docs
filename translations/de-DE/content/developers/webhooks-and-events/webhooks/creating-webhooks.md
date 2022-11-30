@@ -1,82 +1,99 @@
 ---
-title: Creating webhooks
-intro: 'Learn to build a webhook, choosing the events your webhook will listen for on {% data variables.product.prodname_dotcom %} and how to set up a server to receive and manage the webhook payload.'
+title: Erstellen von Webhooks
+intro: 'Erfahre, wie du einen Webhook erstellst, indem du die Ereignisse auswählst, die dein Webhook auf {% data variables.product.prodname_dotcom %} und wie du einen Server einrichtest, um die Webhook-Nutzlast zu empfangen und zu verwalten.'
 redirect_from:
   - /webhooks/creating
   - /developers/webhooks-and-events/creating-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
+ms.openlocfilehash: ced763e71ecc9f99d8dd5037dcdb6d87cfdba91d
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132971'
 ---
-Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook-powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of issues it receives per day.
+Nachdem wir uns mit den [Grundlagen von Webhooks][webhooks-overview] vertraut gemacht haben, gehen wir nun den Prozess durch, der zum Ausbauen unserer eigenen webhookunterstützten Integration erforderlich ist. In diesem Tutorial erstellen wir einen Repositorywebhook, der die Popularität unseres Repositorys basierend auf der Anzahl der pro Tag eingehenden Issues auflistet.
 
-Creating a webhook is a two-step process. You'll first need to set up how you want your webhook to behave through {% data variables.product.product_name %}: what events should it listen to. After that, you'll set up your server to receive and manage the payload.
+Die Erstellung eines Webhooks erfolgt in zwei Schritten. Du musst zunächst festlegen, an welche Ereignisse dein Webhook lauschen soll. Anschließend musst du deinen Server für Empfang und Verwaltung der Nutzdaten einrichten.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Exposing localhost to the internet
+## Verfügbarmachen des Localhosts im Internet
 
-For the purposes of this tutorial, we're going to use a local server to receive messages from {% data variables.product.prodname_dotcom %}. So, first of all, we need to expose our local development environment to the internet. We'll use ngrok to do this. ngrok is available, free of charge, for all major operating systems. For more information, see [the ngrok download page](https://ngrok.com/download).
+Im Rahmen dieses Tutorials verwenden wir einen lokalen Server, um Webhookereignisse von {% data variables.product.prodname_dotcom %} zu empfangen. 
 
-After installing ngrok, you can expose your localhost by running `./ngrok http 4567` on the command line. 4567 is the port number on which our server will listen for messages. You should see a line that looks something like this:
+Zunächst müssen wir unsere lokale Entwicklungsumgebung im Internet verfügbar machen, damit {% data variables.product.prodname_dotcom %} Ereignisse liefern kann. Wir verwenden dazu [`ngrok`](https://ngrok.com).
+
+{% ifversion cli-webhook-forwarding %} {% note %}
+
+**Hinweis:** Alternativ kannst du die Webhookweiterleitung verwenden, um deine lokale Umgebung für den Empfang von Webhooks einzurichten. Weitere Informationen finden Sie unter [Empfangen von Webhooks mit der GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
+
+{% endnote %} {% endif %}
+
+`ngrok` ist kostenlos für alle gängigen Betriebssysteme verfügbar. Weitere Informationen findest du auf der [`ngrok`-Downloadseite](https://ngrok.com/download).
+
+Nach der Installation von `ngrok` kannst du deinen Localhost verfügbar machen, indem du über die Befehlszeile `./ngrok http 4567` ausführst. `4567` ist die Portnummer, auf der unser Server auf Meldungen lauscht. Du solltest eine Zeile sehen, die wie folgt aussieht:
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
-Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
+Notiere dir die `*.ngrok.io`-URL. Wir werden sie für die Einrichtung des Webhooks verwenden.
 
-### Setting up a webhook
+## Einrichten eines Webhooks
 
-You can install webhooks on an organization or on a specific repository.
+Du kannst Webhooks in einer Organisation oder in einem bestimmten Repository installieren.
 
-To set up a webhook, go to the settings page of your repository or organization. From there, click **Webhooks**, then **Add webhook**.
+Zum Einrichten eines Webhooks gehe zur Einstellungsseite des Repositorys oder der Organisation. Klicke von dort aus auf **Webhooks** und dann auf **Webhook hinzufügen**.
 
-Alternatively, you can choose to build and manage a webhook [through the Webhooks API][webhook-api].
+Alternativ kannst du einen Webhook [über die Webhook-API erstellen und verwalten][webhook-api].
 
-Webhooks require a few configuration options before you can make use of them. We'll go through each of these settings below.
+Bevor du Webhooks verwenden kannst, sind einige Konfigurationsoptionen für sie erforderlich. Diese Einstellungen werden im Folgenden einzeln erläutert.
 
-### Payload URL
+## URL der Nutzlast
 
 {% data reusables.webhooks.payload_url %}
 
-Since we're developing locally for our tutorial, we'll set it to the `*.ngrok.io` URL, followed by `/payload`. For example, `http://7e9ea9dc.ngrok.io/payload`.
+Da die Entwicklung lokal für das Tutorial erfolgt, legen wir die `*.ngrok.io`-URL fest, gefolgt von `/payload`. Beispiel: `http://7e9ea9dc.ngrok.io/payload`.
 
-### Content type
+## Inhaltstyp
 
-{% data reusables.webhooks.content_type %} For this tutorial, the default content type of `application/json` is fine.
+{% data reusables.webhooks.content_type %} Für dieses Tutorial ist der Standardinhaltstyp `application/json` in Ordnung.
 
-### Secret
+## `Secret`
 
 {% data reusables.webhooks.secret %}
 
-### SSL verification
+## SSL-Überprüfung
 
 {% data reusables.webhooks.webhooks_ssl %}
 
-### Active
+## Aktiv
 
-By default, webhook deliveries are "Active." You can choose to disable the delivery of webhook payloads by deselecting "Active."
+Webhookzustellungen sind standardmäßig „Aktiv“. Du kannst die Zustellung von Webhooknutzdaten während der Entwicklung deaktivieren, indem du die Auswahl von „Aktiv“ aufhebst.
 
-### Ereignisse
+## Ereignisse
 
-Events are at the core of webhooks. These webhooks fire whenever a certain action is taken on the repository, which your server's payload URL intercepts and acts upon.
+Ereignisse sind das Kernstück von Webhooks. Diese Webhooks werden ausgelöst, wenn eine bestimmte Aktion im Repository ausgeführt wird. Die Nutzdaten-URL des Servers fängt diese ab und reagiert darauf.
 
-A full list of webhook events, and when they execute, can be found in [the webhooks API][hooks-api] reference.
+Eine vollständige Liste der Webhookereignisse und Informationen dazu, wann diese ausgeführt werden, findest du in der Referenz zur [Webhooks-API][hooks-api].
 
-Since our webhook is dealing with issues in a repository, we'll click **Let me select individual events** and then **Issues**. Make sure you select **Active** to receive issue events for triggered webhooks. You can also select all events using the default option.
+Da der Webhook Issues in einem Repository behandelt, klicken wir auf **Einzelne Ereignisse auswählen** und dann auf **Issues**. Stelle sicher, dass zum Empfangen von Problemereignissen für ausgelöste Webhooks **Aktiv** ausgewählt ist. Du kannst auch alle Ereignisse mithilfe der Standardoption auswählen.
 
-When you're finished, click **Add webhook**.
+Wenn du fertig bist, klicke auf **Webhook hinzufügen**. 
 
-Now that you've created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks/configuring/) to learn how to do that.
+Nachdem du den Webhook erstellt hast, ist es an der Zeit, den lokalen Server einzurichten, um den Webhook zu testen. Navigiere zu [Konfigurieren des Servers](/webhooks/configuring/), um zu erfahren, wie du dabei vorgehen musst.
 
-#### Wildcard event
+### Platzhalterereignis
 
-To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
+Zum Konfigurieren eines Webhooks für alle Ereignisse verwende das Platzhalterzeichen (`*`), um die Webhookereignisse anzugeben. Wenn du das Platzhalterereignis hinzufügst, ersetzen wir alle vorhandenen Ereignisse, die du mit dem Platzhalterereignis konfiguriert hast, und senden dir Nutzdaten für alle unterstützten Ereignisse zu. Außerdem erhältst du automatisch alle neuen Ereignisse, die wir in Zukunft hinzufügen.
 
 [webhooks-overview]: /webhooks/
 [webhook-api]: /rest/reference/repos#hooks

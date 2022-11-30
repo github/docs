@@ -1,0 +1,9 @@
+---
+ms.openlocfilehash: b0b437ad3281c9421c305cd516ce1866a225e5fc
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145089224"
+---
+Organizationレベルで保存されたシークレットについては、アクセスポリシーを使ってどのリポジトリがOrganizationのシークレットを利用できる化を制御できます。 Organizationレベルのシークレットを利用すると、複数のリポジトリ間でシークレットを共有できるので、重複してシークレットを作成する必要が軽減されます。 一カ所でOrganizationシークレットを更新すれば、そのシークレットを使うすべてのリポジトリワークフローにその変更が有効になることを保証できます。

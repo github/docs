@@ -1,20 +1,27 @@
-1. Populate the {% data variables.product.prodname_codeql %} databases, analyze them, and upload the results to {% data variables.product.product_name %}. The results will appear in the **Security** tab for your repository.
+---
+ms.openlocfilehash: e6d7a33506174bf50d70ae9b5d4ac9857cd880ae
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/11/2022
+ms.locfileid: "148161241"
+---
+1. Заполните базы данных {% data variables.product.prodname_codeql %}, проанализируйте их и отправьте результаты в {% data variables.product.product_name %}. Результаты появятся на вкладке **Безопасность** вашего репозитория.
 
     ```shell
-    $ /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
-        --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
+    $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
+        --github-url {% data variables.command_line.git_url_example %} --github-auth-stdin
         --commit 5b6a3078b31dc346e5ce7b86837d6abbe7a18bbd --ref refs/heads/my-branch
     > Finalizing database creation
     > ...
     > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
     > Successfully uploaded results
     ```
-
-1. To upload {% data variables.product.prodname_code_scanning %} results as pull request checks, specify the pull request using the <nobr>`--ref`</nobr> flag. We recommend setting up the {% data variables.product.prodname_codeql_runner %} so that it runs on the [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) webhook event.
+2. Чтобы отправить результаты {% data variables.product.prodname_code_scanning %} в качестве проверок запроса на вытягивание, укажите запрос на вытягивание с помощью флага <nobr>`--ref`</nobr>. Рекомендуется настроить {% data variables.code-scanning.codeql_runner %}, чтобы он запускал [`pull_request`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) событие веб-перехватчика.
 
     ```shell
-    $ /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
-        --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
+    $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
+        --github-url {% data variables.command_line.git_url_example %} --github-auth-stdin
         --commit 1dc7a1346e5ce7b86835b68bbda3078b37d6abbe --ref refs/pull/123/merge
     > Finalizing database creation
     > ...
@@ -22,4 +29,4 @@
     > Successfully uploaded results
     ```
 
-For more information about viewing {% data variables.product.prodname_code_scanning %} alerts, see "[Triaging code scanning alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)" and "[Managing code scanning alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+Дополнительные сведения о просмотре оповещений {% data variables.product.prodname_code_scanning %} см. в разделах "[Анализ оповещений сканирования кода в запросах на вытягивание](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)" и "[Управление оповещениями сканирования кода для репозитория](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)".

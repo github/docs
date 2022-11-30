@@ -1,49 +1,56 @@
 ---
-title: About your organization dashboard
-intro: 'As an organization member, you can visit your organization''s dashboard throughout the day to stay updated on recent activity and keep track of issues and pull requests you''re working on or following in the organization.'
+title: Сведения о панели мониторинга организации
+intro: 'Участники организации могут обращаться к панели мониторинга вашей организации в течение дня, чтобы оставаться в курсе последних действий и отслеживать проблемы и запросы на вытягивание, над которыми вы работаете или отслеживаете их в организации.'
 redirect_from:
   - /articles/about-your-organization-dashboard
   - /github/setting-up-and-managing-organizations-and-teams/about-your-organization-dashboard
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Organization dashboard
+ms.openlocfilehash: c5f25d589e7b640fa411cd26f004961081c9d8e8
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '147880777'
 ---
-
-### Accessing your organization dashboard
+## Доступ к панели мониторинга организации
 
 {% data reusables.dashboard.access-org-dashboard %}
 
-### Finding your recent activity
+## Поиск последних действий
 
-In the "Recent activity" section of your news feed, you can quickly find and follow up with recently updated issues and pull requests in your organization.
+В разделе "Последние действия" веб-канала новостей можно быстро находить и отслеживать недавно обновленные проблемы и запросы на вытягивание в вашей организации.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
-### Finding repositories in your organization
+## Поиск репозиториев в организации
 
-In the left sidebar of your dashboard, you can access your organization's top repositories you're active in.
+Слева на панели мониторинга вы можете получить доступ к лучшим репозиториям в организации, с которыми вы работаете.
 
-![List of repositories you're most active in from your organization](/assets/images/help/dashboard/repositories-from-organization-dashboard.png)
+![Список репозиториев, с которыми вы чаще всего работаете в вашей организации](/assets/images/help/dashboard/repositories-from-organization-dashboard.png)
 
-### Staying updated with activity from the organization
+## Обновление с использованием действий из организации
 
-In the "All activity" section of your news feed, you can view updates from other teams and repositories in your organization.
+В разделе "Все действия" веб-канала новостей можно просматривать обновления от других команд и репозиториев в вашей организации.
 
-The "All activity" section shows all recent activity in the organization, including activity in repositories you're not subscribed to and of people you're not following. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
+В разделе "Все действия" отображаются все последние действия в организации, включая действия в репозиториях, на которые вы не подписаны, и пользователей, на которых вы не подписаны. Дополнительные сведения см. в статье "[Сведения об уведомлениях](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" и "[Подписка на пользователей](/articles/following-people)".
 
-For instance, the organization news feed shows updates when someone in the organization:
- - Creates a new branch.
- - Comments on an issue or pull request.
- - Submits a pull request review comment.
- - Forks a repository.
- - Creates a wiki page.
- - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
- - Creates a public repository.{% endif %}
+Например, в веб-канале новостей организации отображаются обновления, когда кто-то в организации выполняет следующие действия:
+ - Создает новую ветвь.
+ - Оставляет комментарий к проблеме или запросу на вытягивание.
+ - Отправляет комментарий к проверке запроса на вытягивание.
+ - Создает вилку репозитория.
+ - Создает вики-страницу.
+ - Отправляет фиксации. {% ifversion fpt or ghes or ghec %}
+ - Создает общедоступный репозиторий.{% endif %}
 
-### Further information
+## Дополнительные сведения
 
-- "[About your personal dashboard](/articles/about-your-personal-dashboard)"
+- [Сведения о личной панели мониторинга](/articles/about-your-personal-dashboard)

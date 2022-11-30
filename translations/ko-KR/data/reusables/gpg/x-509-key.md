@@ -1,40 +1,48 @@
+---
+ms.openlocfilehash: f277d0294224922a74ce406c5cfb2a06daa6db2d
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/04/2022
+ms.locfileid: "148008972"
+---
 
-### Telling Git about your X.509 key
+## Git에 X.509 키에 대해 알리기
 
-You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME instead of GPG.
+[smimesign](https://github.com/github/smimesign)을 사용하여 S/MIME를 통해 커밋 및 태그에 서명할 수 있습니다.
 
 {% data reusables.gpg.smime-git-version %}
 
-1. Install [smimesign](https://github.com/github/smimesign#installation).
+1. [smimesign](https://github.com/github/smimesign#installation)을 설치합니다.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Configure Git to use S/MIME to sign commits and tags. In Git 2.19 or later, use the `git config gpg.x509.program` and `git config gpg.format` commands:
-  - To use S/MIME to sign for all repositories:
+3. S/MIME을 사용하여 커밋 및 태그에 서명하도록 Git을 구성합니다. Git 2.19 이상에서는 `git config gpg.x509.program` 및 `git config gpg.format` 명령을 사용합니다.
+  - S/MIME을 사용하여 모든 리포지토리에 서명하려면 다음을 수행합니다.
   ```shell
   $ git config --global gpg.x509.program smimesign
   $ git config --global gpg.format x509
   ```
-  - To use S/MIME to sign for a single repository:
+  - S/MIME을 사용하여 단일 리포지토리에 서명하려면 다음을 수행합니다.
   ```shell
-  $ cd <em>/path/to/my/repository</em>
+  $ cd PATH-TO-REPOSITORY
   $ git config --local gpg.x509.program smimesign
   $ git config --local gpg.format x509
   ```
-  In Git 2.18 or earlier, use the `git config gpg.program` command:
-  - To use S/MIME to sign for all repositories:
+  Git 2.18 이하 버전에서는 `git config gpg.program` 명령을 사용합니다.
+  - S/MIME을 사용하여 모든 리포지토리에 서명하려면 다음을 수행합니다.
   ```shell
   $ git config --global gpg.program smimesign
   ```
-  - To use S/MIME to sign for a single repository:
+  - S/MIME을 사용하여 단일 리포지토리에 서명하려면 다음을 수행합니다.
   ```shell
-  $ cd <em>/path/to/my/repository</em>
+  $ cd  PATH-TO-REPOSITORY
   $ git config --local gpg.program smimesign
   ```
-  If you're using an X.509 key that matches your committer identity, you can begin signing commits and tags.
-4. If you're not using an X.509 key that matches your committer identity, list X.509 keys for which you have both a certificate and private key using the `smimesign --list-keys` command.
+  커밋한 사람 ID와 일치하는 X.509 키를 사용하는 경우 커밋 및 태그에 서명을 시작할 수 있습니다.
+4. 커밋한 사람 ID와 일치하는 X.509 키를 사용하지 않는 경우 `smimesign --list-keys` 명령을 사용하여 인증서와 프라이빗 키가 모두 있는 X.509 키를 나열합니다.
   ```shell
   $ smimesign --list-keys
   ```
-5. From the list of X.509 keys, copy the certificate ID of the X.509 key you'd like to use. In this example, the certificate ID is `0ff455a2708394633e4bb2f88002e3cd80cbd76f`:
+5. X.509 키 목록에서 사용하려는 X.509 키의 인증서 ID를 복사합니다. 이 예제에서 인증서 ID는 `0ff455a2708394633e4bb2f88002e3cd80cbd76f`입니다.
   ```shell
   $ smimesign --list-keys
                ID: 0ff455a2708394633e4bb2f88002e3cd80cbd76f
@@ -45,13 +53,13 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
           Subject: CN=Octocat,O=GitHub\, Inc.,L=San Francisco,ST=California,C=US
            Emails: octocat@github.com
   ```
-6. To set your X.509 signing key in Git, paste the text below, substituting in the certificate ID you copied earlier.
-  - To use your X.509 key to sign for all repositories:
+6. Git에서 X.509 서명 키를 설정하려면 아래 텍스트를 붙여넣고 이전에 복사한 인증서 ID를 대체합니다.
+  - X.509 키를 사용하여 모든 리포지토리에 서명하려면 다음을 수행합니다.
   ```shell
-  $ git config --global user.signingkey <em>0ff455a2708394633e4bb2f88002e3cd80cbd76f</em>
+  $ git config --global user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
   ```
-  - To use your X.509 key to sign for a single repository:
+  - X.509 키를 사용하여 단일 리포지토리에 서명하려면 다음을 수행합니다.
   ```shell
-  $ cd <em>/path/to/my/repository</em>
-  $ git config --local user.signingkey <em>0ff455a2708394633e4bb2f88002e3cd80cbd76f</em>
+  $ cd  PATH-TO-REPOSITORY
+  $ git config --local user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
   ```

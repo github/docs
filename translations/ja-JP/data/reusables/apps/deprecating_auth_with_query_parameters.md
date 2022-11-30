@@ -1,9 +1,15 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+---
+ms.openlocfilehash: 1ba4f5242c21b752ac7e3bd9a424e0c8c4e96b2a
+ms.sourcegitcommit: 72e1c60459a610944184ca00e3ae60bf1f5fc6db
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147878615"
+---
 {% warning %}
 
-**非推奨の注意:** {% data variables.product.prodname_dotcom %}は、クエリパラメータを使ったAPIの認証を廃止します。 APIの認証は[HTTPの基本認証](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)で行わなければなりません。{% if currentVersion == "free-pro-team@latest" %}APIの認証にクエリパラメータを使用することは、2021年5月5日以降できなくなります。 {% endif %}予定された一時停止を含む詳しい情報については[ブログポスト](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/)を参照してください。
+**非推奨の注意:** {% data variables.product.prodname_dotcom %} では、クエリ パラメーターを使った API の認証が廃止されます。 API の認証は、[HTTP 基本認証](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)を使って行う必要があります。{% ifversion fpt or ghec %}クエリ パラメーターを使った API の認証は、2021 年 5 月 5 日に機能しなくなります。 {% endif %} スケジュールされたブラウンアウトなど、詳しい情報については、[ブログの投稿](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/)を参照してください。
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}利用可能な間にクエリパラメータを使ってAPIの認証を行うことは、セキュリティ上の懸念からサポートされなくなりました。 その代わりに、インテグレータはアクセストークン、`client_id`もしくは`client_secret`をヘッダに移すことをおすすめします。 {% data variables.product.prodname_dotcom %}は、クエリパラメータによる認証の削除を、事前に通知します。 {% endif %}
+{% ifversion ghes or ghae %} クエリ パラメーターを使った API の認証は、利用はできるものの、セキュリティ上の懸念からサポートされなくなりました。 代わりに、`client_id`、または `client_secret` のアクセス トークンをヘッダーに移動することをインテグレーターにお勧めします。 {% data variables.product.prodname_dotcom %}は、クエリパラメータによる認証の削除を、事前に通知します。 {% endif %}
 
 {% endwarning %}
-{% endif %}

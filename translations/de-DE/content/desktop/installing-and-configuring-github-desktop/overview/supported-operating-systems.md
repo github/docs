@@ -1,61 +1,71 @@
 ---
-title: Supported operating systems
-intro: 'You can use {% data variables.product.prodname_desktop %} on any supported operating system.'
-miniTocMaxHeadingLevel: 4
+title: Unterstützte Betriebssysteme
+intro: 'Du kannst {% data variables.product.prodname_desktop %} unter jedem unterstützten Betriebssystem verwenden.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /desktop/getting-started-with-github-desktop/supported-operating-systems
   - /desktop/installing-and-configuring-github-desktop/supported-operating-systems
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Supported OS
+ms.openlocfilehash: 13e148ccf8e254c4e40f9e20ad6c5af083e21d8c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145105232'
 ---
-### About supported operating systems
+## Informationen zu unterstützten Betriebssystemen
 
-The following operating systems are supported for {% data variables.product.prodname_desktop %}.
+Die folgenden Betriebssysteme werden für {% data variables.product.prodname_desktop %} unterstützt:
 - {% data variables.desktop.mac-osx-versions %}
-- {% data variables.desktop.windows-versions %}. You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
+- {% data variables.desktop.windows-versions %}. Du musst über ein 64-Bit-Betriebssystem verfügen, um {% data variables.product.prodname_desktop %} ausführen zu können.
 
-### Troubleshooting problems on macOS
-If you're encountering problems using {% data variables.product.prodname_desktop %} on macOS, here are resolutions to try. For more information, see [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
+## Behandeln von Problemen unter macOS
+Hier findest du einige Lösungen für den Fall, dass unter macOS Probleme bei der Verwendung von {% data variables.product.prodname_desktop %} auftreten. Weitere Informationen findest du unter [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
 
-#### `The username or passphrase you entered is not correct` error after signing into your account
+### Fehler `The username or passphrase you entered is not correct` nach Anmeldung bei deinem Konto
 
-This error can occur when {% data variables.product.prodname_desktop %} can't access your stored credentials on Keychain.
+Dieser Fehler kann auftreten, wenn {% data variables.product.prodname_desktop %} nicht auf deine gespeicherten Anmeldeinformationen in Keychain zugreifen kann.
 
-To troubleshoot this error, follow these steps.
+Führe zur Behandlung dieses Fehlers die folgenden Schritte aus:
 
-1. Open the "Keychain Access" app.
-2. Right-click on **login** and then click **Lock Keychain "login"**. ![The "Lock Keychain "login" option](/assets/images/help/desktop/mac-lock-keychain.png)
-3. Right-click on **login** and then click **Unlock Keychain "login"**. Follow any onscreen prompts to finish unlocking the Keychain "login." ![The "Unlock Keychain "login" option](/assets/images/help/desktop/mac-unlock-keychain.png)
-4. Re-authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}.
+1. Öffne die App „Keychain Access“.
+2. Klicke mit der rechten Maustaste auf **login**, und klicke anschließend auf **Keychain „login“ sperren**.
+  ![Die Option zum Sperren der Keychain „login“](/assets/images/help/desktop/mac-lock-keychain.png)
+3. Klicke mit der rechten Maustaste auf **login**, und klicke anschließend auf **Keychain „login“ entsperren**. Folge den Anweisungen auf dem Bildschirm, um das Entsperren der Keychain „login“ abzuschließen.
+  ![Die Option zum Entsperren der Keychain „login“](/assets/images/help/desktop/mac-unlock-keychain.png)
+4. Authentifiziere dein Konto erneut für {% data variables.product.prodname_dotcom %} oder {% data variables.product.prodname_enterprise %}.
 
-#### `Could not create temporary directory: Permission denied` error after checking for updates
+### Fehler `Could not create temporary directory: Permission denied` nach Überprüfung auf Updates
 
-This error can be caused by missing permissions for the `~/Library/Caches/com.github.GitHubClient.ShipIt` directory. {% data variables.product.prodname_desktop %} uses this directory to create and unpack temporary files as part of updating the application.
+Dieser Fehler kann durch fehlende Berechtigungen für das Verzeichnis `~/Library/Caches/com.github.GitHubClient.ShipIt` verursacht werden. {% data variables.product.prodname_desktop %} verwendet dieses Verzeichnis zum Erstellen und Entpacken temporärer Dateien für die Anwendungsaktualisierung.
 
-To troubleshoot this error, follow these steps.
+Führe zur Behandlung dieses Fehlers die folgenden Schritte aus:
 
-1. Close {% data variables.product.prodname_desktop %}.
-2. Open "Finder" and navigate to `~/Library/Caches/`.
-3. Right-click `com.github.GitHubClient.ShipIt` and then click **Get Info**.
-4. Click the arrow to the left of "Sharing & Permissions."
-5. If the Privilege to the right of your user account does not say "Read & Write," click the text and then click **Read & Write**. ![The "Sharing & Permissions" options](/assets/images/help/desktop/mac-adjust-permissions.png)
-6. Open {% data variables.product.prodname_desktop %} and check for updates.
+1. Schließe {% data variables.product.prodname_desktop %}.
+2. Öffne den Finder, und navigiere zu `~/Library/Caches/`.
+3. Klicke mit der rechten Maustaste auf `com.github.GitHubClient.ShipIt`, und klicke anschließend auf **Informationen abrufen**.
+4. Klicke auf den Pfeil links neben „Freigabe und Berechtigungen“.
+5. Wenn rechts neben deinem Benutzerkonto nicht die Berechtigung zum Lesen und Schreiben angezeigt wird, klicke auf den Text und anschließend auf **Lesen und Schreiben**.
+  ![Die Optionen für Freigabe und Berechtigungen](/assets/images/help/desktop/mac-adjust-permissions.png)
+6. Öffne {% data variables.product.prodname_desktop %}, und überprüfe, ob Updates vorhanden sind.
 
-### Troubleshooting problems on Windows
-If you're encountering problems using {% data variables.product.prodname_desktop %} on Windows, here are resolutions to try. For more information, see [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
+## Behandeln von Problemen unter Windows
+Hier findest du einige Lösungen für den Fall, dass unter Windows Probleme bei der Verwendung von {% data variables.product.prodname_desktop %} auftreten. Weitere Informationen findest du unter [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
 
-#### `The revocation function was unable to check revocation for the certificate.` error
+### `The revocation function was unable to check revocation for the certificate.` Fehler
 
-This error can occur if you are using {% data variables.product.prodname_desktop %} on a corporate network that blocks Windows from checking the revocation status of a certificate.
+Dieser Fehler kann auftreten, wenn du {% data variables.product.prodname_desktop %} in einem Unternehmensnetzwerk verwendest, in dem Windows den Sperrstatus eines Zertifikats nicht überprüfen kann.
 
-To troubleshoot, contact your system administrator.
+Wende dich zur Problembehandlung an deinen Systemadministrator.
 
-#### `git clone failed` error while cloning a repository configured with Folder Redirection
+### Fehler `git clone failed` beim Klonen eines mit Ordnerumleitung konfigurierten Repositorys
 
-{% data variables.product.prodname_desktop %} does not support repositories configured with Folder Redirection.
+Mit Ordnerumleitung konfigurierte Repositorys werden von {% data variables.product.prodname_desktop %} nicht unterstützt.
 
-#### `cygheap base mismatch detected` error
+### `cygheap base mismatch detected` Fehler
 
-This error can occur when Mandatory ASLR is enabled. Enabling Mandatory ASLR affects the MSYS2 core library, which {% data variables.product.prodname_desktop %} relies upon to emulate process forking.
+Dieser Fehler kann auftreten, wenn die obligatorische zufällige Anordnung des Adressraumlayouts (Address Space Layout Randomization, ASLR) aktiviert ist. Das Aktivieren der obligatorischen ASLR wirkt sich auf die MSYS2-Kernbibliothek aus, die von {% data variables.product.prodname_desktop %} zum Emulieren von Prozessforking verwendet wird.
 
-To troubleshoot this error, either disable Mandatory ASLR or explicitly allow all executables under `<Git>\usr\bin` which depend on MSYS2.
+Deaktiviere zur Behandlung dieses Fehlers entweder die obligatorische ASLR, oder lasse explizit alle ausführbaren Dateien unter `<Git>\usr\bin` zu, die von MSYS2 abhängig sind.

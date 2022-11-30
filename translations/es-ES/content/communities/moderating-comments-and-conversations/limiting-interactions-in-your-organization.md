@@ -6,13 +6,20 @@ redirect_from:
   - /articles/limiting-interactions-in-your-organization
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
-  free-pro-team: '*'
-permissions: Organization owners can limit interactions in an organization.
+  fpt: '*'
+  ghec: '*'
+permissions: Organization owners and moderators can limit interactions in an organization.
 topics:
   - Community
+shortTitle: Limit interactions in org
+ms.openlocfilehash: 03bfad7a0da3386b6205517deb66e6b923de8386
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066686'
 ---
-
-### Acerca de los límites de interacción temporales
+## Acerca de los límites de interacción temporales
 
 El limitar las interacciones en tu organización habilita los límites de interacción temporal para todos los repositorios públicos que pertenezcan a la organización. {% data reusables.community.interaction-limits-restrictions %}
 
@@ -22,22 +29,23 @@ El limitar las interacciones en tu organización habilita los límites de intera
 
 Los miembros de la organización no se verán afectados por ninguno de los tipos de límites.
 
-Cuando habilitas limitaciones de actividad en toda la organización, no puedes habilitar o inhabilitar límites de interacción en los repositorios individuales. Para obtener más información sobre limitar la actividad de un repositorio individual, consulta la sección "[Limitr las interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
+Cuando habilitas limitaciones de actividad en toda la organización, no puedes habilitar o inhabilitar límites de interacción en los repositorios individuales. Para obtener más información sobre cómo limitar la actividad de un repositorio individual, consulte "[Limitación de las interacciones en el repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
 
-Los propietarios de la organización también pueden bloquear a los usuarios por un periodo específico. Después de que expira el bloqueo, el usuario se desbloquea de manera automática. Para obtener más información, consulta "[Bloquear un usuario de tu organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
+Los propietarios y moderadores de la organización también pueden bloquear a los usuarios durante un período de tiempo específico. Después de que expira el bloqueo, el usuario se desbloquea de manera automática. Para más información, vea "[Bloqueo de usuarios de la organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
 
-### Limitar las interacciones en tu organización
+## Limitar las interacciones en tu organización
 
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. Enla barra lateral de configuración de la organización, da clic en **Configuración de moderación**. !["Configuración de moderación" en la barra lateral de configuración de la organización](/assets/images/help/organizations/org-settings-moderation-settings.png)
-1. Debajo de "Configuración de moderación", da clic en **Límites de interacción**. !["Límites de interacción" en la barra lateral de configuración de la organización](/assets/images/help/organizations/org-settings-interaction-limits.png)
-{% data reusables.community.set-interaction-limit %}
-  ![Opciones de límites de interacción temporarios](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. _Para los propietarios de las organizaciones:_ En la sección "Access" (Acceso) de la barra lateral, seleccione **{% octicon "report" aria-label="The report icon" %} Moderation** (Moderación) y, después, haga clic en **Interaction limits** (Límites de interacción).
 
-### Leer más
-- "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[Administrar el acceso de un individuo al repositorio de una organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Niveles de permiso para el repositorio de una cuenta de usuario](/articles/permission-levels-for-a-user-account-repository)"
-- "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"
+   _Para los moderadores de las organizaciones:_ En la barra lateral, haga clic en **Interaction limits** (Límites de interacción).
+
+{% data reusables.community.set-interaction-limit %} ![Opciones de límite de interacción temporales](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
+
+## Información adicional
+- "[Notificación de abusos o correos no deseados](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[Administración del acceso de un individuo a un repositorio de la organización](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+- "[Niveles de permisos para un repositorio de una cuenta personal](/articles/permission-levels-for-a-user-account-repository)"
+- "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Administración de moderadores en la organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

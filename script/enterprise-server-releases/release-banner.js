@@ -1,28 +1,28 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path')
-const program = require('commander')
-const yaml = require('js-yaml')
-const allVersions = require('../../lib/all-versions')
-const releaseCandidateFile = 'data/variables/release_candidate.yml'
-const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
-
-const allowedActions = ['create', 'remove']
-
 // [start-readme]
 //
 // This script creates or removes a release candidate banner for a specified version.
 //
 // [end-readme]
 
+import fs from 'fs/promises'
+import path from 'path'
+import { program } from 'commander'
+import yaml from 'js-yaml'
+import { allVersions } from '../../lib/all-versions.js'
+
+const releaseCandidateFile = 'data/variables/release_candidate.yml'
+const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
+const allowedActions = ['create', 'remove']
+
 program
   .description('Create or remove a release candidate banner for the provided docs version.')
-  // The following two settings let us use `version` as a flag without clashing with reserved opts
-  .storeOptionsAsProperties(false)
-  .passCommandToAction(false)
   .option(`-a, --action <${allowedActions.join(' or ')}>`, 'Create or remove the banner.')
-  .option('-v, --version <version>', 'The version the banner applies to. Must be in <plan@release> format.')
+  .option(
+    '-v, --version <version>',
+    'The version the banner applies to. Must be in <plan@release> format.'
+  )
   .parse(process.argv)
 
 const options = program.opts()
@@ -32,13 +32,15 @@ if (!allowedActions.includes(options.action)) {
   process.exit(1)
 }
 
-if (!(Object.keys(allVersions).includes(options.version))) {
-  console.log('Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.')
+if (!Object.keys(allVersions).includes(options.version)) {
+  console.log(
+    'Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.'
+  )
   process.exit(1)
 }
 
 // Load the release candidate variable
-const releaseCandidateData = yaml.load(fs.readFileSync(releaseCandidateYaml, 'utf8'))
+const releaseCandidateData = yaml.load(await fs.readFile(releaseCandidateYaml, 'utf8'))
 
 // Create or remove the variable
 if (options.action === 'create') {
@@ -50,7 +52,7 @@ if (options.action === 'remove') {
 }
 
 // Update the file
-fs.writeFileSync(releaseCandidateYaml, yaml.safeDump(releaseCandidateData))
+await fs.writeFile(releaseCandidateYaml, yaml.dump(releaseCandidateData))
 
 // Display next steps
 console.log(`\nDone! Commit the update to ${releaseCandidateFile}. This ${options.action}s the banner for ${options.version}.

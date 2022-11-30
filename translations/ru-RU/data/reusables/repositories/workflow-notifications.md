@@ -1,5 +1,13 @@
-If you enable email or web notifications for {% data variables.product.prodname_actions %}, you'll receive a notification when any workflow runs that you've triggered have completed. The notification will include the workflow run's status (including successful, failed, neutral, and canceled runs). You can also choose to receive a notification only when a workflow run has failed.
+---
+ms.openlocfilehash: 307a695e8a973c7b37a29ebbeb4606a8ed43d38d
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145117811"
+---
+Если вы включаете уведомления о сообщениях электронной почты или веб-уведомления для {% data variables.product.prodname_actions %}, вы получите уведомление при завершении выполнения любого рабочего процесса, который был активирован. Уведомление будет содержать сведения о состоянии выполнения рабочего процесса (включая успешные, неудачные, нейтральные и отмененные выполнения). Вы также можете выбрать вариант, чтобы получать уведомление только в том случае, если выполнение рабочего процесса завершилось сбоем. Дополнительные сведения о включении или отключении уведомлений см. в статье [Сведения об уведомлениях](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
 
-Notifications for scheduled workflows are sent to the user who initially created the workflow. If a different user updates the cron syntax in the workflow file, subsequent notifications will be sent to that user instead.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} If a scheduled workflow is disabled and then re-enabled, notifications will be sent to the user who re-enabled the workflow rather than the user who last modified the cron syntax.{% endif %}
+Уведомления о запланированных рабочих процессах отправляются пользователю, который изначально создал рабочий процесс. Если другой пользователь обновляет синтаксис cron в файле рабочего процесса, последующие уведомления будут отправляться этому пользователю.{% ifversion fpt or ghes or ghec %} Если запланированный рабочий процесс был отключен, а затем включен снова, уведомления будут отправляться пользователю, который повторно включил рабочий процесс, а не пользователю, который в последний раз изменил синтаксис cron.{% endif %}
 
-You can also see the status of workflow runs on a repository's Actions tab. For more information, see "[Managing a workflow run](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)."
+Состояние выполнения рабочего процесса также отображается на вкладке "Действия" репозитория. Дополнительные сведения см. в статье [Управление выполнением рабочего процесса](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run).

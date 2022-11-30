@@ -1,1 +1,0 @@
-此工作流程配置在 `node:10.18-jessie` 容器中运行的作业，并使用 `ubuntu-latest` {% data variables.product.prodname_dotcom %} 托管的运行器作为容器的 Docker 主机。 有关 `node:10.18-jessie` 容器的更多信息，请参阅 Docker Hub 上的[节点映像](https://hub.docker.com/_/node)。

@@ -1,7 +1,13 @@
-{% if currentVersion == "github-ae@latest" %}
-{% note %}
+---
+ms.openlocfilehash: 92c9b94f4c711223f758a8b0993d9a9765bc5726
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2022
+ms.locfileid: "145121857"
+---
+{% ifversion ghae %} {% note %}
 
-**Nota:** El {% data variables.product.prodname_registry %} se encuentra actualmente en beta para {% data variables.product.prodname_ghe_managed %}.
+**Nota:** {% data variables.product.prodname_registry %} se encuentra actualmente en fase beta para {% data variables.product.prodname_ghe_managed %}.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}

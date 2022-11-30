@@ -1,75 +1,93 @@
 ---
-title: 增加存储容量
-intro: 您可以增加或更改可供 Git 仓库、数据库、搜索索引和其他持久应用程序数据使用的存储容量。
+title: Increasing storage capacity
+intro: 'You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.'
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
   - /admin/enterprise-management/increasing-storage-capacity
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
   - Storage
+shortTitle: Increase storage capacity
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-随着更多的用户加入 {% data variables.product.product_location %}，您可能需要调整存储卷大小。 有关调整存储容量的信息，请参阅虚拟平台的相关文档。
+As more users join {% data variables.location.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
 
-### 要求与建议
+## Requirements and recommendations
 
 {% note %}
 
-**注**：调整用户存储卷之前，请将实例置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
 
-#### 最低要求
+### Minimum requirements
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
-### 增加数据分区大小
+## Increasing the data partition size
 
-1. 使用虚拟平台工具调整现有用户卷磁盘大小。
+1. Resize the existing user volume disk using your virtualization platform's tools.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. 将设备置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
-4. 重启设备，以检测新存储分配。
+3. Put the appliance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+4. Reboot the appliance to detect the new storage allocation:
   ```shell
   $ sudo reboot
   ```
-5. 运行 `ghe-storage-extend` 命令以展开 `/data/user` 文件系统：
+5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
   ```shell
   $ ghe-storage-extend
   ```
 
-### 使用新设备增加根分区大小
+## Increasing the root partition size using a new appliance
 
-1. 使用版本与当前设备相同的较大根磁盘来设置新的 {% data variables.product.prodname_ghe_server %} 实例。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
-2. 关闭当前设备：
+1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+2. Shut down the current appliance:
   ```shell
   $ sudo poweroff
   ```
-3. 使用虚拟平台工具将数据磁盘从当前设备中拆下。
-4. 将数据磁盘安装到根磁盘较大的新设备上。
+3. Detach the data disk from the current appliance using your virtualization platform's tools.
+4. Attach the data disk to the new appliance with the larger root disk.
 
-### 使用现有设备增加根分区大小
+## Increasing the root partition size using an existing appliance
 
-1. 将新磁盘连接到 {% data variables.product.prodname_ghe_server %} 设备。
-2. 运行 `parted` 命令，将磁盘格式化：
+{% warning %}
+
+**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+
+{% endwarning %}
+
+1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
+1. Run the `lsblk` command to identify the new disk's device name.
+1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-3. 运行 `ghe-upgrade` 命令，将完整的平台特定包安装到新分区的磁盘中。 `github-enterprise-2.11.9.hpkg` 等通用热补丁升级包将无法按预期运行。
+1. To stop replication, run the `ghe-repl-stop` command.
+
+   ```shell
+   $ ghe-repl-stop
+   ```
+   
+1. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
+
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. 关闭设备：
+1. Shut down the appliance:
   ```shell
   $ sudo poweroff
   ```
-5. 在虚拟机监控程序中，移除旧的根磁盘，并将新的根磁盘连接到旧的根磁盘的位置。
-6. 启动设备。
+1. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
+1. Start the appliance.
+1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+
+If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
