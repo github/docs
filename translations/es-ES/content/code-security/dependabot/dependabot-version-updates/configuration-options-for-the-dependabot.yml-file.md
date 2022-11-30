@@ -478,8 +478,28 @@ By default, {% data variables.product.prodname_dependabot %} automatically rebas
 
 Available rebase strategies
 
-- `disabled` to disable automatic rebasing.
 - `auto` to use the default behavior and rebase open pull requests when changes are detected.
+- `disabled` to disable automatic rebasing.
+
+When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_dependabot %} attempts to rebase pull requests in the following cases.
+- When you use {% data variables.product.prodname_dependabot_version_updates %}, for any open {% data variables.product.prodname_dependabot %} pull request when your schedule runs.
+- When you reopen a closed {% data variables.product.prodname_dependabot %} pull request.
+- When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
+- When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
+
+{% note %}
+
+**Note:** {% data variables.product.prodname_dependabot %} will keep rebasing a pull request indefinitely until the pull request is closed, merged or you disable {% data variables.product.prodname_dependabot_updates %}.
+
+{% endnote %}
+
+When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests. 
+
+{% note %}
+
+**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
+
+{% endnote %}
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
