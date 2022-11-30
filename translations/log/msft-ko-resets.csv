@@ -471,6 +471,7 @@ translations/ko-KR/content/actions/learn-github-actions/finding-and-customizing-
 translations/ko-KR/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/ko-KR/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
 translations/ko-KR/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,rendering error
+translations/ko-KR/content/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column.md,rendering error
 translations/ko-KR/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/ko-KR/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
 translations/ko-KR/content/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer.md,rendering error
@@ -586,7 +587,6 @@ translations/ko-KR/content/admin/installation/setting-up-a-github-enterprise-ser
 translations/ko-KR/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v.md,rendering error
 translations/ko-KR/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm.md,rendering error
 translations/ko-KR/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware.md,rendering error
-translations/ko-KR/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics.md,rendering error
 translations/ko-KR/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics.md,rendering error
 translations/ko-KR/content/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks.md,rendering error
 translations/ko-KR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
@@ -751,6 +751,7 @@ translations/ko-KR/content/code-security/security-advisories/global-security-adv
 translations/ko-KR/content/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database.md,rendering error
 translations/ko-KR/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,rendering error
 translations/ko-KR/content/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository.md,rendering error
+translations/ko-KR/content/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory.md,rendering error
 translations/ko-KR/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/ko-KR/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
 translations/ko-KR/content/code-security/security-overview/index.md,rendering error
@@ -764,7 +765,6 @@ translations/ko-KR/content/codespaces/codespaces-reference/allowing-your-codespa
 translations/ko-KR/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
 translations/ko-KR/content/codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning.md,rendering error
 translations/ko-KR/content/codespaces/developing-in-codespaces/opening-an-existing-codespace.md,rendering error
-translations/ko-KR/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
 translations/ko-KR/content/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide.md,rendering error
 translations/ko-KR/content/codespaces/getting-started/deep-dive.md,rendering error
 translations/ko-KR/content/codespaces/getting-started/quickstart.md,rendering error
@@ -782,10 +782,7 @@ translations/ko-KR/content/communities/documenting-your-project-with-wikis/about
 translations/ko-KR/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/ko-KR/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ko-KR/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
-translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,rendering error
-translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
-translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
 translations/ko-KR/content/copilot/quickstart.md,broken liquid tags
 translations/ko-KR/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop.md,rendering error
 translations/ko-KR/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,rendering error
@@ -1035,6 +1032,7 @@ translations/ko-KR/content/repositories/managing-your-repositorys-settings-and-f
 translations/ko-KR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository.md,rendering error
 translations/ko-KR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
 translations/ko-KR/content/repositories/releasing-projects-on-github/about-releases.md,rendering error
+translations/ko-KR/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,rendering error
 translations/ko-KR/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/ko-KR/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/ko-KR/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
