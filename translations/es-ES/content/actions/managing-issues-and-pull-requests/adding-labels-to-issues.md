@@ -1,6 +1,7 @@
 ---
-title: Agregar etiquetas a las propuestas
-intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para etiquetar las propuestas automáticamente.'
+title: Adding labels to issues
+shortTitle: Add labels to issues
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically label issues.'
 redirect_from:
   - /actions/guides/adding-labels-to-issues
 versions:
@@ -12,32 +13,26 @@ type: tutorial
 topics:
   - Workflows
   - Project management
-ms.openlocfilehash: 8e80990a1a533ed303f47cbad8dafb95c890893d
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147884313'
 ---
-{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introducción
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-En este tutorial se muestra cómo usar la [acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler) en un flujo de trabajo para etiquetar los problemas recientemente abiertos o vueltos a abrir. Por ejemplo, puede agregar la etiqueta `triage` cada vez que se abre o se vuelve a abrir un problema. Después, puede ver todas los problemas que necesitan clasificarse filtrando los problemas con la etiqueta `triage`.
+## Introduction
 
-En el tutorial, primero creará un archivo de flujo de trabajo en el que se usa la [acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler). Después, personalizarás el flujo de trabajo de acuerdo con tus necesidades.
+This tutorial demonstrates how to use the [`actions/github-script` action](https://github.com/marketplace/actions/github-script) in a workflow to label newly opened or reopened issues. For example, you can add the `triage` label every time an issue is opened or reopened. Then, you can see all issues that need to be triaged by filtering for issues with the `triage` label.
 
-## Crear un flujo de trabajo
+The `actions/github-script` action allows you to easily use the {% data variables.product.prodname_dotcom %} API in a workflow.
+
+In the tutorial, you will first make a workflow file that uses the [`actions/github-script` action](https://github.com/marketplace/actions/github-script). Then, you will customize the workflow to suit your needs.
+
+## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
-3. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
-
+3. Copy the following YAML contents into your workflow file.
+  
     ```yaml{:copy}
-{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
-
-{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
-
     name: Label issues
     on:
       issues:
@@ -50,29 +45,34 @@ En el tutorial, primero creará un archivo de flujo de trabajo en el que se usa 
         permissions:
           issues: write
         steps:
-          - name: Label issues
-            uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+          - uses: {% data reusables.actions.action-github-script %}
             with:
-              add-labels: "triage"
-              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              script: |
+                github.rest.issues.addLabels({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  labels: ["triage"]
+                })
     ```
 
-4. Personaliza los parámetros en tu archivo de flujo de trabajo:
-   - Cambie el valor de `add-labels` a la lista de etiquetas que quiera agregar al problema. Separa las etiquetas con comas. Por ejemplo, `"help wanted, good first issue"`. Para obtener más información sobre las etiquetas, vea "[Administrar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
+4. Customize the `script` parameter in your workflow file:
+   - The `issue_number`, `owner`, and `repo` values are automatically set using the `context` object. You do not need to change these.
+   - Change the value for `labels` to the list of labels that you want to add to the issue. Separate multiple labels with commas. For example, `["help wanted", "good first issue"]`. For more information about labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
 5. {% data reusables.actions.commit-workflow %}
 
-## Prueba el flujo de trabajo
+## Testing the workflow
 
-Cada que se abre o re-abre una propuesta en tu repositorio, este flujo de trabajo agregará a la propuesta las etiquetas que especificaste.
+Every time an issue in your repository is opened or reopened, this workflow will add the labels that you specified to the issue.
 
-Prueba tu flujo de trabajo creando una propuesta en tu repositorio.
+Test out your workflow by creating an issue in your repository.
 
-1. Crea una propuesta en tu repositorio. Para más información, vea "[Creación de una incidencia](/github/managing-your-work-on-github/creating-an-issue)".
-2. Para ver la ejecución de flujo de trabajo que se activó al crear la propuesta, ve el historial de tus ejecuciones de flujo de trabajo. Para más información, vea "[Visualización del historial de ejecución de flujos de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
-3. Cuando se complete el flujo de trabajo, la propuesta que creaste deberá tener agregadas las etiquetas que especificaste.
+1. Create an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
+2. To see the workflow run that was triggered by creating the issue, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+3. When the workflow completes, the issue that you created should have the specified labels added.
 
-## Pasos siguientes
+## Next steps
 
-- Para obtener más información acerca de otras tareas que puede realizar con la acción `andymckay/labeler`, como eliminar etiquetas u omitir esta acción si se asigna al problema una etiqueta específica, o la tiene, vea la [documentación de la acción `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler).
-- Para obtener más información acerca de los distintos eventos que pueden desencadenar el flujo de trabajo, vea "[Eventos que desencadenan flujos de trabajo](/actions/reference/events-that-trigger-workflows#issues)". La acción `andymckay/labeler` solo funciona en eventos `issues`, `pull_request` o `project_card`.
-- [Busque en GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) ejemplos de flujos de trabajo mediante esta acción.
+- To learn more about additional things you can do with the `actions/github-script` action, see the [`actions/github-script` action documentation](https://github.com/marketplace/actions/github-script).
+- To learn more about different events that can trigger your workflow, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#issues)."
+- [Search GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) for examples of workflows using this action.

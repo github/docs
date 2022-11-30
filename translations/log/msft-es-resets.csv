@@ -508,6 +508,7 @@ translations/es-ES/content/actions/learn-github-actions/expressions.md,rendering
 translations/es-ES/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/es-ES/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/es-ES/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
+translations/es-ES/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,broken liquid tags
 translations/es-ES/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
 translations/es-ES/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/es-ES/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
@@ -949,6 +950,7 @@ translations/es-ES/content/repositories/managing-your-repositorys-settings-and-f
 translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository.md,rendering error
 translations/es-ES/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
 translations/es-ES/content/repositories/releasing-projects-on-github/about-releases.md,rendering error
+translations/es-ES/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,broken liquid tags
 translations/es-ES/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/es-ES/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/es-ES/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error

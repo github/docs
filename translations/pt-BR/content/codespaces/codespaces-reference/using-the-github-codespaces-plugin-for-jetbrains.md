@@ -8,12 +8,12 @@ versions:
 type: reference
 topics:
   - Codespaces
-ms.openlocfilehash: 8ffd48856a2653f3db3c871122d3acd23c246d7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3f4ef139386e616d14ef9a9cc5b474c96983de91
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159318'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185174'
 ---
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
@@ -42,15 +42,9 @@ Os ícones na parte superior da janela de ferramentas dos {% data variables.prod
 
 * **Atualizar o codespace ativo**
 
-  ![Captura de tela do botão Atualizar](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh-BAK.png)
+  ![Captura de tela do botão Atualizar](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
 
   Atualize os detalhes da janela de ferramentas do {% data variables.product.prodname_github_codespaces %}. Por exemplo, se você usou a {% data variables.product.prodname_cli %} para alterar o nome de exibição, clique nesse botão para mostrar o novo nome.
-
-* **Desconectar e parar**
-
-  ![Captura de tela do botão Parar](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
-
-  Pare o codespace, pare o IDE de back-end no computador remoto e feche o cliente JetBrains local.
 
 * **Gerenciar os codespaces na Web**
 
@@ -63,10 +57,3 @@ Os ícones na parte superior da janela de ferramentas dos {% data variables.prod
   ![Captura de tela do botão de log](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
   Abra o log de criação do codespace na janela do editor. Para ver mais informações, confira "[Logs do {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)."
-
-* **Recompilar o contêiner de desenvolvimento**
-
-  ![Captura de tela do botão de recompilação](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
-
-  Recompile o codespace para aplicar as alterações feitas na configuração do contêiner de desenvolvimento. O cliente JetBrains será fechado e você precisará reabrir o codespace. Para obter mais informações, confira "[O ciclo de vida do codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace)".
-

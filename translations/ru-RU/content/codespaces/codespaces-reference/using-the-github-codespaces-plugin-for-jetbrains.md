@@ -8,12 +8,12 @@ versions:
 type: reference
 topics:
   - Codespaces
-ms.openlocfilehash: 8ffd48856a2653f3db3c871122d3acd23c246d7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3f4ef139386e616d14ef9a9cc5b474c96983de91
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159938'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185180'
 ---
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
@@ -42,15 +42,9 @@ ms.locfileid: '148159938'
 
 * **Обновление активного codespace**
 
-  ![Снимок экрана: кнопка "Обновить"](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh-BAK.png)
+  ![Снимок экрана: кнопка "Обновить"](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
 
   Обновите сведения в окне инструментов {% data variables.product.prodname_github_codespaces %}. Например, если вы использовали {% data variables.product.prodname_cli %} для изменения отображаемого имени, можно нажать эту кнопку, чтобы отобразить новое имя.
-
-* **Отключение и остановка**
-
-  ![Снимок экрана: кнопка "Остановить"](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
-
-  Остановите codespace, остановите серверную интегрированную среду разработки на удаленном компьютере и закройте локальный клиент JetBrains.
 
 * **Управление codespace из Интернета**
 
@@ -63,10 +57,3 @@ ms.locfileid: '148159938'
   ![Снимок экрана: кнопка "Журнал"](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
   Откройте журнал создания codespace в окне редактора. Дополнительные сведения см. в статье [Журналы {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs).
-
-* **Перестроение контейнера разработки**
-
-  ![Снимок экрана: кнопка "Перестроить"](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
-
-  Перестройте codespace, чтобы применить изменения, внесенные в конфигурацию контейнера разработки. Клиент JetBrains закроется, и необходимо повторно открыть codespace. Дополнительные сведения см. в разделе [Жизненный цикл codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace).
-

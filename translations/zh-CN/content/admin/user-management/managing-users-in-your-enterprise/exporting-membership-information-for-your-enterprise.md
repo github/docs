@@ -7,19 +7,13 @@ topics:
   - Enterprise
 shortTitle: Export membership information
 permissions: Enterprise owners can export membership information for an enterprise.
-ms.openlocfilehash: ba7519aae1b38cd629a46baeacd5edc9d138efdc
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 8da0e7b91e8bff85cb27fb7df3f06e62bdb290f2
+ms.sourcegitcommit: 7e2b5213fd15d91222725ecab5ee28cef378d3ad
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106419'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185541'
 ---
-{% note %}
-
-注意：导出企业的成员身份信息目前为 beta 版，可能会随时更改。
-
-{% endnote %}
-
 若要对有权访问企业资源的人员执行审核，可以下载企业成员身份信息的 CSV 报表。
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}

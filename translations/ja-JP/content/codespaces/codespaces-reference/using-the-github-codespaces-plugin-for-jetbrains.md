@@ -8,12 +8,12 @@ versions:
 type: reference
 topics:
   - Codespaces
-ms.openlocfilehash: 8ffd48856a2653f3db3c871122d3acd23c246d7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3f4ef139386e616d14ef9a9cc5b474c96983de91
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159936'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185178'
 ---
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
@@ -42,15 +42,9 @@ JetBrains クライアントのアプリケーション ウィンドウの左下
 
 * **アクティブな codespace を更新する**
 
-  ![更新ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh-BAK.png)
+  ![更新ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
 
   {% data variables.product.prodname_github_codespaces %} ツール ウィンドウで詳細を更新します。 たとえば、{% data variables.product.prodname_cli %} を使用して表示名を変更した場合、このボタンをクリックして新しい名前を表示できます。
-
-* **切断と停止**
-
-  ![停止ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
-
-  codespace を停止し、リモート マシンでバックエンド IDE を停止し、ローカル JetBrains クライアントを閉じます。
 
 * **Web から codespaces を管理する**
 
@@ -63,10 +57,3 @@ JetBrains クライアントのアプリケーション ウィンドウの左下
   ![ログ ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
   エディター ウィンドウで codespace 作成ログを開きます。 詳しい情報については、「[{% data variables.product.prodname_github_codespaces %} のログ](/codespaces/troubleshooting/github-codespaces-logs)」を参照してください。
-
-* **dev container をリビルドする**
-
-  ![リビルド ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
-
-  codespace をリビルドして、加えた変更を dev container 構成に適用します。 JetBrains クライアントが閉じられ、codespace をもう一度開く必要があります。 詳細については、「[codespace のライフサイクル](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace)」を参照してください。
-
