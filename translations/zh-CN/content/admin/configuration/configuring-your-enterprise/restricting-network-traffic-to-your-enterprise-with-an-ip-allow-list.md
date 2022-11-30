@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
-ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2022
-ms.locfileid: '148184010'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185041'
 ---
 ## 关于网络流量限制
 
@@ -115,7 +115,7 @@ OIDC CAP 仅适用于使用用户到服务器令牌对 API 的请求，例如 {%
 1. 在“IP 允许列表”下，选择下拉列表并单击“标识提供者”。
 
    ![显示三个 IP 允许列表配置选项“已禁用”、“标识提供者”和“GitHub”的下拉菜单的屏幕截图](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - （可选）若要允许已安装的 {% data variables.product.company_short %} 和 {% data variables.product.prodname_oauth_apps %} 从任意 IP 地址访问你的企业，请选择“为应用程序跳过 IdP 检查”。
+1. （可选）若要允许已安装的 {% data variables.product.company_short %} 和 {% data variables.product.prodname_oauth_apps %} 从任意 IP 地址访问你的企业，请选择“为应用程序跳过 IdP 检查”。
 
    ![允许 IP 地址的复选框](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. 单击“ **保存**”。

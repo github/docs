@@ -1,6 +1,6 @@
 ---
-title: Автоматическое создание заметок о выпуске
-intro: Вы можете автоматически создавать заметки о выпуске для своих выпусков GitHub.
+title: Automatically generated release notes
+intro: You can automatically generate release notes for your GitHub releases
 permissions: Repository collaborators and people with write access to a repository can generate and customize automated release notes for a release.
 versions:
   fpt: '*'
@@ -13,61 +13,71 @@ shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/general'
-ms.openlocfilehash: a4adfa306873ef172950666756add7d0e67e168d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147432019'
 ---
-## Сведения об автоматическом создании заметок о выпуске
 
-Автоматическое создание заметок о выпуске — это альтернатива написанию заметок о выпуске на {% data variables.product.prodname_dotcom %} вручную. С помощью этой функции можно быстро создавать обзор содержимого выпуска. Автоматически созданные заметки о выпуске включают список объединенных запросов на вытягивание, список участников выпуска и ссылку на полный журнал изменений.
+## About automatically generated release notes
 
-Автоматические заметки о выпуске можно также настроить с помощью меток, который позволяют создать пользовательские категории для упорядочения включаемых запросов на вытягивание. Кроме того, можно исключить определенные метки и пользователей из выходных данных.
+Automatically generated release notes provide an automated alternative to manually writing release notes for your {% data variables.product.prodname_dotcom %} releases. With automatically generated release notes, you can quickly generate an overview of the contents of a release. Automatically generated release notes include a list of merged pull requests, a list of contributors to the release, and a link to a full changelog.
 
-## Автоматическое создание заметок о выпуске для нового выпуска
+You can also customize your automated release notes, using labels to create custom categories to organize pull requests you want to include, and exclude certain labels and users from appearing in the output.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.releases %}
-3. Нажмите кнопку **Создать черновик нового выпуска**.
-   ![Кнопка для создания черновика выпуска](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt or ghec %}Щелкните **Выбрать тег** и введите{% else %}Введите{% endif %} номер версии для выпуска. Можно также выбрать существующий тег.
-  {% ifversion fpt or ghec %} ![Ввод тега](/assets/images/help/releases/releases-tag-create.png)
-5. Если вы создаете тег, нажмите кнопку **Создать тег**.
-![Подтверждение создания тега](/assets/images/help/releases/releases-tag-create-confirm.png) {% else %} ![Версия выпуска с тегом](/assets/images/enterprise/releases/releases-tag-version.png) {% endif %}
-6. Если вы создали новый тег, в раскрывающемся меню выберите ветвь с проектом, который необходимо выпустить.
-  {% ifversion fpt or ghec %}![Выбор ветви](/assets/images/help/releases/releases-choose-branch.png) {% else %}![Ветви с тегом](/assets/images/enterprise/releases/releases-tag-branch.png) {% endif %} {%- data reusables.releases.previous-release-tag %}
-7. В правом верхнем углу текстового поля описания щелкните {% ifversion previous-release-tag %}**Создать заметки о выпуске**{% else %}**Автоматически создать заметки о выпуске**{% endif %}.{% ifversion previous-release-tag %} ![Создать заметки о выпуске](/assets/images/help/releases/generate-release-notes.png){% else %} ![Автоматически создать заметки о выпуске](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
-8. Проверьте созданные заметки, чтобы убедиться в том, что они содержат все сведения, которые необходимо включить, и ничего лишнего.
-9. Если в выпуск необходимо включить двоичные файлы, например скомпилированные программы, перетащите или вручную выберите файлы в области двоичных файлов.
-   ![Предоставление DMG с выпуском](/assets/images/help/releases/releases_adding_binary.gif)
-10. Чтобы уведомить пользователей о том, что выпуск не готов к использованию в рабочей среде и может быть нестабильным, установите флажок **Это предварительный выпуск**.
-   ![Флажок, помечающий выпуск как предварительный](/assets/images/help/releases/prerelease_checkbox.png) {%- ifversion fpt or ghec %}
-11. При необходимости установите флажок **Создать обсуждение для этого выпуска**, а затем в раскрывающемся меню **Категория** выберите категорию для обсуждения выпуска.
-  ![Флажок для создания обсуждения выпуска и раскрывающееся меню для выбора категории](/assets/images/help/releases/create-release-discussion.png) {%- endif %}
-12. Если вы готовы опубликовать выпуск, нажмите кнопку **Опубликовать выпуск**. Чтобы продолжить работу с выпуском позже, нажмите кнопку **Сохранить черновик**.
-   ![Кнопки "Опубликовать выпуск" и "Сохранить черновик"](/assets/images/help/releases/release_buttons.png)
+## Creating automatically generated release notes for a new release
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
+3. Click **Draft a new release**.
+   ![Releases draft button](/assets/images/help/releases/draft_release_button.png)
+4. {% ifversion fpt or ghec %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
+  {% ifversion fpt or ghec %}
+  ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
+5. If you are creating a new tag, click **Create new tag**.
+![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+  {% else %}
+  ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
+{% endif %}
+6. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
+  {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+  {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
+  {% endif %}
+{%- data reusables.releases.previous-release-tag %}
+7. To the top right of the description text box, click {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% ifversion previous-release-tag %}
+  ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
+  ![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
+8. Check the generated notes to ensure they include all (and only) the information you want to include.
+9. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
+   ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
+10. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
+   ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
+{%- ifversion fpt or ghec %}
+11. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
+  ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+{%- endif %}
+12. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
+   ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 
 
-## Настройка автоматически созданных заметок о выпуске
+## Configuring automatically generated release notes
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
-3. В поле имени файла введите `.github/release.yml`, чтобы создать файл `release.yml` в каталоге `.github`.
-  ![Создание файла](/assets/images/help/releases/release-yml.png)
-4. Используя приведенные ниже параметры конфигурации, укажите в коде YAML файла метки запросов на вытягивание и авторов, которых следует исключить из этого выпуска. Вы также можете создать новые категории и перечислить метки запросов на вытягивание, которые должны быть включены в каждую из них.
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
+3. In the file name field, type `.github/release.yml` to create the `release.yml` file in the `.github` directory.
+  ![Create new file](/assets/images/help/releases/release-yml.png)
+4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
 
-### Варианты настройки
+### Configuration options
 
-| Параметр | Описание |
+| Parameter | Description |
 | :- | :- |
-| `changelog.exclude.labels` | Список меток, исключающих запрос на вытягивание из заметок о выпуске. |
-| `changelog.exclude.authors` | Список дескрипторов входа пользователей или ботов, запросы на вытягивание которых должны быть исключены из заметок о выпуске. |
-| `changelog.categories[*].title` | **Обязательный.** Название категории изменений в заметках о выпуске. |
-| `changelog.categories[*].labels`| **Обязательный.** Метки, которые относят запрос на вытягивание к этой категории. Символу `*` будут соответствовать все запросы на вытягивание, которые не относятся ни к одной из предыдущих категорий. |
-| `changelog.categories[*].exclude.labels` | Список меток, исключающих запрос на вытягивание из данной категории. |
-| `changelog.categories[*].exclude.authors` | Список дескрипторов входа пользователей или ботов, запросы на вытягивание которых должны быть исключены из данной категории. |
+| `changelog.exclude.labels` | A list of labels that exclude a pull request from appearing in release notes. |
+| `changelog.exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from release notes. |
+| `changelog.categories[*].title` | **Required.** The title of a category of changes in release notes. |
+| `changelog.categories[*].labels`| **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
+| `changelog.categories[*].exclude.labels` | A list of labels that exclude a pull request from appearing in this category. |
+| `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category. |
 
-### Пример конфигурации
+### Example configurations
+
+A configuration for a repository that labels semver releases
 
 {% raw %}
 ```yaml{:copy}
@@ -94,6 +104,26 @@ changelog:
 ```
 {% endraw %}
 
-## Дополнительные материалы
+A configuration for a repository that doesn't tag pull requests but where we want to separate out {% data variables.product.prodname_dependabot %} automated pull requests in release notes (`labels: '*'` is required to display a catchall category)
 
-- [Управление метками](/issues/using-labels-and-milestones-to-track-work/managing-labels) 
+{% raw %}
+```yaml{:copy}
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
+```
+{% endraw %}
+
+## Further reading
+
+- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 
