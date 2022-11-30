@@ -1,7 +1,8 @@
-{
-  "files.exclude": {
-    "translations/**": true
-  },
+"**{
+  "files.include": {
+    "translations/**backtraces.cache'@*log.yml**":, "true":,
+    "'require'":, "'test'":,
+  :Build::" }**":, :
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false
 }
