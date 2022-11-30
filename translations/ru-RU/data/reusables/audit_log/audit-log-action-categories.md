@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
-ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2022
-ms.locfileid: "148120537"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183983"
 ---
 | Имя категории | Описание
 |------------------|-------------------
@@ -17,13 +17,13 @@ ms.locfileid: "148120537"
 {%- endif %} {%- ifversion code-security-audit-log-events %} | `business_advanced_security` | Содержит действия, связанные с {% data variables.product.prodname_GH_advanced_security %} на предприятии. Дополнительные сведения см. в разделе [Управление функциями {% data variables.product.prodname_GH_advanced_security %} для вашего предприятия](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
 | `business_secret_scanning` | Содержит действия, связанные с {% data variables.product.prodname_secret_scanning %} на предприятии. Дополнительные сведения см. в разделе [Управление функциями {% data variables.product.prodname_GH_advanced_security %} для вашего предприятия](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
 {%- endif %} {%- ifversion secret-scanning-audit-log-custom-patterns %} | `business_secret_scanning_custom_pattern` | Содержит действия, связанные с пользовательскими шаблонами для {% data variables.product.prodname_secret_scanning %} на предприятии.
-{%- endif %} {%- ifversion code-security-audit-log-events %} | `business_secret_scanning_push_protection` | Содержит действия, связанные с функцией принудительной защиты {% data variables.product.prodname_secret_scanning %} на предприятии. Дополнительные сведения см. в разделе [Управление функциями {% data variables.product.prodname_GH_advanced_security %} для вашего предприятия](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
+{%- endif %} {%- ifversion code-security-audit-log-events %} | `business_secret_scanning_push_protection` | Содержит действия, связанные с функцией защиты от push-уведомлений {% data variables.product.prodname_secret_scanning %} на предприятии. Дополнительные сведения см. в разделе [Управление функциями {% data variables.product.prodname_GH_advanced_security %} для вашего предприятия](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
 | `business_secret_scanning_push_protection_custom_message` | Содержит действия, связанные с пользовательским сообщением, отображаемым при активации принудительной защиты на предприятии. Дополнительные сведения см. в разделе [Управление функциями {% data variables.product.prodname_GH_advanced_security %} для вашего предприятия](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
 {%- endif %} | `checks` | Содержит действия, связанные с наборами проверок и запусками.
 {%- ifversion fpt or ghec %} | `codespaces` | Содержит действия, связанные с codespace организации.
 {%- endif %} | `commit_comment` | Содержит действия, связанные с обновлением или удалением комментариев фиксации.
 {%- ifversion ghes %} | `config_entry` | Содержит действия, связанные с параметрами конфигурации. Эти события видимы только в журнале аудита администратора сайта.
-{%- endif %} | `dependabot_alerts`  | Содержит действия конфигурации на уровне организации для {% data variables.product.prodname_dependabot_alerts %} в существующих репозиториях. Дополнительные сведения см. в статье "[Сведения о {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
+| {%- endif %} `dependabot_alerts`  | Содержит действия по настройке на уровне организации для {% data variables.product.prodname_dependabot_alerts %} в существующих репозиториях. Дополнительные сведения см. в статье "[Сведения о {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)".
 | `dependabot_alerts_new_repos` | Содержит действия, связанные с конфигурацией на уровне организации, для {% data variables.product.prodname_dependabot_alerts %} в новых репозиториях, созданных в организации.
 | `dependabot_repository_access` Содержит действия, связанные с частными репозиториями в {% data variables.product.prodname_dependabot %}, к которым разрешен доступ.
 {%- ifversion fpt or ghec or ghes %} | `dependabot_security_updates`   | Содержит действия конфигурации на уровне организации для {% data variables.product.prodname_dependabot_security_updates %} в существующих репозиториях. Дополнительные сведения см. в разделе [Настройка обновлений версий {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates).
@@ -106,7 +106,7 @@ ms.locfileid: "148120537"
 {%- endif %} {%- ifversion fpt or ghec %} | `sponsors` | Содержит события, связанные с кнопками спонсора (см. статью [Отображение кнопки спонсора в репозитории](/articles/displaying-a-sponsor-button-in-your-repository)).
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | Содержит действия, связанные с центром сертификации SSH в организации или на предприятии.
 | `ssh_certificate_requirement` | Содержит действия, связанные с требованием к участникам использовать сертификаты SSH для доступа к ресурсам организации.
-{%- endif %} | `staff` | Содержит действия, связанные с выполнением действия администратором сайта.
+{%- endif %} {% ifversion sso-redirect %} | `sso_redirect` | Содержит действия, связанные с автоматическим перенаправлением пользователей для входа (см. раздел [Применение политик для параметров безопасности на предприятии](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)). {% endif %} | `staff` | Содержит действия, связанные с администратором сайта, выполняющим действие.
 | `team` | Содержит действия, связанные с командами в организации.
 | `team_discussions` | Содержит действия, связанные с управлением обсуждениями команд для организации.
 {%- ifversion ghec %} | `team_sync_tenant` | Содержит действия, связанные с синхронизацией команды с поставщиком удостоверений для предприятия или организации.

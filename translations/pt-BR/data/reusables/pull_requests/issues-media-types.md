@@ -1,18 +1,18 @@
 ---
-ms.openlocfilehash: 0e58e5904bbff65341fbe4221fa03ea96e032c42
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: a45f36a89c0e8881fa181cc31f03a6a9cf034aa9
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145085132"
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181273"
 ---
 ### Tipos de mídia personalizados
 
 Estes são os tipos de mídia compatíveis com essa API:
 
-    application/vnd.github.VERSION.raw+json
-    application/vnd.github.VERSION.text+json
-    application/vnd.github.VERSION.html+json
-    application/vnd.github.VERSION.full+json
+    application/vnd.github.raw+json
+    application/vnd.github.text+json
+    application/vnd.github.html+json
+    application/vnd.github.full+json
 
 Para obter mais informações sobre os tipos de mídia, confira "[Tipos de mídia personalizados](/rest/overview/media-types)".

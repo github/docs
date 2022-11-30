@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a0c8b24bacdd41e32d9b8bdd0d8850e7a6ada557
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: a9f12214edcef8a107ad9c447fea7207cfdc48f4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145094486"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148184045"
 ---
 Quando um trabalho ou um fluxo de trabalho simultâneo é colocado na fila, se outro trabalho ou fluxo de trabalho que usa o mesmo grupo de simultaneidade no repositório estiver em andamento, o trabalho ou o fluxo de trabalho na fila ficará `pending`. Qualquer trabalho ou fluxo de trabalho anterior pendente no grupo de concorrência será cancelado. Para também cancelar qualquer trabalho ou fluxo de trabalho em execução no mesmo grupo de simultaneidade, especifique `cancel-in-progress: true`.
 
@@ -26,7 +26,7 @@ concurrency: ci-${{ github.ref }}
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 ```
@@ -38,7 +38,7 @@ Se você construir o nome do grupo com uma propriedade que só é definida para 
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
@@ -53,7 +53,7 @@ Para cancelar apenas as execuções em andamento do mesmo fluxo de trabalho, use
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```

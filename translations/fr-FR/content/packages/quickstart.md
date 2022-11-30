@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide pour les packages GitHub
-intro: 'Publiez sur {% data variables.product.prodname_registry %} avec {% data variables.product.prodname_actions %}.'
+title: Quickstart for GitHub Packages
+intro: 'Publish to {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -8,53 +8,48 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
-ms.openlocfilehash: 207b91e821037a6eb61ae7bc9b18c98d8b14fdd2
-ms.sourcegitcommit: 505b84dc7227e8a5d518a71eb5c7eaa65b38ce0e
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '147877110'
 ---
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
-Dans ce guide, vous allez créer un workflow {% data variables.product.prodname_actions %} pour tester votre code, puis publiez-le sur {% data variables.product.prodname_registry %}.
+In this guide, you'll create a {% data variables.product.prodname_actions %} workflow to test your code and then publish it to {% data variables.product.prodname_registry %}.
 
-## Publication de votre package
+## Publishing your package
 
-1. Créez un nouveau référentiel sur {% data variables.product.prodname_dotcom %}, en ajoutant le nœud `.gitignore`. Pour plus d’informations, consultez « [Création d’un dépôt](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository) ».
-2. Clonez le référentiel sur votre ordinateur local.
+1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+2. Clone the repository to your local machine.
     ```shell
-    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-    $ cd <em>YOUR-REPOSITORY</em>
+    $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+    $ cd YOUR-REPOSITORY
     ```
-3. Créez un fichier `index.js` et ajoutez une alerte de base pour dire « Bonjour le monde ! »
+3. Create an `index.js` file and add a basic alert to say "Hello world!"
     {% raw %}
     ```javascript{:copy}
     console.log("Hello, World!");
     ```
     {% endraw %}
-4. Initialisez un package npm avec `npm init`. Dans l’Assistant Initialisation du package, entrez votre package avec le nom : _`@YOUR-USERNAME/YOUR-REPOSITORY`_ et définissez le script de test sur `exit 0`. Cela génère un fichier `package.json` contenant des informations sur votre package.
+4. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
     {% raw %}
     ```shell
     $ npm init
       ...
-      package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
+      package name: @YOUR-USERNAME/YOUR-REPOSITORY
       ...
-      test command: <em>exit 0</em>
+      test command: exit 0
       ...    
     ```
     {% endraw %}
-5. Exécutez `npm install` pour générer le fichier `package-lock.json`, puis validez et envoyez (push) vos modifications à {% data variables.product.prodname_dotcom %}.
+5. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
     ```shell
     $ npm install
     $ git add index.js package.json package-lock.json
     $ git commit -m "initialize npm package"
     $ git push
     ```
-6. Créez un répertoire `.github/workflows`. Dans ce répertoire, créez un fichier nommé `release-package.yml`.
-7. Copiez le contenu YAML suivant dans le fichier `release-package.yml`{% ifversion ghes or ghae %}, en remplaçant `YOUR-HOSTNAME` par le nom de votre entreprise{% endif %}.
+6. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
+7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -69,7 +64,7 @@ Dans ce guide, vous allez créer un workflow {% data variables.product.prodname_
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
           - run: npm ci
           - run: npm test
 
@@ -83,54 +78,58 @@ Dans ce guide, vous allez créer un workflow {% data variables.product.prodname_
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
               registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-8. Indiquez à NPM l’étendue et le Registre pour publier des packages à l’aide de l’une des méthodes suivantes :
-   - Ajoutez un fichier de configuration NPM pour le référentiel en créant un fichier `.npmrc` dans le répertoire racine avec le contenu : {% raw %}
+8. Tell NPM which scope and registry to publish packages to using one of the following methods:
+   - Add an NPM configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
+      {% raw %}
       ```shell
-      <em>@YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
+      @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
       {% endraw %}
-   - Modifiez le fichier `package.json` et spécifiez la clé `publishConfig` : {% raw %}
+   - Edit the `package.json` file and specify the `publishConfig` key:
+      {% raw %}
       ```shell
       "publishConfig": {
         "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
       }
       ```
       {% endraw %}
-9. Validez et envoyez (push) vos modifications à {% data variables.product.prodname_dotcom %}.
+9. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
-    $ git add <em>.npmrc or package.json</em>
+    $ git add .npmrc or package.json
     $ git commit -m "workflow to publish package"
     $ git push
     ```
-10.  Le workflow que vous avez créé s’exécute chaque fois qu’une nouvelle version est créée dans votre référentiel. Si les tests réussissent, le package est publié sur {% data variables.product.prodname_registry %}.
+10.  The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
     
-    Pour le tester, accédez à l’onglet **Coder** de votre référentiel et créez une version. Pour plus d’informations, consultez « [Gestion des versions dans un référentiel](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release) ».
+    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
 
-## Affichage de votre package publié
+## Viewing your published package
 
-Vous pouvez afficher tous les packages que vous avez publiés.
+You can view all of the packages you have published.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.navigate-to-packages %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.package_registry.packages-from-code-tab %}
+{% data reusables.package_registry.navigate-to-packages %}
 
-## Utilisation d’un package publié
+## Installing a published package
 
-Maintenant que vous avez publié le package, vous souhaiterez l’utiliser comme dépendance entre vos projets. Pour plus d’informations, consultez « [Utilisation du registre npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package). »
+Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
 
-## Étapes suivantes
+## Next steps
 
-Le workflow de base que vous venez d’ajouter s’exécute chaque fois qu’une nouvelle version est créée dans votre référentiel. Mais ce n’est que le début de ce que vous pouvez faire avec {% data variables.product.prodname_registry %}. Vous pouvez publier votre package sur plusieurs registres avec un seul workflow, déclencher l’exécution du workflow sur différents événements tels qu’une demande de tirage fusionnée, gérer des conteneurs, etc.
+The basic workflow you just added runs any time a new release is created in your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_registry %}. You can publish your package to multiple registries with a single workflow, trigger the workflow to run on different events such as a merged pull request, manage containers, and more.
 
-La combinaison de {% data variables.product.prodname_registry %} et de {% data variables.product.prodname_actions %} peut vous aider à automatiser presque tous les aspects de vos processus de développement d’applications. Vous êtes prêt à commencer ? Voici quelques ressources utiles pour effectuer vos étapes suivantes avec {% data variables.product.prodname_registry %} et {% data variables.product.prodname_actions %} :
+Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
 
-- « [Découvrir {% data variables.product.prodname_registry %}](/packages/learn-github-packages) » pour obtenir un tutoriel approfondi sur les packages GitHub
-- « [Découvrir {% data variables.product.prodname_actions %}](/actions/learn-github-actions) » pour obtenir un tutoriel approfondi sur GitHub Actions
-- « [Utilisation d’un registre {% data variables.product.prodname_registry %}](/packages/working-with-a-github-packages-registry) » pour découvrir des cas d’utilisation et des exemples spécifiques
+- "[Learn {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
+- "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples

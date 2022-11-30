@@ -430,7 +430,7 @@ async function commentOnPR(core, octokit, flaws, opts) {
   }
 }
 
-function flawIssueDisplay(flaws, opts, includeExternalLinkList = true) {
+function flawIssueDisplay(flaws, opts, mentionExternalExclusionList = true) {
   let output = ''
   let flawsToDisplay = 0
 
@@ -488,16 +488,10 @@ function flawIssueDisplay(flaws, opts, includeExternalLinkList = true) {
     }
   }
 
-  if (includeExternalLinkList) {
+  if (mentionExternalExclusionList) {
     output +=
-      '\n\n## External URLs\n\nThe following external URLs must be verified manually. If an external URL gives a false negative, add it to the file `lib/excluded-links.js`\n\n'
-    for (const link of excludedLinks) {
-      if (typeof link === 'string') {
-        output += `\n - [${link}](${link})`
-      } else {
-        output += `\n - Pattern: \`${link.toString()}\``
-      }
-    }
+      '\n\n---\n\nIf any link reported in this issue is not actually broken ' +
+      'and repeatedly shows up on reports, consider making a PR that adds it as an exception to `lib/excluded-link.js`.'
   }
 
   return `${flawsToDisplay} broken${
