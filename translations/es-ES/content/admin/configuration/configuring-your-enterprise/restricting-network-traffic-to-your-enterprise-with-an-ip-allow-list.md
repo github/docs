@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
-ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2022
-ms.locfileid: '148184016'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185047'
 ---
 ## Acerca de las restricciones de tráfico de red
 
@@ -115,7 +115,7 @@ Puedes usar la lista de permitidos del proveedor de identidades si usas {% data 
 1. En "Lista de direcciones IP permitidas", selecciona la lista desplegable y haz clic en **Proveedor de identidades**.
 
    ![Captura de pantalla del menú desplegable que muestra tres opciones de configuración de la lista de direcciones IP permitidas: Deshabilitada, Proveedor de identidades y GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Opcionalmente, para permitir que los {% data variables.product.company_short %} y {% data variables.product.prodname_oauth_apps %} instalados accedan a la empresa desde cualquier dirección IP, selecciona **Omitir comprobación de proveedor de identidades para aplicaciones**.
+1. Opcionalmente, para permitir que los {% data variables.product.company_short %} y {% data variables.product.prodname_oauth_apps %} instalados accedan a la empresa desde cualquier dirección IP, selecciona **Omitir comprobación de proveedor de identidades para aplicaciones**.
 
    ![Casilla para permitir direcciones IP](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Haga clic en **Save**(Guardar).
