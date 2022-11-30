@@ -5,12 +5,12 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}.'
 shortTitle: Register an LMS
-ms.openlocfilehash: e1c1abed5ce4ebf82c19b29fef9a005fbe4c7a02
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 408126833cbf7fa8cd4a71d172f6550e82f795a2
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106852'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185168'
 ---
 ## À propos de l’inscription d’un système de gestion des formations pour votre salle de classe
 
@@ -63,8 +63,8 @@ Vous pouvez inscrire votre installation Canvas auprès de {% data variables.prod
    - « Identificateur de l’émetteur » : `https://canvas.instructure.com`
    - « Domaine » : URL de base de votre instance Canvas
    - « ID de client » : L’« ID de client » sous « Détails » de la clé de développeur que vous avez créée
-   - « Point de terminaison d’autorisation OIDC » : URL de base de votre instance Canvas avec `/login/oauth2/token` ajouté à la fin.
-   - « URL de récupération du jeton OAuth 2.0 » : URL de base de votre instance Canvas avec `/api/lti/authorize_redirect` ajouté à la fin.
+   - « Point de terminaison d’autorisation OIDC » : URL de base de votre instance Canvas avec `/api/lti/authorize_redirect` ajouté à la fin.
+   - « URL de récupération du jeton OAuth 2.0 » : URL de base de votre instance Canvas avec `/login/oauth2/token` ajouté à la fin.
    - « URL du jeu de clés » : URL de base de votre instance Canvas avec `/api/lti/security/jwks` ajouté à la fin.
 
   ![Inscrire une instance Canvas auprès de GitHub Classroom](/assets/images/help/classroom/register-canvas-with-github-classroom.png)

@@ -472,7 +472,9 @@ translations/fr-FR/content/actions/learn-github-actions/expressions.md,rendering
 translations/fr-FR/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/fr-FR/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/fr-FR/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
+translations/fr-FR/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,broken liquid tags
 translations/fr-FR/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
+translations/fr-FR/content/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column.md,broken liquid tags
 translations/fr-FR/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/fr-FR/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
 translations/fr-FR/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
@@ -1005,6 +1007,7 @@ translations/fr-FR/content/repositories/managing-your-repositorys-settings-and-f
 translations/fr-FR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository.md,rendering error
 translations/fr-FR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
 translations/fr-FR/content/repositories/releasing-projects-on-github/about-releases.md,rendering error
+translations/fr-FR/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,broken liquid tags
 translations/fr-FR/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/fr-FR/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/fr-FR/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
@@ -1033,16 +1036,12 @@ translations/fr-FR/content/rest/enterprise-admin/pre-receive-hooks.md,broken liq
 translations/fr-FR/content/rest/enterprise-admin/repo-pre-receive-hooks.md,broken liquid tags
 translations/fr-FR/content/rest/enterprise-admin/scim.md,rendering error
 translations/fr-FR/content/rest/enterprise-admin/users.md,broken liquid tags
-translations/fr-FR/content/rest/gitignore.md,rendering error
-translations/fr-FR/content/rest/guides/getting-started-with-the-rest-api.md,rendering error
 translations/fr-FR/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/fr-FR/content/rest/guides/working-with-comments.md,broken liquid tags
 translations/fr-FR/content/rest/migrations/source-imports.md,broken liquid tags
 translations/fr-FR/content/rest/overview/api-previews.md,rendering error
 translations/fr-FR/content/rest/overview/other-authentication-methods.md,rendering error
 translations/fr-FR/content/rest/overview/permissions-required-for-github-apps.md,rendering error
-translations/fr-FR/content/rest/overview/resources-in-the-rest-api.md,rendering error
-translations/fr-FR/content/rest/overview/troubleshooting.md,broken liquid tags
 translations/fr-FR/content/rest/packages.md,broken liquid tags
 translations/fr-FR/content/rest/projects/projects.md,broken liquid tags
 translations/fr-FR/content/rest/quickstart.md,broken liquid tags
