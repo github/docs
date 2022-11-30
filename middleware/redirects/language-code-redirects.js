@@ -1,7 +1,5 @@
 import languages from '../../lib/languages.js'
-import { cacheControlFactory } from '../cache-control.js'
-
-const cacheControl = cacheControlFactory(24 * 60 * 60)
+import { defaultCacheControl } from '../cache-control.js'
 
 const redirectPatterns = Object.values(languages)
   .map((language) => language.redirectPatterns || [])
@@ -36,7 +34,7 @@ export default function languageCodeRedirects(req, res, next) {
   // particularly smart or fast.
   const [code, pattern] = allRedirectPatterns.find(([, pattern]) => pattern.test(req.path))
   if (code && pattern) {
-    cacheControl(res)
+    defaultCacheControl(res)
     return res.redirect(301, req.path.replace(pattern, `/${code}`))
   }
   return next()
