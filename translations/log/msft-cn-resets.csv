@@ -487,7 +487,9 @@ translations/zh-CN/content/actions/learn-github-actions/expressions.md,rendering
 translations/zh-CN/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/zh-CN/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
+translations/zh-CN/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,broken liquid tags
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
+translations/zh-CN/content/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/zh-CN/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
 translations/zh-CN/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
@@ -581,7 +583,6 @@ translations/zh-CN/content/admin/identity-and-access-management/using-enterprise
 translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users.md,rendering error
 translations/zh-CN/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,rendering error
 translations/zh-CN/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
-translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,rendering error
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
 translations/zh-CN/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account.md,broken liquid tags
@@ -612,7 +613,6 @@ translations/zh-CN/content/admin/packages/getting-started-with-github-packages-f
 translations/zh-CN/content/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry.md,rendering error
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,rendering error
-translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks.md,rendering error
 translations/zh-CN/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,rendering error
@@ -636,7 +636,6 @@ translations/zh-CN/content/authentication/connecting-to-github-with-ssh/checking
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,rendering error
 translations/zh-CN/content/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,rendering error
-translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access.md,rendering error
@@ -855,7 +854,7 @@ translations/zh-CN/content/organizations/managing-organization-settings/managing
 translations/zh-CN/content/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators.md,rendering error
 translations/zh-CN/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,rendering error
 translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,rendering error
-translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization.md,broken liquid tags
+translations/zh-CN/content/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization.md,rendering error
 translations/zh-CN/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/zh-CN/content/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team.md,rendering error
 translations/zh-CN/content/packages/learn-github-packages/about-permissions-for-github-packages.md,rendering error
@@ -923,6 +922,7 @@ translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-f
 translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository.md,rendering error
 translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
 translations/zh-CN/content/repositories/releasing-projects-on-github/about-releases.md,rendering error
+translations/zh-CN/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,broken liquid tags
 translations/zh-CN/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/zh-CN/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/zh-CN/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
@@ -1030,7 +1030,6 @@ translations/zh-CN/data/reusables/advanced-security/secret-scanning-add-custom-p
 translations/zh-CN/data/reusables/advanced-security/secret-scanning-create-custom-pattern.md,rendering error
 translations/zh-CN/data/reusables/advanced-security/secret-scanning-push-protection-org.md,broken liquid tags
 translations/zh-CN/data/reusables/apps/user-to-server-rate-limits.md,broken liquid tags
-translations/zh-CN/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
 translations/zh-CN/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,rendering error
 translations/zh-CN/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
 translations/zh-CN/data/reusables/branches/new-repo-default-branch.md,rendering error
@@ -1106,7 +1105,6 @@ translations/zh-CN/data/reusables/getting-started/enforcing-repo-management-poli
 translations/zh-CN/data/reusables/getting-started/enterprise-advanced-security.md,broken liquid tags
 translations/zh-CN/data/reusables/getting-started/managing-enterprise-members.md,rendering error
 translations/zh-CN/data/reusables/git/git-push.md,rendering error
-translations/zh-CN/data/reusables/identity-and-permissions/ip-allow-lists-enterprise.md,broken liquid tags
 translations/zh-CN/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/zh-CN/data/reusables/large_files/storage_assets_location.md,broken liquid tags
 translations/zh-CN/data/reusables/large_files/use_lfs_tip.md,rendering error
@@ -1118,7 +1116,6 @@ translations/zh-CN/data/reusables/organizations/github-apps-settings-sidebar.md,
 translations/zh-CN/data/reusables/organizations/member-privileges.md,rendering error
 translations/zh-CN/data/reusables/organizations/navigate-to-org.md,rendering error
 translations/zh-CN/data/reusables/organizations/repository-defaults.md,rendering error
-translations/zh-CN/data/reusables/organizations/require-ssh-cert.md,broken liquid tags
 translations/zh-CN/data/reusables/organizations/security-and-analysis.md,rendering error
 translations/zh-CN/data/reusables/organizations/security.md,rendering error
 translations/zh-CN/data/reusables/organizations/teams_sidebar.md,rendering error
