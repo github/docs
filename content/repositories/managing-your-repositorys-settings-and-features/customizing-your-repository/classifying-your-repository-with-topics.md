@@ -52,10 +52,7 @@ You can search for repositories that are associated with a particular topic. For
 
 The following limitations apply to topics:
 
-- Topic names only include basic alphanumeric characters.
-- Topic names may NOT include capital letters.
-- Topic names may be no longer than 50 characters.
+- Topic names can only include basic alphanumeric characters.
+- Topic names can NOT include capital letters.
+- Topic names can be no longer than 50 characters.
 - Each repository cannot have more than 20 topics.
-
-
-
