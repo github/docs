@@ -230,3 +230,13 @@ You can view all open alerts, and you can reopen alerts that have been previousl
    ![Screenshot of closed alerts with "Reopen" button emphasized](/assets/images/help/graphs/reopen-multiple-alerts.png)
 
 {% endif %}
+
+ 
+## Reviewing the audit logs for {% data variables.product.prodname_dependabot_alerts %}
+
+When a member of your organization {% ifversion not fpt %}or enterprise {% endif %}performs an action related to {% data variables.product.prodname_dependabot_alerts %}, you can review the actions in the audit log. For more information about accessing the log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log){% ifversion not fpt %}" and "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."{% else %}."{% endif %}
+{% ifversion dependabot-alerts-audit-log %}
+
+![Screenshot of the audit log showing Dependabot alerts](/assets/images/help/dependabot/audit-log-UI-dependabot-alert.png){% endif %}
+
+Events in your audit log for {% data variables.product.prodname_dependabot_alerts %} include details such as who performed the action, what the action was, and when the action was performed. {% ifversion dependabot-alerts-audit-log %}The event also includes a link to the alert itself. When a member of your organization dismisses an alert, the event displays the dismissal reason and comment.{% endif %} For information on the {% data variables.product.prodname_dependabot_alerts %} actions, see the `repository_vulnerability_alert` category in "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions){% ifversion not fpt %}" and "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert-category-actions)."{% else %}."{% endif %}
