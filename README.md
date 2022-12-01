@@ -1,3 +1,11 @@
+RUN ENV
+ENV MODULE 
+MODULE SAMPLE.EXE.TMP RUNS RUN
+RUN RUN RUNS RUN ON STARTS SCRIPT NBUILD SCRIPT NAME #Ttests'@#Test.yml'@ci :'
+BUILD RUNS ON STARTS ON RUN RUN RUNS RUN BUILD BEGIN GLOE& :GLOW4 :
+G:PW7 :'require' ':' ''.'Docx''
+'LTE
+#!/usr/bin/env bash'@Bash'@mowjojojojo :
 BEGIN 
 const :
  :Build:: :''
