@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
-ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2022
-ms.locfileid: '148184011'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185042'
 ---
 ## À propos des restrictions du trafic réseau
 
@@ -115,7 +115,7 @@ Vous pouvez utiliser la liste d’autorisations de votre IdP si vous utilisez de
 1. Sous « Liste d’adresses IP autorisées », sélectionnez la liste déroulante et cliquez sur **Fournisseur d’identité**.
 
    ![Capture d’écran du menu déroulant montrant trois options de configuration de liste d’adresses IP autorisées : Désactivé, Fournisseur d’identité et GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Si vous le souhaitez, pour autoriser les {% data variables.product.prodname_oauth_apps %} {% data variables.product.company_short %} installées à accéder à votre entreprise à partir de n’importe quelle adresse IP, sélectionnez **Ignorer la vérification de l’IdP pour les applications**.
+1. Si vous le souhaitez, pour autoriser les {% data variables.product.prodname_oauth_apps %} {% data variables.product.company_short %} installées à accéder à votre entreprise à partir de n’importe quelle adresse IP, sélectionnez **Ignorer la vérification de l’IdP pour les applications**.
 
    ![Case à cocher permettant d’autoriser des adresses IP](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Cliquez sur **Enregistrer**.

@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
-ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2022
-ms.locfileid: '148184009'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185040'
 ---
 ## Sobre as restrições de tráfego de rede
 
@@ -115,7 +115,7 @@ Você pode adotar a lista de permissões do seu IdP se usar o {% data variables.
 1. Em "Lista de permissões de IP", selecione o menu suspenso e clique em **Provedor de Identidade**.
 
    ![Captura de tela do menu suspenso mostrando três opções de configuração da lista de permissões de IP: Desabilitada, Provedor de Identidade e GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Como alternativa, para permitir que os {% data variables.product.company_short %} e {% data variables.product.prodname_oauth_apps %} acessem sua empresa de qualquer endereço IP, selecione **Ignorar a verificação do IdP nos aplicativos**.
+1. Como alternativa, para permitir que os {% data variables.product.company_short %} e {% data variables.product.prodname_oauth_apps %} acessem sua empresa de qualquer endereço IP, selecione **Ignorar a verificação do IdP nos aplicativos**.
 
    ![Caixa de seleção usada para permitir endereços IP](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Clique em **Salvar**.

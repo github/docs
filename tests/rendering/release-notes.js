@@ -35,16 +35,21 @@ describe('server', () => {
         testLanguages.push(langCode)
       }
     }
-    await Promise.all(
+
+    const statusCodes = await Promise.all(
       page.applicableVersions.map(async (version) => {
-        await Promise.all(
+        return await Promise.all(
           testLanguages.map(async (language) => {
             const url = `/${language}/${version}/admin/release-notes`
             const res = await get(url)
-            expect(res.statusCode).toBe(200)
+            return [url, res.statusCode]
           })
         )
       })
     )
+    expect.assertions(page.applicableVersions.length * testLanguages.length)
+    for (const [url, status] of statusCodes.flat()) {
+      expect(status, url).toBe(200)
+    }
   })
 })

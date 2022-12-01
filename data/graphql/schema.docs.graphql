@@ -33409,6 +33409,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   titleHTML: HTML!
 
   """
+  Returns a count of how many comments this pull request has received.
+  """
+  totalCommentsCount: Int
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!

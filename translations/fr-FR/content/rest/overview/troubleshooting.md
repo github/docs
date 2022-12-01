@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting
-intro: Learn how to resolve the most common problems people encounter in the REST API.
+title: Dépannage
+intro: Découvrez comment résoudre les problèmes les plus courants rencontrés dans l’API REST.
 redirect_from:
   - /v3/troubleshooting
 versions:
@@ -10,78 +10,73 @@ versions:
   ghec: '*'
 topics:
   - API
+ms.openlocfilehash: ecfa3a360ef9b042d96a1f80a2f0cde49390727f
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184230'
 ---
-
-
-
-If you're encountering some oddities in the API, here's a list of resolutions to
-some of the problems you may be experiencing.
+Si vous rencontrez des anomalies dans l’API, voici une liste de solutions à certains des problèmes que vous pouvez rencontrer.
 
 {% ifversion api-date-versioning %}
 
-## `400` error for an unsupported API version
+## Erreur `400` pour une version d’API non prise en charge
 
-You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
+Vous devez utiliser l’en-tête `X-GitHub-Api-Version` pour spécifier une version d’API. Par exemple :
 
 ```shell
 $ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 ```
 
-If you specify a version that does not exist, you will receive a `400` error.
+Si vous spécifiez une version qui n’existe pas, vous recevez une erreur `400`.
 
-For more information, see "[API Versions](/rest/overview/api-versions)."
+Pour plus d’informations, consultez « [Versions d’API](/rest/overview/api-versions) ».
 
 {% endif %}
 
-## `404` error for an existing repository
+## Erreur `404` concernant un dépôt existant
 
-Typically, we send a `404` error when your client isn't properly authenticated.
-You might expect to see a `403 Forbidden` in these cases. However, since we don't
-want to provide _any_ information about private repositories, the API returns a
-`404` error instead.
+En règle générale, nous envoyons une erreur `404` lorsque votre client n’est pas authentifié correctement.
+Vous vous attendriez plutôt à voir une erreur `403 Forbidden` dans ces cas-là. Toutefois, étant donné que nous ne voulons fournir _aucune_ information sur les dépôts privés, l’API retournera une erreur `404` à la place.
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+Pour résoudre ce problème, vérifiez que [vous vous authentifiez correctement](/guides/getting-started/), que [votre jeton d’accès OAuth comprend les étendues nécessaires](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), que les [restrictions relatives aux applications tierces][oap-guide] ne bloquent pas l’accès et que le [jeton n’a pas expiré ni été révoqué](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
-## Not all results returned
+## Tous les résultats ne sont pas retournés
 
-Most API calls accessing a list of resources (_e.g._, users, issues, _etc._) support
-pagination. If you're making requests and receiving an incomplete set of results, you're
-probably only seeing the first page. You'll need to request the remaining pages
-in order to get more results.
+La plupart des appels d’API qui accèdent à une liste de ressources (_par exemple_, les utilisateurs, les problèmes, _etc._ ) prennent en charge la pagination. Si vous effectuez des demandes et que vous recevez un ensemble incomplet de résultats, il est probable que vous ne voyiez que la première page. Vous devrez demander les pages restantes afin d’obtenir plus de résultats.
 
-It's important to *not* try and guess the format of the pagination URL. Not every
-API call uses the same structure. Instead, extract the pagination information from
-[the Link Header](/rest#pagination), which is sent with every request.
+Il est important de *ne pas* essayer de deviner le format de l’URL de pagination. Tous les appels d’API n’utilisent pas la même structure. Au lieu de cela, extrayez les informations de pagination de [l’en-tête Link](/rest#pagination) qui est envoyé avec chaque demande.
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
 {% ifversion fpt or ghec %}
-## Basic authentication errors
+## Erreurs d’authentification de base
 
-On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.
+Le 13 novembre 2020, l’authentification par nom d’utilisateur et mot de passe a été dépréciée pour l’API REST et l’API OAuth Authorizations, et ne fonctionne plus.
 
-### Using `username`/`password` for basic authentication
+### Utilisation de `username`/`password` pour l’authentification de base
 
-If you're using `username` and `password` for API calls, then they are no longer able to authenticate. For example:
+Si vous utilisez `username` et `password` pour les appels d’API, ceux-ci ne pourront plus s’authentifier. Par exemple :
 
 ```bash
 curl -u my_user:my_password https://api.github.com/user/repos
 ```
 
-Instead, use a [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
+Utilisez plutôt un [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) lorsque vous testez des points de terminaison ou développez en local :
 
 ```bash
 curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
-For OAuth Apps, you should use the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate an OAuth token to use in the API call's header:
+Pour les applications OAuth, vous devez utiliser le [flux d’application web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) afin de générer un jeton OAuth à utiliser dans l’en-tête de l’appel d’API :
 
 ```bash
 curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
 ```
 
-## Timeouts
+## Délais d'attente
 
-If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
+Si {% data variables.product.product_name %} prend plus de 10 secondes pour traiter une demande d’API, {% data variables.product.product_name %} mettra fin à la demande et vous recevrez une réponse de délai expiré.
 
 {% endif %}

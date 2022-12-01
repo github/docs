@@ -56,7 +56,6 @@ import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
-import fastRootRedirect from './fast-root-redirect.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 
@@ -189,7 +188,6 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
@@ -235,6 +233,14 @@ export default function (app) {
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
+
+  // TEMPORARY towards 33028
+  app.get('/headers.json', (req, res) => {
+    res.set('cache-control', 'private, no-store').json({
+      'accept-language': req.get('accept-language'),
+      'x-user-language': req.get('x-user-language'),
+    })
+  })
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)

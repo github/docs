@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
-ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2022
-ms.locfileid: '148184012'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185043'
 ---
 ## Informationen zu Einschränkungen beim Netzwerkdatenverkehr
 
@@ -115,7 +115,7 @@ Du kannst die Liste zugelassener IP-Adressen deines Identitätsanbieters verwend
 1. Wähle unter „Liste zugelassener IP-Adressen“ die Dropdownliste aus, und klicke auf **Identitätsanbieter**.
 
    ![Screenshot des Dropdownmenüs mit drei Konfigurationsoptionen für die Liste zugelassener IP-Adressen: „Deaktiviert“, „Identitätsanbieter“ und „GitHub“](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Wähle optional die Option **Skip IdP check for applications** (IdP-Überprüfung für Anwendungen überspringen) aus, damit die installierten {% data variables.product.company_short %} und {% data variables.product.prodname_oauth_apps %} auf dein Unternehmen zugreifen können.
+1. Wähle optional die Option **Skip IdP check for applications** (IdP-Überprüfung für Anwendungen überspringen) aus, damit die installierten {% data variables.product.company_short %} und {% data variables.product.prodname_oauth_apps %} auf dein Unternehmen zugreifen können.
 
    ![Kontrollkästchen zum Zulassen von IP-Adressen](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Klicke auf **Speichern**.

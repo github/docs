@@ -8,12 +8,12 @@ versions:
 type: reference
 topics:
   - Codespaces
-ms.openlocfilehash: 8ffd48856a2653f3db3c871122d3acd23c246d7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3f4ef139386e616d14ef9a9cc5b474c96983de91
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159609'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185177'
 ---
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
@@ -42,15 +42,9 @@ Die Symbole oben im {% data variables.product.prodname_github_codespaces %}-Tool
 
 * **Aktualisieren des aktiven Codespace**
 
-  ![Screenshot: Schaltfläche zum Aktualisieren](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh-BAK.png)
+  ![Screenshot: Schaltfläche zum Aktualisieren](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
 
   Hier aktualisierst du die Details im {% data variables.product.prodname_github_codespaces %}-Toolfenster. Wenn du beispielsweise über die {% data variables.product.prodname_cli %} den Anzeigenamen geändert hast, kannst du auf diese Schaltfläche klicken, um den neuen Namen anzuzeigen.
-
-* **Trennen und Beenden**
-
-  ![Screenshot: Schaltfläche zum Beenden](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
-
-  Hier beendest du den Codespace und die Back-End-IDE auf dem Remotecomputer und schließt den lokalen JetBrains-Client.
 
 * **Verwalten deiner Codespaces aus dem Web**
 
@@ -63,10 +57,3 @@ Die Symbole oben im {% data variables.product.prodname_github_codespaces %}-Tool
   ![Screenshot: Protokollschaltfläche](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
   Öffne das Codespace-Erstellungsprotokoll im Editor-Fenster. Weitere Informationen findest du unter „[{% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)“.
-
-* **Neuerstellen des Entwicklungscontainers**
-
-  ![Screenshot: Schaltfläche zum Neuerstellen](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
-
-  Erstelle deinen Codespace neu, um Änderungen anzuwenden, die du an der Entwicklungscontainerkonfiguration vorgenommen hast. Der JetBrains-Client wird geschlossen, und du musst den Codespace erneut öffnen. Weitere Informationen findest du unter [Der Codespace-Lebenszyklus](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace).
-

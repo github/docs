@@ -1,5 +1,13 @@
-When you enable the allow list, the IP addresses you have configured are immediately added to the allow lists of organizations in your enterprise. If you disable the allow list, the addresses are removed from the organization allow lists. 
+---
+ms.openlocfilehash: f88150299e77eff08e5db75a7ef5bf5bd460328b
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148184061"
+---
+启用允许列表时，您配置的 IP 地址将立即添加到企业中的组织允许列表中。 如果禁用允许列表，则地址将从组织允许列表中删除。 
 
-{% data reusables.identity-and-permissions.org-enterprise-allow-list-interaction %} For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
+{% data reusables.identity-and-permissions.org-enterprise-allow-list-interaction %}有关详细信息，请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
 
-You can choose to automatically add to your allow list any IP addresses configured for {% data variables.product.prodname_github_apps %} installed in your enterprise. The creator of a {% data variables.product.prodname_github_app %} can configure an allow list for their application, specifying the IP addresses at which the application runs. By inheriting their allow list into yours, you avoid connection requests from the application being refused. For more information, see "[Allowing access by GitHub Apps](#allowing-access-by-github-apps)."
+您可以选择将为组织中安装的 {% data variables.product.prodname_github_apps %} 配置的任何 IP 地址自动添加到允许列表中。 {% data variables.product.prodname_github_app %} 的创建者可以为其应用程序配置允许列表，指定应用程序运行的 IP 地址。 通过将允许列表继承到您的列表中，您可以避免申请中的连接请求被拒绝。 有关详细信息，请参阅“[允许 GitHub 应用进行访问](#allowing-access-by-github-apps)”。

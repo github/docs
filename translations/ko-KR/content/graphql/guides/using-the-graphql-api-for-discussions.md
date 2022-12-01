@@ -4,12 +4,12 @@ intro: '{% data variables.product.prodname_discussions %} GraphQL API를 사용�
 versions:
   feature: discussions
 shortTitle: Use GraphQL for Discussions
-ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: fd296c4e9390cac3500ba7319cb602366a37e262
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147408845'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185621'
 ---
 {% data variables.product.prodname_discussions %} GraphQL API를 사용하면 토론 게시물을 다운로드, 생성, 편집, 삭제할 수 있습니다. {% data variables.product.prodname_discussions %}에 대한 자세한 내용은 “[토론 정보](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”를 참조하세요.
 
@@ -72,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-이 리포지토리 내에 정의된 사용 가능한 토론 범주를 반환합니다. 각 리포지토리에는 최대 10개의 범주가 있을 수 있습니다. 토론 범주에 대한 자세한 내용은 “[토론 정보](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”를 참조하세요.
+이 리포지토리 내에 정의된 사용 가능한 토론 범주를 반환합니다. 각 리포지토리에는 최대 25개의 범주가 있을 수 있습니다. 토론 범주에 대한 자세한 내용은 “[토론 정보](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”를 참조하세요.
 
 서명:
 

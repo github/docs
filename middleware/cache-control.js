@@ -55,3 +55,12 @@ export const noCacheControl = cacheControlFactory(0)
 
 // Long caching for archived pages and assets
 export const archivedCacheControl = cacheControlFactory(60 * 60 * 24 * 365)
+
+// Vary on language when needed
+// x-user-language is a custom request header derived from req.cookie:user_language
+// accept-language is truncated to one of our available languages
+// https://bit.ly/3u5UeRN
+export function languageCacheControl(res) {
+  defaultCacheControl(res)
+  res.set('vary', 'accept-language, x-user-language')
+}

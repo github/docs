@@ -8,7 +8,7 @@ introLinks:
 featuredLinks:
   guides:
     - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
-    - /codespaces/developing-in-codespaces/the-codespace-lifecycle
+    - /codespaces/getting-started/the-codespace-lifecycle
     - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
     - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
     - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces

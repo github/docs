@@ -126,10 +126,14 @@ describe('redirects', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
-    test('trailing slash on languaged homepage should permantently redirect', async () => {
+    test('trailing slash on languaged homepage should permanently redirect', async () => {
       const res = await get('/en/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/en')

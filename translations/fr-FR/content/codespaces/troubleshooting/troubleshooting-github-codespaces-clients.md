@@ -11,12 +11,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
-ms.openlocfilehash: 682160b3b92960487c0709fc411fc2143d18f415
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 35bd9dd859612307c1f9e49ea8ed9771e4f5efcd
+ms.sourcegitcommit: bf4e3590ab71b0a1bfa8d74b00183f63193acbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159591'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186170'
 ---
 {% jetbrains %}
 
@@ -54,7 +54,7 @@ Si le problème n’est pas résolu dans {% data variables.product.prodname_vsco
 
 ## Résolution des problèmes liés à {% data variables.product.prodname_vscode_shortname %}
 
-Quand vous ouvrez un codespace dans l’application de bureau {% data variables.product.prodname_vscode_shortname %}, vous remarquerez peut-être quelques différences par rapport à un espace de travail local. Toutefois, l’expérience doit être similaire. 
+Quand vous ouvrez un codespace dans l’application de bureau {% data variables.product.prodname_vscode_shortname %}, vous remarquerez peut-être quelques différences par rapport à un espace de travail local. Toutefois, l’expérience doit être similaire.
 
 Si vous rencontrez des problèmes, vous pouvez consulter les problèmes connus et consigner de nouveaux problèmes avec l’expérience {% data variables.product.prodname_vscode_shortname %} dans le dépôt [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces).
 
@@ -104,6 +104,31 @@ Voici quelques conseils de départ que vous pouvez ajuster en fonction de la tai
 
 1. Cliquez sur **Enregistrer et redémarrer**.
 
+### Impossible d’ouvrir le client dans MacOS Ventura 
+
+Dans MacOS Ventura, lorsque vous essayez de vous connecter à un codespace à partir de la passerelle JetBrains pour la première fois, un message peut s’afficher vous indiquant que l’application cliente JetBrains « est endommagée et ne peut pas être ouverte ».
+
+<img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
+
+Si c’est le cas :
+
+1. Cliquez sur **Annuler** pour ignorer ce message.
+1. Cliquez sur l’icône Apple, en haut à gauche de l’écran, puis sur **Paramètres système**. 
+1. Cliquez sur **Confidentialité et sécurité** et faites défiler jusqu’à la section « Sécurité ».
+
+   ![Capture d’écran de la boîte de dialogue Confidentialité et sécurité](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
+
+   Vous voyez un message indiquant que l’utilisation du client JetBrains a été bloquée. 
+
+1. Cliquez sur **Ouvrir quand même** pour ajouter le client JetBrains à vos applications reconnues. 
+   Le message s’affiche à nouveau, mais cette fois avec un bouton **Ouvrir**.
+
+   <img src="/assets/images/help/codespaces/jetbrains-ventura-error2.png" alt="Screenshot of the error message with an 'Open' button" style="width:230px;"/>
+
+1. Cliquez à nouveau sur **Annuler**.
+1. Revenez à l’application JetBrains Gateway et connectez-vous à nouveau au codespace requis.
+   Le client JetBrains s’ouvre maintenant avec succès. Après avoir autorisé l’application cliente à s’exécuter sur votre Mac, vous ne verrez plus le message lorsque vous vous connecterez à vos codespaces.
+
 ### Problèmes de connexion SSH
 
 Pour vous connecter par le biais du serveur SSH en cours d’exécution dans votre codespace, vous devez disposer dans votre répertoire `~/.ssh` (MacOS et Linux) ou `%HOMEPATH%\.ssh` (Windows) d’une clé SSH qui a déjà été ajoutée à votre compte {% data variables.product.prodname_dotcom %}. Si aucune clé n’est présente dans ce répertoire, {% data variables.product.prodname_cli %} génère des clés pour vous. Pour plus d’informations, consultez « [Ajout d’une nouvelle clé SSH à votre compte {% data variables.product.prodname_dotcom %}](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui) ».
@@ -115,4 +140,3 @@ Si vous rencontrez des problèmes de validation des clés, essayez de mettre à 
 Pour obtenir de l’aide sur les problèmes spécifiques à l’IDE JetBrains que vous utilisez ou à l’application JetBrains Gateway, consultez « [Support produit](https://www.jetbrains.com/support/) » sur le site web de JetBrains.
 
 {% endjetbrains %}
-

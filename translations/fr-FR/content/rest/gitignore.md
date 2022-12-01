@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
+intro: L’API Gitignore extrait des modèles `.gitignore` qui peuvent être utilisés pour ignorer des fichiers et répertoires.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,16 +11,21 @@ topics:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/gitignore
+ms.openlocfilehash: e830b0f00d60f3eb121fa2a99a910b073780700e
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181267'
 ---
+## À propos de l’API gitignore
 
-## About the Gitignore API
+Quand vous créez un référentiel sur {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} via l’API, vous pouvez spécifier un [modèle .gitignore](/github/getting-started-with-github/ignoring-files) à appliquer au référentiel lors de la création. L’API de modèles .gitignore répertorie et extrait des modèles à partir du [référentiel .gitignore](https://github.com/github/gitignore) {% data variables.product.product_name %}.
 
-When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. The .gitignore templates API lists and fetches templates from the {% data variables.product.product_name %} [.gitignore repository](https://github.com/github/gitignore).
+### Types de médias personnalisés pour gitignore
 
-### Custom media types for gitignore
-
-You can use this custom media type when getting a gitignore template.
+Vous pouvez utiliser ce type de média personnalisé lors de l’obtention d’un modèle gitignore.
 
     application/vnd.github.raw
 
-For more information, see "[Media types](/rest/overview/media-types)."
+Pour plus d’informations, consultez « [Types de médias](/rest/overview/media-types) ».

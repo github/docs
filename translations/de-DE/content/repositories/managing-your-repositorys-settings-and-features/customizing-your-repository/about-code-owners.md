@@ -14,12 +14,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: 3b6822be6551d43b3af55220ac8f39deec8be1df
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 12265f0627ca6d0feb34244aab1c021b5ae6cc10
+ms.sourcegitcommit: 9315c7dae9a673a2f8958df7632bf1af206a0bed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106837'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188238'
 ---
 Personen mit Administrator- oder Inhaberberechtigungen können eine CODEOWNERS-Datei in einem Repository einrichten.
 
@@ -85,7 +85,7 @@ Bei CODEOWNERS-Pfaden wird die Groß- und Kleinschreibung berücksichtigt, da {%
 # precedence. When someone opens a pull request that only
 # modifies JS files, only @js-owner and not the global
 # owner(s) will be requested for a review.
-*.js    @js-owner
+*.js    @js-owner #This is an inline comment.
 
 # You can also use email addresses if you prefer. They'll be
 # used to look up users just like we do for commit author
@@ -131,7 +131,7 @@ apps/ @octocat
 ## CODEOWNERS und Branchschutz
 Repositorybesitzer können Branchschutzregeln hinzufügen, um sicherzustellen, dass geänderter Code von den Besitzer*innen der geänderten Dateien überprüft wird. Weitere Informationen findest du unter [Informationen zu geschützten Branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches).
 
-## Weitere Informationsquellen
+## Weiterführende Themen
 
 - [Erstellen neuer Dateien](/articles/creating-new-files)
 - [Einladen von Projektmitarbeiter*innen in ein persönliches Repository](/articles/inviting-collaborators-to-a-personal-repository)

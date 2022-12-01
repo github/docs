@@ -105,6 +105,7 @@ translations/ru-RU/content/codespaces/customizing-your-codespace/setting-your-ti
 translations/ru-RU/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/creating-a-codespace.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/renaming-a-codespace.md,file deleted because it no longer exists in main
+translations/ru-RU/content/codespaces/developing-in-codespaces/the-codespace-lifecycle.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,file deleted because it no longer exists in main
@@ -122,6 +123,7 @@ translations/ru-RU/content/codespaces/troubleshooting/troubleshooting-port-forwa
 translations/ru-RU/content/codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/troubleshooting/working-with-support-for-codespaces.md,file deleted because it no longer exists in main
 translations/ru-RU/content/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account.md,file deleted because it no longer exists in main
+translations/ru-RU/content/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop.md,file deleted because it no longer exists in main
 translations/ru-RU/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors.md,file deleted because it no longer exists in main
 translations/ru-RU/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange.md,file deleted because it no longer exists in main
 translations/ru-RU/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students.md,file deleted because it no longer exists in main
@@ -185,6 +187,7 @@ translations/ru-RU/content/organizations/restricting-access-to-your-organization
 translations/ru-RU/content/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization.md,file deleted because it no longer exists in main
 translations/ru-RU/content/organizations/restricting-access-to-your-organizations-data/index.md,file deleted because it no longer exists in main
 translations/ru-RU/content/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser.md,file deleted because it no longer exists in main
+translations/ru-RU/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,file deleted because it no longer exists in main
 translations/ru-RU/content/pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork.md,file deleted because it no longer exists in main
 translations/ru-RU/content/rest/reference/actions.md,file deleted because it no longer exists in main
 translations/ru-RU/content/rest/reference/activity.md,file deleted because it no longer exists in main
@@ -646,7 +649,6 @@ translations/ru-RU/content/admin/installation/setting-up-a-github-enterprise-ser
 translations/ru-RU/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm.md,rendering error
 translations/ru-RU/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware.md,rendering error
 translations/ru-RU/content/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance.md,rendering error
-translations/ru-RU/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics.md,rendering error
 translations/ru-RU/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics.md,rendering error
 translations/ru-RU/content/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks.md,rendering error
 translations/ru-RU/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
@@ -806,6 +808,7 @@ translations/ru-RU/content/code-security/secret-scanning/secret-scanning-pattern
 translations/ru-RU/content/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database.md,rendering error
 translations/ru-RU/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,rendering error
 translations/ru-RU/content/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository.md,rendering error
+translations/ru-RU/content/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory.md,rendering error
 translations/ru-RU/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/ru-RU/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
 translations/ru-RU/content/code-security/security-overview/index.md,rendering error
@@ -817,20 +820,16 @@ translations/ru-RU/content/code-security/supply-chain-security/understanding-you
 translations/ru-RU/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,rendering error
 translations/ru-RU/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
 translations/ru-RU/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
-translations/ru-RU/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
+translations/ru-RU/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,rendering error
 translations/ru-RU/content/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces.md,broken liquid tags
 translations/ru-RU/content/codespaces/overview.md,rendering error
-translations/ru-RU/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
 translations/ru-RU/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
 translations/ru-RU/content/codespaces/troubleshooting/troubleshooting-your-connection-to-github-codespaces.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ru-RU/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
-translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,rendering error
-translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
-translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
 translations/ru-RU/content/copilot/quickstart.md,broken liquid tags
 translations/ru-RU/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop.md,rendering error
 translations/ru-RU/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,rendering error
@@ -1078,7 +1077,6 @@ translations/ru-RU/content/repositories/creating-and-managing-repositories/delet
 translations/ru-RU/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,rendering error
 translations/ru-RU/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,rendering error
 translations/ru-RU/content/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors.md,rendering error
-translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,rendering error
 translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview.md,rendering error
 translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository.md,rendering error
 translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,rendering error
@@ -1089,6 +1087,7 @@ translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-f
 translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository.md,rendering error
 translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
 translations/ru-RU/content/repositories/releasing-projects-on-github/about-releases.md,rendering error
+translations/ru-RU/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,rendering error
 translations/ru-RU/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/ru-RU/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/ru-RU/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error

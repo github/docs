@@ -8,12 +8,12 @@ versions:
 type: reference
 topics:
   - Codespaces
-ms.openlocfilehash: 8ffd48856a2653f3db3c871122d3acd23c246d7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3f4ef139386e616d14ef9a9cc5b474c96983de91
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159444'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185175'
 ---
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
@@ -42,15 +42,9 @@ ms.locfileid: '148159444'
 
 * **刷新活动 codespace**
 
-  ![“刷新”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh-BAK.png)
+  ![“刷新”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
 
   刷新 {% data variables.product.prodname_github_codespaces %} 工具窗口中的详细信息。 例如，如果使用了 {% data variables.product.prodname_cli %} 更改显示名称，则可以单击此按钮以显示新名称。
-
-* **断开连接并停止**
-
-  ![“停止”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
-
-  停止 codespace，停止远程计算机上的后端 IDE，然后关闭本地 JetBrains 客户端。
 
 * **从 Web 管理 codespace**
 
@@ -63,10 +57,3 @@ ms.locfileid: '148159444'
   ![“日志”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
   在编辑器窗口中打开 codespace 创建日志。 有关详细信息，请参阅“[{% data variables.product.prodname_github_codespaces %} 日志](/codespaces/troubleshooting/github-codespaces-logs)”。
-
-* **重新生成开发容器**
-
-  ![“重新生成”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
-
-  重新生成 codespace 以应用对开发容器配置所做的更改。 JetBrains 客户端将关闭，必须重新打开 codespace。 有关详细信息，请参阅“[codespace 生命周期](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace)”。
-
