@@ -102,6 +102,7 @@ translations/fr-FR/content/codespaces/customizing-your-codespace/setting-your-ti
 translations/fr-FR/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,file deleted because it no longer exists in main
 translations/fr-FR/content/codespaces/developing-in-codespaces/creating-a-codespace.md,file deleted because it no longer exists in main
 translations/fr-FR/content/codespaces/developing-in-codespaces/renaming-a-codespace.md,file deleted because it no longer exists in main
+translations/fr-FR/content/codespaces/developing-in-codespaces/the-codespace-lifecycle.md,file deleted because it no longer exists in main
 translations/fr-FR/content/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests.md,file deleted because it no longer exists in main
 translations/fr-FR/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,file deleted because it no longer exists in main
 translations/fr-FR/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,file deleted because it no longer exists in main
@@ -119,6 +120,7 @@ translations/fr-FR/content/codespaces/troubleshooting/troubleshooting-port-forwa
 translations/fr-FR/content/codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces.md,file deleted because it no longer exists in main
 translations/fr-FR/content/codespaces/troubleshooting/working-with-support-for-codespaces.md,file deleted because it no longer exists in main
 translations/fr-FR/content/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account.md,file deleted because it no longer exists in main
+translations/fr-FR/content/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop.md,file deleted because it no longer exists in main
 translations/fr-FR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors.md,file deleted because it no longer exists in main
 translations/fr-FR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange.md,file deleted because it no longer exists in main
 translations/fr-FR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students.md,file deleted because it no longer exists in main
@@ -182,6 +184,7 @@ translations/fr-FR/content/organizations/restricting-access-to-your-organization
 translations/fr-FR/content/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization.md,file deleted because it no longer exists in main
 translations/fr-FR/content/organizations/restricting-access-to-your-organizations-data/index.md,file deleted because it no longer exists in main
 translations/fr-FR/content/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser.md,file deleted because it no longer exists in main
+translations/fr-FR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,file deleted because it no longer exists in main
 translations/fr-FR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork.md,file deleted because it no longer exists in main
 translations/fr-FR/content/rest/reference/actions.md,file deleted because it no longer exists in main
 translations/fr-FR/content/rest/reference/activity.md,file deleted because it no longer exists in main
@@ -474,7 +477,6 @@ translations/fr-FR/content/actions/learn-github-actions/understanding-github-act
 translations/fr-FR/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
 translations/fr-FR/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,broken liquid tags
 translations/fr-FR/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
-translations/fr-FR/content/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column.md,broken liquid tags
 translations/fr-FR/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/fr-FR/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
 translations/fr-FR/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
@@ -738,6 +740,7 @@ translations/fr-FR/content/code-security/security-advisories/global-security-adv
 translations/fr-FR/content/code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities.md,rendering error
 translations/fr-FR/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,rendering error
 translations/fr-FR/content/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository.md,rendering error
+translations/fr-FR/content/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory.md,rendering error
 translations/fr-FR/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/fr-FR/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
 translations/fr-FR/content/code-security/security-overview/index.md,rendering error
@@ -1007,7 +1010,7 @@ translations/fr-FR/content/repositories/managing-your-repositorys-settings-and-f
 translations/fr-FR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository.md,rendering error
 translations/fr-FR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
 translations/fr-FR/content/repositories/releasing-projects-on-github/about-releases.md,rendering error
-translations/fr-FR/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,broken liquid tags
+translations/fr-FR/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,rendering error
 translations/fr-FR/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/fr-FR/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/fr-FR/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
