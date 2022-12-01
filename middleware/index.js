@@ -236,6 +236,14 @@ export default function (app) {
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
 
+  // TEMPORARY towards 33028
+  app.get('/headers.json', (req, res) => {
+    res.set('cache-control', 'private, no-store').json({
+      'accept-language': req.get('accept-language'),
+      'x-user-language': req.get('x-user-language'),
+    })
+  })
+
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
