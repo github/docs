@@ -10,6 +10,7 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/codespaces-lifecycle
+  - /codespaces/developing-in-codespaces/the-codespace-lifecycle
 ---
 
 ## About the lifecycle of a codespace
