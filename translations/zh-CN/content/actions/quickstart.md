@@ -78,9 +78,9 @@ shortTitle: 快速开始
    ![工作流结果示例](/assets/images/help/repository/actions-quickstart-logs.png)
 
    示例，你可以看到你仓库的文件列表：
-   ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
+   ![action 细节示例](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-每次将代码推送到分支时，都会触发你刚刚添加的示例工作流程，并向你展示 {% data variables.product.prodname_actions %} 如何处理存储库的内容。有关深入的教程，请参见 “[理解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)”。
+每次将代码推送到分支时，都会触发你刚刚添加的示例工作流程，并向你展示 {% data variables.product.prodname_actions %} 如何处理存储库的内容。有关深入的教程，请参见“[理解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)”。
 
 ## 更多入门的工作流程
 
