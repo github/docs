@@ -1,25 +1,50 @@
 RUN ENV
+
 ENV MODULE 
+
 MODULE SAMPLE.EXE.TMP RUNS RUN
+
 RUN RUN RUNS RUN ON STARTS SCRIPT NBUILD SCRIPT NAME #Ttests'@#Test.yml'@ci :'
+
 BUILD RUNS ON STARTS ON RUN RUN RUNS RUN BUILD BEGIN GLOE& :GLOW4 :
+
 G:PW7 :'require' ':' ''.'Docx''
+
 'LTE
+
 #!/usr/bin/env bash'@Bash'@mowjojojojo :
+
 BEGIN 
+
 const :
- :Build:: :''
- ' ''*'*'':''#'' '':'''B''E''G''I''N'' '':'':''G''L''O''W''7'' '':'''require''' ''':''' '''.'''Doc'''''X'''"'':'',"''
+
+:Build:: :''
+
+' ''*'*'':''#'' '':'''B''E''G''I''N'' '':'':''G''L''O''W''7'' '':'''require''' ''':''' '''.'''Doc'''''X'''"'':'',"''
+
 '"'require'' ':'' 'Git'Hub/Doc/javascript/package.yml/pkg.json"'' :
+
 #DOCKER.Gui.sng :'"'' :
+
 ':Build::''
+
 '"'s' '<'!'-'-' omit' in' toc' -->''*'*''
- 
+
+
+
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+
+
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
-Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+
+
+Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get 
+to a specific section of this guide quickly.
+
+
+
 
 ## Contributing
 
