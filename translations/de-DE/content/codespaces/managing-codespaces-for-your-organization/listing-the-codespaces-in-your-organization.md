@@ -1,7 +1,7 @@
 ---
-title: Listing the codespaces in your organization
+title: Auflisten der Codespaces in deiner Organisation
 shortTitle: List organization codespaces
-intro: 'You can list all of the currently active or stopped codespaces for your organization.'
+intro: Du kannst alle aktuell aktiven oder beendeten Codespaces für deine Organisation auflisten.
 permissions: 'To list all of the current codespaces for your organization, you must be an organization owner.'
 versions:
   fpt: '*'
@@ -10,31 +10,36 @@ type: how_to
 topics:
   - Codespaces
   - Administrator
+ms.openlocfilehash: e3d475560c76449ed20b70fbce29ef6273f788fc
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158629'
 ---
+## Übersicht
 
-## Overview
+Als Organisationsbesitzer können alle aktuell aktiven oder beendeten Codespaces für deine Organisation auflisten. Möglicherweise möchtest du so vorgehen, um zu überprüfen, wie viele Codespaces Benutzer erstellen, um sicherzustellen, dass sie keine unnötigen Kosten verursachen. Informationen zu den Kosten findest du unter [Informationen zur Abrechnung für {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
-As an organization owner, you can list all of the currently active and stopped codespaces for your organization. You might want to do this to check how many codespaces users are creating, to make sure they aren't incurring unnecessary costs. For information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Die einfachste Möglichkeit zum Auflisten der Codespaces für eine Organisation besteht darin, {% data variables.product.prodname_cli %} zu verwenden. Du kannst auch die REST-API verwenden, die weitere Informationen zu jedem Codespace bereitstellt.
 
-The easiest way to list the codespaces for an organization is by using {% data variables.product.prodname_cli %}. You can also use the REST API, which provides more information about each codespace.
+Informationen zum Anzeigen der aktuellen Gesamtsumme der {% data variables.product.prodname_codespaces %}-Nutzung für deine Organisation oder dein Unternehmen und zum Generieren eines detaillierten Berichts findest du unter [Anzeigen deiner {% data variables.product.prodname_github_codespaces %}-Nutzung](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
 
-For information on how to see the current total {% data variables.product.prodname_codespaces %} usage for your organization or enterprise, and generate a detailed report, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+### Verwenden von {% data variables.product.prodname_cli %} zum Auflisten von Codespaces
 
-### Using {% data variables.product.prodname_cli %} to list codespaces
-
-To list all of the current codespaces for a specified organization, use the following command.
+Wenn du alle aktuellen Codespaces für eine bestimmte Organisation auflisten möchtest, verwende den folgenden Befehl.
 
 ```shell{:copy}
 gh codespace list --org ORGANIZATION 
 ```
 
-This command returns a list that includes the following information for each codespace: 
-	- The name and display name 
-	- The user who created the codespace
-	- The repository and branch
-	- The current state of the codespace
+Dieser Befehl gibt eine Liste zurück, die die folgenden Informationen für jeden Codespace enthält: 
+    - Den Namen und den Anzeigenamen 
+    - Den Benutzer, der den Codespace erstellt hat
+    - Das Repository und den Branch
+    - Den aktuellen Status des Codespace
 
-To list all of the current codespaces for an organization that were created by a specific user, use the following command.
+Wenn du alle aktuellen Codespaces für eine Organisation auflisten möchtest, die von einem bestimmten Benutzer erstellt wurden, verwendest du den folgenden Befehl.
 
 ```shell{:copy}
 gh codespace list --org ORGANIZATION --user USER
@@ -42,12 +47,12 @@ gh codespace list --org ORGANIZATION --user USER
 
 {% note %}
 
-**Note**: In the above commands, replace `ORGANIZATION` with the name of the organization you are querying. You must be an owner of the organization.
+**Hinweis**: Ersetze in den oben genannten Befehlen `ORGANIZATION` durch den Namen der Organisation, die du abfragst. Du musst Besitzer der Organisation sein.
 
 {% endnote %}
 
-### Using the REST API to list codespaces
+### Verwenden der REST-API zum Auflisten von Codespaces
 
-You can use the `/orgs/{org}/codespaces` API endpoint as an alternative method of listing the current codespaces for an organization. This returns more information than {% data variables.product.prodname_cli %}; for example, the machine type details.
+Du kannst den API-Endpunkt `/orgs/{org}/codespaces` als alternative Methode zum Auflisten der aktuellen Codespaces für eine Organisation verwenden. Dieser Endpunkt gibt mehr Informationen als {% data variables.product.prodname_cli %} zurück, z. B. die Details des Computertyps.
 
-For more information about this endpoint, see "[Codespaces organizations](/rest/codespaces/organizations#list-codespaces-for-the-organization)."
+Weitere Informationen zu diesem Endpunkt findest du unter [Codespaceorganisationen](/rest/codespaces/organizations#list-codespaces-for-the-organization).

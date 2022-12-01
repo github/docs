@@ -11,12 +11,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 50875021a506201a90cbac62db521604a390a586
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: fd3619faeb8ccaeaa70e8a2be050881b4a169b64
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060332'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181317'
 ---
 ## 리포지토리 콘텐츠 API 정보
 
@@ -26,8 +26,8 @@ ms.locfileid: '147060332'
 
 [README](/rest/reference/repos#get-a-repository-readme), [파일](/rest/reference/repos#get-repository-content), [symlink](/rest/reference/repos#get-repository-content)는 다음과 같은 사용자 지정 미디어 형식을 지원합니다.
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.html
+    application/vnd.github.raw
+    application/vnd.github.html
 
 파일 내용을 검색하려면 `.raw` 미디어 형식을 사용합니다.
 
@@ -35,7 +35,7 @@ Markdown 또는 AsciiDoc와 같은 태그 파일의 경우 `.html` 미디어 형
 
 [모든 개체](/rest/reference/repos#get-repository-content)는 다음과 같은 사용자 지정 미디어 형식을 지원합니다.
 
-    application/vnd.github.VERSION.object
+    application/vnd.github.object
 
 콘텐츠 형식에 관계없이 일관된 개체 형식으로 콘텐츠를 검색하려면 `object` 미디어 형식 매개 변수를 사용합니다. 예를 들어 응답은 디렉터리의 개체 배열 대신 개체 배열을 포함하는 `entries` 특성이 있는 개체가 됩니다.
 

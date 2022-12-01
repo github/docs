@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: f9e5d411c7a7a16e22abcc660f2761f1bfd6cf7d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108286'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180077'
 ---
 ## Informationen zu Rollen
 {% data reusables.organizations.about-roles %}
@@ -65,7 +65,7 @@ Wenn deine Organisation über ein Sicherheitsteam verfügt, kannst du mit der Ro
 ### {% data variables.product.prodname_github_app %}-Managers
 Standardmäßig können nur Organisationsbesitzer die Einstellungen von {% data variables.product.prodname_github_apps %} im Besitz einer Organisation verwalten. Wenn du weiteren Benutzern die Berechtigung zur Verwaltung von {% data variables.product.prodname_github_apps %} im Besitz einer Organisation erteilen möchtest, kann ihnen ein Besitzer Managerberechtigungen für {% data variables.product.prodname_github_app %} zuweisen.
 
-Wenn du einen Benutzer/eine Benutzerin zum {% data variables.product.prodname_github_app %}-Manager in deiner Organisation ernennst, kannst du ihnen Zugriff auf die Verwaltung der Einstellungen einzelner oder aller {% data variables.product.prodname_github_apps %} im Besitz der Organisation gewähren. Weitere Informationen finden Sie unter
+Wenn du einen Benutzer/eine Benutzerin zum {% data variables.product.prodname_github_app %}-Manager in deiner Organisation ernennst, kannst du ihnen Zugriff auf die Verwaltung der Einstellungen einzelner oder aller {% data variables.product.prodname_github_apps %} im Besitz der Organisation gewähren. Weitere Informationen findest du unter
 
 - [Hinzufügen von GitHub-App-Manager*innen zu deiner Organisation](/articles/adding-github-app-managers-in-your-organization)
 - [Entfernen von GitHub-App-Manager*innen aus deiner Organisation](/articles/removing-github-app-managers-from-your-organization)
@@ -186,7 +186,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 | [Exportieren einer Liste der Personen mit Zugriff auf ein Repository der Organisation](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | Verwalten von Standardbezeichnungen (weitere Informationen findest du unter [Verwalten von Standardbezeichnungen für Repositorys in deiner Organisation](/articles/managing-default-labels-for-repositories-in-your-organization)) | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Verwalten von Pull Request-Überprüfungen in der Organisation (weitere Informationen findest du unter [Verwalten von Pull Request-Überprüfungen in deiner Organisation](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)) | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| Verwalten der Liste zugelassener IP-Adressen (weitere Informationen findest du unter [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen](/admin/configuration/restricting-network-traffic-to-your-enterprise)) | **X** | |  |{% endif %}
+{% ifversion ghae %}| Verwalten von IP-Zulassungslisten (siehe [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen mit einer Liste zugelassener IP-Adressen](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)) | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -227,7 +227,7 @@ Durch das Hinzufügen *externer Mitarbeiter*innen* kannst du gleichzeitig die Da
 | [Anzeigen von Personen mit Zugriff auf ein Repository der Organisation](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Exportieren einer Liste der Personen mit Zugriff auf ein Repository der Organisation](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Verwalten von Standardbezeichnungen (weitere Informationen findest du unter [Verwalten von Standardbezeichnungen für Repositorys in deiner Organisation](/articles/managing-default-labels-for-repositories-in-your-organization)) | **X** | |
-{% ifversion ghae %}| Verwalten der Liste zugelassener IP-Adressen (weitere Informationen findest du unter [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen](/admin/configuration/restricting-network-traffic-to-your-enterprise)) | **X** | |{% endif %}
+{% ifversion ghae %}| Verwalten von IP-Zulassungslisten (siehe [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen mit einer Liste zugelassener IP-Adressen](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)) | **X** | |{% endif %}
 
 {% endif %}
 

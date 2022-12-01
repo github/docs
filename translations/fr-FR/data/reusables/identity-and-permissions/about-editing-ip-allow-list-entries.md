@@ -1,3 +1,11 @@
-You can edit an entry in your IP allow list. If you edit an enabled entry, changes are enforced immediately. 
+---
+ms.openlocfilehash: a6a2388e469c6283bbe0f9f7855044f45829584e
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180068"
+---
+Vous pouvez modifier une entrée dans votre liste d’autorisation IP. Si vous modifiez une entrée activée, les modifications s’appliquent immédiatement. 
 
-After you finish editing entries, you can check whether your allow list will permit a connection from a particular IP address after you enable the list.
+Une fois que vous avez terminé de modifier les entrées, vous pouvez vérifier si votre liste autorise une connexion à partir d’une adresse IP particulière une fois que vous avez activé la liste.

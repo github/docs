@@ -10,12 +10,12 @@ redirect_from:
 type: overview
 topics:
   - Projects
-ms.openlocfilehash: 768234aa5e6c9cfbca6a6144a80ac2868f3316ce
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3190379652fe1c95b8ea6ec7f864c44b72d9a7f7
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158859'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180759'
 ---
 ## 关于 {% data variables.product.prodname_projects_v2 %}
 
@@ -43,7 +43,7 @@ ms.locfileid: '148158859'
 
 可以使用任务列表功能构建问题的层次结构，将问题划分为较小的子任务，并在问题之间创建新关系。 有关详细信息，请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/about-tasklists)”。
 
-这些关系体现在问题以及项目中的“跟踪者”和“跟踪”字段中。 可以按其他问题跟踪的问题进行筛选，还可以按“跟踪者”字段对表视图进行分组，以显示所有父问题及其子任务列表。
+这些关系显示在问题以及项目中的“跟踪依据”和“跟踪”字段中。 可以按其他问题跟踪的问题进行筛选，还可以按“跟踪依据”字段对表视图进行分组，以显示所有父问题及其子任务列表。
 
 {% endif %}
 

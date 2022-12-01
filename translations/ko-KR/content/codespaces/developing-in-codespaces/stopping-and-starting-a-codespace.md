@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
-ms.openlocfilehash: 290a39d9d60420230bd9b11d5e2d10119ccc1c72
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: c09cd757ac2667c32c26f9b5e7d7a36b8e5431f9
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158807'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185085'
 ---
 {% jetbrains %}
 
@@ -62,10 +62,7 @@ codespace를 만들거나 액세스하는 위치에 관계없이 에서 브라�
 
 {% jetbrains %}
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. {% data variables.product.prodname_github_codespaces %} 도구 창에서 중지 아이콘을 클릭합니다.
-
-   ![로그 단추의 스크린샷](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
+"Codespaces" 페이지( [웹 브라우저 지침](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace) 참조) 또는 {% data variables.product.prodname_cli %}를 사용하여 codespace를 중지할 수 [있습니다(CLI 지침](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace) 참조).
 
 {% endjetbrains %}
 

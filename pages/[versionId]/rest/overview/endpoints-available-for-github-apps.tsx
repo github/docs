@@ -10,6 +10,7 @@ import {
 } from 'components/context/AutomatedPageContext'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
+import { RestRedirect } from 'components/RestRedirect'
 import { getEnabledForApps, categoriesWithoutSubcategories } from 'lib/rest/index.js'
 
 type OperationT = {
@@ -76,6 +77,7 @@ export default function Category({
   return (
     <MainContext.Provider value={mainContext}>
       <AutomatedPageContext.Provider value={automatedPageContext}>
+        <RestRedirect />
         <AutomatedPage>{content}</AutomatedPage>
       </AutomatedPageContext.Provider>
     </MainContext.Provider>
@@ -86,10 +88,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const req = context.req as object
   const res = context.res as object
   const mainContext = await getMainContext(req, res)
-  const automatedPageContext = getAutomatedPageContextFromRequest(req)
   const currentVersion = context.query.versionId as string
-
-  const enabledForApps = await getEnabledForApps(currentVersion)
+  const apiVersion =
+    context.query.apiVersion || mainContext.allVersions[currentVersion].latestApiVersion
+  const automatedPageContext = getAutomatedPageContextFromRequest(req)
+  const enabledForApps = await getEnabledForApps(currentVersion, apiVersion)
 
   return {
     props: {

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
-ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/31/2022
-ms.locfileid: "148120534"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183980"
 ---
 | Kategoriename | BESCHREIBUNG
 |------------------|-------------------
@@ -106,7 +106,7 @@ ms.locfileid: "148120534"
 {%- endif %} {%- ifversion fpt or ghec %} | `sponsors`  | Enthält Ereignisse im Zusammenhang mit Sponsorschaltflächen (siehe [Anzeigen einer Sponsorschaltfläche in deinem Repository](/articles/displaying-a-sponsor-button-in-your-repository)).
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | Enthält Aktivitäten im Zusammenhang mit einer SSH-Zertifizierungsstelle in einer Organisation oder einem Unternehmen.
 | `ssh_certificate_requirement` | Enthält Aktivitäten, mit denen festgelegt wird, dass Mitglieder SSH-Zertifikate verwenden müssen, um auf Organisationsressourcen zuzugreifen.
-{%- endif %} | `staff` | Enthält Aktivitäten im Zusammenhang mit einem Websiteadministrator, der eine Aktion ausführt.
+{%- endif %}{% ifversion sso-redirect %} | `sso_redirect` | Enthält Aktivitäten im Zusammenhang mit der automatischen Umleitung von Benutzern zur Anmeldung (siehe [Erzwingen von Richtlinien für Sicherheitseinstellungen in deinem Unternehmen](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)).{% endif %} | `staff` | Enthält Aktivitäten im Zusammenhang mit einem Websiteadministrator, der eine Aktion ausführt.
 | `team` | Enthält Aktivitäten im Zusammenhang mit Teams in einer Organisation.
 | `team_discussions` | Enthält Aktivitäten im Zusammenhang mit der Verwaltung von Teamdiskussionen für eine Organisation.
 {%- ifversion ghec %} | `team_sync_tenant` | Enthält Aktivitäten im Zusammenhang mit der Teamsynchronisierung mit einem IdP für ein Unternehmen oder eine Organisation.

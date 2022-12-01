@@ -5,7 +5,6 @@ import shortVersionsMiddleware from '../../middleware/contextualizers/short-vers
 import featureVersionsMiddleware from '../../middleware/contextualizers/features.js'
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import loadSiteData from '../../lib/site-data.js'
 
 const template = `
   {% if currentVersion ver_gt "enterprise-server@2.13" %}up to date{% endif %}
@@ -195,15 +194,12 @@ describe('liquid template parser', () => {
     // Create a fake req so we can test the feature versions middleware
     const req = { language: 'en', query: {} }
 
-    const siteData = loadSiteData().en.site
-
     test('does not render in FPT because feature is not available in FPT', async () => {
       req.context = {
         currentVersion: 'free-pro-team@latest',
         page: {},
         allVersions,
         enterpriseServerReleases,
-        site: siteData,
       }
       await featureVersionsMiddleware(req, null, () => {})
       const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
@@ -216,7 +212,6 @@ describe('liquid template parser', () => {
         page: {},
         allVersions,
         enterpriseServerReleases,
-        site: siteData,
       }
       await featureVersionsMiddleware(req, null, () => {})
       const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
@@ -229,7 +224,6 @@ describe('liquid template parser', () => {
         page: {},
         allVersions,
         enterpriseServerReleases,
-        site: siteData,
       }
       await featureVersionsMiddleware(req, null, () => {})
       const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
@@ -242,7 +236,6 @@ describe('liquid template parser', () => {
         page: {},
         allVersions,
         enterpriseServerReleases,
-        site: siteData,
       }
       await featureVersionsMiddleware(req, null, () => {})
       const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)

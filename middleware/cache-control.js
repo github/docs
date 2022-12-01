@@ -8,13 +8,6 @@
 //    cacheControlYear(res)
 //    res.send(body)
 //
-// Or, if you want to make it definitely not cache:
-//
-//    const noCacheControl = getCacheControl(0) // you can use `false` too
-//    ...
-//    noControlYear(res)
-//    res.send(body)
-//
 // Max age is in seconds
 export function cacheControlFactory(
   maxAge = 60 * 60,
@@ -56,3 +49,9 @@ export function defaultCacheControl(res) {
   defaultCDNCacheControl(res)
   defaultBrowserCacheControl(res)
 }
+
+// If you do not want caching
+export const noCacheControl = cacheControlFactory(0)
+
+// Long caching for archived pages and assets
+export const archivedCacheControl = cacheControlFactory(60 * 60 * 24 * 365)

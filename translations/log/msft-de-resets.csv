@@ -480,7 +480,9 @@ translations/de-DE/content/actions/learn-github-actions/expressions.md,rendering
 translations/de-DE/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/de-DE/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/de-DE/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
+translations/de-DE/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,broken liquid tags
 translations/de-DE/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
+translations/de-DE/content/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column.md,broken liquid tags
 translations/de-DE/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/de-DE/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
 translations/de-DE/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
@@ -580,8 +582,6 @@ translations/de-DE/content/admin/identity-and-access-management/using-enterprise
 translations/de-DE/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
-translations/de-DE/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
-translations/de-DE/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/de-DE/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
@@ -641,7 +641,6 @@ translations/de-DE/content/authentication/connecting-to-github-with-ssh/generati
 translations/de-DE/content/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection.md,rendering error
 translations/de-DE/content/authentication/index.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,rendering error
-translations/de-DE/content/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
@@ -658,7 +657,6 @@ translations/de-DE/content/authentication/managing-commit-signature-verification
 translations/de-DE/content/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account.md,rendering error
 translations/de-DE/content/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key.md,rendering error
 translations/de-DE/content/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits.md,rendering error
-translations/de-DE/content/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key.md,broken liquid tags
 translations/de-DE/content/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication.md,rendering error
 translations/de-DE/content/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication.md,broken liquid tags
 translations/de-DE/content/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device.md,rendering error
@@ -741,6 +739,7 @@ translations/de-DE/content/code-security/secret-scanning/protecting-pushes-with-
 translations/de-DE/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,rendering error
 translations/de-DE/content/code-security/secret-scanning/secret-scanning-patterns.md,rendering error
 translations/de-DE/content/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database.md,rendering error
+translations/de-DE/content/code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities.md,rendering error
 translations/de-DE/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,rendering error
 translations/de-DE/content/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository.md,rendering error
 translations/de-DE/content/code-security/security-overview/about-the-security-overview.md,rendering error
@@ -750,34 +749,26 @@ translations/de-DE/content/code-security/security-overview/viewing-the-security-
 translations/de-DE/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts.md,rendering error
 translations/de-DE/content/code-security/supply-chain-security/end-to-end-supply-chain/securing-code.md,rendering error
 translations/de-DE/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review.md,rendering error
-translations/de-DE/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/de-DE/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,rendering error
-translations/de-DE/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,broken liquid tags
 translations/de-DE/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph.md,broken liquid tags
 translations/de-DE/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
 translations/de-DE/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
-translations/de-DE/content/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces.md,broken liquid tags
 translations/de-DE/content/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace.md,broken liquid tags
 translations/de-DE/content/codespaces/customizing-your-codespace/renaming-a-codespace.md,broken liquid tags
-translations/de-DE/content/codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning.md,broken liquid tags
+translations/de-DE/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
+translations/de-DE/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
 translations/de-DE/content/codespaces/developing-in-codespaces/opening-an-existing-codespace.md,broken liquid tags
 translations/de-DE/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
-translations/de-DE/content/codespaces/developing-in-codespaces/the-codespace-lifecycle.md,broken liquid tags
-translations/de-DE/content/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization.md,broken liquid tags
-translations/de-DE/content/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization.md,broken liquid tags
 translations/de-DE/content/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces.md,rendering error
-translations/de-DE/content/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces.md,broken liquid tags
 translations/de-DE/content/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories.md,broken liquid tags
 translations/de-DE/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,rendering error
 translations/de-DE/content/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge.md,rendering error
-translations/de-DE/content/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file.md,broken liquid tags
-translations/de-DE/content/codespaces/the-githubdev-web-based-editor.md,rendering error
+translations/de-DE/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
 translations/de-DE/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,rendering error
 translations/de-DE/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/de-DE/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/de-DE/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/de-DE/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
-translations/de-DE/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
@@ -799,7 +790,6 @@ translations/de-DE/content/developers/apps/building-oauth-apps/creating-an-oauth
 translations/de-DE/content/developers/apps/building-oauth-apps/scopes-for-oauth-apps.md,rendering error
 translations/de-DE/content/developers/apps/getting-started-with-apps/activating-optional-features-for-apps.md,rendering error
 translations/de-DE/content/developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app.md,rendering error
-translations/de-DE/content/developers/apps/guides/creating-ci-tests-with-the-checks-api.md,rendering error
 translations/de-DE/content/developers/apps/guides/using-the-github-api-in-your-app.md,rendering error
 translations/de-DE/content/developers/apps/managing-github-apps/deleting-a-github-app.md,rendering error
 translations/de-DE/content/developers/apps/managing-github-apps/editing-a-github-apps-permissions.md,rendering error
@@ -829,7 +819,6 @@ translations/de-DE/content/discussions/managing-discussions-for-your-community/m
 translations/de-DE/content/discussions/managing-discussions-for-your-community/managing-discussions.md,rendering error
 translations/de-DE/content/discussions/managing-discussions-for-your-community/moderating-discussions.md,rendering error
 translations/de-DE/content/discussions/quickstart.md,rendering error
-translations/de-DE/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students.md,broken liquid tags
 translations/de-DE/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,broken liquid tags
 translations/de-DE/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,rendering error
 translations/de-DE/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
@@ -865,11 +854,9 @@ translations/de-DE/content/get-started/quickstart/contributing-to-projects.md,re
 translations/de-DE/content/get-started/quickstart/create-a-repo.md,rendering error
 translations/de-DE/content/get-started/quickstart/fork-a-repo.md,rendering error
 translations/de-DE/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
-translations/de-DE/content/get-started/quickstart/github-glossary.md,broken liquid tags
 translations/de-DE/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md,rendering error
 translations/de-DE/content/get-started/signing-up-for-github/verifying-your-email-address.md,rendering error
 translations/de-DE/content/get-started/using-git/about-git-rebase.md,rendering error
-translations/de-DE/content/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository.md,rendering error
 translations/de-DE/content/get-started/using-github/github-mobile.md,rendering error
 translations/de-DE/content/get-started/using-github/keyboard-shortcuts.md,rendering error
 translations/de-DE/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,rendering error
@@ -904,7 +891,6 @@ translations/de-DE/content/organizations/collaborating-with-groups-in-organizati
 translations/de-DE/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on.md,rendering error
 translations/de-DE/content/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization.md,rendering error
 translations/de-DE/content/organizations/keeping-your-organization-secure/index.md,rendering error
-translations/de-DE/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization.md,rendering error
 translations/de-DE/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization.md,rendering error
 translations/de-DE/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization.md,rendering error
 translations/de-DE/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization.md,rendering error
@@ -956,6 +942,7 @@ translations/de-DE/content/packages/learn-github-packages/introduction-to-github
 translations/de-DE/content/packages/learn-github-packages/publishing-a-package.md,rendering error
 translations/de-DE/content/packages/learn-github-packages/viewing-packages.md,rendering error
 translations/de-DE/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,rendering error
+translations/de-DE/content/packages/quickstart.md,rendering error
 translations/de-DE/content/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry.md,rendering error
 translations/de-DE/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,rendering error
 translations/de-DE/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,rendering error
@@ -1010,7 +997,6 @@ translations/de-DE/content/repositories/creating-and-managing-repositories/delet
 translations/de-DE/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,rendering error
 translations/de-DE/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,rendering error
 translations/de-DE/content/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors.md,rendering error
-translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes.md,broken liquid tags
 translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics.md,rendering error
 translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview.md,rendering error
 translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository.md,rendering error
@@ -1021,14 +1007,15 @@ translations/de-DE/content/repositories/managing-your-repositorys-settings-and-f
 translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository.md,rendering error
 translations/de-DE/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility.md,rendering error
 translations/de-DE/content/repositories/releasing-projects-on-github/about-releases.md,rendering error
+translations/de-DE/content/repositories/releasing-projects-on-github/automatically-generated-release-notes.md,broken liquid tags
 translations/de-DE/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/de-DE/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/de-DE/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
 translations/de-DE/content/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md,rendering error
 translations/de-DE/content/repositories/working-with-files/managing-files/adding-a-file-to-a-repository.md,rendering error
-translations/de-DE/content/repositories/working-with-files/managing-files/navigating-files-with-the-new-code-view.md,rendering error
 translations/de-DE/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,rendering error
 translations/de-DE/content/repositories/working-with-files/using-files/getting-permanent-links-to-files.md,rendering error
+translations/de-DE/content/repositories/working-with-files/using-files/viewing-a-file.md,rendering error
 translations/de-DE/content/rest/activity/notifications.md,broken liquid tags
 translations/de-DE/content/rest/apps/oauth-applications.md,rendering error
 translations/de-DE/content/rest/codespaces/codespaces.md,broken liquid tags
@@ -1049,19 +1036,17 @@ translations/de-DE/content/rest/enterprise-admin/pre-receive-hooks.md,broken liq
 translations/de-DE/content/rest/enterprise-admin/repo-pre-receive-hooks.md,broken liquid tags
 translations/de-DE/content/rest/enterprise-admin/scim.md,rendering error
 translations/de-DE/content/rest/enterprise-admin/users.md,broken liquid tags
-translations/de-DE/content/rest/gitignore.md,rendering error
 translations/de-DE/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/de-DE/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/de-DE/content/rest/guides/working-with-comments.md,broken liquid tags
 translations/de-DE/content/rest/migrations/source-imports.md,broken liquid tags
 translations/de-DE/content/rest/overview/api-previews.md,rendering error
-translations/de-DE/content/rest/overview/other-authentication-methods.md,broken liquid tags
+translations/de-DE/content/rest/overview/other-authentication-methods.md,rendering error
 translations/de-DE/content/rest/overview/permissions-required-for-github-apps.md,rendering error
 translations/de-DE/content/rest/overview/resources-in-the-rest-api.md,rendering error
 translations/de-DE/content/rest/overview/troubleshooting.md,broken liquid tags
 translations/de-DE/content/rest/packages.md,broken liquid tags
 translations/de-DE/content/rest/projects/projects.md,broken liquid tags
-translations/de-DE/content/rest/pulls/comments.md,broken liquid tags
 translations/de-DE/content/rest/quickstart.md,broken liquid tags
 translations/de-DE/content/rest/scim.md,rendering error
 translations/de-DE/content/rest/teams/team-sync.md,rendering error
@@ -1109,11 +1094,9 @@ translations/de-DE/data/reusables/actions/enterprise-common-prereqs.md,rendering
 translations/de-DE/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/de-DE/data/reusables/actions/enterprise-postinstall-nextsteps.md,rendering error
 translations/de-DE/data/reusables/actions/github-connect-resolution.md,rendering error
-translations/de-DE/data/reusables/actions/ip-allow-list-self-hosted-runners.md,broken liquid tags
 translations/de-DE/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
 translations/de-DE/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/de-DE/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
-translations/de-DE/data/reusables/actions/ref_name-description.md,broken liquid tags
 translations/de-DE/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
 translations/de-DE/data/reusables/actions/reusable-workflow-calling-syntax.md,rendering error
 translations/de-DE/data/reusables/actions/reusable-workflows-ghes-beta.md,rendering error
@@ -1130,7 +1113,6 @@ translations/de-DE/data/reusables/actions/settings-ui/settings-actions-pages-cus
 translations/de-DE/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,rendering error
 translations/de-DE/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/de-DE/data/reusables/actions/sidebar-secret.md,rendering error
-translations/de-DE/data/reusables/actions/supported-github-runners.md,broken liquid tags
 translations/de-DE/data/reusables/actions/upgrade-runners-before-upgrade-ghes.md,rendering error
 translations/de-DE/data/reusables/actions/workflow-basic-example-and-explanation.md,rendering error
 translations/de-DE/data/reusables/actions/workflow-dispatch-inputs.md,rendering error
@@ -1146,7 +1128,6 @@ translations/de-DE/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md
 translations/de-DE/data/reusables/audit_log/retention-periods.md,rendering error
 translations/de-DE/data/reusables/branches/new-repo-default-branch.md,rendering error
 translations/de-DE/data/reusables/classroom/about-autograding.md,rendering error
-translations/de-DE/data/reusables/code-scanning/autobuild-add-build-steps.md,broken liquid tags
 translations/de-DE/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,rendering error
 translations/de-DE/data/reusables/code-scanning/codeql-languages-bullets.md,rendering error
 translations/de-DE/data/reusables/code-scanning/codeql-languages-keywords.md,rendering error
@@ -1158,14 +1139,12 @@ translations/de-DE/data/reusables/codespaces/codespaces-disabling-org-billing.md
 translations/de-DE/data/reusables/codespaces/customize-vcpus-and-ram.md,broken liquid tags
 translations/de-DE/data/reusables/codespaces/next-steps-adding-devcontainer.md,broken liquid tags
 translations/de-DE/data/reusables/codespaces/prebuilds-crossreference.md,broken liquid tags
-translations/de-DE/data/reusables/codespaces/rebuild-command.md,broken liquid tags
 translations/de-DE/data/reusables/codespaces/secrets-on-start.md,broken liquid tags
 translations/de-DE/data/reusables/command_line/provide-an-access-token.md,broken liquid tags
 translations/de-DE/data/reusables/copilot/install-copilot-in-neovim.md,broken liquid tags
 translations/de-DE/data/reusables/dependabot/beta-security-and-version-updates.md,rendering error
 translations/de-DE/data/reusables/dependabot/configuration-options.md,rendering error
 translations/de-DE/data/reusables/dependabot/default-dependencies-allow-ignore.md,broken liquid tags
-translations/de-DE/data/reusables/dependabot/dependabot-alerts-dependency-scope.md,broken liquid tags
 translations/de-DE/data/reusables/dependabot/dependabot-alerts-filters.md,rendering error
 translations/de-DE/data/reusables/dependabot/enabling-disabling-dependency-graph-private-repo.md,rendering error
 translations/de-DE/data/reusables/dependabot/sidebar-secret.md,rendering error
@@ -1180,7 +1159,6 @@ translations/de-DE/data/reusables/enterprise-accounts/actions-packages-report-do
 translations/de-DE/data/reusables/enterprise-accounts/billing-microsoft-ea-overview.md,broken liquid tags
 translations/de-DE/data/reusables/enterprise-accounts/dormant-user-activity-threshold.md,rendering error
 translations/de-DE/data/reusables/enterprise-accounts/dormant-user-activity.md,rendering error
-translations/de-DE/data/reusables/enterprise-accounts/emu-azure-admin-consent.md,broken liquid tags
 translations/de-DE/data/reusables/enterprise-accounts/emu-cap-validates.md,broken liquid tags
 translations/de-DE/data/reusables/enterprise-accounts/emu-forks.md,rendering error
 translations/de-DE/data/reusables/enterprise-accounts/emu-permission-follow.md,broken liquid tags
@@ -1201,7 +1179,6 @@ translations/de-DE/data/reusables/enterprise/test-in-staging.md,rendering error
 translations/de-DE/data/reusables/enterprise_installation/download-package.md,rendering error
 translations/de-DE/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,rendering error
 translations/de-DE/data/reusables/enterprise_installation/hotpatching-explanation.md,broken liquid tags
-translations/de-DE/data/reusables/enterprise_installation/image-urls-viewable-warning.md,broken liquid tags
 translations/de-DE/data/reusables/enterprise_installation/ssh-into-instance.md,rendering error
 translations/de-DE/data/reusables/enterprise_site_admin_settings/dormancy-threshold.md,rendering error
 translations/de-DE/data/reusables/enterprise_site_admin_settings/sign-in.md,rendering error
@@ -1228,10 +1205,6 @@ translations/de-DE/data/reusables/getting-started/enterprise-advanced-security.m
 translations/de-DE/data/reusables/getting-started/managing-enterprise-members.md,rendering error
 translations/de-DE/data/reusables/git/git-push.md,rendering error
 translations/de-DE/data/reusables/git/provide-credentials.md,rendering error
-translations/de-DE/data/reusables/identity-and-permissions/about-adding-ip-allow-list-entries.md,broken liquid tags
-translations/de-DE/data/reusables/identity-and-permissions/about-editing-ip-allow-list-entries.md,broken liquid tags
-translations/de-DE/data/reusables/identity-and-permissions/about-enabling-allowed-ip-addresses.md,broken liquid tags
-translations/de-DE/data/reusables/identity-and-permissions/ip-allow-lists-enable.md,broken liquid tags
 translations/de-DE/data/reusables/identity-and-permissions/ip-allow-lists-githubapps-enterprise.md,rendering error
 translations/de-DE/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/de-DE/data/reusables/large_files/storage_assets_location.md,broken liquid tags
@@ -1243,7 +1216,6 @@ translations/de-DE/data/reusables/organizations/billing_plans.md,rendering error
 translations/de-DE/data/reusables/organizations/github-apps-settings-sidebar.md,rendering error
 translations/de-DE/data/reusables/organizations/member-privileges.md,rendering error
 translations/de-DE/data/reusables/organizations/navigate-to-org.md,rendering error
-translations/de-DE/data/reusables/organizations/organization-wide-project.md,broken liquid tags
 translations/de-DE/data/reusables/organizations/repository-defaults.md,rendering error
 translations/de-DE/data/reusables/organizations/security-and-analysis.md,rendering error
 translations/de-DE/data/reusables/organizations/security.md,rendering error
@@ -1298,7 +1270,6 @@ translations/de-DE/data/reusables/scim/supported-idps.md,rendering error
 translations/de-DE/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/de-DE/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/de-DE/data/reusables/secret-scanning/partner-secret-list-private-repo.md,rendering error
-translations/de-DE/data/reusables/secret-scanning/partner-secret-list-public-repo.md,broken liquid tags
 translations/de-DE/data/reusables/secret-scanning/secret-list-private-push-protection.md,rendering error
 translations/de-DE/data/reusables/security-overview/permissions.md,rendering error
 translations/de-DE/data/reusables/shortdesc/rate_limits_github_apps.md,rendering error
@@ -1307,7 +1278,6 @@ translations/de-DE/data/reusables/ssh/about-ssh.md,broken liquid tags
 translations/de-DE/data/reusables/ssh/key-type-support.md,rendering error
 translations/de-DE/data/reusables/ssh/rsa-sha-1-connection-failure-criteria.md,rendering error
 translations/de-DE/data/reusables/support/help_resources.md,rendering error
-translations/de-DE/data/reusables/support/scope-of-support.md,broken liquid tags
 translations/de-DE/data/reusables/support/submit-a-ticket.md,broken liquid tags
 translations/de-DE/data/reusables/user-settings/access_applications.md,rendering error
 translations/de-DE/data/reusables/user-settings/account_settings.md,rendering error
@@ -1327,5 +1297,6 @@ translations/de-DE/data/reusables/user-settings/security.md,rendering error
 translations/de-DE/data/reusables/user-settings/ssh.md,rendering error
 translations/de-DE/data/reusables/webhooks/repository_vulnerability_alert_short_desc.md,broken liquid tags
 translations/de-DE/data/reusables/webhooks/workflow_run_properties.md,broken liquid tags
+translations/de-DE/data/ui.yml,broken liquid tags
 translations/de-DE/data/variables/product.yml,rendering error
 translations/de-DE/data/variables/projects.yml,broken liquid tags

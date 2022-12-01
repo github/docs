@@ -9,12 +9,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 80e4a5a5257a8f2615b402567f91daa9e68a0077
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b140c41062e4fea4c1cb1299b23de774963913af
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145109101'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181300'
 ---
 ## À propos de l’API Demandes de tirage
 
@@ -26,12 +26,12 @@ Chaque demande de tirage est un problème, mais chaque problème n’est pas une
 
 Il s’agit des types de médias pris en charge pour les demandes de tirage.
 
-    application/vnd.github.VERSION.raw+json
-    application/vnd.github.VERSION.text+json
-    application/vnd.github.VERSION.html+json
-    application/vnd.github.VERSION.full+json
-    application/vnd.github.VERSION.diff
-    application/vnd.github.VERSION.patch
+    application/vnd.github.raw+json
+    application/vnd.github.text+json
+    application/vnd.github.html+json
+    application/vnd.github.full+json
+    application/vnd.github.diff
+    application/vnd.github.patch
 
 Pour plus d’informations, consultez « [Types de médias personnalisés](/rest/overview/media-types) ».
 

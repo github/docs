@@ -11,12 +11,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: ae4d0ac726c9b76785876f7884425cab99e89f1f
-ms.sourcegitcommit: fb740a96852435c748dad95d560327e80b4cef19
+ms.openlocfilehash: 3b7cac6d268fb4c7e786651a7281ca5ce4241ec5
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/24/2022
-ms.locfileid: '148105688'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181248'
 ---
 ## Сведения об API больших двоичных объектов Git
 
@@ -27,6 +27,6 @@ ms.locfileid: '148105688'
 Это поддерживаемые типы данных для больших двоичных объектов.
 
     application/json
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 Дополнительные сведения см. в разделе [Типы носителей](/rest/overview/media-types).

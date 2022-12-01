@@ -6,12 +6,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
-ms.openlocfilehash: e35065ae4de634bb7a2da815e0a860c7c0b92234
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 69cdde1bb071f963b1a2f58ef1227bc96ab9d869
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159494'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180783'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
@@ -27,21 +27,11 @@ ms.locfileid: '148159494'
 
 ### 关于与 {% data variables.projects.projects_v2 %} 的集成
 
- 项目的侧面板在痕迹菜单的层次结构中显示问题的位置，使你可以浏览任务列表中包含的问题。 还可以将“跟踪”和“跟踪者”字段添加到项目视图中，以快速查看问题之间的关系。 有关信息，请参阅“[关于跟踪和跟踪者字段](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)”。
+ 项目的侧面板在痕迹菜单的层次结构中显示问题的位置，使你可以浏览任务列表中包含的问题。 还可以将“跟踪”和“跟踪依据”字段添加到项目视图中，以快速查看问题之间的关系。 有关信息，请参阅“[关于“跟踪”和“跟踪依据”字段](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)”。
 
 ## 创建任务列表
 
-要创建任务列表，可使用“添加任务列表”按钮或编辑问题 Markdown。
-
-### 使用“添加任务列表”按钮创建任务列表
-
-单击任何问题描述底部的“{% octicon "checklist" aria-label="The checklist icon" %} 添加任务列表”按钮，可对其进行编辑以创建任务列表。
-
-![显示“添加任务列表”按钮的屏幕截图](/assets/images/help/issues/tasklist-add-tasklist-button.png)
-
-### 使用 Markdown 创建任务列表
-
-可以在问题描述中使用 Markdown 来创建任务列表。 创建围栏代码块，并在右反引号旁边添加 `[tasklist]`。 在每个项前面加上 `- [ ]`，并添加指向其他问题或文本的链接。 可以有选择性地在列表顶部添加一个标题作为 Markdown 标头。 
+可以在问题描述中使用 Markdown 来创建任务列表。 创建围栏代码块，并在右反引号旁边添加 `[tasklist]`。 可以在每个项前面加上 `- [ ]`，并添加指向其他问题或文本的链接。 可以有选择性地在列表顶部添加一个标题作为 Markdown 标头。 
 
 ````
 ```[tasklist]
@@ -50,10 +40,11 @@ ms.locfileid: '148159494'
 - [ ] Draft issue title
 ```
 ````
-
 Markdown 将由 {% data variables.product.product_name %} 以任务列表的形式呈现。 然后，可使用 UI 进行更改并添加问题和草稿问题。 如果编辑问题描述，你将能够直接修改 Markdown 或复制 Markdown 以复制其他问题中的任务列表。
 
+还可以单击格式设置工具栏中的 {% octicon "checklist" aria-label="The checklist icon" %}，以在创建新问题或编辑问题描述时插入任务列表。
 
+![显示“添加任务列表”按钮的屏幕截图](/assets/images/help/issues/tasklist-formatting-toolbar.png)
 
 ## 将问题添加到任务列表
 

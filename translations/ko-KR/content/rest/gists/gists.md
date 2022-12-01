@@ -9,12 +9,12 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: c51d9275950bbf303caa1a03344ba8402618d65b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 47961c5dfeeb5f320bbac67ffb0573c31709bd5b
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145136023'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181325'
 ---
 ## Gist API 정보
 
@@ -38,7 +38,7 @@ Gist API는 gist의 각 파일에 대해 최대 1MB의 콘텐츠를 제공합니
 
 다음은 gist 콘텐츠를 가져오기 위해 지원되는 미디어 유형입니다.
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.base64
+    application/vnd.github.raw
+    application/vnd.github.base64
 
 자세한 내용은 “[미디어 유형](/rest/overview/media-types)”을 참조하세요.

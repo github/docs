@@ -10,16 +10,19 @@ import { useHasAccount } from 'components/hooks/useHasAccount'
 import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ProductPicker } from 'components/page-header/ProductPicker'
+import { ApiVersionPicker } from 'components/sidebar/ApiVersionPicker'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Search } from 'components/Search'
 import { BasicSearch } from 'components/BasicSearch'
 import { VersionPicker } from 'components/page-header/VersionPicker'
 import { Breadcrumbs } from './Breadcrumbs'
+
 import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
+  const { allVersions } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(
@@ -157,6 +160,11 @@ export const Header = () => {
 
               <div className="border-top my-2" />
               <LanguagePicker variant="inline" />
+
+              {allVersions[currentVersion].apiVersions.length > 0 && (
+                <ApiVersionPicker variant="inline" />
+              )}
+
               {signupCTAVisible && (
                 <a
                   href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"

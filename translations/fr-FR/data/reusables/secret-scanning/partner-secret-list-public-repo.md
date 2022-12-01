@@ -1,127 +1,135 @@
-Partner | Supported secret
+---
+ms.openlocfilehash: 59e78cbf492110a8949c27e867bf195ae5605307
+ms.sourcegitcommit: bddda0c0814770ee64e378692891931c618247ec
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181762"
+---
+Partenaire | Secret pris en charge
 --- | ---
-Adafruit IO | Adafruit IO Key
-Adobe | Adobe Device Token
-Adobe | Adobe Service Token
-Adobe | Adobe Short-Lived Access Token
-Adobe | Adobe JSON Web Token
-Alibaba Cloud | Alibaba Cloud Access Key ID and Access Key Secret pair
-Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
-Atlassian | Atlassian API Token
-Atlassian | Atlassian JSON Web Token
-Azure | Azure Active Directory Application Secret
-Azure | Azure Batch Key Identifiable
-Azure | Azure CosmosDB Key Identifiable
-Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
-Azure | Azure ML Studio (classic) Web Service Key
-Azure | Azure SAS Token
-Azure | Azure Search Admin Key
-Azure | Azure Search Query Key
-Azure | Azure Service Management Certificate
-Azure | Azure SQL Connection String
-Azure | Azure Storage Account Key
-Checkout.com | Checkout.com Production Secret Key
-Checkout.com | Checkout.com Test Secret Key
-Chief | Chief Tools Token
-Clojars | Clojars Deploy Token
-CloudBees CodeShip | CloudBees CodeShip Credential
-Contributed Systems | Contributed Systems Credentials
-Databricks | Databricks Access Token
-Datadog | Datadog API Key
-DevCycle | DevCycle Client API Key
-DevCycle | DevCycle Server API Key
-DigitalOcean | DigitalOcean {% data variables.product.pat_generic_title_case %}
-DigitalOcean | DigitalOcean OAuth Token
-DigitalOcean | DigitalOcean Refresh Token
-DigitalOcean | DigitalOcean System Token
-Discord | Discord Bot Token
-Doppler | Doppler Personal Token
-Doppler | Doppler Service Token
-Doppler | Doppler CLI Token
-Doppler | Doppler SCIM Token
-Doppler | Doppler Audit Token
-Dropbox | Dropbox Access Token
-Dropbox | Dropbox Short Lived Access Token
-Dynatrace | Dynatrace Access Token
-Dynatrace | Dynatrace Internal Token
+E/S Adafruit | Clé d’E/S Adafruit
+Adobe | Jeton d’appareil Adobe
+Adobe | Jeton de service Adobe
+Adobe | Jeton d’accès courte durée Adobe
+Adobe | Jeton web JSON Adobe
+Alibaba Cloud | ID de clé d’accès et paire de clé d’accès-secret Alibaba Cloud
+Amazon Web Services (AWS) | ID de clé d’accès et paire de clé d’accès-secret Amazon AWS
+Atlassian | Jeton d’API Atlassian
+Atlassian | Jeton web JSON Atlassian
+Azure | Secret d’application Azure Active Directory
+Azure | Clé Azure Batch identifiable
+Azure | Clé Azure CosmosDB identifiable
+Azure | {% data variables.product.pat_generic_title_case %} Azure DevOps
+Azure | Clé du service web Azure ML Studio (classique)
+Azure | Jeton SAP Azure
+Azure | Clé d’administration de Recherche Azure
+Azure | Clé de requête de Recherche Azure
+Azure | Certificat Azure Service Management
+Azure | Chaîne de connexion Azure SQL
+Azure | Clé du compte de Stockage Azure
+Checkout.com | Clé secrète de production Checkout.com
+Checkout.com | Clé secrète de test Checkout.com
+Chief | Jeton Chief Tools
+Clojars | Jeton de déploiement Clojars
+CloudBees CodeShip | Informations d’identification CloudBees CodeShip
+Contributed Systems | Informations d’identification Contributed Systems
+Databricks | Jeton d’accès Databricks
+Datadog | Clé API Datadog
+DevCycle | Clé API client DevCycle
+DevCycle | Clé API serveur DevCycle
+DigitalOcean | {% data variables.product.pat_generic_title_case %} DigitalOcean
+DigitalOcean | Jeton OAuth DigitalOcean
+DigitalOcean | Jeton d’actualisation DigitalOcean
+DigitalOcean | Jeton système DigitalOcean
+Discord | Jeton de bot Discord
+Doppler | Jeton personnel Doppler
+Doppler | Jeton de service Doppler
+Doppler | Jeton CLI Doppler
+Doppler | Jeton SCIM Doppler
+Doppler | Jeton d’audit Doppler
+Dropbox | Jeton d’accès Dropbox
+Dropbox | Jeton d’accès courte durée Dropbox
+Dynatrace | Jeton d’accès Dynatrace
+Dynatrace | Jeton interne Dynatrace
 Figma | Figma {% data variables.product.pat_generic_title_case %}
-Finicity | Finicity App Key
-Frame.io | Frame.io JSON Web Token
-Frame.io| Frame.io Developer Token
-FullStory| FullStory API Key
-GitHub | GitHub {% data variables.product.pat_generic_title_case %}
-GitHub | GitHub OAuth Access Token
-GitHub | GitHub Refresh Token
-GitHub | GitHub App Installation Access Token
-GitHub | GitHub SSH Private Key
-GoCardless | GoCardless Live Access Token
-GoCardless | GoCardless Sandbox Access Token
-Google Cloud | Google API Key
-Google Cloud | Google Cloud Private Key ID
-Hashicorp Terraform | Terraform Cloud / Enterprise API Token
-Hubspot | Hubspot API Key
-Hubspot | Hubspot API Personal Access Key
-Ionic | Ionic {% data variables.product.pat_generic_title_case %}
-Ionic | Ionic Refresh Token
-JD Cloud | JD Cloud Access Key
-Linear | Linear API Key
-Linear | Linear OAuth Access Token
-Mailchimp | Mailchimp API Key
-Mailchimp | Mandrill API Key
-Mailgun | Mailgun API Key
-MessageBird | MessageBird API Key
-Meta | Facebook Access Token
-npm | npm Access Token
-NuGet | NuGet API Key
-Octopus Deploy | Octopus Deploy API Key
-OpenAI | OpenAI API Key
-Palantir | Palantir JSON Web Token
-PlanetScale | PlanetScale Database Password
-PlanetScale | PlanetScale OAuth Token
-PlanetScale | PlanetScale Service Token
-Plivo | Plivo Auth ID and Token
-Postman | Postman API Key
-Prefect | Prefect Server API Key
-Prefect | Prefect User API Token
-Proctorio | Proctorio Consumer Key
-Proctorio | Proctorio Linkage Key
-Proctorio | Proctorio Registration Key
-Proctorio | Proctorio Secret Key
-Pulumi | Pulumi Access Token
-PyPI | PyPI API Token
-ReadMe | ReadMe API Access Key
+Finicity | Clé d’application Finicity
+Frame.io | Jeton web JSON Frame.io
+Frame.io| Jeton de développeur Frame.io
+Fullstory| Clé API FullStory
+GitHub | {% data variables.product.pat_generic_title_case %} GitHub
+GitHub | Jeton d’accès OAuth GitHub
+GitHub | Jeton d’actualisation GitHub
+GitHub | Jeton d’accès d’installation d’application GitHub
+GitHub | Clé privée SSH GitHub
+GoCardless | Jeton d’accès dynamique GoCardless
+GoCardless | Jeton d’accès de bac à sable GoCardless
+Google Cloud | Clé API Google
+Google Cloud | ID de clé privée Google Cloud
+HashiCorp Terraform | Jeton d’API Cloud / Entreprise Terraform
+Hubspot | Clé API Hubspot
+Hubspot | Clé d’accès personnel API Hubspot
+Ionic | {% data variables.product.pat_generic_title_case %} Ionic
+Ionic | Jeton d’actualisation Ionic
+JD Cloud | Clé d’accès JD Cloud
+Linéaire | Clé API Linear
+Linéaire | Jeton d’accès OAuth Linear
+MailChimp | Clé API Mailchimp
+MailChimp | Clé API Mandrill
+Mailgun | Clé API Mailgun
+MessageBird | Clé API MessageBird
+Meta | Jeton d’accès Facebook
+npm | Jeton d’accès npm
+NuGet | Clé API NuGet
+Octopus Deploy | Clé API Octopus Deploy
+OpenAI | Clé API OpenAI
+Palantir | Jeton web JSON Palantir
+PlanetScale | Mot de passe de base de données PlanetScale
+PlanetScale | Jeton OAuth PlanetScale
+PlanetScale | Jeton de service PlanetScale
+Plivo | ID et jeton d’authentification Plivo
+postman | Clé API Postman
+Prefect | Clé API du serveur Prefect
+Prefect | Jeton d’API utilisateur Prefect
+Proctorio | Clé de consommateur Proctorio
+Proctorio | Clé de liaison Proctorio
+Proctorio | Clé d’inscription proctorio
+Proctorio | Clé secrète Proctorio
+Pulumi | Jeton d’accès Pulumi
+PyPI | Jeton d’API PyPI
+ReadMe | Clé d’accès de l’API ReadMe
 redirect.pizza | redirect.pizza API Token
-RubyGems | RubyGems API Key
-Samsara | Samsara API Token
-Samsara | Samsara OAuth Access Token
-SendGrid | SendGrid API Key
-Sendinblue | Sendinblue API Key
-Sendinblue | Sendinblue SMTP Key
-Shopify | Shopify App Shared Secret
-Shopify | Shopify Access Token
-Shopify | Shopify Custom App Access Token
-Shopify | Shopify Private App Password
-Slack | Slack API Token
-Slack | Slack Incoming Webhook URL
-Slack | Slack Workflow Webhook URL
-SSLMate | SSLMate API Key
-SSLMate | SSLMate Cluster Secret
-Stripe | Stripe Live API Secret Key
-Stripe | Stripe Test API Secret Key
-Stripe | Stripe Live API Restricted Key
-Stripe | Stripe Test API Restricted Key
-Supabase | Supabase Service Key
-Tencent Cloud | Tencent Cloud Secret ID
-Tencent WeChat | Tencent WeChat API App ID
-Twilio | Twilio Account String Identifier
-Twilio | Twilio API Key
-Typeform | Typeform {% data variables.product.pat_generic_title_case %}
-Uniwise | WISEflow API Key 
-Valour | Valour Access Token
-Yandex | Yandex.Cloud API Key	
-Yandex | Yandex.Cloud IAM Cookie	
-Yandex | Yandex.Cloud IAM Token	
-Yandex | Yandex.Dictionary API Key	
-Yandex | Yandex.Cloud Access Secret	
-Yandex | Yandex.Passport OAuth Token	
-Zuplo | Zuplo Consumer API
+RubyGems | Clé API RubyGems
+Samsara | Jeton d’API Samsara
+Samsara | Jeton d’accès OAuth Samsara
+SendGrid | Clé API SendGrid
+Sendinblue | Clé API Sendinblue
+Sendinblue | Clé SMTP Sendinblue
+Shopify | Secret partagé d’application Shopify
+Shopify | Jeton d’accès Shopify
+Shopify | Jeton d’accès d’application personnalisée Shopify
+Shopify | Mot de passe d’application privée Shopify
+Slack | Jeton d’API Slack
+Slack | URL du webhook entrant Slack
+Slack | URL du webhook de workflow Slack
+SSLMate | Clé API SSLMate
+SSLMate | Secret de cluster SSLMate
+Stripe | Clé secrète d’API dynamique Stripe
+Stripe | Clé secrète d’API de test Stripe
+Stripe | Clé restreinte d’API dynamique Stripe
+Stripe | Clé restreinte d’API de test Stripe
+Supabase | Clé de service Supabase
+Tencent Cloud | ID de secret Tencent Cloud
+Tencent WeChat | ID d’application de l’API Tencent WeChat
+Twilio | Identificateur de chaîne de compte Twilio
+Twilio | Clé API Twilio
+Typeform | {% data variables.product.pat_generic_title_case %} Typeform
+Uniwise | Clé API WISEflow 
+Valour | Jeton d’accès Valour
+Yandex | Clé API Yandex.Cloud   
+Yandex | Cookie IAM Yandex.Cloud    
+Yandex | Jeton Yandex.Cloud 
+Yandex | Clé API Yandex.Dictionary  
+Yandex | Secret d’accès Yandex.Cloud 
+Yandex | Jeton OAuth Yandex.Passport    
+Zuplo | API consommateur Zuplo

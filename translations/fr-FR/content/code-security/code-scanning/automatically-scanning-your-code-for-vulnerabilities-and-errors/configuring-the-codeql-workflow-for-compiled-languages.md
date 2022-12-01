@@ -4,6 +4,7 @@ shortTitle: Configure compiled languages
 intro: 'Vous pouvez configurer la façon dont {% data variables.product.prodname_dotcom %} utilise le {% data variables.code-scanning.codeql_workflow %} pour analyser le code écrit dans des langages compilés pour détecter les vulnérabilités et les erreurs.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -25,12 +26,13 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: 91983e79a6381b4a38cbb1de4f6d7f228637b192
-ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+  - Kotlin
+ms.openlocfilehash: 4c594a9ca19064da6c017155fad27b37b083e7e3
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148161198'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182265'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -43,7 +45,7 @@ Vous configurez {% data variables.product.prodname_dotcom %} afin d’exécuter 
 ##  À propos de la génération automatique pour {% data variables.product.prodname_codeql %}
 
 L’{% data variables.product.prodname_code_scanning_capc %} fonctionne en exécutant des requêtes sur une ou plusieurs bases de données. Chaque base de données contient une représentation de tout le code dans un langage unique au sein de votre dépôt.   
-Pour les langages compilés C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} et Java, le processus de remplissage de cette base de données implique la génération du code et l’extraction des données. {% data reusables.code-scanning.analyze-go %}
+Pour les langages compilés C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %}{% ifversion codeql-kotlin-beta %} Kotlin {% endif %} et Java, le processus de remplissage de cette base de données implique la génération du code et l’extraction des données. {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -107,7 +109,7 @@ Le processus `autobuild` tente de détecter automatiquement un moyen approprié 
 
 {% endif %}
 
-### Java
+### Java {% ifversion codeql-kotlin-beta %} et Kotlin {% endif %}
 
 | Type de système pris en charge | Nom système |
 |----|----|

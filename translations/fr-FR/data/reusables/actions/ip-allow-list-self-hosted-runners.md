@@ -1,11 +1,16 @@
-{% ifversion ghae %}
-To allow your self-hosted runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your self-hosted runners to the IP allow list. For more information, see "[Adding an allowed IP address](#adding-an-allowed-ip-address)."
-{% else %}
-{% warning %}
+---
+ms.openlocfilehash: 16f0a067759f387d360529b7c79b30558bf5f220
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180108"
+---
+{% ifversion ghae %} Pour permettre à vos exécuteurs auto-hébergés de communiquer avec {% data variables.product.prodname_dotcom %}, ajoutez l’adresse IP ou la plage d’adresses IP de vos exécuteurs auto-hébergés à la liste des adresses IP autorisées. Pour plus d’informations, consultez « [Ajout d’une adresse IP autorisée](#adding-an-allowed-ip-address) ».
+{% else %} {% warning %}
 
-**Warning**: If you use an IP allow list and would also like to use {% data variables.product.prodname_actions %}, you must use self-hosted runners{% ifversion actions-hosted-runners %} or {% data variables.product.prodname_dotcom %}-hosted larger runners with a static IP address range{% endif %}. For more information, see "[Hosting your own runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)" {% ifversion actions-hosted-runners %} or "[Using larger runners](/actions/using-github-hosted-runners/using-larger-runners)"{% endif %}.
+**Avertissement** : Si vous utilisez une liste d’adresses IP autorisées et que vous souhaitez également utiliser {% data variables.product.prodname_actions %}, vous devez utiliser des exécuteurs auto-hébergés{% ifversion actions-hosted-runners %} ou des exécuteurs hébergés par {% data variables.product.prodname_dotcom %} plus grands avec une plage d’adresses IP statiques{% endif %}. Pour plus d’informations, consultez « [Hébergement de vos propres exécuteurs](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners) » {% ifversion actions-hosted-runners %} ou « [Utilisation d’exécuteurs plus grands](/actions/using-github-hosted-runners/using-larger-runners) »{% endif %}.
 
 {% endwarning %}
 
-To allow your self-hosted {% ifversion actions-hosted-runners %}or larger hosted{% endif %} runners to communicate with {% data variables.product.prodname_dotcom %}, add the IP address or IP address range of your runners to the IP allow list that you have configured for your enterprise. 
-{% endif %}
+Pour permettre à vos exécuteurs auto-hébergés {% ifversion actions-hosted-runners %}ou hébergés plus grands{% endif %} de communiquer avec {% data variables.product.prodname_dotcom %}, ajoutez l’adresse IP ou la plage d’adresses IP de vos exécuteurs à la liste d’adresses IP autorisées que vous avez configurée pour votre entreprise. {% endif %}
