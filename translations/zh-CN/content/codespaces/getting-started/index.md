@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 children:
   - /quickstart
+  - /the-codespace-lifecycle
   - /deep-dive
 ms.openlocfilehash: e0a845403562bbe046b81e52893a9ff59a1fbf1c
 ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
