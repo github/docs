@@ -9,12 +9,12 @@ topics:
   - GitHub Apps
   - OAuth Apps
 shortTitle: Limit app access requests
-ms.openlocfilehash: 4ea1bd133dcbabb9e7b3e3cbe65da5ff9c6eabac
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 6c991ecfbdac75f1bb3bb4fdb5ea3a0692f1d040
+ms.sourcegitcommit: 30b0931723b704e219c736e0de7afe0fa799da29
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148008695'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186437'
 ---
 ## 통합 액세스 요청 정보
 
@@ -22,7 +22,7 @@ ms.locfileid: '148008695'
 
 기본적으로 통합 액세스 요청은 사용하도록 설정됩니다. 조직에 많은 수의 외부 협력자가 있는 경우 통합 액세스 요청을 사용하지 않도록 설정하여 검토해야 하는 요청 수를 줄일 수 있습니다. 
 
-## 교차 액세스 요청 사용 또는 사용 안 함
+## 통합 액세스 요청 사용 또는 사용 안 함
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.profile.org_member_privileges %}
 1. "통합 액세스 요청" **에서 외부 협력자의 통합 요청 허용을** 선택하거나 선택 취소하고 **저장** 을 클릭합니다.
