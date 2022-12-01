@@ -1,6 +1,6 @@
 ---
-title: Getting started with the REST API
-intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST API.'
+title: REST API 入门
+intro: '了解如何使用 {% data variables.product.prodname_dotcom %} REST API。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,33 +10,38 @@ topics:
   - API
 shortTitle: Using the API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 66620b01bb488f8c74111b56255ff06702e402e8
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184259'
 ---
+## 关于 {% data variables.product.prodname_dotcom %} REST API
 
-## About the {% data variables.product.prodname_dotcom %} REST API
+本文介绍如何通过 {% data variables.product.prodname_cli %}、JavaScript 或 cURL 使用 {% data variables.product.prodname_dotcom %} REST API。 有关快速入门指南，请参阅“[GitHub REST API 快速入门](/rest/quickstart)”。
 
-This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a quickstart guide, see "[Quickstart for GitHub REST API](/rest/quickstart)."
+向 REST API 发出请求时，会指定 HTTP 方法和路径。 此外，还可以指定请求头和路径、查询或正文参数。 API 会返回响应状态代码、响应头，并可能返回响应正文。
 
-When you make a request to the REST API, you will specify an HTTP method and a path. Additionally, you might also specify request headers and path, query, or body parameters. The API will return the response status code, response headers, and potentially a response body.
+REST API 参考文档介绍了每个操作的 HTTP 方法、路径和参数。 它还显示每个操作的示例请求和响应。 有关详细信息，请查看 [REST 参考文档](/rest)。
 
-The REST API reference documentation describes the HTTP method, path, and parameters for every operation. It also displays example requests and responses for each operation. For more information, see the [REST reference documentation](/rest).
+若要详细了解 {% data variables.product.company_short %} 的 API，请参阅“[关于 {% data variables.product.company_short %} 的 API 的信息](/developers/overview/about-githubs-apis)”。
 
-For more information about {% data variables.product.company_short %}'s APIs, see "[About {% data variables.product.company_short %}'s APIs](/developers/overview/about-githubs-apis)."
+## 发出请求
 
-## Making a request
-
-To make a request, first find the HTTP method and the path for the operation that you want to use. For example, the "Get Octocat" operation uses the `GET` method and the `/octocat` path. For the full reference documentation for this operation, see "[Get Octocat](/rest/meta#get-octocat)."
+若要发出请求，请先找到要使用的操作的 HTTP 方法和路径。 例如，“获取 Octocat”操作使用 `GET` 方法和 `/octocat` 路径。 有关此操作的完整参考文档，请参阅“[获取 Octocat](/rest/meta#get-octocat)”。
 
 {% cli %}
 
 {% note %}
 
-**Note**: You must install {% data variables.product.prodname_cli %} in order to use the commands in the {% data variables.product.prodname_cli %} examples. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
+注意：必须安装 {% data variables.product.prodname_cli %} 才能使用 {% data variables.product.prodname_cli %} 示例中的命令。 有关安装说明，请参阅 [{% data variables.product.prodname_cli %} 存储库](https://github.com/cli/cli#installation)。
 
 {% endnote %}
 
-If you are not already authenticated to {% data variables.product.prodname_cli %}, you must use the `gh auth login` subcommand to authenticate before making any requests. For more information, see "[Authenticating](#authenticating)."
+如果尚未向 {% data variables.product.prodname_cli %} 进行身份验证，则必须在发出任何请求之前使用 `gh auth login` 子命令进行身份验证。 有关详细信息，请参阅“[身份验证](#authenticating)”。
 
-To make a request using {% data variables.product.prodname_cli %}, use the `api` subcommand along with the path. Use the `--method` or `-X` flag to specify the method.
+若要使用 {% data variables.product.prodname_cli %} 发出请求，请使用 `api` 子命令以及路径。 使用 `--method` 或 `-X` 标志指定方法。
 
 ```shell
 gh api /octocat --method GET
@@ -48,13 +53,13 @@ gh api /octocat --method GET
 
 {% note %}
 
-**Note**: You must install and import `octokit` in order to use the Octokit.js library used in the JavaScript examples. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+注意：必须安装和导入 `octokit` 才能使用 JavaScript 示例中使用的 Octokit.js 库。 有关详细信息，请参阅 [Octokit.js 自述文件](https://github.com/octokit/octokit.js/#readme)。
 
 {% endnote %}
 
-To make a request using JavaScript, you can use Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+若要使用 JavaScript 发出请求，可以使用 Octokit.js。 有关详细信息，请参阅 [Octokit.js 自述文件](https://github.com/octokit/octokit.js/#readme)。
 
-First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+首先，创建 `Octokit` 的实例。{% ifversion ghes or ghae %}将基 URL 设置为 `{% data variables.product.api_url_code %}`。 将 `[hostname]` 替换为 {% data variables.location.product_location %} 的名称。{% endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -62,7 +67,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 {% endif %}});
 ```
 
-Then, use the `request` method to make requests. Pass the HTTP method and path as the first argument.
+然后，使用 `request` 方法发出请求。 将 HTTP 方法和路径作为第一个参数传递。
 
 ```javascript
 await octokit.request("GET /octocat", {});
@@ -72,9 +77,9 @@ await octokit.request("GET /octocat", {});
 
 {% curl %}
 
-Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+在路径前面附加 {% data variables.product.prodname_dotcom %} REST API 的基 URL `{% data variables.product.api_url_code %}`，以获取完整 URL：`{% data variables.product.api_url_code %}/octocat`。{% ifversion ghes or ghae %}将 `[hostname]` 替换为 {% data variables.location.product_location %} 的名称。{% endif %}
 
-Use the `curl` command in your command line. Use the `--request` or `-X` flag followed by the HTTP method. Use the `--url` flag followed by the full URL.
+在命令行中使用 `curl` 命令。 使用 `--request` 或 `-X` 标志，后跟 HTTP 方法。 使用 `--url` 标志，后跟完整 URL。
 
 ```shell
 curl --request GET \
@@ -83,39 +88,39 @@ curl --request GET \
 
 {% note %}
 
-**Note**: If you get a message similar to "command not found: curl", you may need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
+注意：如果收到类似于“找不到命令: curl”的消息，则可能需要下载并安装 cURL。 有关详细信息，请参阅 [cURL 项目下载页面](https://curl.se/download.html)。
 
 {% endnote %}
 
 {% endcurl %}
 
-Continue reading to learn how to authenticate, send parameters, and use the response.
+继续阅读，了解如何进行身份验证、发送参数和使用响应。
 
-## Authenticating
+## 身份验证
 
-Many operations require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.{% cli %} Although some REST API operations are accessible without authentication, you must authenticate to {% data variables.product.prodname_cli %} in order to use the `api` subcommand.{% endcli %}
+许多操作需要身份验证或是在进行身份验证后返回其他信息。 此外，在进行身份验证时，可以每小时发出更多请求。{% cli %}尽管某些 REST API 操作在未进行身份验证的情况下可访问，但你必须向 {% data variables.product.prodname_cli %} 进行身份验证才能使用 `api` 子命令。{% endcli %}
 
-### About tokens
+### 关于令牌
 
-You can authenticate your request by adding a token.
+可以通过添加令牌对请求进行身份验证。
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+如果要将 {% data variables.product.company_short %} REST API 用于个人用途，可以创建 {% data variables.product.pat_generic %}。 本文中使用的 REST API 操作需要 {% data variables.product.pat_v1_plural %} 的 `repo` 范围，{% ifversion pat-v2 %}或者在另有说明的情况下具有对 {% data variables.product.pat_v2 %} 的公共存储库的只读访问权限{% endif %}。 其他操作可能需要不同的范围{% ifversion pat-v2%} 或权限{% endif %}。 有关创建 {% data variables.product.pat_generic %} 的详细信息，请参阅“[创建 {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+如果要代表组织或其他用户使用 API，{% data variables.product.company_short %} 建议使用 {% data variables.product.prodname_github_app %}。 如果某个操作可用于 {% data variables.product.prodname_github_apps %}，则该操作的 REST 参考文档会显示“适用于 GitHub 应用”。 本文中使用的 REST API 操作需要将 `issues` 读取和写入权限用于 {% data variables.product.prodname_github_apps %}。 其他操作可能需要不同的权限。 有关详细信息，请参阅“[创建 GitHub 应用](/developers/apps/building-github-apps/creating-a-github-app)”、“[使用 GitHub 应用进行身份验证](/developers/apps/building-github-apps/authenticating-with-github-apps)”和“[识别和授权 GitHub 应用用户](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)”。
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
+如果要在 {% data variables.product.prodname_actions %} 工作流中使用 API，则 {% data variables.product.company_short %} 建议使用内置 `GITHUB_TOKEN` 进行身份验证，而不是创建令牌。 可以使用 `permissions` 密钥向 `GITHUB_TOKEN` 授予权限。 有关详细信息，请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)”。
 
-### Authentication example
+### 身份验证示例
 
 {% cli %}
 
-With {% data variables.product.prodname_cli %}, you don't need to create an access token in advance. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}:
+借助 {% data variables.product.prodname_cli %}，无需提前创建访问令牌。 使用 `auth login` 子命令向 {% data variables.product.prodname_cli %} 进行身份验证：
 
 ```shell
 gh auth login
 ```
 
-You can use the `--scopes` flag to specify what scopes you want. If you want to authenticate with a token that you created, you can use the `--with-token` flag. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+可以使用 `--scopes` 标志指定所需的范围。 如果要使用创建的令牌进行身份验证，可以使用 `--with-token` 标志。 有关详细信息，请参阅 [{% data variables.product.prodname_cli %} `auth login` 文档](https://cli.github.com/manual/gh_auth_login)。
 
 {% endcli %}
 
@@ -123,17 +128,17 @@ You can use the `--scopes` flag to specify what scopes you want. If you want to 
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
+警告：将访问令牌视为密码。
 
-To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+若要确保令牌安全，可以将令牌存储为机密，并通过 {% data variables.product.prodname_actions %} 运行脚本。 有关详细信息，请参阅“[加密机密](/actions/security-guides/encrypted-secrets)”。
 
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}还可以将令牌存储为 {% data variables.product.prodname_codespaces %} 机密，并在 {% data variables.product.prodname_codespaces %} 中运行脚本。 有关详细信息，请参阅“[管理 codespace 的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)。”{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+如果无法使用这些选项，请考虑使用其他服务（如 [1Password CLI](https://developer.1password.com/docs/cli/secret-references/)）安全地存储令牌。
 
 {% endwarning %}
 
-To authenticate with the Octokit.js library, you can pass your token when you create an instance of `Octokit`. Replace `YOUR-TOKEN` with your token.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+若要使用 Octokit.js 库进行身份验证，可以在创建 `Octokit` 的实例时传递令牌。 将 `YOUR-TOKEN` 替换为令牌。{% ifversion ghes or ghae %}将 `[hostname]` 替换为 {% data variables.location.product_location %} 的名称。{% endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -148,17 +153,17 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
+警告：将访问令牌视为密码。
 
-To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+若要帮助确保帐户安全，可以使用 {% data variables.product.prodname_cli %} 而不是 cURL。 {% data variables.product.prodname_cli %} 会为你处理身份验证。 有关详细信息，请参阅此页面的 {% data variables.product.prodname_cli %} 版本。
 
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}还可以将令牌存储为 {% data variables.product.prodname_codespaces %} 机密，并通过 {% data variables.product.prodname_codespaces %} 使用命令行。 有关详细信息，请参阅“[管理 codespace 的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)。”{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+如果无法使用这些选项，请考虑使用其他服务（如 [1Password CLI](https://developer.1password.com/docs/cli/secret-references/)）安全地存储令牌。
 
 {% endwarning %}
 
-With cURL, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
+使用 cURL 时，会发送包含令牌的 `Authorization` 标头。 将 `YOUR-TOKEN` 替换为你的令牌：
 
 ```shell
 curl --request GET \
@@ -168,19 +173,19 @@ curl --request GET \
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+注意：{% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
 {% endcurl %}
 
-### Authentication example for {% data variables.product.prodname_actions %}
+### 适用于 {% data variables.product.prodname_actions %} 的身份验证示例
 
 {% cli %}
 
-You can also use the `run` keyword to execute {% data variables.product.prodname_cli %} commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+还可以使用 `run` 关键字在 {% data variables.product.prodname_actions %} 工作流中执行 {% data variables.product.prodname_cli %} 命令。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)”。
 
-Instead of using the `gh auth login` command, pass your token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+不要使用 `gh auth login` 命令，而是将令牌作为名为 `GH_TOKEN` 的环境变量进行传递。 {% data variables.product.prodname_dotcom %} 建议使用内置 `GITHUB_TOKEN` 进行身份验证，而不是创建令牌。 如果无法执行此操作，请将令牌存储为机密，并将以下示例中的 `GITHUB_TOKEN` 替换为机密的名称。 有关 `GITHUB_TOKEN` 的详细信息，请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。 有关机密的详细信息，请参阅“[已加密的机密](/actions/security-guides/encrypted-secrets)”。
 
 ```yaml
 jobs:
@@ -198,18 +203,18 @@ jobs:
 
 {% javascript %}
 
-You can also use the `run` keyword to execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+还可以在 {% data variables.product.prodname_actions %} 工作流中使用 `run` 关键字执行 JavaScript 脚本。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)”。
 
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} 建议使用内置 `GITHUB_TOKEN` 进行身份验证，而不是创建令牌。 如果无法执行此操作，请将令牌存储为机密，并将以下示例中的 `GITHUB_TOKEN` 替换为机密的名称。 有关 `GITHUB_TOKEN` 的详细信息，请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。 有关机密的详细信息，请参阅“[已加密的机密](/actions/security-guides/encrypted-secrets)”。
 
-The following example workflow:
+以下示例工作流：
 
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
+1. 签出存储库内容
+1. 设置 Node.js
+1. 安装 `octokit`
+1. 将 `GITHUB_TOKEN` 的值存储为名为 `TOKEN` 的环境变量，并运行 `.github/actions-scripts/use-the-api.mjs`（它可以将该环境变量作为 `process.env.TOKEN` 进行访问）。
 
-Example workflow:
+示例工作流：
 
 ```yaml
 on:
@@ -238,7 +243,7 @@ jobs:
           node .github/actions-scripts/use-the-api.mjs
 ```
 
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
+文件路径为 `.github/actions-scripts/use-the-api.mjs` 的示例 JavaScript 脚本：
 
 ```javascript
 import { Octokit } from "octokit";
@@ -251,7 +256,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 await octokit.request("GET /octocat", {});
 ```
 
-Instead of storing your script in a separate file and executing the script from your workflow, you can use the `actions/github-script` action to run a script. For more information, see the [actions/github-script README](https://github.com/actions/github-script).
+可以使用 `actions/github-script` 操作运行脚本，而不是将脚本存储在单独文件中并从工作流中执行脚本。 有关详细信息，请参阅 [actions/github-script README](https://github.com/actions/github-script)。
 
 ```yaml
 jobs:
@@ -270,9 +275,9 @@ jobs:
 
 {% curl %}
 
-You can also use the `run` keyword to execute cURL commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+还可以在 {% data variables.product.prodname_actions %} 工作流中使用 `run` 关键字执行 cURL 命令。 有关详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)”。
 
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} 建议使用内置 `GITHUB_TOKEN` 进行身份验证，而不是创建令牌。 如果无法执行此操作，请将令牌存储为机密，并将以下示例中的 `GITHUB_TOKEN` 替换为机密的名称。 有关 `GITHUB_TOKEN` 的详细信息，请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。 有关机密的详细信息，请参阅“[已加密的机密](/actions/security-guides/encrypted-secrets)”。
 
 ```yaml
 jobs:
@@ -290,13 +295,13 @@ jobs:
 
 {% endcurl %}
 
-## Using headers
+## 使用标头
 
-Most operations specify that you should pass an `Accept` header with a value of `application/vnd.github+json`. Other operations may specify that you should send a different `Accept` header or additional headers.
+大多数操作会指定应传递包含 `application/vnd.github+json` 值的 `Accept` 标头。 其他操作可能会指定应发送不同的 `Accept` 标头或其他标头。
 
 {% cli %}
 
-To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
+若要使用 {% data variables.product.prodname_cli %} 发送标头，请使用 `--header` 或 `-H` 标志，后跟采用 `key: value` 格式的标头。
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versioning %} --header 'X-GitHub-Api-Version:{{ allVersions[currentVersion].latestApiVersion }}'{% endif %} --method GET /octocat
@@ -306,7 +311,7 @@ gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versi
 
 {% javascript %}
 
-The Octokit.js library automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument to the `request` method. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
+Octokit.js 库会自动传递 `Accept: application/vnd.github+json` 标头。 若要传递其他标头或不同的 `Accept` 标头，请将 `headers` 属性添加到对象，该属性会作为第二个参数传递给 `request` 方法。 `headers` 属性的值是将标头名称作为键并将标头值作为值的对象。 例如，若要发送具有 `text/plain` 值的 `content-type` 标头：
 
 ```javascript
 await octokit.request("GET /octocat", {
@@ -321,7 +326,7 @@ await octokit.request("GET /octocat", {
 
 {% curl %}
 
-To send a header with cURL, use the `--header` or `-H` flag followed by the header in `key: value` format.
+若要使用 cURL 发送标头，请使用 `--header` 或 `-H` 标志，后跟采用 `key: value` 格式的标头。
 
 ```shell
 curl --request GET \
@@ -333,21 +338,19 @@ curl --request GET \
 
 {% endcurl %}
 
-## Using path parameters
+## 使用路径参数
 
-Path parameters modify the operation path. For example, the "List repository issues" path is `/repos/{owner}/{repo}/issues`. The curly brackets `{}` denote path parameters that you need to  specify. In this case, you must specify the repository owner and name. For the reference documentation for this operation, see "[List repository issues](/rest/issues/issues#list-repository-issues)."
+路径参数会修改操作路径。 例如，“列出存储库问题”路径为 `/repos/{owner}/{repo}/issues`。 大括号 `{}` 表示需要指定的路径参数。 在这种情况下，必须指定存储库所有者和名称。 有关此操作的参考文档，请参阅“[列出存储库问题](/rest/issues/issues#list-repository-issues)”。
 
 {% cli %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** In order for this command to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% data variables.location.product_location %}.
+注意：若要使此命令适用于 {% data variables.location.product_location %}，请将 `octocat/Spoon-Knife` 替换为 {% data variables.location.product_location %} 拥有的存储库。 否则，请重新运行 `gh auth login` 命令以向 {% data variables.product.prodname_dotcom_the_website %} 进行身份验证，而不是 {% data variables.location.product_location %}。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`.
+若要从 `octocat/Spoon-Knife` 存储库获取问题，请将 `{owner}`替换为 `octocat`，并将 `{repo}` 替换为 `Spoon-Knife`。
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues
@@ -357,15 +360,13 @@ gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octoca
 
 {% javascript %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** In order for this example to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, create a new `Octokit` instance and do not specify `baseURL`.
+注意：若要使此示例适用于 {% data variables.location.product_location %}，请将 `octocat/Spoon-Knife` 替换为 {% data variables.location.product_location %} 拥有的存储库。 否则，请创建新 `Octokit` 实例，但不指定 `baseURL`。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-When you make a request with Octokit.js, all parameters, including path parameters, are passed in an object as the second argument to the `request` method. To get issues from the `octocat/Spoon-Knife` repository, specify `owner` as `octocat` and `repo` as `Spoon-Knife`.
+使用 Octokit.js 发出请求时，所有参数（包括路径参数）都会在对象中作为第二个参数传递给 `request` 方法。 若要从 `octocat/Spoon-Knife` 存储库获取问题，请将 `owner` 指定为 `octocat`，并将 `repo` 指定为 `Spoon-Knife`。
 
 ```javascript
 await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -378,15 +379,13 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`. To build the full path, prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `https://api.github.com`: `https://api.github.com/repos/octocat/Spoon-Knife/issues`.
+若要从 `octocat/Spoon-Knife` 存储库获取问题，请将 `{owner}`替换为 `octocat`，并将 `{repo}` 替换为 `Spoon-Knife`。 若要生成完整路径，请在前面附加 {% data variables.product.prodname_dotcom %} REST API 的基 URL `https://api.github.com`：`https://api.github.com/repos/octocat/Spoon-Knife/issues`。
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** If you want to use {% data variables.location.product_location %} instead of {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` instead of `https://api.github.com` and replace `[hostname]` with the name of {% data variables.location.product_location %}. Replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}.
+注意：如果要使用 {% data variables.location.product_location %} 而不是 {% data variables.product.prodname_dotcom_the_website %}，请使用 `{% data variables.product.api_url_code %}` 而不是 `https://api.github.com`，并将 `[hostname]` 替换为 {% data variables.location.product_location %} 的名称。 将 `octocat/Spoon-Knife` 替换为 {% data variables.location.product_location %} 拥有的存储库。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 ```shell
 curl --request GET \
@@ -397,21 +396,21 @@ curl --request GET \
 
 {% endcurl %}
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+该操作返回问题列表以及有关每个问题的数据。 有关使用响应的详细信息，请参阅“[使用响应](#using-the-response)”部分。
 
-## Using query parameters
+## 使用查询参数
 
-Query parameters allow you to control what data is returned for a request. For example, a query parameter may let you specify how many items are returned when the response is paginated.
+查询参数使你可以控制为请求返回的数据。 例如，查询参数可用于指定响应进行分页时返回的项数。
 
-By default, the "List repository issues" operation returns thirty issues, sorted in descending order by the date they were created. You can use the `per_page` parameter to return two issues instead of 30. You can use the `sort` parameter to sort the issues by the date they were last updated instead of by the date they were created. You can use the `direction` parameter to sort the results in ascending order instead of descending order.
+默认情况下，“列出存储库问题”操作返回三十个问题，按创建日期的降序排序。 可以使用 `per_page` 参数返回 2 个问题，而不是 30 个问题。 可以使用 `sort` 参数按上次更新日期（而不是创建日期）对问题进行排序。 可以使用 `direction` 参数按升序（而不是降序）对结果进行排序。
 
 {% cli %}
 
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
+对于 {% data variables.product.prodname_cli %}，使用 `-F` 标志传递作为数字、布尔值或 null 的参数。 使用 `-f` 传递字符串参数。
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
+注意：{% data variables.product.prodname_cli %} 当前不接受数组参数。 有关详细信息，请参阅[此问题](https://github.com/cli/cli/issues/1484)。
 
 {% endnote %}
 
@@ -423,7 +422,7 @@ gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octoca
 
 {% javascript %}
 
-When you make a request with Octokit.js, all parameters, including query parameters, are passed in an object as the second argument to the `request` method.
+使用 Octokit.js 发出请求时，所有参数（包括查询参数）都会在对象中作为第二个参数传递给 `request` 方法。
 
 ```javascript
 await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -439,7 +438,7 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-For cURL, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
+对于 cURL，向路径末尾添加 `?` ，然后采用 `parameter_name=value` 形式追加查询参数名称和值。 使用 `&` 分隔多个查询参数。
 
 ```shell
 curl --request GET \
@@ -450,21 +449,21 @@ curl --request GET \
 
 {% endcurl %}
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+该操作返回问题列表以及有关每个问题的数据。 有关使用响应的详细信息，请参阅“[使用响应](#using-the-response)”部分。
 
-## Using body parameters
+## 使用正文参数
 
-Body parameters allow you to pass additional data to the API. For example, the "Create an issue" operation requires you to specify a title for the new issue. It also lets you specify other information, such as text to put in the issue body. For the full reference documentation for this operation, see "[Create an issue](/rest/issues/issues#create-an-issue)."
+正文参数使你可以将其他数据传递给 API。 例如，“创建问题”操作要求为新问题指定标题。 它还使你可以指定其他信息，例如要放入问题正文中的文本。 有关此操作的完整参考文档，请参阅“[创建问题](/rest/issues/issues#create-an-issue)”。
 
-The "Create an issue" operation uses the same path as the "List repository issues" operation in the examples above, but it uses a `POST` method instead of a `GET` method.
+“创建问题”操作使用的路径与上面示例中的“列出存储库问题”操作相同，但它使用 `POST` 方法而不是 `GET` 方法。
 
 {% cli %}
 
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
+对于 {% data variables.product.prodname_cli %}，使用 `-F` 标志传递作为数字、布尔值或 null 的参数。 使用 `-f` 传递字符串参数。
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
+注意：{% data variables.product.prodname_cli %} 当前不接受数组参数。 有关详细信息，请参阅[此问题](https://github.com/cli/cli/issues/1484)。
 
 {% endnote %}
 
@@ -480,13 +479,13 @@ gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octoc
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+如果使用的是 {% data variables.product.pat_v2 %}，则必须将 `octocat/Spoon-Knife` 替换为属于你或你所在的组织的存储库。 令牌必须有权访问该存储库，并且对存储库问题具有读取和写入权限。 有关创建存储库的详细信息，请参阅“[创建存储库](/get-started/quickstart/create-a-repo)”。 有关向 {% data variables.product.pat_v2 %} 授予访问权限和特权的详细信息，请参阅“[创建 {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
 
 {% endnote %}
 
 {% endif %}
 
-When you make a request with Octokit.js, all parameters, including body parameters, are passed in an object as the second argument to the `request` method.
+使用 Octokit.js 发出请求时，所有参数（包括正文参数）都会在对象中作为第二个参数传递给 `request` 方法。
 
 ```javascript
 await octokit.request("POST /repos/{owner}/{repo}/issues", {
@@ -505,13 +504,13 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+如果使用的是 {% data variables.product.pat_v2 %}，则必须将 `octocat/Spoon-Knife` 替换为属于你或你所在的组织的存储库。 令牌必须有权访问该存储库，并且对存储库问题具有读取和写入权限。 有关创建存储库的详细信息，请参阅“[创建存储库](/get-started/quickstart/create-a-repo)”。 有关向 {% data variables.product.pat_v2 %} 授予访问权限和特权的详细信息，请参阅“[创建 {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
 
 {% endnote %}
 
 {% endif %}
 
-For cURL, use the `--data` flag to pass the body parameters in a JSON object.
+对于 cURL，使用 `--data` 标志在 JSON 对象中传递正文参数。
 
 ```shell
 curl --request POST \
@@ -526,27 +525,27 @@ curl --request POST \
 
 {% endcurl %}
 
-The operation creates an issue and returns data about the new issue. In the response, find the `html_url` of your issue and navigate to your issue in the browser. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+该操作创建一个问题并返回有关新问题的数据。 在响应中，找到问题的 `html_url` 并在浏览器中导航到问题。 有关使用响应的详细信息，请参阅“[使用响应](#using-the-response)”部分。
 
-## Using the response
+## 使用响应
 
-### About the response code and headers
+### 关于响应代码和标头
 
-Every request will return an HTTP status code that indicates the success of the response. For more information about response codes, see [the MDN HTTP response status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
+每个请求都会返回 HTTP 状态代码，以指示响应是否成功。 有关响应代码的详细信息，请参阅 [MDN HTTP 响应状态代码文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)。
 
-Additionally, the response will include headers that give more details about the response. Headers that start with `X-` or `x-` are custom to {% data variables.product.company_short %}. For example, the `x-ratelimit-remaining` and `x-ratelimit-reset` headers tell you how many requests you can make in a time period.
+此外，响应会包含标头，以提供有关响应的更多详细信息。 以 `X-` 或 `x-` 开头的标头对于 {% data variables.product.company_short %} 是自定义的。 例如，`x-ratelimit-remaining` 和 `x-ratelimit-reset` 标头会告知你在一段时间内可以发出的请求数。
 
 {% cli %}
 
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
+若要查看状态代码和标头，请在发送请求时使用 `--include` 或 `--i` 标志。
 
-For example, this request:
+例如，以下请求：
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 --include
 ```
 
-returns the response code and headers like:
+返回响应代码和标头，如下所示：
 
 ```shell
 HTTP/2.0 200 OK
@@ -578,15 +577,15 @@ X-Ratelimit-Used: 4
 X-Xss-Protection: 0
 ```
 
-In this example, the response code is `200`, which indicates a successful request.
+在此示例中，响应代码为 `200`，指示请求成功。
 
 {% endcli %}
 
 {% javascript %}
 
-When you make a request with Octokit.js, the `request` method returns a promise. If the request was successful, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`headers`). If an error occurs, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`response.headers`).
+使用 Octokit.js 发出请求时，`request` 方法会返回承诺。 如果请求成功，则承诺会解析为包含响应的 HTTP 状态代码 (`status`) 和响应标头 (`headers`) 的对象。 如果发生错误，则承诺会解析为包含响应的 HTTP 状态代码 (`status`) 和响应标头 (`response.headers`) 的对象。
 
-You can use a `try/catch` block to catch an error if it occurs. For example, if the request in the following script is successful, the script will log the status code and the value of the `x-ratelimit-remaining` header. If the request was not successful, the script will log the status code, the value of the `x-ratelimit-remaining` header, and the error message.
+如果发生错误，则可以使用 `try/catch` 块进行捕获。 例如，如果以下脚本中的请求成功，则脚本会记录状态代码和 `x-ratelimit-remaining` 标头的值。 如果请求未成功，脚本会记录状态代码、标头的 `x-ratelimit-remaining` 值和错误消息。
 
 ```javascript
 try {
@@ -607,9 +606,9 @@ try {
 
 {% curl %}
 
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
+若要查看状态代码和标头，请在发送请求时使用 `--include` 或 `--i` 标志。
 
-For example, this request:
+例如，以下请求：
 
 ```shell
 curl --request GET \
@@ -619,7 +618,7 @@ curl --request GET \
 --include
 ```
 
-returns the response code and headers like:
+返回响应代码和标头，如下所示：
 
 ```shell
 HTTP/2 200
@@ -649,13 +648,13 @@ content-length: 4936
 x-github-request-id: 14E0:4BC6:F1B8BA:208E317:62EC2715
 ```
 
-In this example, the response code is `200`, which indicates a successful request.
+在此示例中，响应代码为 `200`，指示请求成功。
 
 {% endcurl %}
 
-### About the response body
+### 关于响应正文
 
-Many operations will return a response body. Unless otherwise specified, the response body is in JSON format. For example, this request returns a list of issues with data about each issue:
+许多操作会返回响应正文。 除非另外指定，否则响应正文会采用 JSON 格式。 例如，此请求返回问题列表以及有关每个问题的数据：
 
 {% cli %}
 
@@ -688,23 +687,23 @@ curl --request GET \
 
 {% endcurl %}
 
-Unlike the GraphQL API where you specify what information you want, the REST API typically returns more information than you need. If desired, you can parse the response to pull out specific pieces of information.
+与指定所需信息的 GraphQL API 不同，REST API 通常会返回比所需信息更多的信息。 如果需要，可以分析响应以拉取特定信息片段。
 
 {% cli %}
 
-For example, you can use `>` to redirect the response to a file:
+例如，可使用 `>` 将响应重定向到文件：
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
 ```
 
-Then you can use jq to get the title and author ID of each issue:
+然后可以使用 jq 获取每个问题的标题和创建者 ID：
 
 ```shell
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
-The previous two commands return something like:
+前面两个命令返回类似于下面这样的内容：
 
 ```
 {
@@ -717,13 +716,13 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+有关 jq 的详细信息，请参阅 [jq 文档](https://stedolan.github.io/jq/)和 [jq play](https://jqplay.org/)。
 
 {% endcli %}
 
 {% javascript %}
 
-For example, you can get the title and author ID of each issue:
+例如，可以获取每个问题的标题和创建者 ID：
 
 ```javascript
 try {
@@ -746,7 +745,7 @@ try {
 
 {% curl %}
 
-For example, you can use `>` to redirect the response to a file:
+例如，可使用 `>` 将响应重定向到文件：
 
 ```shell
 curl --request GET \
@@ -755,13 +754,13 @@ curl --request GET \
 --header "Authorization: Bearer YOUR-TOKEN" > data.json
 ```
 
-Then you can use jq to get the title and author ID of each issue:
+然后可以使用 jq 获取每个问题的标题和创建者 ID：
 
 ```shell
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
-The previous two commands return something like:
+前面两个命令返回类似于下面这样的内容：
 
 ```
 {
@@ -774,12 +773,12 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+有关 jq 的详细信息，请参阅 [jq 文档](https://stedolan.github.io/jq/)和 [jq play](https://jqplay.org/)。
 
 {% endcurl %}
 
-## Next steps
+## 后续步骤
 
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information about these operations, see "[Create an issue comment](/rest/issues#create-an-issue-comment)" and "[Update an issue](/rest/issues/issues#update-an-issue)."
+本文演示了如何在存储库中列出和创建问题。 有关更多做法，请尝试对问题添加注释、编辑问题的标题或关闭问题。 有关这些操作的详细信息，请参阅“[创建问题注释](/rest/issues#create-an-issue-comment)”和“[更新问题](/rest/issues/issues#update-an-issue)”。
 
-For more information about the operations that you can use, see the [REST reference documentation](/rest).
+有关可以使用的操作的详细信息，请参阅 [REST 参考文档](/rest)。

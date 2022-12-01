@@ -11,12 +11,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
-ms.openlocfilehash: 682160b3b92960487c0709fc411fc2143d18f415
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 35bd9dd859612307c1f9e49ea8ed9771e4f5efcd
+ms.sourcegitcommit: bf4e3590ab71b0a1bfa8d74b00183f63193acbbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159435'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186169'
 ---
 {% jetbrains %}
 
@@ -54,7 +54,7 @@ ms.locfileid: '148159435'
 
 ## {% data variables.product.prodname_vscode_shortname %} 故障排除
 
-在 {% data variables.product.prodname_vscode_shortname %} 桌面应用程序中打开 codespace 时，你可能会注意到与在本地工作区中工作相比存在一些差异，但体验应该相似。 
+在 {% data variables.product.prodname_vscode_shortname %} 桌面应用程序中打开 codespace 时，你可能会注意到与在本地工作区中工作相比存在一些差异，但体验应该相似。
 
 如果遇到问题，可使用 [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) 存储库中的 {% data variables.product.prodname_vscode_shortname %} 体验检查已知问题并记录新问题。
 
@@ -104,6 +104,31 @@ ms.locfileid: '148159435'
 
 1. 单击“保存并重启”。
 
+### 客户端无法在 MacOS Ventura 中打开 
+
+在 MacOS Ventura 中，首次尝试从 JetBrains 网关连接到 codespace 时，可能会显示一条消息，告知你 JetBrains 客户端应用程序“已损坏，无法打开”。
+
+<img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
+
+如果发生这种情况，请执行以下操作：
+
+1. 单击“取消”关闭此消息。
+1. 单击屏幕左上角的 Apple 图标，然后单击“系统设置”。 
+1. 单击“隐私和安全性”，向下滚动到“安全性”部分。
+
+   ![“隐私和安全性”对话框的屏幕截图](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
+
+   你将看到一条消息，告知你 JetBrains 客户端已被阻止使用。 
+
+1. 单击“仍然打开”，将 JetBrains 客户端添加到已识别的应用程序。 
+   会再次显示该消息，但这次包含一个“打开”按钮。
+
+   <img src="/assets/images/help/codespaces/jetbrains-ventura-error2.png" alt="Screenshot of the error message with an 'Open' button" style="width:230px;"/>
+
+1. 再次单击“取消”。
+1. 返回 JetBrains 网关应用程序，然后再次连接到所需的 codespace。
+   JetBrains 客户端现在将成功打开。 授权客户端应用程序在 Mac 上运行后，将来连接到 codespace 时便不会再看到该消息。
+
 ### SSH 连接问题
 
 若要通过在 codespace 中运行的 SSH 服务器进行连接，必须在 `~/.ssh` 目录（MacOS 和 Linux）或 `%HOMEPATH%\.ssh` 目录 (Windows) 中具有已添加到 {% data variables.product.prodname_dotcom %} 帐户的 SSH 密钥。 如果此目录中没有任何密钥，{% data variables.product.prodname_cli %} 将生成密钥。 有关详细信息，请参阅“[将新的 SSH 密钥添加到 {% data variables.product.prodname_dotcom %} 帐户](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)”。
@@ -115,4 +140,3 @@ ms.locfileid: '148159435'
 有关你正在使用的 JetBrains IDE 或 JetBrains 网关应用程序特定问题的帮助，请参阅 JetBrains 网站上的“[产品支持](https://www.jetbrains.com/support/)”。
 
 {% endjetbrains %}
-
