@@ -1,6 +1,6 @@
 ---
 title: Informationen zu den Feldern „Nachverfolgungen“ und „Nachverfolgt von“
-shortTitle: About Tracks and Tracked-by fields
+shortTitle: About Tracks and Tracked by fields
 intro: Du kannst die Teilaufgaben der Issues in deinen Projekten anzeigen.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -8,12 +8,12 @@ versions:
 type: tutorial
 topics:
   - Projects
-ms.openlocfilehash: 74cd26d20882a00ac8c7ac1d109cc6810286cec6
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 44c1fcf3ed4495b57a0f2dbe3e92076f0e815502
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159658'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180745'
 ---
 {% data reusables.projects.tasklists-release-stage %}
 
@@ -31,7 +31,7 @@ Um den Filter zu verwenden, ersetze `<OWNER>` durch den Repositorybesitzer, `<RE
 
 ### Aktivieren des Felds „Nachverfolgt von“
 
-Du kannst das Feld „Nachverfolgt von“ aktivieren, um zu sehen, welche Issues ein Element in deinem Projekt nachverfolgen.
+Du kannst das Feld „Nachverfolgt von“ aktivieren, um zu sehen, welche Issues in deinem Projekt ein Element nachverfolgen.
 
 1. Klicke in der Tabellenansicht im Feld ganz rechts auf {% octicon "plus" aria-label="the plus icon" %}.
    

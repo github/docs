@@ -1,7 +1,7 @@
 ---
-title: Configuring the CodeQL workflow for compiled languages
+title: 为编译的语言配置 CodeQL 工作流
 shortTitle: Configure compiled languages
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.code-scanning.codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
+intro: '可以配置 {% data variables.product.prodname_dotcom %} 如何使用 {% data variables.code-scanning.codeql_workflow %} 扫描用编译语言编写的代码以查找漏洞和错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 miniTocMaxHeadingLevel: 3
@@ -27,107 +27,106 @@ topics:
   - C#
   - Java
   - Kotlin
+ms.openlocfilehash: 4c594a9ca19064da6c017155fad27b37b083e7e3
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182264'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
+## 关于 {% data variables.code-scanning.codeql_workflow %} 和编译语言
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
+通过添加 {% data variables.product.prodname_actions %} 工作流程到仓库，设置 {% data variables.product.prodname_dotcom %} 对仓库运行 {% data variables.product.prodname_code_scanning %}。 对于 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}，可以添加 {% data variables.code-scanning.codeql_workflow %}。 有关详细信息，请参阅“[为存储库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
 
-## About the {% data variables.code-scanning.codeql_workflow %} and compiled languages
+{% data reusables.code-scanning.edit-workflow %} 有关配置 {% data variables.product.prodname_code_scanning %} 和编辑工作流文件的一般信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %} ](/code-security/secure-coding/configuring-code-scanning)”和“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+##  关于 {% data variables.product.prodname_codeql %} 的自动构建
 
-{% data reusables.code-scanning.edit-workflow %} 
-For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
-
-##  About autobuild for {% data variables.product.prodname_codeql %}
-
-{% data variables.product.prodname_code_scanning_capc %} works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository.   
-For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %}{% ifversion codeql-kotlin-beta %} Kotlin, {% endif %} and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
+{% data variables.product.prodname_code_scanning_capc %} 的工作原理是针对一个或多个数据库运行查询。 每个数据库都包含仓库中所有代码的单一语言表示形式。   
+对于编译语言 C/C++、C#、{% ifversion codeql-go-autobuild %} Go、{% endif %}{% ifversion codeql-kotlin-beta %}Kotlin {% endif %}和 Java，填充此数据库的过程涉及构建代码和提取数据。 {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
-If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
+如果你的工作流使用 `language` 矩阵，`autobuild` 会尝试生成矩阵中列出的每种编译语言。 如果不使用矩阵，则 `autobuild` 会尝试生成在存储库中具有最多源文件的受支持编译语言。 除 Go 以外，除非您提供明确的构建命令，否则您仓库中其他编译语言的分析将失败。
 
 {% note %}
 
-{% ifversion ghae %}
-**Note**: {% data reusables.actions.self-hosted-runners-software %}
-{% else %}
-**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% ifversion ghae %} **注意**：{% data reusables.actions.self-hosted-runners-software %} {% else %} **注意**：如果使用 {% data variables.product.prodname_actions %} 的自承载运行器，则可能需要安装其他软件才能使用 `autobuild` 进程。 此外，如果您的仓库需要特定版本的构建工具，您可能需要手动安装它。 有关详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
 {% endif %}
 
 {% endnote %}
 
 ### C/C++
 
-| Supported system type | System name |
+| 支持的系统类型 | 系统名称 |
 |----|----|
-| Operating system | Windows, macOS, and Linux |
-| Build system | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
+| 操作系统 | Windows、macOS 和 Linux |
+| 构建系统 | Windows：MSbuild 和生成脚本<br/>Linux 和 macOS：Autoconf、Make、CMake、qmake、Meson、Waf、SCons、Linux Kbuild 和生成脚本 |
 
-The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
+`autobuild` 步骤的行为因运行提取的操作系统而异。 在 Windows 上，`autobuild` 步骤尝试使用以下方法自动检测适合 C/C++ 的生成方法：
 
-1. Invoke `MSBuild.exe` on the solution (`.sln`) or project (`.vcxproj`) file closest to the root.
-If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
-2. Invoke a script that looks like a build script—_build.bat_, _build.cmd_, _and build.exe_ (in that order).
+1. 对离根最近的解决方案 (`.sln`) 或项目 (`.vcxproj`) 文件调用 `MSBuild.exe`。
+如果 `autobuild` 在顶层目录下的相同（最短）深度检测到多个解决方案或项目文件，它将尝试生成所有这些文件。
+2. 调用看起来像生成脚本的脚本：build.bat、build.cmd 和 build.exe（按此顺序）  。
 
-On Linux and macOS, the `autobuild` step reviews the files present in the repository to determine the build system used:
+在 Linux 和 macOS 上，`autobuild` 步骤检查存储库中存在的文件，以确定使用的生成系统：
 
-1. Look for a build system in the root directory.
-2. If none are found, search subdirectories for a unique directory with a build system for C/C++.
-3. Run an appropriate command to configure the system. 
+1. 在根目录中查找构建系统。
+2. 如果未找到，则搜索子目录以查找含有 C/C++ 构建系统的唯一目录。
+3. 运行适当的命令来配置系统。 
 
 ### C#
 
-| Supported system type | System name |
+| 支持的系统类型 | 系统名称 |
 |----|----|
-| Operating system | Windows and Linux |
-| Build system | .NET and MSbuild, as well as build scripts |
+| 操作系统 | Windows 和 Linux |
+| 构建系统 | .NET 和 MSbuild，以及构建脚本 |
 
-The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
+`autobuild` 进程尝试使用以下方法自动检测适合 C# 的构建方法：
 
-1. Invoke `dotnet build` on the solution (`.sln`) or project (`.csproj`) file closest to the root.
-2. Invoke `MSbuild` (Linux) or `MSBuild.exe` (Windows) on the solution or project file closest to the root.
-If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
-3. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
+1. 对离根最近的解决方案 (`.sln`) 或项目 (`.csproj`) 文件调用 `dotnet build`。
+2. 对离根最近的解决方案或项目文件调用 `MSbuild` (Linux) 或 `MSBuild.exe` (Windows)。
+如果 `autobuild` 在顶层目录下的相同（最短）深度检测到多个解决方案或项目文件，它将尝试生成所有这些文件。
+3. 调用看起来像生成脚本的脚本：build 和 build.sh（对于 Linux，按此顺序）或 build.bat、build.cmd 和 build.exe（对于 Windows，按此顺序）    。
 
 {% ifversion codeql-go-autobuild %}
 
 ### Go
 
-| Supported system type | System name |
+| 支持的系统类型 | 系统名称 |
 |----|----|
-| Operating system | Windows, macOS, and Linux |
-| Build system | Go modules, `dep` and Glide, as well as build scripts including Makefiles and Ninja scripts |
+| 操作系统 | Windows、macOS 和 Linux |
+| 构建系统 | Go 模块、`dep` 和 Glide，以及生成脚本，包括 Makefiles 和 Ninja 脚本 |
 
-The `autobuild` process attempts to autodetect a suitable way to install the dependencies needed by a Go repository before extracting all `.go` files:
+`autobuild` 过程尝试在提取所有 `.go` 文件之前自动检测安装 Go 存储库所需的依赖项的合适方法：
 
-1. Invoke `make`, `ninja`, `./build` or `./build.sh` (in that order) until one of these commands succeeds and a subsequent `go list ./...` also succeeds, indicating that the needed dependencies have been installed.
-2. If none of those commands succeeded, look for `go.mod`, `Gopkg.toml` or `glide.yaml`, and run `go get` (unless vendoring is in use), `dep ensure -v` or `glide install` respectively to try to install dependencies.
-3. Finally, if configurations files for these dependency managers are not found, rearrange the repository directory structure suitable for addition to `GOPATH`, and use `go get` to install dependencies. The directory structure reverts to normal after extraction completes.
-4. Extract all Go code in the repository, similar to running `go build ./...`.
+1. 调用 `make`、`ninja`、`./build` 或 `./build.sh`（按该顺序），直到其中一个命令成功，后续 `go list ./...` 也成功，这表示已安装所需的依赖项。
+2. 如果这些命令都没有成功，请查找 `go.mod`、`Gopkg.toml` 或 `glide.yaml`，并分别运行 `go get`（除非正在使用供应商）、`dep ensure -v` 或 `glide install` 以尝试安装依赖项。
+3. 最后，如果未找到这些依赖项管理器的配置文件，请重新排列适合添加到 `GOPATH` 的存储库目录结构，并使用 `go get` 安装依赖项。 提取完成后，目录结构恢复为正常。
+4. 提取存储库中的所有 Go 代码，类似于运行 `go build ./...`。
 
 {% endif %}
 
-### Java {% ifversion codeql-kotlin-beta %} and Kotlin {% endif %}
+### Java {% ifversion codeql-kotlin-beta %}和 Kotlin{% endif %}
 
-| Supported system type | System name |
+| 支持的系统类型 | 系统名称 |
 |----|----|
-| Operating system | Windows, macOS, and Linux (no restriction) |
-| Build system | Gradle, Maven and Ant |
+| 操作系统 | Windows、macOS 和 Linux（无限制） |
+| 构建系统 | Gradle、Maven 和 Ant |
 
-The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
+`autobuild` 进程尝试通过应用此策略来确定 Java 代码库的生成系统：
 
-1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
-2. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
-3. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
+1. 在根目录中搜索构建文件。 先后检查 Gradle、Maven 和 Ant 构建文件。
+2. 运行找到的第一个构建文件。 如果 Gradle 和 Maven 文件都存在，则使用 Gradle 文件。
+3. 否则，在根目录的直接子目录中搜索构建文件。 如果只有一个子目录包含构建文件，则运行该子目录中标识的第一个文件（使用与 1 相同的首选项）。 如果多个子目录包含构建文件，则报告错误。
 
-## Adding build steps for a compiled language
+## 添加编译语言的构建步骤
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."
+{% data reusables.code-scanning.autobuild-add-build-steps %} 有关如何编辑工作流文件的信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)”。
 
-After removing the `autobuild` step, uncomment the `run` step and add build commands that are suitable for your repository. The workflow `run` step runs command-line programs using the operating system's shell. You can modify these commands and add more commands to customize the build process.
+删除 `autobuild` 步骤后，取消注释 `run` 步骤并添加适合存储库的生成命令。 工作流 `run` 步骤会使用操作系统的 shell 来运行命令行程序。 可以修改这些命令并添加更多命令以自定义生成过程。
 
 ``` yaml
 - run: |
@@ -135,9 +134,9 @@ After removing the `autobuild` step, uncomment the `run` step and add build comm
     make release
 ```
 
-For more information about the `run` keyword, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+有关 `run` 关键字的详细信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)”。
 
-If your repository contains multiple compiled languages, you can specify language-specific build commands. For example, if your repository contains C/C++, C# and Java, and `autobuild` correctly builds C/C++ and C# but fails to build Java, you could use the following configuration in your workflow, after the `init` step. This specifies build steps for Java while still using `autobuild` for C/C++ and C#:
+如果存储库包含多个编译语言，可以指定特定于语言的生成命令。 例如，如果存储库包含 C/C++、C# 和 Java，而 `autobuild` 正确生成了 C/C++ 和 C#，但未能生成 Java，那么在 `init` 步骤之后，可以在工作流中使用以下配置。 这指定了 Java 的生成步骤，同时仍然为 C/C++ 和 C# 使用 `autobuild`：
 
 ```yaml
 - if: matrix.language == 'cpp' || matrix.language == 'csharp' 
@@ -151,8 +150,8 @@ If your repository contains multiple compiled languages, you can specify languag
     make release
 ```
 
-For more information about the `if` conditional, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
+有关 `if` 条件的详细信息，请参阅“[GitHub Actions 的工作流语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif)”。
 
-For more tips and tricks about why `autobuild` won't build your code, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+有关为什么 `autobuild` 无法生成代码的更多提示和技巧，请参阅“[{% data variables.product.prodname_codeql %} 工作流故障排除](/code-security/secure-coding/troubleshooting-the-codeql-workflow)”。
 
-If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
+如果您为编译语言添加了手动构建步骤，但 {% data variables.product.prodname_code_scanning %} 仍然无法处理您的仓库，请联系 {% data variables.contact.contact_support %}。

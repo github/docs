@@ -4,12 +4,12 @@ intro: 'Сведения об использовании API GraphQL {% data var
 versions:
   feature: discussions
 shortTitle: Use GraphQL for Discussions
-ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: fd296c4e9390cac3500ba7319cb602366a37e262
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147408846'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185620'
 ---
 API GraphQL для {% data variables.product.prodname_discussions %} позволяет получать, создавать, изменять и удалять публикации обсуждений. Дополнительные сведения о {% data variables.product.prodname_discussions %} см. в разделе [Сведения об обсуждениях](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 
@@ -72,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Возвращаются доступные категории обсуждений, определенные в этом репозитории. Каждый репозиторий может относиться к нескольким категориям (до 10). Дополнительные сведения о категориях обсуждений см. в разделе [Сведения об обсуждениях](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
+Возвращаются доступные категории обсуждений, определенные в этом репозитории. Каждый репозиторий может содержать до 25 категорий. Дополнительные сведения о категориях обсуждений см. в разделе [Сведения об обсуждениях](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
 
 _Сигнатура:_
 

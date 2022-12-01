@@ -7,13 +7,15 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 24415504e0abeff6e129321068b07590d265da16
-ms.sourcegitcommit: 99eb4456062aea31ca381977396417cf92e5798d
+ms.openlocfilehash: ae879b5834007a34ab0e3a7a45dcae4c1e31bc4f
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2022
-ms.locfileid: '148179632'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185061'
 ---
+{% data reusables.copilot.copilot-cta-button %}
+
 ## {% data variables.product.prodname_copilot %} 및 JetBrains IDE 정보
 
 {% data reusables.copilot.procedural-intro %}

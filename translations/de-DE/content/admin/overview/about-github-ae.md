@@ -7,12 +7,12 @@ type: overview
 topics:
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 9e7769fca5b36252fad5566450ba156120491649
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 388e271c17c182a318e8c2d095811ac27633a414
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389851'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180146'
 ---
 ## Informationen zu {% data variables.product.prodname_ghe_managed %}
 
@@ -38,7 +38,7 @@ Optional können Unternehmensbesitzer*innen die eingeschränkte Integration zwis
 
 ## Eingeschränkter Netzwerkzugriff
 
-Sichere den Zugriff auf dein Unternehmen unter {% data variables.product.prodname_ghe_managed %} mit eingeschränktem Netzwerkzugriff, sodass auf deine Daten nur aus deinem Netzwerk zugegriffen werden kann. Weitere Informationen findest du unter „[Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen](/admin/configuration/restricting-network-traffic-to-your-enterprise)“.
+Sichere den Zugriff auf dein Unternehmen unter {% data variables.product.prodname_ghe_managed %} mit eingeschränktem Netzwerkzugriff, sodass auf deine Daten nur aus deinem Netzwerk zugegriffen werden kann. Weitere Informationen findest du unter [Einschränken des Netzwerkdatenverkehrs in deinem Unternehmen mit einer Liste zugelassener IP-Adressen](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
 
 ## Kommerzielle und staatliche Umgebungen
 

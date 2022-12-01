@@ -1,6 +1,6 @@
 ---
 title: 在 Amazon Web Services 中配置 OpenID Connect
-shortTitle: Configuring OpenID Connect in Amazon Web Services
+shortTitle: OpenID Connect in AWS
 intro: 在工作流程中使用 OpenID Connect 向 Amazon Web Services 进行身份验证。
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 6b57dc216c3f2ebc1edb73a8d588edb1967aebcb
-ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.openlocfilehash: 597ea408c2f0172eb0eacf07fc2d1ad320872f09
+ms.sourcegitcommit: 94ba3891ebcc3c05812f468e4adafdd15b99e390
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147876001'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182255'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -53,7 +53,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
 }
 ```
 
-在以下示例中，`ForAllValues` 用于匹配多个条件键，`StringLike` 用于匹配指定存储库中的任何 ref。 请注意，`ForAllValues` [过于宽松](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html)，不应在 `Allow` 效果中单独使用。 对于此示例，包含 `StringLike` 表示 `ForAllValues` 中的空集仍然不会传递条件：
+在以下示例中，`StringLike` 与通配符运算符 (`*`) 一起使用，以允许 `octo-org/octo-repo` 组织和存储库中的任何分支、拉取请求合并分支或环境在 AWS 中担任角色。
 
 ```json{:copy}
 {
@@ -69,8 +69,7 @@ OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %}
                 "StringLike": {
                     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
                 },
-                "ForAllValues:StringEquals": {
-                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                "StringEquals": {
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 }
             }

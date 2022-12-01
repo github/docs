@@ -16,12 +16,12 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
-ms.openlocfilehash: 0b47f0292eb3a13467a8227ac323d289f9712223
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 646f8068e68040f1d12f8155c3ba9e2bdb84c2ca
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158771'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185089'
 ---
 ## 关于开发容器
 
@@ -216,7 +216,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 ## 将配置更改应用于 codespace
 
-对配置的更改将在下次创建 codespace 时应用。 但是，如果在 Web 浏览器、{% data variables.product.prodname_vscode_shortname %} 或 JetBrains IDE 中使用 codespace，则可以通过重新生成容器将配置更改应用于当前 codespace。
+对配置的更改将在下次创建 codespace 时应用。 但是，可以通过重新生成容器将更改应用到现有 codespace。 你可以在 {% data variables.product.prodname_vscode_shortname %} Web 客户端或桌面应用程序中的 codespace 内执行此操作，也可以使用 {% data variables.product.prodname_cli %}。
 
 ### 在 {% data variables.product.prodname_vscode_shortname %} Web 客户端或桌面应用程序中重新生成开发容器
 
@@ -229,15 +229,19 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
    - 若要修复日志中标识的错误，请更新 `devcontainer.json` 文件。
    - 要应用更改，请重建容器。 
 
-### 在 JetBrains IDE 中重新生成开发容器
+### 使用 {% data variables.product.prodname_cli %} 重新生成开发容器
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. 在 {% data variables.product.prodname_github_codespaces %} 工具窗口中，单击“重新生成”图标。
+如果更改了 VS Code 外部的开发容器配置（例如在 {% data variables.product.prodname_dotcom_the_website %} 上或在 JetBrains IDE 中），则可以使用 {% data variables.product.prodname_cli %} 为现有 codespace 重新生成开发容器。
 
-   ![“重新生成”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
+1. 在终端中输入以下命令。
 
-1. 当提示确认是否要重新生成开发容器时，单击“重新生成”。 
-1. 在 JetBrains IDE 中重新打开 codespace。
+   ```
+   gh cs rebuild
+   ```
+
+   将列出 codespace。
+
+1. 使用键盘上的箭头键突出显示所需的 codespace，然后按 <kbd>Enter</kbd>。
 
 
 ## 延伸阅读

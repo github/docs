@@ -49,7 +49,7 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 ## {% data variables.product.prodname_vscode_shortname %} troubleshooting
 
-When you open a codespace in the {% data variables.product.prodname_vscode_shortname %} desktop application, you may notice a few differences compared with working in a local workspace, but the experience should be similar. 
+When you open a codespace in the {% data variables.product.prodname_vscode_shortname %} desktop application, you may notice a few differences compared with working in a local workspace, but the experience should be similar.
 
 If you encounter problems, you can check for known issues and log new issues with the {% data variables.product.prodname_vscode_shortname %} experience in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
 
@@ -99,6 +99,31 @@ The following provides some guidance as an initial starting point, which you can
 
 1. Click **Save and restart**.
 
+### Client can't be opened in MacOS Ventura 
+
+In MacOS Ventura, the first time you try to connect to a codespace from the JetBrains Gateway a message may be displayed telling you that the JetBrains client application "is damaged and can't be opened."
+
+<img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
+
+If this happens:
+
+1. Click **Cancel** to dismiss this message.
+1. Click the Apple icon, top left of the screen, and click **System Settings**. 
+1. Click **Privacy & Security** and scroll down to the "Security" section.
+
+   ![Screenshot of the Privacy & Security dialog](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
+
+   You will see a message telling you that the JetBrains Client was blocked from use. 
+
+1. Click **Open Anyway** to add the JetBrains client to your recognized applications. 
+   The message is displayed again but this time with an **Open** button.
+
+   <img src="/assets/images/help/codespaces/jetbrains-ventura-error2.png" alt="Screenshot of the error message with an 'Open' button" style="width:230px;"/>
+
+1. Click **Cancel** again.
+1. Go back to the JetBrains Gateway application and connect to the required codespace again.
+   The JetBrains client will now open successfully. Having authorized the client application to run on your Mac, you will not see the message when you connect to your codespaces in future.
+
 ### SSH connection issues
 
 To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
@@ -110,4 +135,3 @@ If you encounter problems with key validation, try upgrading your version of {% 
 For help with issues specific to the JetBrains IDE you are using, or the JetBrains Gateway application, see "[Product Support](https://www.jetbrains.com/support/)" on the JetBrains website.
 
 {% endjetbrains %}
-

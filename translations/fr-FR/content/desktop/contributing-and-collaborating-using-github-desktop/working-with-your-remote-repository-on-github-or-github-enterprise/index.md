@@ -10,7 +10,7 @@ children:
   - /viewing-a-pull-request-in-github-desktop
   - /viewing-and-re-running-checks-in-github-desktop
   - /configuring-notifications-in-github-desktop
-  - /changing-a-remotes-url-from-github-desktop
+  - /changing-the-remote-url-for-a-repository-from-github-desktop
 shortTitle: Work with your remote repo
 ms.openlocfilehash: 60c2f41546ff085ea8f8d56142da6a3c7a81ebae
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5

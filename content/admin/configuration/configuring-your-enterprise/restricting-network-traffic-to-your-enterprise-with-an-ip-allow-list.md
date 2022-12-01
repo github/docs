@@ -25,7 +25,7 @@ By default, authorized users can access your enterprise from any IP address. You
 
 {% ifversion ghec %}
 
- If your enterprise uses {% data variables.product.prodname_emus %} with OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
+If your enterprise uses {% data variables.product.prodname_emus %} with OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
 
 {% elsif ghae %}
 
@@ -44,8 +44,6 @@ You can use {% data variables.product.company_short %}'s IP allow list to contro
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
-
-You can also configure allowed IP addresses for an individual organization. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
 ## About your IdP's allow list
 
@@ -134,7 +132,7 @@ You can use your IdP's allow list if you use {% data variables.product.prodname_
 1. Under "IP allow list", select the dropdown and click **Identity Provider**.
 
    ![Screenshot of dropdown menu showing three IP allow list configuration options: Disabled, Identity Provider, and GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
+1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
 
    ![Checkbox to allow IP addresses](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Click **Save**.

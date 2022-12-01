@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: cd0c5b4bafc5226a99a75d3632fc5072233f5c1c
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: b62ab2a143ed0e7ec57f7e7225a09c0ca713295c
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180154'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185047'
 ---
 ## Acerca de las restricciones de tráfico de red
 
@@ -30,7 +30,7 @@ Predeterminadamente, los usuarios autorizados pueden acceder a tu empresa desde 
 
 {% ifversion ghec %}
 
- Si tu empresa usa {% data variables.product.prodname_emus %} con OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
+Si tu empresa usa {% data variables.product.prodname_emus %} con OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
@@ -49,8 +49,6 @@ Puedes usar la lista de direcciones IP permitidas de {% data variables.product.c
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
-
-También puedes configurar las direcciones IP permitidas para una organización individual. Para más información, vea "[Administración de las direcciones IP permitidas para la organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
 ## Acerca de la lista de permitidos del proveedor de identidades
 
@@ -117,7 +115,7 @@ Puedes usar la lista de permitidos del proveedor de identidades si usas {% data 
 1. En "Lista de direcciones IP permitidas", selecciona la lista desplegable y haz clic en **Proveedor de identidades**.
 
    ![Captura de pantalla del menú desplegable que muestra tres opciones de configuración de la lista de direcciones IP permitidas: Deshabilitada, Proveedor de identidades y GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Opcionalmente, para permitir que los {% data variables.product.company_short %} y {% data variables.product.prodname_oauth_apps %} instalados accedan a la empresa desde cualquier dirección IP, selecciona **Omitir comprobación de proveedor de identidades para aplicaciones**.
+1. Opcionalmente, para permitir que los {% data variables.product.company_short %} y {% data variables.product.prodname_oauth_apps %} instalados accedan a la empresa desde cualquier dirección IP, selecciona **Omitir comprobación de proveedor de identidades para aplicaciones**.
 
    ![Casilla para permitir direcciones IP](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Haga clic en **Save**(Guardar).

@@ -11,12 +11,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
-ms.openlocfilehash: 682160b3b92960487c0709fc411fc2143d18f415
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 35bd9dd859612307c1f9e49ea8ed9771e4f5efcd
+ms.sourcegitcommit: bf4e3590ab71b0a1bfa8d74b00183f63193acbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159309'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186168'
 ---
 {% jetbrains %}
 
@@ -54,7 +54,7 @@ Se o problema não for corrigido no {% data variables.product.prodname_vscode %}
 
 ## Solução de problemas do {% data variables.product.prodname_vscode_shortname %}
 
-Ao abrir um codespace no aplicativo da área de trabalho {% data variables.product.prodname_vscode_shortname %}, você pode observar algumas diferenças em comparação com o trabalho em um workspace local, mas a experiência deve ser semelhante. 
+Ao abrir um codespace no aplicativo da área de trabalho {% data variables.product.prodname_vscode_shortname %}, você pode observar algumas diferenças em comparação com o trabalho em um workspace local, mas a experiência deve ser semelhante.
 
 Se houver problemas, verifique se há problemas conhecidos e registre novos problemas em log com a experiência do {% data variables.product.prodname_vscode_shortname %} no repositório [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces).
 
@@ -104,6 +104,31 @@ Veja a seguir algumas diretrizes como um ponto de partida inicial, que você pod
 
 1. Clique em **Salvar e reiniciar**.
 
+### O cliente não pode ser aberto no MacOS Ventura 
+
+No MacOS Ventura, na primeira tentativa de conexão com um codespace do JetBrains Gateway, uma mensagem pode ser exibida informando que o aplicativo cliente JetBrains "está danificado e não pode ser aberto".
+
+<img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
+
+Se isso acontecer:
+
+1. Clique em **Cancelar** para ignorar essa mensagem.
+1. Clique no ícone da Apple, no canto superior esquerdo da tela, e em **Configurações do sistema**. 
+1. Clique em **Privacidade e segurança** e role para baixo até a seção "Segurança".
+
+   ![Captura de tela da caixa de diálogo “Privacidade e segurança”](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
+
+   Você verá uma mensagem informando que o cliente JetBrains foi bloqueado para uso. 
+
+1. Clique em **Abrir mesmo assim** para adicionar o cliente JetBrains aos aplicativos reconhecidos. 
+   A mensagem será exibida novamente, mas agora com um botão **Abrir**.
+
+   <img src="/assets/images/help/codespaces/jetbrains-ventura-error2.png" alt="Screenshot of the error message with an 'Open' button" style="width:230px;"/>
+
+1. Clique em **Cancelar** novamente.
+1. Volte ao aplicativo JetBrains Gateway e conecte-se ao codespace necessário novamente.
+   Agora o cliente JetBrains será aberto com sucesso. Depois de autorizar a execução do aplicativo cliente no Mac, você não verá mais a mensagem ao se conectar posteriormente aos codespaces.
+
 ### Problemas de conexão SSH
 
 Para se conectar por meio do servidor SSH em execução no codespace, você precisa ter uma chave SSH no diretório `~/.ssh` (MacOS e Linux) ou no diretório `%HOMEPATH%\.ssh` (Windows) que já tenha sido adicionada à conta do {% data variables.product.prodname_dotcom %}. Se você não tiver chaves neste diretório, a {% data variables.product.prodname_cli %} vai gerá-las. Para obter mais informações, confira "[Como adicionar uma nova chave SSH à sua conta do {% data variables.product.prodname_dotcom %}](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)".
@@ -115,4 +140,3 @@ Se você encontrar problemas com a validação de chave, tente atualizar a vers�
 Para obter ajuda com problemas específicos do IDE do JetBrains que você está usando ou o aplicativo JetBrains Gateway, confira "[Suporte ao produto](https://www.jetbrains.com/support/)" no site do JetBrains.
 
 {% endjetbrains %}
-

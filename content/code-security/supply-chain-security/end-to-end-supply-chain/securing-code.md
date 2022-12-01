@@ -37,9 +37,11 @@ You can secure the code you depend on by creating a vulnerability management pro
 
 1. Create an inventory of your dependencies.
 
-2. Know when there is a security vulnerability in a dependency.
+1. Know when there is a security vulnerability in a dependency.
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+1. Enforce dependency reviews on your pull requests.{% endif %}
 
-3. Assess the impact of that vulnerability on your code and decide what action to take.
+1. Assess the impact of that vulnerability on your code and decide what action to take.
 
 ### Automatic inventory generation
 
@@ -48,6 +50,11 @@ As a first step, you want to make a complete inventory of your dependencies. The
 ### Automatic detection of vulnerabilities in dependencies
 
 {% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. {% ifversion fpt or ghec or ghes %}You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version.{% endif %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes %} and "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)"{% endif %}.
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+### Automatic detection of vulnerabilities in pull requests
+
+The {% data variables.product.prodname_dependency_review_action %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.product.prodname_dependency_review_action %} can block the pull request from merging. For more information, see "[Dependency review enforcement](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."{% endif %} 
+    
 
 ### Assessment of exposure to risk from a vulnerable dependency
 
