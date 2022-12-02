@@ -609,8 +609,11 @@ describe('server', () => {
       const res = await get('/articles/deleting-a-team', { followRedirects: false })
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
-      // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('redirects old articles to their slugified URL', async () => {
@@ -625,8 +628,12 @@ describe('server', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     // This test exists because in a previous life, our NextJS used to
@@ -644,8 +651,12 @@ describe('server', () => {
 
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('redirects / to /en when unsupported language preference is specified', async () => {
@@ -658,8 +669,12 @@ describe('server', () => {
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('adds English prefix to old article URLs', async () => {
@@ -667,8 +682,11 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
       expect(res.headers['set-cookie']).toBeUndefined()
-      // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('redirects that not only injects /en/ should have cache-control', async () => {

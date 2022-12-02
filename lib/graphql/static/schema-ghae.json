@@ -36856,6 +36856,14 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "totalCommentsCount",
+          "description": "<p>Returns a count of how many comments this pull request has received.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",

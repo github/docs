@@ -105,6 +105,7 @@ translations/ru-RU/content/codespaces/customizing-your-codespace/setting-your-ti
 translations/ru-RU/content/codespaces/developing-in-codespaces/codespaces-lifecycle.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/creating-a-codespace.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/renaming-a-codespace.md,file deleted because it no longer exists in main
+translations/ru-RU/content/codespaces/developing-in-codespaces/the-codespace-lifecycle.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,file deleted because it no longer exists in main
@@ -122,6 +123,7 @@ translations/ru-RU/content/codespaces/troubleshooting/troubleshooting-port-forwa
 translations/ru-RU/content/codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces.md,file deleted because it no longer exists in main
 translations/ru-RU/content/codespaces/troubleshooting/working-with-support-for-codespaces.md,file deleted because it no longer exists in main
 translations/ru-RU/content/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account.md,file deleted because it no longer exists in main
+translations/ru-RU/content/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop.md,file deleted because it no longer exists in main
 translations/ru-RU/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors.md,file deleted because it no longer exists in main
 translations/ru-RU/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange.md,file deleted because it no longer exists in main
 translations/ru-RU/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students.md,file deleted because it no longer exists in main
@@ -185,6 +187,7 @@ translations/ru-RU/content/organizations/restricting-access-to-your-organization
 translations/ru-RU/content/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization.md,file deleted because it no longer exists in main
 translations/ru-RU/content/organizations/restricting-access-to-your-organizations-data/index.md,file deleted because it no longer exists in main
 translations/ru-RU/content/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser.md,file deleted because it no longer exists in main
+translations/ru-RU/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,file deleted because it no longer exists in main
 translations/ru-RU/content/pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork.md,file deleted because it no longer exists in main
 translations/ru-RU/content/rest/reference/actions.md,file deleted because it no longer exists in main
 translations/ru-RU/content/rest/reference/activity.md,file deleted because it no longer exists in main
@@ -1074,7 +1077,6 @@ translations/ru-RU/content/repositories/creating-and-managing-repositories/delet
 translations/ru-RU/content/repositories/creating-and-managing-repositories/restoring-a-deleted-repository.md,rendering error
 translations/ru-RU/content/repositories/creating-and-managing-repositories/transferring-a-repository.md,rendering error
 translations/ru-RU/content/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors.md,rendering error
-translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,rendering error
 translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview.md,rendering error
 translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository.md,rendering error
 translations/ru-RU/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,rendering error

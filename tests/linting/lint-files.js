@@ -19,7 +19,6 @@ import { execSync } from 'child_process'
 import { allVersions } from '../../lib/all-versions.js'
 import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
-import loadSiteData from '../../lib/site-data.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -211,8 +210,6 @@ const oldExtendedMarkdownErrorText =
   'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 const literalActionInsteadOfReusableErrorText =
   'Found a literal mention of a GitHub-owned action. Instead, use the reusables for the action. e.g {% data reusables.actions.action-checkout %}'
-
-const siteData = loadSiteData()
 
 const mdWalkOptions = {
   globs: ['**/*.md'],
@@ -464,7 +461,7 @@ describe('lint markdown content', () => {
         }
       })
 
-      const context = { site: siteData.en.site }
+      const context = {}
 
       // visit is not async-friendly so we need to do an async map to parse the YML snippets
       yamlScheduledWorkflows = (
@@ -1041,7 +1038,7 @@ describe('lint learning tracks', () => {
       const productVersions = getApplicableVersions(data.versions, productTocPath)
 
       const featuredTracks = {}
-      const context = { enterpriseServerVersions, site: siteData.en.site }
+      const context = { enterpriseServerVersions }
 
       // For each of the product's versions, render the learning track data and look for a featured track.
       await Promise.all(

@@ -7,12 +7,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-ms.openlocfilehash: bba9137fc39c1bc101a75650dcea03e651d37fff
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 27f11aa4ae2693bcc336ecdf4cbfb68d8679d743
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145086375'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186162'
 ---
 ## Pour les applications GitHub
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur la recherche d’applications à utiliser, consul
 
 ## Pour les actions GitHub 
 
-Les actions qui arborent le badge {% octicon "verified" aria-label="The verified badge" %} ou le badge de créateur vérifié indiquent que {% data variables.product.prodname_dotcom %} a vérifié que le créateur de l’action est bien une organisation partenaire.
+Les actions qui arborent le badge {% octicon "verified" aria-label="The verified badge" %} ou le badge de créateur vérifié indiquent que {% data variables.product.prodname_dotcom %} a vérifié que le créateur de l’action est bien une organisation partenaire. Les partenaires peuvent envoyer un e-mail à <a href="mailto:partnerships@github.com">partnerships@github.com</a> pour demander le badge de créateur vérifié.
 
 ![Badge de créateur vérifié pour GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Resources in the REST API
-intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+title: REST API 中的资源
+intro: '了解如何导航 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 提供的资源。'
 redirect_from:
   - /rest/initialize-the-repo
 versions:
@@ -11,19 +11,23 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
+ms.openlocfilehash: dc16916ada20275d41f23a8bc006cc79ddf51120
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184267'
 ---
-
 {% ifversion api-date-versioning %}
-## API version
+## API 版本
 
-Available resources may vary between REST API versions. You should use the `X-GitHub-Api-Version` header to specify an API version. For more information, see "[API Versions](/rest/overview/api-versions)."
+可用资源可能因不同的 REST API 版本而异。 应使用 `X-GitHub-Api-Version` 标头指定 API 版本。 有关详细信息，请参阅“[API 版本](/rest/overview/api-versions)”。
 
 {% endif %}
 
-## Schema
+## 架构
 
-{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
-sent and received as JSON.
+{% ifversion fpt or ghec %}所有 API 访问都通过 HTTPS 进行，并且{% else %}API{% endif %} 从 `{% data variables.product.api_url_code %}` 进行访问。  所有数据都以 JSON 格式发送和接收。
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
@@ -44,55 +48,45 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-Content-Type-Options: nosniff
 ```
 
-Blank fields are included as `null` instead of being omitted.
+空白字段包含为 `null`，而不是被省略。
 
-All timestamps return in UTC time, ISO 8601 format:
+所有时间戳以 ISO 8601 格式返回 UTC 时间：
 
     YYYY-MM-DDTHH:MM:SSZ
 
-For more information about timezones in timestamps, see [this section](#timezones).
+有关时间戳中的时区的详细信息，请参阅[本部分](#timezones)。
 
-### Summary representations
+### 摘要表示
 
-When you fetch a list of resources, the response includes a _subset_ of the
-attributes for that resource. This is the "summary" representation of the
-resource. (Some attributes are computationally expensive for the API to provide.
-For performance reasons, the summary representation excludes those attributes.
-To obtain those attributes, fetch the "detailed" representation.)
+提取资源列表时，响应包含该资源的属性子集。 这就是资源的“摘要”表示形式。 （对于某些属性，API 要经过大量计算后才可提供。
+出于性能考虑，摘要表示排除了这些属性。
+要获得这些属性，请获取“详细”表示。)
 
-**Example**: When you get a list of repositories, you get the summary
-representation of each repository. Here, we fetch the list of repositories owned
-by the [octokit](https://github.com/octokit) organization:
+示例：在获取存储库列表时，会获取每个存储库的摘要表示形式。 在这里，我们提取 [octokit](https://github.com/octokit) 组织拥有的存储库列表：
 
     GET /orgs/octokit/repos
 
-### Detailed representations
+### 详细表示
 
-When you fetch an individual resource, the response typically includes _all_
-attributes for that resource. This is the "detailed" representation of the
-resource. (Note that authorization sometimes influences the amount of detail
-included in the representation.)
+提取单个资源时，响应通常包含该资源的所有属性。 这就是资源的“详细”表示形式。 （请注意，授权有时会影响表示形式中包含的详细信息量。）
 
-**Example**: When you get an individual repository, you get the detailed
-representation of the repository. Here, we fetch the
-[octokit/octokit.rb](https://github.com/octokit/octokit.rb) repository:
+示例：在获取单个存储库时，会获取该存储库的详细表示形式。 在这里，我们提取 [octokit/octokit.rb](https://github.com/octokit/octokit.rb) 存储库：
 
     GET /repos/octokit/octokit.rb
 
-The documentation provides an example response for each API method. The example
-response illustrates all attributes that are returned by that method.
+本文档提供每种 API 方法的示例响应。 示例响应说明了该方法返回的所有属性。
 
-## Authentication
+## 身份验证
 
-{% ifversion ghae %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
+{% ifversion ghae %} 建议通过 [Web 应用程序流](/developers/apps/authorizing-oauth-apps#web-application-flow)创建 OAuth2 令牌，对 {% data variables.product.product_name %} REST API 进行身份验证。 {% else %} 有两种方式可用于通过 {% data variables.product.product_name %} REST API 进行身份验证。{% endif %}在某些地方，需要身份验证的请求将返回 `404 Not Found` 而不是 `403 Forbidden`。  这是为了防止私有仓库意外泄露给未经授权的用户。
 
-### Basic authentication
+### 基本身份验证
 
 ```shell
 $ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
-### OAuth2 token (sent in a header)
+### OAuth2 令牌（在标头中发送）
 
 ```shell
 $ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}
@@ -100,20 +94,20 @@ $ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_
 
 {% note %}
 
-Note: GitHub recommends sending OAuth tokens using the Authorization header.
+注：GitHub 建议使用授权标头发送 OAuth 令牌。
 
 {% endnote %}
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+注意：{% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
-Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
+阅读[有关 OAuth2 的详细信息](/apps/building-oauth-apps/)。  请注意，可以使用用于生产应用程序的 [Web 应用程序流](/developers/apps/authorizing-oauth-apps#web-application-flow)来获取 OAuth2 令牌。
 
 {% ifversion fpt or ghes or ghec %}
-### OAuth2 key/secret
+### OAuth2 键/密钥
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -121,22 +115,20 @@ Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens c
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth App's client secret to your users.
+使用 `client_id` 和 `client_secret` 不会以用户身份进行身份验证，它只会识别 OAuth 应用以增加速率限制。 权限仅授予用户，而不授予应用程序，因此只会返回未经验证用户可以看到的数据。 因此，您应该仅在服务器到服务器的场景中使用 OAuth2 键/密钥。 不要将 OAuth 应用程序的客户端密钥泄露给用户。
 
-{% ifversion ghes %}
-You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
-{% endif %}
-{% endif %}
+{% ifversion ghes %} 在专用模式下，无法使用 OAuth2 密钥和机密进行身份验证，并且尝试进行身份验证将返回 `401 Unauthorized`。 有关详细信息，请参阅“[启用专用模式](/admin/configuration/configuring-your-enterprise/enabling-private-mode)”。
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
 
-Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
+阅读[有关未经身份验证的速率限制的详细信息](#increasing-the-unauthenticated-rate-limit-for-oauth-apps)。
 
 {% endif %}
 
-### Failed login limit
+### 失败登录限制
 
-Authenticating with invalid credentials will return `401 Unauthorized`:
+使用无效凭据进行身份验证将返回 `401 Unauthorized`：
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
@@ -148,9 +140,7 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 > }
 ```
 
-After detecting several requests with invalid credentials within a short period,
-the API will temporarily reject all authentication attempts for that user
-(including ones with valid credentials) with `403 Forbidden`:
+在短时间内检测到多个使用无效凭据的请求后，API 将暂时拒绝该用户的所有身份验证尝试（包括使用有效凭据的尝试），并返回 `403 Forbidden`：
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
@@ -162,62 +152,55 @@ $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae o
 > }
 ```
 
-## Parameters
+## 参数
 
-Many API methods take optional parameters. For `GET` requests, any parameters not
-specified as a segment in the path can be passed as an HTTP query string
-parameter:
+许多 API 方法采用可选参数。 对于 `GET` 请求，路径中任何未指定为段的参数都可以作为 HTTP 查询字符串参数进行传递：
 
 ```shell
 $ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
-In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner`
-and `:repo` parameters in the path while `:state` is passed in the query
-string.
+在此示例中，在查询字符串中传递 `:state` 时，为路径中的 `:owner` 和 `:repo` 参数提供“vmg”和“redcarpet”值。
 
-For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be encoded as JSON
-with a Content-Type of 'application/json':
+对于 `POST`、`PATCH`、`PUT` 和 `DELETE` 请求，未包含在 URL 中的参数应编码为 JSON，内容类型为“application/json”：
 
 ```shell
 $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
-## Root endpoint
+## 根终结点
 
-You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
+可以向根终结点发出 `GET` 请求，以获取 REST API 支持的所有终结点类别：
 
 ```shell
 $ curl {% ifversion fpt or ghae or ghec %}
 -u USERNAME:TOKEN {% endif %}{% ifversion ghes %}-u USERNAME:PASSWORD {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-## GraphQL global node IDs
+## GraphQL 全局节点 ID
 
-See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+有关如何通过 REST API 查找 `node_id` 并在 GraphQL 操作中使用它们的详细信息，请参阅有关“[使用全局节点 ID](/graphql/guides/using-global-node-ids)”的指南。
 
-## Client errors
+## 客户端错误
 
-There are three possible types of client errors on API calls that
-receive request bodies:
+接收请求正文的 API 调用上可能存在三种类型的客户端错误：
 
-1. Sending invalid JSON will result in a `400 Bad Request` response.
+1. 发送无效的 JSON 将导致 `400 Bad Request` 响应。
 
         HTTP/2 400
         Content-Length: 35
 
         {"message":"Problems parsing JSON"}
 
-2. Sending the wrong type of JSON values will result in a `400 Bad
-   Request` response.
+2. 发送错误类型的 JSON 值将导致 `400 Bad
+   Request` 响应。
 
         HTTP/2 400
         Content-Length: 40
 
         {"message":"Body should be a JSON object"}
 
-3. Sending invalid fields will result in a `422 Unprocessable Entity`
-   response.
+3. 发送无效字段将导致 `422 Unprocessable Entity` 响应。
 
         HTTP/2 422
         Content-Length: 149
@@ -233,60 +216,47 @@ receive request bodies:
           ]
         }
 
-All error objects have resource and field properties so that your client
-can tell what the problem is.  There's also an error code to let you
-know what is wrong with the field.  These are the possible validation error
-codes:
+所有错误对象都具有资源和字段属性，以便客户端可以知道问题所在。  还有一个错误代码，让你知道该字段有什么问题。  以下是可能的验证错误代码：
 
-Error code name | Description
+错误代码名称 | 说明
 -----------|-----------|
-`missing` | A resource does not exist.
-`missing_field` | A required field on a resource has not been set.
-`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
-`already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
-`unprocessable` | The inputs provided were invalid.
+`missing` | 资源不存在。
+`missing_field` | 资源上的必需字段尚未设置。
+`invalid` | 字段的格式无效。  请查看文档以了解更具体的信息。
+`already_exists` | 另一个资源具有与此字段相同的值。  在必须具有某些唯一键（例如标签名称）的资源中可能会发生这种情况。
+`unprocessable` | 提供的输入无效。
 
-Resources may also send custom validation errors (where `code` is `custom`). Custom errors will always have a `message` field describing the error, and most errors will also include a `documentation_url` field pointing to some content that might help you resolve the error.
+资源还可能发送自定义验证错误（其中 `code` 为 `custom`）。 自定义错误将始终包含一个描述错误的 `message` 字段，大多数错误还将包括一个 `documentation_url` 字段，该字段指向可能有助于解决错误的某些内容。
 
-## HTTP redirects
+## HTTP 重定向
 
-The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
-request may result in a redirection. Receiving an HTTP redirection is *not* an
-error and clients should follow that redirect. Redirect responses will have a
-`Location` header field which contains the URI of the resource to which the
-client should repeat the requests.
+{% data variables.product.product_name %} 在适当情况下使用 HTTP 重定向。 客户端应假定任何请求都可能会导致重定向。 接收 HTTP 重定向不是错误，客户端应遵循该重定向。 重定向响应将包含一个 `Location` 标头字段，其中包含客户端应重复请求的资源的 URI。
 
-Status Code | Description
+状态代码 | 说明
 -----------|-----------|
-`301` | Permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
-`302`, `307` | Temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
+`301` | 永久重定向。 用于发出请求的 URI 已被 `Location` 标头字段中指定的 URI 所取代。 此请求以及对此资源的所有未来请求都应定向到新的 URI。
+`302`, `307` | 临时重定向。 请求应按 `Location` 标头字段中指定的 URI 逐字重复，但客户端应对未来的请求继续使用原来的 URI。
 
-Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
+其他重定向状态代码可根据 HTTP 1.1 规范使用。
 
-## HTTP verbs
+## HTTP 谓词
 
-Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
-action. Note that HTTP verbs are case-sensitive.
+在可能的情况下，{% data variables.product.product_name %} REST API 尽量为每个操作使用适当的 Http 谓词。 请注意，HTTP 谓词区分大小写。
 
-Verb | Description
+谓词 | 说明
 -----|-----------
-`HEAD` | Can be issued against any resource to get just the HTTP header info.
-`GET` | Used for retrieving resources.
-`POST` | Used for creating resources.
-`PATCH` | Used for updating resources with partial JSON data. For instance, an Issue resource has `title` and `body` attributes. A `PATCH` request may accept one or more of the attributes to update the resource.
-`PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
-`DELETE` |Used for deleting resources.
+`HEAD` | 可以针对任何资源发出以仅获取 HTTP 标头信息。
+`GET` | 用于检索资源。
+`POST` | 用于创建资源。
+`PATCH` | 用于通过部分 JSON 数据更新资源。 例如，问题资源具有 `title` 和 `body` 属性。 `PATCH` 请求可以接受一个或多个属性来更新资源。
+`PUT` | 用于替换资源或集合。 对于没有 `body` 属性的 `PUT` 请求，请确保将 `Content-Length` 标头设置为零。
+`DELETE` |用于删除资源。
 
-## Hypermedia
+## 超媒体
 
-All resources may have one or more `*_url` properties linking to other
-resources.  These are meant to provide explicit URLs so that proper API clients
-don't need to construct URLs on their own.  It is highly recommended that API
-clients use these.  Doing so will make future upgrades of the API easier for
-developers.  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
+所有资源都可以具有一个或多个链接到其他资源的 `*_url` 属性。  这些属性旨在提供明确的 URL，使适当的 API 客户端不需要自己构建 URL。  强烈建议 API 客户端使用这些属性。  这样做有助于开发者未来更容易升级 API。  所有 URL 都应该是适当的 [RFC 6570][rfc] URI 模板。
 
-You can then expand these templates using something like the [uri_template][uri]
-gem:
+然后，可以使用 [uri_template][uri] gem 之类的内容来扩展这些模板：
 
     >> tmpl = URITemplate.new('/notifications{?since,all,participating}')
     >> tmpl.expand
@@ -301,60 +271,56 @@ gem:
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570
 [uri]: https://github.com/hannesg/uri_template
 
-## Pagination
+## 分页
 
-Requests that return multiple items will be paginated to 30 items by
-default.  You can specify further pages with the `page` parameter. For some
-resources, you can also set a custom page size up to 100 with the `per_page` parameter.
-Note that for technical reasons not all endpoints respect the `per_page` parameter,
-see [events](/rest/reference/activity#events) for example.
+默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  可以使用 `page` 参数指定更多页面。 对于某些资源，还可以使用 `per_page` 参数设置自定义页面大小，每页最多 100 项。
+请注意，由于技术原因，并非所有终结点都遵守 `per_page` 参数，例如，请参阅[事件](/rest/reference/activity#events)。
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-Note that page numbering is 1-based and that omitting the `page`
-parameter will return the first page.
+请注意，页码从 1 开始，省略 `page` 参数将返回第一页。
 
-Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
-With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page.
-Instead, you can traverse the results by using the `before` or `after` parameters.
+有些端点使用基于光标的分页。 光标是指向结果集中位置的字符串。
+使用基于光标的分页时，结果集中没有固定的“页”概念，因此无法导航到特定页面。
+相反，可以使用 `before` 或 `after` 参数遍历结果。
 
-For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
+有关分页的详细信息，请查看有关[使用分页遍历][pagination-guide]的指南。
 
-### Link header
+### 链接标头
 
 {% note %}
 
-**Note:** It's important to form calls with Link header values instead of constructing your own URLs.
+注意：请务必使用链接标头值构成调用，而不是构建自己的 URL。
 
 {% endnote %}
 
-The [Link header](https://datatracker.ietf.org/doc/html/rfc5988) includes pagination information. For example:
+[链接标头](https://datatracker.ietf.org/doc/html/rfc5988)包括分页信息。 例如：
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
-_The example includes a line break for readability._
+该示例包括换行符，以提高可读性。
 
-Or, if the endpoint uses cursor-based pagination:
+或者，如果端点使用基于光标的分页：
 
     Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](https://datatracker.ietf.org/doc/html/rfc6570).
+此 `Link` 响应头包含一个或多个[超媒体](/rest#hypermedia)链接关系，其中一些关系可能需要扩展为 [URI 模板](https://datatracker.ietf.org/doc/html/rfc6570)。
 
-The possible `rel` values are:
+可能的 `rel` 值为：
 
-Name | Description
+名称 | 说明
 -----------|-----------|
-`next` |The link relation for the immediate next page of results.
-`last` |The link relation for the last page of results.
-`first` |The link relation for the first page of results.
-`prev` |The link relation for the immediate previous page of results.
+`next` |结果下一页的链接关系
+`last` |结果最后一页的链接关系。
+`first` |结果第一页的链接关系。
+`prev` |结果前一页的链接关系。
 
-## Timeouts
+## 超时
 
-If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
+如果 {% data variables.product.prodname_dotcom %} 处理 API 请求的时间超过 10 秒，{% data variables.product.prodname_dotcom %} 将终止请求，你将收到如下所示的超时响应：
 
 ```json
 {
@@ -362,23 +328,23 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 }
 ```
 
-{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+{% data variables.product.product_name %} 保留更改超时窗口的权利，以保护 API 的速度和可靠性。
 
-## Rate limiting
+## 速率限制
 
-Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
+对 {% data variables.location.product_location %} 的不同类型的 API 请求遵循不同的费率限制。 
 
-Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
+此外，搜索 API 有专门的限制。 有关详细信息，请参阅 REST API 文档中的“[搜索](/rest/reference/search#rate-limit)”。
 
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Requests from personal accounts
+### 来自个人帐户的请求
 
-Direct API requests that you authenticate with a {% data variables.product.pat_generic %} are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+使用 {% data variables.product.pat_generic %} 进行身份验证的直接 API 请求是用户到服务器的请求。 OAuth 应用程序或 GitHub 应用程序也可以在您授权应用程序后代表您提出用户到服务器的请求。 有关详细信息，请参阅“[创建 {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”、“[授权 OAuth 应用](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)”和“[授权 GitHub 应用](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)”。
 
-{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+{% data variables.product.product_name %} 将所有用户到服务器的请求与经过身份验证的用户相关联。 对于OAuth 应用程序和 GitHub 应用程序，这是授权应用程序的用户。 所有用户到服务器的请求都会计入经过身份验证的用户的速率限制。
 
 {% data reusables.apps.user-to-server-rate-limits %}
 
@@ -388,33 +354,33 @@ Direct API requests that you authenticate with a {% data variables.product.pat_g
 
 {% ifversion fpt or ghec or ghes %}
 
-For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
+对于未经验证的请求，速率限制允许每小时最多 60 个请求。 未经验证的请求与原始 IP 地址相关联，与发出请求的个人无关。
 
 {% endif %}
 
 {% endif %}
 
-### Requests from GitHub Apps
+### 来自 GitHub 应用程序的请求
 
-Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)." 
+来自 GitHub 应用的请求可以是用户到服务器的请求，也可以是服务器到服务器的请求。 有关 GitHub 应用的速率限制的详细信息，请参阅“[GitHub 应用的速率限制](/developers/apps/building-github-apps/rate-limits-for-github-apps)”。 
 
-### Requests from GitHub Actions
+### 来自 GitHub Actions 的请求
 
-You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+可以使用内置的 `GITHUB_TOKEN` 来验证 GitHub Actions 工作流中的请求。 有关详细信息，请参阅“[自动令牌身份验证](/actions/security-guides/automatic-token-authentication)”。
 
-When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.location.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+使用 `GITHUB_TOKEN` 时，速率限制为每个存储库每小时 1,000 个请求。{% ifversion fpt or ghec %} 如果请求属于 {% data variables.location.product_location %} 上的企业帐户的资源，{% data variables.product.prodname_ghe_cloud %} 的速率限制适用，并且限制为每个存储库每小时 15,000 个请求。{% endif %}
 
-### Checking your rate limit status
+### 检查您的速率限制状态
 
-The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+速率限制 API 和响应的 HTTP 标头是您或您的应用在任何给定时间可用的当前 API 调用数的权威来源。
 
-#### Rate Limit API
+#### 速率限制 API
 
-You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+您可以使用速率限制 API 检查速率限制状态，而不会对当前限制造成影响。 有关详细信息，请参阅“[速率限制](/rest/reference/rate-limit)”。
 
-#### Rate limit HTTP headers
+#### 速率限制 HTTP 标头
 
-The returned HTTP headers of any API request show your current rate limit status:
+任何 API 请求返回的 HTTP 标头都显示当前速率限制状态：
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
@@ -426,21 +392,21 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > x-ratelimit-reset: 1372700873
 ```
 
-Header Name | Description
+标头名称 | 说明
 -----------|-----------|
-`x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
-`x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
-`x-ratelimit-used` | The number of requests you've made in the current rate limit window.
-`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+`x-ratelimit-limit` | 每小时允许您发出的最大请求数。
+`x-ratelimit-remaining` | 当前速率限制窗口中剩余的请求数。
+`x-ratelimit-used` | 当前速率限制窗口中已发出的请求数。
+`x-ratelimit-reset` | 当前速率限制窗口重置的时间，单位为 [UTC 纪元秒](http://en.wikipedia.org/wiki/Unix_time)。
 
-If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
+如果您需要不同格式的时间，任何现代编程语言都可以实现您的目标。 例如，如果您在 Web 浏览器上打开控制台，您可以轻松地以 JavaScript Date 对象获取重置时间。
 
 ``` javascript
 new Date(1372700873 * 1000)
 // => Mon Jul 01 2013 13:47:53 GMT-0400 (EDT)
 ```
 
-If you exceed the rate limit, an error response returns:
+如果超过速率限制，错误响应将返回：
 
 ```shell
 > HTTP/2 403
@@ -456,9 +422,9 @@ If you exceed the rate limit, an error response returns:
 > }
 ```
 
-### Increasing the unauthenticated rate limit for OAuth Apps
+### 提高 OAuth 应用程序的未经验证速率限制
 
-If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
+如果您的 OAuth 应用程序需要以更高的速率限制进行未经验证的调用， 您可以在端点路由之前传递应用程序的客户端 ID 和密钥。
 
 ```shell
 $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
@@ -472,21 +438,21 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 
 {% note %}
 
-**Note:** Never share your client secret with anyone or include it in client-side browser code. Use the method shown here only for server-to-server calls.
+注意：切勿与任何人共享客户端密码，也不要将其包含在客户端浏览器代码中。 仅将此处显示的方法用于服务器到服务器的调用。
 
 {% endnote %}
 
-### Staying within the rate limit
+### 保持在速率限制之内
 
-If you exceed your rate limit using Basic Authentication or OAuth, you can likely fix the issue by caching API responses and using [conditional requests](#conditional-requests).
+如果使用基本身份验证或 OAuth 时超出了速率限制，则可以通过缓存 API 响应和使用[条件请求](#conditional-requests)来解决此问题。
 
-### Secondary rate limits
+### 二级费率限制
 
-In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in secondary rate limiting.
+为了在 {% data variables.product.product_name %} 上提供优质的服务，使用 API 时，某些操作可能会受到额外的速率限制。 例如，使用 API 快速创建内容、主动轮询而不是使用 web 挂钩、发出多个并发请求或重复请求计算成本高昂的数据，可能会导致二级费率限制。
 
-Secondary rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you're acting as a good API citizen, check out our [Best Practices guidelines](/guides/best-practices-for-integrators/).
+二级费率限制无意干扰 API 的合法使用。 您的正常速率限制应该是您目标的唯一限制。 为了确保成为 API 好公民，请查看[最佳做法指南](/guides/best-practices-for-integrators/)。
 
-If your application triggers this rate limit, you'll receive an informative response:
+如果您的应用程序触发此速率限制，您将收到信息响应：
 
 ```shell
 > HTTP/2 403
@@ -501,19 +467,17 @@ If your application triggers this rate limit, you'll receive an informative resp
 
 {% ifversion fpt or ghec %}
 
-## User agent required
+## 必需用户代理
 
-All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent`
-header will be rejected. We request that you use your {% data variables.product.product_name %} username, or the name of your
-application, for the `User-Agent` header value. This allows us to contact you if there are problems.
+所有 API 请求都必须包含有效的 `User-Agent` 标头。 没有 `User-Agent` 标头的请求将被拒绝。 我们要求你使用 {% data variables.product.product_name %} 用户名或应用程序的名称作为 `User-Agent` 标头值。 这是为了方便我们在发现问题时与您联系 。
 
-Here's an example:
+下面是一个示例：
 
 ```shell
 User-Agent: Awesome-Octocat-App
 ```
 
-cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
+默认情况下，cURL 发送有效的 `User-Agent` 标头。 如果通过 cURL（或通过备用客户端）提供无效的 `User-Agent` 标头，则将收到 `403 Forbidden` 响应：
 
 ```shell
 $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
@@ -528,20 +492,15 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 {% endif %}
 
-## Conditional requests
+## 条件请求
 
-Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. You can use the values
-of these headers to make subsequent requests to those resources using the
-`If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
-has not changed, the server will return a `304 Not Modified`.
+大多数响应都返回 `ETag` 标头。 许多响应还返回 `Last-Modified` 标头。 可以使用这些标头的值分别使用 `If-None-Match` 和 `If-Modified-Since` 标头向这些资源发出后续请求。 如果资源未发生更改，服务器将返回 `304 Not Modified`。
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Note**: Making a conditional request and receiving a 304 response does not
-count against your [Rate Limit](#rate-limiting), so we encourage you to use it
-whenever possible.
+注意：发出条件请求并收到 304 响应不计入[速率限制](#rate-limiting)，因此我们鼓励你尽可能地使用它。
 
 {% endtip %}
 
@@ -578,16 +537,12 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: T
 > x-ratelimit-reset: 1372700873
 ```
 
-## Cross origin resource sharing
+## 跨源资源共享
 
-The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
-any origin.
-You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/), or
-[this intro](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) from the
-HTML 5 Security Guide.
+API 支持来自任何源的 AJAX 请求的跨源资源共享 (CORS)。
+可以阅读 [CORS W3C 建议](http://www.w3.org/TR/cors/)，或 HTML 5 安全指南中的[此简介](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki)。
 
-Here's a sample request sent from a browser hitting
-`http://example.com`:
+下面是从浏览器点击 `http://example.com` 发送的请求示例：
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
@@ -596,7 +551,7 @@ Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
 
-This is what the CORS preflight request looks like:
+以下是 CORS 预检请求的示例：
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
@@ -608,13 +563,9 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ra
 Access-Control-Max-Age: 86400
 ```
 
-## JSON-P callbacks
+## JSON-P 回调
 
-You can send a `?callback` parameter to any GET call to have the results
-wrapped in a JSON function.  This is typically used when browsers want
-to embed {% data variables.product.product_name %} content in web pages by getting around cross domain
-issues.  The response includes the same data output as the regular API,
-plus the relevant HTTP Header information.
+可以向任何 GET 调用发送 `?callback` 参数，以便将结果包装在 JSON 函数中。  当浏览器希望绕开跨域问题将 {% data variables.product.product_name %} 内容嵌入网页时，通常使用此方法。  响应包括与常规 API 相同的数据输出，加上相关的 HTTP 标头信息。
 
 ```shell
 $ curl {% data variables.product.api_url_pre %}?callback=foo
@@ -635,7 +586,7 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 > })
 ```
 
-You can write a JavaScript handler to process the callback. Here's a minimal example you can try out:
+您可以编写一个 JavaScript 处理程序来处理回调。 以下是一个最小的处理程序示例，您可以尝试编写：
 
     <html>
     <head>
@@ -659,15 +610,13 @@ You can write a JavaScript handler to process the callback. Here's a minimal exa
     </body>
     </html>
 
-All of the headers are the same String value as the HTTP Headers with one
-notable exception: Link.  Link headers are pre-parsed for you and come
-through as an array of `[url, options]` tuples.
+所有标头都具有与 HTTP 标头相同的字符串值，但有一个值得注意的例外：链接。  链接标头已预先解析，并以 `[url, options]` 元组的数组形式出现。
 
-A link that looks like this:
+链接如下所示：
 
     Link: <url1>; rel="next", <url2>; rel="foo"; bar="baz"
 
-... will look like this in the Callback output:
+... 在回调输出中将如下所示：
 
 ```json
 {
@@ -689,39 +638,39 @@ A link that looks like this:
 }
 ```
 
-## Timezones
+## 时区
 
-Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for such API calls.
+某些创建新数据的请求（例如创建新的提交）允许您在指定或生成时间戳时提供时区信息。 我们按照优先顺序应用以下规则来确定这些 API 调用的时区信息。
 
-* [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
-* [Using the `Time-Zone` header](#using-the-time-zone-header)
-* [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
-* [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
+* [明确提供带有时区信息的 ISO 8601 时间戳](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
+* [使用 `Time-Zone` 标头](#using-the-time-zone-header)
+* [使用用户的最后一个已知时区](#using-the-last-known-timezone-for-the-user)
+* [在没有其他时区信息的情况下默认使用 UTC](#defaulting-to-utc-without-other-timezone-information)
 
-Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
+请注意，这些规则仅适用于传递给 API 的数据，而不适用于 API 返回的数据。 如“[架构](#schema)”中所述，API 返回的时间戳采用 UTC 时间、ISO 8601 格式。
 
-### Explicitly providing an ISO 8601 timestamp with timezone information
+### 明确提供带有时区信息的 ISO 8601 时间戳
 
-For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
+对于允许指定时间戳的 API 调用，我们使用这种明确的时间戳。 一个示例是[提交 API](/rest/reference/git#commits)。
 
-These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
+这些时间戳类似于 `2014-02-27T15:05:06+01:00`。 如需了解如何指定这些时间戳，另请参阅[此示例](/rest/reference/git#example-input)。
 
-### Using the `Time-Zone` header
+### 使用 `Time-Zone` 标头
 
-It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+可以提供一个 `Time-Zone` 标头，该标头根据 [Olson 数据库中的名称列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)定义时区。
 
 ```shell
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
+这意味着当您在这个标题定义的时区做出 API 调用时，我们会生成一个时间戳。 例如，[内容 API](/rest/reference/repos#contents) 为每个添加或更改生成 git 提交，并使用当前时间作为时间戳。 此标头将确定用于生成当前时间戳的时区。
 
-### Using the last known timezone for the user
+### 使用用户的最后一个已知时区
 
-If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {% data variables.product.product_name %} website.
+如果未指定 `Time-Zone` 标头，并且你对 API 进行经过身份验证的调用，则我们对经过身份验证的用户使用最后一个已知时区。 最新一个已知的时区在您浏览 {% data variables.product.product_name %} 网站时都会更新。
 
-### Defaulting to UTC without other timezone information
+### 在没有其他时区信息的情况下默认使用 UTC
 
-If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
+如果上述步骤未产生任何信息，我们将使用 UTC 作为时区来创建 git 提交。
 
 [pagination-guide]: /guides/traversing-with-pagination

@@ -1,6 +1,6 @@
 ---
-title: Removing a label when a card is added to a project board column
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a {% data variables.projects.projects_v1_board %}.'
+title: Remover uma etiqueta quando um cartão é adicionado à coluna de um quadro de projeto
+intro: 'É possível usar o {% data variables.product.prodname_actions %} para remover automaticamente um rótulo quando um problema ou uma solicitação de pull é adicionada a uma coluna específica em um {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
@@ -13,23 +13,27 @@ topics:
   - Workflows
   - Project management
 shortTitle: Remove label when adding card
+ms.openlocfilehash: d86d9e5ad198c9cf8811b47f2a6c8a7114e20104
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185626'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Introdução
 
-## Introduction
+Este tutorial demonstra como usar a [ação `actions/github-script`](https://github.com/marketplace/actions/github-script) com uma condicional para remover um rótulo de problemas e solicitações de pull adicionados a uma coluna específica em um {% data variables.projects.projects_v1_board %}. Por exemplo, você pode remover o rótulo `needs review` quando os cartões de projeto são movidos para a coluna `Done`.
 
-This tutorial demonstrates how to use the [`actions/github-script` action](https://github.com/marketplace/actions/github-script) along with a conditional to remove a label from issues and pull requests that are added to a specific column on a {% data variables.projects.projects_v1_board %}. For example, you can remove the `needs review` label when project cards are moved into the `Done` column.
+No tutorial, primeiro, você criará um arquivo de fluxo de trabalho que usa a [ação `actions/github-script`](https://github.com/marketplace/actions/github-script). Então, você personalizará o fluxo de trabalho para atender às suas necessidades.
 
-In the tutorial, you will first make a workflow file that uses the [`actions/github-script` action](https://github.com/marketplace/actions/github-script). Then, you will customize the workflow to suit your needs.
-
-## Creating the workflow
+## Criar o fluxo de trabalho
 
 1. {% data reusables.actions.choose-repo %}
-2. Choose a {% data variables.projects.projects_v1_board %} that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing {% data variables.projects.projects_v1_board %}, or you can create a new {% data variables.projects.projects_v1_board %}. For more information about creating a project, see "[Creating a {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/creating-a-project-board)."
+2. Escolha um {% data variables.projects.projects_v1_board %} que pertença ao repositório. Este fluxo de trabalho não pode ser usado com projetos que pertencem a usuários ou organizações. É possível usar um {% data variables.projects.projects_v1_board %} existente ou criar um {% data variables.projects.projects_v1_board %}. Para saber como criar um projeto, confira "[Criar um {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/creating-a-project-board)".
 3. {% data reusables.actions.make-workflow-file %}
-4. Copy the following YAML contents into your workflow file.
+4. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
 
     ```yaml{:copy}
     name: Remove a label
@@ -58,28 +62,28 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
                 })
     ```
 
-5. Customize the parameters in your workflow file:
-   - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
+5. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
+   - Em `github.event.project_card.column_id == '12345678'`, substitua `12345678` pela ID da coluna em que deseja remover o rótulo de solicitações de pull e problemas que são movidos para ela.
 
-     To find the column ID, navigate to your {% data variables.projects.projects_v1_board %}. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
+     Para encontrar a ID da coluna, acesse o {% data variables.projects.projects_v1_board %}. Ao lado do título da coluna, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e clique em **Copiar link da coluna**. O ID da coluna é o número no final do link copiado. Por exemplo, `24687531` é a ID da coluna para `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
 
-     If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different project boards.
-   - Change the value for `name` in the `github.rest.issues.removeLabel()` function to the name of the label that you want to remove from issues or pull requests that are moved to the specified column(s). For more information on labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+     Caso deseje modificar mais de uma coluna, separe as condições com `||`. Por exemplo, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` funcionará sempre que um cartão de projeto for adicionado à coluna `12345678` ou à coluna `87654321`. As colunas podem estar em diferentes quadros de projetos.
+   - Altere o valor de `name` na função `github.rest.issues.removeLabel()` para o nome do rótulo que você deseja remover dos problemas ou das solicitações de pull movidas para as colunas especificadas. Para obter mais informações sobre rótulos, confira "[Como gerenciar rótulos](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
 6. {% data reusables.actions.commit-workflow %}
 
-## Testing the workflow
+## Testar o fluxo de trabalho
 
-Every time a project card on a {% data variables.projects.projects_v1_board %} in your repository moves, this workflow will run. If the card is an issue or a pull request and is moved into the column that you specified, then the workflow will remove the specified label from the issue or a pull request. Cards that are notes will not be affected.
+Sempre que um cartão de projeto em um {% data variables.projects.projects_v1_board %} no repositório é movido, este fluxo de trabalho é executado. Se o cartão for um problema ou uma solicitação de pull e for movido para a coluna especificada, o fluxo de trabalho removerá o rótulo especificado do problema ou da solicitação de pull. Os cartões que são observações que não serão afetadas.
 
-Test your workflow out by moving an issue on your {% data variables.projects.projects_v1_board %} into the target column.
+Teste o fluxo de trabalho movendo um problema no {% data variables.projects.projects_v1_board %} para a coluna de destino.
 
-1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
-2. Label the issue with the label that you want the workflow to remove. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
-3. Add the issue to the {% data variables.projects.projects_v1_board %} column that you specified in your workflow file. For more information, see "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)."
-4. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-5. When the workflow completes, the issue that you added to the project column should have the specified label removed.
+1. Abra um problema no seu repositório. Para obter mais informações, confira "[Como criar um problema](/github/managing-your-work-on-github/creating-an-issue)".
+2. Dê ao problema o rótulo que você deseja que o fluxo de trabalho remova. Para obter mais informações, confira "[Como gerenciar rótulos](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
+3. Adicione o problema à coluna do {% data variables.projects.projects_v1_board %} especificada no arquivo do fluxo de trabalho. Para obter mais informações, confira "[Adicionar problemas e solicitações de pull a um {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)".
+4. Para ver a execução do fluxo de trabalho que foi acionada adicionando o problema ao projeto, visualize o histórico da execução do seu fluxo de trabalho. Para obter mais informações, confira "[Como ver o histórico de execução do fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
+5. Quando o fluxo de trabalho for concluído, o problema adicionado à coluna do projeto deverá ter o rótulo especificado removido.
 
-## Next steps
+## Próximas etapas
 
-- To learn more about additional things you can do with the `actions/github-script` action, see the [`actions/github-script` action documentation](https://github.com/marketplace/actions/github-script).
-- [Search GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) for examples of workflows using this action.
+- Para saber sobre mais coisas que podem ser feitas com a ação `actions/github-script`, confira a [documentação da ação `actions/github-script`](https://github.com/marketplace/actions/github-script).
+- [Pesquise o GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) para ver exemplos de fluxos de trabalho que usam essa ação.
