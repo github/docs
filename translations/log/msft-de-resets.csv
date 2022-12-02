@@ -647,6 +647,7 @@ translations/de-DE/content/authentication/keeping-your-account-and-data-secure/a
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
+translations/de-DE/content/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints.md,broken liquid tags
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth.md,rendering error
@@ -772,6 +773,7 @@ translations/de-DE/content/communities/documenting-your-project-with-wikis/about
 translations/de-DE/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/de-DE/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/de-DE/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
+translations/de-DE/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository.md,rendering error
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
