@@ -6,12 +6,12 @@ intro: 'Du kannst {% data variables.product.prodname_github_codespaces %} als be
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
-ms.openlocfilehash: 6794d20b9ea0153b3baf4bee1a08c68b2ba17456
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 832ab470d13cc741bc4a71e77840c99da5ff3de6
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158877'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189913'
 ---
 ## Informationen zu {% data variables.product.prodname_github_codespaces %}
 
@@ -103,4 +103,4 @@ Lehrkräfte können den Codespace jedes Kursteilnehmers für eine Aufgabe auf de
 
 ![Aufgabenübersicht für die Lehrkraft mit den Codespaces der Kursteilnehmer](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-Wenn du dich über einen Browser mit einem Codespace verbindest, wird das automatische Speichern automatisch aktiviert. Wenn du Änderungen am Repository speichern möchtest, musst du die Änderungen committen und sie an einen Remotebranch pushen. Wenn dein Codespace 30 Minuten lang ohne Interaktion ausgeführt wird, kommt es standardmäßig zu einem Timeout, und der Codespace wird angehalten. Hierbei werden deine Daten zum Zeitpunkt der letzten Änderung beibehalten. Weitere Informationen zum Lebenszyklus eines Codespace findest du unter [Der Codespace-Lebenszyklus](/codespaces/developing-in-codespaces/the-codespace-lifecycle).
+Wenn du dich über einen Browser mit einem Codespace verbindest, wird das automatische Speichern automatisch aktiviert. Wenn du Änderungen am Repository speichern möchtest, musst du die Änderungen committen und sie an einen Remotebranch pushen. Wenn dein Codespace 30 Minuten lang ohne Interaktion ausgeführt wird, kommt es standardmäßig zu einem Timeout, und der Codespace wird angehalten. Hierbei werden deine Daten zum Zeitpunkt der letzten Änderung beibehalten. Weitere Informationen zum Lebenszyklus eines Codespace findest du unter [Der Codespace-Lebenszyklus](/codespaces/getting-started/the-codespace-lifecycle).
