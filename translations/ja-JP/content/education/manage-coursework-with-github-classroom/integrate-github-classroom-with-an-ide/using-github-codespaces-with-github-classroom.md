@@ -6,12 +6,12 @@ intro: '{% data variables.product.prodname_github_codespaces %} を割り当て�
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
-ms.openlocfilehash: 6794d20b9ea0153b3baf4bee1a08c68b2ba17456
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 832ab470d13cc741bc4a71e77840c99da5ff3de6
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158878'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189914'
 ---
 ## {% data variables.product.prodname_github_codespaces %} について
 
@@ -103,4 +103,4 @@ Organization または Enterprise で {% data variables.product.prodname_github_
 
 ![学生の codespace を表示した教師の [課題の概要]](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-ブラウザーを使用して codespace に接続する場合は、自動保存が自動的に有効になります。 リポジトリに対する変更を保存する場合、変更をコミットしてリモート ブランチにプッシュする必要があります。 既定では、30 分間操作することなく codespace を実行したままにした場合、codespace はタイムアウトになり、実行が停止されます。 データは、最後に変更した時点の状態で保持されます。 codespace のライフサイクルの詳細については、「[Codespace のライフサイクル](/codespaces/developing-in-codespaces/the-codespace-lifecycle)」を参照してください。
+ブラウザーを使用して codespace に接続する場合は、自動保存が自動的に有効になります。 リポジトリに対する変更を保存する場合、変更をコミットしてリモート ブランチにプッシュする必要があります。 既定では、30 分間操作することなく codespace を実行したままにした場合、codespace はタイムアウトになり、実行が停止されます。 データは、最後に変更した時点の状態で保持されます。 codespace のライフサイクルの詳細については、「[Codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)」を参照してください。

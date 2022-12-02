@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Open an existing codespace
-ms.openlocfilehash: e7a35c1a7b3a251094bf69fcd401291b69d03eae
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: b139b7f4e8a696416c97b3c400d09a9f26371b9c
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159009'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188300'
 ---
 {% jetbrains %}
 
@@ -23,7 +23,7 @@ ms.locfileid: '148159009'
 
 {% endjetbrains %}
 
-Puedes volver a abrir cualquiera de los codespaces activos o detenidos en {% data variables.product.prodname_dotcom_the_website %}, en un IDE de JetBrains, en {% data variables.product.prodname_vscode %} o mediante la {% data variables.product.prodname_cli %}. No se puede volver a abrir un codespace que se haya eliminado. Para obtener más información, consulta "[Ciclo de vida de un codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)".
+Puedes volver a abrir cualquiera de los codespaces activos o detenidos en {% data variables.product.prodname_dotcom_the_website %}, en un IDE de JetBrains, en {% data variables.product.prodname_vscode %} o mediante la {% data variables.product.prodname_cli %}. No se puede volver a abrir un codespace que se haya eliminado. Para obtener más información, consulta "[Ciclo de vida de un codespace](/codespaces/getting-started/the-codespace-lifecycle)".
 
 Puedes ver todos tus codespaces en la página "Tus codespaces" en [github.com/codespaces](https://github.com/codespaces). En esta página puede realizar las siguientes acciones:
 
