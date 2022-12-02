@@ -12,11 +12,11 @@ children:
   - /configuring-notifications-in-github-desktop
   - /changing-the-remote-url-for-a-repository-from-github-desktop
 shortTitle: Work with your remote repo
-ms.openlocfilehash: 60c2f41546ff085ea8f8d56142da6a3c7a81ebae
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: f7e9f1ab5f73aaad29208db01c62815d7a20ba03
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145099261'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188357'
 ---
 

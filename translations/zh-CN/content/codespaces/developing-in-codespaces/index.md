@@ -22,11 +22,11 @@ children:
   - /using-github-codespaces-in-visual-studio-code
   - /using-github-codespaces-in-your-jetbrains-ide
   - /using-github-codespaces-with-github-cli
-ms.openlocfilehash: 166283bd0fbc71b8acc180b20ef597dbc0a50781
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 6ace677a68ce7b592ac8ad2a8b83ae4d948b8747
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159011'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188286'
 ---
 
