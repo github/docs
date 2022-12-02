@@ -271,3 +271,8 @@ jobs:
 From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+
+## Sample code
+
+* [JavaScript sample action](https://github.com/actions/javascript-action)
+* [TypeScript sample action](https://github.com/actions/typescript-action)
