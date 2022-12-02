@@ -13,12 +13,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Delete a codespace
-ms.openlocfilehash: c9f1f6eb407c985d8981504de28e39a4bf742f7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 24b53cc0cead2b6b15894ada4c799abc8e1c6e7a
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158665'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188260'
 ---
 Puedes eliminar un codespace de varias maneras: en el terminal mediante la {% data variables.product.prodname_cli %}, en {% data variables.product.prodname_vscode %} o en el explorador web. Usa las pestañas de este artículo para ver las instrucciones de cada una de estas formas de eliminar un codespace.
 
@@ -135,5 +135,5 @@ Para obtener más información, haz clic en la pestaña "{% data variables.produ
 También puedes usar la API de REST para eliminar codespaces para tu organización. Para más información, consulta "[Organizaciones de Codespaces](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)".
 
 ## Información adicional
-- "[Ciclo de vida de un codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"
+- "[Ciclo de vida de un codespace](/codespaces/getting-started/the-codespace-lifecycle)"
 - "[Configuración de la eliminación automática de los codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"
