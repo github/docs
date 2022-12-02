@@ -11,12 +11,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: dc16916ada20275d41f23a8bc006cc79ddf51120
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: 4fd3e2aad72ee0ffc4778a86dc99cd5bb6f9d2c5
+ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184268'
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190398'
 ---
 {% ifversion api-date-versioning %}
 ## Version de l'API
@@ -262,10 +262,10 @@ Vous pouvez ensuite développer ces modèles à l’aide de la gemme [uri_templa
     >> tmpl.expand
     => "/notifications"
 
-    >> tmpl.expand :all => 1
+    >> tmpl.expand all: 1
     => "/notifications?all=1"
 
-    >> tmpl.expand :all => 1, :participating => 1
+    >> tmpl.expand all: 1, participating: 1
     => "/notifications?all=1&participating=1"
 
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570

@@ -475,7 +475,6 @@ translations/fr-FR/content/actions/learn-github-actions/expressions.md,rendering
 translations/fr-FR/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/fr-FR/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/fr-FR/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
-translations/fr-FR/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,broken liquid tags
 translations/fr-FR/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
 translations/fr-FR/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/fr-FR/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
@@ -577,7 +576,6 @@ translations/fr-FR/content/admin/identity-and-access-management/using-enterprise
 translations/fr-FR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
-translations/fr-FR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference.md,broken liquid tags
@@ -589,7 +587,6 @@ translations/fr-FR/content/admin/installation/setting-up-a-github-enterprise-ser
 translations/fr-FR/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v.md,rendering error
 translations/fr-FR/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm.md,rendering error
 translations/fr-FR/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware.md,rendering error
-translations/fr-FR/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics.md,rendering error
 translations/fr-FR/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics.md,rendering error
 translations/fr-FR/content/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks.md,rendering error
 translations/fr-FR/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
@@ -637,10 +634,10 @@ translations/fr-FR/content/authentication/connecting-to-github-with-ssh/generati
 translations/fr-FR/content/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection.md,rendering error
 translations/fr-FR/content/authentication/index.md,rendering error
 translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,rendering error
-translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps.md,rendering error
 translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
 translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
+translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints.md,broken liquid tags
 translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access.md,rendering error
 translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/fr-FR/content/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth.md,rendering error
@@ -756,27 +753,20 @@ translations/fr-FR/content/codespaces/customizing-your-codespace/changing-the-ma
 translations/fr-FR/content/codespaces/customizing-your-codespace/renaming-a-codespace.md,broken liquid tags
 translations/fr-FR/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
 translations/fr-FR/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
-translations/fr-FR/content/codespaces/developing-in-codespaces/deleting-a-codespace.md,broken liquid tags
 translations/fr-FR/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,broken liquid tags
-translations/fr-FR/content/codespaces/developing-in-codespaces/opening-an-existing-codespace.md,broken liquid tags
-translations/fr-FR/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
 translations/fr-FR/content/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization.md,broken liquid tags
 translations/fr-FR/content/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization.md,broken liquid tags
 translations/fr-FR/content/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces.md,rendering error
 translations/fr-FR/content/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories.md,broken liquid tags
 translations/fr-FR/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,rendering error
 translations/fr-FR/content/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge.md,rendering error
-translations/fr-FR/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
 translations/fr-FR/content/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces.md,broken liquid tags
 translations/fr-FR/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,rendering error
 translations/fr-FR/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/fr-FR/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/fr-FR/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/fr-FR/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
-translations/fr-FR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
-translations/fr-FR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
-translations/fr-FR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
-translations/fr-FR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
+translations/fr-FR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository.md,rendering error
 translations/fr-FR/content/copilot/quickstart.md,broken liquid tags
 translations/fr-FR/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop.md,rendering error
 translations/fr-FR/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,broken liquid tags
@@ -973,7 +963,6 @@ translations/fr-FR/content/pull-requests/collaborating-with-pull-requests/propos
 translations/fr-FR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch.md,rendering error
 translations/fr-FR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request.md,rendering error
 translations/fr-FR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
-translations/fr-FR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,rendering error
 translations/fr-FR/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message.md,rendering error
 translations/fr-FR/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization.md,rendering error
 translations/fr-FR/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors.md,rendering error
@@ -1124,7 +1113,6 @@ translations/fr-FR/data/reusables/advanced-security/secret-scanning-add-custom-p
 translations/fr-FR/data/reusables/advanced-security/secret-scanning-create-custom-pattern.md,rendering error
 translations/fr-FR/data/reusables/advanced-security/secret-scanning-push-protection-org.md,broken liquid tags
 translations/fr-FR/data/reusables/apps/user-to-server-rate-limits.md,broken liquid tags
-translations/fr-FR/data/reusables/audit_log/audit-log-action-categories.md,broken liquid tags
 translations/fr-FR/data/reusables/audit_log/audit_log_sidebar_for_org_admins.md,rendering error
 translations/fr-FR/data/reusables/audit_log/audit_log_sidebar_for_site_admins.md,rendering error
 translations/fr-FR/data/reusables/audit_log/retention-periods.md,rendering error
@@ -1207,7 +1195,6 @@ translations/fr-FR/data/reusables/getting-started/enterprise-advanced-security.m
 translations/fr-FR/data/reusables/getting-started/managing-enterprise-members.md,rendering error
 translations/fr-FR/data/reusables/git/git-push.md,rendering error
 translations/fr-FR/data/reusables/git/provide-credentials.md,rendering error
-translations/fr-FR/data/reusables/identity-and-permissions/ip-allow-lists-enterprise.md,broken liquid tags
 translations/fr-FR/data/reusables/identity-and-permissions/ip-allow-lists-githubapps-enterprise.md,rendering error
 translations/fr-FR/data/reusables/identity-and-permissions/vigilant-mode-beta-note.md,rendering error
 translations/fr-FR/data/reusables/large_files/storage_assets_location.md,broken liquid tags
@@ -1220,7 +1207,6 @@ translations/fr-FR/data/reusables/organizations/github-apps-settings-sidebar.md,
 translations/fr-FR/data/reusables/organizations/member-privileges.md,rendering error
 translations/fr-FR/data/reusables/organizations/navigate-to-org.md,rendering error
 translations/fr-FR/data/reusables/organizations/repository-defaults.md,rendering error
-translations/fr-FR/data/reusables/organizations/require-ssh-cert.md,broken liquid tags
 translations/fr-FR/data/reusables/organizations/security-and-analysis.md,rendering error
 translations/fr-FR/data/reusables/organizations/security.md,rendering error
 translations/fr-FR/data/reusables/organizations/settings-sidebar-actions-general.md,rendering error

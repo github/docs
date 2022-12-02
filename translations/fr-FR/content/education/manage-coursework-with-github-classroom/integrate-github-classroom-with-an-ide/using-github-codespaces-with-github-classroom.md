@@ -6,12 +6,12 @@ intro: 'Vous pouvez utiliser {% data variables.product.prodname_github_codespace
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
-ms.openlocfilehash: 6794d20b9ea0153b3baf4bee1a08c68b2ba17456
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 832ab470d13cc741bc4a71e77840c99da5ff3de6
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158876'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189912'
 ---
 ## À propos de {% data variables.product.prodname_github_codespaces %}
 
@@ -103,4 +103,4 @@ Les enseignants peuvent voir le codespace de chaque étudiant pour un devoir dan
 
 ![Vue d’ensemble des devoirs de l’enseignant avec les codespaces de l’étudiant](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-Lorsque vous vous connectez à un codespace via un navigateur, l’enregistrement automatique est automatiquement activé. Si vous souhaitez enregistrer les modifications dans le dépôt, vous devez commiter les modifications et les pousser (push) vers une branche distante. Si vous laissez votre codespace s’exécuter sans aucune interaction pendant 30 minutes (durée par défaut), le codespace expire et s’arrête. Vos données sont conservées depuis le dernier enregistrement de vos modifications. Pour plus d’informations sur le cycle de vie d’un codespace, consultez « [Cycle de vie d’un codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle) ».
+Lorsque vous vous connectez à un codespace via un navigateur, l’enregistrement automatique est automatiquement activé. Si vous souhaitez enregistrer les modifications dans le dépôt, vous devez commiter les modifications et les pousser (push) vers une branche distante. Si vous laissez votre codespace s’exécuter sans aucune interaction pendant 30 minutes (durée par défaut), le codespace expire et s’arrête. Vos données sont conservées depuis le dernier enregistrement de vos modifications. Pour plus d’informations sur le cycle de vie d’un codespace, consultez « [Cycle de vie d’un codespace](/codespaces/getting-started/the-codespace-lifecycle) ».
