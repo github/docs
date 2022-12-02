@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
-ms.openlocfilehash: c09cd757ac2667c32c26f9b5e7d7a36b8e5431f9
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 5c34fd5b7d72f52e203cd8f8fdc1871ff6a2f014
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185081'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188246'
 ---
 {% jetbrains %}
 
@@ -110,4 +110,4 @@ ms.locfileid: '148185081'
 
 ## 延伸阅读
 
-- [codespace 生命周期](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
+- [codespace 生命周期](/codespaces/getting-started/the-codespace-lifecycle)

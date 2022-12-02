@@ -9,12 +9,12 @@ versions:
 type: quick_start
 topics:
   - Codespaces
-ms.openlocfilehash: 5f97a137ec09191d5cbaa9c10aa280e10f11bbc0
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 01e4f3990cc47f61678811f7c4a77b86626fd8a5
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158643'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188262'
 ---
 {% data variables.product.prodname_github_codespaces %} 是一个基于云的即时开发环境，它使用容器为你提供用于开发的通用语言、工具和实用程序。 {% data variables.product.prodname_github_codespaces %} 也是可配置的，通过它可为项目创建自定义的开发环境。 通过为项目配置自定义开发环境，可以为项目的所有用户提供可重复的代码空间配置。
 
@@ -161,4 +161,4 @@ ms.locfileid: '148158643'
 - [为组织启用 {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)
 - [管理组织中的 {% data variables.product.prodname_github_codespaces %} 成本](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)
 - [将开发容器配置添加到存储库](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)
-- [codespace 生命周期](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
+- [codespace 生命周期](/codespaces/getting-started/the-codespace-lifecycle)
