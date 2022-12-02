@@ -4,12 +4,12 @@ intro: 'Découvrez comment utiliser l’API GraphQL {% data variables.product.pr
 versions:
   feature: discussions
 shortTitle: Use GraphQL for Discussions
-ms.openlocfilehash: 1512082737df4c92942a40007d2c75897edb1061
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: fd296c4e9390cac3500ba7319cb602366a37e262
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147408842'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185614'
 ---
 L’API GraphQL {% data variables.product.prodname_discussions %} vous permet d’obtenir, de créer, de modifier et de supprimer des posts de discussion. Pour plus d’informations sur les données {% data variables.product.prodname_discussions %}, consultez « [À propos des discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions) ».
 
@@ -72,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Retourner les catégories de discussion disponibles définies dans ce dépôt. Chaque dépôt peut avoir jusqu’à 10 catégories. Pour plus d’informations sur les catégories de discussion, consultez « [À propos des discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions) ».
+Retourner les catégories de discussion disponibles définies dans ce dépôt. Chaque référentiel peut avoir jusqu’à 25 catégories. Pour plus d’informations sur les catégories de discussion, consultez « [À propos des discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions) ».
 
 _Signature :_
 

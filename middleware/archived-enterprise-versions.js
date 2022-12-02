@@ -13,7 +13,7 @@ import isArchivedVersion from '../lib/is-archived-version.js'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
 import got from 'got'
 import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
-import { archivedCacheControl, noCacheControl } from './cache-control.js'
+import { archivedCacheControl, languageCacheControl } from './cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
 import getRedirect, { splitPathByLanguage } from '../lib/get-redirect.js'
 
@@ -100,11 +100,10 @@ export default async function archivedEnterpriseVersions(req, res, next) {
   if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
     const redirectTo = getRedirect(req.path, req.context)
     if (redirectTo) {
-      if (redirectCode === 301) {
-        archivedCacheControl(res)
-      } else {
-        noCacheControl(res)
+      if (redirectCode === 302) {
+        languageCacheControl(res) // call first to get `vary`
       }
+      archivedCacheControl(res) // call second to extend duration
       return res.redirect(redirectCode, redirectTo)
     }
 
@@ -120,11 +119,10 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
     if (newRedirectTo) {
-      if (redirectCode === 301) {
-        archivedCacheControl(res)
-      } else {
-        noCacheControl(res)
+      if (redirectCode === 302) {
+        languageCacheControl(res) // call first to get `vary`
       }
+      archivedCacheControl(res) // call second to extend duration
       return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
     }
   }

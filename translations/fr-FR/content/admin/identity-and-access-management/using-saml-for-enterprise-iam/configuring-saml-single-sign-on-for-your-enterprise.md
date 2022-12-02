@@ -1,7 +1,7 @@
 ---
-title: Configuring SAML single sign-on for your enterprise
+title: Configuration d’une authentification unique (SSO) SAML pour votre entreprise
 shortTitle: Configure SAML SSO
-intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes or ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
+intro: 'Vous pouvez contrôler et sécuriser l’accès aux {% ifversion ghec %}ressources comme les référentiels, les problèmes et les demandes de tirage au sein des organisations de votre entreprise{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %}votre entreprise sur {% data variables.product.prodname_ghe_managed %}{% endif %} en {% ifversion ghec %}appliquant{% elsif ghes or ghae %}la configuration{% endif %} de l’authentification unique (SSO) SAML par le biais de votre fournisseur d’identité (IdP).'
 permissions: '{% ifversion ghes %}Site administrators{% elsif ghec or ghae %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec or ghae %}an enterprise on {% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %}.'
 versions:
   ghec: '*'
@@ -21,11 +21,16 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
+ms.openlocfilehash: 804ba3b262aae15b862e1a14694b82339c8d34a4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183955'
 ---
-
 {% data reusables.enterprise-accounts.emu-saml-note %}
 
-## About SAML SSO
+## À propos de SSO SAML
 
 {% ifversion ghec %}
 
@@ -33,11 +38,11 @@ redirect_from:
 
 {% data reusables.saml.saml-accounts %}
 
-For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+Pour plus d’informations, consultez « [À propos de la gestion des identités et des accès avec l’authentification unique SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on) ».
 
 {% data reusables.saml.about-saml-enterprise-accounts %}
 
-{% data reusables.saml.about-saml-access-enterprise-account %} For more information, see "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
+{% data reusables.saml.about-saml-access-enterprise-account %} Pour plus d’informations, consultez « [Affichage et gestion de l’accès SAML d’un utilisateur à votre compte d’entreprise](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise) ».
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
@@ -45,9 +50,9 @@ For more information, see "[About identity and access management with SAML singl
 
 {% elsif ghes or ghae %}
 
-SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.location.product_location %} in a browser, {% data variables.product.product_name %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access to the user.
+L’authentification unique SAML vous permet de contrôler et de sécuriser de manière centralisée l’accès à {% data variables.location.product_location %} à partir de votre fournisseur d’identité SAML. Quand un utilisateur non authentifié accède à {% data variables.location.product_location %} dans un navigateur, {% data variables.product.product_name %} redirige l’utilisateur vers votre fournisseur d’identité SAML pour l’authentification. Une fois que l’utilisateur s’est authentifié avec un compte sur le fournisseur d’identité, celui-ci redirige l’utilisateur vers {% data variables.location.product_location %}. {% data variables.product.product_name %} valide la réponse de votre IdP, puis accorde l’accès à l’utilisateur.
 
-After a user successfully authenticates on your IdP, the user's SAML session for {% data variables.location.product_location %} is active in the browser for 24 hours. After 24 hours, the user must authenticate again with your IdP.
+Une fois qu’un utilisateur s’est authentifié correctement sur votre fournisseur d’identité, la session SAML de l’utilisateur pour {% data variables.location.product_location %} est active dans le navigateur pendant 24 heures. Après 24 heures, l’utilisateur doit s’authentifier à nouveau auprès de votre fournisseur d’identité.
 
 {% data reusables.saml.saml-ghes-account-revocation %}
 
@@ -55,171 +60,161 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 {% data reusables.saml.assert-the-administrator-attribute %}
 
-{% data reusables.scim.after-you-configure-saml %} For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
+{% data reusables.scim.after-you-configure-saml %} Pour plus d’informations, consultez « [Configuration de l’approvisionnement d’utilisateurs pour votre entreprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise) ».
 
 {% endif %}
 
 {% endif %}
 
-## Supported identity providers
+## Fournisseurs d’identité pris en charge
 
 {% data reusables.saml.saml-supported-idps %}
 
 {% ifversion ghec %}
 
-## Username considerations with SAML
+## Considérations relatives aux noms d’utilisateur avec SAML
 
-{% ifversion ghec %}If you use {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% ifversion ghec %}Si vous utilisez {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Pour plus d’informations, consultez « [Considérations relatives au nom d’utilisateur pour une authentification externe](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication) ».
 
-## Enforcing SAML single-sign on for organizations in your enterprise account
+## Application d’une authentification unique SAML pour les organisations dans votre compte d’entreprise
 
-When you enforce SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations. {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+Lorsque vous appliquez une authentification unique SAML pour votre entreprise, la configuration de l’entreprise remplace toutes les configurations SAML existantes au niveau de l’organisation. {% data reusables.saml.switching-from-org-to-enterprise %} Pour plus d’informations, consultez « [Basculement de votre configuration SAML d’une organisation vers un compte d’entreprise](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account) ».
 
-When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
+Lorsque vous appliquez une authentification unique SAML pour une organisation, {% data variables.product.company_short %} supprime tous les membres de l’organisation qui ne se sont pas authentifiés avec succès auprès votre fournisseur d’identité SAML. Lorsque vous avez besoin d’une SSO SAML pour votre entreprise, {% data variables.product.company_short %} ne supprime pas les membres de l’entreprise qui ne se sont pas authentifiés avec succès auprès de votre fournisseur d’identité SAML. La prochaine fois qu’un membre accédera aux ressources de l’entreprise, il devra s’authentifier auprès de votre fournisseur d’identité SAML.
 
-For more detailed information about how to enable SAML using Okta, see "[Configuring SAML single sign-on for your enterprise account using Okta](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)."
+Pour plus d’informations sur l’activation de SAML à l’aide d’Okta, consultez « [Configuration de l’authentification unique SAML pour votre compte d’entreprise à l’aide d’Okta](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta) ».
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
 4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "SAML single sign-on", select **Require SAML authentication**.
-  ![Checkbox for enabling SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
-6. In the **Sign on URL** field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
-![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url_business.png)
-7. Optionally, in the **Issuer** field, type your SAML issuer URL to verify the authenticity of sent messages.
-![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
-8. Under **Public Certificate**, paste a certificate to verify SAML responses.
-![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
-9. To verify the integrity of the requests from your SAML issuer, click {% octicon "pencil" aria-label="The edit icon" %}. Then in the "Signature Method" and "Digest Method" drop-downs, choose the hashing algorithm used by your SAML issuer.
-![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
-10. Before enabling SAML SSO for your enterprise, click **Test SAML configuration** to ensure that the information you've entered is correct. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
-11. Click **Save**.
+5. Sous « Authentification unique SAML », sélectionnez **Exiger l’authentification SAML**.
+  ![Case à cocher pour activer l’authentification unique SAML](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+6. Dans le champ **URL d’authentification**, tapez le point de terminaison HTTP de votre fournisseur d’identité pour les demandes d’authentification unique. Cette valeur est disponible dans votre configuration de fournisseur d’identité.
+![Champ de l’URL vers laquelle les membres seront transférés au moment de la connexion](/assets/images/help/saml/saml_sign_on_url_business.png)
+7. Si vous le souhaitez, dans le champ **Émetteur**, tapez l’URL de votre émetteur SAML pour vérifier l’authenticité des messages envoyés.
+![Champ du nom de l’émetteur SAML](/assets/images/help/saml/saml_issuer.png)
+8. Sous **Certificat public**, collez un certificat pour vérifier les réponses SAML.
+![Champ du certificat public de votre fournisseur d’identité](/assets/images/help/saml/saml_public_certificate.png)
+9. Pour vérifier l’intégrité des demandes de votre émetteur SAML, cliquez sur {% octicon "pencil" aria-label="The edit icon" %}. Ensuite, dans les listes déroulantes « Méthode de signature » et « Méthode Digest », choisissez l’algorithme de hachage utilisé par votre émetteur SAML.
+![Listes déroulantes pour les algorithmes de hachage des méthodes de signature et Digest utilisés par votre émetteur SAML](/assets/images/help/saml/saml_hashing_method.png)
+10. Avant d’activer une SSO SAML pour votre entreprise, cliquez sur **Tester la configuration SAML** pour vous assurer que les informations que vous avez entrées sont correctes. ![Bouton pour tester la configuration SAML avant de l’appliquer](/assets/images/help/saml/saml_test.png)
+11. Cliquez sur **Enregistrer**.
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 
 {% elsif ghes %}
 
-## Configuring SAML SSO
+## Configuration d’une SSO SAML
 
-You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings for {% data variables.product.product_name %} in the management console. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+Vous pouvez activer ou désactiver l’authentification SAML pour {% data variables.location.product_location %} ou modifier une configuration existante. Vous pouvez afficher et modifier les paramètres d’authentification pour {% data variables.product.product_name %} dans la console de gestion. Pour plus d’informations, consultez « [Accès à la console de gestion](/admin/configuration/configuring-your-enterprise/accessing-the-management-console) ».
 
 {% note %}
 
-**Note**: {% data reusables.enterprise.test-in-staging %}
+**Remarque** : {% data reusables.enterprise.test-in-staging %}
 
 {% endnote %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.authentication %}
-1. Select **SAML**.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.authentication %}
+1. Sélectionnez **SAML**.
    
-   ![Screenshot of option to enable SAML authentication in management console](/assets/images/enterprise/management-console/auth-select-saml.png)
+   ![Capture d’écran de l’option permettant d’activer l’authentification SAML dans la console de gestion](/assets/images/enterprise/management-console/auth-select-saml.png)
 1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 
-   ![Screenshot of option to enable built-in authentication outside of SAML IdP](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
-1. Optionally, to enable unsolicited response SSO, select **IdP initiated SSO**. By default, {% data variables.product.prodname_ghe_server %} will reply to an unsolicited Identity Provider (IdP) initiated request with an `AuthnRequest` back to the IdP.
+   ![Capture d’écran de l’option permettant d’activer l’authentification intégrée en dehors de l’IdP SAML](/assets/images/enterprise/management-console/saml-built-in-authentication.png)
+1. Vous pouvez éventuellement activer l’authentification SSO de réponse non sollicitée en sélectionnant **Authentification unique initiée par le fournisseur d’identité**. Par défaut, {% data variables.product.prodname_ghe_server %} répond à une demande non sollicitée initiée par un fournisseur d’identité par un `AuthnRequest` retourné à ce dernier.
 
-   ![Screenshot of option to enable IdP-initiated unsolicited response](/assets/images/enterprise/management-console/saml-idp-sso.png)
+   ![Capture d’écran de l’option permettant d’activer la réponse non sollicitée initiée par le fournisseur d’identité](/assets/images/enterprise/management-console/saml-idp-sso.png)
 
    {% tip %}
 
-   **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
+   **Remarque** : Nous vous recommandons de laisser cette valeur **non sélectionnée**. Cette fonctionnalité doit être activée **uniquement** dans le rare cas où votre implémentation SAML ne prend pas en charge l’authentification unique initiée par le fournisseur de services, et quand cela vous a été conseillé par le {% data variables.contact.enterprise_support %}.
 
    {% endtip %}
 
-1. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.location.product_location %}.
+1. Sélectionnez **Désactiver la rétrogradation/promotion de l’administrateur** si vous **ne souhaitez pas** que votre fournisseur SAML détermine les droits d’administrateur pour les utilisateurs de {% data variables.location.product_location %}.
 
-   ![Screenshot of option to enable option to respect the "administrator" attribute from the IdP to enable or disable administrative rights](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-{%- ifversion ghes > 3.3 %}
-1. Optionally, to allow {% data variables.location.product_location %} to receive encrypted assertions from your SAML IdP, select **Require encrypted assertions**. You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.location.product_location %}'s public certificate to your IdP. For more information, see "[Enabling encrypted assertions](/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions)."
+   ![Capture d’écran de l’option pour la prise en compte de l’attribut « administrator » de l’IdP afin d’activer ou de désactiver les droits d’administration](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png) {%- ifversion ghes > 3.3 %}
+1. Si vous le souhaitez, pour autoriser {% data variables.location.product_location %} à recevoir des assertions chiffrées de votre IdP SAML, sélectionnez **Exiger des assertions chiffrées**. Vous devez vérifier que votre IdP prend en charge les assertions chiffrées et que les méthodes de chiffrement et de transport de clés dans la console de gestion correspondent aux valeurs configurées au niveau de votre IdP. Vous devez également fournir le certificat public de {% data variables.location.product_location %} à votre IdP. Pour plus d’informations, consultez « [Activation des assertions chiffrées](/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions) ».
 
-   ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
-{%- endif %}
-1. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.location.product_location %} to use internal nameservers](/enterprise/admin/guides/installation/configuring-dns-nameservers/).
+   ![Capture d’écran de la case à cocher « Activer les assertions chiffrées » dans la section « Authentification » de la console de gestion](/assets/images/help/saml/management-console-enable-encrypted-assertions.png) {%- endif %}
+1. Dans le champ **URL de l’authentification unique**, tapez le point de terminaison HTTP ou HTTPS au niveau de votre IdP pour les demandes d’authentification unique. Cette valeur est fournie par la configuration de votre IdP. Si l’hôte est disponible uniquement à partir de votre réseau interne, vous devez peut-être [configurer {% data variables.location.product_location %} pour utiliser des serveurs de noms internes](/enterprise/admin/guides/installation/configuring-dns-nameservers/).
 
-   ![Screenshot of text field for single sign-on URL](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-1. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.location.product_location %}.
+   ![Capture d’écran du champ de texte pour l’URL d’authentification unique](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+1. Dans le champ **Émetteur**, tapez éventuellement le nom de votre émetteur SAML. Cette action permet de vérifier l’authenticité des messages envoyés à {% data variables.location.product_location %}.
 
-   ![Screenshot of text field for SAML issuer URL](/assets/images/enterprise/management-console/saml-issuer.png)
-1. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.location.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu.
+   ![Capture d’écran du champ de texte pour l’URL de l’émetteur SAML](/assets/images/enterprise/management-console/saml-issuer.png)
+1. Dans les menus déroulants **Méthode de signature** et **Méthode de synthèse**, choisissez l’algorithme de hachage utilisé par votre émetteur SAML pour vérifier l’intégrité des requêtes provenant de {% data variables.location.product_location %}. Spécifiez le format via le menu déroulant **Format de l’identificateur de nom**.
 
-   ![Screenshot of drop-down menus to select signature and digest method](/assets/images/enterprise/management-console/saml-method.png)
-1. Under **Verification certificate**, click **Choose File** and choose a certificate to validate SAML responses from the IdP.
+   ![Capture d’écran des menus déroulants permettant de sélectionner la méthode de signature et la méthode digest](/assets/images/enterprise/management-console/saml-method.png)
+1. Sous **Certificat de vérification**, cliquez sur **Choisir un fichier** et choisissez un certificat pour valider les réponses SAML de l’IdP.
 
-   ![Screenshot of button for uploading validation certificate from IdP](/assets/images/enterprise/management-console/saml-verification-cert.png)
-1. Modify the SAML attribute names to match your IdP if needed, or accept the default names.
+   ![Capture d’écran du bouton permettant de charger un certificat de validation de l’IdP](/assets/images/enterprise/management-console/saml-verification-cert.png)
+1. Modifiez les noms d’attributs SAML pour les faire correspondre à votre IdP si nécessaire, ou acceptez les noms par défaut.
 
-   ![Screenshot of fields for entering additional SAML attributes](/assets/images/enterprise/management-console/saml-attributes.png)
+   ![Capture d’écran des champs de saisie des attributs SAML supplémentaires](/assets/images/enterprise/management-console/saml-attributes.png)
 
 {% elsif ghae %}
 
-## Enabling SAML SSO
+## Activation d’une SSO SAML
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-The following IdPs provide documentation about configuring SAML SSO for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
+Les fournisseurs d’identité suivants fournissent de la documentation sur la configuration d’une SSO SAML pour {% data variables.product.product_name %}. Si votre fournisseur d’identité n’est pas répertorié, contactez votre fournisseur d’identité pour demander un support pour {% data variables.product.product_name %}.
 
- | IdP | More information |
+ | Fournisseur d’identité | Plus d’informations |
  | :- | :- |
- | Azure AD | "[Configuring authentication and provisioning for your enterprise using Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)" |
-| Okta | "[Configuring authentication and provisioning for your enterprise using Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)" |
+ | Azure AD | « [Configuration de l’authentification et de l’approvisionnement pour votre entreprise à l’aide d’Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad) » |
+| Okta | « [Configuration de l’authentification et de l’approvisionnement pour votre entreprise à l’aide d’Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta) » |
 
-During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML service provider (SP) on your IdP. You must enter several unique values on your IdP to configure {% data variables.product.product_name %} as a valid SP. For more information, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-metadata)."
+Lors de l’initialisation de {% data variables.product.product_name %}, vous devez configurer {% data variables.product.product_name %} en tant que fournisseur de services SAML sur votre fournisseur d’identité. Vous devez entrer quelques valeurs uniques sur votre fournisseur d’identité pour configurer {% data variables.product.product_name %} comme fournisseur de services valide. Pour plus d’informations, consultez la « [Référence de configuration SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-metadata) ».
 
-## Editing the SAML SSO configuration
+## Modification de la configuration de la SSO SAML
 
-If the details for your IdP change, you'll need to edit the SAML SSO configuration for {% data variables.location.product_location %}. For example, if the certificate for your IdP expires, you can edit the value for the public certificate.
+Si les détails de votre fournisseur d’identité changent, vous devez modifier la configuration de l’authentification unique SAML pour {% data variables.location.product_location %}. Par exemple, si le certificat de votre fournisseur d’identité expire, vous pouvez modifier la valeur du certificat public.
 
 {% ifversion ghae %}
 
 {% note %}
 
-**Note**: {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+**Remarque** : {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
 
 {% endnote %} 
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "SAML single sign-on", type the new details for your IdP.
-  ![Text entry fields with IdP details for SAML SSO configuration for an enterprise](/assets/images/help/saml/ae-edit-idp-details.png)
-1. Optionally, click {% octicon "pencil" aria-label="The edit icon" %} to configure a new signature or digest method.
-  ![Edit icon for changing signature and digest method](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. Sous « Authentification unique SAML », tapez les nouveaux détails de votre fournisseur d’identité.
+  ![Champs d’entrée de texte avec les détails du fournisseur d’identité pour la configuration d’une SSO SAML pour une entreprise](/assets/images/help/saml/ae-edit-idp-details.png)
+1. Si vous le souhaitez, cliquez sur {% octicon "pencil" aria-label="The edit icon" %} pour configurer une nouvelle signature ou une méthode Digest.
+  ![Icône Modifier pour modifier la signature et la méthode Digest](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
 
-    - Use the drop-down menus and choose the new signature or digest method.
-      ![Drop-down menus for choosing a new signature or digest method](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
-1. To ensure that the information you've entered is correct, click **Test SAML configuration**.
-  !["Test SAML configuration" button](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
-1. Click **Save**.
-    !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-edit-idp-details-save.png)
-1. Optionally, to automatically provision and deprovision user accounts for {% data variables.location.product_location %}, reconfigure user provisioning with SCIM. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
+    - Utilisez les menus déroulants et choisissez la nouvelle signature ou la méthode Digest.
+      ![Menus déroulants pour choisir une nouvelle signature ou une méthode Digest](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
+1. Pour vérifier que les informations que vous avez entrées sont correctes, cliquez sur **Tester la configuration SAML**.
+  ![Bouton « Tester la configuration SAML »](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
+1. Cliquez sur **Enregistrer**.
+    ![Bouton « Enregistrer » pour la configuration d’une SSO SAML](/assets/images/help/saml/ae-edit-idp-details-save.png)
+1. Si vous le souhaitez, pour provisionner et déprovisionner automatiquement des comptes d’utilisateur pour {% data variables.location.product_location %}, reconfigurez l’attribution d’utilisateurs avec SCIM. Pour plus d’informations, consultez « [Configuration de l’approvisionnement d’utilisateurs pour votre entreprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise) ».
 
 {% endif %}
 
 {% ifversion ghae %}
 
-## Disabling SAML SSO
+## Activation d’une SSO SAML
 
 {% warning %}
 
-**Warning**: If you disable SAML SSO for {% data variables.location.product_location %}, users without existing SAML SSO sessions cannot sign into {% data variables.location.product_location %}. SAML SSO sessions on {% data variables.location.product_location %} end after 24 hours.
+**Avertissement** : si vous désactivez l’authentification unique SAML pour {% data variables.location.product_location %}, les utilisateurs sans session d’authentification unique SAML existante ne peuvent pas se connecter à {% data variables.location.product_location %}. Les sessions SSO SAML sur {% data variables.location.product_location %} se terminent au bout de 24 heures.
 
 {% endwarning %}
 
 {% note %}
 
-**Note**: {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+**Remarque** : {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "SAML single sign-on", unselect **Enable SAML authentication**.
-  ![Checkbox for "Enable SAML authentication"](/assets/images/help/saml/ae-saml-disabled.png)
-1. To disable SAML SSO and require signing in with the built-in user account you created during initialization, click **Save**.
-    !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-saml-disabled-save.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. Sous « Authentification unique SAML », désactivez **Activer l’authentification SAML**.
+  ![Case à cocher pour « Activer l’authentification SAML »](/assets/images/help/saml/ae-saml-disabled.png)
+1. Pour désactiver la SSO SAML et exiger une connexion avec le compte d’utilisateur intégré que vous avez créé lors de l’initialisation, cliquez sur **Enregistrer**.
+    ![Bouton « Enregistrer » pour la configuration d’une SSO SAML](/assets/images/help/saml/ae-saml-disabled-save.png)
 
 {% endif %}
 
@@ -227,13 +222,10 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
 
 {% ifversion ghec or ghes %}
 
-## Further reading
+## Pour aller plus loin
 
 {%- ifversion ghec %}
-- "[Managing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization)"
-{%- endif %}
-{%- ifversion ghes %}
-- "[Promoting or demoting a site administrator](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)"
-{%- endif %}
+- « [Gestion de l’authentification unique SAML pour votre organisation](/organizations/managing-saml-single-sign-on-for-your-organization) » {%- endif %} {%- ifversion ghes %}
+- « [Promotion ou rétrogradation d’un administrateur de site](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator) » {%- endif %}
 
 {% endif %}

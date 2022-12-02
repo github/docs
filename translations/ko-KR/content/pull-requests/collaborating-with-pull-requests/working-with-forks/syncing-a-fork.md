@@ -1,6 +1,6 @@
 ---
-title: Syncing a fork
-intro: Sync a fork of a repository to keep it up-to-date with the upstream repository.
+title: 포크 동기화
+intro: 리포지토리의 포크를 동기화하여 업스트림 리포지토리를 최신 상태로 유지합니다.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/syncing-a-fork
   - /articles/syncing-a-fork
@@ -19,44 +19,48 @@ versions:
 topics:
   - Pull requests
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
+ms.openlocfilehash: 85b149e26cb65a428d7e9b66aea99d6b62430ae0
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188330'
 ---
-
-## Syncing a fork branch from the web UI
+## 웹 UI에서 포크 분기 동기화
 
 {% ifversion syncing-fork-web-ui %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Sync fork** dropdown.
-    !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
-3. Review the details about the commits from the upstream repository, then click **Update branch**.
-    ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
-{% else %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Fetch upstream** dropdown.
-    !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
-    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
+1. {% data variables.product.product_name %}에서 업스트림 리포지토리와 동기화하려는 포크된 리포지토리의 기본 페이지로 이동합니다.
+2. **포크 동기화** 드롭다운을 선택합니다.
+    ![“포크 동기화” 드롭다운이 강조됨](/assets/images/help/repository/sync-fork-dropdown.png)
+3. 업스트림 리포지토리에서의 커밋에 대한 세부 정보를 검토한 다음 **분기 업데이트** 를 클릭합니다.
+    ![“분기 업데이트” 단추가 강조된 포크 동기화 모달](/assets/images/help/repository/update-branch-button.png) {% else %}
+1. {% data variables.product.product_name %}에서 업스트림 리포지토리와 동기화하려는 포크된 리포지토리의 기본 페이지로 이동합니다.
+2. **업스트림 가져오기** 드롭다운을 선택합니다.
+    ![“업스트림 가져오기” 드롭다운](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. 업스트림 리포지토리에서의 커밋에 대한 세부 정보를 검토한 다음 **가져오기 및 병합** 을 클릭합니다.
+    ![“가져오기 및 병합” 단추](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
-If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
+업스트림 리포지토리의 변경으로 인해 충돌이 발생하는 경우 {% data variables.product.company_short %}는 충돌을 해결하기 위한 끌어오기 요청을 만들라는 메시지를 표시합니다.
 
-## Syncing a fork branch with the {% data variables.product.prodname_cli %}
+## 포크 분기를 {% data variables.product.prodname_cli %}와 동기화
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} {% data variables.product.prodname_cli %}에 대한 자세한 내용은 “[{% data variables.product.prodname_cli %} 정보](/github-cli/github-cli/about-github-cli)”를 참조하세요.
 
-To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
+부모에서 원격 포크를 업데이트하려면 `gh repo sync -b BRANCHNAME` 하위 명령을 사용하고 포크 및 분기 이름을 인수로 제공합니다.
 
 ```shell
 $ gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
-If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+업스트림 리포지토리의 변경으로 인해 충돌이 발생하는 경우 {% data variables.product.prodname_cli %}는 동기화할 수 없습니다. `-force` 플래그를 설정하여 대상 분기를 덮어쓸 수 있습니다.
 
-## Syncing a fork branch from the command line
+## 명령줄에서 포크 분기 동기화
 
-Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
+포크를 업스트림 리포지토리와 동기화하려면 먼저 Git에서 업스트림 리포지토리를 가리키는 원격을 구성해야 합니다. 자세한 내용은 "[포크에 대한 원격 리포지토리 구성"을 참조하세요](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
+2. 현재 작업 디렉터리를 로컬 프로젝트로 변경합니다.
+3. 업스트림 리포지토리에서 분기 및 해당 커밋을 가져옵니다. `BRANCHNAME`에 대한 커밋은 로컬 분기 `upstream/BRANCHNAME`에 저장됩니다.
 
   ```shell
   $ git fetch upstream
@@ -68,14 +72,14 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  * [new branch]      main     -> upstream/main
   ```
 
-4. Check out your fork's local default branch - in this case, we use `main`.
+4. 포크의 로컬 기본 분기를 확인합니다. 이 경우 `main`을 사용합니다.
 
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
 
-5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
+5. 업스트림 기본 분기(이 경우 `upstream/main`)의 변경 내용을 로컬 기본 분기에 병합합니다. 이렇게 하면 로컬 변경 내용이 손실되지 않고 포크의 기본 분기가 업스트림 리포지토리와 동기화됩니다.
 
   ```shell
   $ git merge upstream/main
@@ -88,7 +92,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  create mode 100644 README.md
   ```
   
-  If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+  로컬 분기에 고유한 커밋이 없는 경우 Git에서 빠른 전달을 수행합니다. 자세한 내용은 Git 설명서의 [기본 분기 및 병합](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)을 참조하세요.
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -96,10 +100,10 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ``` 
-  If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
+  로컬 분기에 고유한 커밋이 있는 경우 충돌을 해결해야 할 수 있습니다. 자세한 내용은 “[병합 충돌 해결](/github/collaborating-with-pull-requests/addressing-merge-conflicts)”을 참조하세요.
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**팁**: 포크를 동기화하면 리포지토리의 로컬 복사본만 업데이트됩니다. {% data variables.location.product_location %}에서 포크를 업데이트하려면 [변경 내용을 푸시](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)해야 합니다.
 
 {% endtip %}

@@ -1,7 +1,7 @@
 ---
-title: Adding labels to issues
+title: 向议题添加标签
 shortTitle: Add labels to issues
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically label issues.'
+intro: '您可以使用 {% data variables.product.prodname_actions %} 自动标记议题。'
 redirect_from:
   - /actions/guides/adding-labels-to-issues
 versions:
@@ -13,24 +13,28 @@ type: tutorial
 topics:
   - Workflows
   - Project management
+ms.openlocfilehash: a3523069b9422ecd8107007ca5e00fb0071dd738
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185559'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 简介
 
-## Introduction
+本教程演示如何使用工作流中的 [`actions/github-script` 操作](https://github.com/marketplace/actions/github-script) 来标记新打开或重新打开的问题。 例如，每次打开或重新打开问题时，都可以添加 `triage` 标签。 然后，可通过筛选具有 `triage` 标签的问题来查看需要会审的问题。
 
-This tutorial demonstrates how to use the [`actions/github-script` action](https://github.com/marketplace/actions/github-script) in a workflow to label newly opened or reopened issues. For example, you can add the `triage` label every time an issue is opened or reopened. Then, you can see all issues that need to be triaged by filtering for issues with the `triage` label.
+`actions/github-script` 操作允许你在工作流中轻松使用 {% data variables.product.prodname_dotcom %} API。
 
-The `actions/github-script` action allows you to easily use the {% data variables.product.prodname_dotcom %} API in a workflow.
+在本教程中，你将首先创建一个使用 [`actions/github-script` 操作](https://github.com/marketplace/actions/github-script)的工作流文件。 然后，您将自定义工作流以适应您的需要。
 
-In the tutorial, you will first make a workflow file that uses the [`actions/github-script` action](https://github.com/marketplace/actions/github-script). Then, you will customize the workflow to suit your needs.
-
-## Creating the workflow
+## 创建工作流程
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
-3. Copy the following YAML contents into your workflow file.
+3. 将以下 YAML 内容复制到工作流程文件中。
   
     ```yaml{:copy}
     name: Label issues
@@ -56,23 +60,23 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
                 })
     ```
 
-4. Customize the `script` parameter in your workflow file:
-   - The `issue_number`, `owner`, and `repo` values are automatically set using the `context` object. You do not need to change these.
-   - Change the value for `labels` to the list of labels that you want to add to the issue. Separate multiple labels with commas. For example, `["help wanted", "good first issue"]`. For more information about labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+4. 自定义工作流文件中的 `script` 参数：
+   - `issue_number`、`owner`和 `repo` 值是使用 `context` 对象自动设置的。 不需要更改这些值。
+   - 将 `labels` 的值更改为你想要添加到此问题的标签列表。 使用逗号分隔多个标签。 例如 `["help wanted", "good first issue"]`。 有关标签的详细信息，请参阅[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)。
 5. {% data reusables.actions.commit-workflow %}
 
-## Testing the workflow
+## 测试工作流程
 
-Every time an issue in your repository is opened or reopened, this workflow will add the labels that you specified to the issue.
+每次打开或重新打开仓库中的议题时，此工作流程将添加您指定给此议题的标签。
 
-Test out your workflow by creating an issue in your repository.
+通过在仓库中创建议题来测试工作流程。
 
-1. Create an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
-2. To see the workflow run that was triggered by creating the issue, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-3. When the workflow completes, the issue that you created should have the specified labels added.
+1. 在仓库中创建议题。 有关详细信息，请参阅[创建问题](/github/managing-your-work-on-github/creating-an-issue)。
+2. 要查看通过创建议题所触发的工作流程运行，请查看工作流程运行的历史记录。 有关详细信息，请参阅“[查看工作流运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
+3. 当工作流程完成时，您创建的议题应已添加指定的标签。
 
-## Next steps
+## 后续步骤
 
-- To learn more about additional things you can do with the `actions/github-script` action, see the [`actions/github-script` action documentation](https://github.com/marketplace/actions/github-script).
-- To learn more about different events that can trigger your workflow, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#issues)."
-- [Search GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) for examples of workflows using this action.
+- 如需详细了解 `actions/github-script` 操作的其他用途，请参阅 [`actions/github-script` 操作文档](https://github.com/marketplace/actions/github-script)。
+- 若要详细了解可以触发工作流的不同事件，请参阅[可触发工作流的事件](/actions/reference/events-that-trigger-workflows#issues)。
+- [搜索 GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) 以获取使用此操作的工作流示例。

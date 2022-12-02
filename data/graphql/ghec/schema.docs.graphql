@@ -33409,6 +33409,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   titleHTML: HTML!
 
   """
+  Returns a count of how many comments this pull request has received.
+  """
+  totalCommentsCount: Int
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -45642,6 +45647,11 @@ type SponsorsListing implements Node {
 }
 
 """
+A record that can be featured on a GitHub Sponsors profile.
+"""
+union SponsorsListingFeatureableItem = Repository | User
+
+"""
 A record that is promoted on a GitHub Sponsors profile.
 """
 type SponsorsListingFeaturedItem implements Node {
@@ -45656,6 +45666,11 @@ type SponsorsListingFeaturedItem implements Node {
   from their GitHub profile page.
   """
   description: String
+
+  """
+  The record that is featured on the GitHub Sponsors profile.
+  """
+  featureable: SponsorsListingFeatureableItem!
   id: ID!
 
   """

@@ -1,6 +1,6 @@
 ---
-title: Introduction to dev containers
-intro: 'When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.'
+title: Présentation des conteneurs de développement
+intro: 'Lorsque vous travaillez dans un codespace, l’environnement dans lequel vous travaillez est créé à l’aide d’un conteneur de développement hébergé sur une machine virtuelle.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
@@ -16,71 +16,76 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
+ms.openlocfilehash: 646f8068e68040f1d12f8155c3ba9e2bdb84c2ca
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185090'
 ---
+## À propos des conteneurs de développement
 
-## About dev containers
+Les conteneurs de développement sont des conteneurs Docker spécifiquement configurés pour fournir un environnement de développement complet. Chaque fois que vous travaillez dans un codespace, vous utilisez un conteneur de développement sur une machine virtuelle.
 
-Development containers, or dev containers, are Docker containers that are specifically configured to provide a fully featured development environment. Whenever you work in a codespace, you are using a dev container on a virtual machine.
+Vous pouvez configurer le conteneur de développement pour un dépôt de façon à ce que les codespaces créés pour ce dépôt vous offrent un environnement sur mesure et complet avec l’ensemble des outils et runtimes dont vous avez besoin pour travailler sur un projet spécifique. Si vous ne définissez pas de configuration dans le dépôt, {% data variables.product.prodname_github_codespaces %} utilise une configuration par défaut contenant de nombreux outils courants dont votre équipe pourrait avoir besoin pour le développement de votre projet. Pour plus d’informations, consultez « [Utilisation de la configuration de conteneur de développement par défaut](#using-the-default-dev-container-configuration) ».
 
-You can configure the dev container for a repository so that codespaces created for that repository give you a tailored development environment, complete with all the tools and runtimes you need to work on a specific project. If you don't define a configuration in the repository then {% data variables.product.prodname_github_codespaces %} uses a default configuration, which contains many of the common tools that your team might need for development with your project. For more information, see "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
+Les fichiers de configuration d’un conteneur de développement sont contenus dans un répertoire `.devcontainer` dans votre dépôt. Vous pouvez utiliser {% data variables.product.prodname_vscode %} pour ajouter des fichiers de configuration à votre place. Vous pouvez opérer un choix dans une sélection de configurations prédéfinies pour différents types de projet. Vous pouvez utiliser celles-ci sans configuration supplémentaire, ou les modifier pour affiner l’environnement de développement qu’elles produisent. Pour plus d’informations, consultez « [Utilisation d’une configuration de conteneur de développement prédéfinie](#using-a-predefined-dev-container-configuration) ».
 
-The configuration files for a dev container are contained in a `.devcontainer` directory in your repository. You can use {% data variables.product.prodname_vscode %} to add configuration files for you. You can choose from a selection of predefined configurations for various project types. You can use these without further configuration, or you can edit the configurations to refine the development environment they produce. For more information, see "[Using a predefined dev container configuration](#using-a-predefined-dev-container-configuration)."
+Vous pouvez également ajouter vos propres fichiers de configuration personnalisés. Pour plus d’informations, consultez « [Création d’une configuration de conteneur de développement personnalisée](#creating-a-custom-dev-container-configuration) ».
 
-Alternatively, you can add your own custom configuration files. For more information, see "[Creating a custom dev container configuration](#creating-a-custom-dev-container-configuration)."
+Vous pouvez définir une configuration de conteneur de développement unique pour un dépôt, différentes configurations pour différentes branches ou plusieurs configurations. Lorsque plusieurs configurations sont disponibles, les utilisateurs peuvent choisir leur configuration préférée quand ils créent un codespace. Cela est particulièrement utile pour les dépôts volumineux contenant du code source dans différents langages de programmation ou pour différents projets. Vous pouvez créer un choix de configurations qui permettent à différentes équipes de travailler dans un codespace configuré de manière appropriée pour le travail qu’elles accomplissent.
 
-You can define a single dev container configuration for a repository, different configurations for different branches, or multiple configurations. When multiple configurations are available, users can choose their preferred configuration when they create a codespace. This is particularly useful for large repositories that contain source code in different programming languages or for different projects. You can create a choice of configurations that allow different teams to work in a codespace that's set up appropriately for the work they are doing.
-
-When you create a codespace from a template, you might start with one or more dev container configuration files in your workspace. To configure your environment further, you can add or remove settings from these files and rebuild the container to apply the changes to the codespace you're working in. If you publish your codespace to a repository on {% data variables.product.product_name %}, then any codespaces created from that repository will share the configuration you've defined. For more information, see "[Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace)" and "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-remote-repository)."
+Quand vous créez un codespace à partir d’un modèle, vous pouvez commencer avec un ou plusieurs fichiers de configuration de conteneur de développement dans votre espace de travail. Pour configurer davantage votre environnement, vous pouvez ajouter des paramètres à ces fichiers ou en supprimer et regénérer le conteneur pour appliquer les modifications au codespace dans lequel vous travaillez. Si vous publiez votre codespace dans un dépôt sur {% data variables.product.product_name %}, tous les codespaces créés à partir de ce dépôt partagent la configuration que vous avez définie. Pour plus d’informations, consultez « [Application de modifications de configuration à un codespace](#applying-configuration-changes-to-a-codespace) » et « [Création d’un codespace à partir d’un modèle](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-remote-repository) ».
 
 ### devcontainer.json
 
-The primary file in a dev container configuration is the `devcontainer.json` file. You can use this file to determine the environment of codespaces created for your repository. The contents of this file define a dev container that can include frameworks, tools, extensions, and port forwarding. The `devcontainer.json` file usually contains a reference to a Dockerfile, which is typically located alongside the `devcontainer.json` file.
+Le fichier principal d’une configuration de conteneur de développement est le fichier `devcontainer.json`. Vous pouvez l’utiliser pour déterminer l’environnement de codespaces créés pour votre dépôt. Le contenu de ce fichier définit un conteneur de développement qui peut inclure des infrastructures, des outils, des extensions et un réacheminement de port. Le fichier `devcontainer.json` contient généralement une référence à un Dockerfile qui est normalement situé à côté du fichier `devcontainer.json`.
 
-If you create a codespace from a repository without a `devcontainer.json` file, or if you start from {% data variables.product.company_short %}'s blank template, the default dev container configuration is used. For more information, see "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
+Si vous créez un codespace à partir d’un dépôt sans fichier `devcontainer.json` ou que vous commencez à partir du modèle vide de {% data variables.product.company_short %}, la configuration de conteneur de développement par défaut est utilisée. Pour plus d’informations, consultez « [Utilisation de la configuration de conteneur de développement par défaut](#using-the-default-dev-container-configuration) ».
 
-The `devcontainer.json` file is usually located in the `.devcontainer` directory of your repository. Alternatively, you can locate it directly in the root of the repository, in which case the file name must begin with a period: `.devcontainer.json`. 
+Le fichier `devcontainer.json` se trouve généralement dans le répertoire `.devcontainer` de votre dépôt. Vous pouvez également le placer directement à la racine du dépôt, auquel cas le nom de fichier doit commencer par un point : `.devcontainer.json`. 
 
-If you want to have a choice of dev container configurations in your repository, any alternatives to the  `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file must be located in their own subdirectory at the path `.devcontainer/SUBDIRECTORY/devcontainer.json`. For example, you could have a choice of two configurations: 
+Si vous souhaitez disposer d’un choix de configurations de conteneur de développement dans votre dépôt, toutes les alternatives au fichier `.devcontainer/devcontainer.json` (ou `.devcontainer.json`) doivent se trouver dans leur propre sous-répertoire dans le chemin d’accès `.devcontainer/SUBDIRECTORY/devcontainer.json`. Par exemple, vous pourriez avoir le choix entre deux configurations : 
 * `.devcontainer/database-dev/devcontainer.json` 
 * `.devcontainer/gui-dev/devcontainer.json`
 
-When you have multiple `devcontainer.json` files in your repository, each codespace is created from only one of the configurations. Settings cannot be imported or inherited between `devcontainer.json` files. If a `devcontainer.json` file in a custom subdirectory has dependent files, such as the Dockerfile or scripts that are run by commands in the `devcontainer.json` file, it's recommended that you co-locate these files in the same subdirectory.
+Lorsque vous avez plusieurs fichiers `devcontainer.json` dans votre dépôt, chaque codespace est créé à partir d’une seule des configurations. Des paramètres ne peuvent pas être importés ou hérités entre fichiers `devcontainer.json`. Si un fichier `devcontainer.json` dans un sous-répertoire personnalisé a des fichiers dépendants, tels que le Dockerfile ou des scripts exécutés par des commandes dans le fichier `devcontainer.json`, il est recommandé de colocaliser ces fichiers dans le même sous-répertoire.
 
-For information about how to choose your preferred dev container configuration when you create a codespace, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+Pour plus d’informations sur la façon de choisir votre configuration de conteneur de développement préférée quand vous créez un codespace, consultez « [Création d’un codespace pour un dépôt](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository) ».
 
 {% data reusables.codespaces.more-info-devcontainer %}
 
-#### How to use the devcontainer.json
+#### Comment utiliser le devcontainer.json
 
-It's useful to think of the `devcontainer.json` file as providing "customization" rather than "personalization." You should only include things that everyone working on your codebase needs as standard elements of the development environment, not things that are personal preferences. Things like linters are good to standardize on, and to require everyone to have installed, so they're good to include in your `devcontainer.json` file. Things like user interface decorators or themes are personal choices that should not be put in the `devcontainer.json` file.
+Il est utile de considérer que le fichier `devcontainer.json` fournit une « customisation » plutôt qu’une « personnalisation ». Vous ne devriez inclure que des éléments dont toute personne travaillant sur votre codebase a besoin en tant que composants standard de l’environnement de développement, pas des éléments correspondant à des préférences personnelles. Il est bon de normaliser des éléments tels que des linters en exigeant que chacun les installe, et par conséquent de les inclure dans votre fichier `devcontainer.json`. En revanche, des éléments tels que des éléments décoratifs ou des thèmes d’interface utilisateur sont des choix personnels qui n’ont pas leur place dans le fichier `devcontainer.json`.
 
-You can personalize your codespaces by using dotfiles and Settings Sync. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
+Vous pouvez personnaliser vos codespaces à l’aide de dotfiles et d’une Synchronisation des paramètres. Pour plus d’informations, consultez « [Personnalisation de {% data variables.product.prodname_github_codespaces %} pour votre compte](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account) ».
 
 ### Dockerfile
 
-You can add a Dockerfile as part of your dev container configuration. 
+Vous pouvez ajouter un Dockerfile à votre configuration de conteneur de développement. 
 
-The Dockerfile is a text file that contains the instructions needed to create a Docker container image. This image is used to generate a development container each time someone creates a codespace using the `devcontainer.json` file that references this Dockerfile. The instructions in the Dockerfile typically begin by referencing a parent image on which the new image that will be created is based. This is followed by commands that are run during the image creation process, for example to install software packages.
+Le Dockerfile est un fichier texte contenant les instructions nécessaires pour créer une image conteneur Docker. Cette image est utilisée pour générer un conteneur de développement chaque fois que quelqu’un crée un codespace à l’aide du fichier `devcontainer.json` référençant ce Dockerfile. Les instructions figurant dans le Dockerfile commencent généralement par référencer une image parente sur laquelle sera basée la nouvelle image qui sera créée. Viennent ensuite des commandes qui sont exécutées pendant le processus de création de l’image, par exemple, pour installer des packages logiciels.
 
-The Dockerfile for a dev container is typically located in the `.devcontainer` folder, alongside the `devcontainer.json` in which it is referenced. 
+Le Dockerfile d’un conteneur de développement se trouve généralement dans le dossier `.devcontainer`, à proximité du `devcontainer.json` dans lequel il est référencé. 
 
 {% note %}
 
-**Note**: As an alternative to using a Dockerfile you can use the `image` property in the `devcontainer.json` file to refer directly to an existing image you want to use. The image you specify here must be allowed by any organization image policy that has been set. For more information, see "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)." If neither a Dockerfile nor an image is found then the default container image is used. For more information, see "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
+**Remarque** : au lieu d’utiliser un Dockerfile, vous pouvez utiliser la propriété `image` dans le fichier `devcontainer.json` pour faire référence directement à une image existante que vous souhaitez utiliser. L’image que vous spécifiez ici doit être autorisée par toute stratégie d’image d’organisation qui a été définie. Pour plus d’informations, consultez « [Restriction de l’image de base pour les codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces) ». En l’absence de Dockerfile ou d’image, l’image conteneur par défaut est utilisée. Pour plus d’informations, consultez « [Utilisation de la configuration de conteneur de développement par défaut](#using-the-default-dev-container-configuration) ».
 
 {% endnote %}
 
-#### Simple Dockerfile example
+#### Exemple Dockerfile simple
 
-The following example uses four instructions:
+L’exemple suivant utilise quatre instructions :
 
-`ARG` defines a build-time variable.
+`ARG` définit une variable de temps de génération.
 
-`FROM` specifies the parent image on which the generated Docker image will be based.
+`FROM` spécifie l’image parente sur laquelle l’image Docker générée sera basée.
 
-`COPY` copies a file and adds it to the filesystem. 
+`COPY` copie un fichier et l’ajoute au système de fichiers. 
 
-`RUN` updates package lists and runs a script. You can also use a `RUN` instruction to install software, as shown by the commented out instructions. To run multiple commands, use `&&` to combine the commands into a single `RUN` statement.
+`RUN` met à jour les listes de packages et exécute un script. Vous pouvez également utiliser une instruction `RUN` pour installer des logiciels, comme l’indiquent les instructions commentées. Pour exécuter plusieurs commandes, utilisez `&&` pour combiner les commandes dans une seule instruction `RUN`.
 
 ```Dockerfile{:copy}
 ARG VARIANT="16-buster"
@@ -97,11 +102,11 @@ COPY library-scripts/github-debian.sh /tmp/library-scripts/
 RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 ```
 
-For more information about Dockerfile instructions, see "[Dockerfile reference](https://docs.docker.com/engine/reference/builder)" in the Docker documentation.
+Pour plus d’informations sur les instructions concernant Dockerfile, consultez « [Dockerfile reference](https://docs.docker.com/engine/reference/builder) » dans la documentation Docker.
 
-#### Using a Dockerfile
+#### Utilisation d’un Dockerfile
 
-To use a Dockerfile as part of a dev container configuration, reference it in your `devcontainer.json` file by using the `dockerfile` property.
+Pour utiliser un Dockerfile dans une configuration de conteneur de développement, référencez-le dans votre fichier `devcontainer.json` à l’aide de la propriété `dockerfile`.
 
 ```json{:copy}
 {
@@ -111,134 +116,134 @@ To use a Dockerfile as part of a dev container configuration, reference it in yo
 }
 ```
 
-Various options are available to you if you want to use existing container orchestration in your dev container. For more information, see the "Orchestration options" section of the [Specification](https://containers.dev/implementors/spec/#orchestration-options) on the Development Containers website.
+Différentes options s’offrent à vous si vous souhaitez utiliser l’orchestration de conteneur existante dans votre conteneur de développement. Pour plus d’informations, consultez la section « Options d’orchestration » de la [spécification](https://containers.dev/implementors/spec/#orchestration-options) sur le site web Conteneurs de développement.
 
-## Using the default dev container configuration
+## Utilisation de la configuration de conteneur de développement par défaut
 
-If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace using a default Linux image. This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
+Si vous ne définissez pas de configuration dans votre dépôt, {% data variables.product.prodname_dotcom %} crée un codespace à l’aide d’une image Linux par défaut. Cette image Linux inclut un certain nombre de versions de runtime pour des langages populaires tels que Python, Node, PHP, Java, Go, C++, Ruby et .NET Core/C#. Les dernières versions LTS de ces langages sont utilisées. Il y a également des outils pour prendre en charge la science des données et l’apprentissage automatique, tels que JupyterLab et Conda. L’image inclut également d’autres outils et utilitaires de développement tels que Git, GitHub CLI, yarn, openssh et vim. Pour voir l’ensemble des langages, runtimes et outils inclus, utilisez la commande `devcontainer-info content-url` à l’intérieur de votre terminal codespace, et suivez l’URL que la commande génère.
 
-For information about what's included in the default Linux image, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal) repository. 
+Pour plus d’informations sur ce qui est inclus dans l’image Linux par défaut, consultez le dépôt [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal). 
 
-The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_github_codespaces %} provides.
+La configuration par défaut est une bonne option si vous travaillez sur un petit projet utilisant les langages et outils fournis par {% data variables.product.prodname_github_codespaces %}.
 
-## Using a predefined dev container configuration
+## Utilisation d’une configuration de conteneur de développement prédéfinie
 
-If you use {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}, or in a web browser, you can create a dev container configuration for your repository by choosing from a list of predefined configurations. These configurations provide common setups for particular project types, and can help you quickly get started with a configuration that already has the appropriate container options, {% data variables.product.prodname_vscode %} settings, and {% data variables.product.prodname_vscode %} extensions that should be installed.
+Si vous utilisez {% data variables.product.prodname_codespaces %} dans {% data variables.product.prodname_vscode %} ou dans un navigateur web, vous pouvez créer une configuration de conteneur de développement pour votre dépôt en choisissant parmi une liste de configurations prédéfinies. Ces configurations fournissent des paramétrages courants pour des types de projets particuliers et peuvent vous aider à démarrer rapidement avec une configuration comprenant déjà les options de conteneur, les paramètres {% data variables.product.prodname_vscode %} et les extensions {% data variables.product.prodname_vscode %} appropriés à installer.
 
-Using a predefined configuration is a great idea if you need some additional extensibility. You can also start with a predefined configuration and amend it as needed for your project. For more information about the definitions of predefined dev containers, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src) repository.
+L’utilisation d’une configuration prédéfinie est une excellente idée si vous avez besoin d’une extensibilité supplémentaire. Vous pouvez également commencer avec une configuration prédéfinie et la modifier en fonction des besoins de votre projet. Pour plus d’informations sur les définitions de conteneurs de développement prédéfinis, consultez le dépôt [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src).
 
-You can add a predefined dev container configuration either while working in a codespace, or while working on a repository locally. To do this in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). The following procedure describes the process when you are using a codespace. The steps in {% data variables.product.prodname_vscode_shortname %} when you are not connected to a codespace are very similar.
+Vous pouvez ajouter une configuration de conteneur de développement prédéfinie lorsque vous travaillez dans un codespace ou localement sur un dépôt. Pour y parvenir dans {% data variables.product.prodname_vscode_shortname %} quand vous travaillez localement et que vous n’êtes pas connecté à un codespace, l’extension l’extension « Conteneurs de développement » doit être installée et activée. Pour plus d’informations sur cette extension, consultez la [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). La procédure suivante décrit le processus quand vous utilisez un codespace. Les étapes décrites dans {% data variables.product.prodname_vscode_shortname %} quand vous n’êtes pas connecté à un codespace sont très similaires.
 
 {% data reusables.codespaces.command-palette-container %}
-1. Click the definition you want to use.
+1. Cliquez sur la définition que vous souhaitez utiliser.
 
-   ![Screenshot of a list of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
+   ![Capture d’écran d’une liste de définitions de conteneur prédéfinies](/assets/images/help/codespaces/predefined-container-definitions-list.png)
 
-1. Follow the prompts to customize your definition. For more information on the options to customize your definition, see "[Adding additional features to your `devcontainer.json` file](#adding-additional-features-to-your-devcontainerjson-file)."
-1. Click **OK**.
+1. Suivez les invites pour personnaliser votre définition. Pour plus d’informations sur les options permettant de personnaliser votre définition, consultez « [Ajout de fonctionnalités à votre fichier `devcontainer.json`](#adding-additional-features-to-your-devcontainerjson-file) ».
+1. Cliquez sur **OK**.
 
-   ![Screenshot of the OK button](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
+   ![Capture d’écran du bouton OK](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
-1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. Si vous travaillez dans un codespace, appliquez vos modifications en cliquant sur **Régénérer maintenant** dans le message en bas à droite de la fenêtre. Pour plus d’informations sur la régénération de votre conteneur, consultez « [Application de modifications à votre configuration](#applying-configuration-changes-to-a-codespace) ».
 
-   ![Screenshot of a prompt to 'Rebuild now'](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![Capture d’écran d’une invite à « regénérer maintenant »](/assets/images/help/codespaces/rebuild-prompt.png)
 
-### Adding additional features to your `devcontainer.json` file
+### Ajout de fonctionnalités à votre fichier `devcontainer.json`
 
-{% data reusables.codespaces.about-features %} For more information, see "[Adding features to a `devcontainer.json` file](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=vscode)."
+{% data reusables.codespaces.about-features %} Pour plus d’informations, consultez « [Ajout de fonctionnalités à un fichier `devcontainer.json`](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=vscode) ».
 
-## Creating a custom dev container configuration
+## Création d’une configuration de conteneur de développement personnalisée
 
-If none of the predefined configurations meets your needs, you can create a custom configuration by writing your own `devcontainer.json` file.
+Si aucune des configurations prédéfinies ne répond à vos besoins, vous pouvez créer une configuration personnalisée en écrivant votre propre fichier `devcontainer.json`.
 
-* If you're adding a single `devcontainer.json` file that will be used by everyone who creates a codespace from your repository, create the file within a `.devcontainer` directory at the root of the repository. 
-* If you want to offer users a choice of configuration, you can create multiple custom `devcontainer.json` files, each located within a separate subdirectory of the `.devcontainer` directory.
+* Si vous ajoutez un seul fichier `devcontainer.json` qui sera utilisé par toute personne créant un codespace à partir de votre dépôt, créez le fichier dans un répertoire `.devcontainer` à la racine du dépôt. 
+* Si vous souhaitez offrir aux utilisateurs un choix de configuration, vous pouvez créer plusieurs fichiers `devcontainer.json` personnalisés, chacun situé dans un sous-répertoire distinct du répertoire `.devcontainer`.
 
    {% note %}
 
-   **Notes**:
-   - You can't locate your `devcontainer.json` files in directories more than one level below `.devcontainer`. For example, a file at `.devcontainer/teamA/devcontainer.json` will work, but `.devcontainer/teamA/testing/devcontainer.json` will not.
-   - {% data reusables.codespaces.configuration-choice-templates %} For more information, see "[Setting up a template repository for {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces)."
+   **Remarques**:
+   - Vous ne pouvez pas placer vos fichiers `devcontainer.json` dans des répertoires situés plusieurs niveaux en dessous de `.devcontainer`. Par exemple, un fichier à l’emplacement `.devcontainer/teamA/devcontainer.json` fonctionnera, mais pas `.devcontainer/teamA/testing/devcontainer.json`.
+   - {% data reusables.codespaces.configuration-choice-templates %} Pour plus d’informations, consultez « [Configuration d’un dépôt modèle pour {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces) ».
 
    {% endnote %}
 
-   If multiple `devcontainer.json` files are found in the repository, they are listed in the codespace creation options page. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   Si plusieurs fichiers `devcontainer.json` se trouvent dans le dépôt, ils sont répertoriés dans la page des options de création de codespace. Pour plus d’informations, consultez « [Création d’un codespace pour un dépôt](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository) ».
 
-   ![Screenshot of a choice of configuration files](/assets/images/help/codespaces/configuration-file-choice.png)
+   ![Capture d’écran d’un choix de fichiers de configuration](/assets/images/help/codespaces/configuration-file-choice.png)
 
-### Adding a `devcontainer.json` file
+### Ajout d’un fichier `devcontainer.json`
 
-If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.prodname_dotcom_the_website %}.
-1. Navigate to your repository and click the **{% octicon "code" aria-label="The code icon" %} Code** dropdown.
-1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
+Si vous n’avez pas encore de fichier `devcontainer.json` dans votre dépôt, vous pouvez rapidement en ajouter un à partir de {% data variables.product.prodname_dotcom_the_website %}.
+1. Accédez à votre dépôt et cliquez sur la liste déroulante **{% octicon "code" aria-label="The code icon" %} Code**.
+1. Sous l’onglet **Codespaces**, cliquez sur les points de suspension ( **...** ), puis sélectionnez **Configurer le conteneur de développement**.
 
-   ![Screenshot of the Code dropdown, with "Configure dev container" highlighted](/assets/images/help/codespaces/configure-dev-container.png)
+   ![Capture d’écran de la liste déroulante Code avec « Configurer le conteneur de développement » mis en évidence](/assets/images/help/codespaces/configure-dev-container.png)
 
-A new `.devcontainer/devcontainer.json` file will open in the editor. The file will contain some initial properties, including a `features` object to which you can add new tools, libraries, or runtimes. For more information, see "[Adding features to a `devcontainer.json` file](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=webui)."
+Un nouveau fichier `.devcontainer/devcontainer.json` s’ouvre dans l’éditeur. Le fichier contient certaines propriétés initiales, notamment un objet `features` auquel vous pouvez ajouter de nouveaux outils, bibliothèques ou runtimes. Pour plus d’informations, consultez « [Ajout de fonctionnalités à un fichier `devcontainer.json`](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=webui) ».
 
-If your repository already contains one or more `devcontainer.json` files, then clicking **Configure dev container** will open the existing `devcontainer.json` file with the highest precedence according to the [specification](https://containers.dev/implementors/spec/#devcontainerjson) on containers.dev. 
+Si votre dépôt contient déjà un ou plusieurs fichiers `devcontainer.json`, cliquez sur **Configurer le conteneur de développement** pour ouvrir le fichier `devcontainer.json` existant avec la priorité la plus élevée en fonction de la [spécification](https://containers.dev/implementors/spec/#devcontainerjson) sur containers.dev. 
 
-### Default configuration selection during codespace creation
+### Sélection de configuration par défaut lors de la création d’un codespace
 
-If `.devcontainer/devcontainer.json` or `.devcontainer.json` exists, it will be the default selection in the list of available configuration files when you create a codespace. If neither file exists, the default dev container configuration will be selected by default. 
+Si les fichiers `.devcontainer/devcontainer.json` ou `.devcontainer.json` existent, il s’agit de la sélection par défaut dans la liste des fichiers de configuration disponibles lorsque vous créez un codespace. Si aucun des fichiers n’existe, la configuration du conteneur de développement par défaut est sélectionnée par défaut. 
 
-![Screenshot of the default configuration choice selected](/assets/images/help/codespaces/configuration-file-choice-default.png)
+![Capture d’écran montrant le choix de la configuration par défaut sélectionné](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
-### Editing the devcontainer.json file
+### Édition du fichier devcontainer.json
 
-You can add and edit the supported configuration keys in the `devcontainer.json` file to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode_shortname %} extensions will be installed. {% data reusables.codespaces.more-info-devcontainer %}
+Vous pouvez ajouter et modifier les clés de configuration prises en charge dans le fichier `devcontainer.json` pour spécifier des aspects de l’environnement du codespace, comme les extensions {% data variables.product.prodname_vscode_shortname %} qui seront installées. {% data reusables.codespaces.more-info-devcontainer %}
 
-The `devcontainer.json` file is written using the JSONC (JSON with comments) format. This allows you to include comments within the configuration file. For more information, see "[Editing JSON with {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Le fichier `devcontainer.json` est écrit au format JSONC (JSON avec commentaires). Cela vous permet d’inclure des commentaires dans le fichier de configuration. Pour plus d’informations, consultez « [Édition de JSON avec {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments) » dans la documentation {% data variables.product.prodname_vscode_shortname %}.
 
 {% note %}
 
-**Note**: If you use a linter to validate the `devcontainer.json` file, make sure it is set to JSONC and not JSON or comments will be reported as errors.
+**Remarque** : si vous utilisez un linter pour valider le fichier `devcontainer.json`, assurez-vous que celui-ci est défini sur JSONC, non JSON, sans quoi les commentaires seront signalés comme des erreurs.
 
 {% endnote %}
 
-### Interface settings for {% data variables.product.prodname_vscode_shortname %}
+### Paramètres d’interface pour {% data variables.product.prodname_vscode_shortname %}
 
-You can configure the interface settings for {% data variables.product.prodname_vscode_shortname %}, with three scopes: Workspace, Remote [Codespaces], and User. You can view these scopes in the {% data variables.product.prodname_vscode_shortname %} Settings editor.
+Vous pouvez configurer les paramètres d’interface pour {% data variables.product.prodname_vscode_shortname %} avec trois étendues : Espace de travail, [Codespaces] distants et Utilisateur. Vous pouvez afficher ces étendues dans l’éditeur Paramètres de {% data variables.product.prodname_vscode_shortname %}.
 
-![Screenshot showing the choice of scopes in the Settings editor](/assets/images/help/codespaces/scopes-for-vscode.png)
+![Capture d’écran montrant le choix des étendues dans l’éditeur Paramètres](/assets/images/help/codespaces/scopes-for-vscode.png)
 
-If a setting is defined in multiple scopes, Workspace settings take priority, then Remote [Codespaces], then User.
+Si un paramètre est défini dans plusieurs étendues, les paramètres de l’étendue Espace de travail sont prioritaires, suivis de ceux de l’étendue [Codespaces] distants et de ceux de l’étendue Utilisateur.
 
-You can define default interface settings for {% data variables.product.prodname_vscode_shortname %} in two places.
+Vous pouvez définir des paramètres d’interface par défaut pour {% data variables.product.prodname_vscode_shortname %} à deux endroits.
 
-* Interface settings defined in the `.vscode/settings.json` file in your repository are applied as Workspace-scoped settings in the codespace.
-* Interface settings defined in the `settings` key in the `devcontainer.json` file are applied as Remote [Codespaces]-scoped settings in the codespace.
+* Les paramètres d’interface définis dans le fichier `.vscode/settings.json` dans votre dépôt sont appliqués en tant que paramètres délimités à l’espace de travail dans le codespace.
+* Les paramètres d’interface définis dans la clé `settings` dans le fichier `devcontainer.json` sont appliqués en tant que paramètres délimités à [Codespaces] distants dans le codespace.
 
-## Applying configuration changes to a codespace
+## Application de modifications de configuration à un codespace
 
-Changes to a configuration will be applied the next time you create a codespace. However, you can apply your changes to an existing codespace by rebuilding the container. You can do this within a codespace in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application, or you can use {% data variables.product.prodname_cli %}.
+Les modifications apportées à une configuration seront appliquées la prochaine fois que vous créerez un codespace. Toutefois, vous pouvez appliquer vos modifications à un codespace existant en régénérant le conteneur. Vous pouvez effectuer cette opération dans un codespace dans le client web ou l’application de bureau {% data variables.product.prodname_vscode_shortname %}, ou vous pouvez utiliser {% data variables.product.prodname_cli %}.
 
-### Rebuilding the dev container in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application
+### Regénération du conteneur de développement dans le client web ou l’application de bureau {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.rebuild-command %}
 1. {% data reusables.codespaces.recovery-mode %}
 
-   ![Screenshot of the error message about recovery mode](/assets/images/help/codespaces/recovery-mode-error-message.png)
+   ![Capture d’écran du message d’erreur concernant le mode de récupération](/assets/images/help/codespaces/recovery-mode-error-message.png)
 
-   - To diagnose the error by reviewing the creation logs, click **View creation log**.
-   - To fix the errors identified in the logs, update your `devcontainer.json` file.
-   - To apply the changes, rebuild your container. 
+   - Pour diagnostiquer l’erreur en révisant les journaux de création, cliquez sur **Afficher le journal de création**.
+   - Pour corriger les erreurs identifiées dans les journaux, mettez à jour votre fichier `devcontainer.json`.
+   - Pour appliquer les modifications, régénérez votre conteneur. 
 
-### Using {% data variables.product.prodname_cli %} to rebuild a dev container
+### Utilisation de {% data variables.product.prodname_cli %} pour régénérer un conteneur de développement
 
-If you've changed a dev container configuration outside of VS Code (for example, on {% data variables.product.prodname_dotcom_the_website %} or in a JetBrains IDE), you can use {% data variables.product.prodname_cli %} to rebuild the dev container for an existing codespace.
+Si vous avez modifié une configuration de conteneur de développement en dehors de VS Code (par exemple, sur {% data variables.product.prodname_dotcom_the_website %} ou dans un IDE JetBrains), vous pouvez utiliser {% data variables.product.prodname_cli %} pour reconstruire le conteneur de développement d’un codespace existant.
 
-1. In a terminal, enter the following command.
+1. Dans le terminal, entrez la commande suivante.
 
    ```
    gh cs rebuild
    ```
 
-   Your codespaces are listed.
+   Vos codespaces sont répertoriés.
 
-1. Use the arrow keys on your keyboard to highlight the required codespace, then press <kbd>Enter</kbd>.
+1. Utilisez les touches de direction de votre clavier pour mettre en surbrillance l’espace de code requis, puis appuyez sur <kbd>Entrée</kbd>.
 
 
-## Further reading
+## Pour aller plus loin
 
-- "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)"
+- « [Pré-génération de vos codespaces](/codespaces/prebuilding-your-codespaces) »

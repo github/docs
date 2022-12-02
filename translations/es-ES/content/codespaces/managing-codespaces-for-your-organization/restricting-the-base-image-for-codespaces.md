@@ -9,12 +9,12 @@ versions:
 type: how_to
 topics:
   - Codespaces
-ms.openlocfilehash: 1da438a680dd3e60c1deeec46a98fbcf48f84e5b
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: f17bb20aa919ca94cd13e14a6f770cea23042b2b
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159001'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188284'
 ---
 ## Información general
 
@@ -39,7 +39,7 @@ Si la imagen especificada en la configuración del contenedor de desarrollo no c
 {% note %}
 
 **Notas**: 
-* La directiva de imagen base solo se aplica cuando se crea un codespace. Actualmente no se aplica cuando se recompila un contenedor. Esto se modificará en una versión futura. Para obtener más información, consulta "[Ciclo de vida de un codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace)".
+* La directiva de imagen base solo se aplica cuando se crea un codespace. Actualmente no se aplica cuando se recompila un contenedor. Esto se modificará en una versión futura. Para obtener más información, consulta "[Ciclo de vida de un codespace](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)".
 * La directiva de imagen base no se aplica a la imagen predeterminada ni a la imagen que se usa para recuperar un codespace si se introduce un error en la configuración de un contenedor de desarrollo que impide que se recompile el contenedor. 
 
 {% endnote %}

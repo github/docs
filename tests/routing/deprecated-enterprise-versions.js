@@ -95,8 +95,11 @@ describe('recently deprecated redirects', () => {
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/enterprise-server@3.0')
     expect(res.headers['set-cookie']).toBeUndefined()
-    // Deliberately no cache control because it is user-dependent
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    // language specific caching
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers.vary).toContain('accept-language')
+    expect(res.headers.vary).toContain('x-user-language')
   })
 
   test('already languaged enterprise 3.0 redirects', async () => {
@@ -108,14 +111,18 @@ describe('recently deprecated redirects', () => {
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
   })
+
   test('redirects enterprise-server 3.0 with actual redirect without language', async () => {
     const res = await get(
       '/enterprise-server@3.0/github/getting-started-with-github/githubs-products'
     )
     expect(res.statusCode).toBe(302)
     expect(res.headers['set-cookie']).toBeUndefined()
-    // Deliberately no cache control because it is user-dependent
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    // language specific caching
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers.vary).toContain('accept-language')
+    expect(res.headers.vary).toContain('x-user-language')
     // This is based on
     // https://github.com/github/help-docs-archived-enterprise-versions/blob/master/3.0/redirects.json
     expect(res.headers.location).toBe(
