@@ -11,20 +11,19 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 4560ae5e63f8a607f068bb24e84f1a014f44885c
-ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.openlocfilehash: ab880cef09b936bb573d783373f048395d0a2f58
+ms.sourcegitcommit: 16548aa24259e37cc0ac4900ca8fefc46dc84cdb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2022
-ms.locfileid: '148179738'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148190063'
 ---
-![더 건담캣](/assets/images/gundamcat.png)
+![건담캣](/assets/images/gundamcat.png)
 
 ## 다양한 버전으로 제공되는 Octokit
 
 공식 Octokit 라이브러리를 사용하거나 사용 가능한 타사 라이브러리 중 하나를 선택합니다.
 
-- **Python** → [octokit.py](https://github.com/khornberg/octokit.py)
 - **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
 - **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
 - **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
@@ -131,6 +130,7 @@ ms.locfileid: '148179738'
 |**github-flask**|[github-flask(공식 웹 사이트)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|**octokit.py**|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 

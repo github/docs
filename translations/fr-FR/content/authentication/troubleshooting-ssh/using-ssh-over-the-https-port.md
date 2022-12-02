@@ -30,7 +30,7 @@ $ ssh -T -p 443 git@ssh.github.com
 
 **Note**: The hostname for port 443 is `ssh.{% data variables.command_line.backticks %}`, not `{% data variables.command_line.backticks %}`.
 
-{% endnote %} 
+{% endnote %}
 
 If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
 
@@ -71,8 +71,8 @@ that the host wasn't found in `known_hosts`, or that it was found by another nam
 > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
 > This host key is known by the following other names/addresses:
 >     ~/.ssh/known_hosts:32: github.com
-> Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+> Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
-It is safe to answer `yes` to this question, assuming that the SSH fingerprint matches
-one of GitHub's published fingerprints. For more information, see "[Github's SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
+It is safe to answer "yes" to this question, assuming that the SSH fingerprint matches
+one of GitHub's published fingerprints. For the list of fingerprints, see "[Github's SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."

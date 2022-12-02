@@ -673,7 +673,6 @@ translations/ko-KR/content/authentication/troubleshooting-ssh/error-agent-admitt
 translations/ko-KR/content/authentication/troubleshooting-ssh/error-key-already-in-use.md,rendering error
 translations/ko-KR/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,rendering error
 translations/ko-KR/content/authentication/troubleshooting-ssh/recovering-your-ssh-key-passphrase.md,rendering error
-translations/ko-KR/content/authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md,rendering error
 translations/ko-KR/content/billing/managing-billing-for-github-actions/about-billing-for-github-actions.md,rendering error
 translations/ko-KR/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,rendering error
 translations/ko-KR/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
@@ -766,8 +765,9 @@ translations/ko-KR/content/code-security/supply-chain-security/understanding-you
 translations/ko-KR/content/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review.md,rendering error
 translations/ko-KR/content/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry.md,rendering error
 translations/ko-KR/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
+translations/ko-KR/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
+translations/ko-KR/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
 translations/ko-KR/content/codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning.md,rendering error
-translations/ko-KR/content/codespaces/developing-in-codespaces/opening-an-existing-codespace.md,rendering error
 translations/ko-KR/content/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide.md,rendering error
 translations/ko-KR/content/codespaces/getting-started/deep-dive.md,rendering error
 translations/ko-KR/content/codespaces/getting-started/quickstart.md,rendering error
@@ -785,6 +785,7 @@ translations/ko-KR/content/communities/documenting-your-project-with-wikis/about
 translations/ko-KR/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/ko-KR/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/ko-KR/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
+translations/ko-KR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository.md,rendering error
 translations/ko-KR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,rendering error
 translations/ko-KR/content/copilot/quickstart.md,broken liquid tags
 translations/ko-KR/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop.md,rendering error
@@ -999,7 +1000,6 @@ translations/ko-KR/content/pull-requests/collaborating-with-pull-requests/propos
 translations/ko-KR/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch.md,rendering error
 translations/ko-KR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request.md,rendering error
 translations/ko-KR/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
-translations/ko-KR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,rendering error
 translations/ko-KR/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message.md,rendering error
 translations/ko-KR/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization.md,rendering error
 translations/ko-KR/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors.md,rendering error

@@ -1,6 +1,6 @@
 ---
-title: Stopping and starting a codespace
-intro: 'You can stop and start your codespace to save resources and to pause work.'
+title: Arrêt et démarrage d’un codespace
+intro: Vous pouvez arrêter et démarrer votre codespace pour enregistrer des ressources et mettre le travail en pause.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,28 +10,33 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
+ms.openlocfilehash: 5c34fd5b7d72f52e203cd8f8fdc1871ff6a2f014
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188247'
 ---
-
 {% jetbrains %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
 {% endjetbrains %}
 
-## About stopping and starting a codespace
+## À propos de l’arrêt et du démarrage d’un codespace
 
 {% data reusables.codespaces.stopping-a-codespace %}
 
-Regardless of where you created or access your codespaces, you can view and manage them in your browser at https://github.com/codespaces. 
+Quel que soit l’emplacement à partir duquel vous avez créez vos codespaces ou y accédez, vous pouvez les voir et les gérer dans votre navigateur sur https://github.com/codespaces. 
 
-## Stopping a codespace
+## Arrêt d’un codespace
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
- 1. To the right of the codespace you want to stop, click the elipsis (**...**).
- 1. Click **Stop codespace**.
-   ![Screenshot of option to stop a codespace](/assets/images/help/codespaces/stop-codespace-webui.png)
+ 1. À droite du codespace que vous voulez arrêter, cliquez sur les points de suspension ( **...** ).
+ 1. Cliquez sur **Arrêter le codespace**.
+   ![Capture d’écran de l’option permettant d’arrêter un codespace](/assets/images/help/codespaces/stop-codespace-webui.png)
 
 {% endwebui %}
 
@@ -39,7 +44,7 @@ Regardless of where you created or access your codespaces, you can view and mana
 
 {% data reusables.cli.cli-learn-more %}
 
- To stop a codespace use the `gh codespace stop` subcommand and then choose the codespace you want to stop from the list that's displayed.
+ Pour arrêter un codespace, utilisez la sous-commande `gh codespace stop`, puis choisissez le codespace à arrêter dans la liste affichée.
 
  ```shell{:copy}
  gh codespace stop
@@ -50,38 +55,38 @@ Regardless of where you created or access your codespaces, you can view and mana
 {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. Type `stop` and select **Codespaces: Stop Codespace** from the list of options.
-1. In the list of codespaces, select the codespace you want to stop.
+1. Tapez `stop` et sélectionnez **Codespaces : Arrêter le codespace** dans la liste des options.
+1. Dans la liste des codespaces, sélectionnez celui que vous voulez arrêter.
 
 {% endvscode %}
 
 {% jetbrains %}
 
-You can stop a codespace from the "Your codespaces" page (see [the web browser instructions](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)) or by using {% data variables.product.prodname_cli %} (see [the CLI instructions](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)).
+Vous pouvez arrêter un codespace à partir de la page « Vos codespaces » (consultez [les instructions du navigateur web](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)) ou à l’aide de {% data variables.product.prodname_cli %} (consultez [les instructions de l’interface CLI](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)).
 
 {% endjetbrains %}
 
-## Restarting a codespace
+## Redémarrage d’un codespace
 
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
-1. Click the name of the codespace you want to restart.
-![Screenshot of stopped codespaces](/assets/images/help/codespaces/restart-codespace-webui.png)
+1. Cliquez sur le nom du codespace que vous voulez redémarrer.
+![Capture d’écran des codespaces arrêtés](/assets/images/help/codespaces/restart-codespace-webui.png)
 
 {% endwebui %}
 
 {% cli %}
 
-When you restart a codespace you can choose to open it in {% data variables.product.prodname_vscode %} or in your browser. 
+Quand vous redémarrez un codespace, vous pouvez choisir de l’ouvrir dans {% data variables.product.prodname_vscode %} ou dans votre navigateur. 
 
- - To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
+ - Pour redémarrer un codespace et l’ouvrir dans {% data variables.product.prodname_vscode %}, utilisez la sous-commande `gh codespace code`, puis choisissez le codespace à redémarrer dans la liste affichée.
 
  ```shell{:copy} 
  gh codespace code
  ```
 
- - To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
+ - Pour redémarrer un codespace et l’ouvrir dans votre navigateur, utilisez la sous-commande `gh codespace open --web`, puis choisissez le codespace à redémarrer dans la liste affichée.
 
  ```shell{:copy}
  gh codespace open --web
@@ -92,8 +97,8 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 {% vscode %}
 
 {% data reusables.vs-code.open-command-palette %}
-1. Type `connect` and select **Codespaces: Connect to Codespace** from the list of options.
-1. In the list of codespaces, select the codespace you want to restart.
+1. Tapez `connect` et sélectionnez **Codespaces : Se connecter au codespace** dans la liste des options.
+1. Dans la liste des codespaces, sélectionnez celui que vous voulez redémarrer.
 
 {% endvscode %}
 
@@ -103,6 +108,6 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 {% endjetbrains %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
+- « [Cycle de vie des codespaces](/codespaces/getting-started/the-codespace-lifecycle) »
