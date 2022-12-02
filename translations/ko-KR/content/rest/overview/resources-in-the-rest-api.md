@@ -292,10 +292,10 @@ gem:
     >> tmpl.expand
     => "/notifications"
 
-    >> tmpl.expand :all => 1
+    >> tmpl.expand all: 1
     => "/notifications?all=1"
 
-    >> tmpl.expand :all => 1, :participating => 1
+    >> tmpl.expand all: 1, participating: 1
     => "/notifications?all=1&participating=1"
 
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570
