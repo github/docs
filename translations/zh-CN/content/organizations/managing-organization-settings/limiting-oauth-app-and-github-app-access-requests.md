@@ -9,12 +9,12 @@ topics:
   - GitHub Apps
   - OAuth Apps
 shortTitle: Limit app access requests
-ms.openlocfilehash: 4ea1bd133dcbabb9e7b3e3cbe65da5ff9c6eabac
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 6c991ecfbdac75f1bb3bb4fdb5ea3a0692f1d040
+ms.sourcegitcommit: 30b0931723b704e219c736e0de7afe0fa799da29
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148007894'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186433'
 ---
 ## 关于集成访问请求
 

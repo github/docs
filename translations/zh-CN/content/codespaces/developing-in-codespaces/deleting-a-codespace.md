@@ -13,12 +13,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Delete a codespace
-ms.openlocfilehash: c9f1f6eb407c985d8981504de28e39a4bf742f7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 24b53cc0cead2b6b15894ada4c799abc8e1c6e7a
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158659'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188254'
 ---
 可以通过多种方式删除 codespace：在终端中使用 {% data variables.product.prodname_cli %}、在 {% data variables.product.prodname_vscode %} 中或在 Web 浏览器中。 使用本文中的选项卡可显示删除 codespace 的每种方法的说明。
 
@@ -135,5 +135,5 @@ gh codespace delete --repo octo-org/octo-repo --days 7
 还可以使用 REST API 删除组织的 codespace。 有关详细信息，请参阅“[Codespaces 组织](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)”。
 
 ## 延伸阅读
-- [codespace 生命周期](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
+- [codespace 生命周期](/codespaces/getting-started/the-codespace-lifecycle)
 - [配置 codespace 的自动删除](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)

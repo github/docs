@@ -491,7 +491,6 @@ translations/zh-CN/content/actions/learn-github-actions/finding-and-customizing-
 translations/zh-CN/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/zh-CN/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
 translations/zh-CN/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
-translations/zh-CN/content/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/zh-CN/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
 translations/zh-CN/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
@@ -639,6 +638,7 @@ translations/zh-CN/content/authentication/connecting-to-github-with-ssh/testing-
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
+translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints.md,broken liquid tags
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
@@ -742,6 +742,7 @@ translations/zh-CN/content/communities/documenting-your-project-with-wikis/about
 translations/zh-CN/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/zh-CN/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/zh-CN/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
+translations/zh-CN/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository.md,rendering error
 translations/zh-CN/content/copilot/quickstart.md,broken liquid tags
 translations/zh-CN/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop.md,rendering error
 translations/zh-CN/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,broken liquid tags
@@ -886,7 +887,6 @@ translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/propos
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request.md,rendering error
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
-translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,rendering error
 translations/zh-CN/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message.md,rendering error
 translations/zh-CN/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization.md,rendering error
 translations/zh-CN/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors.md,rendering error

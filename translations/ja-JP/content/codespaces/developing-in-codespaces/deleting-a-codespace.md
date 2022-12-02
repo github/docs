@@ -13,12 +13,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Delete a codespace
-ms.openlocfilehash: c9f1f6eb407c985d8981504de28e39a4bf742f7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 24b53cc0cead2b6b15894ada4c799abc8e1c6e7a
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158662'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188257'
 ---
 codespace はさまざまな方法で削除できます。たとえば、ターミナルで {% data variables.product.prodname_cli %} を使用して、{% data variables.product.prodname_vscode %} で、または、お使いの Web ブラウザーで削除できます。 この記事のタブを使用し、codespace を削除する各種方法の手順を表示してください。
 
@@ -135,5 +135,5 @@ gh codespace delete --repo octo-org/octo-repo --days 7
 REST API を使用して組織の codespace を削除することもできます。 詳細については、[codespace 組織](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)に関する記事を参照してください。
 
 ## 参考資料
-- 「[codespace のライフサイクル](/codespaces/developing-in-codespaces/the-codespace-lifecycle)」
+- 「[codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)」
 - [codespace の自動削除の構成](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)
