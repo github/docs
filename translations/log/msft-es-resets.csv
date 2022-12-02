@@ -511,7 +511,6 @@ translations/es-ES/content/actions/learn-github-actions/expressions.md,rendering
 translations/es-ES/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/es-ES/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/es-ES/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
-translations/es-ES/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,broken liquid tags
 translations/es-ES/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
 translations/es-ES/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/es-ES/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
@@ -618,7 +617,6 @@ translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-ser
 translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-google-cloud-platform.md,rendering error
 translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm.md,rendering error
 translations/es-ES/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware.md,rendering error
-translations/es-ES/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics.md,rendering error
 translations/es-ES/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics.md,rendering error
 translations/es-ES/content/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks.md,rendering error
 translations/es-ES/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
@@ -664,6 +662,7 @@ translations/es-ES/content/authentication/connecting-to-github-with-ssh/testing-
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,rendering error
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
+translations/es-ES/content/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints.md,broken liquid tags
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access.md,rendering error
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
@@ -743,6 +742,7 @@ translations/es-ES/content/code-security/secret-scanning/defining-custom-pattern
 translations/es-ES/content/code-security/secret-scanning/managing-alerts-from-secret-scanning.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/protecting-pushes-with-secret-scanning.md,rendering error
 translations/es-ES/content/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection.md,rendering error
+translations/es-ES/content/code-security/secret-scanning/secret-scanning-patterns.md,rendering error
 translations/es-ES/content/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database.md,rendering error
 translations/es-ES/content/code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities.md,rendering error
 translations/es-ES/content/code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities.md,rendering error
@@ -760,23 +760,18 @@ translations/es-ES/content/code-security/supply-chain-security/understanding-you
 translations/es-ES/content/codespaces/codespaces-reference/security-in-github-codespaces.md,broken liquid tags
 translations/es-ES/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
 translations/es-ES/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
-translations/es-ES/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization.md,broken liquid tags
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization.md,broken liquid tags
 translations/es-ES/content/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces.md,rendering error
 translations/es-ES/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,rendering error
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge.md,rendering error
-translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
 translations/es-ES/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,rendering error
 translations/es-ES/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/es-ES/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/es-ES/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/es-ES/content/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account.md,rendering error
 translations/es-ES/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
-translations/es-ES/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
-translations/es-ES/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
-translations/es-ES/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
-translations/es-ES/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
+translations/es-ES/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository.md,rendering error
 translations/es-ES/content/copilot/quickstart.md,broken liquid tags
 translations/es-ES/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop.md,rendering error
 translations/es-ES/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,broken liquid tags
@@ -919,7 +914,6 @@ translations/es-ES/content/pull-requests/collaborating-with-pull-requests/propos
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch.md,rendering error
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request.md,rendering error
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
-translations/es-ES/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,rendering error
 translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message.md,rendering error
 translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization.md,rendering error
 translations/es-ES/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors.md,rendering error
