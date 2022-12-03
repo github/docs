@@ -91,7 +91,7 @@
     "walk-sync": "^3.0.0"
   },
   "devDependencies": {
-    "@actions/core": "^1.9.0",
+    "@actions/core": "^1.9.1",
     "@actions/github": "^5.0.3",
     "@alex_neo/jest-expect-message": "^1.0.5",
     "@babel/core": "^7.18.5",
