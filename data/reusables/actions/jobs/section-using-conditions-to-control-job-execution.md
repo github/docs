@@ -4,7 +4,7 @@ You can use the `jobs.<job_id>.if` conditional to prevent a job from running unl
 
 {% note %}
 
-**Note:** Some contexts are not available for use in the `jobs.<job_id>.if` conditional.  If you attempt to use a context which is not available you will receive an `Unrecognized named-value: '<context>'.` error.  For more details, review the [context availability topic](/docs/actions/learn-github-actions/contexts#context-availability).  
+**Note:** Some contexts are not available for use in the `jobs.<job_id>.if` conditional.  If you attempt to use a context which is not available you will receive an `Unrecognized named-value: '<context>'.` error.  For more details, review the [context availability topic](/actions/learn-github-actions/contexts#context-availability).  
 
 {% endnote %}
 
