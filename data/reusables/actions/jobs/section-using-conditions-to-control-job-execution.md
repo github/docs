@@ -2,6 +2,12 @@ You can use the `jobs.<job_id>.if` conditional to prevent a job from running unl
 
 {% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
+{% note %}
+
+**Note:** The `jobs` and `matrix` contexts are not available for use in the `jobs.<job_id>.if` conditional.  If you attempt to use a context which is not available you will receive an `Unrecognized named-value: ``<context>``.` error.  Many of these errors can be quickly fixed by switching your expression to the `needs` context instead.  
+
+{% endnote %}
+
 ### Example: Only run job for specific repository
 
 This example uses `if` to control when the `production-deploy` job can run. It will only run if the repository is named `octo-repo-prod` and is within the `octo-org` organization. Otherwise, the job will be marked as _skipped_.
