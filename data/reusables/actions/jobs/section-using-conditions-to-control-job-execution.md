@@ -4,7 +4,7 @@ You can use the `jobs.<job_id>.if` conditional to prevent a job from running unl
 
 {% note %}
 
-**Note:** The `jobs` and `matrix` contexts are not available for use in the `jobs.<job_id>.if` conditional.  If you attempt to use a context which is not available you will receive an `Unrecognized named-value: '<context>'.` error.  Many of these errors can be quickly fixed by switching your expression to the `needs` context instead.  
+**Note:** Some contexts are not available for use in the `jobs.<job_id>.if` conditional.  If you attempt to use a context which is not available you will receive an `Unrecognized named-value: '<context>'.` error.  For more details, review the [context availability topic](https://docs.github.com/en/actions/learn-github-actions/contexts#context-availability).  
 
 {% endnote %}
 
