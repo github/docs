@@ -1,1 +1,2174 @@
-_
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@zakwarlord7 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+devcontainers
+/
+templates
+Public
+Code
+Issues
+3
+Pull requests
+1
+Actions
+Security
+Insights
+add samples
+ main (#6)
+@samruddhikhandale
+samruddhikhandale committed on Sep 28 
+1 parent 8fa7cd7 commit d53cb967d67fe09826535460a2962416e2eb02d7
+Show file tree Hide file tree
+Showing 19 changed files with 125 additions and 645 deletions.
+ 6  
+src/alpine/.devcontainer/devcontainer.json → src/alpine/.devcontainer.json
+@@ -1,10 +1,6 @@
+{
+	"name": "Alpine",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Alpine version: 3.13, 3.14, 3.15, 3.16
+		"args": { "VARIANT": "3.16" }
+	},
+	"image": "mcr.microsoft.com/devcontainers/base:0-alpine-${templateOption:imageVariant}",
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+	// Replace when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--init", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
+ 7  
+src/alpine/.devcontainer/Dockerfile
+@@ -1,7 +0,0 @@
+# [Choice] Alpine version: 3.16, 3.15, 3.14, 3.13
+ARG VARIANT=3.16
+FROM mcr.microsoft.com/vscode/devcontainers/base:0-alpine-${VARIANT}
+
+# ** [Optional] Uncomment this section to install additional packages. **
+# RUN apk update \
+#     && apk add --no-cache <your-package-list-here>
+ 364  
+src/alpine/.devcontainer/library-scripts/common-alpine.sh
+@@ -1,364 +0,0 @@
+#!/bin/ash
+#-------------------------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
+#-------------------------------------------------------------------------------------------------------------
+#
+# Docs: https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/common.md
+# Maintainer: The VS Code and Codespaces Teams
+#
+# Syntax: ./common-alpine.sh [install zsh flag] [username] [user UID] [user GID] [install Oh My Zsh! flag]
+
+set -e
+
+# Switch to bash right away
+if [ -z "${BASH_SOURCE}" ] && [ "${SWITCHED_TO_BASH}" != "true" ]; then
+    apk add --no-cache bash
+    export SWITCHED_TO_BASH=true
+    exec /bin/bash "$0" "$@"
+    exit $?
+fi
+
+INSTALL_ZSH=${1:-"true"}
+USERNAME=${2:-"automatic"}
+USER_UID=${3:-"automatic"}
+USER_GID=${4:-"automatic"}
+INSTALL_OH_MYS=${5:-"true"}
+MARKER_FILE="/usr/local/etc/vscode-dev-containers/common"
+SCRIPT_DIR="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
+    exit 1
+fi
+
+# Ensure that login shells get the correct path if the user updated the PATH using ENV.
+rm -f /etc/profile.d/00-restore-env.sh
+echo "export PATH=${PATH//$(sh -lc 'echo $PATH')/\$PATH}" > /etc/profile.d/00-restore-env.sh
+chmod +x /etc/profile.d/00-restore-env.sh
+
+# If in automatic mode, determine if a user already exists, if not use vscode
+if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then
+    USERNAME=""
+    POSSIBLE_USERS=("vscode"  "node" "codespace" "$(awk -v val=1000 -F ":" '$3==val{print $1}' /etc/passwd)")
+    for CURRENT_USER in ${POSSIBLE_USERS[@]}; do
+        if id -u ${CURRENT_USER} > /dev/null 2>&1; then
+            USERNAME=${CURRENT_USER}
+            break
+        fi
+    done
+    if [ "${USERNAME}" = "" ]; then
+        USERNAME=vscode
+    fi
+elif [ "${USERNAME}" = "none" ]; then
+    USERNAME=root
+    USER_UID=0
+    USER_GID=0
+fi
+
+# Load markers to see which steps have already run
+if [ -f "${MARKER_FILE}" ]; then
+    echo "Marker file found:"
+    cat "${MARKER_FILE}"
+    source "${MARKER_FILE}"
+fi
+
+# Install git, bash, common dependencies
+if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
+    apk update
+    apk add --no-cache \
+        openssh-client \
+        gnupg \
+        procps \
+        lsof \
+        htop \
+        net-tools \
+        psmisc \
+        curl \
+        wget \
+        rsync \
+        ca-certificates \
+        unzip \
+        zip \
+        nano \
+        vim \
+        less \
+        jq \
+        libgcc \
+        libstdc++ \
+        krb5-libs \
+        libintl \
+        libssl1.1 \
+        lttng-ust \
+        tzdata \
+        userspace-rcu \
+        zlib \
+        sudo \
+        coreutils \
+        sed \
+        grep \
+        which \
+        ncdu \
+        shadow \
+        strace
+
+    # Install man pages - package name varies between 3.12 and earlier versions
+    if apk info man > /dev/null 2>&1; then
+        apk add --no-cache man man-pages
+    else 
+        apk add --no-cache mandoc man-pages
+    fi
+
+    # Install git if not already installed (may be more recent than distro version)
+    if ! type git > /dev/null 2>&1; then
+        apk add --no-cache git
+    fi
+
+    PACKAGES_ALREADY_INSTALLED="true"
+fi
+
+# Create or update a non-root user to match UID/GID.
+group_name="${USERNAME}"
+if id -u ${USERNAME} > /dev/null 2>&1; then
+    # User exists, update if needed
+    if [ "${USER_GID}" != "automatic" ] && [ "$USER_GID" != "$(id -g $USERNAME)" ]; then 
+        group_name="$(id -gn $USERNAME)"
+        groupmod --gid $USER_GID ${group_name}
+        usermod --gid $USER_GID $USERNAME
+    fi
+    if [ "${USER_UID}" != "automatic" ] && [ "$USER_UID" != "$(id -u $USERNAME)" ]; then 
+        usermod --uid $USER_UID $USERNAME
+    fi
+else
+    # Create user
+    if [ "${USER_GID}" = "automatic" ]; then
+        groupadd $USERNAME
+    else
+        groupadd --gid $USER_GID $USERNAME
+    fi
+    if [ "${USER_UID}" = "automatic" ]; then 
+        useradd -s /bin/bash --gid $USERNAME -m $USERNAME
+    else
+        useradd -s /bin/bash -K MAIL_DIR=/dev/null --uid $USER_UID --gid $USERNAME -m $USERNAME
+    fi
+fi
+
+# Add sudo support for non-root user
+if [ "${USERNAME}" != "root" ] && [ "${EXISTING_NON_ROOT_USER}" != "${USERNAME}" ]; then
+    echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME
+    chmod 0440 /etc/sudoers.d/$USERNAME
+    EXISTING_NON_ROOT_USER="${USERNAME}"
+fi
+
+# ** Shell customization section **
+if [ "${USERNAME}" = "root" ]; then 
+    user_rc_path="/root"
+else
+    user_rc_path="/home/${USERNAME}"
+fi
+
+# .bashrc/.zshrc snippet
+rc_snippet="$(cat << 'EOF'
+if [ -z "${USER}" ]; then export USER=$(whoami); fi
+if [[ "${PATH}" != *"$HOME/.local/bin"* ]]; then export PATH="${PATH}:$HOME/.local/bin"; fi
+# Display optional first run image specific notice if configured and terminal is interactive
+if [ -t 1 ] && [[ "${TERM_PROGRAM}" = "vscode" || "${TERM_PROGRAM}" = "codespaces" ]] && [ ! -f "$HOME/.config/vscode-dev-containers/first-run-notice-already-displayed" ]; then
+    if [ -f "/usr/local/etc/vscode-dev-containers/first-run-notice.txt" ]; then
+        cat "/usr/local/etc/vscode-dev-containers/first-run-notice.txt"
+    elif [ -f "/workspaces/.codespaces/shared/first-run-notice.txt" ]; then
+        cat "/workspaces/.codespaces/shared/first-run-notice.txt"
+    fi
+    mkdir -p "$HOME/.config/vscode-dev-containers"
+    # Mark first run notice as displayed after 10s to avoid problems with fast terminal refreshes hiding it
+    ((sleep 10s; touch "$HOME/.config/vscode-dev-containers/first-run-notice-already-displayed") &)
+fi
+# Set the default git editor if not already set
+if [ -z "$(git config --get core.editor)" ] && [ -z "${GIT_EDITOR}" ]; then
+    if  [ "${TERM_PROGRAM}" = "vscode" ]; then
+        if [[ -n $(command -v code-insiders) &&  -z $(command -v code) ]]; then 
+            export GIT_EDITOR="code-insiders --wait"
+        else 
+            export GIT_EDITOR="code --wait"
+        fi
+    fi
+fi
+EOF
+)"
+
+# code shim, it fallbacks to code-insiders if code is not available
+cat << 'EOF' > /usr/local/bin/code
+#!/bin/sh
+get_in_path_except_current() {
+    which -a "$1" | grep -A1 "$0" | grep -v "$0"
+}
+code="$(get_in_path_except_current code)"
+if [ -n "$code" ]; then
+    exec "$code" "$@"
+elif [ "$(command -v code-insiders)" ]; then
+    exec code-insiders "$@"
+else
+    echo "code or code-insiders is not installed" >&2
+    exit 127
+fi
+EOF
+chmod +x /usr/local/bin/code
+
+# Codespaces bash and OMZ themes - partly inspired by https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/robbyrussell.zsh-theme
+codespaces_bash="$(cat \
+<<'EOF'
+# Codespaces bash prompt theme
+__bash_prompt() {
+    local userpart='`export XIT=$? \
+        && [ ! -z "${GITHUB_USER}" ] && echo -n "\[\033[0;32m\]@${GITHUB_USER} " || echo -n "\[\033[0;32m\]\u " \
+        && [ "$XIT" -ne "0" ] && echo -n "\[\033[1;31m\]➜" || echo -n "\[\033[0m\]➜"`'
+    local gitbranch='`\
+        if [ "$(git config --get codespaces-theme.hide-status 2>/dev/null)" != 1 ]; then \
+            export BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null); \
+            if [ "${BRANCH}" != "" ]; then \
+                echo -n "\[\033[0;36m\](\[\033[1;31m\]${BRANCH}" \
+                && if git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" > /dev/null 2>&1; then \
+                        echo -n " \[\033[1;33m\]✗"; \
+                fi \
+                && echo -n "\[\033[0;36m\]) "; \
+            fi; \
+        fi`'
+    local lightblue='\[\033[1;34m\]'
+    local removecolor='\[\033[0m\]'
+    PS1="${userpart} ${lightblue}\w ${gitbranch}${removecolor}\$ "
+    unset -f __bash_prompt
+}
+__bash_prompt
+EOF
+)"
+
+codespaces_zsh="$(cat \
+<<'EOF'
+# Codespaces zsh prompt theme
+__zsh_prompt() {
+    local prompt_username
+    if [ ! -z "${GITHUB_USER}" ]; then 
+        prompt_username="@${GITHUB_USER}"
+    else
+        prompt_username="%n"
+    fi
+    PROMPT="%{$fg[green]%}${prompt_username} %(?:%{$reset_color%}➜ :%{$fg_bold[red]%}➜ )" # User/exit code arrow
+    PROMPT+='%{$fg_bold[blue]%}%(5~|%-1~/…/%3~|%4~)%{$reset_color%} ' # cwd
+    PROMPT+='$([ "$(git config --get codespaces-theme.hide-status 2>/dev/null)" != 1 ] && git_prompt_info)' # Git status
+    PROMPT+='%{$fg[white]%}$ %{$reset_color%}'
+    unset -f __zsh_prompt
+}
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[cyan]%}(%{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[yellow]%}✗%{$fg_bold[cyan]%})"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[cyan]%})"
+__zsh_prompt
+EOF
+)"
+
+# Add RC snippet and custom bash prompt
+if [ "${RC_SNIPPET_ALREADY_ADDED}" != "true" ]; then
+    echo -e "${rc_snippet}\n${codespaces_bash}" >> "${user_rc_path}/.bashrc"
+    if [ "${USERNAME}" != "root" ]; then
+        echo -e "${rc_snippet}\n${codespaces_bash}" >> "/root/.bashrc"
+    fi
+    chown ${USERNAME}:${group_name} "${user_rc_path}/.bashrc"
+    RC_SNIPPET_ALREADY_ADDED="true"
+fi
+
+# Optionally install and configure zsh and Oh My Zsh!
+if [ "${INSTALL_ZSH}" = "true" ]; then
+    if ! type zsh > /dev/null 2>&1; then
+        apk add zsh
+    fi
+    if [ "${ZSH_ALREADY_INSTALLED}" != "true" ]; then
+        echo "${rc_snippet}" >> /etc/zsh/zshrc
+        ZSH_ALREADY_INSTALLED="true"
+    fi
+
+    # Adapted, simplified inline Oh My Zsh! install steps that adds, defaults to a codespaces theme.
+    # See https://github.com/ohmyzsh/ohmyzsh/blob/master/tools/install.sh for official script.
+    oh_my_install_dir="${user_rc_path}/.oh-my-zsh"
+    if [ ! -d "${oh_my_install_dir}" ] && [ "${INSTALL_OH_MYS}" = "true" ]; then
+        template_path="${oh_my_install_dir}/templates/zshrc.zsh-template"
+        user_rc_file="${user_rc_path}/.zshrc"
+        umask g-w,o-w
+        mkdir -p ${oh_my_install_dir}
+        git clone --depth=1 \
+            -c core.eol=lf \
+            -c core.autocrlf=false \
+            -c fsck.zeroPaddedFilemode=ignore \
+            -c fetch.fsck.zeroPaddedFilemode=ignore \
+            -c receive.fsck.zeroPaddedFilemode=ignore \
+            "https://github.com/ohmyzsh/ohmyzsh" "${oh_my_install_dir}" 2>&1
+        echo -e "$(cat "${template_path}")\nDISABLE_AUTO_UPDATE=true\nDISABLE_UPDATE_PROMPT=true" > ${user_rc_file}
+        sed -i -e 's/ZSH_THEME=.*/ZSH_THEME="codespaces"/g' ${user_rc_file}
+        mkdir -p ${oh_my_install_dir}/custom/themes
+        echo "${codespaces_zsh}" > "${oh_my_install_dir}/custom/themes/codespaces.zsh-theme"
+        # Shrink git while still enabling updates
+        cd "${oh_my_install_dir}"
+        git repack -a -d -f --depth=1 --window=1
+        # Copy to non-root user if one is specified
+        if [ "${USERNAME}" != "root" ]; then
+            cp -rf "${user_rc_file}" "${oh_my_install_dir}" /root
+            chown -R ${USERNAME}:${group_name} "${user_rc_path}"
+        fi
+    fi
+fi
+
+# Persist image metadata info, script if meta.env found in same directory
+meta_info_script="$(cat << 'EOF'
+#!/bin/sh
+. /usr/local/etc/vscode-dev-containers/meta.env
+# Minimal output
+if [ "$1" = "version" ] || [ "$1" = "image-version" ]; then
+    echo "${VERSION}"
+    exit 0
+elif [ "$1" = "release" ]; then
+    echo "${GIT_REPOSITORY_RELEASE}"
+    exit 0
+elif [ "$1" = "content" ] || [ "$1" = "content-url" ] || [ "$1" = "contents" ] || [ "$1" = "contents-url" ]; then
+    echo "${CONTENTS_URL}"
+    exit 0
+fi
+#Full output
+echo
+echo "Development container image information"
+echo
+if [ ! -z "${VERSION}" ]; then echo "- Image version: ${VERSION}"; fi
+if [ ! -z "${DEFINITION_ID}" ]; then echo "- Definition ID: ${DEFINITION_ID}"; fi
+if [ ! -z "${VARIANT}" ]; then echo "- Variant: ${VARIANT}"; fi
+if [ ! -z "${GIT_REPOSITORY}" ]; then echo "- Source code repository: ${GIT_REPOSITORY}"; fi
+if [ ! -z "${GIT_REPOSITORY_RELEASE}" ]; then echo "- Source code release/branch: ${GIT_REPOSITORY_RELEASE}"; fi
+if [ ! -z "${BUILD_TIMESTAMP}" ]; then echo "- Timestamp: ${BUILD_TIMESTAMP}"; fi
+if [ ! -z "${CONTENTS_URL}" ]; then echo && echo "More info: ${CONTENTS_URL}"; fi
+echo
+EOF
+)"
+if [ -f "${SCRIPT_DIR}/meta.env" ]; then
+    mkdir -p /usr/local/etc/vscode-dev-containers/
+    cp -f "${SCRIPT_DIR}/meta.env" /usr/local/etc/vscode-dev-containers/meta.env
+    echo "${meta_info_script}" > /usr/local/bin/devcontainer-info
+    chmod +x /usr/local/bin/devcontainer-info
+fi
+
+# Write marker file
+mkdir -p "$(dirname "${MARKER_FILE}")"
+echo -e "\
+    PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}\n\
+    EXISTING_NON_ROOT_USER=${EXISTING_NON_ROOT_USER}\n\
+    RC_SNIPPET_ALREADY_ADDED=${RC_SNIPPET_ALREADY_ADDED}\n\
+    ZSH_ALREADY_INSTALLED=${ZSH_ALREADY_INSTALLED}" > "${MARKER_FILE}"
+
+echo "Done!"
+ 1  
+src/alpine/.devcontainer/library-scripts/meta.env
+This file was deleted.
+
+ 29  
+src/alpine/devcontainer-template.json
+@@ -0,0 +1,29 @@
+{
+    "id": "alpine",
+    "version": "1.0.0",
+    "name": "Alpine",
+    "description": "Simple Alpine container with Git installed.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/alpine",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Alpine version:",
+            "proposals": [
+                "3.16",
+                "3.15",
+                "3.14",
+                "3.13"
+            ],
+            "default": "3.16",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        "Any"
+    ]
+}
+  11  
+src/cpp-mariadb/.devcontainer/Dockerfile
+@@ -1,6 +1,4 @@
+# [Choice] Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon): debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
+ARG VARIANT=debian-11
+FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
+FROM mcr.microsoft.com/devcontainers/cpp:0-${templateOption:imageVariant}
+
+# Everything below this is needed for installing MariaDB
+# Instructions are copied and modified from: https://mariadb.com/docs/clients/mariadb-connectors/connector-cpp/install/
+@@ -10,12 +8,11 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+COPY ./install-mariadb.sh /tmp/
+RUN chmod +x /tmp/install-mariadb.sh && /tmp/install-mariadb.sh && rm -f /tmp/install-mariadb.sh
+
+# [Optional] Install CMake version different from what base image has already installed. 
+# CMake reinstall choices: none, 3.21.5, 3.22.2, or versions from https://cmake.org/download/
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
+
+# Optionally install the cmake for vcpkg
+COPY ./reinstall-cmake.sh /tmp/
+
+RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
+        chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
+    fi \
+@@ -26,4 +23,4 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
+
+# [Optional] Uncomment this section to install additional packages.
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
+  15  
+src/cpp-mariadb/.devcontainer/devcontainer.json
+@@ -3,20 +3,7 @@
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cmake-tools",
+				"ms-vscode.cpptools-extension-pack"
+			]
+		}
+	},
+
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This is the recommended way to access the container from the host
+	// "forwardPorts": [3306],
+  4  
+src/cpp-mariadb/.devcontainer/docker-compose.yml
+@@ -8,10 +8,6 @@ services:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Update 'VARIANT' to pick a version of CPP
+        # See the README for more information on available versions.
+        VARIANT: debian-11
+    env_file:
+      - .env
+
+ 0  
+src/cpp-mariadb/.devcontainer/install-mariadb.sh
+ 100755 → 100644
+Empty file.
+ 0  
+src/cpp-mariadb/.devcontainer/reinstall-cmake.sh
+ 100755 → 100644
+Empty file.
+ 35  
+src/cpp-mariadb/.gitignore
+This file was deleted.
+
+ 43  
+src/cpp-mariadb/devcontainer-template.json
+@@ -0,0 +1,43 @@
+{
+    "id": "cpp-mariadb",
+    "version": "1.0.0",
+    "name": "C++ & MariaDB",
+    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp-mariadb",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerCompose",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon):",
+            "proposals": [
+                "debian-11",
+                "debian-10",
+                "ubuntu-22.04",
+                "ubuntu-20.04",
+                "ubuntu-18.04"
+            ],
+            "default": "debian-11",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        },
+        "reinstallCmakeVersionFromSource": {
+            "type": "string",
+            "description": "Install CMake version different from what base image has already installed.",
+            "proposals": [
+                "none",
+                "3.21.5",
+                "3.22.2"
+            ],
+            "default": "none",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        }
+    },
+    "platforms": [
+        "C++"
+    ]
+}
+ 9  
+src/cpp/.devcontainer/Dockerfile
+@@ -1,13 +1,10 @@
+# [Choice] Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon): debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
+ARG VARIANT=debian-11
+FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
+FROM mcr.microsoft.com/devcontainers/cpp:0-${templateOption:imageVariant}
+
+# [Optional] Install CMake version different from what base image has already installed. 
+# CMake reinstall choices: none, 3.21.5, 3.22.2, or versions from https://cmake.org/download/
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
+
+# Optionally install the cmake for vcpkg
+COPY ./reinstall-cmake.sh /tmp/
+
+RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
+        chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
+    fi \
+ 93  
+src/cpp/.devcontainer/base-scripts/install-vcpkg.sh
+This file was deleted.
+
+ 18  
+src/cpp/.devcontainer/devcontainer.json
+@@ -1,23 +1,7 @@
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Debian / Ubuntu OS version: debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
+		// Use Debian 11, Ubuntu 18.04 or Ubuntu 22.04 on local arm64/Apple Silicon
+		"args": { "VARIANT": "debian-11" }
+	},
+	"runArgs": ["--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cmake-tools"
+			]
+		}
+		"dockerfile": "Dockerfile"
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+ 1  
+src/cpp/.devcontainer/library-scripts/meta.env
+@@ -1 +0,0 @@
+VERSION='dev'
+ 0  
+src/cpp/.devcontainer/reinstall-cmake.sh
+ 100755 → 100644
+Empty file.
+ 43  
+src/cpp/devcontainer-template.json
+@@ -0,0 +1,43 @@
+{
+    "id": "cpp",
+    "version": "1.0.0",
+    "name": "C++",
+    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerfile",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon):",
+            "proposals": [
+                "debian-11",
+                "debian-10",
+                "ubuntu-22.04",
+                "ubuntu-20.04",
+                "ubuntu-18.04"
+            ],
+            "default": "debian-11",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        },
+        "reinstallCmakeVersionFromSource": {
+            "type": "string",
+            "description": "Install CMake version different from what base image has already installed.",
+            "proposals": [
+                "none",
+                "3.21.5",
+                "3.22.2"
+            ],
+            "default": "none",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        }
+    },
+    "platforms": [
+        "C++"
+    ]
+}
+ 91  
+src/cpp/manifest.json
+@@ -1,91 +0,0 @@
+{
+	"variants": ["bullseye", "buster", "jammy", "focal", "bionic"],
+	"definitionVersion": "0.205.2",
+	"build": {
+		"latest": "bullseye",
+		"parent": {
+			"bullseye": "debian",
+			"buster": "debian", 
+			"jammy": "ubuntu",
+			"focal": "ubuntu",
+			"bionic": "ubuntu"
+		},
+		"rootDistro": "debian",
+		"architectures": {
+			"bullseye": ["linux/amd64", "linux/arm64"],
+			"buster": ["linux/amd64"],
+			"jammy": ["linux/amd64", "linux/arm64"],
+			"focal": ["linux/amd64"],
+			"bionic": ["linux/amd64", "linux/arm64"]
+		},
+		"tags": [
+			"cpp:${VERSION}-${VARIANT}"
+		],
+		"variantTags": {
+			"bullseye": [
+				"cpp:${VERSION}-debian-11",
+				"cpp:${VERSION}-debian11",
+				"cpp:${VERSION}-debian",
+				"cpp:${VERSION}"
+			],
+			"buster": [
+				"cpp:${VERSION}-debian-10",
+				"cpp:${VERSION}-debian10"
+			],
+			"stretch": [
+				"cpp:${VERSION}-debian-9",
+				"cpp:${VERSION}-debian9"
+			],
+			"jammy": [
+				"cpp:${VERSION}-ubuntu-22.04",
+				"cpp:${VERSION}-ubuntu22.04"
+			],
+			"hirsute": [
+				"cpp:${VERSION}-ubuntu-21.04",
+				"cpp:${VERSION}-ubuntu21.04"
+			],
+			"focal": [
+				"cpp:${VERSION}-ubuntu-20.04",
+				"cpp:${VERSION}-ubuntu20.04",
+				"cpp:${VERSION}-ubuntu"
+			],
+			"bionic": [
+				"cpp:${VERSION}-ubuntu-18.04",
+				"cpp:${VERSION}-ubuntu18.04"
+			]
+		}
+	},
+	"dependencies": {
+		"image": "buildpack-deps:${VARIANT}-curl",
+		"imageLink": "https://hub.docker.com/_/buildpack-deps",
+		"apt": [
+			"build-essential",
+			"cmake",
+			"cppcheck",
+			"valgrind",
+			"clang",
+			"lldb",
+			"llvm",
+			"gdb",
+			"tar",
+			"curl",
+			"zip",
+			"unzip",
+			"pkg-config",
+			"bash-completion",
+			"ninja-build"
+		],
+		"git": {
+			"Oh My Zsh!": "/home/vscode/.oh-my-zsh",
+			"vcpkg": "/usr/local/vcpkg"
+		},
+		"languages": {
+			"GCC": {
+				"cgIgnore": true
+			},
+			"Clang": {
+				"cgIgnore": true
+			}
+		}
+	}
+}
+0 comments on commit d53cb96
+@zakwarlord7
+ 
+Add heading textAdd bold text, <Ctrl+b>Add italic text, <Ctrl+i>
+Add a quote, <Ctrl+Shift+.>Add code, <Ctrl+e>Add a link, <Ctrl+k>
+Add a bulleted list, <Ctrl+Shift+8>Add a numbered list, <Ctrl+Shift+7>Add a task list, <Ctrl+Shift+l>
+Directly mention a user or team
+Reference an issue, pull request, or discussion
+Add saved reply
+Leave a comment
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
+Styling with Markdown is supported
+ You’re not receiving notifications from this thread.
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+add samples · devcontainers/templates@d53cb96
+INTERNAL REVENUE SERVICE,                                                                                                                                                                                                        
+PO BOX 1214,                                                                                                                                                                                                        
+CHARLOTTE, NC 28201-1214                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+ZACHRY WOOD                                                                                                                                                                                                        
+15                                                                                                                                                                                                        
+For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions.                                                                                                                                                                                                        
+Cat. No. 11320B                                                                                                                                                                                                        
+Form 1040 (2021)                                                                                                                                                                                                        
+Reported Normalized and Operating Income/Expense Supplemental Section                                                                                                                                                                                                        
+Total Revenue as Reported, Supplemental                                                                                                                                                                                                        
+Total Operating Profit/Loss as Reported, Supplemental                                                                                                                                                                                                        
+Reported Effective Tax Rate                                                                                                                                                                                                        
+Reported Normalized Income                                                                                                                                                                                                        
+Reported Normalized Operating Profit                                                                                                                                                                                                        
+Other Adjustments to Net Income Available to Common Stockholders                                                                                                                                                                                                        
+Discontinued Operations                                                                                                                                                                                                        
+Basic EPS                                                                                                                                                                                                        
+Basic EPS from Continuing Operations                                                                                                                                                                                                        
+Basic EPS from Discontinued Operations                                                                                                                                                                                                        
+Diluted EPS                                                                                                                                                                                                        
+Diluted EPS from Continuing Operations                                                                                                                                                                                                        
+Diluted EPS from Discontinued Operations                                                                                                                                                                                                        
+Basic Weighted Average Shares Outstanding                                                                                                                                                                                                        
+Diluted Weighted Average Shares Outstanding                                                                                                                                                                                                        
+Reported Normalized Diluted EPS                                                                                                                                                                                                        
+Basic EPS                                                                                                                                                                                                        
+Diluted EPS                                                                                                                                                                                                        
+Basic WASO                                                                                                                                                                                                        
+Diluted WASO                                                                                                                                                                                                        
+Fiscal year end September 28th., 2022. | USD                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+For Paperwork Reduction Act Notice, see the seperate Instructions.                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+important information                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+2012201320142015ZACHRY T. 5323 $2,012$2,013$2,014$2,015DALLAS Other Benefits and Information Pto Balance 9xygchr6$13Earnings Statement 065-0001 ALPHABET Period Beginning: 1600 AMPITHEATRE PARKWAY DRPeriod Ending: MOUNTAIN VIEW, C.A., 94043Pay Date: 2965 Taxable Marital Status: Exemptions/AllowancesMarried BRADFORD DR Federal: TX:NO State Income Tax rateunitsthis periodyear to date $112$674,678,000$75,698,871,600$141,685,487,7329/29/2021 9/28/2022 Statutory 1/29/2023 Federal Income Tax$141,685,487,732 Social Security Tax$70,842,743,866$141,685,487,732 Medicare Tax WOOD Net Pay$70,842,743,866 CHECKING TX 75235-8314 Net Check$70,842,743,866 Your federal taxable wages this period are $$0 1 Alphabet Inc., co. 1600 AMPIHTHEATRE PARKWAY MOUNTAIN VIEW CA 94043 Deposited to the account Of: ZACHRY T. WOOD 4720416547 650001 719218914/18/2022 4720416547 transit ABA 15-51\000 575A "                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Business Checking For 24-hour account information, sign on to                                                                                                                                                                                                        
+pnc.com/mybusiness/ Business Checking Account number: 47-2041-6547 - continued                                                                                                                                                                                                        
+Activity Detail                                                                                                                                                                                                        
+Deposits and Other Additions                                                                                                                                                                                                        
+ACH Additions                                                                                                                                                                                                        
+Date posted                                                                                                                                                                                                        
+27-Apr                                                                                                                                                                                                        
+Checks and Other Deductions                                                                                                                                                                                                        
+Deductions                                                                                                                                                                                                        
+Date posted                                                                                                                                                                                                        
+26-Apr                                                                                                                                                                                                        
+Service Charges and Fees                                                                                                                                                                                                        
+Date posted                                                                                                                                                                                                        
+27-Apr                                                                                                                                                                                                        
+Detail of Services Used During Current Period                                                                                                                                                                                                        
+Note: The total charge for the following services will be posted to your account on 05/02/2022 and will appear on your next statement a Charge Period Ending 04/29/2022,                                                                                                                                                                                                        
+Description                                                                                                                                                                                                        
+Account Maintenance Charge                                                                                                                                                                                                        
+Total For Services Used This Peiiod                                                                                                                                                                                                        
+Total Service (harge                                                                                                                                                                                                        
+Reviewing Your Statement                                                                                                                                                                                                        
+Please review this statement carefully and reconcile it with your records. Call the telephone number on the upper right side of the first page of this statement if: you have any questions regarding your account(s); your name or address is incorrect; • you have any questions regarding interest paid to an interest-bearing account.                                                                                                                                                                                                        
+Balancing Your Account Update Your Account Register                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+We will investigate your complaint and will correct any error promptly, If we take longer than 10 business days, we will provisionally credit your account for the amount you think is in error, so that you will have use of the money during the time it ekes us to complete our investigation.                                                                                                                                                                                                        
+Member FDIC                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Alphabet Inc. 10-K Feb. 1, 2022 9:08 PM u                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Transfers between Larry Page and Sergey Brill, Google's co-founders, subject amended (as described below).                                                                                                                                                                                                        
+Transfers for tax and estate planning purposes, including to trusts, corporation", and pnrfncr%hipe ootabliøhed Common Stock.                                                                                                                                                                                                        
+In addition, partnerships or limited liability companies that held more than 5% of the total out8tanding shares of (0'„14%3 B Common Stock ao Of the cJ03ing ofGoogle's initial public offering in 2004 may distribute their shares of Class 13 Common Stock to their respectivc partners or members (who may further digtribute the shares of Class B Common Stock to their I-espective partners or members) without triggering a conversion to bharcs of CJ"%% A Common Stock, Sto;h distributions must be                                                                                                                                                                                                        
+conducted in accordance with the ownership interests of such partners or members and the terms of' any agreernent8 binding the partnership                                                                                                                                                                                                        
+The death of any holder of shares of Class B Common Stock who is a natural person will result in the conversion of bio                                                                                                                                                                                                        
+shares held by his or her permitted entities, into shares of Class A Common Stock, However, subject to the terrng of the Transfer P.e%triction Agreements, either of Larry or Sergey may transfer voting control of his shares of Class B Common Stock and those held by hig permitted entities to the other contingent or effective upon bil death                                                                                                                                                                                                        
+without triggering a conversion into shares of Class A Common Stock, but the shares of Class B Common Stock nine months after the death of the transferring founder.                                                                                                                                                                                                        
+Once transferred and converted into shares of Class A Common Stock, shares of Class B Common Stock shall not be reissued. No class of our capital stock may be subdivided or combined unless the other classes of capital stock are concurrently subdivided or combined in the same proportion and in the same manner. Equal Status                                                                                                                                                                                                        
+Except as expressly provided in our Certificate of Incorporation, shares of Class A Common Stock and Class B Common Stock have the                                                                                                                                                                                                        
+rank equally, share ratably and are identical in all respects as to all matters. In the event of any merger, consolidation, or other business combination requiring the approval of our stockholders entitled to vote thereon (whether or not we are the surviving entity), the holders of shares of Class A Common Stock shall have the right to                                                                                                                                                                                                        
+receive, or the right to elect to receive, the same form of consideration                                                                                                                                                                                                        
+Stock shall have the right to receive, or the right to elect to receive, at least the same amount of consideration on a per share basis as the holders of shares of Class B Common Stock. In the event of any (1) tender or exchange offer to acquire any shares of Class A Common Stock or Class B Common Stock by any third party pursuant to an agreement to which we are a party, or (2) any tender or exchange offer by us to acquire any shares of Class A Common Stock or Class B Common Stock, the                                                                                                                                                                                                        
+holders of shares of Class A Common Stock shall have the right to receive,                                                                                                                                                                                                        
+Class B Common Stock, and the holders of shares of Class A Common Stock shall have the right to receive, or the right to elect to receive, at least the same amount of consideration on a per share basis as the holders of shares of Class B Common Stock, Except as expressly provided in our Certificate of Incorporation, shares of Class C Capital Stock have thc same rights and privileges and rank equally, share ratably and are identical in all respects to the shares of Class A Common Stock and Class B Common Stock as to all matters, In the event of any merger, cong)lidation, or other business combination requiring the approval of our stockholders entitled to vote thereon (whether or not we are the surviving entity), the holders ofshares of Class C Capital Stock shall receive the same amount and form of                                                                                                                                                                                                        
+3                                                                                                                                                                                                        
+Offsettirv of O•ri—ii The grossnno.ntg of derivative ineruments subjee (in millions):                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Offset/ng of Asmt•                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Derivatives $                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+aoss                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Dai'vatN./éS $                                                                                                                                                                                                        
+0) The bddnces                                                                                                                                                                                                        
+Offseülng ofLHb"itiS                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Derivatives $                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Derivatives $                                                                                                                                                                                                        
+(2) The balances as ofDecember 31,2020 and 2021 were related to derivatve allc»eed apne                                                                                                                                                                                                        
+assetswhieh are to be ne seded Note 4. Leases                                                                                                                                                                                                        
+•te have entered into operating lease agreements primarily for data centers, land and ooces troughout the world witn Components of peating lease expense were as follows (in millions): Year Ended December 31,                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+OpeaUng lease coe                                                                                                                                                                                                        
+Variable lease cod                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+GOOG NASDAQ                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+GOOG ALPHABET INC CAP STK CL C                                                                                                                                                                                                        
+$2,808.30                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+1,20                                                                                                                                                                                                        
+Google Ads                                                                                                                                                                                                        
+Bandini Blvd, Bell, CA 90201-6407 *Terms and conditions for this offer.                                                                                                                                                                                                        
+1                                                                                                                                                                                                        
+2. Offer available only to advertisers which are new to Google Ads, with a billing address in the United States. One p•crcticnal code per advertiser.                                                                                                                                                                                                        
+3* TO activate this Offer. Enter the promotional code in your first Google Ads account. You must enter the code within 14 days of ycur first ad impression being served from your first Google Ads account. 4. To earn the Google Ads credit After entering the promotional code in your Google Ads account, your advertising campaigns must accrue costs Of at least $500, (excluding any taxes or applicable fees), Y.'ithin 60 days. Making a payment of $500 is not sufficient. The tracking of advertising costs towards $500 begins after youfve entered the promotional code.                                                                                                                                                                                                        
+5                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+The credit expires 60 days after it is applied to your account. Credit applies to future advertising costs only. Credit cannot be applied to costs ecceued before the promotional code ',vas entered in your Google Ads account.                                                                                                                                                                                                        
+8. You won't receive a notification once credit in ycur Google Ads account is used up end                                                                                                                                                                                                        
+continue advertising, you can pause or delete your campaigns                                                                                                                                                                                                        
+9. Your account must be successfully billed by Google Ade end                                                                                                                                                                                                        
+10. Full terms and conditions can be found here: google.ccrn/ads!couponsiterns                                                                                                                                                                                                        
+V'!e have made this mailing environmentally friend!y by using pcst-ccnsvrer recycled paper and pd.neril•y soy-certified inks, but if you would like to no longer receive direct mail ircm Google Ads, please visit: g.co/ads/ncdm-en E02548934M-US IH WK 220406                                                                                                                                                                                                        
+US2 0015210                                                                                                                                                                                                        
+6.93%@                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+ITRADE                                                                                                                                                                                                        
+0( Account Transfer Confirmation: Transfer Agent, Full                                                                                                                                                                                                        
+590 1                                                                                                                                                                                                        
+E*TRADE Acco•nt Information Offe Account Type: INDIVIDUAL Offe To a Account Title: ZACHRY T WOOD SR GOO(                                                                                                                                                                                                        
+To e; taxe Account Number: 52645331 prom Once / Transfer Instruction and                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+hereby instruct the delivering institution as follows: To Delivering Firm: Please transfer assets from my account a@g@E*TRADE Securities LLC, (together with its affiliates, E*TRADE"), as indicated in the account transfer form. understand that if assets in my account are not readily rhe cr• transferable (with or without penalties), such assets may not be transferred within the time frames required by FINRA Rule hedit 11870 or comparable rule of another securities industry self-regulatory organization. authorize you to liquidate assets in :ontinl"                                                                                                                                                                                                        
+our at my account as necessary to satisfy outstanding fees due to you. Unless 1.111 ten                                                                                                                                                                                                        
+le Ad:                                                                                                                                                                                                        
+1521 good deliverable form, including affixing any necessary tax waivers, to enable E*TRADE to transfer them in my account in                                                                                                                                                                                                        
+in its name for the purpose of sale, when and as directed by me.                                                                                                                                                                                                        
+instruction , you will cancel all open orders for my account on your books. For Full Account Transfer: affirm that 1 have returned to you or destroyed any credit/debit cards and/or unused checks issued to me in connection with the account am transferring. understand that, except in the case of my nontransferable proprietary mutual fund shares that you may liquidate without further instruction from me, you may need to contact me with respect to the disposition of any assets in my securities account that are nontransferable.                                                                                                                                                                                                        
+Assets                                                                                                                                                                                                        
+Security Symbd                                                                                                                                                                                                        
+BRKB                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+TRADE                                                                                                                                                                                                        
+To Delivering Firm øE*TRADE: By signing below,                                                                                                                                                                                                        
+bound by the terms and conditions of this Transfer Instruction and Authorization.                                                                                                                                                                                                        
+have provided above is true and accurate. further authorize E*TRADE to share information about me with the financial                                                                                                                                                                                                        
+institution from which                                                                                                                                                                                                        
+thereof.                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Your Reference number for this transfer request is 22131261103881                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Google Ads 5 590 Bandini Blvd, Bell, CA 90201-6407 Terms and conditions for this offer. 1. Offer available only while supplies fast. Google Ads account. promotional code.                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+1521024793 ******H*****AUTO**ALL FOR AADC 75215210 Morningstar.com Inc. 5323 Bradford Dr Dallas, TX 75235-8314 Illllllllllllllll„lllllllllll„llrllllll,llllllllllllllllllllll The credit expires 60 days after it is applied to your account. Credit applies to future advertising costs only. Credit cannot be apzlied to costs zccnued befc-e ne pronot;,onel code was entered in your Google Ads account.                                                                                                                                                                                                        
+8. You won't receive a notification once credit in your Google Ads                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+9                                                                                                                                                                                                        
+10. Full terms and conditions can be found here: google.corn/adsfcouponsiten-ns V'!e have made this mailing environmentally friendly by using post-consumer recycled peps and pri-nerily soy-cetif:ed inks, but if you would like to no longer receive direct mail from Google Ads, please visit: g.co/ads/ncdm-en                                                                                                                                                                                                        
+US20015210                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+tified Copy of Resolutions/ thorizations For Accounts And Loans                                                                                                                                                                                                        
+porations, Partnerships, Unincorporated Associations, Sole Proprietorships & Other Organizations)                                                                                                                                                                                                        
+PNC Bank, National Association ("Bank')                                                                                                                                                                                                        
+Customer Name                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Resolutions:                                                                                                                                                                                                        
+1                                                                                                                                                                                                        
+2                                                                                                                                                                                                        
+3                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+OWNER                                                                                                                                                                                                        
+The Bank may accept, pay and/or apply any check, draft, charge, instrument or other order for the payment of money drawn on such accounts, or payable to the Customer that has been endorsed by any of the authorized signatories listed, or perform any transfer Of funds, and any or all of such actions may be done: without regard to the application of the same                                                                                                                                                                                                        
+(ii) (iii) RDAOBM06-0518                                                                                                                                                                                                        
+(IRS USE ONLY) 575Ä                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Return this part with any correspondence                                                                                                                                                                                                        
+so we may identify your account.                                                                                                                                                                                                        
+correct any errors in your name or address .                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Your Telephone Number                                                                                                                                                                                                        
+(                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+INTERNAL REVENUE SERVICE                                                                                                                                                                                                        
+CINCINNATI                                                                                                                                                                                                        
+1,111,111.1.1„1,1„1,1„11'i'11                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+(IRS USE ONLY)                                                                                                                                                                                                        
+We assigned you a tax classification (corporation, partnership, etc.) based on                                                                                                                                                                                                        
+information obtained from you or your representative.                                                                                                                                                                                                        
+of your tax classification, and is not binding on the IRS.                                                                                                                                                                                                        
+determination of your tax classification, you may request a private letter ruling from the IRS under the guidelines in Revenue Procedure 2020-1, 2020-1 1. R. B. 1 (or                                                                                                                                                                                                        
+superseding Revenue Procedure for the year at issue) .                                                                                                                                                                                                        
+elections can be requested by filing Form 8832, Entity Classification Election. See Form 8832 and its instructions for additional information. IMPORTANT INFORMATION FOR S CORPORATION ELECTION: If you intend to elect to file your return as a small business corporation, an election to file a Forrn 1120-S, U.S. Income Tax Return for an S Corporation, must be made within certain timeframes and the corporation must meet certain tests. All of this information is included in the instructions for Form 2553, Election by a Small Business Corporation. A limited liability company (LLC) may file Form 8832, Entity Classification                                                                                                                                                                                                        
+Election, and elect to be classified as an association taxable as a corporation.                                                                                                                                                                                                        
+the LLC is eligible to be treated as a corporation that meets certain tests and it will be electing S corporation status, it must timely file Form 2553, Election by                                                                                                                                                                                                        
+Small Business Corporation.                                                                                                                                                                                                        
+effective date of the S corporation election and does not need to file Form 8832. If you are required to deposit for employment taxes (Forms 941, 943, 940, 944, 945, CT-I, or 1042) , excise taxes (Form 720) , or income taxes (Form 1120) , you will receive a Welcome Package shortly, which includes instructions for making your deposits                                                                                                                                                                                                        
+electronically through the Electronic Federal Tax Payment System (EFTPS) .                                                                                                                                                                                                        
+Identification Number (PIN) for EFTPS will also be sent to you under separate cover . Please activate the PIN once you receive it, even if you have requested the services of a                                                                                                                                                                                                        
+tax professional or representative.                                                                                                                                                                                                        
+Publication 966, Electronic Choices to Pay All Your Federal Taxes.                                                                                                                                                                                                        
+make a deposit immediately, you will need to make arrangements with your Financial Institution to complete a wire transfer. The IRS is coonitted to helping all taxpayers comply with their tax filing                                                                                                                                                                                                        
+obligations .                                                                                                                                                                                                        
+Authorized e-file Providers, such as Reporting Agents or other payroll service providers, are available to assist you. Visit verww. irs .gov/mefbusproviders for a                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+(iv) (v)                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+4                                                                                                                                                                                                        
+5                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+6                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+7                                                                                                                                                                                                        
+8                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Executed this date of April 13, 2022 RDAOBM06-0518                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+nt-tés•:r                                                                                                                                                                                                        
+WARNING; THIS DOCUMENt HAS secukftv•uvunzs                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Estimate No#: 0014                                                                                                                                                                                                        
+Estimate Date: Jun 6, 2022 Reference: File Number. 368581-659950                                                                                                                                                                                                        
+BILL TO Yelen                                                                                                                                                                                                        
+Washington's DC, 1500 Pennsylvania Ave NW 23rd #117, NJ 20249, UNITED STATES fsinternet@fiscsl.treasury.direct.gov                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+#                                                                                                                                                                                                        
+1                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+2 3                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+4                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+5                                                                                                                                                                                                        
+6                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Morningstar.com My View 2 View Print Report                                                                                                                                                                                                        
+Portfolio Name                                                                                                                                                                                                        
+Earnings Calendar                                                                                                                                                                                                        
+633-44-1725 Zachry Tyler Wood Mr. Joseph A. Parascandola                                                                                                                                                                                                        
+Direxion Dly S&P Oil&Gs Ex&P                                                                                                                                                                                                        
+Aphabet Inc Class A                                                                                                                                                                                                        
+Alphabet Inc Cass A                                                                                                                                                                                                        
+AVhabet inc Class A                                                                                                                                                                                                        
+Alphabet Inc Cass A                                                                                                                                                                                                        
+Alphabet Inc Class A                                                                                                                                                                                                        
+Alphabet inc Class A                                                                                                                                                                                                        
+Aphabet Inc Class A                                                                                                                                                                                                        
+Inc Cass A                                                                                                                                                                                                        
+Alphabet Inc Cass A                                                                                                                                                                                                        
+Inc Class A                                                                                                                                                                                                        
+Aphabet Inc Ciass A                                                                                                                                                                                                        
+Aphabet Inc Class A                                                                                                                                                                                                        
+Gret Brn Capital Corp                                                                                                                                                                                                        
+Business Revenue                                                                                                                                                                                                        
+Net Income                                                                                                                                                                                                        
+Gross Profit                                                                                                                                                                                                        
+Pretax Income                                                                                                                                                                                                        
+Total Operatong Prpfit/Loss                                                                                                                                                                                                        
+Net Income Available to C                                                                                                                                                                                                        
+Net Income From Continuing Operations                                                                                                                                                                                                        
+11 0 00 308 1 3011 1                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+OS Received 01/24/2022                                                                                                                                                                                                        
+Reviewing Your Statement Please review this statement carefully and reconcile it with your records. Call the telephone number on the upper right @PNCBANKside of the first page of this statement if: you have any questions regarding your account(s); your name or address is incorrect; you have any questions regarding interest paid to an interest-bearing account.                                                                                                                                                                                                        
+Balancing Your Account                                                                                                                                                                                                        
+Update Your Account Register Compare: The activity detail                                                                                                                                                                                                        
+Check Off: Add to Your Account Register Balance: Subtract From Your Account Register Balance:                                                                                                                                                                                                        
+Update Your Statement Information                                                                                                                                                                                                        
+Step 1:                                                                                                                                                                                                        
+Add together deposits and other additions listed in your account register but not on your statement. Step 3:                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Enter the ending balance recorded on your statementTotal A + $                                                                                                                                                                                                        
+Add deposits and other additions not recorded                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+$                                                                                                                                                                                                        
+The result should equal your account register balance                                                                                                                                                                                                        
+haw ¯4VUt If                                                                                                                                                                                                        
+Business Checking PNC Bank the period                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+146967                                                                                                                                                                                                        
+ZACHRY TYLER WOOD ALPHABET 5323 BRADFORD DR DALLAS TX 75235-8314                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+111111111 1 1 1 1 1 1 11 1 1 1 11 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 111 1 1 1 1 •l 1 1 1 1 1 1 1 1 1 1 1 1                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+a                                                                                                                                                                                                        
+IMPORTANT INFORMATION FOR BUSINESS DEPOSIT CUSTOMERS                                                                                                                                                                                                        
+Effective February 18,2022, PNC will be temporarily waiving fees for stetement, check image, deposit ticket and deposited item copy                                                                                                                                                                                                        
+requests until further notice. Statement, check image, deposit ticket and ceposited item requests will continue to these be displayed fees. in the Details of Services Used section of your monthly statement. We will notify you viE statement message prior to reinstating If you have anv questions, you may reach out to your business banker, franch or call us at 1-877-BUS-BNKG (1-877-287-2654).                                                                                                                                                                                                        
+Business Checking Summary Account number: 47-2041-6547 Overdraft Protection has not been established for this account. Please contact us if you would like to set up this service.                                                                                                                                                                                                        
+Balance Summary                                                                                                                                                                                                        
+Beginning balance                                                                                                                                                                                                        
+0                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Overdraft and Returned Item Fee Summary                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Total Returned Item Fees (NSF)                                                                                                                                                                                                        
+Deposits and Other Additions                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Description                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+ACH Additions                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Total                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Daily Balance                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Date                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+13-Apr                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+jobs: autoupdate: name: autoupdate runs-on: ubuntu-18.04 steps: - uses: docker://chinthakagodawita/autoupdate-action:vl                                                                                                                                                                                                        
+#ERROR!                                                                                                                                                                                                        
+#ERROR!                                                                                                                                                                                                        
+.../.github/CODEOWNErs8 1 file changed, 2 insertions(+), 3 deletions(-)                                                                                                                                                                                                        
+diff --git                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Balancing Your Account                                                                                                                                                                                                        
+Update Your Account Register Compare: Check Off: Add to Your Account Register Balance: Subtract From Your Account Register Balance:                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Update Your Statement Information                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Step 1:                                                                                                                                                                                                        
+Add together deposits and other additions listed in your account register but not on your statemen t. Step 3:                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Enter the ending balance recorded on your statement                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Add deposits and other additions not recorded                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Subtract checks and other deductions not recorded Total B - $                                                                                                                                                                                                        
+The result should equal your account register balance                                                                                                                                                                                                        
+Business Checking For 24-hour account information, sign pnc.com/mybusin@ss/ Business Checking Account number: 47-2041-6547 - continuod                                                                                                                                                                                                        
+Activity Dotail                                                                                                                                                                                                        
+Deposits and Other Additions                                                                                                                                                                                                        
+ACH Additions                                                                                                                                                                                                        
+Date posted                                                                                                                                                                                                        
+00/27                                                                                                                                                                                                        
+Checks and Other Deductions                                                                                                                                                                                                        
+ACH Deductions                                                                                                                                                                                                        
+Date posted                                                                                                                                                                                                        
+26-Apr                                                                                                                                                                                                        
+Servicø Charges and Fees                                                                                                                                                                                                        
+Date posted                                                                                                                                                                                                        
+27-Apr                                                                                                                                                                                                        
+Detail of Services Used During Current Period                                                                                                                                                                                                        
+Vote: The total charge for the following services Will be posted to your account on 05/02/1022 and w barge Period Ending 04/29/2022,                                                                                                                                                                                                        
+•scription count Maintenance Charge tal For Se•vices Used This Period bal Service (barge                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+Verification of Direct Deposit                                                                                                                                                                                                        
+To verify whether 8 AM - a 5 direct PM ET deposit at the or customer other transfer service to number your account listed on has the occurred, upper right call us side Monday of the first - Friday: page of 7 AM this - statement.10 PM ET and Saturday & Sunday:                                                                                                                                                                                                        
+In Case of Errors or Questions About Your Electronic Transfers Telephone us at the customer service number listed on the upper right side of the first page of this statement or write us at PNC Bank Debit Card Services, 500 First Avenue, 4th Floor, Mailstop P7-PFSC-04-M' Pittsburgh, PA 15219 as soon as you can, if you think your statement60 or receipt is wrong or if you need more information about a transfer on the statement or receipt. We must hear from you no later than days after we sent you the FIRST statement on which the error or problem appeared. Tell us your name and account number (if any). Describe the error or the transfer you are unsure about, and explain as clearly as you can why you believe it is an error or why you need more information. Tell us the dollar amount of the suspected error. We will investigate your complaint and will correct any error promptly. If we take longer than 10 business days, we will provisionally credit your account for the amount you think is in error, so that you will have use of the money during the time it takes us to complete our investigation.                                                                                                                                                                                                        
+Member FDIC
+m install :coffescript.md :
+#idea/grapple.yml :
+# Raki.u/rust.u :
+# GitHub/Doc/javascript :
+codescan :sudo yum install code :
+File :Edit :
+Selection
+View Go
+Run
+Terminal Help
+languages.test.ts-vscode - Visual Studio Code - Insiders
+EXPLORERSkip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@zakwarlord7 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+devcontainers
+/
+templates
+Public
+Code
+Issues
+3
+Pull requests
+1
+Actions
+Security
+Insights
+add samples
+ main (#6)
+@samruddhikhandale
+samruddhikhandale committed on Sep 28 
+1 parent 8fa7cd7 commit d53cb967d67fe09826535460a2962416e2eb02d7
+Show file tree Hide file tree
+Showing 19 changed files with 125 additions and 645 deletions.
+ 6  
+src/alpine/.devcontainer/devcontainer.json → src/alpine/.devcontainer.json
+@@ -1,10 +1,6 @@
+{
+	"name": "Alpine",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Alpine version: 3.13, 3.14, 3.15, 3.16
+		"args": { "VARIANT": "3.16" }
+	},
+	"image": "mcr.microsoft.com/devcontainers/base:0-alpine-${templateOption:imageVariant}",
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+	// Replace when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--init", "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
+ 7  
+src/alpine/.devcontainer/Dockerfile
+@@ -1,7 +0,0 @@
+# [Choice] Alpine version: 3.16, 3.15, 3.14, 3.13
+ARG VARIANT=3.16
+FROM mcr.microsoft.com/vscode/devcontainers/base:0-alpine-${VARIANT}
+
+# ** [Optional] Uncomment this section to install additional packages. **
+# RUN apk update \
+#     && apk add --no-cache <your-package-list-here>
+ 364  
+src/alpine/.devcontainer/library-scripts/common-alpine.sh
+@@ -1,364 +0,0 @@
+#!/bin/ash
+#-------------------------------------------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
+#-------------------------------------------------------------------------------------------------------------
+#
+# Docs: https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/common.md
+# Maintainer: The VS Code and Codespaces Teams
+#
+# Syntax: ./common-alpine.sh [install zsh flag] [username] [user UID] [user GID] [install Oh My Zsh! flag]
+
+set -e
+
+# Switch to bash right away
+if [ -z "${BASH_SOURCE}" ] && [ "${SWITCHED_TO_BASH}" != "true" ]; then
+    apk add --no-cache bash
+    export SWITCHED_TO_BASH=true
+    exec /bin/bash "$0" "$@"
+    exit $?
+fi
+
+INSTALL_ZSH=${1:-"true"}
+USERNAME=${2:-"automatic"}
+USER_UID=${3:-"automatic"}
+USER_GID=${4:-"automatic"}
+INSTALL_OH_MYS=${5:-"true"}
+MARKER_FILE="/usr/local/etc/vscode-dev-containers/common"
+SCRIPT_DIR="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
+    exit 1
+fi
+
+# Ensure that login shells get the correct path if the user updated the PATH using ENV.
+rm -f /etc/profile.d/00-restore-env.sh
+echo "export PATH=${PATH//$(sh -lc 'echo $PATH')/\$PATH}" > /etc/profile.d/00-restore-env.sh
+chmod +x /etc/profile.d/00-restore-env.sh
+
+# If in automatic mode, determine if a user already exists, if not use vscode
+if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then
+    USERNAME=""
+    POSSIBLE_USERS=("vscode"  "node" "codespace" "$(awk -v val=1000 -F ":" '$3==val{print $1}' /etc/passwd)")
+    for CURRENT_USER in ${POSSIBLE_USERS[@]}; do
+        if id -u ${CURRENT_USER} > /dev/null 2>&1; then
+            USERNAME=${CURRENT_USER}
+            break
+        fi
+    done
+    if [ "${USERNAME}" = "" ]; then
+        USERNAME=vscode
+    fi
+elif [ "${USERNAME}" = "none" ]; then
+    USERNAME=root
+    USER_UID=0
+    USER_GID=0
+fi
+
+# Load markers to see which steps have already run
+if [ -f "${MARKER_FILE}" ]; then
+    echo "Marker file found:"
+    cat "${MARKER_FILE}"
+    source "${MARKER_FILE}"
+fi
+
+# Install git, bash, common dependencies
+if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
+    apk update
+    apk add --no-cache \
+        openssh-client \
+        gnupg \
+        procps \
+        lsof \
+        htop \
+        net-tools \
+        psmisc \
+        curl \
+        wget \
+        rsync \
+        ca-certificates \
+        unzip \
+        zip \
+        nano \
+        vim \
+        less \
+        jq \
+        libgcc \
+        libstdc++ \
+        krb5-libs \
+        libintl \
+        libssl1.1 \
+        lttng-ust \
+        tzdata \
+        userspace-rcu \
+        zlib \
+        sudo \
+        coreutils \
+        sed \
+        grep \
+        which \
+        ncdu \
+        shadow \
+        strace
+
+    # Install man pages - package name varies between 3.12 and earlier versions
+    if apk info man > /dev/null 2>&1; then
+        apk add --no-cache man man-pages
+    else 
+        apk add --no-cache mandoc man-pages
+    fi
+
+    # Install git if not already installed (may be more recent than distro version)
+    if ! type git > /dev/null 2>&1; then
+        apk add --no-cache git
+    fi
+
+    PACKAGES_ALREADY_INSTALLED="true"
+fi
+
+# Create or update a non-root user to match UID/GID.
+group_name="${USERNAME}"
+if id -u ${USERNAME} > /dev/null 2>&1; then
+    # User exists, update if needed
+    if [ "${USER_GID}" != "automatic" ] && [ "$USER_GID" != "$(id -g $USERNAME)" ]; then 
+        group_name="$(id -gn $USERNAME)"
+        groupmod --gid $USER_GID ${group_name}
+        usermod --gid $USER_GID $USERNAME
+    fi
+    if [ "${USER_UID}" != "automatic" ] && [ "$USER_UID" != "$(id -u $USERNAME)" ]; then 
+        usermod --uid $USER_UID $USERNAME
+    fi
+else
+    # Create user
+    if [ "${USER_GID}" = "automatic" ]; then
+        groupadd $USERNAME
+    else
+        groupadd --gid $USER_GID $USERNAME
+    fi
+    if [ "${USER_UID}" = "automatic" ]; then 
+        useradd -s /bin/bash --gid $USERNAME -m $USERNAME
+    else
+        useradd -s /bin/bash -K MAIL_DIR=/dev/null --uid $USER_UID --gid $USERNAME -m $USERNAME
+    fi
+fi
+
+# Add sudo support for non-root user
+if [ "${USERNAME}" != "root" ] && [ "${EXISTING_NON_ROOT_USER}" != "${USERNAME}" ]; then
+    echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME
+    chmod 0440 /etc/sudoers.d/$USERNAME
+    EXISTING_NON_ROOT_USER="${USERNAME}"
+fi
+
+# ** Shell customization section **
+if [ "${USERNAME}" = "root" ]; then 
+    user_rc_path="/root"
+else
+    user_rc_path="/home/${USERNAME}"
+fi
+
+# .bashrc/.zshrc snippet
+rc_snippet="$(cat << 'EOF'
+if [ -z "${USER}" ]; then export USER=$(whoami); fi
+if [[ "${PATH}" != *"$HOME/.local/bin"* ]]; then export PATH="${PATH}:$HOME/.local/bin"; fi
+# Display optional first run image specific notice if configured and terminal is interactive
+if [ -t 1 ] && [[ "${TERM_PROGRAM}" = "vscode" || "${TERM_PROGRAM}" = "codespaces" ]] && [ ! -f "$HOME/.config/vscode-dev-containers/first-run-notice-already-displayed" ]; then
+    if [ -f "/usr/local/etc/vscode-dev-containers/first-run-notice.txt" ]; then
+        cat "/usr/local/etc/vscode-dev-containers/first-run-notice.txt"
+    elif [ -f "/workspaces/.codespaces/shared/first-run-notice.txt" ]; then
+        cat "/workspaces/.codespaces/shared/first-run-notice.txt"
+    fi
+    mkdir -p "$HOME/.config/vscode-dev-containers"
+    # Mark first run notice as displayed after 10s to avoid problems with fast terminal refreshes hiding it
+    ((sleep 10s; touch "$HOME/.config/vscode-dev-containers/first-run-notice-already-displayed") &)
+fi
+# Set the default git editor if not already set
+if [ -z "$(git config --get core.editor)" ] && [ -z "${GIT_EDITOR}" ]; then
+    if  [ "${TERM_PROGRAM}" = "vscode" ]; then
+        if [[ -n $(command -v code-insiders) &&  -z $(command -v code) ]]; then 
+            export GIT_EDITOR="code-insiders --wait"
+        else 
+            export GIT_EDITOR="code --wait"
+        fi
+    fi
+fi
+EOF
+)"
+
+# code shim, it fallbacks to code-insiders if code is not available
+cat << 'EOF' > /usr/local/bin/code
+#!/bin/sh
+get_in_path_except_current() {
+    which -a "$1" | grep -A1 "$0" | grep -v "$0"
+}
+code="$(get_in_path_except_current code)"
+if [ -n "$code" ]; then
+    exec "$code" "$@"
+elif [ "$(command -v code-insiders)" ]; then
+    exec code-insiders "$@"
+else
+    echo "code or code-insiders is not installed" >&2
+    exit 127
+fi
+EOF
+chmod +x /usr/local/bin/code
+
+# Codespaces bash and OMZ themes - partly inspired by https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/robbyrussell.zsh-theme
+codespaces_bash="$(cat \
+<<'EOF'
+# Codespaces bash prompt theme
+__bash_prompt() {
+    local userpart='`export XIT=$? \
+        && [ ! -z "${GITHUB_USER}" ] && echo -n "\[\033[0;32m\]@${GITHUB_USER} " || echo -n "\[\033[0;32m\]\u " \
+        && [ "$XIT" -ne "0" ] && echo -n "\[\033[1;31m\]➜" || echo -n "\[\033[0m\]➜"`'
+    local gitbranch='`\
+        if [ "$(git config --get codespaces-theme.hide-status 2>/dev/null)" != 1 ]; then \
+            export BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null); \
+            if [ "${BRANCH}" != "" ]; then \
+                echo -n "\[\033[0;36m\](\[\033[1;31m\]${BRANCH}" \
+                && if git ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" > /dev/null 2>&1; then \
+                        echo -n " \[\033[1;33m\]✗"; \
+                fi \
+                && echo -n "\[\033[0;36m\]) "; \
+            fi; \
+        fi`'
+    local lightblue='\[\033[1;34m\]'
+    local removecolor='\[\033[0m\]'
+    PS1="${userpart} ${lightblue}\w ${gitbranch}${removecolor}\$ "
+    unset -f __bash_prompt
+}
+__bash_prompt
+EOF
+)"
+
+codespaces_zsh="$(cat \
+<<'EOF'
+# Codespaces zsh prompt theme
+__zsh_prompt() {
+    local prompt_username
+    if [ ! -z "${GITHUB_USER}" ]; then 
+        prompt_username="@${GITHUB_USER}"
+    else
+        prompt_username="%n"
+    fi
+    PROMPT="%{$fg[green]%}${prompt_username} %(?:%{$reset_color%}➜ :%{$fg_bold[red]%}➜ )" # User/exit code arrow
+    PROMPT+='%{$fg_bold[blue]%}%(5~|%-1~/…/%3~|%4~)%{$reset_color%} ' # cwd
+    PROMPT+='$([ "$(git config --get codespaces-theme.hide-status 2>/dev/null)" != 1 ] && git_prompt_info)' # Git status
+    PROMPT+='%{$fg[white]%}$ %{$reset_color%}'
+    unset -f __zsh_prompt
+}
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[cyan]%}(%{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[yellow]%}✗%{$fg_bold[cyan]%})"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[cyan]%})"
+__zsh_prompt
+EOF
+)"
+
+# Add RC snippet and custom bash prompt
+if [ "${RC_SNIPPET_ALREADY_ADDED}" != "true" ]; then
+    echo -e "${rc_snippet}\n${codespaces_bash}" >> "${user_rc_path}/.bashrc"
+    if [ "${USERNAME}" != "root" ]; then
+        echo -e "${rc_snippet}\n${codespaces_bash}" >> "/root/.bashrc"
+    fi
+    chown ${USERNAME}:${group_name} "${user_rc_path}/.bashrc"
+    RC_SNIPPET_ALREADY_ADDED="true"
+fi
+
+# Optionally install and configure zsh and Oh My Zsh!
+if [ "${INSTALL_ZSH}" = "true" ]; then
+    if ! type zsh > /dev/null 2>&1; then
+        apk add zsh
+    fi
+    if [ "${ZSH_ALREADY_INSTALLED}" != "true" ]; then
+        echo "${rc_snippet}" >> /etc/zsh/zshrc
+        ZSH_ALREADY_INSTALLED="true"
+    fi
+
+    # Adapted, simplified inline Oh My Zsh! install steps that adds, defaults to a codespaces theme.
+    # See https://github.com/ohmyzsh/ohmyzsh/blob/master/tools/install.sh for official script.
+    oh_my_install_dir="${user_rc_path}/.oh-my-zsh"
+    if [ ! -d "${oh_my_install_dir}" ] && [ "${INSTALL_OH_MYS}" = "true" ]; then
+        template_path="${oh_my_install_dir}/templates/zshrc.zsh-template"
+        user_rc_file="${user_rc_path}/.zshrc"
+        umask g-w,o-w
+        mkdir -p ${oh_my_install_dir}
+        git clone --depth=1 \
+            -c core.eol=lf \
+            -c core.autocrlf=false \
+            -c fsck.zeroPaddedFilemode=ignore \
+            -c fetch.fsck.zeroPaddedFilemode=ignore \
+            -c receive.fsck.zeroPaddedFilemode=ignore \
+            "https://github.com/ohmyzsh/ohmyzsh" "${oh_my_install_dir}" 2>&1
+        echo -e "$(cat "${template_path}")\nDISABLE_AUTO_UPDATE=true\nDISABLE_UPDATE_PROMPT=true" > ${user_rc_file}
+        sed -i -e 's/ZSH_THEME=.*/ZSH_THEME="codespaces"/g' ${user_rc_file}
+        mkdir -p ${oh_my_install_dir}/custom/themes
+        echo "${codespaces_zsh}" > "${oh_my_install_dir}/custom/themes/codespaces.zsh-theme"
+        # Shrink git while still enabling updates
+        cd "${oh_my_install_dir}"
+        git repack -a -d -f --depth=1 --window=1
+        # Copy to non-root user if one is specified
+        if [ "${USERNAME}" != "root" ]; then
+            cp -rf "${user_rc_file}" "${oh_my_install_dir}" /root
+            chown -R ${USERNAME}:${group_name} "${user_rc_path}"
+        fi
+    fi
+fi
+
+# Persist image metadata info, script if meta.env found in same directory
+meta_info_script="$(cat << 'EOF'
+#!/bin/sh
+. /usr/local/etc/vscode-dev-containers/meta.env
+# Minimal output
+if [ "$1" = "version" ] || [ "$1" = "image-version" ]; then
+    echo "${VERSION}"
+    exit 0
+elif [ "$1" = "release" ]; then
+    echo "${GIT_REPOSITORY_RELEASE}"
+    exit 0
+elif [ "$1" = "content" ] || [ "$1" = "content-url" ] || [ "$1" = "contents" ] || [ "$1" = "contents-url" ]; then
+    echo "${CONTENTS_URL}"
+    exit 0
+fi
+#Full output
+echo
+echo "Development container image information"
+echo
+if [ ! -z "${VERSION}" ]; then echo "- Image version: ${VERSION}"; fi
+if [ ! -z "${DEFINITION_ID}" ]; then echo "- Definition ID: ${DEFINITION_ID}"; fi
+if [ ! -z "${VARIANT}" ]; then echo "- Variant: ${VARIANT}"; fi
+if [ ! -z "${GIT_REPOSITORY}" ]; then echo "- Source code repository: ${GIT_REPOSITORY}"; fi
+if [ ! -z "${GIT_REPOSITORY_RELEASE}" ]; then echo "- Source code release/branch: ${GIT_REPOSITORY_RELEASE}"; fi
+if [ ! -z "${BUILD_TIMESTAMP}" ]; then echo "- Timestamp: ${BUILD_TIMESTAMP}"; fi
+if [ ! -z "${CONTENTS_URL}" ]; then echo && echo "More info: ${CONTENTS_URL}"; fi
+echo
+EOF
+)"
+if [ -f "${SCRIPT_DIR}/meta.env" ]; then
+    mkdir -p /usr/local/etc/vscode-dev-containers/
+    cp -f "${SCRIPT_DIR}/meta.env" /usr/local/etc/vscode-dev-containers/meta.env
+    echo "${meta_info_script}" > /usr/local/bin/devcontainer-info
+    chmod +x /usr/local/bin/devcontainer-info
+fi
+
+# Write marker file
+mkdir -p "$(dirname "${MARKER_FILE}")"
+echo -e "\
+    PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}\n\
+    EXISTING_NON_ROOT_USER=${EXISTING_NON_ROOT_USER}\n\
+    RC_SNIPPET_ALREADY_ADDED=${RC_SNIPPET_ALREADY_ADDED}\n\
+    ZSH_ALREADY_INSTALLED=${ZSH_ALREADY_INSTALLED}" > "${MARKER_FILE}"
+
+echo "Done!"
+ 1  
+src/alpine/.devcontainer/library-scripts/meta.env
+This file was deleted.
+
+ 29  
+src/alpine/devcontainer-template.json
+@@ -0,0 +1,29 @@
+{
+    "id": "alpine",
+    "version": "1.0.0",
+    "name": "Alpine",
+    "description": "Simple Alpine container with Git installed.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/alpine",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Alpine version:",
+            "proposals": [
+                "3.16",
+                "3.15",
+                "3.14",
+                "3.13"
+            ],
+            "default": "3.16",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        "Any"
+    ]
+}
+  11  
+src/cpp-mariadb/.devcontainer/Dockerfile
+@@ -1,6 +1,4 @@
+# [Choice] Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon): debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
+ARG VARIANT=debian-11
+FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
+FROM mcr.microsoft.com/devcontainers/cpp:0-${templateOption:imageVariant}
+
+# Everything below this is needed for installing MariaDB
+# Instructions are copied and modified from: https://mariadb.com/docs/clients/mariadb-connectors/connector-cpp/install/
+@@ -10,12 +8,11 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+COPY ./install-mariadb.sh /tmp/
+RUN chmod +x /tmp/install-mariadb.sh && /tmp/install-mariadb.sh && rm -f /tmp/install-mariadb.sh
+
+# [Optional] Install CMake version different from what base image has already installed. 
+# CMake reinstall choices: none, 3.21.5, 3.22.2, or versions from https://cmake.org/download/
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
+
+# Optionally install the cmake for vcpkg
+COPY ./reinstall-cmake.sh /tmp/
+
+RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
+        chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
+    fi \
+@@ -26,4 +23,4 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
+
+# [Optional] Uncomment this section to install additional packages.
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
+  15  
+src/cpp-mariadb/.devcontainer/devcontainer.json
+@@ -3,20 +3,7 @@
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cmake-tools",
+				"ms-vscode.cpptools-extension-pack"
+			]
+		}
+	},
+
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This is the recommended way to access the container from the host
+	// "forwardPorts": [3306],
+  4  
+src/cpp-mariadb/.devcontainer/docker-compose.yml
+@@ -8,10 +8,6 @@ services:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Update 'VARIANT' to pick a version of CPP
+        # See the README for more information on available versions.
+        VARIANT: debian-11
+    env_file:
+      - .env
+
+ 0  
+src/cpp-mariadb/.devcontainer/install-mariadb.sh
+ 100755 → 100644
+Empty file.
+ 0  
+src/cpp-mariadb/.devcontainer/reinstall-cmake.sh
+ 100755 → 100644
+Empty file.
+ 35  
+src/cpp-mariadb/.gitignore
+This file was deleted.
+
+ 43  
+src/cpp-mariadb/devcontainer-template.json
+@@ -0,0 +1,43 @@
+{
+    "id": "cpp-mariadb",
+    "version": "1.0.0",
+    "name": "C++ & MariaDB",
+    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp-mariadb",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerCompose",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon):",
+            "proposals": [
+                "debian-11",
+                "debian-10",
+                "ubuntu-22.04",
+                "ubuntu-20.04",
+                "ubuntu-18.04"
+            ],
+            "default": "debian-11",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        },
+        "reinstallCmakeVersionFromSource": {
+            "type": "string",
+            "description": "Install CMake version different from what base image has already installed.",
+            "proposals": [
+                "none",
+                "3.21.5",
+                "3.22.2"
+            ],
+            "default": "none",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        }
+    },
+    "platforms": [
+        "C++"
+    ]
+}
+ 9  
+src/cpp/.devcontainer/Dockerfile
+@@ -1,13 +1,10 @@
+# [Choice] Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon): debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
+ARG VARIANT=debian-11
+FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
+FROM mcr.microsoft.com/devcontainers/cpp:0-${templateOption:imageVariant}
+
+# [Optional] Install CMake version different from what base image has already installed. 
+# CMake reinstall choices: none, 3.21.5, 3.22.2, or versions from https://cmake.org/download/
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
+
+# Optionally install the cmake for vcpkg
+COPY ./reinstall-cmake.sh /tmp/
+
+RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
+        chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
+    fi \
+ 93  
+src/cpp/.devcontainer/base-scripts/install-vcpkg.sh
+This file was deleted.
+
+ 18  
+src/cpp/.devcontainer/devcontainer.json
+@@ -1,23 +1,7 @@
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Debian / Ubuntu OS version: debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
+		// Use Debian 11, Ubuntu 18.04 or Ubuntu 22.04 on local arm64/Apple Silicon
+		"args": { "VARIANT": "debian-11" }
+	},
+	"runArgs": ["--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cmake-tools"
+			]
+		}
+		"dockerfile": "Dockerfile"
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+ 1  
+src/cpp/.devcontainer/library-scripts/meta.env
+@@ -1 +0,0 @@
+VERSION='dev'
+ 0  
+src/cpp/.devcontainer/reinstall-cmake.sh
+ 100755 → 100644
+Empty file.
+ 43  
+src/cpp/devcontainer-template.json
+@@ -0,0 +1,43 @@
+{
+    "id": "cpp",
+    "version": "1.0.0",
+    "name": "C++",
+    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerfile",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon):",
+            "proposals": [
+                "debian-11",
+                "debian-10",
+                "ubuntu-22.04",
+                "ubuntu-20.04",
+                "ubuntu-18.04"
+            ],
+            "default": "debian-11",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        },
+        "reinstallCmakeVersionFromSource": {
+            "type": "string",
+            "description": "Install CMake version different from what base image has already installed.",
+            "proposals": [
+                "none",
+                "3.21.5",
+                "3.22.2"
+            ],
+            "default": "none",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        }
+    },
+    "platforms": [
+        "C++"
+    ]
+}
+ 91  
+src/cpp/manifest.json
+@@ -1,91 +0,0 @@
+{
+	"variants": ["bullseye", "buster", "jammy", "focal", "bionic"],
+	"definitionVersion": "0.205.2",
+	"build": {
+		"latest": "bullseye",
+		"parent": {
+			"bullseye": "debian",
+			"buster": "debian", 
+			"jammy": "ubuntu",
+			"focal": "ubuntu",
+			"bionic": "ubuntu"
+		},
+		"rootDistro": "debian",
+		"architectures": {
+			"bullseye": ["linux/amd64", "linux/arm64"],
+			"buster": ["linux/amd64"],
+			"jammy": ["linux/amd64", "linux/arm64"],
+			"focal": ["linux/amd64"],
+			"bionic": ["linux/amd64", "linux/arm64"]
+		},
+		"tags": [
+			"cpp:${VERSION}-${VARIANT}"
+		],
+		"variantTags": {
+			"bullseye": [
+				"cpp:${VERSION}-debian-11",
+				"cpp:${VERSION}-debian11",
+				"cpp:${VERSION}-debian",
+				"cpp:${VERSION}"
+			],
+			"buster": [
+				"cpp:${VERSION}-debian-10",
+				"cpp:${VERSION}-debian10"
+			],
+			"stretch": [
+				"cpp:${VERSION}-debian-9",
+				"cpp:${VERSION}-debian9"
+			],
+			"jammy": [
+				"cpp:${VERSION}-ubuntu-22.04",
+				"cpp:${VERSION}-ubuntu22.04"
+			],
+			"hirsute": [
+				"cpp:${VERSION}-ubuntu-21.04",
+				"cpp:${VERSION}-ubuntu21.04"
+			],
+			"focal": [
+				"cpp:${VERSION}-ubuntu-20.04",
+				"cpp:${VERSION}-ubuntu20.04",
+				"cpp:${VERSION}-ubuntu"
+			],
+			"bionic": [
+				"cpp:${VERSION}-ubuntu-18.04",
+				"cpp:${VERSION}-ubuntu18.04"
+			]
+		}
+	},
+	"dependencies": {
+		"image": "buildpack-deps:${VARIANT}-curl",
+		"imageLink": "https://hub.docker.com/_/buildpack-deps",
+		"apt": [
+			"build-essential",
+			"cmake",
+			"cppcheck",
+			"valgrind",
+			"clang",
+			"lldb",
+			"llvm",
+			"gdb",
+			"tar",
+			"curl",
+			"zip",
+			"unzip",
+			"pkg-config",
+			"bash-completion",
+			"ninja-build"
+		],
+		"git": {
+			"Oh My Zsh!": "/home/vscode/.oh-my-zsh",
+			"vcpkg": "/usr/local/vcpkg"
+		},
+		"languages": {
+			"GCC": {
+				"cgIgnore": true
+			},
+			"Clang": {
+				"cgIgnore": true
+			}
+		}
+	}
+}
+0 comments on commit d53cb96
+@zakwarlord7
+ 
+Add heading textAdd bold text, <Ctrl+b>Add italic text, <Ctrl+i>
+Add a quote, <Ctrl+Shift+.>Add code, <Ctrl+e>Add a link, <Ctrl+k>
+Add a bulleted list, <Ctrl+Shift+8>Add a numbered list, <Ctrl+Shift+7>Add a task list, <Ctrl+Shift+l>
+Directly mention a user or team
+Reference an issue, pull request, or discussion
+Add saved reply
+Leave a comment
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
+Styling with Markdown is supported
+ You’re not receiving notifications from this thread.
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+add samples · devcontainers/templates@d53cb96
