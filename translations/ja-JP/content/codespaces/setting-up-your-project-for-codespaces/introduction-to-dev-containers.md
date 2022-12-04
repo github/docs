@@ -16,12 +16,12 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
-ms.openlocfilehash: 0b47f0292eb3a13467a8227ac323d289f9712223
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 646f8068e68040f1d12f8155c3ba9e2bdb84c2ca
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158774'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185092'
 ---
 ## 開発コンテナについて
 
@@ -181,7 +181,7 @@ Dockerfile の命令について詳しくは、Docker のドキュメントの�
 
 新しい `.devcontainer/devcontainer.json` ファイルがエディターで開きます。 ファイルには、新しいツール、ライブラリ、またはランタイムを追加できる `features` オブジェクトなど、いくつかの初期プロパティが含まれます。 詳しい情報については、「[ファイルへの `devcontainer.json` 機能の追加](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=webui)」をご覧ください。
 
-リポジトリに既に 1 つ以上の `devcontainer.json` ファイルが含まれている場合は、 **[開発コンテナーの構成]** をクリックすると、containers.dev の`devcontainer.json`仕様[に従って、優先順位が最も高い既存の ](https://containers.dev/implementors/spec/#devcontainerjson) ファイルが開きます。 
+リポジトリに既に 1 つ以上の `devcontainer.json` ファイルが含まれている場合は、 **[開発コンテナーの構成]** をクリックすると、containers.dev の`devcontainer.json`仕様 [に従って、優先順位が最も高い既存の](https://containers.dev/implementors/spec/#devcontainerjson) ファイルが開きます。 
 
 ### codespace の作成時における既定の構成の選択
 
@@ -216,7 +216,7 @@ Dockerfile の命令について詳しくは、Docker のドキュメントの�
 
 ## codespace への構成変更の適用
 
-構成に対する変更は、次回 codespace を作成するときに適用されます。 ただし、Web ブラウザー、{% data variables.product.prodname_vscode_shortname %}、または JetBrains IDE で codespace を使用している場合は、コンテナーをリビルドすることで、現在の codespace に構成変更を適用できます。
+構成に対する変更は、次回 codespace を作成するときに適用されます。 ただし、コンテナーをリビルドすることで、既存の codespace に変更を適用できます。 これは、{% data variables.product.prodname_vscode_shortname %} の Web クライアントまたはデスクトップ アプリケーションの codespace 内で行うか、{% data variables.product.prodname_cli %} を使用することができます。
 
 ### {% data variables.product.prodname_vscode_shortname %} Web クライアントまたはデスクトップ アプリケーションで開発コンテナーをリビルドする
 
@@ -229,15 +229,19 @@ Dockerfile の命令について詳しくは、Docker のドキュメントの�
    - ログで識別されたエラーを修正するには、`devcontainer.json` ファイルを更新します。
    - 変更を適用するには、コンテナーをリビルドします。 
 
-### JetBrains IDE での開発コンテナーのリビルド
+### {% data variables.product.prodname_cli %} を使用して開発コンテナーをリビルドする
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. {% data variables.product.prodname_github_codespaces %} ツール ウィンドウで、リビルド アイコンをクリックします。
+VS Code の外部 (たとえば、{% data variables.product.prodname_dotcom_the_website %} や JetBrains IDE など) で開発コンテナーの構成を変更した場合は、{% data variables.product.prodname_cli %} を使って既存の codespace の開発コンテナーをリビルドできます。
 
-   ![リビルド ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
+1. ターミナルで、次のコマンドを入力します。
 
-1. 開発コンテナーをリビルドすることの確認を求められたら、 **[リビルド]** をクリックします。 
-1. JetBrains IDE で codespace をもう一度開きます。
+   ```
+   gh cs rebuild
+   ```
+
+   codespace が一覧表示されます。
+
+1. キーボードの方向キーを使って必要な codespace を強調表示してから、<kbd>Enter</kbd> キーを押します。
 
 
 ## 参考資料

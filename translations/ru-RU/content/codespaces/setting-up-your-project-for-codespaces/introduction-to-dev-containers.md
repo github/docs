@@ -16,12 +16,12 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
-ms.openlocfilehash: 0b47f0292eb3a13467a8227ac323d289f9712223
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 646f8068e68040f1d12f8155c3ba9e2bdb84c2ca
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158776'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185094'
 ---
 ## Сведения о контейнерах разработки
 
@@ -35,13 +35,13 @@ ms.locfileid: '148158776'
 
 Можно определить одну конфигурацию контейнера разработки для репозитория, разные конфигурации для разных ветвей или несколько конфигураций. При наличии нескольких конфигураций пользователи могут выбрать предпочтительную конфигурацию при создании среды codespace. Это особенно полезно для больших репозиториев, содержащих исходный код на разных языках программирования или для различных проектов. Можно создать набор конфигураций, которые позволяют разным командам работать в codespace, настроенном соответствующим образом для выполняемой ими работы.
 
-При создании codespace на основе шаблона можно начать с одного или нескольких файлов конфигурации контейнера разработки в рабочей области. Чтобы дополнительно настроить среду, можно добавить или удалить параметры из этих файлов и перестроить контейнер, чтобы применить изменения к пространству кода, в которой вы работаете. Если вы публикуете codespace в репозитории на {% data variables.product.product_name %}, все пространства кода, созданные из этого репозитория, будут совместно использовать определенную конфигурацию. Дополнительные сведения см. в [разделах Применение изменений конфигурации к codespace](#applying-configuration-changes-to-a-codespace) и [Создание codespace на основе шаблона](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-remote-repository).
+При создании codespace на основе шаблона можно начать с одного или нескольких файлов конфигурации контейнера разработки в рабочей области. Чтобы дополнительно настроить среду, можно добавить или удалить параметры из этих файлов и перестроить контейнер, чтобы применить изменения к пространству кода, в которой вы работаете. Если вы публикуете codespace в репозитории на {% data variables.product.product_name %}, все пространства кода, созданные из этого репозитория, будут совместно использовать определенную конфигурацию. Дополнительные сведения см. в разделах [Применение изменений конфигурации к codespace](#applying-configuration-changes-to-a-codespace) и [Создание codespace на основе шаблона](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-remote-repository).
 
 ### devcontainer.json
 
 Основным файлом в конфигурации контейнера разработки является файл `devcontainer.json`. Этот файл можно использовать для определения сред codespace, созданных для репозитория. Содержимое этого файла определяет контейнер разработки, который может включать платформы, средства, расширения и перенаправление портов. Файл `devcontainer.json` обычно содержит ссылку на файл Dockerfile, который обычно находится рядом с файлом `devcontainer.json`.
 
-Если вы создаете codespace из репозитория без `devcontainer.json` файла или начинаете с пустого шаблона {% data variables.product.company_short %}, используется конфигурация контейнера разработки по умолчанию. Дополнительные сведения см. в разделе [Использование конфигурации контейнера разработки по умолчанию](#using-the-default-dev-container-configuration).
+Если вы создаете пространство кода из репозитория без `devcontainer.json` файла или начинаете с пустого шаблона {% data variables.product.company_short %}, используется конфигурация контейнера разработки по умолчанию. Дополнительные сведения см. в разделе [Использование конфигурации контейнера разработки по умолчанию](#using-the-default-dev-container-configuration).
 
 Файл `devcontainer.json` обычно находится в каталоге `.devcontainer` репозитория. Кроме того, его можно расположить непосредственно в корне репозитория, в этом случае имя файла должно начинаться с точки: `.devcontainer.json`. 
 
@@ -71,7 +71,7 @@ Dockerfile — это текстовый файл с инструкциями, 
 
 {% note %}
 
-**Примечание.** В качестве альтернативы использованию Dockerfile можно использовать свойство `image` в файле `devcontainer.json` для ссылки непосредственно на существующий образ, который вы хотите использовать. Указанный здесь образ должен быть разрешен любой заданной политикой образов организации. Дополнительные сведения см. в разделе [Ограничение базового образа для codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces). Если ни файл Dockerfile ни образ не найдены, используется образ контейнера по умолчанию. Дополнительные сведения см. в разделе [Использование конфигурации контейнера разработки по умолчанию](#using-the-default-dev-container-configuration).
+**Примечание.** В качестве альтернативы использованию Dockerfile можно использовать свойство `image` в файле `devcontainer.json` для ссылки непосредственно на существующий образ, который вы хотите использовать. Указанный здесь образ должен быть разрешен любой заданной политикой образов организации. Дополнительные сведения см. в разделе [Ограничение базового образа для codespace.](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces) Если ни файл Dockerfile ни образ не найдены, используется образ контейнера по умолчанию. Дополнительные сведения см. в разделе [Использование конфигурации контейнера разработки по умолчанию](#using-the-default-dev-container-configuration).
 
 {% endnote %}
 
@@ -116,7 +116,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 }
 ```
 
-Если вы хотите использовать существующую оркестрацию контейнеров в контейнере разработки, доступны различные параметры. Дополнительные сведения см. в разделе "Параметры оркестрации" [спецификации](https://containers.dev/implementors/spec/#orchestration-options) на веб-сайте "Контейнеры разработки".
+Если вы хотите использовать существующую оркестрацию контейнеров в контейнере разработки, доступны различные параметры. Дополнительные сведения см. в разделе "Параметры оркестрации" [статьи Спецификация](https://containers.dev/implementors/spec/#orchestration-options) на веб-сайте "Контейнеры разработки".
 
 ## Использование конфигурации контейнера разработки по умолчанию
 
@@ -128,11 +128,11 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 ## Использование предопределенной конфигурации контейнера разработки
 
-Если вы используете {% data variables.product.prodname_codespaces %} в {% data variables.product.prodname_vscode %} или в веб-браузере, можно создать конфигурацию контейнера разработки для репозитория, выбрав из списка предопределенных конфигураций. Эти конфигурации предоставляют общие настройки для конкретных типов проектов и могут помочь вам быстро приступить к работе с конфигурацией, которая уже имеет соответствующие параметры контейнера, параметры {% data variables.product.prodname_vscode %} и расширения {% data variables.product.prodname_vscode %}, которые необходимо установить.
+Если вы используете {% data variables.product.prodname_codespaces %} в {% data variables.product.prodname_vscode %} или в веб-браузере, вы можете создать конфигурацию контейнера разработки для репозитория, выбрав из списка предопределенных конфигураций. Эти конфигурации предоставляют общие параметры для конкретных типов проектов и помогут вам быстро приступить к работе с конфигурацией, которая уже имеет соответствующие параметры контейнера, параметры {% data variables.product.prodname_vscode %} и расширения {% data variables.product.prodname_vscode %}, которые необходимо установить.
 
 Использование предопределенной конфигурации — это отличная идея, если требуется дополнительная расширяемость. Вы также можете начать с предопределенной конфигурации и изменять ее по мере необходимости в процессе развития проекта. Дополнительные сведения об определениях предопределенных контейнеров разработки см. в репозитории [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src) .
 
-Можно добавить предопределенную конфигурацию контейнера разработки либо во время работы в codespace, либо при локальной работе с репозиторием. Для этого в {% data variables.product.prodname_vscode_shortname %} во время работы локально и без подключения к codespace необходимо установить и включить расширение Dev Containers. Дополнительные сведения об этом расширении см. в [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). В следующей процедуре описывается процесс использования codespace. Действия в {% data variables.product.prodname_vscode_shortname %}, если вы не подключены к codespace, очень похожи.
+Можно добавить предопределенную конфигурацию контейнера разработки либо во время работы в codespace, либо при локальной работе с репозиторием. Чтобы сделать это в {% data variables.product.prodname_vscode_shortname %} во время работы локально и не подключены к codespace, необходимо установить и включить расширение Dev Containers. Дополнительные сведения об этом расширении см. в [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). В следующей процедуре описывается процесс использования codespace. Действия в {% data variables.product.prodname_vscode_shortname %}, если вы не подключены к codespace, очень похожи.
 
 {% data reusables.codespaces.command-palette-container %}
 1. Щелкните определение, которое вы хотите использовать.
@@ -146,7 +146,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 1. Если вы работаете в codespace, примените изменения, нажав кнопку **Перестроить** в сообщении в правом нижнем углу окна. Дополнительные сведения о перестроении контейнера см. в разделе [Применение изменений к конфигурации](#applying-configuration-changes-to-a-codespace).
 
-   ![Снимок экрана: запрос на перестроение](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![Снимок экрана: запрос на "Перестроить сейчас"](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ### Добавление дополнительных функций в файл `devcontainer.json`
 
@@ -162,24 +162,24 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
    {% note %}
 
    **Примечания**
-   - Вы не можете найти свои `devcontainer.json` файлы в каталогах более чем на один уровень ниже `.devcontainer`. Например, файл в каталоге `.devcontainer/teamA/devcontainer.json` будет работать, а в `.devcontainer/teamA/testing/devcontainer.json` — нет.
+   - Вы не можете найти файлы `devcontainer.json` в каталогах более чем на один уровень ниже `.devcontainer`. Например, файл в каталоге `.devcontainer/teamA/devcontainer.json` будет работать, а в `.devcontainer/teamA/testing/devcontainer.json` — нет.
    - {% data reusables.codespaces.configuration-choice-templates %} Дополнительные сведения см. в разделе [Настройка репозитория шаблонов для {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces).
 
    {% endnote %}
 
-   Если в репозитории найдено несколько файлов `devcontainer.json`, они будут показаны на странице параметров создания codespace. Дополнительные сведения см. в разделе [Создание пространства кода для репозитория](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
+   Если в репозитории найдено несколько файлов `devcontainer.json`, они будут показаны на странице параметров создания codespace. Дополнительные сведения см. в разделе [Создание codespace для репозитория](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 
    ![Снимок экрана: выбор файлов конфигурации](/assets/images/help/codespaces/configuration-file-choice.png)
 
 ### `devcontainer.json` Добавление файла
 
 Если у `devcontainer.json` вас еще нет файла в репозитории, его можно быстро добавить из {% data variables.product.prodname_dotcom_the_website %}.
-1. Перейдите в репозиторий и щелкните раскрывающийся список **код {% octicon "code" aria-label="The code icon" %}** .
+1. Перейдите в репозиторий и щелкните раскрывающийся список **{% octicon "code" aria-label="The code icon" %} Code (Код).**
 1. На вкладке **Codespaces** щелкните многоточие (**...**), а затем выберите **Настроить контейнер разработки**.
 
    ![Снимок экрана: раскрывающийся список "Код" с выделенным элементом "Настройка контейнера разработки"](/assets/images/help/codespaces/configure-dev-container.png)
 
-В редакторе откроется новый `.devcontainer/devcontainer.json` файл. Файл будет содержать некоторые начальные свойства, включая `features` объект , в который можно добавить новые средства, библиотеки или среды выполнения. Дополнительные сведения см. в разделе [Добавление компонентов в `devcontainer.json` файл](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=webui).
+В редакторе откроется новый `.devcontainer/devcontainer.json` файл. Файл будет содержать некоторые начальные свойства, включая `features` объект, в который можно добавить новые инструменты, библиотеки или среды выполнения. Дополнительные сведения см. в разделе [Добавление компонентов в `devcontainer.json` файл](/codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file?tool=webui).
 
 Если репозиторий уже содержит один или несколько `devcontainer.json` файлов, щелкните **Настроить контейнер разработки** , чтобы открыть существующий `devcontainer.json` файл с наивысшим приоритетом в соответствии со [спецификацией](https://containers.dev/implementors/spec/#devcontainerjson) containers.dev. 
 
@@ -187,7 +187,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 Если файл `.devcontainer/devcontainer.json` или `.devcontainer.json` существует, он будет выбором по умолчанию в списке доступных файлов конфигурации при создании пространства кода. Если ни один из файлов не существует, будет выбрана конфигурация контейнера разработки по умолчанию. 
 
-![Снимок экрана: выбранный вариант конфигурации по умолчанию](/assets/images/help/codespaces/configuration-file-choice-default.png)
+![Снимок экрана: выбор конфигурации по умолчанию](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
 ### Изменение файла devcontainer.json
 
@@ -203,7 +203,7 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 ### Параметры интерфейса для {% data variables.product.prodname_vscode_shortname %}
 
-Параметры интерфейса для {% data variables.product.prodname_vscode_shortname %} можно настроить с тремя областями: Рабочая область, Удаленный [Codespaces] и Пользователь. Эти области можно просмотреть в редакторе параметров {% data variables.product.prodname_vscode_shortname %}.
+Параметры интерфейса для {% data variables.product.prodname_vscode_shortname %} можно настроить с тремя областями: Рабочая область, Удаленные [пространства кода] и Пользователь. Эти области можно просмотреть в редакторе параметров {% data variables.product.prodname_vscode_shortname %}.
 
 ![Снимок экрана: выбор областей в редакторе параметров](/assets/images/help/codespaces/scopes-for-vscode.png)
 
@@ -211,12 +211,12 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
 
 Параметры интерфейса по умолчанию для {% data variables.product.prodname_vscode_shortname %} можно определить в двух местах.
 
-* Параметры интерфейса, `.vscode/settings.json` определенные в файле в репозитории, применяются как параметры области рабочей области в codespace.
-* Параметры интерфейса, определенные в `settings` ключе в `devcontainer.json` файле , применяются в codespace как удаленные параметры [Codespaces].
+* Параметры интерфейса, определенные в `.vscode/settings.json` файле в репозитории, применяются как параметры области рабочей области в codespace.
+* Параметры интерфейса, определенные в `settings` ключе в `devcontainer.json` файле, применяются как удаленные [Codespaces] параметры в codespace.
 
 ## Применение изменений конфигурации к среде codespace
 
-Изменения в конфигурации будут применены при следующем создании codespace. Однако если вы используете codespace в веб-браузере, в {% data variables.product.prodname_vscode_shortname %} или в интегрированной среде разработки JetBrains, можно применить изменения конфигурации к текущему codespace, перестроив контейнер.
+Изменения конфигурации будут применены при следующем создании codespace. Однако вы можете применить изменения к существующему пространству кода, перестроив контейнер. Это можно сделать в codespace в веб-клиенте или классическом приложении {% data variables.product.prodname_vscode_shortname %} или использовать {% data variables.product.prodname_cli %}.
 
 ### Перестроение контейнера разработки в веб-клиенте или классическом приложении {% data variables.product.prodname_vscode_shortname %}
 
@@ -229,15 +229,19 @@ RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
    - Чтобы устранить ошибки, выявленные в журналах, обновите файл `devcontainer.json`.
    - Чтобы применить изменения, перестройте контейнер. 
 
-### Перестроение контейнера разработки в интегрированной среде разработки JetBrains
+### Использование {% data variables.product.prodname_cli %} для перестроения контейнера разработки
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. В окне инструментов {% data variables.product.prodname_github_codespaces %} щелкните значок перестроения.
+Если вы изменили конфигурацию контейнера разработки за пределами VS Code (например, в {% data variables.product.prodname_dotcom_the_website %} или в интегрированной среде разработки JetBrains), вы можете использовать {% data variables.product.prodname_cli %} для перестроения контейнера разработки для существующего пространства кода.
 
-   ![Снимок экрана: кнопка "Перестроить"](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
+1. В окне терминала введите следующую команду.
 
-1. Нажмите кнопку **Перестроить** при появлении запроса, чтобы подтвердить, что вы хотите перестроить контейнер разработки. 
-1. Повторно откройте codespace в интегрированной среде разработки JetBrains.
+   ```
+   gh cs rebuild
+   ```
+
+   В списке перечислены пространства кода.
+
+1. Используйте клавиши со стрелками на клавиатуре, чтобы выделить требуемое кодовое пространство, а затем нажмите клавишу <kbd>ВВОД</kbd>.
 
 
 ## Дополнительные материалы

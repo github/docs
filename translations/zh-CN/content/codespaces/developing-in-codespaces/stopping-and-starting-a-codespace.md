@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
-ms.openlocfilehash: 290a39d9d60420230bd9b11d5e2d10119ccc1c72
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 5c34fd5b7d72f52e203cd8f8fdc1871ff6a2f014
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158803'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188246'
 ---
 {% jetbrains %}
 
@@ -62,10 +62,7 @@ ms.locfileid: '148158803'
 
 {% jetbrains %}
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. 在 {% data variables.product.prodname_github_codespaces %} 工具窗口中，单击“停止”图标。
-
-   ![“日志”按钮的屏幕截图](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
+可以从“你的 codespace”页面停止 codespace（查看 [Web 浏览器说明](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)）或使用 {% data variables.product.prodname_cli %}（查看 [CLI 说明](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)）。
 
 {% endjetbrains %}
 
@@ -113,4 +110,4 @@ ms.locfileid: '148158803'
 
 ## 延伸阅读
 
-- [codespace 生命周期](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
+- [codespace 生命周期](/codespaces/getting-started/the-codespace-lifecycle)

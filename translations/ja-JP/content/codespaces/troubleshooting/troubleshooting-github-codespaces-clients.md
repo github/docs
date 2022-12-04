@@ -11,12 +11,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
-ms.openlocfilehash: 682160b3b92960487c0709fc411fc2143d18f415
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 35bd9dd859612307c1f9e49ea8ed9771e4f5efcd
+ms.sourcegitcommit: bf4e3590ab71b0a1bfa8d74b00183f63193acbbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159903'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186172'
 ---
 {% jetbrains %}
 
@@ -54,7 +54,7 @@ Insiders ビルドを使用していて正しくない動作に気づいた場�
 
 ## {% data variables.product.prodname_vscode_shortname %} のトラブルシューティング
 
-{% data variables.product.prodname_vscode_shortname %} デスクトップ アプリケーションで codespace を開くと、ローカル ワークスペースでの作業と比べていくつかの違いに気付くかもしれませんが、エクスペリエンスは似ているはずです。 
+{% data variables.product.prodname_vscode_shortname %} デスクトップ アプリケーションで codespace を開くと、ローカル ワークスペースでの作業と比べていくつかの違いに気付くかもしれませんが、エクスペリエンスは似ているはずです。
 
 問題が発生した場合、[`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) リポジトリの {% data variables.product.prodname_vscode_shortname %} エクスペリエンスを使用して、既知の issue を確認し、新しい issue をログすることができます。
 
@@ -104,6 +104,31 @@ JetBrains IDE を実行する場合は、少なくとも 4 コアを搭載した
 
 1. **[保存して再起動]** をクリックします。
 
+### MacOS Ventura でクライアントを開くことができない 
+
+MacOS Ventura では、JetBrains Gateway から初めて codespace に接続しようとすると、JetBrains クライアント アプリケーションが "破損しており、開くことができない" ことを示すメッセージが表示されることがあります。
+
+<img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
+
+その場合は、次のようにしてください。
+
+1. **[キャンセル]** をクリックして、このメッセージを閉じます。
+1. 画面の左上にある Apple アイコンをクリックし、 **[システム設定]** をクリックします。 
+1. **[プライバシーとセキュリティ]** をクリックし、"セキュリティ" セクションまで下にスクロールします。
+
+   ![[プライバシーとセキュリティ] ダイアログのスクリーンショット](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
+
+   JetBrains クライアントの使用がブロックされたことを示すメッセージが表示されます。 
+
+1. **[このまま開く]** をクリックして、認識されたアプリケーションに JetBrains クライアントを追加します。 
+   メッセージが再び表示されますが、今度は **[開く]** ボタンが表示されます。
+
+   <img src="/assets/images/help/codespaces/jetbrains-ventura-error2.png" alt="Screenshot of the error message with an 'Open' button" style="width:230px;"/>
+
+1. **[キャンセル]** をもう一度クリックします。
+1. JetBrains Gateway アプリケーションに戻り、目的の codespace にもう一度接続します。
+   これで、JetBrains クライアントが正常に開きます。 Mac でクライアント アプリケーションを実行することを承認したので、今後 codespace に接続してもメッセージは表示されません。
+
 ### SSH 接続に関する issue
 
 codespace で実行されている SSH サーバー経由で接続するには、{% data variables.product.prodname_dotcom %} アカウントに既に追加されている `~/.ssh` ディレクトリ (MacOS and Linux) または `%HOMEPATH%\.ssh` ディレクトリ (Windows) に SSH キーが必要です。 このディレクトリにキーがない場合、{% data variables.product.prodname_cli %} によってキーが自動的に作成されます。 詳しくは、「[{% data variables.product.prodname_dotcom %} アカウントへの新しい SSH キーの追加](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)」をご覧ください。
@@ -115,4 +140,3 @@ codespace で実行されている SSH サーバー経由で接続するには�
 使用している JetBrains IDE または JetBrains Gateway アプリケーションに固有の issue に関するサポートについては、JetBrains Web サイトの「[製品サポート](https://www.jetbrains.com/support/)」を参照してください。
 
 {% endjetbrains %}
-

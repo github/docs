@@ -6,12 +6,12 @@ intro: '你可以将 {% data variables.product.prodname_github_codespaces %} 用
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
-ms.openlocfilehash: 6794d20b9ea0153b3baf4bee1a08c68b2ba17456
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 832ab470d13cc741bc4a71e77840c99da5ff3de6
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158875'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189911'
 ---
 ## 关于 {% data variables.product.prodname_github_codespaces %}
 
@@ -103,4 +103,4 @@ ms.locfileid: '148158875'
 
 ![学生 codespace 的教师作业概述](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-通过浏览器连接到 codespace 时，会自动启用自动保存。 如果要将更改保存到存储库，则需要提交更改并将其推送到远程分支。 如果默认情况下允许 codespace 在没有互动的情况下运行 30 分钟，codespace 将超时并停止运行。 将保留上次更改以来的数据。 有关 codespace 生命周期的详细信息，请参阅“[codespace 生命周期](/codespaces/developing-in-codespaces/the-codespace-lifecycle)”。
+通过浏览器连接到 codespace 时，会自动启用自动保存。 如果要将更改保存到存储库，则需要提交更改并将其推送到远程分支。 如果默认情况下允许 codespace 在没有互动的情况下运行 30 分钟，codespace 将超时并停止运行。 将保留上次更改以来的数据。 有关 codespace 生命周期的详细信息，请参阅“[codespace 生命周期](/codespaces/getting-started/the-codespace-lifecycle)”。

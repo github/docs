@@ -5,12 +5,12 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}.'
 shortTitle: Register an LMS
-ms.openlocfilehash: e1c1abed5ce4ebf82c19b29fef9a005fbe4c7a02
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 408126833cbf7fa8cd4a71d172f6550e82f795a2
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106855'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185171'
 ---
 ## 교실에 LMS 등록 정보
 
@@ -63,8 +63,8 @@ LMS를 클래스룸에 연결하려면 LMS 인스턴스의 관리자가 {% data 
    - "발급자 식별자": `https://canvas.instructure.com`
    - "도메인": Canvas 인스턴스의 기본 URL
    - "클라이언트 ID": 만든 개발자 키의 "세부 정보" 아래의 "클라이언트 ID"
-   - "OIDC 권한 부여 엔드포인트": 끝에 추가된 Canvas 인스턴스 `/login/oauth2/token` 의 기본 URL입니다.
-   - "OAuth 2.0 토큰 검색 URL": 끝에 추가된 Canvas 인스턴스 `/api/lti/authorize_redirect` 의 기본 URL입니다.
+   - "OIDC 권한 부여 엔드포인트": 끝에 추가된 Canvas 인스턴스 `/api/lti/authorize_redirect` 의 기본 URL입니다.
+   - "OAuth 2.0 토큰 검색 URL": 끝에 추가된 Canvas 인스턴스 `/login/oauth2/token` 의 기본 URL입니다.
    - "키 집합 URL": 마지막에 가 추가된 Canvas 인스턴스 `/api/lti/security/jwks` 의 기본 URL입니다.
 
   ![GitHub 클래스룸에 Canvas 인스턴스 등록](/assets/images/help/classroom/register-canvas-with-github-classroom.png)

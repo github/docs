@@ -16,12 +16,12 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
-ms.openlocfilehash: 0b47f0292eb3a13467a8227ac323d289f9712223
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 646f8068e68040f1d12f8155c3ba9e2bdb84c2ca
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158777'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185095'
 ---
 ## Acerca de los contenedores dev
 
@@ -216,7 +216,7 @@ Puedes definir la configuración predeterminada del editor de {% data variables.
 
 ## Aplicación de cambios de configuración a un codespace
 
-Los cambios en una configuración se aplicarán la próxima vez que crees un codespace. Sin embargo, si usas un codespace en un explorador web, en {% data variables.product.prodname_vscode_shortname %}, o en un IDE de JetBrains, puedes aplicar cambios de configuración al codespace actual mediante la regeneración del contenedor.
+Los cambios en una configuración se aplicarán la próxima vez que crees un codespace. Sin embargo, puedes aplicar los cambios a un codespace existente recompilando el contenedor. Puedes hacerlo dentro de un codespace en la aplicación de escritorio o cliente web {% data variables.product.prodname_vscode_shortname %}, o bien puedes usar {% data variables.product.prodname_cli %}.
 
 ### Recompilación del contenedor de desarrollo en el cliente web o aplicación de escritorio de {% data variables.product.prodname_vscode_shortname %}
 
@@ -229,15 +229,19 @@ Los cambios en una configuración se aplicarán la próxima vez que crees un cod
    - Para corregir los errores identificados en los registros, actualice el archivo `devcontainer.json`.
    - Para aplicar los cambios, vuelve a crear tu contenedor. 
 
-### Recompilación del contenedor de desarrollo en un IDE de JetBrains
+### Uso de {% data variables.product.prodname_cli %} para volver a generar un contenedor de desarrollo
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. En la ventana de herramientas de {% data variables.product.prodname_github_codespaces %}, haz clic en el icono de recompilación.
+Si has cambiado una configuración de contenedor de desarrollo fuera de VS Code (por ejemplo, en {% data variables.product.prodname_dotcom_the_website %} o en un IDE de JetBrains), puedes usar {% data variables.product.prodname_cli %} para recompilar el contenedor de desarrollo para un codespace existente.
 
-   ![Captura de pantalla del botón recompilar](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
+1. En un terminal, escribe el siguientes comando.
 
-1. Haz clic en **Recompilar** cuando se te pida que confirmes que quieres recompilar el contenedor de desarrollo. 
-1. Vuelve a abrir el codespace en el IDE de JetBrains.
+   ```
+   gh cs rebuild
+   ```
+
+   Se muestran los codespace.
+
+1. Use las teclas de dirección del teclado para resaltar el codespace necesario y, a continuación, presiona <kbd>Entrar</kbd>.
 
 
 ## Información adicional

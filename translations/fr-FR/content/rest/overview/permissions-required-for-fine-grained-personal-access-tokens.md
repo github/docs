@@ -5,12 +5,12 @@ versions:
   feature: pat-v2
 miniTocMaxHeadingLevel: 3
 shortTitle: '{% data variables.product.pat_v2_caps %} permissions'
-ms.openlocfilehash: 97154c54229f66f3a6b3bf852f7aabab89a0d2ee
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 46a82b0212d4cda2b6883c0b33ba2acb2e50b9d0
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107684'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184211'
 ---
 ## À propos des autorisations nécessaires pour un {% data variables.product.pat_v2 %}
 
@@ -65,11 +65,10 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#add-or-update-team-repository-permissions) (écriture)
 - [`DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#remove-a-repository-from-a-team) (écriture)
 - [`POST /orgs/{org}/repos`](/rest/reference/repos#create-an-organization-repository) (écriture)
-- [`PATCH /repos/{owner}/{repo}`](/rest/reference/repos/#update-a-repository) (écriture)
+- [`PATCH /repos/{owner}/{repo}`](/rest/repos/repos#update-a-repository) (écriture)
 - [`DELETE /repos/{owner}/{repo}`](/rest/reference/repos#delete-a-repository) (écriture)
 - [`POST /repos/{owner}/{repo}/forks`](/rest/reference/repos#create-a-fork) (écriture)
 - [`GET /repos/{owner}/{repo}/teams`](/rest/reference/repos#list-repository-teams) (lecture)
-- [`POST /repos/{owner}/{repo}/transfer`](/rest/reference/repos#transfer-a-repository) (écriture)
 - [`POST /user/repos`](/rest/reference/repos#create-a-repository-for-the-authenticated-user) (écriture)
 - [`GET /repos/{owner}/{repo}/actions/permissions`](/rest/reference/actions#get-github-actions-permissions-for-a-repository) (lecture)
 - [`PUT /repos/{owner}/{repo}/actions/permissions`](/rest/reference/actions#set-github-actions-permissions-for-a-repository) (écriture)
@@ -130,16 +129,6 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 
 ## Vérifications
 
-- [`POST /repos/{owner}/{repo}/check-runs`](/rest/reference/checks#create-a-check-run) (écriture)
-- [`GET /repos/{owner}/{repo}/check-runs/{check_run_id}`](/rest/reference/checks#get-a-check-run) (lecture)
-- [`PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}`](/rest/reference/checks#update-a-check-run) (écriture)
-- [`GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations`](/rest/reference/checks#list-check-run-annotations) (lecture)
-- [`POST /repos/{owner}/{repo}/check-runs/{check_run_id}/rerequest`](/rest/reference/checks#rerequest-a-check-run) (écriture)
-- [`GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs`](/rest/reference/checks#list-check-runs-in-a-check-suite) (lecture)
-- [`POST /repos/{owner}/{repo}/check-suites`](/rest/reference/checks#create-a-check-suite) (écriture)
-- [`GET /repos/{owner}/{repo}/check-suites/{check_suite_id}`](/rest/reference/checks#get-a-check-suite) (lecture)
-- [`POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest`](/rest/reference/checks#rerequest-a-check-suite) (écriture)
-- [`PATCH /repos/{owner}/{repo}/check-suites/preferences`](/rest/reference/checks#update-repository-preferences-for-check-suites) (écriture)
 - [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments`](/rest/reference/actions#review-pending-deployments-for-a-workflow-run) (lecture)
 
 ## Codespaces
@@ -196,20 +185,12 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`POST /repos/{owner}/{repo}/git/refs`](/rest/reference/git#create-a-reference) (écriture)
 - [`POST /repos/{owner}/{repo}/git/tags`](/rest/reference/git#create-a-tag-object) (écriture)
 - [`POST /repos/{owner}/{repo}/git/trees`](/rest/reference/git#create-a-tree) (écriture)
-- [`GET /repos/{owner}/{repo}/import`](/rest/reference/migrations#get-an-import-status) (lecture)
-- [`PUT /repos/{owner}/{repo}/import`](/rest/reference/migrations#start-an-import) (écriture)
-- [`PATCH /repos/{owner}/{repo}/import`](/rest/reference/migrations#update-an-import) (écriture)
-- [`DELETE /repos/{owner}/{repo}/import`](/rest/reference/migrations#cancel-an-import) (écriture)
-- [`GET /repos/{owner}/{repo}/import/authors`](/rest/reference/migrations#get-commit-authors) (lecture)
-- [`PATCH /repos/{owner}/{repo}/import/authors/{author_id}`](/rest/reference/migrations#map-a-commit-author) (écriture)
-- [`GET /repos/{owner}/{repo}/import/large_files`](/rest/reference/migrations#get-large-files) (lecture)
-- [`PATCH /repos/{owner}/{repo}/import/lfs`](/rest/reference/migrations#update-git-lfs-preference) (écriture)
 - [`PUT /repos/{owner}/{repo}/pulls/{pull_number}/merge`](/rest/reference/pulls#merge-a-pull-request) (écriture)
 - [`POST /repos/{owner}/{repo}/comments/{comment_id}/reactions`](/rest/reference/reactions#create-reaction-for-a-commit-comment) (écriture)
 - [`DELETE /repos/{owner}/{repo}/comments/{comment_id}/reactions/{reaction_id}`](/rest/reference/reactions#delete-a-commit-comment-reaction) (écriture)
-- [`GET /repos/{owner}/{repo}/branches`](/rest/reference/repos#list-branches) (lecture)
-- [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository) (écriture)
-- [`POST /repos/{owner}/{repo}/merges`](/rest/reference/repos#merge-a-branch) (écriture)
+- [`GET /repos/{owner}/{repo}/branches`](/rest/branches/branches#list-branches) (lecture)
+- [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/branches/branches#sync-a-fork-branch-with-the-upstream-repository) (écriture)
+- [`POST /repos/{owner}/{repo}/merges`](/rest/branches/branches#merge-a-branch) (écriture)
 - [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases`](/rest/reference/code-scanning#list-codeql-databases) (lecture)
 - [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`](/rest/reference/code-scanning#get-codeql-database) (lecture)
 - [`PATCH /repos/{owner}/{repo}/comments/{comment_id}`](/rest/commits/comments#update-a-commit-comment) (écriture)
@@ -320,7 +301,7 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`GET /repos/{owner}/{repo}/issues`](/rest/reference/issues#list-repository-issues) (lecture)
 - [`POST /repos/{owner}/{repo}/issues`](/rest/reference/issues#create-an-issue) (écriture)
 - [`GET /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues#get-an-issue) (lecture)
-- [`PATCH /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues/#update-an-issue) (écriture)
+- [`PATCH /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues#update-an-issue) (écriture)
 - [`PUT /repos/{owner}/{repo}/issues/{issue_number}/lock`](/rest/reference/issues#lock-an-issue) (écriture)
 - [`DELETE /repos/{owner}/{repo}/issues/{issue_number}/lock`](/rest/reference/issues#unlock-an-issue) (écriture)
 - [`GET /repos/{owner}/{repo}/issues/{issue_number}/labels`](/rest/reference/issues#list-labels-for-an-issue) (lecture)
@@ -409,7 +390,6 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`POST /gists/{gist_id}/forks`](/rest/reference/gists#fork-a-gist) (lecture)
 - [`PUT /gists/{gist_id}/star`](/rest/reference/gists#star-a-gist) (lecture)
 - [`DELETE /gists/{gist_id}/star`](/rest/reference/gists#unstar-a-gist) (lecture)
-- [`GET /notifications`](/rest/reference/activity#list-notifications-for-the-authenticated-user) (lecture)
 - [`GET /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#check-team-permissions-for-a-repository) (lecture)
 - [`PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#add-or-update-team-repository-permissions) (lecture)
 - [`DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#remove-a-repository-from-a-team) (lecture)
@@ -439,10 +419,6 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`GET /search/labels`](/rest/reference/search#search-labels) (lecture)
 - [`GET /repos/{owner}/{repo}/topics`](/rest/reference/repos#get-all-repository-topics) (lecture)
 
-## Notifications
-
-- [`GET /notifications`](/rest/reference/activity#list-notifications-for-the-authenticated-user) (lecture)
-
 ## Administration des organisations
 
 {% ifversion ghec %}- [`GET /orgs/{org}/audit-log`](/rest/reference/orgs#get-audit-log) (lecture){% endif %}
@@ -467,7 +443,7 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`GET /orgs/{org}/security-managers`](/rest/reference/orgs#list-security-manager-teams) (lecture)
 - [`PUT /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#add-a-security-manager-team) (écriture)
 - [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#remove-a-security-manager-team) (écriture)
-- [`PATCH /orgs/{org}`](/rest/reference/orgs/#update-an-organization) (écriture)
+- [`PATCH /orgs/{org}`](/rest/reference/orgs#update-an-organization) (écriture)
 - [`GET /orgs/{org}/installations`](/rest/reference/orgs#list-app-installations-for-an-organization) (lecture)
 
 ## Codespaces de l’organisation
@@ -491,6 +467,7 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 ## Rôles personnalisés de l’organisation
 
 - [`GET /organizations/{organization_id}/custom_roles`](/rest/reference/orgs#list-custom-repository-roles-in-an-organization) (lecture)
+- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs/#get-a-custom-role) (lecture)
 - [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs#update-a-custom-role) (écriture)
 - [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs#delete-a-custom-role) (écriture)
 - [`GET /orgs/{org}/fine_grained_permissions`](/rest/reference/orgs#list-fine-grained-permissions-for-an-organization) (lecture)
@@ -522,13 +499,6 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}`](/rest/reference/orgs#get-a-webhook-delivery-for-an-organization-webhook) (lecture)
 - [`POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts`](/rest/reference/orgs#redeliver-a-delivery-for-an-organization-webhook) (écriture)
 - [`POST /orgs/{org}/hooks/{hook_id}/pings`](/rest/reference/orgs#ping-an-organization-webhook) (écriture)
-
-## Projets de l’organisation
-
-- [`PUT /orgs/{org}/teams/{team_slug}/projects/{project_id}`](/rest/reference/teams#add-or-update-team-project-permissions) (administrateur)
-- [`DELETE /orgs/{org}/teams/{team_slug}/projects/{project_id}`](/rest/reference/teams#remove-a-project-from-a-team) (administrateur)
-- [`GET /orgs/{org}/projects`](/rest/reference/projects#list-organization-projects) (lecture)
-- [`POST /orgs/{org}/projects`](/rest/reference/projects#create-an-organization-project) (écriture)
 
 ## Secrets de l’organisation
 
@@ -640,30 +610,6 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`POST /repos/{owner}/{repo}/hooks/{hook_id}/pings`](/rest/webhooks/repos#ping-a-repository-webhook) (lecture)
 - [`POST /repos/{owner}/{repo}/hooks/{hook_id}/tests`](/rest/webhooks/repos#test-the-push-repository-webhook) (lecture)
 
-## Projets de dépôt
-
-- [`GET /projects/{project_id}/collaborators`](/rest/reference/projects#list-project-collaborators) (écriture)
-- [`PUT /projects/{project_id}/collaborators/{username}`](/rest/reference/projects#add-project-collaborator) (écriture)
-- [`DELETE /projects/{project_id}/collaborators/{username}`](/rest/reference/projects#remove-project-collaborator) (écriture)
-- [`GET /projects/{project_id}/collaborators/{username}/permission`](/rest/reference/projects#get-project-permission-for-a-user) (écriture)
-- [`GET /projects/{project_id}`](/rest/reference/projects#get-a-project) (lecture)
-- [`PATCH /projects/{project_id}`](/rest/reference/projects#update-a-project) (écriture)
-- [`DELETE /projects/{project_id}`](/rest/reference/projects#delete-a-project) (écriture)
-- [`GET /projects/{project_id}/columns`](/rest/reference/projects#list-project-columns) (lecture)
-- [`POST /projects/{project_id}/columns`](/rest/reference/projects#create-a-project-column) (écriture)
-- [`GET /projects/columns/{column_id}`](/rest/reference/projects#get-a-project-column) (lecture)
-- [`PATCH /projects/columns/{column_id}`](/rest/reference/projects#update-a-project-column) (écriture)
-- [`DELETE /projects/columns/{column_id}`](/rest/reference/projects#delete-a-project-column) (écriture)
-- [`GET /projects/columns/{column_id}/cards`](/rest/reference/projects#list-project-cards) (lecture)
-- [`POST /projects/columns/{column_id}/cards`](/rest/reference/projects#create-a-project-card) (écriture)
-- [`POST /projects/columns/{column_id}/moves`](/rest/reference/projects#move-a-project-column) (écriture)
-- [`GET /projects/columns/cards/{card_id}`](/rest/reference/projects#get-a-project-card) (lecture)
-- [`PATCH /projects/columns/cards/{card_id}`](/rest/reference/projects#update-a-project-card) (écriture)
-- [`DELETE /projects/columns/cards/{card_id}`](/rest/reference/projects#delete-a-project-card) (écriture)
-- [`POST /projects/columns/cards/{card_id}/moves`](/rest/reference/projects#move-a-project-card) (écriture)
-- [`GET /repos/{owner}/{repo}/projects`](/rest/reference/projects#list-repository-projects) (lecture)
-- [`POST /repos/{owner}/{repo}/projects`](/rest/reference/projects#create-a-repository-project) (écriture)
-
 ## Alertes d’analyse de secrets
 
 - [`GET /orgs/{org}/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-an-organization) (lecture)
@@ -726,6 +672,10 @@ Quand vous créez un {% data variables.product.pat_v2 %}, vous lui octroyez un e
 - [`GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#get-a-discussion-comment) (lecture)
 - [`PATCH /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#update-a-discussion-comment) (écriture)
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#delete-a-discussion-comment) (écriture)
+
+## Alertes de vulnérabilité
+
+- [`GET /orgs/{org}/dependabot/alerts`](/rest/dependabot/alerts#list-dependabot-alerts-for-an-organization) (lecture)
 
 ## Visionnage
 

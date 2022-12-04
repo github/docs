@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub Codespaces for machine learning
+title: Erste Schritte mit GitHub Codespaces für maschinelles Lernen
 shortTitle: Machine learning
-intro: 'Learn about working on machine learning projects with {% data variables.product.prodname_github_codespaces %} and its out-of-the-box tools.'
+intro: 'Erfahre mehr über die Arbeit an ML-Projekten mit {% data variables.product.prodname_github_codespaces %} und den zugehörigen Tools.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,58 +9,63 @@ type: tutorial
 topics:
   - Codespaces
   - Developer
+ms.openlocfilehash: 905d5b14bfba5e47d1fdfdd7f0be75b16750652d
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158917'
 ---
+## Einführung
 
-## Introduction
+Dieser Leitfaden enthält eine Einführung in maschinelles Lernen mit {% data variables.product.prodname_github_codespaces %}. Du erstellst eine einfache Bildklassifizierung, lernst einige der Tools kennen, die in {% data variables.product.prodname_github_codespaces %} vorinstalliert sind, konfigurierst deine Entwicklungsumgebung für NVIDIA CUDA und öffnest deinen Codespace in JupyterLab.
 
-This guide introduces you to machine learning with {% data variables.product.prodname_github_codespaces %}. You’ll build a simple image classifier, learn about some of the tools that come preinstalled in {% data variables.product.prodname_github_codespaces %}, configure your development environment for NVIDIA CUDA, and open your codespace in JupyterLab.
+## Erstellen einer einfachen Bildklassifizierung
 
-## Building a simple image classifier
+Wir verwenden ein Jupyter-Notebook, um eine einfache Bildklassifizierung zu erstellen. 
 
-We'll use a Jupyter notebook to build a simple image classifier. 
+Jupyter-Notebooks sind Gruppen von Zellen, die nacheinander ausgeführt werden können. Das Notebook, das wir verwenden, enthält eine Reihe von Zellen, die eine Bildklassifizierung mithilfe von [PyTorch](https://pytorch.org/) erstellen. Jede Zelle ist eine andere Phase dieses Prozesses: Herunterladen eines Datasets, Einrichten eines neuronales Netzes, Trainieren eines Modells und anschließendes Testen dieses Modells.
 
-Jupyter notebooks are sets of cells that you can execute one after another. The notebook we'll use includes a number of cells that build an image classifier using [PyTorch](https://pytorch.org/). Each cell is a different phase of that process: download a dataset, set up a neural network, train a model, and then test that model.
+Wir führen alle Zellen nacheinander aus, um alle Phasen zum Erstellen der Bildklassifizierung auszuführen. Dabei speichert Jupyter die Ausgabe zurück in das Notebook, damit du die Ergebnisse untersuchen kannst.
 
-We'll run all of the cells, in sequence, to perform all phases of building the image classifier. When we do this Jupyter saves the output back into the notebook so that you can examine the results.
+### Einen Codespace erstellen
 
-### Creating a codespace
-
-1. Go to the [github/codespaces-jupyter](https://github.com/github/codespaces-jupyter) template repository.
+1. Navigiere zum Vorlagenrepository [github/codespaces-jupyter](https://github.com/github/codespaces-jupyter).
 {% data reusables.codespaces.open-template-in-codespace-step %}
 
-A codespace for this template will open in a web-based version of {% data variables.product.prodname_vscode %}.
+Ein Codespace für diese Vorlage wird in einer webbasierten Version von {% data variables.product.prodname_vscode %} geöffnet.
 
-### Opening the image classifier notebook 
+### Öffnen des Notebooks zur Bildklassifizierung 
 
-The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/universal).
+Das von {% data variables.product.prodname_github_codespaces %} verwendete Standardcontainerimage umfasst eine Reihe von ML-Bibliotheken, die in deinem Codespace vorinstalliert sind. Dazu gehören beispielsweise Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests und Plotly. Weitere Informationen zum Standardimage findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration) und [im `devcontainers/images`-Repository](https://github.com/devcontainers/images/tree/main/src/universal).
 
-1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
-1. Open the `notebooks/image-classifier.ipynb` notebook file.
+1. Schließe im {% data variables.product.prodname_vscode_shortname %}-Editor alle angezeigten Registerkarten „Erste Schritte“.
+1. Öffne die Notebook-Datei `notebooks/image-classifier.ipynb`.
 
-### Building the image classifier
+### Erstellen der Bildklassifizierung
 
-The image classifier notebook contains all the code you need to download a dataset, train a neural network, and evaluate its performance.
+Das Notebook zur Bildklassifizierung enthält den gesamten Code, den du benötigst, um ein Dataset herunterzuladen, ein neuronales Netz zu trainieren und die Leistung zu bewerten.
 
-1. Click **Run All** to execute all of the notebook’s cells.
+1. Klicke auf **Alle ausführen**, um alle Zellen des Notebooks auszuführen.
 
-   ![Screenshot of the Run All button](/assets/images/help/codespaces/jupyter-run-all.png)
+   ![Screenshot der Schaltfläche „Alle ausführen“](/assets/images/help/codespaces/jupyter-run-all.png)
 
-1. Scroll down to view the output of each cell.
+1. Scrolle nach unten, um die Ausgabe der einzelnen Zellen anzuzeigen.
 
-   ![Screenshot of Step 3 in the editor](/assets/images/help/codespaces/jupyter-notebook-step3.png)
+   ![Screenshot von Schritt 3 im Editor](/assets/images/help/codespaces/jupyter-notebook-step3.png)
 
-## Configuring NVIDIA CUDA for your codespace
+## Konfigurieren von NVIDIA CUDA für deinen Codespace
 
-Some software requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
+Einige Software erfordert die Installation von NVIDIA CUDA, damit die GPU deines Codespace verwendet werden kann. Wenn dies der Fall ist, kannst du deine eigene benutzerdefinierte Konfiguration erstellen, indem du eine `devcontainer.json`-Datei verwendest und angibst, dass CUDA installiert werden soll. Weitere Informationen zum Erstellen einer benutzerdefinierten Konfiguration findest du unter [Einführung in Entwicklungscontainer](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration).
 
 {% note %}
 
-**Note**: For full details of the script that's run when you add the `nvidia-cuda` feature, see [the devcontainers/features repository](https://github.com/devcontainers/features/tree/main/src/nvidia-cuda).
+**Hinweis**: Ausführliche Informationen zu dem Skript, das ausgeführt wird, wenn du das `nvidia-cuda`-Feature hinzufügst, findest du im [Repository „devcontainers/features“](https://github.com/devcontainers/features/tree/main/src/nvidia-cuda).
 
 {% endnote %}
 
-1. Within the codespace, open the `.devcontainer/devcontainer.json` file in the editor.
-1. Add a top-level `features` object with the following contents:
+1. Öffne in einem Codespace die Datei `.devcontainer/devcontainer.json` im Editor.
+1. Füge ein `features`-Objekt auf oberster Ebene mit den folgenden Inhalten hinzu:
 
    ```json{:copy}
      "features": {
@@ -70,9 +75,9 @@ Some software requires you to install NVIDIA CUDA to use your codespace’s GPU.
      }
    ```
 
-   For more information about the `features` object, see the [development containers specification](https://containers.dev/implementors/features/#devcontainer-json-properties).
+   Weitere Informationen zum `features`-Objekt findest du in der [Spezifikation für Entwicklungscontainer](https://containers.dev/implementors/features/#devcontainer-json-properties).
 
-   If you are using the `devcontainer.json` file from the image classifier repository you created for this tutorial, your `devcontainer.json` file will now look like this:
+   Wenn du die Datei `devcontainer.json` aus dem Bildklassifizierungsrepository verwendest, das du für dieses Tutorial erstellt hast, sieht die Datei `devcontainer.json` nun wie folgt aus:
 
    ```json
    {
@@ -92,13 +97,12 @@ Some software requires you to install NVIDIA CUDA to use your codespace’s GPU.
    }
    ```
 
-1. Save the change.
-{% data reusables.codespaces.rebuild-command %}
-   The codespace container will be rebuilt. This will take several minutes. When the rebuild is complete the codespace is automatically reopened.
-1. Publish your change to a repository so that CUDA will be installed in any new codespaces you create from this repository in future. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-vs-code)."
+1. Speichere die Änderungen.
+{% data reusables.codespaces.rebuild-command %} Der Codespacecontainer wird neu erstellt. Dies dauert einige Minuten. Wenn die Neuerstellung abgeschlossen ist, wird der Codespace automatisch erneut geöffnet.
+1. Veröffentliche die Änderung in einem Repository, damit CUDA in allen neuen Codespaces installiert wird, die du in Zukunft von diesem Repository aus erstellst. Weitere Informationen findest du unter [Erstellen eines Codespace mithilfe einer Vorlage](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-vs-code).
 
-## Opening your codespace in JupyterLab
+## Öffnen deines Codespace in JupyterLab
 
-You can open your codespace in JupyterLab from the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces), or by using {% data variables.product.prodname_cli %}. For more information, see "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)."
+Du kannst deinen Codespace in JupyterLab über die Seite „Deine Codespaces“ unter [github.com/codespaces](https://github.com/codespaces) oder mithilfe der {% data variables.product.prodname_cli %} öffnen. Weitere Informationen findest du unter [Öffnen eines vorhandenen Codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace).
 
 {% data reusables.codespaces.jupyterlab-installed-in-codespace %}

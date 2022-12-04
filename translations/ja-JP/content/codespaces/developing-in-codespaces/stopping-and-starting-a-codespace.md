@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
-ms.openlocfilehash: 290a39d9d60420230bd9b11d5e2d10119ccc1c72
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 5c34fd5b7d72f52e203cd8f8fdc1871ff6a2f014
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158806'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188249'
 ---
 {% jetbrains %}
 
@@ -62,10 +62,7 @@ codespaces は、作成またはアクセスした場所に関係なく、 https
 
 {% jetbrains %}
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. {% data variables.product.prodname_github_codespaces %} ツール ウィンドウで、停止アイコンをクリックします。
-
-   ![ログ ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
+codespace は、[Your codespaces] ページから ([Web ブラウザーの手順](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)を参照)、または {% data variables.product.prodname_cli %} を使って ([CLI の手順](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)を参照) 停止できます。
 
 {% endjetbrains %}
 
@@ -113,4 +110,4 @@ codespace を再起動するとき、{% data variables.product.prodname_vscode %
 
 ## 参考資料
 
-- 「[codespace のライフサイクル](/codespaces/developing-in-codespaces/the-codespace-lifecycle)」
+- 「[codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)」

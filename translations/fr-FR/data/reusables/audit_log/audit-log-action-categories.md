@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 42464c33b7846422a3a8bd4f1102b8111f7000a7
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148107468"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183979"
 ---
 | Nom de la catégorie | Description
 |------------------|-------------------
@@ -23,7 +23,7 @@ ms.locfileid: "148107468"
 {%- ifversion fpt or ghec %} | `codespaces` | Contient des activités liées aux codespaces d’une organisation.
 {%- endif %} | `commit_comment` | Contient des activités liées à la mise à jour ou à la suppression des commentaires de validation.
 {%- ifversion ghes %} | `config_entry` |  Contient des activités liées aux paramètres de configuration. Ces événements sont visibles uniquement dans le journal d’audit de l’administrateur de site.
-{%- endif %} | | `dependabot_alerts` | Contient les activités de configuration au niveau de l’organisation pour les {% data variables.product.prodname_dependabot_alerts %} dans les dépôts existants. Pour plus d’informations, consultez « [À propos des {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) ».
+{%- endif %} | `dependabot_alerts`  | Contient les activités de configuration au niveau de l’organisation pour les {% data variables.product.prodname_dependabot_alerts %} dans les référentiels existants. Pour plus d’informations, consultez « [À propos des {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) ».
 | `dependabot_alerts_new_repos`   | Contient des activités de configuration au niveau de l’organisation pour {% data variables.product.prodname_dependabot_alerts %} dans des nouveaux référentiels créés dans l’organisation.
 | `dependabot_repository_access` | Contient des activités liées aux référentiels privés d’une organisation {% data variables.product.prodname_dependabot %} auxquels l’accès est autorisé.
 {%- ifversion fpt or ghec or ghes %} | `dependabot_security_updates` | Contient les activités de configuration au niveau de l’organisation pour les {% data variables.product.prodname_dependabot_security_updates %} dans les dépôts existants. Pour plus d’informations, consultez « [Configuration des {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates) ».
@@ -106,7 +106,7 @@ ms.locfileid: "148107468"
 {%- endif %} {%- ifversion fpt or ghec %} | `sponsors`  | Contient des événements liés aux boutons Parrainer (consultez « [Affichage d’un bouton de sponsor dans votre référentiel](/articles/displaying-a-sponsor-button-in-your-repository) »).
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | Contient des activités liées à une autorité de certification SSH dans une organisation ou une entreprise.
 | `ssh_certificate_requirement` | Contient des activités liées à l’obligation pour les membres d’utiliser des certificats SSH pour accéder aux ressources de l’organisation.
-{%- endif %} | `staff` | Contient des activités liées à un administrateur de site effectuant une action.
+{%- endif %}{% ifversion sso-redirect %} | `sso_redirect` | Contient des activités liées à la redirection automatique des utilisateurs vers la connexion (consultez « [Application de stratégies pour les paramètres de sécurité dans votre entreprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users) »).{% endif %} | `staff` | Contient des activités liées à un administrateur de site effectuant une action.
 | `team` | Contient des activités liées aux équipes d’une organisation.
 | `team_discussions` | Contient des activités liées à la gestion des discussions d’équipe d’une organisation.
 {%- ifversion ghec %} | `team_sync_tenant` |Contient des activités liées à la synchronisation d’équipe avec un fournisseur d’identité pour une entreprise ou une organisation.

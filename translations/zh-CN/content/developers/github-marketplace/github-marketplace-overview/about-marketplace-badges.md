@@ -7,12 +7,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-ms.openlocfilehash: bba9137fc39c1bc101a75650dcea03e651d37fff
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 27f11aa4ae2693bcc336ecdf4cbfb68d8679d743
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145084977'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186161'
 ---
 ## 对于 GitHub 应用程序
 
@@ -39,7 +39,7 @@ ms.locfileid: '145084977'
 
 ## 对于 GitHub Actions 
 
-带有 {% octicon "verified" aria-label="The verified badge" %} 或已验证创作者徽章的操作表示 {% data variables.product.prodname_dotcom %} 已验证操作的创建者为合作伙伴组织。
+带有 {% octicon "verified" aria-label="The verified badge" %} 或已验证创作者徽章的操作表示 {% data variables.product.prodname_dotcom %} 已验证操作的创建者为合作伙伴组织。 合作伙伴可以通过向 <a href="mailto:partnerships@github.com">partnerships@github.com</a> 发送电子邮件来请求已验证的创建者徽章。
 
 ![GitHub Actions 的已验证创作者徽章](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 

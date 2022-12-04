@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
-ms.openlocfilehash: 290a39d9d60420230bd9b11d5e2d10119ccc1c72
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 5c34fd5b7d72f52e203cd8f8fdc1871ff6a2f014
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158809'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188252'
 ---
 {% jetbrains %}
 
@@ -62,10 +62,7 @@ Independientemente de dónde hayas creado los codespaces o accedido a estos, pue
 
 {% jetbrains %}
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. En la ventana de herramientas de {% data variables.product.prodname_github_codespaces %}, haz clic en el icono Detener.
-
-   ![Captura de pantalla del botón Registro](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
+Puedes detener un codespace desde la página "Tus codespaces" (consulta [las instrucciones del explorador web](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)) o mediante {% data variables.product.prodname_cli %} (consulte [las instrucciones de la CLI](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)).
 
 {% endjetbrains %}
 
@@ -113,4 +110,4 @@ Al reiniciar un codespace, puedes elegir abrirlo en {% data variables.product.pr
 
 ## Información adicional
 
-- "[Ciclo de vida de un codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"
+- "[Ciclo de vida de un codespace](/codespaces/getting-started/the-codespace-lifecycle)"

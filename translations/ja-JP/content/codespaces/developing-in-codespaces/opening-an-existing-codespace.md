@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Open an existing codespace
-ms.openlocfilehash: e7a35c1a7b3a251094bf69fcd401291b69d03eae
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: b139b7f4e8a696416c97b3c400d09a9f26371b9c
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159006'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188297'
 ---
 {% jetbrains %}
 
@@ -23,7 +23,7 @@ ms.locfileid: '148159006'
 
 {% endjetbrains %}
 
-{% data variables.product.prodname_dotcom_the_website %} 上、JetBrains IDE 内、{% data variables.product.prodname_vscode %} 内、または {% data variables.product.prodname_cli %} を使って、アクティブなまたは停止している codespace をもう一度開くことができます。 削除された codespace を開き直すことはできません。 詳しくは、「[codespace のライフサイクル](/codespaces/developing-in-codespaces/the-codespace-lifecycle)」を参照してください。
+{% data variables.product.prodname_dotcom_the_website %} 上、JetBrains IDE 内、{% data variables.product.prodname_vscode %} 内、または {% data variables.product.prodname_cli %} を使って、アクティブなまたは停止している codespace をもう一度開くことができます。 削除された codespace を開き直すことはできません。 詳しくは、「[codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)」を参照してください。
 
 自分のすべての codespace は、[github.com/codespaces](https://github.com/codespaces) の [あなたの codespace] ページで確認できます。 このページからは、次のことを行うことができます。
 

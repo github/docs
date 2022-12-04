@@ -8,12 +8,12 @@ versions:
 type: reference
 topics:
   - Codespaces
-ms.openlocfilehash: 8ffd48856a2653f3db3c871122d3acd23c246d7a
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3f4ef139386e616d14ef9a9cc5b474c96983de91
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159608'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185176'
 ---
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
@@ -42,15 +42,9 @@ Les icônes situées en haut de la fenêtre d’outils {% data variables.product
 
 * **Actualiser le codespace actif**
 
-  ![Capture d’écran du bouton Actualiser](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh-BAK.png)
+  ![Capture d’écran du bouton Actualiser](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
 
   Actualisez les détails dans la fenêtre d’outils {% data variables.product.prodname_github_codespaces %}. Par exemple, si vous avez utilisé {% data variables.product.prodname_cli %} pour changer le nom d’affichage, vous pouvez cliquer sur ce bouton pour afficher le nouveau nom.
-
-* **Déconnecter et arrêter**
-
-  ![Capture d’écran du bouton d’arrêt](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
-
-  Arrêtez le codespace, arrêtez l’IDE back-end sur l’ordinateur distant et fermez le client JetBrains local.
 
 * **Gérer vos codespaces à partir du web**
 
@@ -63,10 +57,3 @@ Les icônes situées en haut de la fenêtre d’outils {% data variables.product
   ![Capture d’écran du bouton de journal](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
   Ouvrez le journal de création des codespaces dans la fenêtre de l’éditeur. Pour plus d’informations, consultez « [Journaux de {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs) ».
-
-* **Regénérer le conteneur de développement**
-
-  ![Capture d’écran du bouton de regénération](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
-
-  Regénérez votre codespace pour appliquer les modifications que vous avez apportées à la configuration du conteneur de développement. Le client JetBrains se ferme et vous devez rouvrir le codespace. Pour plus d’informations, consultez « [Cycle de vie des codespaces](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace) ».
-

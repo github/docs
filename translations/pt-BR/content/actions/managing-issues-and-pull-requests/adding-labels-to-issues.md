@@ -1,5 +1,6 @@
 ---
 title: Adicionando etiquetas a problemas
+shortTitle: Add labels to issues
 intro: 'Você pode usar {% data variables.product.prodname_actions %} para etiquetar problemas automaticamente.'
 redirect_from:
   - /actions/guides/adding-labels-to-issues
@@ -12,32 +13,30 @@ type: tutorial
 topics:
   - Workflows
   - Project management
-ms.openlocfilehash: 8e80990a1a533ed303f47cbad8dafb95c890893d
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: a3523069b9422ecd8107007ca5e00fb0071dd738
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147884306'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185558'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introdução
 
-Este tutorial demonstra como usar a [ação `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler) em um fluxo de trabalho para rotular os problemas recém-abertos ou reabertos. Por exemplo, você pode adicionar o rótulo `triage` sempre que um problema é aberto ou reaberto. Em seguida, veja todos os problemas que precisam ser triagem filtrando os problemas com o rótulo `triage`.
+Este tutorial demonstra como usar a [ação `actions/github-script`](https://github.com/marketplace/actions/github-script) em um fluxo de trabalho para rotular os problemas recém-abertos ou reabertos. Por exemplo, você pode adicionar o rótulo `triage` sempre que um problema é aberto ou reaberto. Em seguida, veja todos os problemas que precisam ser triagem filtrando os problemas com o rótulo `triage`.
 
-No tutorial, primeiro, você criará um arquivo de fluxo de trabalho que usa a [ação `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler). Então, você personalizará o fluxo de trabalho para atender às suas necessidades.
+A ação `actions/github-script` permite que você use facilmente a API do {% data variables.product.prodname_dotcom %} em um fluxo de trabalho.
+
+No tutorial, primeiro, você criará um arquivo de fluxo de trabalho que usa a [ação `actions/github-script`](https://github.com/marketplace/actions/github-script). Então, você personalizará o fluxo de trabalho para atender às suas necessidades.
 
 ## Criar o fluxo de trabalho
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
 3. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
-
+  
     ```yaml{:copy}
-{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
-
-{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
-
     name: Label issues
     on:
       issues:
@@ -50,15 +49,20 @@ No tutorial, primeiro, você criará um arquivo de fluxo de trabalho que usa a [
         permissions:
           issues: write
         steps:
-          - name: Label issues
-            uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+          - uses: {% data reusables.actions.action-github-script %}
             with:
-              add-labels: "triage"
-              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              script: |
+                github.rest.issues.addLabels({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  labels: ["triage"]
+                })
     ```
 
-4. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
-   - Altere o valor de `add-labels` para a lista de rótulos que deseja adicionar ao problema. Separe etiquetas múltiplas com vírgulas. Por exemplo, `"help wanted, good first issue"`. Para obter mais informações sobre rótulos, confira "[Como gerenciar rótulos](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
+4. Personalize o parâmetro `script` no seu arquivo do fluxo de trabalho:
+   - Os valores `issue_number`, `owner` e `repo` são definidos automaticamente com o objeto `context`. Não é necessário alterar esses padrões.
+   - Altere o valor de `labels` para a lista de rótulos que deseja adicionar ao problema. Separe etiquetas múltiplas com vírgulas. Por exemplo, `["help wanted", "good first issue"]`. Para obter mais informações sobre rótulos, confira "[Como gerenciar rótulos](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
 5. {% data reusables.actions.commit-workflow %}
 
 ## Testar o fluxo de trabalho
@@ -73,6 +77,6 @@ Teste o seu fluxo de trabalho criando um problema no seu repositório.
 
 ## Próximas etapas
 
-- Para saber mais sobre outras coisas que você pode fazer com a ação `andymckay/labeler`, como remover rótulos ou ignorar essa ação se o problema for atribuído ou tiver um rótulo específico, confira a [documentação da ação `andymckay/labeler`](https://github.com/marketplace/actions/simple-issue-labeler).
-- Para saber mais sobre diferentes eventos que podem disparar seu fluxo de trabalho, confira "[Eventos que disparam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#issues)". A ação `andymckay/labeler` só funciona em eventos `issues`, `pull_request` ou `project_card`.
-- [Pesquise o GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) para ver exemplos de fluxos de trabalho que usam essa ação.
+- Para saber sobre mais coisas que podem ser feitas com a ação `actions/github-script`, confira a [documentação da ação `actions/github-script`](https://github.com/marketplace/actions/github-script).
+- Para saber mais sobre diferentes eventos que podem disparar seu fluxo de trabalho, confira "[Eventos que disparam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#issues)".
+- [Pesquise o GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) para ver exemplos de fluxos de trabalho que usam essa ação.

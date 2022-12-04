@@ -6,12 +6,12 @@ intro: "Puedes usar {% data variables.product.prodname_github_codespaces %} como
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
-ms.openlocfilehash: 6794d20b9ea0153b3baf4bee1a08c68b2ba17456
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 832ab470d13cc741bc4a71e77840c99da5ff3de6
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158881'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189917'
 ---
 ## Acerca de {% data variables.product.prodname_github_codespaces %}
 
@@ -103,4 +103,4 @@ Los profesores pueden ver el codespace de cada alumno para una tarea en la pági
 
 ![Información general de tareas del profesor con los codespaces de los alumnos](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-Cuando te conectes a un codespace a través de un explorador, se habilitará automáticamente el guardado automático. Si quieres guardar los cambios en el repositorio, deberás confirmar los cambios e insertarlos en una rama remota. Si dejas que el codespace se ejecute sin interacción durante 30 minutos de forma predeterminada, el tiempo de espera se agotará y el codespace dejará de ejecutarse. Los datos se conservarán desde la última vez que hayas realizado un cambio. Para obtener más información sobre el ciclo de vida de un codespace, consulta "[Ciclo de vida de un codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)".
+Cuando te conectes a un codespace a través de un explorador, se habilitará automáticamente el guardado automático. Si quieres guardar los cambios en el repositorio, deberás confirmar los cambios e insertarlos en una rama remota. Si dejas que el codespace se ejecute sin interacción durante 30 minutos de forma predeterminada, el tiempo de espera se agotará y el codespace dejará de ejecutarse. Los datos se conservarán desde la última vez que hayas realizado un cambio. Para obtener más información sobre el ciclo de vida de un codespace, consulta "[Ciclo de vida de un codespace](/codespaces/getting-started/the-codespace-lifecycle)".

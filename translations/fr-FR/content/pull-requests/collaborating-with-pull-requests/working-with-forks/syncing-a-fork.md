@@ -1,6 +1,6 @@
 ---
-title: Syncing a fork
-intro: Sync a fork of a repository to keep it up-to-date with the upstream repository.
+title: Synchronisation d’une duplication
+intro: Synchronisez une duplication d’un référentiel pour la maintenir à jour avec le référentiel en amont.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/syncing-a-fork
   - /articles/syncing-a-fork
@@ -19,44 +19,48 @@ versions:
 topics:
   - Pull requests
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
+ms.openlocfilehash: 85b149e26cb65a428d7e9b66aea99d6b62430ae0
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188327'
 ---
-
-## Syncing a fork branch from the web UI
+## Synchronisation d’une branche de duplication à partir de l’interface utilisateur web
 
 {% ifversion syncing-fork-web-ui %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Sync fork** dropdown.
-    !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
-3. Review the details about the commits from the upstream repository, then click **Update branch**.
-    ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
-{% else %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Fetch upstream** dropdown.
-    !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
-    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
+1. Sur {% data variables.product.product_name %}, accédez à la page principale du dépôt dupliqué que vous souhaitez synchroniser avec le dépôt en amont.
+2. Sélectionnez la liste déroulante **Fork de synchronisation**.
+    ![Liste déroulante « Fork de synchronisation » soulignée](/assets/images/help/repository/sync-fork-dropdown.png)
+3. Examinez les détails des validations à partir du référentiel en amont, puis cliquez sur **Mettre à jour la  branche**.
+    ![Modèle Fork de synchronisation avec le bouton « Mettre à jour la branche » souligné](/assets/images/help/repository/update-branch-button.png) {% else %}
+1. Sur {% data variables.product.product_name %}, accédez à la page principale du dépôt dupliqué que vous souhaitez synchroniser avec le dépôt en amont.
+2. Sélectionnez la liste déroulante **Récupérer en amont**.
+    ![Liste déroulante « Extraire en amont »](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. Examinez les détails des validations à partir du dépôt en amont, puis cliquez sur **Extraire et fusionner**.
+    ![Bouton « Extraire et fusionner »](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
-If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
+Si les modifications du dépôt en amont provoquent des conflits,{% data variables.product.company_short %} vous invitera à créer une demande de tirage pour résoudre les conflits.
 
-## Syncing a fork branch with the {% data variables.product.prodname_cli %}
+## Synchronisation d’une branche de duplication avec {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} Pour en savoir plus sur {% data variables.product.prodname_cli %}, consultez « [À propos de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli) ».
 
-To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
+Pour mettre à jour la duplication distante à partir de son parent, utilisez la sous-commande `gh repo sync -b BRANCHNAME` et fournissez le nom de votre duplication et de votre branche comme des arguments.
 
 ```shell
 $ gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
-If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+Si les modifications du dépôt en amont provoquent un conflit, l’{% data variables.product.prodname_cli %} ne peut pas se synchroniser. Vous pouvez définir l’indicateur `-force` pour remplacer la branche de destination.
 
-## Syncing a fork branch from the command line
+## Synchronisation d’une duplication de branche à partir de la ligne de commande
 
-Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
+Avant de pouvoir synchroniser votre duplication avec un référentiel en amont, vous devez configurer un élément distant qui pointe vers le référentiel en amont dans Git. Pour plus d’informations, consultez « [Configuration d’un dépôt distant pour une duplication](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork) ».
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
+2. Remplacez le répertoire de travail actuel par votre projet local.
+3. Extrayez les branches et leurs validations respectives du dépôt en amont. Les validations dans `BRANCHNAME` seront stockées dans la branche locale `upstream/BRANCHNAME`.
 
   ```shell
   $ git fetch upstream
@@ -68,14 +72,14 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  * [new branch]      main     -> upstream/main
   ```
 
-4. Check out your fork's local default branch - in this case, we use `main`.
+4. Vérifiez la branche locale par défaut de votre duplication. Dans ce cas, nous utilisons `main`.
 
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
 
-5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
+5. Fusionnez les modifications de la branche par défaut en amont (dans ce cas, `upstream/main`) dans votre branche locale par défaut. Cela synchronise la branche par défaut de votre duplication avec le dépôt en amont, sans perte de vos modifications locales.
 
   ```shell
   $ git merge upstream/main
@@ -88,7 +92,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  create mode 100644 README.md
   ```
   
-  If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+  Si votre branche locale n’a pas de validation unique, Git effectue un transfert rapide. Pour plus d’informations, consultez [Création de branches et fusion](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) dans la documentation Git.
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -96,10 +100,10 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ``` 
-  If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
+  Si votre branche locale avait des validations uniques, vous devrez peut-être résoudre les conflits. Pour plus d’informations, consultez « [Traitement des conflits de fusion](/github/collaborating-with-pull-requests/addressing-merge-conflicts) ».
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Astuce** : la synchronisation de votre duplication met uniquement à jour votre copie locale du dépôt. Pour mettre à jour votre duplication sur {% data variables.location.product_location %}, vous devez [pousser (push) vos modifications](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

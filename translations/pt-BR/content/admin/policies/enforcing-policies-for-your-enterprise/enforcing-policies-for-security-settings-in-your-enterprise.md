@@ -21,12 +21,12 @@ topics:
   - Policies
   - Security
 shortTitle: Policies for security settings
-ms.openlocfilehash: 600917881dc0850af33801bf1c544aa3ceb47574
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: 7a383ed586d084a7e2562a5927dd198caca65037
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148179962'
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183961'
 ---
 ## Sobre políticas para configurações de segurança na sua empresa
 
@@ -80,9 +80,10 @@ A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.organizations.delete-ssh-ca %}
 
-{% ifversion ghec %}
-
+{% ifversion sso-redirect %}
 ## Como gerenciar o SSO para usuários não autenticados
+
+{% data reusables.enterprise-managed.sso-redirect-release-phase %}
 
 Se a sua empresa usa {% data variables.product.prodname_emus %}, você pode escolher o que os usuários não autenticados veem ao tentar acessar os recursos da sua empresa. Para obter mais informações sobre o {% data variables.product.prodname_emus %}, confira "[Sobre o {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)".
 
@@ -99,11 +100,10 @@ Para evitar confundir os desenvolvedores, você pode alterar esse comportamento 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
 1. Em "Configurações de logon único", marque ou desmarque **Redirecionar automaticamente os usuários para entrar**.
 
-   ![Caixa de seleção para redirecionar automaticamente os usuários para entrar](/assets/images/enterprise/security/Enterprise-Redirect-Users-To-Sign-In-Checkbox.png)
+   ![Caixa de seleção para redirecionar automaticamente os usuários para entrar](/assets/images/enterprise/security/Enterprise-Redirect-Users-To-Sign-In-Checkbox.png) {% endif %}
 
 ## Leitura adicional
 
-- "[Sobre o gerenciamento de identidades e acesso para sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
-- "[Como acessar os relatórios de conformidade da sua empresa](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{%- endif %}
-- "[Como proteger sua organização](/organizations/keeping-your-organization-secure)"
+- "[Sobre o gerenciamento de identidades e acesso para sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)" {%- ifversion ghec %}
+- "[Como acessar relatórios de conformidade para sua empresa](/admin/overview/accessing-compliance-reports-for-your-enterprise)" {%- endif %} {%- ifversion ghec or ghae %}
 - "[Como restringir o tráfego de rede com uma lista de permissões de IP](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)" {%- endif %}

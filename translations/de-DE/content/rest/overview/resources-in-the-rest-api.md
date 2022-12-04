@@ -13,8 +13,12 @@ topics:
   - API
 ---
 
+{% ifversion api-date-versioning %}
+## API version
 
-This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
+Available resources may vary between REST API versions. You should use the `X-GitHub-Api-Version` header to specify an API version. For more information, see "[API Versions](/rest/overview/api-versions)."
+
+{% endif %}
 
 ## Schema
 
@@ -288,10 +292,10 @@ gem:
     >> tmpl.expand
     => "/notifications"
 
-    >> tmpl.expand :all => 1
+    >> tmpl.expand all: 1
     => "/notifications?all=1"
 
-    >> tmpl.expand :all => 1, :participating => 1
+    >> tmpl.expand all: 1, participating: 1
     => "/notifications?all=1&participating=1"
 
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570

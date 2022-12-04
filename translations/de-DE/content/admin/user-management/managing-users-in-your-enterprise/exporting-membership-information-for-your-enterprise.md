@@ -7,19 +7,13 @@ topics:
   - Enterprise
 shortTitle: Export membership information
 permissions: Enterprise owners can export membership information for an enterprise.
-ms.openlocfilehash: ba7519aae1b38cd629a46baeacd5edc9d138efdc
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 8da0e7b91e8bff85cb27fb7df3f06e62bdb290f2
+ms.sourcegitcommit: 7e2b5213fd15d91222725ecab5ee28cef378d3ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106421'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185543'
 ---
-{% note %}
-
-**Hinweis:** Die Funktion zum Export von Mitgliedsinformationen für ein Unternehmen befindet sich derzeit in der Betaphase, Änderungen vorbehalten.
-
-{% endnote %}
-
 Um zu überprüfen, welche Personen Zugriff auf die Ressourcen deines Unternehmens haben, kannst du einen CSV-Bericht mit den Mitgliedschaftsinformationen für dein Unternehmen herunterladen.
 
 {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}

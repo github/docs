@@ -9,12 +9,12 @@ versions:
 type: how_to
 topics:
   - Codespaces
-ms.openlocfilehash: 1da438a680dd3e60c1deeec46a98fbcf48f84e5b
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: f17bb20aa919ca94cd13e14a6f770cea23042b2b
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158996'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188279'
 ---
 ## Vue d’ensemble
 
@@ -39,7 +39,7 @@ Si l’image spécifiée dans la configuration de conteneur de développement ne
 {% note %}
 
 **Remarques**: 
-* La stratégie d’image de base est uniquement appliquée quand un codespace est créé. Elle n’est pas actuellement appliquée quand vous regénérez un conteneur. Ceci sera changé dans une future version. Pour plus d’informations, consultez « [Cycle de vie d’un codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace) ».
+* La stratégie d’image de base est uniquement appliquée quand un codespace est créé. Elle n’est pas actuellement appliquée quand vous regénérez un conteneur. Ceci sera changé dans une future version. Pour plus d’informations, consultez « [Cycle de vie d’un codespace](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace) ».
 * La stratégie d’image de base ne s’applique ni à l’image par défaut ni à celle utilisée pour récupérer un codespace si une erreur introduite dans une configuration de conteneur de développement empêche la regénération du conteneur. 
 
 {% endnote %}

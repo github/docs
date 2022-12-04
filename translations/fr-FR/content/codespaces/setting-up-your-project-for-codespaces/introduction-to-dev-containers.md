@@ -16,12 +16,12 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
-ms.openlocfilehash: 0b47f0292eb3a13467a8227ac323d289f9712223
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 646f8068e68040f1d12f8155c3ba9e2bdb84c2ca
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158772'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185090'
 ---
 ## À propos des conteneurs de développement
 
@@ -216,7 +216,7 @@ Vous pouvez définir des paramètres d’interface par défaut pour {% data vari
 
 ## Application de modifications de configuration à un codespace
 
-Les modifications apportées à une configuration seront appliquées la prochaine fois que vous créerez un codespace. Toutefois, si vous utilisez un codespace dans un navigateur web, dans {% data variables.product.prodname_vscode_shortname %} ou dans un IDE JetBrains, vous pouvez appliquer des modifications de configuration à l’espace de code actuel en regénérant le conteneur.
+Les modifications apportées à une configuration seront appliquées la prochaine fois que vous créerez un codespace. Toutefois, vous pouvez appliquer vos modifications à un codespace existant en régénérant le conteneur. Vous pouvez effectuer cette opération dans un codespace dans le client web ou l’application de bureau {% data variables.product.prodname_vscode_shortname %}, ou vous pouvez utiliser {% data variables.product.prodname_cli %}.
 
 ### Regénération du conteneur de développement dans le client web ou l’application de bureau {% data variables.product.prodname_vscode_shortname %}
 
@@ -229,15 +229,19 @@ Les modifications apportées à une configuration seront appliquées la prochain
    - Pour corriger les erreurs identifiées dans les journaux, mettez à jour votre fichier `devcontainer.json`.
    - Pour appliquer les modifications, régénérez votre conteneur. 
 
-### Regénération du conteneur de développement dans un IDE JetBrains
+### Utilisation de {% data variables.product.prodname_cli %} pour régénérer un conteneur de développement
 
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. Dans la fenêtre d’outils {% data variables.product.prodname_github_codespaces %}, cliquez sur l’icône de regénération.
+Si vous avez modifié une configuration de conteneur de développement en dehors de VS Code (par exemple, sur {% data variables.product.prodname_dotcom_the_website %} ou dans un IDE JetBrains), vous pouvez utiliser {% data variables.product.prodname_cli %} pour reconstruire le conteneur de développement d’un codespace existant.
 
-   ![Capture d’écran du bouton de regénération](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
+1. Dans le terminal, entrez la commande suivante.
 
-1. Cliquez sur **Regénérer** quand vous êtes invité à confirmer que vous souhaitez regénérer le conteneur de développement. 
-1. Rouvrez le codespace dans votre IDE JetBrains.
+   ```
+   gh cs rebuild
+   ```
+
+   Vos codespaces sont répertoriés.
+
+1. Utilisez les touches de direction de votre clavier pour mettre en surbrillance l’espace de code requis, puis appuyez sur <kbd>Entrée</kbd>.
 
 
 ## Pour aller plus loin

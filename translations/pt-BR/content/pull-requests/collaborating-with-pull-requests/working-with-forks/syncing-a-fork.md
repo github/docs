@@ -1,6 +1,6 @@
 ---
-title: Syncing a fork
-intro: Sync a fork of a repository to keep it up-to-date with the upstream repository.
+title: Sincronizar uma bifurcação
+intro: Sincronize uma bifurcação de um repositório para mantê-la atualizada com o repositório upstream.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/syncing-a-fork
   - /articles/syncing-a-fork
@@ -19,44 +19,48 @@ versions:
 topics:
   - Pull requests
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
+ms.openlocfilehash: 85b149e26cb65a428d7e9b66aea99d6b62430ae0
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188325'
 ---
-
-## Syncing a fork branch from the web UI
+## Sincronizar um branch de fork usando a interface do usuário da Web
 
 {% ifversion syncing-fork-web-ui %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Sync fork** dropdown.
-    !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
-3. Review the details about the commits from the upstream repository, then click **Update branch**.
-    ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
-{% else %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Fetch upstream** dropdown.
-    !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
-    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
+1. Em {% data variables.product.product_name %}, acesse a página principal do repositório bifurcado que você deseja sincronizar com o repositório upstream.
+2. Selecione a lista suspensa **Sincronizar fork**.
+    ![Menu suspenso "Sincronizar fork" enfatizado](/assets/images/help/repository/sync-fork-dropdown.png)
+3. Revise os detalhes sobre os commits do repositório upstream e clique em **Atualizar branch**.
+    ![Sincronizar o modal do fork com o botão "Atualizar branch" enfatizado](/assets/images/help/repository/update-branch-button.png) {% else %}
+1. Em {% data variables.product.product_name %}, acesse a página principal do repositório bifurcado que você deseja sincronizar com o repositório upstream.
+2. Selecione o menu suspenso **Buscar upstream**.
+    ![Menu suspenso "Buscar upstream"](/assets/images/help/repository/fetch-upstream-drop-down.png)
+3. Revise os detalhes sobre os commits do repositório upstream e clique em **Buscar e mesclar**.
+    ![Botão "Buscar e mesclar"](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
 
-If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
+Se as alterações do repositório a upstream gerarem conflitos, {% data variables.product.company_short %} solicitará a criação de um pull request para resolver os conflitos.
 
-## Syncing a fork branch with the {% data variables.product.prodname_cli %}
+## Sincronizar um branch de fork com a {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} Para saber mais sobre a {% data variables.product.prodname_cli %}, confira "[Sobre a {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
-To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
+Para atualizar o fork remoto por meio do próprio pai, use o subcomando `gh repo sync -b BRANCHNAME` e forneça o nome do fork como argumento.
 
 ```shell
 $ gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
-If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+Se as alterações do repositório upstream causarem conflito, a s {% data variables.product.prodname_cli %} não poderá sincronizá-las. Defina o sinalizador `-force` para substituir o branch de destino.
 
-## Syncing a fork branch from the command line
+## Sincronizar um branch de fork usando a linha de comando
 
-Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
+Para sincronizar o fork com um repositório upstream, você precisa configurar um controle remoto que aponte para o repositório upstream no Git. Para obter mais informações, confira "[Como configurar um repositório remoto para um fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork)".
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
+2. Altere o diretório de trabalho atual para seu projeto local.
+3. Obtenha os branches e os respectivos commits do repositório upstream. Os commits em `BRANCHNAME` serão armazenados no branch `upstream/BRANCHNAME` local.
 
   ```shell
   $ git fetch upstream
@@ -68,14 +72,14 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  * [new branch]      main     -> upstream/main
   ```
 
-4. Check out your fork's local default branch - in this case, we use `main`.
+4. Faça check-out do branch padrão local do fork, neste caso, usamos o `main`.
 
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
 
-5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
+5. Mescle as alterações do branch padrão upstream, neste caso, `upstream/main`, no branch padrão local. Isso coloca o branch padrão da bifurcação em sincronia com o repositório upstream, sem perder as alterações locais.
 
   ```shell
   $ git merge upstream/main
@@ -88,7 +92,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  create mode 100644 README.md
   ```
   
-  If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+  Se o branch local não tiver commits exclusivos, o Git executará um avanço. Para obter mais informações, confira [Conceitos básicos de branch e mesclagem](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) na documentação do Git.
   ```shell
   $ git merge upstream/main
   > Updating 34e91da..16c56ad
@@ -96,10 +100,10 @@ Before you can sync your fork with an upstream repository, you must [configure a
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
   ``` 
-  If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
+  Se o branch local tiver commits exclusivos, poderá ser necessário resolver conflitos. Para obter mais informações, confira "[Como resolver conflitos de mesclagem](/github/collaborating-with-pull-requests/addressing-merge-conflicts)".
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Dica**: a sincronização do fork atualiza apenas a cópia local do repositório. Para atualizar o fork no {% data variables.location.product_location %}, você precisa [efetuar push das alterações](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
