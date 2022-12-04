@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "dwalin-newyork",
+  "private_key_id": "e89901d02ee5c08cc016023a84c4c762cc7c58b7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCN7z+Z3fs27ugj\nvlTYORC3FDfjWkzEFJpXllctzydVCERAWkZUbb8p8LkLYApqSAwUcSJjS4PoiOjY\nxgOdtrmCZuOSouZfkkYbpvL9+eJzDGj/yqMnZWU93DHa8HFLDQTUQEZP5sIrOemX\nGI6VlKLSWTGT4px88OvqSh/1enRwJQFe2FFv42fstkJEMQRixmGdWKECT++OJ3Wi\n1EPdB6QaYpHKpX7wHmHAk2M7Z6UwmbPzVgb+RxanHSPrGscOlpbmYd0vR0LLiX8a\nPFn88YtmpKJmJ506QaBTkwm9glN8k9dvqm0ovOXJINGBpbplYINre39T45ucUiV/\ngQElv0KDAgMBAAECggEACdrnYSErLMTI5JZ2IK9RrEygls4xz1mY3+UF953PHtXc\nm1VJVdpq8BgRWStZfciz4gV6/EcFiTNca5TQMna6CcZoHcnm0hL/gDMG40CjCxb9\nAWnKC1W8gl+ULJ4OV8Y3JB+0Yh7lM4gpYn7ng5ZW+eEMkrak4/38e3+bGXnftNua\ncBAMxoJafX8r3XPNvEHFqNTTZZxll9J2V93J+Wpz5zl+QOUM8FkoKm0vR5f9Tg7z\nH0t242X/jE2ql6GVj5iRZAxV2p+TR3sCrngl6IHRoWcclIzhprMk6xDLlOCX/p7A\naKMh1DMm+vKQ0Jl73nvuAZsm/o1SWpXsJ5azLc/8LQKBgQDFwFLWhL87+/jRflg5\nmza/ZaQRoNEcwkQf0TOV4Fq1273BFOmwg1mcQo+DaGeSG88Cmg+SYY3con6DXxWA\njXNaZxwUCwq8W7O9rkJeo1G9ZkJKwvY3iF381kR/IQMTHIc8U/mMxHrIFTGjScas\nMfXbRwmAfA122zKYcvLJDEkd9wKBgQC3vf+KPtExGKx8lHiqXyy80lR8ypFnsqdF\nX4ena+aa1TkVUoGeBVyjT6OiWODNEOVK3KG5HQ2sF2XI5R9lb5stnEntF6q2BxEu\nuzmPTHmutbd9NVosMfFjEBIc0KNR2/iFM70dTMWUbcdOq2hTXw5BGsnHnWUvBs+R\nPVbKVxxM1QKBgQCcd5tT7z8c6DctE4odMom0EWkrJZKv7apXfoERkq5TfKX8s15g\nct2hfSzurdpdSjGWfm3ZxeSocc4mhkKOL93Y5wLZfQ8mkGx8pfgPx6vyb4n+e5qz\nv+uWFbem22kCYy1B97PZxNDdpZ9b8xEGyJUexmtnRUCmDbRP2YvuthDYawKBgCNr\n00l5VqaaVRYnISPm+R7lhTgRbPqKrEhpZCNYX7pVhI2hvC8UZYluHuN7MssViL5n\nzh17hlk4oXya/vR1EXs3d+DnARfaQOu7WBtR6NtPWLIgiOOgNSKdxIAdkH6FY2F6\nWei+FhDJIPT/gjsgRgUy/tcmdo0cSQN8ybB0HpaJAoGBAK0jkgGaqtrvhwt4o8ZT\nVmXHUKU5uQD15LbWjrTrS2+dhy8Mq7B8HjZSgluk4SXK0dzQ7PCTx4zPrybS6MoY\npTNG9xfM/ek6gA5lDMlyo3Ts2xYDCJ6kZHkqE5wp5VOBOw7UWnWHYzuNjOn8iIfJ\nkIAIiTtxiKiIBizCAVaiQWpe\n-----END PRIVATE KEY-----\n",
+  "client_email": "dwalin-newyork@dwalin-newyork.iam.gserviceaccount.com",
+  "client_id": "113920959353513831992",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dwalin-newyork%40dwalin-newyork.iam.gserviceaccount.com"
+}
