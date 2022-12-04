@@ -1,0 +1,143 @@
+# This file was generated automatically from conda-smithy. To update this configuration,
+# update the conda-forge.yml and/or the recipe/meta.yaml.
+# -*- mode: yaml -*-
+
+jobs:
+- job: win
+  pool:
+    vmImage: windows-2019
+  strategy:
+    matrix:
+      win_64_cuda_compiler_version10.2python3.10.____cpython:
+        CONFIG: win_64_cuda_compiler_version10.2python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version10.2python3.11.____cpython:
+        CONFIG: win_64_cuda_compiler_version10.2python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version10.2python3.8.____cpython:
+        CONFIG: win_64_cuda_compiler_version10.2python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version10.2python3.9.____cpython:
+        CONFIG: win_64_cuda_compiler_version10.2python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.0python3.10.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.0python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.0python3.11.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.0python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.0python3.8.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.0python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.0python3.9.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.0python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.1python3.10.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.1python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.1python3.11.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.1python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.1python3.8.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.1python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.1python3.9.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.1python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.2python3.10.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.2python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.2python3.11.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.2python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.2python3.8.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.2python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_version11.2python3.9.____cpython:
+        CONFIG: win_64_cuda_compiler_version11.2python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_versionNonepython3.10.____cpython:
+        CONFIG: win_64_cuda_compiler_versionNonepython3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_versionNonepython3.11.____cpython:
+        CONFIG: win_64_cuda_compiler_versionNonepython3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_versionNonepython3.8.____cpython:
+        CONFIG: win_64_cuda_compiler_versionNonepython3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+      win_64_cuda_compiler_versionNonepython3.9.____cpython:
+        CONFIG: win_64_cuda_compiler_versionNonepython3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+    maxParallel: 18
+  timeoutInMinutes: 360
+  variables:
+    CONDA_BLD_PATH: D:\\bld\\
+
+  steps:
+    - task: PythonScript@0
+      displayName: 'Download Miniforge'
+      inputs:
+        scriptSource: inline
+        script: |
+          import urllib.request
+          url = 'https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe'
+          path = r"$(Build.ArtifactStagingDirectory)/Miniforge.exe"
+          urllib.request.urlretrieve(url, path)
+
+    - script: |
+        start /wait "" %BUILD_ARTIFACTSTAGINGDIRECTORY%\Miniforge.exe /InstallationType=JustMe /RegisterPython=0 /S /D=C:\Miniforge
+      displayName: Install Miniforge
+
+    - powershell: Write-Host "##vso[task.prependpath]C:\Miniforge\Scripts"
+      displayName: Add conda to PATH
+
+    - script: |
+        call activate base
+        mamba.exe install "python=3.9" conda-build conda pip boa conda-forge-ci-setup=3 "py-lief<0.12" -c conda-forge --strict-channel-priority --yes
+      displayName: Install conda-build
+
+    - script: set PYTHONUNBUFFERED=1
+      displayName: Set PYTHONUNBUFFERED
+
+    # Configure the VM
+    - script: |
+        call activate base
+        conda.exe uninstall --quiet --yes --force conda-forge-ci-setup=3 "py-lief<0.12"
+        pip install --no-deps ".\recipe\."
+        setup_conda_rc .\ ".\recipe" .\.ci_support\%CONFIG%.yaml
+      displayName: conda-forge CI setup
+
+    # Configure the VM.
+    - script: |
+        set "CI=azure"
+        call activate base
+        :: Overriding global run_conda_forge_build_setup_win with local copy.
+        recipe\run_conda_forge_build_setup_win
+      displayName: conda-forge build setup
+
+    - script: |
+        call activate base
+        if EXIST LICENSE.txt (
+          copy LICENSE.txt "recipe\\recipe-scripts-license.txt"
+        )
+        conda.exe mambabuild "recipe" -m .ci_support\%CONFIG%.yaml --suppress-variables
+      displayName: Build recipe
+      env:
+        PYTHONUNBUFFERED: 1
+    - script: |
+        set "FEEDSTOCK_NAME=%BUILD_REPOSITORY_NAME:*/=%"
+        call activate base
+        validate_recipe_outputs "%FEEDSTOCK_NAME%"
+      displayName: Validate Recipe Outputs
+
+    - script: |
+        set "GIT_BRANCH=%BUILD_SOURCEBRANCHNAME%"
+        set "FEEDSTOCK_NAME=%BUILD_REPOSITORY_NAME:*/=%"
+        call activate base
+        upload_package --validate --feedstock-name="%FEEDSTOCK_NAME%" .\ ".\recipe" .ci_support\%CONFIG%.yaml
+      displayName: Upload package
+      env:
+        BINSTAR_TOKEN: $(BINSTAR_TOKEN)
+        FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
+        STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
+      condition: and(succeeded(), not(eq(variables['UPLOAD_PACKAGES'], 'False')), not(eq(variables['Build.Reason'], 'PullRequest')))
