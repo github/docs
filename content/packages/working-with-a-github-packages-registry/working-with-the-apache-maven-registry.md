@@ -185,6 +185,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 3. Install the package.
 
   ```shell
+  $ mvn clean
   $ mvn install
   ```
 
