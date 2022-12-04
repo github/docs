@@ -85,7 +85,7 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
       #     SHOULD_COMMENT: true
       #     CREATE_REPORT: false
-      #   run: node .github/actions-scripts/rendered-content-link-checker.js
+      #   run: node .github/actions/rendered-content-link-checker.js
 
       - name: Link check all pages (internal links only)
         id: all_links
@@ -101,7 +101,7 @@ jobs:
           # we're filtering on anyway once the list of all pages has
           # been loaded.
           ENABLED_LANGUAGES: en
-        run: node .github/actions-scripts/rendered-content-link-checker.js
+        run: node .github/actions/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
         uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
