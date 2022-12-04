@@ -1,0 +1,8 @@
+jobs:
+  build:
+    docker:
+      - image: cimg/go:1.18.1
+    resource_class: large
+    working_directory: ~/my-app
+    steps:
+      - run: go test
