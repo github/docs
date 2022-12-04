@@ -36,7 +36,7 @@ The `git remote add` command takes two arguments:
 For example:
 
 ```shell
-$ git remote add origin https://{% data variables.command_line.codeblock %}/USER/REPO>.git
+$ git remote add origin https://{% data variables.command_line.codeblock %}/USER/REPO.git
 # Set a new remote
 
 $ git remote -v
@@ -212,8 +212,8 @@ $ git remote rm destination
 # Remove remote
 $ git remote -v
 # Verify it's gone
-> origin  https://{% data variables.command_line.codeblock %}/ OWNER/REPOSITORY.git (fetch)
-> origin  https://{% data variables.command_line.codeblock %}/ OWNER/REPOSITORY.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
 ```
 
 {% warning %}

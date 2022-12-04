@@ -1,30 +1,38 @@
-After you connect your account on {% data variables.location.product_location %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace. For more information about the {% data variables.product.prodname_github_codespaces %} extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+---
+ms.openlocfilehash: d8f0e4e19ba362881f261a214aa56666f5902979
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148158578"
+---
+Depois de conectar a conta no {% data variables.product.prodname_dotcom_the_website %} à extensão {% data variables.product.prodname_github_codespaces %}, você poderá criar um codespace. Para obter mais informações sobre a extensão {% data variables.product.prodname_github_codespaces %}, veja o [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Click the Add icon: {% octicon "plus" aria-label="The plus icon" %}.
+2. Clique no ícone de Adição: {% octicon "plus" aria-label="The plus icon" %}.
 
-   ![The Create new Codespace option in {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/create-codespace-vscode.png)
+   ![A opção Criar codespace nos {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/create-codespace-vscode.png)
 
-3. Type the name of the repository you want to develop in, then select it.
+3. Digite o nome do repositório no qual você deseja desenvolver e selecione-o.
 
-   ![Searching for repository to create a new codespace](/assets/images/help/codespaces/choose-repository-vscode.png)
+   ![Como procurar um repositório para criar um codespace](/assets/images/help/codespaces/choose-repository-vscode.png)
 
-   If codespaces are billable for the repository you choose, a message will be displayed in subsequent prompts telling you who will pay for the codespace.
+   Se o repositório escolhido pertencer a uma organização e a organização tiver configurado os codespaces desse repositório como faturáveis para a organização ou empresa matriz, uma mensagem será exibida nos próximos prompts informando quem pagará pelo codespace.
 
-4. Click the branch you want to develop on.
+4. Clique no branch que você deseja desenvolver.
 
-   ![Searching for a branch to create a new codespace](/assets/images/help/codespaces/choose-branch-vscode.png)
+   ![Como procurar um branch para criar um codespace](/assets/images/help/codespaces/choose-branch-vscode.png)
 
-5. If prompted to choose a dev container configuration file, choose a file from the list.
+5. Se solicitado a escolher um arquivo de configuração de contêiner de desenvolvimento, escolha um arquivo na lista.
 
-   ![Choosing a dev container configuration file for {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
+   ![Como escolher um arquivo de configuração de contêiner de desenvolvimento para {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/choose-dev-container-vscode.png)
 
-6. Click the machine type you want to use.
+6. Clique no tipo de computador que você quer usar.
 
-   ![Instance types for a new codespace](/assets/images/help/codespaces/choose-sku-vscode.png)
+   ![Tipos de instância para um novo codespace](/assets/images/help/codespaces/choose-sku-vscode.png)
 
    {% note %}
 
-   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+   **Observação**: {% data reusables.codespaces.codespaces-machine-type-availability %}
 
    {% endnote %}

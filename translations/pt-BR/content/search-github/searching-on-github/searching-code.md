@@ -14,13 +14,19 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
-ms.openlocfilehash: 52b88aee79dd9597b64bee803c1b8e42760533f3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 125c17f1050cdb6d1b1d5a3d58d3e513eddce40f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145095526'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159396'
 ---
+{% ifversion github-code-search %} {% note %}
+
+  **Observação:** {% data reusables.search.classic-search-code-search-note %}
+
+  {% endnote %} {% endif %}
+
 {% data reusables.search.you-can-search-globally %} Para obter mais informações, confira "[Sobre a pesquisa no GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)".
 
 Você pode pesquisar códigos usando somente estes qualificadores de pesquisa de código. Qualificadores de pesquisa específicos para repositórios, usuários ou commits não funcionarão com a pesquisa de códigos.

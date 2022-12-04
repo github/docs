@@ -17,12 +17,12 @@ redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
-ms.openlocfilehash: 10b6fdaa2014836e7a709bc94920dea6331ed030
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: bfd93814b11066d6da2d87a2e1f0a8bd5461e93f
+ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107510'
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167061'
 ---
 ## Azure AD を使用した認証とユーザプロビジョニングについて
 
@@ -46,9 +46,7 @@ Azure AD を使って {% data variables.product.product_name %} に対して SAM
 - Azure AD を使用して {% data variables.product.product_name %} の認証とユーザプロビジョニングを設定するには、Azure AD アカウントとテナントが必要です。 詳細については、[Azure AD Web サイト](https://azure.microsoft.com/free/active-directory)および Microsoft Docs の「[クイックスタート: Azure Active Directory テナントを作成する](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)」を参照してください。
 
 {%- ifversion scim-for-ghes %}
-- {% data reusables.saml.ghes-you-must-configure-saml-sso %} {%- endif %}
-
-- {% data reusables.saml.assert-the-administrator-attribute %} Azure AD からの SAML 要求に `administrator` 属性を含める方法の詳細については、Microsoft Docs の「[エンタープライズ アプリケーションの SAML トークンで発行された要求のカスタマイズ](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)」を参照してください。
+- {% data reusables.saml.ghes-you-must-configure-saml-sso %}{%- endif %}
 
 - {% data reusables.saml.create-a-machine-user %}
 
@@ -81,3 +79,7 @@ Azure AD テナントで、{% data variables.product.product_name %} 用のア�
 1. 接続が成功したことを確認したら、ページの上部にある **[保存]** をクリックします。
 
 {% endif %}
+
+1. Azure AD で {% data variables.product.product_name %} のエンタープライズ所有者を割り当てます。 従う必要があるプロセスは、プロビジョニングを構成したかどうかによって異なります。 Enterprise 所有者の詳細については、「[Enterprise におけるロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)」を参照してください。
+   - プロビジョニングを構成した場合、{% data variables.product.product_name %} でユーザーにエンタープライズ所有権を付与するには、Azure AD のユーザーにエンタープライズ所有者ロールを割り当てます。
+   - プロビジョニングを構成しなかった場合は、{% data variables.product.product_name %} でユーザーにエンタープライズ所有権を付与するには、IdP のユーザー アカウントに対して、SAML アサーションの `administrator` 属性を、`true` の値を指定して含めます。 Azure AD からの SAML 要求に `administrator` 属性を含める方法の詳細については、Microsoft Docs の「[エンタープライズ アプリケーションの SAML トークンで発行された要求のカスタマイズ](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)」を参照してください。

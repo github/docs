@@ -1,6 +1,6 @@
 ---
-title: Downgrading your GitHub subscription
-intro: 'You can downgrade the subscription for any type of account on {% data variables.location.product_location %} at any time.'
+title: GitHub プランをダウングレードする
+intro: '{% data variables.location.product_location %} のいずれの種類のアカウントでも、いつでもサブスクリプションをダウングレードできます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /articles/downgrading-your-personal-account-s-billing-plan
@@ -27,76 +27,83 @@ topics:
   - Repositories
   - User account
 shortTitle: Downgrade subscription
+ms.openlocfilehash: e302fb715fc2937c7ed056b813b073a66a7cc1fa
+ms.sourcegitcommit: fdc4466e89467a7b13239e26c6042dc1428946b6
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163785'
 ---
-## Downgrading your {% data variables.product.product_name %} subscription
+## {% data variables.product.product_name %}プランのダウングレード
 
-When you downgrade your personal account or organization's subscription, pricing and account feature changes take effect on your next billing date. Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features. For more information, see "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+個人アカウントまたは Organization のサブスクリプションをダウングレードした場合、価格とアカウント機能の変更は次の請求日から反映されます。 有料の個人アカウントまたは Organization サブスクリプションを変更しても、他の有料 {% data variables.product.prodname_dotcom %} 機能のサブスクリプションや支払いには影響しません。 詳細については、「[How does upgrading or downgrading affect the billing process? (アップグレードまたはダウングレードは課金プロセスにどのように影響しますか?)](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)」を参照してください。
 
-## Downgrading your personal account's subscription
+## 個人アカウントのサブスクリプションをダウングレードする
 
-If you downgrade your personal account from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, the account will lose access to advanced code review tools on private repositories. {% data reusables.gated-features.more-info %}
+個人アカウントを {% data variables.product.prodname_pro %} から {% data variables.product.prodname_free_user %} にダウンロードする場合、そのアカウントは、非公開リポジトリの高度なコード レビュー ツールへのアクセスを失います。 {% data reusables.gated-features.more-info %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. Under "Current plan", use the **Edit** drop-down and click **Downgrade to Free**.
-  ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
-5. Read the information about the features your personal account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**.
-  ![Continue with downgrade button](/assets/images/help/billing/continue-with-downgrade.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. [現在のプラン] の **[編集]** ドロップダウンを使用して、 **[無料にダウングレード]** をクリックします。
+  ![[無料にダウングレード] ボタン](/assets/images/help/billing/downgrade-to-free.png)
+5. 次回の請求日に、ご自分の個人アカウントでアクセスできなくなる機能に関する情報を読み、 **[わかりました。ダウングレードを続けます]** をクリックします。
+  ![[ダウングレードを続ける] ボタン](/assets/images/help/billing/continue-with-downgrade.png)
 
-If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, remove or update your DNS records before downgrading from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+プライベートリポジトリに {% data variables.product.prodname_pages %} サイトを公開し、カスタムドメインを追加した場合、ドメイン乗っ取りのリスクを回避するため、{% data variables.product.prodname_pro %} から {% data variables.product.prodname_free_user %} にダウングレードする前に DNS レコードを削除または更新します。 詳細については、「[{% data variables.product.prodname_pages %} サイトのカスタム ドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
-## Downgrading your organization's subscription
+## Organizationのプランをダウングレードする
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-If you downgrade your organization from {% data variables.product.prodname_team %} to {% data variables.product.prodname_free_team %} for an organization, the account will lose access to advanced collaboration and management tools for teams.
+Organizationを{% data variables.product.prodname_team %}から{% data variables.product.prodname_free_team %}にダウングレードした場合、そのアカウントはチームの高度なコラボレーションおよび管理ツールにはアクセスできなくなります。
 
-If you downgrade your organization from {% data variables.product.prodname_ghe_cloud %} to {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %}, the account will lose access to advanced security, compliance, and deployment controls. {% data reusables.gated-features.more-info %}
+Organizationを{% data variables.product.prodname_ghe_cloud %}から{% data variables.product.prodname_team %}または{% data variables.product.prodname_free_team %}にダウングレードした場合、そのアカウントは高度なセキュリティ、コンプライアンス、およびデプロイメントコントロールにアクセスできなくなります。 {% data reusables.gated-features.more-info %}
+
 
 
 {% note %}
 
-**Note:** If you're currently trialing {% data variables.product.prodname_ghe_cloud %}, and you don't purchase {% data variables.product.prodname_enterprise %} before the trial ends, your organization will be automatically downgraded to {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
+**注:** 
+  - 組織がエンタープライズ アカウントによって所有されている場合、課金を組織レベルで管理することはできません。 ダウングレードするには、まずエンタープライズ アカウントから組織を削除する必要があります。 詳しくは、「[エンタープライズから組織を削除する](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)」を参照してください。
+  - 現在 {% data variables.product.prodname_ghe_cloud %} の試用版を使っていて、試用版の終了前に {% data variables.product.prodname_enterprise %} を購入されない場合は、ご自分の組織は自動的に {% data variables.product.prodname_free_team %} または {% data variables.product.prodname_team %} にダウングレードされます。 詳細については、「[{% data variables.product.prodname_ghe_cloud %} の試用版を設定する](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)」を参照してください。
 
 {% endnote %}
 
 {% data reusables.organizations.billing-settings %}
-1. Under "Current plan", use the **Edit** drop-down and click the downgrade option you want.
-  ![Downgrade button](/assets/images/help/billing/downgrade-option-button.png)
-{% data reusables.dotcom_billing.confirm_cancel_org_plan %}
+1. [現在のプラン] の下で、 **[編集]** ドロップダウンから必要なダウングレード オプションをクリックします。
+  ![[ダウングレード] ボタン](/assets/images/help/billing/downgrade-option-button.png) {% data reusables.dotcom_billing.confirm_cancel_org_plan %}
 
-## Downgrading an organization's subscription with legacy per-repository pricing
+## 従来のリポジトリ単位の支払いを使用しているOrganizationのプランをダウングレードする
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[Switching your organization from per-repository to per-user pricing](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#switching-your-organization-from-per-repository-to-per-user-pricing)."
+{% data reusables.dotcom_billing.switch-legacy-billing %} 詳しくは、「[Organization をリポジトリごとからユーザーごとに切り替える](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#switching-your-organization-from-per-repository-to-per-user-pricing)」をご覧ください。
 
 {% data reusables.organizations.billing-settings %}
-5. Under "Subscriptions", select the "Edit" drop-down, and click **Edit plan**.
-    ![Edit Plan dropdown](/assets/images/help/billing/edit-plan-dropdown.png)
-1. Under "Billing/Plans",  next to the plan you want to change, click **Downgrade**.
-    ![Downgrade button](/assets/images/help/billing/downgrade-plan-option-button.png)
-1. Enter the reason you're downgrading your account, then click **Downgrade plan**.
-    ![Text box for downgrade reason and downgrade button](/assets/images/help/billing/downgrade-plan-button.png)
+5. [サブスクリプション] の [編集] ドロップダウンから **[プランの編集]** をクリックします。
+    ![[プランの編集] ドロップダウン](/assets/images/help/billing/edit-plan-dropdown.png)
+1. [請求/プラン] で、変更するプランの横にある **[ダウングレード]** をクリックします。
+    ![ダウングレード ボタン](/assets/images/help/billing/downgrade-plan-option-button.png)
+1. アカウントをダウングレードする理由を入力し、 **[プランのダウングレード]** をクリックします。
+    ![ダウングレードの理由を入力するテキストボックスと [Downgrade] ボタン](/assets/images/help/billing/downgrade-plan-button.png)
 
-## Removing paid seats from your organization
+## Organization から有料シートを削除する
 
-To reduce the number of paid seats your organization uses, you can remove members from your organization or convert members to outside collaborators and give them access to only public repositories. For more information, see:
-- "[Removing a member from your organization](/articles/removing-a-member-from-your-organization)"
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
-- "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
+Organization が使用する有料シート数を減らすには、Organization からメンバーを削除するか、メンバーを外部コラボレーターに変更してアクセス権をパブリックリポジトリに限定する方法があります。 詳細については、次を参照してください。
+- 「[Organization からメンバーを削除する](/articles/removing-a-member-from-your-organization)」
+- 「[Organization メンバーを外部コラボレーターに変換する](/articles/converting-an-organization-member-to-an-outside-collaborator)」
+- [Organization のリポジトリへの個人のアクセスを管理する](/articles/managing-an-individual-s-access-to-an-organization-repository)
 
 {% data reusables.organizations.billing-settings %}
-1. Under "Current plan", use the **Edit** drop-down and click **Remove seats**.
-  ![remove seats dropdown](/assets/images/help/billing/remove-seats-dropdown.png)
-1. Under "Remove seats", select the number of seats you'd like to downgrade to.
-  ![remove seats option](/assets/images/help/billing/remove-seats-amount.png)
-1. Review the information about your new payment on your next billing date, then click **Remove seats**.
-  ![remove seats button](/assets/images/help/billing/remove-seats-button.png)
+1. [現在のプラン] の **[編集]** ドロップダウンを使用して、 **[シートの削除]** をクリックします。
+  ![[シートの削除] ドロップダウン](/assets/images/help/billing/remove-seats-dropdown.png)
+1. [Remove seats] の下でダウングレードするシート数を選択します。
+  ![[シートの削除] オプション](/assets/images/help/billing/remove-seats-amount.png)
+1. 次回請求日に新しい支払いに関する情報を確認し、 **[シートの削除]** をクリックします。
+  ![[シートの削除] ボタン](/assets/images/help/billing/remove-seats-button.png)
 
-## Further reading
+## 参考資料
 
-- "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
-- "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
-- "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
-- "[About per-user pricing](/articles/about-per-user-pricing)"
+- 「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)
+- 「[アップグレードやダウングレードは支払い処理にどのように影響しますか?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)」
+- "[{% data variables.product.prodname_dotcom %} の支払いについて](/articles/about-billing-on-github)"
+- "[ユーザーごとの価格付けについて](/articles/about-per-user-pricing)"

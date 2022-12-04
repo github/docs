@@ -800,6 +800,40 @@
       ]
     },
     {
+      "name": "addEnterpriseOrganizationMember",
+      "kind": "mutations",
+      "id": "addenterpriseorganizationmember",
+      "href": "/graphql/reference/mutations#addenterpriseorganizationmember",
+      "description": "<p>Adds enterprise members to an organization within the enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseOrganizationMemberInput!",
+          "id": "addenterpriseorganizationmemberinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addenterpriseorganizationmemberinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "users",
+          "type": "[User!]",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The users who were added to the organization.</p>"
+        }
+      ]
+    },
+    {
       "name": "addLabelsToLabelable",
       "kind": "mutations",
       "id": "addlabelstolabelable",
@@ -7861,6 +7895,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "matchingRefs",
           "description": "<p>Repository refs that are protected by this rule.</p>",
           "type": "RefConnection!",
@@ -7985,6 +8035,14 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -36798,6 +36856,14 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "totalCommentsCount",
+          "description": "<p>Returns a count of how many comments this pull request has received.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -46030,6 +46096,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasIssuesEnabled",
           "description": "<p>Indicates if the repository has issues feature enabled.</p>",
           "type": "Boolean!",
@@ -47406,7 +47480,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "sshUrl",
@@ -51152,12 +51228,28 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>The name of the submodule in .gitmodules (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "path",
           "description": "<p>The path in the superproject that this submodule is located in.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The path in the superproject that this submodule is located in (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "subprojectCommitOid",
@@ -55103,6 +55195,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "nameRaw",
+          "description": "<p>Entry file name. (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
           "name": "object",
           "description": "<p>Entry file object.</p>",
           "type": "GitObject",
@@ -55125,6 +55225,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The full path of the file. (Base64-encoded).</p>",
+          "type": "Base64String",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
         },
         {
           "name": "repository",
@@ -60110,6 +60218,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository has the Discussions feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasIssuesEnabled",
           "description": "<p>Indicates if the repository has issues feature enabled.</p>",
           "type": "Boolean!",
@@ -63881,6 +63997,10 @@
         {
           "name": "RENAME",
           "description": "<p>The repository is locked due to a rename.</p>"
+        },
+        {
+          "name": "TRADE_RESTRICTION",
+          "description": "<p>The repository is locked due to a trade controls related reason.</p>"
         }
       ]
     },
@@ -66382,6 +66502,57 @@
       ]
     },
     {
+      "name": "AddEnterpriseOrganizationMemberInput",
+      "kind": "inputObjects",
+      "id": "addenterpriseorganizationmemberinput",
+      "href": "/graphql/reference/input-objects#addenterpriseorganizationmemberinput",
+      "description": "<p>Autogenerated input type of AddEnterpriseOrganizationMember.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise which owns the organization.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization the users will be added to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "role",
+          "description": "<p>The role to assign the users in the organization.</p>",
+          "type": "OrganizationMemberRole",
+          "id": "organizationmemberrole",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#organizationmemberrole"
+        },
+        {
+          "name": "userIds",
+          "description": "<p>The IDs of the enterprise members to add.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
       "name": "AddLabelsToLabelableInput",
       "kind": "inputObjects",
       "id": "addlabelstolabelableinput",
@@ -67769,6 +67940,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "pattern",
           "description": "<p>The glob-like pattern used to determine matching branches.</p>",
           "type": "String!",
@@ -67792,6 +67979,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -72583,6 +72778,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "pattern",
           "description": "<p>The glob-like pattern used to determine matching branches.</p>",
           "type": "String",
@@ -72597,6 +72808,14 @@
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "requiredApprovingReviewCount",
@@ -74411,6 +74630,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "hasDiscussionsEnabled",
+          "description": "<p>Indicates if the repository should have the discussions feature enabled.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "hasIssuesEnabled",

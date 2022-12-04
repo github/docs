@@ -7,12 +7,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: 2a329c7c0a7f1943f7515059c3f376fa36ea29b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3a8a21f04582b87741ef80755e92fbc859921bb5
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145117574'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179670'
 ---
 {% note %}
 
@@ -68,8 +68,8 @@ ms.locfileid: '145117574'
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | 定義する要素のタイプ。 | 必須 | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
 | `id` | 要素の識別子。ただし、`type` が `markdown` に設定されている場合を除きます。 {% data reusables.form-schema.id-must-be-unique %} 指定されている場合、`id` は URL クエリ パラメーターの事前入力のフィールドの正規識別子です。 | オプション | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | 要素のプロパティを定義するキー/値ペアのセット。  | 必須 | ハッシュ インデックス | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | 要素に制約を設定するキー/値ペアのセット。 | オプション | ハッシュ インデックス | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | 要素のプロパティを定義するキー/値ペアのセット。  | 必須 | マップ | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | 要素に制約を設定するキー/値ペアのセット。 | オプション | マップ | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 以下のタイプのフォーム要素から選択できます。 各タイプには、固有の属性と検証があります。
 
@@ -248,7 +248,15 @@ body:
 | `description` | フォームに表示されるチェックボックスのセットの説明。 Markdown フォーマットをサポートします。 | オプション | String | 空の文字列 | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | ユーザが選択できるチェックボックスの配列。 構文については、以下を参照してください。 | 必須 | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
+
+#### 確認
+
+{% data reusables.form-schema.validations-intro %}
+
+| Key | 説明 | 必須 | Type | Default | 有効な値 |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
 
 #### 例
 

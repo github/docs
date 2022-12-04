@@ -1,8 +1,7 @@
 ---
-title: Reviewing your organization's audit logs for GitHub Codespaces
+title: Como revisar os logs de auditoria da sua organização do GitHub Codespaces
 shortTitle: Audit logs
-intro: 'You can use the audit log to review all actions related to {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Você pode usar o log de auditoria para revisar todas as ações relacionadas a {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,16 +12,20 @@ topics:
   - Administrator
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
+ms.openlocfilehash: 81fbf92217c704ece2f1076de03e1f0445ded2c5
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159377'
 ---
+Quando qualquer membro de sua organização executa uma ação relacionada a {% data variables.product.prodname_github_codespaces %}, você pode revisar as ações no log de auditoria. Para obter informações sobre como acessar o log, confira "[Como revisar o log de auditoria](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)".
 
- 
+![Log de auditoria com informações sobre codespaces](/assets/images/help/settings/codespaces-audit-log-org.png)
 
-When any member of your organization performs an action related to {% data variables.product.prodname_github_codespaces %}, you can review the actions in the audit log. For information about accessing the log, see "[Reviewing your audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)."
+O log de auditoria inclui detalhes como quem realizou a ação, qual foi a ação e quando a ação foi realizada. Para obter informações sobre ações dos {% data variables.product.prodname_github_codespaces %}, confira "[Ações de categoria `codespaces`](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)".
 
-![Audit log with Codespaces information](/assets/images/help/settings/codespaces-audit-log-org.png)
+## Leitura adicional
 
-The audit log includes details such as who performed the action, what the action was, and when the action was performed. For information on {% data variables.product.prodname_github_codespaces %} actions, see "[`codespaces` category actions](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)."
-
-## Further reading
-
-- "[Reviewing your security logs for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+- "[Como revisar seus logs de segurança de {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+- "Logs do [{% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/github-codespaces-logs)"

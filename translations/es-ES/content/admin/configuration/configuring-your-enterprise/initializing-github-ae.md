@@ -1,6 +1,6 @@
 ---
-title: Initializing GitHub AE
-intro: 'To get your enterprise ready to use, you can complete the initial configuration of {% data variables.product.product_name %}.'
+title: Inicializar GitHub AE
+intro: 'Para poner a tu empresa lista para operar, puedes completar la configuración inicial de {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
 type: how_to
@@ -9,123 +9,127 @@ topics:
 redirect_from:
   - /admin/configuration/initializing-github-ae
   - /enterprise-server@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae
+ms.openlocfilehash: a3c32a770bbf58be3589824302fe3a32be0e239a
+ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167056'
 ---
-## About initialization
+## Acerca de la inicialización
 
-Before you can initialize your enterprise, you must purchase {% data variables.product.product_name %}. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
+Antes de que puedas inicializar tue mpresa, debes comprar {% data variables.product.product_name %}. Para obtener más información, contacta a {% data variables.contact.contact_enterprise_sales %}.
 
-{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+{% data reusables.github-ae.initialize-enterprise %} Asegúrate de que la información que proporcionas empate con la información destinada del propietario de la empresa en el IdP. Para obtener más información sobre los propietarios de empresas, consulta "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 
 {% note %}
 
-**Notes**:
+**Notas**:
 
-- If the initial password for {% data variables.product.prodname_ghe_managed %} expires before you finish initialization, you can request a password reset at any time from your invitation email.
+- Si la contraseña inicial para {% data variables.product.prodname_ghe_managed %} vence antes de que finalices la instalación, puedes solicitar un restablecimiento de contraseña en cualquier momento desde tu correo electrónico de invitación.
 
-- Store the initial username and password for {% data variables.product.prodname_ghe_managed %} securely in a password manager. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
+- Almacena de forma segura el nombre de usuario y contraseña iniciales para {% data variables.product.prodname_ghe_managed %} en un administrador de contraseñas. {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
 
 {% endnote %}
 
-During initialization, the enterprise owner will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users.
+Durante la inicialización, el propietario de la empresa nombrará a tu empresa, configurará el SSO de SAML, creará políticas para todas las organizaciones dentro de la empresa y configurará un contacto de soporte para tus usuarios.
 
-## Prerequisites
+## Prerrequisitos
 
-To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
+Para comenzar la inicialización, recibirás un correo electrónico de invitación desde {% data variables.product.company_short %}. Antes de que configures {% data variables.product.prodname_ghe_managed %}, revisa los siguientes prerequisitos.
 
 
-1. To initialize {% data variables.location.product_location %}, you must have a SAML identity provider (IdP). {% data reusables.saml.ae-uses-saml-sso %} To connect your IdP to your enterprise during initialization, you should have your IdP's Entity ID (SSO) URL, Issuer ID URL, and public signing certificate (Base64-encoded). For more information, see "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)."
+Para inicializar {% data variables.location.product_location %}, debes tener un proveedor de identidad (IdP) de SAML. {% data reusables.saml.ae-uses-saml-sso %} Para conectar tu IdP a tu empresa durante la inicialización, debes tener tu URL de ID de entidad (SSO) del IdP, URL de ID emisora, y certificado de firma público (cifrado en Base64). Para más información, vea "[Acerca de la administración de identidades y acceso para la empresa](/admin/authentication/about-identity-and-access-management-for-your-enterprise)".
 
-    {% note %}
+{% note %}
 
-    **Note**: {% data reusables.saml.create-a-machine-user %}
+**Nota**: {% data reusables.saml.create-a-machine-user %}
 
-    {% endnote %}
+{% endnote %}
 
-2. {% data reusables.saml.assert-the-administrator-attribute %}
+## Iniciar sesión y nombrar a tu empresa
 
-## Signing in and naming your enterprise
+1. Sigue las instrucciones en tu correo electrónico de bienvenida para llegar a tu empresa.
+2. Escriba sus credenciales en "Change password" (Cambiar contraseña) y, luego, haga clic en **Change password** (Cambiar contraseña).
+3. Debajo de "What would you like your enterprise account to be named?" (¿Qué nombre quiere darle a su cuenta empresarial?), escriba el nombre de la empresa y luego haga clic en **Save and continue** (Guardar y continuar).
+  ![Botón "Guardar y continuar" para asignar un nombre a una empresa](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
 
-1. Follow the instructions in your welcome email to reach your enterprise.
-2. Type your credentials under "Change password", then click **Change password**.
-3. Under "What would you like your enterprise account to be named?", type the enterprise's name, then click **Save and continue**.
-  !["Save and continue" button for naming an enterprise](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
+## Conectar tu IdP a tu empresa
 
-## Connecting your IdP to your enterprise
+Para configurar la autenticación para {% data variables.product.product_name %}, debes proporcionar a {% data variables.product.product_name %} los detalles de tu IdP de SAML. {% data variables.product.company_short %} te recomienda utilizar Azure AD como tu IdP. Para más información, vea "[Configuración de la autenticación y el aprovisionamiento con el proveedor de identidades](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)".
 
-To configure authentication for {% data variables.product.product_name %}, you must provide {% data variables.product.product_name %} with the details for your SAML IdP. {% data variables.product.company_short %} recommends using Azure AD as your IdP. For more information, see "[Configuring authentication and provisioning with your identity provider](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)."
+1. A la derecha de "Set up your identity provider" (Configurar el proveedor de identidades), haga clic en **Configure** (Configurar).
+  ![Botón "Configurar" para la configuración del IdP](/assets/images/enterprise/configuration/ae-idp-configure.png)
+1. Debajo de "URL de ingreso", copia y pega la URL de tu IdP de SAML.
+  ![Campo de texto para la URL de registro del IdP de SAML](/assets/images/enterprise/configuration/ae-idp-sign-on-url.png)
+1. Debajo de "Emisor", copiay pega la URL emisora para tu IdP de SAML.
+  ![Campo de texto para la URL del emisor del IdP de SAML](/assets/images/enterprise/configuration/ae-idp-issuer-url.png)
+1. Debajo de "Certificado público", copia y pega el certificado público para tu IdP de SAML.
+  ![Campo de texto para el certificado público del IdP de SAML](/assets/images/enterprise/configuration/ae-idp-public-certificate.png)
+1. Para asegurarse de que la información especificada es correcta, haga clic en **Test SAML configuration** (Probar configuración de SAML).
+  ![Botón "Probar configuración de SAML"](/assets/images/enterprise/configuration/ae-test-saml-configuration.png)
+1. Haga clic en **Save**(Guardar).
+  ![Botón "Guardar" para la configuración del IdP](/assets/images/enterprise/configuration/ae-save.png)
+1. {% data reusables.saml.assert-the-administrator-attribute %}
 
-1. To the right of "Set up your identity provider", click **Configure**.
-  !["Configure" button for IdP configuration](/assets/images/enterprise/configuration/ae-idp-configure.png)
-1. Under "Sign on URL", copy and paste the URL for your SAML IdP.
-  ![Text field for SAML IdP's sign-on URL](/assets/images/enterprise/configuration/ae-idp-sign-on-url.png)
-1. Under "Issuer", copy and paste the issuer URL for your SAML IdP.
-  ![Text field for SAML IdP's issuer URL](/assets/images/enterprise/configuration/ae-idp-issuer-url.png)
-1. Under "Public certificate", copy and paste the public certificate for your SAML IdP.
-  ![Text field for SAML IdP's public certificate](/assets/images/enterprise/configuration/ae-idp-public-certificate.png)
-1. Click **Test SAML configuration** to ensure that the information you've entered is correct.
-  !["Test SAML configuration" button](/assets/images/enterprise/configuration/ae-test-saml-configuration.png)
-1. Click **Save**.
-  !["Save" button for IdP configuration](/assets/images/enterprise/configuration/ae-save.png)
+## Configurar las políticas de tu empresa
 
-## Setting your enterprise policies
+El configurar políticas pondrá limitaciones para la administración de repositorios y organizaciones en tu empresa. Estas pueden volver a configurarse después del proceso de inicialización.
 
-Configuring policies will set limitations for repository and organization management for your enterprise. These can be reconfigured after the initialization process.
+1. A la derecha de "Set your enterprise policies" (Establecer las directivas empresariales), haga clic en **Configure** (Configurar).
+  ![Botón "Configurar" para la configuración de directivas](/assets/images/enterprise/configuration/ae-policies-configure.png)
+2. Debajo de "Permisos Predeterminados de los Repositorios", utiliza el menú desplegable y da clci en un nivel de permisos predeterminado para los repositorios de tu empresa. Si alguien tiene varios medios de acceso a una organización, ya sea indiviudalmente, a través de un equipo, o como un miembro de la misma, el permiso más alto anulará los permisos más bajos. Opcionalmente, para permitir que las organizaciones de la empresa establezcan sus permisos de repositorio predeterminados, haga clic en **No policy** (Ninguna directiva)
+  .![Menú desplegable para las opciones predeterminadas de los permisos del repositorio](/assets/images/enterprise/configuration/ae-repository-permissions-menu.png)
+3. Debajo de "Creación de repositorios", elige si quieres permitir que los miembros creen repositorios o no. Opcionalmente, para permitir que las organizaciones de su empresa establezcan permisos, haga clic en **No policy** (Ninguna directiva).
+  ![Botón "Los miembros pueden crear repositorios" para la configuración de las directivas de empresa](/assets/images/enterprise/configuration/ae-repository-creation-permissions.png)
+4. Debajo de "Bifurcación de repositorios", elige si quieres permitir la bifurcación de repositorios privados e internos. Opcionalmente, para permitir que las organizaciones de la empresa establezcan sus permisos, haga clic en **No policy** (Ninguna directiva)
+  .![Menú desplegable para las opciones predeterminadas de bifurcación del repositorio](/assets/images/enterprise/configuration/ae-repository-forking-menu.png)
+5. Debajo de "invitaciones a los repositorios", elige si los miembros o propietarios de la organización pueden invitar colaboradores a los repositorios. Opcionalmente, para permitir que las organizaciones de la empresa establezcan sus permisos, haga clic en **No policy** (Ninguna directiva)
+  .![Menú desplegable para las opciones predeterminadas de invitación del repositorio](/assets/images/enterprise/configuration/ae-repository-invitations-menu.png)
+6. Debajo de "Visibilidad predeterminada de los repositorios", utiliza el menú desplegable y da clic en el ajuste de visibilidad predeterminada para los repositorios nuevos.
+  ![Menú desplegable para las opciones de visibilidad predeterminadas del repositorio](/assets/images/enterprise/configuration/ae-repository-visibility-menu.png)
+7. Debajo de "Los usuarios pueden crear organizaciones", utiliza el menú desplegable para habilitar o inhabilitar el acceso para la creación de organizaciones para los miembros de la empresa.
+  ![Menú desplegable para las opciones de permisos de creación en las organizaciones](/assets/images/enterprise/configuration/ae-organization-creation-permissions-menu.png)
+8. Debajo de "subidas forzadas", utiliza el menú desplegable y elige si quieres permitir o bloquear las subidas forzadas.
+  ![Menú desplegable para las opciones de configuración de inserciones forzadas](/assets/images/enterprise/configuration/ae-force-pushes-configuration-menu.png)
+9. Debajo de "Acceso SSH a Git", utiliza el menú desplegable y elige si quieres habilitar el acceso por SSH a Git para todos los repositorios en la empresa.
+  ![Menú desplegable para las opciones de acceso SSH a Git](/assets/images/enterprise/configuration/ae-git-ssh-access-menu.png)
+10. Haga clic en **Save** (Guardar).
+  ![Botón "Guardar" para la configuración de directivas empresariales](/assets/images/enterprise/configuration/ae-save.png)
+11. Opcionalmente, para restablecer todas las selecciones, da clic en "Restablecer a las políticas predeterminadas".
+  ![Vínculo para restablecer todas las directivas predeterminadas](/assets/images/enterprise/configuration/ae-reset-default-options.png)
 
-1. To the right of "Set your enterprise policies", click **Configure**.
-  !["Configure" button for policies configuration](/assets/images/enterprise/configuration/ae-policies-configure.png)
-2. Under "Default Repository Permissions", use the drop-down menu and click a default permissions level for repositories in your enterprise. If a person has multiple avenues of access to an organization, either individually, through a team, or as an organization member, the highest permission level overrides any lower permission levels. Optionally, to allow organizations within your enterprise to set their default repository permissions, click **No policy**
-  ![Drop-down menu for default repository permissions options](/assets/images/enterprise/configuration/ae-repository-permissions-menu.png)
-3. Under "Repository creation", choose whether you want to allow members to create repositories. Optionally, to allow organizations within your enterprise to set permissions, click **No policy**.
-  !["Members can create repositories" button for enterprise policies configuration](/assets/images/enterprise/configuration/ae-repository-creation-permissions.png)
-4. Under "Repository forking", choose whether to allow forking of private and internal repositories. Optionally, to allow organizations within your enterprise to set permissions, click **No policy**
-  ![Drop-down menu for repository forking permissions options](/assets/images/enterprise/configuration/ae-repository-forking-menu.png)
-5. Under "Repository invitations", choose whether members or organization owners can invite collaborators to repositories. Optionally, to allow organizations within your enterprise to set permissions, click **No policy**
-  ![Drop-down menu for repository invitation permissions options](/assets/images/enterprise/configuration/ae-repository-invitations-menu.png)
-6. Under "Default repository visibility", use the drop-down menu and click the default visibility setting for new repositories.
-  ![Drop-down menu for default repository visibility options](/assets/images/enterprise/configuration/ae-repository-visibility-menu.png)
-7. Under "Users can create organizations", use the drop-down menu to enable or disable organization creation access for members of the enterprise.
-  ![Drop-down menu for organization creation permissions options](/assets/images/enterprise/configuration/ae-organization-creation-permissions-menu.png)
-8. Under "Force pushes", use the drop-down menu and choose whether to allow or block force pushes.
-  ![Drop-down menu for force pushes configuration options](/assets/images/enterprise/configuration/ae-force-pushes-configuration-menu.png)
-9. Under "Git SSH access", use the drop-down menu and choose whether to enable Git SSH access for all repositories in the enterprise.
-  ![Drop-down menu for Git SSH access options](/assets/images/enterprise/configuration/ae-git-ssh-access-menu.png)
-10. Click **Save**
-  !["Save" button for enterprise policies configuration](/assets/images/enterprise/configuration/ae-save.png)
-11. Optionally, to reset all selections, click "Reset to default policies".
-  ![Link to reset all default policies](/assets/images/enterprise/configuration/ae-reset-default-options.png)
+## Configurar tu contacto de soporte interno
 
-## Setting your internal support contact
+Puedes configurar el método que tus usuarios utilizarán para contactar a tu equipo de soporte interno. Esto puede volver a configurarse después del proceso de inicialización.
 
-You can configure the method your users will use to contact your internal support team. This can be reconfigured after the initialization process.
+1. A la derecha de "Internal support contact" (Contacto de soporte técnico interno), haga clic en **Configure** (Configurar).
+  ![Botón "Configurar" para la configuración de contacto de soporte técnico interno](/assets/images/enterprise/configuration/ae-support-configure.png)
+2. Debajo de "Contacto de soporte interno", selecciona el método para que los usuarios de tu empresa contacten a soporte, a través de una URL o de una dirección de correo electrónico. Posteriormente, teclea la información de contacto para soporte.
+  ![Campo de texto para la URL de contacto de soporte técnico interno](/assets/images/enterprise/configuration/ae-support-link-url.png)
+3. Haga clic en **Save**(Guardar).
+  ![Botón "Guardar" para la configuración de contacto de soporte técnico de empresa](/assets/images/enterprise/configuration/ae-save.png)
 
-1. To the right of "Internal support contact", click **Configure**.
-  !["Configure" button for internal support contact configuration](/assets/images/enterprise/configuration/ae-support-configure.png)
-2. Under "Internal support contact", select the method for users of your enterprise to contact support, through a URL or an e-mail address. Then, type the support contact information.
-  ![Text field for internal support contact URL](/assets/images/enterprise/configuration/ae-support-link-url.png)
-3. Click **Save**.
-  !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
+## Configurar los ajustes de tu correo electrónico
 
-## Setting your email settings
+Una vez que se inicialice, puedes reconfigurar cualquier ajuste después del proceso de inicialización. Para más información, vea "[Configuración del correo electrónico para notificaciones](/admin/configuration/configuring-email-for-notifications)".
 
-Once this is initialized, you can reconfigure any settings after the initialization process. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)."
+1. A la derecha de "Configure email settings" (Configurar opciones de correo electrónico), haga clic en **Configure** (Configurar).
+  ![Botón "Configurar" para la configuración de las opciones de correo electrónico](/assets/images/enterprise/configuration/ae-email-configure.png)
+2. Seleccione **Enable email** (Habilitar correo electrónico). Esto habilitará el correo electrónico tanto entrante como saliente, sin embargo, para que funcione el entrante, también necesitarás configurar tus ajustes de DNS. Para obtener más información, vea "[Configuración de DNS y opciones de firewall para permitir correos electrónicos entrantes](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)".
+ ![Casilla "Habilitar" para la configuración de opciones de correo electrónico](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
+3. Completa tus ajustes de servidor de correo electrónico:
+    - En el campo **Server address** (Dirección del servidor), escriba la dirección del servidor SMTP.
+    - En el campo **Puerto**, escriba el puerto que usa el servidor SMTP para enviar correo electrónico.
+    - En el campo **Domain** (Dominio), escriba el nombre de dominio que enviará el servidor SMTP con una respuesta HELO, si existe.
+    - En la lista desplegable **Authentication** (Autenticación), elija el tipo de cifrado que usa el servidor SMTP.
+    - En el campo **No reply email address** (Dirección de correo electrónico sin respuesta), escriba la dirección de correo electrónico a fin de usar en los campos De y Para en todos los correos electrónicos para notificaciones.
 
-1. To the right of "Configure email settings", click **Configure**.
-  !["Configure" button for email settings configuration](/assets/images/enterprise/configuration/ae-email-configure.png)
-2. Select **Enable email**. This will enable both outbound and inbound email, however, for inbound email to work you will also need to configure your DNS settings. For more information, see "[Configuring DNS and firewall
- settings to allow incoming emails](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
-  !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
-3. Complete your email server settings:
-    - In the **Server address** field, type the address of your SMTP server.
-    - In the **Port** field, type the port that your SMTP server uses to send email.
-    - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
-    - In the **Authentication** dropdown, choose the type of encryption used by your SMTP server.
-    - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
-
-4. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-  !["Discard" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-discard-email.png)
-5. Click **Test email settings**.
-  !["Test email settings" button for email settings configuration](/assets/images/enterprise/configuration/ae-test-email.png)
-6. Under "Send test email to," type the email address where you want to send a test email, then click **Send test email**.
-  !["Send test email" button for email settings configuration](/assets/images/enterprise/configuration/ae-send-test-email.png)
-7. Click **Save**.
-  !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
+4. Si quiere descartar todos los correos electrónicos entrantes que estén dirigidos al correo electrónico sin respuesta, seleccione **Descartar correo electrónico dirigido a la dirección de correo electrónico sin respuesta**.
+  ![Casilla "Descartar" para la configuración de las opciones de correo electrónico](/assets/images/enterprise/configuration/ae-discard-email.png)
+5. Haga clic en **Probar configuración de correo electrónico**.
+  ![Botón "Probar configuración de correo electrónico" para la configuración de las opciones de correo electrónico](/assets/images/enterprise/configuration/ae-test-email.png)
+6. En "Enviar correo electrónico de prueba a", escriba la dirección de correo electrónico a la que quiera enviar un mensaje de prueba y haga clic en **Enviar correo electrónico de prueba**.
+  ![Botón "Enviar correo electrónico de prueba" para la configuración de las opciones de correo electrónico](/assets/images/enterprise/configuration/ae-send-test-email.png)
+7. Haga clic en **Save**(Guardar).
+  ![Botón "Guardar" para la configuración de contacto de soporte técnico de empresa](/assets/images/enterprise/configuration/ae-save.png)

@@ -1,5 +1,5 @@
 ---
-title: Network ports
+title: Portas de rede
 redirect_from:
   - /enterprise/admin/articles/configuring-firewalls
   - /enterprise/admin/articles/firewall
@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
-intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
+intro: 'Abra as portas de rede seletivamente com base nos serviços que você precisa expor para administradores, usuários finais e suporte por e-mail.'
 versions:
   ghes: '*'
 type: reference
@@ -17,52 +17,62 @@ topics:
   - Infrastructure
   - Networking
   - Security
+ms.openlocfilehash: 048b27ed44cea11057c781ae3043078a825f8d1a
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160647'
 ---
-## Administrative ports
+## Portas administrativas
 
-Some administrative ports are required to configure {% data variables.location.product_location %} and run certain features. Administrative ports are not required for basic application use by end users.
+Algumas portas administrativas precisam configurar o {% data variables.location.product_location %} e executar determinados recursos. Não é preciso haver portas administrativas para os usuários finais aproveitarem os recursos básicos do aplicativo.
 
-| Port | Service | Description |
+| Porta | Serviço | Descrição |
 |---|---|---|
-| 8443 | HTTPS | Secure web-based {% data variables.enterprise.management_console %}. Required for basic installation and configuration. |
-| 8080 | HTTP | Plain-text web-based {% data variables.enterprise.management_console %}. Not required unless TLS is disabled manually. |
-| 122 | SSH | Shell access for {% data variables.location.product_location %}. Required to be open to incoming connections between all nodes in a high availability configuration. The default SSH port (22) is dedicated to Git and SSH application network traffic. |
-| 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
-| 123/UDP| NTP | Required for time protocol operation. |
-| 161/UDP | SNMP | Required for network monitoring protocol operation. |
+| 8443 | HTTPS | {% data variables.enterprise.management_console %} seguro na web. Obrigatória para instalação e configuração básicas. |
+| 8080 | HTTP | {% data variables.enterprise.management_console %} de texto simples na web. Não é obrigatória, a menos que o TSL seja desabilitado manualmente. |
+| 122 | SSH | Acesso de shell ao {% data variables.location.product_location %}. Obrigatório para estar aberto a conexões de entrada entre todos os nós em uma configuração de alta disponibilidade. A porta SSH padrão (22) é dedicada ao tráfego de rede de aplicativos Git e SSH. |
+| 1194/UDP | VPN | Túnel de rede de réplica segura na configuração de alta disponibilidade. Obrigatório estar aberto para a comunicação entre todos os nós da configuração.|
+| 123/UDP| NTP | Obrigatória para operações de protocolo de tempo. |
+| 161/UDP | SNMP | Obrigatória para operações de protocolo de monitoramento de rede. |
 
-## Application ports for end users
+## Portas de aplicativo para usuários finais
 
-Application ports provide web application and Git access for end users.
+As portas de aplicativo fornecem aplicativos da web e acesso dos usuários finais ao Git.
 
-| Port | Service | Description |
+| Porta | Serviço | Descrição |
 |---|---|---|
-| 443 | HTTPS | Access to the web application and Git over HTTPS. |
-| 80 | HTTP | Access to the web application. All requests are redirected to the HTTPS port if TLS is configured. |
-| 22 | SSH | Access to Git over SSH. Supports clone, fetch, and push operations to public and private repositories. |
-| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. {% data reusables.enterprise_installation.when-9418-necessary %} |
+| 443 | HTTPS | Acesso ao aplicativo da web e ao Git por HTTPS. |
+| 80 | HTTP | Acesso ao aplicativo da web. Todas as solicitações são redirecionadas para a porta HTTPS se o TLS estiver configurado. |
+| 22 | SSH | Acesso ao Git por SSH. Compatível com operações de clonagem, fetch e push em repositórios públicos e privados. |
+| 9418 | Git | A porta do protocolo Git é compatível com operações de clonagem e fetch em repositórios públicos com comunicação de rede não criptografada. {% data reusables.enterprise_installation.when-9418-necessary %} |
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-## Email ports
+## Portas de e-mail
 
-Email ports must be accessible directly or via relay for inbound email support for end users.
+As portas de e-mail devem estar acessíveis diretamente ou via retransmissão para oferecer suporte de e-mail aos usuários finais.
 
-| Port | Service | Description |
+| Porta | Serviço | Descrição |
 |---|---|---|
-| 25 | SMTP | Support for SMTP with encryption (STARTTLS). |
+| 25 | SMTP | Suporte a SMTP com criptografia (STARTTLS). |
 
-## {% data variables.product.prodname_actions %} ports
+## Portas de {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_actions %} ports must be accessible for self-hosted runners to connect to {% data variables.location.product_location %}. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-server)."
+As portas do {% data variables.product.prodname_actions %} precisam estar acessíveis para os executores auto-hospedados se conectarem ao {% data variables.location.product_location %}. Para obter mais informações, confira "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-server)".
 
-| Port | Service | Description |
+| Porta | Serviço | Descrição |
 |---|---|---|
-| 443 | HTTPS | Self-hosted runners connect to {% data variables.location.product_location %} to receive job assignments and to download new versions of the runner application. Required if TLS is configured.
-| 80 | HTTP | Self-hosted runners connect to {% data variables.location.product_location %} to receive job assignments and to download new versions of the runner application. Required if TLS is not configured.
+| 443 | HTTPS | Os executores auto-hospedados se conectam ao {% data variables.location.product_location %} para receber atribuições de trabalho e baixar as novas versões do aplicativo do executor. Obrigatório se TLS estiver configurado.
+| 80 | HTTP | Os executores auto-hospedados se conectam ao {% data variables.location.product_location %} para receber atribuições de trabalho e baixar as novas versões do aplicativo do executor. Obrigatório se TLS não estiver configurado.
 
-If you enable automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, {% data variables.product.prodname_actions %} will always search for an action on {% data variables.location.product_location %} first, via these ports, before checking {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#about-resolution-for-actions-using-github-connect)."
+Se você habilitar o acesso automático às ações do {% data variables.product.prodname_dotcom_the_website %}, o {% data variables.product.prodname_actions %} sempre pesquisará uma ação no {% data variables.location.product_location %} primeiro, por meio dessas portas, antes de verificar o {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, confira "[Como habilitar o acesso automático às ações do {% data variables.product.prodname_dotcom_the_website %} usando o {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#about-resolution-for-actions-using-github-connect)".
 
-## Further reading
+## Portas do {% data variables.product.prodname_github_connect %}
 
-- "[Configuring TLS](/admin/configuration/configuring-network-settings/configuring-tls)"
+Se você habilitar o {% data variables.product.prodname_github_connect %}, a conexão entre o {% data variables.product.product_name %} e o {% data variables.product.prodname_dotcom_the_website %} usará HTTPS nas portas 443 ou 80 e o TLS será necessário. Para obter mais informações, confira "[Sobre o {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)".
+
+## Leitura adicional
+
+- "[Como configurar o TLS](/admin/configuration/configuring-network-settings/configuring-tls)"

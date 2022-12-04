@@ -1,7 +1,6 @@
 ---
-title: GitHub Codespaces logs
-intro: 'Overview of the logging locations used by {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
+title: GitHub Codespaces ログ
+intro: '{% data variables.product.prodname_github_codespaces %} で使用されるログの概要。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,60 +11,104 @@ topics:
 shortTitle: Codespaces logs
 redirect_from:
   - /codespaces/troubleshooting/codespaces-logs
+ms.openlocfilehash: f5cd482888f58f85a051bb9b6e2c5d7c026ed9a9
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160102'
 ---
+{% jetbrains %}
 
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-Information on {% data variables.product.prodname_github_codespaces %} is output to three different logs:
+{% endjetbrains %}
 
-- Codespace logs
-- Creation logs
-- Extension logs ({% data variables.product.prodname_vscode %} desktop) or Browser console logs ({% data variables.product.prodname_vscode %} in the web)
-
-## Codespace logs
-
-These logs contain detailed information about the codespace, the container, the session, and the {% data variables.product.prodname_vscode %} environment. They are useful for diagnosing connection issues and other unexpected behavior. For example, the codespace freezes but the "Reload Windows" option unfreezes it for a few minutes, or you are randomly disconnected from the codespace but able to reconnect immediately.
+{% data variables.product.prodname_github_codespaces %} に関する情報は、さまざまなログに出力されます。
 
 {% webui %}
 
-1. If you are using {% data variables.product.prodname_github_codespaces %} in the browser, ensure that you are connected to the codespace you want to debug.
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
-1. If you are using {% data variables.product.prodname_github_codespaces %} in the browser, right-click on the zip archive of logs from the Explorer view and select **Download…** to download them to your local machine.
+- Codespace ログ
+- 作成ログ
+- ブラウザー コンソール ログ ({% data variables.product.prodname_vscode_shortname %} Web クライアント用)
+
+拡張機能ログは、{% data variables.product.prodname_vscode_shortname %} で {% data variables.product.prodname_github_codespaces %} を使用している場合に使用できます。 詳細については、上記の [{% data variables.product.prodname_vscode %}] タブをクリックしてください。
 
 {% endwebui %}
 
 {% vscode %}
 
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
+- Codespace ログ
+- 作成ログ
+- 拡張機能ログ ({% data variables.product.prodname_vscode_shortname %} デスクトップ アプリケーション用) 
+
+ブラウザーのログは、ブラウザーで {% data variables.product.prodname_github_codespaces %} を使用している場合に使用できます。 詳細については、上記の [Web ブラウザー] タブをクリックしてください。
 
 {% endvscode %}
 
 {% cli %}
 
-Currently you can't use {% data variables.product.prodname_cli %} to access these logs. To access them, open your codespace in {% data variables.product.prodname_vscode %} or in a browser.
+- Codespace ログ
+- 作成ログ
+
+他のログは、{% data variables.product.prodname_vscode_shortname %} または自分の Web ブラウザーで {% data variables.product.prodname_github_codespaces %} を使用している場合に使用できます。 詳細については、上のタブをクリックしてください。
 
 {% endcli %}
 
-## Creation logs
+{% jetbrains %}
 
-These logs contain information about the container, dev container, and their configuration. They are useful for debugging configuration and setup problems.
+- 作成ログ
 
+他のログは、{% data variables.product.prodname_vscode_shortname %} または自分の Web ブラウザーで {% data variables.product.prodname_github_codespaces %} を使用している場合に使用できます。 詳細については、上のタブをクリックしてください。
+
+{% endjetbrains %}
 
 {% webui %}
 
-1. Connect to the codespace you want to debug.
-2. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+{% data reusables.codespaces.codespace-logs %}
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+1. ブラウザーで {% data variables.product.prodname_github_codespaces %} を使用している場合は、デバッグするコード空間に接続されることを確認してください。
+1. {% data variables.product.prodname_vscode_command_palette_shortname %} を開き (<kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux))、「**開発コンテナー**」と入力します。 **[Codespaces: ログのエクスポート]** を一覧から選択して、該当するログをダウンロードします。
+1. ログの zip アーカイブを保存する場所を定義し、 **[保存]** (デスクトップ) をクリックするか、 **[OK]** (Web) をクリックします。
+1. ブラウザーで {% data variables.product.prodname_github_codespaces %} を使用している場合は、エクスプローラー ビューからログの zip アーカイブを右クリックし、 **[ダウンロード]** を選択して、 それらを、ご利用のローカル コンピューターにダウンロードします。
 
 {% endwebui %}
 
 {% vscode %}
 
-Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+{% data reusables.codespaces.codespace-logs %}
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+1. {% data variables.product.prodname_vscode_command_palette_shortname %} を開き (<kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux))、「**開発コンテナー**」と入力します。 **[Codespaces: ログのエクスポート]** を一覧から選択して、該当するログをダウンロードします。
+1. ログの zip アーカイブを保存する場所を定義し、 **[保存]** (デスクトップ) をクリックするか、 **[OK]** (Web) をクリックします。
+
+{% endvscode %}
+
+{% cli %}
+
+{% data reusables.codespaces.codespace-logs %}
+
+現在、{% data variables.product.prodname_cli %} を使用してこれらのログにアクセスすることはできません。 それらにアクセスするには、{% data variables.product.prodname_vscode_shortname %} またはブラウザーでご利用の codespace を開きます。
+
+{% endcli %}
+
+## 作成ログ
+
+これらのログには、コンテナー、開発コンテナー、およびその構成に関する情報が含まれています。 これらは、構成とセットアップの問題のデバッグに役立ちます。
+
+{% webui %}
+
+1. デバッグする codespace に接続します。
+2. {% data variables.product.prodname_vscode_command_palette_shortname %} を開き (<kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux))、「**作成ログ**」と入力します。 一覧から **[Codespaces: 作成ログの表示]** を選択して、`creation.log` ファイルを開きます。
+
+サポートとログを共有する場合は、作成ログのテキストをテキスト エディターにコピーし、ファイルをローカルに保存できます。
+
+{% endwebui %}
+
+{% vscode %}
+
+{% data variables.product.prodname_vscode_command_palette_shortname %} を開き (<kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (Windows/Linux))、「**作成ログ**」と入力します。 一覧から **[Codespaces: 作成ログの表示]** を選択して、`creation.log` ファイルを開きます。
+
+サポートとログを共有する場合は、作成ログのテキストをテキスト エディターにコピーし、ファイルをローカルに保存できます。
 
 {% endvscode %}
 
@@ -73,15 +116,15 @@ If you want to share the log with support, you can copy the text from the creati
 
 {% data reusables.cli.cli-learn-more %}
 
-To see the creation log use the `gh codespace logs` subcommand. After entering the command choose from the list of codespaces that's displayed.
+作成ログを表示するには、`gh codespace logs` サブコマンドを使用します。 コマンドを入力した後、表示される codespace の一覧から選択します。
 
 ```shell
 gh codespace logs
 ```
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_logs).
+このコマンドの詳細については、[{% data variables.product.prodname_cli %} に関するマニュアル](https://cli.github.com/manual/gh_codespace_logs)を参照してください。
 
-If you want to share the log with support, you can save the output to a file:
+ログをサポートと共有したい場合は、出力をファイルに保存できます。
 
 ```shell
 gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
@@ -89,20 +132,46 @@ gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
 
 {% endcli %}
 
-## Extension logs
+{% vscode %}
 
-These logs are available for {% data variables.product.prodname_vscode %} desktop users only. They are useful if it seems like the {% data variables.product.prodname_github_codespaces %} extension or {% data variables.product.prodname_vscode %} editor are having issues that prevent creation or connection.
+## 拡張機能ログ
 
-1. In {% data variables.product.prodname_vscode %}, open the Command Palette.
-1. Type **Logs** and select **Developer: Open Extension Logs Folder** from the list to open the extension log folder in your system's file explorer.
+これらのログは、{% data variables.product.prodname_vscode_shortname %} デスクトップ ユーザーにのみ使用できます。 それらは、{% data variables.product.prodname_github_codespaces %} 拡張機能または {% data variables.product.prodname_vscode_shortname %} エディターに作成または接続を妨げる問題があるように思われる場合に役立ちます。
 
-From this view, you can access logs generated by the various extensions that you use in {% data variables.product.prodname_vscode %}. You will see logs for GitHub Codespaces, GitHub Authentication, and Git, in addition to any other extensions you have enabled.
+1. {% data variables.product.prodname_vscode_shortname %} で、コマンド パレットを開きます。
+1. 「**ログ**」と入力し、一覧から **[開発者: 拡張機能ログ フォルダーを開く]** を選択して、ご利用のシステムのファイル エクスプローラーで拡張機能ログ フォルダーを開きます。
 
-## Browser console logs
+このビューからは、{% data variables.product.prodname_vscode_shortname %} で使用しているさまざまな拡張機能によって生成されたログにアクセスできます。 有効にした他の拡張機能に加えて、{% data variables.product.prodname_github_codespaces %}、{% data variables.product.prodname_dotcom %} 認証、Git のログが表示されます。
 
-These logs are useful only if you want to debug problems with using {% data variables.product.prodname_github_codespaces %} in the browser. They are useful for debugging problems creating and connecting to {% data variables.product.prodname_github_codespaces %}.
+{% endvscode %}
 
-1. In the browser window for the codespace you want to debug, open the developer tools window.
-1. Display the "Console" tab and click **errors** in the left side bar to show only the errors.
-1. In the log area on the right, right-click and select **Save as** to save a copy of the errors to your local machine.
-  ![Save errors](/assets/images/help/codespaces/browser-console-log-save.png)
+{% webui %}
+
+## ブラウザー コンソールのログ
+
+これらのログは、ブラウザーで {% data variables.product.prodname_github_codespaces %} を使用する際の問題をデバッグする場合にのみ役立ちます。 これらは、{% data variables.product.prodname_github_codespaces %} の作成と接続に関する問題のデバッグに役立ちます。
+
+1. デバッグする codespace のブラウザー ウィンドウで、開発者ツール ウィンドウを開きます。
+1. [コンソール] タブを表示し、左側のサイドバーで **[エラー]** をクリックすると、エラーのみが表示されます。
+1. 右側のログ領域で右クリックし、 **[名前を付けて保存]** を選択して、エラーのコピーをローカル コンピューターに保存します。
+  ![エラーの保存](/assets/images/help/codespaces/browser-console-log-save.png)
+
+{% endwebui %}
+
+{% jetbrains %}
+
+{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
+1. {% data variables.product.prodname_github_codespaces %} ツール ウィンドウで、ログ アイコンをクリックします。
+
+   ![ログ ボタンのスクリーンショット](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
+
+## JetBrains ログ
+
+リモート JetBrains IDE とローカル クライアント アプリケーションのログをダウンロードするには、JetBrains クライアント アプリケーションの **[ヘルプ]** メニューに移動し、 **[ホストとクライアント ログの収集]** をクリックします。
+
+{% endjetbrains %}
+
+## 参考資料
+
+- 「[Organization の {% data variables.product.prodname_github_codespaces %} の Audit log を確認する](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)」
+- 「[{% data variables.product.prodname_github_codespaces %} のセキュリティログをレビューする](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)」

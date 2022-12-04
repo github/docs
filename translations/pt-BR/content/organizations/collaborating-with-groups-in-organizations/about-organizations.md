@@ -12,12 +12,12 @@ versions:
 topics:
   - Organizations
   - Teams
-ms.openlocfilehash: 7412c38e647ddec33543bd04d38d813bf6a93c88
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 0269554568c8781706a8d79600f5b6191d0b9598
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107826'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164328'
 ---
 ## Sobre organizações
 
@@ -33,7 +33,7 @@ Para simplificar o gerenciamento de acesso e aprimorar a colaboração, é poss�
 
 Para fortalecer a segurança da organização, é possível impor requisitos de segurança e revisar o log de auditoria dela. Para obter mais informações, confira "[Como manter sua organização segura](/organizations/keeping-your-organization-secure)".
 
-{% data reusables.organizations.org-ownership-recommendation %} Para obter mais informações, confira "[Como manter a continuidade da propriedade para sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)".
+Para saber como usar organizações com mais eficiência, confira "[Melhores práticas para organizações](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)".
 
 {% ifversion fpt or ghec %}
 ## Sobre a disponibilidade do recurso
@@ -47,7 +47,9 @@ Para fortalecer a segurança da organização, é possível impor requisitos de 
 
 {% ifversion ghec %} {% data reusables.enterprise.create-an-enterprise-account %} Para obter mais informações, confira "[Como criar uma conta corporativa](/admin/overview/creating-an-enterprise-account)".
 
-{% data reusables.enterprise-accounts.invite-organization %} {% endif %} {% endif %}
+{% data reusables.enterprise-accounts.invite-organization %}
+
+{% endif %} {% endif %}
 
 {% ifversion fpt or ghec %}
 ## Termos de serviços e proteção de dados para organizações

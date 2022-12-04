@@ -1,7 +1,6 @@
 ---
-title: Forwarding ports in your codespace
+title: codespace でのポートの転送
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,60 +12,77 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Forward ports
+ms.openlocfilehash: 320a2e42d647452056961d4f0f987c3c5db49476
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158910'
 ---
+{% jetbrains %}
 
-## About forwarded ports
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-Port forwarding gives you access to TCP ports running within your codespace. For example, if you're running a web application on a particular port in your codespace, you can forward that port. This allows you to access the application from the browser on your local machine for testing and debugging.
+{% endjetbrains %}
 
-When an application running inside a codespace prints output to the terminal that contains a localhost URL, such as `http://localhost:PORT` or `http://127.0.0.1:PORT`, the port is automatically forwarded. If you're using {% data variables.product.prodname_github_codespaces %} in the browser or in {% data variables.product.prodname_vscode %}, the URL string in the terminal is converted into a link that you can click to view the web page on your local machine. By default, {% data variables.product.prodname_github_codespaces %} forwards ports using HTTP.
+## 転送されるポートについて
 
-![Automatic port forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
-
-You can also forward a port manually, label forwarded ports, share forwarded ports with members of your organization, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
-
-{% note %}
-
-**Note**: {% data reusables.codespaces.restrict-port-visibility %}
-
-{% endnote %}
-
-## Forwarding a port
-
-You can manually forward a port that wasn't forwarded automatically.
+ポート転送を使用すると、Codespaces 内で実行されている TCP ポートにアクセスできます。 たとえば、codespace の特定のポートで Web アプリケーションを実行している場合は、そのポートを転送できます。 これにより、テストやデバッグのために、ローカル コンピューター上のブラウザーからアプリケーションにアクセスできます。
 
 {% webui %}
 
+{% data reusables.codespaces.port-forwarding-intro-non-jetbrains %} {% data reusables.codespaces.navigate-to-ports-tab %}
+1. ポートの一覧で、 **[ポートの追加]** をクリックします。
+
+   ![[ポートの追加] ボタン](/assets/images/help/codespaces/add-port-button.png)
+
+1. ポート番号またはアドレスを入力し、Enter キーを押します。
+
+   ![ポート番号を入力するテキスト ボックス](/assets/images/help/codespaces/port-number-text-box.png)
+
+## HTTPS 転送の使用
+
+既定では、{% data variables.product.prodname_github_codespaces %} は HTTP を使ってポートを転送しますが、必要に応じて、HTTPS を使うように任意のポートを更新できます。 パブリック表示を使ってポートを HTTPS を使えるように更新すると、ポートの表示は自動的にプライベートに変更されます。
+
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Under the list of ports, click **Add port**.
+1. 更新するポートを右クリックし、 **[ポートのプロトコルの変更]** をポイントします。
+  ![ポートのプロトコルを変更するオプション](/assets/images/help/codespaces/update-port-protocol.png)
+1. このポートに必要なプロトコルを選択します。 選択したプロトコルは、codespace の有効期間中、このポートに対して記憶されます。
 
-   ![Add port button](/assets/images/help/codespaces/add-port-button.png)
-
-1. Type the port number or address, then press enter.
-
-   ![Text box to type port button](/assets/images/help/codespaces/port-number-text-box.png)
-
-## Using HTTPS forwarding
-
-By default, {% data variables.product.prodname_github_codespaces %} forwards ports using HTTP but you can update any port to use HTTPS, as needed.
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port you want to update, then hover over **Change Port Protocol**.
-  ![Option to change port protocol](/assets/images/help/codespaces/update-port-protocol.png)
-1. Select the protocol needed for this port. The protocol that you select will be remembered for this port for the lifetime of the codespace.
+1. 共有するポートを右クリックし、[ポートの可視性] メニューを選択して、 **[Organization にプライベート]** または **[パブリック]** をクリックします。
+  ![右クリック メニューでポートの可視性を選択するオプション](/assets/images/help/codespaces/make-public-option.png)
+1. ポートのローカル アドレスの右側にあるコピー アイコンをクリックします。
+  ![ポートの URL のコピー アイコン](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. コピーした URL を、ポートを共有するユーザーに送信します。
+
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %} {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
 
 {% endwebui %}
 
 {% vscode %}
 
+{% data reusables.codespaces.port-forwarding-intro-non-jetbrains %} {% data reusables.codespaces.navigate-to-ports-tab %}
+1. ポートの一覧で、 **[ポートの追加]** をクリックします。
+
+   ![[ポートの追加] ボタン](/assets/images/help/codespaces/add-port-button.png)
+
+1. ポート番号またはアドレスを入力し、Enter キーを押します。
+
+   ![ポート番号を入力するテキスト ボックス](/assets/images/help/codespaces/port-number-text-box.png)
+
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
+
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Under the list of ports, click **Add port**.
+1. 共有するポートを右クリックし、[ポートの可視性] メニューを選択して、 **[Organization にプライベート]** または **[パブリック]** をクリックします。
+  ![右クリック メニューでポートをパブリックにするオプション](/assets/images/help/codespaces/make-public-option.png)
+1. ポートのローカル アドレスの右側にあるコピー アイコンをクリックします。
+  ![ポートの URL のコピー アイコン](/assets/images/help/codespaces/copy-icon-port-url.png)
+1. コピーした URL を、ポートを共有するユーザーに送信します。
 
-   ![Add port button](/assets/images/help/codespaces/add-port-button.png)
-
-1. Type the port number or address, then press enter.
-
-   ![Text box to type port button](/assets/images/help/codespaces/port-number-text-box.png)
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %} {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
 
 {% endvscode %}
 
@@ -75,92 +91,48 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 
 {% data reusables.cli.cli-learn-more %}
 
-To forward a port use the `gh codespace ports forward` subcommand. Replace `codespace-port:local-port` with the remote and local ports that you want to connect. After entering the command choose from the list of codespaces that's displayed.
+ポートを転送するには、`gh codespace ports forward` サブコマンドを使用します。 `codespace-port:local-port` を、接続するリモート ポートとローカル ポートに置き換えます。 コマンドを入力した後、表示される codespace の一覧から選択します。
 
 ```shell
 gh codespace ports forward CODESPACE-PORT:LOCAL-PORT
 ```
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_forward).
+このコマンドの詳細については、[{% data variables.product.prodname_cli %} に関するマニュアル](https://cli.github.com/manual/gh_codespace_ports_forward)を参照してください。
 
-To see details of forwarded ports enter `gh codespace ports` and then choose a codespace.
+転送されるポートの詳細を表示するには、`gh codespace ports` を入力して codespace を選択します。
 
-{% endcli %}
+{% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
 
-## Sharing a port
+転送されるポートの可視性を変更するには、`gh codespace ports visibility` サブコマンドを使用します。 {% data reusables.codespaces.port-visibility-settings %}
 
-{% note %}
-
-**Note:** You can only make a port private to an organization if your organization uses {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
-
-{% endnote %}
-
-If you want to share a forwarded port with others, you can either make the port private to your organization or make the port public. After you make a port private to your organization, anyone in the organization with the port's URL can view the running application. After you make a port public, anyone who knows the URL and port number can view the running application without needing to authenticate.
-
-{% note %}
-
-**Note:** Your choice of port visibility options may be limited by a policy configured for your organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
-
-{% endnote %}
-
-{% webui %}
-
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port that you want to share, select the "Port Visibility" menu, then click **Private to Organization** or **Public**.
-  ![Option to select port visibility in right-click menu](/assets/images/help/codespaces/make-public-option.png)
-1. To the right of the local address for the port, click the copy icon.
-  ![Copy icon for port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
-1. Send the copied URL to the person you want to share the port with.
-
-{% endwebui %}
-
-{% vscode %}
-
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port that you want to share, select the "Port Visibility" menu, then click **Private to Organization** or **Public**.
-  ![Option to make port public in right-click menu](/assets/images/help/codespaces/make-public-option.png)
-1. To the right of the local address for the port, click the copy icon.
-  ![Copy icon for port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
-1. Send the copied URL to the person you want to share the port with.
-
-{% endvscode %}
-
-{% cli %}
-
-To change the visibility of a forwarded port, use the `gh codespace ports visibility` subcommand. {% data reusables.codespaces.port-visibility-settings %}
-
-Replace `codespace-port` with the forwarded port number. Replace `setting` with `private`, `org`, or `public`. After entering the command choose from the list of codespaces that's displayed.
+`codespace-port` を、転送されるポート番号に置き換えます。 `setting` を、`private`、`org`、または `public` に置き換えます。 コマンドを入力した後、表示される codespace の一覧から選択します。
 
 ```shell
 gh codespace ports visibility CODESPACE-PORT:SETTINGS
 ```
 
-You can set the visibility for multiple ports with one command. For example:
+1 つのコマンドを使用して、複数のポートの可視性を設定できます。 次に例を示します。
 
 ```shell
 gh codespace ports visibility 80:private 3000:public 3306:org
 ```
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_visibility).
+このコマンドの詳細については、[{% data variables.product.prodname_cli %} に関するマニュアル](https://cli.github.com/manual/gh_codespace_ports_visibility)を参照してください。
+
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
+
+codespace の転送されたポートを一覧表示するとき、ポート ラベルを表示できます。 これを行うには、`gh codespace ports` コマンドを使用し、codespace を選択します。
+
+{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
 
 {% endcli %}
 
-## Labeling a port
+{% jetbrains %}
 
-You can label a port to make the port more easily identifiable in a list.
+## ポートの転送
 
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. Hover over the port you want to label, then click the label icon.
-  ![Label icon for port](/assets/images/help/codespaces/label-icon.png)
-{% data reusables.codespaces.type-port-label %}
+ローカル コンピューターのポートに codespace のポートを転送する方法については、JetBrains ドキュメントの「[セキュリティ モデル](https://www.jetbrains.com/help/idea/security-model.html#port_forwarding)」という記事の「ポート転送」を参照してください。
 
-## Adding a port to the codespace configuration
+あるいは、{% data variables.product.prodname_cli %} を使用してポートを転送できます。 詳細については、このページの上部にある [{% data variables.product.prodname_cli %}] タブをクリックしてください。
 
-You can add a forwarded port to the {% data variables.product.prodname_github_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
-
-You can manually configure forwarded ports in a `.devcontainer.json` file using the `forwardPorts` property, or you can use the "Ports" panel in your codespace.
-
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port you want to add to the codespace configuration, then click **Set Label and Update devcontainer.json**.
-  ![Option to set label and add port to devcontainer.json in the right-click menu](/assets/images/help/codespaces/update-devcontainer-to-add-port-option.png)
-{% data reusables.codespaces.type-port-label %}
+{% endjetbrains %}

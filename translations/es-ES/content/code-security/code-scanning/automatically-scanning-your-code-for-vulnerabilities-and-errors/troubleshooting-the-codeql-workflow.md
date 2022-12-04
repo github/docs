@@ -69,7 +69,7 @@ You need to ensure that you select **Enable debug logging** . This option enable
 
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.product.prodname_codeql_workflow %} file and set `debug: true`.
+You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.code-scanning.codeql_workflow %} file and set `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
@@ -212,7 +212,7 @@ If you use self-hosted runners to run {% data variables.product.prodname_codeql 
 
 ### Use matrix builds to parallelize the analysis
 
-The default {% data variables.product.prodname_codeql_workflow %} uses a matrix of languages, which causes the analysis of each language to run in parallel. If you have specified the languages you want to analyze directly in the "Initialize CodeQL" step, analysis of each language will happen sequentially. To speed up analysis of multiple languages, modify your workflow to use a matrix. For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
+The default {% data variables.code-scanning.codeql_workflow %} uses a matrix of languages, which causes the analysis of each language to run in parallel. If you have specified the languages you want to analyze directly in the "Initialize CodeQL" step, analysis of each language will happen sequentially. To speed up analysis of multiple languages, modify your workflow to use a matrix. For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
 
 ### Reduce the amount of code being analyzed in a single workflow
 
@@ -243,9 +243,9 @@ You may be running extra queries or query suites in addition to the default quer
 
 ## Results differ between analysis platforms
 
-If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
+If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.code-scanning.codeql_workflow %} on Linux, macOS, or Windows.
 
-On GitHub-hosted runners that use Linux, the {% data variables.product.prodname_codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)."
+On GitHub-hosted runners that use Linux, the {% data variables.code-scanning.codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)."
 
 {% endif %}
 
@@ -289,7 +289,7 @@ on:
 
 ### Analysis still failing on the default branch
 
-If the {% data variables.product.prodname_codeql_workflow %} still fails on a commit made on the default branch, you need to check:
+If the {% data variables.code-scanning.codeql_workflow %} still fails on a commit made on the default branch, you need to check:
 
 - whether {% data variables.product.prodname_dependabot %} authored the commit
 - whether the pull request that includes the commit has been merged using `@dependabot squash and merge`
@@ -304,7 +304,7 @@ You will see this error if CodeQL is unable to find the named query, query suite
 - There is a typo in the workflow.
 - A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
 
-After verifying the location of the resource, you can update the workflow to specify the correct location. If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.
+After verifying the location of the resource, you can update the workflow to specify the correct location.
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 

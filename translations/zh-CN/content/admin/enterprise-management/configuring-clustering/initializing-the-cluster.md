@@ -11,12 +11,12 @@ type: how_to
 topics:
   - Clustering
   - Enterprise
-ms.openlocfilehash: ea771194e8bf5104707a645c4ee18473ff235153
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 91394d1d39301f77bc49a87012e04c3d5e9c3b60
+ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146331814'
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167070'
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
@@ -45,10 +45,12 @@ ms.locfileid: '146331814'
 群集配置文件 (`cluster.conf`) 会定义群集中的节点及其运行的服务。
 有关详细信息，请参阅“[关于群集节点](/enterprise/admin/guides/clustering/about-cluster-nodes)”。
 
-此示例 `cluster.conf` 定义具有五个节点的群集。
+此示例 `cluster.conf` 定义具有 11 个节点的群集。
 
-  - 两个节点（称为 `ghe-app-node-\*`）运行负责响应客户端请求的 `web-server` 和 `job-server` 服务。
-  - 三个节点（称为 `ghe-data-node-\*`）运行负责存储和检索 {% data variables.product.prodname_ghe_server %} 数据的服务。
+  - 名为 `ghes-front-end-node-\*` 的两个节点运行负责响应客户端请求的服务。
+  - 名为 `ghes-database-node-\*` 的三个节点运行负责存储、检索和复制数据库数据的服务。
+  - 名为 `ghes-search-node-\*` 的三个节点运行负责搜索功能的服务。
+  - 名为 `ghes-storage-node-\*` 的三个节点运行负责存储、检索和复制数据的服务。
 
 节点的名称可以是您选择的任何有效主机名。 名称被设置为每个节点的主机名，并且还将添加到每个节点上的 `/etc/hosts` 中，以便节点可以在本地相互解析。
 
@@ -56,63 +58,105 @@ ms.locfileid: '146331814'
 
 ```ini
 [cluster]
-  mysql-master = ghe-data-node-1
-  redis-master = ghe-data-node-1
-  primary-datacenter = default
-[cluster "ghe-app-node-1"]
-  hostname = ghe-app-node-1
+  mysql-master = ghes-database-node-1
+  redis-master = ghes-database-node-1
+  primary-datacenter = primary
+[cluster "ghes-front-end-node-1"]
+  hostname = ghes-front-end-node-1
   ipv4 = 192.168.0.2
   # ipv6 = fd12:3456:789a:1::2
+  consul-datacenter = primary
+  datacenter = primary
   web-server = true
   job-server = true
-[cluster "ghe-app-node-2"]
-  hostname = ghe-app-node-2
+  memcache-server = true
+[cluster "ghes-front-end-node-2"]
+  hostname = ghes-front-end-node-2
   ipv4 = 192.168.0.3
   # ipv6 = fd12:3456:789a:1::3
+  consul-datacenter = primary
+  datacenter = primary
   web-server = true
   job-server = true
-[cluster "ghe-data-node-1"]
-  hostname = ghe-data-node-1
+  memcache-server = true
+[cluster "ghes-database-node-1"]
+  hostname = ghes-database-node-1
   ipv4 = 192.168.0.4
   # ipv6 = fd12:3456:789a:1::4
+  consul-datacenter = primary
+  datacenter = primary
   consul-server = true
-  consul-datacenter = default
-  git-server = true
-  pages-server = true
   mysql-server = true
-  elasticsearch-server = true
   redis-server = true
-  memcache-server = true
-  metrics-server = true
-  storage-server = true
-[cluster "ghe-data-node-2"]
-  hostname = ghe-data-node-2
+[cluster "ghes-database-node-2"]
+  hostname = ghes-database-node-2
   ipv4 = 192.168.0.5
   # ipv6 = fd12:3456:789a:1::5
+  consul-datacenter = primary
+  datacenter = primary
   consul-server = true
-  consul-datacenter = default
-  git-server = true
-  pages-server = true
   mysql-server = true
-  elasticsearch-server = true
   redis-server = true
-  memcache-server = true
-  metrics-server = true
-  storage-server = true
-[cluster "ghe-data-node-3"]
-  hostname = ghe-data-node-3
+[cluster "ghes-database-node-3"]
+  hostname = ghes-database-node-3
   ipv4 = 192.168.0.6
   # ipv6 = fd12:3456:789a:1::6
+  consul-datacenter = primary
+  datacenter = primary
   consul-server = true
-  consul-datacenter = default
+  mysql-server = true
+  redis-server = true
+[cluster "ghes-search-node-1"]
+  hostname = ghes-search-node-1
+  ipv4 = 192.168.0.7
+  # ipv6 = fd12:3456:789a:1::7
+  consul-datacenter = primary
+  datacenter = primary
+  elasticsearch-server = true
+[cluster "ghes-search-node-2"]
+  hostname = ghes-search-node-2
+  ipv4 = 192.168.0.8
+  # ipv6 = fd12:3456:789a:1::8
+  consul-datacenter = primary
+  datacenter = primary
+  elasticsearch-server = true
+[cluster "ghes-search-node-3"]
+  hostname = ghes-search-node-3
+  ipv4 = 192.168.0.9
+  # ipv6 = fd12:3456:789a:1::9
+  consul-datacenter = primary
+  datacenter = primary
+  elasticsearch-server = true
+[cluster "ghes-storage-node-1"]
+  hostname = ghes-storage-node-1
+  ipv4 = 192.168.0.10
+  # ipv6 = fd12:3456:789a:1::10
+  consul-datacenter = primary
+  datacenter = primary
   git-server = true
   pages-server = true
-  mysql-server = true
-  elasticsearch-server = true
-  redis-server = true
-  memcache-server = true
-  metrics-server = true
   storage-server = true
+  metrics-server = true
+[cluster "ghes-storage-node-2"]
+  hostname = ghes-storage-node-2
+  ipv4 = 192.168.0.11
+  # ipv6 = fd12:3456:789a:1::11
+  consul-datacenter = primary
+  datacenter = primary
+  git-server = true
+  pages-server = true
+  storage-server = true
+  metrics-server = true
+[cluster "ghes-storage-node-3"]
+  hostname = ghes-storage-node-3
+  ipv4 = 192.168.0.12
+  # ipv6 = fd12:3456:789a:1::12
+  consul-datacenter = primary
+  datacenter = primary
+  git-server = true
+  pages-server = true
+  storage-server = true
+  metrics-server = true
 ```
 
 在配置的第一个节点上创建文件 `/data/user/common/cluster.conf`。 例如，使用 `vim`：

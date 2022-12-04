@@ -10,12 +10,12 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: db41434eae8bd3cf9036510705ee996f365f3fa1
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 332d8af7f1087626509a9c72751882ea11f3072f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145116689'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160361'
 ---
 ## Acerca de las migraciones empresariales a {% data variables.product.prodname_actions %}
 
@@ -53,7 +53,7 @@ Identifica las puertas y verificaciones en tu sistema existente y verifica que p
 
 ### Identificar y validar las herramientas de migración
 
-Las herramientas de migración automatizadas pueden traducir los flujos de trabajo de tu empresa desde la sintaxis de sistema existente a aquella que requiere {% data variables.product.prodname_actions %}. Identifica las herramientas de terceros o contacta a tu representante dedicado o {% data variables.contact.contact_enterprise_sales %} para preguntar sobre las herramientas que puede proporcionar {% data variables.product.company_short %}.
+Las herramientas de migración automatizadas pueden traducir los flujos de trabajo de tu empresa desde la sintaxis de sistema existente a aquella que requiere {% data variables.product.prodname_actions %}. Identifica las herramientas de terceros o contacta a tu representante dedicado o {% data variables.contact.contact_enterprise_sales %} para preguntar sobre las herramientas que puede proporcionar {% data variables.product.company_short %}. Por ejemplo, puedes usar {% data variables.product.prodname_actions_importer %} para planear, definir el ámbito y migrar las canalizaciones de CI a {% data variables.product.prodname_actions %} desde varios servicios admitidos. Para obtener más información, consulta "[Automatización de la migración con {% data variables.product.prodname_actions_importer %}](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)".
 
 Después de que hayas identificado una herramienta para automatizar tus migraciones, valídala ejecutándola en algunos flujos de trabajo de prueba y verifica que los resultados sean los esperados.
 

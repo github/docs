@@ -1,7 +1,7 @@
 ---
 title: 从 CodeQL 运行器迁移到 CodeQL CLI
 shortTitle: Migrating from the CodeQL runner
-intro: '您可以使用 {% data variables.product.prodname_codeql_cli %} 完成与 {% data variables.product.prodname_codeql_runner %} 相同的任务。'
+intro: '可以使用 {% data variables.product.prodname_codeql_cli %} 完成与 {% data variables.code-scanning.codeql_runner %} 相同的任务。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -12,17 +12,17 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
-ms.openlocfilehash: c58dfe006a1f9189ece847559d5ecfafde1f7d81
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 10711111e3fa5c7226574ac9b70eb4bd4d5bff21
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145098908'
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161262'
 ---
-# 从 {% data variables.product.prodname_codeql_runner %} 迁移到 {% data variables.product.prodname_codeql_cli %}
+# 从 {% data variables.code-scanning.codeql_runner %} 迁移到 {% data variables.product.prodname_codeql_cli %}
 
-{% data variables.product.prodname_codeql_runner %} 将被弃用。 您可以改用 {% data variables.product.prodname_codeql_cli %} 版本 2.6.2 及更高版本。
-本文档介绍如何将常见工作流程从 {% data variables.product.prodname_codeql_runner %} 迁移到 {% data variables.product.prodname_codeql_cli %}。
+{% data variables.code-scanning.codeql_runner %} 将被弃用。 您可以改用 {% data variables.product.prodname_codeql_cli %} 版本 2.6.2 及更高版本。
+本文档介绍如何将常见工作流程从 {% data variables.code-scanning.codeql_runner %} 迁移到 {% data variables.product.prodname_codeql_cli %}。
 
 ## 安装
 
@@ -32,7 +32,7 @@ ms.locfileid: '145098908'
 
 ## 工作流程更改概述
 
-使用 {% data variables.product.prodname_codeql_runner %} 分析代码库的典型工作流程具有以下步骤。
+使用 {% data variables.code-scanning.codeql_runner %} 分析代码库的典型工作流程具有以下步骤。
 - 使用 `codeql-runner-<platform> init` 开始创建 {% data variables.product.prodname_codeql %} 数据库并读取配置。
 - 对于编译的语言：设置 `init` 步骤生成的环境变量。
 - 对于编译的语言：运行自动构建或手动构建步骤。
@@ -44,7 +44,7 @@ ms.locfileid: '145098908'
 - 使用 `codeql database analyze` 运行查询以分析每个 {% data variables.product.prodname_codeql %} 数据库，并将结果汇总到 SARIF 文件中。 必须对每种语言或每个数据库运行一次此命令。
 - 使用 `codeql github upload-results` 将生成的 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}，以显示为代码扫描警报。 必须对每种语言或每个 SARIF 文件运行一次此命令。
 
-默认情况下，{% data variables.product.prodname_codeql_runner %} 是多线程的。 默认情况下，{% data variables.product.prodname_codeql_cli %} 仅使用单线程，但允许您指定希望它使用的线程数。 如果要复制 {% data variables.product.prodname_codeql_runner %} 的行为，以在使用 {% data variables.product.prodname_codeql_cli %} 时使用计算机上的所有可用线程，可以将 `--threads 0` 传递给 `codeql database analyze`。
+默认情况下，{% data variables.code-scanning.codeql_runner %} 是多线程的。 默认情况下，{% data variables.product.prodname_codeql_cli %} 仅使用单线程，但允许您指定希望它使用的线程数。 如果要复制 {% data variables.code-scanning.codeql_runner %} 的行为，以在使用 {% data variables.product.prodname_codeql_cli %} 时使用计算机上的所有可用线程，可以将 `--threads 0` 传递给 `codeql database analyze`。
 
 有关详细信息，请参阅“[在 CI 系统中配置 {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)”。
 
@@ -339,7 +339,7 @@ CLI：
 
 ### 使用自动构建的多种语言（C++、Python）
 
-此示例在 {% data variables.product.prodname_codeql_runner %} 中并非严格可行。
+此示例在 {% data variables.code-scanning.codeql_runner %} 中并非严格可行。
 将仅分析一种语言（文件最多的编译语言）。
 
 运行器：

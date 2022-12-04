@@ -4,12 +4,12 @@ intro: 'Organization の所有者は、Organization へのアクセスを要求�
 versions:
   feature: pat-v2
 shortTitle: Manage token requests
-ms.openlocfilehash: ea2f01436ca4649cae5310b14070625c5947922e
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 3925b74ad29268ec80eca8dd5355c58987e52843
+ms.sourcegitcommit: d309541e8f0e28bc1ec333a85b00218627e54fe1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107406'
+ms.lasthandoff: 11/03/2022
+ms.locfileid: '148131386'
 ---
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
@@ -38,6 +38,6 @@ Organization が所有するリソースにアクセスするために Organizat
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
 1. 左側のサイドバーの **[{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}]** の下にある **[保留中の要求]** をクリックします。 Organization の承認を待っているトークンがある場合、それらが表示されます。
-1. 必要に応じて、 **[所有者]** と **[リポジトリ]** ドロップダウン メニューを使って、要求を行っているメンバーで要求をフィルター処理します。
+{% data reusables.user-settings.patv2-filters %}
 1. 承認または拒否する各トークンを選びます。
 1. **[選択した要求の処理]** ドロップダウン メニューを選んで、 **[承認]** または **[拒否]** をクリックします。

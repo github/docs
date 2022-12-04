@@ -14,12 +14,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Apply to Global Campus
-ms.openlocfilehash: 2723cf809ae8d4d4a7c0d32c38515a4ee926abf8
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 52bc1182dcc4db72e0a1e9cbca5d5f1171293d69
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147574253'
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106614'
 ---
 ## 教師割引について
 
@@ -31,7 +31,10 @@ ms.locfileid: '147574253'
 
 ## {% data variables.product.prodname_global_campus %} への応募
 
-{% data reusables.education.benefits-page %} {% data reusables.education.click-get-teacher-benefits %} {% data reusables.education.select-email-address %} {% data reusables.education.upload-proof-status %} {% data reusables.education.school-name %} {% data reusables.education.plan-to-use-github %} {% data reusables.education.submit-application %}
+{% data reusables.education.benefits-page %} {% data reusables.education.click-get-teacher-benefits %}
+1. [教育機関での状態の選択] で、 **[教師]** を選びます。
+
+   ![[教師] 教育機関の状態の選択のスクリーンショット](/assets/images/help/education/academic-status-teacher.png) {% data reusables.education.select-email-address %} {% data reusables.education.school-name %} {% data reusables.education.plan-to-use-github %} {% data reusables.education.upload-proof-status %} {% data reusables.education.submit-application %}
 
 ## 参考資料
 

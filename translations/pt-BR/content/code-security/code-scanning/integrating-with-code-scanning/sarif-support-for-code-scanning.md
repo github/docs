@@ -1,7 +1,7 @@
 ---
-title: SARIF support for code scanning
+title: Suporte SARIF para a varredura de código
 shortTitle: SARIF support
-intro: 'To display results from a third-party static analysis tool in your repository on {% data variables.product.prodname_dotcom %}, you''ll need your results stored in a SARIF file that supports a specific subset of the SARIF 2.1.0 JSON schema for {% data variables.product.prodname_code_scanning %}. If you use the default {% data variables.product.prodname_codeql %} static analysis engine, then your results will display in your repository on {% data variables.product.prodname_dotcom %} automatically.'
+intro: 'Para exibir resultados de uma ferramenta de análise estática de terceiros em seu repositório em {% data variables.product.prodname_dotcom %}, você precisará de seus resultados armazenados em um arquivo SARIF que dê suporte a um subconjunto específico do esquema JSON SARIF 2.1.0 para dados {% data variables.product.prodname_code_scanning %}. Se você usar o mecanismo de análise estática padrão do {% data variables.product.prodname_codeql %}, os resultados aparecerão automaticamente no seu repositório no {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -20,70 +20,74 @@ topics:
   - Code scanning
   - Integration
   - SARIF
+ms.openlocfilehash: 98d0e4620d240c3e1863aaee6f57a5834c86018b
+ms.sourcegitcommit: aa488e9e641139f9056885b1479c8801e9906131
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148162788'
 ---
-
-
 {% data reusables.code-scanning.beta %}
 
-## About SARIF support
+## Sobre o suporte SARIF
 
-SARIF (Static Analysis Results Interchange Format) is an [OASIS Standard](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html) that defines an output file format. The SARIF standard is used to streamline how static analysis tools share their results. {% data variables.product.prodname_code_scanning_capc %} supports a subset of the SARIF 2.1.0 JSON schema.
+O SARIF (Static Analysis Results Interchange Format) é um [Padrão do OASIS](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html) que define um formato de arquivo de saída. O padrão SARIF é usado para simplificar como as ferramentas de análise estáticas compartilham seus resultados. O {% data variables.product.prodname_code_scanning_capc %} é compatível com um subconjunto do esquema SARIF 2.1.0 JSON.
 
-To upload a SARIF file from a third-party static code analysis engine, you'll need to ensure that uploaded files use the SARIF 2.1.0 version. {% data variables.product.prodname_dotcom %} will parse the SARIF file and show alerts using the results in your repository as a part of the {% data variables.product.prodname_code_scanning %} experience. For more information, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github)." For more information about the SARIF 2.1.0 JSON schema, see [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/CommitteeSpecifications/2.1.0/sarif-schema-2.1.0.json).
+Para fazer o upload de um arquivo SARIF a partir de um mecanismo de análise de código estático de terceiros, você deverá garantir que os arquivos carregados usem a versão SARIF 2.1.0. {% data variables.product.prodname_dotcom %} analisará o arquivo SARIF e mostrará alertas utilizando os resultados no seu repositório como parte da experiência de {% data variables.product.prodname_code_scanning %}. Para obter mais informações, confira "[Como carregar um arquivo SARIF no {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github)". Para obter mais informações sobre o esquema JSON SARIF 2.1.0, confira [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/CommitteeSpecifications/2.1.0/sarif-schema-2.1.0.json).
 
-If you're using {% data variables.product.prodname_actions %} with the {% data variables.product.prodname_codeql_workflow %}{% ifversion codeql-runner-supported %}, using the {% data variables.product.prodname_codeql_runner %},{% endif %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"{% ifversion codeql-runner-supported %}, "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)",{% endif %} or "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+Se você estiver usando {% data variables.product.prodname_actions %} com o {% data variables.code-scanning.codeql_workflow %}{% ifversion codeql-runner-supported %}, usando o {% data variables.code-scanning.codeql_runner %},{% endif %} ou usando o {% data variables.product.prodname_codeql_cli %}, os resultados de {% data variables.product.prodname_code_scanning %} usarão automaticamente o subconjunto do SARIF 2.1.0. Para obter mais informações, confira "[Como configurar a {% data variables.product.prodname_code_scanning %} em um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"{% ifversion codeql-runner-supported %}, "[Como executar o {% data variables.code-scanning.codeql_runner %} no seu sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)" {% endif %} ou "[Como instalar a CLI do CodeQL no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)".
 
-You can upload multiple SARIF files for the same commit, and display the data from each file as {% data variables.product.prodname_code_scanning %} results. When you upload multiple SARIF files for a commit, you must indicate a "category" for each analysis. The way to specify a category varies according to the analysis method:
-- Using the {% data variables.product.prodname_codeql_cli %} directly, pass the `--sarif-category` argument to the `codeql database analyze` command when you generate SARIF files. For more information, see "[Configuring CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#about-generating-code-scanning-results-with-codeql-cli)."
-- Using {% data variables.product.prodname_actions %} with `codeql-action/analyze`, the category is set automatically from the workflow name and any matrix variables (typically, `language`). You can override this by specifying a `category` input for the action, which is useful when you analyze different sections of a mono-repository in a single workflow.
-- Using {% data variables.product.prodname_actions %} to upload results from other static analysis tools, then you must specify a `category` input if you upload more than one file of results for the same tool in one workflow. For more information, see "[Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
-- If you are not using either of these approaches, you must specify a unique `runAutomationDetails.id` in each SARIF file to upload. For more information about this property, see [`runAutomationDetails` object](#runautomationdetails-object) below.
+Você pode fazer o upload de vários arquivos SARIF para o mesmo commit e exibir os dados de cada arquivo como resultado de {% data variables.product.prodname_code_scanning %}. Ao fazer o upload de vários arquivos SARIF para um commit, você deverá indicar uma "categoria" para cada análise. A forma de especificar uma categoria varia de acordo com o método de análise:
+- Usando a {% data variables.product.prodname_codeql_cli %} diretamente, transmita o argumento `--sarif-category` para o comando `codeql database analyze` ao gerar arquivos SARIF. Para obter mais informações, confira "[Como configurar a CLI do CodeQL no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#about-generating-code-scanning-results-with-codeql-cli)".
+- Usando o {% data variables.product.prodname_actions %} com `codeql-action/analyze`, a categoria será definida automaticamente com base no nome do fluxo de trabalho e em qualquer variável de matriz (geralmente, `language`). Substitua isso especificando uma entrada `category` para a ação, que é útil quando você analisa diferentes seções de um monorrepositório em um fluxo de trabalho individual.
+- Usando o {% data variables.product.prodname_actions %} para carregar os resultados de outras ferramentas de análise estática, você precisará especificar uma entrada `category` se carregar mais de um arquivo de resultados para a mesma ferramenta em um fluxo de trabalho. Para obter mais informações, confira "[Como carregar uma análise da {% data variables.product.prodname_code_scanning %} com o {% data variables.product.prodname_actions %}](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions).".
+- Se não estiver usando nenhuma dessas abordagens, especifique uma `runAutomationDetails.id` exclusiva em cada arquivo SARIF para upload. Para obter mais informações sobre os valores dessa propriedade, confira o [objeto `runAutomationDetails`](#runautomationdetails-object) abaixo.
 
-If you upload a second SARIF file for a commit with the same category and from the same tool, the earlier results are overwritten. However, if you try to upload multiple SARIF files for the same tool and category in a single {% data variables.product.prodname_actions %} workflow run, the misconfiguration is detected and the run will fail.
+Se você fizer o upload de um segundo arquivo SARIF para um commit com a mesma categoria e a partir da mesma ferramenta, os resultados anteriores serão substituídos. No entanto, se você tentar fazer o upload de vários arquivos SARIF para a mesma ferramenta e categoria em um único fluxo de trabalho de {% data variables.product.prodname_actions %}, a configuração incorreta será detectada e a execução falhará.
 
-{% data variables.product.prodname_dotcom %} uses properties in the SARIF file to display alerts. For example, the `shortDescription` and `fullDescription` appear at the top of a {% data variables.product.prodname_code_scanning %} alert. The `location` allows {% data variables.product.prodname_dotcom %} to show annotations in your code file. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_dotcom %} usa propriedades no arquivo SARIF para exibir alertas. Por exemplo, a `shortDescription` e a `fullDescription` são exibidas na parte superior de um alerta da {% data variables.product.prodname_code_scanning %}. O `location` permite que o {% data variables.product.prodname_dotcom %} mostre as anotações no seu arquivo de código. Para obter mais informações, confira "[Como gerenciar alertas da {% data variables.product.prodname_code_scanning %} do seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 
-If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) repository.
+Se estiver familiarizado com o SARIF e quiser saber mais, confira o repositório [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) da Microsoft.
 
-## Providing data to track {% data variables.product.prodname_code_scanning %} alerts across runs
+## Como fornecer dados para acompanhar os alertas {% data variables.product.prodname_code_scanning %} em todas as execuções
 
-Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the correct line of code when files are edited. The `ruleID` for a result has to be the same across analysis.
+Cada vez que os resultados de uma nova verificação de código são carregados, os resultados são processados e os alertas são adicionados ao repositório. Para evitar alertas duplicados para o mesmo problema, {% data variables.product.prodname_code_scanning %} usa impressões digitais para corresponder aos resultados em várias execuções, para que apareçam apenas uma vez na última execução do ramo selecionado. Isto torna possível combinar alertas com a linha de código correta quando os arquivos são editados. O `ruleID` de um resultado deve ser o mesmo em toda a análise.
  
-### Reporting consistent filepaths
+### Como relatar caminhos de arquivo consistentes
 
-The filepath has to be consistent across the runs to enable a computation of a stable fingerprint. If the filepaths differ for the same result, each time there is a new analysis a new alert will be created, and the old one will be closed. This will cause having multiple alerts for the same result.
+O caminho do arquivo precisa ser consistente entre as execuções para habilitar a computação de uma impressão digital estável. Se os caminhos de arquivo forem diferentes para o mesmo resultado, sempre que houver uma nova análise, um novo alerta será criado e o antigo será fechado. Isso causará vários alertas para o mesmo resultado.
 
-### Including data for fingerprint generation
+### Como incluir dados para geração de impressão digital
 
-{% data variables.product.prodname_dotcom %} uses the `partialFingerprints` property in the OASIS standard to detect when two results are logically identical. For more information, see the "[partialFingerprints property](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" entry in the OASIS documentation.
+O {% data variables.product.prodname_dotcom %} usa a propriedade `partialFingerprints` no padrão OASIS para detectar quando dois resultados são logicamente idênticos. Para obter mais informações, confira a entrada "[propriedade partialFingerprints](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" na documentação do OASIS.
 
-SARIF files created by the {% data variables.product.prodname_codeql_workflow %}, {% ifversion codeql-runner-supported %}using the {% data variables.product.prodname_codeql_runner %}, {% endif %}or using the {% data variables.product.prodname_codeql_cli %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
+Os arquivos SARIF criados pelo {% data variables.code-scanning.codeql_workflow %}, {% ifversion codeql-runner-supported %}que usam o {% data variables.code-scanning.codeql_runner %}, {% endif %}ou que usam {% data variables.product.prodname_codeql_cli %} incluem dados de impressão digital. Se você carregar um arquivo SARIF usando a ação `upload-sarif` e esses dados estiverem ausentes, o {% data variables.product.prodname_dotcom %} tentará preencher o campo `partialFingerprints` usando os arquivos de origem. Para obter mais informações sobre como carregar resultados, confira "[Como carregar um arquivo SARIF no {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)".
 
-If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)."
+Se você carregar um arquivo SARIF sem dados de impressão digital usando o ponto de extremidade de API `/code-scanning/sarifs`, os alertas da {% data variables.product.prodname_code_scanning %} serão processados e exibidos, mas os usuários poderão ver alertas duplicados. Para evitar ver alertas duplicados, calcule dados de impressão digital e preencha a propriedade `partialFingerprints` antes de carregar o arquivo SARIF. Você pode achar o script usado pela ação `upload-sarif` um ponto de partida útil: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. Para obter mais informações sobre a API, confira "[Carregar uma análise como dados SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)".
 
-## Understanding rules and results
+## Noções básicas sobre regras e resultados
 
-SARIF files support both rules and results. The information stored in these elements is similar but serves different purposes.
+Os arquivos SARIF dão suporte a regras e resultados. As informações armazenadas nesses elementos são semelhantes, mas têm propósitos diferentes.
 
-- Rules are an array of `reportingDescriptor` objects that are included in the `toolComponent` object. This is where you store details of the rules that are run during analysis. Information in these objects should change infrequently, typically when you update the tool.
+- As regras são uma matriz de objetos `reportingDescriptor` que estão incluídos no objeto `toolComponent`. Nele, são armazenados detalhes das regras que são executadas durante a análise. As informações nesses objetos devem ser alteradas com pouca frequência, geralmente quando você atualiza a ferramenta.
 
-- Results are stored as a series of `result` objects under `results` in the `run` object. Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert.
+- Os resultados são armazenados como uma série de objetos `result` sob `results` no objeto `run`. Cada objeto `result` contém detalhes de um alerta na base de código. Dentro do objeto `results`, você pode fazer referência à regra que detectou o alerta.
 
-When you compare SARIF files generated by analyzing different codebases with the same tool and rules, you should see differences in the results of the analyses but not in the rules.
+Ao comparar arquivos SARIF gerados pela análise de diferentes bases de código com a mesma ferramenta e regras, verá diferenças nos resultados das análises, mas não nas regras.
 
-## Specifying the root for source files
+## Como especificar a raiz para arquivos de origem
 
-{% data variables.product.prodname_code_scanning_capc %} interprets results that are reported with relative paths as relative to the root of the repository analyzed. If a result contains an absolute URI, the URI is converted to a relative URI. The relative URI can then be matched against a file committed to the repository.
+{% data variables.product.prodname_code_scanning_capc %} interpreta os resultados relatados com os caminhos relativos baseados na raiz do repositório analisado. Se um resultado contiver um URI absoluto, ele será convertido em um URI relativo. Em seguida, o URI relativo pode ser correspondido com um arquivo confirmado no repositório.
 
-You can provide the source root for conversion from absolute to relative URIs in one of the following ways.
+Você pode fornecer a raiz de origem para conversão de URIs absolutos em relativos de uma das maneiras a seguir.
 
-- [`checkout_path`](https://github.com/github/codeql-action/blob/c2c0a2908e95769d01b907f9930050ecb5cf050d/analyze/action.yml#L44-L47) input to the `github/codeql-action/analyze` action
-- `checkout_uri` parameter to the SARIF upload API endpoint. For more information, see "[{% data variables.product.prodname_code_scanning_capc %}](/rest/code-scanning#upload-an-analysis-as-sarif-data)" in the REST API documentation
-- [`invocation.workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) property in the SARIF file
+- Entrada [`checkout_path`](https://github.com/github/codeql-action/blob/c2c0a2908e95769d01b907f9930050ecb5cf050d/analyze/action.yml#L44-L47) para a ação `github/codeql-action/analyze`
+- Parâmetro `checkout_uri` para o ponto de extremidade da API de upload de SARIF. Para obter mais informações, confira "[{% data variables.product.prodname_code_scanning_capc %}](/rest/code-scanning#upload-an-analysis-as-sarif-data)" na documentação da API REST
+- Propriedade [`invocation.workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) no arquivo SARIF
 
-If you provide a source root, any location of an artifact specified using an absolute URI must use the same URI scheme. If there is a mismatch between the URI scheme for the source root and one or more of the absolute URIs, the upload is rejected.
+Se você fornecer uma raiz de origem, qualquer local de um artefato especificado usando um URI absoluto deverá usar o mesmo esquema de URI. Se houver uma incompatibilidade entre o esquema de URI para a raiz de origem e um ou mais URIs absolutos, o upload será rejeitado.
 
-For example, a SARIF file is uploaded using a source root of `file:///github/workspace`. 
+Por exemplo, um arquivo SARIF é carregado usando uma raiz de origem de `file:///github/workspace`. 
 
 ```
 # Conversion of absolute URIs to relative URIs for location artifacts
@@ -92,155 +96,155 @@ file:///github/workspace/src/main.go -> src/main.go
 file:///tmp/go-build/tmp.go          -> file:///tmp/go-build/tmp.go
 ```
 
-The file is successfully uploaded as both absolute URIs use the same URI scheme as the source root.
+O arquivo é carregado com êxito, pois ambos os URIs absolutos usam o mesmo esquema de URI que a raiz de origem.
 
-## Validating your SARIF file
+## Validar seu arquivo SARIF
 
 <!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
-You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
+Você pode marcar um arquivo SARIF compatível com {% data variables.product.prodname_code_scanning %} testando-o com as regras de ingestão de {% data variables.product.prodname_dotcom %}. Para obter mais informações, acesse o [validador de SARIF da Microsoft](https://sarifweb.azurewebsites.net/).
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-## Supported SARIF output file properties
+## Propriedades compatíveis do arquivo de saída SARIF
 
-If you use a code analysis engine other than {% data variables.product.prodname_codeql %}, you can review the supported SARIF properties to optimize how your analysis results will appear on {% data variables.product.prodname_dotcom %}.
+Se você usar um mecanismo de análise de código diferente de {% data variables.product.prodname_codeql %}, você poderá revisar as propriedades do SARIF compatíveis para otimizar como seus resultados de análise aparecerão em {% data variables.product.prodname_dotcom %}.
 
 {% note %}
 
-**Note:** You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
+**Observação:** você deve fornecer um valor explícito para qualquer propriedade marcada como "obrigatória". Não há suporte para cadeias de caracteres vazias em propriedades obrigatórias.
 
 {% endnote %}
 
-Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.product.prodname_code_scanning %} will only use the following supported properties.
+É possível fazer o upload de qualquer arquivo de saída SARIF 2.1.0 válido, no entanto, {% data variables.product.prodname_code_scanning %} usará apenas as seguintes propriedades compatíveis.
 
-### `sarifLog` object
+### Objeto `sarifLog`
 
-| Name | Description |
+| Nome | Descrição |
 |----|----|
-|  `$schema` | **Required.** The URI of the SARIF JSON schema for version 2.1.0. For example, `https://json.schemastore.org/sarif-2.1.0.json`. |
-| `version` | **Required.** {% data variables.product.prodname_code_scanning_capc %} only supports SARIF version `2.1.0`.
-| `runs[]` | **Required.** A SARIF file contains an array of one or more runs. Each run represents a single run of an analysis tool. For more information about a `run`, see the [`run` object](#run-object).
+|  `$schema` | **Necessário.** O URI do esquema SARIF JSON para a versão 2.1.0. Por exemplo, `https://json.schemastore.org/sarif-2.1.0.json`. |
+| `version` | **Necessário.** A {% data variables.product.prodname_code_scanning_capc %} só dá suporte à versão SARIF `2.1.0`.
+| `runs[]` | **Necessário.** Um arquivo SARIF contém uma matriz de uma ou mais execuções. Cada execução representa uma execução única de uma ferramenta de análise. Para obter mais informações sobre uma `run`, confira o [objeto `run`](#run-object).
 
-### `run` object
+### Objeto `run`
 
-{% data variables.product.prodname_code_scanning_capc %} uses the `run` object to filter results by tool and provide information about the source of a result. The `run` object contains the `tool.driver` tool component object, which contains information about the tool that generated the results. Each `run` can only have results for one analysis tool.
+A {% data variables.product.prodname_code_scanning_capc %} usa o objeto `run` para filtrar os resultados por ferramenta e fornecer informações sobre a fonte de um resultado. O objeto `run` contém o objeto `tool.driver` de componentes da ferramenta, que contém informações sobre a ferramenta que gerou os resultados. Cada `run` pode ter resultados apenas para uma ferramenta de análise.
 
-| Name | Description |
+| Nome | Descrição |
 |----|----|
-| `tool.driver` | **Required.** A `toolComponent` object that describes the analysis tool. For more information, see the [`toolComponent` object](#toolcomponent-object). |
-| `tool.extensions[]` | **Optional.** An array of `toolComponent` objects that represent any plugins or extensions used by the tool during analysis. For more information, see the [`toolComponent` object](#toolcomponent-object). |
-| `invocation.workingDirectory.uri` | **Optional.** This field is used only when `checkout_uri` (SARIF upload API only) or `checkout_path` ({% data variables.product.prodname_actions %} only) are not provided. The value is used to convert absolute URIs used in [`physicalLocation` objects](#physicallocation-object) to relative URIs. For more information, see "[Specifying the root for source files](#specifying-the-root-for-source-files)."|
-| `results[]` | **Required.** The results of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the results on {% data variables.product.prodname_dotcom %}. For more information, see the [`result` object](#result-object).
+| `tool.driver` | **Necessário.** Um objeto `toolComponent` que descreve a ferramenta de análise. Para obter mais informações, confira o [objeto `toolComponent`](#toolcomponent-object). |
+| `tool.extensions[]` | **Opcional.** Uma matriz de objetos `toolComponent` que representam plug-ins ou extensões usadas pela ferramenta durante a análise. Para obter mais informações, confira o [objeto `toolComponent`](#toolcomponent-object). |
+| `invocation.workingDirectory.uri` | **Opcional.** Esse campo é usado somente quando `checkout_uri` (somente API de upload do SARIF) ou `checkout_path` (somente {% data variables.product.prodname_actions %}) não são fornecidos. O valor é usado para converter URIs absolutos usados em [objetos `physicalLocation`](#physicallocation-object) em URIs relativos. Para obter mais informações, confira "[Como especificar a raiz para arquivos de origem](#specifying-the-root-for-source-files)".|
+| `results[]` | **Necessário.** Os resultados da ferramenta de análise. {% data variables.product.prodname_code_scanning_capc %} exibe os resultados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, confira o [objeto `result`](#result-object).
 
-### `toolComponent` object
+### Objeto `toolComponent`
 
-| Name | Description |
+| Nome | Descrição |
 |----|----|
-| `name` | **Required.** The name of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the name on {% data variables.product.prodname_dotcom %} to allow you to filter results by tool. |
-| `version` | **Optional.** The version of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} uses the version number to track when results may have changed due to a tool version change rather than a change in the code being analyzed. If the SARIF file includes the `semanticVersion` field, `version` is not used by {% data variables.product.prodname_code_scanning %}. |
-| `semanticVersion` | **Optional.** The version of the analysis tool, specified by the Semantic Versioning 2.0 format. {% data variables.product.prodname_code_scanning_capc %} uses the version number to track when results may have changed due to a tool version change rather than a change in the code being analyzed. If the SARIF file includes the `semanticVersion` field, `version` is not used by {% data variables.product.prodname_code_scanning %}. For more information, see "[Semantic Versioning 2.0.0](https://semver.org/)" in the Semantic Versioning documentation. |
-| `rules[]` | **Required.** An array of `reportingDescriptor` objects that represent rules. The analysis tool uses rules to find problems in the code being analyzed. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). |
+| `name` | **Necessário.** O nome da ferramenta de análise. {% data variables.product.prodname_code_scanning_capc %} exibe o nome em {% data variables.product.prodname_dotcom %} para permitir que você filtre resultados por ferramenta. |
+| `version` | **Opcional.** A versão da ferramenta de análise. O {% data variables.product.prodname_code_scanning_capc %} usa o número da versão para fazer o monitoramento quando os resultados podem ter mudado devido a uma mudança na versão da ferramenta em vez de uma mudança no código que está sendo analisado. Se o arquivo SARIF incluir o campo `semanticVersion`, `version` não será usado pela {% data variables.product.prodname_code_scanning %}. |
+| `semanticVersion` | **Opcional.** A versão da ferramenta de análise, especificada pelo formato Versionamento Semântico 2.0. O {% data variables.product.prodname_code_scanning_capc %} usa o número da versão para fazer o monitoramento quando os resultados podem ter mudado devido a uma mudança na versão da ferramenta em vez de uma mudança no código que está sendo analisado. Se o arquivo SARIF incluir o campo `semanticVersion`, `version` não será usado pela {% data variables.product.prodname_code_scanning %}. Para obter mais informações, confira "[Versionamento Semântico 2.0.0](https://semver.org/)" na documentação do Versionamento Semântico. |
+| `rules[]` | **Necessário.** A matriz de objetos `reportingDescriptor` que representa as regras. A ferramenta de análise usa regras para encontrar problemas no código que está sendo analisado. Para obter mais informações, confira o [objeto `reportingDescriptor`](#reportingdescriptor-object). |
 
-### `reportingDescriptor` object
+### Objeto `reportingDescriptor`
 
-This is where you store details of the rules that are run during analysis. Information in these objects should change infrequently, typically when you update the tool. For more information,  see "[Understanding rules and results](#understanding-rules-and-results)" above.
+Nele, são armazenados detalhes das regras que são executadas durante a análise. As informações nesses objetos devem ser alteradas com pouca frequência, geralmente quando você atualiza a ferramenta. Para obter mais informações, consulte "[Noções básicas sobre regras e resultados](#understanding-rules-and-results)" acima.
 
-| Name | Description |
+| Nome | Descrição |
 |----|----|
-| `id` |  **Required.** A unique identifier for the rule. The `id` is referenced from other parts of the SARIF file and may be used by {% data variables.product.prodname_code_scanning %} to display URLs on {% data variables.product.prodname_dotcom %}. |
-| `name` | **Optional.** The name of the rule. {% data variables.product.prodname_code_scanning_capc %} displays the name to allow results to be filtered by rule on {% data variables.product.prodname_dotcom %}. |
-| `shortDescription.text` | **Required.** A concise description of the rule. {% data variables.product.prodname_code_scanning_capc %} displays the short description on {% data variables.product.prodname_dotcom %} next to the associated results.
-| `fullDescription.text` | **Required.** A description of the rule. {% data variables.product.prodname_code_scanning_capc %} displays the full description on {% data variables.product.prodname_dotcom %} next to the associated results. The max number of characters is limited to 1000.
-| `defaultConfiguration.level` | **Optional.** Default severity level of the rule. {% data variables.product.prodname_code_scanning_capc %} uses severity levels to help you understand how critical the result is for a given rule. This value can be overridden by the `level` attribute in the `result` object. For more information, see the [`result` object](#result-object). Default: `warning`.
-| `help.text` | **Required.** Documentation for the rule using text format. {% data variables.product.prodname_code_scanning_capc %} displays this help documentation next to the associated results.
-| `help.markdown` | **Recommended.** Documentation for the rule using Markdown format. {% data variables.product.prodname_code_scanning_capc %} displays this help documentation next to the associated results. When `help.markdown` is available, it is displayed instead of `help.text`.
-| `properties.tags[]` | **Optional.** An array of strings. {% data variables.product.prodname_code_scanning_capc %} uses `tags` to allow you to filter results on {% data variables.product.prodname_dotcom %}. For example, it is possible to filter to all results that have the tag `security`.
-| `properties.precision` | **Recommended.** A string that indicates how often the results indicated by this rule are true. For example, if a rule has a known high false-positive rate, the precision should be `low`. {% data variables.product.prodname_code_scanning_capc %} orders results by precision on {% data variables.product.prodname_dotcom %} so that the results with the highest `level`, and highest `precision` are shown first. Can be one of: `very-high`, `high`, `medium`, or `low`. 
-| `properties.problem.severity` | **Recommended.** A string that indicates the level of severity of any alerts generated by a non-security query. This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `problem.severity`, and highest `precision` are shown first. Can be one of: `error`, `warning`, or `recommendation`.
-| `properties.security-severity` | **Recommended.** A string representing a score that indicates the level of severity, between 0.0 and 10.0, for security queries (`@tags` includes `security`). This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `security-severity`, and highest `precision` are shown first. {% data variables.product.prodname_code_scanning_capc %} translates numerical scores as follows: over 9.0 is `critical`, 7.0 to 8.9  is `high`, 4.0 to 6.9 is `medium` and 3.9 or less is `low`. 
+| `id` |  **Necessário.** Um identificador exclusivo para a regra. A `id` é referenciada com base em outras partes do arquivo SARIF e pode ser usada pela {% data variables.product.prodname_code_scanning %} para exibir URLs no {% data variables.product.prodname_dotcom %}. |
+| `name` | **Opcional.** O nome da regra. {% data variables.product.prodname_code_scanning_capc %} exibe o nome para permitir que os resultados sejam filtrados pela regra em {% data variables.product.prodname_dotcom %}. |
+| `shortDescription.text` | **Necessário.** Uma descrição concisa da regra. {% data variables.product.prodname_code_scanning_capc %} exibe a breve descrição em {% data variables.product.prodname_dotcom %} ao lado dos resultados associados.
+| `fullDescription.text` | **Necessário.** Descrição da regra. {% data variables.product.prodname_code_scanning_capc %} exibe a descrição completa em {% data variables.product.prodname_dotcom %} ao lado dos resultados associados. O número máximo de caracteres é 1000.
+| `defaultConfiguration.level` | **Opcional.** Nível de gravidade padrão da regra. {% data variables.product.prodname_code_scanning_capc %} usa níveis de gravidade para ajudar você a entender quão crítico é o resultado para uma determinada regra. Esse valor pode ser substituído pelo atributo `level` no objeto `result`. Para obter mais informações, confira o [objeto `result`](#result-object). Padrão: `warning`.
+| `help.text` | **Necessário.** Documentação da regra usando o formato de texto. O {% data variables.product.prodname_code_scanning_capc %} exibe essa documentação de ajuda ao lado dos resultados associados.
+| `help.markdown` | **Recomendado.** Documentação da regra usando o formato Markdown. O {% data variables.product.prodname_code_scanning_capc %} exibe essa documentação de ajuda ao lado dos resultados associados. Quando `help.markdown` está disponível, ele é exibido em vez de `help.text`.
+| `properties.tags[]` | **Opcional.** Uma matriz de cadeias de caracteres. A {% data variables.product.prodname_code_scanning_capc %} usa `tags` para permitir que você filtre os resultados no {% data variables.product.prodname_dotcom %}. Por exemplo, é possível filtrar todos os resultados que têm a marca `security`.
+| `properties.precision` | **Recomendado.** Uma cadeia de caracteres que indica a frequência com que os resultados indicados por essa regra são verdadeiros. Por exemplo, se uma regra tem uma alta taxa conhecida de falsos-positivos, a precisão deve ser `low`. O {% data variables.product.prodname_code_scanning_capc %} ordena os resultados por precisão no {% data variables.product.prodname_dotcom %}, de modo que os resultados com o `level` mais alto e a `precision` mais alta sejam mostrados primeiro. Pode ser `very-high`, `high`, `medium` ou `low`. 
+| `properties.problem.severity` | **Recomendado.** Uma cadeia de caracteres que indica o nível de gravidade de todos os alertas gerados por uma consulta que não é de segurança. Isso, com a propriedade `properties.precision`, determina se os resultados são exibidos por padrão no {% data variables.product.prodname_dotcom %}, de modo que os resultados com a `problem.severity` mais alta e a `precision` mais alta sejam mostrados primeiro. Pode ser `error`, `warning` ou `recommendation`.
+| `properties.security-severity` | **Recomendado.** Uma cadeia de caracteres que representa uma pontuação que indica o nível de gravidade, entre 0,0 e 10,0, de consultas de segurança (`@tags` inclui `security`). Isso, com a propriedade `properties.precision`, determina se os resultados são exibidos por padrão no {% data variables.product.prodname_dotcom %}, de modo que os resultados com a `security-severity` mais alta e a `precision` mais alta sejam mostrados primeiro. A {% data variables.product.prodname_code_scanning_capc %} converte as pontuações numéricas da seguinte maneira: uma pontuação acima de 9,0 é `critical`, de 7,0 a 8,9 é `high`, de 4,0 a 6,9 é `medium` e 3,9 ou menos é `low`. 
 
-### `result` object
+### Objeto `result`
 
-Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert. For more information,  see "[Understanding rules and results](#understanding-rules-and-results)" above.
+Cada objeto `result` contém detalhes de um alerta na base de código. Dentro do objeto `results`, você pode fazer referência à regra que detectou o alerta. Para obter mais informações, consulte "[Noções básicas sobre regras e resultados](#understanding-rules-and-results)" acima.
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-| Name | Description |
+| Nome | Descrição |
 |----|----|
-| `ruleId`| **Optional.** The unique identifier of the rule (`reportingDescriptor.id`). For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). {% data variables.product.prodname_code_scanning_capc %} uses the rule identifier to filter results by rule on {% data variables.product.prodname_dotcom %}.
-| `ruleIndex`| **Optional.** The index of the associated rule (`reportingDescriptor` object) in the tool component `rules` array. For more information, see the [`run` object](#run-object). The allowed range for this property 0 to 2^63 - 1.
-| `rule`| **Optional.** A reference used to locate the rule (reporting descriptor) for this result. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object).
-| `level`| **Optional.** The severity of the result. This level overrides the default severity defined by the rule. {% data variables.product.prodname_code_scanning_capc %} uses the level to filter results by severity on {% data variables.product.prodname_dotcom %}.
-| `message.text`| **Required.** A message that describes the result. {% data variables.product.prodname_code_scanning_capc %} displays the message text as the title of the result. Only the first sentence of the message will be displayed when visible space is limited.
-| `locations[]`| **Required.** The set of locations where the result was detected up to a maximum of 10. Only one location should be included unless the problem can only be corrected by making a change at every specified location. **Note:** At least one location is required for {% data variables.product.prodname_code_scanning %} to display a result. {% data variables.product.prodname_code_scanning_capc %} will use this property to decide which file to annotate with the result. Only the first value of this array is used. All other values are ignored.
-| `partialFingerprints`| **Required.** A set of strings used to track the unique identity of the result. {% data variables.product.prodname_code_scanning_capc %} uses `partialFingerprints` to accurately identify which results are the same across commits and branches. {% data variables.product.prodname_code_scanning_capc %} will attempt to use `partialFingerprints` if they exist. If you are uploading third-party SARIF files with the `upload-action`, the action will create `partialFingerprints` for you when they are not included in the SARIF file. For more information, see "[Providing data to track code scanning alerts across runs](#providing-data-to-track-code-scanning-alerts-across-runs)."  **Note:** {% data variables.product.prodname_code_scanning_capc %} only uses the `primaryLocationLineHash`.
-| `codeFlows[].threadFlows[].locations[]`| **Optional.** An array of `location` objects for a `threadFlow` object, which describes the progress of a program through a thread of execution. A `codeFlow` object describes a pattern of code execution used to detect a result. If code flows are provided, {% data variables.product.prodname_code_scanning %} will expand code flows on {% data variables.product.prodname_dotcom %} for the relevant result. For more information, see the [`location` object](#location-object).
-| `relatedLocations[]`| A set of locations relevant to this result. {% data variables.product.prodname_code_scanning_capc %} will link to related locations when they are embedded in the result message. For more information, see the [`location` object](#location-object).
+| `ruleId`| **Opcional.** O identificador exclusivo da regra (`reportingDescriptor.id`). Para obter mais informações, confira o [objeto `reportingDescriptor`](#reportingdescriptor-object). {% data variables.product.prodname_code_scanning_capc %} usa o identificador da regra para filtrar os resultados por regra em {% data variables.product.prodname_dotcom %}.
+| `ruleIndex`| **Opcional.** O índice da regra associada (objeto `reportingDescriptor`) na matriz `rules` de componentes da ferramenta. Para obter mais informações, confira o [objeto `run`](#run-object). O intervalo permitido para essa propriedade 0 a 2^63 - 1.
+| `rule`| **Opcional.** Uma referência usada para localizar a regra (descritor de relatório) para esse resultado. Para obter mais informações, confira o [objeto `reportingDescriptor`](#reportingdescriptor-object).
+| `level`| **Opcional.** A gravidade do resultado. Esse nível sobrepõe a severidade-padrão definida pela regra. {% data variables.product.prodname_code_scanning_capc %} usa o nível para filtrar resultados por gravidade em {% data variables.product.prodname_dotcom %}.
+| `message.text`| **Necessário.** Uma mensagem que descreve o resultado. {% data variables.product.prodname_code_scanning_capc %} exibe o texto da mensagem como o título do resultado. Apenas a primeira frase da mensagem será exibida quando o espaço visível for limitado.
+| `locations[]`| **Necessário.** O conjunto de locais em que o resultado foi detectado até, no máximo, dez. Só um local deve ser incluído, a não ser que o problema só possa ser corrigido fazendo uma alteração em cada local especificado. **Observação:** Pelo menos, um local é necessário para a {% data variables.product.prodname_code_scanning %} exibir um resultado. {% data variables.product.prodname_code_scanning_capc %} usará essa propriedade para decidir qual arquivo fazer anotações com o resultado. Apenas o primeiro valor desse array é usado. Todos os outros valores são ignorados.
+| `partialFingerprints`| **Necessário.** Um conjunto de cadeias de caracteres usadas para acompanhar a identidade exclusiva do resultado. A {% data variables.product.prodname_code_scanning_capc %} usa `partialFingerprints` para identificar com precisão quais resultados são iguais em todos os commits e branches. A {% data variables.product.prodname_code_scanning_capc %} tentará usar `partialFingerprints`, se houver. Se você estiver carregando arquivos SARIF de terceiros com a `upload-action`, a ação criará `partialFingerprints` para você quando eles não estiverem incluídos no arquivo SARIF. Para obter mais informações, confira "[Como fornecer dados para rastrear alertas de exame de código nas execuções](#providing-data-to-track-code-scanning-alerts-across-runs)".  **Observação:** o {% data variables.product.prodname_code_scanning_capc %} só usa o `primaryLocationLineHash`.
+| `codeFlows[].threadFlows[].locations[]`| **Opcional.** Uma matriz de objetos `location` para um objeto `threadFlow`, que descreve o progresso de um programa por meio de um thread de execução. Um objeto `codeFlow` descreve um padrão de execução de código usado para detectar um resultado. Se forem fornecidos fluxos de código, {% data variables.product.prodname_code_scanning %} irá expandir os fluxos de código em {% data variables.product.prodname_dotcom %} para o resultado relevante. Para obter mais informações, confira o [objeto `location`](#location-object).
+| `relatedLocations[]`| Um conjunto de locais relevantes para este resultado. {% data variables.product.prodname_code_scanning_capc %} irá vincular a locais relacionados quando forem incorporados à mensagem do resultado. Para obter mais informações, confira o [objeto `location`](#location-object).
 
-### `location` object
+### Objeto `location`
 
-A location within a programming artifact, such as a file in the repository or a file that was generated during a build.
+Um local dentro de um artefato de programação, como, por exemplo, um arquivo no repositório ou um arquivo gerado durante uma criação.
 
-| Name | Description |
+| Nome | Descrição |
 |----|----|
-| `location.id` | **Optional.** A unique identifier that distinguishes this location from all other locations within a single result object. The allowed range for this property 0 to 2^63 - 1.
-| `location.physicalLocation` | **Required.** Identifies the artifact and region. For more information, see the [`physicalLocation`](#physicallocation-object).
-| `location.message.text` | **Optional.** A message relevant to the location.
+| `location.id` | **Opcional.** Um identificador exclusivo que distingue esse local de todos os outros locais em um só objeto de resultado. O intervalo permitido para essa propriedade 0 a 2^63 - 1.
+| `location.physicalLocation` | **Necessário.** Identifica o artefato e a região. Para obter mais informações, confira [`physicalLocation`](#physicallocation-object).
+| `location.message.text` | **Opcional.** Uma mensagem relevante à localização.
 
-### `physicalLocation` object
+### Objeto `physicalLocation`
 
-| Name | Description |
+| Nome | Descrição |
 |----|----|
-| `artifactLocation.uri`| **Required.** A URI indicating the location of an artifact, usually a file either in the repository or generated during a build. For the best results we recommend that this is a relative path from the root of the GitHub repository being analyzed. For example, `src/main.js`. For more information about artifact URIs, see "[Specifying the root for source files](#specifying-the-root-for-source-files)."|
-| `region.startLine` | **Required.** The line number of the first character in the region.
-| `region.startColumn` | **Required.** The column number of the first character in the region.
-| `region.endLine` | **Required.** The line number of the last character in the region.
-| `region.endColumn` | **Required.** The column number of the character following the end of the region.
+| `artifactLocation.uri`| **Necessário.** Um URI que indica o local de um artefato, geralmente um arquivo no repositório ou gerado durante um build. Para obter os melhores resultados, recomendamos que esse seja um caminho relativo da raiz do repositório GitHub que está sendo analisado. Por exemplo, `src/main.js`. Para obter mais informações sobre URIs de artefato, confira "[Como especificar a raiz para arquivos de origem](#specifying-the-root-for-source-files)".|
+| `region.startLine` | **Necessário.** O número de linha do primeiro caractere na região.
+| `region.startColumn` | **Necessário.** O número da coluna do primeiro caractere na região.
+| `region.endLine` | **Necessário.** O número de linha do último caractere na região.
+| `region.endColumn` | **Necessário.** O número da coluna do caractere após o final da região.
 
-### `runAutomationDetails` object
+### Objeto `runAutomationDetails`
 
-The `runAutomationDetails` object contains information that specifies the identity of a run.
+O objeto `runAutomationDetails` contém informações que especificam a identidade de uma execução.
 
 {% note %}
 
-**Note:** `runAutomationDetails` is a SARIF v2.1.0 object. If you're using the {% data variables.product.prodname_codeql_cli %}, you can specify the version of SARIF to use. The equivalent object to `runAutomationDetails` is `<run>.automationId` for SARIF v1 and `<run>.automationLogicalId` for SARIF v2.
+**Observação:** `runAutomationDetails` é um objeto SARIF v2.1.0. Se você estiver usando {% data variables.product.prodname_codeql_cli %}, você poderá especificar a versão do SARIF a ser usada. O objeto equivalente a `runAutomationDetails` é `<run>.automationId` para o SARIF v1 e `<run>.automationLogicalId` para o SARIF v2.
 
 {% endnote %}
 
-| Name | Description |
+| Nome | Descrição |
 |----|----|
-| `id`| **Optional.** A string that identifies the category of the analysis and the run ID. Use if you want to upload multiple SARIF files for the same tool and commit, but performed on different languages or different parts of the code. |
+| `id`| **Opcional.** Uma cadeia de caracteres que identifica a categoria da análise e a ID de execução. Use se você quiser fazer upload de vários arquivos SARIF para a mesma ferramenta e commit, mas executado em diferentes idiomas ou diferentes partes do código. |
 
-The use of the `runAutomationDetails` object is optional.
+O uso do objeto `runAutomationDetails` é opcional.
 
-The `id` field can include an analysis category and a run ID. We don't use the run ID part of the `id` field, but we store it.
+O campo `id` pode incluir uma categoria de análise e uma ID de execução. Não usamos a parte da ID de execução do campo `id`, mas a armazenamos.
 
-Use the category to distinguish between multiple analyses for the same tool or commit, but performed on different languages or different parts of the code. Use the run ID to identify the specific run of the analysis, such as the date the analysis was run.
+Use a categoria para distinguir entre múltiplas análises para a mesma ferramenta ou commit, mas executada em diferentes linguagens ou partes diferentes do código. Use o ID de execução para identificar a execução específica da análise, como a data em que a análise foi executada.
 
-`id` is interpreted as `category/run-id`. If the `id` contains no forward slash (`/`), then the entire string is the `run_id` and the `category` is empty. Otherwise, `category` is everything in the string until the last forward slash, and `run_id` is everything after.
+`id` é interpretado como `category/run-id`. Se a `id` não contiver nenhuma barra (`/`), a cadeia de caracteres inteira será a `run_id` e a `category` ficará vazia. Caso contrário, a `category` será tudo na cadeia de caracteres até a última barra, e a `run_id` será tudo após ela.
 
 | `id` | category | `run_id` |
 |----|----|----|
-| my-analysis/tool1/2021-02-01 | my-analysis/tool1 | 2021-02-01
-| my-analysis/tool1/ | my-analysis/tool1 | _no `run-id`_
-| my-analysis for tool1 | _no category_ | my-analysis for tool1
+| my-analysis/tool1/2021-02-01 | my-analysis/tool1 | 01/02/2021
+| my-analysis/tool1/ | my-analysis/tool1 | _sem `run-id`_
+| my-analysis for tool1 | _sem categoria_ | my-analysis for tool1
 
-- The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". Presumably, this is the run from February 2, 2021.
-- The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
-- The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
+- A execução com uma `id` igual a "my-analysis/tool1/2021-02-01" pertence à categoria "my-analysis/tool1". Provavelmente, esta é a execução de 2 de fevereiro de 2021.
+- A execução com uma `id` igual a "my-analysis/tool1/" pertence à categoria "my-analysis/tool1", mas não é distinta das outras execuções nessa categoria.
+- A execução cuja `id` é "my-analysis for tool1" tem um identificador único, mas não pode ser inferida como pertencente a nenhuma categoria.
 
-For more information about the `runAutomationDetails` object and the `id` field, see [runAutomationDetails object](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012479) in the OASIS documentation.
+Para obter mais informações sobre o objeto `runAutomationDetails` e o campo `id`, confira o [objeto runAutomationDetails](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012479) na documentação do OASIS.
 
-Note that the rest of the supported fields are ignored.
+Observe que o resto dos campos compatíveis são ignorados.
 
-## SARIF output file examples
+## Exemplos de arquivos de saída SARIF
 
-These example SARIF output files show supported properties and example values.
+Estes exemplos de arquivos de saída SARIF mostram as propriedades compatíveis e os valores de exemplo.
 
-### Example with minimum required properties
+### Exemplo com as propriedades mínimas necessárias
 
-This SARIF output file has example values to show the minimum required properties for {% data variables.product.prodname_code_scanning %} results to work as expected. If you remove any properties, omit values, or use an empty string, this data will not be displayed correctly or sync on {% data variables.product.prodname_dotcom %}. 
+Este arquivo de saída SARIF tem exemplo de valores para mostrar as propriedades mínimas necessárias para que os resultados de {% data variables.product.prodname_code_scanning %} funcionem conforme esperado. Se você remover qualquer propriedade, omitir valores ou usar uma cadeia de caracteres vazia, esses dados não serão exibidos corretamente ou serão sincronizados em {% data variables.product.prodname_dotcom %}. 
 
 ```json
 {
@@ -296,9 +300,9 @@ This SARIF output file has example values to show the minimum required propertie
 }
 ```
 
-### Example showing all supported SARIF properties
+### Exemplo que mostra todas as propriedades compatíveis como SARIF
 
-This SARIF output file has example values to show all supported SARIF properties for {% data variables.product.prodname_code_scanning %}.
+Este arquivo de saída SARIF tem valores de exemplo para mostrar todas as propriedades do SARIF compatíveis com {% data variables.product.prodname_code_scanning %}.
 
 ```json
 {

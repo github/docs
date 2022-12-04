@@ -1,53 +1,57 @@
 ---
-title: Disaster recovery for GitHub Codespaces
-intro: 'This article describes guidance for a disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption.'
+title: Recuperação de desastres do GitHub Codespaces
+intro: 'Este artigo descreve a orientação para um cenário de recuperação de desastre, quando uma região inteira sofre uma interrupção devido a um desastre natural de grandes proporções ou interrupção de serviço generalizada.'
 versions:
   fpt: '*'
   ghec: '*'
-product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
 shortTitle: Disaster recovery
 redirect_from:
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
+ms.openlocfilehash: 9b892d6a24332e01174c819e2e88a91d1cdf9d65
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158810'
 ---
+Trabalhamos muito para ter a certeza de que {% data variables.product.prodname_github_codespaces %} esteja sempre disponível para você. No entanto, forças além do nosso controle às vezes impactam o serviço de formas que podem causar interrupções de serviços não planejadas.
 
-We work hard to make sure that {% data variables.product.prodname_github_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.
+Embora os cenários de recuperação de desastres sejam raros, recomendamos que vocês se preparem para a possibilidade de haver uma interrupção de toda uma região. Se uma região inteira tiver uma interrupção do serviço, as cópias redundantes dos seus dados ficarão temporariamente indisponíveis.
 
-Although disaster recovery scenarios are rare occurrences, we recommend that you prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would be temporarily unavailable.
-
-The following guidance provides options on how to handle service disruption to the entire region where your codespace is deployed.
+A orientação a seguir fornece opções sobre como lidar com interrupções de serviço para toda a região onde seu codespace estiver implantado.
 
 {% note %}
 
-**Note:** You can reduce the potential impact of service-wide outages by pushing to remote repositories frequently.
+**Observação:** você pode reduzir o impacto potencial das interrupções em todo o serviço efetuando push para repositórios remotos com frequência.
 
 {% endnote %}
 
-## Option 1: Create a new codespace in another region
+## Opção 1: Crie um novo ritmo de código em outra região
 
-In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. This new codespace will have all of the changes as of your last push to {% data variables.product.prodname_dotcom %}. For information on manually setting another region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+No caso de uma interrupção regional, sugerimos que recrie o seu codespace em uma região não afetada para continuar trabalhando. Este novo código terá todas as alterações a partir do seu último push para {% data variables.product.prodname_dotcom %}. Para obter informações sobre como definir outra região manualmente, confira "[Como definir sua região padrão do {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
-You can optimize recovery time by configuring a `devcontainer.json` in the project's repository, which allows you to define the tools, runtimes, frameworks, editor settings, extensions, and other configuration necessary to restore the development environment automatically. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+Otimize o tempo de recuperação configurando um `devcontainer.json` no repositório do projeto, que permite definir as ferramentas, os runtimes, as estruturas, as configurações do editor, as extensões e outras configurações necessárias para restaurar o ambiente de desenvolvimento automaticamente. Para obter mais informações, confira "[Introdução aos contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-## Option 2: Wait for recovery
+## Opção 2: aguardar a recuperação
 
-In this case, no action on your part is required. Know that we are working diligently to restore service availability. 
+Nesse caso, nenhuma ação sua é necessária. Saiba que estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço. 
 
-You can check the current service status on the [Status Dashboard](https://www.githubstatus.com/).
+Você pode verificar o status do serviço atual no [Painel de Status](https://www.githubstatus.com/).
 
-## Option 3: Clone the repository locally or edit in the browser
+## Opção 3: Clonar o repositório localmente ou editá-lo no navegador
 
-While {% data variables.product.prodname_github_codespaces %} provides the benefit of a pre-configured developer environmnent, your source code should always be accessible through the repository hosted on {% data variables.product.prodname_dotcom_the_website %}. In the event of a {% data variables.product.prodname_github_codespaces %} outage, you can still clone the repository locally or edit files in the {% data variables.product.company_short %} browser editor. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+Embora os {% data variables.product.prodname_github_codespaces %} ofereçam o benefício de um ambiente de desenvolvedor predefinido, o código-fonte sempre deve estar acessível por meio do repositório hospedado no {% data variables.product.prodname_dotcom_the_website %}. Na hipótese de uma interrupção dos {% data variables.product.prodname_github_codespaces %}, você ainda pode clonar o repositório localmente ou editar arquivos no editor do navegador do {% data variables.product.company_short %}. Para obter mais informações, confira "[Como editar arquivos](/repositories/working-with-files/managing-files/editing-files)".
 
-While this option does not configure a development environment for you, it will allow you to make changes to your source code as needed while you wait for the service disruption to resolve.
+Embora esta opção não configure um ambiente de desenvolvimento para você, ela permitirá que você faça alterações no seu código-fonte, conforme necessário, enquanto você aguarda que a interrupção do serviço seja resolvida.
 
-## Option 4: Use the Dev Containers extension and Docker for a local containerized environment
+## Opção 4: usar a extensão Contêineres de Desenvolvimento e o Docker para um ambiente conteinerizado local
 
-If your repository has a `devcontainer.json`, consider using the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in {% data variables.product.prodname_vscode %} to build and attach to a local development container for your repository. The setup time for this option will vary depending on your local specifications and the complexity of your dev container setup. For more information, see "[Developing inside a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Se o repositório tiver um `devcontainer.json`, considere usar a [extensão Contêineres de Desenvolvimento](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) no {% data variables.product.prodname_vscode %} para compilar e anexar a um contêiner de desenvolvimento local do repositório. O tempo de configuração desta opção irá variar dependendo das suas especificações locais e da complexidade da configuração do seu contêiner de desenvolvimento. Para obter mais informações, confira [Desenvolvimento em um contêiner](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) na documentação do {% data variables.product.prodname_vscode_shortname %}.
 
 {% note %}
 
-**Note:** Be sure your local setup meets the [minimum requirements](https://code.visualstudio.com/docs/remote/containers#_system-requirements) before attempting this option.
+**Observação:** verifique se a configuração local atende aos [requisitos mínimos](https://code.visualstudio.com/docs/remote/containers#_system-requirements) antes de tentar selecionar essa opção.
 
 {% endnote %}

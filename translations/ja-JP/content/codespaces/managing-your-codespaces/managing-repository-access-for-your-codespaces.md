@@ -1,9 +1,8 @@
 ---
-title: Managing access to other repositories within your codespace
+title: codespace 内の他のリポジトリへのアクセスの管理
 allowTitleToDifferFromFilename: true
 shortTitle: Repository access
-intro: 'You can manage the repositories that {% data variables.product.prodname_github_codespaces %} can access.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: '{% data variables.product.prodname_github_codespaces %} からアクセスできるリポジトリを管理できます。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,26 +11,31 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces
+ms.openlocfilehash: 3f8379c322bd7ccd9ff7d31e17da90a77461536d
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160108'
 ---
+## 概要
 
-## Overview
+既定では、codespace には、作成元のリポジトリをスコープとするトークンが割り当てられます。 テンプレートから作成した codespace を {% data variables.product.product_name %} 上の新しいリポジトリに発行すると、codespace には新しいリポジトリにスコープが設定されたトークンが割り当てられます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} のセキュリティ](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)」をご覧ください。 プロジェクトに他のリポジトリに対する追加のアクセス許可が必要な場合は、`devcontainer.json` ファイルでこれを構成し、他のコラボレーターが適切なアクセス許可セットを持っていることを確認できます。
 
-By default, your codespace is assigned a token scoped to the repository from which it was created. For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)." If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file and ensure other collaborators have the right set of permissions.
+`devcontainer.json` ファイルにアクセス許可が一覧表示されると、そのリポジトリのcodespace 作成の一環として、追加のアクセス許可を確認して承認するように求められます。 一覧表示されているアクセス許可を承認すると、{% data variables.product.prodname_github_codespaces %} は選択を記憶し、`devcontainer.json` ファイル内のアクセス許可が変更されない限り、承認を求めるメッセージは表示されません。
 
-When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
+## 前提条件
 
-## Prerequisites
+カスタム アクセス許可が定義された codespace を作成するには、次のいずれかを使用する必要があります。
+* {% data variables.product.prodname_dotcom %} Web UI
+* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 以降
+* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} 拡張機能](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 以降
 
-To create codespaces with custom permissions defined, you must use one of the following:
-* The {% data variables.product.prodname_dotcom %} web UI
-* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 or later
-* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
+## 追加のリポジトリのアクセス許可の設定
 
-## Setting additional repository permissions
+1. `devcontainer.json` ファイルの {% data variables.product.prodname_github_codespaces %} のリポジトリのアクセス許可を構成します。 リポジトリに `devcontainer.json` ファイルがまだ含まれていない場合は、今すぐ追加します。 詳細については、「[プロジェクトへの開発コンテナーへの追加](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)」に関するページを参照してください。
 
-1. You configure repository permissions for {% data variables.product.prodname_github_codespaces %} in the `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, "[Add a dev container to your project](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
-
-1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
+1. `devcontainer.json` ファイルを編集し、`repositories` オブジェクトに必要なリポジトリ名とアクセス許可を追加します。
 
   ```json{:copy}
   {
@@ -51,25 +55,25 @@ To create codespaces with custom permissions defined, you must use one of the fo
 
   {% note %}
 
-  **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+  **注:** 参照できるのは、現在作業しているリポジトリと同じ個人アカウントまたは組織に属するリポジトリのみです。
 
   {% endnote %}
 
-  You can grant as many or as few of the following permissions for each repository listed:
-   * `actions` - read / write
-   * `checks` - read / write
-   * `contents` - read / write
-   * `deployments` - read / write
-   * `discussions` - read / write
-   * `issues` - read / write
-   * `packages` - read
-   * `pages` - read / write
-   * `pull_requests` - read / write
-   * `repository_projects` - read / write
-   * `statuses` - read / write
-   * `workflows` - write
+  一覧に示されている各リポジトリに対して、次のアクセス許可のうち、いくつでも付与することができます。
+   * `actions` - 読み取り / 書き込み
+   * `checks` - 読み取り / 書き込み
+   * `contents` - 読み取り / 書き込み
+   * `deployments` - 読み取り / 書き込み
+   * `discussions` - 読み取り / 書き込み
+   * `issues` - 読み取り / 書き込み
+   * `packages` - 読み取り
+   * `pages` - 読み取り / 書き込み
+   * `pull_requests` - 読み取り / 書き込み
+   * `repository_projects` - 読み取り / 書き込み
+   * `statuses` - 読み取り / 書き込み
+   * `workflows` - 書き込み
 
-  To set a permission for all repositories in an organization, use the `*` wildcard following your organization name in the `repositories` object.
+  組織内のすべてのリポジトリのアクセス許可を設定するには、`repositories` オブジェクト内の組織名の後に `*` ワイルドカードを使用します。
 
   ```json
   {
@@ -87,7 +91,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
   }
   ```
 
-  To set all permissions for a given repository, use `"permissions": "read-all"` or `"permissions": "write-all"` in the repository object.
+  特定のリポジトリのすべてのアクセス許可を設定するには、リポジトリ オブジェクトで `"permissions": "read-all"` または `"permissions": "write-all"` を使用します。
 
   ```json
   {
@@ -103,32 +107,31 @@ To create codespaces with custom permissions defined, you must use one of the fo
   }
   ```
 
-## Authorizing requested permissions
+## 要求されたアクセス許可の承認
 
-If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace or a prebuild configuration for this repository. When you authorize permissions for a repository, {% data variables.product.prodname_github_codespaces %} will not re-prompt you unless the set of requested permissions has changed for the repository.
+`devcontainer.json` ファイルで追加のリポジトリのアクセス許可が定義されている場合、このリポジトリの codespace またはプレビルド構成を作るときに、アクセス許可を確認し、必要に応じて認可するように求められます。 リポジトリのアクセス許可を承認すると、要求されたアクセス許可のセットがリポジトリに対して変更されない限り、{% data variables.product.prodname_github_codespaces %} は再プロンプトを表示しません。
 
-![The requested permissions page](/assets/images/help/codespaces/codespaces-accept-permissions.png)
+![要求されたアクセス許可ページ](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 
-You should only authorize permissions for repositories you know and trust. If you don't trust the set of requested permissions, click **Continue without authorizing** to create the codespace with the base set of permissions. Rejecting additional permissions may impact the functionality of your project within the codespace as the codespace will only have access to the repository from which it was created.
+承認する必要があるのは、自分が知っていて信頼できるリポジトリに対するアクセス許可のみです。 要求されたアクセス許可のセットを信頼できない場合は、 **[承認なしで続行]** をクリックして、基本のアクセス許可のセットを使用して codespace を作成します。 追加のアクセス許可を拒否すると、codespace は作成元のリポジトリにしかアクセスできないため、codespace 内のプロジェクトの機能に影響を与える可能性があります。
 
-You can only authorize permissions that your personal account already possesses. If a codespace requests permissions for repositories that you don't currently have access to, contact an owner or admin of the repository to obtain sufficient access and then try to create a codespace again.
+個人アカウントが既に所有しているアクセス許可のみを承認できます。 現在アクセス権を持たないリポジトリでのアクセス許可を codespace が要求する場合は、リポジトリの所有者または管理者に連絡して十分なアクセス権を取得してから、codespace の作成を再試行してください。
 
-## Access and security
+## アクセスとセキュリティ
 
 {% warning %}
 
-**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. To enable expanded access to other repositories, add the requested permissions to your dev container definition for your codespace, as described above.
+**非推奨の注意**: 以下で説明するアクセスとセキュリティの設定は現在非推奨であり、ここには参考用に記載されています。 他のリポジトリへの拡張アクセスを有効にするには、前述のように、要求されたアクセス許可を codespace の開発コンテナー定義に追加します。
 
 {% endwarning %}
 
-When you enable access and security for a repository owned by your personal account, any codespaces that are created for that repository will have read permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. You should only enable access and security for repositories you trust. 
+個人アカウントが所有するリポジトリのアクセスとセキュリティを有効にすると、そのリポジトリ用に作成された codespace には、所有している他のすべてのリポジトリへの読み取り権限が付与されます。 Codespace がアクセスできるリポジトリを制限する場合は、Codespace がオープンされたリポジトリまたは特定のリポジトリのいずれかに制限できます。 信頼するリポジトリに対してのみ、アクセスとセキュリティを有効にしてください。 
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Access and security", select the setting you want for your personal account.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.codespaces-tab %}
+1. [アクセスとセキュリティ] で、あなたの個人アカウントの設定を選択します。
 
-  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
+  ![信頼するリポジトリを管理するラジオボタン](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
 
-1. If you chose "Selected repositories", select the drop-down menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat for all repositories whose codespaces you want to access other repositories you own.
+1. [選択したリポジトリ] を選んだ場合、ドロップダウン メニューを選んでから、あなたの所有するその他のリポジトリにアクセスを許可する、リポジトリの codespace をクリックします。 所有するその他のリポジトリにコードスペースによるアクセスを許可したい、すべてのリポジトリについて同じ手順を繰り返します。
 
-  !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+  ![[選択したリポジトリ] ドロップダウン メニュー](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)

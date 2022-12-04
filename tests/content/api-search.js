@@ -15,7 +15,6 @@ import { jest, test, expect } from '@jest/globals'
 
 import { describeIfElasticsearchURL } from '../helpers/conditional-runs.js'
 import { get } from '../helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
@@ -57,8 +56,11 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(hit.url).toBe('/en/foo')
     expect(hit.title).toBe('Foo')
     expect(hit.breadcrumbs).toBe('fooing')
+    // By default, 'title' and 'content' is included in highlights,
+    // but not 'headings'
     expect(hit.highlights.title[0]).toBe('<mark>Foo</mark>')
     expect(hit.highlights.content[0]).toMatch('<mark>foo</mark>')
+    expect(hit.highlights.headings).toBeUndefined()
 
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
@@ -66,7 +68,47 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
+    expect(res.headers['surrogate-key']).toBe('api-search:en')
+  })
+
+  test('basic search in Japanese', async () => {
+    const sp = new URLSearchParams()
+    // To see why this will work,
+    // see tests/content/fixtures/search-indexes/github-docs-dotcom-en-records.json
+    // which clearly has a record with the title "Foo"
+    sp.set('query', 'foo')
+    sp.set('language', 'ja')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+
+    expect(results.meta).toBeTruthy()
+    expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+    expect(results.meta.found.relation).toBeTruthy()
+    expect(results.meta.page).toBe(1)
+    expect(results.meta.size).toBeGreaterThanOrEqual(1)
+    expect(results.meta.took.query_msec).toBeGreaterThanOrEqual(0)
+    expect(results.meta.took.total_msec).toBeGreaterThanOrEqual(0)
+
+    // Might be empty but at least an array
+    expect(results.hits).toBeTruthy()
+    // The word 'foo' appears in more than 1 document in the fixtures.
+    expect(results.hits.length).toBeGreaterThanOrEqual(1)
+    // ...but only one has the word "foo" in its title so we can
+    // be certain it comes first.
+    const hit = results.hits[0]
+    // This specifically checks what we expect of version v1
+    expect(hit.url).toBe('/ja/foo')
+    expect(hit.title).toBe('フー')
+    expect(hit.breadcrumbs).toBe('fooing')
+
+    // Check that it can be cached at the CDN
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-control']).toContain('public')
+    expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers['surrogate-key']).toBe('api-search:ja')
   })
 
   test('debug search', async () => {
@@ -83,6 +125,36 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(hit.es_url).toBeTruthy()
   })
 
+  test('search with and without autocomplete on', async () => {
+    // *Without* autocomplete=true
+    {
+      const sp = new URLSearchParams()
+      sp.set('query', 'sill')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(200)
+      const results = JSON.parse(res.text)
+      // Fixtures contains no word called 'sill'. It does contain the term
+      // 'silly' which, in English, becomes 'silli` when stemmed.
+      // Because we don't use `&autocomplete=true` this time, we expect
+      // to find nothing.
+      expect(results.meta.found.value).toBe(0)
+    }
+
+    // *With* autocomplete=true
+    {
+      const sp = new URLSearchParams()
+      sp.set('query', 'sill')
+      sp.set('autocomplete', 'true')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(200)
+      const results = JSON.parse(res.text)
+      expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+      const hit = results.hits[0]
+      const contentHighlights = hit.highlights.content
+      expect(contentHighlights[0]).toMatch('<mark>silly</mark>')
+    }
+  })
+
   test('find nothing', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'xojixjoiwejhfoiuwehjfioweufhj')
@@ -91,6 +163,38 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     const results = JSON.parse(res.text)
     expect(results.hits.length).toBe(0)
     expect(results.meta.found.value).toBe(0)
+  })
+
+  test('configurable highlights', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'introduction heading')
+    sp.append('highlights', 'headings')
+    sp.append('highlights', 'content')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+    for (const hit of results.hits) {
+      expect(hit.highlights.title).toBeFalsy()
+      expect(hit.highlights.headings).toBeTruthy()
+      expect(hit.highlights.content).toBeTruthy()
+    }
+  })
+
+  test('highlights keys matches highlights configuration', async () => {
+    const sp = new URLSearchParams()
+    // This will match because it's in the 'content' but not in 'headings'
+    sp.set('query', 'Fact of life')
+    sp.set('highlights', 'headings')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+    for (const hit of results.hits) {
+      expect(hit.highlights.headings).toBeTruthy()
+      expect(hit.highlights.title).toBeFalsy()
+      expect(hit.highlights.content).toBeFalsy()
+    }
   })
 
   test('version can be aliased', async () => {
@@ -168,6 +272,15 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
       expect(JSON.parse(res.text).error).toMatch('sort')
+    }
+    // unrecognized highlights
+    {
+      const sp = new URLSearchParams()
+      sp.set('query', 'test')
+      sp.set('highlights', 'neverheardof')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(400)
+      expect(JSON.parse(res.text).error).toMatch('neverheardof')
     }
   })
 

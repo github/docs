@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: becb68c2813f1e6914edb34b235ac59aba8ae00b
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 89fc5092468d50484cfcad71824870b6456d9ac7
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145131880'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164164'
 ---
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
@@ -38,6 +38,7 @@ ms.locfileid: '145131880'
 | PHP        | ✅                           |                         |
 | Python     | ✅                           | ✅                      |
 | Ruby       | ✅                           |                         |
+| Rust       | ✅                           |                         |
 | TypeScript | ✅                           |                         |
 
 
@@ -72,6 +73,12 @@ ms.locfileid: '145131880'
 ![検索ベースのコード ナビゲーション リンク](/assets/images/help/repository/search-based-code-navigation-link.png)
 
 正確なコード ナビゲーションの結果が不正確と思われる場合は、サポート要求を提出できます。
+
+## リポジトリ間の正確なコード ナビゲーション
+
+リポジトリ間のコード ナビゲーションは、正確なコード ナビゲーションと依存関係グラフによってサポートされている言語で使用できます。 詳細については、「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。 リポジトリ間のコード ナビゲーションを使用すると、プロジェクトによってインポートされた依存関係で定義されている関数や変数の定義にジャンプできます (その依存関係が {% data variables.product.prodname_dotcom %} によってホストされるリポジトリである場合)。 現時点では、リポジトリ間のコード ナビゲーションでは、すべての参照を検索する要求はサポートされていません。
+
+![リポジトリ間コード ナビゲーションのスクリーンショット](/assets/images/help/repository/cross-repository-code-navigation.png)
 
 ## コード ナビゲーションのトラブルシューティング
 

@@ -1,6 +1,6 @@
 ---
 title: Exibir e gerenciar sessões SAML ativas
-intro: É possível exibir e revogar sessões SAML ativas nas configurações de segurança.
+intro: É possível exibir e revogar sessões SAML ativas nas configurações.
 redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
@@ -9,21 +9,28 @@ versions:
   ghec: '*'
 topics:
   - SSO
+type: how_to
 shortTitle: Active SAML sessions
-ms.openlocfilehash: ee30f76143ec28a810cd23150d115a3b1cd213c8
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: e69ad366de7cdfb14b6a2a13ae3bdc134111616a
+ms.sourcegitcommit: b2e5d14036a700b781e91158a552f8c0b1f04839
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145095806'
+ms.lasthandoff: 11/15/2022
+ms.locfileid: '148165578'
 ---
-{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.security %}
-3. Em "Sessões", você pode ver suas sessões ativas do SAML.
-   ![Lista de sessões ativas do SAML](/assets/images/help/settings/saml-active-sessions.png)
-4. Para ver os detalhes da sessão, clique em **Ver mais**.
-   ![Botão usado para abrir os detalhes da sessão do SAML](/assets/images/help/settings/saml-expand-session-details.png)
-5. Para revogar uma sessão, clique em **Revogar SAML**.
-   ![Botão usado para revogar uma sessão do SAML](/assets/images/help/settings/saml-revoke-session.png)
+Você pode exibir uma lista de dispositivos que efetuaram logon na sua conta e revogar todas as sessões SAML que não reconhecer.
+
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.sessions %}
+1. Nas "Sessões da Web", você pode ver suas sessões SAML ativas.
+
+   ![Captura de tela da lista de sessões SAML ativas](/assets/images/help/settings/saml-active-sessions.png)
+
+1. Para ver os detalhes da sessão, clique em **Ver mais**.
+   ![Captura de tela das sessões SAML ativas com o botão para abrir os detalhes da sessão SAML enfatizado](/assets/images/help/settings/saml-expand-session-details.png)
+
+1. Para revogar uma sessão, clique em **Revogar SAML**.
+
+   ![Captura de tela da página Detalhes da sessão com o botão para revogar a sessão SAML enfatizado](/assets/images/help/settings/saml-revoke-session.png)
 
   {% note %}
 

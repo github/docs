@@ -31,7 +31,7 @@ export function RestStatusCodes({ statusCodes, slug }: Props) {
               <td>
                 <code>{statusCode.httpStatusCode}</code>
               </td>
-              <td className="color-fg-muted">
+              <td>
                 {statusCode.description ? (
                   <div dangerouslySetInnerHTML={{ __html: statusCode.description }} />
                 ) : (

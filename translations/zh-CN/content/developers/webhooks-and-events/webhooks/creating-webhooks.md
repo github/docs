@@ -11,28 +11,38 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
-ms.openlocfilehash: f07c5de7acd3c5be5236765236d24a6938e3b91f
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: ced763e71ecc9f99d8dd5037dcdb6d87cfdba91d
+ms.sourcegitcommit: 6b1c6174d0df40c90edfd7526496baabb1dd159d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145097984'
+ms.lasthandoff: 11/04/2022
+ms.locfileid: '148132969'
 ---
 学完 [webhook 的基础知识][webhooks-overview]后，接下来了解如何生成自己的基于 webhook 的集成。 在本教程中，我们将创建一个仓库 web 挂钩，它将负责根据仓库每天收到的议题数量列出仓库的受欢迎程度。
 
-创建 web 挂钩是一个两步过程。 首先需要设置 web 挂钩通过 {% data variables.product.product_name %} 实施的行为 - 它应该侦听哪些事件。 之后，您将设置服务器以接收和管理有效负载。
+创建 web 挂钩是一个两步过程。 首先需要设置 Webhook 应侦听的事件。 之后，您将设置服务器以接收和管理有效负载。
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 ## 向互联网显示本地主机
 
-在本教程中，我们将使用本地服务器接收来自 {% data variables.product.prodname_dotcom %} 的消息。 因此，首先，我们需要将我们的本地发展环境显示给互联网。 我们将使用 ngrok 实现此目的。 所有主要操作系统均可免费使用 ngrok。 有关详细信息，请参阅 [`ngrok` 下载页面](https://ngrok.com/download)。
+在本教程中，我们将使用本地服务器接收来自 {% data variables.product.prodname_dotcom %} 的 Webhook 事件。 
 
-安装 `ngrok` 后，可以通过在命令行上运行 `./ngrok http 4567` 来公开本地主机。 4567 是我们服务器侦听消息的端口号。 您应该会看到如下所示的行：
+首先，我们需要向 Internet 公开本地开发环境，以便 {% data variables.product.prodname_dotcom %} 可以传递事件。 我们将使用 [`ngrok`](https://ngrok.com) 实现此目的。
+
+{% ifversion cli-webhook-forwarding %} {% note %}
+
+注意：或者，可以使用 Webhook 转发来设置本地环境以接收 Webhook。 有关详细信息，请参阅“[使用 GitHub CLI 接收 Webhook](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)”。
+
+{% endnote %} {% endif %}
+
+所有主要操作系统均可免费使用 `ngrok`。 有关详细信息，请参阅 [`ngrok` 下载页面](https://ngrok.com/download)。
+
+安装 `ngrok` 后，可以通过在命令行上运行 `./ngrok http 4567` 来公开本地主机。 `4567` 是我们服务器侦听消息的端口号。 您应该会看到如下所示的行：
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
 记下 `*.ngrok.io` URL。 我们将用它来设置 web 挂钩。

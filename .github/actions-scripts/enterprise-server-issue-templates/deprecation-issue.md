@@ -113,6 +113,8 @@ Poke around several pages, ensure that the stylesheets are working properly, ima
 
 ## Step 5: Remove static files for the version
 
+**Note:** We do not remove the old content for GHES release notes. New release notes can be added after we perform a deprecation in some rare cases, and not removing this content makes it easier for us to re-scrape the content to add to Azure Blob Storage.
+
 - [ ] In your `docs-internal` checkout, create a new branch `remove-<version>-static-files` branch: `git checkout -b remove-<version>-static-files` (you can branch off of `main` or from your `deprecate-<version>` branch, up to you).
 - [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
 - [ ] Re-generate the static files by running `script/rest/update-files.js --decorate-only`.

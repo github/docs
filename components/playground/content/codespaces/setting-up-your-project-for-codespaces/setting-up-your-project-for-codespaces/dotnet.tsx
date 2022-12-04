@@ -11,9 +11,11 @@ const article: PlaygroundArticleT = {
     '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces',
   codeLanguageId: 'dotnet',
   intro: dedent`
-  This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **C# (.NET)** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+  This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **C# (.NET)** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." 
 
-  If you want to add a dev container configuration for another programming language, click the language button to the right.
+  To work through the instructions in this guide you will use a codespace, in either the Visual Studio Code desktop application or the VS Code web client.
+  
+  These instructions are for C#. If you want to add a dev container configuration for another programming language, click the language button to the right.
  `,
   prerequisites: dedent`
     - You should have an existing C# (.NET) project in a repository on GitHub.com. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/python-quickstart.
@@ -27,11 +29,11 @@ const article: PlaygroundArticleT = {
       type: 'default',
       title: 'Step 1: Open your project in a codespace',
       content: dedent`
-        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on BRANCH**.
+        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click the plus sign (+).
 
             ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-            If you don’t see this option, GitHub Codespaces isn't available for your project. See [Access to GitHub Codespaces](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
+            If you don’t see this option, GitHub Codespaces isn't available for your project. See [Access to GitHub Codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces) for more information.
 
         When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including .NET. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
 
@@ -210,6 +212,8 @@ const article: PlaygroundArticleT = {
            ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
 
            Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+
+           You may occasionally want to perform a full rebuild to clear your cache and rebuild your container with fresh images. For more information, see "[Performing a full rebuild of a container](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container)."
 
         5. Check your changes were successfully applied by verifying the "Code Spell Checker" extension was installed.
 

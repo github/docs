@@ -20,8 +20,13 @@ export default async function getOperations(schema) {
 }
 
 export async function getWebhooks(schema) {
-  if (schema['x-webhooks']) {
-    return Object.values(schema['x-webhooks']).map((webhook) => new Webhook(webhook.post))
+  // In OpenAPI version 3.1, the schema data is under the `webhooks` key, but
+  // in 3.0 the schema data was in `x-webhooks`.  We just fallback to
+  // `x-webhooks` for now since there's currently otherwise no difference with
+  // the schema data so we can handle either version.
+  const webhooks = schema.webhooks ?? schema['x-webhooks']
+  if (webhooks) {
+    return Object.values(webhooks).map((webhook) => new Webhook(webhook.post))
   }
 
   return []

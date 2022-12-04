@@ -1,7 +1,7 @@
 ---
-title: Como adicionar uma notificação "Abrir no GitHub Codespaces"
+title: Adding an "Open in GitHub Codespaces" badge
 shortTitle: Add a Codespaces badge
-intro: 'Você pode adicionar uma notificação em um arquivo markdown do seu repositório, no qual as pessoas podem clicar para criar um codespace.'
+intro: You can add a badge to a Markdown file in your repository which people can click to create a codespace.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,62 +10,50 @@ type: how_to
 topics:
   - Codespaces
   - Set up
-product: '{% data reusables.gated-features.codespaces %}'
-ms.openlocfilehash: d2ed02a205a4a8c3e55deb0b52fdc9ffdb855dc4
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107817'
 ---
-## Visão geral
 
-Adicionar uma notificação "Abrir em {% data variables.product.prodname_github_codespaces %}" a um arquivo markdown oferece às pessoas uma forma fácil de criar um codespace para seu repositório.
+## Overview
 
-![Captura de tela de uma notificação do Codespaces em uma página README](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
+Adding an "Open in {% data variables.product.prodname_github_codespaces %}" badge to a Markdown file gives people an easy way to create a codespace for your repository.
 
-Ao criar uma notificação, você poderá escolher opções de configuração específicas para o codespace que a notificação criará.
+![Screenshot of a Codespaces badge on a README page](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
 
-Ao clicarem na notificação, as pessoas serão direcionadas à página de opções avançadas para criar o codespace, com as opções escolhidas pré-selecionadas. Para obter mais informações sobre a página de opções avançadas, confira "[Como criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
+When you create a badge you can choose specific configuration options for the codespace that the badge will create.
 
-Na página de opções avançadas, os usuários podem alterar as configurações pré-selecionadas, se necessário, depois clicar em **Criar codespace**.
+When people click the badge they'll be taken to the advanced options page for codespace creation, with the options you chose preselected. For more information about the advanced options page, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
-{% note %}
+From the advanced options page, users can change the preselected settings if required, then click **Create codespace**.
 
-**Observação**: lembre-se de que as pessoas que ainda não têm acesso a {% data variables.product.prodname_github_codespaces %} verão uma mensagem 404 se clicarem nesta notificação.
-
-{% endnote %}
-
-## Como criar uma notificação "Abrir em {% data variables.product.prodname_github_codespaces %}"
+## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
 
 {% data reusables.repositories.navigate-to-repo %}
-1. No nome do repositório, use o menu suspenso "Branch" e selecione o branch para o qual deseja criar a notificação.
+1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create the badge for.
 
-   ![Captura de tela do menu suspenso Branch](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Screenshot of the Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Clique no botão **Código {% octicon "code" aria-label="The code icon" %}** e clique na guia **Codespaces**.
+1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
 
-   ![Captura de tela do botão Novo codespace](/assets/images/help/codespaces/new-codespace-button.png)
+   ![Screenshot of the New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Clique na seta para baixo ao lado do botão **Criar codespace no BRANCH**, selecione **Configurar e criar codespace** e clique no botão **Configurar e criar codespace**.
+1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab, then click **New with options**.
 
-   ![Captura de tela da opção "Configurar e criar codespace"](/assets/images/help/codespaces/configure-and-create-option.png)
+   ![Screenshot of the "Configure and create codespace" option](/assets/images/help/codespaces/default-machine-type.png)
 
-1. Na página de opções avançadas para criação do codespace, selecione os valores que deseja pré-selecionar em cada campo.
+1. On the advanced options page for codespace creation, select the values you want to be preselected in each field.
 
-   ![Captura de tela da página de opções avançadas](/assets/images/help/codespaces/advanced-options.png)
+   ![Screenshot of the advanced options page](/assets/images/help/codespaces/advanced-options.png)
 
-1. Copie a URL da barra de endereços do navegador.
-1. Adicione o seguinte markdown, por exemplo, ao arquivo `README.md` do repositório:
+1. Copy the URL from the browser's address bar.
+1. Add the following Markdown to, for example, the `README.md` file of your repository:
 
    ```Markdown{:copy}
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](COPIED-URL)
    ```
 
-   Por exemplo:
+   For example:
 
    ```Markdown
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=0000000&machine=premiumLinux&devcontainer_path=.devcontainer%2Fdevcontainer.json&location=WestUs2)
    ```
 
-   No exemplo acima, `0000000` será o número de referência do repositório. Os outros detalhes da URL são determinados pelos valores selecionados nos campos da página de opções avançadas.
+   In the above example, `0000000` will be the reference number of your repository. The other details in the URL are determined by the values you selected in the fields on the advanced options page.

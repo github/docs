@@ -1,6 +1,6 @@
 ---
-title: Gerenciar a exibição dos nomes de integrantes na organização
-intro: Você pode permitir que integrantes da organização vejam o nome de perfil do autor de um comentário nos repositórios privados da organização.
+title: Managing the display of member names in your organization
+intro: You can allow members of your organization to see a comment author's profile name in private repositories in the organization.
 product: '{% data reusables.gated-features.display-names %}'
 redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
@@ -14,22 +14,20 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage display of member names
-ms.openlocfilehash: 0a394b40689d95ea37906fef2ddc9b203e2041c3
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147409424'
 ---
-Proprietários de organização podem gerenciar a exibição do nome de integrantes na organização.
 
-![Nome de perfil do autor do comentário exibido no comentário](/assets/images/help/issues/commenter-full-name.png)
+Organization owners can manage the display of member names in an organization.
 
-Cada integrante da organização escolhe o próprio nome de perfil nas configurações. Para obter mais informações, confira "[Como personalizar seu perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)".
+![Commenter's profile name displayed in comment](/assets/images/help/issues/commenter-full-name.png)
 
-{% ifversion profile-name-enterprise-setting %} Talvez você não possa definir essa configuração para a sua organização se um proprietário da empresa tiver definido uma política no nível empresarial. Para obter mais informações, confira "[Como impor políticas de gerenciamento de repositório na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)".{% endif %}
+Changes to the display of usernames within an organization will affect the display of other people's usernames, not your own. Each organization member chooses their own profile name in their settings. For more information, see "[Personalizing your profile](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)."
 
-{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
-5. Em "Permissões de repositório de administrador", marque ou desmarque **Permitir que os membros vejam o nome do perfil do autor do comentário em repositórios privados**.
-![Caixa de seleção usada para permitir que os membros vejam o nome completo do autor do comentário em repositórios privados](/assets/images/help/organizations/allow-members-to-view-full-names.png)
-6. Clique em **Save** (Salvar).
+{% ifversion profile-name-enterprise-setting %}
+You may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."{% endif %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.member-privileges %}
+5. Under "Admin repository permissions", select or unselect **Allow members to see comment author's profile name in private repositories**.
+![Checkbox to allow members to see comment author's full name in private repositories](/assets/images/help/organizations/allow-members-to-view-full-names.png)
+6. Click **Save**.

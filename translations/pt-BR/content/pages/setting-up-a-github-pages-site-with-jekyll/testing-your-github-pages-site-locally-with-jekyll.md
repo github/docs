@@ -15,12 +15,12 @@ versions:
 topics:
   - Pages
 shortTitle: Test site locally with Jekyll
-ms.openlocfilehash: 68123d7bc2849881fc60fdd89dc4177e6701f5d4
-ms.sourcegitcommit: ac00e2afa6160341c5b258d73539869720b395a4
+ms.openlocfilehash: 9db3a964ee38afa191f7fed31cfa032128460f48
+ms.sourcegitcommit: 3268914369fb29540e4d88ee5e56bc7a41f2a60e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147875528'
+ms.lasthandoff: 10/26/2022
+ms.locfileid: '148111301'
 ---
 Qualquer pessoa com permissões de leitura para um repositório pode testar um site do {% data variables.product.prodname_pages %} localmente.
 
@@ -52,13 +52,14 @@ Antes de usar o Jekyll para testar um site, você deve:
   >    Server address: http://127.0.0.1:4000/
   >  Server running... press ctrl-c to stop.
   ```
+  {% note %}
+
+  **Observação:** se você instalou o Ruby 3.0 ou posterior (o que pode ter ocorrido se a versão padrão foi instalada pelo Homebrew), um erro poderá ser gerado nesta etapa. Isso ocorre porque essas versões do Ruby não vêm mais com o `webrick` instalado.
+  
+  Para corrigir o erro, tente executar `bundle add webrick` e depois executar `bundle exec jekyll serve` novamente.
+  {% endnote %}
+
 3. Para visualizar seu site, no navegador da Web, navegue até `http://localhost:4000`.
-
-{% note %}
-
-**Observação:** se você estiver usando o Ruby 3.0 e o Jekyll 4.2.x ou uma versão mais antiga, precisará adicionar o gem `webrick` ao Gemfile do projeto antes de executar `bundle install`.
-
-{% endnote %}
 
 ## Atualizar o gem do {% data variables.product.prodname_pages %}
 

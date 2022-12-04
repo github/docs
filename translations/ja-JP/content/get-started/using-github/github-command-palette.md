@@ -1,229 +1,234 @@
 ---
-title: GitHub Command Palette
-intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
+title: GitHub コマンド パレット
+intro: '{% data variables.product.product_name %} のコマンド パレットを使って、キーボードから直接移動、検索、コマンドの実行を行います。'
 versions:
   feature: command-palette
 shortTitle: GitHub Command Palette
+ms.openlocfilehash: 5c6b739f2422be780cef6fa0e44e5d75663cc036
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159054'
 ---
-
 {% data reusables.command-palette.beta-note %}
 
-## About the {% data variables.product.prodname_command_palette %}
+## {% data variables.product.prodname_command_palette %} について
 
-You can navigate, search, and run commands on {% data variables.product.product_name %} with the {% data variables.product.prodname_command_palette %}. The command palette is an on-demand way to show suggestions based on your current context and resources you've used recently. You can open the command palette with a keyboard shortcut from anywhere on {% data variables.product.product_name %}, which saves you time and keeps your hands on the keyboard.
+{% data variables.product.prodname_command_palette %} を使って、{% data variables.product.product_name %} で移動、検索、コマンドを実行できます。 コマンド パレットは、現在のコンテキストと最近使ったリソースに基づく候補を表示するオンデマンドの方法です。 コマンド パレットは、{% data variables.product.product_name %} の任意の場所からキーボード ショートカットで開くことができるので、時間を節約してキーボードから手を離さずにいることができます。
 
-### Fast navigation
+### 高速ナビゲーション
 
-When you open the command palette, the suggestions are optimized to give you easy access from anywhere in a repository, personal account, or organization to top-level pages like the Issues page. If the location you want isn't listed, start entering the name or number for the location to refine the suggestions.
+コマンド パレットを開くと、リポジトリ、個人アカウント、組織のどこからでも issue ページなどのトップレベルのページに簡単にアクセスできるように、候補が最適化されています。 目的の場所が一覧表示されていない場合は、場所の名前または番号を入力し始めると、候補が絞り込まれます。
 
-![Command palette repository suggestions](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
+![コマンド パレット リポジトリの候補](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
 
-### Easy access to commands
+### コマンドへの簡単なアクセス
 
-The ability to run commands directly from your keyboard, without navigating through a series of menus, may change the way you use {% data variables.product.prodname_dotcom %}. For example, you can switch themes with a few keystrokes, making it easy to toggle between themes as your needs change.
+メニューから操作することなく、キーボードから直接コマンドを実行できるため、{% data variables.product.prodname_dotcom %} の使い方が変わるかもしれません。 たとえば、数回のキー操作でテーマを切り替えられるので、ニーズの変化に応じて簡単にテーマを切り替えることができます。
 
-![Command palette change theme](/assets/images/help/command-palette/command-palette-command-change-theme.png)
+![コマンド パレットのテーマの変更](/assets/images/help/command-palette/command-palette-command-change-theme.png)
 
-## Opening the {% data variables.product.prodname_command_palette %}
+## {% data variables.product.prodname_command_palette %} を開く
 
-Open the command palette using one of the following default keyboard shortcuts:
-- Windows and Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>
-- Mac: <kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>
+コマンド パレットを開くには、次の既定のキーボード ショートカットのいずれかを使います。
+- Windows と Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd> または <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>
+- Mac: <kbd>Command</kbd>+<kbd>K</kbd> または <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>
 
-You can customize the keyboard shortcuts you use to open the command palette in the [Accessibility section](https://github.com/settings/accessibility) of your user settings. For more information, see "[Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts](#customizing-your-github-command-palette-keyboard-shortcuts)."
+コマンド パレットを開くためのキーボード ショートカットは、ユーザー設定の [[アクセシビリティ セクション]](https://github.com/settings/accessibility) でカスタマイズすることができます。 詳細については「[{% data variables.product.prodname_command_palette %} キーボード ショートカットのカスタマイズ](#customizing-your-github-command-palette-keyboard-shortcuts)」を参照してください。
 
-When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization).
+コマンド パレットを開くと、左上隅に場所が表示され、それを候補のスコープとして使います (たとえば、`mashed-avocado` 組織)。
 
-![Command palette launch](/assets/images/help/command-palette/command-palette-launch.png)
+![コマンド パレットの起動](/assets/images/help/command-palette/command-palette-launch.png)
 
 {% note %}
 
-**Notes:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
-- If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."{% endif %}
+**注:**
+- Markdown テキストを編集している場合、<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> キー (Windows および Linux) または <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> キー (Mac) を使用してコマンド パレットを開きます。{% ifversion projects-v2 %}
+- {% data variables.projects.project_v2 %} で作業している場合は、代わりにプロジェクト固有のコマンド パレットが表示されます。 詳しい情報については、「[ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」を参照してください。{% endif %}
 
 {% endnote %}
 
-### Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts
+### {% data variables.product.prodname_command_palette %} キーボード ショートカットのカスタマイズ
 
 
-The default keyboard shortcuts used to open the command palette may conflict with your default OS and browser keyboard shortcuts. You have the option to customize your keyboard shortcuts in the [Accessibility section](https://github.com/settings/accessibility) of your account settings. In the command palette settings, you can customize the keyboard shortcuts for opening the command palette in both search mode and command mode. 
+コマンド パレットを開くための既定のキーボード ショートカットは、OS とブラウザーの既定のキーボード ショートカットと競合する場合があります。 アカウント設定の [[アクセシビリティ セクション]](https://github.com/settings/accessibility) に、キーボード ショートカットをカスタマイズするオプションがあります。 コマンド パレットの設定では、検索モードとコマンド モードの両方でコマンド パレットを開くためのキーボード ショートカットをカスタマイズできます。 
 
-![Command palette keyboard shortcut settings](/assets/images/help/command-palette/command-palette-keyboard-shortcut-settings.png)
-## Navigating with the {% data variables.product.prodname_command_palette %}
+![コマンド パレットのキーボード ショートカット設定](/assets/images/help/command-palette/command-palette-keyboard-shortcut-settings.png)
+## {% data variables.product.prodname_command_palette %} による移動
 
-You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}.
-
-{% data reusables.command-palette.open-palette %}
-
-2. Start typing the path you want to navigate to. The suggestions in the command palette change to match your text.
-
-   ![Command palette navigation current scope](/assets/images/help/command-palette/command-palette-navigation-current-scope.png)
-
-{% data reusables.command-palette.change-scope %}
-
-   You can also use keystrokes to narrow your search. For more information, see "[Keystroke functions](#keystroke-functions)."
-
-4. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
-
-5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
-
-## Searching with the {% data variables.product.prodname_command_palette %}
-
-You can use the command palette to search for anything on {% data variables.location.product_location %}.
+コマンド パレットを使うと、{% data variables.product.product_name %} でアクセスできる任意のページに移動できます。
 
 {% data reusables.command-palette.open-palette %}
 
+2. 移動したいパスの入力を開始します。 コマンド パレットの候補は、テキストに合わせて変化します。
+
+   ![コマンド パレット ナビゲーションの現在のスコープ](/assets/images/help/command-palette/command-palette-navigation-current-scope.png)
+
 {% data reusables.command-palette.change-scope %}
 
-3. Optionally, use keystrokes to find specific types of resource:
+   キー入力による絞り込み検索もできます。 詳細については、「[キー入力関数](#keystroke-functions)」を参照してください。
 
-   - <kbd>#</kbd> Search for issues, pull requests, discussions, and projects
-   - <kbd>!</kbd> Search for projects
-   - <kbd>@</kbd> Search for users, organizations, and repositories
-   - <kbd>/</kbd> Search for files within a repository scope
+4. パスの入力を完了するか、方向キーを使って候補の中から必要なパスを強調表示します。
 
-   ![Command palette search files](/assets/images/help/command-palette/command-palette-search-files.png)
+5. <kbd>Enter</kbd> キーで選んだ場所にジャンプします。 または、<kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows と Linux) または <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) を使って、新しいブラウザー タブで場所を開きます。
 
-4. Begin entering your search terms. The command palette will offer you a range of suggested searches based on your search scope.
+## {% data variables.product.prodname_command_palette %} を使用した検索
+
+コマンド パレットを使用して、{% data variables.location.product_location %} からすべてのことを検索できます。
+
+{% data reusables.command-palette.open-palette %}
+
+{% data reusables.command-palette.change-scope %}
+
+3. 必要に応じて、キー ストロークを使用して特定の種類のリソースを検索します。
+
+   - <kbd>#</kbd> issue、pull request、ディスカッション、プロジェクトを検索する
+   - <kbd>!</kbd> プロジェクトを検索する
+   - <kbd>@</kbd> ユーザー、組織、リポジトリを管理する
+   - <kbd>/</kbd> リポジトリ スコープ内のファイルを検索する
+
+   ![コマンド パレットのファイル検索](/assets/images/help/command-palette/command-palette-search-files.png)
+
+4. 検索語句の入力を開始します。 コマンド パレットでは、ユーザーの検索範囲に基づいて、一連の検索語の候補が表示されます。
 
    {% tip %}
 
-   You can also use the full syntax of {% data variables.product.prodname_dotcom %}'s integrated search within the command palette. For more information, see "[Searching for information on {% data variables.product.prodname_dotcom %}](/search-github)."
+   コマンド パレット内で {% data variables.product.prodname_dotcom %} の統合検索の完全な構文を使用することもできます。 詳細については、「[{% data variables.product.prodname_dotcom %} での情報の検索](/search-github)」を参照してください。
 
    {% endtip %}
 
-5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. 矢印キーを使用して目的の検索結果を強調表示し、<kbd>Enter キー</kbd>を使用して選択した場所にジャンプします。 または、<kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows と Linux) または <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) を使って、新しいブラウザー タブで場所を開きます。
 
-## Running commands from the {% data variables.product.prodname_command_palette %}
+## {% data variables.product.prodname_command_palette %} からのコマンドの実行
 
-You can use the {% data variables.product.prodname_command_palette %} to run commands. For example, you can create a new repository or issue, or change your theme. When you run a command, the location for its action is determined by either the underlying page or the scope shown in the command palette.
+{% data variables.product.prodname_command_palette %} を使用してコマンドを実行できます。 たとえば、新しいリポジトリや issue を作成したり、テーマを変更したりできます。 コマンドを実行する際、そのアクションの対象となる場所は、基になるページ、またはコマンド パレットに表示されるスコープによって決まります。
 
-- Pull request and issue commands always run on the underlying page.
-- Higher-level commands, for example, repository commands, run in the scope shown in the command palette.
+- pull request コマンドと issue コマンドは、常に基になるページで実行されます。
+- リポジトリ コマンドなどの上位レベル コマンドは、コマンド パレットに表示されているスコープで実行されます。
 
-For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
+サポートされているコマンドの完全な一覧については、「[{% data variables.product.prodname_command_palette %} リファレンス](#github-command-palette-reference)」を参照してください。
 
-1. The default keyboard shortcuts to open the command palette in command mode are <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac). If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
+1. コマンド パレットをコマンド モードで開くための既定のキーボード ショートカットは、<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows および Linux) または <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac) です。 コマンド パレットを既に開いている場合は、<kbd>></kbd> を押してコマンド モードに切り替えます。 {% data variables.product.prodname_dotcom %} では、ユーザーの場所に基づいてコマンドが提案されます。
 
-   ![Command palette command mode](/assets/images/help/command-palette/command-palette-command-mode.png)
+   ![コマンド パレットのコマンド モード](/assets/images/help/command-palette/command-palette-command-mode.png)
 
 {% data reusables.command-palette.change-scope %}
 
-3. If the command you want is not displayed, check your scope then start entering the command name in the text box.
+3. 目的のコマンドが表示されない場合は、スコープを確認した後、テキスト ボックスでコマンド名の入力を開始します。
 
-4. Use the arrow keys to highlight the command you want and use <kbd>Enter</kbd> to run it.
+4. 方向キーを使用して目的のコマンドを強調表示し、<kbd>Enter キー</kbd>を使用して実行します。
 
 
-## Closing the command palette
+## コマンド パレットの終了
 
-When the command palette is active, you can use one of the following keyboard shortcuts to close the command palette:
+コマンド パレットがアクティブな場合は、次のいずれかのキーボード ショートカットを使用してコマンド パレットを閉じます。
 
-- Search and navigation mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
-- Command mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
+- 検索およびナビゲーション モード: <kbd>Esc</kbd> または <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows および Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
+- コマンド モード: <kbd>Esc</kbd> または <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows および Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
 
-If you have customized the command palette keyboard shortcuts in the Accessibility settings, your customized keyboard shortcuts will be used for both opening and closing the command palette.  
+アクセシビリティ設定でコマンド パレットのキーボード ショートカットをカスタマイズした場合、カスタマイズしたキーボード ショートカットは、コマンド パレットの開閉の両方に使用されます。  
 
-## {% data variables.product.prodname_command_palette %} reference
+## {% data variables.product.prodname_command_palette %} リファレンス
 
-### Keystroke functions
+### キーストローク関数
 
-These keystrokes are available when the command palette is in navigation and search modes, that is, they are not available in command mode.
+これらのキーストロークは、コマンド パレットがナビゲーション モードと検索モードにある場合、つまりコマンド モードでは使用できない場合に使用できます。
 
-| Keystroke | Function |
+| キー操作 | 機能 |
 | :- | :- |
-|<kbd>></kbd>| Enter command mode. For more information, see "[Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette)." |
-|<kbd>#</kbd>| Search for issues, pull requests, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>@</kbd>| Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>/</kbd>| Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
-|<kbd>!</kbd>| Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>Command</kbd>+<kbd>C</kbd>| Copy the search or navigation URL for the highlighted result to the clipboard.|
-|<kbd>Enter</kbd>| Jump to the highlighted result or run the highlighted command.|
-|<kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd>| Open the highlighted search or navigation result in a new brower tab.|
-|<kbd>?</kbd>| Display help within the command palette.|
+|<kbd>></kbd>| コマンド モードを開始します。 詳細については、「[{% data variables.product.prodname_command_palette %} からのコマンドの実行](#running-commands-from-the-github-command-palette)」を参照してください。 |
+|<kbd>#</kbd>| issue、pull request、ディスカッション、プロジェクトを検索します。 詳細については、「[{% data variables.product.prodname_command_palette %} を使用した検索](#searching-with-the-github-command-palette)」を参照してください。|
+|<kbd>@</kbd>| ユーザー、組織、リポジトリを管理します。 詳細については、「[{% data variables.product.prodname_command_palette %} を使用した検索](#searching-with-the-github-command-palette)」を参照してください。|
+|<kbd>/</kbd>| リポジトリ スコープ内のファイル、または組織スコープ内のリポジトリを検索します。 詳細については、「[{% data variables.product.prodname_command_palette %} を使用した検索](#searching-with-the-github-command-palette)」を参照してください。 |
+|<kbd>!</kbd>| プロジェクトのみを検索します。 詳細については、「[{% data variables.product.prodname_command_palette %} を使用した検索](#searching-with-the-github-command-palette)」を参照してください。|
+|<kbd>Ctrl</kbd>+<kbd>C</kbd> または <kbd>Command</kbd>+<kbd>C</kbd>| 強調表示された結果の検索 URL またはナビゲーション URL をクリップボードにコピーします。|
+|<kbd>Enter</kbd>| 強調表示された結果に移動するか、強調表示されたコマンドを実行します。|
+|<kbd>Ctrl</kbd>+<kbd>Enter</kbd> または <kbd>Command</kbd>+<kbd>Enter</kbd>| 強調表示された検索またはナビゲーションの結果を新しいブラウザー タブで開きます。|
+|<kbd>?</kbd>| コマンド パレット内にヘルプを表示します。|
 
-### Global commands
+### グローバル コマンド
 
-These commands are available from all scopes.
+これらのコマンドは、すべてのスコープから使用できます。
 
-| Command | Behavior|
+| コマンド | 動作|
 | :- | :- | :- |
-|`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)."  |
-|`New gist`|Open a new gist. For more information, see "[Creating a gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
-|`New organization`|Create a new organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |
-|`New project`|Create a new project board. For more information, see "[Creating a project](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."  |
-|`New repository`|Create a new repository from scratch. For more information, see "[Creating a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository)." |
-|`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)." |
+|`Import repository`|別のバージョン管理システムからプロジェクトをインポートして、新しいリポジトリを作成します。 詳細については、「[GitHub Importer でリポジトリをインポートする](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)」を参照してください。  |
+|`New gist`|新しい gist を開きます。 詳細については、「[Gist の作成](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)」を参照してください。 |
+|`New organization`|新しい組織を作成します。 詳細については、「[新しい Organization をゼロから作成](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。 |
+|`New project`|新しいプロジェクト ボードを作成します。 詳細については、「[プロジェクトの作成](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)」を参照してください。  |
+|`New repository`|新しいリポジトリを最初から作成します。 詳細については、「[新しいリポジトリの作成](/repositories/creating-and-managing-repositories/creating-a-new-repository)」を参照してください。 |
+|`Switch theme to <theme name>`|UI の別のテーマに直接変更します。 詳細については、「[テーマ設定を管理する](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)」を参照してください。 |
 
 
-### Organization commands
+### 組織コマンド
 
-These commands are available only within the scope of an organization.
+これらのコマンドは、組織スコープ内でのみ使用できます。
 
-| Command | Behavior|
+| コマンド | 動作|
 | :- | :- |
-| `New team`| Create a new team in the current organization. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+| `New team`| 現在の組織に新しいチームを作成します。 詳細については、「[チームを作成する](/organizations/organizing-members-into-teams/creating-a-team)」を参照してください。
 
-### Repository commands
+### リポジトリ コマンド
 
-Most of these commands are available only on the home page of the repository. If a command is also available on other pages, this is noted in the behavior column.
+これらのコマンドのほとんどは、リポジトリのホーム ページでのみ使用できます。 コマンドが他のページでも使用できる場合は、動作列にその旨を記します。
 
-| Command | Behavior|
+| コマンド | 動作|
 | :- | :- |
-|`Clone repository: <URL type>`|Copy the URL needed to clone the repository using {% data variables.product.prodname_cli %}, HTTPS, or SSH to the clipboard. For more information, see "[Cloning a repository](/repositories/creating-and-managing-repositories/cloning-a-repository)."|
-|`New discussion`|Create a new discussion in the repository. For more information, see "[Creating a new discussion](/discussions/quickstart#creating-a-new-discussion)."|
-|`New file`|Create a new file from any page in the repository. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
-|`New issue`|Open a new issue from any page in the repository. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."|
-|`Open in new codespace`|Create and open a codespace for this repository. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."|
-|`Open in github.dev editor`|Open the current repository in the github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
+|`Clone repository: <URL type>`|{% data variables.product.prodname_cli %}、HTTPS、または SSH を使用してリポジトリを複製するために必要な URL をクリップボードにコピーします。 詳細については、「[リポジトリをクローンする](/repositories/creating-and-managing-repositories/cloning-a-repository)」を参照してください。|
+|`New discussion`|リポジトリに新しいディスカッションを作成します。 詳細については、「[新しいディスカッションを作成する](/discussions/quickstart#creating-a-new-discussion)」を参照してください。|
+|`New file`|リポジトリ内の任意のページから新しいファイルを作成します。 詳細については、「[リポジトリにファイルを追加する](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)」を参照してください。
+|`New issue`|リポジトリ内の任意のページから新しい issue を開きます。 詳細については、「[Issue の作成](/issues/tracking-your-work-with-issues/creating-an-issue)」を参照してください。|
+|`Open in new codespace`|このリポジトリのコードスペースを作成して開きます。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)」を参照してください。|
+|`Open in github.dev editor`|github.dev エディターで現在のリポジトリを開きます。 詳細については、「[Web ベースのエディターを開く](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)」を参照してください。|
 
-### File commands
+### ファイル コマンド
 
-These commands are available only when you open the command palette from a file in a repository.
+これらのコマンドは、リポジトリ内のファイルからコマンド パレットを開く場合にのみ使用できます。
 
-| Command | Behavior|
+| コマンド | 動作|
 | :- | :- |
-|`Copy permalink`|Create a link to the file that includes the current commit SHA and copy the link to the clipboard. For more information, see "[Getting permanent links to files](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit)."
-|`Open in github.dev editor`|Open the currently displayed file in github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
+|`Copy permalink`|現在のコミット SHA を含むファイルへのリンクを作成し、リンクをクリップボードにコピーします。 詳細については、「[ファイルへのパーマリンクを取得する](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit)」を参照してください。
+|`Open in github.dev editor`|現在表示されているファイルを github.dev エディターで開きます。 詳細については、「[Web ベースのエディターを開く](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)」を参照してください。|
 
-### Discussion commands
+### ディスカッション コマンド
 
-These commands are available only when you open the command palette from a discussion. They act on your current page and are not affected by the scope set in the command palette.
+これらのコマンドは、ディスカッションからコマンド パレットを開く場合にのみ使用できます。 これらは現在のページで動作し、コマンド パレットで設定されたスコープの影響を受けません。
 
-| Command | Behavior|
+| コマンド | 動作|
 | :- | :- |
-|`Delete discussion...`|Permanently delete the discussion. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
-|`Edit discussion body`|Open the main body of the discussion ready for editing.
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for additions to the discussion. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Transfer discussion...`|Move the discussion to a different repository. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion)."
+|`Delete discussion...`|ディスカッションを完全に削除します。 詳しくは、「[ディスカッションの管理](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)」を参照してください。
+|`Edit discussion body`|編集する準備ができているディスカッションの本文を開きます。
+|`Subscribe`/`unsubscribe`|ディスカッションへの追加の通知をオプトインまたはオプトアウトします。 詳細については、「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。
+|`Transfer discussion...`|ディスカッションを別のリポジトリに移動します。 詳しくは、「[ディスカッションの管理](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion)」を参照してください。
 
-### Issue commands
+### issue コマンド
 
-These commands are available only when you open the command palette from an issue. They act on your current page and are not affected by the scope set in the command palette.
+これらのコマンドは、issue からコマンド パレットを開く場合にのみ使用できます。 これらは現在のページで動作し、コマンド パレットで設定されたスコープの影響を受けません。
 
-| Command | Behavior|
+| コマンド | 動作|
 | :- | :- |
-|`Close`/`reopen issue`|Close or reopen the current issue. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."|
-|`Convert issue to discussion...`|Convert the current issue into a discussion. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
-|`Delete issue...`|Delete the current issue. For more information, see "[Deleting an issue](/issues/tracking-your-work-with-issues/deleting-an-issue)."|
-|`Edit issue body`|Open the main body of the issue ready for editing.
-|`Edit issue title`|Open the title of the issue ready for editing.
-|`Lock issue`|Limit new comments to users with write access to the repository. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
-|`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."|
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this issue. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Transfer issue...`|Transfer the issue to another repository. For more information, see "[Transferring an issue to another repository](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)."|
+|`Close`/`reopen issue`|現在の issue を閉じるか、もう一度開きます。 詳細については、「[Issue について](/issues/tracking-your-work-with-issues/about-issues)」を参照してください。|
+|`Convert issue to discussion...`|現在の issue をディスカッションに変換します。 詳細については、「[ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)」を参照してください。
+|`Delete issue...`|現在の issue を削除します。 詳細については、「[Issue の削除](/issues/tracking-your-work-with-issues/deleting-an-issue)」を参照してください。|
+|`Edit issue body`|編集する準備ができている issue の本文を開きます。
+|`Edit issue title`|編集する準備ができている issue のタイトルを開きます。
+|`Lock issue`|リポジトリへの書き込みアクセス権を持つユーザーへの新しいコメントを制限します。 詳細については、[会話のロック](/communities/moderating-comments-and-conversations/locking-conversations)に関するページを参照してください。
+|`Pin`/`unpin issue`|リポジトリのピン留めされた issue セクションに issue が表示されるかどうかを変更します。 詳細については、「[Issue をリポジトリにピン止めする](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)」を参照してください。|
+|`Subscribe`/`unsubscribe`|この issue に対する変更についての通知をオプトインまたはオプトアウトします。 詳細については、「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。
+|`Transfer issue...`|issue を別のリポジトリに転送します。 詳細については、「[Transferring an issue to another repository (Issue を別のリポジトリに転送する)](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)」を参照してください。|
 
-### Pull request commands
+### pull request コマンド
 
-These commands are available only when you open the command palette from a pull request. They act on your current page and are not affected by the scope set in the command palette.
+これらのコマンドは、pull request からコマンド パレットを開く場合にのみ使用できます。 これらは現在のページで動作し、コマンド パレットで設定されたスコープの影響を受けません。
 
-| Command | Behavior|
+| コマンド | 動作|
 | :- | :- |
-|`Close`/`reopen pull request`|Close or reopen the current pull request. For more information, see "[About pull requests](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."|
-|`Convert to draft`/`Mark pull request as ready for review`|Change the state of the pull request to show it as ready, or not ready, for review. For more information, see "[Changing the state of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."|
-|`Copy current branch name`| Add the name of the head branch for the pull request to the clipboard.
-|`Edit pull request body`|Open the main body of the pull request ready for editing.
-|`Edit pull request title`|Open the title of the pull request ready for editing.
-|`Open in new codespace`|Create and open a codespace for the head branch of the pull request. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see "[About branches](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)."|
+|`Close`/`reopen pull request`|現在の pull request を閉じるか、もう一度開きます。 詳細については、「[pull request について](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)」を参照してください。|
+|`Convert to draft`/`Mark pull request as ready for review`|pull request の状態を変更して、レビューの準備ができているか、準備ができていない状態として表示します。 詳細については、[pull request の状態変更](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)に関するページを参照してください。|
+|`Copy current branch name`| pull request のヘッド ブランチの名前をクリップボードに追加します。
+|`Edit pull request body`|編集の準備ができている pull request の本文を開きます。
+|`Edit pull request title`|編集の準備ができている pull request のタイトルを開きます。
+|`Open in new codespace`|pull request のヘッド ブランチのコードスペースを作成して開きます。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)」を参照してください。
+|`Subscribe`/`unsubscribe`|この pull request に対する変更についての通知をオプトインまたはオプトアウトします。 詳細については、「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。
+|`Update current branch`|pull request のヘッド ブランチを、ベース ブランチからの変更内容で更新します。 これは、リポジトリの既定のブランチを対象とする pull request でのみ使用できます。 詳細については、[ブランチについて](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)のページを参照してください。|

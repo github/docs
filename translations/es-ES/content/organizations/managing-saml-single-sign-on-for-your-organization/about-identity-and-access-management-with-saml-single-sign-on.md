@@ -10,12 +10,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: IAM with SAML SSO
-ms.openlocfilehash: d58fbf3800f0e3814528b0d05e47b6d1352a6cd4
-ms.sourcegitcommit: bf11c3e08cbb5eab6320e0de35b32ade6d863c03
+ms.openlocfilehash: 63ed023c1ca5d52ea7b06f5fd485c5e0b34c9750
+ms.sourcegitcommit: 6b649e03ca2fef38c9ebbeec92102219849380e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148111581'
+ms.lasthandoff: 10/31/2022
+ms.locfileid: '148120621'
 ---
 {% data reusables.saml.ghec-only %}
 
@@ -60,6 +60,12 @@ Algunos IdP admiten acceso de suministro a una organización de {% data variable
 Después de habilitar el inicio de sesión único de SAML, hay varias maneras de agregar nuevos miembros a su organización. Los propietarios de la organización pueden invitar a los miembros de forma manual en {% data variables.product.product_name %} o usando la API. Para más información, vea "[Invitación a los usuarios a unirse a la organización](/articles/inviting-users-to-join-your-organization)" y "[Miembros](/rest/reference/orgs#add-or-update-organization-membership)".
 
 Para aprovisionar nuevos usuarios sin una invitación de un propietario de la organización, puede usar la dirección URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, reemplazando _ORGANIZATION_ por el nombre de su organización. Por ejemplo, puede configurar el IdP para que cualquiera con acceso al IdP pueda hacer clic en el tablero del IdP para unirse a la organización de {% data variables.product.prodname_dotcom %}.
+
+{% note %}
+
+**Nota:** El aprovisionamiento de nuevos usuarios a través `https://github.com/orgs/ORGANIZATION/sso/sign_up` de solo se admite cuando el inicio de sesión único de SAML está configurado en el nivel de organización, no cuando el inicio de sesión único de SAML está configurado en el nivel de cuenta empresarial. Para obtener más información sobre SSO de SAML para cuentas empresariales, consulta "[Acerca de SAML para IAM de empresa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)".
+
+{% endnote %}
 
 Si tu IdP admite SCIM, {% data variables.product.prodname_dotcom %} puede invitar automáticamente a los miembros para que se unan a tu organización cuando les otorgas acceso en tu IdP. Si eliminas el acceso de un miembro a tu organización de {% data variables.product.prodname_dotcom %} en tu IdP de SAML, éste se eliminará automáticamente de la organización de{% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Acerca de SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 

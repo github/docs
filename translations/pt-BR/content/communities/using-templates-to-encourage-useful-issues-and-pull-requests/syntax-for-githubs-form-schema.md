@@ -7,12 +7,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: 2a329c7c0a7f1943f7515059c3f376fa36ea29b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3a8a21f04582b87741ef80755e92fbc859921bb5
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145095192'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179666'
 ---
 {% note %}
 
@@ -64,12 +64,12 @@ Por exemplo, a definição de formulário a seguir inclui quatro elementos de fo
 
 Para cada elemento de formulário, você pode definir as seguintes chaves.
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | O tipo de elemento que você deseja definir. | Obrigatório | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
 | `id` | O identificador do elemento, exceto quando `type` é definido como `markdown`. {% data reusables.form-schema.id-must-be-unique %} Se isso for fornecido, a `id` será o identificador canônico do campo nos preenchimentos prévios de parâmetro de consulta de URL. | Opcional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | Um conjunto de pares chave-valor que definem as propriedades do elemento.  | Obrigatório | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | Um conjunto de pares chave-valor que define restrições sobre o elemento. | Opcional | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | Um conjunto de pares chave-valor que definem as propriedades do elemento.  | Obrigatório | Mapeamento | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | Um conjunto de pares chave-valor que define restrições sobre o elemento. | Opcional | Mapeamento | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 Você pode escolher entre os seguintes tipos de elementos de formulário. Cada tipo tem atributos e validações exclusivos.
 
@@ -89,7 +89,7 @@ Você pode usar um elemento `markdown` para exibir o Markdown no seu formulário
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `value` | O texto que é interpretado. A formatação de Markdown é compatível. | Obrigatório | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
@@ -122,7 +122,7 @@ Você pode usar um elemento `textarea` para adicionar um campo de texto de vári
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | Uma breve descrição da entrada esperada do usuário, que também é exibida no formulário. | Obrigatório | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | Uma descrição da área de texto para fornecer contexto ou orientação, que é exibida no formulário. | Opcional | String | String vazia | {% octicon "dash" aria-label="The dash icon" %} |
@@ -134,7 +134,7 @@ Você pode usar um elemento `textarea` para adicionar um campo de texto de vári
 
 {% data reusables.form-schema.validations-intro %}
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -165,7 +165,7 @@ Você pode usar um elemento `input` para adicionar um campo de texto de linha ú
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | Uma breve descrição da entrada esperada do usuário, que também é exibida no formulário. | Obrigatório | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | Uma descrição do campo para fornecer contexto ou orientação, que é exibida no formulário. | Opcional | String | String vazia | {% octicon "dash" aria-label="The dash icon" %} |
@@ -176,7 +176,7 @@ Você pode usar um elemento `input` para adicionar um campo de texto de linha ú
 
 {% data reusables.form-schema.validations-intro %}
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -202,7 +202,7 @@ Você pode usar um elemento `dropdown` para adicionar um menu suspenso ao formul
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | Uma breve descrição da entrada esperada do usuário, que é exibida no formulário. | Obrigatório | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | Uma descrição do menu suspenso para fornecer contexto ou orientação extra, que é exibida no formulário. | Opcional | String | String vazia | {% octicon "dash" aria-label="The dash icon" %} |
@@ -213,7 +213,7 @@ Você pode usar um elemento `dropdown` para adicionar um menu suspenso ao formul
 
 {% data reusables.form-schema.validations-intro %}
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -242,13 +242,21 @@ Você pode usar o elemento `checkboxes` para adicionar um conjunto de caixas de 
 
 {% data reusables.form-schema.attributes-intro %}
 
-| Chave | Descrição | Obrigatório | Tipo | Padrão | Valores válidos |
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | Uma breve descrição da entrada esperada do usuário, que é exibida no formulário. | Obrigatório | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | Uma descrição do conjunto de caixas de seleção, que é exibida no formulário. É compatível com a formatação de markdown. | Opcional | String | String vazia | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | Uma matriz de caixas de seleção que o usuário pode selecionar. Para a sintaxe, veja abaixo. | Obrigatório | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
+
+#### Validações
+
+{% data reusables.form-schema.validations-intro %}
+
+| Chave | Descrição | Obrigatório | Type | Padrão | Valores válidos |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
 
 #### Exemplo
 

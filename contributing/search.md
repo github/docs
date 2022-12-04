@@ -45,12 +45,6 @@ The Actions workflow progress can be viewed (by GitHub employees) in the [Action
 
 You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. It's recommended to do this for only the `free-pro-team@latest` version and the `en` language because running all languages and versions takes about 40 minutes. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). Enter the language and version you'd like to generate the indexes for as inputs to the workflow. By default, all languages and versions are generated.
 
-## Generating search indexes for your local checkout
-
-You can locally generate search indexes, but please do not check them into your local branch because they can get out-of-sync with the `main` branch quickly.
-
-To locally generate the English version of the Dotcom search index locally, run `LANGUAGE=en VERSION=free-pro-team@latest npm run sync-search`. See [Build and sync](#build-and-sync) below for more details. To revert those files run `git checkout lib/search/indexes`.
-
 ### Build and sync
 
 To build all the indices (this takes about an hour):

@@ -1,13 +1,19 @@
 ---
-ms.openlocfilehash: bca2838e65fedf0ec5d512a21891b594dc90c1f6
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 89c3ed1592c000322cf4f0d6915e355bc81014ed
+ms.sourcegitcommit: d0cea547f6a5d991a28c310257cafd616235889f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147521534"
+ms.lasthandoff: 11/01/2022
+ms.locfileid: "148120938"
 ---
-Use `jobs.<job_id>.runs-on` para definir el tipo de máquina en la que se ejecutará el trabajo. {% ifversion fpt or ghec %}La máquina puede ser un ejecutor hospedado en {% data variables.product.prodname_dotcom %}, o bien un ejecutor autohospedado.{% endif %} Puede proporcionar `runs-on` como una cadena única o como una matriz de cadenas. Si especifica una matriz de cadenas, el flujo de trabajo se ejecutará en un ejecutor autohospedado cuyas etiquetas coinciden con todos los valores `runs-on` especificados, si están disponibles. Si quiere ejecutar el flujo de trabajo en varias máquinas, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+Use `jobs.<job_id>.runs-on` para definir el tipo de máquina en la que se ejecutará el trabajo. 
 
+{% ifversion fpt or ghec %}: la máquina de destino puede ser un [ejecutor hospedado por {% data variables.product.prodname_dotcom %}](#choosing-github-hosted-runners), [{% data variables.actions.hosted_runner %}](#choosing-runners-in-a-group) o un [ejecutor autohospedado](#choosing-self-hosted-runners). {% else %}
+- La máquina de destino puede ser un [ejecutor autohospedado](#choosing-self-hosted-runners). {% endif %} {% ifversion target-runner-groups %}: puede dirigirse a los ejecutores en función de las etiquetas que se les han asignado, su pertenencia a grupos o una combinación de ambos. {% else %}
+- Puedes dirigirte a los ejecutores según las etiquetas que se les han asignado. {% endif %}
+- Puedes proporcionar `runs-on` como una sola cadena o como una matriz de cadenas. 
+- Si especificas una matriz de cadenas, el flujo de trabajo se ejecutará en cualquier ejecutor que coincida con todos los valores `runs-on` especificados. 
+- Si quiere ejecutar el flujo de trabajo en varias máquinas, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 {% ifversion fpt or ghec or ghes %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -41,3 +47,21 @@ runs-on: [self-hosted, linux]
 ```
 
 Para más información, vea "[Acerca de los ejecutores autohospedados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" y "[Uso de ejecutores autohospedados en un flujo de trabajo](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)".
+
+{% ifversion target-runner-groups %}
+
+### Elección de ejecutores en un grupo
+
+Puedes usar `runs-on` para dirigirte a grupos de ejecutores, de modo que el trabajo se ejecute en cualquier ejecutor que sea miembro de ese grupo. Para un control más granular, también puedes combinar grupos de ejecutores con etiquetas.
+
+Los grupos de ejecutores solo pueden tener [{% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners) o [ejecutores autohospedados](/actions/hosting-your-own-runners) como miembros.
+
+#### Ejemplo: Uso de grupos para controlar dónde se ejecutan los trabajos
+
+{% data reusables.actions.jobs.example-runs-on-groups %}
+
+#### Ejemplo: Combinación de grupos y etiquetas
+
+{% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
+
+{% endif %}

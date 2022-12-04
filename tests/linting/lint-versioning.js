@@ -9,8 +9,8 @@ import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-o
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
 import frontmatter from '../../lib/frontmatter.js'
-import loadSiteData from '../../lib/site-data.js'
 import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated-flag-error-cleanup.js'
+import { getDeepDataByLanguage } from '../../lib/get-data.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
@@ -22,8 +22,7 @@ import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
-const siteData = loadSiteData()
-const featureVersions = Object.entries(siteData.en.site.data.features)
+const featureVersions = Object.entries(getDeepDataByLanguage('features', 'en'))
 const featureVersionNames = featureVersions.map((fv) => fv[0])
 const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVersionNames)
 

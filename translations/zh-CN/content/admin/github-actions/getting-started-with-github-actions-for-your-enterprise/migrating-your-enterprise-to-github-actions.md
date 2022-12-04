@@ -10,12 +10,12 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: db41434eae8bd3cf9036510705ee996f365f3fa1
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 332d8af7f1087626509a9c72751882ea11f3072f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145099064'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159790'
 ---
 ## 关于企业迁移到 {% data variables.product.prodname_actions %}
 
@@ -53,7 +53,7 @@ ms.locfileid: '145099064'
 
 ### 识别和验证迁移工具
 
-自动迁移工具可以将企业的工作流程从现有系统的语法转换为 {% data variables.product.prodname_actions %} 所需的语法。 确定第三方工具或者联系您的专业代表或 {% data variables.contact.contact_enterprise_sales %}，询问 {% data variables.product.company_short %} 可以提供的工具。
+自动迁移工具可以将企业的工作流程从现有系统的语法转换为 {% data variables.product.prodname_actions %} 所需的语法。 确定第三方工具或者联系您的专业代表或 {% data variables.contact.contact_enterprise_sales %}，询问 {% data variables.product.company_short %} 可以提供的工具。 例如，可以使用 {% data variables.product.prodname_actions_importer %} 来规划 CI 管道、限定其范围以及将 CI 管道从各种受支持的服务迁移到 {% data variables.product.prodname_actions %}。 有关详细信息，请参阅“[使用 {% data variables.product.prodname_actions_importer %} 自动执行迁移](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)”。
 
 确定用于自动执行迁移的工具后，请通过在某些测试工作流程上运行该工具并验证结果是否符合预期来验证该工具。
 

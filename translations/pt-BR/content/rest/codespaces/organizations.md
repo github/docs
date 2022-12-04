@@ -9,15 +9,13 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 923e7aaf3b53ceb5203d061b23e99749f270ef71
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: 0daf0d24f839c92d8eea6b221346b2df312071cf
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147079628'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159326'
 ---
-{% data reusables.codespaces.codespaces-api-beta-note %}
-
 ## Sobre a API Organizações de codespaces
 
 A API Organizações de {% data variables.product.prodname_codespaces %} permite que você gerencie os {% data variables.product.prodname_codespaces %} cobrados da organização usando a API REST. Esta API está disponível para administradores autenticados da organização e aplicativos OAuth, mas não para o GitHub Apps. Para obter mais informações, confira "[{% data variables.product.prodname_codespaces %}](/codespaces)".

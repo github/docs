@@ -10,16 +10,16 @@ versions:
 topics:
   - Community
 shortTitle: Block from your org
-ms.openlocfilehash: 3264bb71f157c2ec34f42b859857eed4253379f3
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 527ce4fcf92946836f7a3d93e5caf07193561d4b
+ms.sourcegitcommit: 1529de77bfcbe45519131b5f5fb3ab319758c2d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145092416'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164359'
 ---
 Puede bloquear a los usuarios que no son miembros desde la configuración de la organización o desde un comentario específico que realice un usuario. Al bloquear a un usuario en un comentario, puedes elegir si deseas enviar una notificación al usuario explicando que fue bloqueado y por qué. De lo contrario, el usuario no será notificado directamente que ha sido bloqueado. Los usuarios bloqueados aún podrán borrar el contenido existente.
 
-Cuando bloqueas a un usuario, puedes elegir bloquearlo indefinidamente o durante un período determinado. Si bloqueas a alguien durante un tiempo determinado, estará desbloqueado automáticamente cuando caduque ese período. Si bloqueas a alguien indefinidamente, puedes desbloquearlo manualmente en cualquier momento. Para obtener más información, vea "[Desbloquear un usuario de la organización](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)".
+{% data reusables.organizations.blocking-a-user %}
 
 {% tip %}
 

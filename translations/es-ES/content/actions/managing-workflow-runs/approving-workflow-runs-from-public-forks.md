@@ -5,12 +5,12 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Approve public fork runs
-ms.openlocfilehash: b995362f67d97a3e2ee6d1029cbe24227867f58a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 74918a7d2e0081d6332ab267ef18ae148a2cff5e
+ms.sourcegitcommit: 73b91dd4cdf592eadec4252319379d6fbe92858e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145091824'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148164127'
 ---
 ## Acerca de las ejecuciones de flujo de trabajo de las bifurcaciones públicas
 
@@ -22,10 +22,4 @@ Las ejecuciones de flujos de trabajo que hayan estado esperando una aprobación 
 
 ## Aprobar las ejecuciones de flujo de trabajo en una solicitud de cambios de una bifurcación pública
 
-Los mantenedores con acceso de escritura en un repositorio pueden utilizar el siguiente procedimiento para revisar y ejecutar flujos de trabajo en las solicitudes de extracción de los contribuyentes que requieran aprobación.
-
-{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %} {% data reusables.repositories.changed-files %}
-1. Inspecciona los cambios propuestos en la solicitud de cambios y asegúrate de que estés de acuerdo para ejecutar tus flujos de trabajo en la rama de la solicitud de cambios. Debe estar especialmente alerta de los cambios propuestos en el directorio `.github/workflows/` que afecten a los archivos de flujo de trabajo.
-1. Si está familiarizado con la ejecución de flujos de trabajo en la rama de solicitud de incorporación de cambios, vuelva a la pestaña {% octicon "comment-discussion" aria-label="The discussion icon" %} **Conversación** y, en "Flujos de trabajo en espera de aprobación", haga clic en **Aprobar y ejecutar**.
-
-   ![Aprueba y ejecuta flujos de trabajo](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+{% data reusables.actions.workflows.approve-workflow-runs %}

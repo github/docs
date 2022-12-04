@@ -10,12 +10,12 @@ type: how_to
 topics:
   - Actions
   - Enterprise
-ms.openlocfilehash: db41434eae8bd3cf9036510705ee996f365f3fa1
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 332d8af7f1087626509a9c72751882ea11f3072f
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145094970'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159535'
 ---
 ## Sobre as migrações corporativas para {% data variables.product.prodname_actions %}
 
@@ -53,7 +53,7 @@ Identifique os portões e verificações em seu sistema existente e verifique se
 
 ### Identificando e validando as ferramentas de migração
 
-As ferramentas de migração automatizadas podem traduzir os fluxos de trabalho da sua empresa da sintaxe do sistema existente para a sintaxe exigida por {% data variables.product.prodname_actions %}. Identifique ferramentas de terceiros ou entre em contato com seu representante dedicado ou com {% data variables.contact.contact_enterprise_sales %} para perguntar sobre ferramentas que {% data variables.product.company_short %} pode fornecer.
+As ferramentas de migração automatizadas podem traduzir os fluxos de trabalho da sua empresa da sintaxe do sistema existente para a sintaxe exigida por {% data variables.product.prodname_actions %}. Identifique ferramentas de terceiros ou entre em contato com seu representante dedicado ou com {% data variables.contact.contact_enterprise_sales %} para perguntar sobre ferramentas que {% data variables.product.company_short %} pode fornecer. Por exemplo, é possível usar o {% data variables.product.prodname_actions_importer %} para planejar, definir o escopo e migrar pipelines de CI para {% data variables.product.prodname_actions %} de vários serviços com suporte. Para saber mais, confira "[Como automatizar a migração com o {% data variables.product.prodname_actions_importer %}](/actions/migrating-to-github-actions/automating-migration-with-github-actions-importer)".
 
 Depois de identificar uma ferramenta para automatizar suas migrações, valide a ferramenta executando a ferramenta em alguns fluxos de trabalho de teste e verificando que os resultados são como esperado.
 

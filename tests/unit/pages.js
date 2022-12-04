@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 import path from 'path'
-import { loadPages, correctTranslationOrphans } from '../../lib/page-data.js'
+import { loadPages } from '../../lib/page-data.js'
 import libLanguages from '../../lib/languages.js'
 import { liquid } from '../../lib/render-content/index.js'
 import patterns from '../../lib/patterns.js'
@@ -18,7 +18,7 @@ describe('pages module', () => {
   let pages
 
   beforeAll(async () => {
-    pages = await correctTranslationOrphans(await loadPages())
+    pages = await loadPages()
   })
 
   describe('loadPages', () => {

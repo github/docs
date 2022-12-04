@@ -1,0 +1,26 @@
+date: '2022-06-09'
+sections:
+  security_fixes:
+    - Die Pakete wurden auf die neuesten Sicherheitsversionen aktualisiert. 
+  bugs:
+    - "Ein internes Skript zur Überprüfung von Hostnamen in der {% data variables.product.prodname_ghe_server %}-Konfigurationsdatei gab einen Fehler zurück, wenn die Hostnamenzeichenfolge mit einem „.“ (Punkt) begann."
+    - "In HA-Konfigurationen, bei denen der Hostname des primären Knotens länger als 60 Zeichen war, konnte MySQL nicht konfiguriert werden."
+    - "Das Argument `--gateway` wurde dem Befehl `ghe-setup-network` hinzugefügt, um die Übergabe der Gatewayadresse bei der Konfiguration von Netzwerkeinstellungen über die Befehlszeile zu ermöglichen."
+    - Bei gelöschten Bildanhängen wurde `500 Interner Serverfehler` anstelle eines `404 – Nicht gefunden`-Fehlers ausgegeben.
+    - "Die Berechnung der „maximalen Anzahl von Committern in der gesamten Instanz“, die im Administratordashboard der Site angezeigt wurde, war falsch."
+    - "Ein falscher Datenbankeintrag für Repositoryreplikate führte zu einer Datenbankbeschädigung, wenn eine Wiederherstellung mit {% data variables.product.prodname_enterprise_backup_utilities %} durchgeführt wurde."
+  changes:
+    - Die Einbeziehung von Metriken bei der Erstellung eines Pakets zur Clusterunterstützung wurde optimiert. 
+    - "In HA-Konfigurationen, in denen Elasticsearch einen gültigen gelben Status meldete, blockierten Änderungen, die in einem früheren Fix eingeführt wurden, den Befehl `ghe-repl-stop` und ließen ein Beenden der Replikation nicht zu. Mit `ghe-repo-stop --force` wird nun das Beenden von Elasticsearch erzwungen, wenn sich der Dienst in einem normalen oder gültigen gelben Status befindet."
+    - "Bei der Verwendung von `ghe-migrator` oder beim Exportieren aus {% data variables.product.prodname_dotcom_the_website %} konnten Migrationen keine Pull Request-Anhänge exportieren."
+  known_issues:
+    - "Nach einem Upgrade auf {% data variables.product.prodname_ghe_server %} 3.3 wird {% data variables.product.prodname_actions %} möglicherweise nicht automatisch gestartet. Zur Behandlung dieses Problems stellst du die Verbindung mit der Appliance über SSH her und führst den Befehl `ghe-actions-start` aus."
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit {% data variables.product.prodname_github_connect %} aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den {% data variables.product.prodname_dotcom_the_website %}-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - '{% data variables.product.prodname_actions %}-Speichereinstellungen können nicht in der {% data variables.enterprise.management_console %} validiert und gespeichert werden, wenn die Option zum Erzwingen des Pfadformats ausgewählt ist. Sie müssen stattdessen mit dem Befehlszeilen-Hilfsprogramm `ghe-actions-precheck` konfiguriert werden.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

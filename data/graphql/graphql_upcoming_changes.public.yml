@@ -814,6 +814,16 @@ upcoming_changes:
     date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
+  - location: ProjectNextFieldType.TRACKED_BY
+    description:
+      '`TRACKED_BY` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
   - location: ProjectNextFieldType.TRACKS
     description:
       '`TRACKS` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -1752,3 +1762,11 @@ upcoming_changes:
     date: '2023-04-01T00:00:00+00:00'
     criticality: breaking
     owner: traumverloren
+  - location: Repository.squashPrTitleUsedAsDefault
+    description:
+      '`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle`
+      instead.'
+    reason: '`squashPrTitleUsedAsDefault` will be removed.'
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/pull_requests
