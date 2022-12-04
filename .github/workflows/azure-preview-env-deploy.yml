@@ -108,7 +108,6 @@ jobs:
         run: |
           # Image tag is unique to each workflow run so that it always triggers a new deployment
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${IMAGE_REPO}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
-
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
@@ -120,25 +119,21 @@ jobs:
           result-encoding: string
           script: |
             const { BRANCH_NAME } = process.env
-
             try {
               const { status } = await github.request('GET /repos/{owner}/{repo}/branches/{branch}', {
                 owner: 'github',
                 repo: 'docs-early-access',
                 branch: BRANCH_NAME,
               })
-
               if (status !== 200) {
                 throw new Error('Received non-200 response from branch GET request')
               }
-
               console.log(`Using docs-early-access branch '${BRANCH_NAME}'`)
               return BRANCH_NAME
             } catch (e) {
               console.log(`Failed to get docs-early-access branch '${BRANCH_NAME}', 'main' will be used instead.`)
               return 'main'
             }
-
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
@@ -173,7 +168,6 @@ jobs:
           rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
           rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
           rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
-
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
         run: .github/actions-scripts/prune-for-preview-env.sh
@@ -191,12 +185,10 @@ jobs:
           cache-to: ''
           build-args: |
             BUILD_SHA=${{ env.COMMIT_REF }}
-
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
         run: |
           az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }} || true
-
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
