@@ -1,0 +1,1 @@
+4. Under "Billing information", review your payment details. Optionally, to change the payment details for your entire account on {% data variables.location.product_location %}, click **Edit**. Then, follow the prompts to complete the payment form.

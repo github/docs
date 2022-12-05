@@ -244,7 +244,7 @@ Supported options
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}50{% elsif ghes < 3.8 or ghae < 3.8 %}15{% endif %} character limit.
 
 {% endnote %}
 
@@ -478,8 +478,28 @@ By default, {% data variables.product.prodname_dependabot %} automatically rebas
 
 Available rebase strategies
 
-- `disabled` to disable automatic rebasing.
 - `auto` to use the default behavior and rebase open pull requests when changes are detected.
+- `disabled` to disable automatic rebasing.
+
+When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_dependabot %} attempts to rebase pull requests in the following cases.
+- When you use {% data variables.product.prodname_dependabot_version_updates %}, for any open {% data variables.product.prodname_dependabot %} pull request when your schedule runs.
+- When you reopen a closed {% data variables.product.prodname_dependabot %} pull request.
+- When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
+- When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
+
+{% note %}
+
+**Note:** {% data variables.product.prodname_dependabot %} will keep rebasing a pull request indefinitely until the pull request is closed, merged or you disable {% data variables.product.prodname_dependabot_updates %}.
+
+{% endnote %}
+
+When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests. 
+
+{% note %}
+
+**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
+
+{% endnote %}
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -840,6 +860,27 @@ registries:
     key: ${{secrets.MY_HEX_ORGANIZATION_KEY}}
 ```
 {% endraw %}
+
+{% ifversion dependabot-hex-self-hosted-support %}
+### `hex-repository`
+
+The `hex-repository` type supports an authentication key.
+
+`repo` is a required field, which must match the name of the repository used in your dependency declaration.
+
+The `public-key-fingerprint` is an optional configuration field, representing the fingerprint of the public key for the Hex repository. `public-key-fingerprint` is used by Hex to establish trust with the private repository. The `public-key-fingerprint` field can be either listed in plaintext or stored as a {% data variables.product.prodname_dependabot %} secret.
+
+{% raw %}
+```yaml
+registries:
+   github-hex-repository:
+     type: hex-repository
+     repo: private-repo
+     url: https://private-repo.example.com
+     auth-key: ${{secrets.MY_AUTH_KEY}}
+     public-key-fingerprint: ${{secrets.MY_PUBLIC_KEY_FINGERPRINT}}
+```
+{% endraw %}{% endif %}
 
 ### `maven-repository`
 

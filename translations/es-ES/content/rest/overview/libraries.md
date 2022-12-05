@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: aa139c0d25354260ccf688079f3e15a871b627bd
-ms.sourcegitcommit: 0ed77777360ec29eee7cd4fc212ae36fdd97c0bc
+ms.openlocfilehash: 4560ae5e63f8a607f068bb24e84f1a014f44885c
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148160966'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179740'
 ---
 ![El Gundamcat](/assets/images/gundamcat.png)
 
@@ -35,7 +35,7 @@ Utiliza la biblioteca oficial de Octokit, o elige entre cualquiera de las biblio
 
 | Nombre de la biblioteca | Repositorio |
 |---|---|
-|**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|**Tentacles**| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 

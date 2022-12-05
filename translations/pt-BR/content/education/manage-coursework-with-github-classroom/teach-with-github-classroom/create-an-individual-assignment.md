@@ -1,6 +1,6 @@
 ---
-title: Criar um trabalho individual
-intro: Você pode criar uma atividade para os alunos do seu curso para ser concluída individualmente.
+title: Create an individual assignment
+intro: You can create an assignment for students in your course to complete individually.
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can create and manage individual assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
@@ -8,14 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
-ms.openlocfilehash: 4f5fab2f63ff686762a4fb6ccd5964b7f4d9cb3c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147573865'
 ---
-## Sobre atividades individuais
+## About individual assignments
 
 {% data reusables.classroom.assignments-individual-definition %}
 
@@ -23,82 +17,84 @@ ms.locfileid: '147573865'
 
 {% data reusables.classroom.about-assignments %}
 
-Para assistir a uma demonstração em vídeo da criação de uma tarefa individual, confira "[Noções básicas de configuração do {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
+For a video demonstration of the creation of an individual assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## Pré-requisitos
+## Prerequisites
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Criar uma atividade
+## Creating an assignment
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## Configurar os fundamentos para uma atividade
+## Setting up the basics for an assignment
 
-Nomeie sua atividade, decida se deseja atribuir um prazo e escolha a visibilidade dos repositórios de atividades.
+Name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
 
-- [Como nomear uma tarefa](#naming-an-assignment)
-- [Como atribuir um prazo a uma tarefa](#assigning-a-deadline-for-an-assignment)
-- [Como escolher um tipo de tarefa](#choosing-an-assignment-type)
-- [Como escolher uma visibilidade para repositórios de tarefas](#choosing-a-visibility-for-assignment-repositories)
+- [Naming an assignment](#naming-an-assignment)
+- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
+- [Choosing an assignment type](#choosing-an-assignment-type)
+- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
 
-### Nomear uma atividade
+### Naming an assignment
 
-Para uma atividade individual, {% data variables.product.prodname_classroom %} nomeia os repositórios pelo prefixo do repositório e pelo nome de usuário de {% data variables.product.product_name %} do aluno. Por padrão, o prefixo do repositório é o título da atividade. Por exemplo, se você der a uma tarefa o nome "assignment-1" e o nome de usuário do aluno no {% data variables.product.product_name %} for @octocat, o nome do repositório de tarefas de @octocat será `assignment-1-octocat`.
+For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Atribuir um prazo para uma atividade
+### Assigning a deadline for an assignment
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Escolher um tipo de atividade
+### Choosing an assignment type
 
-Em "Tarefa individual ou em grupo", selecione o menu suspenso e clique em **Tarefa individual**. Você não pode alterar o tipo de atividade depois de criá-la. Se preferir criar uma tarefa em grupo, confira "[Criar uma tarefa em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
+Under "Individual or group assignment", select the drop-down menu, and click **Individual assignment**. You can't change the assignment type after you create the assignment. If you'd rather create a group assignment, see "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
 
-### Escolher uma visibilidade para repositórios de atividades
+### Choosing a visibility for assignment repositories
+
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## Adicionar código inicial e configurar um ambiente de desenvolvimento
+## Adding starter code and configuring a development environment
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [Como escolher um repositório de modelos](#choosing-a-template-repository)
-- [Como escolher um IDE (ambiente integrado de desenvolvimento)](#choosing-an-integrated-development-environment-ide)
+- [Choosing a template repository](#choosing-a-template-repository)
+- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
 
-### Escolher um repositório de modelo
+### Choosing a template repository
 
-Por padrão, uma nova atividade criará um repositório vazio para cada aluno na lista da sala de aula. {% data reusables.classroom.you-can-choose-a-template-repository %}
+By default, a new assignment will create an empty repository for each student on the roster for the classroom. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-### Escolhendo um ambiente integrado de desenvolvimento (IDE)
+### Choosing an integrated development environment (IDE)
 
-{% data reusables.classroom.about-online-ides %} Para obter mais informações, confira "[Integrar o {% data variables.product.prodname_classroom %} a um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)".
+{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
-## Fornecer feedback para uma atividade
+## Providing feedback for an assignment
 
-Opcionalmente, você pode classificar automaticamente as atividades e criar um espaço para discutir cada envio com o aluno.
+Optionally, you can automatically grade assignments and create a space for discussing each submission with the student.
 
-- [Como testar as tarefas automaticamente](#testing-assignments-automatically)
-- [Como criar um solicitação de pull para comentários](#creating-a-pull-request-for-feedback)
+- [Testing assignments automatically](#testing-assignments-automatically)
+- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
 
-### Testar recomendações automaticamente
+### Testing assignments automatically
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### Criar um pull request para feedback
+### Creating a pull request for feedback
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -106,34 +102,34 @@ Opcionalmente, você pode classificar automaticamente as atividades e criar um e
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## Convidar alunos para uma atividade
+## Inviting students to an assignment
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-Você pode ver se um aluno ingressou na sala de aula e aceitou ou enviou uma tarefa na guia **Lista de participantes da sala de aula** da tarefa. Você também pode vincular os aliases do {% data variables.product.prodname_dotcom %} ao identificador da lista de participantes associado e vice-versa nesta guia. {% data reusables.classroom.assignments-to-prevent-submission %}
+You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
-## Monitorando o progresso dos alunos
-A página de visão geral do trabalho fornece uma visão geral das suas aceitações da atividade e do progresso do aluno. Você pode ter diferentes informações resumidas, com base nas configurações das suas atividades.
+## Monitoring students' progress
+The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
 
-- **Alunos cadastrados**: o número de alunos na lista de participantes do Classroom.
-- **Alunos adicionados**: o número de contas do {% data variables.product.prodname_dotcom %} que aceitaram a tarefa e que não estão associadas a um identificador de lista de participantes.
--  **Alunos aceitos**: o número de contas que aceitaram essa tarefa.
--  **Envios de tarefa**: o número de alunos que enviaram a tarefa. O envio é acionado no prazo da atividade.
--  **Alunos aprovados**: o número de alunos que foram aprovados nos testes de avaliação automática para essa tarefa.
+- **Rostered students**: The number of students on the Classroom's roster.
+- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
+-  **Accepted students**: The number of accounts have accepted this assignment.
+-  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
+-  **Passing students**: The number of students currently passing the autograding tests for this assignment.
 
-## Próximas etapas
+## Next steps
 
-- Depois de criar a atividade, os alunos poderão começar a trabalhar na atividade usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Você e o aluno podem revisar o histórico do commit do repositório. Para obter mais informações, confira "[Introdução ao {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)", "[Repositórios](/repositories)" e "[Colaboração com problemas e solicitações de pull](/github/collaborating-with-issues-and-pull-requests)".
+- Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
 
-- Quando um aluno concluir uma atividade, você poderá revisar os arquivos no repositório ou você poderá revisar o histórico e as visualizações do repositório para entender melhor o trabalho do aluno. Para obter mais informações, confira "[Como visualizar dados do repositório com grafos](/github/visualizing-repository-data-with-graphs)".
+- When a student finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand the student's work. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
 
-- Você pode fornecer comentários para uma atividade, comentando em commits individuais ou em linhas em um pull request. Para obter mais informações, confira "[Como adicionar comentários a uma solicitação de pull](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" e "[Como abrir um problema por meio do código](/github/managing-your-work-on-github/opening-an-issue-from-code)". Para obter mais informações sobre como criar respostas salvas para fornecer comentários sobre erros comuns, confira "[Sobre as respostas salvas](/github/writing-on-github/about-saved-replies)".
+- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
 
-## Leitura adicional
+## Further reading
 
-- "[{% data variables.product.prodname_global_campus %} para professores](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
-- "[Conectar um sistema de gerenciamento de aprendizagem ao {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
+- "[{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
+- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"

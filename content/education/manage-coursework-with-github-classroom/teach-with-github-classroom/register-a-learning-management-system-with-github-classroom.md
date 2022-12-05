@@ -57,8 +57,8 @@ You can register your Canvas installation with {% data variables.product.prodnam
    - "Issuer Identifier": `https://canvas.instructure.com`
    - "Domain": The base URL to your Canvas instance
    - "Client ID": The "Client ID" under "Details" from the developer key you created
-   - "OIDC Authorization end-point": The base URL to your Canvas instance with `/login/oauth2/token` appended at the end.
-   - "OAuth 2.0 Token Retrieval URL": The base URL to your Canvas instance with `/api/lti/authorize_redirect` appended at the end.
+   - "OIDC Authorization end-point": The base URL to your Canvas instance with `/api/lti/authorize_redirect` appended at the end.
+   - "OAuth 2.0 Token Retrieval URL": The base URL to your Canvas instance with `/login/oauth2/token` appended at the end.
    - "Key Set URL": The base URL to your Canvas instance with `/api/lti/security/jwks` appended at the end.
 
   ![Register Canvas instance with GitHub Classroom](/assets/images/help/classroom/register-canvas-with-github-classroom.png)

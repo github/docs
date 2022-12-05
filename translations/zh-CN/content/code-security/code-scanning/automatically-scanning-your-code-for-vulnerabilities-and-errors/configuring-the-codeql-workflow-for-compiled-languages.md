@@ -4,6 +4,7 @@ shortTitle: Configure compiled languages
 intro: '可以配置 {% data variables.product.prodname_dotcom %} 如何使用 {% data variables.code-scanning.codeql_workflow %} 扫描用编译语言编写的代码以查找漏洞和错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -25,12 +26,13 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: 91983e79a6381b4a38cbb1de4f6d7f228637b192
-ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+  - Kotlin
+ms.openlocfilehash: 4c594a9ca19064da6c017155fad27b37b083e7e3
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148161197'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182264'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -43,7 +45,7 @@ ms.locfileid: '148161197'
 ##  关于 {% data variables.product.prodname_codeql %} 的自动构建
 
 {% data variables.product.prodname_code_scanning_capc %} 的工作原理是针对一个或多个数据库运行查询。 每个数据库都包含仓库中所有代码的单一语言表示形式。   
-对于编译语言 C/C++、C#、{% ifversion codeql-go-autobuild %} Go、{% endif %} 和 Java，填充此数据库的过程涉及构建代码和提取数据。 {% data reusables.code-scanning.analyze-go %}
+对于编译语言 C/C++、C#、{% ifversion codeql-go-autobuild %} Go、{% endif %}{% ifversion codeql-kotlin-beta %}Kotlin {% endif %}和 Java，填充此数据库的过程涉及构建代码和提取数据。 {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -107,7 +109,7 @@ ms.locfileid: '148161197'
 
 {% endif %}
 
-### Java
+### Java {% ifversion codeql-kotlin-beta %}和 Kotlin{% endif %}
 
 | 支持的系统类型 | 系统名称 |
 |----|----|

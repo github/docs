@@ -15,12 +15,12 @@ topics:
   - Identity
   - Access management
 shortTitle: Tell Git your signing key
-ms.openlocfilehash: e78306bb1519f2b7f51ab6bc039bff0b982e48cf
-ms.sourcegitcommit: a0ad3bfe2a99c3092e76ca9b3d476cf30988ca55
+ms.openlocfilehash: d70911bdf3ff5de93537f7c9acb1374a4f2c90e3
+ms.sourcegitcommit: aded2711e14a0c2473049d3d7e05c82a74e4c634
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2022
-ms.locfileid: '148118999'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179953'
 ---
 {% mac %}
 
@@ -101,7 +101,7 @@ Puedes usar una clave SSH existente para firmar confirmaciones y etiquetas, o ge
 
 {% data reusables.gpg.ssh-git-version %}
 
-{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-ssh-signing %} {% data reusables.gpg.copy-ssh-public-key %} {% data reusables.gpg.paste-ssh-public-key %}
+{% data reusables.command_line.open_the_multi_os_terminal %} {% data reusables.gpg.configure-ssh-signing %} {% data reusables.gpg.paste-ssh-public-key %}
 
 {% endif %}
 

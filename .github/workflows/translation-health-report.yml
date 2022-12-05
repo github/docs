@@ -10,7 +10,7 @@ on:
     - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   create-translation-health-report:
@@ -90,13 +90,10 @@ jobs:
 
       - name: Create translation health report
         run: |
-          translation_health_report=$( \
-            node script/i18n/create-translation-health-report.js \
-              --language ${{ matrix.language }} \
-              --gitref ${{ env.gitref }} \
-              | jq -Rsa .
-          )
-          echo "translation_health_report=$translation_health_report" >> $GITHUB_ENV
+          node script/i18n/create-translation-health-report.js \
+            --language ${{ matrix.language }} \
+            --gitref ${{ env.gitref }} \
+            >> $HOME/translation-health-report.json
 
       - name: Log in to Azure
         uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
@@ -109,11 +106,11 @@ jobs:
           inlineScript: |
             az storage blob upload \
               --name "${{ matrix.language }}-latest.json" \
-              --data $translation_health_report \
+              --file $HOME/translation-health-report.json \
               --container-name translation-health-reports
             az storage blob upload \
               --name "${{ matrix.language }}-$(date +%Y-%m-%d).json" \
-              --data $translation_health_report \
+              --file $HOME/translation-health-report.json \
               --container-name translation-health-reports
 
       - name: Log out from Azure

@@ -11,22 +11,21 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: aa139c0d25354260ccf688079f3e15a871b627bd
-ms.sourcegitcommit: 0ed77777360ec29eee7cd4fc212ae36fdd97c0bc
+ms.openlocfilehash: ab880cef09b936bb573d783373f048395d0a2f58
+ms.sourcegitcommit: 16548aa24259e37cc0ac4900ca8fefc46dc84cdb
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148160965'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148190064'
 ---
-![The Gundamcat](/assets/images/gundamcat.png)
+![Гандамкат](/assets/images/gundamcat.png)
 
 ## Octokit имеет множество вариантов
 
 Воспользуйтесь официальной библиотекой Octokit или выберите любую доступную стороннюю библиотеку.
 
-- [Octokit.py](https://github.com/khornberg/octokit.py) → **Python**
 - **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
-- **octokit.net → .NET** [](https://github.com/octokit/octokit.net)
+- [octokit.net](https://github.com/octokit/octokit.net) → **.NET**
 - **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
 
 ## Сторонние библиотеки
@@ -35,7 +34,7 @@ ms.locfileid: '148160965'
 
 | Имя библиотеки | Хранилище |
 |---|---|
-|**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|**Tentacles**| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 
@@ -131,6 +130,7 @@ ms.locfileid: '148160965'
 |**github-flask**|[github-flask (официальный веб-сайт)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|**octokit.py**|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 

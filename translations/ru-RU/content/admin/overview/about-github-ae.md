@@ -7,12 +7,12 @@ type: overview
 topics:
   - Enterprise
   - Fundamentals
-ms.openlocfilehash: 9e7769fca5b36252fad5566450ba156120491649
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 388e271c17c182a318e8c2d095811ac27633a414
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147389854'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180183'
 ---
 ## Сведения о {% data variables.product.prodname_ghe_managed %}
 
@@ -38,7 +38,7 @@ ms.locfileid: '147389854'
 
 ## Ограниченный доступ к сети
 
-Защитите доступ к вашему предприятию в {% data variables.product.prodname_ghe_managed %} с ограниченным доступом к сети, чтобы ваши данные были доступны только в вашей сети. Дополнительные сведения см. в разделе [Ограничение сетевого трафика для вашего предприятия](/admin/configuration/restricting-network-traffic-to-your-enterprise).
+Защитите доступ к вашему предприятию в {% data variables.product.prodname_ghe_managed %} с ограниченным доступом к сети, чтобы ваши данные были доступны только в вашей сети. Дополнительные сведения см. в разделе [Ограничение сетевого трафика для предприятия с помощью списка разрешенных IP-адресов](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
 
 ## Коммерческие и государственные среды
 

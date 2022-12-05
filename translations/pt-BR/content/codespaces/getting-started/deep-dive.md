@@ -1,7 +1,7 @@
 ---
-title: 'Deep dive into {% data variables.product.prodname_github_codespaces %}'
+title: 'Aprofundamento de {% data variables.product.prodname_github_codespaces %}'
 shortTitle: 'Deep dive into {% data variables.product.prodname_codespaces %}'
-intro: 'Understand how {% data variables.product.prodname_github_codespaces %} works.'
+intro: 'Entenda o funcionamento do {% data variables.product.prodname_github_codespaces %}.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -9,151 +9,156 @@ versions:
 type: quick_start
 topics:
   - Codespaces
+ms.openlocfilehash: 01e4f3990cc47f61678811f7c4a77b86626fd8a5
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188261'
 ---
+O {% data variables.product.prodname_github_codespaces %} é um ambiente de desenvolvimento instantâneo e baseado na nuvem que usa um contêiner para fornecer linguagens, ferramentas e utilitários de desenvolvimento comuns. Os {% data variables.product.prodname_github_codespaces %} também são configuráveis, o que permite criar um ambiente de desenvolvimento personalizado para o projeto. Ao configurar um ambiente de desenvolvimento personalizado para seu projeto, você pode ter uma configuração de código reproduzível para todos os usuários do seu projeto.
 
-{% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_github_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.
+## Criando seu codespace
 
-## Creating your codespace
+Há uma série de pontos de entrada para criar um codespace.
 
-There are a number of entry points to create a codespace.
-
-- From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.prodname_dotcom_the_website %} to start a new project
-- From a branch in your repository for new feature work
-- From an open pull request to explore work-in-progress
-- From a commit in a repository's history to investigate a bug at a specific point in time
+- Com base em um modelo do {% data variables.product.company_short %} ou em qualquer repositório de modelos no {% data variables.product.prodname_dotcom_the_website %} para iniciar um novo projeto
+- Com base em um branch no repositório para um novo trabalho de recursos
+- Com base em uma solicitação de pull aberta para explorar o trabalho em andamento
+- Com base em um commit no histórico do repositório para investigar um bug em um momento específico
 
 {% data reusables.codespaces.ways-to-create-a-codespace %}
   
-Your codespace can be ephemeral if you need to test something or you can return to the same codespace to work on long-running feature work. 
+Seu codespace pode ser efêmero se você tiver de fazer algum teste ou você pode retornar ao mesmo codespace para fazer um trabalho de recurso de longo prazo. 
 
-For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)," "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)," and "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)."
-
-{% note %}
-
-**Note**: You can create more than one codespace per repository or even per branch. However, there are limits to the number of codespaces you can create, and the number of codespaces you can run at the same time. If you reach the maximum number of codespaces and try to create another, a message is displayed telling you that you must remove an existing codespace before you can create a new one.
-
-{% endnote %}
-
-### The codespace creation process
-
-When you create a codespace, various steps happen in the background before the codespace is available to you.
-
-### Step 1: VM and storage are assigned to your codespace
-
-When you create a codespace, a [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) is made of your repository, or of the template repository if you're creating a codespace from a template. The repository is cloned to a Linux virtual machine that is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
-
-### Step 2: Container is created
-
-{% data variables.product.prodname_github_codespaces %} uses a container as the development environment. This container is created based on configurations that you can define in a `devcontainer.json` file and, optionally, a Dockerfile. If you create a codespace from {% data variables.product.company_short %}'s blank template, or from a repository with no `devcontainer.json` file, {% data variables.product.prodname_github_codespaces %} uses a default image, which has many languages and runtimes available. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." For details of what the default image contains, see the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository.
+Para obter mais informações, confira "[Como criar um codespace para um repositório](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)", "[Como criar um codespace com base em um modelo](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" e "[Como abrir um codespace existente](/codespaces/developing-in-codespaces/opening-an-existing-codespace)".
 
 {% note %}
 
-**Note:** If you want to use Git hooks in your codespace and apply anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) to your codespace, then you must set up hooks during step 4 after the container is created.
-
-Since your repository is cloned onto the host VM before the container is created, anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) will not apply in your codespace unless you set up hooks in your `devcontainer.json` configuration file using the `postCreateCommand` in step 4. For more information, see "[Step 4: Post-creation setup](#step-4-post-creation-setup)."
+**Observação**: você pode criar mais de um codespace por repositório ou até mesmo por branch. No entanto, há limites para o número de codespaces que você pode criar e o que você pode executar ao mesmo tempo. Se você atingir o número máximo de codespaces e tentar criar outro, uma mensagem será exibida informando que você deverá remover um codespace antes de criar um novo.
 
 {% endnote %}
 
-### Step 3: Connecting to the codespace
+### O processo de criação do codespace
 
-When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it by using:
+Quando você cria um codespace, várias etapas ocorrem em segundo plano até que o codespace fique disponível para uso.
 
-* Your web browser
+### Etapa 1: A VM e o armazenamento são atribuídos ao seu codespace
+
+Quando você cria um codespace, um [clone superficial](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) é feito do repositório ou do repositório de modelos quando a criação do codespace é feita com base em um modelo. O repositório é clonado para uma máquina virtual do Linux dedicada e privada para você. Ter uma VM dedicada garante que você tenha todo o conjunto de recursos de computação daquela máquina disponível para você. Se necessário, isso também permite que você tenha acesso total à raiz do seu contêiner.
+
+### Etapa 2: O contêiner foi criado
+
+Os {% data variables.product.prodname_github_codespaces %} usam um contêiner como ambiente de desenvolvimento. Este contêiner é criado com base nas configurações que você pode definir em um arquivo `devcontainer.json` ou em um Dockerfile. Se você criar um codespace com base em um modelo em branco do {% data variables.product.company_short %} ou em um repositório sem um arquivo `devcontainer.json`, os {% data variables.product.prodname_github_codespaces %} usarão uma imagem padrão que tenha várias linguagens e runtimes disponíveis. Para obter mais informações, confira "[Introdução aos contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)". Para obter informações sobre o que a imagem padrão contém, confira o repositório [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux).
+
+{% note %}
+
+**Observação:** se você quiser usar ganchos do Git no seu codespace e aplicar qualquer item no [diretório de modelos do Git](https://git-scm.com/docs/git-init#_template_directory) ao codespace, configure ganchos durante a etapa 4 após a criação do contêiner.
+
+Como o repositório é clonado na VM do host antes de o contêiner ser criado, qualquer item contido no [diretório de modelos do Git](https://git-scm.com/docs/git-init#_template_directory) não será aplicado ao seu codespace, a menos que você configure ganchos no arquivo de configuração `devcontainer.json` usando `postCreateCommand` na etapa 4. Para obter mais informações, confira "[Etapa 4: Configuração pós-criação](#step-4-post-creation-setup)".
+
+{% endnote %}
+
+### Etapa 3: Conectando-se ao codespace
+
+Quando seu contêiner for criado e qualquer outra inicialização for executada, você estará conectado ao seu codespace. Você pode se conectar a ele usando:
+
+* O navegador da Web
 * [Visual Studio Code](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)
-* [A JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)
+* [Um IDE do JetBrains](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)
 * [{% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)
 
-### Step 4: Post-creation setup
+### Passo 4: Configuração de pós-criação
 
-Once you are connected to your codespace, your automated setup may continue to build based on the configuration specified in your `devcontainer.json` file. You may see `postCreateCommand` and `postAttachCommand` run.
+Depois que você estiver conectado ao codespace, a configuração automatizada poderá continuar sendo compilada com base na configuração especificada no arquivo `devcontainer.json`. Você poderá ver `postCreateCommand` e `postAttachCommand` serem executados.
 
-If you want to use Git hooks in your codespace, set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Caso você queira usar ganchos do Git no codespace, configure os ganchos usando os [scripts de ciclo de vida `devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), como `postCreateCommand`. Para obter mais informações, consulte a [`devcontainer.json` referência](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) na documentação do {% data variables.product.prodname_vscode_shortname %}.
 
-If you have a public dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can enable it for use with new codespaces. When enabled, your dotfiles will be cloned to the container and the install script will be invoked. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)." 
+Se tiver um repositório público de dotfiles para o {% data variables.product.prodname_github_codespaces %}, você poderá habilitá-lo para uso com novos codespaces. Quando habilitado, seus dotfiles serão clonados para o contêiner e o script de instalação será invocado. Para obter mais informações, confira "[Como personalizar o {% data variables.product.prodname_github_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)". 
 
-Finally, if you created the codespace from a repository, the entire history of the repository is copied down with a full clone. If you created the codespace from a template, the full history of the template repository is not preserved; instead, unless you are using the blank template, you will start with an initial commit for the contents of the template repository.
+Por fim, se você criou o codespace com base em um repositório, todo o histórico do repositório será copiado com um clone completo. Se você criou o codespace com base em um modelo, o histórico completo do repositório de modelos não será preservado. Nesse caso, a menos que você esteja usando o modelo em branco, você começará com um commit inicial do conteúdo do repositório de modelos.
 
-During post-creation setup you'll still be able to use the integrated terminal and make edits to your files, but take care to avoid any race conditions between your work and the commands that are running.
-## {% data variables.product.prodname_codespaces %} lifecycle
+Durante a configuração de pós-criação, você ainda poderá usar o terminal integrado e fazer edições nos seus arquivos, mas tenha cuidado para evitar quaisquer condições de corrida entre seu trabalho e os comandos que estão sendo executados.
+## Ciclo de vida de {% data variables.product.prodname_codespaces %}
 
-### Saving files in your codespace
+### Salvando arquivos no seu codespace
 
-Save changes to files in the normal way, depending on the editor you are using.
+Salve as alterações nos arquivos da maneira normal, dependendo do editor que você esteja usando.
 
-If you work on codespaces in {% data variables.product.prodname_vscode %}, you can enable [Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) to ensure that your changes are always saved. 
+Se você trabalha em codespaces no {% data variables.product.prodname_vscode %}, habilite o [Salvamento Automático](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) para garantir que as alterações sejam sempre salvas. 
 
-### Closing or stopping your codespace
+### Fechando ou interrompendo seu codespace
 
-Your codespace will keep running while you are using it, but will time out after a period of inactivity. File changes from the editor and terminal output are counted as activity, so your codespace will not time out if terminal output is continuing. The default inactivity timeout period is 30 minutes. You can define your personal timeout setting for codespaces you create, but this may be overruled by an organization timeout policy. For more information, see "[Setting your timeout period for Codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)." 
+O codespace continuará em execução enquanto você o estiver usando, mas atingirá o tempo limite após um período de inatividade. As mudanças no arquivo feitas no editor e a saída do terminal são contadas como atividade. Portanto, o código não atingirá o tempo limite se a saída do terminal continuar. O período de tempo limite de inatividade padrão é de 30 minutos. Você pode definir uma configuração pessoal de tempo limite para codespaces criados, mas isso pode ser anulado por uma política de tempo limite da organização. Para obter mais informações, confira "[Como definir o período de tempo limite para codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces)". 
 
-If a codespace times out it will stop running, but you can restart it from the browser tab (if you were using the codespace in the browser), from within {% data variables.product.prodname_vscode_shortname %}, or from your list of codespaces at [https://github.com/codespaces](https://github.com/codespaces).
+Se um codespace atingir o tempo limite, ele deixará de ser executado, mas você poderá reiniciá-lo na guia do navegador (se estiver usando o codespace no navegador), de dentro do {% data variables.product.prodname_vscode_shortname %} ou na lista de codespaces em [https://github.com/codespaces](https://github.com/codespaces).
 
-To stop your codespace you can
+Para interromper o codespace, você pode
 
-* In the browser: on your list of codespaces at [https://github.com/codespaces](https://github.com/codespaces), click the ellipsis (**...**) to the right of the codespace you want to stop and click **Stop codespace**.
-* In {% data variables.product.prodname_vscode_shortname %}: open [the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) - for example, by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) or <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) - type `Codespaces: stop` then press <kbd>Enter</kbd>.
-* In the JetBrains client, click the stop button at the top of the {% data variables.product.prodname_github_codespaces %} tool window. For more information, see the "JetBrains IDEs" tab of "[Stopping and starting a codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."
-* In a terminal window: use the {% data variables.product.prodname_cli %} command `gh codespace stop`. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces)."
+* No navegador: na lista de codespaces em [https://github.com/codespaces](https://github.com/codespaces), clicar nas reticências ( **...** ) à direita do codespace que deseja parar e clicar em **Parar codespace**.
+* Em {% data variables.product.prodname_vscode_shortname %}: abra [a {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace), por exemplo, pressionando <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) ou <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac), Digite `Codespaces: stop` e pressione <kbd>Enter</kbd>.
+* No cliente JetBrains, clique no botão Parar na parte superior da janela de ferramentas do {% data variables.product.prodname_github_codespaces %}. Para obter mais informações, confira a guia "IDEs do JetBrains" de "[Como parar e iniciar um codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)".
+* Em uma janela de terminal, use o comando `gh codespace stop` da {% data variables.product.prodname_cli %}. Para obter mais informações, confira "[Como usar os {% data variables.product.prodname_github_codespaces %} com a {% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces)".
 
-If you exit your codespace without running the stop command (for example, by closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue for the duration of the inactivity timeout period. 
+Se você sair do codespace sem executar o comando de interrupção (por exemplo, fechando a aba do navegador) ou se você sair do codespace em execução sem interação, o codespace e os processos em execução continuarão até o tempo limite de inatividade seja atingido. 
 
-When you close or stop your codespace, all uncommitted changes are preserved until you connect to the codespace again.
+Ao fechar ou interromper o seu codespace, todas as alterações não autorizadas são preservadas até você conectar-se ao codespace novamente.
 
-## Running your application
+## Executando seu aplicativo
 
-Port forwarding gives you access to TCP ports running within your codespace. For example, if you're running a web application on port 4000 within your codespace, you can automatically forward that port to make the application accessible from your browser.
+O redirecionamento de porta dá acesso a portas TCP que estão em execução no seu codespace. Por exemplo, se você estiver executando um aplicativo web na porta 4000 dentro do seu codespace, você poderá encaminhar automaticamente a porta para tornar o aplicativo acessível a partir do seu navegador.
 
-Port forwarding determines which ports are made accessible to you from the remote machine. Even if you do not forward a port, that port is still accessible to other processes running inside the codespace itself.
+O encaminhamento de portas determina quais portas podem ser acessadas por você a partir da máquina remota. Mesmo que você não encaminhe uma porta, esse porta ainda poderá ser acessada para outros processos em execução dentro do próprio codespace.
 
-![Diagram showing how port forwarding works in a codespace](/assets/images/help/codespaces/port-forwarding.png)
+![Diagrama que mostra como funciona o encaminhamento de porta em um codespace](/assets/images/help/codespaces/port-forwarding.png)
 
-When an application running inside {% data variables.product.prodname_github_codespaces %} outputs a port to the console, {% data variables.product.prodname_github_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal, or the link in the "toast" notification message that pops up at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, to open the port in a browser. By default, {% data variables.product.prodname_github_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+Quando um aplicativo em execução dentro dos {% data variables.product.prodname_github_codespaces %} emite uma porta para o console, os {% data variables.product.prodname_github_codespaces %} detectam o padrão de URL do localhost e encaminham a porta automaticamente. Você pode clicar na URL no terminal ou no link na mensagem de notificação do sistema que aparece no canto inferior direito do {% data variables.product.prodname_vscode_shortname %} para abrir a porta em um navegador. Por padrão, os {% data variables.product.prodname_github_codespaces %} encaminham as portas que usam HTTP. Para obter mais informações sobre o encaminhamento de porta, confira "[Como encaminhar portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
-While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[Sharing a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)."
+Embora as portas possam ser encaminhadas automaticamente, elas não podem ser acessadas pelo público na internet. Por padrão, todas as portas são privadas, mas você pode disponibilizar manualmente uma porta para sua organização ou público, e, em seguida, compartilhar o acesso por meio de uma URL. Para obter mais informações, confira "[Como compartilhar uma porta](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)".
 
-Running your application when you first land in your codespace can make for a fast inner dev loop. As you edit, your changes are automatically saved and available on your forwarded port. To view changes, go back to the running application tab in your browser and refresh it.
+A execução do seu aplicativo ao chegar pela primeira vez no seu codespace pode fazer um loop de desenvolvimento rápido interno. À medida que você edita, as alterações são salvas automaticamente e ficam disponíveis na sua porta encaminhada. Para visualizar as alterações, volte para a aba do aplicativo em execução no seu navegador e atualize-as.
 
-## Committing and pushing your changes
+## Enviando e fazendo push das suas alterações
 
-Git is installed by default in your codespace and so you can rely on your existing Git workflow. You can work with Git in your codespace either via the Terminal or by using the source control features of {% data variables.product.prodname_vscode_shortname %} or JetBrains.
+O Git é instalado por padrão no codespace. Portanto, você pode confiar no fluxo de trabalho do Git existente. Você pode trabalhar com o Git no codespace por meio do terminal ou usando os recursos de controle do código-fonte do {% data variables.product.prodname_vscode_shortname %} ou JetBrains.
 
-If you're working with an existing repository, you can create a codespace from any branch, commit, or pull request in the repository, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_github_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts.
+Se você está trabalhando com um repositório existente, pode criar um codespace com base em qualquer branch, commit ou solicitação de pull no projeto ou mudar para um branch novo ou existente de dentro do codespace ativo. Como o {% data variables.product.prodname_github_codespaces %} foi projetado para ser efêmero, você poderá usá-lo como um ambiente isolado para experimentar, verificar a solicitação de pull de um colega ou corrigir os conflitos de mesclagem.
 
-If you're working in a codespace created from a template, Git will be installed by default, but you will need to publish your codespace to a remote repository to persist your work and to share it with others. If you start from {% data variables.product.company_short %}'s blank template, you will first need to initialize your workspace as a Git repository (for example by entering `git init`) to start using source control within the codespace.
+Se você estiver trabalhando em um codespace criado com base em um modelo, o Git estará instalado por padrão, mas você precisará publicar o codespace em um repositório remoto para persistir o trabalho e compartilhá-lo com outras pessoas. Se você começar com o modelo em branco do {% data variables.product.company_short %}, primeiro precisará inicializar o workspace como um repositório Git (por exemplo, inserindo `git init`) para começar a usar o controle do código-fonte no codespace.
 
-For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)."
+Para obter mais informações, confira "[Como usar o controle do código-fonte no seu codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)".
 
 {% note %}
 
-**Note:** Commits from your codespace will be attributed to the name and public email configured at https://github.com/settings/profile. A token scoped to the repository, included in the environment as `GITHUB_TOKEN`, and your GitHub credentials will be used to authenticate.
+**Observação:** os commits do codespace serão atribuídos ao nome e ao email público configurados em https://github.com/settings/profile. Um token com escopo no repositório, incluído no ambiente como `GITHUB_TOKEN`, e as suas credenciais do GitHub serão usadas para realizar a autenticação.
 
 {% endnote %}
 
-## Personalizing your codespace with extensions or plugins
+## Como personalizar o codespace com extensões ou plug-ins
 
-You can add plugins and extensions within a codespace to personalize your experience in JetBrains and {% data variables.product.prodname_vscode_shortname %} respectively.
+Você pode adicionar plug-ins e extensões em um codespace para personalizar sua experiência no JetBrains e no {% data variables.product.prodname_vscode_shortname %} respectivamente.
 
-### {% data variables.product.prodname_vscode_shortname %} extensions
+### Extensões do {% data variables.product.prodname_vscode_shortname %}
 
-If you work on your codespaces in the {% data variables.product.prodname_vscode_shortname %} desktop application, or the web client, you can add any extensions you need from the {% data variables.product.prodname_vscode_marketplace %}. For information on how extensions run in {% data variables.product.prodname_github_codespaces %}, see [Supporting Remote Development and {% data variables.product.prodname_github_codespaces %}](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} documentation. 
+Se você trabalhar nos codespaces no aplicativo da área de trabalho do {% data variables.product.prodname_vscode_shortname %} ou no cliente Web, poderá adicionar todas as extensões necessárias do {% data variables.product.prodname_vscode_marketplace %}. Para obter informações de como as extensões são executadas nos {% data variables.product.prodname_github_codespaces %}, confira [Suporte ao desenvolvimento remoto e ao {% data variables.product.prodname_github_codespaces %}](https://code.visualstudio.com/api/advanced-topics/remote-extensions) na documentação do {% data variables.product.prodname_vscode_shortname %}. 
 
-If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any codespaces you create.
+Se você já usa o {% data variables.product.prodname_vscode_shortname %}, use a [Sincronização de Configurações](https://code.visualstudio.com/docs/editor/settings-sync) para sincronizar automaticamente extensões, configurações, temas e atalhos de teclado entre a instância local e os codespaces que você criar.
 
-### JetBrains plugins
+### Plug-ins do JetBrains
 
-If you work on your codespaces in a JetBrains IDE, you can add plugins from the JetBrains Marketplace.
+Se você trabalhar nos codespaces em um IDE do JetBrains, poderá adicionar plug-ins do JetBrains Marketplace.
 
-1. Click **JetBrains Client**, then click **Preferences**.
-1. In the Preferences dialog box, click either **Plugins On Host** to install a plugin in the full JetBrains IDE that's running remotely, or **Plugins** to install a plugin on the local client, for example to change the user interface theme. 
-1. Click the **Marketplace** tab.
+1. Clique em **Cliente JetBrains** e depois em **Preferências**.
+1. Na caixa de diálogo Preferências, clique em **Plug-ins no Host** para instalar um plug-in no IDE completo do JetBrains que está sendo executado remotamente ou em **Plug-ins** para instalar um plug-in no cliente local, por exemplo, para alterar o tema da interface do usuário. 
+1. Clique na guia **Marketplace**.
 
-   ![Screenshot of the Marketplace tab for 'Plugins On Host'](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
+   ![Captura de tela da guia Marketplace para 'Plug-ins no Host'](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
 
-1. Click **Install** beside the required plugin.
+1. Clique em **Instalar** ao lado do plug-in necessário.
 
-## Further reading
+## Leitura adicional
 
-- "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
-- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
-- "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)"
-- "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"
+- "[Como habilitar os {% data variables.product.prodname_github_codespaces %} na organização](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
+- "[Como gerenciar o custo dos {% data variables.product.prodname_github_codespaces %} na organização](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+- "[Adicionar uma configuração de contêiner de desenvolvimento ao repositório](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)"
+- "[O ciclo de vida do codespace](/codespaces/getting-started/the-codespace-lifecycle)"

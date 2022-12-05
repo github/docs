@@ -1121,6 +1121,40 @@
       ]
     },
     {
+      "name": "addEnterpriseOrganizationMember",
+      "kind": "mutations",
+      "id": "addenterpriseorganizationmember",
+      "href": "/graphql/reference/mutations#addenterpriseorganizationmember",
+      "description": "<p>Adds enterprise members to an organization within the enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseOrganizationMemberInput!",
+          "id": "addenterpriseorganizationmemberinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addenterpriseorganizationmemberinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "users",
+          "type": "[User!]",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The users who were added to the organization.</p>"
+        }
+      ]
+    },
+    {
       "name": "addEnterpriseSupportEntitlement",
       "kind": "mutations",
       "id": "addenterprisesupportentitlement",
@@ -15740,7 +15774,7 @@
       "description": "<p>A dependency manifest entry.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15757,7 +15791,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15820,7 +15854,7 @@
       "description": "<p>The connection type for DependencyGraphDependency.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15837,7 +15871,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15882,7 +15916,7 @@
       "description": "<p>An edge in a connection.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15899,7 +15933,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15928,7 +15962,7 @@
       "description": "<p>Dependency manifest for a repository.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15945,7 +15979,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "implements": [
         {
@@ -16063,7 +16097,7 @@
       "description": "<p>The connection type for DependencyGraphManifest.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -16080,7 +16114,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -16125,7 +16159,7 @@
       "description": "<p>An edge in a connection.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -16142,7 +16176,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -47184,6 +47218,14 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "totalCommentsCount",
+          "description": "<p>Returns a count of how many comments this pull request has received.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -55997,7 +56039,7 @@
           ],
           "isDeprecated": false,
           "preview": {
-            "title": "Access to a repositories dependency graph preview",
+            "title": "Access to a repository s dependency graph preview",
             "description": "This preview adds support for reading a dependency graph for a repository.",
             "toggled_by": "hawkgirl-preview",
             "toggled_on": [
@@ -56014,7 +56056,7 @@
               "@github/dependency-graph"
             ],
             "accept_header": "application/vnd.github.hawkgirl-preview+json",
-            "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+            "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
           }
         },
         {
@@ -61805,6 +61847,26 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "featuredItems",
+          "description": "<p>The records featured on the GitHub Sponsors profile.</p>",
+          "type": "[SponsorsListingFeaturedItem!]!",
+          "id": "sponsorslistingfeatureditem",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslistingfeatureditem",
+          "arguments": [
+            {
+              "name": "featureableTypes",
+              "description": "<p>The types of featured items to return.</p>",
+              "type": {
+                "name": "[SponsorsListingFeaturedItemFeatureableType!]",
+                "id": "sponsorslistingfeatureditemfeatureabletype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorslistingfeatureditemfeatureabletype"
+              }
+            }
+          ]
+        },
+        {
           "name": "fullDescription",
           "description": "<p>The full description of the listing.</p>",
           "type": "String!",
@@ -61951,6 +62013,70 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsListingFeaturedItem",
+      "kind": "objects",
+      "id": "sponsorslistingfeatureditem",
+      "href": "/graphql/reference/objects#sponsorslistingfeatureditem",
+      "description": "<p>A record that is promoted on a GitHub Sponsors profile.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>Will either be a description from the sponsorable maintainer about why they\nfeatured this item, or the item's description itself, such as a user's bio\nfrom their GitHub profile page.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "featureable",
+          "description": "<p>The record that is featured on the GitHub Sponsors profile.</p>",
+          "type": "SponsorsListingFeatureableItem!",
+          "id": "sponsorslistingfeatureableitem",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsorslistingfeatureableitem"
+        },
+        {
+          "name": "position",
+          "description": "<p>The position of this featured item on the GitHub Sponsors profile with a lower\nposition indicating higher precedence. Starts at 1.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "sponsorsListing",
+          "description": "<p>The GitHub Sponsors profile that features this record.</p>",
+          "type": "SponsorsListing!",
+          "id": "sponsorslisting",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslisting"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -78951,6 +79077,10 @@
         {
           "name": "RENAME",
           "description": "<p>The repository is locked due to a rename.</p>"
+        },
+        {
+          "name": "TRADE_RESTRICTION",
+          "description": "<p>The repository is locked due to a trade controls related reason.</p>"
         }
       ]
     },
@@ -79513,6 +79643,23 @@
         {
           "name": "TOTAL_SPONSORS_COUNT",
           "description": "<p>The goal is about reaching a certain number of sponsors.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsListingFeaturedItemFeatureableType",
+      "kind": "enums",
+      "id": "sponsorslistingfeatureditemfeatureabletype",
+      "href": "/graphql/reference/enums#sponsorslistingfeatureditemfeatureabletype",
+      "description": "<p>The different kinds of records that can be featured on a GitHub Sponsors profile page.</p>",
+      "values": [
+        {
+          "name": "REPOSITORY",
+          "description": "<p>A repository owned by the user or organization with the GitHub Sponsors profile.</p>"
+        },
+        {
+          "name": "USER",
+          "description": "<p>A user who belongs to the organization with the GitHub Sponsors profile.</p>"
         }
       ]
     },
@@ -81741,6 +81888,25 @@
       ]
     },
     {
+      "name": "SponsorsListingFeatureableItem",
+      "kind": "unions",
+      "id": "sponsorslistingfeatureableitem",
+      "href": "/graphql/reference/unions#sponsorslistingfeatureableitem",
+      "description": "<p>A record that can be featured on a GitHub Sponsors profile.</p>",
+      "possibleTypes": [
+        {
+          "name": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
       "name": "StatusCheckRollupContext",
       "kind": "unions",
       "id": "statuscheckrollupcontext",
@@ -82001,6 +82167,57 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AddEnterpriseOrganizationMemberInput",
+      "kind": "inputObjects",
+      "id": "addenterpriseorganizationmemberinput",
+      "href": "/graphql/reference/input-objects#addenterpriseorganizationmemberinput",
+      "description": "<p>Autogenerated input type of AddEnterpriseOrganizationMember.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise which owns the organization.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization the users will be added to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "role",
+          "description": "<p>The role to assign the users in the organization.</p>",
+          "type": "OrganizationMemberRole",
+          "id": "organizationmemberrole",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#organizationmemberrole"
+        },
+        {
+          "name": "userIds",
+          "description": "<p>The IDs of the enterprise members to add.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },

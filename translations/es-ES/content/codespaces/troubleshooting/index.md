@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting GitHub Codespaces
+title: Solución de problemas de GitHub Codespaces
 shortTitle: Troubleshooting
-intro: 'These guides provide information for troubleshooting {% data variables.product.prodname_github_codespaces %}'
+intro: 'Estas guías te proporcionan información para solucionar los problemas de {% data variables.product.prodname_github_codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -21,5 +21,11 @@ children:
   - /troubleshooting-github-codespaces-clients
   - /troubleshooting-gpg-verification-for-github-codespaces
   - /working-with-support-for-github-codespaces
+ms.openlocfilehash: 8704695a9ae39750bcc94229a62bb7eabcc6cdbe
+ms.sourcegitcommit: 47e03737d09bed84dfedb7be5924d893d34ea1a8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/16/2022
+ms.locfileid: '148167097'
 ---
 

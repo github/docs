@@ -1,8 +1,8 @@
 ---
-title: Enabling GitHub Codespaces for your organization
+title: Organization での GitHub Codespaces の有効化
 shortTitle: 'Enable {% data variables.product.prodname_codespaces %}'
-intro: "You can control which users in your organization can use {% data variables.product.prodname_github_codespaces %} at the organization's expense."
-permissions: "To alter an organization's billing settings, you must be an organization owner."
+intro: '組織内のどのユーザーが組織の負担で {% data variables.product.prodname_github_codespaces %} を使用できるかを制御できます。'
+permissions: 'To alter an organization''s billing settings, you must be an organization owner.'
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
@@ -14,70 +14,69 @@ topics:
   - Codespaces
   - Billing
   - Administrator
+ms.openlocfilehash: 992d744e04ae00db4d760b59a9d08d1700846998
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158902'
 ---
+## Organization での {% data variables.product.prodname_github_codespaces %} の有効化について
 
-## About enabling {% data variables.product.prodname_github_codespaces %} for your organization
+組織の所有者は、組織内のどのユーザーが組織の負担で codespace を作成および使用できるかを制御できます。 価格について詳しくは、「[{% data variables.product.prodname_github_codespaces %} の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
-Organization owners can control which users in your organization can create and use codespaces at the organization's expense. For information about pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+リポジトリに変更をプッシュできるか、リポジトリをフォークできる人だけがそのリポジトリの codespace を作成できます。 組織によって所有されるリポジトリの codespace をユーザーが作成できるようにするには、次の手順を実行する必要があります。
 
-Only people who can either push changes to a repository, or fork the repository, can create a codespace for that repository. To allow people to create codespaces for repositories owned by your organization, you must:
+- ユーザーが少なくとも、codespace を使用するリポジトリへの書き込みアクセス権を持っていることを確認します。 詳細については、「[リポジトリへのアクセス権を持つ Team と人を管理する](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)」を参照してください。
+- 組織で IP アドレスの許可リストが有効になっていないことを確認します。 詳細については、{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %} ドキュメントの{% else %}{% endif %}「[Organization に対する許可 IP アドレスを管理する](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
 
-- Ensure that users have at least write access to the repositories where they want to use a codespace. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
-- Ensure that your organization does not have an IP address allow list enabled. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+組織に課金される codespace をユーザーが作成できるようにするには、次の手順を実行する必要があります。
 
-To allow people to create codespaces for which your organization will be billed, you must:
+- [使用制限を設定します](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
+- [組織に課金される codespace を作成できるユーザーを選ぶ](#choose-who-can-create-codespaces-that-are-billed-to-your-organization)
 
-- [Set a spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
-- [Choose who can create codespaces that are billed to your organization](#choose-who-can-create-codespaces-that-are-billed-to-your-organization)
+{% ifversion fpt %} {% note %}
 
-{% ifversion fpt %}
-{% note %}
+**注:** 証明済みの教育者または教師の場合、{% data variables.product.prodname_github_codespaces %} Education 特典を利用するには、{% data variables.product.prodname_classroom %} から {% data variables.product.prodname_codespaces %} を有効にする必要があります。 詳細については、「[{% data variables.product.prodname_github_codespaces %} を {% data variables.product.prodname_classroom %} で使う](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)」を参照してください。
 
-**Note:** If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_github_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
+{% endnote %} {% endif %}
 
-{% endnote %}
-{% endif %}
+既定では、codespace はその作成元のリポジトリにのみアクセスできます。 組織内の codespace から、codespace の作成者がアクセスできる他の組織のリポジトリにアクセスできるようにする場合は、「[Organization の codespace に対するリポジトリ アクセスを管理する](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)」を参照してください。
 
-By default, a codespace can only access the repository from which it was created. If you want codespaces in your organization to be able to access other organization repositories that the codespace creator can access, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
+## 組織に課金される codespace を作成できるユーザーを選ぶ
 
-## Choose who can create codespaces that are billed to your organization
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.click-codespaces %}
+1. [課金] をクリックし、以下のオプションの 1 つを選びます。
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Under "Billing," select one of the following options:
+   * **無効** - 組織は codespace の使用に対して課金されません。 組織のリポジトリ用に作成された {% data variables.product.prodname_codespaces %} では、作成した個々のユーザーに対して課金されます。
+   * **選択したメンバー** - 選択したメンバーによって組織のリポジトリに対して作成された {% data variables.product.prodname_codespaces %} では、組織に対して課金されます。
+   * **すべてのメンバー** - 組織のメンバーによって組織のリポジトリに対して作成された {% data variables.product.prodname_codespaces %} では、組織に対して課金されます。
+   * **すべてのメンバーと外部コラボレーター** - 組織のメンバーと外部コラボレーターによって組織のリポジトリに対して作成された {% data variables.product.prodname_codespaces %} では、組織に対して課金されます。
 
-   * **Disabled** - Your organization will not be charged for codespace usage. {% data variables.product.prodname_codespaces %} created for your organization's repositories will be billed to the individual users who create them.
-   * **Selected members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by selected members will be billed to the organization.
-   * **All members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by members of your organization will be billed to the organization.
-   * **All members and outside collaborators** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by organization members and outside collaborators will be billed to the organization.
-
-   ![Radio buttons for "Billing"](/assets/images/help/codespaces/codespaces-org-billing-settings.png)
+   ![[課金] のラジオ ボタン](/assets/images/help/codespaces/codespaces-org-billing-settings.png)
 
    {% note %}
 
-   **Note:** When you select **All members and outside collaborators**,  all outside collaborators who have been added to specific repositories can create and use {% data variables.product.prodname_codespaces %} for those repositories, and your organization will be billed for this usage. For more information on managing outside collaborators, see "[About outside collaborators](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)."
+   **注:** **[すべてのメンバーと外部のコラボレーターに許可する]** を選ぶと、特定のリポジトリに追加されたすべての外部コラボレーターがこれらのリポジトリの {% data variables.product.prodname_codespaces %} を作成して使用でき、組織はこの使用に対して課金されます。 外部コラボレーターの管理の詳細については、「[外部のコラボレーターについて](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)」を参照してください。
 
    {% endnote %}
 
-1. Click **Save**.
-1. If you chose **Selected members**, an input box is displayed for you to enter the names of users you want to select.
+1. **[保存]** をクリックします。
+1. **[選択したメンバー]** を選んだ場合は、選ぶユーザーの名前を入力するための入力ボックスが表示されます。
 
-   ![Input box for selecting users](/assets/images/help/codespaces/codespaces-org-billing-add-users.png)
+   ![ユーザーを選ぶための入力ボックス](/assets/images/help/codespaces/codespaces-org-billing-add-users.png)
 
-## Disabling {% data variables.product.prodname_codespaces %} for your organization
+## Organization の {% data variables.product.prodname_codespaces %} の無効化
 
-You can prevent the creation and use of codespaces billable to your organization.
+組織に課金できる codespace の作成と使用を防ぐことができます。
 
 {% data reusables.codespaces.codespaces-disabling-org-billing %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Under "Billing," select **Disabled**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.click-codespaces %}
+1. [課金] で、 **[無効]** を選びます。
 
-## Setting a spending limit
+## 利用限度の設定
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+アカウントの利用制限の管理と変更については、「[{% data variables.product.prodname_codespaces %} の利用制限の管理](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)」を参照してください。

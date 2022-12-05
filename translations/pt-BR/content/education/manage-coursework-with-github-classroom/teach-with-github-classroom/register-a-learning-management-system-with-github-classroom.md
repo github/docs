@@ -5,12 +5,12 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}.'
 shortTitle: Register an LMS
-ms.openlocfilehash: e1c1abed5ce4ebf82c19b29fef9a005fbe4c7a02
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 408126833cbf7fa8cd4a71d172f6550e82f795a2
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106850'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185166'
 ---
 ## Como registrar um LMS na sala de aula
 
@@ -63,8 +63,8 @@ Você pode registrar a instalação do Canvas no {% data variables.product.prodn
    - "Identificador do emissor": `https://canvas.instructure.com`
    - "Domínio": a URL base da instância do Canvas
    - "ID do cliente": a "ID do cliente" em "Detalhes" da chave do desenvolvedor que você criou
-   - "Ponto de extremidade de autorização OIDC": a URL base da instância do Canvas com `/login/oauth2/token` acrescentado no final.
-   - "URL de recuperação de token OAuth 2.0": a URL base da instância do Canvas com `/api/lti/authorize_redirect` acrescentado no final.
+   - "Ponto de extremidade de autorização OIDC": a URL base da instância do Canvas com `/api/lti/authorize_redirect` acrescentado no final.
+   - "URL de recuperação de token OAuth 2.0": a URL base da instância do Canvas com `/login/oauth2/token` acrescentado no final.
    - "URL de definição da chave": a URL base da instância do Canvas com `/api/lti/security/jwks` acrescentado no final.
 
   ![Registrar a instância do Canvas no GitHub Classroom](/assets/images/help/classroom/register-canvas-with-github-classroom.png)

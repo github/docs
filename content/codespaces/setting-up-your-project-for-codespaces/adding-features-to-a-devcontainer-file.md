@@ -63,7 +63,7 @@ To add features in {% data variables.product.prodname_vscode_shortname %} while 
 
 {% endnote %}
 
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette with <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+{% data reusables.codespaces.command-pallette %}
 2. Start typing "Configure" and select **Codespaces: Configure Dev Container Features**.
 
    ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)

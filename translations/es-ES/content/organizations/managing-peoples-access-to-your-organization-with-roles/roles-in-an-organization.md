@@ -15,12 +15,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Roles in an organization
-ms.openlocfilehash: 960f6f701ad524220e9e79ada04fa9e4d30b8e9f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: f9e5d411c7a7a16e22abcc660f2761f1bfd6cf7d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109815'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180081'
 ---
 ## Acerca de los roles
 {% data reusables.organizations.about-roles %}
@@ -186,7 +186,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | [Exportar una lista de personas con acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | Administrar etiquetas predeterminadas (consulte "[Administración de etiquetas predeterminadas para los repositorios de la organización](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Administrar revisiones de solicitudes de incorporación de cambios en la organización (consulte "[Administración de revisiones de solicitudes de incorporación de cambios en la organización](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
+{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa con una lista de direcciones IP permitidas](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -227,7 +227,7 @@ Para mantener seguros los datos de su organización y, al mismo tiempo, permitir
 | [Ver las personas que tienen acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Exportar una lista de personas con acceso a un repositorio de la organización](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Administrar etiquetas predeterminadas (consulte "[Administración de etiquetas predeterminadas para los repositorios de la organización](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
-{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
+{% ifversion ghae %}| Administrar listas de direcciones IP permitidas (consulte "[Restricción del tráfico de red a la empresa con una lista de direcciones IP permitidas](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |{% endif %}
 
 {% endif %}
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e0bf1f4b7bbd5fcb145a6e869dd442fd8e53108a
-ms.sourcegitcommit: b4996daba2e75b3368f39316e6929602f13b961b
+ms.openlocfilehash: 1dd9305ca2b7cb3e8d25d697de8ae3a83e0c46bb
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2022
-ms.locfileid: "148120531"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148183977"
 ---
 | Nome da categoria | Descrição
 |------------------|-------------------
@@ -106,7 +106,7 @@ ms.locfileid: "148120531"
 {%- endif %} {%- ifversion fpt or ghec %} | `sponsors`  | Contém eventos relacionados a botões de patrocinador (confira "[Como exibir um botão de patrocinador no seu repositório](/articles/displaying-a-sponsor-button-in-your-repository)").
 {%- endif %} {%- ifversion ghec or ghes or ghae %} | `ssh_certificate_authority` | Contém atividades relacionadas a uma autoridade de certificação SSH em uma organização ou uma empresa.
 | `ssh_certificate_requirement` | Contém atividades relacionadas ao requisito de que os membros usem certificados SSH para acessar recursos da organização.
-{%- endif %} | `staff` | Contém atividades relacionadas a um administrador do site que executa uma ação.
+{%- endif %} {% ifversion sso-redirect %} | `sso_redirect` | Contém atividades relacionadas ao redirecionamento automático de usuários para entrar (confira "[Como aplicar políticas para configurações de segurança em sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)"). {% endif %} | `staff` | Contém atividades relacionadas a um administrador do site que executa uma ação.
 | `team` | Contém atividades relacionadas às equipes em uma organização.
 | `team_discussions` | Contém atividades relacionadas ao gerenciamento de discussões em equipe em uma organização.
 {%- ifversion ghec %} | `team_sync_tenant` | Contém atividades relacionadas à sincronização de equipe com um IdP para uma empresa ou uma organização.

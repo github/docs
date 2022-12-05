@@ -15,6 +15,8 @@ Azure | Azure CosmosDB Key Identifiable
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
 Azure | Azure ML Studio (classic) Web Service Key
 Azure | Azure SAS Token
+Azure | Azure Search Admin Key
+Azure | Azure Search Query Key
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String
 Azure | Azure Storage Account Key
@@ -42,6 +44,7 @@ Dropbox | Dropbox Access Token
 Dropbox | Dropbox Short Lived Access Token
 Dynatrace | Dynatrace Access Token
 Dynatrace | Dynatrace Internal Token
+Figma | Figma {% data variables.product.pat_generic_title_case %}
 Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
 Frame.io| Frame.io Developer Token
@@ -57,6 +60,7 @@ Google Cloud | Google API Key
 Google Cloud | Google Cloud Private Key ID
 Hashicorp Terraform | Terraform Cloud / Enterprise API Token
 Hubspot | Hubspot API Key
+Hubspot | Hubspot API Personal Access Key
 Ionic | Ionic {% data variables.product.pat_generic_title_case %}
 Ionic | Ionic Refresh Token
 JD Cloud | JD Cloud Access Key
@@ -108,6 +112,7 @@ Stripe | Stripe Live API Restricted Key
 Stripe | Stripe Test API Restricted Key
 Supabase | Supabase Service Key
 Tencent Cloud | Tencent Cloud Secret ID
+Tencent WeChat | Tencent WeChat API App ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
 Typeform | Typeform {% data variables.product.pat_generic_title_case %}

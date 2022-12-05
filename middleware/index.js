@@ -38,8 +38,6 @@ import triggerError from './trigger-error.js'
 import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
 import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
-// TODO: docs-eng#1937: delete this line
-import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
@@ -58,7 +56,6 @@ import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
-import fastRootRedirect from './fast-root-redirect.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 
@@ -191,7 +188,6 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
@@ -262,8 +258,6 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
   app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
-  // TODO: docs-eng#1937: delete this line
-  app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
   app.use(asyncMiddleware(instrument(currentProductTree, './contextualizers/current-product-tree')))

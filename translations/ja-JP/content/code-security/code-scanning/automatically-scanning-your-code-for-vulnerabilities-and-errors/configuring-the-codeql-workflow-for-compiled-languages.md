@@ -4,6 +4,7 @@ shortTitle: Configure compiled languages
 intro: '{% data variables.product.prodname_dotcom %} による {% data variables.code-scanning.codeql_workflow %}の使用方法を構成すると、コンパイル型言語で脆弱性とエラーが記述されているコードをスキャンできます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -25,12 +26,13 @@ topics:
   - C/C++
   - C#
   - Java
-ms.openlocfilehash: 91983e79a6381b4a38cbb1de4f6d7f228637b192
-ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+  - Kotlin
+ms.openlocfilehash: 4c594a9ca19064da6c017155fad27b37b083e7e3
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148161200'
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182267'
 ---
 {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -43,7 +45,7 @@ ms.locfileid: '148161200'
 ##  {% data variables.product.prodname_codeql %} の autobuild について
 
 {% data variables.product.prodname_code_scanning_capc %} は、1 つ以上のデータベースに対してクエリを実行することにより機能します。 各データベースには、リポジトリにあるすべてのコードを 1 つの言語で表わしたものが含まれています。   
-コンパイル型言語の C/C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}Java では、このデータベースを生成するプロセスに、コードのビルドとデータの抽出が含まれています。 {% data reusables.code-scanning.analyze-go %}
+コンパイル型言語の C/C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}{% ifversion codeql-kotlin-beta %}Kotlin、{% endif %}Java では、このデータベースを生成するプロセスに、コードのビルドとデータの抽出が含まれています。 {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
@@ -107,7 +109,7 @@ Linux と macOS の `autobuild` ステップでは、リポジトリ内にある
 
 {% endif %}
 
-### Java
+### Java {% ifversion codeql-kotlin-beta %}と Kotlin{% endif %}
 
 | サポートされているシステムの種類 | システム名 |
 |----|----|

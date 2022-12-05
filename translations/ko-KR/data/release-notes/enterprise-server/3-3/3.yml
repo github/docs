@@ -1,0 +1,30 @@
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - '**보통**:  Secret Scanning API 호출은 요청 범위를 벗어난 리포지토리에 대한 경고를 반환할 수 있습니다.'
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - MySQL 비밀 회전 이후 `nginx`를 수동으로 다시 시작할 때까지 페이지를 사용할 수 없게 됩니다.
+    - "{% data variables.product.prodname_actions %}가 사용하도록 설정되었을 때 마이그레이션이 실패할 수 있습니다."
+    - ISO 8601 날짜로 유지 관리 일정을 설정할 때 시간대가 UTC로 변환되지 않아서 실제 예약 시간이 일치하지 않습니다.
+    - "`cloud-config.service` 관련 거짓 오류 메시지가 콘솔에 출력됩니다."
+    - "`ghe-cluster-each`를 사용하여 핫패치를 설치하면 버전 번호가 올바르게 업데이트되지 않습니다."
+    - "웹후크 테이블 정리 작업을 동시에 실행할 수 있으며, 리소스 경합이 발생하고 작업 실행 시간이 증가합니다."
+    - 기본에서 실행할 때 복제본의 `ghe-repl-teardown`은 MSSQL 가용성 그룹에서 복제본을 제거하지 않습니다.
+    - 확인된 또는 승인된 도메인에서 메일을 사용하는 사용자에 대한 이메일 기반 알림을 제한하는 기능이 올바르게 작동하지 않습니다.
+    - "CAS 인증을 사용하고 \"일시 중단된 사용자 다시 활성화\" 옵션이 사용하도록 설정되었을 때 일시 중단된 사용자가 자동으로 다시 활성화되지 않았습니다."
+    - 보안 경고 설정과 관련된 데이터베이스 마이그레이션이 장기간 실행되면 업그레이드 완료가 지연될 수 있습니다.
+  changes:
+    - GitHub Connect 데이터 연결 레코드에 이제 활성 및 유휴 사용자 수와 구성된 휴면 기간이 포함됩니다.
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} 3.3으로 업그레이드한 후 {% data variables.product.prodname_actions %}가 자동으로 시작되지 않을 수도 있습니다. 이 이슈를 해결하려면 SSH를 통해 어플라이언스에 연결하고 `ghe-actions-start` 명령을 실행하세요."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '"경로 스타일 강제 적용"이 선택되는 경우 {% data variables.product.prodname_actions %} 스토리지 설정은 {% data variables.enterprise.management_console %}에서 유효성 검사 및 저장될 수 없으며 대신 `ghe-actions-precheck` 명령줄 유틸리티로 구성되어야 합니다.'
+    - '현재 Linux 커널에 있는 버그로 인해 Azure에 설치되고 32개 이상의 CPU 코어로 프로비전된 {% data variables.product.prodname_ghe_server %} 3.3 인스턴스가 시작되지 않습니다. [업데이트 날짜: 2022-04-08]'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

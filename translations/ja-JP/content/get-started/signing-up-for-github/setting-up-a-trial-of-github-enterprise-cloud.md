@@ -70,9 +70,9 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 
 You can buy {% data variables.product.prodname_enterprise %} at any time during your trial. Purchasing {% data variables.product.prodname_enterprise %} ends your trial, removing the 50-seat maximum and initiating payment.
 
-If you don't purchase {% data variables.product.prodname_enterprise %}, when the trial ends, your organization will be downgraded. If you used an existing organization for the trial, the organization will be downgraded to the product you were using before the trial. If you created a new organization for the trial, the organization will be downgraded to {% data variables.product.prodname_free_team %}. 
+If you don't purchase {% data variables.product.prodname_enterprise %}, the trial will continue until the end of the 30-day period. You cannot end the trial early. When the trial ends, your organization will be downgraded. If you used an existing organization for the trial, the organization will be downgraded to the product you were using before the trial. If you created a new organization for the trial, the organization will be downgraded to {% data variables.product.prodname_free_team %}. 
 
-Your organization will lose access to any functionality that is not included in the new product, such as advanced features like {% data variables.product.prodname_pages %} for private repositories. If you don't plan to upgrade, to avoid losing access to advanced features, consider making affected repositories public before your trial ends. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
+Your organization will lose access to any functionality that is not included in the new plan, such as advanced features like {% data variables.product.prodname_pages %} for private repositories. If you don't plan to upgrade, to avoid losing access to advanced features, consider making affected repositories public before your trial ends. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
 
 Downgrading also disables any SAML settings configured during the trial period. If you later purchase {% data variables.product.prodname_enterprise %}, your SAML settings will be enabled again for users in your organization to authenticate.
 

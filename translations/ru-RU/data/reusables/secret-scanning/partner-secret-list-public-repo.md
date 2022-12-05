@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: cd91a98e6cb0da73a24f7f6e682b67ec25b406d4
-ms.sourcegitcommit: 24427fe609677b2c58137b1d9d63869d0872daf4
+ms.openlocfilehash: 59e78cbf492110a8949c27e867bf195ae5605307
+ms.sourcegitcommit: bddda0c0814770ee64e378692891931c618247ec
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2022
-ms.locfileid: "148134795"
+ms.lasthandoff: 11/24/2022
+ms.locfileid: "148181766"
 ---
 Партнер | Поддерживаемый секрет
 --- | ---
@@ -18,17 +18,19 @@ Amazon Web Services (AWS) | Пара идентификатора и секре�
 Atlassian | Маркер Atlassian API
 Atlassian | Atlassian JSON Web Token
 Azure | Секрет приложения Azure Active Directory
-Azure | пакетная служба Azure ключ, который можно идентифицировать
+Azure | Идентифицируемый ключ пакетная служба Azure
 Azure | Идентифицируемый ключ Azure CosmosDB
 Azure | Azure DevOps {% data variables.product.pat_generic_title_case %}
 Azure | Ключ веб-службы Студии машинного обучения Azure (классическая версия)
 Azure | Маркер Azure SAS
+Azure | Ключ Администратор поиска Azure
+Azure | Ключ запроса поиска Azure
 Azure | Сертификат управления службами Azure
 Azure | Строка подключения Azure SQL
 Azure | Ключ учетной записи хранения Azure
 Checkout.com | Производственный секретный ключ Checkout.com
 Checkout.com | Тестовый секретный ключ Checkout.com
-Chief | Токен главных средств
+Chief | Токен "Главный инструмент"
 Clojars | Маркер развертывания Clojars
 CloudBees CodeShip | Учетные данные CloudBees CodeShip
 Contributed Systems | Учетные данные Contributed Systems
@@ -50,6 +52,7 @@ DropBox | Маркер доступа Dropbox
 DropBox | Краткосрочный маркер доступа Dropbox
 Dynatrace | Маркер доступа Dynatrace
 Dynatrace | Внутренний маркер Dynatrace
+Figma | Figma {% data variables.product.pat_generic_title_case %}
 Finicity | Ключ приложения Finicity
 Frame.io | Frame.io JSON Web Token
 Frame.io| Маркер разработчика Frame.io
@@ -65,6 +68,7 @@ Google Cloud | Ключ API Google
 Google Cloud | Идентификатор закрытого ключа Google Cloud
 Hashicorp Terraform | Ключ Terraform Cloud / Enterprise API
 Hubspot | Ключ API Hubspot
+Hubspot | Личный ключ доступа API Hubspot
 Ionic | Ionic {% data variables.product.pat_generic_title_case %}
 Ionic | Маркер обновления Ionic
 JD Cloud | Ключ доступа JD Cloud
@@ -116,6 +120,7 @@ Stripe | Ограниченный ключ реального API Stripe
 Stripe | Ограниченный ключ тестового API Stripe
 Supabase | Ключ службы Supabase
 Tencent Cloud | Идентификатор секрета Tencent Cloud
+Tencent WeChat | Идентификатор приложения API Tencent WeChat
 Twilio | Строковый идентификатор учетной записи Twilio
 Twilio | Ключ API Twilio
 Typeform | Форма типа {% data variables.product.pat_generic_title_case %}

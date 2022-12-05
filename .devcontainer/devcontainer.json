@@ -33,6 +33,13 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [4000],
+		
+	"portsAttributes": {
+		"4000": {
+        		"label": "Preview",
+        		"onAutoForward": "openPreview"
+      		}
+	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "git lfs pull && npm ci",

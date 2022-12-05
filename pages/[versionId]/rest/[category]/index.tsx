@@ -65,6 +65,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   let subcategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
   const currentLanguage = req.context.currentLanguage as string
+  const allVersions = req.context.allVersions
+  const queryApiVersion = context.query.apiVersion
+  const apiVersion = allVersions[currentVersion].apiVersions.includes(queryApiVersion)
+    ? queryApiVersion
+    : allVersions[currentVersion].latestApiVersion
 
   // For pages with category level only operations like /rest/billing, we set
   // the subcategory's value to be the category for the call to getRest()
@@ -72,7 +77,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subcategory = category
   }
 
-  const restOperations = (await getRest(currentVersion, category, subcategory)) || []
+  const restOperations = (await getRest(currentVersion, apiVersion, category, subcategory)) || []
 
   // Build table of contents for all category operations for TocLanding:
   //
@@ -80,7 +85,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // * loop over subcategories and get the operations per subcategory
   //   * get the minitoc items per set of subcategory operations
   //   * with this data, build a collection of toc items that can be used by TocLanding
-  const restCategoryOperations = (await getRest(currentVersion, category)) || []
+  const restCategoryOperations = (await getRest(currentVersion, apiVersion, category)) || []
   const restCategoryTocItems = []
 
   for (const [subCat, subCatOperations] of Object.entries(restCategoryOperations)) {
@@ -122,6 +127,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     const miniTocItems = (await getRestMiniTocItems(
       category,
       subCat,
+      apiVersion,
       subCatOperations,
       currentLanguage,
       currentVersion,
@@ -177,6 +183,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,
       subcategory,
+      apiVersion,
       restOperations,
       currentLanguage,
       currentVersion,

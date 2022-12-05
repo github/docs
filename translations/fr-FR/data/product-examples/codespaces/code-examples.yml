@@ -1,0 +1,36 @@
+- title: Exemple de projet Node.js
+  description: Essayer un projet Node.js avec un conteneur de développement personnalisé
+  languages: Javascript
+  href: microsoft/vscode-remote-try-node
+  tags:
+    - conteneurs de développement
+- title: Exemple de projet Python
+  description: Essayer un projet Python avec un conteneur de développement personnalisé
+  languages: Python
+  href: microsoft/vscode-remote-try-python
+  tags:
+    - conteneurs de développement
+- title: Exemple de projet Java
+  description: Essayer un projet Java avec un conteneur de développement personnalisé
+  languages: Java
+  href: microsoft/vscode-remote-try-java
+  tags:
+    - conteneurs de développement
+- title: Exemple de projet Go
+  description: Essayer un projet Go avec un conteneur de développement personnalisé
+  languages: Go
+  href: microsoft/vscode-remote-try-go
+  tags:
+    - conteneurs de développement
+- title: Exemple de projet Rust
+  description: Essayer un projet Rust avec un conteneur de développement personnalisé
+  languages: Rust
+  href: microsoft/vscode-remote-try-rust
+  tags:
+    - conteneurs de développement
+- title: Exemple de projet PHP
+  description: Essayer un projet PHP avec un conteneur de développement personnalisé
+  languages: PHP
+  href: microsoft/vscode-remote-try-php
+  tags:
+    - conteneurs de développement

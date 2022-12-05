@@ -1,7 +1,11 @@
 import React from 'react'
 import { Flash } from '@primer/react'
 import { useRouter } from 'next/router'
+
+import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { Link } from 'components/Link'
+import { useMainContext } from 'components/context/MainContext'
+import { useTranslation } from 'components/hooks/useTranslation'
 
 const restRepoDisplayPages = [
   'branches',
@@ -30,7 +34,64 @@ const restRepoCategoryExceptionsTitles = {
 
 export const RestBanner = () => {
   const router = useRouter()
+  const { t } = useTranslation('products')
+  // Having a productId === 'rest' and no router.query.category would mean a product landing page like http://docs.github.com/en/rest?apiVersion=2022-08-09
+  const isRestPage = router.query.productId === 'rest' || router.query.category
   const restPage = router.query.category as string
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
+  const currentVersionObj = allVersions[currentVersion]
+  const apiVersions = currentVersionObj.apiVersions
+
+  let bannerText = ''
+  let versionWithApiVersion = ''
+
+  if (isRestPage && apiVersions.length) {
+    bannerText = t('rest.banner.api_versioned')
+    versionWithApiVersion = currentVersion
+  } else {
+    if (currentVersionObj.shortName === 'ghes') {
+      // If this is a GHES release with no REST versions,
+      // find out if any GHES releases contain REST versioning yet.
+      const firstGhesReleaseWithApiVersions = Object.values(allVersions)
+        .reverse()
+        .find((v) => {
+          return v.shortName === 'ghes' && v.apiVersions.length
+        })
+
+      if (firstGhesReleaseWithApiVersions) {
+        versionWithApiVersion = firstGhesReleaseWithApiVersions.version
+        bannerText = t('rest.banner.ghes_api_versioned')
+          .replace(
+            '{{ firstGhesReleaseWithApiVersions.versionTitle }}',
+            firstGhesReleaseWithApiVersions.versionTitle
+          )
+          .replace(/{{\s*currentVersion\s*}}/, currentVersion)
+      }
+    }
+  }
+  // Temporary banner for REST API Versioning
+  if (isRestPage && bannerText !== '') {
+    return (
+      <div
+        data-testid="rest-api-versioning-temporary-banner"
+        className="container-xl mt-3 mx-auto p-responsive"
+      >
+        <Flash>
+          <span dangerouslySetInnerHTML={{ __html: bannerText }} />{' '}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: t('rest.banner.api_version_info').replace(
+                /{{\s*versionWithApiVersion\s*}}/,
+                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`
+              ),
+            }}
+          />
+        </Flash>
+      </div>
+    )
+  }
+
   if (!restRepoDisplayPages.includes(restPage) && !restEnterpriseDisplayPages.includes(restPage)) {
     return null
   }
