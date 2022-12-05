@@ -21,7 +21,7 @@ Use the official Octokit library, or choose between any of the available third p
 
 - **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
 - **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
-- **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
+- **JavaScript** → [octokit.js](https://github.com/octokit/octokit.js)
 
 ## Third-party libraries
 
