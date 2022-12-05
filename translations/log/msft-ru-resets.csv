@@ -1091,6 +1091,7 @@ translations/ru-RU/content/repositories/releasing-projects-on-github/automatical
 translations/ru-RU/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/ru-RU/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/ru-RU/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
+translations/ru-RU/content/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories.md,rendering error
 translations/ru-RU/content/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md,rendering error
 translations/ru-RU/content/repositories/working-with-files/managing-files/adding-a-file-to-a-repository.md,rendering error
 translations/ru-RU/content/repositories/working-with-files/managing-files/navigating-files-with-the-new-code-view.md,broken liquid tags
@@ -1272,7 +1273,6 @@ translations/ru-RU/data/reusables/enterprise-accounts/continue-verifying-domain.
 translations/ru-RU/data/reusables/enterprise-accounts/dormant-user-activity-threshold.md,rendering error
 translations/ru-RU/data/reusables/enterprise-accounts/dormant-user-activity.md,rendering error
 translations/ru-RU/data/reusables/enterprise-accounts/emu-cap-validates.md,rendering error
-translations/ru-RU/data/reusables/enterprise-accounts/emu-forks.md,rendering error
 translations/ru-RU/data/reusables/enterprise-accounts/emu-only-emails-within-the-enterprise-can-conflict.md,rendering error
 translations/ru-RU/data/reusables/enterprise-accounts/emu-permission-follow.md,rendering error
 translations/ru-RU/data/reusables/enterprise-accounts/emu-permission-fork.md,rendering error
