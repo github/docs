@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: 4560ae5e63f8a607f068bb24e84f1a014f44885c
-ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.openlocfilehash: ab880cef09b936bb573d783373f048395d0a2f58
+ms.sourcegitcommit: 16548aa24259e37cc0ac4900ca8fefc46dc84cdb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2022
-ms.locfileid: '148179734'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148190059'
 ---
 ![Gundamcat](/assets/images/gundamcat.png)
 
@@ -24,7 +24,6 @@ ms.locfileid: '148179734'
 
 使用官方的 Octokit 库，或者使用任何适用的第三方库。
 
-- Python → [octokit.py](https://github.com/khornberg/octokit.py)
 - Ruby → [octokit.rb](https://github.com/octokit/octokit.rb)
 - .NET → [octokit.net](https://github.com/octokit/octokit.net)
 - JavaScript → [octokit/octokit.js](https://github.com/octokit/octokit.js)
@@ -131,6 +130,7 @@ ms.locfileid: '148179734'
 |**github-flask**|[github-flask（官方网站）](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |githubkit|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|octokit.py|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 
