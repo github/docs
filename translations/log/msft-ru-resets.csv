@@ -584,6 +584,7 @@ translations/ru-RU/content/admin/configuration/configuring-your-enterprise/confi
 translations/ru-RU/content/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode.md,rendering error
 translations/ru-RU/content/admin/configuration/configuring-your-enterprise/enabling-private-mode.md,rendering error
 translations/ru-RU/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,rendering error
+translations/ru-RU/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list.md,broken liquid tags
 translations/ru-RU/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,rendering error
 translations/ru-RU/content/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors.md,rendering error
 translations/ru-RU/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,rendering error

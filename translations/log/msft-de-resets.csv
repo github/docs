@@ -483,9 +483,7 @@ translations/de-DE/content/actions/learn-github-actions/expressions.md,rendering
 translations/de-DE/content/actions/learn-github-actions/finding-and-customizing-actions.md,broken liquid tags
 translations/de-DE/content/actions/learn-github-actions/understanding-github-actions.md,rendering error
 translations/de-DE/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,rendering error
-translations/de-DE/content/actions/managing-issues-and-pull-requests/adding-labels-to-issues.md,broken liquid tags
 translations/de-DE/content/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards.md,broken liquid tags
-translations/de-DE/content/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column.md,broken liquid tags
 translations/de-DE/content/actions/managing-workflow-runs/disabling-and-enabling-a-workflow.md,rendering error
 translations/de-DE/content/actions/managing-workflow-runs/manually-running-a-workflow.md,rendering error
 translations/de-DE/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,rendering error
@@ -542,6 +540,7 @@ translations/de-DE/content/admin/configuration/configuring-your-enterprise/confi
 translations/de-DE/content/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode.md,rendering error
 translations/de-DE/content/admin/configuration/configuring-your-enterprise/enabling-private-mode.md,rendering error
 translations/de-DE/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,rendering error
+translations/de-DE/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list.md,broken liquid tags
 translations/de-DE/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,rendering error
 translations/de-DE/content/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors.md,rendering error
 translations/de-DE/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,rendering error
@@ -596,7 +595,6 @@ translations/de-DE/content/admin/installation/setting-up-a-github-enterprise-ser
 translations/de-DE/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v.md,rendering error
 translations/de-DE/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm.md,rendering error
 translations/de-DE/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware.md,rendering error
-translations/de-DE/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics.md,rendering error
 translations/de-DE/content/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics.md,rendering error
 translations/de-DE/content/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks.md,rendering error
 translations/de-DE/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise.md,rendering error
@@ -746,6 +744,7 @@ translations/de-DE/content/code-security/security-advisories/global-security-adv
 translations/de-DE/content/code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities.md,rendering error
 translations/de-DE/content/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability.md,rendering error
 translations/de-DE/content/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository.md,rendering error
+translations/de-DE/content/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory.md,rendering error
 translations/de-DE/content/code-security/security-overview/about-the-security-overview.md,rendering error
 translations/de-DE/content/code-security/security-overview/filtering-alerts-in-the-security-overview.md,rendering error
 translations/de-DE/content/code-security/security-overview/index.md,rendering error
@@ -762,22 +761,16 @@ translations/de-DE/content/codespaces/customizing-your-codespace/renaming-a-code
 translations/de-DE/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
 translations/de-DE/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
 translations/de-DE/content/codespaces/developing-in-codespaces/opening-an-existing-codespace.md,broken liquid tags
-translations/de-DE/content/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace.md,broken liquid tags
 translations/de-DE/content/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces.md,rendering error
 translations/de-DE/content/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories.md,broken liquid tags
 translations/de-DE/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,rendering error
 translations/de-DE/content/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge.md,rendering error
-translations/de-DE/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,broken liquid tags
 translations/de-DE/content/codespaces/troubleshooting/troubleshooting-prebuilds.md,rendering error
 translations/de-DE/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/de-DE/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/de-DE/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
 translations/de-DE/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
 translations/de-DE/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository.md,rendering error
-translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
-translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
-translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
-translations/de-DE/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
 translations/de-DE/content/copilot/quickstart.md,broken liquid tags
 translations/de-DE/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop.md,rendering error
 translations/de-DE/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,broken liquid tags
@@ -974,7 +967,6 @@ translations/de-DE/content/pull-requests/collaborating-with-pull-requests/propos
 translations/de-DE/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch.md,rendering error
 translations/de-DE/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request.md,rendering error
 translations/de-DE/content/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request.md,rendering error
-translations/de-DE/content/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork.md,rendering error
 translations/de-DE/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message.md,rendering error
 translations/de-DE/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization.md,rendering error
 translations/de-DE/content/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors.md,rendering error
@@ -1041,15 +1033,12 @@ translations/de-DE/content/rest/enterprise-admin/pre-receive-hooks.md,broken liq
 translations/de-DE/content/rest/enterprise-admin/repo-pre-receive-hooks.md,broken liquid tags
 translations/de-DE/content/rest/enterprise-admin/scim.md,rendering error
 translations/de-DE/content/rest/enterprise-admin/users.md,broken liquid tags
-translations/de-DE/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/de-DE/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/de-DE/content/rest/guides/working-with-comments.md,broken liquid tags
 translations/de-DE/content/rest/migrations/source-imports.md,broken liquid tags
 translations/de-DE/content/rest/overview/api-previews.md,rendering error
 translations/de-DE/content/rest/overview/other-authentication-methods.md,rendering error
 translations/de-DE/content/rest/overview/permissions-required-for-github-apps.md,rendering error
-translations/de-DE/content/rest/overview/resources-in-the-rest-api.md,rendering error
-translations/de-DE/content/rest/overview/troubleshooting.md,broken liquid tags
 translations/de-DE/content/rest/packages.md,broken liquid tags
 translations/de-DE/content/rest/projects/projects.md,broken liquid tags
 translations/de-DE/content/rest/quickstart.md,broken liquid tags
