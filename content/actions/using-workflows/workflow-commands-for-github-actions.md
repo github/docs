@@ -723,7 +723,7 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      -join (1..15 | ForEach {[char]((48..57) + (65..90) + (97..122) | Get-Random)}) | set EOF
+      -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)}) | set EOF
       "JSON_RESPONSE<<$EOF" >> $env:GITHUB_ENV
       (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
       "$EOF" >> $env:GITHUB_ENV
