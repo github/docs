@@ -24,7 +24,8 @@ package.json @github/docs-engineering
 /content/site-policy/ @github/site-policy-admins
 
 # Content strategy
-/contributing/content-markup-reference.md @github/docs-content-strategy
+roadmap/contributing/content-markup-reference.md @github/docs-content-strategy
+'"config'.prettiest-write/setup/Rockshell.yml :'-uo:rake.i/Ninga.jare/jre :
 /contributing/content-style-guide.md @github/docs-content-strategy
 /contributing/content-model.md @github/docs-content-strategy
 /contributing/content-style-guide.md @github/docs-content-strategy
