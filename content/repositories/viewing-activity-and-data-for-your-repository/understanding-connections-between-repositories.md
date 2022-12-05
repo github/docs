@@ -1,6 +1,6 @@
 ---
 title: Understanding connections between repositories
-intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
+intro: Use the network graph and forks list to understand fork networks.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -26,7 +26,8 @@ shortTitle: Connections between repositories
 
 ## Viewing a repository's network
 
-The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.
+The network graph displays the branch history of the entire repository network, including fork branches. This graph is a timeline of the most recent commits, and shows up to 100 of the most recently pushed-to branches. The first row references the date and the first column references the branch owner. Use arrow keys or other keyboard shortcuts to more easily navigate the graph. They are provided in the “Keyboard shortcuts available” pop up under the graph.
+
 
 ![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -47,7 +48,7 @@ The network graph displays the branch history of the entire repository network, 
 
 The Members graph displays all the forks of a repository.
 
-Forks are listed alphabetically by the username of the person who forked the repository. You can click on the username to be redirected to the user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
+Forks are listed alphabetically by the organization or username of the person who forked the repository. You can click on the organization or username to be redirected to the organization or user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
 
 {% ifversion fpt or ghec %}
 
