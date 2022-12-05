@@ -19,6 +19,8 @@ export function cacheControlFactory(
     maxAge && immutable && 'immutable',
     !maxAge && 'private',
     !maxAge && 'no-store',
+    maxAge >= 60 * 60 && `stale-while-revalidate=${60 * 60}`,
+    // maxAge >= 60 * 60 && `stale-if-error=${60 * 60}`,
     maxAgeZero && 'max-age=0',
   ]
     .filter(Boolean)
