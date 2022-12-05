@@ -42,7 +42,7 @@ const languageCodes = Object.keys(languages)
 // This is a string that contributors can use in markdown and yaml files as a placeholder.
 // If any placeholders slip through, this test will flag them.
 const placeholder = 'TODOCS'
-const placeholderRegex = new RegExp(`\\b${placeholder}\\b`, 'g')
+const placeholderRegex = new RegExp(`\\b${placeholder}\\b`, 'gi')
 
 // WARNING: Complicated RegExp below!
 //
@@ -480,8 +480,11 @@ describe('lint markdown content', () => {
 
     test('placeholder string is not present in any markdown files', async () => {
       const matches = rawContent.match(placeholderRegex) || []
+      const placeholderStr = matches.length === 1 ? 'placeholder' : 'placeholders'
       const errorMessage = `
-        Found ${matches.length} placeholder string '${placeholder}' in this file! Please update all placeholders.
+        Found ${matches.length} ${placeholderStr} '${matches.join(
+        ', '
+      )}' in this file! Please update all placeholders.
       `
       expect(matches.length, errorMessage).toBe(0)
     })
