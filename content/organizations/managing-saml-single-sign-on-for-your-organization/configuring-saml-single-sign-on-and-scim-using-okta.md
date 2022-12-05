@@ -34,8 +34,8 @@ Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for
 ## Adding the {% data variables.product.prodname_ghe_cloud %} application in Okta
 
 {% data reusables.saml.okta-ae-applications-menu.md %}
-{% data reusables.saml.okta-browse-app-catalog copy.md %}
-{% data reusables.saml.okta-add-ghec-org-integration.md copy.md %}
+{% data reusables.saml.okta-browse-app-catalog %}
+{% data reusables.saml.okta-add-ghec-org-integration.md %}
 1. Fill out the form, providing the name of your organization in GitHub and a unique name for your OAuth App Integration.
 {% data reusables.saml.assign-yourself-to-okta.md %}
 {% data reusables.saml.okta-sign-on-tab %}
