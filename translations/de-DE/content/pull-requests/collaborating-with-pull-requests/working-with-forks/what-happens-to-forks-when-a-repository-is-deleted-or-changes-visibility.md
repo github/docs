@@ -15,12 +15,12 @@ versions:
 topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
-ms.openlocfilehash: d52215a7406edc84bc71022517f848faa9e48600
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 95296f33d9163cd1171481386efd0a2351095c39
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147886798'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191361'
 ---
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
@@ -32,7 +32,7 @@ Wenn du ein privates Repository löschst, werden alle zugehörigen privaten Fork
 
 ## Öffentliches Repository löschen
 
-Wenn du ein öffentliches Repository löschst, wird einer der vorhandenen öffentlichen Forks als das neue übergeordnete Repository ausgewählt. Alle anderen Repositorys werden von diesem neuen übergeordneten Element abgezweigt, und nachfolgende Pull Requests werden an dieses neue übergeordnete Element gesendet.
+Wenn du ein öffentliches Repository löschst, wird einer der vorhandenen öffentlichen Forks als neues Upstream-Repository ausgewählt. Alle anderen Repositorys werden von diesem neuen Upstream-Repository geforkt und nachfolgende Pull Requests gehen an dieses neue Upstream-Repository.
 
 {% endif %}
 
@@ -44,9 +44,9 @@ Wenn du ein öffentliches Repository löschst, wird einer der vorhandenen öffen
 
 ## Öffentliches Repository in ein privates Repository ändern
 
-Wenn ein öffentliches Repository auf privat festgelegt wird, werden die zugehörigen öffentlichen Forks in ein neues Netzwerk abgespalten. Wie beim Löschen eines öffentlichen Repositorys wird einer der vorhandenen öffentliches Forks als das neue übergeordnete Repository ausgewählt, und alle anderen Repositorys werden von diesem neuen übergeordneten Element abgezweigt. Nachfolgende Pull Requests werden an dieses neue übergeordnete Element gesendet.
+Wenn ein öffentliches Repository auf privat festgelegt wird, werden die zugehörigen öffentlichen Forks in ein neues Netzwerk abgespalten. Wie beim Löschen eines öffentlichen Repositorys wird einer der vorhandenen öffentlichen Forks als neues Upstream-Repository ausgewählt und alle anderen Repositorys werden von diesem neuen Upstream-Repository geforkt. Nachfolgende Pull Requests werden an dieses neue Upstream-Repository übermittelt.
 
-Die Forks eines öffentlichen Repositorys bleiben demnach in ihrem eigenen separaten Repository-Netzwerk öffentlich, selbst nachdem das übergeordnete Repository auf privat eingestellt wurde. Dadurch können Fork-Inhaber ohne Unterbrechung weiterhin arbeiten und zusammenarbeiten. Wenn öffentliche Forks nicht auf diese Weise in ein separates Netzwerk verschoben wurden, benötigen die Inhaber dieser Forks die entsprechenden [Zugriffsberechtigungen](/articles/access-permissions-on-github), um Änderungen vom (inzwischen privaten) übergeordneten Repository abzurufen - auch wenn sie zuvor diese Berechtigungen nicht benötigt haben.
+Anders ausgedrückt: Die Forks eines öffentlichen Repositorys bleiben in ihrem eigenen separaten Repositorynetzwerk öffentlich, auch wenn das Upstream-Repository als privat festgelegt wird. Dadurch können Fork-Inhaber ohne Unterbrechung weiterhin arbeiten und zusammenarbeiten. Wenn öffentliche Forks nicht auf diese Weise in ein separates Netzwerk verschoben wurden, benötigen die Inhaber dieser Forks die entsprechenden [Zugriffsberechtigungen](/articles/access-permissions-on-github), um Änderungen vom (inzwischen privaten) Upstream-Repository abzurufen – auch wenn sie diese Berechtigungen zuvor nicht benötigt wurden.
 
 {% ifversion ghes or ghae %} Wenn für ein öffentliches Repository der anonyme Git-Lesezugriff aktiviert ist und das Repository auf privat festgelegt wird, verlieren alle Forks des Repositorys den anonymen Git-Lesezugriff und verwenden wieder die standardmäßig deaktivierte Einstellung. Wenn ein geforktes Repository als öffentlich festgelegt wird, kann der anonyme Git-Lesezugriff durch die Repository-Administratoren wieder aktiviert werden. Weitere Informationen findest du unter [Aktivieren des anonymen Git-Lesezugriffs für ein Repository](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository).
 {% endif %}
@@ -57,7 +57,7 @@ Wenn ein öffentliches Repository auf privat festgelegt und anschließend gelös
 
 ## Privates Repository in ein öffentliches Repository ändern
 
-Wenn ein privates Repository auf öffentlich festgelegt wird, werden alle privaten Forks in eigenständige private Repositorys umgewandelt und werden zum übergeordneten Element ihres eigenen neuen Repository-Netzwerks. Private Forks werden niemals automatisch auf öffentlich festgelegt, da sie sensible Commits enthalten können, die nicht veröffentlicht werden sollten.
+Wenn ein privates Repository als öffentlich festgelegt wird, werden alle privaten Forks in eigenständige private Repositorys umgewandelt und werden zum Upstream-Repository ihres eigenen neuen Repository-Netzwerks. Private Forks werden niemals automatisch auf öffentlich festgelegt, da sie sensible Commits enthalten können, die nicht veröffentlicht werden sollten.
 
 ### Öffentliches Repository löschen
 
