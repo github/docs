@@ -1,6 +1,6 @@
 ---
-title: Zusammenhänge zwischen Repositorys verstehen
-intro: 'Die Verbindungen zwischen Repositorys kannst du besser verstehen, wenn du dir das Netzwerk und die vom Repository abhängigen Projekte und die Forks des Repositorys ansiehst.'
+title: Understanding connections between repositories
+intro: Use the network graph and forks list to understand fork networks.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,59 +22,57 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060066'
 ---
-## Netzwerk eines Repositorys anzeigen
 
-Das Netzwerkdiagramm zeigt den Branch-Verlauf des gesamten Repository-Netzwerks an, einschließlich der Branches des Root-Repositorys und der Branches der Forks, die netzwerkspezifische Commits enthalten.
+## Viewing a repository's network
 
-![Repository-Netzwerkdiagramm](/assets/images/help/graphs/repo_network_graph.png)
+The network graph displays the branch history of the entire repository network, including fork branches. This graph is a timeline of the most recent commits, and shows up to 100 of the most recently pushed-to branches. The first row references the date and the first column references the branch owner. Use arrow keys or other keyboard shortcuts to more easily navigate the graph. They are provided in the “Keyboard shortcuts available” pop up under the graph.
+
+
+![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
 
 {% tip %}
 
-**Tipp:** Klicke und ziehe zum Anzeigen älterer Verzweigungen im Diagramm.
+**Tip:** To see older branches, click and drag within the graph.
 
 {% endtip %}
 
-## Auf das Netzwerkdiagramm zugreifen
+## Accessing the network graph
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
-3. Klicke in der linken Seitenleiste auf **Netzwerk**.
-![Registerkarte „Network“ (Netzwerk)](/assets/images/help/graphs/network_tab.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+3. In the left sidebar, click **Network**.
+![Network tab](/assets/images/help/graphs/network_tab.png)
 
-## Die Forks eines Repositorys auflisten
+## Listing the forks of a repository
 
-Das Mitgliederdiagramm zeigt alle Forks eines Repositorys.
+The Members graph displays all the forks of a repository.
 
-Die Forks sind alphabetisch nach dem Benutzernamen der Person geordnet, die das Repository geforkt hat. Du kannst auf den Benutzernamen klicken, um zur {% data variables.product.product_name %}-Profilseite des Benutzers weitergeleitet zu werden, oder auf den Forknamen, um zum entsprechenden Fork des Repositorys weitergeleitet zu werden.
+Forks are listed alphabetically by the organization or username of the person who forked the repository. You can click on the organization or username to be redirected to the organization or user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
 
 {% ifversion fpt or ghec %}
 
-![Repository-Mitgliederdiagramm](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
+![Repository members graph](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
 {% else %}
 
-![Repository-Mitgliederdiagramm](/assets/images/help/graphs/repo_members_graph.png)
+![Repository members graph](/assets/images/help/graphs/repo_members_graph.png)
 
 {% endif %}
 
-### Auf das Mitgliederdiagramm zugreifen
+### Accessing the Members graph
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
-3. Klicke in der linken Seitenleiste auf **Forks**.
-![Registerkarte „Forks“](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+3. In the left sidebar, click **Forks**.
+![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-## Anzeigen der Abhängigkeiten eines Repositorys
+## Viewing the dependencies of a repository
 
-Du kannst das Abhängigkeitsdiagramm verwenden, um den Code zu erkunden, von dem dein Repository abhängig ist.
+You can use the dependency graph to explore the code your repository depends on.
 
-Fast alle Software basiert auf Code, der von anderen Entwicklern entwickelt und verwaltet wird, häufig als Lieferkette bezeichnet. Beispiel: Hilfsprogramme, Bibliotheken und Frameworks. Diese Abhängigkeiten sind ein integraler Bestandteil deines Codes, und alle Fehler oder Sicherheitsrisiken in ihnen können sich auf deinen Code auswirken. Es ist wichtig, diese Abhängigkeiten zu überprüfen und zu verwalten.
+Almost all software relies on code developed and maintained by other developers, often known as a supply chain. For example, utilities, libraries, and frameworks. These dependencies are an integral part of your code and any bugs or vulnerabilities in them may affect your code. It's important to review and maintain these dependencies.
 
-Das Abhängigkeitsdiagramm bietet eine hervorragende Möglichkeit, die Abhängigkeiten für ein Repository zu visualisieren und zu erkunden. Weitere Informationen findest du unter [Informationen über das Abhängigkeitsdiagramm](/code-security/supply-chain-security/about-the-dependency-graph) und [Erkunden der Abhängigkeiten eines Repositorys](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository).
+The dependency graph provides a great way to visualize and explore the dependencies for a repository. For more information, see "[About the dependency graph](/code-security/supply-chain-security/about-the-dependency-graph)" and "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)."
 
-Du kannst dein Repository auch so einrichten, dass {% data variables.product.company_short %} dich automatisch benachrichtigt, wenn eine Sicherheitsrisiko in einer deiner Abhängigkeiten gefunden wird. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).
+You can also set up your repository so that {% data variables.product.company_short %} alerts you automatically whenever a security vulnerability is found in one of your dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."

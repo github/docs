@@ -577,7 +577,6 @@ translations/de-DE/content/admin/identity-and-access-management/using-built-in-a
 translations/de-DE/content/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-cas-for-enterprise-iam/index.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-cas-for-enterprise-iam/using-cas.md,rendering error
-translations/de-DE/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users.md,rendering error
 translations/de-DE/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users.md,rendering error
@@ -645,7 +644,6 @@ translations/de-DE/content/authentication/keeping-your-account-and-data-secure/a
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
-translations/de-DE/content/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints.md,broken liquid tags
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/de-DE/content/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth.md,rendering error
@@ -671,7 +669,6 @@ translations/de-DE/content/authentication/troubleshooting-ssh/error-agent-admitt
 translations/de-DE/content/authentication/troubleshooting-ssh/error-key-already-in-use.md,rendering error
 translations/de-DE/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,rendering error
 translations/de-DE/content/authentication/troubleshooting-ssh/recovering-your-ssh-key-passphrase.md,broken liquid tags
-translations/de-DE/content/authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md,rendering error
 translations/de-DE/content/billing/managing-billing-for-github-actions/about-billing-for-github-actions.md,rendering error
 translations/de-DE/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,broken liquid tags
 translations/de-DE/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
@@ -760,7 +757,6 @@ translations/de-DE/content/codespaces/customizing-your-codespace/changing-the-ma
 translations/de-DE/content/codespaces/customizing-your-codespace/renaming-a-codespace.md,broken liquid tags
 translations/de-DE/content/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository.md,rendering error
 translations/de-DE/content/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template.md,rendering error
-translations/de-DE/content/codespaces/developing-in-codespaces/opening-an-existing-codespace.md,broken liquid tags
 translations/de-DE/content/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces.md,rendering error
 translations/de-DE/content/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories.md,broken liquid tags
 translations/de-DE/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,rendering error
@@ -1008,6 +1004,7 @@ translations/de-DE/content/repositories/releasing-projects-on-github/automatical
 translations/de-DE/content/repositories/releasing-projects-on-github/comparing-releases.md,rendering error
 translations/de-DE/content/repositories/releasing-projects-on-github/linking-to-releases.md,rendering error
 translations/de-DE/content/repositories/releasing-projects-on-github/managing-releases-in-a-repository.md,rendering error
+translations/de-DE/content/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories.md,rendering error
 translations/de-DE/content/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md,rendering error
 translations/de-DE/content/repositories/working-with-files/managing-files/adding-a-file-to-a-repository.md,rendering error
 translations/de-DE/content/repositories/working-with-files/managing-large-files/about-large-files-on-github.md,rendering error
@@ -1089,11 +1086,11 @@ translations/de-DE/data/reusables/actions/enterprise-marketplace-actions.md,brok
 translations/de-DE/data/reusables/actions/enterprise-postinstall-nextsteps.md,rendering error
 translations/de-DE/data/reusables/actions/github-connect-resolution.md,rendering error
 translations/de-DE/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
+translations/de-DE/data/reusables/actions/jobs/section-using-conditions-to-control-job-execution.md,broken liquid tags
 translations/de-DE/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/de-DE/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
 translations/de-DE/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
 translations/de-DE/data/reusables/actions/reusable-workflow-calling-syntax.md,rendering error
-translations/de-DE/data/reusables/actions/reusable-workflows-ghes-beta.md,rendering error
 translations/de-DE/data/reusables/actions/reusable-workflows.md,rendering error
 translations/de-DE/data/reusables/actions/runner-groups-add-to-enterprise-first-steps.md,rendering error
 translations/de-DE/data/reusables/actions/self-hosted-runner-add-to-enterprise.md,rendering error
@@ -1154,7 +1151,6 @@ translations/de-DE/data/reusables/enterprise-accounts/billing-microsoft-ea-overv
 translations/de-DE/data/reusables/enterprise-accounts/dormant-user-activity-threshold.md,rendering error
 translations/de-DE/data/reusables/enterprise-accounts/dormant-user-activity.md,rendering error
 translations/de-DE/data/reusables/enterprise-accounts/emu-cap-validates.md,broken liquid tags
-translations/de-DE/data/reusables/enterprise-accounts/emu-forks.md,rendering error
 translations/de-DE/data/reusables/enterprise-accounts/emu-permission-follow.md,broken liquid tags
 translations/de-DE/data/reusables/enterprise-accounts/emu-permission-fork.md,broken liquid tags
 translations/de-DE/data/reusables/enterprise-accounts/emu-permission-gist.md,broken liquid tags
