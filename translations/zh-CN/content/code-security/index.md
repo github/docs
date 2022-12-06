@@ -1,7 +1,7 @@
 ---
-title: 代码安全
-shortTitle: 代码安全
-intro: '在您的 {% data variables.product.prodname_dotcom %} 工作流程中建立安全与功能，以使您的代码库{% ifversion not ghae %} 中不含秘密和漏洞，维护您的软件供应链{% endif %}。'
+title: Code security
+shortTitle: Code security
+intro: 'Build security into your {% data variables.product.prodname_dotcom %} workflow with features to keep secrets and vulnerabilities out of your codebase{% ifversion not ghae %}, and to maintain your software supply chain{% endif %}.'
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
@@ -23,7 +23,7 @@ featuredLinks:
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
-    - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot
@@ -53,7 +53,7 @@ children:
   - /adopting-github-advanced-security-at-scale
   - /secret-scanning
   - /code-scanning
-  - /repository-security-advisories
+  - /security-advisories
   - /supply-chain-security
   - /dependabot
   - /security-overview

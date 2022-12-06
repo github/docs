@@ -1,15 +1,16 @@
-許可リストを使っているなら、Enterpriseにインストールした{% data variables.product.prodname_github_apps %}に設定されたIPアドレスを自動的に許可リストに追加するかも選択できます。
+If you're using an allow list, you can also choose to automatically add to your allow list any IP addresses configured for {% data variables.product.prodname_github_apps %} that are installed in your enterprise. 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-address-inheritance %}
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 
-作成した{% data variables.product.prodname_github_app %}に許可リストを作成する方法に関する詳しい情報については「[GitHub Appに対して許可されたIPアドレスの管理](/developers/apps/building-github-apps/managing-allowed-ip-addresses-for-a-github-app)」を参照してください。
+For more information about how to create an allow list for a {% data variables.product.prodname_github_app %} you have created, see "[Managing allowed IP addresses for a GitHub App](/developers/apps/building-github-apps/managing-allowed-ip-addresses-for-a-github-app)."
 
-{% data variables.product.prodname_github_apps %}のIPアドレスの自動追加を有効化するには:
+To enable automatic addition of IP addresses for {% data variables.product.prodname_github_apps %}:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. "IP allow list（IP許可リスト）"の下で、**Enable IP allow list configuration for installed GitHub Apps（インストールされたGitHub AppsのIP許可リスト設定の有効化）**を選択してください。 ![GitHub AppにIPアドレスを許可するチェックボックス](/assets/images/help/security/enable-ip-allowlist-githubapps-checkbox.png)
-1. [**Save**] をクリックします。
+1. Select **Enable IP allow list configuration for installed GitHub Apps**. If you are using {% data variables.product.prodname_emus %} with OIDC, first select **GitHub** as your IP allow list configuration, then select **Enable IP allow list configuration for installed GitHub Apps**.
+  ![Checkbox to allow GitHub App IP addresses](/assets/images/help/security/enable-ip-allowlist-githubapps-checkbox.png)
+1. Click **Save**.

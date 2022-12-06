@@ -1,6 +1,6 @@
 ---
 title: Deleting your personal account
-intro: 'You can delete your personal account on {% data variables.product.product_location %} at any time.'
+intro: 'You can delete your personal account on {% data variables.location.product_location %} at any time.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
@@ -25,23 +25,23 @@ Deleting your personal account removes all repositories, forks of private reposi
 
 {% note %}
 
-**Note**: If your enterprise manages your account and you sign into {% data variables.product.product_location %} through your company's identity provider (IdP), you cannot delete your account. 詳しい情報については「[{% data variables.product.prodname_emus %}について](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)」を参照してください。
+**Note**: If your enterprise manages your account and you sign into {% data variables.location.product_location %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% endnote %}
 
 {% endif %}
 
-{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.location.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
 
 If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
 
-詳しい情報については、次の記事を参照してください。
+For more information, see the following articles.
 
-- "[Organization の所有権の移譲](/articles/transferring-organization-ownership)"
-- "[Organization アカウントの削除](/articles/deleting-an-organization-account)"
-- "[Organization から自分を削除する](/articles/removing-yourself-from-an-organization/)"
+- "[Transferring organization ownership](/articles/transferring-organization-ownership)"
+- "[Deleting an organization account](/articles/deleting-an-organization-account)"
+- "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization/)"
 
-## アカウントデータのバックアップ
+## Back up your account data
 
 Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[Backing up a repository](/repositories/archiving-a-github-repository/backing-up-a-repository)."
 
@@ -55,11 +55,13 @@ Before you delete your personal account, make a copy of all repositories, privat
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. アカウント設定ページの下部にある [Delete account] の下で [**Delete your account**] をクリックします。 Before you can delete your personal account:
-    - 自分が Organization で唯一のオーナーの場合、Organization を削除する前に所有権を別の人に移譲する必要があります。
-    - Organization に別のオーナーがいる場合は、自分自身を Organization から削除する必要があります。 ![アカウント削除ボタン](/assets/images/help/settings/settings-account-delete.png)
-4. [Make sure you want to do this] ダイアログボックスで、アカウントを削除すると何が起こるか理解したことを確認する手順を完了させます: ![アカウント削除の確認ダイアログ](/assets/images/help/settings/settings-account-deleteconfirm.png)
+3. At the bottom of the Account Settings page, under "Delete account", click **Delete your account**. Before you can delete your personal account:
+    - If you're the only owner in the organization, you must transfer ownership to another person or delete your organization.
+    - If there are other organization owners in the organization, you must remove yourself from the organization.
+   ![Account deletion button](/assets/images/help/settings/settings-account-delete.png)
+4. In the "Make sure you want to do this" dialog box, complete the steps to confirm you understand what happens when your account is deleted:
+  ![Delete account confirmation dialog](/assets/images/help/settings/settings-account-deleteconfirm.png)
   {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and {% data variables.product.prodname_pages %} sites owned by your account will be deleted and your billing will end immediately, and your username will be available to anyone for use on {% data variables.product.product_name %} after 90 days.
-  {% else %}- リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、そして自分のアカウントが所有しているページが、すべて削除されること、ユーザ名が {% data variables.product.product_name %} 上で誰でも使用できるようになることを再確認します。
-  {% endif %}- 最初のフィールドに、自分の {% data variables.product.product_name %}ユーザ名またはメールアドレスを入力してください。
-    - 2 番目のフィールドに、指示されたとおりのフレーズを入力してください。
+  {% else %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use on {% data variables.product.product_name %}.
+  {% endif %}- In the first field, type your {% data variables.product.product_name %} username or email.
+    - In the second field, type the phrase from the prompt.

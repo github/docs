@@ -1,9 +1,10 @@
 ---
-title: Configuring the CodeQL workflow for compiled languages
+title: コンパイル済み言語の CodeQL ワークフローを構成する
 shortTitle: Configure compiled languages
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.product.prodname_codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
+intro: '{% data variables.product.prodname_dotcom %} による {% data variables.code-scanning.codeql_workflow %}の使用方法を構成すると、コンパイル型言語で脆弱性とエラーが記述されているコードをスキャンできます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -25,98 +26,117 @@ topics:
   - C/C++
   - C#
   - Java
+  - Kotlin
+ms.openlocfilehash: 4c594a9ca19064da6c017155fad27b37b083e7e3
+ms.sourcegitcommit: dac72908e8660cb4a347fbf73beab61034eed8c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182267'
 ---
+{% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
+## {% data variables.code-scanning.codeql_workflow %}とコンパイル型言語について
 
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
+{% data variables.product.prodname_dotcom %} がリポジトリに対して {% data variables.product.prodname_code_scanning %} を実行できるようにするには、{% data variables.product.prodname_actions %} ワークフローをリポジトリに追加します。 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} では、{% data variables.code-scanning.codeql_workflow %}を追加できます。 詳細については、「[リポジトリの {% data variables.product.prodname_code_scanning %} の設定](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
 
-## About the {% data variables.product.prodname_codeql_workflow %} and compiled languages
+{% data reusables.code-scanning.edit-workflow %} {% data variables.product.prodname_code_scanning %} の構成とワークフロー ファイルの編集に関する一般的な情報については、「[{% data variables.product.prodname_code_scanning %} を構成する](/code-security/secure-coding/configuring-code-scanning)」および「[{% data variables.product.prodname_actions %} について学ぶ](/actions/learn-github-actions)」をご覧ください。
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.product.prodname_codeql_workflow %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+##  {% data variables.product.prodname_codeql %} の autobuild について
 
-{% data reusables.code-scanning.edit-workflow %} 
-For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
-
-##  About autobuild for {% data variables.product.prodname_codeql %}
-
-Code scanning works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository. For the compiled languages C/C++, C#, and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
+{% data variables.product.prodname_code_scanning_capc %} は、1 つ以上のデータベースに対してクエリを実行することにより機能します。 各データベースには、リポジトリにあるすべてのコードを 1 つの言語で表わしたものが含まれています。   
+コンパイル型言語の C/C++、C#、{% ifversion codeql-go-autobuild %}Go、{% endif %}{% ifversion codeql-kotlin-beta %}Kotlin、{% endif %}Java では、このデータベースを生成するプロセスに、コードのビルドとデータの抽出が含まれています。 {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
-If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
+ワークフローで `language` マトリックスを使っている場合、`autobuild` はマトリックスに列記された各コンパイル型言語のビルドを試行します。 マトリックスがない場合、`autobuild` は、サポートされているコンパイル型言語で、リポジトリ内のソース ファイルの数が最も多いもののビルドを試みます。 Go を除いて、明示的にビルドコマンドを使用しない限り、リポジトリにある他のコンパイル型言語の解析は失敗します。
 
 {% note %}
 
-{% ifversion ghae %}
-**Note**: {% data reusables.actions.self-hosted-runners-software %}
-{% else %}
-**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% ifversion ghae %} **注**: {% data reusables.actions.self-hosted-runners-software %} {% else %} **注**: {% data variables.product.prodname_actions %} にセルフホステッド ランナーを使う場合は、`autobuild` プロセスを使うために追加のソフトウェアをインストールすることが必要になる場合があります。 さらに、リポジトリに特定のバージョンのビルドツールが必要な場合は、手動でインストールする必要があります。 詳しくは、「[{% data variables.product.prodname_dotcom %} ホステッド ランナーの概要](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」をご覧ください。
 {% endif %}
 
 {% endnote %}
 
 ### C/C++
 
-| Supported system type | System name |
+| サポートされているシステムの種類 | システム名 |
 |----|----|
-| Operating system | Windows, macOS, and Linux |
-| Build system | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
+| オペレーティング システム | Windows、macOS、Linux |
+| ビルドシステム | Windows: MSbuild スクリプトと build スクリプト<br/>Linux と macOS: Autoconf、Make、CMake、qmake、 Meson、Waf、SCons、Linux Kbuild、build の各スクリプト |
 
-The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
+`autobuild` ステップの動作は、抽出を実行するオペレーティング システムによって異なります。 Windows の `autobuild` ステップでは、以下の方法を使って C/C++ に適したビルド方法の自動検出が試みられます。
 
-1. Invoke `MSBuild.exe` on the solution (`.sln`) or project (`.vcxproj`) file closest to the root.
-If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
-2. Invoke a script that looks like a build script—_build.bat_, _build.cmd_, _and build.exe_ (in that order).
+1. ルートに最も近いソリューション (`.sln`) またはプロジェクト (`.vcxproj`) ファイルで `MSBuild.exe` を呼び出します。
+`autobuild` が最上位ディレクトリから同じ (最短) 深度で複数のソリューションまたはプロジェクト ファイルを検出した場合、それらすべてのビルドが試みられます。
+2. ビルド スクリプトのように見えるスクリプト、つまり _build.bat_、_build.cmd_、_build.exe_ を、この順番で呼び出します。
 
-On Linux and macOS, the `autobuild` step reviews the files present in the repository to determine the build system used:
+Linux と macOS の `autobuild` ステップでは、リポジトリ内にあるファイルが確認されて、使われているビルド システムが特定されます。
 
-1. Look for a build system in the root directory.
-2. If none are found, search subdirectories for a unique directory with a build system for C/C++.
-3. Run an appropriate command to configure the system. 
+1. ルートディレクトリでビルドシステムを探します。
+2. 何も見つからない場合は、C/C++ のビルドシステムで一意のディレクトリをサブディレクトリで検索します。
+3. 適切なコマンドを実行してシステムを設定します。 
 
 ### C#
 
-| Supported system type | System name |
+| サポートされているシステムの種類 | システム名 |
 |----|----|
-| Operating system | Windows and Linux |
-| Build system | .NET and MSbuild, as well as build scripts |
+| オペレーティング システム | Windows と Linux |
+| ビルドシステム | .NET と MSbuild、およびビルドスクリプト |
 
-The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
+`autobuild` プロセスは、次の方法を使って C# に適したビルド方法の自動検出を試みます。
 
-1. Invoke `dotnet build` on the solution (`.sln`) or project (`.csproj`) file closest to the root.
-2. Invoke `MSbuild` (Linux) or `MSBuild.exe` (Windows) on the solution or project file closest to the root.
-If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
-3. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
+1. ルートに最も近いソリューション (`.sln`) またはプロジェクト (`.csproj`) ファイルで `dotnet build` を呼び出します。
+2. ルートに最も近いソリューションまたはプロジェクト ファイルで、`MSbuild` (Linux) または `MSBuild.exe` (Windows) を呼び出します。
+`autobuild` が最上位ディレクトリから同じ (最短) 深度で複数のソリューションまたはプロジェクト ファイルを検出した場合、それらすべてのビルドが試みられます。
+3. ビルド スクリプトのように見えるスクリプト、つまり _build_ と _build.sh_ (Linux の場合、この順序で) または _build.bat_、_build.cmd_、_and build.exe_ (Windows の場合、この順序で) を呼び出します。
 
-### Java
+{% ifversion codeql-go-autobuild %}
 
-| Supported system type | System name |
+### Go
+
+| サポートされているシステムの種類 | システム名 |
 |----|----|
-| Operating system | Windows, macOS, and Linux (no restriction) |
-| Build system | Gradle, Maven and Ant |
+| オペレーティング システム | Windows、macOS、Linux |
+| ビルドシステム | Go モジュール、`dep`、Glide、およびメイクファイルや Ninja スクリプトを含むビルド スクリプト |
 
-The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
+`autobuild` プロセスは、すべての `.go` ファイルを抽出する前に、Go リポジトリで必要な依存関係をインストールする適切な方法の自動検出を試みます。
 
-1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
-2. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
-3. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
+1. `make`、`ninja`、または `./build` を、これらのコマンドのいずれかが成功し、その後の `./build.sh` も成功して、必要な依存関係がインストールされたことを示すまで、(この順序で) 呼び出`go list ./...`します。
+2. これらのコマンドがいずれも成功しなかった場合は、`go.mod`、`Gopkg.toml`、または `glide.yaml` を探し、それぞれの `go get` (ベンダーが使用していない場合)、`dep ensure -v`、または `glide install` を実行して、依存関係のインストールを試みます。
+3. 最後に、これらの依存関係マネージャーの構成ファイルが見つからない場合は、`GOPATH` に追加するのに適したリポジトリ ディレクトリ構造に調整し直し、`go get` を使って依存関係をインストールします。 抽出が完了すると、ディレクトリ構造は通常に戻ります。
+4. `go build ./...` を実行するのと同じようにして、リポジトリ内のすべての Go コードを抽出します。
 
-## Adding build steps for a compiled language
+{% endif %}
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."
+### Java {% ifversion codeql-kotlin-beta %}と Kotlin{% endif %}
 
-After removing the `autobuild` step, uncomment the `run` step and add build commands that are suitable for your repository. The workflow `run` step runs command-line programs using the operating system's shell. You can modify these commands and add more commands to customize the build process. 
+| サポートされているシステムの種類 | システム名 |
+|----|----|
+| オペレーティング システム | Windows、macOS、Linux (制限なし) |
+| ビルドシステム | Gradle、Maven、Ant |
+
+`autobuild` プロセスは、この戦略を適用して、Java コードベース用のビルド システムの特定を試みます。
+
+1. ルートディレクトリでビルドファイルを検索します。 Gradle、Maven、Ant の各ビルドファイルを確認します。
+2. 最初に見つかったビルドファイルを実行します。 Gradle ファイルと Maven ファイルの両方が存在する場合は、Gradle ファイルが使用されます。
+3. それ以外の場合は、ルートディレクトリの直接サブディレクトリ内でビルドファイルを検索します。 1 つのサブディレクトリにのみビルドファイルが含まれている場合は、そのサブディレクトリで識別された最初のファイルを実行します（1 と同じ環境設定を使用）。 複数のサブディレクトリにビルドファイルが含まれている場合は、エラーを報告します。
+
+## コンパイル言語のビルドステップを追加する
+
+{% data reusables.code-scanning.autobuild-add-build-steps %}ワークフロー ファイルの編集方法については、「[{% data variables.product.prodname_code_scanning %} を構成する](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)」をご覧ください。
+
+`autobuild` ステップを削除したら、`run` ステップをコメント解除して、リポジトリに適したビルド コマンドを追加します。 ワークフローの `run` ステップでは、オペレーティング システムのシェルを使ってコマンド ライン プログラムが実行されます。 これらのコマンドを変更し、別のコマンドを追加してビルド プロセスをカスタマイズできます。
 
 ``` yaml
 - run: |
-  make bootstrap
-  make release
+    make bootstrap
+    make release
 ```
 
-For more information about the `run` keyword, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+`run` キーワードについて詳しくは、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」をご覧ください。
 
-If your repository contains multiple compiled languages, you can specify language-specific build commands. For example, if your repository contains C/C++, C# and Java, and `autobuild` correctly builds C/C++ and C# but fails to build Java, you could use the following configuration in your workflow, after the `init` step. This specifies build steps for Java while still using `autobuild` for C/C++ and C#:
+リポジトリに複数のコンパイル済み言語が含まれている場合は、言語固有のビルド コマンドを指定できます。 たとえば、リポジトリに C/C++、C#、Java が含まれていて、`autobuild` によって C/C++ と C# は正しくビルドされるが、Java のビルドは失敗する場合は、ワークフローの `init` ステップの後で次の構成を使用できます。 これにより、C/C++ と C# には `autobuild` をそのまま使用しつつ、Java のビルド ステップを指定します。
 
 ```yaml
 - if: matrix.language == 'cpp' || matrix.language == 'csharp' 
@@ -130,8 +150,8 @@ If your repository contains multiple compiled languages, you can specify languag
     make release
 ```
 
-For more information about the `if` conditional, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
+`if` 条件について詳しくは、「[GitHub Actions のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif)」をご覧ください。
 
-For more tips and tricks about why `autobuild` won't build your code, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+`autobuild` でコードがビルドされない理由に関するその他のヒントとテクニックについては、「[{% data variables.product.prodname_codeql %} ワークフローのトラブルシューティング](/code-security/secure-coding/troubleshooting-the-codeql-workflow)」をご覧ください。
 
-If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
+コンパイル言語にマニュアルのビルドステップを追加しても、リポジトリで依然として{% data variables.product.prodname_code_scanning %}が動作しない場合は、{% data variables.contact.contact_support %}にお問い合わせください。

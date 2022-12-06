@@ -18,5 +18,11 @@ children:
   - /orgs
   - /source-imports
   - /users
+ms.openlocfilehash: 235ccd283aac32eb3586250d13bfec9c592f771b
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147066872'
 ---
 

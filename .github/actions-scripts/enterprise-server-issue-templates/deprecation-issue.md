@@ -6,7 +6,6 @@ The day after a GHES version's [deprecation date](https://github.com/github/docs
 
 The following large repositories are used throughout this checklist, it may be useful to clone them before you begin:
 
-- `github/help-docs-archived-enterprise-versions`
 - `github/github`
 - `github/docs-internal`
 
@@ -18,16 +17,15 @@ Additionally, you may want to download:
 
 **Note**: This step can be performed independently of all other steps, and can be done several days before or along with the other steps.
 
-- [ ] In the `docs-content` repo, remove the deprecated GHES version number from the "Specific GHES version(s)" section in the following files (in the `.github/ISSUE_TEMPLATE/` directory): [`release-tier-1-or-2-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml) and [`release-tier-3-or-tier-4.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml).
+- [ ] In the `docs-content` repo, remove the deprecated GHES version number from the `options` list in the following files (in the `.github/ISSUE_TEMPLATE/` directory): [`release-tier-1-or-2-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml) and [`release-tier-3-or-tier-4.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml).
 - [ ] When the PR is approved, merge it in. This can be merged independently from all other steps.
 
 ## Step 1: Scrape the docs and archive the files
 
-- [ ] In your checkout of the [repo with archived GHES content](https://github.com/github/help-docs-archived-enterprise-versions), create a new branch: `git checkout -b deprecate-<version>`
 - [ ] In your `docs-internal` checkout, download the static files for the oldest supported version into your archival checkout:
       The archive script depends on an optional dependency so install optional dependencies first:
   ```
-  $ npm i --include-optional
+  $ npm i --include=optional
   ```
   Ensure your build is up to date:
   ```
@@ -35,29 +33,69 @@ Additionally, you may want to download:
   ```
   Then run the archive script:
   ```
-  $ script/enterprise-server-deprecations/archive-version.js -p <path-to-archive-repo-checkout>
+  $ script/enterprise-server-deprecations/archive-version.js
   ```
-  If your checkouts live in the same directory, this command would be:
-  ```
-  $ script/enterprise-server-deprecations/archive-version.js -p ../help-docs-archived-enterprise-versions
-  ```
+
+  This will generate a directory in `github/docs-internal` called `tmpArchivalDir_<VERSION_TO_DEPRECATE>`. For example 'tmpArchivalDir_3.0'. You can also create a specific output directory using the `--output` flag.
+
   **Note:** You can pass the `--dry-run` flag to scrape only the first 10 pages plus their redirects for testing purposes. **If you use the dry run command, be sure to run the full script without `--dry-run` before you commit the changes.**
 
-## Step 2: Upload the assets directory to Azure storage
+## Step 3: Manually remove the search input from the archived docs
+
+- [ ] Search for `site-search-input` in the compressed Javascript files (should find the file in the `_next` directory). When you find it, use something like https://beautifier.io/ or VSCode to reformat it to be readable. To reformat using VSCode, use the "Format document" option or <kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd>. Find `site-search-input` in the file, the result will be enclosed in a function that looks something like... `(0,f.jsx)("input",{"data-testid":"site-search-input",` Delete the entire function. For example, this:
+  ```
+  (0, f.jsxs)("label", {
+    className: "text-normal width-full",
+    children: [(0, f.jsx)("span", {
+      className: "visually-hidden",
+      "aria-label": R($ || ($ = (0, k.Z)(["label"]))),
+      "aria-describedby": R(W || (W = (0, k.Z)(["description"]))),
+      children: R(U || (U = (0, k.Z)(["placeholder"])))
+  }), (0, f.jsx)("input", {
+      "data-testid": "site-search-input",
+      ref: I,
+      className: h()(pe().searchInput, 24 === p && pe().searchIconBackground24, 24 === p && "form-control px-6 f4", 16 === p && pe().searchIconBackground16, 16 === p && "form-control px-5 f4", "compact" === i && "py-2", "expanded" === i && "py-3", r && pe().searchInputHeader, !r && "width-full", r && j && pe().searchInputExpanded, r && j && "position-absolute top-0 right-0"),
+      type: "search",
+      placeholder: R(G || (G = (0, k.Z)(["placeholder"]))),
+      autoComplete: _ ? "on" : "off",
+      autoCorrect: "off",
+      autoCapitalize: "off",
+      spellCheck: "false",
+      maxLength: 512,
+      onChange: function(e) {
+          S(e.target.value)
+      },
+      value: _,
+      "aria-label": R(K || (K = (0, k.Z)(["label"]))),
+      "aria-describedby": R(J || (J = (0, k.Z)(["description"])))
+    })
+  ```
+
+  becomes:
+
+  ```
+  (0, f.jsxs)('label', {
+    className: 'text-normal width-full',
+    children: [
+      (0, f.jsx)('span', {
+        className: 'visually-hidden',
+        'aria-label': y(Q || (Q = (0, k.Z)(['label']))),
+        'aria-describedby': y(X || (X = (0, k.Z)(['description']))),
+        children: y(ee || (ee = (0, k.Z)(['placeholder']))),
+      }),
+    ],
+  }),
+  ```
+- [ ] Save the file. If using beautifier, copy and paste the updated file back into your temp directory with the scraped archive content.
+
+## Step 2: Upload the scraped content directory to Azure storage
 
 - [ ] Log in to the Azure portal from Okta. Navigate to the [githubdocs Azure Storage Blob resource](https://portal.azure.com/#@githubazure.onmicrosoft.com/resource/subscriptions/fa6134a7-f27e-4972-8e9f-0cedffa328f1/resourceGroups/docs-production/providers/Microsoft.Storage/storageAccounts/githubdocs/overview).
 - [ ] Click the "Open in Explorer" button to the right of search box. If you haven't already, click the download link to download "Microsoft Azure Storage Explorer." To login to the app, click the plug icon in the left sidebar and click the option to "add an azure account." When you login, you'll need a yubikey to authenticate through Okta.
-- [ ] From the Microsoft Azure Storage Explorer app, select the `githubdocs` storage account resource and navigate to the `github-images` blob container.
-- [ ] Click "Upload" and select "Upload folder." Click the "Selected folder" input to navigate to the `help-docs-archived-enterprise-versions` repository and select the `assets` directory for the version you just generated. In the "Destination directory" input, add the version number. For example, `/enterprise/2.22/`.
+- [ ] From the Microsoft Azure Storage Explorer app, select the `githubdocs` storage account resource and navigate to the `enterprise` blob container.
+- [ ] Click "Upload" and select "Upload folder." Click the "Selected folder" input to navigate to the temp directory you just generated. Inside that temp directory, select the `<VERSION_TO_DEPRECATE>` directory (e.g., `3.2`). Leave the destination directory input blank.
 - [ ] Check the log to ensure all files were uploaded successfully.
-- [ ] Remove the `assets` directory from your `help-docs-archived-enterprise-versions` repository, we don't want to commit that directory in the next step.
-
-## Step 3: Commit and push changes to help-docs-archived-enterprise-versions repo
-
-- [ ] Search for `site-search-input` in the compressed Javascript files (should find the file in the `_next` directory). When you find it, use something like https://beautifier.io/ or VSCode to reformat it to be readable. To reformat using VSCode, use the "Format document" option or <kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd>. Find `site-search-input` in the file, the result will be enclosed in a function that looks something like... `1125: function () { ... },` Delete the innards of this function, but leave the `function() {}` part.
-- [ ] Save the file. If using beautifier, copy and paste the updated file back into your local `help-docs-archived-enterprise-versions` repository.
-- [ ] In your archival checkout, `git add <version>`, commit, and push.
-- [ ] Open a PR and merge it in. Note that the version will _not_ be deprecated on the docs site until you do the next step.
+- [ ] Remove the temporarily created directory from your `github/docs-internal` checkout.
 
 ## Step 4: Deprecate the version in docs-internal
 
@@ -71,22 +109,15 @@ In your `docs-internal` checkout:
 You can test that the static pages were generated correctly on localhost and on staging. Verify that the static pages are accessible by running `npm run dev` in your local `docs-internal` checkout and navigate to:
 `http://localhost:3000/enterprise/<version>/`.
 
-Note: the GitHub Pages deployment from the previous step will need to have completed successfully in order for you to test this. You may need to wait up to 10 minutes for this to occur.
-
 Poke around several pages, ensure that the stylesheets are working properly, images are rendering properly, and that the search functionality was disabled.
-
-## Step 5: Continue to deprecate the version in docs-internal
-
-- [ ] Open a new PR. Make sure to check the following:
-  - [ ] Tests are passing (you may need to include the changes in step 6 to get tests to pass).
-  - [ ] The deprecated version renders in preview as expected. You should be able to navigate to `docs.github.com/enterprise/<DEPRECATED VERSION>` to access the docs. You should also be able to navigate to a page that is available in the deprecated version and change the version in the URL to the deprecated version, to test redirects.
-  - [ ] The new oldest supported version renders on staging as expected. You should see a banner on the top of every page for the oldest supported version that notes when the version will be deprecated.
 
 ## Step 5: Remove static files for the version
 
+**Note:** We do not remove the old content for GHES release notes. New release notes can be added after we perform a deprecation in some rare cases, and not removing this content makes it easier for us to re-scrape the content to add to Azure Blob Storage.
+
 - [ ] In your `docs-internal` checkout, create a new branch `remove-<version>-static-files` branch: `git checkout -b remove-<version>-static-files` (you can branch off of `main` or from your `deprecate-<version>` branch, up to you).
 - [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
-- [ ] Run `script/enterprise-server-deprecations/remove-redirects.js` and commit results.
+- [ ] Re-generate the static files by running `script/rest/update-files.js --decorate-only`.
 - [ ] Open a new PR.
 - [ ] Get a review from docs-engineering and merge. This step can be merged independently from step 6. The purpose of splitting up steps 5 and 6 is to focus the review on specific files.
 
@@ -107,3 +138,10 @@ Poke around several pages, ensure that the stylesheets are working properly, ima
 - [ ] When the PR is approved, [deploy the `github/github` PR](https://thehub.github.com/epd/engineering/devops/deployment/deploying-dotcom/). If you haven't deployed a `github/github` PR before, work with someone that has -- the process isn't too involved depending on how you deploy, but there are a lot of details that can potentially be confusing as you can see from the documentation.
 
 **Note**: you can do this step independently of the other steps after a GHES version is deprecated since it should no longer get updates in github/github. You should plan to get this PR merged as soon as possible, otherwise if you wait too long our OpenAPI automation may re-add the static files that you removed in step 5.
+
+## Step 5: Continue to deprecate the version in docs-internal
+
+- [ ] Open a new PR. Make sure to check the following:
+  - [ ] Tests are passing (you may need to include the changes in step 6 to get tests to pass).
+  - [ ] The deprecated version renders in preview as expected. You should be able to navigate to `docs.github.com/enterprise/<DEPRECATED VERSION>` to access the docs. You should also be able to navigate to a page that is available in the deprecated version and change the version in the URL to the deprecated version, to test redirects.
+  - [ ] The new oldest supported version renders on staging as expected. You should see a banner on the top of every page for the oldest supported version that notes when the version will be deprecated.

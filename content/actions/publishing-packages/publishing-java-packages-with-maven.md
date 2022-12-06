@@ -1,5 +1,6 @@
 ---
 title: Publishing Java packages with Maven
+shortTitle: Publish Java packages with Maven
 intro: You can use Maven to publish Java packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
@@ -15,7 +16,6 @@ topics:
   - Publishing
   - Java
   - Maven
-shortTitle: Java packages with Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}

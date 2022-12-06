@@ -1,12 +1,13 @@
 import languages from '../lib/languages.js'
 import enterpriseServerReleases from '../lib/enterprise-server-releases.js'
 import { allVersions } from '../lib/all-versions.js'
-import { productMap, productGroups } from '../lib/all-products.js'
+import { productMap } from '../lib/all-products.js'
 import pathUtils from '../lib/path-utils.js'
 import productNames from '../lib/product-names.js'
 import warmServer from '../lib/warm-server.js'
 import searchVersions from '../lib/search/versions.js'
 import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
+import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
 const activeProducts = Object.values(productMap).filter(
   (product) => !product.wip && !product.hidden
 )
@@ -26,7 +27,7 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
 // Note that additional middleware in middleware/index.js adds to this context object
 export default async function contextualize(req, res, next) {
   // Ensure that we load some data only once on first request
-  const { site, redirects, siteTree, pages: pageMap } = await warmServer()
+  const { redirects, siteTree, pages: pageMap } = await warmServer()
 
   req.context = {}
   req.context.process = { env: {} }
@@ -39,7 +40,6 @@ export default async function contextualize(req, res, next) {
   req.context.currentProduct = getProductStringFromPath(req.pagePath)
   req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
   req.context.productMap = productMap
-  req.context.productGroups = productGroups
   req.context.activeProducts = activeProducts
   req.context.allVersions = allVersions
   req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.pagePath)
@@ -50,11 +50,20 @@ export default async function contextualize(req, res, next) {
   req.context.enterpriseServerReleases = enterpriseServerReleases
   req.context.enterpriseServerVersions = enterpriseServerVersions
   req.context.redirects = redirects
-  req.context.site = site[req.language].site
+  req.context.site = {
+    data: {
+      ui: getUIDataMerged(req.language),
+    },
+  }
+  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language)
   req.context.siteTree = siteTree
   req.context.pages = pageMap
   req.context.searchVersions = searchVersions
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
+  req.context.initialRestVersioningReleaseDate =
+    allVersions[nonEnterpriseDefaultVersion].apiVersions[0]
 
+  const restDate = new Date(req.context.initialRestVersioningReleaseDate)
+  req.context.initialRestVersioningReleaseDateLong = restDate.toUTCString().split(' 00:')[0]
   return next()
 }

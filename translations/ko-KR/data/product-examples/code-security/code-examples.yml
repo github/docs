@@ -1,0 +1,86 @@
+# Code scanning configurations
+- title: Microsoft에서 CodeQL 코드 검사
+  description: Microsoft 오픈 소스 리포지토리의 CodeQL 작업에 대한 예제 코드 검사 워크플로입니다.
+  href: /microsoft/opensource.microsoft.com/blob/main/.github/workflows/codeql-analysis.yml
+  languages:
+    - javascript
+  tags:
+    - CodeQL
+    - 코드 검사
+    - GitHub 작업
+- title: ART(적대적 견고성 도구 상자) CodeQL 코드 검색
+  description: 신뢰할 수 있는 AI 리포지토리의 CodeQL 작업에 대한 예제 코드 검사 워크플로입니다.
+  href: /Trusted-AI/adversarial-robustness-toolbox/blob/main/.github/workflows/codeql-analysis.yml
+  languages:
+    - python
+  tags:
+    - CodeQL
+    - 코드 검사
+    - GitHub 작업
+
+# Security policies
+- title: Microsoft 보안 정책 템플릿
+  description: 보안 정책 예제
+  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
+  tags:
+    - 보안 정책
+- title: 전자 보안 정책
+  description: 보안 정책 예제
+  href: /electron/electron/blob/master/SECURITY.md
+  tags:
+    - 보안 정책
+
+# Example of security advisory in a major product
+- title: Rails 보안 권고
+  description: CVE-2020-15169용 Rails에 의해 게시된 보안 권고입니다.
+  href: /rails/rails/security/advisories/GHSA-cfjv-5498-mph5
+  tags:
+    - 보안 권고
+
+# Sample scripts for enabling Dependabot alerts and security updates across a whole organization
+- title: Dependabot 경고 및 보안 업데이트를 자동으로 사용하도록 설정
+  description: 전체 조직에서 Dependabot 경고 및 보안 업데이트를 사용하도록 설정하는 샘플 스크립트입니다.
+  href: /github/enable-security-alerts-sample
+  tags:
+    - Dependabot
+    - 경고
+    - 보안 업데이트
+    - 조직
+    - 스크립트
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'
+
+# Dependabot configuration only relevant to GitHub.com and GHES 3.3+
+# Convert "languages" to "package-ecosystems" for Dependabot configurations
+- title: 슈퍼 Linter 구성
+  description: 예제 Dependabot 버전은 Super Linter 리포지토리에서 구성을 업데이트합니다.
+  href: /github/super-linter/blob/master/.github/dependabot.yml
+  languages:
+    - github-actions
+    - npm
+    - 번들러
+    - docker
+    - pip
+  tags:
+    - Dependabot
+    - 버전 업데이트
+    - 구성
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'
+
+- title: Dependabot 버전 업데이트 PR
+  description: Dependabot 버전에서 생성된 끌어오기 요청 예제는 Super linter 리포지토리의 구성을 업데이트합니다.
+  href: /github/super-linter/pull/1398
+  languages:
+  tags:
+    - Dependabot
+    - 버전 업데이트
+    - 끌어오기 요청
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.3'

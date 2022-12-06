@@ -1,21 +1,22 @@
 ---
-title: Encontrando suas discussões
-intro: Você pode acessar facilmente cada discussão que você criou ou participou.
+title: Finding your discussions
+intro: You can easily access every discussion you've created or participated in.
 versions:
   feature: discussions
-shortTitle: Encontrar discussões
+shortTitle: Find discussions
 redirect_from:
   - /discussions/guides/finding-discussions-across-multiple-repositories
 ---
 
 
-## Encontrar discussões
+## Finding discussions
 
-1. No canto superior direito de {% data variables.product.product_location %}, clique na sua foto de perfil e clique em **Suas discussões**. !["Suas discussões" no menu suspenso para a foto de perfil em {% data variables.product.product_name %}](/assets/images/help/discussions/your-discussions.png)
-1. Alterne entre **Criada** e **Comentada** para ver as discussões que você criou ou participou.
+1. In the top-right corner of {% data variables.location.product_location %}, click your profile photo, then click **Your discussions**.
+  !["Your discussions" in drop-down menu for profile photo on {% data variables.product.product_name %}](/assets/images/help/discussions/your-discussions.png)
+1. Toggle between **Created** and **Commented** to see the discussions you've created or participated in.
 
-## Leia mais
+## Further reading
 
-- "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)"
-- "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Gerenciar discussões para a sua comunidade](/discussions/managing-discussions-for-your-community)"
+- "[Searching discussions](/search-github/searching-on-github/searching-discussions)"
+- "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+- "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"

@@ -1,5 +1,5 @@
 ---
-title: 开始在 GitHub 上编写和格式化
+title: Getting started with writing and formatting on GitHub（GitHub 写作和格式设置入门）
 redirect_from:
   - /articles/markdown-basics
   - /articles/things-you-can-do-in-a-text-area-on-github
@@ -12,8 +12,15 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /quickstart-for-writing-on-github
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax
-shortTitle: 开始在 GitHub 上写入
+shortTitle: Start writing on GitHub
+ms.openlocfilehash: 42aa9a6eac67875c7e590c29fff5133be24366f1
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145066795'
 ---
 

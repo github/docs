@@ -1,12 +1,12 @@
 ---
-title: Gerenciando o IAM da sua empresa
+title: Managing IAM for your enterprise
 intro: |
   {%- ifversion ghec %}
-  Você pode convidar contas pessoais existentes em {% data variables.product.product_location %} para ser integrante da sua empresa, e você pode opcionalmente habilitar o logon único SAML (SSO) para gerenciar o acesso centralmente. Como alternativa, você pode usar {% data variables.product.prodname_emus %} com o SAML SSO para criar e controlar as contas dos integrantes da sua empresa.
+  You can invite existing personal accounts on {% data variables.location.product_location %} to be members of your enterprise, and you can optionally enable SAML single sign-on (SSO) to centrally manage access. Alternatively, you can use {% data variables.product.prodname_emus %} with SAML SSO to create and control the accounts of your enterprise members.
   {%- elsif ghes %}
-  Você pode usar a autenticação integrada de {% data variables.product.product_name %} ou você pode gerenciar centralmente a autenticação e acesso à sua instância com CAS, LDAP ou SAML.
+  You can use {% data variables.product.product_name %}'s built-in authentication, or you can centrally manage authentication and access to your instance with CAS, LDAP, or SAML.
   {%- elsif ghae %}
-  Você deve usar o logon único SAML (SSO) para gerenciar centralmente a autenticação e o acesso à sua empresa em {% data variables.product.product_name %}. Opcionalmente, você pode usar o Sistema de Gerenciamento de Identidades de Domínio entre Domínios (SCIM) para provisionar automaticamente contas e acesso em {% data variables.product.product_name %} ao fazer alterações no seu provedor de identidade (IdP).
+  You must use SAML single sign-on (SSO) to centrally manage authentication and access to your enterprise on {% data variables.product.product_name %}. Optionally, you can use System for Cross-domain Identity Management (SCIM) to automatically provision accounts and access on {% data variables.product.product_name %} when you make changes on your identity provider (IdP).
   {%- endif %}
 redirect_from:
   - /enterprise/admin/categories/authentication
@@ -31,6 +31,6 @@ children:
   - /changing-authentication-methods
   - /allowing-built-in-authentication-for-users-outside-your-provider
   - /troubleshooting-identity-and-access-management-for-your-enterprise
-shortTitle: Gerenciando IAM para a sua empresa
+shortTitle: Manage IAM for your enterprise
 ---
 

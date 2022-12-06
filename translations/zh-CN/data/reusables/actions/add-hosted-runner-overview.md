@@ -1,3 +1,11 @@
-You can choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they'll use the same operating system and hardware configuration you've defined here.
+---
+ms.openlocfilehash: 955bbcc4f03b8a3a810f282c74230f220908f6b8
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148108116"
+---
+可以从可用选项列表中选择操作系统和硬件配置。 通过自动缩放部署此运行器的新实例时，它们会使用此处定义的相同操作系统和硬件配置。
 
-You can also define the labels that identify the runner, which is how your workflows will be able to send jobs to the runners for processing (using `runs-on`). New runners are automatically assigned to the default group, or you can choose which group the runners must join during the runner creation process. In addition, you can modify the runner's group membership after you've registered the runner. For more information, see "[Controlling access to {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+还可以定义标识运行器的标签，即工作流如何能够将作业发送到运行器进行处理（使用 `runs-on`）。 新运行器会自动分配给默认组，也可以在运行器创建过程中选择运行器必须加入的组。 此外，可以在注册运行器后修改运行器组成员身份。 有关详细信息，请参阅“[控制对 {% data variables.actions.hosted_runner %} 的访问](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)”。

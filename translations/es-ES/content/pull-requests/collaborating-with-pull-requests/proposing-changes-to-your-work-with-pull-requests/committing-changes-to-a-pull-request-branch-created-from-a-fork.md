@@ -25,7 +25,7 @@ Only the user who created the pull request can give you permission to push commi
 
 {% note %}
 
-**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.product.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
+**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.location.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
 
 {% endnote %}
 
@@ -43,11 +43,11 @@ Only the user who created the pull request can give you permission to push commi
   ```
 5. Type `git clone`, and then paste the URL you copied in Step 3.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY
   ```
 6. Press **Enter**. Your local clone will be created.
   ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY
   > Cloning into `FORK-OF-THE-REPOSITORY`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -61,13 +61,13 @@ Only the user who created the pull request can give you permission to push commi
  {% endtip %}
 7. Navigate into your new cloned repository.
   ```shell
-  $ cd <em>FORK-OF-THE-REPOSITORY</em>
+  $ cd FORK-OF-THE-REPOSITORY
   ```
 7. Switch branches to the compare branch of the pull request where the original changes were made. If you navigate to the original pull request, you'll see the compare branch at the top of the pull request.
 ![compare-branch-example](/assets/images/help/pull_requests/compare-branch-example.png)
  In this example, the compare branch is `test-branch`:
   ```shell
-  $ git checkout <em>test-branch</em>
+  $ git checkout TEST-BRANCH
   ```
 
  {% tip %}
@@ -84,11 +84,11 @@ Only the user who created the pull request can give you permission to push commi
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
-  > 12da2e9..250e946  <em>test-branch</em> -> <em>test-branch</em>
+  > To https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY.git
+  > 12da2e9..250e946  TEST-BRANCH -> TEST-BRANCH
   ```
 
-Your new commits will be reflected on the original pull request on {% data variables.product.product_location %}.
+Your new commits will be reflected on the original pull request on {% data variables.location.product_location %}.
 
 ## Further Reading
 

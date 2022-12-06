@@ -1,26 +1,29 @@
 ---
 title: Configurando o OpenID Connect no Amazon Web Services
-shortTitle: Configurando o OpenID Connect no Amazon Web Services
+shortTitle: OpenID Connect in AWS
 intro: Use o OpenID Connect dentro de seus fluxos de trabalho para efetuar a autenticação com Amazon Web Services.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: issue-4856
   ghec: '*'
   ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: 597ea408c2f0172eb0eacf07fc2d1ad320872f09
+ms.sourcegitcommit: 94ba3891ebcc3c05812f468e4adafdd15b99e390
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/25/2022
+ms.locfileid: '148182254'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Visão geral
 
-## Visão Geral
+O OpenID Connect (OIDC) permite que seus fluxos de trabalho de {% data variables.product.prodname_actions %} acessem os recursos na Amazon Web Services (AWS), sem precisar armazenar as credenciais AWS como segredos de {% data variables.product.prodname_dotcom %} de longa duração. 
 
-O OpenID Connect (OIDC) permite que seus fluxos de trabalho de {% data variables.product.prodname_actions %} acessem os recursos na Amazon Web Services (AWS), sem precisar armazenar as credenciais AWS como segredos de {% data variables.product.prodname_dotcom %} de longa duração.
-
-Este guia explica como configurar o AWS para confiar no OIDC de {% data variables.product.prodname_dotcom %} como uma identidade federada e inclui um exemplo de fluxo de trabalho para o [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) que usa tokens para efetuar a autenticação no AWS e acessar os recursos.
+Este guia explica como configurar a AWS para confiar no OIDC do {% data variables.product.prodname_dotcom %} como uma identidade federada e inclui um exemplo de fluxo de trabalho para o [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) que usa tokens para autenticação na AWS e acesso aos recursos.
 
 ## Pré-requisitos
 
@@ -30,16 +33,16 @@ Este guia explica como configurar o AWS para confiar no OIDC de {% data variable
 
 ## Adicionando o provedor de identidade ao AWS
 
-Para adicionar o provedor OIDC de {% data variables.product.prodname_dotcom %} ao IAM, consulte a [documentação AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
+Para adicionar o provedor OIDC do {% data variables.product.prodname_dotcom %} ao IAM, confira a [documentação da AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 
-- Para o URL do provedor: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
-- Para o "público": Use `sts.amazonaws.com` se você estiver usando a [ação oficial](https://github.com/aws-actions/configure-aws-credentials).
+- Para a URL do provedor: use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
+- Em "Público-alvo": use `sts.amazonaws.com` se você estiver usando a [ação oficial](https://github.com/aws-actions/configure-aws-credentials).
 
 ### Configurando a função e a política de confiança
 
-Para configurar a função e confiar no IAM, consulte a documentação do AWS para ["Assumindo uma função"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) e ["Criando uma função para a identidade web ou federação de conexão do OpenID"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
+Para configurar a função e a relação de confiança no IAM, confira ["Como assumir uma função"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) e ["Como criar uma função para identidade da Web ou federação do OpenID Connect"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) na documentação da AWS.
 
-Edite o relacionamento de confiança para adicionar o campo `sub` às condições de validação. Por exemplo:
+Edite a política de confiança para adicionar o campo `sub` às condições de validação. Por exemplo:
 
 ```json{:copy}
 "Condition": {
@@ -50,23 +53,49 @@ Edite o relacionamento de confiança para adicionar o campo `sub` às condiçõe
 }
 ```
 
+No exemplo a seguir, `StringLike` é usado com um operador curinga (`*`) para permitir que qualquer branch, branch de mesclagem de solicitação de pull ou ambiente da organização `octo-org/octo-repo` e do repositório assuma uma função na AWS.
+
+```json{:copy}
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::123456123456:oidc-provider/token.actions.githubusercontent.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringLike": {
+                    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
+                },
+                "StringEquals": {
+                    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+
 ## Atualizar o seu fluxo de trabalho de {% data variables.product.prodname_actions %}
 
 Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alterações no seu YAML:
 1. Adicionar configurações de permissões para o token.
-2. Use a ação [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) para trocar o token do OIDC (JWT) por um token de acesso na nuvem.
+2. Use a ação [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) para trocar o token OIDC (JWT) por um token de acesso à nuvem.
 
 ### Adicionando configurações de permissões
 
- {% data reusables.actions.oidc-permissions-token %}
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Solicitando o token de acesso
 
-A ação `aws-actions/configure-aws-credentials` recebe um JWT do provedor do OIDC {% data variables.product.prodname_dotcom %} e, em seguida, solicita um token de acesso do AWS. Para obter mais informações, consulte a documentação do AWS [](https://github.com/aws-actions/configure-aws-credentials).
+A ação `aws-actions/configure-aws-credentials` recebe um JWT do provedor OIDC do {% data variables.product.prodname_dotcom %} e solicita um token de acesso da sua instância da AWS. Para obter mais informações, confira a [documentação](https://github.com/aws-actions/configure-aws-credentials) da AWS.
 
-- `<example-bucket-name>`: Adicione o nome do seu bucket S3 aqui.
-- `<role-to-assume>`: Substitua o exemplo pela sua função do AWS.
-- `<example-aws-region>`: Adicione o nome do seu AWS aqui.
+- `<example-bucket-name>`: adicione o nome do bucket S3 aqui.
+- `<role-to-assume>`: substitua o exemplo pela função da AWS.
+- `<example-aws-region>`: adicione o nome da região da AWS aqui.
 
 ```yaml{:copy}
 # Sample workflow to access AWS resources when workflow is tied to branch
@@ -79,7 +108,7 @@ env:
   AWS_REGION : "<example-aws-region>"
 # permission can be added at job level or workflow level    
 permissions:
-      id-token: write
+      id-token: write   # This is required for requesting the JWT
       contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:

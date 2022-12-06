@@ -1,0 +1,32 @@
+date: '2022-07-21'
+sections:
+  security_fixes:
+    - "**보통**: SSRF(서버 쪽 요청 위조)로 인해 임의 데이터를 Memcached에 주입하여 SVN(Subversion) 브리지가 원격 코드를 실행하도록 강제할 수 있는 공격을 방지합니다." 
+    - "**보통**: 공격자가 GitHub Enterprise Server 웹 인터페이스 내의 드롭다운 UI 요소의 XSS(사이트 간 스크립팅) 취약성을 악용하여 Javascript 코드를 실행하는 것을 방지합니다." 
+    - "Grafana를 [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) 및 [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g)를 포함하여 다양한 보안 취약성을 해결하는 버전 7.5.16으로 업데이트합니다." 
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+    - "**보통**: GitHub Enterprise Server에서 저장된 XSS 취약성이 식별되어 임의 특성을 주입할 수 있었습니다. 이 주입은 Github의 CSP(콘텐츠 보안 정책)에 의해 차단되었습니다. 이 취약성은 GitHub 버그 장려금 프로그램을 통해 보고되었으며 [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733)이 할당되었습니다. [업데이트 날짜: 2022-07-31]"
+
+
+  bugs:
+    - 압축 풀기 도구를 사용하여 압축을 풀 때 아티팩트 zip 보관 계층 내의 파일에 000의 권한이 있는 문제를 해결했습니다. 이제 파일에 GitHub.com에서 작동한 것과 동일한 방식으로 644로 설정된 권한이 있습니다. 
+    - 경우에 따라 수집된 디몬이 과도한 메모리를 사용할 수 있습니다. 
+    - 경우에 따라 회전된 로그 파일의 백업이 과도한 스토리지를 누적하고 사용할 수 있습니다. 
+    - 새 기능 릴리스 및 후속 구성 실행으로 업그레이드한 후 Elasticsearch는 인덱스를 다시 빌드하는 동안 과도한 예외를 로그할 수 있습니다. 
+    - 보호된 분기에 두 개 이상의 승인 검토가 필요한 경우 끌어오기 요청을 필요한 승인 검토 수보다 적은 수의 승인 요청과 병합할 수 있습니다. 
+    - LDAP 인증을 사용하는 인스턴스에서 sudo 모드의 인증 프롬프트는 사용자 이름과 암호 모두에 대한 텍스트 필드가 표시되었을 때 기본적으로 암호 필드 내에 커서를 잘못 배치했습니다. 
+  changes:
+    - "`ghe-set-password` 명령줄 유틸리티는 인스턴스가 복구 모드로 부팅될 때 필요한 서비스를 자동으로 시작합니다." 
+    - "Collectd 전달을 위해 'aqueduct' 백그라운드 프로세스에 대한 메트릭이 수집되어 관리 콘솔에 표시됩니다." 
+    - 데이터베이스 마이그레이션 및 구성 실행 로그의 위치인 `/data/user/common/ghe-config.log`가 진행 중인 마이그레이션을 자세히 설명하는 페이지에 표시됩니다. 
+  known_issues:
+    - "{% data variables.product.prodname_ghe_server %} 3.3으로 업그레이드한 후 {% data variables.product.prodname_actions %}가 자동으로 시작되지 않을 수도 있습니다. 이 이슈를 해결하려면 SSH를 통해 어플라이언스에 연결하고 `ghe-actions-start` 명령을 실행하세요."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - "{% data variables.product.prodname_github_connect %}에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 프라이빗 및 내부 리포지토리의 이슈가 {% data variables.product.prodname_dotcom_the_website %} 검색 결과에 포함되지 않습니다."
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '"경로 스타일 강제 적용"이 선택되는 경우 {% data variables.product.prodname_actions %} 스토리지 설정은 {% data variables.enterprise.management_console %}에서 유효성 검사 및 저장될 수 없으며 대신 `ghe-actions-precheck` 명령줄 유틸리티로 구성되어야 합니다.'
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

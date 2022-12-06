@@ -44,7 +44,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -57,7 +57,7 @@ jobs:
         uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
         with:
           # The arguments for the `git add` command
-          add: '["lib/rest/static/apps", "lib/rest/static/decorated", "lib/redirects/static/client-side-rest-api-redirects.json"]'
+          add: '["lib/rest/static/apps", "lib/rest/static/decorated", "lib/webhooks/static/decorated", "lib/redirects/static/client-side-rest-api-redirects.json"]'
 
           # The message for the commit
           message: 'Add decorated OpenAPI schema files'

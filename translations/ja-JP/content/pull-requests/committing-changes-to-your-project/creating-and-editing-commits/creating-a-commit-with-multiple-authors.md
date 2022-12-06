@@ -1,6 +1,6 @@
 ---
-title: 複数の作者を持つコミットを作成する
-intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 共作されたコミットは {% data variables.product.product_name %}{% ifversion ghes or ghae %} で表示され、プロフィールコントリビューショングラフとリポジトリの統計に含めることができます。{% endif %}'
+title: Creating a commit with multiple authors
+intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% ifversion ghes or ghae %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
   - /github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors
@@ -12,79 +12,79 @@ versions:
   ghec: '*'
 shortTitle: With multiple authors
 ---
+## Required co-author information
 
-## 必要な共作者情報
-
-コミットに共作者を追加する前に、各共作者に使う適切なメールアドレスを知っておく必要があります。 For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
 {% ifversion fpt or ghec %}
 
-メールアドレスをプライベートにしておきたい人がいる場合、その人のプライバシーを保護するために、{% data variables.product.product_name %} が提供する `no-reply` メールを使わなければなりません。 そうしない場合、コミットメッセージで共作者のメールアドレスが公開されます。 自分のメールアドレスをプライベートにしておきたい場合、Git の操作のために {% data variables.product.product_name %} が提供する `no-reply` メールアドレスを使い、他の共作者に、`no-reply` メールアドレスをコミットのトレーラーに載せるよう依頼できます。
+If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.product_name %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
 
-詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。
+For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
 
   {% tip %}
 
-  **ヒント:** 以下の情報を伝えることで、共作者が好みのメールアドレスを見つける手助けができます:
-  - {% data variables.product.product_name %} が提供する `no-reply` メールアドレスを表示するには、[Keep my email address private] のメールアドレス設定に移動します。
-  - Git を設定するためのメールアドレスを手元のコンピュータで表示するには、コマンドラインで `git config user.email` を実行します。
+  **Tip:** You can help a co-author find their preferred email address by sharing this information:
+  - To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
+  - To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
 
   {% endtip %}
 
 {% endif %}
 
-## {% data variables.product.prodname_desktop %} で co-authored コミットを作成する
+## Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} で、共作者を持つコミットを作成できます。 詳細は「[コミットメッセージの入力と変更のプッシュ](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)」および [{% data variables.product.prodname_desktop %}](https://desktop.github.com) を参照してください。
+You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
-![コミットメッセージに共作者を追加](/assets/images/help/desktop/co-authors-demo-hq.gif)
+![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
-## コマンドライン上で co-authored コミットを作成する
+## Creating co-authored commits on the command line
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-1. コミットメッセージと、変更の短く分かりやすい説明を入力してください。 コミットの説明の後に、閉じる引用符の代わりに 2 つの空の行を追加してください。
-  ```shell
+1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+  ```
   $ git commit -m "Refactor usability tests.
   >
   >
   ```
   {% tip %}
 
-  **Tip:** コミットメッセージを入力するのにコマンドライン上のテキストエディタを使っているなら、コミットの説明とコミットトレーラーの`Co-authored-by:`との間に新しい2行があることを確認してください。
+  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `Co-authored-by:` commit trailer.
 
   {% endtip %}
 
-3. コミットメッセージの次の行に、各共作者の情報を `Co-authored-by: name <name@example.com>` という形式で入力します。 共同作者の情報の後に、閉じる引用符を追加します。
+3. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
 
-  複数の共作者を追加する場合は、共作者それぞれに 1 行をとり、`Co-authored-by:` コミットトレーラーを付けてください。
-  ```shell
+  If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
+  ```
   $ git commit -m "Refactor usability tests.
   >
   >
-  Co-authored-by: <em>name</em> &lt;<em>name@example.com</em>&gt;
-  Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
+  Co-authored-by: NAME <NAME@EXAMPLE.COM>
+  Co-authored-by: AUTHOR-NAME <ANOTHER-NAME@EXAMPLE.COM>"
   ```
 
-次回のプッシュ時に、{% data variables.product.product_location %}に新たなコミットとメッセージが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)」を参照してください。
+The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
-## {% data variables.product.product_name %} で co-authored コミットを作成する
+## Creating co-authored commits on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} のウェブエディタでファイルを変更してから、コミットのメッセージに `Co-authored-by:` トレーラーを追加することで、co-authored コミットを作成できます。
+After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
-2. 共同で変更を行った後は、ページの下部に、変更について説明する、短くて意味のあるコミットメッセージを入力します。 ![変更のコミットメッセージ](/assets/images/help/repository/write-commit-message-quick-pull.png)
-3. コミットメッセージの下にあるテキストボックスに、各共同作者の情報を `Co-authored-by: name <name@example.com>` という形式で入力します。 複数の共作者を追加する場合は、共作者それぞれに 1 行をとり、`Co-authored-by:` コミットトレーラーを付けてください。
+2. After making your changes together, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
+  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
+3. In the text box below your commit message, add `Co-authored-by: name <name@example.com>` with specific information for each co-author. If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
 
-  ![2 つ目のコミットメッセージテキストボックスにある、コミットメッセージの共同作者トレーラー例](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
-4. [**Commit changes**] または [**Propose changes**] をクリックします。
+  ![Commit message co-author trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
+4. Click **Commit changes** or **Propose changes**.
 
-{% data variables.product.product_location %} に新たなコミットとメッセージが表示されます。
+The new commit and message will appear on {% data variables.location.product_location %}.
 
-## 参考リンク
+## Further reading
 {% ifversion ghes or ghae %}
-- [プロフィール上でのコントリビューションの表示](/articles/viewing-contributions-on-your-profile)
-- [プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile){% endif %}
-- [プロジェクトのコントリビューターを表示する](/articles/viewing-a-projects-contributors)
-- [コミットメッセージの変更](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
-- {% data variables.product.prodname_desktop %} ドキュメンテーションの「[プロジェクトへの変更をコミットまたはレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)」
+- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
+- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
+- "[Viewing a project's contributors](/articles/viewing-a-projects-contributors)"
+- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation

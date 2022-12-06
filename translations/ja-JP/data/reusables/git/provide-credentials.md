@@ -1,3 +1,3 @@
-1. 初めてGitを使ってリポジトリをクローンしたり、クローンしたリポジトリ内のデータにアクセスしようとすると、Gitは認証情報を要求します。 リポジトリへのアクセスを持つアカウントのPATを提供してください。
+1. The first time that you use Git to clone a repository or access data in a repository that you've already cloned, Git will request credentials. Provide the {% data variables.product.pat_generic %} for the account with access to the repository.
 
-   Gitは現在のディレクトリにPATをキャッシュし、適切なアカウントを使って{% data variables.product.product_location %}上のリポジトリデータにアクセスし、書き込みできるようになります。
+   Git will cache the {% data variables.product.pat_generic %} for the directory you're in, and you'll be able to access and write repository data on {% data variables.location.product_location %} using the correct account.

@@ -2,7 +2,6 @@
 title: Restricting the retention period for codespaces
 shortTitle: Restrict the retention period
 intro: You can set a maximum retention period for any codespaces owned by your organization.
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage retention constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -14,7 +13,7 @@ topics:
 
 ## Overview
 
-{% data variables.product.prodname_codespaces %} are automatically deleted after they have been stopped and have remained inactive for a defined number of days. The retention period for each codespace is set when the codespace is created and does not change. 
+{% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for a defined number of days. The retention period for each codespace is set when the codespace is created and does not change. 
 
 Everyone who has access to {% data variables.product.prodname_github_codespaces %} can configure a retention period for the codespaces they create. The initial setting for this default retention period is 30 days. Individual users can set this period within the range 0-30 days. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)." 
 
@@ -35,15 +34,15 @@ If you add an organization-wide policy with a retention constraint, you should s
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Retention period**.
 
-   ![Add a constraint for retention periods](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
+   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
 
 1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
 
-   ![Edit the timeout constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
+   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
 
 1. Enter the maximum number of days codespaces can remain stopped before they are automatically deleted, then click **Save**.
 
-   ![Set the retention period in days](/assets/images/help/codespaces/maximum-days-retention.png)
+   ![Screenshot of setting the retention period in days](/assets/images/help/codespaces/maximum-days-retention.png)
 
    {% note %}
 
@@ -55,10 +54,14 @@ If you add an organization-wide policy with a retention constraint, you should s
    {% endnote %}
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)," "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)," and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
+   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
+   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
+   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
 1. After you've finished adding constraints to your policy, click **Save**.
 
-The policy will be applied to all new codespaces that are created.
+The policy will be applied to all new codespaces that are billable to your organization. The retention period constraint is only applied on codespace creation.
 
 ## Editing a policy
 
@@ -68,6 +71,7 @@ The retention period constraint is only applied to codespaces when they are crea
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
 1. Click the name of the policy you want to edit.
+1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Retention period" constraint.
 1. Make the required changes then click **Save**.
 
 ## Deleting a policy 
@@ -77,4 +81,4 @@ You can delete a policy at any time. Deleting a policy has no effect on existing
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
 1. Click the delete button to the right of the policy you want to delete.
 
-   ![The delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)

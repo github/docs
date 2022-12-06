@@ -1,6 +1,6 @@
 ---
-title: Configurando o GitHub Sponsors (Patrocinadores do GitHub) para sua organização
-intro: 'Sua organização pode ingressar no {% data variables.product.prodname_sponsors %} para receber pagamentos pelo seu trabalho.'
+title: Setting up GitHub Sponsors for your organization
+intro: 'Your organization can join {% data variables.product.prodname_sponsors %} to receive payments for your work.'
 redirect_from:
   - /articles/setting-up-github-sponsorship-for-your-organization
   - /articles/receiving-sponsorships-as-a-sponsored-organization
@@ -14,24 +14,27 @@ topics:
   - Organizations
   - Sponsors profile
   - Open Source
-shortTitle: Configurar para organização
+shortTitle: Set up for organization
 ---
 
-## Ingressar no {% data variables.product.prodname_sponsors %}
+## Joining {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} {% data reusables.sponsors.stripe-supported-regions %}
 
-Depois de receber um convite para sua organização ingressar no {% data variables.product.prodname_sponsors %}, você poderá concluir as etapas abaixo para se tornar uma organização patrocinada.
+After you receive an invitation for your organization to join {% data variables.product.prodname_sponsors %}, you can complete the steps below to become a sponsored organization.
 
-Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborador individual fora de uma organização, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para sua conta pessoal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
+To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
-3. À direita da sua organização, clique em **Juntar-se à lista de espera**.
+3. To the right of your organization, click **Join the waitlist**.
 {% data reusables.sponsors.contact-info %}
+{% data reusables.sponsors.payout-choice %}
+  ![Screenshot of option to choose between a bank account and a fiscal host](/assets/images/help/sponsors/org-waitlist-payout-options.png)
+
 {% data reusables.sponsors.accept-legal-terms %}
 
-## Preencher seu perfil de organização patrocinada
+## Completing your sponsored organization profile
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
@@ -42,7 +45,7 @@ Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborado
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-## Criar camadas de patrocínio
+## Creating sponsorship tiers
 
 {% data reusables.sponsors.tier-details %}
 
@@ -57,18 +60,20 @@ Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborado
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-## Enviando informações bancárias
+## Submitting your bank information
 
-Como organização patrocinada, você receberá pagamentos para uma conta bancária em uma região compatível. Esta pode ser uma conta bancária dedicada à sua organização ou a uma conta bancária pessoal. Você pode obter uma conta bancária empresarial por meio de serviços como [Stripe Atlas](https://stripe.com/atlas) ou unir-se a um host fiscal como [Open Collective](https://opencollective.com/). A pessoa que criou o {% data variables.product.prodname_sponsors %} para a organização também deve morar na mesma região suportada. {% data reusables.sponsors.stripe-supported-regions %}
+As a sponsored organization, you will receive payouts to a bank account in a supported region or via a fiscal host.
+
+{% data reusables.sponsors.bank-info-fiscal-host-reminder %} For more information about setting up and using fiscal hosts, see "[Using a fiscal host to receive GitHub Sponsors payouts](/sponsors/receiving-sponsorships-through-github-sponsors/using-a-fiscal-host-to-receive-github-sponsors-payouts)."
+
+If you choose to receive payouts to a bank account, your bank account can be a dedicated bank account for your organization or a personal bank account. You can get a business bank account through services like [Stripe Atlas](https://stripe.com/atlas). The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
-Para obter mais informações sobre como configurar o Stripe Connect usando o Open Collective, consulte [Configurando {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) no Open Collective Docs.
-
-## Enviando suas informações fiscais
+## Submitting your tax information
 
 {% data reusables.sponsors.tax-form-information-org %}
 
@@ -76,18 +81,18 @@ Para obter mais informações sobre como configurar o Stripe Connect usando o Op
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-## Habilitar a autenticação de dois fatores (2FA, two-factor authentication) na sua conta do {% data variables.product.prodname_dotcom %}
+## Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
 
-Antes que sua organização possa se tornar uma organização patrocinada, você deverá habilitar a 2FA para sua conta em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
+Before your organization can become a sponsored organization, you must enable 2FA for your account on {% data variables.location.product_location %}. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
 
-## Enviar seu aplicativo ao {% data variables.product.prodname_dotcom %} para aprovação
+## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}
 
-## Leia mais
+## Further reading
 
-- [Sobre o {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
-- "[Recebendo patrocínio por meio de {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
+- "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+- "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"

@@ -21,8 +21,8 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
 2. Clone the repository to your local machine.
     ```shell
-    $ git clone https://{% ifversion ghes or ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-    $ cd <em>YOUR-REPOSITORY</em>
+    $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+    $ cd YOUR-REPOSITORY
     ```
 3. Create an `index.js` file and add a basic alert to say "Hello world!"
     {% raw %}
@@ -35,9 +35,9 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     ```shell
     $ npm init
       ...
-      package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
+      package name: @YOUR-USERNAME/YOUR-REPOSITORY
       ...
-      test command: <em>exit 0</em>
+      test command: exit 0
       ...    
     ```
     {% endraw %}
@@ -64,7 +64,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
           - run: npm ci
           - run: npm test
 
@@ -78,7 +78,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 12
+              node-version: 16
               registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
@@ -89,7 +89,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
    - Add an NPM configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
       {% raw %}
       ```shell
-      <em>@YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
+      @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
       {% endraw %}
    - Edit the `package.json` file and specify the `publishConfig` key:
@@ -104,7 +104,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
-    $ git add <em>.npmrc or package.json</em>
+    $ git add .npmrc or package.json
     $ git commit -m "workflow to publish package"
     $ git push
     ```

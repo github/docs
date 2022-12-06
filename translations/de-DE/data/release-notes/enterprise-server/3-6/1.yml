@@ -1,0 +1,33 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - Nach dem Freigeben eines Repositorys für den temporären Zugriff konnte ein Siteadministrator die Einstellungen für Sicherheitsprodukte im Repository nicht mehr verwalten. 
+    - Doppelte administrative SSH-Schlüssel konnten sowohl in der Verwaltungskonsole als auch in der Datei `/home/admin/.ssh/authorized_keys` vorkommen.
+    - "Die Siteadministratorseite für einzelne Benutzer unter <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> enthielt Funktionen, die nicht für GitHub Enterprise Server vorgesehen waren."  
+    - In einigen Fällen konnte die Ausführung von `ghe-cluster-config-apply` eine leere Konfiguration zu bestehenden Knoten in einem Cluster replizieren. 
+    - "In einigen Fällen wurden Konfigurationsläufe, die mit `ghe-config-apply` gestartet wurden, nicht abgeschlossen oder gaben den Fehler `Nicht übereinstimmende Containerzahl` zurück." 
+    - Nach dem Aktualisieren eines selbstsignierten TLS-Zertifikats auf einer GitHub Enterprise Server-Instanz wurden Benutzeroberflächenelemente auf einigen Seiten der Weboberfläche nicht angezeigt. 
+    - "In einigen Fällen konnten Hintergrundaufgaben aufgrund einer Bibliothek, die gleichzeitig verwendet wurde, obwohl sie nicht threadsicher war, zum Stillstand kommen."
+    - Die Siteadministratorleiste oben auf der Weboberfläche enthielt einen defekten Link zu SHA für die aktuell ausgeführte Version der Anwendung.
+    - "Die Besitzer der Organisation konnten nicht festlegen, welche Zugriffsrechte für die Erstellung von Diskussionen erforderlich sind." 
+    - Benutzer von Diskussionen wurden fälschlicherweise auf die Communityrichtlinien für GitHub.com verwiesen.
+    - "In einigen Fällen wurden die Benutzer fälschlicherweise angewiesen, vor dem Erstellen einer Diskussion ihre E-Mail-Adresse zu bestätigen."
+    - "Warnungen aus der Geheimnisüberprüfung für GitHub Advanced Security-Kunden fehlten in der Webbenutzeroberfläche und der REST-API, wenn ein Siteadministrator nicht direkt auf GitHub Enterprise Server 3.4 upgradete. Die Warnungen sind nun sichtbar."
+  changes:
+    - "Die Generierung von Supportbundles wird durch die parallelisierte Protokollbereinigung beschleunigt. Weitere Informationen zu Supportbundles findest du unter [Daten für den GitHub-Support bereitstellen](/support/contacting-github-support/providing-data-to-github-support)."
+    - "APIs, die die Route `organization` oder `org` enthalten, akzeptieren jetzt entweder das Platzhalterfeld oder die ID der Organisation. Zuvor akzeptierten die APIs nur Platzhalterfelder, was dazu führte, dass kein Zugriff auf `Link`-Kopfzeilen für GitHub Advanced Security-Endpunkte möglich war. Weitere Informationen findest du unter [Organisationen](https://docs.github.com/rest/orgs/orgs) in der REST-API-Dokumentation." 
+    - "Das Unternehmensüberwachungsprotokoll enthält jetzt mehr benutzergenerierte Ereignisse, wie z. B. `project.create`. Die REST-API liefert auch zusätzliche benutzergenerierte Ereignisse, wie z. B. `repo.create`. Weitere Informationen findest du unter [Zugreifen auf das Überwachungsprotokoll für dein Unternehmen](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise) und [Verwenden der Überwachungsprotokoll-API für dein Unternehmen](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
+    - "In einigen Fällen konnten Cachereplikate einige Git-Operationen für kürzlich aktualisierte Repositorys ablehnen. Weitere Informationen zum Zwischenspeichern von Repositorys findest du unter [Informationen zum Zwischenspeichern von Repositorys](/admin/enterprise-management/caching-repositories/about-repository-caching)." 
+    - "Du kannst jetzt konfigurieren, dass das globale Ankündigungsbanner über die REST-API geschlossen werden kann. Weitere Informationen findest du unter [Anpassen von Benutzernachrichten für dein Unternehmen](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)." 
+  known_issues:
+    - "Bei einer neu eingerichteten {% data variables.product.prodname_ghe_server %}-Instanz ohne Benutzer könnte ein Angreifer den ersten Administratorbenutzer erstellen."
+    - Benutzerdefinierte Firewallregeln werden während des Upgrades entfernt.
+    - "Nachverfolgte Git-LFS-Dateien, [die über die Webbenutzeroberfläche hochgeladen wurden](https://github.com/blog/2105-upload-files-to-your-repositories), werden dem Repository fälschlicherweise direkt hinzugefügt."
+    - "Issues können nicht geschlossen werden, wenn sie einen Permalink zu einem Blob im selben Repository enthalten und der Dateipfad des Blobs mehr als 255 Zeichen lang ist."
+    - "Wenn die Option zum Durchsuchen von GitHub.com mit GitHub Connect aktiviert wird, sind Issues in privaten und internen Repositorys nicht in den GitHub.com-Suchergebnissen enthalten."
+    - "Die {% data variables.product.prodname_registry %}-npm-Registrierung gibt in Metadatenantworten keinen Zeitwert mehr zurück. So sind erhebliche Leistungssteigerungen möglich. Die erforderlichen Daten zum Zurückgeben eines Zeitwerts in einer Metadatenantwort sind weiterhin verfügbar, und dieser Wert wird in Zukunft wieder zurückgegeben, sobald die vorhandenen Leistungsprobleme behoben wurden."
+    - "Ressourcenbegrenzungen, die nur beim Verarbeiten von Pre-Receive-Hooks auftreten, können bei manchen Pre-Receive-Hooks Fehler auslösen."
+    - "Actions-Dienste müssen nach der Wiederherstellung einer Instanz aus einer Sicherung, die auf einem anderen Host erstellt wurde, neu gestartet werden."
+    - "Wenn du in den Einstellungen eines Repositorys die Option aktivierst, die Benutzern mit Lesezugriff das Erstellen von Diskussionen gestattet, wird diese Funktionalität nicht aktiviert."
+    - In einigen Fällen können Benutzer vorhandene Issues nicht in Diskussionen umwandeln.
+    - "Benutzerdefinierte Muster für die Geheimnisüberprüfung verwenden `.*` als Endtrennzeichen, insbesondere im Feld „Nach Geheimnis“. Dieses Trennzeichen verursacht Inkonsistenzen in repositoryübergreifenden Überprüfungen auf Geheimnisse, und du stellst möglicherweise Lücken im Repositoryverlauf fest, in denen keine Überprüfungen abgeschlossen wurden. Auch inkrementelle Überprüfungen werden möglicherweise beeinträchtigt. Um Probleme mit Überprüfungen zu verhindern, ändere das Ende des Musters, indem du das Trennzeichen `.*` entfernst."

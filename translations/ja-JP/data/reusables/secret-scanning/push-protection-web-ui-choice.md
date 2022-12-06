@@ -1,13 +1,21 @@
-Web UIを使ってプッシュ保護としてのSecret scanningが有効化されているリポジトリもしくはOrganizationへサポートされているシークレットをコミットしようとすると、{% data variables.product.prodname_dotcom %}はそのコミットをブロックします。
+---
+ms.openlocfilehash: 7bb1603715c255f08ac0bfbe7ff2cdbfe99a3134
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109121"
+---
+Web UI を使用して、プッシュ保護が有効になっているシークレット スキャンを使用して、サポートされているシークレットをリポジトリまたは organization にコミットすると、{% data variables.product.prodname_dotcom %} によってプッシュがブロックされます。 
 
-シークレットの場所に関する情報がページ上部のバナーに表示され、簡単にシークレットが見つけられるよう、ファイル内でシークレットに下線が引かれます。
+ページ上部にシークレットの場所の情報を示すバナーが表示され、シークレットもファイルで下線が引かれるので、簡単に見つけることができます。
 
 {% ifversion push-protection-custom-link-orgs %}
 
-  ![Secret scanningのプッシュ保護のため、Web UIでコミットがブロックされていることが表示されているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
+  ![シークレット スキャンのプッシュ保護のためにブロックされた Web UI でのコミットを示すスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner-with-link.png)
 
 {% else %}
 
-  ![Secret scanningのプッシュ保護のため、Web UIでコミットがブロックされていることが表示されているスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
-
+  ![シークレット スキャンのプッシュ保護のためにブロックされた Web UI でのコミットを示すスクリーンショット](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+  
 {% endif %}

@@ -1,7 +1,7 @@
 ---
-title: Usando o LDAP para empresa de IAM
-shortTitle: LDAP para IAM corporativo
-intro: 'Você pode gerenciar centralmente contas e acesso a {% data variables.product.product_location %} realizando a integração com o seu diretório LDAP existente.'
+title: Using LDAP for enterprise IAM
+shortTitle: LDAP for enterprise IAM
+intro: 'You can centrally manage accounts and access to {% data variables.location.product_location %} by integrating with your existing LDAP directory.'
 versions:
   ghes: '*'
 children:

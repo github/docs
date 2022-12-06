@@ -20,8 +20,8 @@ export const VersionPicker = ({ variant }: Props) => {
   }
 
   const allLinks = (page.permalinks || []).map((permalink) => ({
-    text: permalink.pageVersionTitle,
-    selected: allVersions[currentVersion].versionTitle === permalink.pageVersionTitle,
+    text: allVersions[permalink.pageVersion].versionTitle,
+    selected: currentVersion === permalink.pageVersion,
     href: permalink.href,
     arrow: false,
     info: false,

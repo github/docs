@@ -57,6 +57,12 @@ export default {
       type: 'string',
       pattern: releasePattern,
     },
+    internalLatestRelease: {
+      required: false,
+      description:
+        'the value of "latest" if a plan uses semantic versioning internally while displaying @latest externally',
+      type: 'string',
+    },
     hasNumberedReleases: {
       description:
         'boolean indicating whether the plan has numbered releases; if not, the release defalts to "latest"',
@@ -86,13 +92,14 @@ export default {
       description: 'final name used to map GraphQL and webhook schema names to the current version',
       type: 'string',
     },
-    allowedFrontmatterPattern: {
-      desciption: 'pattern used in a regex to validate versions frontmatter in lib/frontmatter.js',
-      type: 'string',
+    apiVersions: {
+      required: true,
+      description: 'calendar date version for REST API versions',
+      type: 'array',
     },
-    allowedInlinePattern: {
-      desciption:
-        'pattern used in a regex to valid ifversion tag in tests/linting/lint-versioning.js',
+    latestApiVersion: {
+      required: true,
+      description: 'latest calendar date version for REST API versions',
       type: 'string',
     },
   },

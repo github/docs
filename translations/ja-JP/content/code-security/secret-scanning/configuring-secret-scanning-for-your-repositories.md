@@ -1,6 +1,6 @@
 ---
-title: リポジトリのシークレットスキャンを設定する
-intro: '高度なセキュリティパターンにマッチするシークレットを探して{% data variables.product.prodname_dotcom %}がどのようにリポジトリをスキャンするかを設定できます。'
+title: Configuring secret scanning for your repositories
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets that match advanced security patterns.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning_GHAS %} for the repository.'
 redirect_from:
@@ -16,59 +16,72 @@ topics:
   - Secret scanning
   - Advanced Security
   - Repositories
-shortTitle: シークレットスキャンの設定
+shortTitle: Configure secret scans
 ---
 
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-## {% data variables.product.prodname_secret_scanning_GHAS %} の有効化
+## Enabling {% data variables.product.prodname_secret_scanning_GHAS %}
 
-{% data variables.product.prodname_secret_scanning_GHAS %}は、Organizationが所有する任意のリポジトリで有効化できます。 有効化されると、{% data reusables.secret-scanning.secret-scanning-process %}
+You can enable {% data variables.product.prodname_secret_scanning_GHAS %} for any repository that is owned by an organization. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
+
+{% ifversion secret-scanning-enterprise-level %}
+{% note %}
+
+**Note:** If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. If {% data variables.product.prodname_advanced_security %}がまだリポジトリで有効化されていなければ、"{% data variables.product.prodname_GH_advanced_security %}" の右で**Enable（有効化）**をクリックしてください。
-   {% ifversion fpt or ghec %}![リポジトリに対して {% data variables.product.prodname_GH_advanced_security %} を有効化する](/assets/images/help/repository/enable-ghas-dotcom.png)
+4. If {% data variables.product.prodname_advanced_security %} is not already enabled for the repository, to the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
+   {% ifversion fpt or ghec %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/help/repository/enable-ghas-dotcom.png)
    {% elsif ghes or ghae %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
-5. {% data variables.product.prodname_advanced_security %}の有効化の影響をレビューしてから、**Enable {% data variables.product.prodname_GH_advanced_security %} for this repository（このリポジトリで有効化）**をクリックしてください。
-6. {% data variables.product.prodname_advanced_security %}を有効化すると、Organizationの設定によってはリポジトリで{% data variables.product.prodname_secret_scanning %}が自動的に有効化されることがあります。 [{% data variables.product.prodname_secret_scanning_caps %}] と [**Enable**] ボタンが表示されている場合でも、[**Enable**] をクリックして {% data variables.product.prodname_secret_scanning %} を有効化する必要があります。 [**Disable**] ボタンが表示されている場合、{% data variables.product.prodname_secret_scanning %} はすでに有効化されています。 ![リポジトリに対して {% data variables.product.prodname_secret_scanning %} を有効化する](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
+5. Review the impact of enabling {% data variables.product.prodname_advanced_security %}, then click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository**.
+6. When you enable {% data variables.product.prodname_advanced_security %}, {% data variables.product.prodname_secret_scanning %} may automatically be enabled for the repository due to the organization's settings. If "{% data variables.product.prodname_secret_scanning_caps %}" is shown with an **Enable** button, you still need to enable {% data variables.product.prodname_secret_scanning %} by clicking **Enable**. If you see a **Disable** button, {% data variables.product.prodname_secret_scanning %} is already enabled. 
+   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
 {% ifversion secret-scanning-push-protection %}
-7. あるいは、プッシュ保護を有効化したい場合は、"Push protection（プッシュ保護）"の右にある**Enable（有効化）**をクリックしてください。 {% data reusables.secret-scanning.push-protection-overview %} 詳しい情報については「[{% data variables.product.prodname_secret_scanning %}でのプッシュの保護](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)」を参照してください。 ![リポジトリでのプッシュ保護の有効化](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
+7. Optionally, if you want to enable push protection, click **Enable** to the right of "Push protection." {% data reusables.secret-scanning.push-protection-overview %} For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+   ![Enable push protection for your repository](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
 {% endif %}
 {% ifversion ghae %}
-1. {% data variables.product.prodname_secret_scanning %} を有効化する前に、まず {% data variables.product.prodname_GH_advanced_security %} を有効化する必要があります。 その場合、[{% data variables.product.prodname_GH_advanced_security %}] の右にある [**Enable**] をクリックします。 ![リポジトリに対して {% data variables.product.prodname_GH_advanced_security %} を有効化する](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
-2. [**Enable {% data variables.product.prodname_GH_advanced_security %} for this repository**] をクリックして、処理を確認します。 ![リポジトリに対する {% data variables.product.prodname_GH_advanced_security %} の有効化を確認する](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
-3. その場合、[{% data variables.product.prodname_secret_scanning_caps %}] の右にある [**Enable**] をクリックします。 ![リポジトリに対して {% data variables.product.prodname_secret_scanning %} を有効化する](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
+1. Before you can enable {% data variables.product.prodname_secret_scanning %}, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
+   ![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
+2. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
+   ![Confirm enabling {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
+3. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
+   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## {% data variables.product.prodname_secret_scanning_GHAS %}からのディレクトリの除外
+## Excluding directories from {% data variables.product.prodname_secret_scanning_GHAS %}
 
-*secret_scanning.yml* ファイルを使用して、{% data variables.product.prodname_secret_scanning %} からディレクトリを除外できます。 たとえば、テストまたはランダムに生成されたコンテンツを含むディレクトリを除外できます。
+You can use a *secret_scanning.yml* file to exclude directories from {% data variables.product.prodname_secret_scanning %}. For example, you can exclude directories that contain tests or randomly generated content.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. ファイル名フィールドに、*.github/secret_scanning.yml* と入力します。
-4. [**Edit new file**] に `paths-ignore:` と入力してから、{% data variables.product.prodname_secret_scanning %} から除外するパスを入力します。
+3. In the file name field, type *.github/secret_scanning.yml*.
+4. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
     ``` yaml
     paths-ignore:
       - "foo/bar/*.js"
     ```
-
-    `*` などの特殊文字を使用して、パスをフィルタできます。 フィルタパターンに関する詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)」を参照してください。
+    
+    You can use special characters, such as `*` to filter paths. For more information about filter patterns, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
 
     {% note %}
-
-    **ノート:**
-    - `paths-ignore` に 1,000 以上のエントリがある場合、{% data variables.product.prodname_secret_scanning %} は最初の 1,000 ディレクトリのみをスキャン対象から除外します。
-    - *secret_scanning.yml* が 1MB 以上ある場合、{% data variables.product.prodname_secret_scanning %} はファイル全体を無視します。
-
+    
+    **Notes:**
+    - If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
+    - If *secret_scanning.yml* is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
+    
     {% endnote %}
 
-{% data variables.product.prodname_secret_scanning %} からの個々のアラートを無視することもできます。 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)」を参照してください。
+You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
 
-## 参考リンク
+## Further reading
 
-- 「[Organization のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」
-- 「[{% data variables.product.prodname_secret_scanning %}のカスタムパターンの定義](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)」
+- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+- "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"

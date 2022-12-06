@@ -1,19 +1,24 @@
 ---
-title: グループを使用してセルフホストランナーへのアクセスを管理する
-intro: ポリシーを使用して、Organization または Enterprise に追加されたセルフホストランナーへのアクセスを制限できます。
+title: Managing access to self-hosted runners using groups
+shortTitle: Manage access with runner groups
+intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
 redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 type: tutorial
-shortTitle: Using runner groups
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+
+{% ifversion target-runner-groups %}
+For information on how to route jobs to runners in a specific group, see "[Choosing runners in a group](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group)."
+{% endif %}
 
 ## About runner groups
 
@@ -21,7 +26,7 @@ shortTitle: Using runner groups
 
 {% ifversion ghec or ghes or ghae %}
 
-## Organization のセルフホストランナーグループを作成する
+## Creating a self-hosted runner group for an organization
 
 {%- ifversion ghec or ghes %}
 
@@ -31,7 +36,7 @@ shortTitle: Using runner groups
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-## Enterprise のセルフホストランナーグループを作成する
+## Creating a self-hosted runner group for an enterprise
 
  {%- ifversion ghec or ghes %}
 
@@ -43,7 +48,7 @@ shortTitle: Using runner groups
 
 {% endif %}
 
-## セルフホストランナーグループのアクセスポリシーを変更する
+## Changing the access policy of a self-hosted runner group
 
 {%- ifversion fpt or ghec or ghes %}
 
@@ -62,12 +67,14 @@ shortTitle: Using runner groups
 
 {% data reusables.actions.automatically-adding-a-runner-to-a-group %}
 
-## セルフホストランナーをグループに移動する
+## Moving a self-hosted runner to a group
 
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-## セルフホストランナーグループを削除する
+## Removing a self-hosted runner group
 
 {% data reusables.actions.removing-a-runner-group %}
 
 {% endif %}
+
+{% data reusables.actions.section-using-unique-names-for-runner-groups %}

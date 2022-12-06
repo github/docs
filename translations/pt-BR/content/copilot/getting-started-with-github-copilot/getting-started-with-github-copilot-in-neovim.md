@@ -1,40 +1,44 @@
 ---
-title: Primeiros passos com o GitHub Copilot no Neovim
+title: Introdução ao GitHub Copilot no Neovim
 shortTitle: Neovim
 product: '{% data reusables.gated-features.copilot %}'
-intro: 'Aprenda a instalar {% data variables.product.prodname_copilot %} no Neovim, e comece a ver sugestões conforme você escreve comentários e códigos.'
+intro: 'Saiba como instalar o {% data variables.product.prodname_copilot %} no Neovim e passar a ver sugestões enquanto escreve comentários e códigos.'
 versions:
   feature: copilot
 topics:
   - Copilot
+ms.openlocfilehash: 6296ff5b89e86b4b51cbb04bd9ac4ba91863a1ac
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185064'
 ---
+{% data reusables.copilot.copilot-cta-button %}
 
-## Sobre {% data variables.product.prodname_copilot %} e Neovim
+## Sobre o {% data variables.product.prodname_copilot %} e o Neovim
 
 {% data reusables.copilot.procedural-intro %}
 
-Se você usar um Neovim, você poderá ver e incorporar sugestões de {% data variables.product.prodname_copilot %} diretamente no editor.
+Usando o Neovim, você pode ver e incorporar sugestões do {% data variables.product.prodname_copilot %} diretamente no editor.
 
 ## Pré-requisitos
 
-Para usar {% data variables.product.prodname_copilot %} no Neovim, é necessário ter a Neovim e o Node.js versão 17 ou inferior instalada. Para obter mais informações, consulte a [documentação do Neovim](https://neovim.io/doc/) e o [site Node.js](https://nodejs.org/en/).
+- Para usar o {% data variables.product.prodname_copilot %}, é preciso ter uma assinatura ativa do {% data variables.product.prodname_copilot %}. Para ver mais informações, confira "[Sobre a cobrança do {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)".
 
-## Instalando a extensão do Neovim
+- Para usar o {% data variables.product.prodname_copilot %} no Neovim, você precisa ter o Neovim e o Node.js versão 17 ou inferior instalados. Para obter mais informações, confira a [documentação do Neovim](https://neovim.io/doc/) e o [site do Node.js](https://nodejs.org/en/).
+
+## Como instalar a extensão do Neovim
 
 {% mac %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-   - Para instalar o plugin de {% data variables.product.prodname_copilot %} diretamente, você deve saber onde Neovim armazena plugins. Para instalar o plugin, digite o seguinte comando no Terminal.
+   - Para instalar o {% data variables.product.prodname_copilot %} com o gerenciador de plug-in interno do Neovim, insira o seguinte comando no Terminal.
 
-     ```
-     git clone https://github.com/github/copilot.vim \
-        PATH/TO/NEOVIM/PLUGINS/copilot.vim
-     ```
-1. Para configurar {% data variables.product.prodname_copilot %}, abra o Neovim e digite o seguinte comando.
+         git clone https://github.com/github/copilot.vim \
+            ~/.config/nvim/pack/github/start/copilot.vim
 
-   ```
-   :Copilot setup
-   ```
+{% data reusables.copilot.config-enable-copilot-in-neovim %}
 
 {% endmac %}
 
@@ -42,16 +46,12 @@ Para usar {% data variables.product.prodname_copilot %} no Neovim, é necessári
 {% windows %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-    - Para instalar o plugin de {% data variables.product.prodname_copilot %} diretamente, você deve saber onde Neovim armazena plugins. Para instalar o plugin, digite o seguinte comando no Git Bash.
+   - Para instalar o {% data variables.product.prodname_copilot %} com o gerenciador de plug-in interno do Neovim, insira o seguinte comando no Git Bash.
 
-      ```
-      git clone https://github.com/github/copilot.vim \
-      ~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
-1. Para configurar {% data variables.product.prodname_copilot %}, abra o Neovim e digite o seguinte comando.
+           git clone https://github.com/github/copilot.vim.git `
+            $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
 
-   ```
-   :Copilot setup
-   ```
+{% data reusables.copilot.config-enable-copilot-in-neovim %}
 
 {% endwindows %}
 
@@ -59,25 +59,23 @@ Para usar {% data variables.product.prodname_copilot %} no Neovim, é necessári
 {% linux %}
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-    - To install the {% data variables.product.prodname_copilot %} plugin directly, you must know where Neovim stores plugins. Para instalar o plugin, digite o seguinte comando no Git Bash.
+   - Para instalar o {% data variables.product.prodname_copilot %} com o gerenciador de plug-in interno do Neovim, insira o seguinte comando:
 
-      ```
-      git clone https://github.com/github/copilot.vim \
-~/.config/PATH/TO/YOUR/NEOVIM/CONFIG/FILE/copilot.vim
-      ```
-1. Para configurar {% data variables.product.prodname_copilot %}, abra o Neovim e digite o seguinte comando.
+         git clone https://github.com/github/copilot.vim \
+            ~/.config/nvim/pack/github/start/copilot.vim
 
-   ```
-   :Copilot setup
-   ```
+{% data reusables.copilot.config-enable-copilot-in-neovim %}
+
 {% endlinux %}
 
-## Learning to use {% data variables.product.prodname_copilot %} em Neovim
+## Aprendendo a usar o {% data variables.product.prodname_copilot %} no Neovim
 
-Para orientações sobre o uso de {% data variables.product.prodname_copilot %} no Neovim, você pode consultar a documentação do plugin. Para ver a documentação, abra o Neovim e execute o seguinte comando.
-```
-:help copilot ```
+Para obter diretrizes sobre como usar o {% data variables.product.prodname_copilot %} no Neovim, exiba a documentação do plug-in. Para ver a documentação, abra o Neovim e execute o comando a seguir.
 
-## Leia mais
+  ```
+  :help copilot
+  ```
+
+## Leitura adicional
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)

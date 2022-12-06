@@ -1,5 +1,6 @@
-{% ifversion fpt or ghes > 3.4 or ghec or ghae-issue-5658 %}
-1. En la sección de "Código y automatización" de la barra lateral, haz clic en **Páginas {% octicon "browser" aria-label="The browser icon" %}**.
+{% ifversion fpt or ghes > 3.4 or ghec or ghae > 3.4 %}
+1. In the "Code and automation" section of the sidebar, click **{% octicon "browser" aria-label="The browser icon" %} Pages**.
 {% else %}
-1. En la barra lateral izquierda, da clic en **Páginas**. ![Pestaña de página en la barra lateral izquierda](/assets/images/help/pages/pages-tab.png)
+1. In the left sidebar, click **Pages**.
+   ![Page tab in the left-hand sidebar](/assets/images/help/pages/pages-tab.png)
 {% endif %}

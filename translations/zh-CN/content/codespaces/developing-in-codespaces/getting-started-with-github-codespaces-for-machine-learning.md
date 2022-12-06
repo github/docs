@@ -1,8 +1,7 @@
 ---
-title: Getting started with GitHub Codespaces for machine learning
+title: 用于机器学习的 GitHub Codespaces 入门
 shortTitle: Machine learning
-intro: 'Learn about working on machine learning projects with {% data variables.product.prodname_github_codespaces %} and its out-of-the-box tools.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: '了解如何使用 {% data variables.product.prodname_github_codespaces %} 及其现成工具处理机器学习项目。'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,83 +9,77 @@ type: tutorial
 topics:
   - Codespaces
   - Developer
+ms.openlocfilehash: 905d5b14bfba5e47d1fdfdd7f0be75b16750652d
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158915'
 ---
-
 ## 简介
 
-This guide introduces you to machine learning with {% data variables.product.prodname_github_codespaces %}. You’ll build a simple image classifier, learn about some of the tools that come preinstalled in {% data variables.product.prodname_github_codespaces %}, configure your development environment for NVIDIA CUDA, and use {% data variables.product.prodname_cli %} to open your codespace in JupyterLab.
+本指南介绍使用 {% data variables.product.prodname_github_codespaces %} 进行机器学习。 你将生成简单的图像分类器，了解 {% data variables.product.prodname_github_codespaces %} 中预安装的一些工具，为 NVIDIA CUDA 配置开发环境，并在 JupyterLab 中打开 codespace。
 
-## Prerequisite
+## 生成简单的图像分类器
 
-You have access to {% data variables.product.prodname_github_codespaces %}. 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces)”。
+我们将使用 Jupyter 笔记本生成简单的图像分类器。 
 
-## Build a simple image classifier
+Jupyter 笔记本是一组可以逐个执行的单元。 我们将使用的笔记本包括许多单元，它们使用 [PyTorch](https://pytorch.org/) 生成图像分类器。 每个单元都是该过程的不同阶段：下载数据集，设置神经网络，训练模型，然后测试该模型。
 
-We'll use a Jupyter notebook to build a simple image classifier.
+我们将按顺序运行所有单元，以执行生成图像分类器的所有阶段。 当我们执行此操作时，Jupyter 会将输出保存回笔记本，以便可以检查结果。
 
-Jupyter notebooks are sets of cells that you can execute one after another. The notebook we'll use includes a number of cells that build an image classifier using [PyTorch](https://pytorch.org/). Each cell is a different phase of that process: download a dataset, set up a neural network, train a model, and then test that model.
+### 创建 codespace
 
-We'll run all of the cells, in sequence, to perform all phases of building the image classifier. When we do this Jupyter saves the output back into the notebook so that you can examine the results.
+1. 转到 [github/codespaces-jupyter](https://github.com/github/codespaces-jupyter) 模板存储库。
+{% data reusables.codespaces.open-template-in-codespace-step %}
 
-### Creating a repository and a codespace
+此模板的 codespace 会在基于 Web 的 {% data variables.product.prodname_vscode %} 版本中打开。
 
-1. Go to the [github/codespaces-getting-started-ml](https://github.com/github/codespaces-getting-started-ml) template repository and click **Use this template**.
-{% data reusables.codespaces.open-codespace-from-template-repo %}
+### 打开图像分类器笔记本 
 
-   By default, a codespace for this repository opens in a web-based version of {% data variables.product.prodname_vscode %}.
+{% data variables.product.prodname_github_codespaces %} 使用的默认容器映像包括一组预安装在 codespace 中的机器学习库。 例如，Numpy、pandas、SciPy、Matplotlib、seaborn、scikit-learn、Keras、PyTorch、Requests 和 Plotly。 有关默认映像的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)”和 [`devcontainers/images` 存储库](https://github.com/devcontainers/images/tree/main/src/universal)。
 
-### Open the image classifier notebook
+1. 在 {% data variables.product.prodname_vscode_shortname %} 编辑器中，关闭显示的任何“入门”选项卡。
+1. 打开 `notebooks/image-classifier.ipynb` 笔记本文件。
 
-The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, TensorFlow, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/codespaces#github-codespaces-default-linux-universal).
+### 生成图像分类器
 
-1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
-1. Open the `image-classifier.ipynb` notebook file.
-1. Click the Python kernel link at the top right of the editor.
+图像分类器笔记本包含下载数据集、训练神经网络以及评估其性能所需的所有代码。
 
-   ![Screenshot of the Python kernal link](/assets/images/help/codespaces/jupyter-python-kernel-link.png)
+1. 单击“全部运行”以执行所有笔记本单元。
 
-1. In the drop-down menu, choose the kernel in the directory `/opt/python/latest/bin/python`.
+   ![“全部运行”按钮的屏幕截图](/assets/images/help/codespaces/jupyter-run-all.png)
 
-   ![Screenshot of the Python kernal drop-down menu](/assets/images/help/codespaces/jupyter-python-kernel-dropdown.png)
+1. 向下滚动以查看每个单元的输出。
 
-### Build the image classifier
+   ![编辑器中步骤 3 的屏幕截图](/assets/images/help/codespaces/jupyter-notebook-step3.png)
 
-The image classifier notebook contains all the code you need to download a dataset, train a neural network, and evaluate its performance.
+## 为 codespace 配置 NVIDIA CUDA
 
-1. Click **Run All** to execute all of the notebook’s cells.
-
-   ![Screenshot of the Run All button](/assets/images/help/codespaces/jupyter-run-all.png)
-
-1. Scroll down to view the output of each cell.
-
-   ![Screenshot of Step 3 in the editor](/assets/images/help/codespaces/jupyter-notebook-step3.png)
-
-## Configure NVIDIA CUDA for your codespace
-
-Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
+某些软件要求安装 NVIDIA CUDA 才能使用 codespace 的 GPU。 在这种情况下，可以使用 `devcontainer.json` 文件创建自己的自定义配置，并指定应安装 CUDA。 有关创建自定义配置的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)”。
 
 {% note %}
 
-**Note**: For full details of the script that's run when you add the `nvidia-cuda` feature, see [the devcontainers/features repository](https://github.com/devcontainers/features/tree/main/src/nvidia-cuda).
+注意：有关在添加 `nvidia-cuda` 功能时运行的脚本的完整详细信息，请参阅 [devcontainers/features 存储库](https://github.com/devcontainers/features/tree/main/src/nvidia-cuda)。
 
 {% endnote %}
 
-1. Within a codespace, open the `.devcontainer/devcontainer.json` file in the editor.
-1. Add a top-level `features` object with the following contents:
+1. 在 cpdespace 内的编辑器中打开 `.devcontainer/devcontainer.json` 文件。
+1. 添加包含以下内容的顶级 `features` 对象：
 
    ```json{:copy}
-     “features”: {
+     "features": {
        "ghcr.io/devcontainers/features/nvidia-cuda:1": { 
          "installCudnn": true
        }
      }
    ```
 
-   For more information about the `features` object, see the [development containers specification](https://containers.dev/implementors/features/#devcontainer-json-properties).
+   有关 `features` 对象的详细信息，请参阅[开发容器规范](https://containers.dev/implementors/features/#devcontainer-json-properties)。
 
-   If you are using the `devcontainer.json` file from the image classifier repository you created for this tutorial, your `devcontainer.json` file will now look like this:
+   如果使用为本教程创建的图像分类器存储库中的 `devcontainer.json` 文件，则 `devcontainer.json` 文件现在会如下所示：
 
-   ```
+   ```json
    {
      "customizations": {
        "vscode": {
@@ -96,7 +89,7 @@ Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use yo
          ]
        }
      },
-     “features”: {
+     "features": {
        "ghcr.io/devcontainers/features/nvidia-cuda:1": { 
          "installCudnn": true
        }
@@ -104,17 +97,12 @@ Some software, such as TensorFlow, requires you to install NVIDIA CUDA to use yo
    }
    ```
 
-1. Save the change.
-{% data reusables.codespaces.rebuild-command %}
-   The codespace container will be rebuilt. This will take several minutes. When the rebuild is complete the codespace is automatically reopened.
-1. Commit the change to the repository so that CUDA will be installed in any new codespaces you create from this repository in future.
+1. 保存更改。
+{% data reusables.codespaces.rebuild-command %}将重新生成 codespace 容器。 这需要几分钟。 重新生成完成后，codespace 会自动重新打开。
+1. 将更改发布到存储库，以便在将来从此存储库创建的任何新 codespace 中安装 CUDA。 有关详细信息，请参阅“[通过模板创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-vs-code)”。
 
-## Open your codespace in JupyterLab
+## 在 JupyterLab 中打开 codespace
 
-The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes JupyterLab, the web-based Jupyter IDE. You can use {% data variables.product.prodname_cli %} to open your codespace in JupyterLab without having to install anything else on your codespace.
+可以在 JupyterLab ([github.com/codespaces](https://github.com/codespaces)) 的“你的 codespace”页或使用 {% data variables.product.prodname_cli %} 打开 codespace。 有关详细信息，请参阅“[打开现有 codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)”。
 
-1. In the terminal, enter the {% data variables.product.prodname_cli %} command `gh cs jupyter`.
-1. Choose the codespace you want to open.
-
-   ![Screenshot of opening a codespace from the terminal](/assets/images/help/codespaces/open-codespace-in-jupyter.png)
-
+{% data reusables.codespaces.jupyterlab-installed-in-codespace %}

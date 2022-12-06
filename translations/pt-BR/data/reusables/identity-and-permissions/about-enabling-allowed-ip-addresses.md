@@ -1,5 +1,11 @@
-After you create an IP allow list, you can enable allowed IP addresses. When you enable allowed IP addresses, {% data variables.product.company_short %} immediately enforces any enabled entries in your IP allow list.
+---
+ms.openlocfilehash: a2310aaf4dbdde14b2a644c33f850731dd44ce46
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180082"
+---
+Depois de criar uma lista de permissões de IP, você pode habilitar endereços IP permitidos. Quando você habilita endereços IP permitidos, {% data variables.product.company_short %} impõe imediatamente todas as entradas habilitadas em sua lista de permissões de IP.
 
-{% ifversion ip-allow-list-address-check %}
-Before you enable allowed IP addresses, you can check whether a particular IP address would be allowed by any of the enabled entries in your list. For more information, see "[Checking if an IP address is permitted](#checking-if-an-ip-address-is-permitted)."
-{% endif %}
+Antes de habilitar sua lista de permissões de IP, você pode verificar se ela permitirá a conexão de um endereço IP específico. Para obter mais informações, confira "[Como verificar se um endereço IP é permitido](#checking-if-an-ip-address-is-permitted)".

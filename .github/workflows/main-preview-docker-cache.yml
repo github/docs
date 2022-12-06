@@ -35,14 +35,14 @@ jobs:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
           username: ${{ env.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
+        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
 
       - name: Check out repo
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748

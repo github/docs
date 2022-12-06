@@ -139,7 +139,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)") | **X** |  |  |  |  |{% endif %}
 | Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  |  |  |  |
 
-{% elsif ghes > 3.2 or ghae %}
+{% elsif ghes or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | Organization action | Owners | Members | Security managers |
@@ -164,7 +164,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Can be made a *team maintainer* | **X** | **X** | **X**  |
 | Transfer repositories | **X** | |  |
 | Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | **X** | | **X** |{% ifversion ghes %}
-| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
+| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)") | **X** | | **X** |{% endif %}{% ifversion ghes %}
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
 | Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)") | **X** |  |  |
 | Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |
@@ -183,7 +183,7 @@ Some of the features listed below are limited to organizations using {% data var
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
-{% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
+{% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |  |{% endif %}
 
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
@@ -224,7 +224,7 @@ Some of the features listed below are limited to organizations using {% data var
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
-{% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
+{% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |{% endif %}
 
 {% endif %}
 

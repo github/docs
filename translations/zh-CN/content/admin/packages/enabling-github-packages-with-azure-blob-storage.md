@@ -22,7 +22,7 @@ shortTitle: Enable Packages with Azure
 
 ## Prerequisites
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
 
 ## Enabling {% data variables.product.prodname_registry %} with Azure Blob Storage
 
@@ -31,6 +31,9 @@ Before you can enable and configure {% data variables.product.prodname_registry 
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
 1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
+
+    - You must create a storage container prior to setting the container name and connection string.
+
   ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
 
   {% note %}

@@ -1,8 +1,6 @@
-import { cacheControlFactory } from './cache-control.js'
+import { noCacheControl } from './cache-control.js'
 
-const noCacheControl = cacheControlFactory(0)
-
-export default function remoteIp(req, res, next) {
+export default function remoteIp(req, res) {
   noCacheControl(res)
   res.json({
     ip: req.ip,

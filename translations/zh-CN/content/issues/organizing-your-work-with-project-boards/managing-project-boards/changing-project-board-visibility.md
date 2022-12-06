@@ -9,10 +9,9 @@ versions:
   feature: projects-v1
 topics:
   - Pull requests
-shortTitle: 更改可见性
+shortTitle: Change visibility
 allowTitleToDifferFromFilename: true
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.project-board-visibility %}
@@ -26,8 +25,8 @@ allowTitleToDifferFromFilename: true
 
 {% endnote %}
 
-1. 导航到您要设为{% ifversion ghae %}内部{% else %}公共{% endif %}或私有的项目板。
+1. Navigate to the project board you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.choose-visibility %}
-1. 单击 **Save（保存）**。
+1. Click **Save**.

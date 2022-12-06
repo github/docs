@@ -1,7 +1,7 @@
 ---
-title: Configuring dependency review for your appliance
-shortTitle: 配置依赖项审查
-intro: 'To helps users understand dependency changes when reviewing pull requests, you can enable, configure, and disable dependency review for {% data variables.product.product_location %}.'
+title: 为设备配置依赖项评审
+shortTitle: Configuring dependency review
+intro: '若要帮助用户在评审拉取请求时了解依赖项更改，可以为 {% data variables.location.product_location %} 启用、配置和禁用依赖项评审。'
 product: '{% data reusables.gated-features.dependency-review %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -12,41 +12,44 @@ topics:
   - Enterprise
   - Dependency review
   - Security
+ms.openlocfilehash: 613f2f2bd69a90027533ff063ea0f0a44bc1f5d2
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107755'
 ---
+## 关于依赖项评审
 
-{% data reusables.dependency-review.beta %}
+{% data reusables.dependency-review.feature-overview %}  
 
-## 关于依赖项审查
-
-{% data reusables.dependency-review.feature-overview %}
-
-Some additional features, such as license checks, blocking of pull requests, and CI/CD integration, are available with the [dependency review action](https://github.com/actions/dependency-review-action).
+[依赖项评审操作](https://github.com/actions/dependency-review-action)提供了一些附加功能，例如许可证检查、拉取请求阻止和 CI/CD 集成。
 
 ## 检查您的许可是否包含 {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
-## Prerequisites for dependency review
+## 依赖项评审的先决条件
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)").{% endif %}
+- {% data variables.product.prodname_GH_advanced_security %} 的许可证{% ifversion ghes %}（请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”）。{% endif %}
 
-- The dependency graph enabled for the instance. Site administrators can enable the dependency graph via the management console or the administrative shell (see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)").
+- 为实例启用了依赖项关系图。 站点管理员可以通过管理控制台或管理 shell 启用依赖项关系图（请参阅“[为企业启用依赖项关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)”）。
+  
+- 启用了 {% data variables.product.prodname_github_connect %}，以从 {% data variables.product.prodname_advisory_database %} 下载和同步漏洞。 这通常在设置 {% data variables.product.prodname_dependabot %} 的过程中进行配置（请参阅“[为企业启用 Dependabot](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”）。
 
-- {% data variables.product.prodname_github_connect %} enabled to download and synchronize vulnerabilities from the {% data variables.product.prodname_advisory_database %}. This is usually configured as part of setting up {% data variables.product.prodname_dependabot %} (see "[Enabling Dependabot for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)").
+## 启用和禁用依赖项评审
 
-## Enabling and disabling dependency review
+若要启用或禁用依赖项评审，需要启用或禁用实例的依赖项关系图。
 
-To enable or disable dependency review, you need to enable or disable the dependency graph for your instance.
+有关详细信息，请参阅“[为企业启用依赖项关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)”。
 
-更多信息请参阅“[为企业启用依赖关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)”。
-
-## Running dependency review using {% data variables.product.prodname_actions %}
+## 使用 {% data variables.product.prodname_actions %} 运行依赖项评审
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
 
-The dependency review action is included in your installation of {% data variables.product.prodname_ghe_server %}. It is available for all repositories that have {% data variables.product.prodname_GH_advanced_security %} and dependency graph enabled.
+依赖项评审操作包含在 {% data variables.product.prodname_ghe_server %} 安装中。 它适用于所有启用了 {% data variables.product.prodname_GH_advanced_security %} 和依赖项关系图的存储库。
 
-{% data reusables.dependency-review.dependency-review-action-overview %}
+{% data reusables.dependency-review.dependency-review-action-overview %}  
 
-Users run the dependency review action using a {% data variables.product.prodname_actions %} workflow. If you have not already set up runners for {% data variables.product.prodname_actions %}, you must do this to enable users to run workflows. 您可以在仓库、组织或企业帐户级别预配自托管运行器。 For information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+用户使用 {% data variables.product.prodname_actions %} 工作流运行依赖项评审操作。 如果尚没有为 {% data variables.product.prodname_actions %} 设置运行器，则必须执行此操作才能使用户可运行工作流。 您可以在仓库、组织或企业帐户级别预配自托管运行器。 有关信息，请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”和“[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)。”
 

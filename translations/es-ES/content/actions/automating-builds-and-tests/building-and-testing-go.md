@@ -1,6 +1,6 @@
 ---
-title: Crear y probar Go
-intro: Puedes crear un flujo de trabajo de integración continua (IC) para compilar y probar tu proyecto de Go.
+title: Compilación y prueba de Go
+intro: Puedes crear un flujo de trabajo de integración continua (CI) para compilar y probar tu proyecto.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,32 +9,34 @@ versions:
 type: tutorial
 topics:
   - CI
-shortTitle: Compilar & probar Go
+shortTitle: Build & test Go
+ms.openlocfilehash: 590edc2af0b7f370e52b449f320bdc2a758450bc
+ms.sourcegitcommit: 2e1852bcdd690cb66b9b5d69cb056a2bb2b9a6b4
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160859'
 ---
-
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introducción
 
 Esta guía te muestra cómo compilar, probar y publicar un paquete de Go.
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %} Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software preinstalado, el cual incluye las dependencias para Go. Para encontrar una lista completa de software actualizado y las versiones preinstaladas de Go, consulta la sección "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)".
+Los ejecutores alojados en {% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %} {% else %} {% data variables.product.prodname_dotcom %} tienen una memoria caché de herramientas con software preinstalado, que incluye las dependencias para Go. Para obtener una lista completa del software actualizado y las versiones preinstaladas de Go, ve [Sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
 {% endif %}
 
 ## Prerrequisitos
 
-Ya debes estar familiarizado con la sintaxis de YAML y con cómo se utiliza con {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)".
+Ya debes estar familiarizado con la sintaxis de YAML y con cómo se utiliza con {% data variables.product.prodname_actions %}. Para más información, vea "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)".
 
-Te recomendamos que tener un entendimiento básico del lenguaje de Go. Para obtener más información, consulta la sección [Iniciar con Go](https://golang.org/doc/tutorial/getting-started).
+Te recomendamos que tengas un entendimiento básico del lenguaje Go. Para más información, ve [Introducción a Go](https://golang.org/doc/tutorial/getting-started).
 
-## Utilizar el flujo de trabajo inicial de Go
+## Uso del flujo de trabajo inicial de Go
 
-{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Go que debería funcionar con la mayoría de los proyectos de Go. Esta guía incluye ejemplos que puedes utilizar para personalizar los flujos de trabajo iniciales. Para obtener más información, consulta el [flujo de trabajo inicial de Go](https://github.com/actions/starter-workflows/blob/main/ci/go.yml).
+{% data variables.product.prodname_dotcom %} proporciona un flujo de trabajo inicial de Go que debería funcionar para la mayoría de los proyectos de Go. Esta guía incluye ejemplos que puedes utilizar para personalizar los flujos de trabajo iniciales. Para más información, vea el [flujo de trabajo de inicio de Go](https://github.com/actions/starter-workflows/blob/main/ci/go.yml).
 
-Para comenzar rápidamente, agrega el flujo de trabajo inicial al directorio de `.github/workflows` de tu repositorio.
+Para comenzar rápidamente, agregue el flujo de trabajo de inicio al directorio `.github/workflows` del repositorio.
 
 ```yaml{:copy}
 name: Go package
@@ -60,15 +62,15 @@ jobs:
         run: go test -v ./...
 ```
 
-## Especificar una versión de Go
+## Especificación de una versión de Go
 
-La forma más fácil de especificar una versión de Go es utilizando la acción `setup-go` que proporciona {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la [acción de `setup-go`](https://github.com/actions/setup-go/).
+La forma más fácil de especificar una versión de Go consiste en usar la acción `setup-go` proporcionada por {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la [acción`setup-go`](https://github.com/actions/setup-go/).
 
-Para utilizar una versión preinstalada de Go en un ejecutor hospedado en {% data variables.product.prodname_dotcom %}, pasa la versión relevante a la propiedad `go-version` de la acción `setup-go`. Esta acción encuentra una versión específica de Go desde el caché de herramientas en cada ejecutor y agrega los binarios necesarios a `PATH`. Estos cambios persistirán para el recordatorio del job.
+Para usar una versión preinstalada de Go en un ejecutor hospedado por {% data variables.product.prodname_dotcom %}, pasa la versión pertinente a la propiedad `go-version` de la acción `setup-go`. Esta acción busca una versión específica de Go en la caché de herramientas en cada ejecutor y agrega los binarios necesarios a `PATH`. Estos cambios persistirán para el recordatorio del job.
 
-La acción `setup-go` es la forma recomendada de utilizar Go con las {% data variables.product.prodname_actions %}, ya que esta ayuda a garantizar el comportamiento consistente a lo largo de los diferentes ejecutores y versiones de Go. Si estás utilizando un ejecutor auto-hospedado, debes instalar Go y agregarlo a `PATH`.
+La acción `setup-go` es la forma recomendada de usar Go con {% data variables.product.prodname_actions %}, ya que ayuda a garantizar el comportamiento coherente entre los distintos ejecutores y versiones de Go. Si vas a usar un ejecutor auto hospedado, tienes que instalar Go y agregarlo a `PATH`.
 
-### Utilizar versiones múltiples de Go
+### Uso de varias versiones de Go
 
 ```yaml{:copy}
 name: Go
@@ -94,9 +96,9 @@ jobs:
         run: go version
 ```
 
-### Utilizar una versión específica de Go
+### Uso de una versión específica de Go
 
-Puedes configurar tu job para utilizar una versión específica de Go, tal como la `1.16.2`. Como alternativa, puedes utilizar una sintaxis de versión semántica para obtener el último lanzamiento menor. Este ejemplo utiliza el último lanzamiento de parche de Go 1.16:
+Puedes configurar el trabajo para que use una versión específica de Go, como `1.16.2`. Como alternativa, puedes utilizar una sintaxis de versión semántica para obtener el último lanzamiento menor. En este ejemplo se usa la versión de revisión más reciente de Go 1.16:
 
 ```yaml{:copy}
       - name: Setup Go 1.16.x
@@ -106,9 +108,9 @@ Puedes configurar tu job para utilizar una versión específica de Go, tal como 
           go-version: '1.16.x'
 ```
 
-## Instalar dependencias
+## Instalación de dependencias
 
-Puedes utilziar `go get` para instalar dependencias:
+Puedes usar `go get` para instalar dependencias:
 
 ```yaml{:copy}
     steps:
@@ -120,17 +122,17 @@ Puedes utilziar `go get` para instalar dependencias:
       - name: Install dependencies
         run: |
           go get .
-          go get example.lab/octo-examplemodule
-          go get example.lab/octo-examplemodule@v1.3.4
+          go get example.com/octo-examplemodule
+          go get example.com/octo-examplemodule@v1.3.4
 ```
 
 {% ifversion actions-caching %}
 
 ### Almacenar dependencias en caché
 
-Puedes almacenar en caché y restaurar las dependencias utilizando la [acción `setup-go`](https://github.com/actions/setup-go). El almacenamiento en caché se encuentra inhabilitado predeterminadamente, pero puedes configurar el parámetro `cache` en `true` para habilitarlo.
+Puedes almacenar en caché y restaurar las dependencias mediante la [acción `setup-go`](https://github.com/actions/setup-go). De forma predeterminada, el almacenamiento en caché está deshabilitado, pero se puede establecer el parámetro `cache` en `true` para habilitarlo.
 
-Cuando se habilita el almacenamiento en caché, la acción `setup-go` busca el archivo de dependencia, `go.sum`, en la raíz del repositorio y utiliza el hash del archivo de dependencia como parte de la llave del caché.
+Cuando se habilita el almacenamiento en caché, la acción `setup-go` busca el archivo de dependencia, `go.sum`, en la raíz del repositorio y usa el hash del archivo de dependencia como parte de la clave de caché.
 
 ```yaml{:copy}
       - name: Setup Go
@@ -140,7 +142,7 @@ Cuando se habilita el almacenamiento en caché, la acción `setup-go` busca el a
           cache: true
 ```
 
-Como alternativa, puedes utilizar el parámetro `cache-dependency-path` para los casos en donde se utilizan archivos de dependencias múltiples o cuando se ubican en subdirectorios diferentes.
+Como alternativa, puede usar el parámetro `cache-dependency-path` para los casos en los que se usan varios archivos de dependencia o cuando se encuentran en distintos subdirectorios.
 
 ```yaml{:copy}
       - uses: {% data reusables.actions.action-setup-go %}
@@ -150,13 +152,13 @@ Como alternativa, puedes utilizar el parámetro `cache-dependency-path` para los
           cache-dependency-path: subdir/go.sum
 ```
 
-Si tienes un requisito personalizado o necesitas controles más exactos para almacenar en caché, puedes utilizar la [acción `cache`](https://github.com/marketplace/actions/cache). Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para agilizar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
+Si tiene una necesidad específica o necesita controles más precisos para el almacenamiento en caché, puede usar la [acción `cache`](https://github.com/marketplace/actions/cache). Para más información, vea "[Almacenamiento en caché de dependencias para acelerar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
 
 {% endif %}
 
 ## Construir y probar tu código
 
-Puedes usar los mismos comandos que usas de forma local para construir y probar tu código. Este flujo de trabajo de ejemplo demuestra cómo utilizar `go build` y `go test` en un job:
+Puedes usar los mismos comandos que usas de forma local para construir y probar tu código. En este flujo de trabajo de ejemplo se muestra cómo usar `go build` y `go test` en un trabajo:
 
 ```yaml{:copy}
 name: Go
@@ -182,9 +184,9 @@ jobs:
 
 ## Empaquetar datos de flujo de trabajo como artefactos
 
-Después de que se completa un flujo de trabajo, puedes cargar los artefactos que se den como resultado para su análisis. Por ejemplo, es posible que debas guardar los archivos de registro, los vaciados de memoria, los resultados de las pruebas o las capturas de pantalla. El siguiente ejemplo demuestra cómo puedes utilizar la acción `upload-artifact` para cargar los resultados de las pruebas.
+Después de que se completa un flujo de trabajo, puedes cargar los artefactos que se den como resultado para su análisis. Por ejemplo, es posible que debas guardar los archivos de registro, los vaciados de memoria, los resultados de las pruebas o las capturas de pantalla. En el ejemplo siguiente se muestra cómo puede usar la acción `upload-artifact` para cargar los resultados de la prueba.
 
-Para obtener más información, consulta la sección "[Almacenar los datos de los flujos de trabajo como artefactos](/actions/using-workflows/storing-workflow-data-as-artifacts)".
+Para obtener más información, consulta "[Almacenamiento de datos de flujo de trabajo como artefactos](/actions/using-workflows/storing-workflow-data-as-artifacts)".
 
 ```yaml{:copy}
 name: Upload Go test results

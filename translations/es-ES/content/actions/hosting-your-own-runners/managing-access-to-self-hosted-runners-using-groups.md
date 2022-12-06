@@ -1,19 +1,24 @@
 ---
-title: Administrar el acceso a los ejecutores auto-hospedados utilizando grupos
-intro: Puedes utilizar políticas para limitar el acceso a los ejecutores auto-hospedados que se hayan agregado a una organización o empresa.
+title: Managing access to self-hosted runners using groups
+shortTitle: Manage access with runner groups
+intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
 redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
+miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 type: tutorial
-shortTitle: Using runner groups
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+
+{% ifversion target-runner-groups %}
+For information on how to route jobs to runners in a specific group, see "[Choosing runners in a group](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group)."
+{% endif %}
 
 ## About runner groups
 
@@ -21,7 +26,7 @@ shortTitle: Using runner groups
 
 {% ifversion ghec or ghes or ghae %}
 
-## Crear un grupo de ejecutores auto-hospedados para una organización
+## Creating a self-hosted runner group for an organization
 
 {%- ifversion ghec or ghes %}
 
@@ -31,7 +36,7 @@ shortTitle: Using runner groups
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-## Crear un grupo de ejecutores auto-hospedados para una empresa
+## Creating a self-hosted runner group for an enterprise
 
  {%- ifversion ghec or ghes %}
 
@@ -43,7 +48,7 @@ shortTitle: Using runner groups
 
 {% endif %}
 
-## Cambiar la política de acceso de un grupo de ejecutores auto-hospedados
+## Changing the access policy of a self-hosted runner group
 
 {%- ifversion fpt or ghec or ghes %}
 
@@ -53,21 +58,23 @@ shortTitle: Using runner groups
 
 {% data reusables.actions.changing-the-access-policy-of-a-runner-group %}
 
-## Cambiar el nombre de un grupo de ejectuores
+## Changing the name of a runner group
 
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghec or ghes or ghae %}
-## Agregar ejecutores auto-hospedados a un grupo automáticamente
+## Automatically adding a self-hosted runner to a group
 
 {% data reusables.actions.automatically-adding-a-runner-to-a-group %}
 
-## Mover un ejecutor auto-hospedado a un grupo
+## Moving a self-hosted runner to a group
 
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-## Eliminar un grupo de ejecutores auto-hospedados
+## Removing a self-hosted runner group
 
 {% data reusables.actions.removing-a-runner-group %}
 
 {% endif %}
+
+{% data reusables.actions.section-using-unique-names-for-runner-groups %}

@@ -1,10 +1,11 @@
 ---
-title: 查看安全性概述
-intro: 导航到安全概述中可用的不同视图
+title: Viewing the security overview
+intro: Navigate to the different views available in the security overview
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
+allowTitleToDifferFromFilename: true
 versions:
-  ghae: issue-5503
+  ghae: '>= 3.4'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -14,7 +15,7 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: 查看安全性概述
+shortTitle: View the security overview
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
@@ -23,46 +24,49 @@ shortTitle: 查看安全性概述
 
 {% data reusables.security-overview.information-varies-GHAS %}
 
-## 查看组织的安全概述
+## Viewing the security overview for an organization
+
+{% data reusables.security-overview.beta-org-risk-coverage %}
+
+{% ifversion security-overview-org-risk-coverage %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.security-overview %}
+1. Choose the overview you want to display from the options in the sidebar.
+1. Use the drop-down filters and search box to focus on the information of greatest interest. The "Security Risk" and "Security Coverage" views also have an interactive header that you can use to filter results.
+
+  ![Screenshot of the Security Risk view with interactive header highlighted](/assets/images/help/security-overview/security-risk-interactive-header.png)
+
+{% else %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. 要查看有关警报类型的汇总信息，请单击 **Show more（显示更多）**。 ![显示更多按钮](/assets/images/help/organizations/security-overview-show-more-button.png)
+1. To view aggregate information about alert types, click **Show more**.
+  ![Show more button](/assets/images/help/security-overview/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% ifversion security-overview-views %}
+{% ifversion security-overview-alert-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
-  ![代码扫描特定页面的截图](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+  ![Screenshot of the code scanning-specific page](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png)
+{% endif %}
 
-## 查看整个组织中的警报
+{% endif %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. 在安全性边栏中，选择要查看的警报子集。 ![查看警报子集](/assets/images/help/organizations/view-alert-subset.png)
-2. （可选）过滤警报列表。 每个视图都有自己选择的可用筛选器。 您可以单击下拉过滤菜单中的多个过滤器以缩小搜索范围。 您还可以在搜索字段中键入搜索限定符。 有关可用限定符的更多信息，请参阅“[筛选安全性概述中的警报](/code-security/security-overview/filtering-alerts-in-the-security-overview)”。 ![机密扫描视图中的下拉筛选器菜单和搜索存储库字段](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
-
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
-## 查看企业的安全性概述
+{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+## Viewing the security overview for an enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. 在左侧边栏中，单击 {% octicon "shield" aria-label="The shield icon" %} **代码安全性**。
+1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
 {% ifversion security-overview-feature-specific-alert-page %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
 {% endif %}
-{% endif %}
-
-## 查看仓库的警报
-
-{% data reusables.repositories.navigate-to-repo %}
-1. 在仓库名称下，单击 **Security（安全性）**。 ![存储库安全性选项卡](/assets/images/help/repository/security-tab.png)
-2. 在安全性边栏中，选择要打开的视图。 ![存储库视图警报子集](/assets/images/help/repository/repo-security-side-panel.png)
-3. （可选）过滤警报列表。 每个视图都有自己选择的可用筛选器。 您可以单击下拉过滤菜单中的多个过滤器以缩小搜索范围。 您还可以在搜索字段中键入搜索限定符。 有关可用限定符的更多信息，请参阅“[筛选安全性概述中的警报](/code-security/security-overview/filtering-alerts-in-the-security-overview)”。 ![存储库机密扫描警报视图中的下拉筛选器菜单](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
 
 {% endif %}
 
-## 查看团队的安全概述
+{% ifversion ghes < 3.7 or ghae < 3.7 %}
+## Viewing the security overview for a team
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}
+{% endif %}

@@ -221,7 +221,7 @@ For Enterprise Marketing Pages, we may also use non-essential cookies to  (i) ga
 
 Our emails to users may contain a pixel tag, which is a small, clear image that can tell us whether or not you have opened an email and what your IP address is. We use this pixel tag to make our email communications more effective and to make sure we are not sending you unwanted email.
 
-The length of time a cookie will stay on your browser or device depends on whether it is a “persistent” or “session” cookie. Session cookies will only stay on your device until you stop browsing. Persistent cookies stay until they expire or are deleted. The expiration time or retention period applicable to persistent cookies depends on the purpose of the cookie collection and tool used. You may be able to delete cookie data as described here.
+The length of time a cookie will stay on your browser or device depends on whether it is a “persistent” or “session” cookie. Session cookies will only stay on your device until you stop browsing. Persistent cookies stay until they expire or are deleted. The expiration time or retention period applicable to persistent cookies depends on the purpose of the cookie collection and tool used. You may be able to delete cookie data as described [here](/site-policy/privacy-policies/github-privacy-statement#what-are-your-cookie-choices-and-controls).
 
 #### What are cookies and similar technologies?
 
@@ -289,10 +289,10 @@ In addition, if your account has private repositories, you control the access to
 - to comply with our legal obligations if we have reason to believe the contents are in violation of the law, 
 - or with your consent.
 
-Github will provide notice regarding private repository access where not prohibited by law or if in response to a security threat or other risk to security.
+GitHub will provide notice regarding private repository access where not prohibited by law or if in response to a security threat or other risk to security.
 
 ### Cross-border data transfers
-GitHub processes personal data both inside and outside of the United States and relies on legal mechanisms such as Standard Contractual Clauses to lawfully transfer data from the European Economic Area, the United Kingdom, and Switzerland to the United States. You may request a copy of the Standard Contractual Clauses using the contact details provided in the section entitled “Contacting GitHub” below. 
+GitHub processes personal data both inside and outside of the United States. To lawfully transfer data from the European Economic Area, the United Kingdom, and Switzerland to the United States, it relies on adequate protection as decided by the European Commission in accordance with Art. 45 GDPR or appropriate safeguards in accordance with Art. 46 GDPR, such as Standard Contractual Clauses as well as supplementary measures such as encryption at rest and in transit.
 
 ### Resolving complaints
 If you have concerns about the way GitHub is handling your personal data, please let us know immediately. We want to help. You may contact us by filling out the [Privacy contact form](https://support.github.com/contact/privacy). You may also email us directly at **(privacy [at] github [dot] com)** with the subject line "Privacy Concerns." We will respond promptly — within 45 days at the latest.
@@ -307,7 +307,7 @@ United States<br>
 **privacy [at] github [dot] com**<br>
 
 **If you are outside of North America:**<br>
-Github Data Protection Officer<br>
+GitHub Data Protection Officer<br>
 c/o DP Dock DPO Services GmbH,<br>
 Attn: GitHub BV, Gut Projensdorf,<br>
 24161 Altenholz, Germany<br>
@@ -372,9 +372,9 @@ The CCPA provides California residents with certain rights related to their pers
 When receiving a request, we will verify that the individual making the request is the resident to whom the personal information subject to the request pertains. California residents may exercise their rights themselves or may use an authorized agent, designated in writing or through a power of attorney, to make requests on their behalf. If you use an authorized agent to submit a request, we may require that you provide us additional information demonstrating that the agent is acting on your behalf, and we may need you to verify your identity directly with us.
 With respect to your personal information, California residents may exercise the rights described below.
 #### Right to Know. 
-You have a right to request that we disclose to you the personal information we have collected about you.  You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information.  Note that we have provided much of this information in this privacy statement. You can use GitHub’s User Migration API to access and download your data. Learn more here. You may also make such a “request to know” by contacting us here.
+You have a right to request that we disclose to you the personal information we have collected about you.  You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information.  Note that we have provided much of this information in this privacy statement. You can use GitHub’s User Migration tool to access and download your data. Learn more [here](/get-started/privacy-on-github/requesting-an-archive-of-your-personal-accounts-data). You may also make such a “request to know” by contacting us [here](https://support.github.com/contact/privacy).
 #### Right to Request Deletion. 
-You also have a right to request that we delete personal information under certain circumstances, subject to a number of exceptions. To make a request to delete, You can use GitHub’s User Migration API to access and download your data. Learn more here. You may also make such a “request to delete” by contacting us here.
+You also have a right to request that we delete personal information under certain circumstances, subject to a number of exceptions. To make a request to delete, you can contact us [here](https://support.github.com/contact/privacy) or use the account settings [here](https://github.com/settings/admin).
 
 #### Right to Opt-Out. 
 You have a right to opt-out from future “sales” of personal information. Note that we do not “sell” personal information as defined by the CCPA and have not done so in the past 12 months. 

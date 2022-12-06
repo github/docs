@@ -29,6 +29,7 @@ children:
   - /managing-discussion-creation-for-repositories-in-your-organization
   - /managing-the-commit-signoff-policy-for-your-organization
   - /setting-team-creation-permissions-in-your-organization
+  - /limiting-oauth-app-and-github-app-access-requests
   - /managing-scheduled-reminders-for-your-organization
   - /managing-the-default-branch-name-for-repositories-in-your-organization
   - /managing-default-labels-for-repositories-in-your-organization
@@ -43,8 +44,12 @@ children:
   - /disabling-project-boards-in-your-organization
   - /disabling-insights-for-projects-in-your-organization
   - /allowing-project-visibility-changes-in-your-organization
-shortTitle: Gerenciar as configurações da organização
+shortTitle: Manage organization settings
+ms.openlocfilehash: d19c515ac3d908df15afd8c5741553f7526a6f99
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148007646'
 ---
-
-{% ifversion fpt or ghec %}
-{% endif %}
+{% ifversion fpt or ghec %} {% endif %}

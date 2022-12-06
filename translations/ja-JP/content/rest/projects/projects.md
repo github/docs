@@ -1,8 +1,8 @@
 ---
 title: '{% data variables.product.prodname_projects_v1_caps %}'
-shortTitle: ボード
+shortTitle: Boards
 allowTitleToDifferFromFilename: true
-intro: '{% data variables.product.prodname_projects_v1 %} APIを使うと、リポジトリの{% data variables.projects.projects_v1_boards %}の作成や管理ができます。'
+intro: 'The {% data variables.product.prodname_projects_v1 %} API lets you create and manage {% data variables.projects.projects_v1_boards %} in a repository.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,3 +14,5 @@ miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}

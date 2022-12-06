@@ -1,5 +1,5 @@
-Cuando haces clic en la opción predeterminada **Merge pull request** (Fusionar solicitud de extracción) en una solicitud de extracción de {% data variables.product.product_location %}, todas las confirmaciones de la rama de característica se agregan a la rama de base en una confirmación de fusión. La solicitud de extracción se fusiona usando [la opción `--no-ff`](https://git-scm.com/docs/git-merge#_fast_forward_merge).
+When you click the default **Merge pull request** option on a pull request on {% data variables.location.product_location %}, all commits from the feature branch are added to the base branch in a merge commit. The pull request is merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge).
 
-Para fusionar solicitudes de extracción, debes tener [permisos de escritura](/articles/repository-permission-levels-for-an-organization/) sobre el repositorio.
+To merge pull requests, you must have [write permissions](/articles/repository-permission-levels-for-an-organization/) in the repository.
 
 ![standard-merge-commit-diagram](/assets/images/help/pull_requests/standard-merge-commit-diagram.png)

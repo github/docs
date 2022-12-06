@@ -1,7 +1,17 @@
-1. Navegar a tu proyecto.
-1. En la parte superior derecha, haz clic en {% octicon "kebab-horizontal" aria-label="The menu icon" %} para abrir el menú. ![Captura de pantalla que muestra el icono de menú](/assets/images/help/projects-v2/open-menu.png)
-1. En el menú, haz clic en {% octicon "workflow" aria-label="The workflow icon" %} **Flujos de trabajo**. ![Captura de pantalla que muestra el elemento de menú 'Flujos de trabajo'](/assets/images/help/projects-v2/workflows-menu-item.png)
-1. Debajo de **Flujos de trabajo predeterminados**, haz clic en el flujo de trabajo que quieres editar. ![Captura de pantalla que muestra los flujos de trabajo predeterminados](/assets/images/help/projects-v2/default-workflows.png)
-1. Si el flujo de trabajo puede aplicarse a ambos resultados y solicitudes de cambio, junto a **Dónde**, verifica el(los) tipo(s) de elemento(s) sobre el(los) cuál(es) quieres actuar. ![Captura de pantalla que muestra la configuración "when" para un flujo de trabajo](/assets/images/help/projects-v2/workflow-when.png)
-1. Junto a **Configurar**, elige el valor en el cual quieres configurar al estado. ![Captura de pantalla que muestra la configuración "set" para un flujo de trabajo](/assets/images/help/projects-v2/workflow-set.png)
-1. Si el flujo de trabajo se inhabilita, haz clic en el alternador junto a **Inhabilitado** para habilitarlo. ![Captura de pantalla que muestra el control de "enable" para un flujo de trabajo](/assets/images/help/projects-v2/workflow-enable.png)
+{% data reusables.projects.access-workflows %}
+1. Under **Default workflows**, click on the workflow that you want to edit.
+   
+   ![Screenshot showing default workflows](/assets/images/help/projects-v2/default-workflows.png)
+
+2. If the workflow can apply to both issues and pull requests, next to **When**, check the item type(s) that you want to act on.
+   
+   ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when.png)
+
+3. Next to **Set**, choose the value that you want to set the status to.
+   
+   ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
+
+4. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.
+   
+   ![Screenshot showing the "On/Off" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+   

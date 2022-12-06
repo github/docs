@@ -1,5 +1,5 @@
 ---
-title: Por que a minha candidatura para o Campus Global para professores não foi aprovada?
+title: Por que minha candidatura ao Global Campus para professores não foi aprovada?
 intro: 'Analise os motivos comuns para a reprovação de candidaturas ao {% data variables.product.prodname_global_campus %} e veja dicas para se candidatar novamente sem problemas.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
@@ -11,9 +11,14 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
 versions:
   fpt: '*'
-shortTitle: Solicitação recusada
+shortTitle: Application not approved
+ms.openlocfilehash: 68fe0a970c94a73293505849425bc78ec78b265e
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107799'
 ---
-
 {% tip %}
 
 **Dica:** {% data reusables.education.about-github-education-link %}
@@ -42,8 +47,8 @@ Se você tiver outras dúvidas sobre o domínio da instituição de ensino, peç
 
 ## Candidatura de não alunos ao pacote de desenvolvedor para estudante
 
-Os professores não são elegíveis às ofertas de parceiro que vêm com [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Quando você se candidatar novamente, lembre-se de escolher **Faculty** (Faculdade) para descrever seu status acadêmico.
+Professores não estão qualificados para as ofertas de parceiros fornecidas no [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Quando você fizer uma nova solicitação, escolha **Corpo Docente** para descrever seu status acadêmico.
 
-## Leia mais
+## Leitura adicional
 
-- "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"
+- "[Candidatar-se para o {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"

@@ -34,3 +34,9 @@
   href: microsoft/vscode-remote-try-php
   tags:
     - development containers
+- title: Azure SQL and SQL Server sample project
+  description: Try an Azure SQL or SQL Server project with a custom dev container
+  languages: SQL
+  href: microsoft/vscode-remote-try-sqlserver
+  tags:
+    - development containers

@@ -1,4 +1,11 @@
-1. To set your SSH signing key in Git, paste the text below, substituting the contents of your clipboard for the key you'd like to use. Since the key contains spaces, you must wrap it in quotes:
+---
+ms.openlocfilehash: 6dfaad4dc9dc813104183b2c9db41e480c9b27fb
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/14/2022
+ms.locfileid: "148163574"
+---
+1. Para definir a chave de assinatura SSH no Git, cole o texto abaixo, substituindo **/PATH/TO/KEY.PUB** pela chave pública que deseja usar.
   ```bash
-  $ git config --global user.signingkey 'ssh-ed25519 AAAAC3(...) user@example.com'
-  ```
+  $ git config --global user.signingkey /PATH/TO/.SSH/KEY.PUB

@@ -19,8 +19,6 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
 ---
 
-{% data reusables.dependency-review.beta %}
-
 ## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}  
@@ -45,10 +43,8 @@ For more information on supply chain features available on {% data variables.pro
 The dependency review feature becomes available when you enable the dependency graph. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 ## Dependency review enforcement
-
-{% data reusables.dependency-review.dependency-review-action-beta-note %}
 
 The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
 

@@ -1,6 +1,6 @@
 ---
-title: Organization
-intro: Organization 管理 API を使用すると、Enterprise に Organization を作成できます。
+title: Organizations
+intro: The Organization Administration API allows you to create organizations on your enterprise.
 versions:
   ghes: '*'
   ghae: '*'
@@ -10,4 +10,6 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-*[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
+*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

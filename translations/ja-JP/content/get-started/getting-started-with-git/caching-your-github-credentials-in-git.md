@@ -1,5 +1,5 @@
 ---
-title: Git に GitHub の認証情報をキャッシュする
+title: Caching your GitHub credentials in Git
 redirect_from:
   - /firewalls-and-proxies
   - /articles/caching-your-github-password-in-git
@@ -18,7 +18,7 @@ shortTitle: Caching credentials
 
 {% tip %}
 
-**Tip:** If you clone {% data variables.product.product_name %} repositories using SSH, then you  can authenticate using an SSH key instead of using other credentials. SSH 接続のセットアップについては「[SSH キーを生成する](/articles/generating-an-ssh-key)」を参照してください。
+**Tip:** If you clone {% data variables.product.product_name %} repositories using SSH, then you  can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
 
 {% endtip %}
 
@@ -35,7 +35,7 @@ For more information about authenticating with {% data variables.product.prodnam
 
 ## Git Credential Manager
 
-[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM, you don't have to manually [create and store a PAT](/github/authenticating-to-github/creating-a-personal-access-token), as GCM manages authentication on your behalf, including 2FA (two-factor authentication).
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM, you don't have to manually [create and store a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token), as GCM manages authentication on your behalf, including 2FA (two-factor authentication).
 
 {% mac %}
 
@@ -53,7 +53,7 @@ For more information about authenticating with {% data variables.product.prodnam
 
 {% data reusables.gcm-core.next-time-you-clone %}
 
-認証に成功すると、認証情報は macOS のキーチェーンに保存され、HTTPS URL をクローンするたびに使用されます。 Git will not require you to type your credentials in the command line again unless you change your credentials.
+Once you've authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.
 
 {% endmac %}
 
@@ -77,7 +77,7 @@ Once you've authenticated successfully, your credentials are stored in the Windo
 
 {% warning %}
 
-**Warning:** If you cached incorrect or outdated credentials in Credential Manager for Windows, Git will fail to access {% data variables.product.product_name %}. To reset your cached credentials so that Git prompts you to enter your credentials, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the {% data variables.product.product_name %} entry and delete it.
+**Warning:** If you cached incorrect or outdated credentials in Credential Manager for Windows, Git will fail to access {% data variables.product.product_name %}. To reset your cached credentials so that Git prompts you to enter your credentials, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the {% data variables.product.product_name %} entry and delete it. 
 
 {% endwarning %}
 

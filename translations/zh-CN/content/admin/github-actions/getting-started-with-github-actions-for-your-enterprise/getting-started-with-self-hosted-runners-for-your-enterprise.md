@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.actions.about-actions-for-enterprises %} For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
-With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes or ghae %}To enable {% data variables.product.prodname_actions %} for {% ifversion ghae %}your enterprise{% elsif ghes %} {% data variables.product.product_location %}{% endif %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes or ghae %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes or ghae %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes or ghae %}To enable {% data variables.product.prodname_actions %} for {% ifversion ghae %}your enterprise{% elsif ghes %} {% data variables.location.product_location %}{% endif %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes or ghae %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes or ghae %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
 {% ifversion ghec %}
 
@@ -32,13 +32,11 @@ This guide shows you how to apply a centralized management approach to self-host
 1. Deploy a self-hosted runner for your enterprise
 1. Create a group to manage access to the runners available to your enterprise
 1. Optionally, further restrict the repositories that can use the runner
-{%- ifversion ghec or ghae or ghes > 3.2 %}
 1. Optionally, build custom tooling to automatically scale your self-hosted runners
-{% endif %}
 
 You'll also find additional information about how to monitor and secure your self-hosted runners,{% ifversion ghes or ghae %} how to access actions from {% data variables.product.prodname_dotcom_the_website %},{% endif %} and how to customize the software on your runner machines.
 
-After you finish the guide, {% ifversion ghec or ghae %}members of your enterprise{% elsif ghes %}users of {% data variables.product.product_location %}{% endif %} will be able to run workflow jobs from {% data variables.product.prodname_actions %} on a self-hosted runner machine.
+After you finish the guide, {% ifversion ghec or ghae %}members of your enterprise{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %} will be able to run workflow jobs from {% data variables.product.prodname_actions %} on a self-hosted runner machine.
 
 ## Prerequisites
 
@@ -48,7 +46,7 @@ After you finish the guide, {% ifversion ghec or ghae %}members of your enterpri
 
 ## 1. Configure policies for {% data variables.product.prodname_actions %}
 
-First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.product.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
+First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.location.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -65,11 +63,11 @@ First, enable {% data variables.product.prodname_actions %} for all organization
    {%- endif %}
 1. Click **Save**.
 
-You can configure additional policies to restrict the actions available to {% ifversion ghec or ghae %}enterprise members{% elsif ghes %}users of {% data variables.product.product_location %}{% endif %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)."
+You can configure additional policies to restrict the actions available to {% ifversion ghec or ghae %}enterprise members{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)."
 
 ## 2. Deploy the self-hosted runner for your enterprise
 
-Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {%ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.
+Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {%ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
 
 ### Adding the self-hosted runner
 
@@ -101,7 +99,7 @@ You can create a runner group to manage access to the runner that you added to y
    {% endwarning %}
 {%- endif %}
 {% data reusables.actions.create-runner-group %}
-{%- ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
+{%- ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.
 1. Click **Edit**.
@@ -122,13 +120,9 @@ Optionally, organization owners can further restrict the access policy of the ru
 
 For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 
-{% ifversion ghec or ghae or ghes > 3.2 %}
-
 ## 5. Automatically scale your self-hosted runners
 
-Optionally, you can build custom tooling to automatically scale the self-hosted runners for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.product.product_location %}{% endif %}. For example, your tooling can respond to webhook events from {% data variables.product.product_location %} to automatically scale a cluster of runner machines. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
-
-{% endif %}
+Optionally, you can build custom tooling to automatically scale the self-hosted runners for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For example, your tooling can respond to webhook events from {% data variables.location.product_location %} to automatically scale a cluster of runner machines. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
 
 ## Next steps
 

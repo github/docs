@@ -16,9 +16,14 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Enviar notificaciones por correo electrónico para las subidas
+shortTitle: Email notifications for pushes
+ms.openlocfilehash: ee12b8f8270921abd1fe70c748449e46fd472e2c
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145136747'
 ---
-
 {% data reusables.notifications.outbound_email_tip %}
 
 Cada notificación por correo electrónico para una subida a un repositorio enumera las confirmaciones nuevas y las vincula a una diferencia que solo contenga esas confirmaciones. En la notificación por correo electrónico verás:
@@ -31,17 +36,18 @@ Cada notificación por correo electrónico para una subida a un repositorio enum
 - Los archivos que fueron modificados como parte de la confirmación.
 - El mensaje de confirmación
 
-Puedes filtrar las notificaciones por correo electrónico que recibes para las inserciones en un repositorio. Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)".
+Puedes filtrar las notificaciones por correo electrónico que recibes para las inserciones en un repositorio. Para más información, vea "[Configuración de notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)".
 
 ## Habilitar las notificaciones por correo electrónico para las subidas de información en tu repositorio
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.sidebar-notifications %}
-5. Escribe hasta dos direcciones de correo electrónico, separadas por espacio en blanco, donde quieras que se envíen las notificaciones. Si quieres enviar los correos electrónicos a más de dos cuentas, configura una de las direcciones de correo electrónico a una dirección de correo electrónico del grupo. ![Cuadro de texto dirección de correo electrónico](/assets/images/help/settings/email_services_addresses.png)
-1. Si operas tu propio servidor, puedes verificar la integridad de los correos electrónicos a través del **Encabezado aprobado**. El **Encabezado aprobado** es un token o un secreto que tecleas en este campo y que se envía con el correo electrónico. Si el encabezado que está como `Approved` en un correo electrónico empata con el token, puedes confiar en que dicho correo es de {% data variables.product.product_name %}. ![Caja de texto de correo de encabezado aprobado](/assets/images/help/settings/email_services_approved_header.png)
-7. Da clic en **Configurar notificaciones**. ![Botón de configurar notificaciones](/assets/images/help/settings/setup_notifications_settings.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.sidebar-notifications %}
+5. Escribe hasta dos direcciones de correo electrónico, separadas por espacio en blanco, donde quieras que se envíen las notificaciones. Si quieres enviar los correos electrónicos a más de dos cuentas, configura una de las direcciones de correo electrónico a una dirección de correo electrónico del grupo.
+![Cuadro de texto de dirección de correo electrónico](/assets/images/help/settings/email_services_addresses.png)
+1. Si opera su propio servidor, puede verificar la integridad de los correos electrónicos a través del **Encabezado aprobado**. El **Encabezado aprobado** es un token o un secreto que escribe en este campo y que se envía con el correo electrónico. Si el encabezado que está como `Approved` en un correo electrónico concide con el token, puede confiar en que dicho correo es de {% data variables.product.product_name %}.
+![Caja de texto de correo electrónico de encabezado aprobado](/assets/images/help/settings/email_services_approved_header.png)
+7. Haga clic en **Setup notifications** (Configurar notificaciones).
+![Botón para configurar notificaciones](/assets/images/help/settings/setup_notifications_settings.png)
 
-## Leer más
+## Lecturas adicionales
 - "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 

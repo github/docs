@@ -74,6 +74,8 @@ If you've already created a group assignment for the classroom, you can reuse a 
 
 ### Choosing a visibility for assignment repositories
 
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
+
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
@@ -151,5 +153,5 @@ The assignment overview page displays information about your assignment acceptan
 ## Further reading
 
 - [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
+- "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
 - [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community

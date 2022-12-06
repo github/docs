@@ -1,6 +1,6 @@
 ---
 title: Desenvolvedores
-intro: 'Aprofunde-se com {% data variables.product.prodname_dotcom %}, integrando nossas APIs e webhooks, personalizando seu fluxo de trabalho de {% data variables.product.prodname_dotcom %} e criando e compartilhando aplicativos com a comunidade.'
+intro: 'Aproveite o {% data variables.product.prodname_dotcom %}, ao fazer a integração com as nossas APIs e os webhooks, personalizando o seu fluxo de trabalho do {% data variables.product.prodname_dotcom %} e construindo e compartilhando aplicativos com a comunidade.'
 introLinks:
   About apps: /developers/apps/getting-started-with-apps/about-apps
 layout: product-landing
@@ -11,11 +11,11 @@ featuredLinks:
     - /developers/apps/building-github-apps/authenticating-with-github-apps
     - /developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps
   popular:
+    - /developers/overview/about-githubs-apis
     - /developers/webhooks-and-events/webhooks/webhook-events-and-payloads
     - /developers/apps/building-github-apps/creating-a-github-app
     - /developers/apps/building-github-apps/authenticating-with-github-apps
     - /developers/webhooks-and-events/webhooks/about-webhooks
-    - /developers/apps/building-oauth-apps/creating-an-oauth-app
     - /developers/apps/building-oauth-apps/authorizing-oauth-apps
     - /developers/github-marketplace/github-marketplace-overview/about-github-marketplace
   guideCards:
@@ -34,5 +34,11 @@ children:
   - /webhooks-and-events
   - /apps
   - /github-marketplace
+ms.openlocfilehash: dea95cbf3a90b14441c8bd09692c27dd3798d8e5
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107917'
 ---
 

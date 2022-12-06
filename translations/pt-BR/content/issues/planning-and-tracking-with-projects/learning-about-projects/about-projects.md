@@ -1,6 +1,6 @@
 ---
 title: 'Sobre {% data variables.product.prodname_projects_v2 %}'
-intro: '{% data variables.product.prodname_projects_v2 %} é uma ferramenta flexível e adaptável para o planejamento e o rastreamento do trabalho em {% data variables.product.company_short %}.'
+intro: 'O {% data variables.product.prodname_projects_v2 %} é uma ferramenta adaptável e flexível para planejar e acompanhar o trabalho no {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,29 +10,46 @@ redirect_from:
 type: overview
 topics:
   - Projects
+ms.openlocfilehash: 3190379652fe1c95b8ea6ec7f864c44b72d9a7f7
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180758'
 ---
-
 ## Sobre {% data variables.product.prodname_projects_v2 %}
 
-Um projeto é uma planilha adaptável que se integra aos seus problemas e pull requests em {% data variables.product.company_short %} para ajudar você a planejar e controlar seu trabalho de forma eficiente. Você pode criar e personalizar várias visualizações filtrando, ordenando, agrupando seus problemas e pull requests, adicionar campos personalizados para rastrear metadados específicos para sua equipe e visualizar o trabalho com gráficos configuráveis. Ao invés de aplicar uma metodologia específica, um projeto fornece recursos flexíveis, você pode personalizar as necessidades e processos da sua equipe.
+Um projeto é uma planilha adaptável que se integra aos seus problemas e solicitações de pull no {% data variables.product.company_short %} para ajudar você a planejar e acompanhar seu trabalho com eficiência. Você pode criar e personalizar várias exibições filtrando, classificando, agrupando seus problemas e solicitações de pull, adicionando campos personalizados para acompanhar metadados específicos à sua equipe e para visualizar o trabalho com gráficos configuráveis. Em vez de impor uma metodologia específica, um projeto fornece recursos flexíveis que você pode personalizar para as necessidades e processos de sua equipe.
 
 ### Mantendo-se atualizado
 
-Seus projetos são construídos a partir de problemas e pull requests que você adiciona, criando referências diretas entre seu projeto e seu trabalho. As informações são sincronizadas automaticamente para o seu projeto à medida que você faz mudanças, atualizando suas opiniões e gráficos. Esta integração funciona nos dois sentidos para que quando você muda informações sobre um pull request ou problema em seu projeto, o problema ou o pull request reflete essa informação. Por exemplo, altere um atribuído em seu projeto e essa alteração será exibida no seu problema. Você pode levar esta integração adiante, agrupar seu projeto por responsável e fazer alterações na atribuição de problemas arrastando-os para os diferentes grupos.
+Seus projetos são criados com base nos problemas e nas solicitações de pull que você adiciona, criando referências diretas entre seu projeto e seu trabalho. As informações são sincronizadas de maneira com seu projeto conforme você faz alterações, atualizando suas exibições e gráficos. Essa integração também funciona nos dois sentidos, para que, quando você alterar as informações sobre um problema ou solicitação de pull do seu projeto, o problema ou a solicitação de pull reflita essa informação. Por exemplo, altere um destinatário em seu projeto para que essa alteração seja mostrada em seu problema. Você pode levar essa integração ainda mais longe, agrupar seu projeto por destinatário e fazer alterações na atribuição de problemas arrastando problemas para os diferentes grupos.
 
-### Adicionando metadados às suas tarefas
+### Adicionando metadados aos seus itens
 
-Você pode usar campos personalizados para adicionar metadados às suas tarefas e construir uma visão mais rica dos atributos do item. Você não está limitado aos metadados internos (atribuídos, marco, etiquetas, etc.) que existem atualmente para problemas e pull requests. Por exemplo, você pode adicionar os seguintes metadados como campos personalizados:
+Você pode usar campos personalizados para adicionar metadados aos seus problemas, solicitações de pull e rascunhos de problemas, além de criar uma exibição mais avançada dos atributos de item. Você não está limitado aos metadados internos (destinatários, marcos, etiquetas etc.) que existem atualmente para problemas e solicitações de pull. Por exemplo, você pode adicionar os seguintes metadados como campos personalizados:
 
-- Um campo de data para acompanhar as datas de envio.
-- Um campo numérico para monitorar a complexidade de uma tarefa.
-- Um único campo de seleção para rastrear se uma tarefa tem prioridade baixa, média ou alta.
-- Um campo de texto para adicionar uma observação rápida.
-- Um campo de iteração para planejar o trabalho semanalmente, incluindo suporte para pausas.
+- O campo de data para acompanhar as datas de envio de destino.
+- O campo numérico para monitorar a complexidade de uma tarefa.
+- O único campo de seleção para rastrear se uma tarefa tem prioridade Baixa, Média ou Alta.
+- O campo de texto para adicionar uma observação rápida.
+- O campo de iteração para planejar o trabalho semanalmente, incluindo suporte para pausas.
+
+{% ifversion projects-v2-tasklists %}
+
+### Explorando as relações entre problemas
+
+{% data reusables.projects.tasklists-release-stage %}
+
+Você pode usar listas de tarefas para criar hierarquias de problemas, dividir seus problemas em subtarefas menores e criar relações entre seus problemas. Para obter mais informações, confira "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/about-tasklists)".
+
+Essas relações são exibidas no problema, bem como os campos Acompanhado por e Acompanhamentos em seus projetos. Você pode filtrar por problemas que são acompanhados por outro problema e também pode agrupar as exibições da sua tabela pelo campo Acompanhado por para mostrar todos os problemas pai com uma lista das respectivas subtarefas.
+
+{% endif %}
 
 ### Visualizando seu projeto de diferentes perspectivas
 
-Responda rapidamente às suas perguntas mais prementes personalizando a visualização do seu projeto para dar as informações de que você precisa. Você pode salvar estas visualizações, permitindo que você volte rapidamente para elas conforme necessário e disponibilizá-las para a sua equipe. As visualizações não permitem apenas que você reduza o escopo dos itens listados, mas também oferecem duas opções de layout diferentes.
+Responda rapidamente às suas perguntas mais urgentes adaptando a exibição do seu projeto para fornecer as informações necessárias. É possível salvar essas exibições, permitindo que você retorne rapidamente a elas quando necessário e disponibilize-as para sua equipe. Além de permitirem definir o escopo dos itens listados, as exibições também oferecem duas opções de layout diferentes.
 
 Você pode ver seu projeto como um layout de tabela de alta densidade:
 
@@ -46,4 +63,4 @@ Para ajudar você a concentrar-se em aspectos específicos do seu projeto, você
 
 ![Visualização do projeto](/assets/images/help/issues/project_view.png)
 
-Para obter mais informações, consulte "[Personalizando uma visão](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."
+Para obter mais informações, confira "[Personalizar uma exibição](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)".

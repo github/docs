@@ -8,17 +8,10 @@
 //    cacheControlYear(res)
 //    res.send(body)
 //
-// Or, if you want to make it definitely not cache:
-//
-//    const noCacheControl = getCacheControl(0) // you can use `false` too
-//    ...
-//    noControlYear(res)
-//    res.send(body)
-//
 // Max age is in seconds
 export function cacheControlFactory(
   maxAge = 60 * 60,
-  { key = 'cache-control', public_ = true, immutable = false } = {}
+  { key = 'cache-control', public_ = true, immutable = false, maxAgeZero = false } = {}
 ) {
   const directives = [
     maxAge && public_ && 'public',
@@ -26,6 +19,9 @@ export function cacheControlFactory(
     maxAge && immutable && 'immutable',
     !maxAge && 'private',
     !maxAge && 'no-store',
+    maxAge >= 60 * 60 && `stale-while-revalidate=${60 * 60}`,
+    // maxAge >= 60 * 60 && `stale-if-error=${60 * 60}`,
+    maxAgeZero && 'max-age=0',
   ]
     .filter(Boolean)
     .join(', ')
@@ -54,4 +50,19 @@ const defaultBrowserCacheControl = cacheControlFactory(60)
 export function defaultCacheControl(res) {
   defaultCDNCacheControl(res)
   defaultBrowserCacheControl(res)
+}
+
+// If you do not want caching
+export const noCacheControl = cacheControlFactory(0)
+
+// Long caching for archived pages and assets
+export const archivedCacheControl = cacheControlFactory(60 * 60 * 24 * 365)
+
+// Vary on language when needed
+// x-user-language is a custom request header derived from req.cookie:user_language
+// accept-language is truncated to one of our available languages
+// https://bit.ly/3u5UeRN
+export function languageCacheControl(res) {
+  defaultCacheControl(res)
+  res.set('vary', 'accept-language, x-user-language')
 }

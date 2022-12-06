@@ -108,7 +108,7 @@ describe('redirects', () => {
 
     test('are absent from all destination URLs', async () => {
       const values = Object.entries(redirects)
-        .filter(([from_, to]) => !to.includes('://'))
+        .filter(([, to]) => !to.includes('://'))
         .map(([from_]) => from_)
       expect(values.length).toBeGreaterThan(100)
       expect(values.every((value) => !value.endsWith('/'))).toBe(true)
@@ -126,10 +126,14 @@ describe('redirects', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
-    test('trailing slash on languaged homepage should permantently redirect', async () => {
+    test('trailing slash on languaged homepage should permanently redirect', async () => {
       const res = await get('/en/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/en')
@@ -142,7 +146,7 @@ describe('redirects', () => {
   describe('external redirects', () => {
     test('no external redirect starts with a language prefix', () => {
       const values = Object.entries(redirects)
-        .filter(([from_, to]) => to.includes('://'))
+        .filter(([, to]) => to.includes('://'))
         .map(([from_]) => from_)
         .filter((from_) => from_.startsWith('/en/'))
       expect(values.length).toBe(0)
@@ -447,7 +451,6 @@ describe('redirects', () => {
         'rate-limit',
         'reactions',
         'repos',
-        'scim',
         'search',
         'teams',
         'users',
@@ -485,6 +488,21 @@ describe('redirects', () => {
       const res = await get(`/en//`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en`)
+    })
+  })
+
+  describe('redirects from old Lunr search to ES legacy search', () => {
+    test('redirects even without query string', async () => {
+      const res = await get(`/search`, { followRedirects: false })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/api/search/legacy`)
+    })
+
+    test('redirects with query string', async () => {
+      const params = new URLSearchParams({ foo: 'bar' })
+      const res = await get(`/search?${params}`, { followRedirects: false })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe(`/api/search/legacy?${params}`)
     })
   })
 })

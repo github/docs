@@ -1,8 +1,14 @@
-1. Select an owner for the new repository, enter a repository name, select your preferred privacy setting, and click **Create repository from template**.
-1. On the main page of the newly created repository, click the **{% octicon "code" aria-label="The code icon" %} Code** button and select the **Codespaces** tab.
+---
+ms.openlocfilehash: 69354dddad1a9dcf540f273fde19ed6d880c1efb
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148159979"
+---
+1. Elige un propietario para el repositorio nuevo, escribe el nombre del repositorio, selecciona la configuración de privacidad que prefieras y haz clic en **Crear repositorio a partir de plantilla**.
+1. En la página principal del repositorio recién creado, haga clic en el botón del Código **{% octicon "code" aria-label="The code icon" %} y** selecciona la pestaña **Codespaces**.
 
    ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 
-   If you don’t see this tab, {% data variables.product.prodname_github_codespaces %} isn't available for you. For more information about access to {% data variables.product.prodname_github_codespaces %}, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-github-codespaces)."
-
-1. On the **Codespaces** tab, click **Create codespace on main**.
+1. En la pestaña **Codespaces**, haz clic en **Crear codespace en main**.

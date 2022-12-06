@@ -23,7 +23,7 @@ versions:
   ghec: '*'
 layout: product-landing
 introLinks:
-  quickstart: /github/getting-started-with-github/quickstart
+  quickstart: /get-started/quickstart
 featuredLinks:
   guides:
     - /github/getting-started-with-github/githubs-products
@@ -32,6 +32,7 @@ featuredLinks:
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
     - /get-started/onboarding/getting-started-with-github-enterprise-server
     - /get-started/onboarding/getting-started-with-github-ae
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
     - /github/getting-started-with-github/signing-up-for-a-new-github-account
     - /get-started/quickstart/hello-world
@@ -62,4 +63,3 @@ children:
   - /customizing-your-github-workflow
   - /privacy-on-github
 ---
-

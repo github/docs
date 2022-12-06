@@ -6,7 +6,8 @@ intro: 'The {% data variables.product.prodname_actions %} OIDC API allows you to
 topics:
   - API
 versions:
-  ghec: '*'
   fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'
 ---
 

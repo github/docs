@@ -49,7 +49,9 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 - **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-workflow-run-time %}
 {% data reusables.actions.usage-api-requests %}
-- **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your GitHub plan, as indicated in the following table. If exceeded, any additional jobs are queued.
+- **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your GitHub plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
+
+  **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
 
   | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
   |---|---|---|
@@ -58,11 +60,18 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Team | 60 | 5 |
   | Enterprise | 180 | 50 |
 
+  **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
+
+  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
+  |---|---|---|
+  | All | 500 | n/a |
+
   {% note %}
 
   **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
 
   {% endnote %}
+  
 - **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
 
@@ -79,7 +88,7 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Billing for reusable workflows
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
 

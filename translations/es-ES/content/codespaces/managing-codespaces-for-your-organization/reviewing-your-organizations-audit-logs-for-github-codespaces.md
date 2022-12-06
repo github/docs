@@ -1,8 +1,7 @@
 ---
-title: Reviewing your organization's audit logs for GitHub Codespaces
-shortTitle: Registros de auditoría
-intro: 'Puedes utilizar la bitácora de auditoría para revisar todas las acciones relacionadas con los {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
+title: Revisión de los registros de auditoría de la organización para GitHub Codespaces
+shortTitle: Audit logs
+intro: 'Puedes utilizar el registro de auditoría para revisar todas las acciones relacionadas con {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,16 +12,20 @@ topics:
   - Administrator
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces
+ms.openlocfilehash: 81fbf92217c704ece2f1076de03e1f0445ded2c5
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160322'
 ---
-
- 
-
-Cuando algún miembro de tu organización lleva a cabo una acción relacionada con los {% data variables.product.prodname_github_codespaces %}, puedes revisar las acciones en la bitácora de auditoría. Para obtener más información sobre cómo acceder a la bitácora, consulta la sección "[Revisar tu bitácora de auditoría](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)".
+Cuando algún miembro de tu organización lleva a cabo una acción relacionada con {% data variables.product.prodname_github_codespaces %}, puedes revisar las acciones en el registro de auditoría. Para obtener información sobre cómo acceder al registro, vea "[Revisión del registro de auditoría](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)".
 
 ![Bitácora de auditoría con información de los codespaces](/assets/images/help/settings/codespaces-audit-log-org.png)
 
-La bitácora de auditoría incluye detalles tales como quién realizó la acción, qué fue esa acción y cuándo se llevó a cabo. Para obtener información sobre las acciones de los {% data variables.product.prodname_codespaces %}, consulta la sección "[acciones de categoría de los {% data variables.product.prodname_codespaces %}](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)".
+La bitácora de auditoría incluye detalles tales como quién realizó la acción, qué fue esa acción y cuándo se llevó a cabo. Para obtener información sobre las acciones de {% data variables.product.prodname_github_codespaces %}, consulta "[Acciones de categoría de `codespaces`](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)".
 
-## Leer más
+## Información adicional
 
-- "[Revisar tus bitácoras de seguridad de {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+- "[Revisión de los registros de seguridad de {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+- "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)"

@@ -1,0 +1,6 @@
+user_migrations_intro: >-
+  С помощью этого API можно просматривать, копировать и переносить данные пользователей, хранящиеся на {% data variables.product.product_name %}.com.
+organization_migrations_intro: >-
+  API миграции организаций позволяет переносить репозиторий из {% data variables.product.prodname_dotcom_the_website %} в {% data variables.product.prodname_ghe_server %}. Дополнительные сведения см. в разделе "[Экспорт данных миграции из GitHub.com](/enterprise-server@latest/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom)" в документации по {% data variables.product.prodname_ghe_server %}.
+source_imports_intro: >-
+  API импорта источника позволяет запустить импорт из исходного репозитория Git, Subversion, Mercurial или системы управления версиями Team Foundation. Он предоставляет те же возможности, что и средство {% data variables.product.prodname_dotcom %} Importer. Дополнительные сведения см. в статье "[Импорт репозитория с помощью средства {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)".
