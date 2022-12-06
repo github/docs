@@ -773,6 +773,7 @@ translations/ko-KR/content/codespaces/getting-started/deep-dive.md,rendering err
 translations/ko-KR/content/codespaces/getting-started/quickstart.md,rendering error
 translations/ko-KR/content/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization.md,rendering error
 translations/ko-KR/content/codespaces/overview.md,rendering error
+translations/ko-KR/content/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds.md,rendering error
 translations/ko-KR/content/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories.md,rendering error
 translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers.md,rendering error
 translations/ko-KR/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces.md,rendering error
@@ -1111,12 +1112,13 @@ translations/ko-KR/data/reusables/actions/enterprise-marketplace-actions.md,rend
 translations/ko-KR/data/reusables/actions/enterprise-postinstall-nextsteps.md,rendering error
 translations/ko-KR/data/reusables/actions/github-connect-resolution.md,rendering error
 translations/ko-KR/data/reusables/actions/hosted-runner-security.md,rendering error
+translations/ko-KR/data/reusables/actions/jobs/section-using-conditions-to-control-job-execution.md,broken liquid tags
 translations/ko-KR/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/ko-KR/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
 translations/ko-KR/data/reusables/actions/onboarding-next-steps.md,rendering error
 translations/ko-KR/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
 translations/ko-KR/data/reusables/actions/reusable-workflow-calling-syntax.md,rendering error
-translations/ko-KR/data/reusables/actions/reusable-workflows-ghes-beta.md,rendering error
+translations/ko-KR/data/reusables/actions/reusable-workflows-enterprise-beta.md,rendering error
 translations/ko-KR/data/reusables/actions/reusable-workflows.md,rendering error
 translations/ko-KR/data/reusables/actions/runner-groups-add-to-enterprise-first-steps.md,rendering error
 translations/ko-KR/data/reusables/actions/self-hosted-runner-add-to-enterprise.md,rendering error
