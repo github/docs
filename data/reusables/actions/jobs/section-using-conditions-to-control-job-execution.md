@@ -1,12 +1,6 @@
-You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. You can use any supported context and expression to create a conditional.
+You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
 
 {% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
-
-{% note %}
-
-**Note:** Some contexts are not available for use in the `jobs.<job_id>.if` conditional.  If you attempt to use a context which is not available you will receive an `Unrecognized named-value: '<context>'.` error.  For more information, see "[context availability](/actions/learn-github-actions/contexts#context-availability)".
-
-{% endnote %}
 
 ### Example: Only run job for specific repository
 
