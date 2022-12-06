@@ -10,7 +10,13 @@ children:
   - /viewing-a-pull-request-in-github-desktop
   - /viewing-and-re-running-checks-in-github-desktop
   - /configuring-notifications-in-github-desktop
-  - /changing-a-remotes-url-from-github-desktop
-shortTitle: Trabalhe com seu repositório remoto
+  - /changing-the-remote-url-for-a-repository-from-github-desktop
+shortTitle: Work with your remote repo
+ms.openlocfilehash: f7e9f1ab5f73aaad29208db01c62815d7a20ba03
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188350'
 ---
 

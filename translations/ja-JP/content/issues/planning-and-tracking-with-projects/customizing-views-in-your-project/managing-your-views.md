@@ -1,18 +1,22 @@
 ---
-title: Managing your views
-intro: 'Learn how to create, save, and manage your project views.'
+title: ビューの管理
+intro: プロジェクト ビューを作成、保存、管理する方法について説明します。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
 topics:
   - Projects
+ms.openlocfilehash: 9b3d7f4b12210841a0c55f3b0b7356da9b225416
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148109563'
 ---
-
-
 ## プロジェクトビューの作成
 
-プロジェクトビューを使うと、プロジェクトの特定の側面を素早く見ることができます。 それぞれのビューは、プロジェクト内の個別のタブに表示されます。
+プロジェクトビューを使うと、プロジェクトの特定の側面を素早く見ることができます。 それぞれのビューは、プロジェクト内の個別のタブに表示されます。 
 
 たとえば、以下のようなビューを持つことができます:
 - まだ開始されていないすべてのアイテムを表示するビュー（"Status"でフィルタ）。
@@ -23,21 +27,22 @@ topics:
 
 {% data reusables.projects.new-view %}
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "New view."
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「New view」と入力を始めます。
 
 新しいビューは自動的に保存されます。
 
-## Duplicating a view
+## ビューの複製
 
-You can duplicate an existing view and use it as a base to make further changes.
+既存のビューを複製し、それをベースとして使用して、さらに変更を加えることができます。
 
-1. Switch to the view you want to duplicate.
+1. 複製するビューに切り替えます。
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "versions" aria-label="the versions icon" %} **Duplicate view**. ![Screenshot showing the duplicate menu item](/assets/images/help/projects-v2/duplicate-view.png)
+1. [{% octicon "versions" aria-label="the versions icon" %} **ビューの複製**] をクリックします。
+   ![複製のメニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/duplicate-view.png)
 
 ## ビューへの変更の保存
 
-ビューのデータのソート、並び替え、フィルタリング、グループ化など、ビューに変更を加えた場合、ビュー名の隣にはドットが表示され、保存されていない変更があることを示します。
+ビューのデータのソート、並び替え、フィルタリング、グループ化など、ビューに変更を加えた場合、ビュー名の隣にはドットが表示され、保存されていない変更があることを示します。 
 
 ![未保存の変更インジケータ](/assets/images/help/projects/unsaved-changes.png)
 
@@ -45,7 +50,7 @@ You can duplicate an existing view and use it as a base to make further changes.
 
 {% data reusables.projects.save-view %}
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Save view."
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Save view」と入力を始めます。
 
 ## 保存されたビューの並び替え
 
@@ -53,18 +58,20 @@ Alternatively, open the project command palette by pressing {% data variables.pr
 
 ## 保存されたビューの名前の変更
 
-You can rename your saved views. 名前の変更は自動的に保存されます。
+保存したビューの名前を変更できます。 名前の変更は自動的に保存されます。
 
-1. Switch to the view you want to rename.
+1. 名前を変更するビューに切り替えます。
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**. ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
-1. Type the new name for your view.
-1. To save your changes, press <kbd>Return</kbd>.
+1. [{% octicon "pencil" aria-label="the pencil icon" %} **ビューの名前変更**] をクリックします。
+   ![名前変更のメニュー項目を示すスクリーンショット](/assets/images/help/projects-v2/rename-view.png)
+1. ビューの新しい名前を入力します。
+1. 変更を保存するには、<kbd>Return</kbd> キーを押します。
 
 ## 保存されたビューの削除
 
-1. Switch to the view you want to delete.
+1. 削除するテナントに切り替えます。
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "trash" aria-label="the trasj icon" %} **Delete view**. ![Screenshot showing the rename delete item](/assets/images/help/projects-v2/delete-view.png)
+1. [{% octicon "trash" aria-label="the trasj icon" %} **ビューの削除**] をクリックします。
+   ![項目の名前変更、削除を示すスクリーンショット](/assets/images/help/projects-v2/delete-view.png)
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Delete view."
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Delete view」と入力を始めます。

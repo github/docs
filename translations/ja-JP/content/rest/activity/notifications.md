@@ -1,6 +1,6 @@
 ---
-title: 通知
-intro: 'Notifications APIを使うと、{% data variables.product.product_name %}通知の管理ができます。'
+title: Notifications
+intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,51 +11,53 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Notifications APIについて
+## About the Notifications API
 
-Notifications APIを使うと、{% data variables.product.product_name %}通知の管理ができます。 通知に関する詳しい情報については「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。
+{% data reusables.user-settings.notifications-api-classic-pat-only %}
 
-すべての通知 API 呼び出しには、`notifications` または `repo` API スコープが必要です。  これを行うと、一部の Issue およびコミットコンテンツへの読み取り専用アクセス権が付与されます。 それぞれのエンドポイントから Issue とコミットにアクセスするには、`repo` スコープが必要です。
+The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
-通知は「スレッド」として返されます。  スレッドには、Issue、プルリクエスト、またはコミットの現在のディスカッションに関する情報が含まれています。
+All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
 
-通知は、`Last-Modified` ヘッダでポーリングするために最適化されています。  新しい通知がない場合は、`304 Not Modified` レスポンスが表示され、現在のレート制限は変更されません。  `X-Poll-Interval` ヘッダで、ポーリングを許可する頻度（秒単位）を指定します。  サーバー負荷が高い場合、長時間かかることがあります。  ヘッダに従ってください。
+Notifications come back as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
+
+Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
 
 ``` shell
-# リクエストに認証を追加
+# Add authentication to your requests
 $ curl -I {% data variables.product.api_url_pre %}/notifications
 HTTP/2 200
 Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
 X-Poll-Interval: 60
 
-# Last-Modifiedヘッダを正確に渡す
+# Pass the Last-Modified header exactly
 $ curl -I {% data variables.product.api_url_pre %}/notifications
 $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > HTTP/2 304
 > X-Poll-Interval: 60
 ```
 
-### 通知の理由について
+### About notification reasons
 
-通知 API からレスポンスを取得するとき、各ペイロードには `reason` というタイトルのキーがあります。 これらは、通知をトリガーするイベントに対応しています。
+When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
 
-通知を受け取る`reason`（理由）には、次のようなものがあります。
+These are the potential `reason`s for receiving a notification:
 
-| 理由名                | 説明                                                                                                                                                                     |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assign`           | Issue に割り当てられた。                                                                                                                                                        |
-| `author`           | スレッドを作成した。                                                                                                                                                             |
-| `comment`          | スレッドにコメントした。                                                                                                                                                           |
-| `ci_activity`      | トリガーした{% data variables.product.prodname_actions %} ワークフローの実行が完了した。                                                                                                    |
-| `invitation`       | リポジトリへのコントリビューションへの招待を承諾した。                                                                                                                                            |
-| `manual`           | スレッドをサブスクライブした（Issue またはプルリクエストを介して）。                                                                                                                                  |
-| `mention`          | コンテンツで具体的に**@メンション**された。                                                                                                                                               |
-| `review_requested` | 自分、または自分が所属している Team が、Pull Requestのレビューを求められた。{% ifversion fpt or ghec %}
-| `security_alert`   | {% data variables.product.prodname_dotcom %} が、リポジトリに[セキュリティの脆弱性](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)を発見した。{% endif %}
-| `state_change`     | スレッドの状態を変更した（たとえば、Issue をクローズしたり、プルリクエストをマージしたりした）。                                                                                                                    |
-| `subscribed`       | リポジトリを Watch している。                                                                                                                                                     |
-| `team_mention`     | メンションされた Team に所属していた。                                                                                                                                                 |
+Reason Name | Description
+------------|------------
+`assign` | You were assigned to the issue.
+`author` | You created the thread.
+`comment` | You commented on the thread.
+`ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
+`invitation` | You accepted an invitation to contribute to the repository.
+`manual` | You subscribed to the thread (via an issue or pull request).
+`mention` | You were specifically **@mentioned** in the content.
+`review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
+`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
+`state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
+`subscribed` | You're watching the repository.
+`team_mention` | You were on a team that was mentioned.
 
-`reason` はスレッドごとに変更され、後の通知の `reason` が異なる場合は変更される可能性があることに注意してください。
+Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
 
-たとえば、Issue の作者である場合は、その Issue に関するその後の通知には、`author`（作者）の `reason`（理由）が含まれます。 その後、同じ Issue について**@メンション**されている場合、その後に取得する通知に `mention`（メンション）する `reason`（理由）が含まれます。 その `reason` は、再度メンションされたかどうかにかかわらず、`mention` として残ります。
+For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.

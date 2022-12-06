@@ -10,51 +10,59 @@ redirect_from:
 ---
 
 
-## ディスカッションのカテゴリについて
+## About categories for discussions
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
 {% data reusables.discussions.about-announcement-format %}
 
-各カテゴリには一意の名前と絵文字の組み合わせが必要で、その目的を示す詳しい説明を付けることができます。 Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %}詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
+Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
 
-## デフォルトのカテゴリ
+## Default categories
 
-| カテゴリ            | 目的                                                                    | Format          |
-|:--------------- |:--------------------------------------------------------------------- |:--------------- |
-| 📣 Announcements | Updates and news from project maintainers                             | アナウンス           |
-| #️⃣ 全般          | プロジェクトに関連するすべての事柄                                                     | 自由回答形式のディスカッション |
-| 💡 Ideas         | プロジェクトを変更または改善するためのアイデア                                               | 自由回答形式のディスカッション |
-| 🗳 Polls         | Polls with multiple options for the community to vote for and discuss | Polls           |
-| 🙏 Q&A           | コミュニティが回答する質問 (質問/回答形式)                                               | 質問と回答           |
-| 🙌 展示と説明         | プロジェクトに関連する作成物、実験、またはテスト                                              | 自由回答形式のディスカッション |
+| Category | Purpose | Format |
+| :- | :- | :- |
+| 📣 Announcements | Updates and news from project maintainers | Announcement |
+| #️⃣ General | Anything and everything relevant to the project | Open-ended discussion |
+|💡 Ideas | Ideas to change or improve the project | Open-ended discussion |
+| 🗳 Polls | Polls with multiple options for the community to vote for and discuss | Polls |
+| 🙏 Q&A | Questions for the community to answer, with a question/answer format | Question and Answer |
+| 🙌 Show and tell | Creations, experiments, or tests relevant to the project | Open-ended discussion |
 
-## カテゴリを作成する
+## Creating a category
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
-1. [**New category**] をクリックします。 ![リポジトリのディスカッションカテゴリのリストの上にある [New category] ボタン](/assets/images/help/discussions/click-new-category-button.png)
-1. カテゴリの絵文字、タイトル、説明、ディスカッション形式を編集します。 ディスカッション形式の詳細については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。 ![新しいカテゴリの絵文字、タイトル、説明、ディスカッション形式](/assets/images/help/discussions/edit-category-details.png)
-1. ** Create（作成）**をクリックしてください。 ![新しいカテゴリの [Create] ボタン](/assets/images/help/discussions/new-category-click-create-button.png)
+1. Click **New category**.
+  !["New category" button above list of discussion categories for a repository](/assets/images/help/discussions/click-new-category-button.png)
+1. Edit the emoji, title, description, and discussion format for the category. For more information about discussion formats, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+  ![Emoji, title, description, and discussion format for new category](/assets/images/help/discussions/edit-category-details.png)
+1. Click **Create**.
+  !["Create" button for new category](/assets/images/help/discussions/new-category-click-create-button.png)
 
-## カテゴリを編集する
+## Editing a category
 
-カテゴリを編集して、カテゴリの絵文字、タイトル、説明、およびディスカッション形式を変更できます。
+You can edit a category to change the category's emoji, title, description, and discussion format.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to edit a category.
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to edit a category.
 {% data reusables.discussions.discussions-tab %}
-1. リストのカテゴリの右側にある {% octicon "pencil" aria-label="The pencil icon" %} をクリックします ![リポジトリのカテゴリリストのカテゴリの右側にある [Edit] ボタン](/assets/images/help/discussions/click-edit-for-category.png)
+1. To the right of a category in the list, click {% octicon "pencil" aria-label="The pencil icon" %}.
+  ![Edit button to the right of category in list of categories for a repository](/assets/images/help/discussions/click-edit-for-category.png)
 1. {% data reusables.discussions.edit-category-details %}
-![既存のカテゴリの絵文字、タイトル、説明、ディスカッション形式を編集する](/assets/images/help/discussions/edit-existing-category-details.png)
-1. [**Save changes**] をクリックします。 ![既存のカテゴリの [Save changes] ボタン](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
+  ![Editing emoji, title, description, and discussion format for existing category](/assets/images/help/discussions/edit-existing-category-details.png)
+1. Click **Save changes**.
+  !["Save changes" button for existing category](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
 
-## カテゴリを削除する
+## Deleting a category
 
-カテゴリを削除すると、{% data variables.product.product_name %} は、削除されたカテゴリのすべてのディスカッションを、選択した既存のカテゴリに移動します。
+When you delete a category, {% data variables.product.product_name %} will move all discussions in the deleted category to an existing category that you choose.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to delete a category.
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to delete a category.
 {% data reusables.discussions.discussions-tab %}
-1. リストのカテゴリの右側にある {% octicon "trash" aria-label="The trash icon" %} をクリックします ![リポジトリのカテゴリリストのカテゴリの右側にある [Trash] ボタン](/assets/images/help/discussions/click-delete-for-category.png)
-1. ドロップダウンメニューを使用して、削除するカテゴリのディスカッションの新しいカテゴリを選択します。 ![既存のカテゴリを削除するときに新しいカテゴリを選択するためのドロップダウンメニュー](/assets/images/help/discussions/choose-new-category.png)
-1. [**Delete & Move**] をクリックします。 ![既存のカテゴリを削除するときに新しいカテゴリを選択するためのドロップダウンメニュー](/assets/images/help/discussions/click-delete-and-move-button.png)
+1. To the right of a category in the list, click {% octicon "trash" aria-label="The trash icon" %}.
+  ![Trash button to the right of category in list of categories for a repository](/assets/images/help/discussions/click-delete-for-category.png)
+1. Use the drop-down menu, and choose a new category for any discussions in the category you're deleting.
+  ![Drop-down menu for choosing new category when deleting an existing category](/assets/images/help/discussions/choose-new-category.png)
+1. Click **Delete & Move**.
+  ![Drop-down menu for choosing new category when deleting an existing category](/assets/images/help/discussions/click-delete-and-move-button.png)

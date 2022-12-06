@@ -1,5 +1,5 @@
 ---
-title: 'Criar {% data variables.product.prodname_project_v1 %}'
+title: 'Creating a {% data variables.product.prodname_project_v1 %}'
 intro: '{% data variables.projects.projects_v1_boards_caps %} can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
@@ -16,14 +16,14 @@ topics:
 type: how_to
 allowTitleToDifferFromFilename: true
 ---
-
 {% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-{% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %} ](/articles/linking-a-repository-to-a-project-board)."
+{% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a {% data variables.product.prodname_project_v1 %}
+](/articles/linking-a-repository-to-a-project-board)."
 
 Once you've created your {% data variables.projects.projects_v1_board %}, you can add issues, pull requests, and notes to it. For more information, see "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)" and "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)."
 
@@ -36,7 +36,8 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_profile %}
-2. No topa da página do seu perfil, na navegação principal, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Project tab](/assets/images/help/projects/user-projects-tab.png){% ifversion projects-v2 %}
+2. On the top of your profile page, in the main navigation, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
+![Project tab](/assets/images/help/projects/user-projects-tab.png){% ifversion projects-v2 %}
 1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -56,6 +57,14 @@ You can also configure workflow automations to keep your {% data variables.proje
 ## Creating an organization-wide {% data variables.projects.projects_v1_board %}
 
 {% data reusables.projects.classic-project-creation %}
+
+{% ifversion classic-project-visibility-permissions %}
+{% note %}
+
+**Note:** {% data reusables.projects.owners-can-limit-visibility-permissions %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -81,7 +90,8 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Abaixo do nome do repositório, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Project tab](/assets/images/help/projects/repo-tabs-projects.png){% ifversion projects-v2 %}
+2. Under your repository name, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
+![Project tab](/assets/images/help/projects/repo-tabs-projects.png){% ifversion projects-v2 %}
 1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -96,10 +106,10 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Leia mais
+## Further reading
 
-- "[Sobre quadros de projetos](/articles/about-project-boards)"
-- "[Editar um quadro de projeto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}
-- "[Fechar um quadro de projeto](/articles/closing-a-project-board)"
-- "[Sobre a automação para quadros de projeto](/articles/about-automation-for-project-boards)"
+- "[About projects boards](/articles/about-project-boards)"
+- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
+- "[Closing a project board](/articles/closing-a-project-board)"
+- "[About automation for project boards](/articles/about-automation-for-project-boards)"

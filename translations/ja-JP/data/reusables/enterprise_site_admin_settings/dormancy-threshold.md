@@ -1,1 +1,1 @@
-休眠の閾値は、休眠と見なされるまでにユーザがアクティブであってはならない期間です。 デフォルトの休眠の閾値は90日ですが、{% data variables.product.product_location %}の休眠の閾値はカスタマイズできます。
+The dormancy threshold is the length of time a user must be inactive to be considered dormant. The default dormancy threshold is 90 days, however you can customize the dormancy threshold for {% data variables.location.product_location %}.

@@ -1,5 +1,5 @@
 ---
-title: Managing access to a {% data variables.product.prodname_project_v1 %} for organization members
+title: 'Managing access to a {% data variables.product.prodname_project_v1 %} for organization members'
 intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can set a default permission level for a {% data variables.projects.projects_v1_board %} for all organization members.'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members

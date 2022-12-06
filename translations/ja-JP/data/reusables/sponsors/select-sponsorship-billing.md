@@ -1,1 +1,1 @@
-4. [Billing information] で、支払いの内容を確認します。 Optionally, to change the payment details for your entire account on {% data variables.product.product_location %}, click **Edit**. それから、プロンプトに従って支払いフォームを記入します。
+4. Under "Billing information", review your payment details. Optionally, to change the payment details for your entire account on {% data variables.location.product_location %}, click **Edit**. Then, follow the prompts to complete the payment form.

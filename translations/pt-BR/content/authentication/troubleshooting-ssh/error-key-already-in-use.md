@@ -1,6 +1,6 @@
 ---
-title: 'Erro: chave em uso'
-intro: 'Este erro ocorre quando você tenta [adicionar uma chave](/articles/adding-a-new-ssh-key-to-your-github-account) que já foi adicionada a outra conta ou repositório.'
+title: 'Error: Key already in use'
+intro: 'This error occurs when you try to [add a key](/articles/adding-a-new-ssh-key-to-your-github-account) that''s already been added to another account or repository.'
 redirect_from:
   - /articles/error-key-already-in-use
   - /github/authenticating-to-github/error-key-already-in-use
@@ -13,33 +13,32 @@ versions:
 topics:
   - SSH
 ---
+## Finding where the key has been used
 
-## Descobrir onde a chave foi usada
-
-Para determinar onde a chave foi usada, abra um terminal e digite o comando `ssh`. Use o sinalizador `-i` para fornecer o caminho para a chave que deseja marcar:
-
-```shell
-$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
-# Conecte-se a {% data variables.product.product_location %} usando uma chave ssh específica
-> Olá, <em>username</em>! Você conseguiu se autenticar, mas o GitHub não
-> fornece acesso shell.
-```
-
-O *nome de usuário* na resposta é a conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} à qual a chave está atualmente anexada. Se a resposta for parecida com "username/repo", a chave foi vinculada a um repositório como [*chave de implantação*](/guides/managing-deploy-keys#deploy-keys).
-
-
-Para forçar o SSH a usar apenas a chave fornecida na linha de comando, use `-o` para adicionar a opção `IdentitiesOnly=yes`:
+To determine where the key has already been used, open a terminal and type the `ssh` command. Use the `-i` flag to provide the path to the key you want to check:
 
 ```shell
-$ ssh -v -o "IdentitiesOnly=yes" -i <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
+$ ssh -T -ai ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
+# Connect to {% data variables.location.product_location %} using a specific ssh key
+> Hi USERNAME! You've successfully authenticated, but GitHub does not
+> provide shell access.
 ```
 
-## Corrigir o problema
+The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
 
-Para resolver o problema, primeiro remova a chave da outra conta ou repositório e [a adicione à sua conta](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-Se você não tiver permissões para transferir a chave e não puder entrar em contato com um usuário que tenha, remova o par de chaves e [gere uma totalmente nova](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
 
-## Chaves de implantação
+```shell
+$ ssh -v -o "IdentitiesOnly=yes" -i ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
+```
 
-Depois que uma chave tiver sido vinculada a um repositório como uma chave de implantação, ela não poderá ser usada em outro repositório.  Se você encontrar este erro enquanto configura chaves de implantação, consulte "[Gerenciar de chaves de implantação](/guides/managing-deploy-keys)."
+## Fixing the issue
+
+To resolve the issue, first remove the key from the other account or repository and then [add it to your account](/articles/adding-a-new-ssh-key-to-your-github-account).
+
+If you don't have permissions to transfer the key, and can't contact a user who does, remove the keypair and [generate a brand new one](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+
+## Deploy keys
+
+Once a key has been attached to one repository as a deploy key, it cannot be used on another repository.  If you're running into this error while setting up deploy keys, see "[Managing deploy keys](/guides/managing-deploy-keys)."

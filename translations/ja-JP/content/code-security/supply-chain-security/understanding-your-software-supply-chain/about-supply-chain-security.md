@@ -1,6 +1,6 @@
 ---
-title: About supply chain security
-intro: '{% data variables.product.product_name %} helps you secure your supply chain, from understanding the dependencies in your environment, to knowing about vulnerabilities in those dependencies{% ifversion fpt or ghec or ghes > 3.2 %}, and patching them{% endif %}.'
+title: サプライ チェーンのセキュリティについて
+intro: '{% data variables.product.product_name %} は、環境内の依存関係の理解から、それらの依存関係の脆弱性の把握{% ifversion fpt or ghec or ghes %}やパッチの適用{% endif %}まで、サプライ チェーンをセキュリティで保護するのに役立ちます。'
 miniTocMaxHeadingLevel: 3
 shortTitle: Supply chain security
 redirect_from:
@@ -19,139 +19,157 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
+ms.openlocfilehash: d0f743db7d1f5a054a3eb8c7b4dbf81052aca50f
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181237'
 ---
+## GitHub でのサプライ チェーンのセキュリティについて
 
-## About supply chain security at GitHub
+オープン ソースの使用が急速に進んでおり、ほとんどのプロジェクトは数百ものオープンソース依存関係を利用しています。 これにより、セキュリティ上の問題が浮上します。もしも、使用している依存関係に脆弱性があるとしたら、どうなるでしょうか、 ユーザーをサプライ チェーン攻撃のリスクにさらす可能性があります。 サプライ チェーンを保護するために行うことができる最も重要なことの 1 つは、脆弱な依存関係にパッチを適用{% ifversion GH-advisory-db-supports-malware %}したり、マルウェアを置き換えたり{% endif %}することです。
 
-With the accelerated use of open source, most projects depend on hundreds of open-source dependencies. This poses a security problem: what if the dependencies you're using are vulnerable? You could be putting your users at risk of a supply chain attack. One of the most important things you can do to protect your supply chain is to patch your vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and replace any malware{% endif %}.
+依存関係をサプライ チェーンに直接追加するときは、マニフェスト ファイルまたはロックファイルで指定します。 依存関係は推移的に含めることもできます。つまり、特定の依存関係を指定しなくても、使用している依存関係が別の依存関係を使用している場合は、その依存関係にも依存することになります。
 
-You add dependencies directly to your supply chain when you specify them in a manifest file or a lockfile. Dependencies can also be included transitively, that is, even if you don’t specify a particular dependency, but a dependency of yours uses it, then you’re also dependent on that dependency.
+{% data variables.product.product_name %} には、環境内の依存関係を理解し{% ifversion ghae %}、それらの依存関係の脆弱性を把握{% endif %}{% ifversion fpt or ghec or ghes %}、それらの依存関係の脆弱性を把握してパッチを適用{% endif %}できるように、さまざまな機能が用意されています。 
 
-{% data variables.product.product_name %} offers a range of features to help you understand the dependencies in your environment{% ifversion ghes < 3.3 or ghae %} and know about vulnerabilities in those dependencies{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}, know about vulnerabilities in those dependencies, and patch them{% endif %}. 
-
-The supply chain features on {% data variables.product.product_name %} are:
-- **Dependency graph**
-- **Dependency review**
-- **{% data variables.product.prodname_dependabot_alerts %} **
-{% ifversion fpt or ghec or ghes > 3.2 %}- **{% data variables.product.prodname_dependabot_updates %}**
+{% data variables.product.product_name %} のサプライ チェーン機能は次のとおりです。
+- **依存関係グラフ**
+- **依存関係レビュー**
+- **{% data variables.product.prodname_dependabot_alerts %} ** {% ifversion fpt or ghec or ghes %}- **{% data variables.product.prodname_dependabot_updates %}**
   - **{% data variables.product.prodname_dependabot_security_updates %}**
-  - **{% data variables.product.prodname_dependabot_version_updates %}**{% endif %}
+  - **{% data variables.product.prodname_dependabot_version_updates %}** {% endif %}
 
-The dependency graph is central to supply chain security. The dependency graph identifies all upstream dependencies and public downstream dependents of a repository or package. You can see your repository’s dependencies and some of their properties, like vulnerability information, on the dependency graph for the repository. 
+依存関係グラフは、サプライ チェーンのセキュリティの中心です。 依存関係グラフによって、リポジトリまたはパッケージについて、すべてのアップストリーム依存関係とパブリック ダウンストリーム依存関係が識別されます。 リポジトリの依存関係とそのプロパティの一部 (脆弱性情報など) を、そのリポジトリの依存関係グラフで確認できます。 
 
-Other supply chain features on {% data variables.product.prodname_dotcom %} rely on the information provided by the dependency graph.
+{% data variables.product.prodname_dotcom %} の他のサプライ チェーン機能は、依存関係グラフで提供される情報を利用します。
 
-- Dependency review uses the dependency graph to identify dependency changes and help you understand the security impact of these changes when you review pull requests.
-- {% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} is detected.
-{% ifversion fpt or ghec or ghes > 3.2 %}- {% data variables.product.prodname_dependabot_security_updates %} use the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} to help you update dependencies with known vulnerabilities in your repository.
+- 依存関係レビューは、依存関係グラフを使用して依存関係の変更を特定し、ユーザーが pull request を確認するときにそれらの変更がセキュリティに及ぼす影響を理解するのに役立ちます。
+- {% data variables.product.prodname_dependabot %} は、依存関係グラフによって提供される依存関係データと {% data variables.product.prodname_advisory_database %} で公開されるアドバイザリの一覧を相互参照し、依存関係をスキャンして、潜在的な脆弱性{% ifversion GH-advisory-db-supports-malware %}またはマルウェア{% endif %}が検出されると {% data variables.product.prodname_dependabot_alerts %}を生成します。
+{% ifversion fpt or ghec or ghes %}- {% data variables.product.prodname_dependabot_security_updates %}は、依存関係グラフと {% data variables.product.prodname_dependabot_alerts %}を使用して、リポジトリ内の既知の脆弱性を含む依存関係をユーザーが更新できるように役立ちます。
 
-{% data variables.product.prodname_dependabot_version_updates %} don't use the dependency graph and rely on the semantic versioning of dependencies instead. {% data variables.product.prodname_dependabot_version_updates %} help you keep your dependencies updated, even when they don’t have any vulnerabilities.
+{% data variables.product.prodname_dependabot_version_updates %} では、依存関係グラフは使用されません。代わりに依存関係のセマンティック バージョン管理が利用されます。 {% data variables.product.prodname_dependabot_version_updates %} は、依存関係に脆弱性が含まれない場合でも、依存関係を最新状態に保つために役立ちます。
 {% endif %}
+
+{% ifversion fpt or ghec or ghes %} 個人アカウント、コード、ビルド プロセスの保護など、エンド ツー エンドのサプライ チェーンのセキュリティに関するベスト プラクティス ガイドについては、「[エンド ツー エンドのサプライ チェーンのセキュリティ保護](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)」を参照してください。
+{% endif %}
+
+## 機能の概要
+
+### 依存関係グラフとは
+
+依存関係グラフを生成するために、{% data variables.product.company_short %} は、マニフェストやロックファイルで宣言されているリポジトリの明示的な依存関係を調べます。 有効にすると、依存関係グラフはリポジトリ内のすべての既知のパッケージ マニフェスト ファイルを自動的に解析し、これを使用して既知の依存関係の名前とバージョンを含むグラフを作成します。
+
+- 依存関係グラフには、"_直接_" 依存関係と "_推移的_" 依存関係の情報が含まれます。 
+- 依存関係グラフが自動的に更新されるのは、サポートされるマニフェストまたはロック ファイルを既定ブランチに対して変更または追加するプッシュを {% data variables.product.company_short %} にコミットするとき、およびご使用の依存関係のいずれかのリポジトリに対して任意のユーザーが変更をプッシュするときです。
+- 依存関係グラフを表示するには、{% data variables.product.product_name %} 上でリポジトリのメイン ページを開いて **[Insights]\(分析情報\)** タブに移動します。
+
+{% ifversion dependency-submission-api %} {% data reusables.dependency-submission.dependency-submission-link %} {% endif %}
+
+依存関係グラフの詳細については、「[依存関係グラフについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)」を参照してください。
+
+### 依存関係レビューとは
+
+依存関係レビューは、レビュー担当者と共同作成者が、すべての pull request における依存関係の変更とそのセキュリティへの影響を理解するのに役立ちます。 
+
+- 依存関係レビューでは、pull request で追加、削除、または更新された依存関係がわかります。 リリース日、依存関係の評判、脆弱性情報を使用して、変更を受け入れるかどうかを判断できます。
+- pull request の依存関係レビューは、 **[Files Changed]\(変更されたファイル\)** タブの詳しい差分を表示すると確認できます。
+
+依存関係レビューの詳細については、「[依存関係レビューについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)」を参照してください。
+
+### Dependabot とは
+
+{% data variables.product.prodname_dependabot %} は、依存関係のセキュリティ脆弱性をユーザーに通知しすることで、ご使用の依存関係を最新状態に保ちます{% ifversion fpt or ghec or ghes %}。また、自動的に pull request を開き、依存関係を次に使用可能なセキュア バージョン ({% data variables.product.prodname_dependabot %} アラートがトリガーされたとき) または最新バージョン (リリースが公開されたとき) にアップグレードします{% else %}。こうしてユーザーが依存関係を更新できるようにします{% endif %}。
+
+{% ifversion fpt or ghec or ghes %} "{% data variables.product.prodname_dependabot %}" という用語には、次の機能が含まれます。
+- {% data variables.product.prodname_dependabot_alerts %}— リポジトリの **[セキュリティ]** タブとリポジトリの依存関係グラフに表示される通知。 アラートには、プロジェクト内で影響を受けるファイルへのリンクと、修正バージョンに関する情報が含まれています。
+- {% data variables.product.prodname_dependabot_updates %}:
+   - {% data variables.product.prodname_dependabot_security_updates %}— アラートがトリガーされたときに、更新プログラムをトリガーし、依存関係をセキュアなバージョンにアップグレードします。
+   - {% data variables.product.prodname_dependabot_version_updates %}— 更新プログラムをスケジュールして、ご使用の依存関係を最新バージョンに保ちます。
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+{% data variables.product.prodname_dependabot_alerts %}、{% data variables.product.prodname_dependabot_security_updates %}、{% data variables.product.prodname_dependabot_version_updates %} は、{% data variables.product.product_name %} で実行するときに {% data variables.product.prodname_actions %} を使用しません。 ただし、{% data variables.product.prodname_dependabot %} によって開かれた pull request は、アクションを実行するワークフローをトリガーできます。 詳細については、「[{% data variables.product.prodname_actions %} による {% data variables.product.prodname_dependabot %} の自動化](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions)」を参照してください。
+
+{% elsif ghes %}
+
+{% data variables.product.prodname_dependabot_security_updates %}、{% data variables.product.prodname_dependabot_version_updates %} は、{% data variables.product.product_name %} で実行するために {% data variables.product.prodname_actions %} が必要です。 {% data variables.product.prodname_dependabot_alerts %}では、{% data variables.product.prodname_actions %} は必要ありません。 詳細については、「[企業に対する {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
+
+{% elsif ghae %}
+
+{% data variables.product.prodname_actions %} では、{% data variables.product.product_name %} で実行するために {% data variables.product.prodname_dependabot_alerts %}は必要ありません。
+
+{% endif %}
+
+{% ifversion dependabot-actions-support %}
+
+{% data reusables.dependabot.dependabot-actions-support %} 詳しくは、「[{% data variables.product.prodname_dependabot_security_updates %} について](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)」をご覧ください。
+
+{% endif %}
+
+#### Dependabot アラートとは
+
+{% data variables.product.prodname_dependabot_alerts %}は、依存関係グラフと {% data variables.product.prodname_advisory_database %} (既知の脆弱性{% ifversion GH-advisory-db-supports-malware %}とマルウェア{% endif %}に関するアドバイザリを含む) に基づいて、新しく検出された脆弱性の影響を受けるリポジトリを強調表示します。 
+
+- {% data variables.product.prodname_dependabot %} は、次の場合に、スキャンを実行して安全ではない依存関係を検出し、{% data variables.product.prodname_dependabot_alerts %}を送信します。{% ifversion fpt or ghec %}
+   - {% data variables.product.prodname_advisory_database %} に新しいアドバイザリが追加されたとき。{% else %}
+   - 新しいアドバイザリ データが {% data variables.product.prodname_dotcom_the_website %} から 1 時間ごとに {% data variables.location.product_location %} に同期されたとき。 {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
+   - リポジトリの依存関係グラフが変更されたとき。 
+- {% data variables.product.prodname_dependabot_alerts %}が、{% ifversion fpt or ghec or ghes %}リポジトリの **[セキュリティ]** タブと{% endif %}リポジトリの依存関係グラフに表示されたとき。 アラートには、{% ifversion fpt or ghec or ghes %}プロジェクト内の影響を受けるファイルへのリンクと、{% endif %}固定バージョンに関する情報が含まれます。
+
+詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
 {% ifversion fpt or ghec or ghes %}
-For best practice guides on end-to-end supply chain security including the protection of personal accounts, code, and build processes, see "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)."
-{% endif %}
+#### Dependabot 更新プログラムとは
 
-## Feature overview
-
-### What is the dependency graph
-
-To generate the dependency graph, {% data variables.product.company_short %} looks at a repository’s explicit dependencies declared in the manifest and lockfiles. When enabled, the dependency graph automatically parses all known package manifest files in the repository, and uses this to construct a graph with known dependency names and versions.
-
-- The dependency graph includes information on your _direct_ dependencies and _transitive_ dependencies. 
-- The dependency graph is automatically updated when you push a commit to {% data variables.product.company_short %} that changes or adds a supported manifest or lock file to the default branch, and when anyone pushes a change to the repository of one of your dependencies.
-- You can see the dependency graph by opening the repository's main page on {% data variables.product.product_name %}, and navigating to the **Insights** tab.
-
-{% ifversion dependency-submission-api %} 
-{% data reusables.dependency-submission.dependency-submission-link %}
-{% endif %}
-
-For more information about the dependency graph, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
-
-### What is dependency review
-
-Dependency review helps reviewers and contributors understand dependency changes and their security impact in every pull request. 
-
-- Dependency review tells you which dependencies were added, removed, or updated, in a pull request. You can use the release dates, popularity of dependencies, and vulnerability information to help you decide whether to accept the change.
-- You can see the dependency review for a pull request by showing the rich diff on the **Files Changed** tab.
-
-For more information about dependency review, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
-
-### What is Dependabot
-
-{% data variables.product.prodname_dependabot %} keeps your dependencies up to date by informing you of any security vulnerabilities in your dependencies{% ifversion fpt or ghec or ghes > 3.2 or ghae %}, and automatically opens pull requests to upgrade your dependencies to the next available secure version when a {% data variables.product.prodname_dependabot %} alert is triggered, or to the latest version when a release is published{% else %} so that you can update that dependency{% endif %}.
-
-{% ifversion fpt or ghec or ghes > 3.2 %}
-The term "{% data variables.product.prodname_dependabot %}" encompasses the following features:
-- {% data variables.product.prodname_dependabot_alerts %}—Displayed notification on the **Security** tab for the repository, and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
-- {% data variables.product.prodname_dependabot_updates %}:
-   - {% data variables.product.prodname_dependabot_security_updates %}—Triggered updates to upgrade your dependencies to a secure version when an alert is triggered.
-   - {% data variables.product.prodname_dependabot_version_updates %}—Scheduled updates to keep your dependencies up to date with the latest version.
-{% endif %}
-
-#### What are Dependabot alerts
-
-{% data variables.product.prodname_dependabot_alerts %} highlight repositories affected by a newly discovered vulnerability based on the dependency graph and the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. 
-
-- {% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
-{% ifversion fpt or ghec %}
-   - A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
-   - New advisory data is synchronized to {% data variables.product.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
-   - The dependency graph for the repository changes. 
-- {% data variables.product.prodname_dependabot_alerts %} are displayed {% ifversion fpt or ghec or ghes %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes %}a link to the affected file in the project, and {% endif %}information about a fixed version.
-
-For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."
-
-{% ifversion fpt or ghec or ghes > 3.2 %}
-#### What are Dependabot updates
-
-There are two types of {% data variables.product.prodname_dependabot_updates %}: {% data variables.product.prodname_dependabot %} _security_ updates and _version_ updates. {% data variables.product.prodname_dependabot %} generates automatic pull requests to update your dependencies in both cases, but there are several differences.
+2 種類の {% data variables.product.prodname_dependabot_updates %}があります。{% data variables.product.prodname_dependabot %} "_セキュリティ_" 更新プログラムと "_バージョン_" 更新プログラムです。 {% data variables.product.prodname_dependabot %} は、どちらのケースでも依存関係を更新するために自動 pull request を生成しますが、いくつかの違いがあります。
 
 {% data variables.product.prodname_dependabot_security_updates %}:
- - Triggered by a {% data variables.product.prodname_dependabot %} alert
- - Update dependencies to the minimum version that resolves a known vulnerability
- - Supported for ecosystems the dependency graph supports
- - Does not require a configuration file, but you can use one to override the default behavior
+ - {% data variables.product.prodname_dependabot %} アラートによってトリガーされます。
+ - 既知の脆弱性を解決する最小バージョンに依存関係を更新します。
+ - 依存関係グラフがサポートするエコシステムでサポートされます。
+ - 構成ファイルは必要ありませんが、既定の動作をオーバーライドするために使用できます
  
 {% data variables.product.prodname_dependabot_version_updates %}:
- - Requires a configuration file
- - Run on a schedule you configure
- - Update dependencies to the latest version that matches the configuration
- - Supported for a different group of ecosystems
+ - 構成ファイルが必要です
+ - 構成したスケジュールに従って実行します。
+ - 構成と一致する最新バージョンに依存関係を更新します。
+ - さまざまな一連のエコシステムでサポートされます。
 
-For more information about {% data variables.product.prodname_dependabot_updates %}, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)" and "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)."
+{% data variables.product.prodname_dependabot_updates %}の詳細については、「[{% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)について」および「[{% data variables.product.prodname_dependabot_version_updates %}について](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)」を参照してください。
 {% endif %}
 
-## Feature availability
+## 使用可能な機能
 
 {% ifversion fpt or ghec %}
 
-Public repositories:
-- **Dependency graph**—enabled by default and cannot be disabled.
-- **Dependency review**—enabled by default and cannot be disabled.
-- **{% data variables.product.prodname_dependabot_alerts %}**—not enabled by default. {% data variables.product.prodname_dotcom %} detects insecure dependencies and displays information in the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Repository owners or people with admin access can enable {% data variables.product.prodname_dependabot_alerts %}. 
-  You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+パブリック リポジトリ:
+- **依存関係グラフ**— 既定で有効になっており、無効にすることはできません。
+- **依存関係レビュー**— 既定で有効になっており、無効にすることはできません。
+- **{% data variables.product.prodname_dependabot_alerts %}** — 既定で有効になっていません。 {% data variables.product.prodname_dotcom %} は、安全ではない依存関係を検出して依存関係グラフに情報を表示しますが、{% data variables.product.prodname_dependabot_alerts %}は既定では生成されません。 リポジトリの所有者または管理者アクセス権を持つユーザーは、{% data variables.product.prodname_dependabot_alerts %}を有効にすることができます。 
+  また、ユーザーは自らのユーザー アカウントまたは組織が所有するすべてのリポジトリでも、Dependabot アラートを有効化または無効化できます。 詳細については、「[ユーザー アカウントのセキュリティと分析の設定の管理](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)」または「[組織のセキュリティと分析の設定の管理](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
 
-Private repositories:
-- **Dependency graph**—not enabled by default. The feature can be enabled by repository administrators. For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."
+プライベート リポジトリ:
+- **依存関係グラフ**— 既定では有効になっていません。 この機能は、リポジトリ管理者が有効にすることができます。 詳細については、「[ポジトリの依存関係を調べる](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)」を参照してください。
 {% ifversion fpt %}
-- **Dependency review**—available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
+- **依存関係レビュー**— {% data variables.product.prodname_ghe_cloud %} を使用し、{% data variables.product.prodname_GH_advanced_security %} のライセンスを持つ組織が所有するプライベート リポジトリでも利用できます。 詳細については、[{% data variables.product.prodname_ghe_cloud %} ドキュメント](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)を参照してください。
 {% elsif ghec %}
-- **Dependency review**—available in private repositories owned by organizations provided you have a license for {% data variables.product.prodname_GH_advanced_security %} and the dependency graph enabled. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)" and "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)." 
-{% endif %}
-- **{% data variables.product.prodname_dependabot_alerts %}**—not enabled by default. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
-  You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+- **依存関係レビュー**— ユーザーに {% data variables.product.prodname_GH_advanced_security %} のライセンスがあり、依存関係グラフが有効になっていれば、組織が所有するプライベート リポジトリでも利用できます。 詳細については、「[{% data variables.product.prodname_GH_advanced_security %}について](/get-started/learning-about-github/about-github-advanced-security)」および「[リポジトリの依存関係を調べる](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)」を参照してください。 {% endif %}
+- **{% data variables.product.prodname_dependabot_alerts %}** — 既定で有効になっていません。 プライベートリポジトリの所有者、または管理アクセス権を持つユーザは、リポジトリの依存関係グラフと {% data variables.product.prodname_dependabot_alerts %} を有効にすることで、{% data variables.product.prodname_dependabot_alerts %} を有効化できます。
+  また、ユーザーは自らのユーザー アカウントまたは組織が所有するすべてのリポジトリでも、Dependabot アラートを有効化または無効化できます。 詳細については、「[ユーザー アカウントのセキュリティと分析の設定の管理](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)」または「[組織のセキュリティと分析の設定の管理](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
 
-Any repository type:
-- **{% data variables.product.prodname_dependabot_security_updates %}**—not enabled by default. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For information about enabling security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
-- **{% data variables.product.prodname_dependabot_version_updates %}**—not enabled by default. People with write permissions to a repository can enable {% data variables.product.prodname_dependabot_version_updates %}. For information about enabling version updates, see "[Configuring {% data variables.product.prodname_dependabot_version_updates %}](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
+すべての種類のリポジトリ:
+- **{% data variables.product.prodname_dependabot_security_updates %}** — 既定で有効になっていません。 {% data variables.product.prodname_dependabot_alerts %} と依存関係グラフを使用する任意のリポジトリで {% data variables.product.prodname_dependabot_security_updates %} を有効にすることができます。 セキュリティ更新プログラムの有効化の詳細については、「[{% data variables.product.prodname_dependabot_security_updates %}の構成](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)」を参照してください。
+- **{% data variables.product.prodname_dependabot_version_updates %}** — 既定で有効になっていません。 リポジトリへの書き込みアクセス許可を持つユーザーは、{% data variables.product.prodname_dependabot_version_updates %}を有効にすることができます。 セキュリティ更新プログラムの有効化の詳細については、「[{% data variables.product.prodname_dependabot_version_updates %} の構成](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)」を参照してください。
 {% endif %}
 
 {% ifversion ghes or ghae %}
-- **Dependency graph** and **{% data variables.product.prodname_dependabot_alerts %}**—not enabled by default. Both features are configured at an enterprise level by the enterprise owner. For more information, see {% ifversion ghes %}"[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)" and {% endif %}"[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
-- **Dependency review**—available when dependency graph is enabled for {% data variables.product.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
-{% endif %}
-{% ifversion ghes > 3.2 %}
-- **{% data variables.product.prodname_dependabot_security_updates %}**—not enabled by default. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For information about enabling security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
-- **{% data variables.product.prodname_dependabot_version_updates %}**—not enabled by default. People with write permissions to a repository can enable {% data variables.product.prodname_dependabot_version_updates %}. For information about enabling version updates, see "[Configuring {% data variables.product.prodname_dependabot_version_updates %}](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
+- **依存関係グラフ** および **{% data variables.product.prodname_dependabot_alerts %}** — 既定で有効になっていません。 どちらの機能も、エンタープライズ所有者によってエンタープライズ レベルで構成されます。 詳細については、{% ifversion ghes %}「[エンタープライズの依存関係グラフの有効化](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)」および{% endif %}「[エンタープライズの {% data variables.product.prodname_dependabot %} の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
+- **依存関係レビュー**— {% data variables.location.product_location %}に対して依存関係グラフが有効になっており、{% data variables.product.prodname_advanced_security %} が組織またはリポジトリで有効になっている場合に使用できます。 詳細については、「[{% data variables.product.prodname_GH_advanced_security %} について](/get-started/learning-about-github/about-github-advanced-security)」を参照してください。
+{% endif %} {% ifversion ghes %}
+- **{% data variables.product.prodname_dependabot_security_updates %}** — 既定で有効になっていません。 {% data variables.product.prodname_dependabot_alerts %} と依存関係グラフを使用する任意のリポジトリで {% data variables.product.prodname_dependabot_security_updates %} を有効にすることができます。 セキュリティ更新プログラムの有効化の詳細については、「[{% data variables.product.prodname_dependabot_security_updates %}の構成](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)」を参照してください。
+- **{% data variables.product.prodname_dependabot_version_updates %}** — 既定で有効になっていません。 リポジトリへの書き込みアクセス許可を持つユーザーは、{% data variables.product.prodname_dependabot_version_updates %}を有効にすることができます。 セキュリティ更新プログラムの有効化の詳細については、「[{% data variables.product.prodname_dependabot_version_updates %} の構成](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)」を参照してください。
 {% endif %}

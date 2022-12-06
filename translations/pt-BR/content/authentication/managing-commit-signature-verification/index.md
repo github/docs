@@ -1,6 +1,6 @@
 ---
-title: Gerenciar a verificação de assinatura de commit
-intro: 'Você pode assinar seu trabalho localmente usando GPG ou S/MIME. O {% data variables.product.product_name %} verificará essas assinaturas, assim as pessoas saberão que seus commits tem origem em uma fonte confiável.{% ifversion fpt %} O {% data variables.product.product_name %} assinará automaticamente os commits que você fez com a interface web do {% data variables.product.product_name %}.{% endif %}'
+title: Managing commit signature verification
+intro: '{% data variables.product.product_name %} will verify GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME signatures so other people will know that your commits come from a trusted source.{% ifversion fpt %} {% data variables.product.product_name %} will automatically sign commits you make using the {% data variables.product.product_name %} web interface.{% endif %}'
 redirect_from:
   - /articles/generating-a-gpg-key
   - /articles/signing-commits-with-gpg
@@ -24,6 +24,6 @@ children:
   - /associating-an-email-with-your-gpg-key
   - /signing-commits
   - /signing-tags
-shortTitle: Verificar assinaturas de commit
+shortTitle: Verify commit signatures
 ---
 

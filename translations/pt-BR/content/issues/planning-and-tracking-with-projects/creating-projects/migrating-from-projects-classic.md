@@ -15,47 +15,52 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**Notas:**
+**Notes:**
 
-- Se o projeto que você está migrando contiver mais de 1200 itens, os problemas abertos serão priorizados seguidos por pull requests abertos e, por último, observações. O espaço restante será usado para problemas fechados, pull requests mesclados e pull requests fechados. Os tens que não podem ser transferidos devido a esse limite serão transferidos para o arquivo. Se o limite de arquivamento de 10.000 itens for atingido, não será realizada a migração dos itens adicionais.
-- Os cartões das observações são convertidos em problemas de rascunho e os conteúdos são salvos no texto do problema do rascunho. Se parecer que a informação está faltando, torne visível qualquer campo oculto. Para obter mais informações, consulte "[Mostrando e ocultando campos](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#showing-and-hiding-fields)."
-- Não será realizada a migração da automação.
-- Não será realizada a migração da triagem, arquivos e atividades.
-- Após a migração, o novo projeto migrado e o projeto antigo não serão mantidos em sincronia.
+- If the project you are migrating contains more than {% data variables.projects.item_limit %} items, open issues will be prioritized followed by open pull requests and then notes. Remaining space will be used for closed issues, merged pull requested, and closed pull requests. Items that cannot be migrated due to this limit will be moved to the archive. If the archive limit of {% data variables.projects.archived_item_limit %} items is reached, additional items will not be migrated.
+- Note cards are converted to draft issues, and the contents are saved to the body of the draft issue. If information appears to be missing, make any hidden fields visible. For more information, see "[Showing and hiding fields](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#showing-and-hiding-fields)."
+- Automation will not be migrated.
+- Triage, archive, and activity will not be migrated.
+- After migration, the new migrated project and old project will not be kept in sync.
 
 {% endnote %}
 
-## Sobre a migração do projeto
+## About project migration
 
 You can migrate your project boards to the new {% data variables.product.prodname_projects_v2 %} experience and try out tables, multiple views, new automation options, and powerful field types. For more information, see "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
-## Migrando um quadro de projetos de organização
+## Migrating an organization project board
 
 {% data reusables.projects.enable-migration %}
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
-1. À esquerda, clique em **Projetos (clássico)**. ![Captura de tela que mostra a opção de menu Projetos (clássicos)}](/assets/images/help/issues/projects-classic-org.png)
+1. On the left, click **Projects (classic)**.
+  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-org.png)
 {% data reusables.projects.migrate-project-steps %}
 
-## Migrando um quadro de projetos de usuário
+## Migrating a user project board
 
 {% data reusables.projects.enable-migration %}
 {% data reusables.profile.access_profile %}
-1. No topa da página do seu perfil, na navegação principal, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Aba Project (Projeto)](/assets/images/help/projects/user-projects-tab.png)
-1. Acima da lista de projetos, clique **Projetos (clássico)**. ![Captura de tela que mostra a opção de menu Projetos (clássicos)}](/assets/images/help/issues/projects-classic-user.png)
+1. On the top of your profile page, in the main navigation, click {% octicon "table" aria-label="The project board icon" %} **Projects**.
+  ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
+1. Above the list of projects, click **Projects (classic)**.
+  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-user.png)
 {% data reusables.projects.migrate-project-steps %}
 
-## Migrando um quadro de projetos do repositório
+## Migrating a repository project board
 
 {% note %}
 
-**Note:** {% data variables.projects.projects_v2_caps %} does not support repository level projects. Quando você migrar um quadro de projeto repositório, ele será transferido para a organização ou conta pessoal à qual pertence o projeto do repositório, e o projeto transferido será fixado no repositório original.
+**Note:** {% data variables.projects.projects_v2_caps %} does not support repository level projects. When you migrate a repository project board, it will migrate to either the organization or personal account that owns the repository project, and the migrated project will be pinned to the original repository.
 
 {% endnote %}
 
 {% data reusables.projects.enable-migration %}
 {% data reusables.repositories.navigate-to-repo %}
-1. Abaixo do nome do repositório, clique em {% octicon "project" aria-label="The project board icon" %} **Projects** (Projetos). ![Aba Project (Projeto)](/assets/images/help/projects/repo-tabs-projects.png)
-1. Clique **Projetos (clássico)**. ![Captura de tela que mostra a opção de menu Projetos (clássicos)}](/assets/images/help/issues/projects-classic-org.png)
+1. Under your repository name, click {% octicon "table" aria-label="The project board icon" %} **Projects**.
+![Project tab](/assets/images/help/projects-v2/repo-tabs-projects.png)
+1. Click **Projects (classic)**.
+  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-org.png)
 {% data reusables.projects.migrate-project-steps %}

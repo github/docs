@@ -118,7 +118,7 @@ In most places in a workflow, the only types of variables that you can use are e
 
 When you set a custom environment variable, you cannot use any of the default environment variable names. For a complete list of these, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
 
-Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `HOME`, `GITHUB_ENV`, and `GITHUB_WORKSPACE` default environment variables are exceptions to this convention.
+Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_ENV` and `GITHUB_WORKSPACE` default environment variables are exceptions to this convention.
 
 ## Default environment variables
 
@@ -144,8 +144,8 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
 | `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and changes for each step in a job.  For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `GITHUB_REF` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
-| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} For example, `feature-branch-1`.|
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
 | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
 | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
 {%- endif %}
@@ -156,19 +156,22 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_RUN_ID` | {% data reusables.actions.run_id_description %} For example, `1658821493`. |
 | `GITHUB_RUN_NUMBER` | {% data reusables.actions.run_number_description %} For example, `3`. |
 | `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
-| `GITHUB_SHA` | The commit SHA that triggered the workflow. The value of this commit SHA depends on the event that triggered the workflow. For more information, see [Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows). For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
+| `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} |
 {%- ifversion actions-job-summaries %}
 | `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/rob/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
 {%- endif %}
 | `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |
 | `GITHUB_WORKSPACE` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. For example, `/home/runner/work/my-repo-name/my-repo-name`. |
 {%- ifversion actions-runner-arch-envvars %}
-| `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %}
-{%- endif %} |
+| `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %} |
+{%- endif %}
+| `RUNNER_DEBUG` | {% data reusables.actions.runner-debug-description %} |
 | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} For example, `Hosted Agent` |
 | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} For example, `Windows` |
 | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %} For example, `D:\a\_temp` |
-{% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %} For example, `C:\hostedtoolcache\windows` |{% endif %}
+{%- ifversion not ghae %}
+| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %} For example, `C:\hostedtoolcache\windows` |
+{%- endif %}
 
 {% note %}
 

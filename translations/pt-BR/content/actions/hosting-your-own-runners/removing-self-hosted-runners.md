@@ -1,6 +1,6 @@
 ---
-title: Remover executores auto-hospedados
-intro: 'Você pode remover permanentemente um executor auto-hospedado de um repositório{% ifversion fpt %} ou organização{% elsif ghec or ghes or gahe %}, uma organização ou uma empresa{% endif %}.'
+title: Removing self-hosted runners
+intro: 'You can permanently remove a self-hosted runner from a repository{% ifversion fpt %} or organization{% elsif ghec or ghes or gahe %}, an organization, or an enterprise{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/removing-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
@@ -10,26 +10,26 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-shortTitle: Remover executores auto-hospedados
+shortTitle: Remove self-hosted runners
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Remover um executor de um repositório
+## Removing a runner from a repository
 
 {% note %}
 
-**Observação:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
 {% endnote %}
 
-Para remover um executor auto-hospedado de um repositório de usuário, você deve ser o proprietário do repositório. Para um repositório da organização, você deve ser um proprietário da organização ou ter acesso de administrador ao repositório. Recomendamos que você também tenha acesso à máquina do executor auto-hospedado. Para obter informações sobre como remover um executor auto-hospedado com a API REST, consulte "[Executores auto-hospedados](/rest/reference/actions#self-hosted-runners)."
+To remove a self-hosted runner from a user repository you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
 
 {% data reusables.actions.self-hosted-runner-reusing %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-runners %}
@@ -42,17 +42,17 @@ Para remover um executor auto-hospedado de um repositório de usuário, você de
 {% data reusables.actions.self-hosted-runner-removing-a-runner %}
 {% endif %}
 
-## Remover um executor de uma organização
+## Removing a runner from an organization
 
 {% note %}
 
-**Observação:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
 {% endnote %}
 
-Para remover um executor auto-hospedado de uma organização, você deve ser um proprietário da organização. Recomendamos que você também tenha acesso à máquina do executor auto-hospedado. Para obter informações sobre como remover um executor auto-hospedado com a API REST, consulte "[Executores auto-hospedados](/rest/reference/actions#self-hosted-runners)."
+To remove a self-hosted runner from an organization, you must be an organization owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
 
 {% data reusables.actions.self-hosted-runner-reusing %}
 {% ifversion fpt or ghes > 3.3 or ghec %}
@@ -68,25 +68,24 @@ Para remover um executor auto-hospedado de uma organização, você deve ser um 
 {% data reusables.actions.self-hosted-runner-removing-a-runner %}
 {% endif %}
 
-## Remover um executor de uma empresa
+## Removing a runner from an enterprise
 
 {% ifversion fpt %}
-Se você usar
-{% data variables.product.prodname_ghe_cloud %}, você também pode remover executores de uma empresa. Para obter mais informações, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
+If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove runners from an enterprise. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
 {% endif %}
 {% ifversion ghec or ghes or ghae %}
 {% note %}
 
-**Observação:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
 {% endnote %}
 
-Para remover um executor auto-hospedado de uma empresa, você deverá ser um proprietário corporativo. Recomendamos que você também tenha acesso à máquina do executor auto-hospedado. Para obter informações sobre como remover um executor auto-hospedado com a API REST, consulte os pontos de extremidade corporativos na [API REST de {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runners).
+To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
 
 {% data reusables.actions.self-hosted-runner-reusing %}
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}

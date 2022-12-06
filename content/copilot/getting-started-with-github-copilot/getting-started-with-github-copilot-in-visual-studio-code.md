@@ -9,6 +9,8 @@ topics:
   - Copilot
 ---
 
+{% data reusables.copilot.copilot-cta-button %}
+
 ## About {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_vscode %}
 
 {% data reusables.copilot.procedural-intro %}
@@ -36,6 +38,8 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    
 
 ## Seeing your first suggestion
+
+{% data reusables.copilot.code-examples-limitations %}
 
 {% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
 

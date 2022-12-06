@@ -1,0 +1,1 @@
+1. Access the {% data variables.product.prodname_vscode_command_palette_shortname %} with <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).

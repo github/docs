@@ -1,5 +1,5 @@
 ---
-title: Gerenciando a política de aprovação do commit para sua organização
+title: Managing the commit signoff policy for your organization
 intro: 'You can require users to automatically sign off all commits they make in {% data variables.product.product_name %}''s web interface to repositories owned by your organization.'
 versions:
   feature: commit-signoffs
@@ -22,4 +22,5 @@ People with admin access to a repository can also enable compulsory commit signo
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.repository-defaults %}
-1. Select or deselect **Require contributors to sign off on web-based commits**. ![Screenshot of Require contributors to sign off on web-based commits](/assets/images/help/organizations/require-signoffs.png)
+1. Select or deselect **Require contributors to sign off on web-based commits**.
+  ![Screenshot of Require contributors to sign off on web-based commits](/assets/images/help/organizations/require-signoffs.png)

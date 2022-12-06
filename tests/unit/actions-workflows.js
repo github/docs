@@ -39,16 +39,14 @@ describe('GitHub Actions workflows', () => {
     expect(actionName).toMatch(actionRegexp)
   })
 
-  test('no scheduled workflows run on the hour', () => {
-    const hourlySchedules = scheduledWorkflows.filter((schedule) => {
-      const hour = schedule.split(' ')[0]
-      // return any minute cron segments that equal 0, 00, 000, etc.
-      return !/[^0]/.test(hour)
-    })
-    expect(hourlySchedules).toEqual([])
+  test('all scheduled workflows run at 20 minutes past', () => {
+    const twenties = scheduledWorkflows.filter((schedule) => /^20/.test(schedule))
+    expect(twenties.length).toEqual(scheduledWorkflows.length)
   })
 
-  test('all scheduled workflows run at unique times', () => {
-    expect(scheduledWorkflows.length).toEqual(new Set(scheduledWorkflows).size)
+  test('all daily and weekly workflows run at 16:20 UTC / 8:20 PST', () => {
+    const dailies = scheduledWorkflows.filter((schedule) => /^20 \d{2}/.test(schedule))
+    const sixteens = dailies.filter((schedule) => /^20 16/.test(schedule))
+    expect(sixteens.length).toEqual(dailies.length)
   })
 })

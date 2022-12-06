@@ -86,7 +86,6 @@ Name | Type | Description
 `client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
 `redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
-`state` | `string` | The unguessable random string you provided in Step 1.
 
 #### Response
 
@@ -107,13 +106,13 @@ By default, the response takes the following form. The response parameters `expi
 
 The user's access token allows the GitHub App to make requests to the API on behalf of a user.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
 For example, in curl you can set the Authorization header like this:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 ## Device flow
@@ -132,12 +131,12 @@ The device flow allows you to authorize users for a headless app, such as a CLI 
 
 Once you have an OAuth token for a user, you can check which installations that user can access.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations
 
 You can also check which repositories are accessible to a user for an installation.
 
-    Authorization: token OAUTH-TOKEN
+    Authorization: Bearer OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
 More details can be found in: [List app installations accessible to the user access token](/rest/apps#list-app-installations-accessible-to-the-user-access-token) and [List repositories accessible to the user access token](/rest/apps#list-repositories-accessible-to-the-user-access-token).

@@ -1,0 +1,129 @@
+name: Translation health report
+
+# **What it does**: Provides errors and summary statistics on rendering translated content.
+# **Why we have it**: To improve our translations by having clearer visibility.
+# **Who does it impact**: Docs engineering, Microsoft translators.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+
+jobs:
+  create-translation-health-report:
+    name: Create translation health report
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    # This sets a maximum execution time of 300 minutes (5 hours)
+    # to prevent the workflow from running longer than necessary.
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - language: es
+            language_dir: translations/es-ES
+            language_repo: github/docs-internal.es-es
+
+          - language: ja
+            language_dir: translations/ja-JP
+            language_repo: github/docs-internal.ja-jp
+
+          - language: pt
+            language_dir: translations/pt-BR
+            language_repo: github/docs-internal.pt-br
+
+          - language: cn
+            language_dir: translations/zh-CN
+            language_repo: github/docs-internal.zh-cn
+
+          # We'll be ready to add the following languages in a future effort.
+
+          # - language: ru
+          #   language_dir: translations/ru-RU
+          #   language_repo: github/docs-internal.ru-ru
+
+          # - language: ko
+          #   language_dir: translations/ko-KR
+          #   language_repo: github/docs-internal.ko-kr
+
+          # - language: fr
+          #   language_dir: translations/fr-FR
+          #   language_repo: github/docs-internal.fr-fr
+
+          # - language: de
+          #   language_dir: translations/de-DE
+          #   language_repo: github/docs-internal.de-de
+
+    steps:
+      - name: Checkout the docs-internal repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+
+      - name: Remove all language translations
+        run: |
+          git rm -rf --quiet ${{ matrix.language_dir }}/content
+          git rm -rf --quiet ${{ matrix.language_dir }}/data
+
+      - name: Checkout the language-specific repo
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        with:
+          repository: ${{ matrix.language_repo }}
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: ${{ matrix.language_dir }}
+
+      - name: Get language SHA
+        run: |
+          gitref=$(cd ${{ matrix.language_dir }} && git rev-parse --short HEAD)
+          echo "gitref=$gitref" >> $GITHUB_ENV
+
+      - name: 'Setup node'
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        with:
+          node-version: '16.17.0'
+
+      - name: npm ci
+        run: npm ci
+
+      - name: Create translation health report
+        run: |
+          node script/i18n/create-translation-health-report.js \
+            --language ${{ matrix.language }} \
+            --gitref ${{ env.gitref }} \
+            >> $HOME/translation-health-report.json
+
+      - name: Log in to Azure
+        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        with:
+          creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
+
+      - name: Upload to Azure blob storage
+        uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
+        with:
+          inlineScript: |
+            az storage blob upload \
+              --name "${{ matrix.language }}-latest.json" \
+              --file $HOME/translation-health-report.json \
+              --container-name translation-health-reports
+            az storage blob upload \
+              --name "${{ matrix.language }}-$(date +%Y-%m-%d).json" \
+              --file $HOME/translation-health-report.json \
+              --container-name translation-health-reports
+
+      - name: Log out from Azure
+        if: always()
+        run: |
+          az logout
+
+      # Emit a notification for the first responder to triage if the workflow failed.
+      - name: Send Slack notification if workflow failed
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        if: failure()
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: 'The health report for ${{ matrix.language }} failed.'

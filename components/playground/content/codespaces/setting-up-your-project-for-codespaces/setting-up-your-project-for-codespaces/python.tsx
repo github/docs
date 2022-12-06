@@ -13,7 +13,9 @@ const article: PlaygroundArticleT = {
   intro: dedent`
   This guide shows you how to add a dev container configuration to your repository to define the GitHub Codespaces development environment for your **Python** codebase. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)." 
   
-  If you want to add a dev container configuration for another programming language, click the language button to the right.
+  To work through the instructions in this guide you will use a codespace, in either the Visual Studio Code desktop application or the VS Code web client.
+  
+  These instructions are for Python. If you want to add a dev container configuration for another programming language, click the language button to the right.
   `,
   prerequisites: dedent`
     - You should have an existing Python project in a repository on GitHub.com. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/python-quickstart.
@@ -27,11 +29,11 @@ const article: PlaygroundArticleT = {
       type: 'default',
       title: 'Step 1: Open your project in a codespace',
       content: dedent`
-        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on BRANCH**.
+        1. Under the repository name, use the **Code** drop-down menu, and in the **Codespaces** tab, click the plus sign (+).
 
-            ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+           ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-            If you don’t see this option, GitHub Codespaces isn't available for your project. See [Access to GitHub Codespaces](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
+           If you don’t see this option, GitHub Codespaces isn't available for your project. See [Access to GitHub Codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces) for more information.
 
         When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Python, pip, and Miniconda. It also includes a common set of tools like git, wget, rsync, openssh, and nano.
 
@@ -53,17 +55,27 @@ const article: PlaygroundArticleT = {
 
         To set up your repository to use a custom dev container, you will need to create one or more \`devcontainer.json\` files. You can add these either from a template, in Visual Studio Code, or you can write your own. For more information on dev container configurations, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-        1. Access the Command Palette (\`<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>\` / \`<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>\`), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
-          !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+        1. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
+
+           !["Codespaces: Add Development Container Configuration Files..." in the Command Palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+
         2. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgreSQL.
-          ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
+
+           ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
+
         3. Click the recommended version of Python.
-          ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
+
+           ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
+
         4. Accept the default option to add Node.js to your customization.
-          ![Add Node.js selection](/assets/images/help/codespaces/add-nodejs-selection.png)
+
+           ![Add Node.js selection](/assets/images/help/codespaces/add-nodejs-selection.png)
+
         5. Select any additional features to install and click **OK**.
-        6. Access the command palette (\`<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>\`/ \`<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
-          ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+        6. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
+
+           ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+
       `,
     },
     {
@@ -197,11 +209,13 @@ const article: PlaygroundArticleT = {
            "postCreateCommand": "pip3 install --user -r requirements.txt",
            \`\`\`
 
-        4. Access the command palette (\`<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>\`/ \`<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>\`), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
+        4. Access the Command Palette (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "rebuild". Select **Codespaces: Rebuild Container**. 
           
             ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
           
              Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+
+             You may occasionally want to perform a full rebuild to clear your cache and rebuild your container with fresh images. For more information, see "[Performing a full rebuild of a container](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container)."
 
         5. Check your changes were successfully applied by verifying the Code Spell Checker and Flask Snippet extensions were installed.
 

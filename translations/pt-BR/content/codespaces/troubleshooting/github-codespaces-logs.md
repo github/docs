@@ -1,7 +1,6 @@
 ---
 title: Logs do GitHub Codespaces
-intro: 'Visão geral dos locais de registros usados por {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Visão geral dos logs usados pelo {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,41 +8,86 @@ type: reference
 topics:
   - Codespaces
   - Logging
-shortTitle: Registros de codespaces
+shortTitle: Codespaces logs
 redirect_from:
   - /codespaces/troubleshooting/codespaces-logs
+ms.openlocfilehash: f5cd482888f58f85a051bb9b6e2c5d7c026ed9a9
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159359'
 ---
+{% jetbrains %}
 
+{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-As informações sobre {% data variables.product.prodname_github_codespaces %} são saídas para três registros diferentes:
+{% endjetbrains %}
 
-- Registros do codespace
-- Registros de criação
-- Registro de extensões ({% data variables.product.prodname_vscode %} desktop) ou registros de console do navegador ({% data variables.product.prodname_vscode %} na web)
-
-## Registros do codespace
-
-Esses registros contêm informações detalhadas sobre o codespace, container, sessão e ambiente de {% data variables.product.prodname_vscode %}. Eles são úteis para diagnosticar problemas de conexão e outros comportamentos inesperados. Por exemplo, o codespace congela, mas a opção "Recarregar Windows" o descongela por alguns minutos ou você será desconectado do codespace aleatoriamente, mas poderá reconectar-se imediatamente.
+A saída das informações sobre o {% data variables.product.prodname_github_codespaces %} é gerada em vários logs diferentes:
 
 {% webui %}
 
-1. Se estiver usando {% data variables.product.prodname_codespaces %} no navegador, certifique-se de que esteja conectado ao codespace que deseja depurar.
-1. Abra a paleta de comando de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Exportar registros**. Selecione **Codespaces: Exportar registros** na lista para fazer o download dos registros.
-1. Defina o local onde salvar o arquivo zip dos registros e, em seguida, clique em **Salvar** (desktop) ou clique em **OK** (web).
-1. Se estiver usando {% data variables.product.prodname_codespaces %} no navegador, clique com o botão direito do mouse no arquivo zip dos registros na exibição do Explorer e selecione **Download…** para fazer o download para a sua máquina local.
+- Registros do codespace
+- Registros de criação
+- Logs do console do navegador (para o cliente Web do {% data variables.product.prodname_vscode_shortname %})
+
+Os logs de extensão estarão disponíveis se você estiver usando o {% data variables.product.prodname_github_codespaces %} no {% data variables.product.prodname_vscode_shortname %}. Clique na guia "{% data variables.product.prodname_vscode %}" acima para obter detalhes.
 
 {% endwebui %}
 
 {% vscode %}
 
-1. Abra a paleta de comando de {% data variables.product.prodname_vscode %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Exportar registros**. Selecione **Codespaces: Exportar registros** na lista para fazer o download dos registros.
-1. Defina o local onde salvar o arquivo zip dos registros e, em seguida, clique em **Salvar** (desktop) ou clique em **OK** (web).
+- Registros do codespace
+- Registros de criação
+- Logs de extensão (para o aplicativo da área de trabalho do {% data variables.product.prodname_vscode_shortname %}) 
+
+Os logs do navegador estarão disponíveis se você estiver usando o {% data variables.product.prodname_github_codespaces %} no navegador. Clique na guia "Navegador da Web" acima para obter detalhes.
 
 {% endvscode %}
 
 {% cli %}
 
-Atualmente você não pode usar {% data variables.product.prodname_cli %} para acessar esses registros. Para acessá-los, abra seu codespace em {% data variables.product.prodname_vscode %} ou em um navegador.
+- Registros do codespace
+- Registros de criação
+
+Outros logs estarão disponíveis se você estiver usando o {% data variables.product.prodname_github_codespaces %} no {% data variables.product.prodname_vscode_shortname %} ou no navegador da Web. Clique nas guias acima para obter detalhes.
+
+{% endcli %}
+
+{% jetbrains %}
+
+- Registros de criação
+
+Outros logs estarão disponíveis se você estiver usando o {% data variables.product.prodname_github_codespaces %} no {% data variables.product.prodname_vscode_shortname %} ou no navegador da Web. Clique nas guias acima para obter detalhes.
+
+{% endjetbrains %}
+
+{% webui %}
+
+{% data reusables.codespaces.codespace-logs %}
+
+1. Se você estiver usando o {% data variables.product.prodname_github_codespaces %} no navegador, certifique-se de estar conectado ao codespace que será depurado.
+1. Abra a {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> [no Mac] / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> [no Windows/Linux]) e digite **logs de exportação**. Selecione **Codespaces: Exportar logs** na lista para baixar os logs.
+1. Defina o local em que o arquivo zip dos logs será salvo e clique em **Salvar** (área de trabalho) ou em **OK** (Web).
+1. Se você estiver usando o {% data variables.product.prodname_github_codespaces %} no navegador, clique com o botão direito do mouse no arquivo ZIP dos logs na exibição do Explorer e selecione **Baixar…** para baixá-los no computador local.
+
+{% endwebui %}
+
+{% vscode %}
+
+{% data reusables.codespaces.codespace-logs %}
+
+1. Abra a {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> [no Mac] / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> [no Windows/Linux]) e digite **logs de exportação**. Selecione **Codespaces: Exportar logs** na lista para baixar os logs.
+1. Defina o local em que o arquivo zip dos logs será salvo e clique em **Salvar** (área de trabalho) ou em **OK** (Web).
+
+{% endvscode %}
+
+{% cli %}
+
+{% data reusables.codespaces.codespace-logs %}
+
+Atualmente você não pode usar {% data variables.product.prodname_cli %} para acessar esses registros. Para acessá-los, abra o codespace no {% data variables.product.prodname_vscode_shortname %} ou em um navegador.
 
 {% endcli %}
 
@@ -51,11 +95,10 @@ Atualmente você não pode usar {% data variables.product.prodname_cli %} para a
 
 Estes registros contêm informações sobre o contêiner, contêiner de desenvolvimento e sua configuração. Eles são úteis para depuração de configurações e problemas de instalação.
 
-
 {% webui %}
 
 1. Conecte-se ao codespace que você deseja depurar.
-2. Abra o {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Registros de criação**. Selecione **codespaces: Visualizar registro de criação** na lista para abrir o arquivo `creation.log`.
+2. Abra a {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> [no Mac] / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> [no Windows/Linux]) e digite **Logs de Criação**. Selecione **Codespaces: Exibir o Log de Criação** na lista para abrir o arquivo `creation.log`.
 
 Se você quiser compartilhar o registro com suporte, você poderá copiar o texto do registro de criação em um editor de texto e salvar o arquivo localmente.
 
@@ -63,7 +106,7 @@ Se você quiser compartilhar o registro com suporte, você poderá copiar o text
 
 {% vscode %}
 
-Abra a Paleta de Comando (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Registros de criação**. Selecione **codespaces: Visualizar registro de criação** na lista para abrir o arquivo `creation.log`.
+Abra a {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> [no Mac] / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> [no Windows/Linux]) e digite **Logs de Criação**. Selecione **Codespaces: Exibir o Log de Criação** na lista para abrir o arquivo `creation.log`.
 
 Se você quiser compartilhar o registro com suporte, você poderá copiar o texto do registro de criação em um editor de texto e salvar o arquivo localmente.
 
@@ -73,13 +116,13 @@ Se você quiser compartilhar o registro com suporte, você poderá copiar o text
 
 {% data reusables.cli.cli-learn-more %}
 
-Para ver o registro de criação, use os subcomandos `gh codespace logs`. Depois de entrar no comando, escolha entre a lista de codespaces exibidos.
+Para ver o log de criação, use o subcomando `gh codespace logs`. Depois de entrar no comando, escolha entre a lista de codespaces exibidos.
 
 ```shell
 gh codespace logs
 ```
 
-Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_logs).
+Para obter mais informações sobre esse comando, confira [o manual da {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_logs).
 
 Se você quiser compartilhar o registro com suporte, você poderá salvar a saída em um arquivo:
 
@@ -89,19 +132,46 @@ gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
 
 {% endcli %}
 
+{% vscode %}
+
 ## Registros de extensão
 
-Estes registros estão disponíveis apenas para usuários de área de trabalho de {% data variables.product.prodname_vscode %}. Eles são úteis para o caso de parecer que o editor de {% data variables.product.prodname_codespaces %} ou {% data variables.product.prodname_vscode %} estejam com problemas que impedem a criação ou conexão.
+Estes logs estão disponíveis apenas para os usuários de área de trabalho do {% data variables.product.prodname_vscode_shortname %} desktop users only. Eles são úteis quando há a possibilidade de problemas na extensão do {% data variables.product.prodname_github_codespaces %} ou no editor do {% data variables.product.prodname_vscode_shortname %} que possam impedir a criação ou a conexão.
 
-1. Em {% data variables.product.prodname_vscode %}, abra a paleta de comando.
-1. Digite **Registros** e selecione **Desenvolvedor: Abrir pasta de registros de extensão** na lista para abrir a pasta de registro de extensões no explorador do arquivo do seu sistema.
+1. No {% data variables.product.prodname_vscode_shortname %}, abra a paleta de comandos.
+1. Digite **Logs** e selecione **Desenvolvedor: Abrir Pasta de Logs de Extensão** na lista para abrir a pasta de log de extensão no explorador de arquivos do sistema.
 
-Nesta visualização, você poderá acessar os registros gerados pelas várias extensões que você usa em {% data variables.product.prodname_vscode %}. Você verá registros para os codespaces e para a autenticação do GitHub e Git, além de qualquer outra extensão que você habilitou.
+Nesta exibição, é possível acessar os registros gerados pelas várias extensões usadas no {% data variables.product.prodname_vscode_shortname %}. Você verá os logs do {% data variables.product.prodname_github_codespaces %}, do {% data variables.product.prodname_dotcom %} Authentication e do Git, além de logs de outras extensões habilitadas.
+
+{% endvscode %}
+
+{% webui %}
 
 ## Registros do console do navegador
 
-Esses registros são úteis apenas se você quiser depurar problemas com o uso do {% data variables.product.prodname_codespaces %} no navegador. Eles são úteis para depurar problemas de criação e conexão com {% data variables.product.prodname_codespaces %}.
+Esses logs são úteis apenas para depurar problemas com o uso do {% data variables.product.prodname_github_codespaces %} em navegadores. Eles são úteis para depurar problemas de criação e conexão com o {% data variables.product.prodname_github_codespaces %}.
 
 1. Na janela do navegador para o ambiente de codespace que você deseja depurar, abra a janela de ferramentas do desenvolvedor.
-1. Exibe a aba "Console" e clique em em **erros** na barra do lado esquerdo para mostrar apenas os erros.
-1. Na área do registro à direita, clique com o botão direito e selecione **Salvar como** para salvar uma cópia dos erros na sua máquina local. ![Salvar erros](/assets/images/help/codespaces/browser-console-log-save.png)
+1. Veja a guia "Console" e clique em **Erros** na barra lateral esquerda para mostrar apenas os erros.
+1. Na área de log à direita, clique com o botão direito do mouse e selecione **Salvar como** para salvar uma cópia dos erros no computador local.
+  ![Salvar erros](/assets/images/help/codespaces/browser-console-log-save.png)
+
+{% endwebui %}
+
+{% jetbrains %}
+
+{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
+1. Na janela de ferramentas do {% data variables.product.prodname_github_codespaces %}, clique no ícone de log.
+
+   ![Captura de tela do botão de log](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
+
+## Logs do JetBrains
+
+É possível baixar logs para o IDE remoto do JetBrains e para o aplicativo cliente local acessando o menu **Ajuda** no aplicativo cliente JetBrains e clicando em **Coletar logs do host e do cliente**.
+
+{% endjetbrains %}
+
+## Leitura adicional
+
+- "[Como revisar os logs de auditoria da sua organização para o {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
+- "[Como revisar seus logs de segurança de {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"

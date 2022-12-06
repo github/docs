@@ -34,15 +34,16 @@ const DEFAULT_OPTIONS = {
       // For use during development only!
       // `unsafe-eval` allows us to use a performant webpack devtool setting (eval)
       // https://webpack.js.org/configuration/devtool/#devtool
-      scriptSrc: ["'self'", isDev && "'unsafe-eval'"].filter(Boolean),
+      scriptSrc: ["'self'", 'data:', AZURE_STORAGE_URL, isDev && "'unsafe-eval'"].filter(Boolean),
       frameSrc: [
         ...GITHUB_DOMAINS,
         isDev && 'http://localhost:3000',
         'https://www.youtube-nocookie.com',
       ].filter(Boolean),
       frameAncestors: [...GITHUB_DOMAINS],
-      styleSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'", 'data:', AZURE_STORAGE_URL],
       childSrc: ["'self'"], // exception for search in deprecated GHE versions
+      upgradeInsecureRequests: isDev ? null : [],
     },
   },
 }

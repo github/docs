@@ -1,6 +1,6 @@
 ---
-title: Configuring a publishing source for your GitHub Pages site
-intro: '{% ifversion pages-custom-workflow %}You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.{% else%}If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.{% endif %}'
+title: GitHub Pages サイトの公開元を設定する
+intro: '{% ifversion pages-custom-workflow %}変更が特定のブランチにプッシュされたときに公開するように {% data variables.product.prodname_pages %} サイトを構成するか、{% data variables.product.prodname_actions %} ワークフローを記述してサイトを公開することができます。{% else%}{% data variables.product.prodname_pages %} サイトに既定の公開元を使用すると、サイトは自動的に発行されます。 別のブランチまたはフォルダーからサイトを公開するように選択することもできます。{% endif %}'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -15,92 +15,84 @@ versions:
 topics:
   - Pages
 shortTitle: Configure publishing source
+ms.openlocfilehash: d08b5c150da5be18700312237c374059228c563d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529640'
 ---
-
-## About publishing sources
+## 公開元について
 
 {% data reusables.pages.pages-about-publishing-source %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-## Publishing from a branch
+## ブランチからの公開
 
-1. Make sure the branch you want to use as your publishing source already exists in your repository.
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-{% ifversion pages-custom-workflow %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+1. 公開元として使用するブランチがリポジトリ内に既に存在していることを確認します。
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %} {% ifversion pages-custom-workflow %}
+1. [ビルドとデプロイ] の [ソース] で、 **[ソースからのデプロイ]** を選択します。
+1. [ビルドとデプロイ] の [ブランチ] で、 **[なし]** または **[ブランチ]** ドロップダウン メニューを使用し、公開元を選択します。
 
-   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% else %}
-3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source.
-  ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% endif %}
-4. Optionally, use the drop-down menu to select a folder for your publishing source.
-  ![Drop-down menu to select a folder for publishing source](/assets/images/help/pages/publishing-source-folder-drop-down.png)
-5. Click **Save**.
-  ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png)
+   ![公開元を選択するドロップダウン メニュー](/assets/images/help/pages/publishing-source-drop-down.png) {% else %}
+3. "{% data variables.product.prodname_pages %}" で、 **[None]\(なし\)** または **[Branch]\(ブランチ\)** ドロップダウン メニューを使用し、公開ソースを選択します。
+  ![公開元を選択するドロップダウン メニュー](/assets/images/help/pages/publishing-source-drop-down.png) {% endif %}
+4. 必要に応じて、ドロップダウンメニューで発行元のフォルダを選択します。
+  ![公開ソースのフォルダーを選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-folder-drop-down.png)
+5. **[保存]** をクリックします。
+  ![公開ソースの設定の変更を保存するボタン](/assets/images/help/pages/publishing-source-save.png)
 
-### Troubleshooting publishing from a branch
+### ブランチからの公開のトラブルシューティング
 
 {% data reusables.pages.admin-must-push %}
 
-If you choose the `docs` folder on any branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. For more information, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)."
+公開ソースとして任意のブランチの `docs` フォルダーを選択し、後でリポジトリ内のそのブランチから `/docs` フォルダーを削除した場合、サイトはビルドされず、見つからない `/docs` フォルダーのページ ビルド エラー メッセージが表示されます。 詳細については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルド エラーのトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)」を参照してください。
 
-{% ifversion fpt %} 
+{% ifversion build-pages-with-actions %}
 
-Your {% data variables.product.prodname_pages %} site will always be deployed with a {% data variables.product.prodname_actions %} workflow run, even if you've configured your {% data variables.product.prodname_pages %} site to be built using a different CI tool. Most external CI workflows "deploy" to GitHub Pages by committing the build output to the `gh-pages` branch of the repository, and typically include a `.nojekyll` file. When this happens, the {% data variables.product.prodname_actions %} workflow will detect the state that the branch does not need a build step, and will execute only the steps necessary to deploy the site to {% data variables.product.prodname_pages %} servers.
+{% data variables.product.prodname_pages %}サイトは、{% data variables.product.prodname_pages %}サイトを別のCIツールを使ってビルドするように設定している場合であっても、常に{% data variables.product.prodname_actions %}ワークフローの実行によってデプロイされます。 ほとんどの外部 CI ワークフローは、ビルド出力をリポジトリの `gh-pages` ブランチにコミットして GitHub Pages に "デプロイ" し、通常は `.nojekyll` ファイルを含めます。 これが行われた場合、{% data variables.product.prodname_actions %}ワークフローはブランチにビルドのステップが必要ない状態になっていることを検出し、サイトを{% data variables.product.prodname_pages %}サーバーにデプロイするのに必要なステップだけを実行します。
 
-To find potential errors with either the build or deployment, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."  For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
-
-{% note %}
-
-{% data reusables.pages.pages-builds-with-github-actions-public-beta %}
-
-{% endnote %}
+ビルドあるいはデプロイメントでの潜在的なエラーを見つけるには、リポジトリのワークフロー実行をレビューすることによって、{% data variables.product.prodname_pages %}サイトのためのワークフローの実行をチェックできます。 詳細については、「[ワークフロー実行の履歴を表示する](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)」を参照してください。 エラーが発生した場合にワークフローを再実行する方法の詳細については、「[ワークフローとジョブの再実行](/actions/managing-workflow-runs/re-running-workflows-and-jobs)」を参照してください。
 
 {% endif %}
 
 {% ifversion pages-custom-workflow %}
 
-## Publishing with a custom {% data variables.product.prodname_actions %} workflow
+## カスタム {% data variables.product.prodname_actions %} ワークフローによる公開
 
 {% data reusables.pages.pages-custom-workflow-beta %}
 
-To configure your site to publish with {% data variables.product.prodname_actions %}:
+{% data variables.product.prodname_actions %} を使用して公開するサイトを構成するには、次の手順を行います。
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Under "Build and deployment", under "Source", select **GitHub Actions**.
-1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about creating your custom workflow, see "[Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site](#creating-a-custom-github-actions-workflow-to-publish-your-site)."
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+1. [ビルドとデプロイ] の [ソース] で、 **[GitHub Actions]** を選択します。
+1. {% data variables.product.product_name %} により、いくつかのスターター ワークフローが提案されます。 サイトを公開するワークフローが既にある場合、この手順をスキップできます。 それ以外の場合、{% data variables.product.prodname_actions %} ワークフローを作成するオプションのいずれかを選択します。 カスタム ワークフローの作成に関する詳しい情報については、「[サイトを公開するカスタム {% data variables.product.prodname_actions %} ワークフローの作成](#creating-a-custom-github-actions-workflow-to-publish-your-site)」を参照してください。
 
-   {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
+   {% data variables.product.prodname_pages %} では、特定のワークフローを {% data variables.product.prodname_pages %} 設定に関連付けません。 ただし、{% data variables.product.prodname_pages %} 設定は、最近サイトをデプロイしたワークフロー実行にリンクされます。
 
-### Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site
+### サイトを公開するカスタム {% data variables.product.prodname_actions %} ワークフローの作成
 
-For more information about {% data variables.product.prodname_actions %}, see "[Actions](/actions)."
+{% data variables.product.prodname_actions %} の詳しい情報については、「[Actions](/actions)」を参照してください。
 
-When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
+{% data variables.product.prodname_actions %} で発行するようにサイトを構成する場合、{% data variables.product.product_name %} により、一般的な公開シナリオのスターター ワークフローが提案されます。 ワークフローの一般的なフローは、次のとおりです。
 
-1. Trigger whenever there is a push to the default branch of the repository or whenever a pull request that targets the default branch is opened, reopened, or updated.
-1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
-1. If required by your site, build any static site files.
-1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.
-1. If the workflow was triggered by a push to the default branch, use the [`actions/deploy-pages`](https://github.com/actions/deploy-pages) action to deploy the artifact. This step is skipped if the workflow was triggered by a pull request.
+1. リポジトリの既定のブランチへのプッシュがある場合、または既定のブランチを対象とする pull request のオープン、再オープン、または更新が行われるたびにトリガーされます。
+1. [`actions/checkout`](https://github.com/actions/checkout) アクションを使用してリポジトリの内容をチェックアウトします。
+1. サイトで必要な場合、静的サイト ファイルをビルドします。
+1. [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) アクションを使用して静的ファイルを成果物としてアップロードします。
+1. ワークフローが既定のブランチへのプッシュによってトリガーされた場合、[`actions/deploy-pages`](https://github.com/actions/deploy-pages) アクションを使用して成果物をデプロイします。 ワークフローが pull request によってトリガーされた場合、この手順はスキップされます。
 
-The starter workflows use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add an environment protection rule so that only the default branch can deploy to this environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+スターター ワークフローでは、`github-pages` という名前のデプロイ環境を使用します。 `github-pages` という名前の環境がリポジトリにまだ含まれていない場合、この環境は自動的に作成されます。 既定のブランチのみがこの環境にデプロイできるように、環境保護ルールを追加することをお勧めします。 詳細については、「[デプロイに環境を使用する](/actions/deployment/targeting-different-environments/using-environments-for-deployment)」を参照してください。
 
 {% note %}
 
-**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
+**注**: リポジトリ ファイル内の `CNAME` ファイルでは、カスタム ドメインは自動的に追加または削除されません。 代わりに、リポジトリ設定または API を使用してカスタム ドメインを構成する必要があります。 詳しい情報については、「[GitHub Pages サイトのカスタム ドメインを管理する](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)」および [Pages API リファレンス ドキュメント](/rest/pages#update-information-about-a-github-pages-site)を参照してください。
 
 {% endnote %}
 
-### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
+### カスタム {% data variables.product.prodname_actions %} ワークフローによる公開のトラブルシューティング
 
-For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)."
+{% data variables.product.prodname_actions %} ワークフローのトラブルシューティング方法に関する詳しい情報については、「[監視とトラブルシューティングについて](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)」を参照してください。
 
 {% endif %}

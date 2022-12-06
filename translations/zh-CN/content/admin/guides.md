@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise 指南
-shortTitle: 指南
+shortTitle: Guides
 intro: '学习如何通过 {% data variables.product.product_name %} 提高开发人员的工作效率和代码质量。'
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -45,6 +45,7 @@ includeGuides:
   - /admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-data-encryption-for-your-enterprise
+  - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
   - /admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
@@ -62,7 +63,7 @@ includeGuides:
   - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
   - /admin/configuration/initializing-github-ae
   - /admin/configuration/network-ports
-  - /admin/configuration/restricting-network-traffic-to-your-enterprise
+  - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/configuration/site-admin-dashboard
   - /admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
@@ -98,7 +99,7 @@ includeGuides:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-project-board-policies-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
@@ -146,5 +147,11 @@ includeGuides:
   - /admin/user-management/suspending-and-unsuspending-users
   - /admin/overview/creating-an-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
+ms.openlocfilehash: 88a0fe93a3c2784d81d81f91a3b1c0311cac84c7
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180112'
 ---
 

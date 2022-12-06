@@ -1,12 +1,12 @@
 ---
-title: 管理企业的 IAM
+title: Managing IAM for your enterprise
 intro: |
   {%- ifversion ghec %}
-  您可以邀请 {% data variables.product.product_location %} 上的现有个人帐户成为企业的成员，还可以选择启用 SAML 单点登录 (SSO) 来集中管理访问权限。 或者，您也可以使用 {% data variables.product.prodname_emus %} 和 SAML SSO 来创建和控制企业成员的帐户。
+  You can invite existing personal accounts on {% data variables.location.product_location %} to be members of your enterprise, and you can optionally enable SAML single sign-on (SSO) to centrally manage access. Alternatively, you can use {% data variables.product.prodname_emus %} with SAML SSO to create and control the accounts of your enterprise members.
   {%- elsif ghes %}
-  您可以使用 {% data variables.product.product_name %} 的内置身份验证，也可以使用 CAS、LDAP 或 SAML 集中管理身份验证和对实例的访问。
+  You can use {% data variables.product.product_name %}'s built-in authentication, or you can centrally manage authentication and access to your instance with CAS, LDAP, or SAML.
   {%- elsif ghae %}
-  您必须使用 SAML 单点登录 (SSO) 在 {% data variables.product.product_name %} 集中管理身份验证和对企业的访问。 （可选）当您对身份提供程序 (IdP) 进行更改时，可以使用跨域身份管理系统 (SCIM) 在 {% data variables.product.product_name %} 上自动预置帐户和访问权限。
+  You must use SAML single sign-on (SSO) to centrally manage authentication and access to your enterprise on {% data variables.product.product_name %}. Optionally, you can use System for Cross-domain Identity Management (SCIM) to automatically provision accounts and access on {% data variables.product.product_name %} when you make changes on your identity provider (IdP).
   {%- endif %}
 redirect_from:
   - /enterprise/admin/categories/authentication
@@ -31,6 +31,6 @@ children:
   - /changing-authentication-methods
   - /allowing-built-in-authentication-for-users-outside-your-provider
   - /troubleshooting-identity-and-access-management-for-your-enterprise
-shortTitle: 管理企业的 IAM
+shortTitle: Manage IAM for your enterprise
 ---
 

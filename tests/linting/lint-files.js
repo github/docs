@@ -11,8 +11,7 @@ import fs from 'fs/promises'
 import frontmatter from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
 import { tags } from '../../lib/liquid-tags/extended-markdown.js'
-import ghesReleaseNotesSchema from '../helpers/schemas/ghes-release-notes-schema.js'
-import ghaeReleaseNotesSchema from '../helpers/schemas/ghae-release-notes-schema.js'
+import releaseNotesSchema from '../helpers/schemas/release-notes-schema.js'
 import learningTracksSchema from '../helpers/schemas/learning-tracks-schema.js'
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
@@ -20,7 +19,6 @@ import { execSync } from 'child_process'
 import { allVersions } from '../../lib/all-versions.js'
 import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
-import loadSiteData from '../../lib/site-data.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -37,8 +35,14 @@ const glossariesDir = path.join(rootDir, 'data/glossaries')
 const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes/enterprise-server')
 const ghaeReleaseNotesDir = path.join(rootDir, 'data/release-notes/github-ae')
 const learningTracks = path.join(rootDir, 'data/learning-tracks')
+const fbvDir = path.join(rootDir, 'data/features')
 
 const languageCodes = Object.keys(languages)
+
+// This is a string that contributors can use in markdown and yaml files as a placeholder.
+// If any placeholders slip through, this test will flag them.
+const placeholder = 'TODOCS'
+const placeholderRegex = new RegExp(`\\b${placeholder}\\b`, 'gi')
 
 // WARNING: Complicated RegExp below!
 //
@@ -207,8 +211,6 @@ const oldExtendedMarkdownErrorText =
 const literalActionInsteadOfReusableErrorText =
   'Found a literal mention of a GitHub-owned action. Instead, use the reusables for the action. e.g {% data reusables.actions.action-checkout %}'
 
-const siteData = loadSiteData()
-
 const mdWalkOptions = {
   globs: ['**/*.md'],
   ignore: ['**/README.md'],
@@ -254,7 +256,10 @@ if (!process.env.TEST_TRANSLATION) {
   const glossariesYamlRelPaths = glossariesYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
   const glossariesYamlTuples = zip(glossariesYamlRelPaths, glossariesYamlAbsPaths)
 
-  ymlToLint = [...variableYamlTuples, ...glossariesYamlTuples]
+  // data/features (feature-based versioning)
+  const FbvYamlAbsPaths = walk(fbvDir, yamlWalkOptions).sort()
+  const FbvYamlRelPaths = FbvYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
+  const fbvTuples = zip(FbvYamlRelPaths, FbvYamlAbsPaths)
 
   // GHES release notes
   const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
@@ -276,7 +281,18 @@ if (!process.env.TEST_TRANSLATION) {
     slash(path.relative(rootDir, p))
   )
   learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
+
+  // Put all the yaml files together
+  ymlToLint = [].concat(
+    variableYamlTuples, // These "tuples" not tested independently; they are only tested as part of ymlToLint.
+    glossariesYamlTuples,
+    fbvTuples,
+    ghesReleaseNotesToLint,
+    ghaeReleaseNotesToLint,
+    learningTracksToLint
+  )
 } else {
+  // Remove this `else` when removing translations directory B504EDD0
   // get all translated markdown or yaml files by comparing files changed to main branch
   const changedFilesRelPaths = execSync(
     'git -c diff.renameLimit=10000 diff --name-only origin/main',
@@ -409,19 +425,24 @@ describe('lint markdown content', () => {
       isHidden,
       isEarlyAccess,
       isSitePolicy,
+      isSearch,
       hasExperimentalAlternative,
-      frontmatterData
+      frontmatterData,
+      rawContent
 
     beforeAll(async () => {
       const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
       const { data, content: bodyContent } = frontmatter(fileContents)
 
       content = bodyContent
+      rawContent = fileContents
       frontmatterData = data
       ast = fromMarkdown(content)
       isHidden = data.hidden === true
-      isEarlyAccess = markdownRelPath.split('/').includes('early-access')
-      isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
+      const split = markdownRelPath.split('/')
+      isEarlyAccess = split.includes('early-access')
+      isSitePolicy = split.includes('site-policy-deprecated')
+      isSearch = split.includes('search') && !split.includes('reusables')
       hasExperimentalAlternative = data.hasExperimentalAlternative === true
 
       links = []
@@ -440,7 +461,7 @@ describe('lint markdown content', () => {
         }
       })
 
-      const context = { site: siteData.en.site }
+      const context = {}
 
       // visit is not async-friendly so we need to do an async map to parse the YML snippets
       yamlScheduledWorkflows = (
@@ -457,10 +478,21 @@ describe('lint markdown content', () => {
         .map((schedule) => schedule.cron)
     })
 
-    // We need to support some non-Early Access hidden docs in Site Policy
-    test('hidden docs must be Early Access, Site Policy, or Experimental', async () => {
+    test('placeholder string is not present in any markdown files', async () => {
+      const matches = rawContent.match(placeholderRegex) || []
+      const placeholderStr = matches.length === 1 ? 'placeholder' : 'placeholders'
+      const errorMessage = `
+        Found ${matches.length} ${placeholderStr} '${matches.join(
+        ', '
+      )}' in this file! Please update all placeholders.
+      `
+      expect(matches.length, errorMessage).toBe(0)
+    })
+
+    test('hidden docs must be Early Access, Site Policy, Search, or Experimental', async () => {
+      // We need to support some non-Early Access hidden docs in Site Policy
       if (isHidden) {
-        expect(isEarlyAccess || isSitePolicy || hasExperimentalAlternative).toBe(true)
+        expect(isEarlyAccess || isSitePolicy || isSearch || hasExperimentalAlternative).toBe(true)
       }
     })
 
@@ -627,20 +659,30 @@ describe('lint markdown content', () => {
         expect(matches.length, errorMessage).toBe(0)
       })
     }
+
+    test('must use personal access token variables', async () => {
+      const patRegex = /personal access tokens?/gi
+      const matches = content.match(patRegex) || []
+      const errorMessage = formatLinkError(
+        'You should use one of the personal access token variables from data/variables/product.yml instead of the literal phrase(s):',
+        matches
+      )
+      expect(matches.length, errorMessage).toBe(0)
+    })
   })
 })
 
 describe('lint yaml content', () => {
   if (ymlToLint.length < 1) return
   describe.each(ymlToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-    let dictionary, isEarlyAccess
+    let dictionary, isEarlyAccess, fileContents
     // This variable is used to determine if the file was parsed successfully.
     // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
     // `false` is intentionally chosen since `null` and `undefined` are valid return values.
     let dictionaryError = false
 
     beforeAll(async () => {
-      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
+      fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       try {
         dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       } catch (error) {
@@ -652,6 +694,14 @@ describe('lint yaml content', () => {
 
     test('it can be parsed as a single yaml document', () => {
       expect(dictionaryError).toBe(false)
+    })
+
+    test('placeholder string is not present in any yaml files', () => {
+      const matches = fileContents.match(placeholderRegex) || []
+      const errorMessage = `
+        Found ${matches.length} placeholder string '${placeholder}'! Please update all placeholders.
+      `
+      expect(matches.length, errorMessage).toBe(0)
     })
 
     test('relative URLs must start with "/"', async () => {
@@ -854,7 +904,7 @@ describe('lint GHES release notes', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, ghesReleaseNotesSchema)
+      const { errors } = revalidator.validate(dictionary, releaseNotesSchema)
       const errorMessage = errors
         .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
         .join('\n')
@@ -910,7 +960,7 @@ describe('lint GHAE release notes', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, ghaeReleaseNotesSchema)
+      const { errors } = revalidator.validate(dictionary, releaseNotesSchema)
       const errorMessage = errors
         .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
         .join('\n')
@@ -991,7 +1041,7 @@ describe('lint learning tracks', () => {
       const productVersions = getApplicableVersions(data.versions, productTocPath)
 
       const featuredTracks = {}
-      const context = { enterpriseServerVersions, site: siteData.en.site }
+      const context = { enterpriseServerVersions }
 
       // For each of the product's versions, render the learning track data and look for a featured track.
       await Promise.all(

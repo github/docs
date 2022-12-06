@@ -12,9 +12,14 @@ type: how_to
 topics:
   - Sponsors
   - Upgrades
+ms.openlocfilehash: c1aaab00c5fd11a560327424290c396920505003
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145084496'
 ---
-
-{% data reusables.sponsors.org-sponsors-release-phase %}
+{% data reusables.sponsors.org-sponsors-release-phase %} 
 
 ## 关于赞助升级
 
@@ -22,8 +27,4 @@ topics:
 
 ## 升级赞助
 
-{% data reusables.sponsors.navigate-to-sponsored-account %}
-{% data reusables.sponsors.sponsorship-dashboard %}
-{% data reusables.sponsors.review-tiers-to-select %}
-{% data reusables.sponsors.select-a-tier %}
-{% data reusables.sponsors.update-sponsorship %}
+{% data reusables.sponsors.navigate-to-sponsored-account %} {% data reusables.sponsors.sponsorship-dashboard %} {% data reusables.sponsors.review-tiers-to-select %} {% data reusables.sponsors.select-a-tier %} {% data reusables.sponsors.update-sponsorship %}

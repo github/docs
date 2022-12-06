@@ -1,22 +1,27 @@
 ---
 title: Crear diagramas
-intro: Crear diagramas para transmitir información mediante tablas y gráficas
+intro: Creación de diagramas para transmitir información mediante tablas y gráficos
 versions:
   feature: mermaid
-shortTitle: Crear diagramas
+shortTitle: Create diagrams
+ms.openlocfilehash: 0e588fb771bd7992f75e364624576e216cf84000
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529739'
 ---
-
 ## Acerca de crear diagramas
 
-Puedes crear diagramas en lenguaje de marcado utilizando tres tipos de sintaxis diferentes: mermaid, geoJSON y topoJSON y ASCII STL.
+Puede crear diagramas en Markdown con tres sintaxis diferentes: Mermaid, geoJSON y topoJSON, y STL ASCII. La representación de diagramas está disponible en los archivos {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, solicitudes de incorporación de cambios, wikis y Markdown.
 
 ## Crear diagramas de Mermaid
 
-Mermaid es una herramienta inspirada en el lenguaje de marcado que convierte el texto en diagramas. Por ejemplo, Mermaid puede representar diagramas de flujo, diagramas de secuencia, gráficas de pay y más. Para obtener más información, consulta la [documentación de Mermaid](https://mermaid-js.github.io/mermaid/#/).
+Mermaid es una herramienta inspirada en Markdown que representa texto en diagramas. Por ejemplo, Mermaid puede representar gráficos de flujo, diagramas de secuencia, gráficos circulares y mucho más. Para obtener más información, vea la [documentación de Mermaid](https://mermaid-js.github.io/mermaid/#/).
 
-Para crear un diagrama de Mermaid, agrega la sintaxis de Mermaid dentro de un bloque de código cercado con el identificador de lenguaje `mermaid`. Para obtener más información sobre cómo crear bloques de código, consulta la sección "[Crear y resaltar bloques de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+Para crear un diagrama de Mermaid, agregue la sintaxis de Mermaid dentro de un bloque de código delimitado con el identificador de idioma `mermaid`. Para obtener más información sobre cómo crear bloques de código, vea "[Crear y resaltar bloques de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
-Por ejemplo, puedes crear un diagrama de flujo:
+Por ejemplo, puede crear un gráfico de flujo:
 
 <pre>
 Here is a simple flow chart:
@@ -30,21 +35,21 @@ graph TD;
 ```
 </pre>
 
-![Diagrama de flujo generado con Mermaid](/assets/images/help/writing/mermaid-flow-chart.png)
+![Gráfico de flujo de Mermaid representado](/assets/images/help/writing/mermaid-flow-chart.png)
 
 {% note %}
 
-**Nota:** Puedes observar los errores si ejecutas un complemento de Mermaid de terceros cuando utilizas la sintaxis de Mermaid en {% data variables.product.company_short %}.
+**Nota:** Es posible que observe errores si ejecuta un complemento de Mermaid de terceros al usar la sintaxis de Mermaid en {% data variables.product.company_short %}.
 
 {% endnote %}
 
-## Crear mapas de GeoJSON y TopoJSON
+## Creación de mapas GeoJSON y TopoJSON
 
-Puedes utilizar la sintaxis de GeoJSON/TopoJSON para crear mapas interactivos. Para crear un mapa, agrega GeoJSON o TopoJSON dentro de un bloque de código cercado con el identificador de sintaxis `geojson` o `topojson`. Para obtener más información, consulta "[Crear y resaltar bloques de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+Puedes usar la sintaxis GeoJSON o TopoJSON para crear mapas interactivos. Para crear un mapa, agrega GeoJSON o TopoJSON dentro de un bloque de código delimitado con el identificador de sintaxis `geojson` o `topojson`. Para obtener más información, vea "[Crear y resaltar bloques de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
-### Utilizando GeoJSON
+### Uso de GeoJSON
 
-Por ejemplo, puedes crear un mapa simple:
+Por ejemplo, puede crear un mapa sencillo:
 
 <pre>
 ```geojson
@@ -75,11 +80,11 @@ Por ejemplo, puedes crear un mapa simple:
 ```
 </pre>
 
-![Mapa generado](/assets/images/help/writing/fenced-geojson-rendered-map.png)
+![Mapa representado](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
-### Utilizando TopoJSON
+### Uso de TopoJSON
 
-Por ejemplo, puedes crear un mapa simple de TopoJSON:
+Por ejemplo, puedes crear un mapa de TopoJSON sencillo:
 
 <pre>
 ```topojson
@@ -118,16 +123,16 @@ Por ejemplo, puedes crear un mapa simple de TopoJSON:
 ```
 </pre>
 
-![Mapa generado con topoJSON](/assets/images/help/writing/fenced-topojson-rendered-map.png)
+![Mapa de topoJSON representado](/assets/images/help/writing/fenced-topojson-rendered-map.png)
 
-Para obtener más información sobre cómo trabajar con los archivos de `.geojson` y `.topojson`, consulta la sección "[Trabajar con archivos sin código](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)".
+Para obtener más información sobre cómo trabajar con archivos `.geojson` y `.topojson`, vea "[Trabajar con archivos que no son de código](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)".
 
 
-## Crear modelos 3D de STL
+## Crear modelos STL 3D
 
-Puedes utilizar la sintaxis de ASCII STL directamente en el lenguaje de marcado para crear modelos 3D interactivos. Para mostrar un modelo, agrega la sintaxis ASCII STL dentro de un bloque de código cercado con el identificador de sintaxis `stl`. Para obtener más información, consulta "[Crear y resaltar bloques de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
+Puede usar la sintaxis STL ASCII directamente en Markdown para crear modelos 3D interactivos. Para mostrar un modelo, agregue la sintaxis STL ASCII dentro de un bloque de código cercado con el identificador de sintaxis `stl`. Para obtener más información, vea "[Crear y resaltar bloques de código](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)".
 
-Por ejemplo, puedes crear un modelo 3D simple:
+Por ejemplo, puede crear un modelo 3D sencillo:
 
 <pre>
 ```stl
@@ -164,7 +169,7 @@ endsolid
 ```
 </pre>
 
-![Modelo 3D generado](/assets/images/help/writing/fenced-stl-rendered-object.png)
+![Modelo 3D representado](/assets/images/help/writing/fenced-stl-rendered-object.png)
 
-Para obtener más información sobre cómo trabajar con los archivos `.stl`, consulta la sección "[Trabajar con archivos sin código](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)".
+Para obtener más información sobre cómo trabajar con archivos `.stl`, vea "[Trabajar con archivos que no son de código](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)".
 

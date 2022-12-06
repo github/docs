@@ -45524,6 +45524,14 @@
       ],
       "fields": [
         {
+          "name": "allowUpdateBranch",
+          "description": "<p>Whether or not a pull request head branch that is behind its base branch can\nalways be updated even if it is not required to be up to date before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "assignableUsers",
           "description": "<p>A list of users that can be assigned to issues in this repository.</p>",
           "type": "UserConnection!",

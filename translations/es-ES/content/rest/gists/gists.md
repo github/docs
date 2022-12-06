@@ -1,6 +1,6 @@
 ---
 title: Gists
-intro: 'The Gists API enables the authorized user to list, create, update and delete the public gists on GitHub.'
+intro: 'La API de Gists habilita al usuario autorizado para enumerar, crear, actualizar y borrar los gists públicos en GitHub.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,31 +9,36 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 47961c5dfeeb5f320bbac67ffb0573c31709bd5b
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181328'
 ---
+## Acerca de la API de Gists
 
-## About the Gists API
+La API de Gists permite ver y modificar gists. Para obtener más información sobre los gists, consulta "[Edición y uso compartido de contenido con gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)".
 
-The Gist API lets you view and modify gists. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+### Authentication
 
-### Autenticación
-
-Puedes leer gists públicos {% ifversion ghae or ghes %}y crearlos para usuarios anónimos sin un token{% else %} de forma anónima, pero debes haber iniciado sesión en GitHub para crear gists.{% endif %} Para leer o escribir gists en nombre de un usuario, necesitas el alcance de OAuth para gists y un token. Par aobtener más información, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps)".
+Puede leer gists públicos {% ifversion ghae or ghes %}y crearlos para usuarios anónimos sin un token.{% else %} de forma anónima, pero debe haber iniciado sesión en GitHub para crear gists.{% endif %} Para leer o escribir gists en nombre de un usuario, necesita el ámbito OAuth para gists y un token. Para más información, vea "[Ámbitos para aplicaciones de OAuth](/developers/apps/scopes-for-oauth-apps)".
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 
 ### Truncamiento
 
-La API de Gist proporciona hasta un megabyte de contenido para cada archivo en el gist. Cada archivo que se devuelve para un gist a través de la API tiene una clave que se llama `truncated`. Si `truncated` aparece como `true`, significa que el archivo es demasiado grande y solo se devolvió una parte de su contenido en `content`.
+La API de Gist proporciona hasta un megabyte de contenido para cada archivo en el gist. Cada archivo que se devuelve para un gist mediante la API tiene una clave denominada `truncated`. Si `truncated` es `true`, el archivo es demasiado grande y solo se devuelve una parte del contenido en `content`.
 
-Si necesitas el contenido completo del archivo, puedes hacer una solicitud de tipo `GET` a la URL que se especifica en `raw_url`. Ten en cuent que, para los archivos mayores a diez megabytes, necesitarás clonar el gist a través de la URL que proprocionó `git_pull_url`.
+Si necesita el contenido completo del archivo, puede realizar una solicitud `GET` a la URL que se especifica en `raw_url`. Tenga en cuenta que, para los archivos mayores de 10 GB, tendrá que clonar el gist por medio de la URL que ha proporcionado `git_pull_url`.
 
-Adicionalmente a el truncamiento del contenido específico del archivo, la lista de archivos completa podría truncarse si la cantidad total excede los 300 archivos. Si la clave `truncated` de nivel superior aparece como `true`, únicamente se han devuelto los primeros 300 archivos en la lista. Si necesitas recuperar todos los archivos del gist, necesitarás clonarlo a través de la URL que te proporcionó `git_pull_url`.
+Adicionalmente a el truncamiento del contenido específico del archivo, la lista de archivos completa podría truncarse si la cantidad total excede los 300 archivos. Si la clave `truncated` de nivel superior es `true`, solo se han devuelto los primeros 300 archivos de la lista de archivos. Si tiene que recuperar todos los archivos del gist, tendrá que clonarlo por medio de la URL proporcionada por `git_pull_url`.
 
 ### Tipos de medios personalizados para los gists
 
 Estos son los tipos de medios compatibles para recuperar el contenido de los gists.
 
-    application/vnd.github.VERSION.raw
-    application/vnd.github.VERSION.base64
+    application/vnd.github.raw
+    application/vnd.github.base64
 
-Para obtener más información, consulta la sección "[Tipos de medios](/rest/overview/media-types)".
+Para más información, vea "[Tipos de soporte físico](/rest/overview/media-types)".

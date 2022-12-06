@@ -1,6 +1,6 @@
 ---
-title: Acerca de las migraciones
-intro: 'Una migración es un proceso de transferencia de datos desde una ubicación *origen* (ya sea una organización {% data variables.product.prodname_dotcom_the_website %} o una instancia {% data variables.product.prodname_ghe_server %}) a una instancia *objetivo* {% data variables.product.prodname_ghe_server %}. Las migraciones se pueden utilizar para la transferencia de datos al cambiar de plataforma o actualizar el hardware en la instancia.'
+title: About migrations
+intro: 'A migration is the process of transferring data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance. Migrations can be used to transfer your data when changing platforms or upgrading hardware on your instance.'
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -12,41 +12,40 @@ topics:
   - Enterprise
   - Migration
 ---
+## Types of migrations
 
-## Tipos de migraciones
+There are three types of migrations you can perform:
 
-Existen tres tipos de migraciones que se pueden realizar:
+- A migration from a {% data variables.product.prodname_ghe_server %} instance to another {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by any user or organization on the instance. Before performing a migration, you must have site administrator access to both instances.
+- A migration from a {% data variables.product.prodname_dotcom_the_website %} organization to a {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by the organization. Before performing a migration, you must have [administrative access](/enterprise/user/articles/permission-levels-for-an-organization/) to the {% data variables.product.prodname_dotcom_the_website %} organization as well as site administrator access to the target instance.
+- *Trial runs* are migrations that import data to a [staging instance](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). These can be useful to see what *would* happen if a migration were applied to {% data variables.location.product_location %}. **We strongly recommend that you perform a trial run on a staging instance before importing data to your production instance.**
 
-- Una migración de una instancia {% data variables.product.prodname_ghe_server %} a otra instancia {% data variables.product.prodname_ghe_server %}. Puedes migrar la cantidad de repositorios que desees de cualquier usuario u organización en la instancia. Antes de hacer una migración, debes tener acceso de administrador del sitio en ambas instancias.
-- Una migración de una organización {% data variables.product.prodname_dotcom_the_website %} a una instancia {% data variables.product.prodname_ghe_server %}. Puedes migrar la cantidad de repositorios de la organización que desees. Antes de efectuar una migración, debes tener [ acceso administrativo ](/enterprise/user/articles/permission-levels-for-an-organization/) a la organización {% data variables.product.prodname_dotcom_the_website %}, así como acceso de administrador del sitio a la instancia de destino.
-- *Las ejecuciones de prueba *son migraciones que importan datos a una [instancia de preparación](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). Estas pueden ser útiles para ver qué *sucedería* si se aplicara una migración {% data variables.product.product_location %}. **Se recomienda encarecidamente que se lleve a cabo una ejecución de prueba en una instancia de preparación antes de importar datos a la instancia de producción.**
+## Migrated data
 
-## Datos migrados
+In a migration, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository *and* the organization, as well as any users, teams, issues, and pull requests associated with the repository.
 
-En una migración, todo gira en torno a un repositorio. La mayoría de los datos asociados con un repositorio se pueden migrar. Por ejemplo, un repositorio dentro de una organización migrará el repositorio *y* la organización, así como los usuarios, equipos, propuestas y solicitudes de extracción asociados con el repositorio.
-
-Los elementos de la tabla a continuación se pueden migrar con un repositorio. No se pueden migrar los elementos que no se muestren en la lista de datos migrados, incluyendo los activos de {% data variables.large_files.product_name_short %}.
+The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated, including {% data variables.large_files.product_name_short %} assets.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
-| Datos asociados con un repositorio migrado                      | Notas                                                                                                                                                                                                                              |
-| --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Usuarios                                                        | Las **@menciones** de los usuarios se reescriben para coincidir con el objetivo.                                                                                                                                                   |
-| Organizaciones                                                  | El nombre y los datos de una organización se migran.                                                                                                                                                                               |
-| Repositorios                                                    | Los enlaces a árboles Git, blobs, confirmaciones de cambios y líneas se reescriben para coincidir con el objetivo. El migrador sigue un máximo de tres redirecciones de repositorio.                                               |
-| Wikis                                                           | Todos los datos de la wiki se migran.                                                                                                                                                                                              |
-| Equipos                                                         | Las **@menciones** de los equipos se reescriben para coincidir con el objetivo.                                                                                                                                                    |
-| Hitos                                                           | Los registros horarios se conservan.                                                                                                                                                                                               |
-| Tableros de proyecto                                            | Los tableros de proyectos asociados con el repositorio y con la organización que posee el repositorio se migran.                                                                                                                   |
-| Problemas                                                       | Las referencias de propuestas y los registros horarios se conservan.                                                                                                                                                               |
-| Comentarios de propuestas                                       | Las referencias cruzadas a los comentarios se reescriben para la instancia de destino.                                                                                                                                             |
-| Solicitudes de cambios                                          | Las referencias cruzadas a las solicitudes de extracción se reescriben para coincidir con el objetivo. Los registros horarios se conservan.                                                                                        |
-| Revisiones de solicitudes de extracción                         | Las revisiones de solicitudes de extracción y los datos asociados se migran.                                                                                                                                                       |
-| Comentarios sobre revisiones de solicitudes de extracción       | Las referencias cruzadas a los comentarios se reescriben para la instancia de destino. Los registros horarios se conservan.                                                                                                        |
-| Comentarios sobre confirmación de cambios                       | Las referencias cruzadas a los comentarios se reescriben para la instancia de destino. Los registros horarios se conservan.                                                                                                        |
-| Lanzamientos                                                    | Todos los datos de las versiones se migran.                                                                                                                                                                                        |
-| Medidas adoptadas en las solicitudes de extracción o propuestas | Todas las modificaciones a las solicitudes de extracción o propuestas, como la asignación de usuarios, el cambio de nombre de título y la modificación de etiquetas se conservan, junto con los registros horarios de cada acción. |
-| Archivos adjuntos                                               | [Los archivos adjuntos a las propuestas y las solicitudes de extracción](/articles/file-attachments-on-issues-and-pull-requests) se migran. Puedes elegir inhabilitar esta opción como parte de la migración.                      |
-| Webhooks                                                        | Solo se migran los webhooks activos.                                                                                                                                                                                               |
-| Llaves de implementación de repositorios                        | Las llaves de implementación de repositorios se migran.                                                                                                                                                                            |
-| Ramas protegidas                                                | La configuración de las ramas protegidas y los datos asociados se migran.                                                                                                                                                          |
+|  Data associated with a migrated repository | Notes  |
+|---------------------------------------------|--------|
+| Users | **@mentions** of users are rewritten to match the target.
+| Organizations | An organization's name and details are migrated.
+| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects. Internal repositories are migrated as private repositories. Archive status is unset.
+| Wikis | All wiki data is migrated.
+| Teams | **@mentions** of teams are rewritten to match the target.
+| Milestones | Timestamps are preserved.
+| Project boards | Project boards associated with the repository and with the organization that owns the repository are migrated.
+| Issues | Issue references and timestamps are preserved.
+| Issue comments | Cross-references to comments are rewritten for the target instance.
+| Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.
+| Pull request reviews | Pull request reviews and associated data are migrated.
+| Pull request review comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
+| Commit comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
+| Releases | All releases data is migrated.
+| Actions taken on pull requests or issues | All modifications to pull requests or issues, such as assigning users, renaming titles, and modifying labels are preserved, along with timestamps for each action.
+|  File attachments | [File attachments on issues and pull requests](/articles/file-attachments-on-issues-and-pull-requests) are migrated. You can choose to disable this as part of the migration.
+| Webhooks | Only active webhooks are migrated.
+| Repository deploy keys | Repository deploy keys are migrated.
+| Protected branches | Protected branch settings and associated data are migrated.

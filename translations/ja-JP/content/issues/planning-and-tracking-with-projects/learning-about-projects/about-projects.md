@@ -1,6 +1,6 @@
 ---
-title: '{% data variables.product.prodname_projects_v2 %}について'
-intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
+title: '{% data variables.product.prodname_projects_v2 %} について'
+intro: '{% data variables.product.prodname_projects_v2 %} は、{% data variables.product.company_short %} での作業を計画および追跡するための、適応性のある柔軟なツールです。'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,29 +10,46 @@ redirect_from:
 type: overview
 topics:
   - Projects
+ms.openlocfilehash: 3190379652fe1c95b8ea6ec7f864c44b72d9a7f7
+ms.sourcegitcommit: f5ec7f52d2945ba8b7c14f8f604e4784a8feda19
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180762'
 ---
+## {% data variables.product.prodname_projects_v2 %} について
 
-## {% data variables.product.prodname_projects_v2 %}について
-
-A project is an adaptable spreadsheet that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests, adding custom fields to track metadata specific to your team, and visualize work with configurable charts. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
+プロジェクトは、作業の計画と追跡を効果的に行えるように {% data variables.product.company_short %} 上の issue および pull request と統合できる、適応性のあるスプレッドシートです。 issue と pull request をフィルター処理、並べ替え、グループ化して複数のビューを作成し、チーム固有のメタデータを追跡するカスタム フィールドを追加してカスタマイズしたうえで、構成可能なグラフを使って作業を視覚化できます。 プロジェクトには、特定の手法を適用するのではなく、チームのニーズやプロセスに合わせてカスタマイズできる柔軟な機能があります。
 
 ### 最新の状態に保つ
 
-Your projects are built from the issues and pull requests you add, creating direct references between your project and your work. Information is synced automatically to your project as you make changes, updating your views and charts. This integration works both ways, so that when you change information about a pull request or issue in your project, the pull request or issue reflects that information. For example, change an assignee in your project and that change is shown in your issue. You can take this integration even further, group your project by assignee, and make changes to issue assignment by dragging issues into the different groups.
+プロジェクトは、追加した issue と pull request から構築され、プロジェクトと作業の間に直接参照が作成されます。 変更を加えると情報がプロジェクトに自動的に同期され、ビューとグラフが更新されます。 この統合は双方向なので、pull reqeust や issue に関する情報をプロジェクト内で変更すると、その pull request や issue にはその情報が反映されます。 たとえば、プロジェクトの担当者を変更すると、その変更が issue に表示されます。 この統合をさらに進め、担当者別にプロジェクトをグループ化し、issue を別のグループにドラッグして issue の割り当てを変更できます。
 
-### タスクへのメタデータの追加
+### 項目へのメタデータの追加
 
-You can use custom fields to add metadata to your tasks and build a richer view of item attributes. You’re not limited to the built-in metadata (assignee, milestone, labels, etc.) that currently exists for issues and pull requests. For example, you can add the following metadata as custom fields:
+カスタム フィールドを使用し、issue、pull request、ドラフト issue にメタデータを追加し、項目属性のより豊富なビューを作成できます。 issue や pull request に関して、現時点で存在している組み込みのメタデータ (担当者、マイルストーン、ラベルなど) に限定されるわけではありません。 たとえば、カスタム フィールドとして次のメタデータを追加できます。
 
-- A date field to track target ship dates.
-- A number field to track the complexity of a task.
-- A single select field to track whether a task is Low, Medium, or High priority.
-- A text field to add a quick note.
-- An iteration field to plan work week-by-week, including support for breaks.
+- ターゲット出荷日を追跡する日付フィールド。
+- タスクの複雑さを追跡する数値フィールド。
+- タスクの優先度が低、中、高のいずれかであるかを追跡する選択フィールド。
+- クイック メモを追加できるテキスト フィールド。
+- 週単位で作業計画を立てるためのイテレーション フィールド (休憩のサポートを含む)。
+
+{% ifversion projects-v2-tasklists %}
+
+### issue 間の関係を調べる
+
+{% data reusables.projects.tasklists-release-stage %}
+
+タスクリストを使用し、issue の階層を構築したり、issue を小さなサブタスクに分割したり、issue 間に新しいリレーションシップを作成したりできます。 詳細については、「[タスクリストについて](/issues/tracking-your-work-with-issues/about-tasklists)」を参照してください。
+
+これらの関係は、issue に加え、プロジェクトの "追跡対象" フィールドと "追跡" フィールドに表示されます。 別の issue によって追跡されている issue 別にフィルター処理できます。また、"追跡対象" フィールドでテーブル表示をグループ化し、すべての親 issue とそのサブタスクのリストを表示できます。
+
+{% endif %}
 
 ### 様々な観点からプロジェクトを見る
 
-Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
+必要な情報が提供されるようにプロジェクト ビューを調整し、最も差し迫った質問にすばやく答えます。 これらのビューは、必要に応じてすばやく戻ることができるように保存し、チームで使用できます。 ビューを使用すると、一覧表示される項目を絞り込むことができるだけでなく、2 つの異なるレイアウト オプションも提供されます。
 
 プロジェクトは、高密度のテーブルレイアウトで表示できます。
 
@@ -40,10 +57,10 @@ Quickly answer your most pressing questions by tailoring your project view to gi
 
 あるいはボードとして表示できます。
 
-![プロジェクトボード](/assets/images/help/issues/projects_board.png)
+![Project ボード](/assets/images/help/issues/projects_board.png)
 
 プロジェクトの特定の側面に注目しやすくするために、アイテムをグループ化、ソート、フィルタできます。
 
-![プロジェクトのビュー](/assets/images/help/issues/project_view.png)
+![プロジェクト ビュー](/assets/images/help/issues/project_view.png)
 
-For more information, see "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)."
+詳しくは、「[ビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」を参照してください。

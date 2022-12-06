@@ -10,14 +10,14 @@ topics:
   - CLI
 type: overview
 allowTitleToDifferFromFilename: true
-shortTitle: クイックスタート
+shortTitle: Quickstart
 ---
 
-## {% data variables.product.prodname_cli %} について
+## About {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.about-cli %}
 
-## はじめましょう
+## Getting started
 
 1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
 1. In the command line, authenticate to {% data variables.product.company_short %}.
@@ -27,16 +27,16 @@ shortTitle: クイックスタート
   ```
 
   {% ifversion not fpt or ghec %}
-  To authenticate to {% data variables.product.product_location %}, use the `--hostname` flag.
+  To authenticate to {% data variables.location.product_location %}, use the `--hostname` flag.
 
   ```shell
-  gh auth login --hostname <em>hostname</em>
+  gh auth login --hostname HOSTNAME
   ```
 
   {% endif %}
 1. Start working with {% data variables.product.company_short %} in the command line. For example, find an issue to work on with `gh issue status` or `gh issue list --assignee @me`. Create a pull request with `gh pr create`. Review a pull request with `gh pr checkout`, `gh pr diff` and `gh pr review`.
 
-## 次のステップ
+## Next steps
 
 - Tell {% data variables.product.prodname_cli %} which text editor to use for commands that open a text editor. For example, enter `gh config set editor "code -w"` to set your preferred text editor to {% data variables.product.prodname_vscode %}. For more information, see [`gh config set`](https://cli.github.com/manual/gh_config_set).
 

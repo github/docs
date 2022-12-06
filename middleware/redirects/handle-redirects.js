@@ -3,10 +3,7 @@ import { URL } from 'url'
 import { pathLanguagePrefixed } from '../../lib/languages.js'
 import { deprecatedWithFunctionalRedirects } from '../../lib/enterprise-server-releases.js'
 import getRedirect from '../../lib/get-redirect.js'
-import { cacheControlFactory } from '../cache-control.js'
-
-const cacheControl = cacheControlFactory(60 * 60 * 24) // one day
-const noCacheControl = cacheControlFactory(0)
+import { defaultCacheControl, languageCacheControl } from '../cache-control.js'
 
 export default function handleRedirects(req, res, next) {
   // never redirect assets
@@ -20,31 +17,88 @@ export default function handleRedirects(req, res, next) {
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-
-    // Undo the cookie setting that CSRF sets.
-    res.removeHeader('set-cookie')
-
-    noCacheControl(res)
-
+    languageCacheControl(res)
     return res.redirect(302, `/${language}`)
+  }
+
+  // The URL `/search` was the old JSON API. We no longer use it anywhere
+  // and neither does support.github.com any more.
+  // But there could be legacy third-party integrators which we don't know
+  // about.
+  // In the future we might want to re-use this for our dedicated search
+  // result page which is `/$lang/search` but until we're certain all
+  // third-party search apps have noticed, we can't do that. Perhaps
+  // some time in mid to late 2023.
+  if (req.path === '/search') {
+    let url = '/api/search/legacy'
+    if (Object.keys(req.query).length) {
+      url += `?${new URLSearchParams(req.query)}`
+    }
+    // This is a 302 redirect.
+    // Why not a 301? Because permanent redirects tend to get very stuck
+    // in client caches (e.g. browsers) which would make it hard to one
+    // day turn this redirect into a redirect to `/en/search` which is
+    // how all pages work when typed in without a language prefix.
+    return res.redirect(url)
   }
 
   // begin redirect handling
   let redirect = req.path
   let queryParams = req._parsedUrl.query
 
-  // update old-style query params (#9467)
-  if ('q' in req.query) {
+  // If process.env.ENABLE_SEARCH_RESULTS_PAGE isn't set, you can't go to the
+  // dedicated search results page.
+  // If that's the case, use the "old redirect" where all it does is
+  // "correcting" the old query string 'q' to 'query'.
+  if (!process.env.ENABLE_SEARCH_RESULTS_PAGE && 'q' in req.query && !('query' in req.query)) {
+    // update old-style query params (#9467)
     const newQueryParams = new URLSearchParams(queryParams)
     newQueryParams.set('query', newQueryParams.get('q'))
     newQueryParams.delete('q')
     return res.redirect(301, `${req.path}?${newQueryParams.toString()}`)
   }
 
+  // If process.env.ENABLE_SEARCH_RESULTS_PAGE is set, the dedicated search
+  // result page is ready. If that's the case, we can redirect to
+  // `/$locale/search?query=...` from `/foo/bar?query=...` or from
+  // (the old style) `/foo/bar/?q=...`
+  if (
+    process.env.ENABLE_SEARCH_RESULTS_PAGE &&
+    ('q' in req.query ||
+      ('query' in req.query &&
+        !(req.path.endsWith('/search') || req.path.startsWith('/api/search'))))
+  ) {
+    // If you had the old legacy format of /some/uri?q=stuff
+    // it needs to redirect to /en/search?query=stuff or
+    // /some/uri?query=stuff depending on if ENABLE_SEARCH_RESULTS_PAGE has been
+    // set up.
+    // If you have the new format of /some/uri?query=stuff it too needs
+    // to redirect to /en/search?query=stuff
+    // ...or /en/{version}/search?query=stuff
+    const language = getLanguage(req)
+    const sp = new URLSearchParams(req.query)
+    if (sp.has('q') && !sp.has('query')) {
+      sp.set('query', sp.get('q'))
+      sp.delete('q')
+    }
+
+    let redirectTo = `/${language}`
+    const { currentVersion } = req.context
+    if (currentVersion !== 'free-pro-team@latest') {
+      redirectTo += `/${currentVersion}`
+      // The `req.context.currentVersion` is just the portion of the URL
+      // pathname. It could be that the currentVersion is something
+      // like `enterprise` which needs to be redirected to its new name.
+      redirectTo = getRedirect(redirectTo, req.context)
+    }
+
+    redirectTo += `/search?${sp.toString()}`
+    return res.redirect(301, redirectTo)
+  }
+
   // have to do this now because searchPath replacement changes the path as well as the query params
   if (queryParams) {
     queryParams = '?' + queryParams
-    redirect = (redirect + queryParams).replace(patterns.searchPath, '$1')
   }
 
   // remove query params temporarily so we can find the path in the redirects object
@@ -95,14 +149,11 @@ export default function handleRedirects(req, res, next) {
     return next()
   }
 
-  // Undo the cookie setting that CSRF sets.
-  res.removeHeader('set-cookie')
-
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
-    cacheControl(res)
+    defaultCacheControl(res)
   } else {
-    noCacheControl(res)
+    languageCacheControl(res)
   }
 
   const permanent = redirect.includes('://') || usePermanentRedirect(req)

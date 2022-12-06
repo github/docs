@@ -8,6 +8,7 @@ let reporters = ['default']
 
 if (testTranslation) {
   // only use custom reporter if we are linting translations
+  // Remove this when removing translations directory B504EDD0
   reporters = ['<rootDir>/tests/helpers/lint-translation-reporter.js']
 } else if (isActions) {
   reporters.push('jest-github-actions-reporter')
@@ -29,7 +30,7 @@ export default {
   },
   reporters,
   modulePathIgnorePatterns: ['assets/'],
-  setupFilesAfterEnv: ['./jest.setup.js', '@alex_neo/jest-expect-message'],
+  setupFilesAfterEnv: ['./jest.setup.js', 'jest-expect-message'],
   ...(isBrowser ? {} : { testEnvironment: 'node' }),
   testPathIgnorePatterns: [
     'node_modules/',

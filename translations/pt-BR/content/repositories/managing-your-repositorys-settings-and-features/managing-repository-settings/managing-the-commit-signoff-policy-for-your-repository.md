@@ -1,24 +1,29 @@
 ---
-title: Managing the commit signoff policy for your repository
-intro: 'You can require users to automatically sign off on the commits they make to your repository using {% data variables.product.product_name %}''s web interface.'
+title: Como gerenciar a política de aprovação de confirmação para seu repositório
+intro: 'Você pode exigir que os usuários aprovem automaticamente os commits que fazem no seu repositório usando a interface da Web de {% data variables.product.product_name %}.'
 versions:
   feature: commit-signoffs
 permissions: Organization owners and repository administrators can require all commits to a repository to be signed off by the commit author.
 topics:
   - Repositories
 shortTitle: Manage the commit signoff policy
+ms.openlocfilehash: 078e80ed9f2b916c2c82b522eaad709fae5dc46c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107690'
 ---
+## Sobre as aprovações de commit
 
-## About commit signoffs
+As aprovações de commit permitem que os usuários afirmem que um commit está em conformidade com as regras e o licenciamento que regem um repositório. Você pode habilitar as aprovações de commit obrigatórias em repositórios individuais para usuários que fazem commit por meio da interface Web para {% data variables.location.product_location %}, facilitando a etapa de aprovação no processo de commit. Depois que as aprovações de commit obrigatórias forem habilitadas para um repositório, cada commit feito nesse repositório por meio da interface Web para {% data variables.location.product_location %} serão aprovadas automaticamente pelo autor do commit.
 
-Commit signoffs enable users to affirm that a commit complies with the rules and licensing governing a repository. You can enable compulsory commit signoffs on individual repositories for users committing through {% data variables.product.product_location %}'s web interface, making signing off on a commit a seemless part of the commit process. Once compulsory commit signoffs are enabled for a repository, every commit made to that repository through {% data variables.product.product_location %}'s web interface will automatically be signed off on by the commit author.
-
-Organization owners can also enable compulsory commit signoffs at the organization level. For more information, see "[Managing the commit signoff policy for your organization](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)."
+Os proprietários da organização também podem habilitar as aprovações de commit obrigatórias no nível da organização. Para obter mais informações, confira "[Como gerenciar a política de aprovação de confirmação para sua organização](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)".
 
 {% data reusables.repositories.commit-signoffs %}
 
-## Enabling or disabling compulsory commit signoffs for your repository
+## Habilitar ou desabilitar as aprovações de commit obrigatórias para seu repositório
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Select **Require contributors to sign off on web-based commits**. ![Screenshot of Require contributors to sign off on web-based commits](/assets/images/help/repository/require-signoffs.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+1. Selecione **Exigir que os colaboradores aprovem commits baseados na Web**.
+  ![Captura de tela da opção Exigir que os colaboradores aprovem commits baseados na Web](/assets/images/help/repository/require-signoffs.png)

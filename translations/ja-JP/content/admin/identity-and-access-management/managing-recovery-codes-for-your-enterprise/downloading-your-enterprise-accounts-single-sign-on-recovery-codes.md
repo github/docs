@@ -15,7 +15,7 @@ redirect_from:
 permissions: Enterprise owners can download the SSO recovery codes for the enterprise account.
 ---
 
-In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.product.product_location %}. For more information, see "[Accessing your enterprise account if your identity provider is unavailable](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
+In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.location.product_location %}. For more information, see "[Accessing your enterprise account if your identity provider is unavailable](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
 
 If you did not save your recovery codes when you configured SSO, you can still access the codes from your enterprise's settings.
 
@@ -27,10 +27,11 @@ If you did not save your recovery codes when you configured SSO, you can still a
 
 1. Under{% ifversion oidc-for-emu %} either{% endif %} "Require SAML authentication"{% ifversion oidc-for-emu %} or "Require OIDC authentication"{% endif %}, click **Save your recovery codes**.{% ifversion oidc-for-emu %}
   {% note %}
-
-  **Note:** OIDC SSO is only available for {% data variables.product.prodname_emus %}. 詳しい情報については「[Enterpriseが管理しているユーザ](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)」を参照してください。
-
+  
+  **Note:** OIDC SSO is only available for {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+  
   {% endnote %}{% endif %}
-
+  
   ![Screenshot of the button to test SAML configuration before enforcing](/assets/images/help/enterprises/saml-recovery-codes-link.png)
-1. To save your recovery codes, click **Download**, **Print**, or **Copy**. ![Screenshot of the buttons to download, print, or copy your recovery codes](/assets/images/help/saml/saml_recovery_code_options.png)
+1. To save your recovery codes, click **Download**, **Print**, or **Copy**.
+  ![Screenshot of the buttons to download, print, or copy your recovery codes](/assets/images/help/saml/saml_recovery_code_options.png)

@@ -11,11 +11,13 @@ children:
   - /use-the-git-and-github-starter-assignment
   - /create-an-individual-assignment
   - /create-a-group-assignment
+  - /editing-an-assignment
   - /reuse-an-assignment
   - /create-an-assignment-from-a-template-repository
   - /leave-feedback-with-pull-requests
   - /use-autograding
-  - /connect-a-learning-management-system-to-github-classroom
+  - /register-a-learning-management-system-with-github-classroom
+  - /connect-a-learning-management-system-course-to-a-classroom
 shortTitle: Teach
 ---
 

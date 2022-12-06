@@ -12,7 +12,7 @@ type Props = {
 export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props) {
   const lowerCaseName = item.name.toLowerCase()
   return (
-    <>
+    <div>
       {headingLevel === 2 && (
         <h2 id={lowerCaseName}>
           <LinkIconHeading slug={lowerCaseName} />
@@ -25,7 +25,7 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props
           {item.name}
         </h3>
       )}
-      <p
+      <div
         dangerouslySetInnerHTML={{
           __html: item.description,
         }}
@@ -38,6 +38,6 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props
         {heading && <h4>{heading}</h4>}
         {children}
       </div>
-    </>
+    </div>
   )
 }

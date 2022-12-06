@@ -1,5 +1,5 @@
 ---
-title: GitHub Issues
+title: GitHub 问题
 shortTitle: GitHub Issues
 intro: '了解如何使用 {% data variables.product.prodname_github_issues %} 来规划和跟踪您的工作。'
 introLinks:
@@ -21,7 +21,7 @@ featuredLinks:
     - /issues/tracking-your-work-with-issues/creating-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+    - /issues/tracking-your-work-with-issues/creating-issues/about-tasklists
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
@@ -73,5 +73,11 @@ redirect_from:
   - /disabling-issues
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
+ms.openlocfilehash: 0f9165bd3fe278316fcf8cec72b6b49cfce02140
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159785'
 ---
 

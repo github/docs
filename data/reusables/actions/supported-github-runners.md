@@ -1,7 +1,7 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Virtual environment</b></th>
+    <th style="width:35%"><b>Runner image</b></th>
     <th style="width:25%"><b>YAML workflow label</b></th>
     <th style="width:40%"><b>Notes</b></th>
   </tr>
@@ -36,7 +36,6 @@ Ubuntu 22.04
 <code>ubuntu-22.04</code>
 </td>
 <td>
-Ubuntu 22.04 is currently in public beta.
 </td>
 </tr>
 <tr>
@@ -46,15 +45,19 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-latest</code> or <code>ubuntu-20.04</code>
 </td>
+<td>
+The <code>ubuntu-latest</code> label is currently transitioning to the Ubuntu 22.04 runner image. During the transition, the label might refer to the runner image for either Ubuntu 20.04 or 22.04. For more information, see <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">this {% data variables.product.prodname_dotcom %} blog post</a>.
+</rd>
 </tr>
 <tr>
 <td>
-Ubuntu 18.04
+Ubuntu 18.04 <sup>[deprecated]</sup>
 </td>
 <td>
 <code>ubuntu-18.04</code>
 </td>
 <td>
+Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
 </td>
 </tr>
 <tr>
@@ -73,7 +76,7 @@ macOS Big Sur 11
 <code>macos-latest</code> or <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 11 runner image.
+The <code>macos-latest</code> label is currently transitioning to the macOS Monterey 12 runner image. During the transition, the label might refer to the runner image for either macOS 11 or 12. For more information, see <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">this {% data variables.product.prodname_dotcom %} blog post</a>.
 </td>
 </tr>
 <tr>
@@ -92,12 +95,12 @@ Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information,
 
 {% note %}
 
-**Note:** The `-latest` virtual environments are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
 
 {% warning %}
 
-<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support. 
+**Warning:** Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
 
 {% endwarning %}

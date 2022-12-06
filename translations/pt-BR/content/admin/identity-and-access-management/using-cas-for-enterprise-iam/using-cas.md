@@ -1,5 +1,5 @@
 ---
-title: Usar CAS
+title: Using CAS
 redirect_from:
   - /enterprise/admin/articles/configuring-cas-authentication
   - /enterprise/admin/articles/about-cas-authentication
@@ -8,7 +8,7 @@ redirect_from:
   - /admin/authentication/using-cas
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-cas
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-cas
-intro: 'Se você usar o Serviço de Autenticação Central (CAS) para centralizar o acesso a vários aplicativos web, você poderá integrar o {% data variables.product.product_name %} configurando a autenticação do CAS para sua instância.'
+intro: 'If you use Central Authentication Service (CAS) to centralize access to multiple web applications, you can integrate {% data variables.product.product_name %} by configuring CAS authentication for your instance.'
 versions:
   ghes: '*'
 type: how_to
@@ -20,37 +20,37 @@ topics:
   - SSO
 ---
 
-## Sobre autenticação do CAS para {% data variables.product.product_name %}
+## About CAS authentication for {% data variables.product.product_name %}
 
-O CAS é um protocolo de logon único (SSO) que centraliza a autenticação para vários aplicativos web. Para obter mais informações, consulte "[Serviço de Autenticação Central](https://en.wikipedia.org/wiki/Central_Authentication_Service)" na Wikipédia.
+CAS is a single sign-on (SSO) protocol that centralizes authentication to multiple web applications. For more information, see "[Central Authentication Service](https://en.wikipedia.org/wiki/Central_Authentication_Service)" on Wikipedia.
 
-Após configurar o CAS, as pessoas que usam {% data variables.product.product_location %} devem usar um token de acesso pessoal para autenticar as solicitações da API ou do Git por meio de HTTP(S). As credenciais do CAS não podem ser usadas para autenticar estas solicitações. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+After you configure CAS, people who use {% data variables.location.product_location %} must use a {% data variables.product.pat_generic %} to authenticate API or Git requests over HTTP(S). CAS credentials cannot be used to authenticate these requests. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-Se você configurar o CAS, as pessoas com contas no seu provedor de identidade (IdP) não consomem uma licença de usuário até que a pessoa efetue o login em {% data variables.product.product_location %}.
+If you configure CAS, people with accounts on your identity provider (IdP) do not consume a user license until the person signs into {% data variables.location.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-## Considerações de nome de usuário no CAS
+## Username considerations with CAS
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Para obter mais informações, consulte "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
-## Atributos CAS
+## CAS attributes
 
-Os atributos a seguir estão disponíveis.
+The following attributes are available.
 
-| Nome do atributo  | Tipo        | Descrição                                                              |
-| ----------------- | ----------- | ---------------------------------------------------------------------- |
-| `nome de usuário` | Obrigatório | Nome do usuário no {% data variables.product.prodname_ghe_server %}. |
+| Attribute name           | Type     | Description |
+|--------------------------|----------|-------------|
+| `username`               | Required | The {% data variables.product.prodname_ghe_server %} username. |
 
-## Configurar o CAS
+## Configuring CAS
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-3. Selecione **CAS**.
+3. Select **CAS**.
 
-   ![Captura de tela da seleção do CAS para autenticação](/assets/images/enterprise/management-console/cas-select.png)
+   ![Screenshot of selection of CAS for authentication](/assets/images/enterprise/management-console/cas-select.png)
 4. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 
-   ![Captura de tela da opção de autenticação interna do CAS](/assets/images/enterprise/management-console/cas-built-in-authentication.png)
-5. No campo **Server URL** (URL do servidor), digite a URL completa do seu servidor CAS. Se o servidor CAS usar um certificado que não pode ser validado pelo {% data variables.product.prodname_ghe_server %}, você poderá usar o comando `ghe-ssl-ca-certificate-install` para instalá-lo como certificado confiável. Para obter mais informações, consulte "[Utilitários de linha de comando](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-install)".
+   ![Screenshot of of fallback built-in authentication option for CAS](/assets/images/enterprise/management-console/cas-built-in-authentication.png)
+5. In the **Server URL** field, type the full URL of your CAS server. If your CAS server uses a certificate that can't be validated by {% data variables.product.prodname_ghe_server %}, you can use the `ghe-ssl-ca-certificate-install` command to install it as a trusted certificate. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-install)."

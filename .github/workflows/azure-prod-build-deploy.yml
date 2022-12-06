@@ -39,14 +39,14 @@ jobs:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
         with:
           login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
           username: ${{ secrets.PROD_REGISTRY_USERNAME }}
           password: ${{ secrets.PROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
+        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
 
       - name: Check out repo
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
@@ -62,7 +62,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Clone docs-early-access
@@ -150,6 +150,11 @@ jobs:
           FASTLY_SURROGATE_KEY: 'every-deployment'
         run: npm install got && .github/actions-scripts/purge-fastly-edge-cache.js
 
+  send-slack-notification-on-failure:
+    needs: [azure-prod-build-and-deploy]
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}
+    steps:
       - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
         if: ${{ failure() }}

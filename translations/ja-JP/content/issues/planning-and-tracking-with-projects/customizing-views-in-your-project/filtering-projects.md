@@ -1,6 +1,6 @@
 ---
-title: 'Filtering {% data variables.projects.projects_v2 %}'
-intro: Use filters to choose which items appear in your project's views.
+title: '{% data variables.projects.projects_v2 %}のフィルター処理'
+intro: フィルターを使用して、プロジェクトのビューに表示する項目を選びます。
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -10,15 +10,22 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
+ms.openlocfilehash: 680d6cff10dfc063ebaef0ebc9f8f7d0c15ba2e7
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158942'
 ---
+Issueにアサインされた人やラベルといったアイテムのメタデータやプロジェクトのフィールドに対するフィルタを使って、ビューをカスタマイズできます。 フィルタを組み合わせて、ビューとして保存できます。 詳しくは、「[プロジェクトのビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」をご覧ください。
 
-Issueにアサインされた人やラベルといったアイテムのメタデータやプロジェクトのフィールドに対するフィルタを使って、ビューをカスタマイズできます。 フィルタを組み合わせて、ビューとして保存できます。 詳しい情報については「[プロジェクトのビューのカスタマイズ](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)」を参照してください。
+プロジェクトをフィルタするには、{% octicon "filter" aria-label="The Filter icon" %}をクリックし、フィルタリングしたいフィールドとその値を入力していってください。 入力していくと、利用できる値が表示されます。 また、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Filter by」と入力して、使用可能なフィルターから選ぶこともできます。
 
-プロジェクトをフィルタするには、{% octicon "filter" aria-label="The Filter icon" %}をクリックし、フィルタリングしたいフィールドとその値を入力していってください。 入力していくと、利用できる値が表示されます。 You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
+複数のフィルターを使用すると、論理 AND フィルターとして機能します。 たとえば、`label:bug status:"In progress"` とすると、"進行中" 状態の `bug` ラベルの付いた項目が返されます。 現在、{% data variables.product.prodname_projects_v2 %} で複数のフィールドにわたる論理 OR フィルターはサポートされていません。
 
-Using multiple filters will act as a logical AND filter. For example, `label:bug status:"In progress"` will return items with the `bug` label with the "In progress" status. {% data variables.product.prodname_projects_v2 %} does not currently support logical OR filters across multiple fields.
+{% data variables.product.prodname_projects_v2 %} の分析情報を使用して作成するグラフでも同じフィルターを使用でき、グラフの作成に使用するデータをフィルター処理できます。 詳しくは、「[プロジェクトのインサイトの利用](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)」をご覧ください。
 
-The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. 詳しい情報については「[プロジェクトでのインサイトの利用](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)」を参照してください。
+ビューをフィルタリングし、項目を追加すると、追加された項目にフィルタリングされたメタデータが適用されます。 たとえば、`status:"In progress"` でフィルタリングするとき、ある項目を追加すると、その新しい項目の状態が "進行中" に設定されます。
 
 ## アイテムのフィルタリング
 
@@ -26,6 +33,6 @@ The same filters are available for charts you create using insights for {% data 
 
 {% data reusables.projects.projects-filters %}
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Filter by."
+または、{% data variables.projects.command-palette-shortcut %} キーを押してプロジェクト コマンド パレットを開き、「Filter by」と入力を始めます。
 
 ボードレイアウトでは、アイテムデータをクリックして、その値を持つアイテムにフィルタリングできます。 たとえば、アサインされた人をクリックして、そのアサインされた人のアイテムだけを表示させられます。 このフィルタを削除するには、そのアイテムデータをもう一度クリックします。

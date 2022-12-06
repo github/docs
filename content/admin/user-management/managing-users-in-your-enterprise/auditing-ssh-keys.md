@@ -34,8 +34,8 @@ After you click the "Begin audit" button, all SSH keys are invalidated and will 
 If a user attempts to perform any git operation over SSH, it will fail and provide them with the following message:
 
 ```shell
-ERROR: Hi <em>username</em>. We're doing an SSH key audit.
-Please visit http(s)://<em>hostname</em>/settings/ssh/audit/2
+ERROR: Hi USERNAME. We're doing an SSH key audit.
+Please visit http(s)://HOSTNAME/settings/ssh/audit/2
 to approve this key so we know it's safe.
 Fingerprint: ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
 fatal: The remote end hung up unexpectedly
@@ -49,9 +49,11 @@ After they approve or reject their keys, they'll be able interact with repositor
 
 ## Adding an SSH key
 
-New users will be prompted for their password when adding an SSH key:
+{% ifversion ghes %}
 
-![Password confirmation](/assets/images/help/settings/sudo_mode_popup.png)
+When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+
+{% endif %}
 
 When a user adds a key, they'll receive a notification email that will look something like this:
 

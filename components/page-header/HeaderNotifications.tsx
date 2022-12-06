@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 
+import { useLanguages } from 'components/context/LanguagesContext'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 import { useVersion } from 'components/hooks/useVersion'
-import { useSession } from 'components/lib/get-session'
+import { useUserLanguage } from 'components/hooks/useUserLanguage'
 import styles from './HeaderNotifications.module.scss'
 
 enum NotificationType {
@@ -22,18 +23,22 @@ export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
-  const session = useSession()
-  const userLanguage = session?.userLanguage
-  const languages = session?.languages || {}
+  const { userLanguage } = useUserLanguage()
+  const { languages } = useLanguages()
 
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []
   if (router.locale === 'en') {
+    // 92BD1212-61B8-4E7A: Remove ` && languages[userLanguage]?.wip === false` for the public ship of ko, fr, de, ru
     if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
+      let href = `/${userLanguage}`
+      if (currentPathWithoutLanguage !== '/') {
+        href += currentPathWithoutLanguage
+      }
       translationNotices.push({
         type: NotificationType.TRANSLATION,
-        content: `This article is also available in <a href="/${userLanguage}${currentPathWithoutLanguage}">${languages[userLanguage]?.name}</a>.`,
+        content: `This article is also available in <a href="${href}">${languages[userLanguage]?.name}</a>.`,
       })
     }
   } else {
@@ -42,15 +47,11 @@ export const HeaderNotifications = () => {
         type: NotificationType.TRANSLATION,
         content: data.reusables.policies.translation,
       })
+      // 92BD1212-61B8-4E7A: Remove ` && languages[router.locale]?.wip !== true` for the public ship of ko, fr, de, ru
     } else if (router.locale && languages[router.locale]?.wip !== true) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_complete'),
-      })
-    } else if (router.locale && languages[router.locale]?.wip) {
-      translationNotices.push({
-        type: NotificationType.TRANSLATION,
-        content: t('notices.localization_in_progress'),
       })
     }
   }

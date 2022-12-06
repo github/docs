@@ -18,11 +18,12 @@ export type PickerOptionsTypeT = {
 
 export type PickerPropsT = {
   variant?: 'inline'
+  apiVersion?: boolean
   defaultText: string
   options: Array<PickerOptionsTypeT>
 }
 
-export function Picker({ variant, defaultText, options }: PickerPropsT) {
+export function Picker({ variant, apiVersion, defaultText, options }: PickerPropsT) {
   const [open, setOpen] = useState(false)
   const { getDetailsProps } = useDetails({ closeOnOutsideClick: true })
   const selectedOption = options.find((opt) => opt.selected === true)
@@ -38,7 +39,13 @@ export function Picker({ variant, defaultText, options }: PickerPropsT) {
             key={option.text}
             href={option.href}
             onClick={() => {
-              if (option.onselect) option.onselect(option.locale)
+              if (option.onselect) {
+                if (apiVersion) {
+                  option.onselect(option.text)
+                } else {
+                  option.onselect(option.locale)
+                }
+              }
               setOpen(!open)
             }}
           >
@@ -79,13 +86,16 @@ export function Picker({ variant, defaultText, options }: PickerPropsT) {
       ) : (
         <ActionMenu open={open} onOpenChange={setOpen}>
           <ActionMenu.Button
-            aria-label="Select field type"
-            variant="invisible"
-            sx={{ color: `var(--color-fg-default)` }}
+            aria-label={apiVersion ? `Select API version` : `Select field type`}
+            variant={apiVersion ? 'default' : 'invisible'}
+            sx={{ color: `var(--color-fg-default)`, width: '100%' }}
           >
-            {selectedOption?.text || defaultText}
+            <span style={{ fontWeight: 'normal' }}>{`${apiVersion ? `Version: ` : ''}`}</span>
+            <span data-testid={apiVersion ? `version` : `field`}>
+              {selectedOption?.text || defaultText}
+            </span>
           </ActionMenu.Button>
-          <ActionMenu.Overlay width="auto" align="end">
+          <ActionMenu.Overlay width="auto" align={apiVersion ? 'center' : 'end'}>
             {getFields()}
           </ActionMenu.Overlay>
         </ActionMenu>

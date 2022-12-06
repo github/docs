@@ -1,7 +1,7 @@
 ---
 title: Documentación de GitHub Pages
-shortTitle: Páginas de GitHub
-intro: 'Aprende cómo crear un sitio web directamente desde un repositorio en{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Explora las herramientas de creación de sitios web como Jekyll y soluciona los problemas de tu sitio de {% data variables.product.prodname_pages %}.'
+shortTitle: GitHub Pages
+intro: 'Descubre cómo crear un sitio web directamente desde un repositorio en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. Explora herramientas de creación de sitios web como Jekyll y soluciona problemas con el sitio de {% data variables.product.prodname_pages %}.'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
@@ -12,7 +12,6 @@ featuredLinks:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll{% endif %}'
     - '{% ifversion ghec %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site{% endif %}'
-    - '{% ifversion fpt %}/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll{% endif %}'
   popular:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages{% endif %}'
@@ -50,5 +49,11 @@ children:
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site
+ms.openlocfilehash: 0c054dd363dca81ef322d21538076959b9b0cbf4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107081'
 ---
 

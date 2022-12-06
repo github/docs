@@ -6,7 +6,7 @@ name: Stale
 
 on:
   schedule:
-    - cron: '40 16 * * *' # Run each day at 16:40 UTC / 8:40 PST
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   issues: write
@@ -29,3 +29,4 @@ jobs:
           exempt-pr-labels: 'never-stale,waiting for review'
           exempt-issue-labels: 'never-stale,help wanted,waiting for review'
           operations-per-run: 1000
+          close-issue-reason: not_planned

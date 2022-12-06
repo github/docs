@@ -1,7 +1,7 @@
-对 {% data variables.product.product_location %} 上的拉取请求选择 **Squash and merge（压缩并合并）**选项时，拉取请求的提交会压缩为单一提交。 不是从主题分支查看所有贡献者的个别提交，而是所有提交合并成一个提交并合并到默认分支。 压缩了提交的拉取请求使用[快进选项](https://git-scm.com/docs/git-merge#_fast_forward_merge)合并。
+When you select the **Squash and merge** option on a pull request on {% data variables.location.product_location %}, the pull request's commits are squashed into a single commit. Instead of seeing all of a contributor's individual commits from a topic branch, the commits are combined into one commit and merged into the default branch. Pull requests with squashed commits are merged using the [fast-forward option](https://git-scm.com/docs/git-merge#_fast_forward_merge).
 
-要压缩并合并拉取请求，必须在仓库中拥有[写入权限](/articles/repository-permission-levels-for-an-organization/)，并且仓库必须[允许压缩合并](/articles/configuring-commit-squashing-for-pull-requests/)。
+To squash and merge pull requests, you must have [write permissions](/articles/repository-permission-levels-for-an-organization/) in the repository, and the repository must [allow squash merging](/articles/configuring-commit-squashing-for-pull-requests/).
 
 ![commit-squashing-diagram](/assets/images/help/pull_requests/commit-squashing-diagram.png)
 
-您可以使用压缩并合并在仓库中创建更简化的 Git 历史记录。 在功能分支上工作时，提交正在进行的工作会有帮助，但它们不一定必须留在 Git 历史记录中。 如果在合并到默认分支时将这些提交压缩到一个提交中，您可以保留原来的更改并清除 Git 历史记录。
+You can use squash and merge to create a more streamlined Git history in your repository. Work-in-progress commits are helpful when working on a feature branch, but they aren’t necessarily important to retain in the Git history. If you squash these commits into one commit while merging to the default branch, you can retain the original changes with a clear Git history.

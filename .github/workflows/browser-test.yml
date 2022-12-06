@@ -27,10 +27,27 @@ concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
+env:
+  ELASTICSEARCH_URL: http://localhost:9200/
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
+      - name: Install a local Elasticsearch for testing
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+        with:
+          # Make sure this matches production and `sync-search-pr.yml`
+          elasticsearch version: '7.11.1'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+
       - name: Checkout
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
@@ -42,7 +59,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
         with:
-          node-version: '16.15.0'
+          node-version: '16.17.0'
           cache: npm
 
       - name: Install dependencies
@@ -61,6 +78,13 @@ jobs:
 
       - name: Run build script
         run: npm run build
+
+      - name: Index fixtures into the local Elasticsearch
+        run: npm run index-test-fixtures
+
+      - name: Check that Elasticsearch is accessible
+        run: |
+          curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
 
       - name: Run browser-test
         run: npm run browser-test

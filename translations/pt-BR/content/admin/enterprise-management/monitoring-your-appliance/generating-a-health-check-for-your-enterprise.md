@@ -1,6 +1,6 @@
 ---
-title: Gerando uma verificação de integridade para sua empresa
-intro: 'Você pode obter informações sobre integridade geral e do Git e solicitações de API de {% data variables.product.product_location %} gerando uma verificação de integridade.'
+title: Generating a Health Check for your enterprise
+intro: 'You can gain insight into the general health and Git and API requests of {% data variables.location.product_location %} by generating a Health Check.'
 versions:
   ghes: '*'
 type: how_to
@@ -15,44 +15,44 @@ product: '{% data reusables.gated-features.generated-health-checks %}'
 
 {% note %}
 
-**Observação:** A realização uma verificação de integridade está atualmente em beta para {% data variables.product.prodname_ghe_server %} e sujeito a alterações.
+**Note:** Generating a Health Check is currently in beta for {% data variables.product.prodname_ghe_server %} and subject to change.
 
 {% endnote %}
 
-## Sobre as verificações de integridade geradas
+## About generated Health Checks
 
-Você pode criar um pacote de suporte para {% data variables.product.product_location %} que contém um monte de dados, como diagnósticos e arquivos de registro. Para ajudar a analisar e interpretar esses dados, você pode gerar uma verificação de integridade. Para obter mais informações sobre os pacotes de suporte, consulte "[Fornecendo dados para {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)".
+You can create a support bundle for {% data variables.location.product_location %} that contains a lot of data, such as diagnostics and log files. To help analyze and interpret this data, you can generate a Health Check. For more information about support bundles, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
 
-Uma verificação de integridade fornece as seguintes informações sobre {% data variables.product.product_location %}.
-- Insights sobre a integridade geral de {% data variables.product.product_location %}, como o status de atualização, armazenamento e o consumo da estação da licença
-- Uma seção de segurança que foca no isolamento do subdomínio e autenticação do usuário
-- Análise de solicitações do Git, com detalhes sobre repositórios mais movimentados e usuários do Git
-- Análise das solicitações de API, incluindo os tempos mais movimentados, pontos de extremidade mais solicitados e as chamadas mais ativas
+A Health Check provides the following information about {% data variables.location.product_location %}.
+- Insights into the general health of {% data variables.location.product_location %}, such as upgrade status, storage, and license seat consumption
+- A security section, which focuses on subdomain isolation and user authentication
+- Analysis of Git requests, with details about the busiest repositories and Git users 
+- Analysis of API requests, including the busiest times, most frequently requested endpoints, and most active callers
 
-Se você quiser gerar uma verificação de integridade para {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.github_support %}. Para obter mais informações, consulte[Criando um tíquete de suporte](/support/contacting-github-support/creating-a-support-ticket)".
+If you want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
 
-## Gerando uma verificação de integridade
+## Generating a Health Check
 
-Antes de gerar uma verificação de integridade, você deve criar um pacote de suporte. Para obter mais informações, consulte "[Enviar dados ao {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)".
+Before you can generate a Health Check, you must create a support bundle. For more information, see "[Providing data to {% data variables.contact.github_support %}](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
 
-1. Acesse [{% data variables.contact.support_portal %}](https://support.github.com/).
-2. No canto superior direito da página, clique em **Premium**.
+1. Navigate to the [{% data variables.contact.support_portal %}](https://support.github.com/).
+2. In the upper-right corner of the page, click **Premium**.
 
-   ![Captura de tela do link "Premium" no cabeçalho do Portal de Suporte do GitHub.](/assets/images/enterprise/support/support-portal-header-premium.png)
+   ![Screenshot of the "Premium" link in the GitHub Support Portal header.](/assets/images/enterprise/support/support-portal-header-premium.png)
+   
+3. To the right of **Health Checks**, click **Request Health Check**.
 
-3. À direita de **Verificações de integridade**, clique em **Solicitar verificação de integridade**.
+   ![Screenshot of the "Request Health Check" button.](/assets/images/enterprise/support/support-portal-request-health-check.png)
+   
+4. Under "Select an enterprise account", select the dropdown menu and click an enterprise account.
 
-   ![Captura de tela do botão "Solicitar verificação de integridade"](/assets/images/enterprise/support/support-portal-request-health-check.png)
+   ![Screenshot of the "enterprise account" dropdown menu.](/assets/images/enterprise/support/health-check-dialog-ea.png)
+   
+5. Under "Upload a support bundle", click **Chose File** and choose a file to upload. Then, click **Request Health Check**.
 
-4. Em "Selecionar uma conta corporativa", selecione o menu suspenso e clique em uma conta empresarial.
+   ![Screenshot of the "Choose file" and "Request Health Check" buttons.](/assets/images/enterprise/support/health-check-dialog-choose-file.png)
+   
 
-   ![Captura de tela do menu suspenso "conta corporativa".](/assets/images/enterprise/support/health-check-dialog-ea.png)
+After you request a Health Check, a job is scheduled to generate the Health Check. After several hours to one day, the generated Health Check will appear in the "Health Checks" section of the {% data variables.contact.support_portal %}.
 
-5. Em "Fazer o upload de um pacote de suporte", clique em **Escolher Arquivo** e escolha um arquivo para fazer o upload. Em seguida, clique em **Solicitar verificação de integridade**.
-
-   ![Captura de tela dos botões "Escolher arquivo" e "Solicitar verificação de integridade".](/assets/images/enterprise/support/health-check-dialog-choose-file.png)
-
-
-Após solicitar uma verificação de integridade, será agendado um trabalho para gerar a verificação de integridade. Após várias horas em um dia, a verificação de saúde gerada aparecerá na seção "Verificação de integridade" do {% data variables.contact.support_portal %}.
-
-![Captura de tela da seção Verificações de Integridadedo {% data variables.contact.support_portal %}.](/assets/images/enterprise/support/support-portal-health-checks-section.png)
+![Screenshot of the Health Checks section of the {% data variables.contact.support_portal %}.](/assets/images/enterprise/support/support-portal-health-checks-section.png)

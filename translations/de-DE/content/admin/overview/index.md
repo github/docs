@@ -1,0 +1,29 @@
+---
+title: Übersicht
+intro: 'Hier findest du Informationen zu {% data variables.product.product_name %} und zur Verwaltung der{% ifversion ghes %} Konten und des Zugriffs, der Lizenzen und{% endif %} Abrechnung.'
+redirect_from:
+  - /enterprise/admin/overview
+versions:
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+children:
+  - /about-github-for-enterprises
+  - /about-github-enterprise-server
+  - /about-github-ae
+  - /about-upgrades-to-new-releases
+  - /about-data-residency
+  - /about-enterprise-accounts
+  - /system-overview
+  - /about-the-github-enterprise-api
+  - /best-practices-for-enterprises
+  - /creating-an-enterprise-account
+  - /accessing-compliance-reports-for-your-enterprise
+ms.openlocfilehash: f0322eef087f09b029051fc08ac61bc4e529d6dc
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163563'
+---
+Weitere Informationen, auch zum Kauf von {% data variables.product.prodname_enterprise %}, findest du unter [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).

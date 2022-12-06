@@ -1,0 +1,46 @@
+contact_ent_support: '[GitHub Enterprise 지원](https://support.github.com/contact?tags=docs-generic)'
+
+contact_support: >-
+  {% ifversion fpt or ghec %}[GitHub 지원](https://support.github.com/contact?tags=docs-generic){% elsif ghes %}사이트 관리자{% elsif ghae %}엔터프라이즈 소유자{% endif %}
+report_abuse: >-
+  {% ifversion fpt or ghec %}[신고하기](https://github.com/contact/report-abuse){% endif %}
+report_content: >-
+  {% ifversion fpt or ghec %}[보고서 콘텐츠](https://github.com/contact/report-content){% endif %}
+contact_dmca: >-
+  {% ifversion fpt or ghec %}[저작권 클레임 양식](https://github.com/contact/dmca){% endif %}
+contact_privacy: >-
+  {% ifversion fpt or ghec %}[개인 정보 연락처 양식](https://github.com/contact/privacy){% endif %}
+contact_enterprise_sales: "[GitHub의 영업 팀](https://github.com/enterprise/contact)"
+
+contact_feedback_actions: '[GitHub Actions에 대한 GitHub 커뮤니티 토론](https://github.com/orgs/community/discussions/categories/actions-and-packages)'
+
+# The team that provides Standard Support
+enterprise_support: 'GitHub Enterprise 지원'
+
+# The larger team that includes Enterprise Support and Premium Support
+github_support: 'GitHub 지원'
+
+# The team that provides Premium Support
+premium_support: 'GitHub Premium 지원'
+
+# Enterprise Support portal (previously the Zendesk portal at enterprise.githubsupport.com)
+enterprise_portal: 'GitHub 지원 포털'
+contact_enterprise_portal: '[GitHub 지원 포털](https://support.github.com/contact?tags=docs-generic)'
+
+# Azure support (GitHub AE) portal
+ae_azure_portal: 'Azure 지원 포털'
+contact_ae_portal: '[Azure 지원 포털](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
+
+# GitHub Support portal (for dotcom - this sends users to a contact form)
+support_portal: 'GitHub 지원 포털'
+contact_support_portal: '[GitHub 지원 포털](https://support.github.com/contact?tags=docs-generic)'
+
+# GitHub Support portal (this sends users to the Support landing page)
+landing_page_portal: 'GitHub 지원 포털'
+contact_landing_page_portal: '[GitHub 지원 포털](https://support.github.com/)'
+
+# The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
+community_support: 'GitHub 커뮤니티 지원'
+
+# GitHub Community discussions
+community_support_forum: '[GitHub 커뮤니티 토론](https://github.com/orgs/community/discussions)'

@@ -2,22 +2,22 @@
 
 {% ifversion fpt or ghec %}
 
-**ノート:** {% data variables.product.prodname_codeql_runner %}は非推奨になりました。 {% data variables.product.product_name %}では、{% data variables.product.prodname_codeql_runner %}は2022年3月までサポートされていました。 最新バージョンの[{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases)にアップグレードしてください。
+**Note:** The {% data variables.code-scanning.codeql_runner %} is deprecated. On {% data variables.product.product_name %}, the {% data variables.code-scanning.codeql_runner %} was supported until March 2022. You should upgrade to the latest version of [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases).
 
 {% elsif ghes > 3.3 %}
 
-**ノート:** {% data variables.product.prodname_codeql_runner %}は非推奨になっており、{% data variables.product.prodname_ghe_server %} 3.4には含まれていません。 [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) 2.7.6に移行してください。
+**Note:** The {% data variables.code-scanning.codeql_runner %} has been deprecated and is not included in {% data variables.product.prodname_ghe_server %} 3.4. You should migrate to [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) version 2.7.6. 
 
 {% elsif ghes < 3.4 %}
 
-**ノート:** {% data variables.product.prodname_codeql_runner %}は非推奨になりました。 {% data variables.product.prodname_ghe_server %} 3.0移行では、[{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases)バージョン2.6.3をインストールして{% data variables.product.prodname_codeql_runner %}を置き換えることができます。
+**Note:** The {% data variables.code-scanning.codeql_runner %} is being deprecated. On {% data variables.product.prodname_ghe_server %} 3.0 and greater, you can install [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) version 2.6.3 to replace {% data variables.code-scanning.codeql_runner %}. 
 
 {% elsif ghae %}
 
-**ノート:** {% data variables.product.prodname_codeql_runner %}は非推奨になりました。 [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases)に移行してください。
+**Note:** The {% data variables.code-scanning.codeql_runner %} has been deprecated. You should migrate to [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases). 
 
 {% endif %}
 
-詳しい情報については[CodeQLランナーの非推奨化](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)を参照してください。 {% data variables.product.prodname_codeql_cli %}への移行に関する情報については「[CodeQLランナーからCodeQL CLIへの移行](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)」を参照してください。
+For more information, see [the CodeQL runner deprecation](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/). For information on migrating to {% data variables.product.prodname_codeql_cli %}, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
 
 {% endnote %}

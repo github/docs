@@ -10,18 +10,23 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+ms.openlocfilehash: b8a436ed4e20133f1a2c4def572a60b73c48cf4d
+ms.sourcegitcommit: c95a5c9bdf3ae54ad77b074739b262e7d0e8a077
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169586'
 ---
-
-{% for term in site.data.glossaries.external %}
-  ### {% data glossaries.external[forloop.index0].term %}
-  {% data glossaries.external[forloop.index0].description %}
+{% for glossary in glossaries %}
+  ### {{ glossary.term }}
+  {{ glossary.description }}
   ---
 {% endfor %}
 
 ---
 
-## Leer más
+## Información adicional
 
-- [El glosario oficial de Git](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
+- [Glosario oficial de Git](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
 - [Documentación de Git](https://git-scm.com/doc)
 - [Lista de comandos de Git](https://git-scm.com/docs)

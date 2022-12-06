@@ -1,6 +1,6 @@
 ---
 title: Publishing packages
-shortTitle: Publishing packages
+shortTitle: Publish packages
 intro: 'You can automatically publish packages using {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'

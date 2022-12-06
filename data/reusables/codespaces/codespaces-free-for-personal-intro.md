@@ -1,0 +1,1 @@
+{% data variables.product.prodname_github_codespaces %} is paid for either by an organization, an enterprise, or a personal account. The Free and Pro plans for personal accounts include free use of {% data variables.product.prodname_github_codespaces %} up to a fixed amount of usage every month.
