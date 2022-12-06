@@ -1,6 +1,6 @@
 ---
-title: Основные сведения о подключениях между репозиториями
-intro: 'Вы сможете лучше понять подключения между репозиториями, просмотрев сеть репозитория и вилки, а также проекты, которые зависят от репозитория.'
+title: Understanding connections between repositories
+intro: Use the network graph and forks list to understand fork networks.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,59 +22,57 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060069'
 ---
-## Просмотр сети репозитория
 
-На графе сети отображается история ветвей всей сети репозитория, включая ветви корневого репозитория и ветви вилок, содержащие уникальные для сети фиксации.
+## Viewing a repository's network
 
-![Сетевой граф репозитория](/assets/images/help/graphs/repo_network_graph.png)
+The network graph displays the branch history of the entire repository network, including fork branches. This graph is a timeline of the most recent commits, and shows up to 100 of the most recently pushed-to branches. The first row references the date and the first column references the branch owner. Use arrow keys or other keyboard shortcuts to more easily navigate the graph. They are provided in the “Keyboard shortcuts available” pop up under the graph.
+
+
+![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
 
 {% tip %}
 
-**Совет.** Чтобы увидеть более старые ветви, нажмите и перетащите в пределах графа.
+**Tip:** To see older branches, click and drag within the graph.
 
 {% endtip %}
 
-## Доступ к сетевому графу
+## Accessing the network graph
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
-3. На левой боковой панели щелкните **Сеть**.
-![Вкладка "Network" (Сеть)](/assets/images/help/graphs/network_tab.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+3. In the left sidebar, click **Network**.
+![Network tab](/assets/images/help/graphs/network_tab.png)
 
-## Список вилок репозитория
+## Listing the forks of a repository
 
-На графе "Элементы" отображаются все вилки репозитория.
+The Members graph displays all the forks of a repository.
 
-Вилки перечислены в алфавитном порядке по имени пользователя, разветвившего репозиторий. Можно нажать имя пользователя, чтобы перейти на страницу профиля пользователя {% data variables.product.product_name %} или нажать имя вилки, чтобы перейти на конкретную вилку репозитория.
+Forks are listed alphabetically by the organization or username of the person who forked the repository. You can click on the organization or username to be redirected to the organization or user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
 
 {% ifversion fpt or ghec %}
 
-![Граф членов репозитория](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
+![Repository members graph](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
 {% else %}
 
-![Граф членов репозитория](/assets/images/help/graphs/repo_members_graph.png)
+![Repository members graph](/assets/images/help/graphs/repo_members_graph.png)
 
 {% endif %}
 
-### Доступ к графу "Члены"
+### Accessing the Members graph
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
-3. На левой боковой панели щелкните **Вилки**.
-![Вкладка "Вилки"](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+3. In the left sidebar, click **Forks**.
+![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-## Просмотр зависимостей репозитория
+## Viewing the dependencies of a repository
 
-Можно использовать граф зависимостей для изучения кода, от которого зависит репозиторий.
+You can use the dependency graph to explore the code your repository depends on.
 
-Почти все программное обеспечение полагается на код, разработанный и поддерживаемый другими разработчиками, часто известный как цепочка поставок. Например, утилиты, библиотеки и платформы. Эти зависимости являются целочисленным элементом кода, и любые ошибки или уязвимости в них могут повлиять на код. Важно проверять и обслуживать эти зависимости.
+Almost all software relies on code developed and maintained by other developers, often known as a supply chain. For example, utilities, libraries, and frameworks. These dependencies are an integral part of your code and any bugs or vulnerabilities in them may affect your code. It's important to review and maintain these dependencies.
 
-Граф зависимостей предоставляет отличный способ визуализации и изучения зависимостей для репозитория. Дополнительные сведения см. в разделах [Сведения о графе зависимостей](/code-security/supply-chain-security/about-the-dependency-graph) и [Изучение зависимостей репозитория](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository).
+The dependency graph provides a great way to visualize and explore the dependencies for a repository. For more information, see "[About the dependency graph](/code-security/supply-chain-security/about-the-dependency-graph)" and "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)."
 
-Также можно настроить репозиторий, чтобы {% data variables.product.company_short %} автоматически оповещал вас всякий раз при обнаружении уязвимости безопасности в одной из зависимостей. Дополнительные сведения см. в статье "[Сведения о {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+You can also set up your repository so that {% data variables.product.company_short %} alerts you automatically whenever a security vulnerability is found in one of your dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
