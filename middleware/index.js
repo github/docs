@@ -11,7 +11,10 @@ import morgan from 'morgan'
 import datadog from './connect-datadog.js'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
-import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
+import {
+  setDefaultFastlySurrogateKey,
+  setLanguageFastlySurrogateKey,
+} from './set-fastly-surrogate-key.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
@@ -233,6 +236,10 @@ export default function (app) {
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
+
+  // Things like `/api` sets their own Fastly surrogate keys.
+  // Now that the `req.language` is known, set it for the remaining endpoints
+  app.use(setLanguageFastlySurrogateKey)
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
