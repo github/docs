@@ -9,12 +9,12 @@ versions:
 type: how_to
 topics:
   - Codespaces
-ms.openlocfilehash: 1da438a680dd3e60c1deeec46a98fbcf48f84e5b
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: f17bb20aa919ca94cd13e14a6f770cea23042b2b
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158997'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188280'
 ---
 ## Übersicht
 
@@ -39,7 +39,7 @@ Wenn das in der Entwicklungscontainerkonfiguration angegebene Image nicht mit ei
 {% note %}
 
 **Hinweise**: 
-* Die Basisimagerichtlinie wird nur angewendet, wenn ein Codespace erstellt wird. Aktuell wird sie nicht angewendet, wenn ein Container neu erstellt wird. Dies wird in einem zukünftigen Release geändert. Weitere Informationen findest du unter [Der Codespace-Lebenszyklus](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace).
+* Die Basisimagerichtlinie wird nur angewendet, wenn ein Codespace erstellt wird. Aktuell wird sie nicht angewendet, wenn ein Container neu erstellt wird. Dies wird in einem zukünftigen Release geändert. Weitere Informationen findest du unter [Der Codespace-Lebenszyklus](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace).
 * Die Basisimagerichtlinie gilt nicht für das Standardimage oder das Image, das zum Wiederherstellen eines Codespaces verwendet wird, wenn ein Fehler in einer Entwicklungscontainerkonfiguration auftritt, der verhindert, dass der Container neu erstellt wird. 
 
 {% endnote %}

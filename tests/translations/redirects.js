@@ -1,6 +1,6 @@
 import { languageKeys } from '../../lib/languages.js'
 import { get } from '../helpers/e2etest.js'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 
@@ -16,11 +16,11 @@ describe('redirects', () => {
     expect(res.headers['set-cookie']).toBeUndefined()
   })
 
-  test.each(langs)('redirects to %s if PREFERRED_LOCALE_COOKIE_NAME', async (lang) => {
+  test.each(langs)('redirects to %s if USER_LANGUAGE_COOKIE_NAME', async (lang) => {
     const res = await get('/get-started', {
       headers: {
         'accept-language': 'en',
-        Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=${lang}`,
+        Cookie: `${USER_LANGUAGE_COOKIE_NAME}=${lang}`,
       },
       followRedirects: false,
     })

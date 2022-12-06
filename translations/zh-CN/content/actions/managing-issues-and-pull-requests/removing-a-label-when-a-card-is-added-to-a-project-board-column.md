@@ -1,6 +1,6 @@
 ---
-title: Removing a label when a card is added to a project board column
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a {% data variables.projects.projects_v1_board %}.'
+title: 将卡片添加到项目板列时删除标签
+intro: '可以使用 {% data variables.product.prodname_actions %} 在议题或拉取请求添加到{% data variables.projects.projects_v1_board %}上的特定列时自动删除标签。'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
@@ -13,23 +13,27 @@ topics:
   - Workflows
   - Project management
 shortTitle: Remove label when adding card
+ms.openlocfilehash: d86d9e5ad198c9cf8811b47f2a6c8a7114e20104
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185627'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 简介
 
-## Introduction
+本教程演示如何使用 [`actions/github-script` 操作](https://github.com/marketplace/actions/github-script)和条件，从已添加到{% data variables.projects.projects_v1_board %}上指定列的议题和拉取请求中删除标签。 例如，可以在项目卡移至 `Done` 列后删除 `needs review` 标签。
 
-This tutorial demonstrates how to use the [`actions/github-script` action](https://github.com/marketplace/actions/github-script) along with a conditional to remove a label from issues and pull requests that are added to a specific column on a {% data variables.projects.projects_v1_board %}. For example, you can remove the `needs review` label when project cards are moved into the `Done` column.
+在本教程中，你将首先创建一个使用 [`actions/github-script` 操作](https://github.com/marketplace/actions/github-script)的工作流文件。 然后，您将自定义工作流以适应您的需要。
 
-In the tutorial, you will first make a workflow file that uses the [`actions/github-script` action](https://github.com/marketplace/actions/github-script). Then, you will customize the workflow to suit your needs.
-
-## Creating the workflow
+## 创建工作流程
 
 1. {% data reusables.actions.choose-repo %}
-2. Choose a {% data variables.projects.projects_v1_board %} that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing {% data variables.projects.projects_v1_board %}, or you can create a new {% data variables.projects.projects_v1_board %}. For more information about creating a project, see "[Creating a {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/creating-a-project-board)."
+2. 选择属于存储库的{% data variables.projects.projects_v1_board %}。 此工作流程不能用于属于用户或组织的项目。 可以使用现有{% data variables.projects.projects_v1_board %}，也可以创建新的{% data variables.projects.projects_v1_board %}。 有关创建项目的详细信息，请参阅“[创建{% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/creating-a-project-board)”。
 3. {% data reusables.actions.make-workflow-file %}
-4. Copy the following YAML contents into your workflow file.
+4. 将以下 YAML 内容复制到工作流程文件中。
 
     ```yaml{:copy}
     name: Remove a label
@@ -58,28 +62,28 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
                 })
     ```
 
-5. Customize the parameters in your workflow file:
-   - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
+5. 自定义工工作流程文件中的参数：
+   - 在 `github.event.project_card.column_id == '12345678'` 中，将 `12345678` 替换为要取消标记移至其中的议题和拉取请求的列 ID。
 
-     To find the column ID, navigate to your {% data variables.projects.projects_v1_board %}. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
+     若要查找列 ID，请导航到{% data variables.projects.projects_v1_board %}。 在列标题旁边，请单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击“复制列链接”。 列 ID 是复制的链接末尾的数字。 例如，`24687531` 是 `https://github.com/octocat/octo-repo/projects/1#column-24687531` 的列 ID。
 
-     If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different project boards.
-   - Change the value for `name` in the `github.rest.issues.removeLabel()` function to the name of the label that you want to remove from issues or pull requests that are moved to the specified column(s). For more information on labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
+     如果想要在多个列上操作，请使用 `||` 分隔条件。 例如，只要项目卡添加到了列 `12345678` 或列 `87654321`，就会使用 `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'`。 这些列可能在不同的项目板上。
+   - 将 `github.rest.issues.removeLabel()` 函数中的 `name` 更改为要从移至指定列的议题或拉取请求中删除的标签列表。 有关标签的详细信息，请参阅“[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)”。
 6. {% data reusables.actions.commit-workflow %}
 
-## Testing the workflow
+## 测试工作流程
 
-Every time a project card on a {% data variables.projects.projects_v1_board %} in your repository moves, this workflow will run. If the card is an issue or a pull request and is moved into the column that you specified, then the workflow will remove the specified label from the issue or a pull request. Cards that are notes will not be affected.
+每当存储库中{% data variables.projects.projects_v1_board %}上的项目卡移动时，该工作流都会运行。 如果移动的项目卡是议题或拉取请求，并移入指定的列，则该工作流将从议题或拉取请求中删除指定的标签。 记事卡不会受到影响。
 
-Test your workflow out by moving an issue on your {% data variables.projects.projects_v1_board %} into the target column.
+通过将{% data variables.projects.projects_v1_board %}上的议题移到目标列中来测试自己的工作流。
 
-1. Open an issue in your repository. For more information, see "[Creating an issue](/github/managing-your-work-on-github/creating-an-issue)."
-2. Label the issue with the label that you want the workflow to remove. For more information, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
-3. Add the issue to the {% data variables.projects.projects_v1_board %} column that you specified in your workflow file. For more information, see "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)."
-4. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
-5. When the workflow completes, the issue that you added to the project column should have the specified label removed.
+1. 在仓库中打开一个议题。 有关详细信息，请参阅“[创建问题](/github/managing-your-work-on-github/creating-an-issue)”。
+2. 标记带有需要工作流删除的标签的议题。 有关详细信息，请参阅“[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)”。
+3. 将议题添加到在工作流文件中指定的 {% data variables.projects.projects_v1_board %} 列。 有关详细信息，请参阅“[向 {% data variables.product.prodname_project_v1 %} 添加问题和拉取请求](/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board)”。
+4. 要查看通过将议题添加到项目所触发的工作流程运行，请查看工作流程运行的历史记录。 有关详细信息，请参阅“[查看工作流运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
+5. 当工作流完成时，添加到项目列的议题中指定的标签应已被删除。
 
-## Next steps
+## 后续步骤
 
-- To learn more about additional things you can do with the `actions/github-script` action, see the [`actions/github-script` action documentation](https://github.com/marketplace/actions/github-script).
-- [Search GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) for examples of workflows using this action.
+- 如需详细了解 `actions/github-script` 操作的其他用途，请参阅 [`actions/github-script` 操作文档](https://github.com/marketplace/actions/github-script)。
+- [搜索 GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) 以获取使用此操作的工作流示例。

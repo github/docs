@@ -84,9 +84,12 @@ async function getBundledFiles(schemas) {
   const bundlerOptions = await getBundlerOptions()
 
   try {
-    console.log(`bundle -w -o ${TEMP_DOCS_DIR} ${bundlerOptions}`)
+    console.log(`bundle -v -w -o ${TEMP_DOCS_DIR} ${bundlerOptions}`)
     execSync(
-      `${path.join(GITHUB_REP_DIR, 'bin/openapi')} bundle -w -o ${TEMP_DOCS_DIR} ${bundlerOptions}`,
+      `${path.join(
+        GITHUB_REP_DIR,
+        'bin/openapi'
+      )} bundle -v -w -o ${TEMP_DOCS_DIR} ${bundlerOptions}`,
       { stdio: 'inherit' }
     )
   } catch (error) {

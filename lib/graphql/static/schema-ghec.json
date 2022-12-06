@@ -15774,7 +15774,7 @@
       "description": "<p>A dependency manifest entry.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15791,7 +15791,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15854,7 +15854,7 @@
       "description": "<p>The connection type for DependencyGraphDependency.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15871,7 +15871,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15916,7 +15916,7 @@
       "description": "<p>An edge in a connection.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15933,7 +15933,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -15962,7 +15962,7 @@
       "description": "<p>Dependency manifest for a repository.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -15979,7 +15979,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "implements": [
         {
@@ -16097,7 +16097,7 @@
       "description": "<p>The connection type for DependencyGraphManifest.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -16114,7 +16114,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -16159,7 +16159,7 @@
       "description": "<p>An edge in a connection.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repositories dependency graph preview",
+        "title": "Access to a repository s dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -16176,7 +16176,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
       },
       "fields": [
         {
@@ -47218,6 +47218,14 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "totalCommentsCount",
+          "description": "<p>Returns a count of how many comments this pull request has received.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies the date and time when the object was last updated.</p>",
           "type": "DateTime!",
@@ -56031,7 +56039,7 @@
           ],
           "isDeprecated": false,
           "preview": {
-            "title": "Access to a repositories dependency graph preview",
+            "title": "Access to a repository s dependency graph preview",
             "description": "This preview adds support for reading a dependency graph for a repository.",
             "toggled_by": "hawkgirl-preview",
             "toggled_on": [
@@ -56048,7 +56056,7 @@
               "@github/dependency-graph"
             ],
             "accept_header": "application/vnd.github.hawkgirl-preview+json",
-            "href": "/graphql/overview/schema-previews#access-to-a-repositories-dependency-graph-preview"
+            "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
           }
         },
         {
@@ -62037,6 +62045,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "featureable",
+          "description": "<p>The record that is featured on the GitHub Sponsors profile.</p>",
+          "type": "SponsorsListingFeatureableItem!",
+          "id": "sponsorslistingfeatureableitem",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsorslistingfeatureableitem"
         },
         {
           "name": "position",
@@ -81863,6 +81879,25 @@
           "name": "Organization",
           "id": "organization",
           "href": "/graphql/reference/objects#organization"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsListingFeatureableItem",
+      "kind": "unions",
+      "id": "sponsorslistingfeatureableitem",
+      "href": "/graphql/reference/unions#sponsorslistingfeatureableitem",
+      "description": "<p>A record that can be featured on a GitHub Sponsors profile.</p>",
+      "possibleTypes": [
+        {
+          "name": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/objects#repository"
         },
         {
           "name": "User",

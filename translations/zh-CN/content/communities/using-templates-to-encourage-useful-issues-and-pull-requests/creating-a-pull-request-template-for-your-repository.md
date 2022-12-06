@@ -1,6 +1,6 @@
 ---
-title: 为仓库创建拉取请求模板
-intro: 将拉取请求模板添加到仓库后，项目贡献者会自动在拉取请求正文中看到模板的内容。
+title: Creating a pull request template for your repository
+intro: 'When you add a pull request template to your repository, project contributors will automatically see the template''s contents in the pull request body.'
 redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
   - /github/building-a-strong-community/creating-a-pull-request-template-for-your-repository
@@ -12,44 +12,41 @@ versions:
 topics:
   - Community
 shortTitle: Create a PR template
-ms.openlocfilehash: 2a85c88944f1d46209429846bba1e7a3c930968e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145086515'
 ---
-有关详细信息，请参阅“[关于问题和拉取请求模板](/articles/about-issue-and-pull-request-templates)”。
 
-可以在任何支持的文件夹中创建 PULL_REQUEST_TEMPLATE/ 子目录，以包含多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板。 有关详细信息，请参阅“[使用查询参数创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)”。
+For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+
+You can create a *PULL_REQUEST_TEMPLATE/* subdirectory in any of the supported folders to contain multiple pull request templates, and use the `template` query parameter to specify the template that will fill the pull request body. For more information, see "[Using query parameters to create a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)."
 
 {% ifversion fpt or ghes or ghec %}
 
-可以为组织{% ifversion fpt or ghes or ghec %}或个人帐户{% endif %}创建默认的拉取请求模板。 有关详细信息，请参阅[创建默认社区运行状况文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。
+You can create default pull request templates for your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %}. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
-## 添加拉取请求模板
+## Adding a pull request template
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.files.add-file %}
-3. 在文件名字段中：
-    -  若要使拉取请求模板显示在存储库根目录中，请将拉取请求模板命名为 `pull_request_template.md`。
-  ![根目录中的新拉取请求模板名称](/assets/images/help/repository/pr-template-file-name.png)
-    - 若要使拉取请求模板显示在存储库的 `docs` 目录中，请将拉取请求模板命名为 `docs/pull_request_template.md`。
-  ![文档目录中的新拉取请求模板](/assets/images/help/repository/pr-template-file-name-docs.png)
-    - 若要将文件存储在隐藏目录中，请将拉取请求模板命名为 `.github/pull_request_template.md`。
-  ![隐藏目录中的新拉取请求模板](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - 若要创建多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板，请键入“.github/PULL_REQUEST_TEMPLATE/”，后跟拉取请求模板的名称。 例如，`.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`。 也可以在根目录或 `docs/` 目录的 `PULL_REQUEST_TEMPLATE` 子目录中存储多个拉取请求模板。 有关详细信息，请参阅“[关于使用查询参数自动处理问题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
-  ![隐藏目录中新的多拉取请求模板](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
-4. 在新文件的正文中，添加您的拉取请求模板。 这可能包括：
-    - 存储库中[对相关问题的引用](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests)。
-    - 对拉取请求中所提议更改的说明。
-    - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) 负责审查提议更改的人员或团队。
-{% data reusables.files.write_commit_message %} {% data reusables.files.choose_commit_branch %} 模板可供协作者用来合并到存储库的默认分支。
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
+3. In the file name field:
+    -  To make your pull request template visible in the repository's root directory, name the pull request template `pull_request_template.md`.
+  ![New pull request template name in root directory](/assets/images/help/repository/pr-template-file-name.png)
+    - To make your pull request template visible in the repository's `docs` directory, name the pull request template `docs/pull_request_template.md`.
+  ![New pull request template in docs directory](/assets/images/help/repository/pr-template-file-name-docs.png)
+    - To store your file in a hidden directory, name the pull request template `.github/pull_request_template.md`.
+  ![New pull request template in hidden directory](/assets/images/help/repository/pr-template-hidden-directory.png)
+    - To create multiple pull request templates and use the `template` query parameter to specify a template to fill the pull request body, type *.github/PULL_REQUEST_TEMPLATE/*, then the name of your pull request template. For example, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. You can also store multiple pull request templates in a `PULL_REQUEST_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[Using query parameters to create a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)."
+  ![New multiple pull request template in hidden directory](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
+4. In the body of the new file, add your pull request template. This could include:
+    - A [reference to a related issue](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) in your repository.
+    - A description of the changes proposed in the pull request.
+    - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) of the person or team responsible for reviewing proposed changes.
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
 {% data reusables.files.propose_new_file %}
 
-## 延伸阅读
+## Further reading
 
-- [关于问题和拉取请求模板](/articles/about-issue-and-pull-request-templates)
-- [关于使用查询参数自动处理问题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)
-- [创建拉取请求](/articles/creating-a-pull-request)
+- "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
+- "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+- "[Creating a pull request](/articles/creating-a-pull-request)"

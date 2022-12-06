@@ -6,12 +6,12 @@ intro: 'Você pode usar os {% data variables.product.prodname_github_codespaces 
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
-ms.openlocfilehash: 6794d20b9ea0153b3baf4bee1a08c68b2ba17456
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 832ab470d13cc741bc4a71e77840c99da5ff3de6
+ms.sourcegitcommit: a35d85531445980b5f04d3fc70180a29dad37f89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158874'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148189910'
 ---
 ## Sobre os {% data variables.product.prodname_github_codespaces %}
 
@@ -103,4 +103,4 @@ Os professores podem exibir o codespace de uma tarefa de cada aluno na página d
 
 ![Visão geral da tarefa para o professor com os codespaces do aluno](/assets/images/help/classroom/teacher-assignment-view-with-codespaces.png)
 
-Quando você se conecta a um codespace por meio de um navegador, o salvamento automático é habilitado automaticamente. Se você quiser salvar as alterações no repositório, precisará fazer commit das alterações e efetuar push delas em um branch remoto. Se você deixar o codespace em execução sem interação por 30 minutos por padrão, o codespace atingirá o tempo limite e interromperá a execução. Seus dados serão preservados da última vez que você fez uma alteração. Para obter mais informações sobre o ciclo de vida de um codespace, confira "[O ciclo de vida do codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle)".
+Quando você se conecta a um codespace por meio de um navegador, o salvamento automático é habilitado automaticamente. Se você quiser salvar as alterações no repositório, precisará fazer commit das alterações e efetuar push delas em um branch remoto. Se você deixar o codespace em execução sem interação por 30 minutos por padrão, o codespace atingirá o tempo limite e interromperá a execução. Seus dados serão preservados da última vez que você fez uma alteração. Para obter mais informações sobre o ciclo de vida de um codespace, confira "[O ciclo de vida do codespace](/codespaces/getting-started/the-codespace-lifecycle)".

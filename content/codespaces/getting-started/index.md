@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 children:
   - /quickstart
+  - /the-codespace-lifecycle
   - /deep-dive
 ---
  

@@ -10,12 +10,12 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Open an existing codespace
-ms.openlocfilehash: e7a35c1a7b3a251094bf69fcd401291b69d03eae
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: b139b7f4e8a696416c97b3c400d09a9f26371b9c
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159003'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188294'
 ---
 {% jetbrains %}
 
@@ -23,7 +23,7 @@ ms.locfileid: '148159003'
 
 {% endjetbrains %}
 
-您可以在 {% data variables.product.prodname_dotcom_the_website %}、JetBrains IDE 中、{% data variables.product.prodname_vscode %} 中或使用 {% data variables.product.prodname_cli %} 重新打开任何活动或已停止的代码空间。 无法重新打开已删除的 codespace。 有关详细信息，请参阅“[codespace 生命周期](/codespaces/developing-in-codespaces/the-codespace-lifecycle)”。
+您可以在 {% data variables.product.prodname_dotcom_the_website %}、JetBrains IDE 中、{% data variables.product.prodname_vscode %} 中或使用 {% data variables.product.prodname_cli %} 重新打开任何活动或已停止的代码空间。 无法重新打开已删除的 codespace。 有关详细信息，请参阅“[codespace 生命周期](/codespaces/getting-started/the-codespace-lifecycle)”。
 
 可以在“你的 codespace”页 ([github.com/codespaces](https://github.com/codespaces)) 上查看所有 codespace。 在此页中，可以：
 

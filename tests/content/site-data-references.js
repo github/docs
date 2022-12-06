@@ -1,16 +1,17 @@
+import fs from 'fs/promises'
 import { fileURLToPath } from 'url'
 import path from 'path'
-import { isEqual, get, uniqWith } from 'lodash-es'
-import loadSiteData from '../../lib/site-data.js'
+
+import { isEqual, uniqWith } from 'lodash-es'
+import { jest } from '@jest/globals'
+
 import { loadPages } from '../../lib/page-data.js'
 import getDataReferences from '../../lib/get-liquid-data-references.js'
 import frontmatter from '../../lib/read-frontmatter.js'
-import fs from 'fs/promises'
-import { jest } from '@jest/globals'
+import { getDataByLanguage, getDeepDataByLanguage } from '../../lib/get-data.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const siteData = loadSiteData()
 const pages = (await loadPages()).filter((page) => page.languageCode === 'en')
 
 describe('data references', () => {
@@ -24,7 +25,7 @@ describe('data references', () => {
       const file = path.join('content', page.relativePath)
       const pageRefs = getDataReferences(page.markdown)
       pageRefs.forEach((key) => {
-        const value = get(siteData.en, key)
+        const value = getDataByLanguage(key.replace('site.data.', ''), 'en')
         if (typeof value !== 'string') errors.push({ key, value, file })
       })
     })
@@ -44,7 +45,7 @@ describe('data references', () => {
         const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
         const metadataRefs = getDataReferences(JSON.stringify(metadata))
         metadataRefs.forEach((key) => {
-          const value = get(siteData.en, key)
+          const value = getDataByLanguage(key.replace('site.data.', ''), 'en')
           if (typeof value !== 'string') errors.push({ key, value, metadataFile })
         })
       })
@@ -56,7 +57,7 @@ describe('data references', () => {
 
   test('every data reference found in English reusable files is defined and has a value', async () => {
     let errors = []
-    const allReusables = siteData.en.site.data.reusables
+    const allReusables = getDeepDataByLanguage('reusables', 'en')
     const reusables = Object.values(allReusables)
     expect(reusables.length).toBeGreaterThan(0)
 
@@ -72,7 +73,7 @@ describe('data references', () => {
         const reusableRefs = getDataReferences(JSON.stringify(reusablesPerFile))
 
         reusableRefs.forEach((key) => {
-          const value = get(siteData.en, key)
+          const value = getDataByLanguage(key.replace('site.data.', ''), 'en')
           if (typeof value !== 'string') errors.push({ key, value, reusableFile })
         })
       })
@@ -84,7 +85,7 @@ describe('data references', () => {
 
   test('every data reference found in English variable files is defined and has a value', async () => {
     let errors = []
-    const allVariables = siteData.en.site.data.variables
+    const allVariables = getDeepDataByLanguage('variables', 'en')
     const variables = Object.values(allVariables)
     expect(variables.length).toBeGreaterThan(0)
 
@@ -100,7 +101,7 @@ describe('data references', () => {
         const variableRefs = getDataReferences(JSON.stringify(variablesPerFile))
 
         variableRefs.forEach((key) => {
-          const value = get(siteData.en, key)
+          const value = getDataByLanguage(key.replace('site.data.', ''), 'en')
           if (typeof value !== 'string') errors.push({ key, value, variableFile })
         })
       })
