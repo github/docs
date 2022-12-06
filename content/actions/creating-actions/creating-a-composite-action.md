@@ -94,7 +94,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
           shell: bash
     ```
     {% endraw %}
-  This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, add `github.action_path` to $GITHUB_PATH (in order to locate `goodbye.sh` file during execution) and runs the `goodbye.sh` script. It also tells the runner how to execute the composite action.
+  This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, adds the action's path to the runner system path (to locate the `goodbye.sh` script during execution), and runs the `goodbye.sh` script.
 
   For more information about managing outputs, see "[`outputs` for a composite action](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
 
