@@ -25,7 +25,7 @@ By default, authorized users can access your enterprise from any IP address. You
 
 {% ifversion ghec %}
 
-If your enterprise uses {% data variables.product.prodname_emus %} with OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
+If your enterprise uses {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
 
 {% elsif ghae %}
 
@@ -47,7 +47,7 @@ You can use {% data variables.product.company_short %}'s IP allow list to contro
 
 ## About your IdP's allow list
 
-If you are using {% data variables.product.prodname_emus %} with OIDC, you can use your IdP's allow list. 
+If you are using {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can use your IdP's allow list.
 
 Using your IdP's allow list deactivates the {% data variables.product.company_short %} IP allow list configurations for all organizations in your enterprise and deactivates the GraphQL APIs for enabling and managing IP allow lists. 
 
@@ -124,7 +124,11 @@ To ensure seamless use of the OIDC CAP while still applying the policy to user-t
 
 ## Using your identity provider's allow list
 
-You can use your IdP's allow list if you use {% data variables.product.prodname_emus %} with OIDC.
+{% note %}
+
+**Note:** Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Azure AD and OIDC. 
+
+{% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

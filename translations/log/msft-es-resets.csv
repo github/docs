@@ -565,6 +565,7 @@ translations/es-ES/content/admin/configuration/configuring-your-enterprise/confi
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode.md,rendering error
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/enabling-private-mode.md,rendering error
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,rendering error
+translations/es-ES/content/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,rendering error
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors.md,rendering error
 translations/es-ES/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,rendering error
@@ -662,7 +663,6 @@ translations/es-ES/content/authentication/connecting-to-github-with-ssh/testing-
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-authentication-to-github.md,rendering error
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token.md,rendering error
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/creating-a-strong-password.md,rendering error
-translations/es-ES/content/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints.md,broken liquid tags
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access.md,rendering error
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,rendering error
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys.md,rendering error
@@ -684,7 +684,6 @@ translations/es-ES/content/authentication/troubleshooting-commit-signature-verif
 translations/es-ES/content/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign.md,rendering error
 translations/es-ES/content/authentication/troubleshooting-ssh/error-key-already-in-use.md,rendering error
 translations/es-ES/content/authentication/troubleshooting-ssh/recovering-your-ssh-key-passphrase.md,broken liquid tags
-translations/es-ES/content/authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md,rendering error
 translations/es-ES/content/billing/managing-billing-for-github-actions/about-billing-for-github-actions.md,rendering error
 translations/es-ES/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,broken liquid tags
 translations/es-ES/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error

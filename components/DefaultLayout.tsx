@@ -28,6 +28,24 @@ export const DefaultLayout = (props: Props) => {
   const router = useRouter()
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
+  // This is only true when we do search indexing which renders every page
+  // just to be able to `cheerio` load the main body (and the meta
+  // keywords tag).
+  if (process.env.MINIMAL_RENDER) {
+    return (
+      <div>
+        <Head>
+          <title>{page.fullTitle}</title>
+          {/* For local site search indexing */}
+          {page.topics.length > 0 && <meta name="keywords" content={page.topics.join(',')} />}
+        </Head>
+        <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
+          {props.children}
+        </main>
+      </div>
+    )
+  }
+
   return (
     <div className="d-lg-flex">
       <Head>

@@ -2,6 +2,8 @@ import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from '../rest/types'
+import { useVersion } from 'components/hooks/useVersion'
+import { useMainContext } from 'components/context/MainContext'
 
 type CodeExamples = Record<string, any>
 /*
@@ -15,6 +17,8 @@ type CodeExamples = Record<string, any>
   -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}'
 */
 export function getShellExample(operation: Operation, codeSample: CodeSample) {
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
   // This allows us to display custom media types like application/sarif+json
   const defaultAcceptHeader = codeSample?.response?.contentType?.includes('+json')
     ? codeSample.response.contentType
@@ -52,9 +56,15 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     authHeader = '-u "api_key:your-password"'
   }
 
+  const apiVersionHeader =
+    allVersions[currentVersion].apiVersions.length > 0 &&
+    allVersions[currentVersion].latestApiVersion
+      ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+      : ''
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}`,
+    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
