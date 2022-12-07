@@ -1,0 +1,1 @@
+Instances experiencing a high sustained number of concurrent Git requests may experience performance issues. If you suspect that this issue is affecting your instance, contact {% data variables.contact.contact_support %}. [Updated: 2022-12-02]
