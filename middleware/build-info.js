@@ -1,7 +1,6 @@
-import { cacheControlFactory } from './cache-control.js'
+import { noCacheControl } from './cache-control.js'
 
 const BUILD_SHA = process.env.BUILD_SHA
-const noCacheControl = cacheControlFactory(0)
 
 export default function buildInfo(req, res) {
   res.type('text/plain')

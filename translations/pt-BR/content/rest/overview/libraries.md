@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: aa139c0d25354260ccf688079f3e15a871b627bd
-ms.sourcegitcommit: 0ed77777360ec29eee7cd4fc212ae36fdd97c0bc
+ms.openlocfilehash: ab880cef09b936bb573d783373f048395d0a2f58
+ms.sourcegitcommit: 16548aa24259e37cc0ac4900ca8fefc46dc84cdb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2022
-ms.locfileid: '148160959'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148190058'
 ---
 ![O Gundamcat](/assets/images/gundamcat.png)
 
@@ -24,7 +24,6 @@ ms.locfileid: '148160959'
 
 Use a biblioteca oficial do Octokit ou escolha entre qualquer uma das bibliotecas de terceiros disponíveis.
 
-- **Python** → [octokit.py](https://github.com/khornberg/octokit.py)
 - **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
 - **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
 - **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
@@ -35,7 +34,7 @@ Use a biblioteca oficial do Octokit ou escolha entre qualquer uma das biblioteca
 
 | Nome da biblioteca | Repositório |
 |---|---|
-|**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|**Tentacles**| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 
@@ -131,6 +130,7 @@ Use a biblioteca oficial do Octokit ou escolha entre qualquer uma das biblioteca
 |**github-flask**|[github-flask (site oficial)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|**octokit.py**|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 

@@ -1,6 +1,6 @@
 ---
-title: Getting started with the REST API
-intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST API.'
+title: REST API を使用した作業の開始
+intro: '{% data variables.product.prodname_dotcom %} REST API の使用方法について学習します。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,33 +10,38 @@ topics:
   - API
 shortTitle: Using the API
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 66620b01bb488f8c74111b56255ff06702e402e8
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184262'
 ---
+## {% data variables.product.prodname_dotcom %} REST API について
 
-## About the {% data variables.product.prodname_dotcom %} REST API
+この記事では、{% data variables.product.prodname_cli %}、JavaScript、または cURL を使う {% data variables.product.prodname_dotcom %} REST API の使用方法について説明します。 クイックスタート ガイドについては、「[GitHub REST API のクイックスタート](/rest/quickstart)」を参照してください。
 
-This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a quickstart guide, see "[Quickstart for GitHub REST API](/rest/quickstart)."
+REST API への要求を行うときは、HTTP メソッドとパスを指定します。 さらに、要求ヘッダーとパス、クエリ、または本文のパラメーターを指定することもできます。 API では、応答状態コードと応答ヘッダー、また場合によっては応答本文が返されます。
 
-When you make a request to the REST API, you will specify an HTTP method and a path. Additionally, you might also specify request headers and path, query, or body parameters. The API will return the response status code, response headers, and potentially a response body.
+REST API リファレンス ドキュメントでは、すべての操作の HTTP メソッド、パス、およびパラメーターについて説明します。 また、各操作の要求と応答の例も表示されます。 詳しくは、[REST のリファレンス ドキュメント](/rest)をご覧ください。
 
-The REST API reference documentation describes the HTTP method, path, and parameters for every operation. It also displays example requests and responses for each operation. For more information, see the [REST reference documentation](/rest).
+{% data variables.product.company_short %} の API について詳しくは、「[{% data variables.product.company_short %} の API について](/developers/overview/about-githubs-apis)」を参照してください。
 
-For more information about {% data variables.product.company_short %}'s APIs, see "[About {% data variables.product.company_short %}'s APIs](/developers/overview/about-githubs-apis)."
+## 要求を行う
 
-## Making a request
-
-To make a request, first find the HTTP method and the path for the operation that you want to use. For example, the "Get Octocat" operation uses the `GET` method and the `/octocat` path. For the full reference documentation for this operation, see "[Get Octocat](/rest/meta#get-octocat)."
+要求を行うには、まず HTTP メソッドと、使用する操作のパスを見つけます。 たとえば、"Octocat の取得" 操作では、`GET` メソッドと `/octocat` パスが使用されます。 この操作の完全なリファレンス ドキュメントについては、「[Octocat の取得](/rest/meta#get-octocat)」を参照してください。
 
 {% cli %}
 
 {% note %}
 
-**Note**: You must install {% data variables.product.prodname_cli %} in order to use the commands in the {% data variables.product.prodname_cli %} examples. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
+**注**: {% data variables.product.prodname_cli %} の例のコマンドを使用するには、{% data variables.product.prodname_cli %} をインストールする必要があります。 インストールの手順については、[{% data variables.product.prodname_cli %} リポジトリ](https://github.com/cli/cli#installation)を参照してください。
 
 {% endnote %}
 
-If you are not already authenticated to {% data variables.product.prodname_cli %}, you must use the `gh auth login` subcommand to authenticate before making any requests. For more information, see "[Authenticating](#authenticating)."
+まだ {% data variables.product.prodname_cli %} に対して認証されていない場合は、要求を行う前に `gh auth login` サブコマンドを使用して認証する必要があります。 詳しくは、「[認証](#authenticating)」を参照してください。
 
-To make a request using {% data variables.product.prodname_cli %}, use the `api` subcommand along with the path. Use the `--method` or `-X` flag to specify the method.
+{% data variables.product.prodname_cli %} を使用して要求を行うには、パスと共に `api` サブコマンドを使用します。 メソッドを指定するには、`--method` または `-X` フラグを使用します。
 
 ```shell
 gh api /octocat --method GET
@@ -48,13 +53,13 @@ gh api /octocat --method GET
 
 {% note %}
 
-**Note**: You must install and import `octokit` in order to use the Octokit.js library used in the JavaScript examples. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+**注**: JavaScript の例で使用されている Octokit.js ライブラリを使うには、`octokit` をインストールしてインポートする必要があります。 詳しくは、[Octokit.js の README](https://github.com/octokit/octokit.js/#readme) を参照してください。
 
 {% endnote %}
 
-To make a request using JavaScript, you can use Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+JavaScript を使用して要求を行うために、Octokit.js を使用できます。 詳しくは、[Octokit.js の README](https://github.com/octokit/octokit.js/#readme) を参照してください。
 
-First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+まず、`Octokit` のインスタンスを作成します。{% ifversion ghes or ghae %}ベース URL を `{% data variables.product.api_url_code %}` に設定します。 `[hostname]` を {% data variables.location.product_location %}の名前に置き換えます。{% endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -62,7 +67,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 {% endif %}});
 ```
 
-Then, use the `request` method to make requests. Pass the HTTP method and path as the first argument.
+その後、`request` メソッドを使用して要求を行います。 HTTP メソッドとパスを最初の引数として渡します。
 
 ```javascript
 await octokit.request("GET /octocat", {});
@@ -72,9 +77,9 @@ await octokit.request("GET /octocat", {});
 
 {% curl %}
 
-Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+パスの前に {% data variables.product.prodname_dotcom %} REST API のベース URL `{% data variables.product.api_url_code %}` を付加し、完全な URL (`{% data variables.product.api_url_code %}/octocat`) を取得します。{% ifversion ghes or ghae %}`[hostname]` は、{% data variables.location.product_location %} の名前に置き換えます。{% endif %}
 
-Use the `curl` command in your command line. Use the `--request` or `-X` flag followed by the HTTP method. Use the `--url` flag followed by the full URL.
+コマンド ラインで `curl` コマンドを使用します。 `--request` または `-X` フラグを使用し、その後に HTTP メソッドを指定します。 `--url` フラグを使用し、その後に完全な URL を指定します。
 
 ```shell
 curl --request GET \
@@ -83,39 +88,39 @@ curl --request GET \
 
 {% note %}
 
-**Note**: If you get a message similar to "command not found: curl", you may need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
+**注**: "コマンドが見つかりません: curl" のようなメッセージが表示される場合は、cURL をダウンロードしてインストールする必要があることがあります。 詳しくは、[cURL プロジェクトのダウンロード ページ](https://curl.se/download.html)を参照してください。
 
 {% endnote %}
 
 {% endcurl %}
 
-Continue reading to learn how to authenticate, send parameters, and use the response.
+認証、パラメーターの送信、応答の使用方法について学習する場合は、引き続きお読みください。
 
-## Authenticating
+## 認証
 
-Many operations require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.{% cli %} Although some REST API operations are accessible without authentication, you must authenticate to {% data variables.product.prodname_cli %} in order to use the `api` subcommand.{% endcli %}
+多くの操作では、認証が必要であるか、認証されている場合は追加情報が返されます。 また、認証されると、1 時間あたりにさらに多くの要求を行うことができます。{% cli %}一部の REST API 操作には認証なしでアクセスできますが、`api` サブコマンドを使用するには、{% data variables.product.prodname_cli %} に対して認証を行う必要があります。{% endcli %}
 
-### About tokens
+### トークンについて
 
-You can authenticate your request by adding a token.
+トークンを追加することで、要求を認証できます。
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+個人用に {% data variables.product.company_short %} REST API を使用する場合は、{% data variables.product.pat_generic %}を作成できます。 この記事で使用する REST API 操作には、{% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} の `repo` スコープ、または特に明記されていない限り、{% data variables.product.pat_v2 %}のパブリック リポジトリへの読み取り専用アクセスが必要です{% endif %}。 その他の操作には、異なるスコープ{% ifversion pat-v2%}またはアクセス許可が必要です{% endif %}。 {% data variables.product.pat_generic %}の作成について詳しくは、「[{% data variables.product.pat_generic %}の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」をご覧ください。
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+Organization または他のユーザーの代わりに API を使用する場合、{% data variables.product.company_short %} では、{% data variables.product.prodname_github_app %} の使用が推奨されます。 操作が {% data variables.product.prodname_github_apps %} で使用できる場合、その操作の REST リファレンス ドキュメントには "GitHub Apps で動作する" と示されます。 この記事で使用される REST API 操作には、{% data variables.product.prodname_github_apps %} の `issues` の読み取りおよび書き込みアクセス許可が必要です。 その他の操作では、異なるアクセス許可が必要な場合があります。 詳しくは、「[GitHub App を作成する](/developers/apps/building-github-apps/creating-a-github-app)」、「[GitHub Apps による認証](/developers/apps/building-github-apps/authenticating-with-github-apps)」、「[GitHub アプリのユーザーを特定および認可する](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
+{% data variables.product.prodname_actions %} ワークフローで API を使用する場合、{% data variables.product.company_short %} では、トークンを作成するのではなく、組み込み `GITHUB_TOKEN` で認証することが推奨されます。 `permissions` キーを使用して、`GITHUB_TOKEN` へのアクセス許可を付与できます。 詳しくは、「[自動トークン認証](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)」を参照してください。
 
-### Authentication example
+### 認証の例
 
 {% cli %}
 
-With {% data variables.product.prodname_cli %}, you don't need to create an access token in advance. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}:
+{% data variables.product.prodname_cli %} では、アクセス トークンを事前に作成する必要はありません。 `auth login` サブコマンドを使用して、{% data variables.product.prodname_cli %} に対する認証を行います。
 
 ```shell
 gh auth login
 ```
 
-You can use the `--scopes` flag to specify what scopes you want. If you want to authenticate with a token that you created, you can use the `--with-token` flag. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+`--scopes` フラグを使用して、必要なスコープを指定できます。 作成したトークンで認証する場合は、`--with-token` フラグを使用できます。 詳しくは、[{% data variables.product.prodname_cli %} `auth login` ドキュメント](https://cli.github.com/manual/gh_auth_login)を参照してください。
 
 {% endcli %}
 
@@ -123,17 +128,17 @@ You can use the `--scopes` flag to specify what scopes you want. If you want to 
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
+**警告**: アクセス トークンは、パスワードと同様の扱いとしてください。
 
-To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+トークンを安全な状態に保つために、トークンをシークレットとして格納し、{% data variables.product.prodname_actions %} を使用してスクリプトを実行できます。 詳細については、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}また、トークンを {% data variables.product.prodname_codespaces %} シークレットとして格納し、{% data variables.product.prodname_codespaces %} でスクリプトを実行することもできます。 詳しくは、「[codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+これらのオプションが使用できない場合は、[1Password CLI](https://developer.1password.com/docs/cli/secret-references/) などの別のサービスを使用してトークンを安全に格納することを検討してください。
 
 {% endwarning %}
 
-To authenticate with the Octokit.js library, you can pass your token when you create an instance of `Octokit`. Replace `YOUR-TOKEN` with your token.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+Octokit.js ライブラリで認証するには、`Octokit` のインスタンスの作成時にトークンを渡すことができます。 `YOUR-TOKEN` をお使いのトークンに置き換えます。{% ifversion ghes or ghae %}`[hostname]` をお使いの {% data variables.location.product_location %}の名前に置き換えます。{% endif %}
 
 ```javascript
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -148,17 +153,17 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 
 {% warning %}
 
-**Warning**: Treat your access token like a password.
+**警告**: アクセス トークンはパスワードと同様に扱ってください。
 
-To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+アカウントを安全な状態に保てるように、cURL の代わりに {% data variables.product.prodname_cli %} を使用できます。 {% data variables.product.prodname_cli %} で自動的に認証が行われます。 詳しくは、このページの {% data variables.product.prodname_cli %} バージョンを参照してください。
 
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}また、トークンを {% data variables.product.prodname_codespaces %} シークレットとして格納し、{% data variables.product.prodname_codespaces %} を介してコマンド ラインを使用することもできます。 詳しくは、「[codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+これらのオプションが使用できない場合は、[1Password CLI](https://developer.1password.com/docs/cli/secret-references/) などの別のサービスを使用してトークンを安全に格納することを検討してください。
 
 {% endwarning %}
 
-With cURL, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
+cURL では、トークンを含む `Authorization` ヘッダーを送信します。 `YOUR-TOKEN` は実際のトークンに置き換えてください。
 
 ```shell
 curl --request GET \
@@ -168,19 +173,19 @@ curl --request GET \
 
 {% note %}
 
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
+**注:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
 {% endcurl %}
 
-### Authentication example for {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} の認証例
 
 {% cli %}
 
-You can also use the `run` keyword to execute {% data variables.product.prodname_cli %} commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+`run` キーワードを使用して、{% data variables.product.prodname_actions %} ワークフローで {% data variables.product.prodname_cli %} コマンドを実行することもできます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
-Instead of using the `gh auth login` command, pass your token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+`gh auth login` コマンドを使用するのでなく、トークンを `GH_TOKEN` という環境変数として渡します。 {% data variables.product.prodname_dotcom %} では、トークンを作成するのではなく、組み込みの `GITHUB_TOKEN` で認証することが推奨されます。 これができない場合は、ご利用のトークンをシークレットとして格納し、次の例で `GITHUB_TOKEN` を自分のシークレットの名前に置き換えます。 `GITHUB_TOKEN` について詳しくは、「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
 ```yaml
 jobs:
@@ -198,18 +203,18 @@ jobs:
 
 {% javascript %}
 
-You can also use the `run` keyword to execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+`run` キーワードを使用して、{% data variables.product.prodname_actions %} ワークフローで JavaScript スクリプトを実行することもできます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} では、トークンを作成するのではなく、組み込みの `GITHUB_TOKEN` で認証することが推奨されます。 これができない場合は、ご利用のトークンをシークレットとして格納し、次の例で `GITHUB_TOKEN` を自分のシークレットの名前に置き換えます。 `GITHUB_TOKEN` について詳しくは、「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
-The following example workflow:
+次のワークフロー例を参照してください。
 
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
+1. リポジトリのコンテンツをチェックアウトする
+1. Node.js を設定する
+1. `octokit` をインストールする
+1. `GITHUB_TOKEN` の値を、`TOKEN` と呼ばれる環境変数として格納し、`.github/actions-scripts/use-the-api.mjs` を実行する。これにより、その環境変数に `process.env.TOKEN` としてアクセスできます。
 
-Example workflow:
+ワークフローの例:
 
 ```yaml
 on:
@@ -238,7 +243,7 @@ jobs:
           node .github/actions-scripts/use-the-api.mjs
 ```
 
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
+ファイル パス `.github/actions-scripts/use-the-api.mjs` を含む JavaScript スクリプトの例:
 
 ```javascript
 import { Octokit } from "octokit";
@@ -251,7 +256,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 await octokit.request("GET /octocat", {});
 ```
 
-Instead of storing your script in a separate file and executing the script from your workflow, you can use the `actions/github-script` action to run a script. For more information, see the [actions/github-script README](https://github.com/actions/github-script).
+スクリプトを別のファイルに格納し、ワークフローからスクリプトを実行するのではなく、`actions/github-script` アクションを使用してスクリプトを実行できます。 詳しくは、[actions/github-script README](https://github.com/actions/github-script) をご覧ください。
 
 ```yaml
 jobs:
@@ -270,9 +275,9 @@ jobs:
 
 {% curl %}
 
-You can also use the `run` keyword to execute cURL commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+`run` キーワードを使用して、{% data variables.product.prodname_actions %} ワークフローで cURL コマンドを実行することもできます。 詳細については、「[GitHub Actions のワークフロー構文](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} では、トークンを作成するのではなく、組み込みの `GITHUB_TOKEN` で認証することが推奨されます。 これができない場合は、ご利用のトークンをシークレットとして格納し、次の例で `GITHUB_TOKEN` を自分のシークレットの名前に置き換えます。 `GITHUB_TOKEN` について詳しくは、「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。 シークレットについて詳しくは、「[暗号化されたシークレット](/actions/security-guides/encrypted-secrets)」を参照してください。
 
 ```yaml
 jobs:
@@ -290,28 +295,29 @@ jobs:
 
 {% endcurl %}
 
-## Using headers
+## ヘッダーの使用
 
-Most operations specify that you should pass an `Accept` header with a value of `application/vnd.github+json`. Other operations may specify that you should send a different `Accept` header or additional headers.
+ほとんどの操作では、値が `application/vnd.github+json` の `Accept` ヘッダーを渡す必要があることを指定します。 他の操作では、別の `Accept` ヘッダーまたは追加のヘッダーを送信する必要があることを指定する場合があります。
 
 {% cli %}
 
-To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
+{% data variables.product.prodname_cli %} でヘッダーを送信するには、`--header` または `-H` フラグを使用し、その後にヘッダーを `key: value` 形式で指定します。
 
 ```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /octocat
+gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versioning %} --header 'X-GitHub-Api-Version:{{ allVersions[currentVersion].latestApiVersion }}'{% endif %} --method GET /octocat
 ```
 
 {% endcli %}
 
 {% javascript %}
 
-The Octokit.js library automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument to the `request` method. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
+Octokit.js ライブラリでは自動的に `Accept: application/vnd.github+json` ヘッダーが渡されます。 追加のヘッダーまたは別の `Accept` ヘッダーを渡すには、`headers` メソッドに 2 番目の引数として渡されるオブジェクトに `request` プロパティを追加します。 `headers` プロパティの値は、キーがヘッダー名で値がヘッダー値のオブジェクトです。 たとえば、値が `text/plain` の `content-type` ヘッダーを送信する場合は次のようになります。
 
 ```javascript
 await octokit.request("GET /octocat", {
   headers: {
-    "content-type": "text/plain",
+    "content-type": "text/plain",{% ifversion api-date-versioning %}
+    "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
   },
 });
 ```
@@ -320,32 +326,31 @@ await octokit.request("GET /octocat", {
 
 {% curl %}
 
-To send a header with cURL, use the `--header` or `-H` flag followed by the header in `key: value` format.
+cURL でヘッダーを送信するには、`--header` または `-H` フラグを使用し、その後にヘッダーを `key: value` 形式で指定します。
 
 ```shell
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR-TOKEN"
+--header "Authorization: Bearer <em>YOUR-TOKEN</em>"{% ifversion api-date-versioning %}\
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
 {% endcurl %}
 
-## Using path parameters
+## パス パラメーターの使用
 
-Path parameters modify the operation path. For example, the "List repository issues" path is `/repos/{owner}/{repo}/issues`. The curly brackets `{}` denote path parameters that you need to  specify. In this case, you must specify the repository owner and name. For the reference documentation for this operation, see "[List repository issues](/rest/issues/issues#list-repository-issues)."
+パス パラメーターでは操作パスを変更します。 たとえば、"リポジトリの issue の一覧表示" パスは `/repos/{owner}/{repo}/issues` となります。 中かっこ `{}` は、指定する必要があるパス パラメーターを示します。 この場合は、リポジトリの所有者と名前を指定する必要があります。 この操作のリファレンス ドキュメントについては、「[リポジトリの issue の一覧表示](/rest/issues/issues#list-repository-issues)」を参照してください。
 
 {% cli %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** In order for this command to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% data variables.location.product_location %}.
+**注:** このコマンドを {% data variables.location.product_location %}で動作させるには、`octocat/Spoon-Knife` を、{% data variables.location.product_location %}によって所有されているリポジトリに置き換えます。 それ以外の場合は、`gh auth login` コマンドを再実行して、{% data variables.location.product_location %}ではなく {% data variables.product.prodname_dotcom_the_website %} に対して認証を行います。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`.
+`octocat/Spoon-Knife` リポジトリから issue を取得するには、`{owner}` を `octocat`に、`{repo}` を `Spoon-Knife` に置き換えます。
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues
@@ -355,15 +360,13 @@ gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octoca
 
 {% javascript %}
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** In order for this example to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, create a new `Octokit` instance and do not specify `baseURL`.
+**注:** この例を {% data variables.location.product_location %}で動作させるには、`octocat/Spoon-Knife` を、{% data variables.location.product_location %} によって所有されているリポジトリに置き換えます。 それ以外の場合は、新しい `Octokit` インスタンスを作成、`baseURL` は指定しません。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-When you make a request with Octokit.js, all parameters, including path parameters, are passed in an object as the second argument to the `request` method. To get issues from the `octocat/Spoon-Knife` repository, specify `owner` as `octocat` and `repo` as `Spoon-Knife`.
+Octokit.js で要求を行うと、パス パラメーターを含むすべてのパラメーターが、`request` メソッドの 2 番目の引数としてオブジェクトで渡されます。 `octocat/Spoon-Knife` リポジトリから issue を取得するには、`owner` を `octocat` として、`repo` を `Spoon-Knife` として指定します。
 
 ```javascript
 await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -376,15 +379,13 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`. To build the full path, prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `https://api.github.com`: `https://api.github.com/repos/octocat/Spoon-Knife/issues`.
+`octocat/Spoon-Knife` リポジトリから issue を取得するには、`{owner}` を `octocat`に、`{repo}` を `Spoon-Knife` に置き換えます。 完全なパスを構築するには、{% data variables.product.prodname_dotcom %} REST API のベース URL `https://api.github.com` を先頭に付加します (`https://api.github.com/repos/octocat/Spoon-Knife/issues`)。
 
-{% ifversion ghes or ghae %}
-{% note %}
+{% ifversion ghes or ghae %} {% note %}
 
-**Note:** If you want to use {% data variables.location.product_location %} instead of {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` instead of `https://api.github.com` and replace `[hostname]` with the name of {% data variables.location.product_location %}. Replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}.
+**注:** {% data variables.product.prodname_dotcom_the_website %} の代わりに {% data variables.location.product_location %} を使用する場合は、`https://api.github.com` の代わりに `{% data variables.product.api_url_code %}`に使用し、`[hostname]` を {% data variables.location.product_location %}の名前に置き換えます。 `octocat/Spoon-Knife` を、{% data variables.location.product_location %}によって所有されているリポジトリに置き換えます。
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
 ```shell
 curl --request GET \
@@ -395,21 +396,21 @@ curl --request GET \
 
 {% endcurl %}
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+この操作では、issue のリストと各 issue に関するデータが返されます。 応答の使用について詳しくは、「[応答の使用](#using-the-response)」セクションを参照してください。
 
-## Using query parameters
+## クエリ パラメーターの使用
 
-Query parameters allow you to control what data is returned for a request. For example, a query parameter may let you specify how many items are returned when the response is paginated.
+クエリ パラメーターを使用すると、要求に対して返されるデータを制御できます。 たとえば、クエリ パラメーターを使用すると、応答のページ分割時に返される項目の数を指定できます。
 
-By default, the "List repository issues" operation returns thirty issues, sorted in descending order by the date they were created. You can use the `per_page` parameter to return two issues instead of 30. You can use the `sort` parameter to sort the issues by the date they were last updated instead of by the date they were created. You can use the `direction` parameter to sort the results in ascending order instead of descending order.
+既定では、"リポジトリの issue の一覧表示" 操作で 30 個の issue が返され、作成日の降順で並べ替えられます。 `per_page` パラメーターを使用すると、30 個ではなく 2 個の issue を返すことができます。 `sort` パラメーターを使用すると、作成日ではなく、最終更新日で issue を並べ替えることができます。 `direction` パラメーターを使用すると、降順ではなく昇順で結果を並べ替えることができます。
 
 {% cli %}
 
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
+{% data variables.product.prodname_cli %} の場合は、`-F` フラグを使用して、数値、ブール値、または null 値のパラメーターを渡します。 文字列パラメーターを渡すには、`-f` を使用します。
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
+**注**: {% data variables.product.prodname_cli %} では現在、配列のパラメーターは受け入れられていません。 詳しくは、[こちらの issue](https://github.com/cli/cli/issues/1484) を参照してください。
 
 {% endnote %}
 
@@ -421,7 +422,7 @@ gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octoca
 
 {% javascript %}
 
-When you make a request with Octokit.js, all parameters, including query parameters, are passed in an object as the second argument to the `request` method.
+Octokit.js で要求を行うと、クエリ パラメーターを含むすべてのパラメーターが、`request` メソッドの 2 番目の引数としてオブジェクトで渡されます。
 
 ```javascript
 await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -437,7 +438,7 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-For cURL, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
+cURL の場合は、パスの末尾に `?` を追加してから、クエリ パラメーターの名前と値を `parameter_name=value` 形式で付加します。 複数のクエリ パラメーターは `&` で区切ります。
 
 ```shell
 curl --request GET \
@@ -448,21 +449,21 @@ curl --request GET \
 
 {% endcurl %}
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+この操作では、issue のリストと各 issue に関するデータが返されます。 応答の使用について詳しくは、「[応答の使用](#using-the-response)」セクションを参照してください。
 
-## Using body parameters
+## 本文パラメーターの使用
 
-Body parameters allow you to pass additional data to the API. For example, the "Create an issue" operation requires you to specify a title for the new issue. It also lets you specify other information, such as text to put in the issue body. For the full reference documentation for this operation, see "[Create an issue](/rest/issues/issues#create-an-issue)."
+本文パラメーターを使用すると、API に追加のデータを渡すことができます。 たとえば、"issue の作成" 操作では、新しい issue のタイトルを指定する必要があります。 また、issue 本文に配置するテキストなど、他の情報を指定することもできます。 この操作の完全なリファレンス ドキュメントについては、「[issue の作成](/rest/issues/issues#create-an-issue)」を参照してください。
 
-The "Create an issue" operation uses the same path as the "List repository issues" operation in the examples above, but it uses a `POST` method instead of a `GET` method.
+"issue の作成" 操作では、上記の例の "リポジトリの issue の一覧表示" 操作と同じパスが使用されますが、`GET` メソッドではなく `POST` メソッドが使用されます。
 
 {% cli %}
 
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
+{% data variables.product.prodname_cli %} の場合は、`-F` フラグを使用して、数値、ブール値、または null 値のパラメーターを渡します。 文字列パラメーターを渡すには、`-f` を使用します。
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
+**注**: {% data variables.product.prodname_cli %} では現在、配列のパラメーターは受け入れられていません。 詳しくは、[こちらの issue](https://github.com/cli/cli/issues/1484) を参照してください。
 
 {% endnote %}
 
@@ -478,13 +479,13 @@ gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octoc
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+{% data variables.product.pat_v2 %}を使用している場合は、`octocat/Spoon-Knife` を、自分が所有している、または自分がメンバーである Organization によって所有されているリポジトリに置き換える必要があります。 お使いのトークンは、リポジトリにアクセスできる必要があり、リポジトリの issue に対する読み取りと書き込みのアクセス許可が必要です。 リポジトリの作成について詳しくは、「[リポジトリの作成](/get-started/quickstart/create-a-repo)」を参照してください。 {% data variables.product.pat_v2 %}へのアクセスとアクセス許可の付与について詳しくは、「[{% data variables.product.pat_generic %}の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
 
 {% endnote %}
 
 {% endif %}
 
-When you make a request with Octokit.js, all parameters, including body parameters, are passed in an object as the second argument to the `request` method.
+Octokit.js で要求を行うと、本文パラメーターを含むすべてのパラメーターが、`request` メソッドの 2 番目の引数としてオブジェクトで渡されます。
 
 ```javascript
 await octokit.request("POST /repos/{owner}/{repo}/issues", {
@@ -503,13 +504,13 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+{% data variables.product.pat_v2 %}を使用している場合は、`octocat/Spoon-Knife` を、自分が所有している、または自分がメンバーである Organization によって所有されているリポジトリに置き換える必要があります。 お使いのトークンは、リポジトリにアクセスできる必要があり、リポジトリの issue に対する読み取りと書き込みのアクセス許可が必要です。 リポジトリの作成について詳しくは、「[リポジトリの作成](/get-started/quickstart/create-a-repo)」を参照してください。 {% data variables.product.pat_v2 %}へのアクセスとアクセス許可の付与について詳しくは、「[{% data variables.product.pat_generic %}の作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」を参照してください。
 
 {% endnote %}
 
 {% endif %}
 
-For cURL, use the `--data` flag to pass the body parameters in a JSON object.
+cURL の場合は、`--data` フラグを使用して JSON オブジェクトで本文パラメーターを渡します。
 
 ```shell
 curl --request POST \
@@ -524,27 +525,27 @@ curl --request POST \
 
 {% endcurl %}
 
-The operation creates an issue and returns data about the new issue. In the response, find the `html_url` of your issue and navigate to your issue in the browser. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+この操作によって issue が作成され、新しい issue に関するデータが返されます。 応答で、issue の `html_url` を見つけ、ブラウザーでその issue に移動します。 応答の使用について詳しくは、「[応答の使用](#using-the-response)」セクションを参照してください。
 
-## Using the response
+## 応答の使用
 
-### About the response code and headers
+### 応答コードとヘッダーについて
 
-Every request will return an HTTP status code that indicates the success of the response. For more information about response codes, see [the MDN HTTP response status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
+すべての要求で、応答の成功を示す HTTP 状態コードが返されます。 応答コードについて詳しくは、[MDN HTTP 応答状態コードに関するドキュメント](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)を参照してください。
 
-Additionally, the response will include headers that give more details about the response. Headers that start with `X-` or `x-` are custom to {% data variables.product.company_short %}. For example, the `x-ratelimit-remaining` and `x-ratelimit-reset` headers tell you how many requests you can make in a time period.
+さらに、応答には、応答の詳細を示すヘッダーが含まれます。 `X-` または `x-` で始まるものは、{% data variables.product.company_short %} のカスタム ヘッダーです。 たとえば、`x-ratelimit-remaining` と `x-ratelimit-reset` ヘッダーは、一定期間に行うことができる要求の数を示します。
 
 {% cli %}
 
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
+状態コードとヘッダーを表示するには、要求を送信するときに `--include` または `--i` フラグを使用します。
 
-For example, this request:
+たとえば、次の要求があります。
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 --include
 ```
 
-returns the response code and headers like:
+次のような応答コードとヘッダーが返されます。
 
 ```shell
 HTTP/2.0 200 OK
@@ -576,15 +577,15 @@ X-Ratelimit-Used: 4
 X-Xss-Protection: 0
 ```
 
-In this example, the response code is `200`, which indicates a successful request.
+この例では、応答コードは `200` で、要求が成功したことを示します。
 
 {% endcli %}
 
 {% javascript %}
 
-When you make a request with Octokit.js, the `request` method returns a promise. If the request was successful, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`headers`). If an error occurs, the promise resolves to an object that includes the HTTP status code of the response (`status`) and the response headers (`response.headers`).
+Octokit.js で要求を行うと、`request` メソッドでは promise が返されます。 要求が成功した場合、promise は、応答のHTTP 状態コード (`status`) と応答ヘッダー (`headers`) を含むオブジェクトに解決されます。 エラーが発生した場合、promise は、応答のHTTP 状態コード (`status`) と応答ヘッダー (`response.headers`) を含むオブジェクトに解決されます。
 
-You can use a `try/catch` block to catch an error if it occurs. For example, if the request in the following script is successful, the script will log the status code and the value of the `x-ratelimit-remaining` header. If the request was not successful, the script will log the status code, the value of the `x-ratelimit-remaining` header, and the error message.
+`try/catch` ブロックを使用して、エラーが発生した場合にそれをキャッチできます。 たとえば、次のスクリプトの要求が成功した場合、そのスクリプトでは状態コードと `x-ratelimit-remaining` ヘッダーの値がログに記録されます。 要求が成功しなかった場合、スクリプトでは状態コード、`x-ratelimit-remaining` ヘッダーの値、およびエラー メッセージがログに記録されます。
 
 ```javascript
 try {
@@ -605,9 +606,9 @@ try {
 
 {% curl %}
 
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
+状態コードとヘッダーを表示するには、要求を送信するときに `--include` または `--i` フラグを使用します。
 
-For example, this request:
+たとえば、次の要求があります。
 
 ```shell
 curl --request GET \
@@ -617,7 +618,7 @@ curl --request GET \
 --include
 ```
 
-returns the response code and headers like:
+次のような応答コードとヘッダーが返されます。
 
 ```shell
 HTTP/2 200
@@ -647,13 +648,13 @@ content-length: 4936
 x-github-request-id: 14E0:4BC6:F1B8BA:208E317:62EC2715
 ```
 
-In this example, the response code is `200`, which indicates a successful request.
+この例では、応答コードは `200` で、要求が成功したことを示します。
 
 {% endcurl %}
 
-### About the response body
+### 応答本文について
 
-Many operations will return a response body. Unless otherwise specified, the response body is in JSON format. For example, this request returns a list of issues with data about each issue:
+多くの操作で応答本文が返されます。 特に指定しない限り、応答本文は JSON 形式となります。 たとえば、この要求では、各 issue に関するデータと共に issue のリストが返されます。
 
 {% cli %}
 
@@ -686,23 +687,23 @@ curl --request GET \
 
 {% endcurl %}
 
-Unlike the GraphQL API where you specify what information you want, the REST API typically returns more information than you need. If desired, you can parse the response to pull out specific pieces of information.
+必要な情報を指定する GraphQL API とは異なり、REST API では通常、必要以上の情報が返されます。 必要に応じて、応答を解析して特定の情報を引き出すことができます。
 
 {% cli %}
 
-For example, you can use `>` to redirect the response to a file:
+たとえば、`>` を使用して、応答をファイルにリダイレクトできます。
 
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
 ```
 
-Then you can use jq to get the title and author ID of each issue:
+その後、jq を使用して、各 issue のタイトルと作成者 ID を取得できます。
 
 ```shell
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
-The previous two commands return something like:
+前の 2 つのコマンドでは次のようなものが返されます。
 
 ```
 {
@@ -715,13 +716,13 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+jq について詳しくは、[jq のドキュメント](https://stedolan.github.io/jq/)と [jq play](https://jqplay.org/) を参照してください。
 
 {% endcli %}
 
 {% javascript %}
 
-For example, you can get the title and author ID of each issue:
+たとえば、各 issue のタイトルと作成者 ID を取得できます。
 
 ```javascript
 try {
@@ -744,7 +745,7 @@ try {
 
 {% curl %}
 
-For example, you can use `>` to redirect the response to a file:
+たとえば、`>` を使用して、応答をファイルにリダイレクトできます。
 
 ```shell
 curl --request GET \
@@ -753,13 +754,13 @@ curl --request GET \
 --header "Authorization: Bearer YOUR-TOKEN" > data.json
 ```
 
-Then you can use jq to get the title and author ID of each issue:
+その後、jq を使用して、各 issue のタイトルと作成者 ID を取得できます。
 
 ```shell
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
-The previous two commands return something like:
+前の 2 つのコマンドでは次のようなものが返されます。
 
 ```
 {
@@ -772,12 +773,12 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+jq について詳しくは、[jq のドキュメント](https://stedolan.github.io/jq/)と [jq play](https://jqplay.org/) を参照してください。
 
 {% endcurl %}
 
-## Next steps
+## 次の手順
 
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information about these operations, see "[Create an issue comment](/rest/issues#create-an-issue-comment)" and "[Update an issue](/rest/issues/issues#update-an-issue)."
+この記事では、リポジトリの issue を一覧表示して作成する方法について説明しました。 さらに練習する場合は、issue にコメントを付けたり、issue のタイトルを編集したり、issue を閉じてみたりしてください。 これらの操作について詳しくは、「[issue コメントの作成](/rest/issues#create-an-issue-comment)」と「[issue の更新](/rest/issues/issues#update-an-issue)」を参照してください。
 
-For more information about the operations that you can use, see the [REST reference documentation](/rest).
+使用できる操作について詳しくは、[REST リファレンス ドキュメント](/rest)を参照してください。

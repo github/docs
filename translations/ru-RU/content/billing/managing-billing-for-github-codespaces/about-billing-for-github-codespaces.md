@@ -1,7 +1,7 @@
 ---
-title: Сведения о выставлении счетов для GitHub Codespaces
+title: About billing for GitHub Codespaces
 shortTitle: About billing
-intro: 'Узнайте о затратах на использование {% data variables.product.prodname_github_codespaces %} и ежемесячных квотах использования, включенных в личные учетные записи {% data variables.product.prodname_dotcom %}.'
+intro: 'Learn about the costs for using {% data variables.product.prodname_github_codespaces %}, and the monthly usage quotas included with {% data variables.product.prodname_dotcom %} personal accounts.'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -17,185 +17,183 @@ redirect_from:
   - /codespaces/codespaces-reference/about-billing-for-codespaces
   - /codespaces/codespaces-reference/understanding-billing-for-codespaces
   - /codespaces/codespaces-reference/understanding-billing-for-github-codespaces.md
-ms.openlocfilehash: 2de93801a9ee3aef0ed54a5b3f9328b58ccfddff
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
-ms.translationtype: MT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148159280'
 ---
-## Цены на {% data variables.product.prodname_github_codespaces %}
+
+## {% data variables.product.prodname_github_codespaces %} pricing
 
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
-Счета выставляются организации или предприятию, если выполняются все перечисленные ниже условия.
+Charges are billed to an organization or enterprise when all of the following are true:
 
-- Репозиторий, из которого запускается codespace (или родительский репозиторий, в случае вилки репозитория), принадлежит организации.
-- Организация настроена для выставления счетов за codespace, созданные из репозитория или вилки репозитория.
-- Пользователь, создающий codespace, принадлежит организации или является сторонним сотрудником, связанным с организацией, и организация решила платить за использование этим пользователем принадлежащих организации codespace.
+- The repository from which a codespace is started (or the parent repository, in the case of a forked repository) is owned by an organization.
+- The organization is configured to be billed for codespaces created from the repository or forks of the repository.
+- The user creating the codespace belongs to the organization, or is an outside collaborator affiliated with the organization, and the organization has chosen to pay for this user's use of organization-owned codespaces.
 
-В противном случае использование {% data variables.product.prodname_github_codespaces %} применяется к личной учетной записи пользователя, создавшего codespace, и либо использует часть ежемесячно включенного использования для своей личной учетной записи, либо счета выставляются в соответствии с их использованием сверх включенных квот. 
+Otherwise use of {% data variables.product.prodname_github_codespaces %} applies to the personal account of the person who created the codespace, and either consumes some of the monthly included usage for their personal account, or their account is billed according to their usage in excess of their included quotas. 
 
-Сведения о настройке организации для выставления счетов за использование codespace см. в разделе [Включение {% data variables.product.prodname_github_codespaces %} для вашей организации](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization). Планы "Бесплатный", "Командный" и "Корпоративный" для учетных записей организации и предприятий не включают бесплатное использование {% data variables.product.prodname_github_codespaces %}. 
+For information about how to configure an organization to be billed for codespace usage, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." The Free, Team, and Enterprise plans for organization and enterprise accounts do not include any free use of {% data variables.product.prodname_github_codespaces %}. 
 
-### Ежемесячное хранение и основные часы для личных учетных записей
+### Monthly included storage and core hours for personal accounts
 
-Следующие часы хранения и основные часы использования включаются бесплатно для личных учетных записей:
+The following storage and core hours of usage are included, free of charge, for personal accounts:
 
-| Стратегический план | Хранилище в месяц | Количество основных часов в месяц |
+| Account plan | Storage per month | Core hours per month |
 | ------------ | ----------------- | -------------------- |
-| {% data variables.product.prodname_dotcom %} Бесплатно для личных учетных записей | 15 ГБ | 120 |
-| {% data variables.product.prodname_dotcom %} Pro                        | 20 ГБ | 180 |
+| {% data variables.product.prodname_dotcom %} Free for personal accounts | 15 GB-month | 120 |
+| {% data variables.product.prodname_dotcom %} Pro                        | 20 GB-month | 180 |
 
 {% note %}
 
-**Примечание**. "Основной час" — это мера, используемая для включенного использования вычислительных ресурсов. Чтобы вычислить основные часы, умножьте количество часов, в течение которых было активно codespace, на множитель в приведенной ниже таблице цен. Для базовых типов компьютеров множитель — это количество ядер процессора на компьютере, на котором размещается codespace. Например, если вы используете 2-ядерный компьютер для codespace и он активен в течение часа, вы использовали 2 часа ядра. Если вы используете 8-ядерный компьютер в течение часа, вы использовали 8 ядер. Если вы используете 8-ядерный компьютер в течение двух часов, вы использовали 16 ядер.
+**Notes**:
+- The GB-month unit of storage is a time-based measurement, 1 GB-month being 1 GB of storage usage for one whole month. The disk space used by all of your codespaces and prebuilds is assessed once an hour and your current GB-month usage is recalculated. Therefore, while you have codespaces and prebuilds, your GB-month usage will increase throughout the month. For example, if the storage totals 15 GB, and remains unchanged throughout your monthly billing cycle, then you will have used 7.5 GB halfway through the month, and 15 GB at the end of the month. For more information, see "[Billing for storage usage](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)" below.
+- A "core hour" is a measure used for included compute usage. To calculate core hours, multiply the number of hours for which a codespace has been active by the multiplier in the pricing table below. For the basic machine types, the multiplier is the number of processor cores in the machine that hosts the codespace. For example, if you use a 2-core machine for your codespace and it's active for an hour, you have used 2 core hours. If you use an 8-core machine for an hour, you have used 8 core hours. If you use an 8-core machine for two hours, you have used 16 core hours.
 
 {% endnote %}
 
-При использовании 75%, 90 % и 100 % включенных квот вы получите уведомление по электронной почте. Уведомления также отображаются во всплывающем сообщении в {% data variables.product.prodname_vscode_shortname %} и веб-клиенте {% data variables.product.prodname_vscode_shortname %}. При необходимости можно отключить уведомления по электронной почте. Дополнительные сведения см. в разделе [Управление предельной суммой расходов для GitHub Codespaces](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-usage-and-spending-limit-email-notifications).
+You will be notified by email when you have used 75%, 90%, and 100% of your included quotas. Notifications are also displayed in a "toast" message within {% data variables.product.prodname_vscode_shortname %} and the {% data variables.product.prodname_vscode_shortname %} web client. You can turn off email notifications if required. For more information, see "[Managing the spending limit for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-usage-and-spending-limit-email-notifications)."
 
-Если личная учетная запись использовала все включенные ресурсы хранилища или вычислительные ресурсы (в зависимости от того, какое из них достигается первым) и не имеет настроенной предельной суммы расходов, использование {% data variables.product.prodname_github_codespaces %} будет заблокировано. Чтобы продолжить использование {% data variables.product.prodname_github_codespaces %} в течение текущего месяца выставления счетов, необходимо настроить метод оплаты и предельную сумму расходов. В начале следующего ежемесячного цикла выставления счетов включенного использования сбрасывается. Плата за хранилище не взимается, если использование {% data variables.product.prodname_github_codespaces %} заблокировано. 
+When a personal account has used all of either the included storage or compute usage (whichever is reached first), and has no spending limit configured, use of {% data variables.product.prodname_github_codespaces %} will be blocked. You must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. At the beginning of the next monthly billing cycle the included usage is reset. Storage will not be billed while use of {% data variables.product.prodname_github_codespaces %} is blocked. 
 
-Сведения об использовании за текущий месяц можно просмотреть в любое время. Дополнительные сведения см. в разделе [Просмотр данных об использовании {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
+You can view details of your usage for the current month at any time. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
-Если вы не можете возобновить codespace и хотите продолжить работу с изменениями, внесенными в codespace, можно выполнить любое из следующих действий:
+If you are blocked from resuming a codespace and you want to continue to work on changes you have made in your codespace, you can do any of the following:
 
-- Добавьте метод оплаты и предельную сумму расходов, превышающую 0 долл. США.
-- Экспорт изменений из codespace в ветвь. Дополнительные сведения см. в разделе [Экспорт изменений в ветвь](/codespaces/troubleshooting/exporting-changes-to-a-branch).
-- Дождитесь сброса ежемесячного включенного использования в начале следующего ежемесячного цикла выставления счетов. 
+- Add a payment method and a spending limit greater than $0 USD.
+- Export the changes from the codespace to a branch. For more information, see "[Exporting changes to a branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+- Wait for your monthly included usage to reset at the start of the next monthly billing cycle. 
 
-Если вы использовали все включенные ресурсы хранилища или вычислительные ресурсы, а также настроили метод оплаты и предельную сумму расходов, при дальнейшем использовании codespace, принадлежащих вашей личной учетной записи, будет взиматься плата за любой тип использования, который не имеет оставшейся квоты. Плата за использование другого типа не будет взиматься до тех пор, пока вы не будете использовать всю включенную квоту.
+If you have used all of either your included storage usage or your included compute usage, and you have set up a payment method and a spending limit, any further use of codespaces owned by your personal account will incur charges for whichever type of usage has no remaining included quota. You will not be charged for the other type of usage until you have also used all of its included quota.
 
-### Цены для платного использования
+### Pricing for paid usage
 
-За экземпляр {% data variables.product.prodname_github_codespaces %} ("codespace") взимается плата за время вычислений, пока он активен, а также за объем дискового пространства, занимаемого codespace, пока оно существует. Стоимость вычислений пропорциональна количеству ядер процессора в типе компьютера, выбранном для codespace, как показано в таблице ниже. Например, затраты на вычислительные ресурсы при использовании codespace в течение часа на компьютере с 16 ядрами в восемь раз превышают затраты на 2-ядерный компьютер.
+A {% data variables.product.prodname_github_codespaces %} instance (a "codespace") incurs charges for compute time, while it is active, and for the amount of disk space the codespace occupies, while it exists. The compute cost is proportional to the number of processor cores in the machine type you choose for your codespace, as shown in the table below. For example, the compute cost of using a codespace for an hour on a 16-core machine is eight times greater than a 2-core machine.
 
-| Компонент           | Тип компьютера | Единица измерения | Множитель включенного использования | Цена |
+| Component           | Machine type | Unit of measure | Included usage multiplier | Price |
 | ------------------- | ------------ | --------------- | ------------------------- | ----- |
-| Вычисление Codespaces  |  2 ядра      | 1 час          | 2                         | 0,18 долл. США |
-|                     |  4 ядра      | 1 час          | 4                         | 0,36 долл. США |
-|                     |  8 ядер      | 1 час          | 8                         | 0,72 долл. США |
-|                     |  16 ядер     | 1 час          | 16                        | 1,44 долл. США |
-|                     |  32 ядра     | 1 час          | 32                        | 2,88 долл. США |
-| Хранилище Codespaces  |  Память     | 1 ГБ в месяц<sup>*</sup> | Недоступно                | 0,07 долл. США |
+| Codespaces compute  |  2 core      | 1 hour          | 2                         | $0.18 |
+|                     |  4 core      | 1 hour          | 4                         | $0.36 |
+|                     |  8 core      | 1 hour          | 8                         | $0.72 |
+|                     |  16 core     | 1 hour          | 16                        | $1.44 |
+|                     |  32 core     | 1 hour          | 32                        | $2.88 |
+| Codespaces storage  |  Storage     | 1 GB-month<sup>*</sup> | N/A                | $0.07 |
 
-<sup>*</sup> Дополнительные сведения о единице измерения в гб месяцев см. в разделе [Выставление счетов за использование хранилища](#billing-for-storage-usage) ниже.
+<sup>*</sup> See "[Billing for storage usage](#billing-for-storage-usage)" below for details of the GB-month unit of measure.
 
-Если включена предварительная сборка пространств кода, это приведет к дополнительным расходам. Дополнительные сведения см. в разделе [Выставление счетов за предварительные сборки {% data variables.product.prodname_codespaces %}](#billing-for-codespaces-prebuilds).
+If you enable prebuilding of codespaces this will incur additional charges. For more information, see "[Billing for {% data variables.product.prodname_codespaces %} prebuilds](#billing-for-codespaces-prebuilds)."
 
-## Сведения о выставлении счетов за {% data variables.product.prodname_github_codespaces %}
+## About billing for {% data variables.product.prodname_github_codespaces %}
 
-Плата за {% data variables.product.prodname_github_codespaces %} взимается в долларах США (USD) в соответствии с объемом времени вычислений и дискового пространства, используемого codespace. {% data reusables.codespaces.codespaces-monthly-billing %}
+{% data variables.product.prodname_github_codespaces %} is billed in US dollars (USD) according to the amount of compute time and storage space your codespaces use. {% data reusables.codespaces.codespaces-monthly-billing %}
 
-Выставление счетов за {% data variables.product.prodname_github_codespaces %} использует существующий метод оплаты и квитанцию вашей учетной записи. Дополнительные сведения см. в разделе [Просмотр подписок и даты выставления счетов](/articles/viewing-your-subscriptions-and-billing-date).
+Billing for {% data variables.product.prodname_github_codespaces %} shares your account's existing payment method, and receipt. For more information, see "[Viewing your subscriptions and billing date](/articles/viewing-your-subscriptions-and-billing-date)."
 
-{% ifversion ghec %} Если вы приобрели {% data variables.product.prodname_enterprise %} через Соглашение Enterprise Майкрософт, вы можете подключить идентификатор подписки Azure к корпоративной учетной записи, чтобы включить и оплатить использование {% data variables.product.prodname_github_codespaces %}. Дополнительные сведения см. в разделе [Подключение подписки Azure к организации](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise).
+{% ifversion ghec %}
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
 {% endif %}
 
-### Выставление счетов за использование вычислительных ресурсов
-Использование вычислительных ресурсов codespace — это период времени, в течение которого это пространство кода активно умножается на множитель в таблице цен для типа компьютера codespace. Общий объем вычислительных ресурсов вычисляется путем суммирования времени, используемого всеми пространствами кода, оплачиваемыми для определенной учетной записи. Эти итоги передаются в службу выставления счетов каждый час и выставляются ежемесячно.
+### Billing for compute usage
+The compute usage of a codespace is the length of time for which that codespace is active multiplied by the multiplier in the pricing table for the machine type of the codespace. Total compute usage is calculated by summing the time used by all codespaces billable to a particular account. These totals are reported to the billing service every hour, and are billed monthly.
 
-Например, если codespace активно в течение 1 часа и 15 минут, то затраты на вычисления будут почасовой стоимостью codespace, определяемой типом компьютера, умноженной на 1,25.
+As an example, if a codespace is active for 1 hour and 15 minutes, then the compute cost will be the hourly cost of the codespace, as determined by its machine type, multiplied by 1.25.
 
-Вы можете управлять использованием вычислительных ресурсов, остановив codespace. Дополнительные сведения см. в разделе [Остановка и запуск codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace). Codespace останавливается автоматически после настраиваемого периода бездействия. Период ожидания может быть настроен пользователем или на уровне организации. Дополнительные сведения см. в [разделах Настройка периода ожидания для {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)и [Ограничение периода простоя](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period).
+You can control compute usage by stopping your codespaces. For information, see "[Stopping and starting a codespace](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)." Codespaces are stopped automatically after a configurable period of inactivity. The timeout period can be configured by the user, or at the organization level. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 
-### Выставление счетов за использование хранилища
-Для выставления счетов за {% data variables.product.prodname_github_codespaces %} хранилище включает дисковое пространство, используемое всеми пространствами кода и предварительными сборками в вашей учетной записи. Сюда входят все файлы, используемые в codespace, такие как клонированные репозитории, файлы конфигурации, данные, загруженные в codespace (например, в качестве входных или выходных данных программного обеспечения, работающего в репозитории), и расширения. Плата за хранилище взимается за все существующие codespace, независимо от того, активны ли они или неактивны, за исключением заблокированного использования из-за исчерпанной квоты на использование или достижения предельной суммы расходов. Выставление счетов за хранилище для codespace заканчивается после его удаления.
-
-{% note %}
-
-**Примечания** 
-
-- При использовании конфигурации контейнера разработки по умолчанию (см. раздел [Общие сведения о контейнерах разработки](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)) контейнер по умолчанию не учитывается в качестве используемого хранилища. При создании пользовательского контейнера с помощью конфигурации контейнера разработки с другим базовым образом контейнер считается используемым хранилищем.
-- При перестроении контейнера из образа по умолчанию базовый контейнер не считается используемым хранилищем. Для других базовых образов все хранилище, используемое codespace, включая базовый контейнер, считается используемым хранилищем.
-
-{% endnote %}
-
-Данные о хранилище Codespace отображаются в ГБ-месяцев. Ваш месяц выставления счетов длится с фиксированного дня в одном месяце до того же дня в следующем месяце. В большинстве случаев день месяца определяется днем начала работы с текущим планом {% data variables.product.prodname_dotcom %}. Хранилище в ГБ в месяц рассчитывается следующим образом. Каждый час оценивается хранилище, используемое всеми текущими активными и остановленными пространствами кода. Затем эта цифра делится на количество часов в текущем месяце выставления счетов: `total storage size / hours this month`. Результат добавляется к запущенной сумме для хранилища codespace за месяц.
-
-Например, если у вас есть одно пространство кода, которое использует 100 ГБ хранилища и существует в течение одного часа, вы будете использовать `100 / (24 * 30) = 0.1388` хранилище в ГБ месяцев в течение 30-дневного месяца. Если использование {% data variables.product.prodname_github_codespaces %} в течение 30-дневного месяца состоит из двух кодовых пространств по 100 ГБ, которые существовали в течение трех полных дней, будут почасовые `24 * 3` отчеты о хранении этих кодовых пространств с общим объемом `(24 * 3) * 200 / (24 * 30) = 20` в ГБ месяцев.
-
-Для каждого почасового отчета использование хранилища за предыдущий час рассчитывается в секундах. В результате с вас не будет взиматься плата за полный час хранения, если codespace не существовало в течение полных 60 минут. В конце месяца {% data variables.product.prodname_dotcom %} округляет размер хранилища до ближайшего целого мегабайта.
-
-Владельцы организации могут:
-- Список активных и остановленных codespace для вашей организации. Дополнительные сведения см. в разделе [Перечисление codespaces в организации](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization). Помимо затрат на эти codespace, стоимость {% data variables.product.prodname_github_codespaces %} за текущий месяц может включать затраты на codespace, которые существовали в начале текущего месяца, но с тех пор были удалены. 
-- Просмотрите общий объем использования вычислительных ресурсов и хранилища {% data variables.product.prodname_github_codespaces %} в вашей организации за текущий месяц. Дополнительные сведения см. в разделе [Просмотр данных об использовании {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
-- Настройте параметры организации для управления затратами на {% data variables.product.prodname_github_codespaces %}. Дополнительные сведения см. в разделе [Управление затратами на {% data variables.product.prodname_github_codespaces %} в организации](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization).
-
-Чтобы оценить затраты на услуги с лимитным тарифом, можно использовать [калькулятор цен](https://github.com/pricing/calculator?feature=codespaces) {% data variables.product.prodname_dotcom %}.
-
-### Выставление счетов для предварительных сборок {% data variables.product.prodname_codespaces %}
-
-{% data reusables.codespaces.prebuilds-definition %} Дополнительные сведения см. в разделе [Сведения о предварительных сборках {% data variables.product.prodname_github_codespaces %}](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds).
-
-#### Затраты на {% data variables.product.prodname_actions %} для предварительных сборок
-
-Предварительные сборки создаются и обновляются путем запуска рабочего процесса {% data variables.product.prodname_actions %} в средстве выполнения тестов, размещенном в {% data variables.product.prodname_dotcom %}. Вы можете настроить автоматическую активацию обновлений предварительной сборки. Дополнительные сведения см. в разделе [Настройка предварительных сборок](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild).
-
-Как и в случае с другими рабочими процессами, во время выполнения рабочих процессов предварительной сборки они потребляют {% data variables.product.prodname_actions %} минут, включенных в вашу учетную запись, если таковые имеются, или за них взимается плата за {% data variables.product.prodname_actions %} минут. Дополнительные сведения о ценах на {% data variables.product.prodname_actions %} минут см. в разделе [Сведения о выставлении счетов за {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions). Затраты на вычислительные ресурсы {% data variables.product.prodname_codespaces %} для создания или обновления предварительных сборок отсутствуют.
-
-Вы можете отслеживать использование рабочих процессов предварительной сборки и хранилища, скачав отчет об использовании для своей учетной записи. Дополнительные сведения см. в разделе [Просмотр данных об использовании {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
-
-#### Затраты на хранение для предварительных сборок
-
-Помимо {% data variables.product.prodname_actions %} минут, вам также будет выставляться счет за хранение предварительных сборок, связанных с каждой конфигурацией предварительной сборки, для заданного репозитория и региона. Плата за хранение предварительных сборок взимается по той же ставке, что и за хранилище для codespace.
-
-Затраты на хранение предварительной сборки в одном регионе будут аналогичны затратам на хранение одного пространства кода, созданного из этой предварительной сборки. Затраты на хранение для созданного codespace могут быть больше, чем стоимость предварительной сборки, если, например, `updateContentCommand` команды и `postCreateCommand` используются во время создания codespace для скачивания дополнительных файлов в контейнер разработки.
-
-Общие затраты на хранение, связанные с конфигурацией предварительной сборки, будут зависеть от следующих факторов.
-
-- Цена хранилища за ГБ. См. таблицу выше.
-- Размер созданной предварительной сборки в ГБ.
-- Количество регионов, в которых доступна предварительная сборка (так как копия предварительной сборки хранится в каждом регионе).
-- Количество старых версий предварительной сборки, которые хранятся.
-
-Таким образом, стоимость хранения для предварительных сборок, созданных конфигурацией предварительной сборки, рассчитывается следующим образом: `price per GB * size (GB) * regions * versions`.
-
-#### Управление стоимостью предварительных сборок
-
-Чтобы уменьшить расход минут действий, можно настроить для предварительной сборки обновление только при внесении изменений в файлы конфигурации контейнера разработки или только по расписанию, указанному пользователем. Вы также можете управлять использованием хранилища, изменив количество предыдущих версий каждой предварительной сборки, которые хранятся. Дополнительные сведения см. в разделе [Настройка предварительных сборок](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds).
-
-Чтобы ограничить затраты на хранение, связанные с предварительными сборками, можно создать предварительные сборки только в выбранных регионах и указать количество старых версий предварительных сборок, которые будут сохранены. Дополнительные сведения см. в разделе [Настройка предварительных сборок](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds).
+### Billing for storage usage
+For {% data variables.product.prodname_github_codespaces %} billing purposes, storage comprises the disk space used by all of the codespaces and prebuilds in your account. This includes any files you use in a codespace, such as cloned repositories, configuration files, data loaded to the codespace (for example as input or output of the software running in the repository), and extensions, among others. Storage is billed for all of your existing codespaces, regardless of whether they are active or inactive with the exception of blocked usage due to exhausted included usage quota or reaching your spending limit. The storage billing for a codespace ends when it is deleted.
 
 {% note %}
 
-**Примечание**. Предварительные сборки могут обновляться несколько раз в течение месяца выставления счетов. Более новые версии предварительной сборки могут быть больше или меньше предыдущих версий. Это повлияет на расходы на хранение. Дополнительные сведения о том, как рассчитывается хранилище в течение месяца выставления счетов, см. в разделе [Выставление счетов за использование хранилища](#billing-for-storage-usage) выше.
+**Notes**: 
+
+- When you use the default dev container configuration (see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)"), we do not count the default container as used storage. When you create a custom container using a dev container configuration with a different base image we do count the container as used storage.
+- When you rebuild your container from the default image we do not count the base container as used storage. For other base images all of the storage consumed by the codespace, including the base container, is counted as used storage.
 
 {% endnote %}
 
-#### Стоимость codespace, созданных из предварительных сборок
+Codespace storage is reported in GB-months. Your billing month runs from a fixed day in one month until the same day in the next month. In most cases the day of the month is determined by the day you started on your current {% data variables.product.prodname_dotcom %} plan. Your GB-month storage is calculated as follows. Once every hour, the storage used by all of your currently active and stopped codespaces is assessed. This figure is then divided by the number of hours in the current billing month: `total storage size / hours this month`. The result is added to the running total for codespace storage for the month.
 
-Использование codespace, созданных с применением предварительных сборок, оплачивается по той же ставке, что и обычные codespace.
+For example, if you have one codespace that uses 100 GB of storage and has existed for one hour you will have used `100 / (24 * 30) = 0.1388` GB-months of storage in a 30-day month. If your use of {% data variables.product.prodname_github_codespaces %} during a 30-day month consists of two 100 GB codespaces that both existed for three full days then there will be `24 * 3` hourly reports for the storage of these codespaces, giving a total of `(24 * 3) * 200 / (24 * 30) = 20` GB-months.
 
-## Установка предельной суммы расходов
+For each hourly report, the storage usage for the previous hour is calculated in seconds. As a result, you won't be charged for a full hour of storage if a codespace did not exist for the full 60 minutes. At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB.
+
+Organization owners can:
+- List the currently active and stopped codespaces for your organization. For more information, see "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)." In addition to the cost of these codespaces, the cost of {% data variables.product.prodname_github_codespaces %} for the current month may include costs for codespaces that existed earlier in the current month but have since been deleted. 
+- See the total {% data variables.product.prodname_github_codespaces %} compute and storage usage for your organization for the current month to date. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+- Configure your organization settings to manage the cost of {% data variables.product.prodname_github_codespaces %}. For more information, see "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)."
+
+To estimate the costs for metered services, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=codespaces).
+
+### Billing for {% data variables.product.prodname_codespaces %} prebuilds
+
+{% data reusables.codespaces.prebuilds-definition %} For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+
+#### {% data variables.product.prodname_actions %} costs for prebuilds
+
+Prebuilds are created and updated by running a {% data variables.product.prodname_actions %} workflow on a {% data variables.product.prodname_dotcom %}-hosted runner. You can configure how you want prebuild updates to be automatically triggered. For information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
+
+As with other workflows, while prebuild workflows are running they consume {% data variables.product.prodname_actions %} minutes included with your account, if you have any, or they incur charges for {% data variables.product.prodname_actions %} minutes. For more information about pricing for {% data variables.product.prodname_actions %} minutes, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)." There is no associated {% data variables.product.prodname_codespaces %} compute cost for creating or updating prebuilds.
+
+You can track usage of prebuild workflows and storage by downloading a usage report for your account. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+
+#### Storage costs for prebuilds
+
+In addition to {% data variables.product.prodname_actions %} minutes, you will also be billed for the storage of prebuilds associated with each prebuild configuration, for a given repository and region. Storage of prebuilds is billed at the same rate as storage of codespaces.
+
+The storage cost for a prebuild in a single region will be similar to the storage cost that will be incurred for storing a single codespace created from that prebuild. The storage cost for the generated codespace may be more than the cost for the prebuild if, for example, the `updateContentCommand` and `postCreateCommand` commands are used during codespace creation to download more files to the dev container.
+
+The total storage costs associated with a prebuild configuration will depend on the following factors.
+
+- The price of storage per GB. See the table above.
+- The size of the generated prebuild in GB.
+- The number of regions in which the prebuild is available (because a copy of the prebuild is stored in each region).
+- The number of older versions of the prebuild that are retained.
+
+The storage cost for the prebuilds generated by a prebuild configuration is therefore calculated as: `price per GB * size (GB) * regions * versions`.
+
+#### Controlling the cost of prebuilds
+
+To reduce consumption of Actions minutes, you can set a prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. You can also manage your storage usage by adjusting the number of previous versions of each prebuild that are retained. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+
+To limit the storage costs associated with prebuilds, you can choose to create prebuilds only in selected regions, and you can specify the number of older versions of prebuilds that will be retained. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+
+{% note %}
+
+**Note**: Prebuilds may be updated several times during a billing month. Newer versions of a prebuild may be larger or smaller than the previous versions. This will affect the storage charges. For details of how storage is calculated during a billing month, see "[Billing for storage usage](#billing-for-storage-usage)" above.
+
+{% endnote %}
+
+#### Cost of codespaces created from prebuilds
+
+Use of codespaces created using prebuilds is charged at the same rate as regular codespaces.
+
+## Setting a spending limit
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
-Сведения об управлении и изменении предельной суммы расходов для учетной записи см. в разделе [Управление предельной суммой расходов для {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 
 {% data reusables.codespaces.exporting-changes %}
 
-## Ограничение типов компьютеров для кодовых пространств, принадлежащих организации
+## Limiting the machine types for organization-owned codespaces
 
-По умолчанию при создании codespace используется тип компьютера с наименьшим допустимым объемом ресурсов. Однако пользователи могут выбрать тип компьютера с большим объемом ресурсов. Это можно сделать при создании codespace, либо можно изменить тип компьютера для существующего пространства codespace. Дополнительные сведения см. в [разделах Создание codespace для репозитория](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository) и [Изменение типа компьютера для codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace).
+By default the machine type with the lowest valid resources is used when a codespace is created. However, users may be able to choose a machine type with more resources. They can do this either when they create a codespace, or they can change the machine type of an existing codespace. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)" and "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
 
-Если выбран тип компьютера с большим объемом ресурсов, это повлияет на почасовую плату за это пространство codespace, как показано выше. 
+If a machine type that has more resources is chosen, this will affect the per-hour charge for that codespace, as shown above. 
 
-Владельцы организации могут создать политику, ограничивающую выбор типов компьютеров, доступных пользователям для codespace, счета за которые выставляются учетной записью организации или предприятия. Дополнительные сведения см. в разделе [Ограничение доступа по типам компьютеров](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types).
+Organization owners can create a policy to limit the choice of machine types available to users for codespaces that are billed to an organization or enterprise account. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
-## Выставление счетов за вилки репозиториев
+## How billing is handled for forked repositories
 
-Плата за использование кодовых пространств, созданных из разветвленного репозитория, будет взиматься с вашей личной учетной записи, если вышестоящий (или родительский) репозиторий не находится в организации, которая разрешила вам как участнику или стороннему участнику совместной работы организации использовать codespace за счет организации.
+Usage of codespaces created from a forked repository will be billed to your personal account unless the upstream (or parent) repository is in an organization that has allowed you - as a member, or outside collaborator, of the organization - to use codespaces at the organization's expense.
 
-Например, рассмотрим участника или стороннего участника совместной работы организации, которая разрешила выставление счетов за codespace для этого пользователя. Если у пользователя есть разрешение на создание вилки частного репозитория организации, он может впоследствии создать и использовать codespace для нового репозитория за счет организации. Это связано с тем, что организация является владельцем родительского репозитория. Обратите внимание, что владелец организации может удалить доступ пользователя к частному репозиторию, репозиторию вилки и, следовательно, к codespace. Владелец организации также может удалить родительский репозиторий, который также удалит разветвленный репозиторий. Дополнительные сведения см. в разделе [Управление политикой ветвления для репозитория](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository).
+For example, consider a member, or outside collaborator, of an organization that has allowed billing for codespaces for that user. If the user has permission to fork an organization-owned private repository, they can subsequently create and use a codespace for the new repository at the organization's expense. This is because the organization is the owner of the parent repository. Note that the organization owner can remove the user's access to the private repository, the forked repository, and therefore also the codespace. The organization owner can also delete the parent repository which will also delete the forked repository. For more information, see "[Managing the forking policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)."
 
 {% data reusables.codespaces.codespaces-disabling-org-billing %}
 
-## Обработка выставления счетов при передаче репозитория в другую организацию
+## How billing is handled when a repository is transferred to another organization
 
-Использование рассчитывается каждый час. Организация платит за использование codespace, созданных из любого репозитория, принадлежащего организации, где параметры организации позволяют выставлять счета за организацию. Дополнительные сведения см. в разделе [Включение {% data variables.product.prodname_github_codespaces %} для организации](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization). При передаче репозитория из вашей организации ответственность за владение и выставление счетов за любые codespace, связанные с этим репозиторием, будут соответствующим образом изменены.
+Usage is calculated every hour. An organization pays for usage of codespaces created from any repository owned by the organization, where the organization settings permit the organization to be billed. For more information, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)." When a repository is transferred out of your organization, ownership and billing responsibility for any codespaces associated with that repository will change accordingly.
 
-## Что происходит при удалении пользователей
+## What happens when users are removed
 
-Если пользователь удаляется из организации или репозитория, его пространства codespace удаляются автоматически. 
+If a user is removed from an organization or repository, their codespaces are automatically deleted. 

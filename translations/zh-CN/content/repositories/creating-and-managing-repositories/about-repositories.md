@@ -18,12 +18,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: af0b8eb9f8bd7a98c246a0806a8bc60f59ba147f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 95e4033aa41f7920b5447554773dc61a181f5861
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107283'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163503'
 ---
 ## 关于仓库
 
@@ -43,6 +43,8 @@ ms.locfileid: '148107283'
 - 您可以使用项目板来组织议题和拉取请求并排定优先级。 有关详细信息，请参阅“[关于项目板](/github/managing-your-work-on-github/about-project-boards)”。
 
 {% data reusables.repositories.repo-size-limit %}
+
+若要了解如何最有效地使用存储库，请参阅“[存储库最佳做法](/repositories/creating-and-managing-repositories/best-practices-for-repositories)”。
 
 ## 关于仓库可见性
 
@@ -132,7 +134,6 @@ ms.locfileid: '148107283'
 
 ## 延伸阅读
 
-- [创建新存储库](/articles/creating-a-new-repository)
 - [关于分支](/github/collaborating-with-pull-requests/working-with-forks/about-forks)
 - [协作处理问题和拉取请求](/categories/collaborating-with-issues-and-pull-requests)
 - [管理 {% data variables.product.prodname_dotcom %} 上的工作](/categories/managing-your-work-on-github/)

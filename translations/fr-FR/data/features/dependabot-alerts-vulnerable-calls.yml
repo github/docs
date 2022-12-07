@@ -1,0 +1,5 @@
+# Reference: Issue #6076 introduction of label for "vulnerable calls" in Dependabot alerts
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghae: 'problème-6076'

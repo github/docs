@@ -12,7 +12,7 @@ Here, you'll find additional information that might be helpful as you work on a 
 - [content templates](./content-templates.md) - handy templates to get you started with a new article
 - [deployments](./deployments.md) - how our staging and production environments work
 - [liquid helpers](./liquid-helpers.md) - using liquid helpers for versioning in our docs
-- [localization checklist](./localization-checklist.md) - making sure your content is ready to be translated
+- [translations guide for writers](./translations/for-writers.md) - making sure your content is ready to be translated
 - [node versions](./node-versions.md) - our site runs on Node.js
 - [permalinks](./permalinks.md) - permalinks for article versioning
 - [redirects](./redirects.md) - configuring redirects in the site

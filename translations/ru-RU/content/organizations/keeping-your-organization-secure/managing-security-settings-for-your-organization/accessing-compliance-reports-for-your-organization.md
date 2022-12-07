@@ -1,6 +1,6 @@
 ---
-title: Accessing compliance reports for your organization
-intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization.'
+title: Доступ к отчетам о соответствии требованиям для вашей организации
+intro: 'Можно получить доступ к отчетам о соответствии {% data variables.product.company_short %}, таким как отчеты SOC и самооценка Cloud Security Alliance CAIQ (CSA CAIQ), для организации.'
 versions:
   ghec: '*'
 type: how_to
@@ -9,30 +9,33 @@ topics:
   - Teams
 permissions: Organization owners can access compliance reports for the organization.
 shortTitle: Access compliance reports
+ms.openlocfilehash: a260c5a13ed92d6cd3ead55cce1c2ff2a61c8d57
+ms.sourcegitcommit: 2ff4a43f0b14939da79d56c54402cfee8d90ae23
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/17/2022
+ms.locfileid: '148169576'
 ---
+## Сведения об отчетах о соответствии требованиям для {% data variables.product.company_short %}
 
-## About {% data variables.product.company_short %}'s compliance reports
-
-You can access {% data variables.product.company_short %}'s compliance reports in your organization settings.
+Вы можете получить доступ к отчетам о соответствии требованиям для {% data variables.product.company_short %} в разделе параметров организации.
 
 {% data reusables.security.compliance-report-list %}
 
 
 {% note %}
 
-**Note:** To view compliance reports, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Примечание.** Чтобы просмотреть отчеты о соответствии требованиям, ваша организация должна использовать {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 
-## Accessing compliance reports for your organization
+## Доступ к отчетам о соответствии требованиям для вашей организации
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "Compliance reports", to the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.compliance %}
+1. Справа от отчета, к которому вы хотите получить доступ, щелкните {% octicon "download" aria-label="The Download icon" %} **Скачать** или {% octicon "link-external" aria-label="The external link icon" %} **View**.
 
    {% data reusables.security.compliance-report-screenshot %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+- [Доступ к отчетам о соответствии требованиям для вашего предприятия](/admin/overview/accessing-compliance-reports-for-your-enterprise)

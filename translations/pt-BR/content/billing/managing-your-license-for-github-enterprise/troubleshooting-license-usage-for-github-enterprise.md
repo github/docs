@@ -22,7 +22,14 @@ For privacy reasons, enterprise owners cannot directly access the details of use
 
 ## About the calculation of consumed licenses
 
-{% data variables.product.company_short %} bills for each person who uses deployments of {% data variables.product.prodname_ghe_server %}, is a member of one of your organizations on {% data variables.product.prodname_ghe_cloud %}, or is a {% data variables.visual_studio.prodname_vs_subscriber %}. For more information about the people in your enterprise who consume a license, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+If a user meets one or more of the following conditions, {% data variables.product.company_short %} bills for the user.
+
+- The user utilizes deployments of {% data variables.product.prodname_ghe_server %}.
+- The user is a member of one of your organizations on {% data variables.product.prodname_ghe_cloud %}.
+- The user has write access to one of your organization's private repositories.
+- The user is a {% data variables.visual_studio.prodname_vs_subscriber %}.
+
+Invitations for these roles will consume a license until the invitation is accepted or expires. For more information about the people in your enterprise who consume a license, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
 
 For each user to consume a single seat regardless of how many deployments they use, you must synchronize license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 

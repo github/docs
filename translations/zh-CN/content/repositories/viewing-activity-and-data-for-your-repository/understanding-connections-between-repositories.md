@@ -1,6 +1,6 @@
 ---
-title: 了解仓库之间的连接
-intro: 通过查看存储库的网络和分叉以及依赖于存储库的项目，您可以更好地了解存储库之间存在的连接。
+title: Understanding connections between repositories
+intro: Use the network graph and forks list to understand fork networks.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,59 +22,57 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 76b840f45ba85fb79a7f0c1eb43bc663b3eadf2b
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147060064'
 ---
-## 查看仓库的网络
 
-网络图显示整个仓库网络的分支历史记录，包括根仓库的分支和包含网络独有提交的复刻的分支。
+## Viewing a repository's network
 
-![仓库网络图](/assets/images/help/graphs/repo_network_graph.png)
+The network graph displays the branch history of the entire repository network, including fork branches. This graph is a timeline of the most recent commits, and shows up to 100 of the most recently pushed-to branches. The first row references the date and the first column references the branch owner. Use arrow keys or other keyboard shortcuts to more easily navigate the graph. They are provided in the “Keyboard shortcuts available” pop up under the graph.
+
+
+![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
 
 {% tip %}
 
-提示：若要查看较旧的分支，请在图中单击并拖动。
+**Tip:** To see older branches, click and drag within the graph.
 
 {% endtip %}
 
-## 访问网络图
+## Accessing the network graph
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
-3. 在左侧边栏中，单击“网络”。
-![“网络”选项卡](/assets/images/help/graphs/network_tab.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+3. In the left sidebar, click **Network**.
+![Network tab](/assets/images/help/graphs/network_tab.png)
 
-## 列出仓库的复刻
+## Listing the forks of a repository
 
-成员图显示仓库的所有复刻。
+The Members graph displays all the forks of a repository.
 
-复刻按仓库复刻者用户名的字母顺序列出。 您可以单击要重定向到用户 {% data variables.product.product_name %} 个人资料页面的用户名，或者单击要重定向到仓库特定复刻的复刻名称。
+Forks are listed alphabetically by the organization or username of the person who forked the repository. You can click on the organization or username to be redirected to the organization or user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
 
 {% ifversion fpt or ghec %}
 
-![仓库成员图](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
+![Repository members graph](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
 {% else %}
 
-![仓库成员图](/assets/images/help/graphs/repo_members_graph.png)
+![Repository members graph](/assets/images/help/graphs/repo_members_graph.png)
 
 {% endif %}
 
-### 访问成员图
+### Accessing the Members graph
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
-3. 在左侧边栏中，单击“分支”。
-![“分支”选项卡](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+3. In the left sidebar, click **Forks**.
+![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-## 查看仓库的依赖项
+## Viewing the dependencies of a repository
 
-您可以使用依赖关系图来浏览仓库所依赖的代码。
+You can use the dependency graph to explore the code your repository depends on.
 
-几乎所有软件都依赖于其他开发者开发和维护的代码，常常被称为供应链。 例如，实用程序、库和框架。 这些依赖项是代码不可分割的一部分，其中的任何错误或漏洞都可能影响您的代码。 审查和维护这些依赖项非常重要。
+Almost all software relies on code developed and maintained by other developers, often known as a supply chain. For example, utilities, libraries, and frameworks. These dependencies are an integral part of your code and any bugs or vulnerabilities in them may affect your code. It's important to review and maintain these dependencies.
 
-依赖关系图提供了可视化和探索仓库依赖关系的好方法。 有关详细信息，请参阅“[关于依赖项关系图](/code-security/supply-chain-security/about-the-dependency-graph)”和“[探索存储库的依赖项](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)”。
+The dependency graph provides a great way to visualize and explore the dependencies for a repository. For more information, see "[About the dependency graph](/code-security/supply-chain-security/about-the-dependency-graph)" and "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)."
 
-您也可以设置仓库，以便在您的一个依赖项中发现安全漏洞时，{% data variables.product.company_short %} 会自动提醒您。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+You can also set up your repository so that {% data variables.product.company_short %} alerts you automatically whenever a security vulnerability is found in one of your dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."

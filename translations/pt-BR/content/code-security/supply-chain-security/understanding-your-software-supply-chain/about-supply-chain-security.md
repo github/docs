@@ -19,12 +19,12 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
-ms.openlocfilehash: 7c059876a27969b4664d5c8d94dec357a135c2de
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: d0f743db7d1f5a054a3eb8c7b4dbf81052aca50f
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148106498'
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181233'
 ---
 ## Sobre a segurança da cadeia de suprimentos no GitHub
 
@@ -101,6 +101,12 @@ O {% data variables.product.prodname_dependabot %} mantém as dependências atua
 {% elsif ghae %}
 
 O {% data variables.product.prodname_actions %} não é necessário para que os {% data variables.product.prodname_dependabot_alerts %} sejam executados no {% data variables.product.product_name %}.
+
+{% endif %}
+
+{% ifversion dependabot-actions-support %}
+
+{% data reusables.dependabot.dependabot-actions-support %} Para saber mais, confira "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)".
 
 {% endif %}
 

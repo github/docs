@@ -11,12 +11,12 @@ product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 89f93ace53547fccd69ffb7e6d7b666a6cb48991
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 809d8492bb1ec7c8cd4eb051b1eaefb00d29097e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148109912'
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158577'
 ---
 {% ifversion fpt %}
 
@@ -29,6 +29,8 @@ ms.locfileid: '148109912'
 {% endif %}
 
  Puedes usar conclusiones {% data variables.product.prodname_projects_v2 %} a fin de ver, crear y personalizar gráficos que usan como datos de origen los elementos agregados al proyecto. Puedes aplicar filtros al gráfico predeterminado y también crear tus propios gráficos. Al crear un gráfico, se establecen los filtros, el tipo de gráfico y la información mostrada, y el gráfico está disponible para cualquiera que pueda ver el proyecto. Puedes generar dos tipos de gráficos: gráficos actuales y gráficos históricos.
+
+ Con las conclusiones, se realiza un seguimiento de los elementos que has archivado o eliminado.
 
  ### Acerca de los gráficos actuales
 

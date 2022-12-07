@@ -1,11 +1,9 @@
 ---
-ms.openlocfilehash: 7b848e4c3bb4a9a4578e3f1ff92f6249dd20c699
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 18467aadad6c07acc5efc9080626cd5c1bec2a6d
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: "148109612"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180006"
 ---
-{%- ifversion ip-allow-list-address-check %}
 1. 必要に応じて、特定の IP アドレスがリスト内のいずれかの有効なエントリによって許可されるかどうかを確認できます。 詳しくは、「[IP アドレスが許可されているかどうかを確認する](#checking-if-an-ip-address-is-permitted)」を参照してください。
-{%- endif %}

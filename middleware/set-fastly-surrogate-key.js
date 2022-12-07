@@ -14,16 +14,30 @@ export const SURROGATE_ENUMS = {
   MANUAL: 'manual-purge',
 }
 
-export function setFastlySurrogateKey(res, enumKey) {
-  if (!Object.values(SURROGATE_ENUMS).includes(enumKey)) {
-    throw new Error(
-      `Unrecognizes surrogate enumKey. ${enumKey} is not one of ${Object.values(SURROGATE_ENUMS)}`
-    )
+export function setFastlySurrogateKey(res, enumKey, isCustomKey = false) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (!isCustomKey && !Object.values(SURROGATE_ENUMS).includes(enumKey)) {
+      throw new Error(
+        `Unrecognizes surrogate enumKey. ${enumKey} is not one of ${Object.values(SURROGATE_ENUMS)}`
+      )
+    }
   }
   res.set(KEY, enumKey)
 }
 
 export function setDefaultFastlySurrogateKey(req, res, next) {
-  res.set(KEY, SURROGATE_ENUMS.DEFAULT)
+  res.set(KEY, `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey()}`)
   return next()
+}
+
+export function setLanguageFastlySurrogateKey(req, res, next) {
+  res.set(KEY, `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(req.language)}`)
+  return next()
+}
+
+export function makeLanguageSurrogateKey(langCode = null) {
+  if (!langCode) {
+    return 'no-language'
+  }
+  return `language:${langCode}`
 }

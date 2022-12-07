@@ -1,6 +1,6 @@
 ---
-title: Creating CI tests with the Checks API
-intro: 'Build a continuous integration server to run tests using a {% data variables.product.prodname_github_app %} and the Checks API.'
+title: Criar testes de CI com a API de verificações
+intro: 'Crie um servidor de integração contínua para executar testes usando um {% data variables.product.prodname_github_app %} e a API de verificações.'
 redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
   - /developers/apps/creating-ci-tests-with-the-checks-api
@@ -12,98 +12,104 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: CI tests using Checks API
+ms.openlocfilehash: 0459714ae9ffb8094c70a714a60a66a19964424f
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179674'
 ---
-## Introduction
+## Introdução
 
-This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+Este guia lhe apresentará os [Aplicativos do Github](/apps/) e a [API de Verificações](/rest/reference/checks), que você usará para criar um servidor de CI (integração contínua) que executa testes.
 
-CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts. 🙌
+A CI é uma prática de software que exige o commit do código em um repositório compartilhado. Fazer commits de códigos com frequência detecta erros com mais antecedência e reduz a quantidade de código necessária para depuração quando os desenvolvedores chegam à origem de um erro. As atualizações frequentes de código também facilitam o merge de alterações dos integrantes de uma equipe de desenvolvimento de software. Assim, os desenvolvedores podem se dedicar mais à gravação de códigos e se preocupar menos com erros de depuração ou conflitos de merge. 🙌
 
-A CI server hosts code that runs CI tests such as code linters (which check style formatting), security checks, code coverage, and other checks against new code commits in a repository. CI servers can even build and deploy code to staging or production servers. For some examples of the types of CI tests you can create with a GitHub App, check out the [continuous integration apps](https://github.com/marketplace/category/continuous-integration) available in GitHub Marketplace.
+Um código de host do servidor de CI que executa testes de CI, como, por exemplo, linters de código (que verificam formatação de estilo), verificações de segurança, cobertura de código e outras verificações de novos commits de códigos em um repositório. OS ervidores de CI podem até criar e implementar código para servidores de treinamento ou produção. Para ver alguns exemplos dos tipos de testes de CI que você pode criar com um Aplicativo do GitHub, confira os [aplicativos de integração contínua](https://github.com/marketplace/category/continuous-integration) disponíveis no Marketplace do GitHub.
 
 {% data reusables.apps.app-ruby-guides %}
 
-### Checks API overview
+### Visão geral da API de verificação
 
-The [Checks API](/rest/reference/checks) allows you to set up CI tests that are automatically run against each code commit in a repository. The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. With the Checks API, you can create annotations with additional details for specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
+A [API de Verificações](/rest/reference/checks) permite que você configure testes de CI que são executados automaticamente em cada commit de código em um repositório. A API de Verificações relata informações detalhadas sobre cada verificação no GitHub na guia **Verificações** da solicitação de pull. Com a API de Verificações, você pode criar anotações com detalhes adicionais para linhas de código específicas. As anotações ficam visíveis na guia **Verificações**. Quando você cria uma anotação para um arquivo que faz parte da solicitação de pull, as anotações também são mostradas na guia **Arquivos alterados**.
 
-A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/rest/reference/repos#branches) can prevent people from merging pull requests prematurely. See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
+Um _conjunto de verificação_ é um grupo de _execuções de verificação_ (testes de CI individuais). O conjunto e as execuções contêm _status_ que ficam visíveis em uma solicitação de pull no GitHub. Você pode usar os status para determinar quando um commit de código introduz erros. O uso desses status com [branches protegidos](/rest/reference/repos#branches) pode impedir que as pessoas mesclem solicitações de pull prematuramente. Confira "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" para obter mais detalhes.
 
-The Checks API sends the [`check_suite` webhook event](/webhooks/event-payloads/#check_suite) to all GitHub Apps installed on a repository each time new code is pushed to the repository. To receive all Checks API event actions, the app must have the `checks:write` permission. GitHub automatically creates `check_suite` events for new code commits in a repository using the default flow, although [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites) if you'd like. Here's how the default flow works:
+A API de Verificações envia o [evento webhook `check_suite`](/webhooks/event-payloads/#check_suite) para todos os Aplicativos do GitHub instalados em um repositório sempre que o novo código é enviado por push para o repositório. Para receber todas as ações de evento da API de Verificações, o aplicativo deve ter a permissão `checks:write`. O GitHub cria eventos `check_suite` automaticamente para novos commits de código em um repositório usando o fluxo padrão, embora [atualize as preferências do repositório para conjuntos de verificação](/rest/reference/checks#update-repository-preferences-for-check-suites), se você desejar. Veja como funciona o fluxo-padrão:
 
-1. Whenever someone pushes code to the repository, GitHub sends the `check_suite` event with an action of `requested` to all GitHub Apps installed on the repository that have the `checks:write` permission. This event lets the apps know that code was pushed and that GitHub has automatically created a new check suite.
-1. When your app receives this event, it can [add check runs](/rest/reference/checks#create-a-check-run) to that suite.
-1. Your check runs can include [annotations](/rest/reference/checks#annotations-object) that are displayed on specific lines of code.
+1. Sempre que alguém envia o código por push para o repositório, o GitHub envia o evento `check_suite` com uma ação de `requested` a todos os Aplicativos do GitHub instalados no repositório que têm a permissão `checks:write`. Este evento permite que os aplicativos saibam que o código foi enviado e que o GitHub criou um novo conjunto de verificações automaticamente.
+1. Quando seu aplicativo recebe esse evento, ele pode [adicionar execuções de verificação](/rest/reference/checks#create-a-check-run) a esse conjunto.
+1. As execuções de verificação podem incluir [anotações](/rest/reference/checks#annotations-object) exibidas em linhas de código específicas.
 
-**In this guide, you’ll learn how to:**
+**Neste guia, você aprenderá:**
 
-* Part 1: Set up the framework for a CI server using the Checks API.
-  * Configure a GitHub App as a server that receives Checks API events.
-  * Create new check runs for CI tests when a repository receives newly pushed commits.
-  * Re-run check runs when a user requests that action on GitHub.
-* Part 2: Build on the CI server framework you created by adding a linter CI test.
-  * Update a check run with a `status`, `conclusion`, and `output` details.
-  * Create annotations on lines of code that GitHub displays in the **Checks** and **Files Changed** tab of a pull request.
-  * Automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
+* Parte 1: Configurar a estrutura para um servidor de CI usando a API de verificações.
+  * Configurar um aplicativo GitHub como um servidor que recebe eventos de API de verificações.
+  * Criar novas execuções de verificação para testes de CI quando um repositório recebe commits recém enviados.
+  * Reexecutar a verificação quando um usuário solicita que a ação seja executada no GitHub.
+* Parte 2: Aproveitar a estrutura do servidor de CI que você criou adicionando um teste de CI de linter.
+  * Atualizar uma execução de verificação com um `status`, `conclusion` e detalhes de `output`.
+  * Criar anotações em linhas de código que são exibidas GitHub na guia **Verificações** e **Arquivos Alterados** de uma solicitação de pull.
+  * Corrigir automaticamente as recomendações do linter expondo um botão "Corrigir isso" na guia **Verificações** da solicitação de pull.
 
-To get an idea of what your Checks API CI server will do when you've completed this quickstart, check out the demo below:
+Para ter uma ideia do que seu servidor de CI da API de verificações fará quando você concluir este início rápido, confira a demonstração abaixo:
 
-![Demo of Checks API CI sever quickstart](/assets/images/github-apps/github_apps_checks_api_ci_server.gif)
+![Demonstração do início rápido do servidor de CI da API de verificações](/assets/images/github-apps/github_apps_checks_api_ci_server.gif)
 
-## Prerequisites
+## Pré-requisitos
 
-Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
+Para começar, familiarize-se com os [Aplicativos do GitHub](/apps/), [Webhooks](/webhooks) e a [API de Verificações](/rest/reference/checks), caso ainda não esteja familiarizado. Você encontrará mais APIs nos [documentos da API REST](/rest). A API de Verificações também está disponível para uso no [GraphQL](/graphql), mas este início rápido se concentra na REST. Confira os objetos [Conjunto de Verificações](/graphql/reference/objects#checksuite) e [Verificar Execução](/graphql/reference/objects#checkrun) da GraphQL para obter mais detalhes.
 
-You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
+Você usará a [linguagem de programação Ruby](https://www.ruby-lang.org/en/), o serviço de entrega de conteúdo do webhook [Smee](https://smee.io/), a [biblioteca Octokit.rb do Ruby](http://octokit.github.io/octokit.rb/) para a API REST do GitHub e o [framework Web Sinatra](http://sinatrarb.com/) para criar seu aplicativo de servidor de CI da API de Verificações.
 
-You don't need to be an expert in any of these tools or concepts to complete this project. This guide will walk you through all the required steps. Before you begin creating CI tests with the Checks API, you'll need to do the following:
+Não é necessário ser um especialista em nenhuma dessas ferramentas ou conceitos para concluir este projeto. Este guia irá orientá-lo em todas as etapas necessárias. Antes de começar a criar testes de CI com a API de verificações, você deverá fazer o seguinte:
 
-1. Clone the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
+1. Clone o repositório [Criação de testes de CI com a API de Verificações](https://github.com/github-developer/creating-ci-tests-with-the-checks-api).
   ```shell
     $ git clone https://github.com/github-developer/creating-ci-tests-with-the-checks-api.git
   ```
 
-  Inside the directory, you'll find a `template_server.rb` file with the template code you'll use in this quickstart and a `server.rb` file with the completed project code.
+  Dentro do diretório, você encontrará um arquivo `template_server.rb` com o código de modelo que será usado neste guia de início rápido e um arquivo `server.rb` com o código do projeto concluído.
 
-1. Follow the steps in the "[Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/)" quickstart to configure and run the app server. **Note:** Instead of [cloning the GitHub App template repository](/apps/quickstart-guides/setting-up-your-development-environment/#prerequisites), use the `template_server.rb` file in the repository you cloned in the previous step in this quickstart.
+1. Siga as etapas descritas no guia de início rápido "[Como configurar seu ambiente de desenvolvimento](/apps/quickstart-guides/setting-up-your-development-environment/)" para configurar e executar o servidor de aplicativos. **Observação:** em vez de [clonar o repositório de modelo do Aplicativo do GitHub](/apps/quickstart-guides/setting-up-your-development-environment/#prerequisites), use o arquivo `template_server.rb` no repositório clonado na etapa anterior deste início rápido.
 
-  If you've completed a GitHub App quickstart before, make sure to register a _new_ GitHub App and start a new Smee channel to use with this quickstart.
+  Se você concluiu um início rápido de Aplicativo do GitHub anteriormente, registre um _novo_ aplicativo do GitHub e inicie um novo canal do Smee para usar com este início rápido.
 
-  See the [troubleshooting](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) section if you are running into problems setting up your template GitHub App.
+  Confira a seção [Solução de problemas](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) se você estiver tendo problemas ao configurar seu modelo de Aplicativo do GitHub.
 
-## Part 1. Creating the Checks API interface
+## Parte 1. Criar a interface da API de verificações
 
-In this part, you will add the code necessary to receive `check_suite` webhook events and create and update check runs. You'll also learn how to create check runs when a check was re-requested on GitHub. At the end of this section, you'll be able to view the check run you created in a GitHub pull request.
+Nesta parte, você adicionará o código necessário para receber eventos de webhook `check_suite` e criar e atualizar as execuções de verificação. Você também aprenderá como criar uma execução de verificação quando solicitou-se a verificação novamente no GitHub. Ao final desta seção, você poderá visualizar a execução de verificação que você criou em um pull request do GitHub.
 
-Your check run will not be performing any checks on the code in this section. You'll add that functionality in [Part 2: Creating the Octo RuboCop CI test](#part-2-creating-the-octo-rubocop-ci-test).
+Sua execução de verificação não realizará nenhuma verificação no código nesta seção. Você adicionará essa funcionalidade na [Parte 2: Criando o teste de CI do Octo RuboCop](#part-2-creating-the-octo-rubocop-ci-test).
 
-You should already have a Smee channel configured that is forwarding webhook payloads to your local server. Your server should be running and connected to the GitHub App you registered and installed on a test repository. If you haven't completed the steps in "[Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/)," you'll need to do that before you can continue.
+Você já deve ter um canal do Smee configurado que encaminha cargas do webhook para o seu servidor local. Seu servidor deve estar em execução e conectado ao aplicativo GitHub que você registrou e instalou em um repositório de teste. Se você ainda não concluiu as etapas em "[Configurando seu ambiente de desenvolvimento](/apps/quickstart-guides/setting-up-your-development-environment/)", faça isso antes de continuar.
 
-Let's get started! These are the steps you'll complete in Part 1:
+Vamos começar! Estas são as etapas que você concluirá na Parte 1:
 
-1. [Updating app permissions](#step-11-updating-app-permissions)
-1. [Adding event handling](#step-12-adding-event-handling)
-1. [Creating a check run](#step-13-creating-a-check-run)
-1. [Updating a check run](#step-14-updating-a-check-run)
+1. [Atualizar as permissões de aplicativo](#step-11-updating-app-permissions)
+1. [Adicionar manipulação de evento](#step-12-adding-event-handling)
+1. [Criar uma execução de verificação](#step-13-creating-a-check-run)
+1. [Atualizar a execução de verificação](#step-14-updating-a-check-run)
 
-## Step 1.1. Updating app permissions
+## Etapa 1.1. Atualizar as permissões do aplicativo
 
-When you [first registered your app](#prerequisites), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read and write checks.
+Quando você [registrou seu aplicativo pela primeira vez](#prerequisites), aceitou as permissões padrão, o que significa que o aplicativo não tem acesso à maioria dos recursos. Para este exemplo, seu aplicativo precisará de permissão para ler e gravar verificações.
 
-To update your app's permissions:
+Para atualizar as permissões do aplicativo:
 
-1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
-1. In the "Permissions" section, find "Checks", and select **Read & write** in the Access dropdown next to it.
-1. In the "Subscribe to events" section, select **Check suite** and **Check run** to subscribe to these events.
+1. Selecione seu aplicativo na [página de configurações do aplicativo](https://github.com/settings/apps) e clique em **Permissões e Webhooks** na barra lateral.
+1. Na seção "Permissões", localize "Verificações" e selecione **Leitura e gravação** na lista suspensa de Acesso que está ao lado.
+1. Na seção "Assinar eventos", selecione **Verificar conjunto** e **Verificar execução** para assinar esses eventos.
 {% data reusables.apps.accept_new_permissions_steps %}
 
-Great! Your app has permission to do the tasks you want it to do. Now you can add the code to handle the events.
+Ótimo! Seu aplicativo tem permissão para realizar as tarefas que você deseja que ele realize. Agora você pode adicionar o código para gerenciar os eventos.
 
-## Step 1.2. Adding event handling
+## Etapa 1.2. Adicionar manipulação de evento
 
-Now that your app is subscribed to the **Check suite** and **Check run** events, it will start receiving the [`check_suite`](/webhooks/event-payloads/#check_suite) and [`check_run`](/webhooks/event-payloads/#check_run) webhooks. GitHub sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost/event_handler:3000`, your server will receive the `POST` request payloads at the `post '/event_handler'` route.
+Agora que o aplicativo está inscrito nos eventos **Verificar conjunto** e **Verificar execução**, ele começará a receber os webhooks [`check_suite`](/webhooks/event-payloads/#check_suite) e [`check_run`](/webhooks/event-payloads/#check_run). O GitHub envia as cargas de webhook como solicitações `POST`. Como você encaminhou o conteúdo do webhook do Smee para o `http://localhost/event_handler:3000`, o servidor receberá o conteúdo da solicitação `POST` na rota `post '/event_handler'`.
 
-An empty `post '/event_handler'` route is already included in the `template_server.rb` file, which you downloaded in the [prerequisites](#prerequisites) section. The empty route looks like this:
+Uma rota `post '/event_handler'` vazia já está incluída no arquivo `template_server.rb`, que você baixou na seção [Pré-requisitos](#prerequisites). O encaminhamento vazio tem a seguinte forma:
 
 ``` ruby
   post '/event_handler' do
@@ -116,7 +122,7 @@ An empty `post '/event_handler'` route is already included in the `template_serv
   end
 ```
 
-Use this route to handle the `check_suite` event by adding the following code:
+Use essa rota para tratar o evento `check_suite` adicionando o seguinte código:
 
 ``` ruby
 # Get the event type from the HTTP_X_GITHUB_EVENT header
@@ -129,13 +135,13 @@ when 'check_suite'
 end
 ```
 
-Every event that GitHub sends includes a request header called `HTTP_X_GITHUB_EVENT`, which indicates the type of event in the `POST` request. Right now, you're only interested in events of type `check_suite`, which are emitted when a new check suite is created. Each event has an additional `action` field that indicates the type of action that triggered the events. For `check_suite`, the `action` field can be `requested`, `rerequested`, or `completed`.
+Cada evento enviado pelo GitHub inclui um cabeçalho de solicitação chamado `HTTP_X_GITHUB_EVENT`, que indica o tipo de evento na solicitação `POST`. Nesse momento, você só está interessado em eventos do tipo `check_suite`, que são emitidos quando um novo conjunto de verificação é criado. Cada evento tem um campo `action` adicional que indica o tipo de ação que disparou os eventos. Para `check_suite`, o campo `action` pode ser `requested`, `rerequested` ou `completed`.
 
-The `requested` action requests a check run each time code is pushed to the repository, while the `rerequested` action requests that you re-run a check for code that already exists in the repository. Because both the `requested` and `rerequested` actions require creating a check run, you'll call a helper called `create_check_run`. Let's write that method now.
+A ação `requested` solicita uma execução de verificação sempre que o código é enviado por push para o repositório, e a ação `rerequested` solicita que você execute novamente uma verificação do código que já está no repositório. Como as ações `requested` e `rerequested` exigem a criação de uma execução de verificação, você chamará um auxiliar com o nome `create_check_run`. Vamos escrever esse método agora.
 
-## Step 1.3. Creating a check run
+## Etapa 1.3. Criar uma execução de verificação
 
-You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
+Você adicionará esse novo método como [auxiliar do Sinatra](https://github.com/sinatra/sinatra#helpers) caso queira que outras rotas também o usem. Em `helpers do`, adicione este método `create_check_run`:
 
 ``` ruby
 # Create a new check run with the status queued
@@ -154,17 +160,17 @@ def create_check_run
 end
 ```
 
-This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the [create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
+Esse código chama o ponto de extremidade "[Criar uma execução de verificação](/rest/reference/checks#create-a-check-run)" usando o [método create_check_run](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
 
-To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
+Para criar uma execução de verificação, apenas dois parâmetros de entrada são necessários: `name` e `head_sha`. Usaremos o [RuboCop](https://rubocop.readthedocs.io/en/latest/) para implementar o teste de CI mais adiante neste início rápido e é por isso que o nome "Octo RuboCop" é usado aqui, mas você pode escolher qualquer nome que desejar para a execução de verificação.
 
-You're only supplying the required parameters now to get the basic functionality working, but you'll update the check run later as you collect more information about the check run. By default, GitHub sets the `status` to `queued`.
+Você só está fornecendo os parâmetros necessários agora para que a funcionalidade básica funcione, mas você irá atualizar a verificação de execução posteriormente enquanto coleta mais informações sobre a verificação de execução. Por padrão, o GitHub define `status` como `queued`.
 
-GitHub creates a check run for a specific commit SHA, which is why `head_sha` is a required parameter. You can find the commit SHA in the webhook payload. Although you're only creating a check run for the `check_suite` event right now, it's good to know that the `head_sha` is included in both the `check_suite` and `check_run` objects in the event payloads.
+O GitHub cria uma execução de verificação para uma SHA de commit específica e é por isso que `head_sha` é um parâmetro necessário. Você pode encontrar commit SHA na carga do webhook. Embora você esteja apenas criando uma execução de verificação para o evento `check_suite` no momento, é bom saber que o `head_sha` está incluído nos objetos `check_suite` e `check_run` na carga do evento.
 
-In the code above, you're using the [ternary operator](https://ruby-doc.org/core-2.3.0/doc/syntax/control_expressions_rdoc.html#label-Ternary+if), which works like an `if/else` statement, to check if the payload contains a `check_run` object. If it does, you read the `head_sha` from the `check_run` object, otherwise you read it from the `check_suite` object.
+No código acima, você está usando o [operador ternário](https://ruby-doc.org/core-2.3.0/doc/syntax/control_expressions_rdoc.html#label-Ternary+if), que funciona como uma instrução `if/else`, para verificar se o conteúdo contém um objeto `check_run`. Se isso acontecer, você lerá o `head_sha` do objeto `check_run`, caso contrário, você o lerá do objeto `check_suite`.
 
-To test this code, restart the server from your terminal:
+Para testar esse código, reinicie o servidor a partir do seu terminal:
 
 ```shell
 $ ruby template_server.rb
@@ -172,21 +178,21 @@ $ ruby template_server.rb
 
 {% data reusables.apps.sinatra_restart_instructions %}
 
-Now open a pull request in the repository where you installed your app. Your app should respond by creating a check run on your pull request. Click on the **Checks** tab, and you should see something like this:
+Agora abra um pull request no repositório em que você instalou seu aplicativo. Seu aplicativo deve responder, criando uma verificação executada em seu pull request. Clique na guia **Verificações** e você verá algo assim:
 
-![Queued check run](/assets/images/github-apps/github_apps_queued_check_run.png)
+![Execução de verificação enfileirada](/assets/images/github-apps/github_apps_queued_check_run.png)
 
-If you see other apps in the Checks tab, it means you have other apps installed on your repository that have **Read & write** access to checks and are subscribed to **Check suite** and **Check run** events.
+Se você vir outros aplicativos na guia Verificações, significa que você tem outros aplicativos instalados em seu repositório que têm acesso de **Leitura e gravação** às verificações e que estão inscritos nos eventos **Verificar conjunto** e **Verificar execução**.
 
-Great! You've told GitHub to create a check run. You can see the check run status is set to `queued` next to a yellow icon. Next, you'll want to wait for GitHub to create the check run and update its status.
+Ótimo! Você disse ao GitHub para criar uma execução de verificação. Veja que o status de execução de verificação está definido como `queued` ao lado de um ícone amarelo. Em seguida, você irá aguardar que o GitHub crie a execução de verificação e atualize seu status.
 
-## Step 1.4. Updating a check run
+## Etapa 1.4. Atualizar a execução de verificação
 
-When your `create_check_run` method runs, it asks GitHub to create a new check run. When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
+Quando o método `create_check_run` é executado, ele solicita que GitHub crie uma execução de verificação. Quando o GitHub terminar de criar a execução de verificação, você receberá o evento de webhook `check_run` com a ação `created`. Esse evento é o sinal para começar a executar a verificação.
 
-You'll want to update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on GitHub by clicking the "Re-run" button, GitHub sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll want to start the process all over and create a new check run.
+É interessante atualizar o manipulador de eventos para procurar a ação `created`. Enquanto estiver atualizando o manipulador de eventos, você pode adicionar uma condição para a ação `rerequested`. Quando alguém executa novamente um único teste no GitHub clicando no botão "Executar novamente", o GitHub envia o evento de execução de verificação `rerequested` para seu aplicativo. Quando uma execução de verificação for `rerequested`, você reiniciará o processo e criará uma execução de verificação.
 
-To include a condition for the `check_run` event in the `post '/event_handler'` route, add the following code under `case request.env['HTTP_X_GITHUB_EVENT']`:
+Para incluir uma condição para o evento `check_run` na rota `post '/event_handler'`, adicione o seguinte código em `case request.env['HTTP_X_GITHUB_EVENT']`:
 
 ``` ruby
 when 'check_run'
@@ -201,13 +207,13 @@ when 'check_run'
   end
 ```
 
-GitHub sends all events for `created` check runs to every app installed on a repository that has the necessary checks permissions. That means that your app will receive check runs created by other apps. A `created` check run is a little different from a `requested` or `rerequested` check suite, which GitHub sends only to apps that are being requested to run a check. The code above looks for the check run's application ID. This filters out all check runs for other apps on the repository.
+O GitHub envia todos os eventos para execuções de verificação `created` para cada aplicativo instalado em um repositório que tenha as permissões de verificação necessárias. Isso significa que seu aplicativo receberá uma verificação que será executada por outros aplicativos. Uma execução de verificação `created` é um pouco diferente de um conjunto de verificação `requested` ou `rerequested`, que o GitHub envia apenas para aplicativos que estão sendo solicitados a executar uma verificação. O código acima procura o ID do aplicativo da execução de verificação. Isto filtra todas as execuções de verificação de outros aplicativos no repositório.
 
-Next you'll write the `initiate_check_run` method, which is where you'll update the check run status and prepare to kick off your CI test.
+Em seguida, você escreverá o método `initiate_check_run`, que é o local em que você atualizará o status da execução de verificação e se preparará para iniciar o teste de CI.
 
-In this section, you're not going to kick off the CI test yet, but you'll walk through how to update the status of the check run from `queued` to `pending` and then from `pending` to `completed` to see the overall flow of a check run. In "[Part 2: Creating the Octo RuboCop CI test](#part-2-creating-the-octo-rubocop-ci-test)," you'll add the code that actually performs the CI test.
+Nesta seção, você ainda não iniciará o teste de CI, mas examinará como atualizar o status da execução de verificação de `queued` para `pending` e depois de `pending` para `completed` para ver o fluxo geral de uma execução de verificação. Na "[Parte 2: Criando o teste de CI do Octo RuboCop](#part-2-creating-the-octo-rubocop-ci-test)", você adicionará o código que realmente executará o teste de CI.
 
-Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
+Vamos criar o método `initiate_check_run` e atualizar o status da execução de verificação. Adicione o seguinte código à seção auxiliar:
 
 ``` ruby
 # Start the CI process
@@ -236,53 +242,53 @@ def initiate_check_run
 end
 ```
 
-The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run) to update the check run that you already created.
+O código acima chama o ponto de extremidade da API "[Atualizar uma execução de verificação](/rest/reference/checks#update-a-check-run)" usando o [método Octokit `update_check_run`](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method) para atualizar a execução de verificação que você já criou.
 
-Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In [Part 2](#part-2-creating-the-octo-rubocop-ci-test) of this quickstart, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
+Veja o que este código está fazendo. Primeiro, ele atualiza o status da execução de verificação para `in_progress` e define implicitamente a hora `started_at` com a hora atual. Na [Parte 2](#part-2-creating-the-octo-rubocop-ci-test) deste início rápido, você adicionará um código que inicia um teste de CI real em `***** RUN A CI TEST *****`. Por enquanto, você sairá da seção como um espaço reservado, para que o código que o segue apenas simule que o processo de CI seja bem-sucedido e todos os testes sejam aprovados. Por fim, o código atualiza o status da execução da verificação novamente para `completed`.
 
-You'll notice in the "[Update a check run](/rest/reference/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
+Você observará nos documentos de "[Atualizar uma execução de verificação](/rest/reference/checks#update-a-check-run)" que, quando você fornece um status `completed`, os parâmetros `conclusion` e `completed_at` são necessários. O `conclusion` resume o resultado de uma execução de verificação e pode ser `success`, `failure`, `neutral`, `cancelled`, `timed_out` ou `action_required`. Você definirá a conclusão como `success`, a hora `completed_at` com a hora atual, e o status como `completed`.
 
-You could also provide more details about what your check is doing, but you'll get to that in the next section. Let's test this code again by re-running `template_server.rb`:
+Você também pode fornecer mais informações sobre o que a sua verificação está fazendo, mas você poderá fazer isso na próxima seção. Vamos testar esse código executando `template_server.rb`novamente:
 
 ```shell
 $ ruby template_server.rb
 ```
 
-Head over to your open pull request and click the **Checks** tab. Click the "Re-run all" button in the upper left corner. You should see the check run move from `pending` to `in_progress` and end with `success`:
+Vá até sua solicitação de pull aberta e clique na guia **Verificações**. Clique no botão "Executar tudo novamente" no canto superior esquerdo. Você verá a execução de verificação passar de `pending` para `in_progress` e terminar com `success`:
 
-![Completed check run](/assets/images/github-apps/github_apps_complete_check_run.png)
+![Execução de verificação concluída](/assets/images/github-apps/github_apps_complete_check_run.png)
 
-## Part 2. Creating the Octo RuboCop CI test
+## Parte 2. Criar o teste de CI do Octo RuboCop
 
-[RuboCop](https://rubocop.readthedocs.io/en/latest/) is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the "[Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide)." RuboCop has three primary functions:
+O [RuboCop](https://rubocop.readthedocs.io/en/latest/) é um formatador e um linter de código Ruby. Ele verifica o código Ruby para garantir que ele esteja em conformidade com o "[Guia de Estilo do Ruby](https://github.com/rubocop-hq/ruby-style-guide)". O RuboCop tem três funções principais:
 
-* Linting to check code style
-* Code formatting
-* Replaces the native Ruby linting capabilities using `ruby -w`
+* Linting para verificação do estilo do código
+* Formatação de código
+* Substitui os recursos nativos de linting do Ruby usando `ruby -w`
 
-Now that you've got the interface created to receive Checks API events and create check runs, you can create a check run that implements a CI test.
+Agora que a interface foi criada para receber eventos da API de verificações e criar execuções de verificação, você pode criar uma execução de verificação que implemente um teste de CI.
 
-Your app will run RuboCop on the CI server and create check runs (CI tests in this case) that report the results that RuboCop reports to GitHub.
+Seu aplicativo irá executar o RuboCop no servidor de CI e irá criar uma execuções de verificação (neste caso, testes de CI), que relatarão os resultados que o RuboCop relata para o GitHub.
 
-The Checks API allows you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
+A API de verificações permite que você relate informações valiosas sobre cada execução de verificação, incluindo status, imagens, resumos, anotações e ações solicitadas.
 
-Annotations are information about specific lines of code in a repository. An annotation allows you to pinpoint and visualize the exact parts of the code you'd like to show additional information for. That information can be anything: for example, a comment, an error, or a warning. This quickstart uses annotations to visualize RuboCop errors.
+As anotações são informações sobre linhas específicas de código em um repositório. Uma anotação permite que você identifique e visualize as partes exatas do código para as quais você gostaria de mostrar informações adicionais. Essas informações podem ser qualquer coisa: por exemplo, um comentário, um erro ou um aviso. Este início rápido usa anotações para visualizar erros no RuboCop.
 
-To take advantage of requested actions, app developers can create buttons in the **Checks** tab of pull requests. When someone clicks one of these buttons, the click sends a `requested_action` `check_run` event to the GitHub App. The action that the app takes is completely configurable by the app developer. This quickstart will walk you through adding a button that allows users to request that RuboCop fix the errors it finds. RuboCop supports automatically fixing errors using a command-line option, and you'll configure the `requested_action` to take advantage of this option.
+Para aproveitar as ações solicitadas, os desenvolvedores de aplicativos podem criar botões na guia **Verificações** das solicitações de pull. Quando alguém clica em um desses botões, o clique envia um evento `requested_action` `check_run` para o Aplicativo do GitHub. A ação tomada pelo aplicativo é completamente configurável pelo desenvolvedor do aplicativo. Este início rápido irá orientá-lo no processo de adição de um botão que permite aos usuários solicitar que o RuboCop corrija os erros que encontrar. O RuboCop dá suporte à correção automática de erros usando uma opção de linha de comando e você configurará a opção `requested_action` para aproveitar essa opção.
 
-Let's get started! These are the steps you'll complete in this section:
+Vamos começar! Estas são as etapas que você concluirá nesta seção:
 
-1. [Adding a Ruby file](#step-21-adding-a-ruby-file)
-1. [Cloning the repository](#step-22-cloning-the-repository)
-1. [Running RuboCop](#step-23-running-rubocop)
-1. [Collecting RuboCop errors](#step-24-collecting-rubocop-errors)
-1. [Updating the check run with CI test results](#step-25-updating-the-check-run-with-ci-test-results)
-1. [Automatically fixing RuboCop errors](#step-26-automatically-fixing-rubocop-errors)
-1. [Security tips](#step-27-security-tips)
+1. [Adicionar um arquivo do Ruby](#step-21-adding-a-ruby-file)
+1. [Clonagem de repositório](#step-22-cloning-the-repository)
+1. [Executar o RuboCop](#step-23-running-rubocop)
+1. [Coletar erros do RuboCop](#step-24-collecting-rubocop-errors)
+1. [Atualizar a execução de verificação com resultados dos testes de CI](#step-25-updating-the-check-run-with-ci-test-results)
+1. [Corrigir erros do RuboCop automaticamente](#step-26-automatically-fixing-rubocop-errors)
+1. [Dicas de segurança](#step-27-security-tips)
 
-## Step 2.1. Adding a Ruby file
+## Etapa 2.1. Adicionar um arquivo do Ruby
 
-You can pass specific files or entire directories for RuboCop to check. In this quickstart, you'll run RuboCop on an entire directory. Because RuboCop only checks Ruby code, you'll want at least one Ruby file in your repository that contains errors. The example file provided below contains a few errors. Add this example Ruby file to the repository where your app is installed (make sure to name the file with an `.rb` extension, as in `myfile.rb`):
+Você pode passar arquivos específicos ou diretórios inteiros para o RuboCop verificar. Nesse início rápido, você irá executar o RuboCop em um diretório inteiro. Como RuboCop verifica apenas códigos Ruby, será necessário pelo menos um arquivo Ruby no seu repositório que contém erros. O arquivo de exemplo fornecido abaixo contém alguns erros. Adicione este arquivo do Ruby de exemplo ao repositório em que seu aplicativo está instalado (nomeie o arquivo com uma extensão `.rb`, como em `myfile.rb`):
 
 ```ruby
 # The Octocat class tells you about different breeds of Octocat
@@ -304,31 +310,31 @@ m = Octocat.new("Mona", "cat", "octopus")
 m.display
 ```
 
-## Step 2.2. Cloning the repository
+## Etapa 2.2. Clonagem de repositório
 
-RuboCop is available as a command-line utility. That means your GitHub App will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem.
+O RuboCop está disponível como um utilitário da linha de comando. Isso significa que o seu aplicativo GitHub deverá clonar uma cópia local do repositório no servidor da CI para que RuboCop possa analisar os arquivos. Para executar operações Git em seu aplicativo Ruby, use a gem [ruby-git](https://github.com/ruby-git/ruby-git).
 
-The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites). To use the gem, add this code to the top of your `template_server.rb` file:
+O `Gemfile` no repositório `building-a-checks-api-ci-server` já inclui a gem ruby-git e você a instalou quando executou `bundle install` nas [etapas de pré-requisito](#prerequisites). Para usar a gem, adicione este código à parte superior do arquivo `template_server.rb`:
 
 ``` ruby
 require 'git'
 ```
 
-Your app needs read permission for "Repository contents" to clone a repository. Later in this quickstart, you'll need to push contents to GitHub, which requires write permission. Go ahead and set your app's "Repository contents" permission to **Read & write** now so you don't need to update it again later. To update your app's permissions:
+Seu aplicativo deve permissão de leitura para "Conteúdo do repositório" para clonar um repositório. Mais adiante neste início rápido, você deverá fazer push de conteúdo para o GitHub, o que exige permissão de gravação. Defina a permissão "Conteúdo do repositório" do seu aplicativo como **Leitura e gravação** agora para que você não precise atualizá-lo novamente mais tarde. Para atualizar as permissões do aplicativo:
 
-1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
-1. In the "Permissions" section, find "Repository contents", and select **Read & write** in the "Access" dropdown next to it.
+1. Selecione seu aplicativo na [página de configurações do aplicativo](https://github.com/settings/apps) e clique em **Permissões e Webhooks** na barra lateral.
+1. Na seção "Permissões", localize "Conteúdo do repositório" e selecione **Leitura e gravação** na lista suspensa "Acesso" ao lado.
 {% data reusables.apps.accept_new_permissions_steps %}
 
-To clone a repository using your GitHub App's permissions, you can use the app's installation token (`x-access-token:<token>`) shown in the example below:
+Para clonar um repositório usando as permissões do Aplicativo do GitHub, você pode usar o token de instalação do aplicativo (`x-access-token:<token>`) mostrado no exemplo abaixo:
 
 ```shell
 git clone https://x-access-token:<token>@github.com/<owner>/<repo>.git
 ```
 
-The code above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
+O código acima clone um repositório por HTTP. Isto exige o nome completo do repositório, que inclui o proprietário do repositório (usuário ou organização) e o nome do repositório. Por exemplo, o repositório [octocat Hello-World](https://github.com/octocat/Hello-World) tem o nome completo `octocat/hello-world`.
 
-After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. Add the following new method to the helper method section in `template_server.rb`:
+Depois que seu aplicativo clonar o repositório, ele precisará efetuar pull das alterações de código mais recentes e fazer check-out de um ref do Git específico. O código para fazer tudo isso se ajustará perfeitamente ao seu próprio método. Para realizar essas operações, o método precisa do nome e nome completo do repositório e que o ref faça checkout. O ref pode ser um commit SHA, branch ou tag. Adicione o seguinte novo método à seção de método auxiliar em `template_server.rb`:
 
 ``` ruby
 # Clones the repository to the current working directory, updates the
@@ -347,11 +353,11 @@ def clone_repository(full_repo_name, repository, ref)
 end
 ```
 
-The code above uses the `ruby-git` gem to clone the repository using the app's installation token. This code clones the code in the same directory as `template_server.rb`. To run Git commands in the repository, the code needs to change into the repository directory. Before changing directories, the code stores the current working directory in a variable (`pwd`) to remember where to return before exiting the `clone_repository` method.
+O código acima usa a gem `ruby-git` para clonar o repositório usando o token de instalação do aplicativo. Esse código clona o código no mesmo diretório que `template_server.rb`. Para executar comandos Git no repositório, o código deve alterar para o diretório do repositório. Antes de alterar os diretórios, o código armazena o diretório de trabalho atual em uma variável (`pwd`) para lembrar o local para retornar antes de sair do método `clone_repository`.
 
-From the repository directory, this code fetches and merges the latest changes (`@git.pull`), checks out the ref (`@git.checkout(ref)`), then changes the directory back to the original working directory (`pwd`).
+No diretório do repositório, esse código busca e mescla as alterações mais recentes (`@git.pull`), faz check-out do ref (`@git.checkout(ref)`) e altera o diretório de volta para o diretório de trabalho original (`pwd`).
 
-Now you've got a method that clones a repository and checks out a ref. Next, you need to add code to get the required input parameters and call the new `clone_repository` method. Add the following code under the `***** RUN A CI TEST *****` comment in your `initiate_check_run` helper method:
+Agora você tem um método que clona um repositório e faz check-out de um ref. Em seguida, você precisa adicionar código para obter os parâmetros de entrada necessários e chamar o novo método `clone_repository`. Adicione o seguinte código sob o comentário `***** RUN A CI TEST *****` em seu método auxiliar `initiate_check_run`:
 
 ``` ruby
 # ***** RUN A CI TEST *****
@@ -362,13 +368,13 @@ head_sha       = @payload['check_run']['head_sha']
 clone_repository(full_repo_name, repository, head_sha)
 ```
 
-The code above gets the full repository name and the head SHA of the commit from the `check_run` webhook payload.
+O código acima obtém o nome completo do repositório e o SHA principal do commit do conteúdo do webhook `check_run`.
 
-## Step 2.3. Running RuboCop
+## Etapa 2.3. Executar o RuboCop
 
-Great! You're cloning the repository and creating check runs using your CI server. Now you'll get into the nitty gritty details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
+Ótimo! Você está clonando o repositório e criando execuções de verificação usando seu servidor de CI. Agora você entrará no âmago dos detalhes do [linter do RuboCop](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) e das [anotações da API de Verificações](/rest/reference/checks#create-a-check-run).
 
-The following code runs RuboCop and saves the style code errors in JSON format. Add this code below the call to `clone_repository` you added in the [previous step](#step-22-cloning-the-repository) and above the code that updates the check run to complete.
+O código a seguir executa RuboCop e salva os erros do código de estilo no formato JSON. Adicione este código abaixo da chamada ao `clone_repository` que você adicionou na [etapa anterior](#step-22-cloning-the-repository) e acima do código que atualiza a execução de verificação para concluir.
 
 ``` ruby
 # Run RuboCop on all files in the repository
@@ -378,23 +384,23 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-The code above runs RuboCop on all files in the repository's directory. The option `--format json` is a handy way to save a copy of the linting results in a machine-parsable format. See the [RuboCop docs](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) for details and an example of the JSON format.
+O código acima executa o RuboCop em todos os arquivos no diretório do repositório. A opção `--format json` é uma forma útil de salvar uma cópia dos resultados do linting em um formato que possa ser analisado pelo computador. Confira os [documentos do RuboCop](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) para obter detalhes e um exemplo do formato JSON.
 
-Because this code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository. This code also parses the JSON so you can easily access the keys and values in your GitHub App using the `@output` variable.
+Como esse código armazena os resultados do RuboCop em uma variável `@report`, ele pode remover com segurança o check-out do repositório. Esse código também analisa o JSON para que você possa acessar facilmente as chaves e os valores em seu Aplicativo do GitHub usando a variável `@output`.
 
 {% note %}
 
-**Note:** The command used to remove the repository (`rm -rf`) cannot be undone. See [Step 2.7. Security tips](#step-27-security-tips) to learn how to check webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. 😱 If for some reason you're _not_ using the method `verify_webhook_signature` (which is included in `template_server.rb`) to validate the sender of the webhook, make sure you check that the repository name is valid.
+**Observação:** o comando usado para remover o repositório (`rm -rf`) não pode ser desfeito. Confira [Etapa 2.7. Dicas de segurança](#step-27-security-tips) para saber como verificar webhooks de comandos maliciosos injetados que podem ser usados para remover um diretório diferente do que era pretendido pelo seu aplicativo. Por exemplo, se um ator malicioso enviasse um webhook com o nome de repositório `./`, seu aplicativo removeria o diretório raiz. 😱 Se por algum motivo você _não_ estiver usando o método `verify_webhook_signature` (que está incluído no `template_server.rb`) para validar o remetente do webhook, verifique se o nome do repositório é válido.
 
 {% endnote %}
 
-You can test that this code works and see the errors reported by RuboCop in your server's debug output. Start up the `template_server.rb` server again and create a new pull request in the repository where you're testing your app:
+Você pode testar se este código funciona e ver os erros relatados pelo RuboCop na saída de depuração do seu servidor. Reinicie o servidor `template_server.rb` e crie uma solicitação de pull no repositório em que você está testando seu aplicativo:
 
 ```shell
 $ ruby template_server.rb
 ```
 
-You should see the linting errors in the debug output, although they aren't printed with formatting. You can use a web tool like [JSON formatter](https://jsonformatter.org/) to format your JSON output like this formatted linting error output:
+Você deve ver os erros de linting na saída de depuração, embora não sejam impressos com a formatação. Você pode usar uma ferramenta da Web como o [formatador JSON](https://jsonformatter.org/) para formatar a saída JSON como esta saída de erro do linting formatada:
 
 ```json
 {
@@ -450,17 +456,17 @@ You should see the linting errors in the debug output, although they aren't prin
 }
 ```
 
-## Step 2.4. Collecting RuboCop errors
+## Etapa 2.4. Coletar erros do RuboCop
 
-The `@output` variable contains the parsed JSON results of the RuboCop report. As shown above, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
+A variável `@output` contém os resultados JSON analisados do relatório do RuboCop. Conforme mostrado acima, os resultados contêm uma seção `summary` que seu código pode usar para determinar rapidamente se há erros. O código a seguir definirá a conclusão da execução de verificação como `success` quando não houver erros relatados. O RuboCop relata erros para cada arquivo na matriz `files`, portanto, se houver erros, você precisará extrair alguns dados do objeto de arquivo.
 
-The Checks API allows you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this quickstart you are [updating the check run](/rest/reference/checks#update-a-check-run) with annotations.
+A API de verificação permite que você crie anotações para linhas específicas do código. Ao criar ou atualizar uma execução de verificação, você pode adicionar anotações. Neste início rápido, você está [atualizando a execução de verificação](/rest/reference/checks#update-a-check-run) com anotações.
 
-The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint three times. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
+A API de verificação limita o número de anotações a um máximo de 50 por solicitação de API. Para criar mais de 50 anotações, você precisa fazer várias solicitações para o ponto de extremidade [Atualizar uma execução de verificação](/rest/reference/checks#update-a-check-run). Por exemplo, para criar 105 anotações, você precisará chamar o ponto de extremidade [Atualizar uma execução de verificação](/rest/reference/checks#update-a-check-run) três vezes. Cada uma das duas primeiras solicitações teria 50 anotações e a terceira solicitação incluiria as cinco anotações restantes. Cada vez que você atualizar a execução de verificação, as anotações são anexadas à lista de anotações que já existem para a execução de verificação.
 
-A check run expects annotations as an array of objects. Each annotation object must include the `path`, `start_line`, `end_line`, `annotation_level`, and `message`. RuboCop provides the `start_column` and `end_column` too, so you can include those optional parameters in the annotation. Annotations only support `start_column` and `end_column` on the same line. See the [`annotations` object](/rest/reference/checks#annotations-object-1) reference documentation for details.
+Uma execução de verificação espera anotações como um array de objetos. Cada objeto de anotação deve incluir o `path`, `start_line`, `end_line`, `annotation_level` e `message`. O RuboCop também fornece o `start_column`e `end_column`, portanto, você pode incluir esses parâmetros opcionais na anotação. As anotações só dão suporte a `start_column` e `end_column` na mesma linha. Confira a documentação de referência do [objeto `annotations`](/rest/reference/checks#annotations-object-1) para obter detalhes.
 
-You'll extract the required information from RuboCop needed to create each annotation. Append the following code to the code you added in the [previous section](#step-23-running-rubocop):
+Você irá extrair as informações necessárias do RuboCop para criar cada anotação. Acrescente o seguinte código ao código adicionado na [seção anterior](#step-23-running-rubocop):
 
 ``` ruby
 annotations = []
@@ -515,21 +521,21 @@ else
 end
 ```
 
-This code limits the total number of annotations to 50. But you can modify this code to update the check run for each batch of 50 annotations. The code above includes the variable `max_annotations` that sets the limit to 50, which is used in the loop that iterates through the offenses.
+Este código limita o número total de anotações a 50. Mas você pode modificar este código para atualizar a verificação de execução para cada lote de 50 anotações. O código acima inclui a variável `max_annotations` que define o limite como 50, que é usado no loop que itera nas ofensas.
 
-When the `offense_count` is zero, the CI test is a `success`. If there are errors, this code sets the conclusion to `neutral` in order to prevent strictly enforcing errors from code linters. But you can change the conclusion to `failure` if you would like to ensure that the check suite fails when there are linting errors.
+Quando a `offense_count` é zero, o teste de CI é um `success`. Se houver erros, esse código definirá a conclusão como `neutral` para evitar a imposição estrita de erros de linters de código. Mas você pode alterar a conclusão para `failure` se quiser garantir que o conjunto de verificação falhe quando houver erros de linting.
 
-When errors are reported, the code above iterates through the `files` array in the RuboCop report. For each file, it extracts the file path and sets the annotation level to `notice`. You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
+Quando erros são relatados, o código acima itera na matriz `files` no relatório do RuboCop. Para cada arquivo, ele extrai o caminho do arquivo e define o nível de anotação como `notice`. Você pode ir ainda mais adiante e definir níveis de aviso específicos para cada tipo de [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), mas para manter as coisas mais simples neste início rápido, todos os erros são definidos como um nível de `notice`.
 
-This code also iterates through each error in the `offenses` array and collects the location of the offense and error message. After extracting the information needed, the code creates an annotation for each error and stores it in the `annotations` array. Because annotations only support start and end columns on the same line, `start_column` and `end_column` are only added to the `annotation` object if the start and end line values are the same.
+Esse código também itera em cada erro na matriz de `offenses` e coleta o local da mensagem de erro e ofensa. Depois de extrair as informações necessárias, o código cria uma anotação para cada erro e as armazena na matriz `annotations`. Como as anotações só dão suporte a colunas de início e fim na mesma linha, `start_column`e `end_column` só são adicionadas ao objeto `annotation` se os valores de linha inicial e final forem os mesmos.
 
-This code doesn't yet create an annotation for the check run. You'll add that code in the next section.
+Esse código ainda não cria uma anotação para a execução de verificação. Você irá adicionar esse código na próxima seção.
 
-## Step 2.5. Updating the check run with CI test results
+## Etapa 2.5. Atualizar a execução de verificação com resultados dos testes de CI
 
-Each check run from GitHub contains an `output` object that includes a `title`, `summary`, `text`, `annotations`, and `images`. The `summary` and `title` are the only required parameters for the `output`, but those alone don't offer much detail, so this quickstart adds `text` and `annotations` too. The code here doesn't add an image, but feel free to add one if you'd like!
+Cada execução de verificação do GitHub contém um objeto `output` que inclui um `title`, `summary`, `text`, `annotations` e `images`. Os parâmetros `summary` e `title` são os únicos necessários para o `output`, mas estes sozinhos não oferecem muitos detalhes, portanto, este início rápido também adiciona o `text` e `annotations`. Aqui, o código não adiciona uma imagem, mas sinta-se à vontade para adicionar uma, se desejar!
 
-For the `summary`, this example uses the summary information from RuboCop and adds some newlines (`\n`) to format the output. You can customize what you add to the `text` parameter, but this example sets the `text` parameter to the RuboCop version. To set the `summary` and `text`, append this code to the code you added in the [previous section](#step-24-collecting-rubocop-errors):
+Para o `summary`, este exemplo usa as informações de resumo do RuboCop e adiciona algumas linhas novas (`\n`) para formatar a saída. Você pode personalizar o que adicionar ao parâmetro `text`, mas este exemplo define o parâmetro `text` com a versão do RuboCop. Para definir `summary` e `text`, acrescente esse código ao código que você adicionou na [seção anterior](#step-24-collecting-rubocop-errors):
 
 ``` ruby
 # Updated check run summary and text parameters
@@ -537,7 +543,7 @@ summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_c
 text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 ```
 
-Now you've got all the information you need to update your check run. In the [first half of this quickstart](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
+Agora você tem todas as informações de que precisa para atualizar sua execução de verificação. Na [primeira metade deste início rápido](#step-14-updating-a-check-run), você adicionou este código para definir o status da execução de verificação como `success`:
 
 ``` ruby
 # Mark the check run as complete!
@@ -550,7 +556,7 @@ Now you've got all the information you need to update your check run. In the [fi
 )
 ```
 
-You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). You can update the code with the following:
+Você precisará atualizar esse código para usar a variável `conclusion` definida com base nos resultados do RuboCop (para `success` ou `neutral`). Você pode atualizar o código com o seguinte:
 
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
@@ -574,48 +580,48 @@ You'll need to update that code to use the `conclusion` variable you set based o
 )
 ```
 
-Now that you're setting a conclusion based on the status of the CI test and you've added the output from the RuboCop results, you've created a CI test! Congratulations. 🙌
+Agora que você está definindo uma conclusão com base no status do teste CI e que você adicionou a saída dos resultados do RuboCop, você criou um teste de CI! Parabéns. 🙌
 
-The code above also adds a feature to your CI server called [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) via the `actions` object. {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}Requested actions add a button in the **Checks** tab on GitHub that allows someone to request the check run to take additional action. The additional action is completely configurable by your app. For example, because RuboCop has a feature to automatically fix the errors it finds in Ruby code, your CI server can use a requested actions button to allow people to request automatic error fixes. When someone clicks the button, the app receives the `check_run` event with a `requested_action` action. Each requested action has an `identifier` that the app uses to determine which button was clicked.
+O código acima também adiciona um recurso ao servidor de CI chamado [ações solicitadas](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) por meio do objeto `actions`. {% ifversion fpt or ghec %}(Observe que isso não está relacionado ao [GitHub Actions](/actions)). {% endif %} As ações solicitadas adicionam um botão na guia **Verificações** no GitHub, que permite que alguém solicite que a execução de verificação realize uma ação adicional. A ação adicional é completamente configurável pelo seu aplicativo. Por exemplo, uma vez que o RuboCop tem um recurso para corrigir automaticamente os erros que encontra no código Ruby, seu servidor de CI pode usar um botão de ações solicitadas para permitir que as pessoas solicitem correções automáticas de erros. Quando alguém clica no botão, o aplicativo recebe o evento `check_run` com uma ação `requested_action`. Cada ação solicitada tem um `identifier` que o aplicativo usa para determinar qual botão foi clicado.
 
-The code above doesn't have RuboCop automatically fix errors yet. You'll add that in the next section. But first, take a look at the CI test that you just created by starting up the `template_server.rb` server again and creating a new pull request:
+O código acima ainda não exige que o RuboCop corrija erros automaticamente. Você irá adicionar isso na próxima seção. Mas primeiro, dê uma olhada no teste de CI que você acabou de criar reiniciando o servidor `template_server.rb` e criando uma solicitação de pull:
 
 ```shell
 $ ruby template_server.rb
 ```
 
-The annotations will show up in the **Checks** tab.
+As anotações aparecerão na guia **Verificações**.
 
-![Check run annotations in the checks tab](/assets/images/github-apps/github_apps_checks_annotations.png)
+![Anotações da execução de verificação na aba verificações](/assets/images/github-apps/github_apps_checks_annotations.png)
 
-Notice the "Fix this" button that you created by adding a requested action.
+Observe o botão "Corrija isso" que você criou ao adicionar uma ação solicitada.
 
-![Check run requested action button](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
+![Botão de ação solicitada de execução de verificação](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
 
-If the annotations are related to a file already included in the PR, the annotations will also show up in the **Files changed** tab.
+Se as anotações estiverem relacionadas a um arquivo já incluído na PR, as anotações também aparecerão na guia **Arquivos alterados**.
 
-![Check run annotations in the files changed tab](/assets/images/github-apps/github_apps_checks_annotation_diff.png)
+![Anotações da execução de verificação na aba Arquivos alterados](/assets/images/github-apps/github_apps_checks_annotation_diff.png)
 
-## Step 2.6. Automatically fixing RuboCop errors
+## Etapa 2.6. Corrigir erros do RuboCop automaticamente
 
-If you've made it this far, kudos! 👏 You've already created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in the [previous section](#step-25-updating-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event triggered when someone clicks the "Fix this" button.
+Se você chegou até aqui, parabéns! 👏 Você já criou um teste de CI. Nesta seção, você irá adicionar mais um recurso que usa RuboCop para corrigir automaticamente os erros que encontra. Você já adicionou o botão "Corrigir isso" na [seção anterior](#step-25-updating-the-check-run-with-ci-test-results). Agora você adicionará o código para manipular o evento de execução de verificação `requested_action` que é disparado quando alguém clicar no botão "Corrigir isso".
 
-The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to GitHub after RuboCop does its magic.
+A ferramenta RuboCop [oferece](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) a opção `--auto-correct` de linha de comando para corrigir automaticamente os erros encontrados. Quando você usa o recurso `--auto-correct`, as atualizações são aplicadas aos arquivos locais no servidor. Você deverá fazer push das alterações no GitHub depois que o RuboCop fizer sua mágica.
 
-To push to a repository, your app must have write permissions for "Repository contents." You set that permission back in [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) to **Read & write**, so you're all set.
+Para fazer push para um repositório, seu aplicativo deve ter permissões de "conteúdo do repositório". Você define essa permissão de volta na [Etapa 2.2. Clonando o repositório](#step-22-cloning-the-repository) para **Leitura e gravação**, para deixar tudo pronto.
 
-In order to commit files, Git must know which [username](/github/getting-started-with-github/setting-your-username-in-git/) and [email](/articles/setting-your-commit-email-address-in-git/) to associate with the commit. Add two more environment variables in your `.env` file to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) settings. Your name can be the name of your app and the email can be any email you'd like for this example. For example:
+Para fazer commit dos arquivos, o Git deve saber qual [nome de usuário](/github/getting-started-with-github/setting-your-username-in-git/) e [email](/articles/setting-your-commit-email-address-in-git/) associar ao commit. Adicione mais duas variáveis de ambiente em seu arquivo `.env` para armazenar as configurações de nome (`GITHUB_APP_USER_NAME`) e email (`GITHUB_APP_USER_EMAIL`). Seu nome pode ser o nome do seu aplicativo e o e-mail pode ser qualquer e-mail que desejar para este exemplo. Por exemplo:
 
 ```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```
 
-Once you've updated your `.env` file with the name and email of the author and committer, you'll be ready to add code to read the environment variables and set the Git configuration. You'll add that code soon.
+Depois de atualizar o arquivo `.env` com o nome e o email do autor e do committer, você estará pronto para adicionar código para ler as variáveis de ambiente e definir a configuração do Git. Você irá adicionar esse código em breve.
 
-When someone clicks the "Fix this" button, your app receives the [check run webhook](/webhooks/event-payloads/#check_run) with the `requested_action` action type.
+Quando alguém clica no botão "Corrigir isso", seu aplicativo recebe o [webhook de execução de verificação](/webhooks/event-payloads/#check_run) com o tipo de ação `requested_action`.
 
-In [Step 1.4. Updating a check run](#step-14-updating-a-check-run) you updated the your `event_handler` to handle look for actions in the `check_run` event. You already have a case statement to handle the `created` and `rerequested` action types:
+Na [Etapa 1.4. Atualizando uma execução de verificação](#step-14-updating-a-check-run), você atualizou seu `event_handler` para lidar com a procura de ações no evento `check_run`. Você já tem uma instrução case para lidar com os tipos de ação `created` e `rerequested`:
 
 ``` ruby
 when 'check_run'
@@ -630,14 +636,14 @@ when 'check_run'
 end
 ```
 
-Add another `when` statement after the `rerequested` case to handle the `rerequested_action` event:
+Adicione outra instrução `when` após o caso `rerequested` para manipular o evento `rerequested_action`:
 
 ``` ruby
 when 'requested_action'
   take_requested_action
 ```
 
-This code calls a new method that will handle all `requested_action` events for your app. Add the following method to the helper methods section of your code:
+Esse código chama um novo método que manipulará todos os eventos `requested_action` para seu aplicativo. Adicione o seguinte método à seção de métodos auxiliares do seu código:
 
 ``` ruby
 # Handles the check run `requested_action` event
@@ -672,11 +678,11 @@ def take_requested_action
 end
 ```
 
-The code above clones a repository just like the code you added in [Step 2.2. Cloning the repository](#step-22-cloning-the-repository). An `if` statement checks that the requested action's identifier matches the RuboCop button identifier (`fix_rubocop_notices`). When they match, the code clones the repository, sets the Git username and email, and runs RuboCop with the option `--auto-correct`. The `--auto-correct` option applies the changes to the local CI server files automatically.
+O código acima clona um repositório, assim como o código que você adicionou na [Etapa 2.2. Clonando o repositório](#step-22-cloning-the-repository). Uma instrução `if` verifica se o identificador da ação solicitada corresponde ao identificador do botão do RuboCop (`fix_rubocop_notices`). Quando eles correspondem, o código clona o repositório, define o nome de usuário e o email do Git e executa o RuboCop com a opção `--auto-correct`. A opção `--auto-correct` aplica as alterações aos arquivos do servidor de CI local automaticamente.
 
-The files are changed locally, but you'll still need to push them to GitHub. You'll use the handy `ruby-git` gem again to commit all of the files. Git has a single command that stages all modified or deleted files and commits them: `git commit -a`. To do the same thing using `ruby-git`, the code above uses the `commit_all` method. Then the code pushes the committed files to GitHub using the installation token, using the same authentication method as the Git `clone` command. Finally, it removes the repository directory to ensure the working directory is prepared for the next event.
+Os arquivos são alterados localmente, mas você ainda deverá enviá-los para o GitHub. Você usará a gem útil `ruby-git` novamente para fazer commit de todos os arquivos. O Git tem um único comando que prepara todos os arquivos modificados ou excluídos e faz o commit deles: `git commit -a`. Para fazer a mesma coisa usando `ruby-git`, o código acima usa o método `commit_all`. Em seguida, o código envia por push os arquivos do commit para o GitHub usando o token de instalação, usando o mesmo método de autenticação que o comando do Git `clone`. Por fim, ele remove o diretório do repositório para garantir que o diretório de trabalho seja preparado para o próximo evento.
 
-That's it! The code you have written now completes your Checks API CI server. 💪 Restart your `template_server.rb` server again and create a new pull request:
+É isso! O código que você escreveu agora conclui o servidor de CI da API de verificação. 💪 Reinicie o servidor `template_server.rb` e crie uma solicitação de pull:
 
 ```shell
 $ ruby template_server.rb
@@ -684,21 +690,21 @@ $ ruby template_server.rb
 
 {% data reusables.apps.sinatra_restart_instructions %}
 
-This time, click the "Fix this" button to automatically fix the errors RuboCop found from the **Checks** tab.
+Desta vez, clique no botão "Corrigir isso" para corrigir automaticamente os erros que o RuboCop encontrou na guia **Verificações**.
 
-In the **Commits** tab, you'll see a brand new commit by the username you set in your Git configuration. You may need to refresh your browser to see the update.
+Na guia **Commits**, você verá um commit novinho feito pelo nome de usuário definido na configuração do Git. Talvez seja necessário atualizar seu navegador para ver a atualização.
 
-![A new commit to automatically fix Octo RuboCop notices](/assets/images/github-apps/github_apps_new_requested_action_commit.png)
+![Um novo commit para corrigir as notificações do Octo RuboCop automaticamente](/assets/images/github-apps/github_apps_new_requested_action_commit.png)
 
-Because a new commit was pushed to the repo, you'll see a new check suite for Octo RuboCop in the **Checks** tab. But this time there are no errors because RuboCop fixed them all. 🎉
+Como um novo commit foi enviado por push para o repositório, você verá um novo conjunto de verificação para o Octo RuboCop na guia **Verificações**. Mas, desta vez, não há erros porque o RuboCop corrigiu todos eles. 🎉
 
-![No check suite or check run errors](/assets/images/github-apps/github_apps_checks_api_success.png)
+![Nenhum erro de conjunto de verificação ou de execução de verificação](/assets/images/github-apps/github_apps_checks_api_success.png)
 
-You can find the completed code for the app you just built in the `server.rb` file in the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
+Encontre o código concluído para o aplicativo que acabou de criar no arquivo `server.rb` do repositório [Criar testes de CI com a API de Verificações](https://github.com/github-developer/creating-ci-tests-with-the-checks-api).
 
-## Step 2.7. Security tips
+## Etapa 2.7. Dicas de segurança
 
-The template GitHub App code already has a method to verify incoming webhook payloads to ensure they are from a trusted source. If you are not validating webhook payloads, you'll need to ensure that when repository names are included in the webhook payload, the webhook does not contain arbitrary commands that could be used maliciously. The code below validates that the repository name only contains Latin alphabetic characters, hyphens, and underscores. To provide you with a complete example, the complete `server.rb` code available in the [companion repository](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) for this quickstart includes both the method of validating incoming webhook payloads and this check to verify the repository name.
+O modelo de código do aplicativo GitHub já possui um método para verificar as cargas do webhook de entrada para garantir que sejam de uma fonte confiável. Se você não estiver validando as cargas do webhook, você deverá garantir que, quando nomes do repositório estiverem incluídos na carga do webhook, este não conterá comandos arbitrários que possam ser usados maliciosamente. O código abaixo valida que o nome do repositório contém apenas caracteres alfabéticos latinos, hifens e sublinhados. Para fornecer um exemplo completo, o código completo `server.rb` disponível no [repositório complementar](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) deste início rápido inclui o método de validação de conteúdo de webhook de entrada e essa verificação para verificar o nome do repositório.
 
 ``` ruby
 # This quickstart example uses the repository name in the webhook with
@@ -712,43 +718,43 @@ unless @payload['repository'].nil?
 end
 ```
 
-## Troubleshooting
+## Solução de problemas
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
+Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {% data reusables.support.prodname_support_forum_with_url %}.
 
-* **Q:** My app isn't pushing code to GitHub. I don't see the fixes that RuboCop automatically makes!
+* **P:** Meu aplicativo não está enviando código por push para o GitHub. Eu não vejo as correções que o RuboCop faz automaticamente!
 
-    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
+    **R:** Verifique se você tem permissões de **Leitura e gravação** para "Conteúdo do repositório" e se está clonando o repositório com o token de instalação. Confira a [Etapa 2.2. Clonando o repositório](#step-22-cloning-the-repository) para obter detalhes.
 
-* **Q:** I see an error in the `template_server.rb` debug output related to cloning my repository.
+* **P:** Vejo um erro na saída de depuração `template_server.rb` relacionado à clonagem do meu repositório.
 
-    **A:** If you see the following error, you haven't deleted the checkout of the repository in one or both of the `initiate_check_run` or `take_requested_action` methods:
+    **R:** Se você vir o seguinte erro, significa que você não excluiu o check-out do repositório de um ou ambos os métodos `initiate_check_run`e `take_requested_action`:
 
     ```shell
     2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
-    Compare your code to the `server.rb` file to ensure you have the same code in your `initiate_check_run` and `take_requested_action` methods.
+    Compare seu código com o arquivo `server.rb` para ter o mesmo código nos métodos `initiate_check_run` e `take_requested_action`.
 
-* **Q:** New check runs are not showing up in the "Checks" tab on GitHub.
+* **P:** Novas execuções de verificação não aparecem na guia "Verificações" no GitHub.
 
-    **A:** Restart Smee and re-run your `template_server.rb` server.
+    **R:** Reinicie o Smee e execute novamente o `template_server.rb` servidor.
 
-* **Q:** I do not see the "Re-run all" button in the "Checks" tab on GitHub.
+* **P:** Não vejo o botão "Executar tudo novamente" na guia "Verificações" no GitHub.
 
-    **A:** Restart Smee and re-run your `template_server.rb` server.
+    **R:** Reinicie o Smee e execute novamente o `template_server.rb` servidor.
 
-## Conclusion
+## Conclusão
 
-After walking through this guide, you've learned the basics of using the Checks API to create a CI server! To review, you:
+Depois ler este guia, você aprendeu os princípios básicos para usar a API de verificação para criar um servidor de CI! Para resumir, você:
 
-* Configured your server to receive Checks API events and create check runs.
-* Used RuboCop to check code in repositories and create annotations for the errors.
-* Implemented a requested action that automatically fixes linter errors.
+* Configurou seu servidor para receber eventos de API de verificação e criar execuções de verificação.
+* Usou o RuboCop para verificar códigos nos repositórios e criar anotações para os erros.
+* Implementou uma ação solicitada que corrige os erros do linter automaticamente.
 
-## Next steps
+## Próximas etapas
 
-Here are some ideas for what you can do next:
+Aqui estão algumas ideias do que você pode fazer a seguir:
 
-* Currently, the "Fix this" button is always displayed. Update the code you wrote to display the "Fix this" button only when RuboCop finds errors.
-* If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to [create a pull request](/rest/reference/pulls#create-a-pull-request) with a new branch based on the head branch.
+* Atualmente, o botão "Corrija isso" sempre é exibido. Atualize o código que você escreveu para exibir o botão "Corrija isso" somente quando o RuboCop encontrar erros.
+* Se preferir que o RuboCop não faça commit dos arquivos diretamente no branch principal, atualize o código para [criar uma solicitação de pull](/rest/reference/pulls#create-a-pull-request) com um novo branch com base no branch principal.

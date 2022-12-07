@@ -12,16 +12,16 @@ shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
-ms.openlocfilehash: ac3be901f6b37636b4e287c93d7a4f312c02a37e
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: acd462dd1c0b60dced529d7471b9c8638e2f6e91
+ms.sourcegitcommit: 3ff64a8c8cf70e868c10105aa6bbf6cd4f78e4d3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160264'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180814'
 ---
 ## Сведения о {% data variables.product.prodname_vscode_command_palette %}
 
-{% data variables.product.prodname_vscode_command_palette_shortname %} является одной из основных функций {% data variables.product.prodname_vscode %} и доступна для использования в {% data variables.product.prodname_github_codespaces %}. Палитра команд позволяет получить доступ ко многим командам для {% data variables.product.prodname_github_codespaces %} и {% data variables.product.prodname_vscode_shortname %}. Дополнительные сведения об использовании {% data variables.product.prodname_vscode_command_palette_shortname %} см. в разделе [Пользовательский интерфейс](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) в документации по {% data variables.product.prodname_vscode_shortname %}.
+{% data variables.product.prodname_vscode_command_palette_shortname %} является одним из основных компонентов {% data variables.product.prodname_vscode %} и доступен для использования в {% data variables.product.prodname_github_codespaces %}. Палитра команд позволяет получить доступ ко многим командам для {% data variables.product.prodname_github_codespaces %} и {% data variables.product.prodname_vscode_shortname %}. Дополнительные сведения об использовании {% data variables.product.prodname_vscode_command_palette_shortname %} см. в разделе [Пользовательский интерфейс](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) в документации по {% data variables.product.prodname_vscode_shortname %}.
 
 ## Доступ к {% data variables.product.prodname_vscode_command_palette_shortname %}
 
@@ -63,11 +63,13 @@ ms.locfileid: '148160264'
 
 ![Команда для перестроения codespace](/assets/images/help/codespaces/codespaces-rebuild.png)
 
+{% data reusables.codespaces.full-rebuild-tip %}
+
 ### Журналы Codespaces
 
 Вы можете использовать {% data variables.product.prodname_vscode_command_palette_shortname %} для доступа к журналам создания codespace или экспорта всех журналов. 
 
-Чтобы получить журналы для {% data variables.product.prodname_github_codespaces %}, [перейдите к {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), а затем начните вводить "log". Выберите **Codespaces: Export Logs (Кодовые пространства: экспорт журналов** ), чтобы экспортировать все журналы, связанные с {% data variables.product.prodname_github_codespaces %} или **Codespaces: View Creation Logs (Кодовые пространства: просмотр журналов создания** ), чтобы просмотреть журналы, связанные с установкой.
+Чтобы получить журналы для {% data variables.product.prodname_github_codespaces %}, [откройте {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-command-palette), а затем начните вводить "log". Выберите **Codespaces: Экспорт журналов** , чтобы экспортировать все журналы, связанные с {% data variables.product.prodname_github_codespaces %}, или выберите **Codespaces: просмотр журналов создания** , чтобы просмотреть журналы, связанные с установкой.
 
 ![Команда для доступа к журналам](/assets/images/help/codespaces/codespaces-logs.png)
 

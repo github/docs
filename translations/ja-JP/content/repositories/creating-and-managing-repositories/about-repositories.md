@@ -18,12 +18,12 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-ms.openlocfilehash: af0b8eb9f8bd7a98c246a0806a8bc60f59ba147f
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 95e4033aa41f7920b5447554773dc61a181f5861
+ms.sourcegitcommit: 0a6e3eee6eea9b1e445aea1e4461d64cf6b63218
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107286'
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163506'
 ---
 ## リポジトリについて
 
@@ -43,6 +43,8 @@ ms.locfileid: '148107286'
 - プロジェクトボードを使用して、Issue とプルリクエストを整理して優先順位を付けることができます。 詳細については、「[プロジェクト ボードについて](/github/managing-your-work-on-github/about-project-boards)」を参照してください。
 
 {% data reusables.repositories.repo-size-limit %}
+
+リポジトリを最も効果的に使用する方法については、「[リポジトリのベスト プラクティス](/repositories/creating-and-managing-repositories/best-practices-for-repositories)」を参照してください。
 
 ## リポジトリの可視性について
 
@@ -132,7 +134,6 @@ diff はきわめて大きくなることがあるため、コミット、プル
 
 ## 参考資料
 
-- 「[新しいリポジトリの作成](/articles/creating-a-new-repository)」
 - 「[フォークについて](/github/collaborating-with-pull-requests/working-with-forks/about-forks)」
 - 「[Issue および pull request を使用した共同作業](/categories/collaborating-with-issues-and-pull-requests)」
 - 「[{% data variables.product.prodname_dotcom %} での作業の管理](/categories/managing-your-work-on-github/)」

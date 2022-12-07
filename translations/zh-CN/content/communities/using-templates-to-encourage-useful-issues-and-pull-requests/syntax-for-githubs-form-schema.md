@@ -7,12 +7,12 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
-ms.openlocfilehash: 2a329c7c0a7f1943f7515059c3f376fa36ea29b1
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 3a8a21f04582b87741ef80755e92fbc859921bb5
+ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145099286'
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179667'
 ---
 {% note %}
 
@@ -64,12 +64,12 @@ ms.locfileid: '145099286'
 
 对于每个表单元素，您可以设置以下键。
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | 您想要定义的元素类型。 | 必须 | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
 | `id` | 元素的标识符，除非 `type` 设置为 `markdown`。 {% data reusables.form-schema.id-must-be-unique %} 如果提供，`id` 是 URL 查询参数预填中字段的规范标识符。 | 可选 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | 定义元素属性的一组键值对。  | 必需 | 哈希 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | 设置元素约束的一组键值对。 | 可选 | 哈希 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | 定义元素属性的一组键值对。  | 必需 | 映射 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | 设置元素约束的一组键值对。 | 可选 | 映射 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 您可以从以下类型的表单元素中选择。 每个类型都有唯一的属性和验证。
 
@@ -89,7 +89,7 @@ ms.locfileid: '145099286'
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `value` | 渲染的文本。 支持 Markdown 格式。 | 必须 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
@@ -122,7 +122,7 @@ body:
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | 预期用户输入的简短描述，也以表单形式显示。 | 必须 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | 提供上下文或指导的文本区域的描述，以表单形式显示。 | 可选 | String | 空字符串 | {% octicon "dash" aria-label="The dash icon" %} |
@@ -134,7 +134,7 @@ body:
 
 {% data reusables.form-schema.validations-intro %}
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -165,7 +165,7 @@ body:
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | 预期用户输入的简短描述，也以表单形式显示。 | 必须 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | 提供上下文或指导的字段的描述，以表单形式显示。 | 可选 | String | 空字符串 | {% octicon "dash" aria-label="The dash icon" %} |
@@ -176,7 +176,7 @@ body:
 
 {% data reusables.form-schema.validations-intro %}
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -202,7 +202,7 @@ body:
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | 预期用户输入的简短描述，以表单形式显示。 | 必须 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | 提供上下文或指导的下拉列表的描述，以表单形式显示。 | 可选 | String | 空字符串 | {% octicon "dash" aria-label="The dash icon" %} |
@@ -213,7 +213,7 @@ body:
 
 {% data reusables.form-schema.validations-intro %}
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
@@ -242,13 +242,21 @@ body:
 
 {% data reusables.form-schema.attributes-intro %}
 
-| 密钥 | 说明 | 必需 | 类型 | 默认 | 有效值 |
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `label` | 预期用户输入的简短描述，以表单形式显示。 | 必须 | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | 复选框集的描述，以表单形式显示。 支持 Markdown 格式。 | 可选 | String | 空字符串 | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | 用户可以选择的复选框阵列。 有关语法，请参阅下文。 | 必需 | 数组 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-{% data reusables.form-schema.options-syntax %} {% data reusables.form-schema.required-key %}
+{% data reusables.form-schema.options-syntax %}
+
+#### 验证
+
+{% data reusables.form-schema.validations-intro %}
+
+| 密钥 | 说明 | 必选 | 类型 | 默认 | 有效值 |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
 
 #### 示例
 

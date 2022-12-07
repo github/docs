@@ -7,12 +7,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-ms.openlocfilehash: bba9137fc39c1bc101a75650dcea03e651d37fff
-ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.openlocfilehash: 27f11aa4ae2693bcc336ecdf4cbfb68d8679d743
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2022
-ms.locfileid: '145083955'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186160'
 ---
 ## Para aplicativos GitHub
 
@@ -39,7 +39,7 @@ Para obter informações sobre como encontrar os aplicativos para usá-los, conf
 
 ## Para ações no GitHub 
 
-Ações com {% octicon "verified" aria-label="The verified badge" %} ou com o selo de criador verificado indicam que {% data variables.product.prodname_dotcom %} verificou o criador da ação como uma organização parceira.
+Ações com o {% octicon "verified" aria-label="The verified badge" %} ou com o selo de criador verificado indicam que o {% data variables.product.prodname_dotcom %} verificou o criador da ação como uma organização parceira. Os parceiros podem enviar um email para <a href="mailto:partnerships@github.com">partnerships@github.com</a> a fim de solicitar o selo de criador verificado.
 
 ![Selo de criador verificada para o GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 

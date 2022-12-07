@@ -1,6 +1,6 @@
 ---
-title: About code owners
-intro: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
+title: О владельцах кода
+intro: 'Файл CODEOWNERS можно использовать для определения отдельных лиц или команд, ответственных за код в репозитории.'
 redirect_from:
   - /articles/about-codeowners
   - /articles/about-code-owners
@@ -14,59 +14,63 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: 12265f0627ca6d0feb34244aab1c021b5ae6cc10
+ms.sourcegitcommit: 9315c7dae9a673a2f8958df7632bf1af206a0bed
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188241'
 ---
-People with admin or owner permissions can set up a CODEOWNERS file in a repository.
+Пользователи с разрешениями администратора или владельца могут настроить файл CODEOWNERS в репозитории.
 
-The people you choose as code owners must have write permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
+Пользователи, которых вы выбираете в качестве владельцев кода, должны иметь разрешения на запись в репозитории. Если владелец кода является командой, то эта команда должна быть видимой и должна иметь разрешения на запись, даже если все отдельные участники команды уже имеют разрешения на запись напрямую, через членство в организации или через другое членство в команде.
 
-## About code owners
+## О владельцах кода
 
-Code owners are automatically requested for review when someone opens a pull request that modifies code that they own. Code owners are not automatically requested to review draft pull requests. For more information about draft pull requests, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)." When you mark a draft pull request as ready for review, code owners are automatically notified. If you convert a pull request to a draft, people who are already subscribed to notifications are not automatically unsubscribed. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)."
+Владельцы кода автоматически получают запрос для проверки, когда кто-то открывает запрос на вытягивание, который изменяет код, принадлежащий владельцам. Владельцы кода не получают запросов для проверки черновиков запросов на вытягивание автоматически. Дополнительные сведения о черновиках запросов на вытягивание см. в разделе [Сведения о запросах на вытягивание](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests). Когда вы помечаете черновик запроса на вытягивание как готовый к проверке, владельцы кода автоматически получают уведомления. Если вы преобразуете запрос на вытягивание в черновик, для пользователей, которые уже подписаны на уведомления, подписка отменена не будет. Дополнительные сведения см. в разделе [Изменение этапа запроса на вытягивание](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request).
 
-When someone with admin or owner permissions has enabled required reviews, they also can optionally require approval from a code owner before the author can merge a pull request in the repository. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+Если пользователь с разрешениями администратора или владельца включил необходимые проверки, он также может потребовать утверждения от владельца кода, прежде чем автор сможет объединить запрос на вытягивание в репозитории. Дополнительные сведения см. в разделе [Сведения о защищенных ветвях](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging).
 
-If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over {% octicon "shield-lock" aria-label="The edit icon" %}.
+Если у файла есть владелец кода, вы можете просмотреть, кто является владельцем кода, перед открытием запроса на вытягивание. Для этого перейдите к файлу в репозитории и наведите указатель мыши на {% octicon "shield-lock" aria-label="The edit icon" %}.
 
-![Code owner for a file in a repository](/assets/images/help/repository/code-owner-for-a-file.png)
+![Владелец кода для файла в репозитории](/assets/images/help/repository/code-owner-for-a-file.png)
 
-## CODEOWNERS file location
+## Расположение файла CODEOWNERS
 
-To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `docs/`, or `.github/` directory of the repository, in the branch where you'd like to add the code owners.
+Чтобы использовать файл CODEOWNERS, создайте новый файл `CODEOWNERS` в корневом каталоге, каталоге `docs/` или `.github/` репозитория, в ветви, в которую вы хотите добавить владельцев кода.
 
-Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
+Каждый файл CODEOWNERS назначает владельцам кода одну ветвь в репозитории. Таким образом, можно назначить разных владельцев кода для различных ветвей, например, `@octo-org/codeowners-team` для базы кода в ветви по умолчанию и `@octocat` для сайта {% data variables.product.prodname_pages %} в ветви `gh-pages`.
 
-For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
+Чтобы владельцы кода получали запросы на проверку, файл CODEOWNERS должен находиться в базовой ветви запроса на вытягивание. Например, если вы назначаете `@octocat` в качестве владельца кода для файлов *.js* в ветви `gh-pages` репозитория, то при открытии запроса на вытягивание, содержащего изменения в файлах *.js* между головной ветвью и `gh-pages`, `@octocat` будет получать запросы на проверку.
 
-## CODEOWNERS file size
+## Размер файла CODEOWNERS
 
-CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
+Размер файла CODEOWNERS не должен превышать 3 МБ. Если размер файла CODEOWNERS превышает это ограничение, то файл не будет загружен, и, следовательно, сведения о владельце кода не будут отображаться, а соответствующие владельцы кода не будут получать запросы для просмотра изменений в запросе на вытягивание.
 
-To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry.
+Чтобы уменьшить размер файла CODEOWNERS, используйте шаблоны с подстановочными знаками для консолидации нескольких записей в одну запись.
 
-## CODEOWNERS syntax
+## Синтаксис файла CODEOWNERS
 
 {% warning %}
 
-**Warning:** There are some syntax rules for gitignore files that *do not work* in CODEOWNERS files:
-- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-- Using `!` to negate a pattern
-- Using `[ ]` to define a character range
+**Предупреждение.** Существуют некоторые правила синтаксиса для файлов gitignore, которые *не работают* в файлах CODEOWNERS:
+- экранирование шаблона, начинающегося с `#`, с помощью `\`, так как такой шаблон рассматривается как шаблон, а не как комментарий;
+- использование `!` для отмены шаблона;
+- использование `[ ]` для определения диапазона символов.
 
 {% endwarning %}
 
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
+Файл CODEOWNERS использует шаблон, который соответствует большинству правил, используемых в файлах [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) . За шаблоном следует одно или несколько имен пользователей или имен команд {% data variables.product.prodname_dotcom %} в стандартном формате `@username` или `@org/team-name`. Пользователям и командам необходимо явно предоставить доступ `write` в репозитории, даже если у членов команды уже есть доступ.
 
-{% ifversion fpt or ghec%}In most cases, you{% else %}You{% endif %} can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, for example `user@example.com`. {% ifversion fpt or ghec %} You cannot use an email address to refer to a {% data variables.enterprise.prodname_managed_user %}. For more information about {% data variables.enterprise.prodname_managed_users %}, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
+{% ifversion fpt or ghec%} В большинстве случаев вы{% else %}Вы{% endif %} также можете ссылаться на пользователя по адресу электронной почты, который был добавлен в его учетную запись в {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, например `user@example.com`. {% ifversion fpt or ghec %} Адрес электронной почты нельзя использовать для ссылки на {% data variables.enterprise.prodname_managed_user %}. Дополнительные сведения о {% data variables.enterprise.prodname_managed_users %} см. в разделе [Сведения о {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users){% ifversion fpt %}в документации по {% data variables.product.prodname_ghe_cloud %}. {% else %}". {% endif %} {% endif %}
 
-CODEOWNERS paths are case sensitive, because {% data variables.product.prodname_dotcom %} uses a case sensitive file system. Since CODEOWNERS are evaluated by {% data variables.product.prodname_dotcom %}, even systems that are case insensitive (for example, macOS) must use paths and files that are cased correctly in the CODEOWNERS file.
+Пути CODEOWNERS чувствительны к регистру, так как {% data variables.product.prodname_dotcom %} использует файловую систему с учетом регистра. Так как файлы CODEOWNERS обрабатываются {% data variables.product.prodname_dotcom %}, то даже в системах, которые не учитывают регистр (например, macOS), в файлах CODEOWNERS должны указываться пути и имена файлов с правильным регистром.
 
-{% ifversion codeowners-errors %}
-If any line in your CODEOWNERS file contains invalid syntax, that line will be skipped. When you navigate to the CODEOWNERS file in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can see any errors highlighted. A list of errors in a repository's CODEOWNERS file is also accessible via the API. For more information, see "[Repositories](/rest/reference/repos#list-codeowners-errors)" in the REST API documentation.
-{% else %}
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
+{% ifversion codeowners-errors %} Если какая-либо строка в файле CODEOWNERS содержит недопустимый синтаксис, эта строка будет пропущена. При переходе к файлу CODEOWNERS в репозитории на {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, вы увидите все ошибки, выделенные. Список ошибок в файле CODEOWNERS репозитория также доступен через API. Дополнительные сведения см. в разделе [Репозитории](/rest/reference/repos#list-codeowners-errors) в документации по REST API.
+{% else %} Если в файле CODEOWNERS есть строка, содержащая недопустимый синтаксис, то файл не будет обрабатываться и использоваться для запроса проверок.
 {% endif %}
 
-### Example of a CODEOWNERS file
+### Пример файла CODEOWNERS
 ```
 # This is a comment.
 # Each line is a file pattern followed by one or more owners.
@@ -81,7 +85,7 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 # precedence. When someone opens a pull request that only
 # modifies JS files, only @js-owner and not the global
 # owner(s) will be requested for a review.
-*.js    @js-owner
+*.js    @js-owner #This is an inline comment.
 
 # You can also use email addresses if you prefer. They'll be
 # used to look up users just like we do for commit author
@@ -124,13 +128,13 @@ apps/ @octocat
 /apps/github
 ```
 
-## CODEOWNERS and branch protection
-Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+## Файлы CODEOWNERS и защита ветвей
+Владельцы репозитория могут добавлять правила защиты ветви, чтобы измененный код проверялся владельцами измененных файлов. Дополнительные сведения см. в разделе [Сведения о защищенных ветвях](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches).
 
-## Further reading
+## Дополнительные материалы
 
-- "[Creating new files](/articles/creating-new-files)"
-- "[Inviting collaborators to a personal repository](/articles/inviting-collaborators-to-a-personal-repository)"
-- "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Viewing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
+- [Создание файлов](/articles/creating-new-files)
+- [Приглашение участников совместной работы в личный репозиторий](/articles/inviting-collaborators-to-a-personal-repository)
+- [Управление доступом пользователя к репозиторию организации](/articles/managing-an-individual-s-access-to-an-organization-repository)
+- [Управление доступом команды к репозиторию организации](/articles/managing-team-access-to-an-organization-repository)
+- [Просмотр проверки запроса на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)

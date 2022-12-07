@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 82a8b8c29ea38d57f0481146f2a857c2dcba8413
-ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.openlocfilehash: 72d8263029317783e60d8f81f45edc3dbb8b1c8b
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2022
-ms.locfileid: '148160729'
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180014'
 ---
 ## {% data variables.product.prodname_emus %} について
 
@@ -65,7 +65,7 @@ Enterprise によって所有されている Organization にメンバーを追�
 
 {% data variables.product.prodname_emus %} は、以下の IdP{% ifversion oidc-for-emu %} と認証方法をサポートしています。
 
-|                                  | SAML                                          | OIDC (ベータ)                                   |
+|                                  | SAML                                          | OIDC                                          |
 |----------------------------------|-----------------------------------------------|-----------------------------------------------|
 | Azure Active Directory           | {% octicon "check" aria-label="Check icon" %} | {% octicon "check" aria-label="Check icon" %} |
 | Okta                             | {% octicon "check" aria-label="Check icon" %} |                                               |
@@ -114,7 +114,7 @@ Enterprise によって所有されている Organization にメンバーを追�
   
 3. セットアップ ユーザーとしたログインしたら、2 要素認証を有効にすることをお勧めします。 詳細については、「[2 要素認証の構成](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)」を参照してください。
 
-1. まず、{% ifversion oidc-for-emu %}メンバーが認証する方法を構成します。 Azure Active Directory を ID プロバイダーとして使っている場合、OpenID Connect (OIDC) と Security Assertion Markup Language (SAML) のいずれかを選択できます。 どちらのオプションでもメンバーにシームレスなサインイン エクスペリエンスを提供できますが、条件付きアクセス ポリシー (CAP) のサポートが含まれているの OIDC のみです。 ID プロバイダーとして Okta を使っている場合、SAML を使ってメンバーを認証することができます。{% else %}エンタープライズ用に SAML SSO を構成します。 詳細については、「[エンタープライズ マネージド ユーザーの SAML シングル サインオンの構成](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)」を参照してください。{% endif %}
+1. まず、{% ifversion oidc-for-emu %}メンバーが認証する方法を構成します。 Azure Active Directory を ID プロバイダーとして使っている場合、OpenID Connect (OIDC) と Security Assertion Markup Language (SAML) のいずれかを選択できます。 条件付きアクセス ポリシー (CAP) のサポートを含む OIDC をお勧めします。 {% data variables.enterprise.prodname_managed_users %} が 1 つのテナントからプロビジョニングされた複数のエンタープライズが必要な場合は、最初のエンタープライズ以降、それぞれに SAML を使用する必要があります。 ID プロバイダーとして Okta を使っている場合、SAML を使ってメンバーを認証することができます。{% else %}エンタープライズ用に SAML SSO を構成します。 詳細については、「[エンタープライズ マネージド ユーザーの SAML シングル サインオンの構成](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)」を参照してください。{% endif %}
   
   {% ifversion oidc-for-emu %}
   

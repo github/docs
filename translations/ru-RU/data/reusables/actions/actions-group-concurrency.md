@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a0c8b24bacdd41e32d9b8bdd0d8850e7a6ada557
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
+ms.openlocfilehash: a9f12214edcef8a107ad9c447fea7207cfdc48f4
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/10/2022
-ms.locfileid: "145114752"
+ms.lasthandoff: 11/28/2022
+ms.locfileid: "148184089"
 ---
 Если параллельное задание или рабочий процесс добавлены в очередь и выполняется другое задание или рабочий процесс, использующие ту же группу параллелизма в репозитории, то находящиеся в очереди задание или рабочий процесс будут `pending`. Все задания или рабочие процессы в группе параллелизма, находившиеся в состоянии ожидания, будут отменены. Чтобы также отменить задание или рабочий процесс, которые сейчас выполняются в той же группе параллелизма, укажите `cancel-in-progress: true`.
 
@@ -26,7 +26,7 @@ concurrency: ci-${{ github.ref }}
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 ```
@@ -38,7 +38,7 @@ concurrency:
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
@@ -53,7 +53,7 @@ concurrency:
 
 {% raw %}
 ```yaml
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 ```

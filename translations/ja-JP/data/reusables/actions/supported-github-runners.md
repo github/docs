@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c30f6000486156f1995f0f05ff27fc173b893de5
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: b40c432907d00f7bf7cf33a1f379ea3318ae8aa2
+ms.sourcegitcommit: cb39c15ab6ccfacf49f4b114b77e3b920fdddf70
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147529273"
+ms.lasthandoff: 11/22/2022
+ms.locfileid: "148180670"
 ---
 <table style="width:100%">
 <thead>
@@ -53,6 +53,9 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-latest</code> または <code>ubuntu-20.04</code>
 </td>
+<td>
+<code>ubuntu-latest</code> ラベルは現在、Ubuntu 22.04 ランナー イメージに移行中です。 移行中は、ラベルによって Ubuntu 20.04 と 22.04 のいずれかのランナー イメージが参照されることがあります。 詳しくは、<a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">こちらの {% data variables.product.prodname_dotcom %} ブログ記事</a>をご覧ください。
+</rd>
 </tr>
 <tr>
 <td>
@@ -81,7 +84,7 @@ macOS Big Sur 11
 <code>macos-latest</code> または <code>macos-11</code>
 </td>
 <td>
-<code>macos-latest</code> ラベルは現在、macOS 11 ランナー イメージを使用しています。
+<code>macos-latest</code> ラベルは現在、macOS Monterey 12 ランナー イメージに移行中です。 移行中は、ラベルによって macOS 11 と 12 のいずれかのランナー イメージが参照されることがあります。 詳しくは、<a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">こちらの {% data variables.product.prodname_dotcom %} ブログ記事</a>をご覧ください。
 </td>
 </tr>
 <tr>
@@ -106,6 +109,6 @@ macOS Catalina 10.15 <sup>[非推奨]</sup>
 
 {% warning %}
 
-<b>注:</b> ベータ版および非推奨のイメージは、"現状のまま"、"保証なし"、"利用可能な状態" で提供され、サービス レベル アグリーメントと保証から除外されます。 ベータ版のイメージは、カスタマー サポートでカバーされない場合があります。
+**警告:** ベータ版および非推奨のイメージは、"現状のまま"、"保証なし"、"利用可能な状態" で提供され、サービス レベル アグリーメントと保証から除外されます。 ベータ版のイメージは、カスタマー サポートでカバーされない場合があります。
 
 {% endwarning %}

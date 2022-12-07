@@ -1,7 +1,7 @@
 ---
-title: Managing prebuilds
+title: 管理预生成
 shortTitle: Manage prebuilds
-intro: 'You can review, modify, and delete the prebuild configurations for your repository.'
+intro: 你可以查看、修改和删除存储库的预生成配置。
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,90 +9,95 @@ type: how_to
 topics:
   - Codespaces
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: f39c46d91193db4c1c44ab336d86024b40adcea4
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148159514'
 ---
+## 检查、更改和删除预生成配置
 
-## Checking, changing, and deleting your prebuild configurations
+为存储库配置的预生成是使用 {% data variables.product.prodname_actions %} 工作流（由 {% data variables.product.prodname_github_codespaces %} 服务管理）创建和更新的。 
 
-The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_github_codespaces %} service. 
+根据预生成配置中的设置，更新预生成的工作流可能会由以下事件触发：
 
-Depending on the settings in a prebuild configuration, the workflow to update the prebuild may be triggered by these events:
+* 创建或更新预生成配置
+* 将提交或拉取请求推送到配置为具有预生成的分支
+* 更改任何开发容器配置文件
+* 在预生成配置中定义的计划
+* 手动触发工作流
 
-* Creating or updating the prebuild configuration
-* Pushing a commit or a pull request to a branch that's configured to have prebuilds
-* Changing any of the dev container configuration files
-* A schedule that you've defined in the prebuild configuration
-* Manually triggering the workflow
+预生成配置中的设置确定哪些事件会自动触发预生成的更新。 有关详细信息，请参阅“[配置预生成](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)”。 
 
-The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)." 
+具有存储库管理员访问权限的人员可以检查预生成的进度以及编辑和删除预生成配置。 
 
-People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations. 
+### 查看预生成的进度
+可以在存储库设置的 {% data variables.product.prodname_github_codespaces %} 页上查看所设置的每个预生成配置的最新工作流运行的当前状态。 例如，“当前正在运行”或“1 小时前最后一次运行”。
 
-### Viewing the progress of prebuilds
-You can view the current status of the latest workflow run for each prebuild configuration you've set up on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. For example, "Currently running" or "Last run 1 hour ago."
+若要查看最新预生成工作流运行的日志输出，请单击“查看输出”。
 
-To see the log output for the latest prebuild workflow run, click **See output**.
+![“查看输出”按钮](/assets/images/help/codespaces/prebuilds-see-output.png) 
 
-![The 'See output' button](/assets/images/help/codespaces/prebuilds-see-output.png) 
+这会在“操作”选项卡中显示工作流的最近一次运行的输出。
 
-This displays the output of the most recent run of the workflow in the **Actions** tab.
+![预生成工作流输出](/assets/images/help/codespaces/prebuilds-log-output.png) 
 
-![The prebuild workflow output](/assets/images/help/codespaces/prebuilds-log-output.png) 
+或者，若要查看与指定分支关联的所有预生成工作流运行，请单击省略号按钮，然后从下拉菜单中选择“查看运行”。
 
-Alternatively, to view all prebuild workflow runs associated with the specified branch, click the ellipsis button and choose **View runs** from the dropdown menu.
+![下拉菜单中的“查看运行”选项](/assets/images/help/codespaces/prebuilds-view-runs.png) 
 
-![The 'View runs' option in the dropdown menu](/assets/images/help/codespaces/prebuilds-view-runs.png) 
+这将显示关联分支的预生成工作流运行历史记录。
 
-This displays the workflow run history for prebuilds for the associated branch.
+![工作流运行历史记录](/assets/images/help/codespaces/prebuilds-workflow-runs.png) 
 
-![The workflow run history](/assets/images/help/codespaces/prebuilds-workflow-runs.png) 
+### 编辑预生成配置
 
-### Editing a prebuild configuration
-
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to edit.
-1. In the dropdown menu, click **Edit**.
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页上，单击要编辑的预生成配置右侧的省略号。
+1. 在下拉菜单中，单击“编辑”。
  
-   ![The 'Edit' option in the dropdown menu](/assets/images/help/codespaces/prebuilds-edit.png) 
+   ![下拉菜单中的“编辑”选项](/assets/images/help/codespaces/prebuilds-edit.png) 
 
-1. Make the required changes to the prebuild configuration, then click **Update**. 
+1. 对预生成配置进行所需的更改，然后单击“更新”。 
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
 
-### Disabling a prebuild configuration
+### 禁用预生成配置
 
-To pause the update of prebuilds for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuilds for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild.
+若要暂停更新配置的预生成，可以禁用配置的工作流运行。 为预生成配置禁用工作流运行不会删除以前为该配置创建的任何预生成，因此，codespace 将继续从现有预生成生成。
 
-Disabling the workflow runs for a prebuild configuration is useful if you need to investigate prebuild creation failures.
+如果需要调查预生成创建失败，则禁用预生成配置的工作流运行非常有用。
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to disable.
-1. In the dropdown menu, click **Disable runs**.
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页上，单击要禁用的预生成配置右侧的省略号。
+1. 在下拉菜单中，单击“禁用运行”。
 
-   ![The 'Disable runs' option in the dropdown menu](/assets/images/help/codespaces/prebuilds-disable.png)
+   ![下拉菜单中的“禁用运行”选项](/assets/images/help/codespaces/prebuilds-disable.png)
 
-1. To confirm that you want to disable this configuration, click **OK**.
+1. 若确认要禁用此配置，请单击“确定”。
 
-### Deleting a prebuild configuration
+### 删除预生成配置
 
-Deleting a prebuild configuration also deletes all previously created prebuilds for that configuration. As a result, shortly after you delete a configuration, prebuilds generated by that configuration will no longer be available when you create a new codespace.
+删除预生成配置还会删除以前为该配置创建的所有预生成。 因此，删除配置后不久，在创建新 codespace 时，该配置生成的预生成将不再可用。
 
-After you delete a prebuild configuration, workflow runs for that configuration that have been queued or started will still run. They will be listed in the workflow run history, along with previously completed workflow runs.
+删除预生成配置后，该配置已排队或启动的工作流仍将运行。 它们将连同以前完成的工作流运行一起列在工作流运行历史记录中。
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to delete.
-1. In the dropdown menu, click **Delete**.
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页上，单击要删除的预生成配置右侧的省略号。
+1. 在下拉菜单中，单击“删除”。
 
-   ![The 'Delete' option in the dropdown menu](/assets/images/help/codespaces/prebuilds-delete.png)
+   ![下拉菜单中的“删除”选项](/assets/images/help/codespaces/prebuilds-delete.png)
 
-1. Click **OK** to confirm the deletion.
+1. 单击“确定”确认删除操作。
 
-### Manually trigger prebuilds
+### 手动触发预生成
 
-It may be useful to manually trigger a workflow run for a prebuild configuration. Generally this is only necessary if you are debugging a problem with the workflow for a prebuild configuration.
+手动触发预生成配置的工作流运行可能很有用。 通常，只有在调试预生成配置的工作流的问题时，才有必要这样做。
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration whose workflow you want to trigger.
-1. In the dropdown menu, click **Manually trigger**.
+1. 在存储库设置的 {% data variables.product.prodname_codespaces %} 页上，单击要触发其工作流的预生成配置右侧的省略号。
+1. 在下拉菜单中，单击“手动触发”。
 
-   ![The 'Manually trigger' option in the dropdown menu](/assets/images/help/codespaces/prebuilds-manually-trigger.png) 
+   ![下拉菜单中的“手动触发”选项](/assets/images/help/codespaces/prebuilds-manually-trigger.png) 
 
-## Further reading
+## 延伸阅读
 
-- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- [对预生成进行故障排除](/codespaces/troubleshooting/troubleshooting-prebuilds)

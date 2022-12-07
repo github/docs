@@ -86,6 +86,7 @@ export default [
   'Java',
   'JavaScript',
   'Jenkins',
+  'Kotlin',
   'Legal',
   'LFS',
   'Licensing',

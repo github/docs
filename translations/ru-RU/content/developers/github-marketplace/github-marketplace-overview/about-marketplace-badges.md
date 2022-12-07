@@ -7,12 +7,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-ms.openlocfilehash: bba9137fc39c1bc101a75650dcea03e651d37fff
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 27f11aa4ae2693bcc336ecdf4cbfb68d8679d743
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145089725'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186166'
 ---
 ## Для приложений GitHub
 
@@ -39,7 +39,7 @@ ms.locfileid: '145089725'
 
 ## Для GitHub Actions 
 
-Наличие значка {% octicon "verified" aria-label="The verified badge" %} (то есть подтвержденный создатель) у действия означает, что создатель действия является подтвержденной партнерской организацией на {% data variables.product.prodname_dotcom %}.
+Действия с {% octicon "verified" aria-label="The verified badge" %} или verified creator badge указывают на то, что {% data variables.product.prodname_dotcom %} проверил создателя действия в качестве партнерской организации. Партнеры могут отправить запрос на получение эмблемы проверенного создателя по электронной почте <a href="mailto:partnerships@github.com">partnerships@github.com</a> .
 
 ![Значок подтвержденного создателя на GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 
