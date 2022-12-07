@@ -1,6 +1,6 @@
 ---
-title: Understanding connections between repositories
-intro: Use the network graph and forks list to understand fork networks.
+title: リポジトリ間の接続を理解する
+intro: ネットワーク グラフとフォークの一覧を使用して、フォークのネットワークを理解します。
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,57 +22,60 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
+ms.openlocfilehash: 46cc440093c3ca8dc0952933847a6f04b0446661
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191359'
 ---
+## リポジトリのネットワークを表示する
 
-## Viewing a repository's network
-
-The network graph displays the branch history of the entire repository network, including fork branches. This graph is a timeline of the most recent commits, and shows up to 100 of the most recently pushed-to branches. The first row references the date and the first column references the branch owner. Use arrow keys or other keyboard shortcuts to more easily navigate the graph. They are provided in the “Keyboard shortcuts available” pop up under the graph.
+ネットワーク グラフには、フォーク ブランチを含む、リポジトリ ネットワーク全体のブランチ履歴が表示されます。 このグラフは最新のコミットのタイムラインであり、最近ブランチにプッシュされたものが最大 100 個まで表示されます。 最初の行は日付を参照し、最初の列はブランチ所有者を参照します。 方向キーやその他のキーボード ショートカットを使用して、グラフをより簡単に移動できます。 それらは、グラフの下の [Keyboard shortcuts available] ポップアップに表示されます。
 
 
-![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
+![リポジトリネットワークグラフ](/assets/images/help/graphs/repo_network_graph.png)
 
 {% tip %}
 
-**Tip:** To see older branches, click and drag within the graph.
+**参考:** 古いブランチを表示するには、グラフ内をクリックしてドラッグします。
 
 {% endtip %}
 
-## Accessing the network graph
+## ネットワークグラフにアクセスする
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Network**.
-![Network tab](/assets/images/help/graphs/network_tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. 左側のサイドバーで、 **[ネットワーク]** をクリックします。
+![[ネットワーク] タブ](/assets/images/help/graphs/network_tab.png)
 
-## Listing the forks of a repository
+## リポジトリのフォークをリストする
 
-The Members graph displays all the forks of a repository.
+メンバーグラフには、リポジトリのすべてのフォークが表示されます。
 
-Forks are listed alphabetically by the organization or username of the person who forked the repository. You can click on the organization or username to be redirected to the organization or user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
+フォークは、リポジトリをフォークしたユーザーの組織または名前のアルファベット順に表示されます。 組織またはユーザー名をクリックして、その組織またはユーザーの {% data variables.product.product_name %} プロファイル ページに移動したり、またはフォーク名をクリックして、リポジトリの特定のフォークに移動したりできます。
 
 {% ifversion fpt or ghec %}
 
-![Repository members graph](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
+![リポジトリ メンバーグラフ](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
 {% else %}
 
-![Repository members graph](/assets/images/help/graphs/repo_members_graph.png)
+![リポジトリ メンバーグラフ](/assets/images/help/graphs/repo_members_graph.png)
 
 {% endif %}
 
-### Accessing the Members graph
+### メンバーグラフにアクセスする
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Forks**.
-![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. 左側のサイドバーで、 **[フォーク]** をクリックします。
+![[フォーク] タブ](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-## Viewing the dependencies of a repository
+## リポジトリの依存関係を表示する
 
-You can use the dependency graph to explore the code your repository depends on.
+依存関係グラフを使用して、リポジトリが依存するコードを調べることができます。
 
-Almost all software relies on code developed and maintained by other developers, often known as a supply chain. For example, utilities, libraries, and frameworks. These dependencies are an integral part of your code and any bugs or vulnerabilities in them may affect your code. It's important to review and maintain these dependencies.
+ほとんどすべてのソフトウェアは、他の開発者 (サプライチェーンとして知られる) によって開発および保守されているコードに依存しています。 たとえば、ユーティリティ、ライブラリ、フレームワークなどです。 これらの依存関係はコードの不可欠な部分であり、それらのバグや脆弱性がコードに影響を与える可能性があります。 これらの依存関係をレビューして維持することが重要です。
 
-The dependency graph provides a great way to visualize and explore the dependencies for a repository. For more information, see "[About the dependency graph](/code-security/supply-chain-security/about-the-dependency-graph)" and "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)."
+依存関係グラフは、リポジトリの依存関係を視覚化して調査するために最適な方法を提供しています。 詳しくは、「[依存関係グラフについて](/code-security/supply-chain-security/about-the-dependency-graph)」と「[リポジトリの依存関係を調べる](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)」を参照してください。
 
-You can also set up your repository so that {% data variables.product.company_short %} alerts you automatically whenever a security vulnerability is found in one of your dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+依存関係の 1 つにセキュリティの脆弱性が見つかった場合は、{% data variables.product.company_short %} が自動的に警告するようにリポジトリを設定することもできます。 詳細については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。

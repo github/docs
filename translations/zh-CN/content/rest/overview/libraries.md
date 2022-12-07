@@ -11,12 +11,12 @@ versions:
   ghec: '*'
 topics:
   - API
-ms.openlocfilehash: ab880cef09b936bb573d783373f048395d0a2f58
-ms.sourcegitcommit: 16548aa24259e37cc0ac4900ca8fefc46dc84cdb
+ms.openlocfilehash: 5f633132edddb17ae129a3feba791ab8ec780366
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2022
-ms.locfileid: '148190059'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191876'
 ---
 ![Gundamcat](/assets/images/gundamcat.png)
 
@@ -26,7 +26,7 @@ ms.locfileid: '148190059'
 
 - Ruby → [octokit.rb](https://github.com/octokit/octokit.rb)
 - .NET → [octokit.net](https://github.com/octokit/octokit.net)
-- JavaScript → [octokit/octokit.js](https://github.com/octokit/octokit.js)
+- JavaScript → [octokit.js](https://github.com/octokit/octokit.js)
 
 ## 第三方库
 
