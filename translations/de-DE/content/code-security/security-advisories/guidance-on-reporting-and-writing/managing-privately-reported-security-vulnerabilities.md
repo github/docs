@@ -1,6 +1,6 @@
 ---
-title: Managing privately reported security vulnerabilities
-intro: Repository maintainers can manage security vulnerabilities that have been privately reported to them by security reseachers for repositories where private vulnerability reporting is enabled.
+title: Verwalten privat gemeldeter Sicherheitsrisiken
+intro: 'Repository-Maintainer können Sicherheitsrisiken verwalten, die privat von Sicherheitsforschern für Repositorys gemeldet wurden, in denen private Sicherheitsrisikomeldungen aktiviert sind.'
 permissions: 'Anyone with admin permissions to a repository can see, review, and manage privately-reported vulnerabilities for the repository.'
 versions:
   fpt: '*'
@@ -11,35 +11,38 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Manage vulnerability reports
+ms.openlocfilehash: 942533788dc6ad9280ddc023f583462c7a0ff7f8
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148160294'
 ---
-
 {% data reusables.security-advisory.private-vulnerability-reporting-beta %}
 
 {% data reusables.security-advisory.private-vulnerability-reporting-enable %}
 
-## About privately reporting a security vulnerability
+## Informationen zum privaten Melden eines Sicherheitsrisikos
 
-Private vulnerability reporting makes it easy for security researchers to report vulnerabilities directly to you using a simple form. 
+Dank der Möglichkeit zum privaten Melden von Sicherheitsrisiken können Sicherheitsforscher Sicherheitsrisiken mühelos über ein einfaches Formular direkt an dich melden. 
 
-When a security researcher reports a vulnerability privately, you are notified and can choose to either accept it, ask more questions, or reject it. If you accept the report, you're ready to collaborate on a fix for the vulnerability in private with the security researcher.
+Wenn ein Sicherheitsforscher privat eine Sicherheitslücke meldet, wirst du benachrichtigt und kannst die Meldung entweder akzeptieren, weitere Fragen stellen oder die Meldung ablehnen. Wenn du die Meldung akzeptierst, bist du bereit, gemeinsam mit dem Sicherheitsforscher privat an einer Lösung für das Sicherheitsrisiko zu arbeiten.
 
-## Managing security vulnerabilities that are privately reported
+## Verwalten privat gemeldeter Sicherheitsrisiken
 
-{% data variables.product.prodname_dotcom %} notifies repository maintainers when security researchers privately report vulnerabilities in their repository, and sends notifications if maintainers watch the repository or if they have notifications enabled for the repository. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+{% data variables.product.prodname_dotcom %} benachrichtigt Repository-Maintainer, wenn Sicherheitsforscher privat Sicherheitsrisiken in ihrem Repository melden, und sendet Benachrichtigungen, wenn Maintainer das Repository überwachen oder Benachrichtigungen für das Repository aktiviert haben. Weitere Informationen findest du unter [Konfigurieren von Benachrichtigungen](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-1. Click the advisory you want to review. An advisory that is privately reported will have a status of `Needs triage`.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
+1. Klicke auf die Empfehlung, die du überprüfen möchtest. Eine privat gemeldete Empfehlung hat den Status `Needs triage`.
   
-   ![Screenshot showing an example of advisory list](/assets/images/help/security/advisory-list.png)
+   ![Screenshot: Beispiel einer Empfehlungsliste](/assets/images/help/security/advisory-list.png)
    
-2. Carefully review the report. You can:
-   - Collaborate with the security researcher on a patch in private, by clicking **Start a temporary private fork**. This gives you a place for further discussions with the contributor without changing the status of the proposed advisory from `Needs triage`.
-   - Accept the vulnerability report as a draft advisory on {% data variables.product.prodname_dotcom %}, by clicking **Accept and open as draft**. If you choose this option:
-      - This doesn't make the report public.
-      - The report becomes a draft repository security advisory and you can work on it in the same way as any draft advisory that you create.
-     For more information on security advisories, see "[About repository security advisories](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
-   - Reject the report by clicking **Close security advisory**. Where possible, you should add a comment explaining why you don't consider the report a security risk before you close the advisory.
+2. Überprüfe die Meldung sorgfältig. Du hast folgende Möglichkeiten:
+   - Klicke auf **Mit temporärem privatem Fork beginnen**, um zusammen mit dem Sicherheitsforscher privat an einem Patch zu arbeiten. Dadurch erhältst du eine Umgebung für weitere Diskussionen mit dem Mitwirkenden, ohne den Status `Needs triage` der vorgeschlagenen Empfehlung zu ändern.
+   - Klicke auf **Akzeptieren und als Entwurf öffnen**, um die Sicherheitsrisikomeldung als Empfehlungsentwurf für {% data variables.product.prodname_dotcom %} zu akzeptieren. Bei dieser Option gilt Folgendes:
+      - Die Meldung wird dadurch nicht öffentlich.
+      - Die Meldung wird zu einem Entwurf für eine Repositorysicherheitsempfehlung, und du kannst sie auf die gleiche Weise bearbeiten wie alle von dir erstellten Empfehlungsentwürfe.
+     Weitere Informationen zu Sicherheitsempfehlungen findest du unter [Informationen zu Sicherheitsempfehlungen für Repositorys](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories).
+   - Klicke auf **Sicherheitsempfehlung schließen**, um die Meldung abzulehnen. Füge vor dem Schließen der Empfehlung nach Möglichkeit einen Kommentar hinzu, um zu erläutern, warum du die Meldung nicht als Sicherheitsrisiko betrachtest.
 
-     ![Screenshot showing the options available to the repository maintainer when reviewing an externally submitted vulnerability report](/assets/images/help/security/advisory-maintainer-options.png)
+     ![Screenshot: Verfügbare Optionen für Repository-Maintainer bei der Überprüfung einer extern übermittelten Sicherheitsrisikomeldung](/assets/images/help/security/advisory-maintainer-options.png)
