@@ -272,7 +272,9 @@ From your repository, click the **Actions** tab, and select the latest workflow 
 
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
 
-## Sample code
+## Template repositories for creating JavaScript actions
 
-* [JavaScript sample action](https://github.com/actions/javascript-action)
-* [TypeScript sample action](https://github.com/actions/typescript-action)
+{% data variables.product.prodname_dotcom %} provides template repositories for creating JavaScript and TypeScript actions. You can use these templates to quickly get started with creating a new action that includes tests, linting, and other recommended practices.
+
+* [`javascript-action` template repository](https://github.com/actions/javascript-action)
+* [`typescript-action` template repository](https://github.com/actions/typescript-action)
