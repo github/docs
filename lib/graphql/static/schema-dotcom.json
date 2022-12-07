@@ -61867,6 +61867,14 @@
           ]
         },
         {
+          "name": "fiscalHost",
+          "description": "<p>The fiscal host used for payments, if any. Will only return a value when\nqueried by the maintainer themselves, or by an admin of the sponsorable organization.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization"
+        },
+        {
           "name": "fullDescription",
           "description": "<p>The full description of the listing.</p>",
           "type": "String!",
@@ -71563,6 +71571,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/interfaces#uniformresourcelocatable"
         }
       ],
       "fields": [

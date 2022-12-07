@@ -118,6 +118,22 @@ upcoming_changes:
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: memex
+  - location: PackageType.NPM
+    description: '`NPM` will be removed.'
+    reason:
+      NPM will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2022-11-21'
+    criticality: breaking
+    owner: s-anupam
+  - location: PackageType.NUGET
+    description: '`NUGET` will be removed.'
+    reason:
+      NUGET will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2022-11-21'
+    criticality: breaking
+    owner: s-anupam
   - location: AddProjectDraftIssueInput.assigneeIds
     description:
       '`assigneeIds` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
