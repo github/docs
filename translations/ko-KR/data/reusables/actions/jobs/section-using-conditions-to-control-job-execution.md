@@ -1,10 +1,18 @@
-You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
+---
+ms.openlocfilehash: eb897a445a5e5a90014097ba76a5ecb095aa0bef
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: "148192064"
+---
+`jobs.<job_id>.if` 조건부를 사용하여 조건이 충족되지 않는 한, 작업이 실행되지 않도록 할 수 있습니다. {% data reusables.actions.if-supported-contexts %}
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 자세한 내용은 “[식](/actions/learn-github-actions/expressions)”을 참조하세요.
 
-### Example: Only run job for specific repository
+### 예: 특정 리포지토리에 대해서만 작업 실행
 
-This example uses `if` to control when the `production-deploy` job can run. It will only run if the repository is named `octo-repo-prod` and is within the `octo-org` organization. Otherwise, the job will be marked as _skipped_.
+이 예제에서는 `if`를 사용하여 `production-deploy` 작업을 실행할 수 있는 시기를 제어합니다. 리포지토리 이름이 `octo-repo-prod`이고 `octo-org` 조직 내에 있는 경우에만 작업이 실행됩니다. 그렇지 않으면 작업이 ‘건너뛴 것’으로 표시됩니다.
 
 ```yaml{:copy}
 name: example-workflow
