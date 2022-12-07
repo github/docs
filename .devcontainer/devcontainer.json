@@ -51,3 +51,1243 @@
 		"memory": "8gb"
 	 }
 }
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@zakwarlord7 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+zakwarlord7
+/
+GitHub-doc
+Public
+forked from github/docs
+Code
+Pull requests
+Actions
+Projects
+Security
+1
+Insights
+Settings
+GitHub-doc
+/
+.devcontainer
+/
+devcontainer.json
+in
+patch-450
+ 
+
+Tabs
+
+8
+
+No wrap
+1
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+2
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+3
+// -
+4
+{
+5
+        "name": "docs.github.com",
+6
+        "build": {
+7
+                "dockerfile": "Dockerfile",
+8
+                // Update 'VARIANT' to pick a Node version: 12, 14, 16
+9
+                "args": { "VARIANT": "16" }
+10
+        },
+11
+​
+12
+        // Set *default* container specific settings.json values on container create.
+13
+        "settings": {
+14
+                "terminal.integrated.shell.linux": "/bin/bash",
+15
+                "cSpell.language": ",en"
+16
+        },
+17
+​
+18
+        // Install features. Type 'feature' in the VS Code command palette for a full list.
+19
+        "features": {
+20
+                "git-lfs": "latest",
+21
+                "sshd": "latest"
+22
+         },
+23
+​
+24
+        // Visual Studio Code extensions which help authoring for docs.github.com.
+25
+        "extensions": [
+26
+                "dbaeumer.vscode-eslint",
+27
+                "sissel.shopify-liquid",
+28
+                "davidanson.vscode-markdownlint",
+29
+                "bierner.markdown-preview-github-styles",
+30
+                "streetsidesoftware.code-spell-checker",
+31
+                "alistairchristie.open-reusables"
+32
+        ],
+33
+​
+34
+        // Use 'forwardPorts' to make a list of ports inside the container available locally.
+35
+        "forwardPorts": [4000],
+36
+                
+37
+        "portsAttributes": {
+38
+                "4000": {
+39
+                        "label": "Preview",
+40
+                        "onAutoForward": "openPreview"
+41
+                }
+42
+        },
+43
+​
+44
+        // Use 'postCreateCommand' to run commands after the container is created.
+45
+        "postCreateCommand": "git lfs pull && npm ci",
+46
+​
+47
+        // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+48
+        "remoteUser": "node"
+49
+,
+50
+        "hostRequirements": {
+51
+                "memory": "8gb"
+52
+         }
+53
+}
+54
+​
+See the devcontainer.json reference for more information
+Search for Features
+
+The Amplify Command Line Interface (CLI) is a unified toolchain to create AWS cloud services for your app. Let's go ahead and install the Amplify CLI.
+
+
+Installs the AWS CLI along with needed dependencies. Useful for base Dockerfiles that often are missing required install dependencies like gpg.
+
+
+AWS CDK is an open-source software development framework to define cloud infrastructure in code and provision it through AWS CloudFormation.
+
+
+The AWS Serverless Application Model (AWS SAM) is an open-source framework that you can use to build serverless applications on AWS.
+
+
+
+Angular CLI is a command-line interface tool that you use to initialize, develop, scaffold, and maintain Angular applications directly from a command shell.
+
+
+Ansible is a suite of software tools that enables infrastructure as code.
+
+
+Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes
+
+
+Declarative GitOps CD for Kubernetes
+
+
+Assume an AWS role using SAML.to
+
+
+
+Installs the Azure CLI along with needed dependencies. Useful for base Dockerfiles that often are missing required install dependencies like gpg.
+
+
+Preserve ~/.azure folder across container instances (avoids needing to login after rebuilding)
+
+
+Installs the Azure Functions Core Tools along with needed dependencies. Useful for developing Azure Function apps inside codespaces.
+
+
+Bandit is a tool designed to find common security issues in Python code.
+
+
+A preprocessor for anyone writing specifications that converts source files into actual specs.
+
+
+Black is an uncompromising Python code formatter.
+
+
+Brownie is a Python-based development and testing framework for smart contracts targeting the Ethereum Virtual Machine.
+
+
+Browserify lets you require('modules') in the browser by bundling up all of your dependencies.
+
+
+CUE is an open source data constraint language which aims to simplify tasks involving defining and using data.
+
+
+
+Ccache is a compiler cache. It speeds up recompilation by caching previous compilations and detecting when the same compilation is being done again.
+
+
+Manage your dotfiles across multiple diverse machines, securely.
+
+
+Clojure is a dialect of Lisp, and shares with Lisp the code-as-data philosophy and a powerful macro system.
+
+
+Installs latest version of kubectl, Helm, kubelogin, azwi, flux and cilium cli. Auto-detects latest versions and installs needed dependencies.
+
+
+Like Common Debian Utilities (common-utils) but for Amazon Linux 2.
+
+
+Installs a set of common command line utilities, Oh My Zsh!, and sets up a non-root user.
+
+
+A cross-platform, language-agnostic binary package manager
+
+
+Installs Conda and Mamba package manager and Python3. conda-forge set as the default (and only) channel.
+
+
+Install conftest
+
+
+Cookiecutter creates projects from project templates.
+
+
+Coverage.py is a tool for measuring code coverage of Python programs.
+
+
+Crystal is a general-purpose, object-oriented programming language
+
+
+D is a general-purpose programming language with static typing, systems-level access, and C-like syntax.
+
+
+Dasel (short for data-selector) allows you to query and modify data structures using selector strings.
+
+
+Installs DVC CLI deb package
+
+
+Datasette is a tool for exploring and publishing data and is aimed at data journalists, museum curators, archivists, local governments, scientists and researchers.
+
+
+Deno is a simple, modern runtime for JavaScript and TypeScript that uses V8 and is built in Rust.
+
+
+Deno is a simple, modern runtime for JavaScript and TypeScript that uses V8 and is built in Rust.
+
+
+DigitalOcean CLI allows you to interact with the DigitalOcean API via the command line
+
+
+
+Create child containers *inside* a container, independent from the host's docker instance. Installs Docker extension in the container along with needed CLIs.
+
+
+Like Docker-in-Docker (docker-in-docker but for Amazon Linux 2.
+
+
+Installs the .NET CLI. Provides option of installing sdk or runtime, and option of versions to install. Uses latest version of .NET sdk as defaults to install.
+
+
+Elasticsearch is a search engine based on the Lucene library.
+
+
+Elm is a domain-specific programming language for declaratively creating web browser-based graphical user interfaces.
+
+
+Express Application Generator is a handy tool for creating skeleton Express web apps.
+
+
+Installs the Fastly CLI
+
+
+The Firebase CLI (GitHub) provides a variety of tools for managing, viewing, and deploying to Firebase projects.
+
+
+Flake8 is a python tool that glues together pycodestyle, pyflakes, mccabe, and third-party plugins.
+
+
+Flit is a simple way to put Python packages and modules on PyPI.
+
+
+Install flyctl - Command line tools for fly.io services
+
+
+Install an up-to-date version of Git, built from source as needed. Useful for when you want the latest and greatest features. Auto-detects latest stable version and installs needed dependencies.
+
+
+Installs Git Large File Support (Git LFS) along with needed dependencies. Useful for base Dockerfiles that often are missing required install dependencies like git and curl.
+
+
+Installs the GitHub CLI. Auto-detects latest version and installs needed dependencies.
+
+
+Glances is a cross-platform monitoring tool which aims to present a large amount of monitoring information through a curses or Web based interface.
+
+
+Installs Go and common Go utilities. Auto-detects latest version and installs needed dependencies.
+
+
+Install google-cloud-cli
+
+
+GraalVM is a high-performance JDK designed to accelerate Java application performance while consuming fewer resources.
+
+
+Gulp CLI is Command Line Utility for Gulp
+
+
+Installs Haskell. An advanced, purely functional programming language
+
+
+Hatch is a modern, extensible Python project manager.
+
+
+Haxe is an open source high-level cross-platform programming language and compiler.
+
+
+Installs the Helm Chart Testing tool
+
+
+Heroku CLI allows you to interact with the Heroku API via the command line
+
+
+Installs Homebrew
+
+
+
+The Ionic command-line interface (CLI) is the go-to tool for developing Ionic apps.
+
+
+JSHint is a tool that helps to detect errors and potential problems in your JavaScript code.
+
+
+Installs Java, SDKMAN! (if not installed), and needed dependencies.
+
+
+Jest is a delightful JavaScript Testing Framework with a focus on simplicity
+
+
+Install Kind
+
+
+Installs Kubectl
+
+
+Installs latest version of kubectl, Helm, and optionally minikube. Auto-detects latest versions and installs needed dependencies.
+
+
+kubectx is a tool to switch between contexts (clusters) on kubectl faster. kubens is a tool to switch between Kubernetes namespaces (and configure them for kubectl) easily.
+
+
+Kubie offers kubernetes context switching, namespace switching and prompt modification in a way that makes each shell independent from others
+
+
+Kustomize introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. Now, built into kubectl as apply -k.
+
+
+Lean is a functional programming language that makes it easy to write correct and maintainable code.
+
+
+Lektor is a static website generator.
+
+
+Less is a backwards-compatible language extension for CSS
+
+
+Adds a lightweight Fluxbox based desktop to the container that can be accessed using a VNC viewer or the web. GUI-based commands executed from the built-in VS code terminal will open on the desktop automatically.
+
+
+Localstack is a fully functional local AWS cloud stack.
+
+
+Meltano lets you extract and load data with a software development-inspired approach that that delivers flexibility and limitless collaboration.
+
+
+Meson is an open source build system meant to be both extremely fast, and, even more importantly, as user friendly as possible.
+
+
+MkDocs is a fast, simple and downright gorgeous static site generator that's geared towards building project documentation.
+
+
+Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun.
+
+
+A collection of modern shell utils
+
+
+Mypy is a static type checker for Python.
+
+
+Installs shared libraries for NVIDIA CUDA.
+
+
+Installs Neko Virtual Machine
+
+
+Nestjs is a progressive Node.js framework for building efficient, reliable and scalable server-side applications.
+
+
+Nim is a statically typed compiled systems programming language. It combines successful concepts from mature languages like Python, Ada and Modula.
+
+
+Ninja is a small build system with a focus on speed.
+
+
+Installs the Nix package manager and optionally a set of packages.
+
+
+Installs Node.js, nvm, yarn, and needed dependencies.
+
+
+Nomad is an easy-to-use, flexible, and performant workload orchestrator that can deploy a mix of microservice, batch, containerized, and non-containerized applications.
+
+
+Installs Nushell.
+
+
+Installs useful CLI tools for working with OCI containers, namely skopeo and oras
+
+
+OCaml is a general-purpose, industrial-strength programming language with an emphasis on expressiveness and safety.
+
+
+opam is a source-based package manager for OCaml.
+
+
+Install Open Policy Agent (opa)
+
+
+Installs the oryx CLI
+
+
+PDM is a modern Python package and dependency manager supporting the latest PEP standards.
+
+
+
+Packer is a free and open source tool for creating golden images for multiple platforms from a single source configuration.
+
+
+Installs Pandoc, a universal document converter.
+
+
+Pipenv automatically creates and manages a virtualenv for your projects.
+
+
+Installs pnpm, requires npm installed
+
+
+Poetry is a tool for dependency management and packaging in Python.
+
+
+PowerBI Visual Tools Contains tools for building/packaging Power BI visuals
+
+
+Installs PowerShell along with needed dependencies. Useful for base Dockerfiles that often are missing required install dependencies like gpg.
+
+
+A feature to install PowerShell resources (modules and scripts) from the PowerShell Gallery for all users on a devcontainer.
+
+
+Pre-Commit is a framework for managing and maintaining multi-language pre-commit hooks.
+
+
+Prisma is a next-generation ORM for Node.js & TypeScript | PostgreSQL, MySQL, MariaDB, SQL Server, SQLite, MongoDB and CockroachDB.
+
+
+Pulumi is a modern infrastructure as code platform
+
+
+PyScaffold is a python project template generator with batteries included.
+
+
+Pylint is a static code analyser for Python 2 or 3.
+
+
+Installs the provided version of Python, as well as PIPX, and other common Python utilities. JupyterLab is conditionally installed with the python feature. Note: May require source code compilation.
+
+
+Installs the Quarto CLI. Auto-detects latest version.
+
+
+Quasar is an MIT licensed open-source Vue.js based framework, which allows you as a web developer to quickly create responsive websites/apps in many flavours.
+
+
+Installs the latest R, some R packages, and needed dependencies. Note: May require source code compilation for some R packages.
+
+
+Installs R, some R packages, and needed dependencies. Note: May require source code compilation for R packages.
+
+
+The Racket language is a modern dialect of Lisp and a descendant of Scheme.
+
+
+Renovate is a universal dependency update tool. Multi-platform and multi-language.
+
+
+Installs Ruby, rvm, rbenv, common Ruby utilities, and needed dependencies.
+
+
+Installs Rust, common Rust utilities, and their required dependencies
+
+
+Adds a SSH server into a container so that you can use an external terminal, sftp, or SSHFS to interact with it.
+
+
+Serf is a decentralized solution for cluster membership, failure detection, and orchestration.
+
+
+Serverless Framework is a widely used open-source IaC tool that allows you to build, and deploy serverless applications on multiple cloud providers.
+
+
+Preserve shell history across dev container instances. Currently supports bash, zsh, and fish
+
+
+A static analysis tool for shell scripts
+
+
+Skaffold handles the workflow for building, pushing and deploying your application, allowing you to focus on what matters most: writing code.
+
+
+Installs the Sops CLI
+
+
+Installs Task, a task runner / simpler Make alternative.
+
+
+Terraform is an open-source infrastructure as code software tool that enables you to safely and predictably create, change, and improve infrastructure.
+
+
+The official Terraform language server (terraform-ls) maintained by HashiCorp provides IDE features to any LSP-compatible editor.
+
+
+Installs the Terraform CLI and optionally TFLint and Terragrunt. Auto-detects latest version and installs needed dependencies.
+
+
+Twine is a utility for publishing Python packages on PyPI.
+
+
+TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+
+
+Vault secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing.
+
+
+Installs Volta, the hassle-free JavaScript tool manager
+
+
+Vue CLI is a full system for rapid Vue.js development.
+
+
+Vulture finds unused code in Python programs.
+
+
+Waypoint is an open source solution that provides a modern workflow for build, deploy, and release across platforms.
+
+
+Zig is a general-purpose programming language and toolchain for maintaining robust, optimal and reusable software.
+
+
+Install act - run github action locally
+
+
+Act is an open source project that allows you to run your github flow locally.
+
+
+Installs alp
+
+
+Install aztfy
+
+
+Bats is a TAP-compliant testing framework for Bash. It provides a simple way to verify that the UNIX programs you write behave as expected.
+
+
+Installs boundary
+
+
+Chez Scheme is both a programming language and an implementation of that language, with supporting tools and documentation.
+
+
+cmctl is a command line tool that can help you manage cert-manager and its resources inside your cluster.
+
+
+Consul is a service networking solution to automate network configurations, discover services, and enable secure connectivity across any cloud or runtime.
+
+
+Installs dagger CI/CD engine that runs your pipelines in containers.
+
+
+direnv is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
+
+
+dprint is a pluggable and configurable code formatting platform written in Rust.
+
+
+Installs fish shell and Fisher plugin manager (optionally)
+
+
+fkill fabulously kill processes. Cross-platform.
+
+
+Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories and OCI artifacts), and automating updates to configuration when there is new code to deploy.
+
+
+gRPCurl is a command-line tool that lets you interact with gRPC servers.
+
+
+gdbgui is a browser-based frontend to gdb (gnu debugger).
+
+
+Install a fast Go linters
+
+
+formats documentation for one or more packages as markdown.
+
+
+Install Goreleaser, to release Go projects as fast and easily as possible!
+
+
+Install a pretty test runner
+
+
+Install hadolint
+
+
+isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type.
+
+
+Installs jq and jq like command line tools (yq, gojq).
+
+
+jrnl is a simple journal application for the command line.
+
+
+Installs just, just is a handy way to save and run project-specific commands on justfile.
+
+
+k3d makes it very easy to create single- and multi-node k3s clusters in docker, e.g. for local development on Kubernetes.
+
+
+Install k6
+
+
+A feature to install k9s
+
+
+K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your applications in the wild. K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
+
+
+Install k9s
+
+
+Kotlin compiler and linter (requires Java)
+
+
+Levant is an open source templating and deployment tool for HashiCorp Nomad jobs
+
+
+a Make/rake-like dev tool using Go
+
+
+Installs mdBook, a command line tool to create books with Markdown.
+
+
+mitmproxy is an interactive TLS-capable intercepting HTTP proxy for penetration testers and software developers
+
+
+Install mizu
+
+
+MLton is a whole-program optimizing compiler for the Standard ML programming language.
+
+
+A feature to install the MsQuic library
+
+
+nox is a command-line tool that automates testing in multiple Python environments.
+
+
+Install oras - OCI Registry As Storage
+
+
+Configure Pact, to do contract testing with golang. Checks versions of required Pact CLI tools for used by the library.
+
+
+peco is simplistic interactive filtering tool.
+
+
+Installs PHP
+
+
+pyinfra is a Python alternative to Ansible where you don't write your deployment in YAML file, but in Python.
+
+
+qrcode is a command line QR-Code generator.
+
+
+A feature to install ripgrep
+
+
+Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application.
+
+
+Sentinel is an embeddable policy as code framework to enable fine-grained, logic-based policy decisions that can be extended to source external information to make decisions.
+
+
+Installs Shopware CLI
+
+
+Install stern - Multi pod and container log tailing for Kubernetes
+
+
+svu is a tool to manage semantic versions at ease.
+
+
+Installs Symfony CLI
+
+
+Install terraform-docs
+
+
+Install terraformer
+
+
+Installs tfc-agent
+
+
+Install tfsec
+
+
+The tldr pages are a community effort to simplify the beloved man pages with practical examples.
+
+
+tox is a generic virtual environment management and test command line tool.
+
+
+Installs tridentctl
+
+
+Install trivy
+
+
+Install the vim editor
+
+
+vtop is a graphical activity monitor for the command line.
+
+
+wait-for-it.sh is a pure bash script that will wait on the availability of a host and TCP port. It is useful for synchronizing the spin-up of interdependent services, such as linked docker containers. Since it is a pure bash script, it does not have any external dependencies.
+
+
+yamllint is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type.
+
+R.doc/GEMS.spec :
+
+cookieyscutter -cefbook :
+
+yummy install m :
+		
+		'require'' ':'' 'test''
+		'
+	:Build::''
+		'Publish'' ':''
+		                                                                            Rate        Units        Total                YTD Taxes / Deductions                      Current  YTD                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                            -               -        70842745000  70842745000   Federal Withholding's    0                     
+    0                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                     FICA - Social Security 0                8854    SS-Tax Withholding's      0                      
+    0
+                                                                                     FICA - Medicare          0                      0    Medicare Withholding 's                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+        Employer Taxes                                                 FUTA - SS-Tax              0                      0    SS-Tax Withholding                                                                                                                                                                                                                                                                                                                                                                                                
+        INTERNAL REVENUE SERVICE,                        FUTA - Medicare         0                      0  
+                                                                                     SUTA         0                      0                                                                                                                                                                                                                                                                                                                                                                                                        
+        PO BOX 1214,                                                    RUTA         0                      0                                                                                                                                                                                                                                                                                                                                                                                                        
+        CHARLOTTE, NC 28201-1214                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+        ZACHRY WOOD                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        000001
+                76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                
+        For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions
+.                76033000000        20642000000       18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                
+        Cat. No. 11320B
+                76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                
+        Form 1040 (2021)
+                76033000000        20642000000        18936000000                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Reported Normalized and Operating Income/Expense Supplemental Section                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Total Revenue as Reported, Supplemental
+                2.57637E+11        75325000000        65118000000        61880000000        55314000000        56898000000        46173000000        38297000000       41159000000       46075000000        40499000000                                                                                                                                                                                                                                                                                                                                                                                
+        Total Operating Profit/Loss as Reported, Supplemental
+                78714000000        21885000000        21031000000        19361000000        16437000000        15651000000        11213000000        6383000000        7977000000        9266000000         9177000000                                                                                                                                                                                                                                                                                                                                                                                
+        Reported Effective Tax Rate
+                0                0        0        0                0        0        0                0                                                                                                                                                                                                                                                                                                                                                                                
+        Reported Normalized Income
+                                                                                6836000000                                                                                                                                                                                                                                                                                                                                                                                                
+        Reported Normalized Operating Profit
+                                                                                7977000000                                                                                                                                                                                                                                                                                                                                                                                                
+        Other Adjustments to Net Income Available to Common Stockholders                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Discontinued Operations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Basic EPS
+                114        31        28        28        27        23        17        10        10        15        10                                                                                                                                                                                                                                                                                                                                                                                
+        Basic EPS from Continuing Operations                114        31        28        28        27        22        17        10        10        15        10                                                                                                                                                                                                                                                                                                                                                                                
+        Basic EPS from Discontinued Operations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Diluted EPS
+                112        31        28        27        26        22        16        10        10        15        10                                                                                                                                                                                                                                                                                                                                                                                
+        Diluted EPS from Continuing Operations
+                112        31        28        27        26        22        16        10        10        15        10                                                                                                                                                                                                                                                                                                                                                                                
+        Diluted EPS from Discontinued Operations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Basic Weighted Average Shares Outstanding
+                667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        686465000        688804000        692741000                                                                                                                                                                                                                                                                                                                                                                                
+        Diluted Weighted Average Shares Outstanding
+                677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        692267000        695193000        698199000                                                                                                                                                                                                                                                                                                                                                                                
+        Reported Normalized Diluted EPS                                                                                10                                                                                                                                                                                                                                                                                                                                                                                                
+        Basic EPS
+                114        31        28        28        27        23        17        10        10        15        10                1                                                                                                                                                                                                                                                                                                                                                                
+        Diluted EPS
+                112        31        28        27        26        22        16        10        10        15        10                                                                                                                                                                                                                                                                                                                                                                                
+        Basic WASO
+                667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        686465000        688804000        692741000                                                                                                                                                                                                                                                                                                                                                                                
+        Diluted WASO
+                677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        692267000        695193000        698199000                                                                                                                                                                                                                                                                                                                                                                                
+        Fiscal year end September 28th., 2022. | USD                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+        For Paperwork Reduction Act Notice, see the seperate Instructions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+
+
+
+
+
+        important information                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+
+
+
+
+
+
+        Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        This Product Contains Sensitive Taxpayer Data
+        Request Date: 08-02-2022
+        Response Date: 08-02-2022
+        Tracking Number: 102398244811
+        Account Transcript
+        Tax Period Requested: Dec. 31, 2020
+        Return Form: All forms
+        TAXPAYER IDENTIFICATION NUMBER: XXX-XX-1725
+          ZACH T WOO
+          3050 R
+        --- ANY MINUS SIGN SHOWN BELOW SIGNIFIES A CREDIT AMOUNT ---
+        ACCOUNT BALANCE: 0.00  ACCRUED INTEREST: 0.00 AS OF: Mar. 28, 2022  
+        ACCRUED PENALTY: 300.00  AS OF: Mar. 28, 2022  
+        ACCOUNT BALANCE: 390.00  
+        PLUS ACCRUALS  
+       (this is not 
+        a payoff amount): 0.00  
+        ** INFORMATION FROM THE RETURN OR AS ADJUSTED **
+        EXEMPTIONS: 00
+        FILING STATUS: Single  
+        ADJUSTED GROSS INCOME: $1.00
+        TAXABLE INCOME:
+        TAX PER RETURN:
+        SE TAXABLE INCOME TAXPAYER:
+        SE TAXABLE INCOME  SPOUSE:
+        TOTAL SELF  EMPLOYMENT TAX:
+        RETURN NOT PRESENT FOR THIS ACCOUNT
+        TRANSACTIONS
+        CODE EXPLANATION OF TRANSACTION CYCLE DATE AMOUNT
+        No tax return filed
+        766 Tax relief credit 06-15-2020 -$1,200.00  846 Refund issued 06-05-2020 $1,200.00 
+        290 Additional tax assessed 20202205 06-15-2020 $0.00  76254-999-05099-0  971 Notice issued 06-15-2020 $0.00  
+        766 Tax relief credit 01-18-2021 -$600.00  846 Refund issued 01-06-2021 $600.00
+        290 Additional tax assessed 20205302 01-18-2021 $0.00  76254-999-05055-0  663 Estimated tax payment 01-05-2021 -$9,000,000.00
+        662 Removed estimated tax payment 01-05-2021 $9,000,000.00  740 Undelivered refund returned to IRS 01-18-2021 -$600.00
+        767 Reduced or removed tax relief 01-18-2021 $600.00  credit  971 Notice issued 03-28-2022 $0.00
+        This Product Contains Sensitive Taxpayer Data 
+         **Does Not include interest paid, capital obligation, and underweighting 6858000000
+          **Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)22677000000
+           **Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) 22677000000
+            **Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)22677000000
+        Taxes / Deductions Current YTD
+        Fiscal year ends in Dec 31 |USD
+        Rate
+        Total
+          7567263607 
+        Employee Information                                                                    ID:       txdl 00037305581  SSN:        XXX-XX-1725  DOB      1994-10-15
+        rate  units this period  year to date
+          **include interest paid, capital obligation, and underweighting 6858000000
+          **Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)22677000000
+          **Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) 22677000000
+          **Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)22677000000
+112.2       April 18, 2022.7567263607
+WOOD ZACHRY Tax Period Total Social Security Tax Withholding's: 
+                             Medicare Tax Gar Withholding's: 
+Fed 941 Corporate 39355 66986.66 28841.48 6745.18 31400Fed 941 West Subsidiary 39355 17115.41 7369.14 1723.42 8022.85Fed 941 South Subsidiary 39355 23906.09 10292.9 2407.21 11205.98Fed 941 East Subsidiary 39355 11247.64 4842.74 1132.57 5272.33Fed 941 Corp - Penalty 39355 27198.5 11710.47 2738.73 12749.3Fed 940 Annual Unemp - Corp 39355 17028.05Pay Date: 446696b 6334417257 ZACHRY T WOOD Tax Period Total Social Security Medicare WithholdingCapital gain or (loss). Attach Schedule D if required. If not required, check here ....▶Fed 941 Corporate 39355 66986.66 28841.48 6745.18 314007 Fed 941 West Subsidiary 39355 17115.41 7369.14 1723.42 8022.858 Fed 941 South Subsidiary 39355 23906.09 10292.9 2407.21 11205.98Other income from Schedule 1, line 10 .................. Fed 941 East Subsidiary 39355 11247.64 4842.74 1132.575272.338 Fed 941 Corp - Penalty 39355 27198.5 11710.47 2738.73 12749.39 Fed 940 Annual Unemp - Corp 39355 17028.05Add lines 1, 2b, 3b, 4b, 5b, 6b, 7, and 8. This is your total income .........▶ TTM Q4 2021 Q3 2021 Q22021 Q1 2021 Q4 2020 Q3 2020 Q2 2020 Q1 2020 Q4 2019910 1.46698E+11 42337000000 37497000000 35653000000 31211000000 3081800000025056000000 19744000000 22177000000 25055000000 Adjustments to income from Schedule 1, line 26 ............... 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 4607500000010 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 6413300000011Subtract line 10 from line 9. This is your adjusted gross income .........▶ -5.79457E+11 -32988000000 -27621000000 -26227000000 -24103000000 -26080000000 -21117000000 -18553000000 -18982000000 -2102000000011 -1.10939E+11 -32988000000 -27621000000 -26227000000 -24103000000 -26080000000 -21117000000 -18553000000 -18982000000 -21020000000Standard Deduction for— -1.10939E+11 -16292000000 -14774000000 -15167000000 -13843000000 -13361000000 -14200000000 -15789000000Single or Married filing separately, $12,550 -67984000000 -20452000000 -16466000000 -8617000000 -7289000000 -8145000000 -6987000000 -6486000000 -7380000000 -8567000000Married filing jointly or Qualifying widow(er), $25,100 -36422000000 -11744000000 -8772000000 -3341000000 -2773000000 -2831000000 -2756000000 -2585000000 -2880000000 -2829000000Head of household, $18,800 -13510000000 -4140000000 -3256000000 -5276000000 -4516000000 -5314000000 -4231000000 -3901000000 -4500000000 -5738000000If you checked any box under Standard Deduction, see instructions. -22912000000 -7604000000 -5516000000 -7675000000 -7485000000 -7022000000 -6856000000 -6875000000 -6820000000 -722200000012 -31562000000 -8708000000 -7694000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000a 78714000000 21885000000 21031000000 2624000000 4846000000 30380000002146000000 1894000000 -220000000 1438000000Standard deduction or itemized deductions (from Schedule A) .. 12020000000 2517000000 2033000000 313000000 269000000 333000000 412000000 420000000 565000000 60400000012a 1153000000 261000000 310000000 313000000 269000000 333000000 412000000420000000 565000000 604000000b1153000000 261000000 310000000Charitable contributions if you take the standard deduction (see instructions) -76000000-76000000 -53000000 -48000000 -13000000 -21000000 -1700000012b-346000000 -117000000 -77000000 389000000 345000000 386000000 460000000 433000000 586000000 621000000c1499000000 378000000 387000000 2924000000 4869000000 3530000000 1957000000 1696000000 -809000000 899000000Add lines 12a and 12b ....................... 12364000000 2364000000 2207000000 2883000000 4751000000 3262000000 2015000000 1842000000 -802000000 39900000012c 12270000000 2478000000 2158000000 92000000 5000000 355000000 26000000-54000000 74000000 46000000013334000000 49000000 188000000 -51000000 113000000 -87000000 -84000000 -92000000-81000000 40000000Qualified businessincome deduction from Form 8995 or Form 8995-A ......... -240000000 -163000000 -139000000 0 0 0 0 0130 0 0 0 0 0 014 0 0-613000000 -292000000 -825000000 -223000000 -222000000 24000000 -65000000Add lines 12c and 13 ....................... -1497000000 -108000000 -484000000 2198500000021283000000 18689000000 13359000000 8277000000 7757000000 1070400000014 90734000000 24402000000 23064000000 -3460000000 -3353000000 -3462000000-2112000000 -1318000000 -921000000 -3300000015-14701000000 -3760000000 -4128000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000Taxable income.Subtract line 14 from line 11. If zero or less, enter -0- ......... 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 1067100000 015 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions. 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000Cat. No. 11320B 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000Form 1040 (2021) 76033000000 20642000000 18936000000Reported Normalized and Operating Income/Expense Supplemental SectionTotal Revenue as Reported, Supplemental 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 46075000000Total Operating Profit/Loss as Reported, Supplemental 78714000000 21885000000 21031000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000Reported Effective Tax Rate 0.16 0.179 0.157 0.158 0.158 0.159 0Reported Normalized Income 6836000000Reported Normalized Operating Profit 7977000000Other Adjustments to Net Income Available to Common StockholdersDiscontinued OperationsBasic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.9615.49Basic EPS from Continuing Operations 113.88 31.12 28.44 27.69 26.63 22.46 16.5510.21 9.96 15.47Basic EPS from Discontinued OperationsDiluted EPS 112.2 30.69 27.99 27.26 26.29 22.3 16.4 10.13 9.8715.35Diluted EPS from Continuing Operations 112.2 30.67 27.99 27.26 26.29 22.23 16.410.13 9.87 15.33Diluted EPS from Discontinued OperationsBasic Weighted Average Shares Outstanding 667650000 662664000 665758000 668958000 673220000675581000 679449000 681768000 686465000 688804000Diluted Weighted Average Shares Outstanding 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000Reported Normalized Diluted EPS 9.87Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.9615.49Diluted EPS 112.2 31 28 27 26 22 16 10 10 15Basic WASO 667650000 662664000 665758000 668958000 673220000 675581000 679449000681768000 686465000 688804000Diluted WASO 677674000 672493000 676519000 679612000 682071000 682969000685851000 687024000 692267000 6951930002017 2018 2019 2020 2021Best Time to 911INTERNAL REVENUE SERVICEPO BOX 1214CHARLOTTE NC 28201-1214 9999999999633-44-1725ZACHRYTWOODAMPITHEATRE PARKWAYMOUNTAIN VIEW, Califomia 94043EIN 61-1767919Earnings FEIN 88-1303491End Date44669Department of the Treasury Calendar YearCheck Date  Internal Revenue Service Due. (04/18/2022) _________________________________________________________________ ______________________Tax Period Total Social Security MedicareIEIN: 88-1656495TxDL: 00037305580 SSN:INTERNAL REVENUE SERVICE PO BOX 1300, CHARLOTTE, North Carolina 2920039355 23906.09 10292.9 2407.2120210418 39355 11247.64 4842.74 1132.5739355 27198.5 11710.47 2738.7339355 17028.05CP 575A (Rev. 2-2007) 99999999999 CP 575 A SS-4Earnings StatementIEIN: 88-1656496TxDL: 00037305581 SSN:INTERNAL REVENUE SERVICE PO BOX 1300, CHARLOTTE, North Carolina 29201Employee Information Pay to the order of ZACHRY T WOODAMPITHEATRE PARKWAY,MOUNTAIN VIEW, California 94043INTERNAL REVENUE SERVICE PO BOX 1300, CHARLOTTE, North Carolina 29201 +- +- +- +- +- +- +- Employee Information Pay to the order of ZACHRY T WOODINTERNAL REVENUE SERVICE, *include interest paid, capital obligation, and underweighting 6858000000PO BOX 1214, Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)22677000000CHARLOTTE, NC 28201-1214 Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share) 22677000000Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)22677000000Taxes / Deductions Current YTDFiscal year ends in Dec 31 | USDRateTotal7567263607 ID 00037305581 SSN 633441725 DoB 1994-10-15year to date this period April 18, 2022.7567263607WOOD ZACHRY Tax Period Total Social Security Medicare WithholdingFed 941 Corporate 39355 66986.66 28841.48 6745.18 31400Fed 941 West Subsidiary 39355 17115.41 7369.14 1723.42 8022.85Fed 941 South Subsidiary 39355 23906.09 10292.9 2407.21 11205.98Fed 941 East Subsidiary 39355 11247.64 4842.74 1132.57 5272.33Fed 941 Corp - Penalty 39355 27198.5 11710.47 2738.73 12749.3Fed 940 Annual Unemp - Corp 39355 17028.05Pay Date: 446696b 6334417257 ZACHRY T WOOD Tax Period Total Social Security Medicare WithholdingCapital gain or (loss). Attach Schedule D if required. If not required, check here ....▶Fed 941 Corporate 39355 66986.66 28841.48 6745.18 314007 Fed 941 West Subsidiary 39355 17115.41 7369.14 1723.42 8022.858 Fed 941 South Subsidiary 39355 23906.09 10292.9 2407.21 11205.98Other income from Schedule 1, line 10 .................. Fed 941 East Subsidiary 39355 11247.64 4842.74 1132.575272.338 Fed 941 Corp - Penalty 39355 27198.5 11710.47 2738.73 12749.39 Fed 940 Annual Unemp - Corp 39355 17028.05Add lines 1, 2b, 3b, 4b, 5b, 6b, 7, and 8. This is your total income .........▶ TTM Q4 2021 Q3 2021 Q22021 Q1 2021 Q4 2020 Q3 2020 Q2 2020 Q1 2020 Q4 2019910 1.46698E+11 42337000000 37497000000 35653000000 31211000000 3081800000025056000000 19744000000 22177000000 25055000000 Adjustments to income from Schedule 1, line 26 ............... 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 4607500000010 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 6413300000011Subtract line 10 from line 9. This is your adjusted gross income .........▶ -5.79457E+11 -32988000000 -27621000000 -26227000000 -24103000000 -26080000000 -21117000000 -18553000000 -18982000000 -2102000000011 -1.10939E+11 -32988000000 -27621000000 -26227000000 -24103000000 -26080000000 -21117000000 -18553000000 -18982000000 -21020000000Standard Deduction for— -1.10939E+11 -16292000000 -14774000000 -15167000000 -13843000000 -13361000000 -14200000000 -15789000000Single or Married filing separately, $12,550 -67984000000 -20452000000 -16466000000 -8617000000 -7289000000 -8145000000 -6987000000 -6486000000 -7380000000 -8567000000Married filing jointly or Qualifying widow(er), $25,100 -36422000000 -11744000000 -8772000000 -3341000000 -2773000000 -2831000000 -2756000000 -2585000000 -2880000000 -2829000000Head of household, $18,800 -13510000000 -4140000000 -3256000000 -5276000000 -4516000000 -5314000000 -4231000000 -3901000000 -4500000000 -5738000000If you checked any box under Standard Deduction, see instructions. -22912000000 -7604000000 -5516000000 -7675000000 -7485000000 -7022000000 -6856000000 -6875000000 -6820000000 -722200000012 -31562000000 -8708000000 -7694000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000a 78714000000 21885000000 21031000000 2624000000 4846000000 30380000002146000000 1894000000 -220000000 1438000000Standard deduction or itemized deductions (from Schedule A) .. 12020000000 2517000000 2033000000 313000000 269000000 333000000 412000000 420000000 565000000 60400000012a 1153000000 261000000 310000000 313000000 269000000 333000000 412000000420000000 565000000 604000000b1153000000 261000000 310000000Charitable contributions if you take the standard deduction (see instructions) -76000000-76000000 -53000000 -48000000 -13000000 -21000000 -1700000012b-346000000 -117000000 -77000000 389000000 345000000 386000000 460000000 433000000 586000000 621000000c1499000000 378000000 387000000 2924000000 4869000000 3530000000 1957000000 1696000000 -809000000 899000000Add lines 12a and 12b ....................... 12364000000 2364000000 2207000000 2883000000 4751000000 3262000000 2015000000 1842000000 -802000000 39900000012c 12270000000 2478000000 2158000000 92000000 5000000 355000000 26000000-54000000 74000000 46000000013334000000 49000000 188000000 -51000000 113000000 -87000000 -84000000 -92000000-81000000 40000000Qualified businessincome deduction from Form 8995 or Form 8995-A ......... -240000000 -163000000 -139000000 0 0 0 0 0130 0 0 0 0 0 014 0 0-613000000 -292000000 -825000000 -223000000 -222000000 24000000 -65000000Add lines 12c and 13 ....................... -1497000000 -108000000 -484000000 2198500000021283000000 18689000000 13359000000 8277000000 7757000000 1070400000014 90734000000 24402000000 23064000000 -3460000000 -3353000000 -3462000000-2112000000 -1318000000 -921000000 -3300000015-14701000000 -3760000000 -4128000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000Taxable income.Subtract line 14 from line 11. If zero or less, enter -0- ......... 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 1067100000 015 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions. 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000Cat. No. 11320B 76033000000 20642000000 18936000000 18525000000 17930000000 15227000000 11247000000 6959000000 6836000000 10671000000Form 1040 (2021) 76033000000 20642000000 18936000000Reported Normalized and Operating Income/Expense Supplemental SectionTotal Revenue as Reported, Supplemental 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 41159000000 46075000000Total Operating Profit/Loss as Reported, Supplemental 78714000000 21885000000 21031000000 19361000000 16437000000 15651000000 11213000000 6383000000 7977000000 9266000000Reported Effective Tax Rate 0.16 0.179 0.157 0.158 0.158 0.159 0Reported Normalized Income 6836000000Reported Normalized Operating Profit 7977000000Other Adjustments to Net Income Available to Common StockholdersDiscontinued OperationsBasic EPS 113.88 31.15 28.44 27.69 26.63 22.54 16.55 10.21 9.9615.49Basic EPS from Continuing Operations 113.88 31.12 28.44 27.69 26.63 22.46 16.5510.21 9.96 15.47Basic EPS from Discontinued OperationsDiluted EPS 112.2 30.69 27.99 27.26 26.29 22.3 16.4 10.13 9.8715.35Diluted EPS from Continuing Operations 112.2 30.67 27.99 27.26 26.29 22.23 16.410.13 9.87 15.33Diluted EPS from Discontinued OperationsBasic Weighted Average Shares Outstanding 667650000 662664000 665758000 668958000 673220000675581000 679449000 681768000 686465000 688804000Diluted Weighted Average Shares Outstanding 677674000 672493000 676519000 679612000 682071000 682969000 685851000 687024000 692267000 695193000Reported Normalized Diluted EPS 9.87Basic EPS 113.88 31.15 28.44 27.69 26.63 22.54                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+        LAWR E PAGE                                                                        -$70,842,743,866.00                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        Cash and Cash Equivalents, Beginning of Period                                     -$70,842,743,866.00                                                            NON-NEGOTIABLE                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                           -$70,842,743,866.00                                      0.001 TO 112.20 PAR SHARE VALUE                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                           -$70,842,743,866.00                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                       +$22,677,000,000,000.00                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                    
+        Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        *include interest paid, capital obligation, and underweighting                                                                                
+Previous Over-payment, "$257,637,118,600"                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+        Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno then run Deno lint and test.
+# For more information see: https://github.com/denoland/setup-deno
+
+name: Deno
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+
+      - name: Setup Deno
+        # uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e983317366
+        with:
+          deno-version: v1.x
+
+      # Uncomment this step to verify the use of 'deno fmt' on each commit.
+      # - name: Verify formatting
+      #   run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: deno test -A --unstable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                        EIN        61-1767919                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                        88-1303491                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        INTERNAL REVENUE SERVICE,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        PO BOX 1214,                                                                                                                        ID:                Ssn:                 DoB:                                                                                                                                                                                                                                                                                                                                                                                                  
+        CHARLOTTE, NC 28201-1214                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+        ZACHRY WOOD                                                                                        633441725                34622                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+        15                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see separate instructions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        Cat. No. 11320B                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        Form 1040 (2021)                                                                                                                                Tax Form-#                     Period                         Total            SS Tax            Medicare Withholding                                                                                                                                                                                                                                                                                                                                                                                                
+        Reported Normalized and Operating Income/Expense Supplemental Section                                                   Fed-941 Corporate             Sunday, September 17, 2001        66986.66        28841.48        6745.18         31400                                                                                                                                                                                                                                                                                                                                                                                
+        Total Revenue as Reported, Supplemental                                                                                                Fed-941 West-Subsidiary         Sunday, September 17, 2001        17115.41        7369.14            1723.42         8022.85                                                                                                                                                                                                                                                                                                                                                                                        
+        Total Operating Profit/Loss as Reported, Supplemental                                                                   Fed-941 South-Subsidiary Sunday, September 17, 2001        23906.09        10292.9            2407.21         11205.98                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Effective Tax Rate                                                                                                                        Fed-941 East-Subsidiary         Sunday, September 17, 2001        11247.64        4842.74            1132.57         5272.33                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Income                                                                                                                        Fed-941 Corp-Pay,        Sunday, September 17, 2001        27198.5            11710.47        2738.73         12749.3                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Operating Profit                                                                                                Fed-940 AnnualUnemp-Corp Sunday, September 17, 2001        17028.05                                                                                                                                                                                                                                                                                                                                                                                                                
+        Other Adjustments to Net Income Available to Common Stockholders                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        Discontinued Operations                                                                                Q12022        Q42021        Q32021        Q22021        Q12021        Q42020        Q32020        Q22020        Q12020        Q42019        Q32019                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS from Continuing Operations                                                                                1.46698E+11        42337000000        37497000000        35653000000        31211000000        30818000000        25056000000        19744000000        22177000000        25055000000        22931000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS from Discontinued Operations                                                                                2.57637E+11        75325000000        65118000000        61880000000        55314000000        56898000000        46173000000        38297000000        41159000000        46075000000        40499000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS                                                                                75325000000        65118000000        61880000000        55314000000        56898000000        46173000000        38297000000        41159000000        64133000000        34071000000                                                                                                                                                                                                                                                                                                                                                                                                
+        Diluted EPS from Continuing Operations                                                                                                                                                                6428000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS from Discontinued Operations                                                                                -1.10939E+11        -32988000000        -27621000000        -26227000000        -24103000000        -26080000000        -21117000000        -18553000000        -18982000000        -21020000000        -17568000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic Weighted Average Shares Outstanding                                                                                -1.10939E+11        -32988000000        -27621000000        -26227000000        -24103000000        -26080000000        -21117000000        -18553000000        -18982000000        -21020000000        -17568000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted Weighted Average Shares Outstanding                                                                                -67984000000        -20452000000        -16466000000        -16292000000        -14774000000        -15167000000        -13843000000        -13361000000        -14200000000        -15789000000        -13754000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Diluted EPS                                                                                -36422000000        -11744000000        -8772000000        -8617000000        -7289000000        -8145000000        -6987000000        -6486000000        -7380000000        -8567000000        -7200000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS                                                                                -13510000000        -4140000000        -3256000000        -3341000000        -2773000000        -2831000000        -2756000000        -2585000000        -2880000000        -2829000000        -2591000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS                                                                                -22912000000        -7604000000        -5516000000        -5276000000        -4516000000        -5314000000        -4231000000        -3901000000        -4500000000        -5738000000        -4609000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic WASO                                                                                -31562000000        -8708000000        -7694000000        -7675000000        -7485000000        -7022000000        -6856000000        -6875000000        -6820000000        -7222000000        -6554000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted WASO                                                                                78714000000        21885000000        21031000000        19361000000        16437000000        15651000000        11213000000        6383000000        7977000000        9266000000        9177000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Fiscal year end September 28th., 2022. | USD                                                                                12020000000        2517000000        2033000000        2624000000        4846000000        3038000000        2146000000        1894000000        -220000000        1438000000        -549000000                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                        1153000000        261000000        310000000        313000000        269000000        333000000        412000000        420000000        565000000        604000000        608000000                                                                                                                                                                                                                                                                                                                                                                                        
+        For Paperwork Reduction Act Notice, see the seperate Instructions.         1153000000        261000000        310000000        313000000        269000000        333000000        412000000        420000000        565000000        604000000        608000000                                                                                                                                                                                                                                                                                                                                                                                        
+
+        Interest Expense Net of Capitalized Interest        -346000000        -117000000        -77000000        -76000000        -76000000        -53000000        -48000000        -13000000        -21000000        -17000000        -23000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Interest Income        1499000000        378000000        387000000        389000000        345000000        386000000        460000000        433000000        586000000        621000000        631000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Investment Income        12364000000        2364000000        2207000000        2924000000        4869000000        3530000000        1957000000        1696000000        -809000000        899000000        -1452000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Gain/Loss on Investments and Other Financial Instruments        12270000000        2478000000        2158000000        2883000000        4751000000        3262000000        2015000000        1842000000        -802000000        399000000        -1479000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Income from Associates, Joint Ventures and Other Participating Interests        334000000        49000000        188000000        92000000        5000000        355000000        26000000        -54000000        74000000        460000000        -14000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Gain/Loss on Foreign Exchange        -240000000        -163000000        -139000000        -51000000        113000000        -87000000        -84000000        -92000000        -81000000        40000000        41000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Irregular Income/Expenses        0        0                                0        0        0        0        0        0                                                                                                                                                                                                                                                                                                                                                                                        
+        Other Irregular Income/Expenses        0        0                                0        0        0        0        0        0                                                                                                                                                                                                                                                                                                                                                                                        
+        Other Income/Expense, Non-Operating        -1497000000        -108000000        -484000000        -613000000        -292000000        -825000000        -223000000        -222000000        24000000        -65000000        295000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Pretax Income        90734000000        24402000000        23064000000        21985000000        21283000000        18689000000        13359000000        8277000000        7757000000        10704000000        8628000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Provision for Income Tax        -14701000000        -3760000000        -4128000000        -3460000000        -3353000000        -3462000000        -2112000000        -1318000000        -921000000        -33000000        -1560000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Income from Continuing Operations        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Income after Extraordinary Items and Discontinued Operations        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Income after Non-Controlling/Minority Interests        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Income Available to Common Stockholders        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted Net Income Available to Common Stockholders        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Income Statement Supplemental Section                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Reported Normalized and Operating Income/Expense Supplemental Section                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Total Revenue as Reported, Supplemental        2.57637E+11        75325000000        65118000000        61880000000        55314000000        56898000000        46173000000        38297000000        41159000000        46075000000        40499000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Total Operating Profit/Loss as Reported, Supplemental        78714000000        21885000000        21031000000        19361000000        16437000000        15651000000        11213000000        6383000000        7977000000        9266000000        9177000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Effective Tax Rate        0.162                0.179        0.157        0.158                0.158        0.159        0.119                0.181                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Income                                                                        6836000000                                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Operating Profit                                                                        7977000000                                                                                                                                                                                                                                                                                                                                                                                                        
+        Other Adjustments to Net Income Available to Common Stockholders                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Discontinued Operations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Basic EPS        113.88        31.15        28.44        27.69        26.63        22.54        16.55        10.21        9.96        15.49        10.2                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS from Continuing Operations        113.88        31.12        28.44        27.69        26.63        22.46        16.55        10.21        5748783316        7200210400        5397506832                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS from Discontinued Operations                                                                        5826744201        7264011080        5462632264                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS        112.2        30.69        27.99        27.26        26.29        22.3        16.4        10.13        5904705086        7327811761        5527757696                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS from Continuing Operations        112.2        30.67        27.99        27.26        26.29        22.23        16.4        10.13        5982665971        7391612442        5592883128                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS from Discontinued Operations                                                                        6060626856        7455413122        5658008560                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic Weighted Average Shares Outstanding        667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        6138587741        7519213803        5723133992                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted Weighted Average Shares Outstanding        677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        6216548625        7583014484        5788259424                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Diluted EPS                                                                        6294509510        7646815164        5853384856                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS        113.88        31.15        28.44        27.69        26.63        22.54        16.55        10.21        6372470395        7710615845        5918510288                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS        112.2        30.69        27.99        27.26        26.29        22.3        16.4        10.13        6450431280        7774416525        5983635720                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic WASO        667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        6528392165        7838217206        6048761151                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted WASO        677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        6606353050        7902017887        6113886583                                                                                                                                                                                                                                                                                                                                                                                        
+        Fiscal year end September 28th., 2022. | USD                                                                        6684313934        7965818567        6179012015                                                                                                                                                                                                                                                                                                                                                                                        
+
+
+        316221839                                                                Print                                                                                                                                                                                                                                                                                                                                                                                                                
+        3/6/2022 at 6:37 PM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Morningstar.com:; Intraday:; Fundamental:; Portfolio:; View:; Print:; Report:;______________________________________________________________Q4 2021:; Q3 2021:; Q2 2021:;        Q1 2021:;        Q4 2020:; :                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Net Cash Flow from Continuing Operating Activities, Indirect                24934000000        25539000000        37497000000        31211000000        30818000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cash Generated from Operating Activities                24934000000        25539000000        21890000000        19289000000        22677000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Income/Loss before Non-Cash Adjustment                20642000000        25539000000        21890000000        19289000000        22677000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Total Adjustments for Non-Cash Items                6517000000        18936000000        18525000000        17930000000        15227000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Depreciation, Amortization and Depletion, Non-Cash Adjustment                3439000000        3797000000        4236000000        2592000000        5748000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Depreciation and Amortization, Non-Cash Adjustment                3439000000        3304000000        2945000000        2753000000        3725000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Depreciation, Non-Cash Adjustment                3215000000        3304000000        2945000000        2753000000        3725000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Amortization, Non-Cash Adjustment                224000000        3085000000        2730000000        2525000000        3539000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Stock-Based Compensation, Non-Cash Adjustment                3954000000        219000000        215000000        228000000        186000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Taxes, Non-Cash Adjustment                1616000000        3874000000        3803000000        3745000000        3223000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Investment Income/Loss, Non-Cash Adjustment                -2478000000        -1287000000        379000000        1100000000        1670000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Gain/Loss on Financial Instruments, Non-Cash Adjustment                -2478000000        -2158000000        -2883000000        -4751000000        -3262000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Other Non-Cash Items                -14000000        -2158000000        -2883000000        -4751000000        -3262000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Changes in Operating Capital                -2225000000        64000000        -8000000        -255000000        392000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Trade and Other Receivables                -5819000000        2806000000        -871000000        -1233000000        1702000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Trade/Accounts Receivable                -5819000000        -2409000000        -3661000000        2794000000        -5445000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Other Current Assets                -399000000        -2409000000        -3661000000        2794000000        -5445000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Payables and Accrued Expenses                6994000000        -1255000000        -199000000        7000000        -738000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Trade and Other Payables                1157000000        3157000000        4074000000        -4956000000        6938000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Trade/Accounts Payable                1157000000        238000000        -130000000        -982000000        963000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Accrued Expenses                5837000000        238000000        -130000000        -982000000        963000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Deferred Assets/Liabilities                368000000        2919000000        4204000000        -3974000000        5975000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Other Operating Capital                -3369000000        272000000        -3000000        137000000        207000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Prepayments and Deposits                        3041000000        -1082000000        785000000        740000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cash Flow from Investing Activities                -11016000000                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cash Flow from Continuing Investing Activities                -11016000000        -10050000000        -9074000000        -5383000000        -7281000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Purchase/Sale and Disposal of Property, Plant and Equipment, Net                -6383000000        -10050000000        -9074000000        -5383000000        -7281000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Purchase of Property, Plant and Equipment                -6383000000        -6819000000        -5496000000        -5942000000        -5479000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Sale and Disposal of Property, Plant and Equipment                        -6819000000        -5496000000        -5942000000        -5479000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Purchase/Sale of Business, Net                -385000000                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Purchase/Acquisition of Business                -385000000        -259000000        -308000000        -1666000000        -370000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Purchase/Sale of Investments, Net                -4348000000        -259000000        -308000000        -1666000000        -370000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Purchase of Investments                -40860000000        -3360000000        -3293000000        2195000000        -1375000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Sale of Investments                36512000000        -35153000000        -24949000000        -37072000000        -36955000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Other Investing Cash Flow                100000000        31793000000        21656000000        39267000000        35580000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Purchase/Sale of Other Non-Current Assets, Net                        388000000        23000000        30000000        -57000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Sales of Other Non-Current Assets                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cash Flow from Financing Activities                -16511000000        -15254000000                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        Cash Flow from Continuing Financing Activities                -16511000000        -15254000000        -15991000000        -13606000000        -9270000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Issuance of/Payments for Common Stock, Net                -13473000000        -12610000000        -15991000000        -13606000000        -9270000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Payments for Common Stock                13473000000        -12610000000        -12796000000        -11395000000        -7904000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Proceeds from Issuance of Common Stock                                -12796000000        -11395000000        -7904000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Issuance of/Repayments for Debt, Net                115000000        -42000000                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        Issuance of/Repayments for Long Term Debt, Net                115000000        -42000000        -1042000000        -37000000        -57000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Proceeds from Issuance of Long Term Debt                6250000000        6350000000        -1042000000        -37000000        -57000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Repayments for Long Term Debt                6365000000        -6392000000        6699000000        900000000        0                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Proceeds from Issuance/Exercising of Stock Options/Warrants                2923000000        -2602000000        -7741000000        -937000000        -57000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        -2453000000        -2184000000        -1647000000                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+        Other Financing Cash Flow                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cash and Cash Equivalents, End of Period                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Cash                0                300000000        10000000        3.38E+11                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Effect of Exchange Rate Changes                20945000000        23719000000        23630000000        26622000000        26465000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cash and Cash Equivalents, Beginning of Period                25930000000        235000000000)        -3175000000        300000000        6126000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cash Flow Supplemental Section                181000000000)        -1.46E+11        183000000        -143000000        210000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Change in Cash as Reported, Supplemental                23719000000000)        2.363E+13        2.6622E+13        2.6465E+13        2.0129E+13                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Income Tax Paid, Supplemental                2774000000        89000000        -2992000000        2.57637E+11        6336000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cash and Cash Equivalents, Beginning of Period                13412000000        157000000                2.57637E+11        -4990000000                                                                                                                                                                                                                                                                                                                                                                                                                                
+        PLEASE READ THE IMPORTANT DISCLOSURES BELOW                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        12 Months Ended                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        _________________________________________________________                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Q4 2020                        Q4  2019                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        Income Statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+        USD in "000'"s                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Repayments for Long Term Debt                        Dec. 31, 2020                        Dec. 31, 2019                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Costs and expenses:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Cost of revenues                        182527                        161857                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Research and development                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Sales and marketing                        84732                        71896                                                                                                                                                                                                                                                                                                                                                                                                                                
+        General and administrative                        27573                        26018                                                                                                                                                                                                                                                                                                                                                                                                                                
+        European Commission fines                        17946                        18464                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Total costs and expenses                        11052                        9551                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Income from operations                        0                        1697                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Other income (expense), net                        141303                        127626                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Income before income taxes                        
+For Paperwork Reduction Act Notice, see the seperate Instructions.         1153000000        261000000        310000000        313000000        269000000        333000000        412000000        420000000        565000000        604000000        608000000                                                                                                                                                                                                                                                                                                                                                                                        
+
+        Interest Expense Net of Capitalized Interest        -346000000        -117000000        -77000000        -76000000        -76000000        -53000000        -48000000        -13000000        -21000000        -17000000        -23000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Interest Income        1499000000        378000000        387000000        389000000        345000000        386000000        460000000        433000000        586000000        621000000        631000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Investment Income        12364000000        2364000000        2207000000        2924000000        4869000000        3530000000        1957000000        1696000000        -809000000        899000000        -1452000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Gain/Loss on Investments and Other Financial Instruments        12270000000        2478000000        2158000000        2883000000        4751000000        3262000000        2015000000        1842000000        -802000000        399000000        -1479000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Income from Associates, Joint Ventures and Other Participating Interests        334000000        49000000        188000000        92000000        5000000        355000000        26000000        -54000000        74000000        460000000        -14000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Gain/Loss on Foreign Exchange        -240000000        -163000000        -139000000        -51000000        113000000        -87000000        -84000000        -92000000        -81000000        40000000        41000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Irregular Income/Expenses        0        0                                0        0        0        0        0        0                                                                                                                                                                                                                                                                                                                                                                                        
+        Other Irregular Income/Expenses        0        0                                0        0        0        0        0        0                                                                                                                                                                                                                                                                                                                                                                                        
+        Other Income/Expense, Non-Operating        -1497000000        -108000000        -484000000        -613000000        -292000000        -825000000        -223000000        -222000000        24000000        -65000000        295000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Pretax Income        90734000000        24402000000        23064000000        21985000000        21283000000        18689000000        13359000000        8277000000        7757000000        10704000000        8628000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Provision for Income Tax        -14701000000        -3760000000        -4128000000        -3460000000        -3353000000        -3462000000        -2112000000        -1318000000        -921000000        -33000000        -1560000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Income from Continuing Operations        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Income after Extraordinary Items and Discontinued Operations        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Income after Non-Controlling/Minority Interests        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Net Income Available to Common Stockholders        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted Net Income Available to Common Stockholders        76033000000        20642000000        18936000000        18525000000        17930000000        15227000000        11247000000        6959000000        6836000000        10671000000        7068000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Income Statement Supplemental Section                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Reported Normalized and Operating Income/Expense Supplemental Section                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Total Revenue as Reported, Supplemental        2.57637E+11        75325000000        65118000000        61880000000        55314000000        56898000000        46173000000        38297000000        41159000000        46075000000        40499000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Total Operating Profit/Loss as Reported, Supplemental        78714000000        21885000000        21031000000        19361000000        16437000000        15651000000        11213000000        6383000000        7977000000        9266000000        9177000000                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Effective Tax Rate        0.162                0.179        0.157        0.158                0.158        0.159        0.119                0.181                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Income                                                                        6836000000                                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Operating Profit                                                                        7977000000                                                                                                                                                                                                                                                                                                                                                                                                        
+        Other Adjustments to Net Income Available to Common Stockholders                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Discontinued Operations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Basic EPS        113.88        31.15        28.44        27.69        26.63        22.54        16.55        10.21        9.96        15.49        10.2                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS from Continuing Operations        113.88        31.12        28.44        27.69        26.63        22.46        16.55        10.21        5748783316        7200210400        5397506832                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS from Discontinued Operations                                                                        5826744201        7264011080        5462632264                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS        112.2        30.69        27.99        27.26        26.29        22.3        16.4        10.13        5904705086        7327811761        5527757696                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS from Continuing Operations        112.2        30.67        27.99        27.26        26.29        22.23        16.4        10.13        5982665971        7391612442        5592883128                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS from Discontinued Operations                                                                        6060626856        7455413122        5658008560                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic Weighted Average Shares Outstanding        667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        6138587741        7519213803        5723133992                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted Weighted Average Shares Outstanding        677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        6216548625        7583014484        5788259424                                                                                                                                                                                                                                                                                                                                                                                        
+        Reported Normalized Diluted EPS                                                                        6294509510        7646815164        5853384856                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic EPS        113.88        31.15        28.44        27.69        26.63        22.54        16.55        10.21        6372470395        7710615845        5918510288                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted EPS        112.2        30.69        27.99        27.26        26.29        22.3        16.4        10.13        6450431280        7774416525        5983635720                                                                                                                                                                                                                                                                                                                                                                                        
+        Basic WASO        667650000        662664000        665758000        668958000        673220000        675581000        679449000        681768000        6528392165        7838217206        6048761151                                                                                                                                                                                                                                                                                                                                                                                        
+        Diluted WASO        677674000        672493000        676519000        679612000        682071000        682969000        685851000        687024000        6606353050        7902017887        6113886583        
+        Provision for income taxes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        *include interest paid, capital obligation, and underweighting                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Basic net income per share of Class A and B common stock and Class C capital stock(par share)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Diluted net income per share of Class A and Class B common stock and Class C capital stock (par share)                                                                
+        "PLEASE READ THE IMPORTANT DISCLOSURES BELOW                
+            PNCBUSINESSBANKACCOUNTOWNERSDEBITMASTERACCOUTVISACARDCREDITCARDCARDACCOUNT
+                PNCBANK
+                    Pnc Bank        071.                                                                                                                                                                                                                
+                        PNC Bank Business Tax I.D. Number: 633441725
+        CIF Department (Online Banking)                                                                                                                                                                                                                                        
+        Checking Account: P7-PFSC-04-F                                                                                                                                                                                                                                        Business Type: Sole Proprietorship/Partnership Corporation                                                                                                                                                                                                                                        
+        500 First Avenue                                                                                                                                                                                                                                        ALPHABET                                                                                                                                                                                                                                        
+        Pittsburgh, PA 15219-3128                                                                                                                                                                                                                                        5323 BRADFORD DR                                                                                                                                                                                                                                        
+        NON-NEGOTIABLE                                                                                                                                                                                                                                        DALLAS TX 75235 8313                                                                                                                                                                                                                                        
+        ZACHRY, TYLER, WOOD                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        4/18/2022                        650-2530-000 469-697-4300                                __________________________________________________  SIGNATURE                                                                                                          Time Zone: Eastern Central Mountain PacificInvestment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value |"                                                                                                                                                                                                                                                                                                                
+
+
+        For Paperwork Reduction Act Notice, see the seperate Instructions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        Bureau of the fiscal Service                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        A/R Aging Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        As of July 28, 2022                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+Interest Rate As Prescribed By the Secretary of the Treasury.
+Days Overdue             31 - 60        61 - 90        91 and over          Accured Penaly                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Accured Penalty         134839        44591        0        0        0        134839                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                 Alphabet Inc.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                                                        £134,839                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+                 US$ in millions                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                 Ann. Rev. Date         £43,830        £43,465        £43,100        £42,735        £42,369                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Revenues         £161,857        £136,819        £110,855        £90,272        £74,989                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Cost of revenues         (£71,896)        (£59,549)        (£45,583)        (£35,138)        (£28,164)                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Gross profit         £89,961        £77,270        £65,272        £55,134        £46,825                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Research and development         (£26,018)        (£21,419)        (£16,625)        (£13,948)        (£12,282)                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Sales and marketing         (£18,464)        (£16,333)        (£12,893)        (£10,485)        (£9,047)                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 General and administrative         (£9,551)        (£8,126)        (£6,872)        (£6,985)        (£6,136)                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 European Commission fines         (£1,697)        (£5,071)        (£2,736)         —          —                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                 Income from operations         £34,231        £26,321        £26,146        £23,716        £19,360                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Interest income         £2,427        £1,878        £1,312        £1,220        £999                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Interest expense         (£100)        (£114)        (£109)        (£124)        (£104)                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Foreign currency exchange gain          £103        (£80)        (£121)        (£475)        (£422)                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Gain (loss) on debt securities         £149        £1,190        (£110)        (£53)         —                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                 Gain (loss) on equity securities,         £2,649        £5,460        £73        (£20)         —                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                 Performance fees         (£326)         —          —          —          —                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                 Gain(loss)          £390        (£120)        (£156)        (£202)         —                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                 Other         £102        £378        £158        £88        (£182)                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Other income (expense), net         £5,394        £8,592        £1,047        £434        £291                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Income before income taxes         £39,625        £34,913        £27,193        £24,150        £19,651                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Provision for income taxes         (£3,269)        (£2,880)        (£2,302)        (£1,922)        (£1,621)                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Net income         £36,355        (£32,669)        £25,611        £22,198        £18,030                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 Adjustment Payment to Class C                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                 Net. Ann. Rev.         £36,355        £32,669        £25,611        £22,198        £18,030                                                                                                                                                                                                                                                                                                                                                                                                                                
+        *Investments in unaffiliated securities, at value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        *realized  liabilities\gain as reported supplemental                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+        Fiscal year endings' in Septmenber 28th., 2021.|USD                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+       
+		building..., "CONSTRUCTION"::'' ':''
