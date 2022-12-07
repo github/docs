@@ -383,3 +383,4 @@ For more information, see Daring Fireball's "[Markdown Syntax](https://daringfir
 - "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
 - "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+- [GHM Cheatsheet Google Chrome Extension](https://chrome.google.com/webstore/detail/markdown-cheatsheet/hoglmefbfenoehjeblinfijldanifljm)
