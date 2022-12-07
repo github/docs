@@ -43934,7 +43934,7 @@ type Workflow implements Node {
 """
 A workflow run.
 """
-type WorkflowRun implements Node {
+type WorkflowRun implements Node & UniformResourceLocatable {
   """
   The check suite this workflow run belongs to.
   """

@@ -58255,6 +58255,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/interfaces#uniformresourcelocatable"
         }
       ],
       "fields": [
