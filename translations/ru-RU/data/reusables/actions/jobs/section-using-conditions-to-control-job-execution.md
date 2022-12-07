@@ -1,10 +1,18 @@
-You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
+---
+ms.openlocfilehash: eb897a445a5e5a90014097ba76a5ecb095aa0bef
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/06/2022
+ms.locfileid: "148192063"
+---
+Условное выражение `jobs.<job_id>.if` можно использовать для предотвращения выполнения задания, если условие не выполняется. {% data reusables.actions.if-supported-contexts %}
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} Дополнительные сведения см. в разделе [Выражения](/actions/learn-github-actions/expressions).
 
-### Example: Only run job for specific repository
+### Пример. Выполнение задания только для определенного репозитория
 
-This example uses `if` to control when the `production-deploy` job can run. It will only run if the repository is named `octo-repo-prod` and is within the `octo-org` organization. Otherwise, the job will be marked as _skipped_.
+В этом примере используется `if` для управления выполнением задания `production-deploy`. Оно будет выполняться только в том случае, если репозиторий имеет имя `octo-repo-prod` и находится в организации `octo-org`. В противном случае задание будет отмечено как _пропущенное_.
 
 ```yaml{:copy}
 name: example-workflow
