@@ -1,7 +1,7 @@
 ---
-title: Adding an "Open in GitHub Codespaces" badge
+title: 添加“在 GitHub Codespaces 中打开”锁屏提醒
 shortTitle: Add a Codespaces badge
-intro: You can add a badge to a Markdown file in your repository which people can click to create a codespace.
+intro: 可以将锁屏提醒添加到存储库中的 Markdown 文件，用户可以单击该文件来创建 codespace。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,50 +10,55 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+ms.openlocfilehash: c69a815501f5943a56d32af3e58cd7850a69588b
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158779'
 ---
+## 概述
 
-## Overview
+向 Markdown 文件添加“在 {% data variables.product.prodname_github_codespaces %} 中打开”锁屏提醒可让用户轻松地为存储库创建 codespace。
 
-Adding an "Open in {% data variables.product.prodname_github_codespaces %}" badge to a Markdown file gives people an easy way to create a codespace for your repository.
+![自述文件页上 Codespaces 锁屏提醒的屏幕截图](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
 
-![Screenshot of a Codespaces badge on a README page](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
+创建锁屏提醒时，可以为锁屏提醒将创建的 codespace 选择特定配置选项。
 
-When you create a badge you can choose specific configuration options for the codespace that the badge will create.
+当人们单击锁屏提醒时，他们会进入用于创建 codespace 的高级选项页，其中包含你预先选择的选项。 有关高级选项页的详细信息，请参阅“[为存储库创建 codespace](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)”。
 
-When people click the badge they'll be taken to the advanced options page for codespace creation, with the options you chose preselected. For more information about the advanced options page, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+在高级选项页中，用户可以根据需要更改预先选择的设置，然后单击“创建 codespace”。
 
-From the advanced options page, users can change the preselected settings if required, then click **Create codespace**.
-
-## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
+## 创建“在 {% data variables.product.prodname_github_codespaces %} 中打开”锁屏提醒
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create the badge for.
+1. 在存储库名称下，使用“分支”下拉菜单选择要为其创建徽章的分支。
 
-   ![Screenshot of the Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![“分支”下拉菜单的屏幕截图](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
+1. 单击“{% octicon "code" aria-label="The code icon" %} 代码”按钮，然后单击“codespace”选项卡。
 
-   ![Screenshot of the New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+   ![“新建 codespace”按钮的屏幕截图](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab, then click **New with options**.
+1. 单击“Codespace”选项卡右上角的省略号 (…)，然后单击“新建选项”  。
 
-   ![Screenshot of the "Configure and create codespace" option](/assets/images/help/codespaces/default-machine-type.png)
+   ![“配置并创建 codespace”选项的屏幕截图](/assets/images/help/codespaces/default-machine-type.png)
 
-1. On the advanced options page for codespace creation, select the values you want to be preselected in each field.
+1. 在用于创建 codespace 的高级选项页上，选择要在每个字段中预先选择的值。
 
-   ![Screenshot of the advanced options page](/assets/images/help/codespaces/advanced-options.png)
+   ![高级选项页的屏幕截图](/assets/images/help/codespaces/advanced-options.png)
 
-1. Copy the URL from the browser's address bar.
-1. Add the following Markdown to, for example, the `README.md` file of your repository:
+1. 复制浏览器地址栏中的 URL。
+1. 例如，将以下 Markdown 添加到存储库的 `README.md` 文件：
 
    ```Markdown{:copy}
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](COPIED-URL)
    ```
 
-   For example:
+   例如：
 
    ```Markdown
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=0000000&machine=premiumLinux&devcontainer_path=.devcontainer%2Fdevcontainer.json&location=WestUs2)
    ```
 
-   In the above example, `0000000` will be the reference number of your repository. The other details in the URL are determined by the values you selected in the fields on the advanced options page.
+   在上面的示例中，`0000000` 会是存储库的引用编号。 URL 中的其他详细信息由在高级选项页上的字段中选择的值确定。
