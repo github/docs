@@ -11,6 +11,8 @@ import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useRouter } from 'next/router'
 
+const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
+
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
   const {
@@ -31,7 +33,7 @@ export const DefaultLayout = (props: Props) => {
   // This is only true when we do search indexing which renders every page
   // just to be able to `cheerio` load the main body (and the meta
   // keywords tag).
-  if (process.env.MINIMAL_RENDER) {
+  if (MINIMAL_RENDER) {
     return (
       <div>
         <Head>

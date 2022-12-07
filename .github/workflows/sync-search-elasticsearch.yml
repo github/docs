@@ -139,9 +139,6 @@ jobs:
       - name: Start the server in the background
         env:
           ENABLE_DEV_LOGGING: false
-          # Makes it so that the React rendering of pages just does the
-          # minimal needed to be able to extract the page text for search.
-          MINIMAL_RENDER: true
         run: |
           npm run sync-search-server > /tmp/stdout.log 2> /tmp/stderr.log &
 
