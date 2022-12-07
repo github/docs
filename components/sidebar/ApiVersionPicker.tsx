@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 import Cookies from 'js-cookie'
+import { InfoIcon } from '@primer/octicons-react'
 
 import { useMainContext } from 'components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
@@ -13,7 +14,7 @@ import styles from './SidebarProduct.module.scss'
 const API_VERSION_SUFFIX = ' (latest)'
 
 type Props = {
-  variant?: 'inline'
+  variant: 'inline' | 'header'
   width?: number
 }
 
@@ -67,19 +68,23 @@ export const ApiVersionPicker = ({ variant, width }: Props) => {
       text: dateDisplayText,
       selected: router.query.apiVersion === date,
       href: itemLink,
-      info: false,
-      onselect: rememberApiVersion,
+      extra: {
+        info: false,
+        currentDate,
+      },
     }
   })
 
   apiVersionLinks.push({
     text: t('rest.versioning.about_versions'),
     selected: false,
-    info: true,
     href: `/${router.locale}${
       currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
     }/rest/overview/api-versions`,
-    onselect: rememberApiVersion,
+    extra: {
+      info: true,
+      currentDate,
+    },
   })
 
   // This only shows the REST Version picker if it's calendar date versioned
@@ -99,9 +104,26 @@ export const ApiVersionPicker = ({ variant, width }: Props) => {
       <div data-testid="api-version-picker" className="width-full">
         <Picker
           variant={variant}
-          apiVersion={true}
           defaultText={currentDateDisplayText}
-          options={apiVersionLinks}
+          items={apiVersionLinks}
+          pickerLabel="Version"
+          alignment="center"
+          buttonBorder={true}
+          dataTestId="version"
+          ariaLabel="Select API Version"
+          onSelect={(item) => {
+            if (item.extra?.currentDate) rememberApiVersion(item.extra.currentDate)
+          }}
+          renderItem={(item) => {
+            return item.extra?.info ? (
+              <div className="f6">
+                {item.text}
+                <InfoIcon verticalAlign="middle" size={15} className="ml-1" />
+              </div>
+            ) : (
+              item.text
+            )
+          }}
         />
       </div>
     </div>
