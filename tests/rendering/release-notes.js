@@ -47,9 +47,9 @@ describe('server', () => {
         )
       })
     )
-    expect.assertions(page.applicableVersions.length * testLanguages.length)
     for (const [url, status] of statusCodes.flat()) {
       expect(status, url).toBe(200)
     }
+    expect.assertions(page.applicableVersions.length * testLanguages.length)
   })
 })

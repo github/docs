@@ -16,12 +16,12 @@ type: overview
 topics:
   - Action development
   - Fundamentals
-ms.openlocfilehash: ac933a5014750f75373fafa7f8dd52333b79a469
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 1e81bea551ceff1980b0bbe96202f60db0d0e7f2
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147154575'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191950'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -35,7 +35,7 @@ ms.locfileid: '147154575'
 
 ## 동작 유형
 
-Docker 컨테이너 및 JavaScript 작업을 빌드할 수 있습니다. 작업에는 작업에 대한 입력, 출력, 기본 진입점을 정의하는 메타데이터 파일이 필요합니다. 메타데이터 파일 이름은 `action.yml` 또는 `action.yaml`이어야 합니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 메타데이터 구문](/articles/metadata-syntax-for-github-actions)”을 참조하세요.
+Docker 컨테이너, JavaScript 및 복합 작업을 빌드할 수 있습니다. 작업에는 작업에 대한 입력, 출력, 기본 진입점을 정의하는 메타데이터 파일이 필요합니다. 메타데이터 파일 이름은 `action.yml` 또는 `action.yaml`이어야 합니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 메타데이터 구문](/articles/metadata-syntax-for-github-actions)”을 참조하세요.
 
 | 형식 | 운영 체제 |
 | ---- | ------------------- |

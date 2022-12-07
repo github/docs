@@ -9,12 +9,12 @@ versions:
 type: quick_start
 topics:
   - Codespaces
-ms.openlocfilehash: 5f97a137ec09191d5cbaa9c10aa280e10f11bbc0
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 01e4f3990cc47f61678811f7c4a77b86626fd8a5
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158645'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188264'
 ---
 {% data variables.product.prodname_github_codespaces %} ist eine sofort einsetzbare, cloudbasierte Entwicklungsumgebung, die einen Container nutzt, um dir gängige Sprachen, Tools und Dienstprogramme für die Entwicklung zur Verfügung zu stellen. {% data variables.product.prodname_github_codespaces %} ist außerdem konfigurierbar, sodass du eine angepasste Entwicklungsumgebung für dein Projekt erstellen kannst. Durch die Konfiguration einer benutzerdefinierten Entwicklungsumgebung für dein Projekt kannst du über eine wiederholbare Codespacekonfiguration für alle Benutzer deines Projekts verfügen.
 
@@ -161,4 +161,4 @@ Wenn du deine Codespaces in einer JetBrains-IDE bearbeitest, kannst du Plug-Ins 
 - [Aktivieren von {% data variables.product.prodname_github_codespaces %} für deine Organisation](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)
 - [Verwalten der Kosten von {% data variables.product.prodname_github_codespaces %} in deiner Organisation](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)
 - [Hinzufügen einer Entwicklungscontainerkonfiguration zu deinem Repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)
-- [Der Codespace-Lebenszyklus](/codespaces/developing-in-codespaces/the-codespace-lifecycle)
+- [Der Codespace-Lebenszyklus](/codespaces/getting-started/the-codespace-lifecycle)

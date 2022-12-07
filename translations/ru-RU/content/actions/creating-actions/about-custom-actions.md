@@ -16,12 +16,12 @@ type: overview
 topics:
   - Action development
   - Fundamentals
-ms.openlocfilehash: ac933a5014750f75373fafa7f8dd52333b79a469
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 1e81bea551ceff1980b0bbe96202f60db0d0e7f2
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147154576'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191949'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -35,7 +35,7 @@ ms.locfileid: '147154576'
 
 ## Типы действий
 
-Вы можете создать контейнер Docker и действия JavaScript. Для действий требуется файл метаданных, чтобы определить входные и выходные данные, а также основную точку входа для действия. Файл метаданных должен иметь имя `action.yml` либо `action.yaml`. Дополнительные сведения см. в разделе [Синтаксис метаданных для {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions).
+Вы можете создавать контейнер Docker, JavaScript и составные действия. Для действий требуется файл метаданных, чтобы определить входные и выходные данные, а также основную точку входа для действия. Файл метаданных должен иметь имя `action.yml` либо `action.yaml`. Дополнительные сведения см. в разделе [Синтаксис метаданных для {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions).
 
 | Тип | Операционная система |
 | ---- | ------------------- |

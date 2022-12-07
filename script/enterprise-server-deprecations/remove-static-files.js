@@ -9,25 +9,30 @@
 import fs from 'fs'
 import path from 'path'
 import rimraf from 'rimraf'
+import walk from 'walk-sync'
 import { allVersions } from '../../lib/all-versions.js'
+import { deprecated } from '../../lib/enterprise-server-releases.js'
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'lib/webhooks/static')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const restDecoratedDir = path.join(process.cwd(), 'lib/rest/static/decorated')
 const restDereferencedDir = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+const ghesReleaseNotesDir = 'data/release-notes/enterprise-server'
 
 const supportedEnterpriseVersions = Object.values(allVersions).filter(
   (v) => v.plan === 'enterprise-server'
 )
 
-// RELEASE NOTES
-// We currently do not remove the Enterprise release note content in
-// data/release-notes/enterprise-server/*. One reason to keep this
-// content in the `main` branch is that the GHES team can add
-// new release notes for a deprecated version in some cases.
-// Having that content still in the main branch makes it easier for us to
-// re-scrape the release note pages and upload the changes to Azure.
+// GHES release notes
+const deprecatedVersionsHyphenated = deprecated.map((v) => v.replace(/\./g, '-'))
+walk(ghesReleaseNotesDir)
+  // Only directories end with a /
+  .filter((file) => file.endsWith('/'))
+  // Check if the directory name contains a deprecated GHES version
+  .filter((dir) => deprecatedVersionsHyphenated.some((version) => dir.includes(version)))
+  // Remove the directory
+  .map((dir) => rimraf.sync(path.join(ghesReleaseNotesDir, dir)))
 
 // webhooks and GraphQL
 const supportedMiscVersions = supportedEnterpriseVersions.map((v) => v.miscVersionName)

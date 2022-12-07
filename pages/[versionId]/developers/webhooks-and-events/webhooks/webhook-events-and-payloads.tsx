@@ -1,4 +1,7 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+
 import { getInitialPageWebhooks } from 'lib/webhooks'
 import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
 import {
@@ -22,6 +25,8 @@ export default function WebhooksEventsAndPayloads({
   automatedPageContext,
   webhooks,
 }: Props) {
+  const router = useRouter()
+  const { locale } = router
   const content = webhooks.map((webhook: WebhookAction, index) => {
     return (
       <div key={`${webhook.data.requestPath}-${index}`}>
@@ -29,6 +34,47 @@ export default function WebhooksEventsAndPayloads({
       </div>
     )
   })
+
+  // When someone clicks on a minitoc hash anchor link on this page, we want to
+  // remove the type query parameter from the URL because the type won't make
+  // sense anymore (e.g. ?actionTtype=closed#issues and you click on the fork minitoc
+  // we don't want the URL to be ?actionType=closed#fork).
+  useEffect(() => {
+    const hashChangeHandler = () => {
+      const { asPath } = router
+      let [pathRoot, pathQuery = ''] = asPath.split('?')
+
+      if (pathRoot.includes('#')) {
+        pathRoot = pathRoot.split('#')[0]
+      }
+
+      // carry over any other query parameters besides `actionType` for the webhook
+      // action type
+      if (pathQuery.includes('#')) {
+        pathQuery = pathQuery.split('#')[0]
+      }
+      const params = new URLSearchParams(pathQuery)
+      params.delete('actionType')
+
+      if (location.hash) {
+        router.replace(
+          { pathname: pathRoot, query: params.toString(), hash: location.hash },
+          undefined,
+          {
+            shallow: true,
+            locale,
+          }
+        )
+      }
+    }
+
+    window.addEventListener('hashchange', hashChangeHandler)
+
+    return () => {
+      window.removeEventListener('hashchange', hashChangeHandler)
+    }
+  }, [locale])
+
   return (
     <MainContext.Provider value={mainContext}>
       <AutomatedPageContext.Provider value={automatedPageContext}>

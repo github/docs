@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 4bdcc6ff93e7671d4dc368fc44784c963f549aae
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 1eac21c20c1be77fe00ea676714a835fdb2e0de7
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2022
-ms.locfileid: "148159045"
+ms.lasthandoff: 12/01/2022
+ms.locfileid: "148189888"
 ---
-Codespaces können jederzeit beendet werden. Wenn du einen Codespace beendest, werden alle ausgeführten Prozesse beendet, und der Terminalverlauf wird gelöscht. Alle gespeicherten Änderungen in deinem Codespace sind weiterhin verfügbar, wenn du den Codespace beim nächsten Mal startest. Wenn du einen Codespace nicht explizit beendest, wird er weiterhin ausgeführt, bis aufgrund von Inaktivität ein Timeout auftritt. Weitere Informationen findest du unter [Der Codespace-Lebenszyklus](/codespaces/developing-in-codespaces/the-codespace-lifecycle#timeouts-for-github-codespaces).
+Codespaces können jederzeit beendet werden. Wenn du einen Codespace beendest, werden alle ausgeführten Prozesse beendet, und der Terminalverlauf wird gelöscht. Alle gespeicherten Änderungen in deinem Codespace sind weiterhin verfügbar, wenn du den Codespace beim nächsten Mal startest. Wenn du einen Codespace nicht explizit beendest, wird er weiterhin ausgeführt, bis aufgrund von Inaktivität ein Timeout auftritt. Weitere Informationen findest du unter [Der Codespace-Lebenszyklus](/codespaces/getting-started/the-codespace-lifecycle#timeouts-for-github-codespaces).
 
 Nur beim Ausführen von Codespaces fallen CPU-Gebühren an. Für einen beendeten Codespace fallen nur Speicherkosten an.
 

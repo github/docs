@@ -20,6 +20,8 @@ sections:
       notes:
         - |
           Users can reuse a workflow with a single line of configuration. Reusable workflows save time and maintenance by removing the need to copy and paste workflow definitions across repositories. Reusable workflows are in beta and subject to change. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+          
+          - **Note**: This feature is currently unavailable, but will be available in a future update. [Updated: 2022-12-05]
         - |
           The updated management experience for self-hosted runners simplifies management of runner groups and provides an improved overview of your runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
         - |
