@@ -26,6 +26,18 @@ export function setFastlySurrogateKey(res, enumKey, isCustomKey = false) {
 }
 
 export function setDefaultFastlySurrogateKey(req, res, next) {
-  res.set(KEY, SURROGATE_ENUMS.DEFAULT)
+  res.set(KEY, `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey()}`)
   return next()
+}
+
+export function setLanguageFastlySurrogateKey(req, res, next) {
+  res.set(KEY, `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(req.language)}`)
+  return next()
+}
+
+export function makeLanguageSurrogateKey(langCode = null) {
+  if (!langCode) {
+    return 'no-language'
+  }
+  return `language:${langCode}`
 }

@@ -370,6 +370,7 @@ translations/es-ES/data/reusables/actions/jobs/section-using-a-build-matrix-for-
 translations/es-ES/data/reusables/actions/link-to-example-library.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/minio-gateways-removal.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/perform-blob-storage-precheck.md,file deleted because it no longer exists in main
+translations/es-ES/data/reusables/actions/reusable-workflows-ghes-beta.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/self-hosted-runner-configure-runner-group.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/actions/self-hosted-runner-groups-navigate-to-repo-org-enterprise.md,file deleted because it no longer exists in main
 translations/es-ES/data/reusables/apps/metadata-permissions.md,file deleted because it no longer exists in main
@@ -1026,6 +1027,7 @@ translations/es-ES/data/reusables/actions/enterprise-postinstall-nextsteps.md,re
 translations/es-ES/data/reusables/actions/github-connect-resolution.md,rendering error
 translations/es-ES/data/reusables/actions/hosted-runner-security.md,broken liquid tags
 translations/es-ES/data/reusables/actions/jobs/section-defining-outputs-for-jobs.md,broken liquid tags
+translations/es-ES/data/reusables/actions/jobs/section-using-conditions-to-control-job-execution.md,broken liquid tags
 translations/es-ES/data/reusables/actions/more-resources-for-ghes.md,rendering error
 translations/es-ES/data/reusables/actions/moving-a-runner-to-a-group.md,rendering error
 translations/es-ES/data/reusables/actions/reusable-workflow-artifacts.md,rendering error
