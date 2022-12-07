@@ -32,13 +32,20 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
 
 1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
+   
    ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
+
 1. In the "Options" dialog, under **Environment**, click **Keyboard**.
+   
    ![Screenshot of the Keyboard option in the "Options" dialog](/assets/images/help/copilot/vs-options-dialogue.png)
+
 1. Under "Show commands containing:", search for the command you want to rebind.
-   ![Screenshot of the show commands containing searchbar](/assets/images/help/copilot/vs-show-commands-containing.png)
-1. Under "Press shortcut keys", type the shorcut you want to assign to the command, then click **Assign**.
-   ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
+   
+   ![Screenshot of the show commands containing search bar](/assets/images/help/copilot/vs-show-commands-containing.png)
+
+1. Under "Press shortcut keys," type the shortcut you want to assign to the command, then click **Assign**.
+
+   ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)```
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
