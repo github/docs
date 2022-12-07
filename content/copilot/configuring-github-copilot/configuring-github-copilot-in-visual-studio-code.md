@@ -83,17 +83,16 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 You can choose to enable or disable inline suggestions for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}. 
 
-1. In the **File** menu, navigate to **Preferences** and click **Settings**.
-![Screenshot of {% data variables.product.prodname_vscode %} settings](/assets/images/help/copilot/vsc-settings.png)
-1. In the left-side panel of the settings tab, click **Extensions** and then select **Copilot**.
-1. Under "Inline Suggest:Enable", select or deselect the checkbox to enable or disable inline suggestions.
+{% data reusables.copilot.vscode-settings %}
+1. In the left-side panel of the settings tab, click **Extensions** and then select **{% data variables.product.prodname_copilot_short %}**.
+1. Under "Inline Suggest:Enable," select or deselect the checkbox to enable or disable inline suggestions.
 
 ## Enabling or disabling {% data variables.product.prodname_copilot %} for specific languages
 
 You can specify which languages you want to enable or disable {% data variables.product.prodname_copilot %} for.
 
 1. From the {% data variables.product.prodname_vscode %}, click the **Extensions** tab, then navigate to the **Copilot** section. For more information, see "[Enabling and disabling inline suggestions](#enabling-and-disabling-inline-suggestions)."
-1. Under "Enable or disable Copilot for specified languages", click **Edit in settings.json**.
+1. Under "Enable or disable {% data variables.product.prodname_copilot_short %} for specified languages," click **Edit in settings.json**.
 1. In the _settings.json_ file, add or remove the languages you want to enable or disable {% data variables.product.prodname_copilot %} for. For example, to enable Python in {% data variables.product.prodname_copilot %}, add `"python": true` to the list, ensuring there is a trailing comma after all but the last list item.
 
     ```json
@@ -109,5 +108,23 @@ You can specify which languages you want to enable or disable {% data variables.
         }
     }
     ```
+
+## Configuring proxy settings for {% data variables.product.prodname_copilot %}
+
+You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in {% data variables.product.prodname_vscode %}. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication. 
+
+{% data reusables.copilot.vscode-settings %}
+1. In the left-side panel of the settings tab, click **Application** and then select **Proxy**.
+1. In the textbox under "Proxy", type the address of your proxy server, for example `http://localhost:3128`. Alternatively, {% data variables.product.prodname_copilot %} will use the `http_proxy` and `https_proxy` variables from your environment.
+
+   ![Screenshot of Visual Studio Code proxy textbox](/assets/images/help/copilot/proxy-textbox.png)
+
+1. Optionally, under "Http: Proxy Authorization", click **Edit in settings.json** and add your required value to send as the `Proxy-Authorization` header for every network request.
+
+   ![Screenshot of Visual Studio Code proxy authorization textbox](/assets/images/help/copilot/proxy-authorization.png)
+
+1. Optionally, under "Http: Proxy Strict SSL", select or deselect the checkbox to enable or disable strict SSL.
+
+   ![Screenshot of Visual Studio Code proxy strict SSL checkbox](/assets/images/help/copilot/proxy-strict-ssl.png)
 
 {% data reusables.copilot.dotcom-settings %}

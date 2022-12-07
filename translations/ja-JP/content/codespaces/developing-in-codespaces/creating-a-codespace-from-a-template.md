@@ -1,6 +1,6 @@
 ---
-title: Creating a codespace from a template
-intro: If you're starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.
+title: テンプレートから codespace を作成する
+intro: 新しいプロジェクトを開始する場合、空のテンプレートから codespace を作成するか、実行する作業の種類用に特別に設計されたテンプレートを選ぶことができます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,92 +11,95 @@ topics:
   - Developer
 shortTitle: Create a codespace from a template
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 9e7ee0d110e962fa755f5f57cc70bc3cab341808
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188313'
 ---
+## {% data variables.product.prodname_github_codespaces %} のテンプレートについて
 
-## About templates for {% data variables.product.prodname_github_codespaces %}
-
-If you're starting a new project, you can get started with development work quickly by creating a codespace from a template. You'll be able to work on your project in a cloud-based development environment, save your files in the cloud, and publish your work to a new remote repository that you can share with others or clone to your local machine.
+新しいプロジェクトを開始する場合、テンプレートから codespace を作成すると、開発作業をすばやく開始できます。 クラウドベースの開発環境でプロジェクトに取り組み、ファイルをクラウドに保存し、新しいリモート リポジトリに作業内容を公開することで、他のユーザーと共有したり、ローカル コンピューターに複製したりできます。
 
 {% note %}
 
-**Note**: Codespaces created from a template, rather than from a repository, are always billed to your personal account. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+**注**: codespace をリポジトリではなくテンプレートから作成すると、常に個人アカウントに課金されます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)」をご覧ください。
 
 {% endnote %}
 
-You can start from a blank template, choose from templates maintained by {% data variables.product.company_short %} for popular technologies such as React or Jupyter Notebook, or launch a codespace from any template repository on {% data variables.product.prodname_dotcom %}. With a blank template, you'll start with an empty directory, with access to cloud-based compute resources and the tools, languages, and runtime environments that come preinstalled with the default codespace image. With other templates, you'll get starter files for the technology you're working with, plus typically some extra files such as a README file, a `.gitignore` file, and dev container configuration files containing some custom environment configuration. For more information on dev containers and the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+空のテンプレートから開始する、{% data variables.product.company_short %} が管理するテンプレートから React や Jupyter Notebook などの一般的なテクノロジを選ぶ、または {% data variables.product.prodname_dotcom %} 上の任意のテンプレート リポジトリから codespace を起動できます。 空のテンプレートを使う場合は、まず空のディレクトリから始めます。クラウドベースのコンピューティング リソースと、既定の codespace イメージにプレインストールされているツール、言語、ランタイム環境にアクセスできます。 他のテンプレートを使う場合は、扱うテクノロジのスターター ファイルに加え、通常は、README ファイル、`.gitignore` ファイル、カスタム環境構成を含む開発コンテナー構成ファイルなどの追加ファイルをいくつか取得します。 開発コンテナーと既定のイメージについて詳しくは、「[開発コンテナーの概要](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)」を参照してください。
 
-As an example, if you create a codespace from {% data variables.product.company_short %}'s React template, you'll arrive in a workspace containing template files for a simple application, such as `index.js`, `app.js`, and `package.json`. Shortly after the codespace opens, a development server will start up automatically, and you will be able to view the running application in a simple browser tab within the {% data variables.product.prodname_vscode_shortname %} web client.
+たとえば、{% data variables.product.company_short %} の React テンプレートから codespace を作成すると、`index.js`、`app.js`、`package.json` など、シンプルなアプリケーション向けのテンプレート ファイルが用意されているワークスペースが表示されます。 codespace が開いた直後に、開発サーバーが自動的に起動し、{% data variables.product.prodname_vscode_shortname %} Web クライアント内のシンプルなブラウザー タブで、実行中のアプリケーションを表示できるようになります。
 
-![Screenshot of the React template running in a codespace](/assets/images/help/codespaces/react-template.png)
+![codespace で実行されている React テンプレートのスクリーンショット](/assets/images/help/codespaces/react-template.png)
 
-The files and configuration included in templates are defined in template repositories. The template repository is cloned into your codespace when you create the codespace. After that, the link is severed, and your codespace won't be linked to a remote repository until you publish to one. 
+テンプレートに含まれるファイルと構成は、テンプレート リポジトリで定義されています。 codespace を作成すると、テンプレート リポジトリは codespace に複製されます。 その後、リンクは切断され、公開するまで codespace はリモート リポジトリにリンクされないようになります。 
 
 {% tip %}
 
-**Tip:** To help people get started with your framework, library, or other project, you can set up a template repository for use with {% data variables.product.prodname_github_codespaces %}. For more information, see "[Setting up a template repository for {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces)."
+**ヒント:** ユーザーがフレームワーク、ライブラリ、またはその他のプロジェクトを使い始められるように、{% data variables.product.prodname_github_codespaces %} で使うテンプレート リポジトリを設定できます。 詳しくは、「[{% data variables.product.prodname_github_codespaces %} のテンプレート リポジトリを設定する](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces)」を参照してください。
 
 {% endtip %}
 
-## Creating a codespace from a {% data variables.product.company_short %} template
+## {% data variables.product.company_short %} テンプレートから codespace を作成する
 
-Templates maintained by {% data variables.product.company_short %}, including the blank template, are available from the "Your codespaces" page.
+空のテンプレートなど、{% data variables.product.company_short %} が管理するテンプレートは、"自分の codespace" ページから入手できます。
 
-{% data reusables.codespaces.your-codespaces-procedure-step %}
-{% data reusables.codespaces.view-all-templates-step %}
-1. Optionally, to view the template repository containing the files for a template, click the name of the template.
+{% data reusables.codespaces.your-codespaces-procedure-step %} {% data reusables.codespaces.view-all-templates-step %}
+1. 必要に応じて、テンプレートのファイルを含むテンプレート リポジトリを表示するには、テンプレートの名前をクリックします。
 
-   ![Screenshot of the "Explore quick start templates" section, with "React" highlighted](/assets/images/help/codespaces/react-template-name.png)
+   ![[クイック スタート テンプレートの探索] セクションの [React] が強調表示されているスクリーンショット](/assets/images/help/codespaces/react-template-name.png)
 
-1. Under the template you want to launch, click **Use this template**.
+1. 起動するテンプレートの下にある **[このテンプレートを使用]** をクリックします。
    
-   ![Screenshot of the quick start templates, with the "Use this template" button highlighted under the React template](/assets/images/help/codespaces/react-template-button.png)
+   ![React テンプレートの下にある [このテンプレートを使用] ボタンが強調表示されているクイック スタート テンプレートのスクリーンショット](/assets/images/help/codespaces/react-template-button.png)
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
-## Creating a codespace from a template repository
+## テンプレート リポジトリから codespace を作成する
 
-You can create a codespace from any template repository, then publish your work to a new repository when you are ready. For more information on template repositories, see "[Creating a repository from a template](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#about-repository-templates)."
+任意のテンプレート リポジトリから codespace を作成し、準備ができたら新しいリポジトリに作業内容を公開できます。 テンプレート リポジトリについて詳しくは、「[テンプレートからリポジトリを作成する](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#about-repository-templates)」を参照してください。
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.codespaces.open-template-in-codespace-step %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.codespaces.open-template-in-codespace-step %}
 
    {% note %}
 
-   **Note:** If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-label="The code icon" %} Code** dropdown. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   **注:** 自分がテンプレート リポジトリの保守管理者で、テンプレート リポジトリ自体に変更をコミットする場合は、 **[{% octicon "code" aria-label="The code icon" %} コード]** ドロップダウンから codespace を作成する必要があります。 詳しくは、「[リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。
 
    {% endnote %}
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
-## Publishing to a repository on {% data variables.product.product_name %}
+## {% data variables.product.product_name %} のリポジトリに公開する
 
 {% data reusables.codespaces.about-publishing-templates %}
 
-### Publishing from {% data variables.product.prodname_vscode_shortname %} 
+### {% data variables.product.prodname_vscode_shortname %} から公開する 
 
 {% data reusables.codespaces.publishing-template-codespaces %}
 
-When a codespace is published, you have access to a greater range of options to customize your {% data variables.product.prodname_github_codespaces %} experience. For example, you can:
+codespace が公開されると、自分の {% data variables.product.prodname_github_codespaces %} エクスペリエンスをカスタマイズするためのさまざまなオプションにアクセスできます。 たとえば、次のように操作できます。
 
-- Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
-- Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
-- Share encrypted secrets with your codespace (see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)").
+- codespace のコンピューターの種類を変更して、作業に適したリソースを使っていることを確認します (「[codespace のコンピューターの種類を変更する](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)」を参照してください)。
+- {% data variables.product.prodname_dotcom %} が自動的に GPG を使って codespace で行うコミットに署名できるようにします (「[{% data variables.product.prodname_github_codespaces %} の GPG 検証を管理する](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)」を参照してください)。
+- 暗号化されたシークレットを codespace と共有します (「[codespaces の暗号化されたシークレットを管理する](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください)。
 
-### Publishing from {% data variables.product.prodname_dotcom_the_website %} 
+### {% data variables.product.prodname_dotcom_the_website %} から公開する 
 
-You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.prodname_dotcom_the_website %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
+公開されていない codespace は、{% data variables.product.prodname_dotcom_the_website %} の "自分の codespace" ページから公開できます。 これは、ブラウザー内で現在開いていない codespace を公開する場合に便利です。 これを行うと、作業内容はリポジトリに保持されますが、既存の codespace と新しいリポジトリの間のリンクはなくなります。 ただし、新しいリポジトリに移動し、そこから codespace を作成すると、この codespace はそのリポジトリに接続されるようになります。
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. Next to the unpublished codespace, click the ellipsis (**...**), then select **Publish to a new repository**.
+1. 公開されていない codespace の横にある省略記号 ( **...** ) をクリックし、 **[新しいリポジトリに公開する]** を選びます。
 
-   ![Screenshot of the "Publish to a new repository" button](/assets/images/help/codespaces/publish-to-new-repository.png)
-1. Choose a name for your new repository, set it as **Public** or **Private**, and click **Create repository**.
+   ![[新しいリポジトリに公開する] ボタンのスクリーンショット](/assets/images/help/codespaces/publish-to-new-repository.png)
+1. 新しいリポジトリの名前を選び、 **[パブリック]** または **[プライベート]** に設定して、 **[リポジトリの作成]** をクリックします。
 
-   ![Screenshot of the "Publish to a new repository" dropdown](/assets/images/help/codespaces/template-new-repository-settings.png)
-1. Optionally, to view the new repository, click **See repository**.
+   ![[新しいリポジトリに公開する] ドロップダウンのスクリーンショット](/assets/images/help/codespaces/template-new-repository-settings.png)
+1. 必要に応じて、新しいリポジトリを表示するには、 **[リポジトリの表示]** をクリックします。
 
-## Further reading
+## 参考資料
 
-- "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)"
-- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
-- "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
+- [リポジトリの codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)
+- [codespace ライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)
+- [codespace でソース管理を使う](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)

@@ -1,7 +1,7 @@
 ---
-title: Adding an "Open in GitHub Codespaces" badge
+title: '[GitHub Codespaces で開く] バッジの追加'
 shortTitle: Add a Codespaces badge
-intro: You can add a badge to a Markdown file in your repository which people can click to create a codespace.
+intro: リポジトリ内の Markdown ファイルにバッジを追加し、ユーザーがクリックして codespace を作成できるようにすることができます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,50 +10,55 @@ type: how_to
 topics:
   - Codespaces
   - Set up
+ms.openlocfilehash: c69a815501f5943a56d32af3e58cd7850a69588b
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158782'
 ---
+## 概要
 
-## Overview
+Markdown ファイルに [{% data variables.product.prodname_github_codespaces %} で開く] バッジを追加すると、リポジトリの codespace を簡単に作成できます。
 
-Adding an "Open in {% data variables.product.prodname_github_codespaces %}" badge to a Markdown file gives people an easy way to create a codespace for your repository.
+![README ページの Codespaces バッジのスクリーンショット](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
 
-![Screenshot of a Codespaces badge on a README page](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
+バッジを作成するときに、そのバッジで作成される codespace に対して特定の構成オプションを選ぶことができます。
 
-When you create a badge you can choose specific configuration options for the codespace that the badge will create.
+ユーザーがバッジをクリックすると、codespace の作成用の [詳細オプション] ページに移動します。選んだオプションは事前に選択されています。 詳細オプション ページについて詳しくは、「[リポジトリの codespace の作成](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)」を参照してください。
 
-When people click the badge they'll be taken to the advanced options page for codespace creation, with the options you chose preselected. For more information about the advanced options page, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+[詳細オプション] ページから、ユーザーは必要に応じて事前に選択された設定を変更し、 **[codespace の作成]** をクリックできます。
 
-From the advanced options page, users can change the preselected settings if required, then click **Create codespace**.
-
-## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
+## [{% data variables.product.prodname_github_codespaces %} で開く] バッジの作成
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create the badge for.
+1. リポジトリ名の下で、[ブランチ] ドロップダウンメニューを使用して、バッジを作成するブランチを選択します。
 
-   ![Screenshot of the Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![[ブランチ] ドロップダウン メニューのスクリーンショット](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
+1. **[{% octicon "code" aria-label="The code icon" %} コード]** ボタンをクリックし、 **[Codespaces]** タブをクリックします。
 
-   ![Screenshot of the New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+   ![[新しい codespace] ボタンのスクリーンショット](/assets/images/help/codespaces/new-codespace-button.png)
 
-1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab, then click **New with options**.
+1. **[Codespaces]** タブの右上にある省略記号 ( **...** ) をクリックし、 **[オプションを含む新規]** をクリックします。
 
-   ![Screenshot of the "Configure and create codespace" option](/assets/images/help/codespaces/default-machine-type.png)
+   ![[codespace の構成と作成] オプションのスクリーンショット](/assets/images/help/codespaces/default-machine-type.png)
 
-1. On the advanced options page for codespace creation, select the values you want to be preselected in each field.
+1. codespace 作成の [詳細オプション] ページで、各フィールドで事前に選択される値を選びます。
 
-   ![Screenshot of the advanced options page](/assets/images/help/codespaces/advanced-options.png)
+   ![[詳細オプション] ページのスクリーンショット](/assets/images/help/codespaces/advanced-options.png)
 
-1. Copy the URL from the browser's address bar.
-1. Add the following Markdown to, for example, the `README.md` file of your repository:
+1. ブラウザーのアドレス バーから URL をコピーします。
+1. たとえば、リポジトリの `README.md` ファイルに次の Markdown を追加します。
 
    ```Markdown{:copy}
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](COPIED-URL)
    ```
 
-   For example:
+   次に例を示します。
 
    ```Markdown
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=0000000&machine=premiumLinux&devcontainer_path=.devcontainer%2Fdevcontainer.json&location=WestUs2)
    ```
 
-   In the above example, `0000000` will be the reference number of your repository. The other details in the URL are determined by the values you selected in the fields on the advanced options page.
+   上記の例では、`0000000` がリポジトリの参照番号になります。 URL のその他の詳細は、[詳細オプション] ページのフィールドで選んだ値によって決まります。

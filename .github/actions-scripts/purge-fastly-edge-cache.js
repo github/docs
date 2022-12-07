@@ -2,7 +2,8 @@
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import purgeEdgeCache from '../../script/deployment/purge-edge-cache.js'
 
-// This will purge every response that *contains* `SURROGATE_ENUMS.DEFAULT`.
+// This will purge every response that *contains*
+// `process.env.FASTLY_SURROGATE_KEY || SURROGATE_ENUMS.DEFAULT`.
 // We normally send Surrogate-Key values like:
 //
 //    every-deployment language:en
@@ -17,4 +18,4 @@ import purgeEdgeCache from '../../script/deployment/purge-edge-cache.js'
 //
 // It will cover all surrogate keys that contain that.
 // So this the nuclear option for all keys with this prefix.
-await purgeEdgeCache(SURROGATE_ENUMS.DEFAULT)
+await purgeEdgeCache(process.env.FASTLY_SURROGATE_KEY || SURROGATE_ENUMS.DEFAULT)

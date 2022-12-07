@@ -16,7 +16,6 @@ const DELAY_BEFORE_SECOND_PURGE = 30 * 1000
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 async function purgeFastlyBySurrogateKey({ apiToken, serviceId, surrogateKey }) {
-  const key = surrogateKey
   const safeServiceId = encodeURIComponent(serviceId)
 
   const headers = {
@@ -24,23 +23,22 @@ async function purgeFastlyBySurrogateKey({ apiToken, serviceId, surrogateKey }) 
     accept: 'application/json',
     'fastly-soft-purge': '1',
   }
-  const requestPath = `https://api.fastly.com/service/${safeServiceId}/purge/${key}`
+  const requestPath = `https://api.fastly.com/service/${safeServiceId}/purge/${surrogateKey}`
   return got.post(requestPath, { headers, json: true })
 }
 
 export default async function purgeEdgeCache(
-  key,
+  surrogateKey,
   {
     purgeTwice = true,
     delayBeforeFirstPurge = DELAY_BEFORE_FIRST_PURGE,
     delayBeforeSecondPurge = DELAY_BEFORE_SECOND_PURGE,
   } = {}
 ) {
-  const surrogateKey = key || process.env.FASTLY_SURROGATE_KEY
   if (!surrogateKey) {
     throw new Error('No key set and/or no FASTLY_SURROGATE_KEY env var set')
   }
-  console.log(`Fastly purgeEdgeCache initialized for ${surrogateKey}...`)
+  console.log(`Fastly purgeEdgeCache initialized for: '${surrogateKey}'`)
 
   const { FASTLY_TOKEN, FASTLY_SERVICE_ID } = process.env
   if (!FASTLY_TOKEN || !FASTLY_SERVICE_ID) {

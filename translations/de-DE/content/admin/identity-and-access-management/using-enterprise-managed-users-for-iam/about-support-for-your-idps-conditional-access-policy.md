@@ -1,7 +1,7 @@
 ---
-title: About support for your IdP's Conditional Access Policy
+title: Informationen zur Unterstützung der IdP-Richtlinie für bedingten Zugriff
 shortTitle: Conditional access policy
-intro: 'When your enterprise uses OIDC SSO, {% data variables.product.prodname_dotcom %} can validate access to your enterprise and its resources using your IdP''s Conditional Access Policy (CAP).'
+intro: 'Wenn dein Unternehmen OIDC-SSO verwendet, kann {% data variables.product.prodname_dotcom %} den Zugriff auf dein Unternehmen und seine Ressourcen mithilfe der Richtlinie für bedingten Zugriff (Conditional Access Policy, CAP) deines Identitätsanbieters überprüfen.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -10,35 +10,40 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+ms.openlocfilehash: aed7008bd008ccfd6303ccbb36f4d6f3bd7002ca
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148179997'
 ---
-
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}
 
-## About support for Conditional Access Policies
+## Informationen zur Unterstützung der Richtlinien für bedingten Zugriff
 
 {% data reusables.enterprise-accounts.emu-cap-validates %}
 
-{% data variables.product.product_name %} supports CAP for any {% data variables.enterprise.prodname_emu_enterprise %} where OIDC SSO is enabled. {% data variables.product.product_name %} enforces your IdP's IP conditions but cannot enforce your device compliance conditions. Enterprise owners can choose to use this IP allow list configuration instead of {% data variables.product.product_name %}'s IP allow list, and can do so once OIDC SSO is configured. For more information about IP allow lists, see "[Restricting network traffic with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
+{% data variables.product.product_name %} unterstützt CAP für alle {% data variables.enterprise.prodname_emu_enterprise %} mit aktiviertem OIDC-SSO. {% data variables.product.product_name %} erzwingt die IP-Bedingungen deines Identitätsanbieters, kann aber nicht die Gerätekompatibilitätsbedingungen erzwingen. Unternehmensbesitzer*innen können diese Konfiguration für eine Liste zugelassener IP-Adressen anstelle der Liste zugelassener IP-Adressen von {% data variables.product.product_name %} verwenden. Dies ist nach der Konfiguration von OIDC-SSO möglich. Weitere Informationen zu Listen zugelassener IP-Adressen findest du unter [Einschränken des Netzwerkdatenverkehrs mit einer Liste zugelassener IP-Adressen](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list) und [Verwalten zulässiger IP-Adressen für deine Organisation](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization).
 
 
-For more information about using OIDC with {% data variables.product.prodname_emus %}, see "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)" and "[Migrating from SAML to OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
+Weitere Informationen zur Verwendung von OIDC mit {% data variables.product.prodname_emus %} findest du unter [Konfigurieren von OIDC für verwaltete Benutzer im Unternehmen](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users) und [Migrieren von SAML zu OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc).
 
-## Considerations for integrations and automations
+## Überlegungen zu Integrationen und Automatisierungen
 
-{% data variables.product.prodname_dotcom %} sends the originating IP address to your IdP for validation against your CAP. To make sure  actions and apps are not blocked by your IdP's CAP, you will need to make changes to your configuration.
+{% data variables.product.prodname_dotcom %} sendet die IP-Quelladresse zur Überprüfung anhand deiner CAP an deinen IdP. Um sicherzustellen, dass Aktionen und Apps nicht von der CAP deines IdP blockiert werden, musst du Änderungen an deiner Konfiguration vornehmen.
 
 {% data reusables.enterprise-accounts.oidc-gei-warning %}
 
 ### {% data variables.product.prodname_actions %}
 
-Actions that use a {% data variables.product.pat_generic %} will likely be blocked by your IdP's CAP. We recommend that {% data variables.product.pat_generic %}s are created by a service account which is then exempted from IP controls in your IdP's CAP. 
+Aktionen, die ein {% data variables.product.pat_generic %} verwenden, werden wahrscheinlich von der CAP deines Identitätsanbieters blockiert. {% data variables.product.pat_generic %} sollten von einem Dienstkonto erstellt werden, das dann von IP-Steuerungen in der CAP deines Identitätsanbieters ausgenommen ist. 
 
-If you're unable to use a service account, another option for unblocking actions that use {% data variables.product.pat_generic %}s is to allow the IP ranges used by {% data variables.product.prodname_actions %}. For more information, see "[About GitHub's IP addresses](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
+Wenn du kein Dienstkonto verwenden kannst, ist die Zulassung der von {% data variables.product.prodname_actions %} verwendeten IP-Bereiche eine weitere Option, Aktionen freizugeben, die {% data variables.product.pat_generic %} verwenden. Weitere Informationen findest du unter [Informationen zu den IP-Adressen von GitHub](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses).
 
-### {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} 
+### {% data variables.product.prodname_github_apps %} und {% data variables.product.prodname_oauth_apps %} 
 
-When {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} make requests on a member's behalf, {% data variables.product.prodname_dotcom %} will send the IP address of the app's server to your IdP for validation. If the IP address of the app's server is not validated by your IdP's CAP, the request will fail.
+Wenn {% data variables.product.prodname_github_apps %} und {% data variables.product.prodname_oauth_apps %} Anforderungen im Auftrag eines Mitglieds vornehmen, sendet {% data variables.product.prodname_dotcom %} die IP-Adresse des Servers der App zur Überprüfung an deinen IdP. Wenn die IP-Adresse des Servers der App von der CAP deines IdP nicht überprüft wird, tritt bei der Anforderung ein Fehler auf.
 
-You can contact the owners of the apps you want to use, ask for their IP ranges, and configure your IdP's CAP to allow access from those IP ranges. If you're unable to contact the owners, you can review your IdP sign-in logs to review the IP addresses seen in the requests, then allow-list those addresses. 
+Du kannst die Besitzer der Apps, die du verwenden möchtest, nach ihren IP-Bereichen fragen und die CAP deines IDP konfigurieren, um den Zugriff von diesen IP-Bereichen aus zu ermöglichen. Wenn du dich nicht an die Besitzer wenden kannst, kannst du deinen IdP-Anmeldeprotokollen die in den Anforderungen angezeigten IP-Adressen entnehmen und dann diese Adressen auf die Zulassungsliste setzen. 
 
-If you do not wish to allow all of the IP ranges for all of your enterprise's apps, you can also exempt installed {% data variables.product.prodname_github_apps %} and authorized {% data variables.product.prodname_oauth_apps %} from the IdP allow list. If you do so, these apps will continue working regardless of the originating IP address. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#allowing-access-by-github-apps)."
+Wenn du nicht alle IP-Adressbereiche für alle Apps deines Unternehmens zulassen möchtest, kannst du auch installierte {% data variables.product.prodname_github_apps %} und autorisierte {% data variables.product.prodname_oauth_apps %} aus der Liste zugelassener IP-Adressen des Identitätsanbieters ausschließen. In diesem Fall funktionieren diese Apps weiterhin, unabhängig von der ursprünglichen IP-Adresse. Weitere Informationen findest du unter [Erzwingen von Richtlinien für Sicherheitseinstellungen in deinem Unternehmen](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#allowing-access-by-github-apps).

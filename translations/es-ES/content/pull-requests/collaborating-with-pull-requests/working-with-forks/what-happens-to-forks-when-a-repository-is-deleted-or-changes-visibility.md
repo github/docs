@@ -15,12 +15,12 @@ versions:
 topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
-ms.openlocfilehash: d52215a7406edc84bc71022517f848faa9e48600
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 95296f33d9163cd1171481386efd0a2351095c39
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146332739'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191368'
 ---
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
@@ -32,7 +32,7 @@ Cuando eliminas un repositorio privado, todas sus bifurcaciones privadas tambié
 
 ## Eliminar un repositorio público
 
-Cuando eliminas un repositorio público, se elige una de sus bifurcaciones públicas para ser el nuevo repositorio padre. Todos los otros repositorios se bifurcan fuera de este nuevo repositorio y las solicitudes de extracción siguientes van a este nuevo padre.
+Cuando eliminas un repositorio público, se elige una de sus bifurcaciones públicas para ser el nuevo repositorio ascendente. Todos los otros repositorios se bifurcan fuera de este nuevo repositorio y las solicitudes de incorporación de cambios siguientes van a este nuevo repositorio ascendente.
 
 {% endif %}
 
@@ -44,9 +44,9 @@ Cuando eliminas un repositorio público, se elige una de sus bifurcaciones públ
 
 ## Convertir un repositorio público en un repositorio privado
 
-Si un repositorio público se convierte en privado, sus bifurcaciones públicas se separan a una nueva red. Como con la eliminación de un repositorio público, se elige una de las bifurcaciones públicas existentes para ser el nuevo repositorio padre y todos los otros repositorios se bifurcan fuera de este nuevo padre. Las solicitudes de extracción siguientes van a este nuevo padre.
+Si un repositorio público se convierte en privado, sus bifurcaciones públicas se separan a una nueva red. Como con la eliminación de un repositorio público, se elige una de las bifurcaciones públicas existentes para ser el nuevo repositorio ascendente y todos los otros repositorios se bifurcan fuera de este nuevo ascendente. Las solicitudes de incorporación de cambios siguientes van a este nuevo repositorio ascendente.
 
-En otras palabras, las bifurcaciones de un repositorio público permanecerán en su propia red separada del repositorio incluso después de que un repositorio padre se convierte en privado. Esto permite que los propietarios de las bifurcaciones continúen trabajando y colaboren sin interrupción. Si las bifurcaciones públicas no se mueven a una red separada de esta manera, los propietarios de esas bifurcaciones podrían necesitar obtener los [permisos de acceso](/articles/access-permissions-on-github) adecuados a fin de extraer cambios y enviar solicitudes de extracción desde el repositorio principal (ahora privado) y hacia él, incluso si antes no han necesitado esos permisos.
+En otras palabras, las bifurcaciones de un repositorio público permanecerán en su propia red separada del repositorio incluso después de que el repositorio ascendente se convierta en privado. Esto permite que los propietarios de las bifurcaciones continúen trabajando y colaboren sin interrupción. Si las bifurcaciones públicas no se mueven a una red separada de esta manera, los propietarios de esas bifurcaciones podrían necesitar obtener los [permisos de acceso](/articles/access-permissions-on-github) adecuados a fin de extraer cambios y enviar solicitudes de incorporación de cambios desde el repositorio ascendente (ahora privado) y hacia él, incluso si antes no han necesitado esos permisos.
 
 {% ifversion ghes or ghae %} Si un repositorio público tiene habilitado el acceso de lectura anónimo de Git y el repositorio se convierte en privado, todas las bifurcaciones del repositorio perderán el acceso de lectura anónimo de Git y regresarán al valor deshabilitado predeterminado. Si un repositorio bifurcado se convierte en público, los administradores del repositorio pueden volver a habilitar el acceso de lectura anónimo de Git. Para más información, vea "[Habilitación del acceso de lectura anónimo de Git para un repositorio](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)".
 {% endif %}
@@ -57,7 +57,7 @@ Si un repositorio público se convierte en privado, y después se elimina, sus b
 
 ## Convertir un repositorio privado en un repositorio público
 
-Si un repositorio privado se convierte en público, cada una de sus bifurcaciones se convierte en un repositorio privado independiente y se vuelve el padre de su propia red de repositorio nueva. Las bifurcaciones privadas nunca se convierten en públicas automáticamente ya que podrían contener confirmaciones confidenciales que no deberían divulgarse públicamente.
+Si un repositorio privado se convierte en público, cada una de sus bifurcaciones se convierte en un repositorio privado independiente y se vuelve el ascendente de su propia red de repositorio nueva. Las bifurcaciones privadas nunca se convierten en públicas automáticamente ya que podrían contener confirmaciones confidenciales que no deberían divulgarse públicamente.
 
 ### Eliminar el repositorio público
 
