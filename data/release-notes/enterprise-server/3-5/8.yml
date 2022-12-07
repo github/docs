@@ -29,3 +29,4 @@ sections:
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
     - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
