@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 
 import { useLanguages } from 'components/context/LanguagesContext'
-import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
+import { Picker } from 'components/ui/Picker'
 import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
 
 function rememberPreferredLanguage(value: string) {
@@ -31,7 +31,7 @@ function rememberPreferredLanguage(value: string) {
 }
 
 type Props = {
-  variant?: 'inline'
+  variant: 'inline' | 'header'
 }
 
 export const LanguagePicker = ({ variant }: Props) => {
@@ -61,13 +61,20 @@ export const LanguagePicker = ({ variant }: Props) => {
       <Picker
         variant={variant}
         defaultText={t('language_picker_default_text')}
-        options={langs.map((lang) => ({
+        items={langs.map((lang) => ({
           text: lang.nativeName || lang.name,
           selected: lang === selectedLang,
-          locale: lang.code,
-          href: `${routerPath}`,
-          onselect: rememberPreferredLanguage,
+          href: `/${lang.code}${routerPath}`,
+          extra: {
+            locale: lang.code,
+          },
         }))}
+        onSelect={(item) => {
+          if (item.extra?.locale) rememberPreferredLanguage(item.extra.locale)
+        }}
+        dataTestId="field"
+        ariaLabel="Select field type"
+        alignment="center"
       />
     </div>
   )
