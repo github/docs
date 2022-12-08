@@ -119,15 +119,14 @@ BUSINESS'  TAX IDENTIFICATION NUMBER:       633441725
                    ZACHRY       T       WOOD                                                                                                                              
                    5323       BRADFORD       DR
                    DALLAS,       TX       7523                        
-                                                                                                                                                       FIN:        61-1767919                                                                                          
-Earnings                                                                                                                                           EIN:        88-1303491                                                                                                                                                                               
+Earnings                                                                EIN:        88-1303491                                                                                                                                                                           
 7567263607                                                                                                                               
 WOOD  ZACHRY                       Tax Period              Total        Social Security        Medicare        Withholding                            
-Fed 941 Corporate                     Sept-30, 2007.       66986.66         28841.48           6745.18                31400                                        
-Fed 941 West Subsidiary           Sept-30, 2007.       17115.41           7369.14           1723.42             8022.85                                
-Fed 941 South Subsidiary          Sept-30, 2007.       23906.09          10292.9           2407.21            11205.98                    
+Fed 941 Corporate                  Sept-30, 2007.       66986.66         28841.48           6745.18                31400                                        
+Fed 941 West Subsidiary            Sept-30, 2007.       17115.41           7369.14           1723.42             8022.85                                
+Fed 941 South Subsidiary           Sept-30, 2007.       23906.09          10292.9           2407.21            11205.98                    
 Fed 941 East Subsidiary            Sept-30, 2007.       11247.64          4842.74            1132.57              5272.33                      
-Fed 941 Corp - Penalty              Sept-30, 2007.       27198.5          11710.47           2738.73               12749.3                                  
+Fed 941 Corp - Penalty             Sept-30, 2007.       27198.5          11710.47           2738.73               12749.3                                  
 Fed 940 Annual Unemp - Corp  Sept-30, 2007.       17028.05                                                                          
 PAY DATE:                                                                                                                                                                                                               2022-04-27                                                                                                                                    
 RETURNED FOR MISSING SIGNATURE OR INFORMATION REQUIRED TO COMPLETE RETURN  SIGNATURE
