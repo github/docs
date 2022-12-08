@@ -23,7 +23,7 @@ concurrency:
 jobs:
   azure-prod-build-and-deploy:
     if: ${{ github.repository == 'github/docs-internal' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-xl
     timeout-minutes: 20
     environment:
       name: production
@@ -54,10 +54,6 @@ jobs:
           ref: ${{ github.sha }}
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
-          lfs: 'true'
-
-      - name: Check out LFS objects
-        run: git lfs checkout
 
       - name: Setup node
         uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
