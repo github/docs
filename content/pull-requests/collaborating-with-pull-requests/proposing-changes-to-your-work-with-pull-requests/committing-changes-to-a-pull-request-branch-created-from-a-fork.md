@@ -6,7 +6,7 @@ redirect_from:
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
-versions:
+version's:
   fpt: '*'
   ghes: '*'
   ghae: '*'
