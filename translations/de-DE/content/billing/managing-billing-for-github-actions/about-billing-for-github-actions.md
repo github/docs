@@ -13,12 +13,12 @@ topics:
   - Actions
   - Spending limits
 shortTitle: Billing for GitHub Actions
-ms.openlocfilehash: f08d06a34d5e7e7f0e2ed49d07a4297c4c6be930
-ms.sourcegitcommit: 06d16bf9a5c7f3e7107f4dcd4d06edae5971638b
+ms.openlocfilehash: fcc8f84b8a11b214ca66e8a3851a1afc9df6213a
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2022
-ms.locfileid: '148179661'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191886'
 ---
 ## Informationen zur Abrechnung für {% data variables.product.prodname_actions %}
 
@@ -69,7 +69,7 @@ Der Speicher, der von einem Repository verbraucht wird, ist der gesamte Speicher
 
 ### Minutentarife
 
-{% data reusables.billing.billing-standard-runners %} {%- ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{%- endif %}
+{% data reusables.billing.billing-standard-runners %} {%- ifversion actions-hosted-runners %} {% data reusables.billing.billing-hosted-runners %} {%- endif %}
 
 - Die Anzahl der Aufträge, die du gleichzeitig über alle Repositories in deinem Benutzer- oder Organisationskonto ausführen kannst, hängt von deinem GitHub-Plan ab. Weitere Informationen findest du unter [Nutzungslimits und Abrechnung](/actions/reference/usage-limits-billing-and-administration) für auf {% data variables.product.prodname_dotcom %} gehostete Runner und unter [Informationen zu selbstgehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits) (Nutzungslimits für selbstgehostete Runner).
 - {% data reusables.user-settings.context_switcher %} {% ifversion actions-hosted-runners %} 

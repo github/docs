@@ -1,7 +1,8 @@
 ---
-title: Configuration des paramètres GitHub Copilot sur GitHub.com
-intro: 'Vous pouvez configurer le comportement de {% data variables.product.prodname_copilot %} sur {% data variables.product.prodname_dotcom_the_website %}, ce qui affecte la façon dont {% data variables.product.prodname_copilot %} fonctionne dans n’importe quel IDE que vous utilisez.'
+title: Configuring GitHub Copilot settings on GitHub.com
+intro: 'You can configure {% data variables.product.prodname_copilot %}''s behavior on {% data variables.product.prodname_dotcom_the_website %}, which affects how {% data variables.product.prodname_copilot %} functions in any IDE that you use.'
 product: '{% data reusables.gated-features.copilot %}'
+permissions: 'People with individual {% data variables.product.prodname_copilot %} subscriptions can configure their settings on {% data variables.product.prodname_dotcom_the_website %}.'
 miniTocMaxHeadingLevel: 3
 topics:
   - Copilot
@@ -11,15 +12,10 @@ redirect_from:
   - /github/copilot/about-github-copilot-telemetry
   - /github/copilot/github-copilot-telemetry-terms
 shortTitle: GitHub.com
-ms.openlocfilehash: cc87328504e3d9eb5e2bce83d981098b7f989ae0
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148108308'
 ---
-## À propos des paramètres {% data variables.product.prodname_copilot %} sur {% data variables.product.prodname_dotcom_the_website %}
 
-Outre la configuration du plug-in {% data variables.product.prodname_copilot %} dans votre IDE pris en charge, vous pouvez configurer les paramètres pour {% data variables.product.prodname_copilot %} sur {% data variables.product.prodname_dotcom_the_website %}. Les paramètres s’appliquent partout où vous utilisez {% data variables.product.prodname_copilot %}.
+## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
+
+In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.prodname_dotcom_the_website %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
 
 {% data reusables.copilot.dotcom-settings %}

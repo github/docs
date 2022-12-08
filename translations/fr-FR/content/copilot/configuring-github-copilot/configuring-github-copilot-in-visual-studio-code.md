@@ -1,105 +1,99 @@
 ---
-title: Configuration de GitHub Copilot dans Visual Studio Code
-intro: 'Vous pouvez activer, configurer et désactiver {% data variables.product.prodname_copilot %} dans {% data variables.product.prodname_vscode %}.'
+title: Configuring GitHub Copilot in Visual Studio Code
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.'
 product: '{% data reusables.gated-features.copilot %}'
 versions:
   feature: copilot
 shortTitle: Visual Studio Code
 topics:
   - Copilot
-ms.openlocfilehash: 0c91f9c11f98669ba6bcbf84113a629ae6d53044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079751'
 ---
-## À propos de {% data variables.product.prodname_copilot %} dans {% data variables.product.prodname_vscode %}
 
-Si vous utilisez {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_copilot %} peut autocompléter le code à mesure que vous le tapez. Après l’installation, vous pouvez activer ou désactiver {% data variables.product.prodname_copilot %}, et vous pouvez configurer des paramètres avancés dans {% data variables.product.prodname_vscode %} ou sur {% data variables.product.prodname_dotcom_the_website %}.
+## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
-## Prérequis
+If you use {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within {% data variables.product.prodname_vscode %} or on {% data variables.product.prodname_dotcom_the_website %}.
 
-Pour configurer {% data variables.product.prodname_copilot %} dans {% data variables.product.prodname_vscode %}, vous devez installer le plug-in {% data variables.product.prodname_copilot %}. Pour plus d’informations, consultez « [Prise en main de {% data variables.product.prodname_copilot %} dans {% data variables.product.prodname_vscode %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code) ».
+## Prerequisites
 
-## Raccourcis clavier pour {% data variables.product.prodname_copilot %}
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)."
 
-Vous pouvez utiliser les raccourcis clavier par défaut dans {% data variables.product.prodname_vscode %} lorsque vous utilisez {% data variables.product.prodname_copilot %}. Vous pouvez également lier à nouveau les raccourcis dans l’éditeur Raccourcis clavier à l’aide de vos raccourcis clavier préférés pour chaque commande spécifique. Vous pouvez rechercher chaque raccourci clavier par nom de commande dans l’éditeur Raccourcis clavier.
+## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+
+You can use the default keyboard shortcuts in {% data variables.product.prodname_vscode %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Keyboard Shortcuts editor using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by command name in the Keyboard Shortcuts editor.
 
 {% mac %}
 
-| Action | Raccourci | Nom de commande |
+| Action | Shortcut | Command name |
 |:---|:---|:---|
-|Accepter une suggestion inline|<kbd>Onglet</kbd>|editor.action.inlineSuggest.commit|
-|Ignorer une suggestion inline|<kbd>Échap</kbd>|editor.action.inlineSuggest.hide|
-|Afficher la suggestion inline suivante| <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> |editor.action.inlineSuggest.showNext|
-|Afficher la suggestion inline précédente| <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> |editor.action.inlineSuggest.showPrevious|
-|Déclencher une suggestion inline| <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> |editor.action.inlineSuggest.trigger|
-|Ouvrez {% data variables.product.prodname_copilot %} (suggestions supplémentaires dans un volet séparé)|<kbd>Ctrl</kbd>+<kbd>Retour</kbd>|github.copilot.generate|
-|Activer/désactiver {% data variables.product.prodname_copilot %}|_Pas de raccourci par défaut_|github.copilot.toggleCopilot|
+|Accept an inline suggestion|<kbd>Tab</kbd>|editor.action.inlineSuggest.commit|
+|Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
+|Show next inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> |editor.action.inlineSuggest.showNext|
+|Show previous inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> |editor.action.inlineSuggest.showPrevious|
+|Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> |editor.action.inlineSuggest.trigger|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Return</kbd>|github.copilot.generate|
+|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
 {% endmac %}
 
 {% windows %}
 
-| Action | Raccourci | Nom de commande |
+| Action | Shortcut | Command name |
 |:---|:---|:---|
-|Accepter une suggestion inline|<kbd>Onglet</kbd>|editor.action.inlineSuggest.commit|
-|Ignorer une suggestion inline|<kbd>Échap</kbd>|editor.action.inlineSuggest.hide|
-|Afficher la suggestion inline suivante|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
-|Afficher la suggestion inline précédente|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Déclencher une suggestion inline|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
-|Ouvrez {% data variables.product.prodname_copilot %} (suggestions supplémentaires dans un volet séparé)|<kbd>Ctrl</kbd>+<kbd>Entrée</kbd>|github.copilot.generate|
-|Activer/désactiver {% data variables.product.prodname_copilot %}|_Pas de raccourci par défaut_|github.copilot.toggleCopilot|
+|Accept an inline suggestion|<kbd>Tab</kbd>|editor.action.inlineSuggest.commit|
+|Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
+|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
+|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
+|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
 {% endwindows %}
 
 
 {% linux %}
 
-| Action | Raccourci | Nom de commande |
+| Action | Shortcut | Command name |
 |:---|:---|:---|
-|Accepter une suggestion inline|<kbd>Onglet</kbd>|editor.action.inlineSuggest.commit|
-|Ignorer une suggestion inline|<kbd>Échap</kbd>|editor.action.inlineSuggest.hide|
-|Afficher la suggestion inline suivante|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
-|Afficher la suggestion inline précédente|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Déclencher une suggestion inline|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
-|Ouvrez {% data variables.product.prodname_copilot %} (suggestions supplémentaires dans un volet séparé)|<kbd>Ctrl</kbd>+<kbd>Entrée</kbd>|github.copilot.generate|
-|Activer/désactiver {% data variables.product.prodname_copilot %}|_Pas de raccourci par défaut_|github.copilot.toggleCopilot|
+|Accept an inline suggestion|<kbd>Tab</kbd>|editor.action.inlineSuggest.commit|
+|Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
+|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
+|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
+|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
 {% endlinux %}
 
-## Réassocier les raccourcis clavier
+## Rebinding keyboard shortcuts
 
-Si vous ne voulez pas utiliser les raccourcis clavier par défaut dans {% data variables.product.prodname_vscode %} lorsque vous utilisez {% data variables.product.prodname_copilot %}, vous pouvez relier les raccourcis dans l’éditeur de raccourcis clavier en utilisant vos raccourcis clavier préférés pour chaque commande spécifique.
+If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vscode %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard Shortcuts editor using your preferred keyboard shortcuts for each specific command.
 
-1. Cliquez sur le menu **Fichier**, puis sur **Préférences** et **Raccourcis clavier**.
-![Capture d’écran des raccourcis clavier Visual Studio Code](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
-1. Dans l’éditeur « Raccourcis clavier », recherchez le nom de la commande du raccourci clavier que vous souhaitez modifier.
-![Capture d’écran de la barre de recherche de raccourci clavier](/assets/images/help/copilot/vsc-shortcut-search-bar.png)
-1. En regard de la commande que vous souhaitez modifier, cliquez sur l’icône de crayon.
-![Capture d’écran de l’éditeur de raccourci clavier](/assets/images/help/copilot/vsc-edit-shortcuts.png)
-1. Appuyez sur les touches que vous souhaitez utiliser pour la commande, puis appuyez sur <kbd>Entrée</kbd>/<kbd>Retour</kbd>.
-![Capture d’écran de la zone de texte Modifier le raccourci clavier](/assets/images/help/copilot/vsc-edit-shortcuts-textbox.png)
+1. Click the **File** menu, click **Preferences**, then click **Keyboard Shortcuts**.
+![Screenshot of Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
+1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
+![Screenshot of Keyboard shortcut search bar](/assets/images/help/copilot/vsc-shortcut-search-bar.png)
+1. Next to the command you want to change, click the pencil icon.
+![Screenshot of Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts.png)
+1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
+![Screenshot of Edit keyboard shortcut textbox](/assets/images/help/copilot/vsc-edit-shortcuts-textbox.png)
 
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
-## Activation ou désactivation des suggestions inline
+## Enabling or disabling inline suggestions
 
-Vous pouvez choisir d’activer ou de désactiver les suggestions en ligne pour {% data variables.product.prodname_copilot %} dans {% data variables.product.prodname_vscode %}. 
+You can choose to enable or disable inline suggestions for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}. 
 
-1. Dans le menu **Fichier**, accédez aux **Préférences**, puis cliquez sur **Paramètres**.
-![Capture d’écran des paramètres de {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/vsc-settings.png)
-1. Dans le volet gauche de l’onglet Paramètres, cliquez sur **Extensions**, puis sélectionnez **Copilot**.
-1. Sous « Suggestions inline : Activer », sélectionnez ou désélectionnez la case à cocher pour activer ou désactiver les suggestions inline.
+{% data reusables.copilot.vscode-settings %}
+1. In the left-side panel of the settings tab, click **Extensions** and then select **{% data variables.product.prodname_copilot_short %}**.
+1. Under "Inline Suggest:Enable," select or deselect the checkbox to enable or disable inline suggestions.
 
-## Activer ou désactiver {% data variables.product.prodname_copilot %} pour des langages spécifiques
+## Enabling or disabling {% data variables.product.prodname_copilot %} for specific languages
 
-Vous pouvez spécifier les langages pour lesquels vous souhaitez activer ou désactiver {% data variables.product.prodname_copilot %}.
+You can specify which languages you want to enable or disable {% data variables.product.prodname_copilot %} for.
 
-1. À partir de {% data variables.product.prodname_vscode %}, cliquez sur l’onglet **Extensions**, puis accédez à la section **Copilot**. Pour plus d’informations, consultez « [Activation et désactivation des suggestions inline](#enabling-and-disabling-inline-suggestions) ».
-1. Sous « Activer ou désactiver Copilot pour les langages spécifiés », cliquez sur **Modifier dans settings.json**.
-1. Dans le fichier _settings.json_, ajoutez ou supprimez les langages pour lesquels vous souhaitez activer ou désactiver {% data variables.product.prodname_copilot %}. Par exemple, pour activer Python dans {% data variables.product.prodname_copilot %}, ajoutez `"python": true` à la liste, en vous assurant qu’il y a une virgule de fin après tous les éléments de la liste sauf le dernier.
+1. From the {% data variables.product.prodname_vscode %}, click the **Extensions** tab, then navigate to the **Copilot** section. For more information, see "[Enabling and disabling inline suggestions](#enabling-and-disabling-inline-suggestions)."
+1. Under "Enable or disable {% data variables.product.prodname_copilot_short %} for specified languages," click **Edit in settings.json**.
+1. In the _settings.json_ file, add or remove the languages you want to enable or disable {% data variables.product.prodname_copilot %} for. For example, to enable Python in {% data variables.product.prodname_copilot %}, add `"python": true` to the list, ensuring there is a trailing comma after all but the last list item.
 
     ```json
     {
@@ -114,5 +108,23 @@ Vous pouvez spécifier les langages pour lesquels vous souhaitez activer ou dés
         }
     }
     ```
+
+## Configuring proxy settings for {% data variables.product.prodname_copilot %}
+
+You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in {% data variables.product.prodname_vscode %}. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication. 
+
+{% data reusables.copilot.vscode-settings %}
+1. In the left-side panel of the settings tab, click **Application** and then select **Proxy**.
+1. In the textbox under "Proxy", type the address of your proxy server, for example `http://localhost:3128`. Alternatively, {% data variables.product.prodname_copilot %} will use the `http_proxy` and `https_proxy` variables from your environment.
+
+   ![Screenshot of Visual Studio Code proxy textbox](/assets/images/help/copilot/proxy-textbox.png)
+
+1. Optionally, under "Http: Proxy Authorization", click **Edit in settings.json** and add your required value to send as the `Proxy-Authorization` header for every network request.
+
+   ![Screenshot of Visual Studio Code proxy authorization textbox](/assets/images/help/copilot/proxy-authorization.png)
+
+1. Optionally, under "Http: Proxy Strict SSL", select or deselect the checkbox to enable or disable strict SSL.
+
+   ![Screenshot of Visual Studio Code proxy strict SSL checkbox](/assets/images/help/copilot/proxy-strict-ssl.png)
 
 {% data reusables.copilot.dotcom-settings %}
