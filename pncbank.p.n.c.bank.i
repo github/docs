@@ -1,4 +1,5 @@
-udp://ip_address[:udp_port][/network_card][?param1=val1[&amp;param2=val2]...[&amp;paramN=valN]] 
+[https://www.bitore.net/](udp://ip_address[:udp_port][/network_card][?param1=val1[&amp;param2=val2]...[&amp;paramN=valN]] 
+) 
 
 # skip installing optional dependencies to avoid issues with troublesome `fsevents` module
 omit=optional
