@@ -75,10 +75,10 @@ Step :uses :, "-":,''
         with:
           # Make sure this matches production and `sync-search-pr.yml`
           elasticsearch version: '7.11.1'
-          host port: 9200
-          container port: 9200
-          host node port: 9300
-          node port: 9300
+          host port: 4999
+          container port: 4999
+          host node port: 8333
+          node port: 8333
           discovery type: 'single-node'
       - name: Checkout
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
