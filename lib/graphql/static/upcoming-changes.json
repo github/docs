@@ -1316,6 +1316,24 @@
         "owner": "lukewar"
       }
     ],
+    "2022-11-21": [
+      {
+        "location": "PackageType.NUGET",
+        "description": "<p><code>NUGET</code> will be removed.</p>",
+        "reason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      },
+      {
+        "location": "PackageType.NPM",
+        "description": "<p><code>NPM</code> will be removed.</p>",
+        "reason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "UpdateProjectNextItemFieldInput.fieldWithSettingId",
@@ -2790,6 +2808,24 @@
         "owner": "lukewar"
       }
     ],
+    "2022-11-21": [
+      {
+        "location": "PackageType.NUGET",
+        "description": "<p><code>NUGET</code> will be removed.</p>",
+        "reason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      },
+      {
+        "location": "PackageType.NPM",
+        "description": "<p><code>NPM</code> will be removed.</p>",
+        "reason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      }
+    ],
     "2022-10-01": [
       {
         "location": "UpdateProjectNextItemFieldInput.fieldWithSettingId",
@@ -3906,6 +3942,24 @@
         "date": "2023-01-01",
         "criticality": "breaking",
         "owner": "adamshwert"
+      }
+    ],
+    "2022-11-21": [
+      {
+        "location": "PackageType.NUGET",
+        "description": "<p><code>NUGET</code> will be removed.</p>",
+        "reason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
+      },
+      {
+        "location": "PackageType.NPM",
+        "description": "<p><code>NPM</code> will be removed.</p>",
+        "reason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2022-11-21",
+        "criticality": "breaking",
+        "owner": "s-anupam"
       }
     ],
     "2022-10-01": [

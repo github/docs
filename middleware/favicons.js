@@ -6,9 +6,7 @@
 import fs from 'fs'
 
 import { SURROGATE_ENUMS, setFastlySurrogateKey } from './set-fastly-surrogate-key.js'
-import { cacheControlFactory } from './cache-control.js'
-
-const cacheControl = cacheControlFactory(60 * 60 * 24 * 7, { immutable: true })
+import { assetCacheControl } from './cache-control.js'
 
 const MAP = {
   '/favicon.ico': {
@@ -45,7 +43,7 @@ export default function favicons(req, res, next) {
 
   // Manually settings a Cache-Control because no other middleware
   // will get a chance to do this later since we terminate here.
-  cacheControl(res)
+  assetCacheControl(res)
 
   const { contentType, buffer } = MAP[req.path]
   res.set('content-type', contentType)

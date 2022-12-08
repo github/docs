@@ -17,9 +17,7 @@ async function buildRenderedPage(req) {
 
   const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [`path:${path}`])
 
-  const renderedPage = await pageRenderTimed(context)
-
-  return renderedPage
+  return await pageRenderTimed(context)
 }
 
 async function buildMiniTocItems(req) {

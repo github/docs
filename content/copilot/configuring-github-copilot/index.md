@@ -12,5 +12,6 @@ children:
   - /configuring-github-copilot-in-visual-studio
   - /configuring-github-copilot-in-a-jetbrains-ide
   - /configuring-github-copilot-in-neovim
+  - /configuring-github-copilot-settings-in-your-organization
 ---
 

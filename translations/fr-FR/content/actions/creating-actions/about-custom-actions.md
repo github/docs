@@ -16,12 +16,12 @@ type: overview
 topics:
   - Action development
   - Fundamentals
-ms.openlocfilehash: ac933a5014750f75373fafa7f8dd52333b79a469
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1e81bea551ceff1980b0bbe96202f60db0d0e7f2
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147154572'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191943'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -35,7 +35,7 @@ Les actions peuvent s’exécuter directement sur un ordinateur ou dans un conte
 
 ## Types d’actions
 
-Vous pouvez créer des actions de conteneur Docker et JavaScript. Les actions nécessitent un fichier de métadonnées pour définir les entrées, les sorties et le point d’entrée principal de votre action. Le nom de fichier des métadonnées doit être soit `action.yml`, soit `action.yaml`. Pour plus d’informations, consultez « [Syntaxe des métadonnées pour {% data variables.product.prodname_actions %} »](/articles/metadata-syntax-for-github-actions).
+Vous pouvez créer des actions composites, de conteneur Docker et JavaScript. Les actions nécessitent un fichier de métadonnées pour définir les entrées, les sorties et le point d’entrée principal de votre action. Le nom de fichier des métadonnées doit être soit `action.yml`, soit `action.yaml`. Pour plus d’informations, consultez « [Syntaxe des métadonnées pour {% data variables.product.prodname_actions %} »](/articles/metadata-syntax-for-github-actions).
 
 | Type | Système d’exploitation |
 | ---- | ------------------- |

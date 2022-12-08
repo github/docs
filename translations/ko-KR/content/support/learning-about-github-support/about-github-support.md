@@ -83,6 +83,10 @@ If you have any paid product or are a member of an organization with a paid prod
 With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
 
+{% ifversion fpt or ghec or ghes %}
+{% data reusables.support.support-ticket-translation-option %}
+{% endif %}
+
 {% ifversion ghes or ghec %}
 
 To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."

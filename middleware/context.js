@@ -65,5 +65,30 @@ export default async function contextualize(req, res, next) {
 
   const restDate = new Date(req.context.initialRestVersioningReleaseDate)
   req.context.initialRestVersioningReleaseDateLong = restDate.toUTCString().split(' 00:')[0]
+
+  // Conditionally add this for non-English pages so what inside the
+  // `Page.render` method, when it calls out to `renderContentWithFallback`
+  // it can be able to fall back get original content from English if there's
+  // some runtime rendering error from the translation.
+  if (req.language !== 'en') {
+    // The reason this is a function is because most of the time, we don't
+    // need to know the English equivalent. It only comes into play if a
+    // translated
+    req.context.getEnglishPage = (context) => {
+      if (!context.enPage) {
+        const { page } = context
+        if (!page) {
+          throw new Error("The 'page' has not been put into the context yet.")
+        }
+        const enPath = context.currentPath.replace(`/${page.languageCode}`, '/en')
+        const enPage = context.pages[enPath]
+        if (!enPage) {
+          throw new Error(`Unable to find equivalent English page by the path '${enPath}'`)
+        }
+        context.enPage = enPage
+      }
+      return context.enPage
+    }
+  }
   return next()
 }

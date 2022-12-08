@@ -9,6 +9,8 @@ children:
   - /managing-categories-for-discussions
   - /moderating-discussions
   - /viewing-insights-for-your-discussions
+  - /creating-discussion-category-forms
+  - /syntax-for-discussion-category-forms
 ms.openlocfilehash: 156460ecfbb27820f11ccad388ceaff069f835b1
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
