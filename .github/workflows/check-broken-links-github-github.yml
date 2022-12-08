@@ -92,7 +92,7 @@ jobs:
       - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Get title for issue
         id: check
-        run: echo "::set-output name=title::$(head -1 broken_github_github_links.md)"
+        run: echo "title=$(head -1 broken_github_github_links.md)" >> $GITHUB_OUTPUT
       - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Create issue from file
         id: github-github-broken-link-report

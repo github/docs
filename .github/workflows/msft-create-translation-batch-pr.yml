@@ -67,8 +67,7 @@ jobs:
       - name: Set branch name
         id: set-branch
         run: |
-          echo "::set-output name=BRANCH_NAME::msft-translation-batch-${{ matrix.language }}-$(date +%Y-%m-%d__%H-%M)"
-
+          echo "BRANCH_NAME=msft-translation-batch-${{ matrix.language }}-$(date +%Y-%m-%d__%H-%M)" >> $GITHUB_OUTPUT
       - run: git config --global user.name "docubot"
       - run: git config --global user.email "67483024+docubot@users.noreply.github.com"
 
