@@ -12,6 +12,7 @@ children:
   - /configuring-github-copilot-in-visual-studio
   - /configuring-github-copilot-in-a-jetbrains-ide
   - /configuring-github-copilot-in-neovim
+  - /configuring-github-copilot-settings-in-your-organization
 ms.openlocfilehash: e98ac2a1ac8c884776db54e3b8d2a1ea51fbebee
 ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
 ms.translationtype: HT
