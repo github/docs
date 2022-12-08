@@ -1,15 +1,9 @@
----
-ms.openlocfilehash: 902af6bdbe3c48fe8b5930bdf1041151f343b60b
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2022
-ms.locfileid: "148113867"
----
-워크플로가 {% data variables.product.pat_generic %}을(를) 사용하여 레지스트리에 인증하는 경우 을 사용하도록 `GITHUB_TOKEN`워크플로를 업데이트하는 것이 좋습니다.
+Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be owned by a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
-{% ifversion fpt or ghec %} {% data variables.product.pat_generic %}을(를) 사용하여 레지스트리에 인증하는 워크플로를 업데이트하는 방법에 대한 지침은 "[{% data variables.product.pat_generic %}를 사용하여 레지스트리에 액세스하는 워크플로 업그레이드"를](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-a-registry-using-a-personal-access-token) 참조하세요. {% endif %}
+For registries that support granular permissions, if your workflow is using a {% data variables.product.pat_generic %} to authenticate to a registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
-`GITHUB_TOKEN`에 대한 자세한 내용은 “[워크플로의 인증](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)”을 참조하세요.
+For guidance on updating your workflows that authenticate to a registry with a {% data variables.product.pat_generic %}, see "[Upgrading a workflow that accesses a registry using a {% data variables.product.pat_generic %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-a-registry-using-a-personal-access-token)."
 
-작업에서 레지스트리를 사용할 때의 모범 사례에 대한 자세한 내용은 "[GitHub Actions 보안 강화](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)"를 참조하세요.
+For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+
+For more information about the best practices when using a registry in actions, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."
