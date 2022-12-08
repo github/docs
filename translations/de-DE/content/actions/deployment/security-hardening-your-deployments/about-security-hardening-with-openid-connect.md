@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Sicherheitshärtung mit OpenID Connect
-shortTitle: About security hardening with OpenID Connect
+shortTitle: Security hardening with OpenID Connect
 intro: 'OpenID Connect ermöglicht es deinen Workflows, kurzlebige Token direkt mit deinem Cloudanbieter auszutauschen.'
 miniTocMaxHeadingLevel: 4
 versions:
@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 23c541fa3c99b706877fc29c52174c404d5fca3d
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 90a2f8c6cb2114f060bfbd0f422cb1ef6dbca604
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147710267'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148192031'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -76,7 +76,7 @@ Im folgenden Beispiel verwendet das OIDC-Token einen Antragsteller (`sub`), der 
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
   "actor_id": "12",
-  "repo_visibility": private,
+  "repository_visibility": private,
   "repository_id": "74",
   "repository_owner_id": "65",
   "run_id": "example-run-id",
@@ -131,7 +131,7 @@ Das Token enthält auch benutzerdefinierte Ansprüche, die von {% data variables
 | `job_workflow_ref`| Dies ist der Ref-Pfad zum wiederverwendbaren Workflow, der von diesem Auftrag verwendet wird. Weitere Informationen findest du unter [Verwenden von OpenID Connect mit wiederverwendbaren Workflows](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows).                  | 
 | `ref`| _(Referenz)_ Die Git-Ref, die die Workflowausführung ausgelöst hat.                   | 
 | `ref_type`| Der `ref`-Typ, z. B. „Branch“.                  | 
-| `repo_visibility` | Die Sichtbarkeit des Repositorys, in dem der Workflow ausgeführt wird. Akzeptiert die folgenden Werte: `internal`, `private` oder `public`.                   | 
+| `repository_visibility` | Die Sichtbarkeit des Repositorys, in dem der Workflow ausgeführt wird. Akzeptiert die folgenden Werte: `internal`, `private` oder `public`.                   | 
 | `repository`| Das Repository, aus dem der Workflow ausgeführt wird.                   | 
 | `repository_id`| Das Repository, über das der Workflow ausgeführt wird.  |
 | `repository_owner`| Der Name der Organisation, in der das `repository` gespeichert wird.                   | 
@@ -249,7 +249,7 @@ Du kannst die Sicherheit deiner OIDC-Konfiguration verbessern, indem du die Ansp
 
 {% ifversion ghec %} – Für eine zusätzliche Sicherheitsebene kannst du der `issuer`-URL das Platzhalterfeld deines Unternehmens anfügen. Auf diese Weise kannst du Bedingungen für den Ausstelleranspruch (`iss`) festlegen, indem du ihn so konfigurierst, dass nur JWT-Token von einer eindeutigen `issuer`-URL akzeptiert werden, die das Platzhalterfeld deines Unternehmens enthalten muss.{% endif %}
 - Du kannst deine OIDC-Konfiguration standardisieren, indem du Bedingungen für den Antragstelleranspruch (`sub`) festlegst, die erfordern, dass JWT-Token aus einem bestimmten Repository, einem wiederverwendbaren Workflow oder einer anderen Quelle stammen.
-- Du kannst detaillierte OIDC-Richtlinien definieren, indem du zusätzliche OIDC-Tokenansprüche wie z. B. `repository_id` und `repo_visibility` verwendest. Weitere Informationen findest du unter [Grundlegendes zum OIDC-Token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token).
+- Du kannst detaillierte OIDC-Richtlinien definieren, indem du zusätzliche OIDC-Tokenansprüche wie z. B. `repository_id` und `repository_visibility` verwendest. Weitere Informationen findest du unter [Grundlegendes zum OIDC-Token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token).
 
 Um diese Anspruchsformate anzupassen, können Organisations- und Repositoryadministratoren die REST-API-Endpunkte verwenden, die in den folgenden Abschnitten beschrieben werden.
 
@@ -259,7 +259,7 @@ Um diese Anspruchsformate anzupassen, können Organisations- und Repositoryadmin
 
 Standardmäßig wird das JWT vom {% data variables.product.prodname_dotcom %}-OIDC-Anbieter unter `https://token.actions.githubusercontent.com` ausgestellt. Dieser Pfad wird deinem Cloudanbieter über den `iss`-Wert im JWT angezeigt.
 
-Unternehmensadministratoren können die Sicherheit ihrer OIDC-Konfiguration verbessern, indem sie ihr Unternehmen für den Empfang von Token von einer eindeutigen URL unter `https://api.github.com/enterprises/<enterpriseSlug>/actions/oidc/customization/issuer` konfigurieren. Ersetze `<enterpriseSlug>` durch den Platzhalterwert deines Unternehmens. 
+Unternehmensadministratoren können die Sicherheit ihrer OIDC-Konfiguration verbessern, indem sie ihr Unternehmen für den Empfang von Token von einer eindeutigen URL unter `https://token.actions.githubusercontent.com/<enterpriseSlug>` konfigurieren. Ersetze `<enterpriseSlug>` durch den Platzhalterwert deines Unternehmens. 
 
 Diese Konfiguration führt dazu, dass dein Unternehmen das OIDC-Token von einer eindeutigen URL empfängt. Anschließend kannst du deinen Cloudanbieter so konfigurieren, dass nur Token von dieser URL akzeptiert werden. Dadurch wird sichergestellt, dass nur die Repositorys des Unternehmens mithilfe von OIDC auf deine Cloudressourcen zugreifen können.
 
@@ -273,7 +273,7 @@ Nachdem diese Einstellung angewendet wurde, enthält das JWT den aktualisierten 
   "sub": "repo:octocat-inc/private-server:ref:refs/heads/main"
   "aud": "http://octocat-inc.example/octocat-inc"
   "enterprise": "octocat-inc"
-  "iss": "https://api.github.com/enterprises/octocat-inc/actions/oidc/customization/issuer",
+  "iss": "https://token.actions.githubusercontent.com/octocat-inc",
   "bf": 1755350653,
   "exp": 1755351553,
   "iat": 1755351253
@@ -282,21 +282,23 @@ Nachdem diese Einstellung angewendet wurde, enthält das JWT den aktualisierten 
 
 {% endif %}
 
-### Anpassen der Antragstelleransprüche für eine Organisation
+### Anpassen der Antragstelleransprüche für eine Organisation oder ein Repository
 
-Um organisationsweite Sicherheit, Compliance und Standardisierung zu konfigurieren, kannst du die Standardansprüche an deine erforderlichen Zugriffsbedingungen anpassen. Wenn dein Cloudanbieter Bedingungen für Antragstelleransprüche unterstützt, kannst du eine Bedingung erstellen, die überprüft, ob der `sub`-Wert dem Pfad des wiederverwendbaren Workflows entspricht, z. B. `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. Das genaue Format variiert je nach OIDC-Konfiguration deines Cloudanbieters. Um die übereinstimmende Bedingung für {% data variables.product.prodname_dotcom %} zu konfigurieren, kannst du die REST-API verwenden, um zu verlangen, dass der `sub`-Anspruch immer einen bestimmten benutzerdefinierten Anspruch enthalten muss, z. B. `job_workflow_ref`. Weitere Informationen findest du unter [Festlegen der Anpassungsvorlage für einen OIDC-Antragstelleranspruch für eine Organisation](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization).
-
-Das Anpassen der Ansprüche führt zu einem neuen Format für den gesamten `sub`-Anspruch, welches das vordefinierte `sub`-Standardformat in dem unter [Beispiele für Antragstelleransprüche](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) beschriebenen Token ersetzt.
-
-In den folgenden Beispielvorlagen werden verschiedene Möglichkeiten zum Anpassen des Antragstelleranspruchs veranschaulicht. Zum Konfigurieren dieser Einstellungen für {% data variables.product.prodname_dotcom %} verwenden Organisationsadministratoren die REST-API, um eine Liste der Ansprüche anzugeben, die in den Antragstelleranspruch (`sub`) einbezogen werden müssen. {% data reusables.actions.use-request-body-api %}
-
-Um deine Antragstelleransprüche anzupassen, solltest du zuerst eine Vergleichsbedingung in der OIDC-Konfiguration deines Cloudanbieters erstellen, bevor du die Konfiguration mithilfe der REST-API anpasst. Sobald die Konfiguration abgeschlossen ist, folgt bei jeder Ausführung eines neuen Auftrags das während dieses Auftrags generierte OIDC-Token der neuen Anpassungsvorlage. Wenn die Vergleichsbedingung vor der Ausführung des Auftrags nicht in der OIDC-Konfiguration des Cloudanbieters vorhanden ist, wird das generierte Token möglicherweise nicht vom Cloudanbieter akzeptiert, weil die Cloudbedingungen möglicherweise nicht synchronisiert wurden.
+Um Sicherheit, Compliance und Standardisierung zu verbessern, kannst du die Standardansprüche an deine erforderlichen Zugriffsbedingungen anpassen. Wenn dein Cloudanbieter Bedingungen für Antragstelleransprüche unterstützt, kannst du eine Bedingung erstellen, die überprüft, ob der `sub`-Wert dem Pfad des wiederverwendbaren Workflows entspricht, z. B. `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. Das genaue Format variiert je nach OIDC-Konfiguration deines Cloudanbieters. Um die übereinstimmende Bedingung für {% data variables.product.prodname_dotcom %} zu konfigurieren, kannst du die REST-API verwenden, um zu verlangen, dass der `sub`-Anspruch immer einen bestimmten benutzerdefinierten Anspruch enthalten muss, z. B. `job_workflow_ref`. Du kannst mithilfe der [OIDC-REST-API](/rest/actions/oidc) eine Anpassungsvorlage auf den OIDC-Antragstelleranspruch anwenden. So kannst du beispielsweise festlegen, dass der `sub`-Anspruch innerhalb des OIDC-Tokens immer einen bestimmten benutzerdefinierten Anspruch (wie z. B. `job_workflow_ref`) enthalten muss.
 
 {% note %}
 
-**Hinweis**: Wenn die Organisationsvorlage angewendet wird, wirkt sie sich nicht auf vorhandene Repositorys aus, die bereits OIDC verwenden. Für vorhandene Repositorys sowie alle neuen Repositorys, die nach der Anwendung der Vorlage erstellt werden, muss der Repositorybesitzer den Empfang dieser Konfiguration aktivieren. Weitere Informationen findest du unter [Festlegen des Aktivierungsflags für eine Anpassung des OIDC-Antragstelleranspruchs für ein Repository](/rest/actions/oidc#set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository).
+**Hinweis**: Die Anwendung der Organisationsvorlage hat keine Auswirkungen auf die Workflows in vorhandenen Repositorys, die bereits OIDC verwenden. Bei bestehenden Repositorys sowie bei neuen Repositorys, die nach Anwendung der Vorlage erstellt werden, muss der Besitzer des Repositorys diese Konfiguration aktivieren oder alternativ eine andere Konfiguration für das Repository anwenden. Weitere Informationen findest du unter [Festlegen der Anpassungsvorlage für einen OIDC-Antragstelleranspruch für eine Organisation oder ein Repository](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository).
 
 {% endnote %}
+
+Das Anpassen der Ansprüche führt zu einem neuen Format für den gesamten `sub`-Anspruch, welches das vordefinierte `sub`-Standardformat in dem unter [Beispiele für Antragstelleransprüche](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) beschriebenen Token ersetzt.
+
+In den folgenden Beispielvorlagen werden verschiedene Möglichkeiten zum Anpassen des Antragstelleranspruchs veranschaulicht. Zum Konfigurieren dieser Einstellungen für {% data variables.product.prodname_dotcom %} geben Organisationsadministratoren mithilfe der REST-API eine Liste der Ansprüche an, die in den Antragstelleranspruch (`sub`) einbezogen werden müssen. 
+
+{% data reusables.actions.use-request-body-api %}
+
+Um deine Antragstelleransprüche anzupassen, solltest du zuerst eine Vergleichsbedingung in der OIDC-Konfiguration deines Cloudanbieters erstellen, bevor du die Konfiguration mithilfe der REST-API anpasst. Sobald die Konfiguration abgeschlossen ist, folgt bei jeder Ausführung eines neuen Auftrags das während dieses Auftrags generierte OIDC-Token der neuen Anpassungsvorlage. Wenn die Vergleichsbedingung vor der Ausführung des Auftrags nicht in der OIDC-Konfiguration des Cloudanbieters vorhanden ist, wird das generierte Token möglicherweise nicht vom Cloudanbieter akzeptiert, weil die Cloudbedingungen möglicherweise nicht synchronisiert wurden.
 
 #### Beispiel: Zulassen des Repositorys basierend auf Sichtbarkeit und Besitzer
 
@@ -311,11 +313,13 @@ In dieser Beispielvorlage kann der `sub`-Anspruch ein neues Format aufweisen, da
 }
 ```
 
-Konfiguriere in der OIDC-Konfiguration deines Cloudanbieters die `sub`-Bedingung, um anzugeben, dass Ansprüche bestimmte Werte für `repository_owner` und `repository_visibility` aufweisen müssen. Ein Beispiel für die Camel-Case-Schreibweise lautet: `"repository_owner: "monalisa":repository_visibility:private"`. Mit dem Ansatz kannst du den Cloudrollenzugriff auf private Repositorys innerhalb einer Organisation oder eines Unternehmens beschränken.
+Konfiguriere in der OIDC-Konfiguration deines Cloudanbieters die `sub`-Bedingung, um anzugeben, dass Ansprüche bestimmte Werte für `repository_owner` und `repository_visibility` aufweisen müssen. Beispiel: `"repository_owner: "monalisa":repository_visibility:private"`. Mit dem Ansatz kannst du den Cloudrollenzugriff auf private Repositorys innerhalb einer Organisation oder eines Unternehmens beschränken.
 
 #### Beispiel: Zulassen des Zugriffs auf alle Repositorys mit einem bestimmten Besitzer
 
-Durch diese Beispielvorlage kann der `sub`-Anspruch ein neues Format nur mit dem Wert von `repository_owner` aufweisen. {% data reusables.actions.use-request-body-api %}
+Durch diese Beispielvorlage kann der `sub`-Anspruch ein neues Format nur mit dem Wert von `repository_owner` aufweisen. 
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
 {
@@ -342,11 +346,13 @@ In dieser Beispielvorlage kann der `sub`-Anspruch ein neues Format aufweisen, da
   }
 ```
 
-Konfiguriere in der OIDC-Konfiguration deines Cloudanbieters die `sub`-Bedingung, um anzugeben, dass Ansprüche einen bestimmten Wert für `job_workflow_ref` aufweisen müssen. Ein Beispiel für die Camel-Case-Schreibweise lautet: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`.
+Konfiguriere in der OIDC-Konfiguration deines Cloudanbieters die `sub`-Bedingung, um anzugeben, dass Ansprüche einen bestimmten Wert für `job_workflow_ref` aufweisen müssen. Beispiel: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`.
 
 #### Beispiel: Anfordern eines wiederverwendbaren Workflows und anderer Ansprüche
 
-Die folgende Beispielvorlage kombiniert die Anforderung eines bestimmten wiederverwendbaren Workflows mit zusätzlichen Ansprüchen. {% data reusables.actions.use-request-body-api %}
+Die folgende Beispielvorlage kombiniert die Anforderung eines bestimmten wiederverwendbaren Workflows mit zusätzlichen Ansprüchen.
+
+{% data reusables.actions.use-request-body-api %}
 
 In diesem Beispiel wird auch veranschaulicht, wie `"context"` zum Definieren deiner Bedingungen verwendet werden kann. Dies ist der Teil, der dem Repository im [`sub`-Standardformat](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) folgt. Wenn der Auftrag beispielsweise auf eine Umgebung verweist, enthält der Kontext Folgendes: `environment:<environmentName>`.
 
@@ -382,7 +388,9 @@ Konfiguriere in der OIDC-Konfiguration deines Cloudanbieters die `sub`-Bedingung
 
 #### Beispiel: Verwenden systemgenerierter GUIDs
 
-Diese Beispielvorlage ermöglicht vorhersagbare OIDC-Ansprüche mit systemgenerierten GUIDs, die bei der Umbenennung von Entitäten (z. B. beim Umbenennen eines Repositorys) unverändert bleiben. {% data reusables.actions.use-request-body-api %}
+Diese Beispielvorlage ermöglicht vorhersagbare OIDC-Ansprüche mit systemgenerierten GUIDs, die bei der Umbenennung von Entitäten (z. B. beim Umbenennen eines Repositorys) unverändert bleiben. 
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
   {
@@ -408,7 +416,9 @@ Konfiguriere in der OIDC-Konfiguration deines Cloudanbieters die `sub`-Bedingung
 
 #### Zurücksetzen deiner Anpassungen
 
-In dieser Beispielvorlage werden die Antragstelleransprüche auf das Standardformat zurückgesetzt. {% data reusables.actions.use-request-body-api %} Durch diese Vorlage wird jede Anpassungsrichtlinie auf Organisationsebene effektiv deaktiviert.
+In dieser Beispielvorlage werden die Antragstelleransprüche auf das Standardformat zurückgesetzt. Mit dieser Vorlage werden alle Anpassungsrichtlinien auf Organisationsebene außer Kraft gesetzt.
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
 {
@@ -423,11 +433,25 @@ Konfiguriere in der OIDC-Konfiguration deines Cloudanbieters die `sub`-Bedingung
 
 #### Verwenden der Standardansprüche für Antragsteller
 
-Für Repositorys, die eine Antragstelleranspruchsrichtlinie aus ihrer Organisation erhalten können, kann der Repositorybesitzer sich später entscheiden, diese zu deaktivieren und stattdessen das Standardformat des `sub`-Anspruchs zu verwenden. Um dies zu konfigurieren, muss der Repositoryadministrator den REST-API-Endpunkt unter [Festlegen des Deaktivierungsflags für eine Anpassung des OIDC-Antragstelleranspruchs für ein Repository](/rest/actions/oidc#set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository) mit dem folgenden Anforderungstext verwenden:
+Für Repositorys, die eine Antragstelleranspruchsrichtlinie aus ihrer Organisation erhalten können, kann der Repositorybesitzer sich später entscheiden, diese zu deaktivieren und stattdessen das Standardformat des `sub`-Anspruchs zu verwenden. Dies bedeutet, dass das Repository nicht die benutzerdefinierte Vorlage der Organisation verwendet. 
+
+Um das Repository zur Verwendung des standardmäßigen Anspruchsformats `sub` zu konfigurieren, muss ein Repositoryadministrator den REST-API-Endpunkt unter [Festlegen der Anpassungsvorlage für einen OIDC-Antragstelleranspruch für eine Organisation oder ein Repository](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository) mit dem folgenden Anforderungstext festlegen:
 
 ```json
 {
    "use_default": true
+}
+```
+
+#### Beispiel: Konfigurieren eines Repositorys für die Verwendung einer Organisationsvorlage
+
+Ein Repositoryadministrator kann sein Repository so konfigurieren, dass es die vom Administrator der Organisation erstellte Vorlage verwendet.
+
+Um das Repository zur Verwendung der Organisationsvorlage zu konfigurieren, muss ein Repositoryadministrator den REST-API-Endpunkt unter [Festlegen der Anpassungsvorlage für einen OIDC-Antragstelleranspruch für ein Repository](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository) mit dem folgenden Anforderungstext festlegen:
+
+```json
+{
+   "use_default": false
 }
 ```
 
