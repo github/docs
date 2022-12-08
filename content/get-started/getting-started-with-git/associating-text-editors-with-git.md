@@ -27,6 +27,16 @@ shortTitle: Associate text editors
   $ git config --global core.editor "code --wait"
  ```
 
+## Using BBEdit as your editor
+
+1. Install [BBEdit](https://www.barebones.com/products/bbedit/).
+2. Install BBEdit's `bbedit` shell utility. For more information, see "BBEdit and the Unix Command-Line" in the [BBEdit documentation](https://www.barebones.com/support/bbedit/).
+{% data reusables.command_line.open_the_multi_os_terminal %}
+3. Type this command:
+  ```shell
+  $ git config --global core.editor "bbedit -w"
+  ```
+
 ## Using Sublime Text as your editor
 
 1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
