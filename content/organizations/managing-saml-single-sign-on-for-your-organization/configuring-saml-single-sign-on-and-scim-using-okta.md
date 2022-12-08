@@ -31,7 +31,7 @@ After you enable SCIM, the following provisioning features are available for any
 
 Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for enterprise accounts is only available with Enterprise Managed Users. For more information, see "[Configuring SAML single sign-on for your enterprise using Okta](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)" and "[Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
 
-## Configuring SAML for a {% data variables.product.prodname_ghe_cloud %} organization in Okta
+## Configuring SAML in Okta
 
 {% data reusables.saml.okta-ae-applications-menu %}
 {% data reusables.saml.okta-browse-app-catalog %}
