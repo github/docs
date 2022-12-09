@@ -1,6 +1,6 @@
 ---
 title: Repository Webhook Deliveries
-intro: ''
+intro: 'Use the REST API interact with deliveries of repository webhooks.'
 versions:
   fpt: '*'
   ghes: '*'
