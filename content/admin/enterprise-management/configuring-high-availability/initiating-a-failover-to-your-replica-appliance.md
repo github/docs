@@ -47,6 +47,13 @@ The time required to failover depends on how long it takes to manually promote t
   ```shell
   $ ghe-repl-promote
   ```
+
+   {% note %}
+
+   **Note:** If the primary node is unavailable, warnings and timeouts may occur but can be ignored.
+
+  {% endnote %}
+
 5. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
 6. Notify users that they can resume normal operations.
 7. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[About high availability configuration](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)."
