@@ -1,7 +1,7 @@
 ---
-title: Restricting network traffic to your enterprise with an IP allow list
+title: Restricción del tráfico de red a la empresa con una lista de direcciones IP permitidas
 shortTitle: Restricting network traffic
-intro: You can restrict access to your enterprise and only allow access to your resources from specified IP addresses by using an IP allow list.
+intro: Puedes restringir el acceso a tu empresa y permitir solo el acceso a los recursos desde direcciones IP especificadas mediante una lista de direcciones IP permitidas.
 permissions: Enterprise owners can configure IP allow lists.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,192 +17,154 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191898'
 ---
+## Acerca de las restricciones de tráfico de red
 
-## About network traffic restrictions
-
-By default, authorized users can access your enterprise from any IP address. You can restrict access to resources {% ifversion ghec %}owned by organizations in an enterprise account {% endif %}by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Predeterminadamente, los usuarios autorizados pueden acceder a tu empresa desde cualquier dirección IP. Puedes restringir el acceso a los recursos {% ifversion ghec %}que pertenezcan a las organizaciones dentro de la cuenta empresarial {% endif %}mediante la configuración de una lista de direcciones IP permitidas. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% ifversion ghec %}
 
-If your enterprise uses {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
+Si tu empresa usa {% data variables.product.prodname_emus %} con Azure AD y OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con Azure y OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
-By default, Azure network security group (NSG) rules leave all inbound traffic open on ports 22, 80, 443, and 25. You can contact {% data variables.contact.github_support %} to configure access restrictions for {% data variables.product.product_name %}.
+Predeterminadamente, las reglas del grupo de seguridad de redes (NSG) de Azure dejan todo el tráfico entrante abierto en los puertos 22, 80, 443 y 25. Puedes ponerte en contacto con {% data variables.contact.github_support %} para configurar restricciones de acceso para {% data variables.product.product_name %}.
 
-For restrictions using Azure NSGs, contact {% data variables.contact.github_support %} with the IP addresses that should be allowed to access {% data variables.product.product_name %}. Specify address ranges using the standard CIDR (Classless Inter-Domain Routing) format. {% data variables.contact.github_support %} will configure the appropriate firewall rules to restrict network access over HTTP, SSH, HTTPS, and SMTP. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+Para las restricciones que utilizan los NSG de Azure, contacta a {% data variables.contact.github_support %} enviando las direcciones IP que deberán poder acceder a {% data variables.product.product_name %}. Especifica los rangos de direcciones utilizando el formato estándar de CIDR (Enrutamiento sin Clases entre Dominios, por sus siglas en inglés). {% data variables.contact.github_support %} configurará las reglas de cortafuegos adecuadas para restringir el acceso por HTTP, SSH, HTTPS, y SMTP. Para más información, vea "[Recepción de ayuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
 {% endif %}
 
 {% ifversion ghec %}
 
-## About {% data variables.product.company_short %}'s IP allow list
+## Acerca de la lista de direcciones IP permitidas de {% data variables.product.company_short %}
 
-You can use {% data variables.product.company_short %}'s IP allow list to control access to your enterprise and assets owned by organizations in your enterprise. 
+Puedes usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} para controlar el acceso a la empresa y a los recursos que pertenecen a las organizaciones de tu empresa. 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
 
-## About your IdP's allow list
+## Acerca de la lista de permitidos del proveedor de identidades
 
-If you are using {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can use your IdP's allow list.
+Si usas {% data variables.product.prodname_emus %} con Azure AD y OIDC, puedes usar la lista de permitidos del proveedor de identidades.
 
-Using your IdP's allow list deactivates the {% data variables.product.company_short %} IP allow list configurations for all organizations in your enterprise and deactivates the GraphQL APIs for enabling and managing IP allow lists. 
+El uso de la lista de permitidos del proveedor de identidades desactiva las configuraciones de la lista de direcciones IP permitidas de {% data variables.product.company_short %} para todas las organizaciones de tu empresa y desactiva las API de GraphQL para habilitar y administrar listas de direcciones IP permitidas. 
 
-By default, your IdP runs the CAP on the initial interactive SAML or OIDC sign-in to {% data variables.product.company_short %} for any IP allow list configuration you choose.
+De forma predeterminada, el proveedor de identidades ejecuta el CAP en el inicio de sesión interactivo de SAML o OIDC inicial a {% data variables.product.company_short %} para cualquier configuración de lista de direcciones IP permitidas que elijas.
 
-The OIDC CAP only applies for requests to the API using a user-to-server token, such as a token for an {% data variables.product.prodname_oauth_app %} or a {% data variables.product.prodname_github_app %} acting on behalf of a user. The OIDC CAP does not apply when a {% data variables.product.prodname_github_app %} uses a server-to-server token. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-an-installation)" and "[About support for your IdPs Conditional Access Policy](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps)."
+El CAP de OIDC solo se aplica a las solicitudes a la API mediante un token de usuario a servidor, como un token para un {% data variables.product.prodname_oauth_app %} o un {% data variables.product.prodname_github_app %} que actúa en nombre de un usuario. El CAP de OIDC no se aplica cuando un {% data variables.product.prodname_github_app %} usa un token de servidor a servidor. Para obtener más información, consulta "[Autenticación con {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-an-installation)" y "[Acerca de la compatibilidad con la directiva de acceso condicional del proveedor de identidades](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps)".
 
-To ensure seamless use of the OIDC CAP while still applying the policy to user-to-server tokens, you must copy all of the IP ranges from each {% data variables.product.prodname_github_app %} that your enterprise uses to your IdP policy. 
+Para garantizar un uso sin problemas del CAP de OIDC mientras se sigue aplicando la directiva a los tokens de usuario a servidor, debes copiar todos los intervalos IP de cada {% data variables.product.prodname_github_app %} que la empresa usa en la directiva de proveedor de identidades. 
 
-## Using {% data variables.product.company_short %}'s IP allow list
+## Uso de la lista de direcciones IP permitidas de {% data variables.product.company_short %}
 
-### Enabling {% data variables.product.company_short %}'s IP allow list
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "IP allow list", enable the IP allow list. 
-   - If you are using {% data variables.product.prodname_emus %} with OIDC, select the dropdown menu and click **GitHub**.
-      ![Screenshot of dropdown menu showing three IP allow list configuration options: Disabled, Identity Provider, and GitHub](/assets/images/help/security/enable-github-ip-allow-list.png)
+### Habilitación de la lista de direcciones IP permitidas de {% data variables.product.company_short %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+1. En "Lista de direcciones IP permitidas", habilita la lista de direcciones IP permitidas. 
+   - Si usas {% data variables.product.prodname_emus %} con OIDC, selecciona el menú desplegable y haz clic en **GitHub**.
+      ![Captura de pantalla del menú desplegable que muestra tres opciones de configuración de la lista de direcciones IP permitidas: Deshabilitada, Proveedor de identidades y GitHub](/assets/images/help/security/enable-github-ip-allow-list.png)
    
-      Select **Enable IP allow list**.
-      ![Screenshot of checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allow-list-ghec.png)
+      Selecciona **Habilitar lista de direcciones IP permitidas**.
+      ![Captura de pantalla de la casilla para permitir direcciones IP](/assets/images/help/security/enable-ip-allow-list-ghec.png)
 
-   - If you are not using {% data variables.product.prodname_emus %} with OIDC, select **Enable IP allow list**.
-     ![Screenshot of checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-1. Click **Save**.
+   - Si no usas {% data variables.product.prodname_emus %}con OIDC, selecciona **Habilitar lista de direcciones IP permitidas**.
+     ![Captura de pantalla de la casilla para permitir direcciones IP](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+1. Haga clic en **Save**(Guardar).
 
-### Adding an allowed IP address
+### Agregar una dirección IP permitida
 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %} {% data reusables.identity-and-permissions.check-ip-address %}
 
-### Allowing access by {% data variables.product.prodname_github_apps %}
+### Permitir el acceso mediante {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-### Editing an allowed IP address
+### Editar una dirección IP permitida
 
 {% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. Haga clic en **Update**(Actualizar).
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-### Checking if an IP address is permitted
+### Comprobación de permiso para una dirección IP
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.check-ip-address-step %}
 
-### Deleting an allowed IP address
+### Eliminar una dirección IP permitida
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-## Using your identity provider's allow list
+## Uso de la lista de permitidos del proveedor de identidades
 
 {% note %}
 
-**Note:** Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Azure AD and OIDC. 
+**Nota:** El uso de la lista de permitidos de IdP solo se admite para {% data variables.product.prodname_emus %} con Azure AD y OIDC. 
 
 {% endnote %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "IP allow list", select the dropdown and click **Identity Provider**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+1. En "Lista de direcciones IP permitidas", selecciona la lista desplegable y haz clic en **Proveedor de identidades**.
 
-   ![Screenshot of dropdown menu showing three IP allow list configuration options: Disabled, Identity Provider, and GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
+   ![Captura de pantalla del menú desplegable que muestra tres opciones de configuración de la lista de direcciones IP permitidas: Deshabilitada, Proveedor de identidades y GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
+1. Opcionalmente, para permitir que los {% data variables.product.company_short %} y {% data variables.product.prodname_oauth_apps %} instalados accedan a la empresa desde cualquier dirección IP, selecciona **Omitir comprobación de proveedor de identidades para aplicaciones**.
 
-   ![Checkbox to allow IP addresses](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
-1. Click **Save**.
+   ![Casilla para permitir direcciones IP](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
+1. Haga clic en **Save**(Guardar).
 
 {% endif %}
 
 {% ifversion ghae %}
 
-## Enabling allowed IP addresses
+## Habilitar direcciones IP permitidas
 
 {% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. En "IP allow list", seleccione **Enable IP allow list**.
+  ![Casilla para permitir direcciones IP](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+4. Haga clic en **Save**(Guardar).
 
-## Adding an allowed IP address
+## Agregar una dirección IP permitida
 
-{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %} {% data reusables.identity-and-permissions.check-ip-address %}
 
-## Allowing access by {% data variables.product.prodname_github_apps %}
+## Permitir el acceso mediante {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-## Editing an allowed IP address
+## Editar una dirección IP permitida
 
 {% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. Haga clic en **Update**(Actualizar).
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-## Checking if an IP address is permitted
+## Comprobación de permiso para una dirección IP
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.check-ip-address-step %}
 
-## Deleting an allowed IP address
+## Eliminar una dirección IP permitida
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
 {% endif %}
 
-## Using {% data variables.product.prodname_actions %} with an IP allow list
+## Utilizar {% data variables.product.prodname_actions %} con un listado de direcciones IP permitidas
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}
