@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
 import { Link } from 'components/Link'
+import { LinkIconHeading } from 'components/article/LinkIconHeading'
 
 import styles from './PatchNotes.module.scss'
 
@@ -25,6 +26,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
     <>
       {Object.entries(patch.sections).map(([key, sectionItems], i, arr) => {
         const isLast = i === arr.length - 1
+        const sectionSlug = `${patch.version}-${key.replaceAll('_', '-')}`
         return (
           <div
             key={key}
@@ -35,7 +37,10 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
             )}
           >
             <ul className={cx(withReleaseNoteLabel)}>
-              <h3>{SectionToLabelMap[key] || 'INVALID SECTION'}</h3>
+              <h3 id={sectionSlug}>
+                <LinkIconHeading slug={sectionSlug} />
+                {SectionToLabelMap[key] || 'INVALID SECTION'}
+              </h3>
               {sectionItems.map((item) => {
                 if (typeof item === 'string') {
                   return <li key={item} className="f4" dangerouslySetInnerHTML={{ __html: item }} />
