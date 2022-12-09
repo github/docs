@@ -1,6 +1,6 @@
 ---
-title: 发起到副本设备的故障转移
-intro: '您可以使用命令行故障转移到 {% data variables.product.prodname_ghe_server %} 副本设备以进行维护和测试，也可以在主设备发生故障时进行故障转移。'
+title: Initiating a failover to your replica appliance
+intro: 'You can failover to a {% data variables.product.prodname_ghe_server %} replica appliance using the command line for maintenance and testing, or if the primary appliance fails.'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -13,59 +13,60 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: 65e522d2a7b466c4f75cea087760ecb3001317a7
-ms.sourcegitcommit: 3ea3ccb5af64bd7d9e4699757db38fdd8f98cde7
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2022
-ms.locfileid: '147076701'
 ---
-故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
+The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 20-30 minutes.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. 如果主设备可用，要在切换设备之前允许复制完成，请在主设备上将主设备置于维护模式。
+1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
 
-    - 将设备置于维护模式。
+    - Put the appliance into maintenance mode.
 
-       - 若要使用管理控制台，请参阅“[启用和安排维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”
+       - To use the management console, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"
 
-       - 也可使用 `ghe-maintenance -s` 命令。
+       - You can also use the `ghe-maintenance -s` command.
          ```shell
          $ ghe-maintenance -s
          ```
 
-   - 当活动 Git 操作、MySQL 查询和 Resque 作业数量达到零时，等待 30 秒。 
+   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
 
       {% note %}
 
-      注意：Nomad 将始终有作业在运行，即使是在维护模式下，因此你可以安全地忽略这些作业。
+      **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
     
       {% endnote %}
 
-   - 若要验证所有复制通道均报告 `OK`，请使用 `ghe-repl-status -vv` 命令。
+   - To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
 
       ```shell
       $ ghe-repl-status -vv
       ```
 
-4. 在副本设备上，要停止复制并将副本设备提升为主状态，请使用 `ghe-repl-promote` 命令。 如果可访问，此节点也会自动将主节点置于维护节点中。
+4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
   ```shell
   $ ghe-repl-promote
   ```
-5. 将 DNS 记录更新为指向副本的 IP 地址。 流量会在经过 TTL 周期后定向到副本。 如果您要使用负载均衡器，请务必将其配置为向副本发送流量。
-6. 通知用户他们可以恢复正常操作。
-7. 如有需要，请设置从新的主设备复制到现有设备和之前的主设备。 有关详细信息，请参阅“[关于高可用性配置](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”。
-8. 您不打算在故障转移之前将复制设置为高可用性配置一部分的设备需由 UUID 从高可用性配置中删除。
-    - 在以前的设备上，通过 `cat /data/user/common/uuid` 获取其 UUID。
+
+   {% note %}
+
+   **Note:** If the primary node is unavailable, warnings and timeouts may occur but can be ignored.
+
+  {% endnote %}
+
+5. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
+6. Notify users that they can resume normal operations.
+7. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[About high availability configuration](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)."
+8. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
+    - On the former appliances, get their UUID via `cat /data/user/common/uuid`.
       ```shell
       $ cat /data/user/common/uuid
       ```
-    - 在新的主设备上，使用 `ghe-repl-teardown` 删除 UUID。 请将 `UUID` 替换为你在上一步中检索到的 UUID。
+    - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace *`UUID`* with a UUID you retrieved in the previous step.
       ```shell
-      $ ghe-repl-teardown -u <em>UUID</em>
+      $ ghe-repl-teardown -u  UUID
       ```
 
-## <a name="further-reading"></a>延伸阅读
+## Further reading
 
-- “[用于复制管理的实用程序](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”
+- "[Utilities for replication management](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
