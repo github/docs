@@ -1,6 +1,6 @@
 ---
-title: Ressources disponibles dans l’API REST
-intro: 'Découvrez comment parcourir les ressources fournies par l’API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}.'
+title: Resources in the REST API
+intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
 redirect_from:
   - /rest/initialize-the-repo
 versions:
@@ -11,23 +11,19 @@ versions:
 miniTocMaxHeadingLevel: 3
 topics:
   - API
-ms.openlocfilehash: 4fd3e2aad72ee0ffc4778a86dc99cd5bb6f9d2c5
-ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2022
-ms.locfileid: '148190398'
 ---
-{% ifversion api-date-versioning %}
-## Version de l'API
 
-Les ressources disponibles peuvent varier selon les versions de l’API REST. Vous devez utiliser l’en-tête `X-GitHub-Api-Version` pour spécifier une version d’API. Pour plus d’informations, consultez « [Versions d’API](/rest/overview/api-versions) ».
+{% ifversion api-date-versioning %}
+## API version
+
+Available resources may vary between REST API versions. You should use the `X-GitHub-Api-Version` header to specify an API version. For more information, see "[API Versions](/rest/overview/api-versions)."
 
 {% endif %}
 
-## schéma
+## Schema
 
-{% ifversion fpt or ghec %}Tout l’accès à l’API se fait par HTTPS et{% else %}L’API est accessible{% endif %} à partir de `{% data variables.product.api_url_code %}`.  Toutes les données sont envoyées et reçues au format JSON.
+{% ifversion fpt or ghec %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
+sent and received as JSON.
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
@@ -48,45 +44,55 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-Content-Type-Options: nosniff
 ```
 
-Les champs vides sont inclus avec la valeur `null` au lieu d’être omis.
+Blank fields are included as `null` instead of being omitted.
 
-Tous les horodatages sont retournés au format UTC ISO 8601 :
+All timestamps return in UTC time, ISO 8601 format:
 
     YYYY-MM-DDTHH:MM:SSZ
 
-Pour plus d’informations sur les fuseaux horaires dans les horodatages, consultez [cette section](#timezones).
+For more information about timezones in timestamps, see [this section](#timezones).
 
-### Représentations récapitulatives
+### Summary representations
 
-Lorsque vous récupérez une liste de ressources, la réponse inclut un _sous-ensemble_ des attributs de cette ressource. Il s’agit de la représentation « récapitulative » de la ressource. (Certains attributs sont coûteux en calcul pour l’API.
-Pour des raisons de performances, ils sont exclus de la représentation récapitulative.
-Récupérez la représentation « détaillée » pour les obtenir.)
+When you fetch a list of resources, the response includes a _subset_ of the
+attributes for that resource. This is the "summary" representation of the
+resource. (Some attributes are computationally expensive for the API to provide.
+For performance reasons, the summary representation excludes those attributes.
+To obtain those attributes, fetch the "detailed" representation.)
 
-**Exemple :** Lorsque vous demandez la liste des référentiels, vous obtenez la représentation récapitulative de chaque référentiel. Ici, nous récupérons la liste des référentiels appartenant à l’organisation [octokit](https://github.com/octokit) :
+**Example**: When you get a list of repositories, you get the summary
+representation of each repository. Here, we fetch the list of repositories owned
+by the [octokit](https://github.com/octokit) organization:
 
     GET /orgs/octokit/repos
 
-### Représentations détaillées
+### Detailed representations
 
-Lorsque vous récupérez une ressource individuelle, la réponse inclut généralement _tous_ les attributs de cette ressource. Il s’agit de la représentation « détaillée » de la ressource. (Notez que l’autorisation influe parfois sur le niveau de détail de la représentation.)
+When you fetch an individual resource, the response typically includes _all_
+attributes for that resource. This is the "detailed" representation of the
+resource. (Note that authorization sometimes influences the amount of detail
+included in the representation.)
 
-**Exemple :** Lorsque vous demandez un référentiel individuel, vous obtenez sa représentation détaillée. Ici, nous récupérons le référentiel [octokit/octokit.rb](https://github.com/octokit/octokit.rb) :
+**Example**: When you get an individual repository, you get the detailed
+representation of the repository. Here, we fetch the
+[octokit/octokit.rb](https://github.com/octokit/octokit.rb) repository:
 
     GET /repos/octokit/octokit.rb
 
-La documentation fournit un exemple de réponse pour chaque méthode d’API. L’exemple de réponse illustre tous les attributs retournés par cette méthode.
+The documentation provides an example response for each API method. The example
+response illustrates all attributes that are returned by that method.
 
-## Authentification
+## Authentication
 
-{% ifversion ghae %} Nous vous recommandons de vous authentifier auprès de l’API REST {% data variables.product.product_name %} en créant un jeton OAuth2 par le biais du [flux d’application web](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} Il existe deux façons de s’authentifier par le biais de l’API REST {% data variables.product.product_name %}.{% endif %} Les demandes exigeant une authentification retournent `404 Not Found`, au lieu de `403 Forbidden`, dans certains endroits.  Cela permet d’éviter les fuites accidentelles de référentiels privés auprès d’utilisateurs non autorisés.
+{% ifversion ghae %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
-### Authentification de base
+### Basic authentication
 
 ```shell
 $ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
-### Jeton OAuth2 (envoyé dans un en-tête)
+### OAuth2 token (sent in a header)
 
 ```shell
 $ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}
@@ -94,20 +100,20 @@ $ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_
 
 {% note %}
 
-Remarque : GitHub recommande d’envoyer des jetons OAuth à l’aide de l’en-tête d’autorisation.
+Note: GitHub recommends sending OAuth tokens using the Authorization header.
 
 {% endnote %}
 
 {% note %}
 
-**Remarque :** {% data reusables.getting-started.bearer-vs-token %}
+**Note:** {% data reusables.getting-started.bearer-vs-token %}
 
 {% endnote %}
 
-[En savoir plus sur OAuth2](/apps/building-oauth-apps/).  Notez que les jetons OAuth2 peuvent être obtenus à l’aide du [flux d’application web](/developers/apps/authorizing-oauth-apps#web-application-flow) pour les applications de production.
+Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
 {% ifversion fpt or ghes or ghec %}
-### Clé/secret OAuth2
+### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -115,20 +121,22 @@ Remarque : GitHub recommande d’envoyer des jetons OAuth à l’aide de l’en-
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-L’utilisation de `client_id` et de `client_secret` ne permet _pas_ de vous authentifier en tant qu’utilisateur, mais seulement d’identifier votre application OAuth pour augmenter votre limite de débit. Les autorisations sont accordées uniquement aux utilisateurs, et non aux applications. Vous ne récupérerez que les données qu’un utilisateur non authentifié verrait. C’est pourquoi la clé et le secret OAuth2 doivent être utilisés exclusivement dans les scénarios de serveur à serveur. Ne communiquez pas la clé secrète client de votre application OAuth à vos utilisateurs.
+Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth App's client secret to your users.
 
-{% ifversion ghes %} Vous ne pourrez pas vous authentifier à l’aide de votre clé OAuth2 et de votre secret en mode privé. Toute tentative d’authentification retournera `401 Unauthorized`. Pour plus d’informations, consultez « [Activation du mode privé](/admin/configuration/configuring-your-enterprise/enabling-private-mode) ».
-{% endif %} {% endif %}
+{% ifversion ghes %}
+You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
+{% endif %}
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
-[En savoir plus sur la limitation de débit non authentifiée](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
+Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
 
 {% endif %}
 
-### Limite d’échecs de connexion
+### Failed login limit
 
-L’authentification avec des informations d’identification non valides retourne `401 Unauthorized` :
+Authenticating with invalid credentials will return `401 Unauthorized`:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
@@ -140,7 +148,9 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 > }
 ```
 
-En cas de détection de plusieurs demandes comportant des informations d’identification non valides dans un court délai, l’API rejette temporairement toutes les tentatives d’authentification de l’utilisateur (y compris celles qui contiennent des informations d’identification valides) avec `403 Forbidden` :
+After detecting several requests with invalid credentials within a short period,
+the API will temporarily reject all authentication attempts for that user
+(including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
@@ -152,55 +162,62 @@ $ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae o
 > }
 ```
 
-## Paramètres
+## Parameters
 
-De nombreuses méthodes API prennent des paramètres facultatifs. Pour les demandes `GET`, tous les paramètres non spécifiés en tant que segment dans le chemin peuvent être transmis sous la forme d’un paramètre de chaîne de requête HTTP :
+Many API methods take optional parameters. For `GET` requests, any parameters not
+specified as a segment in the path can be passed as an HTTP query string
+parameter:
 
 ```shell
 $ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
-Dans cet exemple, les valeurs « vmg » et « redcarpet » sont fournies pour les paramètres `:owner` et `:repo` du chemin alors que `:state` est passé dans la chaîne de requête.
+In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner`
+and `:repo` parameters in the path while `:state` is passed in the query
+string.
 
-Pour les demandes `POST`, `PATCH`, `PUT` et `DELETE`, les paramètres non inclus dans l’URL doivent être codés en tant que JSON avec le Content-Type « application/json » :
+For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be encoded as JSON
+with a Content-Type of 'application/json':
 
 ```shell
 $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
-## Point de terminaison racine
+## Root endpoint
 
-Vous pouvez émettre une demande `GET` au point de terminaison racine pour obtenir toutes les catégories de points de terminaison prises en charge par l’API REST :
+You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
 
 ```shell
 $ curl {% ifversion fpt or ghae or ghec %}
 -u USERNAME:TOKEN {% endif %}{% ifversion ghes %}-u USERNAME:PASSWORD {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-## ID de nœud global GraphQL
+## GraphQL global node IDs
 
-Pour savoir comment trouver les `node_id` au moyen de l’API REST et les utiliser dans les opérations GraphQL, consultez le guide « [Utilisation des ID de nœud globaux](/graphql/guides/using-global-node-ids) ».
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
-## Erreurs de client
+## Client errors
 
-Il existe trois types possibles d’erreurs clientes sur les appels d’API qui reçoivent des corps de demande :
+There are three possible types of client errors on API calls that
+receive request bodies:
 
-1. L’envoi de JSON non valide entraîne une réponse `400 Bad Request`.
+1. Sending invalid JSON will result in a `400 Bad Request` response.
 
         HTTP/2 400
         Content-Length: 35
 
         {"message":"Problems parsing JSON"}
 
-2. L’envoi du mauvais type de valeurs JSON entraîne une réponse `400 Bad
-   Request`.
+2. Sending the wrong type of JSON values will result in a `400 Bad
+   Request` response.
 
         HTTP/2 400
         Content-Length: 40
 
         {"message":"Body should be a JSON object"}
 
-3. L’envoi de champs non valides entraîne une réponse `422 Unprocessable Entity`.
+3. Sending invalid fields will result in a `422 Unprocessable Entity`
+   response.
 
         HTTP/2 422
         Content-Length: 149
@@ -216,47 +233,60 @@ Il existe trois types possibles d’erreurs clientes sur les appels d’API qui 
           ]
         }
 
-Tous les objets d’erreur possèdent des propriétés de ressource et de champ qui permettent au client d’identifier le problème.  Il existe également un code d’erreur indiquant ce qui est incorrect dans le champ.  Voici les codes d’erreur de validation possibles :
+All error objects have resource and field properties so that your client
+can tell what the problem is.  There's also an error code to let you
+know what is wrong with the field.  These are the possible validation error
+codes:
 
-Nom du code d’erreur | Description
+Error code name | Description
 -----------|-----------|
-`missing` | Une ressource n’existe pas.
-`missing_field` | Un champ obligatoire sur une ressource n’a pas été défini.
-`invalid` | La mise en forme d’un champ n’est pas valide.  Pour plus d’informations, consultez la documentation.
-`already_exists` | Une autre ressource possède la même valeur que ce champ.  Cela peut se produire dans les ressources qui doivent disposer d’une clé unique (par exemple les noms d’étiquette).
-`unprocessable` | Les entrées fournies ne sont pas valides.
+`missing` | A resource does not exist.
+`missing_field` | A required field on a resource has not been set.
+`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
+`already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
+`unprocessable` | The inputs provided were invalid.
 
-Les ressources peuvent également envoyer des erreurs de validation personnalisées (où `code` a la valeur `custom`). Les erreurs personnalisées présentent toujours un champ `message` décrivant l’erreur. La plupart des erreurs incluent également un champ `documentation_url` pointant vers un contenu susceptible de vous aider à résoudre l’erreur.
+Resources may also send custom validation errors (where `code` is `custom`). Custom errors will always have a `message` field describing the error, and most errors will also include a `documentation_url` field pointing to some content that might help you resolve the error.
 
-## Redirections HTTP
+## HTTP redirects
 
-L’API REST {% data variables.product.product_name %} utilise la redirection HTTP le cas échéant. Les clients doivent partir du principe que toute demande peut entraîner une redirection. La réception d’une redirection HTTP ne constitue *pas* une erreur ; les clients doivent suivre cette redirection. Les réponses de redirection comportent un champ d’en-tête `Location` qui contient l’URI de la ressource à laquelle le client doit répéter les demandes.
+The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
+request may result in a redirection. Receiving an HTTP redirection is *not* an
+error and clients should follow that redirect. Redirect responses will have a
+`Location` header field which contains the URI of the resource to which the
+client should repeat the requests.
 
-Code d’état | Description
+Status Code | Description
 -----------|-----------|
-`301` | Redirection permanente. L’URI que vous avez utilisé pour effectuer la demande a été remplacé par celui spécifié dans le champ d’en-tête `Location`. Cette demande et toutes les suivantes qui seront envoyées à cette ressource doivent être dirigées vers le nouvel URI.
-`302`, `307` | Redirection temporaire. La demande doit être répétée telle quelle dans l’URI spécifié dans le champ d’en-tête `Location`, mais les clients doivent continuer à utiliser l’URI d’origine pour les demandes futures.
+`301` | Permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
+`302`, `307` | Temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
 
-D’autres codes d’état de redirection peuvent être utilisés conformément à la spécification HTTP 1.1.
+Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 
-## Verbes HTTP
+## HTTP verbs
 
-Dans la mesure du possible, l’API REST {% data variables.product.product_name %} s’efforce d’utiliser les verbes HTTP appropriés pour chaque action. Notez que les verbes HTTP respectent la casse.
+Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
+action. Note that HTTP verbs are case-sensitive.
 
-Verbe | Description
+Verb | Description
 -----|-----------
-`HEAD` | Peut être émis sur n’importe quelle ressource pour obtenir uniquement les informations d’en-tête HTTP.
-`GET` | Utilisé pour récupérer des ressources.
-`POST` | Utilisé pour créer des ressources.
-`PATCH` | Utilisé pour mettre à jour des ressources avec des données JSON partielles. Par exemple, une ressource Issue comporte des attributs `title` et `body`. Une demande `PATCH` peut accepter un ou plusieurs attributs pour mettre à jour la ressource.
-`PUT` | Utilisé pour remplacer des ressources ou des collections. Pour les demandes `PUT` dépourvues d’attribut `body`, veillez à définir l’en-tête `Content-Length` sur zéro.
-`DELETE` |Utilisé pour supprimer des ressources.
+`HEAD` | Can be issued against any resource to get just the HTTP header info.
+`GET` | Used for retrieving resources.
+`POST` | Used for creating resources.
+`PATCH` | Used for updating resources with partial JSON data. For instance, an Issue resource has `title` and `body` attributes. A `PATCH` request may accept one or more of the attributes to update the resource.
+`PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
+`DELETE` |Used for deleting resources.
 
-## Hypermédia
+## Hypermedia
 
-Toutes les ressources peuvent comporter une ou plusieurs propriétés `*_url` liées à d’autres ressources.  Ces propriétés visent à fournir des URL explicites afin d’éviter aux clients d’API appropriés d’avoir à construire des URL eux-mêmes.  Il est vivement recommandé aux clients d’API de les utiliser.  Cela facilite les mises à niveau futures de l’API pour les développeurs.  Toutes les URL doivent représenter des modèles d’URI [RFC 6570][rfc] appropriés.
+All resources may have one or more `*_url` properties linking to other
+resources.  These are meant to provide explicit URLs so that proper API clients
+don't need to construct URLs on their own.  It is highly recommended that API
+clients use these.  Doing so will make future upgrades of the API easier for
+developers.  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
 
-Vous pouvez ensuite développer ces modèles à l’aide de la gemme [uri_template][uri] ou d’un objet similaire :
+You can then expand these templates using something like the [uri_template][uri]
+gem:
 
     >> tmpl = URITemplate.new('/notifications{?since,all,participating}')
     >> tmpl.expand
@@ -273,54 +303,11 @@ Vous pouvez ensuite développer ces modèles à l’aide de la gemme [uri_templa
 
 ## Pagination
 
-Les demandes qui retournent plusieurs éléments sont paginés à 30 éléments par défaut.  Vous pouvez spécifier d’autres pages avec le paramètre `page`. Pour certaines ressources, vous avez également la possibilité de définir une taille de page personnalisée (100 maximum) avec le paramètre `per_page`.
-Notez que, pour des raisons techniques, tous les points de terminaison ne respectent pas le paramètre `per_page` (cf. les [événements](/rest/reference/activity#events) par exemple).
+When a response from the REST API would include many results, {% data variables.product.company_short %} will paginate the results and return a subset of the results. You can use the link header from the response to request additional pages of data. If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
 
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
+## Timeouts
 
-Notez que la numérotation de page commence à 1 et que, si le paramètre `page` est omis, la première page est retournée.
-
-Certains points de terminaison utilisent la pagination basée sur le curseur. Un curseur est une chaîne qui pointe vers un emplacement dans le jeu de résultats.
-Avec la pagination basée sur le curseur, il n’existe aucun concept fixe de « pages » dans le jeu de résultats. Vous ne pouvez donc pas accéder à une page spécifique.
-Il est en revanche possible de parcourir les résultats à l’aide des paramètres `before` et `after`.
-
-Pour plus d’informations sur la pagination, consultez notre guide sur [Parcours avec la pagination][pagination-guide].
-
-### En-tête de lien
-
-{% note %}
-
-**Remarque :** Il est important de former des appels comportant des valeurs d’en-tête Link au lieu de construire vos propres URL.
-
-{% endnote %}
-
-[L’en-tête Link](https://datatracker.ietf.org/doc/html/rfc5988) inclut des informations de pagination. Par exemple :
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_L’exemple inclut un saut de ligne pour la lisibilité._
-
-Si le point de terminaison utilise la pagination basée sur le curseur, l’en-tête Link est le suivant :
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-Cet en-tête de réponse `Link` contient une ou plusieurs relations de lien [Hypermedia](/rest#hypermedia), dont certaines peuvent nécessiter l’expansion en tant que [modèles d’URI](https://datatracker.ietf.org/doc/html/rfc6570).
-
-Les valeurs possibles de `rel` sont les suivantes :
-
-Nom | Description
------------|-----------|
-`next` |Relation de lien de la page de résultats suivante.
-`last` |Relation de lien de la dernière page de résultats.
-`first` |Relation de lien de la première page de résultats.
-`prev` |Relation de lien de la page de résultats précédente.
-
-## Délais d'attente
-
-Si {% data variables.product.prodname_dotcom %} prend plus de 10 secondes pour traiter une demande d’API, {% data variables.product.prodname_dotcom %} met fin à la demande et vous recevrez une réponse d’expiration du délai d’attente semblable à la suivante :
+If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
 
 ```json
 {
@@ -328,23 +315,23 @@ Si {% data variables.product.prodname_dotcom %} prend plus de 10 secondes pour 
 }
 ```
 
-{% data variables.product.product_name %} se réserve le droit de modifier le délai d’expiration pour protéger la vitesse et la fiabilité de l’API.
+{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
-## Limitation du débit
+## Rate limiting
 
-Les limites de débit varient selon les types de demandes d’API envoyés à {% data variables.location.product_location %}. 
+Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
 
-En outre, l’API de recherche présente des limites dédiées. Pour plus d’informations, consultez « [Recherche](/rest/reference/search#rate-limit) » dans la documentation de l’API REST.
+Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Demandes provenant de comptes personnels
+### Requests from personal accounts
 
-Les demandes d’API directes que vous authentifiez avec un {% data variables.product.pat_generic %} sont des demandes d’utilisateur à serveur. Une application OAuth ou une application GitHub peut également effectuer une demande d’utilisateur à serveur en votre nom après avoir autorisé l’application. Pour plus d’informations, consultez « [Création d’un {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) », « [Autorisation des applications OAuth](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps) » et « [Autorisation des applications GitHub](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps) ».
+Direct API requests that you authenticate with a {% data variables.product.pat_generic %} are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
 
-{% data variables.product.product_name %} associe toutes les demandes d’utilisateur à serveur à l’utilisateur authentifié. Dans le cas des applications OAuth et GitHub, il s’agit de l’utilisateur qui a autorisé l’application. Toutes les demandes d’utilisateur à serveur sont comptabilisées par rapport à la limite de débit de l’utilisateur authentifié.
+{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
 
 {% data reusables.apps.user-to-server-rate-limits %}
 
@@ -354,33 +341,33 @@ Les demandes d’API directes que vous authentifiez avec un {% data variables.pr
 
 {% ifversion fpt or ghec or ghes %}
 
-Pour les demandes non authentifiées, la limite de débit autorise jusqu’à 60 demandes par heure. Les demandes non authentifiées sont associées à l’adresse IP d’origine, et non à la personne qui les effectue.
+For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
 
 {% endif %}
 
 {% endif %}
 
-### Demandes provenant d’applications GitHub
+### Requests from GitHub Apps
 
-Les demandes d’une application GitHub peuvent être des demandes d’utilisateur à serveur ou de serveur à serveur. Pour plus d’informations sur les limites de débit des applications GitHub, consultez « [Limites de débit des applications GitHub](/developers/apps/building-github-apps/rate-limits-for-github-apps) ». 
+Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)." 
 
-### Demandes provenant de GitHub Actions
+### Requests from GitHub Actions
 
-Vous pouvez utiliser le jeton `GITHUB_TOKEN` intégré pour authentifier les demandes dans des flux de travail GitHub Actions. Pour plus d’informations, consultez « [Authentification automatique par jeton](/actions/security-guides/automatic-token-authentication) ».
+You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
 
-Avec `GITHUB_TOKEN`, la limite de débit s’élève à 1 000 demandes par heure et par dépôt.{% ifversion fpt or ghec %} Pour les demandes adressées à des ressources appartenant à un compte d’entreprise sur {% data variables.location.product_location %}, la limite de débit de {% data variables.product.prodname_ghe_cloud %} s’applique, soit 15 000 demandes par heure et par dépôt.{% endif %}
+When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.location.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
 
-### Vérification de l’état de la limite de débit
+### Checking your rate limit status
 
-L’API Limite de débit et les en-têtes HTTP d’une réponse font autorité concernant le nombre actuel d’appels d’API disponibles à tout moment pour vous ou votre application.
+The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
 
-#### API Limite de débit
+#### Rate Limit API
 
-Vous pouvez utiliser l’API Limite de débit pour vérifier l’état de votre limite de débit sans avoir à atteindre la limite actuelle. Pour plus d’informations, consultez « [Limite de débit](/rest/reference/rate-limit) ».
+You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
 
-#### En-têtes HTTP de limite de débit
+#### Rate limit HTTP headers
 
-Les en-têtes HTTP retournés d’une demande d’API indiquent l’état de la limite de débit actuelle :
+The returned HTTP headers of any API request show your current rate limit status:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
@@ -392,21 +379,21 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > x-ratelimit-reset: 1372700873
 ```
 
-Nom de l’en-tête | Description
+Header Name | Description
 -----------|-----------|
-`x-ratelimit-limit` | Nombre maximal de demandes autorisées par heure.
-`x-ratelimit-remaining` | Nombre de demandes restantes dans la fenêtre de limite de débit actuelle.
-`x-ratelimit-used` | Nombre de demandes que vous avez faites dans la fenêtre de limite de débit actuelle.
-`x-ratelimit-reset` | Heure à laquelle la fenêtre de limite de débit actuelle se réinitialise en [secondes d’époque UTC](http://en.wikipedia.org/wiki/Unix_time).
+`x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
+`x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
+`x-ratelimit-used` | The number of requests you've made in the current rate limit window.
+`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
-Si vous avez besoin de l’heure dans un autre format, il est possible d’effectuer l’opération dans n’importe quel langage de programmation moderne. Dans le cas, par exemple, où vous ouvrez la console sur votre navigateur web, vous pouvez facilement obtenir l’heure de réinitialisation en tant qu’objet JavaScript Date.
+If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
 
 ``` javascript
 new Date(1372700873 * 1000)
 // => Mon Jul 01 2013 13:47:53 GMT-0400 (EDT)
 ```
 
-Si vous dépassez la limite de débit, une réponse d’erreur est retournée :
+If you exceed the rate limit, an error response returns:
 
 ```shell
 > HTTP/2 403
@@ -422,9 +409,9 @@ Si vous dépassez la limite de débit, une réponse d’erreur est retournée :
 > }
 ```
 
-### Augmentation de la limite de débit non authentifié des applications OAuth
+### Increasing the unauthenticated rate limit for OAuth Apps
 
-Si votre application OAuth doit effectuer des appels non authentifiés avec une limite de débit plus élevée, vous pouvez transmettre l’ID client et le secret de votre application avant l’itinéraire du point de terminaison.
+If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
 $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
@@ -438,21 +425,21 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 
 {% note %}
 
-**Remarque :** Ne partagez jamais votre secret client avec quiconque. Ne l’incluez pas dans le code du navigateur côté client. Utilisez la méthode indiquée ici uniquement pour les appels de serveur à serveur.
+**Note:** Never share your client secret with anyone or include it in client-side browser code. Use the method shown here only for server-to-server calls.
 
 {% endnote %}
 
-### Respect de la limite de débit
+### Staying within the rate limit
 
-Si vous dépassez votre limite de débit en utilisant une authentification de base ou OAuth, vous avez de grandes chances de résoudre le problème en mettant en cache les réponses de l’API et en utilisant des [demandes conditionnelles](#conditional-requests).
+If you exceed your rate limit using Basic Authentication or OAuth, you can likely fix the issue by caching API responses and using [conditional requests](#conditional-requests).
 
-### Limites de débit secondaires
+### Secondary rate limits
 
-Pour fournir un service de qualité sur {% data variables.product.product_name %}, des limites de débit supplémentaires peuvent s’appliquer à certaines actions en cas d’utilisation de l’API. Par exemple, le fait d’utiliser l’API pour créer rapidement du contenu, réaliser des interrogations agressives au lieu d’utiliser des webhooks, effectuer plusieurs demandes simultanées ou demander à plusieurs reprises des données coûteuses en calcul peut entraîner une limitation de débit secondaire.
+In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in secondary rate limiting.
 
-Les limites de débit secondaires ne sont pas destinées à interférer avec l’utilisation légitime de l’API. Vos limites normales de débit doivent constituer la seule limite que vous ciblez. Pour vous assurer d’adopter le bon comportement vis-à-vis de l’API, consultez nos [Recommandations de meilleures pratiques](/guides/best-practices-for-integrators/).
+Secondary rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you're acting as a good API citizen, check out our [Best Practices guidelines](/guides/best-practices-for-integrators/).
 
-Si votre application déclenche cette limite de débit, vous recevez une réponse informative :
+If your application triggers this rate limit, you'll receive an informative response:
 
 ```shell
 > HTTP/2 403
@@ -467,17 +454,19 @@ Si votre application déclenche cette limite de débit, vous recevez une répons
 
 {% ifversion fpt or ghec %}
 
-## Agent utilisateur requis
+## User agent required
 
-Toutes les demandes d’API DOIVENT inclure un en-tête `User-Agent` valide. Les demandes sans en-tête `User-Agent` sont rejetées. Nous vous demandons d’utiliser votre nom d’utilisateur {% data variables.product.product_name %} ou le nom de votre application comme valeur d’en-tête `User-Agent`. Cela nous permet de vous contacter en cas de problème.
+All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent`
+header will be rejected. We request that you use your {% data variables.product.product_name %} username, or the name of your
+application, for the `User-Agent` header value. This allows us to contact you if there are problems.
 
-Voici un exemple :
+Here's an example:
 
 ```shell
 User-Agent: Awesome-Octocat-App
 ```
 
-cURL envoie par défaut un en-tête `User-Agent` valide. Si vous fournissez un en-tête `User-Agent` non valide avec cURL (ou un autre client), vous recevez une réponse `403 Forbidden` :
+cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
 
 ```shell
 $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
@@ -492,15 +481,20 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 {% endif %}
 
-## Demandes conditionnelles
+## Conditional requests
 
-La plupart des réponses retournent un en-tête `ETag`. De nombreuses réponses renvoient également un en-tête `Last-Modified`. Vous pouvez utiliser les valeurs de ces en-têtes pour effectuer des demandes ultérieures à ces ressources à l’aide respectivement de l’en-tête `If-None-Match` et de l’en-tête `If-Modified-Since`. Si la ressource n’a pas changé, le serveur retourne `304 Not Modified`.
+Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. You can use the values
+of these headers to make subsequent requests to those resources using the
+`If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
+has not changed, the server will return a `304 Not Modified`.
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Remarque** : La création d’une demande conditionnelle et la réception d’une réponse 304 ne comptent pas par rapport à votre [limite de débit](#rate-limiting). Nous vous encourageons donc à l’utiliser chaque fois que cela est possible.
+**Note**: Making a conditional request and receiving a 304 response does not
+count against your [Rate Limit](#rate-limiting), so we encourage you to use it
+whenever possible.
 
 {% endtip %}
 
@@ -537,12 +531,16 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: T
 > x-ratelimit-reset: 1372700873
 ```
 
-## Partage des ressources cross-origin
+## Cross origin resource sharing
 
-L’API prend en charge le partage de ressources CORS (Cross-Origin Resource Sharing) pour les demandes AJAX de toute origine.
-Vous pouvez lire la [recommandation CORS W3C](http://www.w3.org/TR/cors/) ou [cette introduction](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) du guide de sécurité HTML 5.
+The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
+any origin.
+You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/), or
+[this intro](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) from the
+HTML 5 Security Guide.
 
-Voici un exemple de demande envoyée par un navigateur qui atteint `http://example.com` :
+Here's a sample request sent from a browser hitting
+`http://example.com`:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
@@ -551,7 +549,7 @@ Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
 
-Voici à quoi ressemble la demande préliminaire CORS :
+This is what the CORS preflight request looks like:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
@@ -563,9 +561,13 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ra
 Access-Control-Max-Age: 86400
 ```
 
-## Rappels JSON-P
+## JSON-P callbacks
 
-Vous pouvez envoyer un paramètre `?callback` à n’importe quel appel GET pour que les résultats s’encapsulent dans une fonction JSON.  Cette technique est généralement utilisée lorsque les navigateurs doivent incorporer du contenu {% data variables.product.product_name %} dans des pages web en contournant des problèmes interdomaines.  La réponse inclut la même sortie de données que l’API classique, ainsi que les informations d’en-tête HTTP pertinentes.
+You can send a `?callback` parameter to any GET call to have the results
+wrapped in a JSON function.  This is typically used when browsers want
+to embed {% data variables.product.product_name %} content in web pages by getting around cross domain
+issues.  The response includes the same data output as the regular API,
+plus the relevant HTTP Header information.
 
 ```shell
 $ curl {% data variables.product.api_url_pre %}?callback=foo
@@ -586,7 +588,7 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 > })
 ```
 
-Vous pouvez écrire un gestionnaire JavaScript pour traiter le rappel. Voici un exemple minimal que vous pouvez essayer :
+You can write a JavaScript handler to process the callback. Here's a minimal example you can try out:
 
     <html>
     <head>
@@ -610,13 +612,15 @@ Vous pouvez écrire un gestionnaire JavaScript pour traiter le rappel. Voici un 
     </body>
     </html>
 
-Tous les en-têtes possèdent la même valeur de chaîne que les en-têtes HTTP, à une exception notable : Link.  Les en-têtes Link, préanalysés automatiquement, se présentent sous la forme d’un tableau de tuples `[url, options]`.
+All of the headers are the same String value as the HTTP Headers with one
+notable exception: Link.  Link headers are pre-parsed for you and come
+through as an array of `[url, options]` tuples.
 
-Prenons l’exemple du lien suivant :
+A link that looks like this:
 
     Link: <url1>; rel="next", <url2>; rel="foo"; bar="baz"
 
-Il se présente ainsi dans la sortie de rappel :
+... will look like this in the Callback output:
 
 ```json
 {
@@ -638,39 +642,37 @@ Il se présente ainsi dans la sortie de rappel :
 }
 ```
 
-## Fuseaux horaires
+## Timezones
 
-Certaines demandes qui créent de nouvelles données (par exemple une validation) vous permettent de fournir des informations de fuseau horaire lorsque vous spécifiez ou générez des horodatages. Nous appliquons les règles suivantes, par ordre de priorité, pour déterminer les informations de fuseau horaire de ces appels d’API.
+Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for such API calls.
 
-* [Indication explicite d’un horodatage ISO 8601 avec des informations de fuseau horaire](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
-* [Utilisation de l’en-tête `Time-Zone`](#using-the-time-zone-header)
-* [Utilisation du dernier fuseau horaire connu pour l’utilisateur](#using-the-last-known-timezone-for-the-user)
-* [Application de la valeur par défaut UTC sans autres informations de fuseau horaire](#defaulting-to-utc-without-other-timezone-information)
+* [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
+* [Using the `Time-Zone` header](#using-the-time-zone-header)
+* [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
+* [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
 
-Notez que ces règles s’appliquent uniquement aux données transmises à l’API, et non aux données retournées par celle-ci. Comme il est mentionné dans « [Schéma](#schema) », les horodatages retournés par l’API sont au format UTC ISO 8601.
+Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
 
-### Indication explicite d’un horodatage ISO 8601 avec des informations de fuseau horaire
+### Explicitly providing an ISO 8601 timestamp with timezone information
 
-Dans le cas des appels d’API qui autorisent la spécification d’un horodatage, nous utilisons cet horodatage précis. Prenons par exemple [l’API Validations](/rest/reference/git#commits).
+For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
 
-Ces horodatages se présentent ainsi : `2014-02-27T15:05:06+01:00`. Pour savoir comment ces horodatages peuvent être spécifiés, consultez également [cet exemple](/rest/reference/git#example-input).
+These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
-### Utilisation de l’en-tête `Time-Zone`
+### Using the `Time-Zone` header
 
-Il est possible de fournir un en-tête `Time-Zone` qui définit un fuseau horaire en fonction de la [liste des noms de la base de données Olson](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-Cela signifie qu’un horodatage est généré pour le moment où l’appel d’API est effectué dans le fuseau horaire défini par cet en-tête. Par exemple, [l’API Contenus](/rest/reference/repos#contents) génère une validation Git pour chaque ajout ou modification et utilise l’heure actuelle comme horodatage. Cet en-tête détermine le fuseau horaire utilisé pour générer cet horodatage actuel.
+This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
 
-### Utilisation du dernier fuseau horaire connu pour l’utilisateur
+### Using the last known timezone for the user
 
-Si aucun en-tête `Time-Zone` n’est spécifié lorsque vous effectuez un appel authentifié à l’API, le fuseau horaire utilisé est le dernier fuseau connu de l’utilisateur authentifié. Il est mis à jour chaque fois que vous parcourez le site web {% data variables.product.product_name %}.
+If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {% data variables.product.product_name %} website.
 
-### Application de la valeur par défaut UTC sans autres informations de fuseau horaire
+### Defaulting to UTC without other timezone information
 
-Si la procédure ci-dessus ne produit aucune information, c’est le fuseau horaire UTC qui est utilisé pour créer la validation Git.
-
-[pagination-guide]: /guides/traversing-with-pagination
+If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
