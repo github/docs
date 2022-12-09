@@ -1,6 +1,6 @@
 ---
 title: リポジトリ間の接続を理解する
-intro: リポジトリのネットワークおよびそのリポジトリに依存するフォークやプロジェクトを表示することで、リポジトリ間に存在する接続をよりよく理解できます。
+intro: ネットワーク グラフとフォークの一覧を使用して、フォークのネットワークを理解します。
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,16 +22,17 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 46cc440093c3ca8dc0952933847a6f04b0446661
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060067'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191359'
 ---
 ## リポジトリのネットワークを表示する
 
-ネットワークグラフには、ルートリポジトリのブランチとネットワークに固有のコミットを含むフォークのブランチを含む、リポジトリネットワーク全体のブランチ履歴が表示されます。
+ネットワーク グラフには、フォーク ブランチを含む、リポジトリ ネットワーク全体のブランチ履歴が表示されます。 このグラフは最新のコミットのタイムラインであり、最近ブランチにプッシュされたものが最大 100 個まで表示されます。 最初の行は日付を参照し、最初の列はブランチ所有者を参照します。 方向キーやその他のキーボード ショートカットを使用して、グラフをより簡単に移動できます。 それらは、グラフの下の [Keyboard shortcuts available] ポップアップに表示されます。
+
 
 ![リポジトリネットワークグラフ](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -51,7 +52,7 @@ ms.locfileid: '147060067'
 
 メンバーグラフには、リポジトリのすべてのフォークが表示されます。
 
-フォークは、リポジトリをフォークしたユーザの名前のアルファベット順に表示されます。 ユーザ名をクリックして、そのユーザの {% data variables.product.product_name %} プロフィール ページにリダイレクトすることも、フォーク名をクリックして、リポジトリの特定のフォークにリダイレクトすることもできます。
+フォークは、リポジトリをフォークしたユーザーの組織または名前のアルファベット順に表示されます。 組織またはユーザー名をクリックして、その組織またはユーザーの {% data variables.product.product_name %} プロファイル ページに移動したり、またはフォーク名をクリックして、リポジトリの特定のフォークに移動したりできます。
 
 {% ifversion fpt or ghec %}
 

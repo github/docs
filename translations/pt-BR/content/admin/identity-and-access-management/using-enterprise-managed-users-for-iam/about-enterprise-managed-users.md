@@ -89,7 +89,6 @@ To discover how a member was added to an organization, you can filter the member
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Only private and internal repositories can be created in organizations owned by an {% data variables.enterprise.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings. 
 * {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
-* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## Getting started with {% data variables.product.prodname_emus %}
 

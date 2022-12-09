@@ -11,7 +11,7 @@ describe('header', () => {
       const $ = await getDOM(
         '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
-      const getStarted = $('div ul ul li a[href="/en/get-started"]')
+      const getStarted = $('details div li a[href="/en/get-started"]')
       expect(getStarted.length).toBe(1)
       expect(getStarted.text().trim()).toBe('Get started')
 

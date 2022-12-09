@@ -1,6 +1,6 @@
 ---
-title: Viewing a file
-intro: You can view raw file content or trace changes to lines in a file and discover how parts of the file evolved over time.
+title: Visualización de un archivo
+intro: Puedes ver el contenido del archivo sin procesar o realizar un seguimiento de los cambios en las líneas de un archivo y descubrir cómo evolucionaron las partes del archivo a lo largo del tiempo.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file
   - /articles/tracing-changes-in-a-file
@@ -16,48 +16,54 @@ versions:
 topics:
   - Repositories
 shortTitle: View files and track file changes
+ms.openlocfilehash: 7d34e776cb1747ee749531e49abf6f0e3d052b3b
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179866'
 ---
-## Viewing or copying the raw file content
+## Visualización o copia del contenido del archivo sin formato
 
-With the raw view, you can view or copy the raw content of a file without any styling.
+Con la vista sin formato, puede ver o copiar el contenido sin formato de un archivo sin ningún estilo.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Click the file that you want to view.
-2. In the upper-right corner of the file view, click **Raw**.
-![Screenshot of the Raw button in the file header](/assets/images/help/repository/raw-file-button.png)
-3. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="The copy icon" %}**.
+1. Haga clic en el archivo que quiera ver.
+2. En la esquina superior derecha de la vista de archivo, haga clic en **Raw**.
+![Captura de pantalla del botón Raw en el encabezado de archivo](/assets/images/help/repository/raw-file-button.png)
+3. Opcionalmente, para copiar el contenido del archivo sin procesar, en la esquina superior derecha de la vista de archivos, haga clic en **{% octicon "copy" aria-label="The copy icon" %}** .
 
-## Viewing the line-by-line revision history for a file
+## Visualización del historial de revisiones línea a línea de un archivo
 
-With the blame view, you can view the line-by-line revision history for an entire file, or view the revision history of a single line within a file by clicking {% octicon "versions" aria-label="The prior blame icon" %}. Each time you click {% octicon "versions" aria-label="The prior blame icon" %}, you'll see the previous revision information for that line, including who committed the change and when.
+Con la vista de último responsable, puede ver el historial de revisión línea por línea para todo un archivo, o bien el historial de revisión de una única línea dentro de un archivo si hace clic en {% octicon "versions" aria-label="The prior blame icon" %}. Cada vez que haga clic en {% octicon "versions" aria-label="The prior blame icon" %}, verá la información de revisión anterior para esa línea, incluido quién ha confirmado el cambio y cuándo.
 
-![Git blame view](/assets/images/help/repository/git_blame.png)
+![Vista de último responsable de Git](/assets/images/help/repository/git_blame.png)
 
-In a file or pull request, you can also use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} menu to view Git blame for a selected line or range of lines.
+En un archivo o una solicitud de incorporación de cambios, también puede usar el menú {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} para ver el último responsable de Git para una línea o rango de líneas seleccionado.
 
-![Kebab menu with option to view Git blame for a selected line](/assets/images/help/repository/view-git-blame-specific-line.png)
+![Menú Kebab con opciones para ver el último responsable de Git para una línea seleccionada](/assets/images/help/repository/view-git-blame-specific-line.png)
 
 {% tip %}
 
-**Tip:** On the command line, you can also use `git blame` to view the revision history of lines within a file. For more information, see [Git's `git blame` documentation](https://git-scm.com/docs/git-blame).
+**Sugerencia:** En la línea de comandos, también puede usar `git blame` para ver el historial de revisiones de líneas dentro de un archivo. Para más información, vea la [documentación de `git blame` de Git](https://git-scm.com/docs/git-blame).
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Click to open the file whose line history you want to view.
-3. In the upper-right corner of the file view, click **Blame** to open the blame view.
-![Blame button](/assets/images/help/repository/blame-button.png)
-4. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing.
-![Prior blame button](/assets/images/help/repository/prior-blame-button.png)
+2. Haz clic para abrir el archivo cuyo historial de líneas quieres ver.
+3. En la esquina superior derecha de la vista del archivo, haga clic en **Blame** para abrir la vista del último responsable.
+![Botón de último responsable](/assets/images/help/repository/blame-button.png)
+4. Para ver versiones anteriores de una línea concreta, o bien el último responsable siguiente, haga clic en {% octicon "versions" aria-label="The prior blame icon" %} hasta que encuentre los cambios que quiera ver.
+![Botón de último responsable anterior](/assets/images/help/repository/prior-blame-button.png)
 
 {% ifversion blame-ignore-revs %}
 
-## Ignore commits in the blame view
+## Omisión de las confirmaciones en la vista de último responsable
 
-All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
+Todas las revisiones especificadas en el archivo `.git-blame-ignore-revs`, que debe estar en el directorio raíz del repositorio, se ocultan de la vista de último responsable mediante el valor de configuración `git blame --ignore-revs-file` de Git. Para más información, vea [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) en la documentación de Git.
 
-1. In the root directory of your repository, create a file named `.git-blame-ignore-revs`.
-2. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
+1. En el directorio raíz del repositorio, cree un archivo con el nombre `.git-blame-ignore-revs`.
+2. Agregue a ese archivo los hash de confirmación que quiera excluir de la vista de último responsable. Se recomienda estructurar el archivo de la siguiente manera, incluidos los comentarios:
 
     ```ini
     # .git-blame-ignore-revs
@@ -67,19 +73,19 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
     69d029cec8337c616552756310748c4a507bd75a
     ```
 
-3. Commit and push the changes.
+3. Confirme e inserte los cambios.
 
-Now when you visit the blame view, the listed revisions will not be included in the blame. You'll see an **Ignoring revisions in .git-blame-ignore-revs** banner indicating that some commits may be hidden:
+Ahora, cuando visite la vista de último responsable, las revisiones enumeradas no se incluirán. Verá un banner **Ignoring revisions in .git-blame-ignore-revs** (Omitir revisiones en .git-blame-ignore-revs) que indica que algunas confirmaciones pueden estar ocultas:
 
-![Screenshot of a banner on the blame view linking to the .git-blame-ignore-revs file](/assets/images/help/repository/blame-ignore-revs-file.png)
+![Captura de pantalla de un banner en la vista de último responsable vinculado al archivo .git-blame-ignore-revs](/assets/images/help/repository/blame-ignore-revs-file.png)
 
-This can be useful when a few commits make extensive changes to your code. You can use the file when running `git blame` locally as well:
+Este archivo puede ser útil cuando algunas confirmaciones realizan cambios exhaustivos en el código. También puede usar el archivo al ejecutar `git blame` localmente:
 
 ```shell
 git blame --ignore-revs-file .git-blame-ignore-revs
 ```
 
-You can also configure your local git so it always ignores the revs in that file:
+También puedes configurar el repositorio Git local para que siempre omita las revisiones de ese archivo:
 
 ```shell
 git config blame.ignoreRevsFile .git-blame-ignore-revs
@@ -87,6 +93,6 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 
 {% endif %}
 
-## Bypassing `.git-blame-ignore-revs` in the blame view
+## Omisión de `.git-blame-ignore-revs` en la vista de último responsable
 
-If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** will disappear.
+Si la vista de último responsable de un archivo muestra **Ignorando revisiones de .git-blame-ignore-revs**, todavía puedes omitir `.git-blame-ignore-revs` y ver la vista de último responsable normal. En la dirección URL, anexa `~` al SHA para que desaparezca el mensaje **Ignorando revisiones de .git-blame-ignore-revs**.

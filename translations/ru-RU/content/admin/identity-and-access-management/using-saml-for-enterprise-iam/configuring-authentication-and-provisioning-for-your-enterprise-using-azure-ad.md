@@ -1,7 +1,7 @@
 ---
-title: "Настройка проверки подлинности и подготовка вашей организации с помощью Azure\_AD"
+title: Configuring authentication and provisioning for your enterprise using Azure AD
 shortTitle: Configure with Azure AD
-intro: 'Клиент в Azure Active Directory (Azure AD) можно использовать в качестве поставщика удостоверений (IdP) для централизованного управления проверкой подлинности и подготовкой пользователей для {% data variables.location.product_location %}.'
+intro: 'You can use a tenant in Azure Active Directory (Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.'
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
@@ -17,69 +17,62 @@ redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
-ms.openlocfilehash: bfd93814b11066d6da2d87a2e1f0a8bd5461e93f
-ms.sourcegitcommit: ced661bdffebd0f96f6f76db109fbe31983448ba
-ms.translationtype: MT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 11/16/2022
-ms.locfileid: '148167063'
 ---
-## Сведения о проверке подлинности и подготовке пользователей с помощью Azure AD
 
-Azure Active Directory (Azure AD) — это служба корпорации Майкрософт, которая позволяет централизованно управлять учетными записями пользователей и доступом к веб-приложениям. Дополнительные сведения см. в статье [Что такое Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) в Документации Майкрософт.
+## About authentication and user provisioning with Azure AD
 
-Для управления удостоверениями и доступом к {% data variables.product.product_name %} можно использовать клиент Azure AD в качестве поставщика удостоверений SAML для проверки подлинности. Вы также можете настроить Azure AD для автоматической подготовки учетных записей и доступа к членству с помощью SCIM, что позволяет создавать пользователей {% data variables.product.product_name %} и управлять членством в командах и организациях из клиента Azure AD.
+Azure Active Directory (Azure AD) is a service from Microsoft that allows you to centrally manage user accounts and access to web applications. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) in the Microsoft Docs.
+
+{% data reusables.saml.idp-saml-and-scim-explanation %}
 
 {% data reusables.scim.ghes-beta-note %}
 
-После включения единого входа SAML и SCIM для {% data variables.product.product_name %} с помощью Azure AD вы можете выполнить следующие действия в клиенте Azure AD.
+After you enable SAML SSO and SCIM for {% data variables.product.product_name %} using Azure AD, you can accomplish the following from your Azure AD tenant.
 
-* Назначьте приложение {% data variables.product.product_name %} на Azure AD учетной записи пользователя, чтобы автоматически создать и предоставить доступ к соответствующей учетной записи пользователя в {% data variables.product.product_name %}.
-* Отмена назначения приложения {% data variables.product.product_name %} учетной записи пользователя на Azure AD, чтобы отключить соответствующую учетную запись пользователя в {% data variables.product.product_name %}.
-* Назначьте приложение {% data variables.product.product_name %} группе поставщика удостоверений на Azure AD, чтобы автоматически создавать и предоставлять доступ к учетным записям пользователей в {% data variables.product.product_name %} для всех участников группы поставщика удостоверений. Кроме того, группа IdP доступна в {% data variables.product.product_name %} для подключения к команде и ее родительской организации.
-* Отмените назначение приложения {% data variables.product.product_name %} из группы поставщиков удостоверений, чтобы отключить учетные записи пользователей {% data variables.product.product_name %} всех пользователей поставщика удостоверений, имеющих доступ только через эту группу удостоверений, и удалить пользователей из родительской организации. Группа поставщика удостоверений будет отключена от всех команд на {% data variables.product.product_name %}.
+* Assign the {% data variables.product.product_name %} application on Azure AD to a user account to automatically create and grant access to a corresponding user account on {% data variables.product.product_name %}.
+* Unassign the {% data variables.product.product_name %} application to a user account on Azure AD to deactivate the corresponding user account on {% data variables.product.product_name %}.
+* Assign the {% data variables.product.product_name %} application to an IdP group on Azure AD to automatically create and grant access to user accounts on {% data variables.product.product_name %} for all members of the IdP group. In addition, the IdP group is available on {% data variables.product.product_name %} for connection to a team and its parent organization.
+* Unassign the {% data variables.product.product_name %} application from an IdP group to deactivate the {% data variables.product.product_name %} user accounts of all IdP users who had access only through that IdP group and remove the users from the parent organization. The IdP group will be disconnected from any teams on {% data variables.product.product_name %}.
 
-Дополнительные сведения об управлении удостоверениями и доступом для предприятия в {% data variables.location.product_location %} см. в разделе [Управление удостоверениями и доступом для предприятия](/admin/authentication/managing-identity-and-access-for-your-enterprise). Дополнительные сведения о синхронизации команд с группами поставщика удостоверений см. в разделе [Синхронизация команды с группой поставщика удостоверений](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
+For more information about managing identity and access for your enterprise on {% data variables.location.product_location %}, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
 
-## Предварительные требования
+## Prerequisites
 
-- Чтобы настроить проверку подлинности и подготовку пользователей для {% data variables.product.product_name %} с использованием Azure AD, необходимо иметь учетную запись и клиент Azure AD. Дополнительные сведения см. на [веб-сайте Azure AD](https://azure.microsoft.com/free/active-directory) и в [кратком руководстве по созданию клиента Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) в Документации Майкрософт.
+- To configure authentication and user provisioning for {% data variables.product.product_name %} using Azure AD, you must have an Azure AD account and tenant. For more information, see the [Azure AD website](https://azure.microsoft.com/free/active-directory) and [Quickstart: Create an Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in the Microsoft Docs.
 
 {%- ifversion scim-for-ghes %}
-- {% data reusables.saml.ghes-you-must-configure-saml-sso %} {%- endif %}
+- {% data reusables.saml.ghes-you-must-configure-saml-sso %}
+{%- endif %}
 
 - {% data reusables.saml.create-a-machine-user %}
 
-## Настройка проверки подлинности и подготовка пользователей с помощью Azure AD
-
-В клиенте Azure AD добавьте приложение для {% data variables.product.product_name %}, а затем настройте подготовку.
+## Configuring authentication and user provisioning with Azure AD
 
 {% ifversion ghae %}
 
-1. В Azure AD добавьте {% data variables.enterprise.ae_azure_ad_app_link %} в клиент и настройте единый вход. Дополнительные сведения см. в статье [Руководство по интеграции единого входа Azure Active Directory с {% data variables.product.product_name %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) в Документация Майкрософт.
+In your Azure AD tenant, add the application for {% data variables.product.product_name %}, then configure provisioning.
 
-1. В {% data variables.product.product_name %} введите сведения о клиенте Azure AD.
+1. In Azure AD, add the {% data variables.enterprise.ae_azure_ad_app_link %} to your tenant and configure single sign-on. For more information, see [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.product_name %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs.
+
+1. In {% data variables.product.product_name %}, enter the details for your Azure AD tenant.
 
     - {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-    - Если вы уже настроили единый вход SAML для {% data variables.location.product_location %} с помощью другого поставщика удостоверений и хотите использовать Azure AD, вы можете изменить конфигурацию. Дополнительные сведения см. в разделе [Настройка единого входа SAML для вашего предприятия](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#editing-the-saml-sso-configuration).
+    - If you've already configured SAML SSO for {% data variables.location.product_location %} using another IdP and you want to use Azure AD instead, you can edit your configuration. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise#editing-the-saml-sso-configuration)."
 
-1. Включите подготовку пользователей в {% data variables.product.product_name %} и настройте подготовку пользователей в Azure AD. Дополнительные сведения см. в разделе [Настройка подготовки пользователей в организации](/admin/authentication/configuring-user-provisioning-for-your-enterprise#enabling-user-provisioning-for-your-enterprise).
+1. Enable user provisioning in {% data variables.product.product_name %} and configure user provisioning in Azure AD. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)."
 
 {% elsif scim-for-ghes %}
 
-1. В клиенте Azure AD на левой боковой панели щелкните **Подготовка**.
-
-1. В разделе "URL-адрес клиента" введите полный URL-адрес конечной точки для SCIM в {% data variables.location.product_location %}. Дополнительные сведения см. в разделе [SCIM](/rest/enterprise-admin/scim#scim-endpoint-urls) документации по REST API.
-
-1. В разделе "Секретный токен" введите {% data variables.product.pat_v1 %}, созданный на шаге 4 раздела "[Настройка подготовки пользователей с помощью SCIM для вашего предприятия](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)".
-
-1. Чтобы обеспечить успешное подключение из Azure AD к {% data variables.location.product_location %}, щелкните **Проверить подключение**.
-
-1. После успешного подключения в верхней части страницы нажмите кнопку **Сохранить**.
+1. Configure SAML SSO for {% data variables.location.product_location %}. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
+1. Configure user provisioning with SCIM for your instance. For more information, see "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
 
 {% endif %}
 
-1. Назначьте владельца предприятия для {% data variables.product.product_name %} в Azure AD. Процесс, который необходимо выполнить, зависит от того, настроена ли подготовка. Дополнительные сведения о владельцах организаций см. в разделе [Роли в организации](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners).
-   - Если вы настроили подготовку, чтобы предоставить пользователю права владения предприятием в {% data variables.product.product_name %}, назначьте роль владельца предприятия пользователю в Azure AD.
-   - Если вы не настроили подготовку, чтобы предоставить пользователю права владения предприятием в {% data variables.product.product_name %}, включите `administrator` атрибут в утверждение SAML для учетной записи пользователя в поставщике удостоверений со значением `true`. Дополнительные сведения о включении атрибута `administrator` в утверждение SAML из Azure AD см. [в статье How to: customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) in the Документация Майкрософт.
+## Managing enterprise owners 
+
+The steps to make a person an enterprise owner depend on whether you only use SAML or also use SCIM. For more information about enterprise owners, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+
+If you configured provisioning, to grant the user enterprise ownership in {% data variables.product.product_name %}, assign the enterprise owner role to the user in Azure AD.
+
+If you did not configure provisioning, to grant the user enterprise ownership in {% data variables.product.product_name %}, include the `administrator` attribute in the SAML assertion for the user account on the IdP, with the value of `true`. For more information about including the `administrator` attribute in the SAML claim from Azure AD, see [How to: customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) in the Microsoft Docs.

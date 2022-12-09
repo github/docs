@@ -1,88 +1,100 @@
 ---
-title: Настройка GitHub Copilot в интегрированной среде разработки JetBrains
-intro: 'Вы можете включить, настроить и отключить {% data variables.product.prodname_copilot %} в интегрированной среде разработки JetBrains.'
+title: Configuring GitHub Copilot in a JetBrains IDE
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_copilot %} in a JetBrains IDE.'
 product: '{% data reusables.gated-features.copilot %}'
 topics:
   - Copilot
 versions:
   feature: copilot
 shortTitle: JetBrains
-ms.openlocfilehash: 845f9306f519391f165dd00d3eefebed67bd409a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080670'
 ---
-## Сведения о{% data variables.product.prodname_copilot %} в интегрированной среде разработки JetBrains
 
-Если вы используете интегрированную среду разработки Jetbrains, {% data variables.product.prodname_copilot %} может автоматически завершать код по мере ввода. После установки можно включить или отключить {% data variables.product.prodname_copilot %}, а также настроить дополнительные параметры в интегрированной среде разработки или на {% data variables.product.prodname_dotcom_the_website %}.
+## About {% data variables.product.prodname_copilot %} in JetBrains IDEs
 
-## Предварительные требования
+If you use a Jetbrains IDE, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within your IDE or on {% data variables.product.prodname_dotcom_the_website %}. This article describes how to configure {% data variables.product.prodname_copilot %} in the IntelliJ IDE, but the user interfaces of other Jetbrains IDEs may differ.
 
-Чтобы настроить {% data variables.product.prodname_copilot %} в интегрированной среде разработки JetBrains, установите подключаемый модуль {% data variables.product.prodname_copilot %}. Дополнительные сведения см. в статье [Начало работы с {% data variables.product.prodname_copilot %} в интегрированной среде разработки JetBrains](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide).
+{% data reusables.copilot.dotcom-settings %}
 
-## Сочетания клавиш для {% data variables.product.prodname_copilot %}
+## Prerequisites
 
-Сочетания клавиш по умолчанию можно использовать для встроенных предложений в интегрированной среде разработки JetBrains при использовании {% data variables.product.prodname_copilot %}. Кроме того, можно повторно указать предпочитаемые сочетания клавиш для каждой конкретной команды. Дополнительные сведения о повторной привязке сочетаний клавиш в интегрированной среде разработки JetBrains см. в документации по JetBrains. Например, можно просмотреть документацию по [IntelliJ IDEA](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap).
+To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in a JetBrains IDE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide)."
+
+## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+
+You can use the default keyboard shortcuts for inline suggestions in your JetBrains IDE when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command. For more information on rebinding keyboard shortcuts in your JetBrains IDE, see the JetBrains documentation. For example, you can view the [IntelliJ IDEA](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) documentation.
 
 {% mac %}
 
-| Действие | Сочетание клавиш |
+| Action | Shortcut |
 |:---|:---|
-|Принять встроенное предложение|<kbd>Вкладка</kbd>|
-|Отклонить встроенное предложение|<kbd>ESC</kbd>|
-|Показать следующее встроенное предложение|<kbd>Option (⌥) или ALT</kbd>+<kbd>]</kbd>|
-|Показать предыдущее встроенное предложение|<kbd>Option (⌥) или ALT</kbd>+<kbd>[</kbd>|
-|Активировать встроенное предложение|<kbd>Option (⌥)</kbd>+<kbd>\</kbd>|
-|Открыть {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Option (⌥) или ALT</kbd>+<kbd>Return</kbd> |
+|Accept an inline suggestion|<kbd>Tab</kbd>|
+|Dismiss an inline suggestion|<kbd>Esc</kbd>|
+|Show next inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>|
+|Show previous inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>|
+|Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\</kbd>|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Option (⌥) or Alt</kbd>+<kbd>Return</kbd> |
 
 {% endmac %}
 
 {% windows %}
 
-| Действие | Сочетание клавиш |
+| Action | Shortcut |
 |:---|:---|
-|Принять встроенное предложение|<kbd>Вкладка</kbd>|
-|Отклонить встроенное предложение|<kbd>ESC</kbd>|
-|Показать следующее встроенное предложение|<kbd>ALT</kbd>+<kbd>]</kbd>|
-|Показать предыдущее встроенное предложение|<kbd>ALT</kbd>+<kbd>[</kbd>|
-|Активировать встроенное предложение|<kbd>ALT</kbd>+<kbd>\</kbd>|
-|Открыть {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>ALT</kbd>+<kbd>ВВОД</kbd> |
+|Accept an inline suggestion|<kbd>Tab</kbd>|
+|Dismiss an inline suggestion|<kbd>Esc</kbd>|
+|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
+|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 {% endwindows %}
 
 {% linux %}
 
-| Действие | Сочетание клавиш |
+| Action | Shortcut |
 |:---|:---|
-|Принять встроенное предложение|<kbd>Вкладка</kbd>|
-|Отклонить встроенное предложение|<kbd>ESC</kbd>|
-|Показать следующее встроенное предложение|<kbd>ALT</kbd>+<kbd>]</kbd>|
-|Показать предыдущее встроенное предложение|<kbd>ALT</kbd>+<kbd>[</kbd>|
-|Активировать встроенное предложение|<kbd>ALT</kbd>+<kbd>\</kbd>|
-|Открыть {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>ALT</kbd>+<kbd>ВВОД</kbd> |
+|Accept an inline suggestion|<kbd>Tab</kbd>|
+|Dismiss an inline suggestion|<kbd>Esc</kbd>|
+|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
+|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|
+|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 {% endlinux %}
 
-## Включение или отключение {% data variables.product.prodname_copilot %}
+## Enabling or disabling {% data variables.product.prodname_copilot %}
 
-Вы можете включить или отключить {% data variables.product.prodname_copilot %} в интегрированной среде разработки JetBrains. Значок состояния {% data variables.product.prodname_copilot %} на нижней панели окна JetBrains указывает, включен или отключен параметр {% data variables.product.prodname_copilot %}. Если этот параметр включен, значок выделен. Если он отключен, значок неактивен.
+You can enable or disable {% data variables.product.prodname_copilot %} from within your JetBrains IDE. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
 
-1. Чтобы включить или отключить {% data variables.product.prodname_copilot %}, щелкните значок состояния на нижней панели окна JetBrains.
-   ![Значок состояния в JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. Если вы отключаете {% data variables.product.prodname_copilot %}, появится запрос, следует ли отключить их глобально или для языка файла, который вы редактируете. Для глобального отключения нажмите кнопку **Отключить завершения**. Или щелкните кнопку для конкретного языка, чтобы отключить {% data variables.product.prodname_copilot %} только для него.
-   ![Отключить {% data variables.product.prodname_copilot %} глобально или для текущего языка](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
+   ![Status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
+2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
+   ![Disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
-## Настройка дополнительных параметров для {% data variables.product.prodname_copilot %}
+## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
-Вы можете управлять расширенными параметрами для {% data variables.product.prodname_copilot %} в интегрированной среде разработки JetBrains, например, как в интегрированной среде разработки отображается завершения кода и какие языки вы хотите включить или отключить для {% data variables.product.prodname_copilot %}.
+You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays code completions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
 
-1. В интегрированной среде разработки JetBrains откройте меню **Файл** и выберите пункт **Параметры**.
-1. В разделе **Языки и платформы** щелкните **{% data variables.product.prodname_copilot %}** .
-1. Измените параметры в соответствии с вашими предпочтениями.
-   - Чтобы настроить поведение и внешний вид предложений по коду и указать, следует ли автоматически проверять наличие обновлений, поставьте или снимите соответствующие флажки.
-   - Если вы решили получать автоматические обновления, вы можете выбрать, следует ли получать стабильные обновления, но редко, или каждую ночь, но менее стабильные. Щелкните раскрывающийся список **Канал обновления** и выберите **Стабильные** или **Каждую ночь**.
-   - В разделе "Отключенные языки" установите флажки для выбора или отмены выбора языков, для которых требуется отключить {% data variables.product.prodname_copilot %}.
+1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
+1. Under **Languages & Frameworks**, click **{% data variables.product.prodname_copilot %}**.
+1. Edit the settings according to your personal preferences.
+   - To adjust the behaviour and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
+   - If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
+   - Under "Disabled languages," use the checkboxes to select or deselect the languages you want to disable {% data variables.product.prodname_copilot %} for.
+
+## Configuring proxy settings for {% data variables.product.prodname_copilot %}
+
+You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in a Jetbrains IDE. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication. 
+
+1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
+1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
+1. Select the **Manual proxy configuration** checkbox, and then select the **HTTP** checkbox.
+1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
+
+    ![Screenshot of the HTTP proxy settings in JetBrains](/assets/images/help/copilot/proxy-configuration-jetbrains.png)
+
+1. Optionally, in the left sidebar, click **Tools** and then click **Server Certificates**. Then select or deselect the "Accept non-trusted certificates automatically" checkbox, depending on whether you want to accept non-trusted certificates automatically.
+
+    ![Screenshot of the server certificates settings in JetBrains](/assets/images/help/copilot/server-certificates-jetbrains.png)
 
 {% data reusables.copilot.dotcom-settings %}

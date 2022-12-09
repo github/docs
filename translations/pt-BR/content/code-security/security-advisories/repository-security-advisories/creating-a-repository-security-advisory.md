@@ -1,6 +1,6 @@
 ---
-title: Creating a repository security advisory
-intro: You can create a draft security advisory to privately discuss and fix a security vulnerability in your open source project.
+title: Criando uma consultoria de segurança do repositório
+intro: Você pode criar um projeto de consultoria de segurança para discutir e corrigir de forma privada uma vulnerabilidade de segurança no seu projeto de código aberto.
 redirect_from:
   - /articles/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
@@ -15,31 +15,31 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Create repository advisories
+ms.openlocfilehash: 5c78a8b0c0a2d5085a876de2b0788ef093c4c6b1
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186152'
 ---
-
-Anyone with admin permissions to a repository can create a security advisory.
+Qualquer pessoa com permissões de administrador em um repositório pode criar uma consultoria de segurança.
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-## Creating a security advisory
+## Como criar um aviso de segurança
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-1. Click **New draft security advisory** to open the draft advisory form. The fields marked with an asterisk are required.
-  ![Open draft advisory button](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
-1. Type a title for your security advisory.
-{% data reusables.repositories.security-advisory-edit-details %}
-{% data reusables.repositories.security-advisory-edit-severity %}
-{% data reusables.repositories.security-advisory-edit-cwe-cve %}
-{% data reusables.repositories.security-advisory-edit-description %}
-1. Click **Create draft security advisory**.
-  ![Create security advisory button](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
+1. Clique em **Novo rascunho de aviso de segurança** para abrir o formulário de aviso de rascunho. Os campos marcados com um asterisco são obrigatórios.
+  ![Botão Abrir consultoria de rascunho](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
+1. Digite um título para sua consultoria de segurança.
+{% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
+1. Clique em **Criar consultoria de segurança de rascunho**.
+  ![Botão Criar consultoria de segurança](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
-## Next steps
+## Próximas etapas
 
-- Comment on the draft security advisory to discuss the vulnerability with your team.
-- Add collaborators to the security advisory. For more information, see "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)."
-- Privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
-- Add individuals who should receive credit for contributing to the security advisory. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
-- Publish the security advisory to notify your community of the security vulnerability. For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."
+- Faça um comentário sobre o rascunho da consultoria de segurança para discutir a vulnerabilidade com sua equipe.
+- Adicione colaboradores à consultora de segurança. Para obter mais informações, confira "[Como adicionar um colaborador a uma consultoria de segurança do repositório](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)".
+- Colaborar de modo particular com a correção da vulnerabilidade em uma bifurcação privada temporária. Para obter mais informações, confira "[Colaboração em um fork privado temporário para resolver uma vulnerabilidade de segurança do repositório](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)".
+- Adicione indivíduos que deveriam receber crédito por contribuírem para a consultoria de segurança. Para obter mais informações, confira "[Como editar uma consultoria de segurança do repositório](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)".
+- Publicar a consultoria de segurança para notificar a sua comunidade sobre a vulnerabilidade de segurança. Para obter mais informações, confira "[Como publicar uma consultoria de segurança do repositório](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)".

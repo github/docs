@@ -16,6 +16,8 @@ redirect_from:
 shortTitle: MinIO storage
 ---
 
+{% data reusables.actions.enterprise-storage-about %}
+
 ## Prerequisites
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
