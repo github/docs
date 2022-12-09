@@ -1,6 +1,6 @@
 ---
-title: Инициализация отработки отказа на устройство реплики
-intro: 'Вы можете выполнить отработку отказа на устройство реплики {% data variables.product.prodname_ghe_server %}, если можно использовать командную строку для обслуживания и тестирования или если работа основного устройства завершается сбоем.'
+title: Initiating a failover to your replica appliance
+intro: 'You can failover to a {% data variables.product.prodname_ghe_server %} replica appliance using the command line for maintenance and testing, or if the primary appliance fails.'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -13,59 +13,60 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
-ms.openlocfilehash: b27d925f5b9ecf35da9ba55633e312e8c9fb94e4
-ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
-ms.translationtype: MT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 10/04/2022
-ms.locfileid: '148008888'
 ---
-Время, необходимое для отработки отказа, зависит от того, сколько времени требуется для повышения уровня реплики и перенаправления трафика вручную. В среднем на это требуется от 20 до 30 минут.
+The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 20-30 minutes.
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. Если основное устройство доступно, то чтобы позволить репликации завершиться до переключения устройств, необходимо перейти на основное устройство и перевести его в режим обслуживания.
+1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
 
-    - Переведите устройство в режим обслуживания.
+    - Put the appliance into maintenance mode.
 
-       - Сведения об использовании консоли управления см. в разделе [Включение и планирование режима обслуживания](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/).
+       - To use the management console, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"
 
-       - Можно также использовать команду `ghe-maintenance -s`.
+       - You can also use the `ghe-maintenance -s` command.
          ```shell
          $ ghe-maintenance -s
          ```
 
-   - Когда количество активных операций Git, запросов MySQL и заданий Resque достигнет нуля, подождите 30 секунд. 
+   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
 
       {% note %}
 
-      **Примечание.** В Nomad всегда будут какие-выполняющиеся задания, даже в режиме обслуживания, но вы можете спокойно игнорировать эти задания.
+      **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
     
       {% endnote %}
 
-   - Чтобы проверить отчет `OK` обо всех каналах репликации, используйте команду `ghe-repl-status -vv`.
+   - To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
 
       ```shell
       $ ghe-repl-status -vv
       ```
 
-4. Чтобы остановить репликацию и повысить уровень устройства реплики до основного, на устройстве реплики используйте команду `ghe-repl-promote`. Эта команда также автоматически переведет основной узел в режим обслуживания, если он доступен.
+4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
   ```shell
   $ ghe-repl-promote
   ```
-5. Обновите запись DNS, чтобы она указывала IP-адрес реплики. Трафик направляется в реплику после истечения срока жизни. Если вы используете подсистему балансировки нагрузки, убедитесь, что она настроена для отправки трафика в реплику.
-6. Уведомите пользователей о том, что они могут возобновить обычные операции.
-7. При желании настройте репликацию из нового основного устройства на существующие устройства и предыдущее основное устройство. Дополнительные сведения см. в разделе [сведения о настройке высокого уровня доступности](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management).
-8. Устройства, которые были частью конфигурации с высоким уровнем доступности, но на которые вы не планируете настраивать репликацию, необходимо удалить из конфигурации с высоким уровнем доступности с помощью UUID.
-    - На бывших устройствах получите их UUID с помощью команды `cat /data/user/common/uuid`.
+
+   {% note %}
+
+   **Note:** If the primary node is unavailable, warnings and timeouts may occur but can be ignored.
+
+  {% endnote %}
+
+5. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
+6. Notify users that they can resume normal operations.
+7. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[About high availability configuration](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)."
+8. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
+    - On the former appliances, get their UUID via `cat /data/user/common/uuid`.
       ```shell
       $ cat /data/user/common/uuid
       ```
-    - На новом основном устройстве удалите эти UUID с помощью `ghe-repl-teardown`. Замените *`UUID`* на UUID, полученные на предыдущем шаге.
+    - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace *`UUID`* with a UUID you retrieved in the previous step.
       ```shell
       $ ghe-repl-teardown -u  UUID
       ```
 
-## Дополнительные материалы
+## Further reading
 
-- [Служебные программы для управления репликацией](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)
+- "[Utilities for replication management](/enterprise/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"
