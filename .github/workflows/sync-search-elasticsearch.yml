@@ -108,11 +108,11 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       - name: Checkout the non-English repo
         if: ${{ matrix.language != 'en' }}
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-internal.${{ fromJSON('{"cn":"zh-cn","es":"es-es","ru":"ru-ru","ja":"ja-jp","pt":"pt-br","de":"de-de","fr":"fr-fr","ko":"ko-kr"}')[matrix.language] }}
           token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
