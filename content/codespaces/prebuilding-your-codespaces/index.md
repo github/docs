@@ -1,18 +1,35 @@
----
-title: Prebuilding your codespaces
-intro: 'To speed up codespace creation, you can configure your project to prebuild codespaces for specific branches in specific regions.'
-versions:
-  fpt: '*'
-  ghec: '*'
-topics:
-  - Codespaces
-redirect_from:
-  - /codespaces/customizing-your-codespace/prebuilding-codespaces-for-your-project
-children:
-  - /about-github-codespaces-prebuilds
-  - /configuring-prebuilds
-  - /allowing-a-prebuild-to-access-other-repositories
-  - /managing-prebuilds
-  - /testing-dev-container-changes
----
+### Hi there 👋
 
+<!--
+**kiajfaty/kiajfaty** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 👋 Hi, I’m @kiajfaty
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
+
+- 👋 Hi, I’m @kiajfaty
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+
+kiajfaty/kiajfaty is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+
+<!---
+<html>
+<head><title>405 Not Allowed</title></head>
+<body bgcolor="white">
+<center><h1>405 Not Allowed</h1></center>
+</body>
+</html>
+--->
