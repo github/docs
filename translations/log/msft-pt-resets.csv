@@ -191,6 +191,7 @@ translations/pt-BR/content/organizations/restricting-access-to-your-organization
 translations/pt-BR/content/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser.md,file deleted because it no longer exists in main
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,file deleted because it no longer exists in main
 translations/pt-BR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork.md,file deleted because it no longer exists in main
+translations/pt-BR/content/rest/guides/traversing-with-pagination.md,file deleted because it no longer exists in main
 translations/pt-BR/content/rest/reference/actions.md,file deleted because it no longer exists in main
 translations/pt-BR/content/rest/reference/activity.md,file deleted because it no longer exists in main
 translations/pt-BR/content/rest/reference/apps.md,file deleted because it no longer exists in main
@@ -556,6 +557,7 @@ translations/pt-BR/content/admin/enterprise-management/caching-repositories/conf
 translations/pt-BR/content/admin/enterprise-management/caching-repositories/index.md,rendering error
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/cluster-network-configuration.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/configuring-clustering/configuring-high-availability-replication-for-a-cluster.md,broken liquid tags
+translations/pt-BR/content/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/configuring-collectd.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise.md,broken liquid tags
@@ -943,12 +945,12 @@ translations/pt-BR/content/rest/enterprise-admin/pre-receive-hooks.md,broken liq
 translations/pt-BR/content/rest/enterprise-admin/repo-pre-receive-hooks.md,broken liquid tags
 translations/pt-BR/content/rest/enterprise-admin/scim.md,rendering error
 translations/pt-BR/content/rest/enterprise-admin/users.md,broken liquid tags
-translations/pt-BR/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/pt-BR/content/rest/guides/working-with-comments.md,broken liquid tags
 translations/pt-BR/content/rest/migrations/source-imports.md,broken liquid tags
 translations/pt-BR/content/rest/overview/api-previews.md,rendering error
 translations/pt-BR/content/rest/overview/other-authentication-methods.md,rendering error
 translations/pt-BR/content/rest/overview/permissions-required-for-github-apps.md,rendering error
+translations/pt-BR/content/rest/overview/resources-in-the-rest-api.md,broken liquid tags
 translations/pt-BR/content/rest/packages.md,broken liquid tags
 translations/pt-BR/content/rest/projects/projects.md,broken liquid tags
 translations/pt-BR/content/rest/scim.md,broken liquid tags
@@ -1154,7 +1156,6 @@ translations/pt-BR/data/reusables/repositories/sidebar-notifications.md,renderin
 translations/pt-BR/data/reusables/repositories/suggest-changes.md,broken liquid tags
 translations/pt-BR/data/reusables/repositories/tracks-vulnerabilities.md,broken liquid tags
 translations/pt-BR/data/reusables/repositories/you-can-fork.md,broken liquid tags
-translations/pt-BR/data/reusables/rest-api/dotcom-only-guide-note.md,rendering error
 translations/pt-BR/data/reusables/saml/about-authorized-credentials.md,broken liquid tags
 translations/pt-BR/data/reusables/saml/about-linked-identities.md,broken liquid tags
 translations/pt-BR/data/reusables/saml/about-saml-access-enterprise-account.md,broken liquid tags
