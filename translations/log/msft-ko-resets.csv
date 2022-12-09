@@ -188,6 +188,7 @@ translations/ko-KR/content/organizations/restricting-access-to-your-organization
 translations/ko-KR/content/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser.md,file deleted because it no longer exists in main
 translations/ko-KR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork.md,file deleted because it no longer exists in main
 translations/ko-KR/content/pull-requests/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork.md,file deleted because it no longer exists in main
+translations/ko-KR/content/rest/guides/traversing-with-pagination.md,file deleted because it no longer exists in main
 translations/ko-KR/content/rest/reference/actions.md,file deleted because it no longer exists in main
 translations/ko-KR/content/rest/reference/activity.md,file deleted because it no longer exists in main
 translations/ko-KR/content/rest/reference/apps.md,file deleted because it no longer exists in main
@@ -537,6 +538,7 @@ translations/ko-KR/content/admin/configuration/configuring-your-enterprise/troub
 translations/ko-KR/content/admin/enterprise-management/caching-repositories/about-repository-caching.md,rendering error
 translations/ko-KR/content/admin/enterprise-management/caching-repositories/configuring-a-repository-cache.md,rendering error
 translations/ko-KR/content/admin/enterprise-management/caching-repositories/index.md,rendering error
+translations/ko-KR/content/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance.md,broken liquid tags
 translations/ko-KR/content/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard.md,rendering error
 translations/ko-KR/content/admin/enterprise-management/monitoring-your-appliance/configuring-collectd.md,rendering error
 translations/ko-KR/content/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise.md,rendering error
@@ -549,10 +551,10 @@ translations/ko-KR/content/admin/enterprise-management/updating-the-virtual-mach
 translations/ko-KR/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server.md,rendering error
 translations/ko-KR/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,rendering error
 translations/ko-KR/content/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment.md,rendering error
-translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage.md,broken liquid tags
-translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage.md,broken liquid tags
+translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage.md,rendering error
+translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage.md,rendering error
 translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage.md,rendering error
-translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-storage.md,broken liquid tags
+translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-storage.md,rendering error
 translations/ko-KR/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates.md,rendering error
 translations/ko-KR/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,rendering error
 translations/ko-KR/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server.md,rendering error
@@ -1068,7 +1070,6 @@ translations/ko-KR/content/rest/dependabot/index.md,broken liquid tags
 translations/ko-KR/content/rest/deployments/deployments.md,rendering error
 translations/ko-KR/content/rest/enterprise-admin/scim.md,rendering error
 translations/ko-KR/content/rest/guides/getting-started-with-the-rest-api.md,rendering error
-translations/ko-KR/content/rest/guides/traversing-with-pagination.md,rendering error
 translations/ko-KR/content/rest/guides/working-with-comments.md,rendering error
 translations/ko-KR/content/rest/overview/api-previews.md,rendering error
 translations/ko-KR/content/rest/overview/breaking-changes.md,broken liquid tags
@@ -1310,7 +1311,6 @@ translations/ko-KR/data/reusables/repositories/settings-sidebar-actions-runners.
 translations/ko-KR/data/reusables/repositories/sidebar-notifications.md,rendering error
 translations/ko-KR/data/reusables/repositories/suggest-changes.md,broken liquid tags
 translations/ko-KR/data/reusables/repositories/you-can-fork.md,rendering error
-translations/ko-KR/data/reusables/rest-api/dotcom-only-guide-note.md,rendering error
 translations/ko-KR/data/reusables/saml/about-authorized-credentials.md,rendering error
 translations/ko-KR/data/reusables/saml/about-linked-identities.md,rendering error
 translations/ko-KR/data/reusables/saml/about-saml-access-enterprise-account.md,rendering error
