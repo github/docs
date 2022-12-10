@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_projects_v1_caps %}'
-intro: 'L’API {% data variables.product.prodname_projects_v1 %} vous permet de créer, de lister, de mettre à jour, de supprimer et de personnaliser des {% data variables.projects.projects_v1_boards %}.'
+intro: 'Use the REST API to create, list, update, delete and customize {% data variables.projects.projects_v1_boards %}.'
 redirect_from:
   - /v3/projects
   - /rest/reference/projects
@@ -18,11 +18,5 @@ children:
   - /cards
   - /collaborators
   - /columns
-ms.openlocfilehash: 815c82656605773c4bda0750f331f819ca39551e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423038'
 ---
 
