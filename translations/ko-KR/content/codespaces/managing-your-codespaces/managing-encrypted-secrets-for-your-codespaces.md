@@ -14,12 +14,12 @@ topics:
   - Security
   - Secret store
 shortTitle: Encrypted secrets
-ms.openlocfilehash: f2ef60c9311a81ea59ec4f71cb7c1a432102b063
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: a1ea1c87581feccd737314db0d7bf237f983357a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148160444'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192811'
 ---
 ## {% data variables.product.prodname_github_codespaces %}에 대한 암호화된 비밀 정보
 
@@ -28,9 +28,9 @@ codespace에서 사용하려는 개인 계정에 암호화된 비밀을 추가�
 - 클라우드 서비스에 대한 액세스 토큰
 - 서비스 주체
 - 구독 식별자
-- [프라이빗 이미지 레지스트리에 대한 자격 증명](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry)
+- 프라이빗 이미지 레지스트리에 대한 자격 증명(자세한 내용은 "[codespace가 프라이빗 레지스트리에 액세스하도록 허용"을 참조하세요](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry).)
 
-각 비밀에 액세스할 수 있는 리포지토리를 선택할 수 있습니다. 그런 다음, 비밀에 대한 액세스 권한이 있는 리포지토리에 대해 만든 모든 codespace에서 비밀을 사용할 수 있습니다. 템플릿에서 만든 codespace와 비밀을 공유하려면 {% data variables.product.prodname_dotcom %}의 리포지토리에 codespace를 게시한 다음 해당 리포지토리에 비밀에 대한 액세스 권한을 부여해야 합니다.
+각 비밀에 액세스할 수 있는 리포지토리를 선택할 수 있습니다. 그런 다음, 비밀에 대한 액세스 권한이 있는 리포지토리에 대해 만든 모든 codespace에서 비밀을 사용할 수 있습니다. 템플릿에서 만든 codespace와 비밀을 공유하려면 {% data variables.product.prodname_dotcom %}의 리포지토리에 codespace를 게시한 다음, 해당 리포지토리에 비밀에 대한 액세스 권한을 부여해야 합니다.
 
 {% data reusables.codespaces.secrets-on-start %}
 
@@ -89,7 +89,7 @@ codespace에서 사용하려는 개인 계정에 암호화된 비밀을 추가�
 
 Codespace 비밀을 사용할 수 없습니다.
 
-* codespace 빌드 시간 동안(즉, Dockerfile 또는 사용자 지정 진입점 내에서)
+* codespace 빌드 시간 동안(즉, Dockerfile 또는 사용자 지정 진입점 내)
 * 개발 컨테이너 기능 내에서. 자세한 내용은 containers.dev [개발 컨테이너 사양의](https://containers.dev/implementors/json_reference/#general-properties) 속성을 참조 `features` 하세요.
 
 ## 추가 참고 자료
