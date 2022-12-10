@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
-ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2022
-ms.locfileid: '148184009'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191891'
 ---
 ## Sobre as restrições de tráfego de rede
 
@@ -30,7 +30,7 @@ Por padrão, os usuários autorizados podem acessar sua empresa a partir de qual
 
 {% ifversion ghec %}
 
-Se a sua empresa usa {% data variables.product.prodname_emus %} com o OIDC, você pode escolher se deseja adotar o recurso de lista de permissões de IP do {% data variables.product.company_short %} ou as restrições da lista de permissões do seu IdP (provedor de identidade). Se sua empresa não usa {% data variables.product.prodname_emus %} com o OIDC, você pode adotar o recurso de lista de permissões do {% data variables.product.company_short %}. 
+Se a sua empresa usa {% data variables.product.prodname_emus %} com o Azure AD e o OIDC, você pode escolher se deseja adotar o recurso de lista de permissões de IP do {% data variables.product.company_short %} ou as restrições da lista de permissões do seu IdP (provedor de identidade). Se a sua empresa não usa {% data variables.product.prodname_emus %} com o Azure AD e OIDC, você pode adotar o recurso de lista de permissões do {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
@@ -52,7 +52,7 @@ Você pode usar a lista de permissões de IP do {% data variables.product.compan
 
 ## Sobre a lista de permissões do seu IdP
 
-Se estiver usando o {% data variables.product.prodname_emus %} com o OIDC, você poderá usar a lista de permissões do seu IdP. 
+Se estiver usando o {% data variables.product.prodname_emus %} com o Azure AD e OIDC, você poderá usar a lista de permissões do seu IdP.
 
 O uso da lista de permissões do seu IdP desativa as configurações da lista de permissões de IP do {% data variables.product.company_short %} para todas as organizações da sua empresa e desativa as APIs do GraphQL para habilitar e gerenciar as listas de permissões de IP. 
 
@@ -109,13 +109,17 @@ Para garantir o uso contínuo da CAP do OIDC enquanto ainda aplica a política a
 
 ## Como usar a lista de permissões do seu provedor de identidade
 
-Você pode adotar a lista de permissões do seu IdP se usar o {% data variables.product.prodname_emus %} com o OIDC.
+{% note %}
+
+**Nota:** o uso da lista de permissões do IdP só tem suporte para {% data variables.product.prodname_emus %} com Azure AD e OIDC. 
+
+{% endnote %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
 1. Em "Lista de permissões de IP", selecione o menu suspenso e clique em **Provedor de Identidade**.
 
    ![Captura de tela do menu suspenso mostrando três opções de configuração da lista de permissões de IP: Desabilitada, Provedor de Identidade e GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Como alternativa, para permitir que os {% data variables.product.company_short %} e {% data variables.product.prodname_oauth_apps %} acessem sua empresa de qualquer endereço IP, selecione **Ignorar a verificação do IdP nos aplicativos**.
+1. Como alternativa, para permitir que os {% data variables.product.company_short %} e {% data variables.product.prodname_oauth_apps %} acessem sua empresa de qualquer endereço IP, selecione **Ignorar a verificação do IdP nos aplicativos**.
 
    ![Caixa de seleção usada para permitir endereços IP](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Clique em **Salvar**.

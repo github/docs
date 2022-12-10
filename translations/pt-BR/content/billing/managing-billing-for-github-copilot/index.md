@@ -1,17 +1,12 @@
 ---
-title: Como gerenciar a cobrança do GitHub Copilot
+title: Managing billing for GitHub Copilot
 shortTitle: GitHub Copilot
-intro: 'Você pode experimentar o {% data variables.product.prodname_copilot %} com uma avaliação gratuita antes de iniciar a assinatura e modificar ou cancelar a assinatura a qualquer momento.'
+intro: 'You can try {% data variables.product.prodname_copilot_for_individuals %} with a free trial before starting your subscription, and modify or cancel your subscription at any time. You can also view your usage of {% data variables.product.prodname_copilot_for_business %}, and learn about how the costs are calculated.'
 versions:
   feature: copilot
 children:
   - /about-billing-for-github-copilot
-  - /managing-your-github-copilot-subscription
-ms.openlocfilehash: 96947819762933ad78544da4b8347cbc5efef646
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147079626'
+  - /managing-your-github-copilot-for-individuals-subscription
+  - /viewing-your-github-copilot-usage
 ---
 

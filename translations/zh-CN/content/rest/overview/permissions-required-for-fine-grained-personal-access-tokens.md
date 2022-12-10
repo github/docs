@@ -5,12 +5,12 @@ versions:
   feature: pat-v2
 miniTocMaxHeadingLevel: 3
 shortTitle: '{% data variables.product.pat_v2_caps %} permissions'
-ms.openlocfilehash: 97154c54229f66f3a6b3bf852f7aabab89a0d2ee
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 46a82b0212d4cda2b6883c0b33ba2acb2e50b9d0
+ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107683'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148184210'
 ---
 ## 关于 {% data variables.product.pat_v2 %} 所需的权限
 
@@ -65,11 +65,10 @@ ms.locfileid: '148107683'
 - [`PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#add-or-update-team-repository-permissions)（写）
 - [`DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#remove-a-repository-from-a-team)（写）
 - [`POST /orgs/{org}/repos`](/rest/reference/repos#create-an-organization-repository)（写）
-- [`PATCH /repos/{owner}/{repo}`](/rest/reference/repos/#update-a-repository)（写）
+- [`PATCH /repos/{owner}/{repo}`](/rest/repos/repos#update-a-repository)（写）
 - [`DELETE /repos/{owner}/{repo}`](/rest/reference/repos#delete-a-repository)（写）
 - [`POST /repos/{owner}/{repo}/forks`](/rest/reference/repos#create-a-fork)（写）
 - [`GET /repos/{owner}/{repo}/teams`](/rest/reference/repos#list-repository-teams)（读）
-- [`POST /repos/{owner}/{repo}/transfer`](/rest/reference/repos#transfer-a-repository)（写）
 - [`POST /user/repos`](/rest/reference/repos#create-a-repository-for-the-authenticated-user)（写）
 - [`GET /repos/{owner}/{repo}/actions/permissions`](/rest/reference/actions#get-github-actions-permissions-for-a-repository)（读）
 - [`PUT /repos/{owner}/{repo}/actions/permissions`](/rest/reference/actions#set-github-actions-permissions-for-a-repository)（写）
@@ -130,16 +129,6 @@ ms.locfileid: '148107683'
 
 ## 检查
 
-- [`POST /repos/{owner}/{repo}/check-runs`](/rest/reference/checks#create-a-check-run)（写）
-- [`GET /repos/{owner}/{repo}/check-runs/{check_run_id}`](/rest/reference/checks#get-a-check-run)（读）
-- [`PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}`](/rest/reference/checks#update-a-check-run)（写）
-- [`GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations`](/rest/reference/checks#list-check-run-annotations)（读）
-- [`POST /repos/{owner}/{repo}/check-runs/{check_run_id}/rerequest`](/rest/reference/checks#rerequest-a-check-run)（写）
-- [`GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs`](/rest/reference/checks#list-check-runs-in-a-check-suite)（读）
-- [`POST /repos/{owner}/{repo}/check-suites`](/rest/reference/checks#create-a-check-suite)（写）
-- [`GET /repos/{owner}/{repo}/check-suites/{check_suite_id}`](/rest/reference/checks#get-a-check-suite)（读）
-- [`POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest`](/rest/reference/checks#rerequest-a-check-suite)（写）
-- [`PATCH /repos/{owner}/{repo}/check-suites/preferences`](/rest/reference/checks#update-repository-preferences-for-check-suites)（写）
 - [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments`](/rest/reference/actions#review-pending-deployments-for-a-workflow-run)（读）
 
 ## Codespaces
@@ -196,20 +185,12 @@ ms.locfileid: '148107683'
 - [`POST /repos/{owner}/{repo}/git/refs`](/rest/reference/git#create-a-reference)（写）
 - [`POST /repos/{owner}/{repo}/git/tags`](/rest/reference/git#create-a-tag-object)（写）
 - [`POST /repos/{owner}/{repo}/git/trees`](/rest/reference/git#create-a-tree)（写）
-- [`GET /repos/{owner}/{repo}/import`](/rest/reference/migrations#get-an-import-status)（读）
-- [`PUT /repos/{owner}/{repo}/import`](/rest/reference/migrations#start-an-import)（写）
-- [`PATCH /repos/{owner}/{repo}/import`](/rest/reference/migrations#update-an-import)（写）
-- [`DELETE /repos/{owner}/{repo}/import`](/rest/reference/migrations#cancel-an-import)（写）
-- [`GET /repos/{owner}/{repo}/import/authors`](/rest/reference/migrations#get-commit-authors)（读）
-- [`PATCH /repos/{owner}/{repo}/import/authors/{author_id}`](/rest/reference/migrations#map-a-commit-author)（写）
-- [`GET /repos/{owner}/{repo}/import/large_files`](/rest/reference/migrations#get-large-files)（读）
-- [`PATCH /repos/{owner}/{repo}/import/lfs`](/rest/reference/migrations#update-git-lfs-preference)（写）
 - [`PUT /repos/{owner}/{repo}/pulls/{pull_number}/merge`](/rest/reference/pulls#merge-a-pull-request)（写）
 - [`POST /repos/{owner}/{repo}/comments/{comment_id}/reactions`](/rest/reference/reactions#create-reaction-for-a-commit-comment)（写）
 - [`DELETE /repos/{owner}/{repo}/comments/{comment_id}/reactions/{reaction_id}`](/rest/reference/reactions#delete-a-commit-comment-reaction)（写）
-- [`GET /repos/{owner}/{repo}/branches`](/rest/reference/repos#list-branches)（读）
-- [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository)（写）
-- [`POST /repos/{owner}/{repo}/merges`](/rest/reference/repos#merge-a-branch)（写）
+- [`GET /repos/{owner}/{repo}/branches`](/rest/branches/branches#list-branches)（读）
+- [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/branches/branches#sync-a-fork-branch-with-the-upstream-repository)（写）
+- [`POST /repos/{owner}/{repo}/merges`](/rest/branches/branches#merge-a-branch)（写）
 - [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases`](/rest/reference/code-scanning#list-codeql-databases)（读）
 - [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`](/rest/reference/code-scanning#get-codeql-database)（读）
 - [`PATCH /repos/{owner}/{repo}/comments/{comment_id}`](/rest/commits/comments#update-a-commit-comment)（写）
@@ -320,7 +301,7 @@ ms.locfileid: '148107683'
 - [`GET /repos/{owner}/{repo}/issues`](/rest/reference/issues#list-repository-issues)（读）
 - [`POST /repos/{owner}/{repo}/issues`](/rest/reference/issues#create-an-issue)（写）
 - [`GET /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues#get-an-issue)（读）
-- [`PATCH /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues/#update-an-issue)（写）
+- [`PATCH /repos/{owner}/{repo}/issues/{issue_number}`](/rest/reference/issues#update-an-issue)（写）
 - [`PUT /repos/{owner}/{repo}/issues/{issue_number}/lock`](/rest/reference/issues#lock-an-issue)（写）
 - [`DELETE /repos/{owner}/{repo}/issues/{issue_number}/lock`](/rest/reference/issues#unlock-an-issue)（写）
 - [`GET /repos/{owner}/{repo}/issues/{issue_number}/labels`](/rest/reference/issues#list-labels-for-an-issue)（读）
@@ -409,7 +390,6 @@ ms.locfileid: '148107683'
 - [`POST /gists/{gist_id}/forks`](/rest/reference/gists#fork-a-gist)（读）
 - [`PUT /gists/{gist_id}/star`](/rest/reference/gists#star-a-gist)（读）
 - [`DELETE /gists/{gist_id}/star`](/rest/reference/gists#unstar-a-gist)（读）
-- [`GET /notifications`](/rest/reference/activity#list-notifications-for-the-authenticated-user)（读）
 - [`GET /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#check-team-permissions-for-a-repository)（读）
 - [`PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#add-or-update-team-repository-permissions)（读）
 - [`DELETE /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}`](/rest/reference/teams/#remove-a-repository-from-a-team)（读）
@@ -439,10 +419,6 @@ ms.locfileid: '148107683'
 - [`GET /search/labels`](/rest/reference/search#search-labels)（读）
 - [`GET /repos/{owner}/{repo}/topics`](/rest/reference/repos#get-all-repository-topics)（读）
 
-## 通知
-
-- [`GET /notifications`](/rest/reference/activity#list-notifications-for-the-authenticated-user)（读）
-
 ## 组织管理
 
 {% ifversion ghec %}- [`GET /orgs/{org}/audit-log`](/rest/reference/orgs#get-audit-log)（读）{% endif %}
@@ -467,7 +443,7 @@ ms.locfileid: '148107683'
 - [`GET /orgs/{org}/security-managers`](/rest/reference/orgs#list-security-manager-teams)（读）
 - [`PUT /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#add-a-security-manager-team)（写）
 - [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#remove-a-security-manager-team)（写）
-- [`PATCH /orgs/{org}`](/rest/reference/orgs/#update-an-organization)（写）
+- [`PATCH /orgs/{org}`](/rest/reference/orgs#update-an-organization)（写）
 - [`GET /orgs/{org}/installations`](/rest/reference/orgs#list-app-installations-for-an-organization)（读）
 
 ## 组织 codespace
@@ -491,6 +467,7 @@ ms.locfileid: '148107683'
 ## 组织自定义角色
 
 - [`GET /organizations/{organization_id}/custom_roles`](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)（读）
+- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs/#get-a-custom-role)（读）
 - [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs#update-a-custom-role)（写）
 - [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/reference/orgs#delete-a-custom-role)（写）
 - [`GET /orgs/{org}/fine_grained_permissions`](/rest/reference/orgs#list-fine-grained-permissions-for-an-organization)（读）
@@ -522,13 +499,6 @@ ms.locfileid: '148107683'
 - [`GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}`](/rest/reference/orgs#get-a-webhook-delivery-for-an-organization-webhook)（读）
 - [`POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts`](/rest/reference/orgs#redeliver-a-delivery-for-an-organization-webhook)（写）
 - [`POST /orgs/{org}/hooks/{hook_id}/pings`](/rest/reference/orgs#ping-an-organization-webhook)（写）
-
-## 组织项目
-
-- [`PUT /orgs/{org}/teams/{team_slug}/projects/{project_id}`](/rest/reference/teams#add-or-update-team-project-permissions)（管理员）
-- [`DELETE /orgs/{org}/teams/{team_slug}/projects/{project_id}`](/rest/reference/teams#remove-a-project-from-a-team)（管理员）
-- [`GET /orgs/{org}/projects`](/rest/reference/projects#list-organization-projects)（读）
-- [`POST /orgs/{org}/projects`](/rest/reference/projects#create-an-organization-project)（写）
 
 ## 组织机密
 
@@ -640,30 +610,6 @@ ms.locfileid: '148107683'
 - [`POST /repos/{owner}/{repo}/hooks/{hook_id}/pings`](/rest/webhooks/repos#ping-a-repository-webhook)（读）
 - [`POST /repos/{owner}/{repo}/hooks/{hook_id}/tests`](/rest/webhooks/repos#test-the-push-repository-webhook)（读）
 
-## 存储库项目
-
-- [`GET /projects/{project_id}/collaborators`](/rest/reference/projects#list-project-collaborators)（写）
-- [`PUT /projects/{project_id}/collaborators/{username}`](/rest/reference/projects#add-project-collaborator)（写）
-- [`DELETE /projects/{project_id}/collaborators/{username}`](/rest/reference/projects#remove-project-collaborator)（写）
-- [`GET /projects/{project_id}/collaborators/{username}/permission`](/rest/reference/projects#get-project-permission-for-a-user)（写）
-- [`GET /projects/{project_id}`](/rest/reference/projects#get-a-project)（读）
-- [`PATCH /projects/{project_id}`](/rest/reference/projects#update-a-project)（写）
-- [`DELETE /projects/{project_id}`](/rest/reference/projects#delete-a-project)（写）
-- [`GET /projects/{project_id}/columns`](/rest/reference/projects#list-project-columns)（读）
-- [`POST /projects/{project_id}/columns`](/rest/reference/projects#create-a-project-column)（写）
-- [`GET /projects/columns/{column_id}`](/rest/reference/projects#get-a-project-column)（读）
-- [`PATCH /projects/columns/{column_id}`](/rest/reference/projects#update-a-project-column)（写）
-- [`DELETE /projects/columns/{column_id}`](/rest/reference/projects#delete-a-project-column)（写）
-- [`GET /projects/columns/{column_id}/cards`](/rest/reference/projects#list-project-cards)（读）
-- [`POST /projects/columns/{column_id}/cards`](/rest/reference/projects#create-a-project-card)（写）
-- [`POST /projects/columns/{column_id}/moves`](/rest/reference/projects#move-a-project-column)（写）
-- [`GET /projects/columns/cards/{card_id}`](/rest/reference/projects#get-a-project-card)（读）
-- [`PATCH /projects/columns/cards/{card_id}`](/rest/reference/projects#update-a-project-card)（写）
-- [`DELETE /projects/columns/cards/{card_id}`](/rest/reference/projects#delete-a-project-card)（写）
-- [`POST /projects/columns/cards/{card_id}/moves`](/rest/reference/projects#move-a-project-card)（写）
-- [`GET /repos/{owner}/{repo}/projects`](/rest/reference/projects#list-repository-projects)（读）
-- [`POST /repos/{owner}/{repo}/projects`](/rest/reference/projects#create-a-repository-project)（写）
-
 ## 机密扫描警报
 
 - [`GET /orgs/{org}/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-an-organization)（读）
@@ -726,6 +672,10 @@ ms.locfileid: '148107683'
 - [`GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#get-a-discussion-comment)（读）
 - [`PATCH /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#update-a-discussion-comment)（写）
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}`](/rest/reference/teams#delete-a-discussion-comment)（写）
+
+## 漏洞警报
+
+- [`GET /orgs/{org}/dependabot/alerts`](/rest/dependabot/alerts#list-dependabot-alerts-for-an-organization)（读）
 
 ## 关注中
 

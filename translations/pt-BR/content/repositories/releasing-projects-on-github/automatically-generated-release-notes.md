@@ -13,12 +13,12 @@ shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/general'
-ms.openlocfilehash: a4adfa306873ef172950666756add7d0e67e168d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: aee951e6f57492240b5baf8870578409945aefdc
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147432013'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185191'
 ---
 ## Sobre notas de versão geradas automaticamente
 
@@ -67,7 +67,9 @@ Você também pode personalizar suas notas de versão automatizadas, usando etiq
 | `changelog.categories[*].exclude.labels` | Uma lista de etiquetas que excluem um pull request de aparecer nesta categoria. |
 | `changelog.categories[*].exclude.authors` | Uma lista gerenciamento de login de sessão de usuários ou bot, cujos pull requests devem ser excluídos desta categoria. |
 
-### Configuração de exemplo
+### Configurações de exemplo
+
+Uma configuração para um repositório que rotula versões semver
 
 {% raw %}
 ```yaml{:copy}
@@ -91,6 +93,26 @@ changelog:
     - title: Other Changes
       labels:
         - "*"
+```
+{% endraw %}
+
+Uma configuração para um repositório que não marca solicitações de pull, mas na qual convém separar solicitações de pull {% data variables.product.prodname_dependabot %} automatizadas em notas de versão (`labels: '*'` é necessário para exibir uma categoria abrangente)
+
+{% raw %}
+```yaml{:copy}
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
 ```
 {% endraw %}
 

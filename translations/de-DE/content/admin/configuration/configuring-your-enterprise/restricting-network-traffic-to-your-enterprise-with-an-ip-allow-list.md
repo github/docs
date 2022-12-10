@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
-ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2022
-ms.locfileid: '148184012'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191894'
 ---
 ## Informationen zu Einschränkungen beim Netzwerkdatenverkehr
 
@@ -30,7 +30,7 @@ Standardmäßig können autorisierte Benutzer von einer beliebigen IP-Adresse au
 
 {% ifversion ghec %}
 
-Wenn dein Unternehmen {% data variables.product.prodname_emus %} mit OIDC verwendet, kannst du entscheiden, ob du das Feature für Listen zugelassener IP-Adressen von {% data variables.product.company_short %} oder die Einschränkungen per Liste zugelassener IP-Adressen von deinem Identitätsanbieter (IdP) verwenden möchtest. Wenn dein Unternehmen {% data variables.product.prodname_emus %} ohne OIDC verwendet, kannst du das Feature für Listen zugelassener IP-Adressen von {% data variables.product.company_short %} verwenden. 
+Wenn dein Unternehmen {% data variables.product.prodname_emus %} mit Azure AD und OIDC verwendet, kannst du entscheiden, ob du das Feature für Listen zugelassener IP-Adressen von {% data variables.product.company_short %} oder die Einschränkungen gemäß Zulassungslisten von deinem Identitätsanbieter (IdP) verwenden möchtest. Wenn dein Unternehmen {% data variables.product.prodname_emus %} nicht mit Azure und OIDC verwendet, kannst du das Feature für Listen zugelassener IP-Adressen von {% data variables.product.company_short %} verwenden. 
 
 {% elsif ghae %}
 
@@ -52,7 +52,7 @@ Du kannst die Liste zugelassener IP-Adressen von {% data variables.product.compa
 
 ## Informationen zur Liste zugelassener IP-Adressen deines Identitätsanbieters
 
-Wenn du {% data variables.product.prodname_emus %} mit OIDC verwendest, kannst du die Liste zugelassener IP-Adressen deines Identitätsanbieters verwenden. 
+Wenn du {% data variables.product.prodname_emus %} mit Azure AD und OIDC verwendest, kannst du die Liste zugelassener IP-Adressen deines Identitätsanbieters verwenden.
 
 Wenn du die Liste zugelassener IP-Adressen deines Identitätsanbieters verwendest, deaktivierst du damit die Konfigurationen der Liste zugelassener IP-Adressen von {% data variables.product.company_short %} für alle Organisationen in deinem Unternehmen und die GraphQL-APIs zum Aktivieren und Verwalten von Listen zugelassener IP-Adressen. 
 
@@ -109,13 +109,17 @@ Um eine nahtlose Verwendung der OIDC-CAP zu gewährleisten und gleichzeitig die 
 
 ## Verwenden der Liste zugelassener IP-Adressen deines Identitätsanbieters
 
-Du kannst die Liste zugelassener IP-Adressen deines Identitätsanbieters verwenden, wenn du {% data variables.product.prodname_emus %} mit OIDC verwendest.
+{% note %}
+
+**Hinweis:** Die Verwendung der Zulassungsliste deines Identitätsanbieters wird nur für {% data variables.product.prodname_emus %} mit Azure AD und OIDC unterstützt. 
+
+{% endnote %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
 1. Wähle unter „Liste zugelassener IP-Adressen“ die Dropdownliste aus, und klicke auf **Identitätsanbieter**.
 
    ![Screenshot des Dropdownmenüs mit drei Konfigurationsoptionen für die Liste zugelassener IP-Adressen: „Deaktiviert“, „Identitätsanbieter“ und „GitHub“](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Wähle optional die Option **Skip IdP check for applications** (IdP-Überprüfung für Anwendungen überspringen) aus, damit die installierten {% data variables.product.company_short %} und {% data variables.product.prodname_oauth_apps %} auf dein Unternehmen zugreifen können.
+1. Wähle optional die Option **Skip IdP check for applications** (IdP-Überprüfung für Anwendungen überspringen) aus, damit die installierten {% data variables.product.company_short %} und {% data variables.product.prodname_oauth_apps %} auf dein Unternehmen zugreifen können.
 
    ![Kontrollkästchen zum Zulassen von IP-Adressen](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Klicke auf **Speichern**.

@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 543455f8802e8e2c8b4dc60283c442a536476751
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: eb897a445a5e5a90014097ba76a5ecb095aa0bef
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2022
-ms.locfileid: "145114230"
+ms.lasthandoff: 12/06/2022
+ms.locfileid: "148192065"
 ---
-`jobs.<job_id>.if` 条件文を使って、条件が満たされなければジョブを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
+`jobs.<job_id>.if` 条件文を使って、条件が満たされなければジョブを実行しないようにできます。 {% data reusables.actions.if-supported-contexts %}
 
 {% data reusables.actions.expression-syntax-if %} 詳細については、「[式](/actions/learn-github-actions/expressions)」を参照してください。
 

@@ -12,12 +12,12 @@ versions:
 topics:
   - Community
 shortTitle: Create a PR template
-ms.openlocfilehash: 2a85c88944f1d46209429846bba1e7a3c930968e
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: fa4d3cf78b63af147c85b8f6d77d7cca74e3853a
+ms.sourcegitcommit: 4daa156856e651cb3854ead40e35bd918e481ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '145086514'
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190407'
 ---
 Pour plus d’informations, consultez « [À propos des modèles de problème et de demande de tirage](/articles/about-issue-and-pull-request-templates) ».
 
@@ -39,7 +39,7 @@ Vous pouvez créer des modèles de demande de tirage par défaut pour votre orga
   ![Nouveau modèle de demande de tirage dans le répertoire docs](/assets/images/help/repository/pr-template-file-name-docs.png)
     - Pour stocker votre fichier dans un répertoire masqué, nommez le modèle de demande de tirage `.github/pull_request_template.md`.
   ![Nouveau modèle de demande de tirage dans un répertoire masqué](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - Pour créer plusieurs modèles de demande de tirage et utiliser le paramètre de requête `template` afin de spécifier un modèle permettant de remplir le corps de la demande de tirage, tapez *.github/PULL_REQUEST_TEMPLATE/* , puis le nom de votre modèle de demande de tirage. Par exemple : `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. Vous pouvez également stocker plusieurs modèles de demande de tirage (pull request) dans un sous-répertoire `PULL_REQUEST_TEMPLATE` au sein du répertoire racine ou du répertoire `docs/`. Pour plus d’informations, consultez « [À propos de l’automatisation des problèmes et des demandes de tirage avec des paramètres de requête](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters) ».
+    - Pour créer plusieurs modèles de demande de tirage et utiliser le paramètre de requête `template` afin de spécifier un modèle permettant de remplir le corps de la demande de tirage, tapez *.github/PULL_REQUEST_TEMPLATE/* , puis le nom de votre modèle de demande de tirage. Par exemple : `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. Vous pouvez également stocker plusieurs modèles de demande de tirage (pull request) dans un sous-répertoire `PULL_REQUEST_TEMPLATE` au sein du répertoire racine ou du répertoire `docs/`. Pour plus d’informations, consultez « [Utilisation de paramètres de requête pour créer une demande de tirage](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request) ».
   ![Nouveau modèle de demande de tirage multiple dans un répertoire masqué](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
 4. Dans le corps du nouveau fichier, ajoutez votre modèle de demande de tirage. Vous pouvez inclure ce qui suit :
     - [Référence à un problème connexe](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) dans votre dépôt.

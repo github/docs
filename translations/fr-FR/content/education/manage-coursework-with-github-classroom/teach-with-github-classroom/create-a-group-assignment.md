@@ -1,78 +1,84 @@
 ---
-title: Create a group assignment
-intro: You can create a collaborative assignment for teams of students who participate in your course.
+title: Créer un devoir de groupe
+intro: Vous pouvez créer une affectation collaborative pour des équipes d’étudiants qui participent à votre cours.
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
+ms.openlocfilehash: 71c5f5eaf97ba58e25921c1e2be6fc638550dfa8
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179759'
 ---
-## About group assignments
+## À propos des devoirs de groupe
 
-{% data reusables.classroom.assignments-group-definition %} Students can work together on a group assignment in a shared repository, like a team of professional developers.
+{% data reusables.classroom.assignments-group-definition %} Les étudiants peuvent travailler à plusieurs sur un devoir de groupe dans un dépôt partagé, comme une équipe de développeurs professionnels.
 
-When a student accepts a group assignment, the student can create a new team or join an existing team. {% data variables.product.prodname_classroom %} saves the teams for an assignment as a set. You can name the set of teams for a specific assignment when you create the assignment, and you can reuse that set of teams for a later assignment.
+Quand un étudiant accepte un devoir de groupe, il peut créer une équipe ou rejoindre une équipe existante. {% data variables.product.prodname_classroom %} enregistre les équipes d’un devoir sous forme d’ensemble. Vous pouvez nommer l’ensemble des équipes pour un devoir spécifique quand vous créez le devoir, et vous pouvez réutiliser cet ensemble d’équipes pour un devoir ultérieur.
 
 {% data reusables.classroom.classroom-creates-group-repositories %}
 
 {% data reusables.classroom.about-assignments %}
 
-You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+Vous pouvez choisir le nombre d’équipes d’un devoir et le nombre de membres de chaque équipe. Chaque équipe créée par un étudiant pour un devoir est une équipe au sein de votre organisation sur {% data variables.product.product_name %}. La visibilité de l’équipe est secrète. Les équipes que vous créez sur {% data variables.product.product_name %} n’apparaissent pas dans {% data variables.product.prodname_classroom %}. Pour plus d’informations, consultez « [À propos des équipes](/organizations/organizing-members-into-teams/about-teams) ».
 
-For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+Pour une démonstration vidéo de la création d’un devoir de groupe, consultez « [Concepts de base de la configuration de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom) ».
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## Prerequisites
+## Prérequis
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Creating an assignment
+## Création d’un devoir
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## Setting up the basics for an assignment
+## Configuration des éléments de base d’un devoir
 
-Name your assignment, decide whether to assign a deadline, define teams, and choose the visibility of assignment repositories.
+Nommez votre devoir, choisissez une échéance éventuelle, définissez des équipes et choisissez la visibilité des dépôts de devoir.
 
-- [Naming an assignment](#naming-an-assignment)
-- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
-- [Defining teams for an assignment](#defining-teams-for-an-assignment)
-- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+- [Nommage d’un devoir](#naming-an-assignment)
+- [Attribution d’une échéance pour un devoir](#assigning-a-deadline-for-an-assignment)
+- [Choix d’un type de devoir](#choosing-an-assignment-type)
+- [Définition d’équipes pour un devoir](#defining-teams-for-an-assignment)
+- [Choix d’une visibilité pour les dépôts de devoir](#choosing-a-visibility-for-assignment-repositories)
 
-### Naming an assignment
+### Nommage d’un devoir
 
-For a group assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the name of the team. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the team's name on {% data variables.product.product_name %} is "student-team", the name of the assignment repository for members of the team will be `assignment-1-student-team`.
+Pour un devoir de groupe, {% data variables.product.prodname_classroom %} nomme les dépôts avec le préfixe du dépôt et le nom de l’équipe. Par défaut, le préfixe du dépôt est le titre du devoir. Par exemple, si vous nommez un devoir « assignment-1 » et que le nom de l’équipe sur {% data variables.product.product_name %} est « student-name », le nom du dépôt de devoir pour les membres de l’équipe est `assignment-1-student-team`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Assigning a deadline for an assignment
+### Attribution d’une échéance pour un devoir
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Choosing an assignment type
+### Choix d’un type de devoir
 
-Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
+Sous « Devoir individuel ou de groupe », sélectionnez le menu déroulant, puis cliquez sur **Devoir de groupe**. Vous ne pouvez pas changer le type de devoir après l’avoir créé. Si vous préférez créer un devoir individuel, consultez « [Créer un devoir individuel](/education/manage-coursework-with-github-classroom/create-an-individual-assignment) ».
 
-### Defining teams for an assignment
+### Définition d’équipes pour un devoir
 
-If you've already created a group assignment for the classroom, you can reuse a set of teams for the new assignment. To create a new set with the teams that your students create for the assignment, type the name for the set. Optionally, type the maximum number of team members and total teams.
+Si vous avez déjà créé un devoir de groupe pour la classe, vous pouvez réutiliser un ensemble d’équipes pour le nouveau devoir. Pour créer un ensemble avec les équipes que vos étudiants ont créées pour le devoir, tapez le nom de l’ensemble. Vous pouvez aussi taper le nombre maximal de membres de l’équipe et le nombre total d’équipes.
 
 {% tip %}
 
-**Tips**:
+**Conseils** :
 
-- We recommend including details about the set of teams in the name for the set. For example, if you want to use the set of teams for one assignment, name the set after the assignment. If you want to reuse the set throughout a semester or course, name the set after the semester or course.
+- Nous vous recommandons d’ajouter des détails sur l’ensemble d’équipes dans le nom de l’ensemble. Par exemple, si vous voulez utiliser l’ensemble d’équipes pour un devoir, donnez-lui le nom du devoir. Si vous voulez réutiliser l’ensemble tout au long d’un semestre ou d’un cours, donnez-lui le nom du semestre ou du cours.
 
-- If you'd like to assign students to a specific team, give your students a name for the team and provide a list of members.
+- Si vous voulez attribuer des étudiants à une équipe spécifique, donnez-leur un nom pour l’équipe et fournissez une liste de membres.
 
 {% endtip %}
 
-![Parameters for the teams participating in a group assignment](/assets/images/help/classroom/assignments-define-teams.png)
+![Paramètres des équipes participant à un devoir de groupe](/assets/images/help/classroom/assignments-define-teams.png)
 
-### Choosing a visibility for assignment repositories
+### Choix d’une visibilité pour les dépôts de devoir
 
 {% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
@@ -80,22 +86,22 @@ If you've already created a group assignment for the classroom, you can reuse a 
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## Adding starter code and configuring a development environment
+## Ajout de code de démarrage et configuration d’un environnement de développement
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [Choix d’un modèle de dépôt](#choosing-a-template-repository)
+- [Choix d’un environnement de développement intégré (IDE)](#choosing-an-integrated-development-environment-ide)
 
-### Choosing a template repository
+### Choix d’un modèle de dépôt
 
-By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %} 
+Par défaut, un nouveau devoir crée un dépôt vide pour chaque équipe créée par un étudiant. {% data reusables.classroom.you-can-choose-a-template-repository %} 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an integrated development environment (IDE)
+### Choix d’un environnement de développement intégré (IDE)
 
-{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-online-ides %} Pour plus d’informations, consultez « [Intégrer {% data variables.product.prodname_classroom %} à un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide) ».
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
@@ -103,18 +109,18 @@ By default, a new assignment will create an empty repository for each team that 
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-## Providing feedback
+## Formulation de commentaires
 
-Optionally, you can automatically grade assignments and create a space for discussing each submission with the team.
+Vous pouvez aussi évaluer automatiquement les devoirs et créer un espace pour discuter de chaque envoi avec l’équipe.
 
-- [Testing assignments automatically](#testing-assignments-automatically)
-- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
+- [Test automatique des devoirs](#testing-assignments-automatically)
+- [Création d’une demande de tirage pour les commentaires](#creating-a-pull-request-for-feedback)
 
-### Testing assignments automatically
+### Test automatique des devoirs
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### Creating a pull request for feedback
+### Création d’une demande de tirage pour les commentaires
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -122,36 +128,36 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## Inviting students to an assignment
+## Invitation d’étudiants à un devoir
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see the teams that are working on or have submitted an assignment in the **Teams** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+Vous pouvez voir les équipes qui travaillent sur un devoir ou qui ont envoyé un devoir sous l’onglet **Équipes** du devoir. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
-## Monitoring students' progress
-The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
+## Monitoring de la progression des étudiants
+La page de présentation des devoirs montre des informations sur les devoirs que vous avez acceptés et la progression de l’équipe. Vous pouvez avoir des informations récapitulatives différentes en fonction des configurations de vos devoirs.
 
-- **Total teams**: The number of teams that have been created.
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
--  **Accepted teams**: The number of teams who have accepted this assignment.
--  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
+- **Nombre total d’équipes** : nombre d’équipes créées.
+- **Étudiants inscrits** : nombre d’étudiants sur la liste de classe.
+- **Étudiants sans équipe** : nombre d’étudiants de la liste de classe Classroom qui n’ont pas encore rejoint une équipe.
+-  **Équipes ayant accepté** : nombre d’équipes qui ont accepté ce devoir.
+-  **Envois de devoir** : nombre d’équipes qui ont envoyé le devoir. L’envoi est déclenché à l’échéance du devoir.
+-  **Équipes ayant réussi** : nombre d’équipes qui réussissent actuellement les tests d’évaluation automatique pour ce devoir.
 
-## Next steps
+## Étapes suivantes
 
-- After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- Une fois que vous avez créé le devoir et que vos étudiants ont formé des équipes, les membres d’équipe peuvent commencer à travailler sur le devoir en utilisant les fonctionnalités Git et {% data variables.product.product_name %}. Les étudiants peuvent cloner le dépôt, pousser des commits, gérer des branches, créer et réviser des demandes de tirage, résoudre les conflits de fusion et discuter sur les changements en utilisant les problèmes. L’équipe et vous-même pouvez passer en revue l’historique des commits du dépôt. Pour plus d’informations, consultez « [Bien démarrer avec {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github) », « [Dépôts](/repositories) », « [Utilisation de Git](/github/getting-started-with-github/using-git) » et « [Collaboration en utilisant les problèmes et les demandes de tirage](/github/collaborating-with-issues-and-pull-requests) », ainsi que le cours gratuit sur la [résolution des conflits de fusion](https://github.com/skills/resolve-merge-conflicts) sur {% data variables.product.prodname_learning %}.
 
-- When a team finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand how the team collaborated. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
+- Dès qu’une équipe a terminé un devoir, vous pouvez passer en revue les fichiers du dépôt ou l’historique et les visualisations du dépôt pour mieux comprendre comment l’équipe a collaboré. Pour plus d’informations, consultez « [Visualisation des données de dépôt avec des graphes](/github/visualizing-repository-data-with-graphs) ».
 
-- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
+- Vous pouvez fournir des commentaires sur un devoir en commentant des lignes ou des commits individuels dans une demande de tirage. Pour plus d’informations, consultez « [Commentaires dans une demande de tirage](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) » et « [Ouverture d’un problème à partir du code](/github/managing-your-work-on-github/opening-an-issue-from-code) ». Pour plus d’informations sur la création de réponses enregistrées afin de fournir des commentaires sur les erreurs courantes, consultez « [À propos des réponses enregistrées](/github/writing-on-github/about-saved-replies) ».
 
-## Further reading
+## Pour aller plus loin
 
-- [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
-- [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community
+- [{% data variables.product.prodname_global_campus %} pour les enseignants](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+- « [Connecter un système de gestion de l’apprentissage à une classe](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom) »
+- [Utilisation des équipes existantes dans les devoirs de groupe ?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) dans la communauté {% data variables.product.prodname_education %}

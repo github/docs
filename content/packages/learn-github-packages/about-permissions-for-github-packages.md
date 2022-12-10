@@ -10,31 +10,40 @@ versions:
 shortTitle: About permissions
 ---
 
-{% ifversion fpt or ghec %}
-The permissions for packages are either repository-scoped or user/organization-scoped.
-{% endif %}
+{% ifversion packages-registries-v2 %}
+The permissions for packages can be scoped either to a user or an organization or to a repository.
 
-## Permissions for repository-scoped packages
-
-A repository-scoped package inherits the permissions and visibility of the repository that owns the package. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page. {% ifversion fpt or ghec %}For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
-
-The {% data variables.product.prodname_registry %} registries below **only** use repository-scoped permissions:
-
-  {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
-  {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
-  - RubyGems registry
-  - Apache Maven registry
-  - NuGet registry
-
-{% ifversion packages-npm-v2 %}For {% data variables.packages.prodname_ghcr_and_npm_registry %}, you can choose to allow packages to be scoped to a user, an organization, or linked to a repository.{% endif %}
-
-{% ifversion fpt or ghec %}
 ## Granular permissions for user/organization-scoped packages
 
 Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of the package separately from a repository that is connected (or linked) to a package.
 
-Currently, the {% data variables.packages.prodname_ghcr_and_npm_registry %} offer granular permissions for your container image packages.
+The following {% data variables.product.prodname_registry %} registries support granular permissions.
 
+- {% data variables.product.prodname_container_registry %}
+{% ifversion packages-npm-v2 %}- npm registry{% endif %}
+{% ifversion packages-nuget-v2 %}- NuGet registry{% endif %}
+
+{% endif %}
+
+## Permissions for {% ifversion packages-registries-v2 %}repository-scoped {% endif %}packages
+
+A {% ifversion packages-registries-v2 %}repository-scoped {% endif %}package inherits the permissions and visibility of the repository that owns the package. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page. {% ifversion fpt or ghec %}For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
+
+{% ifversion packages-registries-v2 %}
+The following {% data variables.product.prodname_registry %} registries **only** support repository-scoped permissions.
+
+{% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
+{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
+- RubyGems registry
+- Apache Maven registry
+- Gradle registry
+{% ifversion packages-nuget-v2 %}{% else %}- NuGet registry{% endif %}
+
+For {% ifversion ghes %}the {% data variables.product.prodname_container_registry %}{% else %}other registries{% endif %}, you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. {% ifversion docker-ghcr-enterprise-migration %}For information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
+
+{% endif %}
+
+{% ifversion packages-registries-v2 %}
 ## Visibility and access permissions for container images
 
 {% data reusables.package_registry.visibility-and-access-permissions %}

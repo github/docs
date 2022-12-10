@@ -16,12 +16,12 @@ type: overview
 topics:
   - Action development
   - Fundamentals
-ms.openlocfilehash: ac933a5014750f75373fafa7f8dd52333b79a469
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 1e81bea551ceff1980b0bbe96202f60db0d0e7f2
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147154570'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191940'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -35,7 +35,7 @@ As ações podem ser executadas diretamente em uma máquina ou em um contêiner 
 
 ## Tipos de ações
 
-Você pode compilar ações do contêiner Docker e JavaScript. As ações exigem um arquivo de metadados para a definição de entradas, saídas e ponto de entrada principal para sua ação. O nome de arquivo de metadados precisa ser `action.yml` ou `action.yaml`. Para obter mais informações, confira "[Sintaxe de metadados do {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
+Você pode criar um contêiner do Docker, JavaScript e ações compostas. As ações exigem um arquivo de metadados para a definição de entradas, saídas e ponto de entrada principal para sua ação. O nome de arquivo de metadados precisa ser `action.yml` ou `action.yaml`. Para obter mais informações, confira "[Sintaxe de metadados do {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
 | Tipo | Sistema operacional |
 | ---- | ------------------- |

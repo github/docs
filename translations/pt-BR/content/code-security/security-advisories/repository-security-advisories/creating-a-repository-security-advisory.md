@@ -15,12 +15,12 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Create repository advisories
-ms.openlocfilehash: de22432173f6bf909d001a3f780b0f9943769ec0
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
+ms.openlocfilehash: 5c78a8b0c0a2d5085a876de2b0788ef093c4c6b1
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2022
-ms.locfileid: '148113955'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186152'
 ---
 Qualquer pessoa com permissões de administrador em um repositório pode criar uma consultoria de segurança.
 
@@ -29,11 +29,11 @@ Qualquer pessoa com permissões de administrador em um repositório pode criar u
 ## Como criar um aviso de segurança
 
 {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %} {% data reusables.repositories.sidebar-advisories %}
-4. Clique em **Novo rascunho de aviso de segurança** para abrir o formulário de aviso de rascunho.
+1. Clique em **Novo rascunho de aviso de segurança** para abrir o formulário de aviso de rascunho. Os campos marcados com um asterisco são obrigatórios.
   ![Botão Abrir consultoria de rascunho](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
-5. Digite um título para sua consultoria de segurança.
+1. Digite um título para sua consultoria de segurança.
 {% data reusables.repositories.security-advisory-edit-details %} {% data reusables.repositories.security-advisory-edit-severity %} {% data reusables.repositories.security-advisory-edit-cwe-cve %} {% data reusables.repositories.security-advisory-edit-description %}
-11. Clique em **Criar consultoria de segurança de rascunho**.
+1. Clique em **Criar consultoria de segurança de rascunho**.
   ![Botão Criar consultoria de segurança](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ## Próximas etapas

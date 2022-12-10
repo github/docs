@@ -13,12 +13,12 @@ shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/general'
-ms.openlocfilehash: a4adfa306873ef172950666756add7d0e67e168d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: aee951e6f57492240b5baf8870578409945aefdc
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147432014'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185192'
 ---
 ## 关于自动生成的发行说明
 
@@ -67,7 +67,9 @@ ms.locfileid: '147432014'
 | `changelog.categories[*].exclude.labels` | 不在此类别中显示拉取请求的标签列表。 |
 | `changelog.categories[*].exclude.authors` | 要从此类别中排除其拉取请求的用户或自动程序登录句柄的列表。 |
 
-### 配置示例
+### 示例配置
+
+标记 SemVer 版本的存储库配置
 
 {% raw %}
 ```yaml{:copy}
@@ -91,6 +93,26 @@ changelog:
     - title: Other Changes
       labels:
         - "*"
+```
+{% endraw %}
+
+不标记拉取请求但我们希望在发行说明中分离 {% data variables.product.prodname_dependabot %} 自动拉取请求的存储库的配置（`labels: '*'` 需要显示 catchall 类别）
+
+{% raw %}
+```yaml{:copy}
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
 ```
 {% endraw %}
 

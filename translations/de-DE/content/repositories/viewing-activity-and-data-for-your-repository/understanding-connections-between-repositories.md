@@ -1,6 +1,6 @@
 ---
 title: Zusammenhänge zwischen Repositorys verstehen
-intro: 'Die Verbindungen zwischen Repositorys kannst du besser verstehen, wenn du dir das Netzwerk und die vom Repository abhängigen Projekte und die Forks des Repositorys ansiehst.'
+intro: 'Verwende das Netzwerkdiagramm und die Liste der Forks, um ein Verständnis für Forknetzwerke zu erhalten.'
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -22,16 +22,17 @@ versions:
 topics:
   - Repositories
 shortTitle: Connections between repositories
-ms.openlocfilehash: f1b92a62d0acf9f31a16ce1b7c57850b87c1bf9c
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 46cc440093c3ca8dc0952933847a6f04b0446661
+ms.sourcegitcommit: 468a0323fa636517985a3e08e2772dbb0545cab8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147060066'
+ms.lasthandoff: 12/03/2022
+ms.locfileid: '148191358'
 ---
 ## Netzwerk eines Repositorys anzeigen
 
-Das Netzwerkdiagramm zeigt den Branch-Verlauf des gesamten Repository-Netzwerks an, einschließlich der Branches des Root-Repositorys und der Branches der Forks, die netzwerkspezifische Commits enthalten.
+Das Netzwerkdiagramm zeigt den Branchverlauf für das gesamte Repositorynetzwerk an, einschließlich der Forkbranches. Dieses Diagramm umfasst eine Zeitleiste der letzten Commits und zeigt bis zu 100 der zuletzt gepushten Branches an. Die erste Zeile zeigt das Datum, die erste Spalte den Branchbesitzer. Verwende die Pfeiltasten oder andere Tastenkombinationen, um einfacher im Diagramm zu navigieren. Sie werden im Popupfenster „Verfügbare Tastenkombinationen“ unter dem Diagramm angegeben.
+
 
 ![Repository-Netzwerkdiagramm](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -51,7 +52,7 @@ Das Netzwerkdiagramm zeigt den Branch-Verlauf des gesamten Repository-Netzwerks 
 
 Das Mitgliederdiagramm zeigt alle Forks eines Repositorys.
 
-Die Forks sind alphabetisch nach dem Benutzernamen der Person geordnet, die das Repository geforkt hat. Du kannst auf den Benutzernamen klicken, um zur {% data variables.product.product_name %}-Profilseite des Benutzers weitergeleitet zu werden, oder auf den Forknamen, um zum entsprechenden Fork des Repositorys weitergeleitet zu werden.
+Die Forks sind alphabetisch nach der Organisation oder dem Benutzernamen der Person angeordnet, die das Repository geforkt hat. Du kannst auf die Organisation oder den Benutzernamen klicken, um zur {% data variables.product.product_name %}-Profilseite der Organisation oder des Benutzers weitergeleitet zu werden, oder du kannst auf den Namen des Forks klicken, um zum spezifischen Fork des Repositorys weitergeleitet zu werden.
 
 {% ifversion fpt or ghec %}
 

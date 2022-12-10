@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Packages with Azure Blob Storage
-intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.'
+title: Azure Blob Storage で GitHub Packages を有効化する
+intro: 'Azure Blob Storage を外部ストレージとして {% data variables.product.prodname_registry %} を設定します。'
 versions:
   ghes: '*'
 type: tutorial
@@ -9,39 +9,44 @@ topics:
   - Packages
   - Storage
 shortTitle: Enable Packages with Azure
+ms.openlocfilehash: b851f698baba60323cbaaa69122cacdc92ec83c2
+ms.sourcegitcommit: 3ece72cf2d90987575d369c44101d19d3bb06f76
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190388'
 ---
-
 {% warning %}
 
-**Warnings:**
-- It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet.
-- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+**警告:**
+- {% data variables.product.company_short %} は特定のオブジェクトのアクセス許可または追加のアクセス制御リスト (ACL) をストレージバケット設定に適用しないため、ストレージバケットに必要な制限付きアクセスポリシーを設定することが重要です。 たとえば、バケットを公開すると、バケット内のデータにパブリックなインターネットからアクセスできるようになります。
+- {% data variables.product.prodname_actions %} ストレージに使用するバケットとは別に、{% data variables.product.prodname_registry %} 専用のバケットを使用することをお勧めします。
+- 今後使用予定のバケットを忘れずに設定するようにしてください。 {% data variables.product.prodname_registry %} の使用開始後にストレージを変更することはお勧めしません。
 
 {% endwarning %}
 
-## Prerequisites
+## 前提条件
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
+{% data variables.location.product_location_enterprise %}で {% data variables.product.prodname_registry %} を有効にして設定する前に、Azure Blob Storage バケットを準備する必要があります。 Azure Blob Storage バケットを準備するために、公式 [Azure Blob Storage ドキュメント サイト](https://docs.microsoft.com/en-us/azure/storage/blobs/)で公式 Azure Blob Storage ドキュメントを参照することをお勧めします。
 
-## Enabling {% data variables.product.prodname_registry %} with Azure Blob Storage
+## Azure Blob Storage で {% data variables.product.prodname_registry %} を有効化する
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
-1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
-  ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
+1. [Packages Storage] で **[Azure Blob Storage]** を選択し、パッケージストレージバケットの Azure コンテナ名と接続文字列型を入力します。
+
+    - コンテナー名と接続文字列を設定する前に、ストレージ コンテナーを作成する必要があります。
+
+  ![Azure Blob ストレージコンテナ名と接続文字列型ボックス](/assets/images/help/package-registry/azure-blob-storage-settings.png)
 
   {% note %}
 
-  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. 
-  Usage of a SAS Token or SAS URL as connection string is not currently supported.
+  **注:** Azure ストレージ アカウントの [アクセス キー] メニューに移動すると、Azure の接続文字列を見つけることができます。 
+  現在、接続文字列としての SAS トークンまたは SAS URL の使用はサポートされていません。
   
   {% endnote %}
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Next steps
+## 次の手順
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

@@ -7,18 +7,18 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-ms.openlocfilehash: bba9137fc39c1bc101a75650dcea03e651d37fff
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: 27f11aa4ae2693bcc336ecdf4cbfb68d8679d743
+ms.sourcegitcommit: 74c60a4564bcc17e47b5a67941ac6d9fe13b6a5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145089724'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186163'
 ---
 ## Für GitHub-Apps
 
 Bestimmte Apps in {% data variables.product.prodname_marketplace %} verfügen über den Badge {% octicon "verified" aria-label="The verified badge" %} sowie über eine QuickInfo mit dem Hinweis, dass die Domäne und die E-Mail-Adresse des Herausgebers verifiziert wurden. Das bedeutet, dass die App im Besitz einer Organisation ist, die folgende Anforderungen erfüllt:
 
-- Sie hat den Besitz ihrer Domäne bestätigt und verfügt über einen Badge vom Typ „Verifiziert“ für ihr Profil.
+- Sie hat den Besitz ihrer Domäne bestätigt, und ihr Profil weist den Badge „Verifiziert“ auf.
 - Sie hat ihre E-Mail-Adresse bestätigt, sodass der Support von {% data variables.product.prodname_dotcom %} die Organisation erreichen kann.
 - Sie schreibt die zweistufige Authentifizierung für ihre Organisation vor. Weitere Informationen findest du unter [Erfordern der zweistufigen Authentifizierung in deiner Organisation](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization).
 
@@ -39,7 +39,7 @@ Informationen zur Suche nach Apps findest du unter [Durchsuchen des {% data vari
 
 ## Für GitHub Actions 
 
-Bei Aktionen mit dem Badge {% octicon "verified" aria-label="The verified badge" %} oder mit dem Badge für überprüfte Ersteller wurde der Ersteller der Aktion von {% data variables.product.prodname_dotcom %} als Partnerorganisation verifiziert.
+Bei Aktionen mit dem Badge {% octicon "verified" aria-label="The verified badge" %} oder mit dem Badge für verifizierte Ersteller*innen wurde der oder die Ersteller*in der Aktion von {% data variables.product.prodname_dotcom %} als Partnerorganisation bestätigt. Partner können eine E-Mail an <a href="mailto:partnerships@github.com">partnerships@github.com</a> senden, um den Badge für verifizierte Ersteller*innen zu beantragen.
 
 ![Badge für überprüfte Ersteller für GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 

@@ -13,12 +13,12 @@ shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/general'
-ms.openlocfilehash: a4adfa306873ef172950666756add7d0e67e168d
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: aee951e6f57492240b5baf8870578409945aefdc
+ms.sourcegitcommit: 1a77ceb9e20c002173dda983db9405bcd5be254a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147432016'
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185194'
 ---
 ## Informationen zu automatisch generierten Versionshinweisen
 
@@ -67,7 +67,9 @@ Du kannst auch deine automatisierten Versionshinweise anpassen, indem du Beschri
 | `changelog.categories[*].exclude.labels` | Eine Liste der Bezeichnungen, die eine Pull Request ausschließen, die in dieser Kategorie angezeigt wird. |
 | `changelog.categories[*].exclude.authors` | Eine Liste der Benutzer*innen- oder Bot-Anmeldehhandles, deren Pull Requests aus dieser Kategorie ausgeschlossen werden sollen. |
 
-### Beispielkonfiguration
+### Beispielkonfigurationen
+
+Eine Konfiguration für ein Repository, das SemVer-Releases kennzeichnet
 
 {% raw %}
 ```yaml{:copy}
@@ -91,6 +93,26 @@ changelog:
     - title: Other Changes
       labels:
         - "*"
+```
+{% endraw %}
+
+Eine Konfiguration für ein Repository, das keine Pull Requests taggt, aber in der automatisierte {% data variables.product.prodname_dependabot %}-Pull Requests in Versionshinweisen getrennt werden sollen (`labels: '*'` ist erforderlich, um eine Catchall-Kategorie anzuzeigen)
+
+{% raw %}
+```yaml{:copy}
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
 ```
 {% endraw %}
 

@@ -9,12 +9,12 @@ versions:
 type: quick_start
 topics:
   - Codespaces
-ms.openlocfilehash: 5f97a137ec09191d5cbaa9c10aa280e10f11bbc0
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 01e4f3990cc47f61678811f7c4a77b86626fd8a5
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158646'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188265'
 ---
 {% data variables.product.prodname_github_codespaces %} は、クラウドベースのインスタント開発環境であり、コンテナーを使用して開発用の共通言語、ツール、ユーティリティを提供します。 また、{% data variables.product.prodname_github_codespaces %} は構成可能で、プロジェクトに合わせてカスタマイズされた開発環境を作成できます。 プロジェクト用のカスタム開発環境を構成することにより、プロジェクトのすべてのユーザーに対して繰り返し可能な codespace 構成を作成できます。
 
@@ -161,4 +161,4 @@ JetBrains IDE で codespace を操作する場合は、JetBrains Marketplace か
 - 「[Organization での {% data variables.product.prodname_github_codespaces %} の有効化について](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)」
 - 「[Organization で {% data variables.product.prodname_github_codespaces %} のコストを管理する](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)」
 - 「[開発コンテナー構成をリポジトリに追加する](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)」
-- 「[codespace のライフサイクル](/codespaces/developing-in-codespaces/the-codespace-lifecycle)」
+- 「[codespace のライフサイクル](/codespaces/getting-started/the-codespace-lifecycle)」

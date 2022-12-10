@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Packages with Azure Blob Storage
-intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.'
+title: Habilitar o GitHub Packages com o Azure Blob Storage
+intro: 'Configure o {% data variables.product.prodname_registry %} com o Azure Blob Storage como seu armazenamento externo.'
 versions:
   ghes: '*'
 type: tutorial
@@ -9,39 +9,44 @@ topics:
   - Packages
   - Storage
 shortTitle: Enable Packages with Azure
+ms.openlocfilehash: b851f698baba60323cbaaa69122cacdc92ec83c2
+ms.sourcegitcommit: 3ece72cf2d90987575d369c44101d19d3bb06f76
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/02/2022
+ms.locfileid: '148190384'
 ---
-
 {% warning %}
 
-**Warnings:**
-- It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet.
-- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+**Avisos:**
+- É fundamental que você defina as políticas de acesso restritivas necessárias para o seu bucket de armazenamento, porque {% data variables.product.company_short %} não aplica permissões específicas de objeto ou listas de controle de acesso adicionais (ACLs) à sua configuração do bucket de armazenamento. Por exemplo, se você tornar o seu bucket público, os dados no bucket poderão ser acessados através da Internet pública.
+- Recomendamos usar um bucket dedicado para {% data variables.product.prodname_registry %}, separar do bucket que você usa para o armazenamento de {% data variables.product.prodname_actions %}.
+- Certifique-se de configurar o bucket que você vai querer usar no futuro. Não recomendamos alterar seu armazenamento depois de começar a usar {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
 
-## Prerequisites
+## Pré-requisitos
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your Azure Blob storage bucket. To prepare your Azure Blob storage bucket, we recommend consulting the official Azure Blob storage docs at the official [Azure Blob Storage documentation site](https://docs.microsoft.com/en-us/azure/storage/blobs/).
+Para conseguir habilitar e configurar {% data variables.product.prodname_registry %} no {% data variables.location.product_location_enterprise %}, você precisa preparar o bucket do seu armazenamento de Blobs do Azure. Para preparar o bucket de armazenamento de Blobs do Azure, recomendamos consultar a documentação oficial do Armazenamento de Blobs do Azure no [site oficial da documentação do Armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/blobs/).
 
-## Enabling {% data variables.product.prodname_registry %} with Azure Blob Storage
+## Habilitar {% data variables.product.prodname_registry %} com o Azure Blob Storage
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-{% data reusables.package_registry.enable-enterprise-github-packages %}
-1. Under "Packages Storage", select **Azure Blob Storage** and enter your Azure container name for your packages storage bucket and connection string.
-  ![Azure Blob storage container name and connection string boxes](/assets/images/help/package-registry/azure-blob-storage-settings.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %} {% data reusables.package_registry.enable-enterprise-github-packages %}
+1. Em "Pacotes de Armazenamento", selecione **Armazenamento de Blobs do Azure** e insira o nome do contêiner do Azure para o bucket de armazenamento de pacotes e a cadeia de conexão.
+
+    - Você precisa criar um contêiner de armazenamento antes de definir o nome do contêiner e a cadeia de conexão.
+
+  ![Nome do contêiner do Armazenamento de Blobs do Azure e caixas da cadeia de conexão](/assets/images/help/package-registry/azure-blob-storage-settings.png)
 
   {% note %}
 
-  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. 
-  Usage of a SAS Token or SAS URL as connection string is not currently supported.
+  **Observação:** você pode encontrar sua Cadeia de Conexão do Azure navegando até o menu Chave de Acesso em sua conta de armazenamento do Azure. 
+  No momento, não há suporte para o uso de um Token SAS ou URL SAS como cadeia de conexão.
   
   {% endnote %}
 
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Next steps
+## Próximas etapas
 
 {% data reusables.package_registry.next-steps-for-packages-enterprise-setup %}

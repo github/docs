@@ -1,5 +1,6 @@
 ---
 title: Hinzufügen von Bezeichnungen zu Issues
+shortTitle: Add labels to issues
 intro: 'Du kannst {% data variables.product.prodname_actions %} verwenden, um Issues automatisch zu bezeichnen.'
 redirect_from:
   - /actions/guides/adding-labels-to-issues
@@ -12,32 +13,30 @@ type: tutorial
 topics:
   - Workflows
   - Project management
-ms.openlocfilehash: 8e80990a1a533ed303f47cbad8dafb95c890893d
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.openlocfilehash: a3523069b9422ecd8107007ca5e00fb0071dd738
+ms.sourcegitcommit: 4d6d3735d32540cb6de3b95ea9a75b8b247c580d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147884309'
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148185561'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Einführung
 
-In diesem Tutorial wird veranschaulicht, wie du die [`andymckay/labeler`-Aktion](https://github.com/marketplace/actions/simple-issue-labeler) in einem Workflow verwendest, um neue oder erneut geöffnete Issues zu bezeichnen. Beispielsweise kannst du jedes Mal die Bezeichnung `triage` hinzufügen, wenn ein Issue geöffnet oder erneut geöffnet wird. So kannst du alle Issues, die selektiert werden müssen, durch Filtern nach Issues mit der Bezeichnung `triage` anzeigen.
+In diesem Tutorial wird veranschaulicht, wie du die [`actions/github-script`-Aktion](https://github.com/marketplace/actions/github-script) in einem Workflow verwendest, um neue oder erneut geöffnete Issues zu bezeichnen. Beispielsweise kannst du jedes Mal die Bezeichnung `triage` hinzufügen, wenn ein Issue geöffnet oder erneut geöffnet wird. So kannst du alle Issues, die selektiert werden müssen, durch Filtern nach Issues mit der Bezeichnung `triage` anzeigen.
 
-In diesem Tutorial erstellst du zunächst eine Workflowdatei, die die [`andymckay/labeler`-Aktion](https://github.com/marketplace/actions/simple-issue-labeler) verwendet. Im Anschluss passt du den Workflow an deine Anforderungen an.
+Mit der Aktion `actions/github-script` kannst du die {% data variables.product.prodname_dotcom %}-API problemlos in einem Workflow verwenden.
+
+In diesem Tutorial erstellst du zunächst eine Workflowdatei, die die [`actions/github-script`-Aktion](https://github.com/marketplace/actions/github-script) verwendet. Im Anschluss passt du den Workflow an deine Anforderungen an.
 
 ## Erstellen des Workflows
 
 1. {% data reusables.actions.choose-repo %}
 2. {% data reusables.actions.make-workflow-file %}
 3. Kopiere den folgenden YAML-Inhalt in deine Workflowdatei.
-
+  
     ```yaml{:copy}
-{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
-
-{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
-
     name: Label issues
     on:
       issues:
@@ -50,15 +49,20 @@ In diesem Tutorial erstellst du zunächst eine Workflowdatei, die die [`andymcka
         permissions:
           issues: write
         steps:
-          - name: Label issues
-            uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+          - uses: {% data reusables.actions.action-github-script %}
             with:
-              add-labels: "triage"
-              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              script: |
+                github.rest.issues.addLabels({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  labels: ["triage"]
+                })
     ```
 
-4. Passe die Parameter in deiner Workflowdatei an:
-   - Ändere den Wert für `add-labels` in die Liste der Bezeichnungen, die du dem Issue hinzufügen möchtest. Trenne mehrere Bezeichnungen durch Kommas voneinander ab. Beispiel: `"help wanted, good first issue"`. Weitere Informationen zu Bezeichnungen findest du unter [Verwalten von Bezeichnungen](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests).
+4. Passe den `script`-Parameter in deiner Workflowdatei an:
+   - Die Werte von `issue_number`, `owner`, und `repo` werden automatisch mithilfe des `context`-Objekts festgelegt. Du musst sie nicht ändern.
+   - Ändere den Wert für `labels` in die Liste der Bezeichnungen, die du dem Issue hinzufügen möchtest. Trenne mehrere Bezeichnungen durch Kommas voneinander ab. Beispiel: `["help wanted", "good first issue"]`. Weitere Informationen zu Bezeichnungen findest du unter [Verwalten von Bezeichnungen](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests).
 5. {% data reusables.actions.commit-workflow %}
 
 ## Testen des Workflows
@@ -73,6 +77,6 @@ Teste deinen Workflow, indem du ein Issue in deinem Repository erstellst.
 
 ## Nächste Schritte
 
-- Weitere Informationen zu zusätzlichen Optionen, die du mit der `andymckay/labeler`-Aktion durchführen kannst, findest du in der [`andymckay/labeler`-Aktionsdokumentation](https://github.com/marketplace/actions/simple-issue-labeler). Dazu gehört z. B. das Entfernen von Bezeichnungen oder das Überspringen dieser Aktion, wenn das Issue zugewiesen ist oder eine bestimmte Bezeichnung aufweist.
-- Weitere Informationen zu verschiedenen Ereignissen, die deinen Workflow auslösen können, findest du unter [Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows#issues). Die `andymckay/labeler`-Aktion funktioniert nur für `issues`-, `pull_request`- oder `project_card`-Ereignisse.
-- [Durchsuche GitHub](https://github.com/search?q=%22uses:+andymckay/labeler%22&type=code) nach Beispielen für Workflows, die diese Aktion verwenden.
+- Weitere Informationen zu weiteren Optionen für die Aktion `actions/github-script` findest du in der [Dokumentation zur Aktion `actions/github-script`](https://github.com/marketplace/actions/github-script).
+- Weitere Informationen zu verschiedenen Ereignissen, die deinen Workflow auslösen können, findest du unter [Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows#issues).
+- [Durchsuche GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) nach Beispielen für Workflows, die diese Aktion verwenden.

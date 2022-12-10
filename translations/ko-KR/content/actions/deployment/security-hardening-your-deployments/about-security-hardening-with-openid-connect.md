@@ -1,7 +1,7 @@
 ---
-title: About security hardening with OpenID Connect
+title: OpenID Connect를 사용한 보안 강화 정보
 shortTitle: Security hardening with OpenID Connect
-intro: OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.
+intro: OpenID Connect를 사용하면 워크플로가 클라우드 공급자에서 직접 단기 토큰을 교환할 수 있습니다.
 miniTocMaxHeadingLevel: 4
 versions:
   fpt: '*'
@@ -10,50 +10,54 @@ versions:
 type: tutorial
 topics:
   - Security
+ms.openlocfilehash: 90a2f8c6cb2114f060bfbd0f422cb1ef6dbca604
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148192033'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## OpenID Connect 개요
 
-## Overview of OpenID Connect
+{% data variables.product.prodname_actions %} 워크플로는 종종 소프트웨어를 배포하거나 클라우드의 서비스를 사용하기 위해 클라우드 공급자(예: AWS, Azure, GCP 또는 HashiCorp Vault)에 액세스하도록 설계되었습니다. 워크플로가 이러한 리소스에 액세스하기 전에 클라우드 공급자에게 암호 또는 토큰과 같은 자격 증명을 제공합니다. 이러한 자격 증명은 일반적으로 {% data variables.product.prodname_dotcom %}에 비밀로 저장되며 워크플로는 실행될 때마다 클라우드 공급자에게 이 비밀을 제공합니다. 
 
-{% data variables.product.prodname_actions %} workflows are often designed to access a cloud provider (such as AWS, Azure, GCP, or HashiCorp Vault) in order to deploy software or use the cloud's services. Before the workflow can access these resources, it will supply credentials, such as a password or token, to the cloud provider. These credentials are usually stored as a secret in {% data variables.product.prodname_dotcom %}, and the workflow presents this secret to the cloud provider every time it runs. 
+그러나 하드 코딩된 비밀을 사용하려면 클라우드 공급자에서 자격 증명을 만든 다음, {% data variables.product.prodname_dotcom %}에서 비밀로 복제해야 합니다. 
 
-However, using hardcoded secrets requires you to create credentials in the cloud provider and then duplicate them in {% data variables.product.prodname_dotcom %} as a secret. 
+OIDC(OpenID Connect)를 사용하면 클라우드 공급자에게 직접 수명이 짧은 액세스 토큰을 요청하도록 워크플로를 구성하여 다른 접근 방식을 취할 수 있습니다. 또한 클라우드 공급자는 OIDC를 지원해야 하며, 액세스 토큰을 요청할 수 있는 워크플로를 제어하는 트러스트 관계를 구성해야 합니다. 현재 OIDC를 지원하는 공급자로는 Amazon Web Services, Azure, Google Cloud Platform 및 HashiCorp Vault 등이 있습니다.
 
-With OpenID Connect (OIDC), you can take a different approach by configuring your workflow to request a short-lived access token directly from the cloud provider. Your cloud provider also needs to support OIDC on their end, and you must configure a trust relationship that controls which workflows are able to request the access tokens. Providers that currently support OIDC include Amazon Web Services, Azure, Google Cloud Platform, and HashiCorp Vault, among others.
+### OIDC 사용의 장점
 
-### Benefits of using OIDC
+OIDC 토큰을 사용하도록 워크플로를 업데이트하면 다음과 같은 적절한 보안 사례를 채택할 수 있습니다.
 
-By updating your workflows to use OIDC tokens, you can adopt the following good security practices:
+- **클라우드 비밀 없음**: 수명이 긴 {% data variables.product.prodname_dotcom %} 비밀로 클라우드 자격 증명을 복제할 필요가 없습니다. 대신 클라우드 공급자에서 OIDC 트러스트를 구성한 다음, 워크플로를 업데이트하여 OIDC를 통해 클라우드 공급자로부터 단기 액세스 토큰을 요청할 수 있습니다. 
+- **인증 및 권한 부여 관리**: 워크플로가 자격 증명을 사용하고 클라우드 공급자의 인증(authN) 및 권한 부여(authZ) 도구를 사용하여 클라우드 리소스에 대한 액세스를 제어하는 방법을 보다 세부적으로 제어할 수 있습니다.
+- **자격 증명 순환**: OIDC를 사용하면 클라우드 공급자가 단일 작업에만 유효한 수명이 짧은 액세스 토큰을 발급한 다음, 자동으로 만료됩니다.
 
-- **No cloud secrets**: You won't need to duplicate your cloud credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. Instead, you can configure the OIDC trust on your cloud provider, and then update your workflows to request a short-lived access token from the cloud provider through OIDC. 
-- **Authentication and authorization management**: You have more granular control over how workflows can use credentials, using your cloud provider's authentication (authN) and authorization (authZ) tools to control access to cloud resources.
-- **Rotating credentials**: With OIDC, your cloud provider issues a short-lived access token that is only valid for a single job, and then automatically expires.
+### OIDC 시작
 
-### Getting started with OIDC
+다음 다이어그램에서는 {% data variables.product.prodname_dotcom %}의 OIDC 공급자가 워크플로 및 클라우드 공급자와 통합되는 방법에 대한 개요를 제공합니다.
 
-The following diagram gives an overview of how {% data variables.product.prodname_dotcom %}'s OIDC provider integrates with your workflows and cloud provider:
+![OIDC 다이어그램](/assets/images/help/images/oidc-architecture.png)
 
-![OIDC diagram](/assets/images/help/images/oidc-architecture.png)
+1. 클라우드 공급자에서 클라우드에 액세스해야 하는 클라우드 역할과 {% data variables.product.prodname_dotcom %} 워크플로 간에 OIDC 트러스트를 만듭니다.
+2. 작업이 실행될 때마다 {% data variables.product.prodname_dotcom %}의 OIDC 공급자는 OIDC 토큰을 자동으로 생성합니다. 이 토큰에는 인증하려는 특정 워크플로에 대해 보안이 강화되고 확인 가능한 ID를 설정하는 여러 클레임이 포함되어 있습니다.
+3. {% data variables.product.prodname_dotcom %}의 OIDC 공급자에서 이 토큰을 요청하고 클라우드 공급자에게 표시하는 단계 또는 동작을 작업에 포함할 수 있습니다.
+4. 클라우드 공급자가 토큰에 제공된 클레임의 유효성을 성공적으로 검사하면 작업 기간 동안에만 사용할 수 있는 수명이 짧은 클라우드 액세스 토큰을 제공합니다.
 
-1. In your cloud provider, create an OIDC trust between your cloud role and your {% data variables.product.prodname_dotcom %} workflow(s) that need access to the cloud.
-2. Every time your job runs, {% data variables.product.prodname_dotcom %}'s OIDC Provider auto-generates an OIDC token. This token contains multiple claims to establish a security-hardened and verifiable identity about the specific workflow that is trying to authenticate.
-3. You could include a step or action in your job to request this token from {% data variables.product.prodname_dotcom %}'s OIDC provider, and present it to the cloud provider.
-4. Once the cloud provider successfully validates the claims presented in the token, it then provides a short-lived cloud access token that is available only for the duration of the job.
+## 클라우드를 사용하여 OIDC 트러스트 구성
 
-## Configuring the OIDC trust with the cloud
+{% data variables.product.prodname_dotcom %}의 OIDC 공급자를 신뢰하도록 클라우드를 구성하는 경우 신뢰할 수 없는 리포지토리 또는 워크플로가 클라우드 리소스에 대한 액세스 토큰을 요청할 수 없도록 들어오는 요청을 필터링하는 조건을 추가 **해야 합니다**.
 
-When you configure your cloud to trust {% data variables.product.prodname_dotcom %}'s OIDC provider, you **must** add conditions that filter incoming requests, so that untrusted repositories or workflows can’t request access tokens for your cloud resources:
-
-- Before granting an access token, your cloud provider checks that the [`subject`](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and other claims used to set conditions in its trust settings match those in the request's JSON Web Token (JWT). As a result, you must take care to correctly define the _subject_ and other conditions in your cloud provider.
-- The OIDC trust configuration steps and the syntax to set conditions for cloud roles (using _Subject_ and other claims) will vary depending on which cloud provider you're using. For some examples, see "[Example subject claims](#example-subject-claims)."
+- 액세스 토큰을 부여하기 전에 클라우드 공급자는 트러스트 설정에서 조건을 설정하는 데 사용되는 [`subject`](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) 및 기타 클레임이 요청의 JWT(JSON Web Token)의 클레임과 일치하는지 확인합니다. 따라서 클라우드 공급자에서 _주체_ 및 기타 조건을 올바르게 정의하기 위해 주의해야 합니다.
+- OIDC 트러스트 구성 단계 및 클라우드 역할에 대한 조건을 설정(_주체_ 및 기타 클레임 사용)하는 구문은 사용 중인 클라우드 공급자에 따라 달라집니다. 몇 가지 예제는 "[주체 클레임 예제](#example-subject-claims)"를 참조하세요.
  
-### Understanding the OIDC token
+### OIDC 토큰 이해
 
-Each job requests an OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider, which responds with an automatically generated JSON web token (JWT) that is unique for each workflow job where it is generated. When the job runs, the OIDC token is presented to the cloud provider. To validate the token, the cloud provider checks if the OIDC token's subject and other claims are a match for the conditions that were preconfigured on the cloud role's OIDC trust definition.
+각 작업은 {% data variables.product.prodname_dotcom %}의 OIDC 공급자로부터 OIDC 토큰을 요청합니다. 이 공급자는 생성된 각 워크플로 작업에 대해 고유한 자동으로 생성된 JWT(JSON Web Token)로 응답합니다. 작업이 실행되면 클라우드 공급자에게 OIDC 토큰이 표시됩니다. 토큰의 유효성을 검사하기 위해 클라우드 공급자는 OIDC 토큰의 주체 및 기타 클레임이 클라우드 역할의 OIDC 트러스트 정의에 미리 구성된 조건과 일치하는지 확인합니다.
 
-The following example OIDC token uses a subject (`sub`) that references a job environment named `prod` in the `octo-org/octo-repo` repository.
+다음 예제 OIDC 토큰은 `octo-org/octo-repo` 리포지토리에 `sub`라는 작업 환경을 참조하는 주체(`prod`)를 사용합니다.
 
 ```yaml
 {
@@ -92,121 +96,120 @@ The following example OIDC token uses a subject (`sub`) that references a job en
 }
 ```
 
-To see all the claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, review the `claims_supported` entries at 
-{% ifversion ghes %}`https://HOSTNAME/_services/token/.well-known/openid-configuration`{% else %}https://token.actions.githubusercontent.com/.well-known/openid-configuration{% endif %}.
+{% data variables.product.prodname_dotcom %}의 OIDC 공급자에서 지원하는 모든 클레임을 보려면 {% ifversion ghes %}`https://HOSTNAME/_services/token/.well-known/openid-configuration`{% else %} https://token.actions.githubusercontent.com/.well-known/openid-configuration{% endif %}에서 `claims_supported` 항목을 검토합니다.
 
-The token includes the standard audience, issuer, and subject claims:
+토큰에는 표준 대상 그룹, 발급자 및 주체 클레임이 포함됩니다.
 
-|    Claim    | Description            |
+|    클레임    | 설명            |
 | ----------- | ---------------------- |
-| `aud`| _(Audience)_ By default, this is the URL of the repository owner, such as the organization that owns the repository. This is the only claim that can be customized. You can set a custom audience with a toolkit command: [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0)          | 
-| `iss`| _(Issuer)_ The issuer of the OIDC token: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}                   | 
-| `sub`| _(Subject)_ Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way.|
+| `aud`| _(대상 그룹)_ 기본적으로 리포지토리를 소유하는 조직과 같은 리포지토리 소유자의 URL입니다. 사용자 지정할 수 있는 유일한 클레임입니다. 도구 키트 명령 [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0)을 사용하여 사용자 지정 대상 그룹을 설정할 수 있습니다.          | 
+| `iss`| _(발급자)_ OIDC 토큰의 발급자: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}                   | 
+| `sub`| _(주체)_ 클라우드 공급자가 유효성을 검사할 주체 클레임을 정의합니다. 이 설정은 액세스 토큰이 예측 가능한 방식으로만 할당되도록 하는 데 필수적입니다.|
 
-The OIDC token also includes additional standard claims:
+OIDC 토큰에는 추가 표준 클레임도 포함됩니다.
 
-|    Claim    | Description            |
+|    클레임    | 설명            |
 | ----------- | ---------------------- |
-| `alg`| _(Algorithm)_ The algorithm used by the OIDC provider.                    | 
-| `exp`| _(Expires at)_ Identifies the expiry time of the JWT.                    | 
-| `iat`| _(Issued at)_ The time when the JWT was issued.                   | 
-| `jti`| _(JWT token identifier)_ Unique identifier for the OIDC token.                   | 
-| `kid`| _(Key identifier)_ Unique key for the OIDC token.                   | 
-| `nbf`| _(Not before)_ JWT is not valid for use before this time.                   | 
-| `typ`| _(Type)_ Describes the type of token. This is a JSON Web Token (JWT).                   | 
+| `alg`| _(알고리즘)_ OIDC 공급자가 사용하는 알고리즘입니다.                    | 
+| `exp`| _(만료 날짜)_ JWT의 만료 시간을 식별합니다.                    | 
+| `iat`| _(발급 시간)_ JWT가 발급된 시간입니다.                   | 
+| `jti`| _(JWT 토큰 식별자)_ OIDC 토큰의 고유 식별자입니다.                   | 
+| `kid`| _(키 식별자)_ OIDC 토큰의 고유 키입니다.                   | 
+| `nbf`| _(이전이 아님)_ 이 시간 전에는 JWT를 사용할 수 없습니다.                   | 
+| `typ`| _(유형)_ 토큰의 유형을 설명합니다. JWT(JSON Web Token)입니다.                   | 
 
-The token also includes custom claims provided by {% data variables.product.prodname_dotcom %}:
+토큰에는 {% data variables.product.prodname_dotcom %}가 제공하는 사용자 지정 클레임도 포함됩니다.
 
-|    Claim    | Description            |
+|    클레임    | 설명            |
 | ----------- | ---------------------- |
-| `actor`| The personal account that initiated the workflow run.                   | 
-| `actor_id`| The ID of personal account that initiated the workflow run.             |
-| `base_ref`| The target branch of the pull request in a workflow run.                   | 
-| `environment`| The name of the environment used by the job.                    | 
-| `event_name`| The name of the event that triggered the workflow run.                    | 
-| `head_ref`| The source branch of the pull request in a workflow run.                   | 
-| `job_workflow_ref`| This is the ref path to the reusable workflow used by this job. For more information, see "["Using OpenID Connect with reusable workflows"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  | 
-| `ref`| _(Reference)_ The git ref that triggered the workflow run.                   | 
-| `ref_type`| The type of `ref`, for example: "branch".                  | 
-| `repository_visibility` | The visibility of the repository where the workflow is running. Accepts the following values: `internal`, `private`, or `public`.                   | 
-| `repository`| The repository from where the workflow is running.                   | 
-| `repository_id`| The ID of the repository from where the workflow is running.  |
-| `repository_owner`| The name of the organization in which the `repository` is stored.                   | 
-| `repository_owner_id`| The ID of the organization in which the `repository` is stored.            |
-| `run_id`| The ID of the workflow run that triggered the workflow.                   | 
-| `run_number`| The number of times this workflow has been run.                   | 
-| `run_attempt`| The number of times this workflow run has been retried.                    | 
-| `workflow`| The name of the workflow.                   | 
+| `actor`| 워크플로 실행을 시작한 개인 계정입니다.                   | 
+| `actor_id`| 워크플로 실행을 시작한 개인 계정의 ID입니다.             |
+| `base_ref`| 워크플로 실행에서 끌어오기 요청의 대상 분기입니다.                   | 
+| `environment`| 작업에 사용되는 환경의 이름입니다.                    | 
+| `event_name`| 워크플로 실행을 트리거한 이벤트의 이름입니다.                    | 
+| `head_ref`| 워크플로 실행에서 끌어오기 요청의 소스 분기입니다.                   | 
+| `job_workflow_ref`| 이 작업에서 사용하는 재사용 가능한 워크플로의 참조 경로입니다. 자세한 내용은 “[재사용 가능한 워크플로에서 OpenID Connect 사용](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)”을 참조하세요.                  | 
+| `ref`| _(참조)_ 워크플로 실행을 트리거한 git 참조입니다.                   | 
+| `ref_type`| `ref`의 유형(예: "branch")입니다.                  | 
+| `repository_visibility` | 워크플로가 실행 중인 리포지토리의 표시 여부입니다. 값 `internal`, `private` 또는 `public` 중에서 수락합니다.                   | 
+| `repository`| 워크플로가 실행 중인 리포지토리입니다.                   | 
+| `repository_id`| 워크플로가 실행 중인 리포지토리의 ID입니다.  |
+| `repository_owner`| `repository`가 저장되는 조직의 이름입니다.                   | 
+| `repository_owner_id`| `repository`가 저장되는 조직의 ID입니다.            |
+| `run_id`| 워크플로를 트리거한 워크플로 실행의 ID입니다.                   | 
+| `run_number`| 이 워크플로가 실행된 횟수입니다.                   | 
+| `run_attempt`| 이 워크플로가 다시 시도된 횟수입니다.                    | 
+| `workflow`| 워크플로의 이름입니다.                   | 
 
-### Defining trust conditions on cloud roles using OIDC claims
+### OIDC 클레임을 사용하여 클라우드 역할에 대한 트러스트 조건 정의
 
-With OIDC, a {% data variables.product.prodname_actions %} workflow requires a token in order to access resources in your cloud provider. The workflow requests an access token from your cloud provider, which checks the details presented by the JWT. If the trust configuration in the JWT is a match, your cloud provider responds by issuing a temporary token to the workflow, which can then be used to access resources in your cloud provider. You can configure your cloud provider to only respond to requests that originate from a specific organization's repository; you can also specify additional conditions, described below.
+OIDC를 사용하면 클라우드 공급자의 리소스에 액세스하기 위해 {% data variables.product.prodname_actions %} 워크플로에 토큰이 필요합니다. 워크플로는 클라우드 공급자로부터 JWT에서 제공하는 세부 정보를 확인하는 액세스 토큰을 요청합니다. JWT의 트러스트 구성이 일치하는 경우 클라우드 공급자는 워크플로에 임시 토큰을 발급하여 응답합니다. 그러면 클라우드 공급자의 리소스에 액세스하는 데 이 임시 토큰을 사용할 수 있습니다. 특정 조직의 리포지토리에서 시작된 요청에만 응답하도록 클라우드 공급자를 구성할 수 있습니다. 아래에 설명된 추가 조건을 지정할 수도 있습니다.
 
-Audience and Subject claims are typically used in combination while setting conditions on the cloud role/resources to scope its access to the GitHub workflows.
-- **Audience**: By default, this value uses the URL of the organization or repository owner. This can be used to set a condition that only the workflows in the specific organization can access the cloud role.
-- **Subject**: By default, has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch, or associated [`job`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idenvironment) environment. See "[Example subject claims](#example-subject-claims)" to see how the subject claim is assembled from concatenated metadata.
+대상 그룹 및 주체 클레임은 일반적으로 클라우드 역할/리소스에 대한 조건을 설정하여 GitHub 워크플로에 대한 액세스 범위를 지정할 때 함께 사용됩니다.
+- **대상 그룹**: 기본적으로 이 값은 조직 또는 리포지토리 소유자의 URL을 사용합니다. 특정 조직의 워크플로만 클라우드 역할에 액세스할 수 있는 조건을 설정하는 데 사용할 수 있습니다.
+- **주체**: 기본적으로 미리 정의된 형식을 가지며 {% data variables.product.prodname_dotcom %} 조직, 리포지토리, 분기 또는 연결된 [`job`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idenvironment) 환경과 같은 워크플로에 대한 일부 주요 메타데이터를 연결한 것입니다. 연결된 메타데이터에서 주체 클레임이 어셈블되는 방법을 보려면 "[주체 클레임 예제](#example-subject-claims)"를 참조하세요.
 
-If you need more granular trust conditions, you can customize the issuer (`iss`) and subject (`sub`) claims that are included with the JWT. For more information, see "[Customizing the token claims](#customizing-the-token-claims)".
+보다 세부적인 신뢰 조건이 필요한 경우 JWT에 포함된 발급자(`iss`) 및 주체(`sub`) 클레임을 사용자 지정할 수 있습니다. 자세한 내용은 “[토큰 클레임 사용자 지정](#customizing-the-token-claims)”을 참조하세요.
 
-There are also many additional claims supported in the OIDC token that can be used for setting these conditions. In addition, your cloud provider could allow you to assign a role to the access tokens, letting you specify even more granular permissions.
+이러한 조건을 설정하는 데 사용할 수 있는 OIDC 토큰에서 지원되는 많은 추가 클레임이 있습니다. 또한 클라우드 공급자를 사용하면 액세스 토큰에 역할을 할당할 수 있으므로 보다 세부적인 권한을 지정할 수 있습니다.
 
 {% note %}
 
-**Note**: To control how your cloud provider issues access tokens, you **must** define at least one condition, so that untrusted repositories can’t request access tokens for your cloud resources.
+**참고**: 클라우드 공급자가 액세스 토큰을 발급하는 방법을 제어하려면 신뢰할 수 없는 리포지토리가 클라우드 리소스에 대한 액세스 토큰을 요청할 수 없도록 하나 이상의 조건을 정의 **해야 합니다**.
 
 {% endnote %}
 
-### Example subject claims
+### 주체 클레임 예제
 
-The following examples demonstrate how to use "Subject" as a condition, and explain how the "Subject" is assembled from concatenated metadata. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
+다음 예제에서는 "주체"를 조건으로 사용하는 방법과 연결된 메타데이터에서 "주체"가 어셈블되는 방법을 설명합니다. [주체](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims)는 [`job` 컨텍스트](/actions/learn-github-actions/contexts#job-context)의 정보를 사용하며, 특정 분기, 환경에서 실행되는 워크플로의 요청에 대해서만 액세스 토큰 요청을 부여할 수 있음을 클라우드 공급자에 알립니다. 다음 섹션에서는 사용할 수 있는 몇 가지 일반적인 주체에 대해 설명합니다.
 
-#### Filtering for a specific environment
+#### 특정 환경에 대한 필터링
 
-The subject claim includes the environment name when the job references an environment.
+주체 클레임에는 작업이 환경을 참조할 때의 환경 이름이 포함됩니다.
 
-You can configure a subject that filters for a specific [environment](/actions/deployment/using-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
-
-|        |             |
-| ------ | ----------- |
-| Syntax: | `repo:<orgName/repoName>:environment:<environmentName>`      | 
-| Example:| `repo:octo-org/octo-repo:environment:Production`       |
-
-#### Filtering for `pull_request` events
-
-The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event, but only if the job doesn't reference an environment.
-
-You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+특정 [환경](/actions/deployment/using-environments-for-deployment) 이름을 필터링하는 주체를 구성할 수 있습니다. 이 예제에서 워크플로 실행은 `octo-org` 조직이 소유한 `octo-repo`라는 리포지토리에 `Production`이라는 환경이 있는 작업에서 시작되어야 합니다.
 
 |        |             |
 | ------ | ----------- |
-| Syntax: | `repo:<orgName/repoName>:pull_request`      | 
-| Example:| `repo:octo-org/octo-repo:pull_request`      |
+| 구문 | `repo:<orgName/repoName>:environment:<environmentName>`      | 
+| 예제:| `repo:octo-org/octo-repo:environment:Production`       |
 
-#### Filtering for a specific branch
+#### `pull_request` 이벤트 필터링
 
-The subject claim includes the branch name of the workflow, but only if the job doesn't reference an environment, and if the workflow is not triggered by a pull request event.
+워크플로가 끌어오기 요청 이벤트에 의해 트리거되는 경우 주체 클레임에 `pull_request` 문자열이 포함됩니다. 단, 작업에서 환경을 참조하지 않아야만 합니다.
 
-You can configure a subject that filters for a specific branch name. In this example, the workflow run must have originated from a branch named `demo-branch`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
-
-|        |             |
-| ------ | ----------- |
-| Syntax: | `repo:<orgName/repoName>:ref:refs/heads/branchName`      | 
-| Example:| `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`      |
-
-#### Filtering for a specific tag
-
-The subject claim includes the tag name of the workflow, but only if the job doesn't reference an environment, and if the workflow is not triggered by a pull request event.
-
-You can create a subject that filters for specific tag. In this example, the workflow run must have originated with a tag named `demo-tag`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
+[`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) 이벤트를 필터링하는 주체를 구성할 수 있습니다. 이 예제에서 워크플로 실행은 `octo-org` 조직이 소유한 `octo-repo`라는 리포지토리의 `pull_request` 이벤트에 의해 트리거되어야 합니다.
 
 |        |             |
 | ------ | ----------- |
-| Syntax: | `repo:<orgName/repoName>:ref:refs/tags/<tagName>`      | 
-| Example:| `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`      |
+| 구문 | `repo:<orgName/repoName>:pull_request`      | 
+| 예제:| `repo:octo-org/octo-repo:pull_request`      |
 
-### Configuring the subject in your cloud provider
+#### 특정 분기 필터링
 
-To configure the subject in your cloud provider's trust relationship, you must add the subject string to its trust configuration. The following examples demonstrate how various cloud providers can accept the same `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` subject in different ways:
+주체 클레임에는 워크플로의 분기 이름이 포함됩니다. 단, 작업이 환경을 참조하지 않고 워크플로가 끌어오기 요청 이벤트에 의해 트리거되지 않는 경우에만 해당됩니다.
+
+특정 분기 이름을 필터링하는 주체를 구성할 수 있습니다. 이 예제에서 워크플로 실행은 `octo-org` 조직이 소유한 `octo-repo`라는 리포지토리에 `demo-branch`라는 분기에서 시작되어야 합니다.
+
+|        |             |
+| ------ | ----------- |
+| 구문 | `repo:<orgName/repoName>:ref:refs/heads/branchName`      | 
+| 예제:| `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`      |
+
+#### 특정 태그 필터링
+
+주체 클레임에는 워크플로의 태그 이름이 포함됩니다. 단, 작업이 환경을 참조하지 않고 워크플로가 끌어오기 요청 이벤트에 의해 트리거되지 않는 경우에만 해당됩니다.
+
+특정 태그를 필터링하는 주체를 만들 수 있습니다. 이 예제에서 워크플로 실행은 `octo-org` 조직이 소유한 `octo-repo`라는 리포지토리의 `demo-tag` 태그로 시작되어야 합니다.
+
+|        |             |
+| ------ | ----------- |
+| 구문 | `repo:<orgName/repoName>:ref:refs/tags/<tagName>`      | 
+| 예제:| `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`      |
+
+### 클라우드 공급자에서 주체 구성
+
+클라우드 공급자의 트러스트 관계에서 주체를 구성하려면 해당 트러스트 구성에 주체 문자열을 추가해야 합니다. 다음 예제에서는 다양한 클라우드 공급자가 서로 다른 방식으로 동일한 `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` 주체를 수락하는 방법을 보여 줍니다.
 
 |        |             |
 | ------ | ----------- |
@@ -215,54 +218,54 @@ To configure the subject in your cloud provider's trust relationship, you must a
 | Google Cloud Platform| `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')`      |
 | HashiCorp Vault| `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch" `      |
 
-For more information, see the guides listed in "[Enabling OpenID Connect for your cloud provider](#enabling-openid-connect-for-your-cloud-provider)."
+자세한 내용은 "[클라우드 공급자에 대해 OpenID Connect 사용](#enabling-openid-connect-for-your-cloud-provider)"에 나열된 지침을 참조하세요.
 
-## Updating your actions for OIDC
+## OIDC에 대한 작업 업데이트
 
-To update your custom actions to authenticate using OIDC, you can use `getIDToken()` from the Actions toolkit to request a JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. For more information, see "OIDC Token" in the [npm package documentation](https://www.npmjs.com/package/@actions/core/v/1.6.0).
+OIDC를 사용하여 인증하도록 사용자 지정 작업을 업데이트하려면 작업 도구 키트에서 `getIDToken()`을 사용하여 {% data variables.product.prodname_dotcom %}의 OIDC 공급자로부터 JWT를 요청할 수 있습니다. 자세한 내용은 [npm 패키지 설명서](https://www.npmjs.com/package/@actions/core/v/1.6.0)에서 "OIDC 토큰"을 참조하세요.
 
-You could also use a `curl` command to request the JWT, using the following environment variables:
+다음 환경 변수를 사용하여 `curl` 명령을 사용하여 JWT를 요청할 수도 있습니다.
 
 |        |             |
 | ------ | ----------- |
-| `ACTIONS_ID_TOKEN_REQUEST_URL` | The URL for {% data variables.product.prodname_dotcom %}'s OIDC provider.      | 
-| `ACTIONS_ID_TOKEN_REQUEST_TOKEN` | Bearer token for the request to the OIDC provider.      |
+| `ACTIONS_ID_TOKEN_REQUEST_URL` | {% data variables.product.prodname_dotcom %}의 OIDC 공급자에 대한 URL      | 
+| `ACTIONS_ID_TOKEN_REQUEST_TOKEN` | OIDC 공급자에 대한 요청의 전달자 토큰      |
 
 
-For example:
+예를 들면 다음과 같습니다.
 
 ```shell{:copy}
 curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange"
 ```
 
-### Adding permissions settings
+### 사용 권한 설정 추가
 
 {% data reusables.actions.oidc-permissions-token %}
 
 {% ifversion actions-oidc-hardening-config %}
-## Customizing the token claims
+## 토큰 클레임 사용자 지정
 
-You can security harden your OIDC configuration by customizing the claims that are included with the JWT. These customisations allow you to define more granular trust conditions on your cloud roles when allowing your workflows to access resources hosted in the cloud:
+JWT에 포함된 클레임을 사용자 지정하여 OIDC 구성의 보안을 강화할 수 있습니다. 다음 사용자 지정을 사용하면 워크플로가 클라우드에서 호스트되는 리소스에 액세스할 수 있도록 허용할 때 클라우드 역할에 대해 보다 세부적인 신뢰 조건을 정의할 수 있습니다.
 
-{% ifversion ghec %} - For an additional layer of security, you can append the `issuer` url with your enterprise slug. This lets you set conditions on the issuer (`iss`) claim, configuring it to only accept JWT tokens from a unique `issuer` URL that must include your enterprise slug.{% endif %}
-- You can standardize your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
-- You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. For more information, see "[Understanding the OIDC token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
+{% ifversion ghec %} - 추가 보안 계층을 위해 엔터프라이즈 슬러그와 함께 `issuer` URL을 추가할 수 있습니다. 이렇게 하면 발급자(`iss`) 클레임에 조건을 설정하고 엔터프라이즈 슬러그를 포함해야 하는 고유한 `issuer` URL의 JWT 토큰만 허용하도록 구성할 수 있습니다.{% endif %}
+- 특정 리포지토리, 재사용 가능한 워크플로 또는 기타 원본에서 발생하는 데 JWT 토큰이 필요한 주체(`sub`) 클레임에 대한 조건을 설정하여 OIDC 구성을 표준화할 수 있습니다.
+- `repository_id` 및 `repository_visibility` 등과 같은 추가 OIDC 토큰 클레임을 사용하여 세분화된 OIDC 정책을 정의할 수 있습니다. 자세한 내용은 “[OIDC 토큰 이해](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)”를 참조하세요.
 
-To customize these claim formats, organization and repository admins can use the REST API endpoints described in the following sections.
+이러한 클레임 형식을 사용자 지정하기 위해 조직 및 리포지토리 관리자는 다음 섹션에 설명된 REST API 엔드포인트를 사용할 수 있습니다.
 
 {% ifversion ghec %}
 
-### Switching to a unique token URL
+### 고유한 토큰 URL로 전환
 
-By default, the JWT is issued by {% data variables.product.prodname_dotcom %}'s OIDC provider at `https://token.actions.githubusercontent.com`. This path is presented to your cloud provider using the `iss` value in the JWT.
+기본적으로 JWT는 {% data variables.product.prodname_dotcom %}의 OIDC 공급자가 `https://token.actions.githubusercontent.com`에서 발급합니다. 이 경로는 JWT의 `iss` 값을 사용하여 클라우드 공급자에게 표시됩니다.
 
-Enterprise admins can security harden their OIDC configuration by configuring their enterprise to receive tokens from a unique URL at `https://token.actions.githubusercontent.com/<enterpriseSlug>`. Replace `<enterpriseSlug>` with the slug value of your enterprise. 
+엔터프라이즈 관리자는 `https://token.actions.githubusercontent.com/<enterpriseSlug>`에서 고유한 URL에서 토큰을 받도록 엔터프라이즈를 구성하여 OIDC 구성의 보안을 강화할 수 있습니다. `<enterpriseSlug>`를 엔터프라이즈의 슬러그 값으로 바꿉니다. 
 
-This configuration means that your enterprise will receive the OIDC token from a unique URL, and you can then configure your cloud provider to only accept tokens from that URL. This helps ensure that only the enterprise's repositories can access your cloud resources using OIDC.
+이 구성은 엔터프라이즈가 고유한 URL에서 OIDC 토큰을 수신하고 해당 URL의 토큰만 수락하도록 클라우드 공급자를 구성할 수 있음을 의미합니다. 이렇게 하면 엔터프라이즈의 리포지토리만 OIDC를 사용하여 클라우드 리소스에 액세스할 수 있습니다.
 
-To activate this setting for your enterprise, an enterprise admin must use the `/enterprises/{enterprise}/actions/oidc/customization/issuer` endpoint and specify `"include_enterprise_slug": true` in the request body. For more information, see "[Set the {% data variables.product.prodname_actions %} OIDC custom issuer policy for an enterprise](/rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise)."
+엔터프라이즈에 대해 이 설정을 활성화하려면 엔터프라이즈 관리자가 `/enterprises/{enterprise}/actions/oidc/customization/issuer` 엔드포인트를 사용하고 요청 본문에서 `"include_enterprise_slug": true`를 지정해야 합니다. 자세한 내용은 “[엔터프라이즈에 대한 {% data variables.product.prodname_actions %} OIDC 사용자 지정 발급자 정책 설정](/rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise)”을 참조하세요.
 
-After this setting is applied, the JWT will contain the updated `iss` value. In the following example, the `iss` key uses `octocat-inc` as its `enterpriseSlug` value:
+이 설정이 적용되면 JWT에 업데이트된 `iss` 값이 포함됩니다. 다음 예제에서 `iss` 키는 해당 `enterpriseSlug` 값으로 `octocat-inc`를 사용합니다.
 
 ```json
 {
@@ -279,27 +282,27 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
 
 {% endif %}
 
-### Customizing the subject claims for an organization or repository
+### 조직 또는 리포지토리에 대한 주체 클레임 사용자 지정
 
-To help improve security, compliance, and standardization, you can customize the standard claims to suit your required access conditions. If your cloud provider supports conditions on subject claims, you can create a condition that checks whether the `sub` value matches the path of the reusable workflow, such as `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. The exact format will vary depending on your cloud provider's OIDC configuration. To configure the matching condition on {% data variables.product.prodname_dotcom %}, you can can use the REST API to require that the `sub` claim must always include a specific custom claim, such as `job_workflow_ref`. You can use the [OIDC REST API](/rest/actions/oidc) to apply a customization template for the OIDC subject claim; for example, you can require that the `sub` claim within the OIDC token must always include a specific custom claim, such as `job_workflow_ref`.
-
-Customizing the claims results in a new format for the entire `sub` claim, which replaces the default predefined `sub` format in the token described in "[Example subject claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)."
-
-The following example templates demonstrate various ways to customize the subject claim. To configure these settings on {% data variables.product.prodname_dotcom %}, admins use the REST API to specify a list of claims that must be included in the subject (`sub`) claim. 
-
-{% data reusables.actions.use-request-body-api %}
-
-To customize your subject claims, you should first create a matching condition in your cloud provider's OIDC configuration, before customizing the configuration using the REST API. Once the configuration is completed, each time a new job runs, the OIDC token generated during that job will follow the new customization template. If the matching condition doesn't exist in the cloud provider's OIDC configuration before the job runs, the generated token might not be accepted by the cloud provider, since the cloud conditions may not be synchronized.
+보안, 규정 준수 및 표준화를 개선하기 위해 필요한 액세스 조건에 맞게 표준 클레임을 사용자 지정할 수 있습니다. 클라우드 공급자가 주체 클레임에 대한 조건을 지원하는 경우 `sub`값이 재사용 가능한 워크플로의 경로와 일치하는지 여부를 확인하는 조건을 만들 수 있습니다(예: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`). 정확한 형식은 클라우드 공급자의 OIDC 구성에 따라 달라집니다. {% data variables.product.prodname_dotcom %}에서 일치 조건을 구성하려면 REST API를 사용하여 `sub` 클레임에 항상 특정 사용자 지정 클레임(예: `job_workflow_ref`)을 포함하도록 요구할 수 있습니다. [OIDC REST API를 사용하여 OIDC](/rest/actions/oidc) 주체 클레임에 대한 사용자 지정 템플릿을 적용할 수 있습니다. 예를 들어 OIDC 토큰 내의 `sub` 클레임에 항상 특정 사용자 지정 클레임(예: `job_workflow_ref`)을 포함하도록 요구할 수 있습니다.
 
 {% note %}
 
-**Note**: When the organization template is applied, it will not affect any action workflows in existing repositories that already use OIDC. For existing repositories, as well as any new repositories that are created after the template has been applied, the repository owner will need to opt-in to receive this configuration, or alternatively could apply a different configuration specific to the repo. For more information, see "[Set the customization template for an OIDC subject claim for a repository](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
+**참고**: 조직 템플릿이 적용되면 이미 OIDC를 사용하는 기존 리포지토리의 워크플로에는 영향을 주지 않습니다. 기존 리포지토리와 템플릿이 적용된 후 생성된 새 리포지토리의 경우 리포지토리 소유자는 이 구성을 수신하기 위해 옵트인해야 하거나 리포지토리에 특정한 다른 구성을 적용할 수 있습니다. 자세한 내용은 "[리포지토리에 대한 OIDC 주체 클레임에 대한 사용자 지정 템플릿 설정"을 참조하세요](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository).
 
 {% endnote %}
 
-#### Example: Allowing repository based on visibility and owner
+클레임을 사용자 지정하면 전체 `sub` 클레임에 대해 새 형식이 생성되며, 이는 “[예제 주체 클레임](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)”에 설명된 토큰의 기본 미리 정의된 `sub` 형식을 대체합니다.
 
-This example template allows the `sub` claim to have a new format, using `repository_owner` and `repository_visibility`:
+다음 예제 템플릿에서는 제목 클레임을 사용자 지정하는 다양한 방법을 보여 줍니다. {% data variables.product.prodname_dotcom %}에서 이러한 설정을 구성하기 위해 관리자는 REST API를 사용하여 주체(`sub`) 클레임에 포함되어야 하는 클레임 목록을 지정합니다. 
+
+{% data reusables.actions.use-request-body-api %}
+
+주체 클레임을 사용자 지정하려면 먼저 REST API를 사용하여 구성을 사용자 지정하기 전에 클라우드 공급자의 OIDC 구성에서 일치하는 조건을 만들어야 합니다. 구성이 완료되면 새 작업이 실행될 때마다 해당 작업 중에 생성된 OIDC 토큰이 새 사용자 지정 템플릿을 따릅니다. 작업이 실행되기 전에 일치하는 조건이 클라우드 공급자의 OIDC 구성에 없는 경우 클라우드 조건이 동기화되지 않을 수 있으므로 생성된 토큰이 클라우드 공급자에 의해 수락되지 않을 수 있습니다.
+
+#### 예: 표시 유형 및 소유자에 따라 리포지토리 허용
+
+이 예제 템플릿을 사용하면 `sub` 클레임이 `repository_owner` 및 `repository_visibility`를 사용하여 새 형식을 가질 수 있습니다.
 
 ```json
 {
@@ -310,11 +313,11 @@ This example template allows the `sub` claim to have a new format, using `reposi
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repository_owner` and `repository_visibility`. For example: `"repository_owner: "monalisa":repository_visibility:private"`. The approach lets you restrict cloud role access to only private repositories within an organization or enterprise.
+클라우드 공급자의 OIDC 구성에서 클레임에 `repository_owner` 및 `repository_visibility`에 대한 특정 값을 포함해야 하는 `sub` 조건을 구성합니다. 예: `"repository_owner: "monalisa":repository_visibility:private"` 이 접근 방식을 사용하면 클라우드 역할 액세스를 조직 또는 엔터프라이즈 내의 프라이빗 리포지토리로만 제한할 수 있습니다.
 
-#### Example: Allowing access to all repositories with a specific owner
+#### 예: 특정 소유자에게 모든 리포지토리에 대한 액세스 허용
 
-This example template enables the `sub` claim to have a new format with only the value of `repository_owner`. 
+이 예제 템플릿을 사용하면 `sub` 클레임에 `repository_owner`의 값만 있는 새 형식을 사용할 수 있습니다. 
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -327,11 +330,11 @@ This example template enables the `sub` claim to have a new format with only the
 
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `repository_owner`. For example: `"repository_owner: "monalisa""`
+클라우드 공급자의 OIDC 구성에서 클레임에 `repository_owner`에 대한 특정 값을 포함해야 하는 `sub` 조건을 구성합니다. 예: `"repository_owner: "monalisa""`
 
-#### Example: Requiring a reusable workflow
+#### 예: 재사용 가능한 워크플로 필요
 
-This example template allows the `sub` claim to have a new format that contains the value of the `job_workflow_ref` claim. This enables an enterprise to use [reusable workflows](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) to enforce consistent deployments across its organizations and repositories.
+이 예제 템플릿을 사용하면 `sub` 클레임에 `job_workflow_ref` 클레임의 값이 포함된 새 형식을 갖도록 할 수 있습니다. 이를 통해 엔터프라이즈는 [재사용 가능한 워크플로](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)를 사용하여 조직 및 리포지토리에 일관된 배포를 적용할 수 있습니다.
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -343,15 +346,15 @@ This example template allows the `sub` claim to have a new format that contains 
   }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `job_workflow_ref`. For example: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`.
+클라우드 공급자의 OIDC 구성에서 클레임에 `job_workflow_ref`에 대한 특정 값을 포함해야 하는 `sub` 조건을 구성합니다. 예: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`
 
-#### Example: Requiring a reusable workflow and other claims
+#### 예: 재사용 가능한 워크플로 및 기타 클레임 필요
 
-The following example template combines the requirement of a specific reusable workflow with additional claims.
+다음 예제 템플릿은 재사용 가능한 특정 워크플로의 요구 사항을 추가 클레임과 결합합니다.
 
 {% data reusables.actions.use-request-body-api %}
 
-This example also demonstrates how to use `"context"` to define your conditions. This is the part that follows the repository in the [default `sub` format](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). For example, when the job references an environment, the context contains: `environment:<environmentName>`.
+이 예제에서는 `"context"`를 사용하여 조건을 정의하는 데 사용하는 방법도 보여 줍니다. 이 부분은 리포지토리를 [기본 `sub` 형식](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)으로 따르는 부분입니다. 예를 들어 작업이 환경을 참조할 때 컨텍스트에는 `environment:<environmentName>`이 포함됩니다.
 
 ```json
 {
@@ -363,14 +366,13 @@ This example also demonstrates how to use `"context"` to define your conditions.
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo`, `context`, and `job_workflow_ref`.
+클라우드 공급자의 OIDC 구성에서 클레임에 `repo``context` 및`job_workflow_ref`에 대한 특정 값을 포함해야 하는 `sub` 조건을 구성합니다.
 
-This customization template requires that the `sub` uses the following format: `repo:<orgName/repoName>:environment:<environmentName>:job_workflow_ref:<reusableWorkflowPath>`. 
-For example: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`
+이 사용자 지정 템플릿을 사용하려면 `sub`가 `repo:<orgName/repoName>:environment:<environmentName>:job_workflow_ref:<reusableWorkflowPath>` 형식을 사용해야 합니다. 예: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`
 
-#### Example: Granting access to a specific repository
+#### 예: 특정 리포지토리에 대한 액세스 권한 부여
 
-This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. To help improve security, combine this template with the custom issuer URL described in "[Customizing the token URL for an enterprise](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-url-for-an-enterprise)." 
+이 예제 템플릿을 사용하면 모든 분기/태그 및 환경에서 특정 리포지토리의 모든 워크플로에 클라우드 액세스 권한을 부여할 수 있습니다. 보안을 강화하려면 이 템플릿을 “[엔터프라이즈용 토큰 URL 사용자 지정](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-url-for-an-enterprise)”에 설명된 사용자 지정 발급자 URL과 결합합니다. 
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -382,11 +384,11 @@ This example template lets you grant cloud access to all the workflows in a spec
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repo` claim that matches the required value.
+클라우드 공급자의 OIDC 구성에서 필요한 값과 일치하는 `repo` 클레임을 요구하도록 `sub` 조건을 구성합니다.
 
-#### Example: Using system-generated GUIDs
+#### 예: 시스템 생성 GUID 사용
 
-This example template enables predictable OIDC claims with system-generated GUIDs that do not change between renames of entities (such as renaming a repository). 
+이 예제 템플릿은 엔터티 이름 바꾸기(예: 리포지토리 이름 바꾸기) 간에 변경되지 않는 시스템 생성 GUID를 사용하여 예측 가능한 OIDC 클레임을 사용하도록 설정합니다. 
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -398,9 +400,9 @@ This example template enables predictable OIDC claims with system-generated GUID
   }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_id` claim that matches the required value.
+클라우드 공급자의 OIDC 구성에서 필요한 값과 일치하는 `repository_id` 클레임을 요구하도록 `sub` 조건을 구성합니다.
 
-or:
+또는:
 
 ```json
 {
@@ -410,11 +412,11 @@ or:
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_owner_id` claim that matches the required value.
+클라우드 공급자의 OIDC 구성에서 필요한 값과 일치하는 `repository_owner_id` 클레임을 요구하도록 `sub` 조건을 구성합니다.
 
-#### Resetting your customizations
+#### 사용자 지정 초기화
 
-This example template resets the subject claims to the default format. This template effectively opts out of any organization-level customization policy.
+이 예제 템플릿은 주체 클레임을 기본 형식으로 초기화합니다. 이 템플릿은 조직 수준 사용자 지정 정책을 효과적으로 옵트아웃합니다.
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -427,11 +429,13 @@ This example template resets the subject claims to the default format. This temp
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo` and `context`.
+클라우드 공급자의 OIDC 구성에서 클레임에 `repo` 및 `context`에 대한 특정 값을 포함해야 하는 `sub` 조건을 구성합니다.
 
-#### Using the default subject claims
+#### 기본 주체 클레임 사용
 
-For repositories that can receive a subject claim policy from their organization, the repository owner can later choose to opt-out and instead use the default `sub` claim format. To configure this, the repository admin must use the REST API endpoint at "[Set the customization template for an OIDC subject claim for a repository](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)" with the following request body:
+조직에서 주체 클레임 정책을 받을 수 있는 리포지토리의 경우 리포지토리 소유자는 나중에 옵트아웃하도록 선택하고 대신 기본 `sub` 클레임 형식을 사용할 수 있습니다. 즉, 리포지토리는 조직의 사용자 지정된 템플릿을 사용하지 않습니다. 
+
+기본 `sub` 클레임 형식을 사용하도록 리포지토리를 구성하려면 리포지토리 관리자가 다음 요청 본문과 함께 "[리포지토리에 대한 OIDC 주체 클레임에 대한 사용자 지정 템플릿 설정](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)"의 REST API 엔드포인트를 사용해야 합니다.
 
 ```json
 {
@@ -439,22 +443,34 @@ For repositories that can receive a subject claim policy from their organization
 }
 ```
 
+#### 예: 조직 템플릿을 사용하도록 리포지토리 구성
+
+리포지토리 관리자는 조직의 관리자가 만든 템플릿을 사용하도록 리포지토리를 구성할 수 있습니다.
+
+조직의 템플릿을 사용하도록 리포지토리를 구성하려면 리포지토리 관리자가 다음 요청 본문과 함께 "[리포지토리에 대한 OIDC 주체 클레임에 대한 사용자 지정 템플릿 설정](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)"의 REST API 엔드포인트를 사용해야 합니다.
+
+```json
+{
+   "use_default": false
+}
+```
+
 {% endif %}
 
-## Updating your workflows for OIDC
+## OIDC에 대한 워크플로 업데이트
 
-You can now update your YAML workflows to use OIDC access tokens instead of secrets. Popular cloud providers have published their official login actions that make it easy for you to get started with OIDC. For more information about updating your workflows, see the cloud-specific guides listed below in "[Enabling OpenID Connect for your cloud provider](#enabling-openid-connect-for-your-cloud-provider)."
+이제 비밀 대신 OIDC 액세스 토큰을 사용하도록 YAML 워크플로를 업데이트할 수 있습니다. 인기 있는 클라우드 공급자는 OIDC를 쉽게 시작할 수 있도록 하는 공식 로그인 작업을 게시했습니다. 워크플로 업데이트에 대한 자세한 내용은 "[클라우드 공급자에 OpenID Connect 사용](#enabling-openid-connect-for-your-cloud-provider)"에 나열된 클라우드 관련 가이드를 참조하세요.
 
 
-## Enabling OpenID Connect for your cloud provider
+## 클라우드 공급자에 OpenID Connect 사용
 
-To enable and configure OIDC for your specific cloud provider, see the following guides:
+특정 클라우드 공급자에 대해 OIDC를 사용하도록 설정하고 구성하려면 다음 가이드를 참조하세요.
 
-- ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
-- ["Configuring OpenID Connect in Azure"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
-- ["Configuring OpenID Connect in Google Cloud Platform"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform)
-- ["Configuring OpenID Connect in Hashicorp Vault"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
+- ["Amazon Web Services에서 OpenID Connect 구성"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+- ["Azure에서 OpenID Connect 구성"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+- ["Google Cloud Platform에서 OpenID Connect 구성"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform)
+- ["HashiCorp 자격 증명 모음에서 OpenID Connect 구성"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
 
-To enable and configure OIDC for another cloud provider, see the following guide:
+다른 클라우드 공급자에 대해 OIDC를 사용하도록 설정하고 구성하려면 다음 가이드를 참조하세요.
 
-- ["Configuring OpenID Connect in cloud providers"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)
+- ["클라우드 공급자에서 OpenID Connect 구성"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)

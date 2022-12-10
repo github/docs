@@ -24,6 +24,18 @@ export default async function findPage(
   let page = req.context.pages[req.pagePath]
   if (page && isDev && englishPrefixRegex.test(req.pagePath)) {
     page = await rereadByPath(req.pagePath, contentRoot, req.context.currentVersion)
+
+    // This can happen if the page we just re-read has changed which
+    // versions it's available in (the `versions` frontmatter) meaning
+    // it might no longer be available on the current URL.
+    if (!page.applicableVersions.includes(req.context.currentVersion)) {
+      return res
+        .status(404)
+        .send(
+          `After re-reading the page, '${req.context.currentVersion}' is no longer an applicable version. ` +
+            'A restart is required.'
+        )
+    }
   }
 
   if (page) {

@@ -1,15 +1,9 @@
----
-ms.openlocfilehash: 902af6bdbe3c48fe8b5930bdf1041151f343b60b
-ms.sourcegitcommit: 27882d9b3f19979c817c25952a2fb4dc4c6f0a65
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2022
-ms.locfileid: "148113863"
----
-如果你的工作流使用 {% data variables.product.pat_generic %} 向注册表进行身份验证，则强烈建议更新工作流以使用 `GITHUB_TOKEN`。
+Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be owned by a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
-{% ifversion fpt or ghec %}有关更新使用 {% data variables.product.pat_generic %} 对注册表进行身份验证的工作流的指南，请参阅“[升级使用 {% data variables.product.pat_generic %} 访问注册表的工作流](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-a-registry-using-a-personal-access-token)”。{% endif %}
+For registries that support granular permissions, if your workflow is using a {% data variables.product.pat_generic %} to authenticate to a registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
-有关 `GITHUB_TOKEN` 的详细信息，请参阅“[工作流中的身份验证](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)”。
+For guidance on updating your workflows that authenticate to a registry with a {% data variables.product.pat_generic %}, see "[Upgrading a workflow that accesses a registry using a {% data variables.product.pat_generic %}](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-a-registry-using-a-personal-access-token)."
 
-有关在操作中使用注册表时的最佳做法的详细信息，请参阅“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”。
+For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+
+For more information about the best practices when using a registry in actions, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."

@@ -160,4 +160,5 @@ async function createReport() {
   return report
 }
 
+console.warn = () => {} // shhh
 console.log(JSON.stringify(await createReport(), null, 2))

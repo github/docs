@@ -9,12 +9,12 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
-ms.openlocfilehash: e0962e410f2227a23ff98c8a3e7995ea8ec8a914
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: eecb77b541cc735fcf788fbc5da6960cabad899d
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158794'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191915'
 ---
 ## Visão geral
 
@@ -42,7 +42,7 @@ Quando você cria um codespace a partir de uma pré-compilação, {% data variab
 
 ## Sobre fazer push de alterações em branches com pré-criação
 
-Por padrão, cada push para um branch que tem uma configuração de pré-compilação resulta em um fluxo de trabalho {% data variables.product.prodname_actions %} gerenciado por {% data variables.product.prodname_dotcom %} executado para atualizar a pré-compilação. O fluxo de trabalho da pré-criação tem um limite de concorrência de uma execução de fluxo de trabalho de cada vez para uma determinada configuração de pré-compilação, a não ser que tenham sido feitas alterações que afetem a configuração do contêiner de desenvolvimento do repositório associado. Para obter mais informações, confira "[Introdução aos contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)". Se uma execução já estiver em andamento, a execução do fluxo de trabalho que foi enfileirada mais recentemente será executada a seguir, depois que a execução atual for concluída. 
+Por padrão, cada push para um branch que tem uma configuração de pré-compilação resulta em um fluxo de trabalho {% data variables.product.prodname_actions %} gerenciado por {% data variables.product.prodname_dotcom %} executado para atualizar a pré-compilação. O fluxo de trabalho da pré-criação tem um limite de concorrência de uma execução de fluxo de trabalho de cada vez para uma determinada configuração de pré-compilação, a não ser que tenham sido feitas alterações que afetem a configuração do contêiner de desenvolvimento do repositório associado. Para obter mais informações, confira "[Introdução aos contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)". Se uma execução já estiver em andamento, a execução do fluxo de trabalho que foi enfileirada mais recentemente será executada em seguida, após a conclusão da execução atual. 
 
 Com o conjunto de pré-compilação a ser atualizado em cada envio, isso significa que, se houver envios muito frequentes para seu repositório, as atualizações de pré-compilação ocorrerão pelo menos com a frequência necessária para executar o fluxo de trabalho de pré-compilação. Ou seja, se a execução do fluxo de trabalho normalmente leva uma hora para ser concluída, serão criados prebuilds para o repositório em aproximadamente uma hora, se a execução for bem sucedida, ou mais frequentemente se houve pushes que alterem o contêiner de desenvolvimento no branch.
 

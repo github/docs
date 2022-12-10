@@ -9,12 +9,12 @@ versions:
 type: how_to
 topics:
   - Codespaces
-ms.openlocfilehash: 1da438a680dd3e60c1deeec46a98fbcf48f84e5b
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: f17bb20aa919ca94cd13e14a6f770cea23042b2b
+ms.sourcegitcommit: 1f3bd126ca000982c538f1621d47722737740943
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158994'
+ms.lasthandoff: 12/01/2022
+ms.locfileid: '148188277'
 ---
 ## Visão geral
 
@@ -39,7 +39,7 @@ Se a imagem especificada na configuração do contêiner de desenvolvimento não
 {% note %}
 
 **Observações**: 
-* A política de imagem base só é aplicada quando um codespace é criado. Atualmente, ela não é aplicada quando você recompila um contêiner. Isso será alterado em uma versão futura. Para obter mais informações, confira "[O ciclo de vida do codespace](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace)".
+* A política de imagem base só é aplicada quando um codespace é criado. Atualmente, ela não é aplicada quando você recompila um contêiner. Isso será alterado em uma versão futura. Para obter mais informações, confira "[O ciclo de vida do codespace](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)".
 * A política de imagem base não se aplicará à imagem padrão ou à imagem usada para recuperar um codespace se, em uma configuração de contêiner de desenvolvimento, for introduzido um erro que impeça a recriação do contêiner. 
 
 {% endnote %}
@@ -80,7 +80,7 @@ Por exemplo, você pode criar uma política em toda a organização que restring
    * "[Como restringir o acesso a tipos de computadores](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
    * "[Como restringir a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
    * "[Como restringir o período de tempo limite ocioso](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[Como restringir o período de retenção de codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+   * "[Como restringir o período de retenção dos codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
 1. Depois de concluir a adição de restrições à política, clique em **Salvar**.
 
 A política é aplicada quando qualquer pessoa tenta criar um codespace que pode ser cobrado para sua organização. A restrição de imagem base não afeta os codespaces existentes, ativos ou parados.
@@ -100,4 +100,4 @@ Você pode excluir ou editar uma política existente. Por exemplo, você talvez 
 1. Exibir a página "Políticas de codespaces". Para obter mais informações, confira "[Como adicionar uma política para definir as imagens permitidas](#adding-a-policy-to-define-the-allowed-images)".
 1. Clique no botão excluir à direita da política que você deseja excluir.
 
-   ![Captura de tela do botão excluir de uma política](/assets/images/help/codespaces/policy-delete.png)
+   ![Captura de tela do botão Excluir de uma política](/assets/images/help/codespaces/policy-delete.png)

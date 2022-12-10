@@ -17,12 +17,12 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
-ms.openlocfilehash: d9a4518f2fcc23d4b49967effb7b9a3022a7c6bd
-ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2022
-ms.locfileid: '148184016'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191898'
 ---
 ## Acerca de las restricciones de tráfico de red
 
@@ -30,7 +30,7 @@ Predeterminadamente, los usuarios autorizados pueden acceder a tu empresa desde 
 
 {% ifversion ghec %}
 
-Si tu empresa usa {% data variables.product.prodname_emus %} con OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
+Si tu empresa usa {% data variables.product.prodname_emus %} con Azure AD y OIDC, puedes elegir si quieres usar la lista de direcciones IP permitidas de {% data variables.product.company_short %} o usar las restricciones de lista de permitidos para el proveedor de identidades (IdP). Si tu empresa no usa {% data variables.product.prodname_emus %} con Azure y OIDC, puedes usar la característica de lista de permitidos de {% data variables.product.company_short %}. 
 
 {% elsif ghae %}
 
@@ -52,7 +52,7 @@ Puedes usar la lista de direcciones IP permitidas de {% data variables.product.c
 
 ## Acerca de la lista de permitidos del proveedor de identidades
 
-Si usas {% data variables.product.prodname_emus %} con OIDC, puedes usar la lista de permitidos del proveedor de identidades. 
+Si usas {% data variables.product.prodname_emus %} con Azure AD y OIDC, puedes usar la lista de permitidos del proveedor de identidades.
 
 El uso de la lista de permitidos del proveedor de identidades desactiva las configuraciones de la lista de direcciones IP permitidas de {% data variables.product.company_short %} para todas las organizaciones de tu empresa y desactiva las API de GraphQL para habilitar y administrar listas de direcciones IP permitidas. 
 
@@ -109,13 +109,17 @@ Para garantizar un uso sin problemas del CAP de OIDC mientras se sigue aplicando
 
 ## Uso de la lista de permitidos del proveedor de identidades
 
-Puedes usar la lista de permitidos del proveedor de identidades si usas {% data variables.product.prodname_emus %} con OIDC.
+{% note %}
+
+**Nota:** El uso de la lista de permitidos de IdP solo se admite para {% data variables.product.prodname_emus %} con Azure AD y OIDC. 
+
+{% endnote %}
 
 {% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
 1. En "Lista de direcciones IP permitidas", selecciona la lista desplegable y haz clic en **Proveedor de identidades**.
 
    ![Captura de pantalla del menú desplegable que muestra tres opciones de configuración de la lista de direcciones IP permitidas: Deshabilitada, Proveedor de identidades y GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-   - Opcionalmente, para permitir que los {% data variables.product.company_short %} y {% data variables.product.prodname_oauth_apps %} instalados accedan a la empresa desde cualquier dirección IP, selecciona **Omitir comprobación de proveedor de identidades para aplicaciones**.
+1. Opcionalmente, para permitir que los {% data variables.product.company_short %} y {% data variables.product.prodname_oauth_apps %} instalados accedan a la empresa desde cualquier dirección IP, selecciona **Omitir comprobación de proveedor de identidades para aplicaciones**.
 
    ![Casilla para permitir direcciones IP](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
 1. Haga clic en **Save**(Guardar).
