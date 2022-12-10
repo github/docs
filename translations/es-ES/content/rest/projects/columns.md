@@ -1,8 +1,8 @@
 ---
-title: 'Columnas de {% data variables.product.prodname_project_v1_caps %}'
+title: '{% data variables.product.prodname_project_v1_caps %} columns'
 shortTitle: Columns
 allowTitleToDifferFromFilename: true
-intro: 'La API de columnas de {% data variables.product.prodname_project_v1 %} te permite crear y administrar columnas en una instancia de {% data variables.projects.projects_v1_board %}.'
+intro: 'Use the REST API to create and manage columns on a {% data variables.projects.projects_v1_board %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,8 @@ versions:
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 8804dd9fafb1dd8142c50e30db36cc5daf7c04df
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147423072'
 ---
+
 {% data reusables.projects.projects-api %}
+
+{% data reusables.user-settings.classic-projects-api-classic-pat-only %}
