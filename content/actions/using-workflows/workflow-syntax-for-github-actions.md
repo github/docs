@@ -148,6 +148,8 @@ A map of the secrets that can be used in the called workflow.
 
 Within the called workflow, you can use the `secrets` context to refer to a secret.
 
+In the caller workflow, use [jobs.<job_id>.secrets](#jobsjob_idsecrets) to pass the secret.
+
 If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
 
 #### Example
@@ -162,6 +164,11 @@ on:
         required: false
 
 jobs:
+  pass-secret-to-workflow:
+    uses: ./.github/workflows/my-workflow
+    secrets:
+       token: ${{ secrets.access-token }}
+       
   pass-secret-to-action:
     runs-on: ubuntu-latest
 
