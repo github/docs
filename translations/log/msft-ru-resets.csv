@@ -547,6 +547,7 @@ translations/ru-RU/content/actions/using-github-hosted-runners/connecting-to-a-p
 translations/ru-RU/content/actions/using-github-hosted-runners/controlling-access-to-larger-runners.md,rendering error
 translations/ru-RU/content/actions/using-github-hosted-runners/using-larger-runners.md,rendering error
 translations/ru-RU/content/actions/using-workflows/about-workflows.md,rendering error
+translations/ru-RU/content/actions/using-workflows/caching-dependencies-to-speed-up-workflows.md,broken liquid tags
 translations/ru-RU/content/actions/using-workflows/creating-starter-workflows-for-your-organization.md,rendering error
 translations/ru-RU/content/actions/using-workflows/events-that-trigger-workflows.md,rendering error
 translations/ru-RU/content/actions/using-workflows/reusing-workflows.md,rendering error
@@ -596,7 +597,6 @@ translations/ru-RU/content/admin/enterprise-management/configuring-clustering/cl
 translations/ru-RU/content/admin/enterprise-management/configuring-clustering/configuring-high-availability-replication-for-a-cluster.md,rendering error
 translations/ru-RU/content/admin/enterprise-management/configuring-clustering/upgrading-a-cluster.md,rendering error
 translations/ru-RU/content/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica.md,rendering error
-translations/ru-RU/content/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance.md,broken liquid tags
 translations/ru-RU/content/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard.md,rendering error
 translations/ru-RU/content/admin/enterprise-management/monitoring-your-appliance/configuring-collectd.md,rendering error
 translations/ru-RU/content/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise.md,rendering error
@@ -624,6 +624,7 @@ translations/ru-RU/content/admin/github-actions/managing-access-to-actions-from-
 translations/ru-RU/content/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom.md,rendering error
 translations/ru-RU/content/admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/index.md,rendering error
+translations/ru-RU/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise.md,broken liquid tags
 translations/ru-RU/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/changing-authentication-methods.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/index.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication.md,rendering error
@@ -641,7 +642,7 @@ translations/ru-RU/content/admin/identity-and-access-management/using-enterprise
 translations/ru-RU/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-ldap-for-enterprise-iam/index.md,rendering error
-translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,broken liquid tags
+translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta.md,rendering error
 translations/ru-RU/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise.md,rendering error
@@ -683,7 +684,6 @@ translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise
 translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise.md,rendering error
-translations/ru-RU/content/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,rendering error
 translations/ru-RU/content/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance.md,broken liquid tags
@@ -746,8 +746,7 @@ translations/ru-RU/content/billing/managing-billing-for-github-actions/about-bil
 translations/ru-RU/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,rendering error
 translations/ru-RU/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
 translations/ru-RU/content/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces.md,rendering error
-translations/ru-RU/content/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot.md,broken liquid tags
-translations/ru-RU/content/billing/managing-billing-for-github-copilot/index.md,broken liquid tags
+translations/ru-RU/content/billing/managing-billing-for-github-copilot/viewing-your-github-copilot-usage.md,broken liquid tags
 translations/ru-RU/content/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app.md,rendering error
 translations/ru-RU/content/billing/managing-billing-for-github-marketplace-apps/downgrading-the-billing-plan-for-a-github-marketplace-app.md,rendering error
 translations/ru-RU/content/billing/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app.md,rendering error
@@ -837,18 +836,9 @@ translations/ru-RU/content/codespaces/troubleshooting/troubleshooting-your-conne
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis.md,rendering error
 translations/ru-RU/content/communities/documenting-your-project-with-wikis/editing-wiki-content.md,rendering error
-translations/ru-RU/content/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file.md,broken liquid tags
 translations/ru-RU/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,rendering error
 translations/ru-RU/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository.md,rendering error
-translations/ru-RU/content/copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
-translations/ru-RU/content/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code.md,broken liquid tags
-translations/ru-RU/content/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom.md,broken liquid tags
-translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,rendering error
-translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
-translations/ru-RU/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio.md,broken liquid tags
-translations/ru-RU/content/copilot/overview-of-github-copilot/about-github-copilot.md,broken liquid tags
-translations/ru-RU/content/copilot/quickstart.md,broken liquid tags
 translations/ru-RU/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop.md,rendering error
 translations/ru-RU/content/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/index.md,rendering error
 translations/ru-RU/content/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/about-connections-to-github.md,rendering error
@@ -895,8 +885,6 @@ translations/ru-RU/content/discussions/guides/finding-your-discussions.md,render
 translations/ru-RU/content/discussions/managing-discussions-for-your-community/managing-categories-for-discussions.md,rendering error
 translations/ru-RU/content/discussions/managing-discussions-for-your-community/moderating-discussions.md,rendering error
 translations/ru-RU/content/discussions/quickstart.md,rendering error
-translations/ru-RU/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students.md,broken liquid tags
-translations/ru-RU/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers.md,broken liquid tags
 translations/ru-RU/content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary.md,rendering error
 translations/ru-RU/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom.md,rendering error
 translations/ru-RU/content/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide.md,broken liquid tags
@@ -1014,7 +1002,6 @@ translations/ru-RU/content/organizations/managing-programmatic-access-to-your-or
 translations/ru-RU/content/organizations/managing-programmatic-access-to-your-organization/index.md,rendering error
 translations/ru-RU/content/organizations/managing-programmatic-access-to-your-organization/removing-github-app-managers-from-your-organization.md,rendering error
 translations/ru-RU/content/organizations/managing-programmatic-access-to-your-organization/reviewing-your-organizations-installed-integrations.md,rendering error
-translations/ru-RU/content/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta.md,rendering error
 translations/ru-RU/content/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes.md,rendering error
 translations/ru-RU/content/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization.md,rendering error
 translations/ru-RU/content/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization.md,rendering error
@@ -1145,9 +1132,10 @@ translations/ru-RU/content/rest/overview/api-versions.md,rendering error
 translations/ru-RU/content/rest/overview/other-authentication-methods.md,rendering error
 translations/ru-RU/content/rest/overview/permissions-required-for-github-apps.md,rendering error
 translations/ru-RU/content/rest/overview/resources-in-the-rest-api.md,rendering error
-translations/ru-RU/content/rest/packages.md,rendering error
+translations/ru-RU/content/rest/projects/cards.md,rendering error
+translations/ru-RU/content/rest/projects/collaborators.md,rendering error
+translations/ru-RU/content/rest/projects/columns.md,rendering error
 translations/ru-RU/content/rest/projects/projects.md,rendering error
-translations/ru-RU/content/rest/quickstart.md,rendering error
 translations/ru-RU/content/rest/scim.md,rendering error
 translations/ru-RU/content/rest/teams/team-sync.md,rendering error
 translations/ru-RU/content/search-github/getting-started-with-searching-on-github/about-searching-on-github.md,rendering error
@@ -1163,7 +1151,6 @@ translations/ru-RU/content/sponsors/receiving-sponsorships-through-github-sponso
 translations/ru-RU/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization.md,rendering error
 translations/ru-RU/content/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account.md,rendering error
 translations/ru-RU/content/support/contacting-github-support/providing-data-to-github-support.md,rendering error
-translations/ru-RU/content/support/contacting-github-support/viewing-and-updating-support-tickets.md,broken liquid tags
 translations/ru-RU/content/support/learning-about-github-support/about-github-premium-support.md,rendering error
 translations/ru-RU/content/support/learning-about-github-support/about-github-support.md,rendering error
 translations/ru-RU/data/glossaries/external.yml,broken liquid tags
@@ -1206,6 +1193,7 @@ translations/ru-RU/data/reusables/actions/enterprise-common-prereqs.md,rendering
 translations/ru-RU/data/reusables/actions/enterprise-http-proxy.md,rendering error
 translations/ru-RU/data/reusables/actions/enterprise-marketplace-actions.md,rendering error
 translations/ru-RU/data/reusables/actions/enterprise-postinstall-nextsteps.md,rendering error
+translations/ru-RU/data/reusables/actions/enterprise-storage-contents.md,broken liquid tags
 translations/ru-RU/data/reusables/actions/enterprise-storage-ha-backups.md,rendering error
 translations/ru-RU/data/reusables/actions/github-connect-resolution.md,rendering error
 translations/ru-RU/data/reusables/actions/hosted-runner-security.md,rendering error
@@ -1269,7 +1257,6 @@ translations/ru-RU/data/reusables/codespaces/prebuilds-crossreference.md,broken 
 translations/ru-RU/data/reusables/codespaces/secrets-on-start.md,broken liquid tags
 translations/ru-RU/data/reusables/command_line/provide-an-access-token.md,rendering error
 translations/ru-RU/data/reusables/copilot/config-enable-copilot-in-neovim.md,rendering error
-translations/ru-RU/data/reusables/copilot/copilot-prerequisites.md,broken liquid tags
 translations/ru-RU/data/reusables/copilot/dotcom-settings.md,broken liquid tags
 translations/ru-RU/data/reusables/copilot/install-copilot-in-neovim.md,rendering error
 translations/ru-RU/data/reusables/dependabot/beta-security-and-version-updates.md,rendering error
@@ -1294,7 +1281,6 @@ translations/ru-RU/data/reusables/enterprise-accounts/audit-log-tab.md,broken li
 translations/ru-RU/data/reusables/enterprise-accounts/billing-microsoft-ea-overview.md,broken liquid tags
 translations/ru-RU/data/reusables/enterprise-accounts/continue-verifying-domain.md,broken liquid tags
 translations/ru-RU/data/reusables/enterprise-accounts/dormant-user-activity-threshold.md,rendering error
-translations/ru-RU/data/reusables/enterprise-accounts/dormant-user-activity.md,rendering error
 translations/ru-RU/data/reusables/enterprise-accounts/emu-cap-validates.md,rendering error
 translations/ru-RU/data/reusables/enterprise-accounts/emu-only-emails-within-the-enterprise-can-conflict.md,rendering error
 translations/ru-RU/data/reusables/enterprise-accounts/emu-permission-follow.md,rendering error
@@ -1325,6 +1311,7 @@ translations/ru-RU/data/reusables/enterprise_installation/download-package.md,re
 translations/ru-RU/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,rendering error
 translations/ru-RU/data/reusables/enterprise_installation/hotpatching-explanation.md,rendering error
 translations/ru-RU/data/reusables/enterprise_installation/ssh-into-instance.md,rendering error
+translations/ru-RU/data/reusables/enterprise_site_admin_settings/3-7-new-subdomains.md,rendering error
 translations/ru-RU/data/reusables/enterprise_site_admin_settings/dormancy-threshold.md,rendering error
 translations/ru-RU/data/reusables/enterprise_site_admin_settings/sign-in.md,rendering error
 translations/ru-RU/data/reusables/enterprise_site_admin_settings/tls-downtime.md,rendering error
@@ -1336,8 +1323,6 @@ translations/ru-RU/data/reusables/enterprise_user_management/disclaimer-for-git-
 translations/ru-RU/data/reusables/enterprise_user_management/manage-global-webhooks-api.md,rendering error
 translations/ru-RU/data/reusables/files/choose-commit-email.md,rendering error
 translations/ru-RU/data/reusables/gated-features/codespaces-classroom-articles.md,broken liquid tags
-translations/ru-RU/data/reusables/gated-features/copilot-billing.md,broken liquid tags
-translations/ru-RU/data/reusables/gated-features/copilot.md,broken liquid tags
 translations/ru-RU/data/reusables/gated-features/dependency-vulnerable-calls.md,rendering error
 translations/ru-RU/data/reusables/gated-features/packages.md,rendering error
 translations/ru-RU/data/reusables/gated-features/secret-scanning-partner.md,rendering error
@@ -1386,11 +1371,9 @@ translations/ru-RU/data/reusables/organizations/teams_sidebar.md,rendering error
 translations/ru-RU/data/reusables/organizations/verified-domains.md,rendering error
 translations/ru-RU/data/reusables/package_registry/authenticate-packages.md,rendering error
 translations/ru-RU/data/reusables/package_registry/authenticate-to-container-registry-steps.md,rendering error
-translations/ru-RU/data/reusables/package_registry/authenticate_with_pat_for_v2_registry.md,broken liquid tags
 translations/ru-RU/data/reusables/package_registry/container-registry-ghes-beta.md,rendering error
 translations/ru-RU/data/reusables/package_registry/container-registry-hostname.md,rendering error
 translations/ru-RU/data/reusables/package_registry/next-steps-for-packages-enterprise-setup.md,rendering error
-translations/ru-RU/data/reusables/package_registry/no-graphql-to-delete-packages.md,rendering error
 translations/ru-RU/data/reusables/package_registry/package-registry-with-github-tokens.md,rendering error
 translations/ru-RU/data/reusables/package_registry/packages-billing.md,rendering error
 translations/ru-RU/data/reusables/package_registry/packages-classic-pat-only.md,rendering error
@@ -1439,12 +1422,8 @@ translations/ru-RU/data/reusables/saml/create-a-machine-user.md,rendering error
 translations/ru-RU/data/reusables/saml/ghes-you-must-configure-saml-sso.md,rendering error
 translations/ru-RU/data/reusables/saml/must-authorize-linked-identity.md,rendering error
 translations/ru-RU/data/reusables/saml/okta-click-on-the-app.md,rendering error
-translations/ru-RU/data/reusables/saml/saml-ghes-account-revocation.md,broken liquid tags
 translations/ru-RU/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
-translations/ru-RU/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/ru-RU/data/reusables/scim/enterprise-account-scim.md,rendering error
-translations/ru-RU/data/reusables/scim/ghes-beta-note.md,rendering error
-translations/ru-RU/data/reusables/scim/ghes-scim-idp-table.md,broken liquid tags
 translations/ru-RU/data/reusables/scim/supported-idps.md,rendering error
 translations/ru-RU/data/reusables/search/syntax_tips.md,rendering error
 translations/ru-RU/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,rendering error
