@@ -1,3 +1,4 @@
+[![actions-workflow-status-badge](https://user-images.githubusercontent.com/119984430/206838271-40a1b4b0-78ee-456f-b20b-214f81a08e56.png)
 ---
 title: Adding a workflow status badge
 shortTitle: Add a status badge
@@ -60,3 +61,4 @@ For example, add the following Markdown to your `README.md` file to display a ba
 ```markdown
 ![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
 ```
+](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
