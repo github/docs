@@ -1,0 +1,13 @@
+name: 'Download a Build Artifact'
+description: 'Download a build artifact that was previously uploaded in the workflow by the upload-artifact action'
+author: 'GitHub'
+inputs: 
+  name:
+    description: 'Artifact name'
+    required: false
+  path:
+    description: 'Destination path'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

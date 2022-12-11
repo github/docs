@@ -1,32 +1,5 @@
-.search-cache
-.DS_Store
-.env
-.vscode/settings.json
-.idea/
-/node_modules/
-npm-debug.log
-coverage/
-.linkinator
-/assets/images/early-access
-/content/early-access
-/data/early-access
-/script/dev-toc/static
-.next
-.eslintcache
-*.tsbuildinfo
+# Ignore node_modules, ncc is used to compile nodejs modules into a single file in the releases branch
+node_modules/
 
-# blc: broken link checker
-blc_output.log
-blc_output_internal.log
-broken_links.md
-# This one is purely for historical reasons because so many people might
-# still have these files on their disk.
-lib/redirects/.redirects-cache*.json
-
-# During the preview deploy untrusted user code may be cloned into this directory
-# We ignore it from git to keep things deterministic
-user-code/
-
-# Logs from scripts
-script/logs/
-external-link-checker-db.json
+# Ignore js files that are transpiled from ts files in src/
+lib/
