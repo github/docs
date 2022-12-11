@@ -494,6 +494,7 @@ translations/fr-FR/content/actions/using-github-hosted-runners/connecting-to-a-p
 translations/fr-FR/content/actions/using-github-hosted-runners/controlling-access-to-larger-runners.md,rendering error
 translations/fr-FR/content/actions/using-github-hosted-runners/using-larger-runners.md,rendering error
 translations/fr-FR/content/actions/using-workflows/about-workflows.md,rendering error
+translations/fr-FR/content/actions/using-workflows/caching-dependencies-to-speed-up-workflows.md,broken liquid tags
 translations/fr-FR/content/actions/using-workflows/creating-starter-workflows-for-your-organization.md,rendering error
 translations/fr-FR/content/actions/using-workflows/events-that-trigger-workflows.md,rendering error
 translations/fr-FR/content/actions/using-workflows/reusing-workflows.md,rendering error
@@ -564,6 +565,7 @@ translations/fr-FR/content/admin/github-actions/getting-started-with-github-acti
 translations/fr-FR/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise.md,rendering error
 translations/fr-FR/content/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/index.md,broken liquid tags
+translations/fr-FR/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/changing-authentication-methods.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/index.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication.md,rendering error
@@ -573,7 +575,6 @@ translations/fr-FR/content/admin/identity-and-access-management/using-built-in-a
 translations/fr-FR/content/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/using-cas-for-enterprise-iam/index.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/using-cas-for-enterprise-iam/using-cas.md,broken liquid tags
-translations/fr-FR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users.md,broken liquid tags
 translations/fr-FR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users.md,rendering error
 translations/fr-FR/content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users.md,rendering error
@@ -764,7 +765,6 @@ translations/fr-FR/content/communities/setting-up-your-project-for-healthy-contr
 translations/fr-FR/content/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors.md,broken liquid tags
 translations/fr-FR/content/copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/fr-FR/content/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code.md,broken liquid tags
-translations/fr-FR/content/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom.md,broken liquid tags
 translations/fr-FR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide.md,broken liquid tags
 translations/fr-FR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim.md,broken liquid tags
 translations/fr-FR/content/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code.md,broken liquid tags
@@ -1006,6 +1006,9 @@ translations/fr-FR/content/repositories/working-with-files/using-files/getting-p
 translations/fr-FR/content/rest/activity/notifications.md,broken liquid tags
 translations/fr-FR/content/rest/apps/oauth-applications.md,broken liquid tags
 translations/fr-FR/content/rest/codespaces/codespaces.md,broken liquid tags
+translations/fr-FR/content/rest/codespaces/machines.md,broken liquid tags
+translations/fr-FR/content/rest/codespaces/repository-secrets.md,broken liquid tags
+translations/fr-FR/content/rest/codespaces/secrets.md,broken liquid tags
 translations/fr-FR/content/rest/dependabot/index.md,broken liquid tags
 translations/fr-FR/content/rest/deployments/deployments.md,rendering error
 translations/fr-FR/content/rest/enterprise-admin/admin-stats.md,broken liquid tags
@@ -1030,8 +1033,14 @@ translations/fr-FR/content/rest/overview/other-authentication-methods.md,renderi
 translations/fr-FR/content/rest/overview/permissions-required-for-github-apps.md,rendering error
 translations/fr-FR/content/rest/overview/resources-in-the-rest-api.md,broken liquid tags
 translations/fr-FR/content/rest/packages.md,broken liquid tags
+translations/fr-FR/content/rest/pages.md,broken liquid tags
+translations/fr-FR/content/rest/projects/cards.md,broken liquid tags
+translations/fr-FR/content/rest/projects/collaborators.md,broken liquid tags
+translations/fr-FR/content/rest/projects/columns.md,broken liquid tags
+translations/fr-FR/content/rest/projects/index.md,broken liquid tags
 translations/fr-FR/content/rest/projects/projects.md,broken liquid tags
 translations/fr-FR/content/rest/quickstart.md,broken liquid tags
+translations/fr-FR/content/rest/reactions.md,broken liquid tags
 translations/fr-FR/content/rest/scim.md,broken liquid tags
 translations/fr-FR/content/rest/teams/team-sync.md,broken liquid tags
 translations/fr-FR/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,broken liquid tags
@@ -1260,7 +1269,6 @@ translations/fr-FR/data/reusables/saml/saml-ghes-account-revocation.md,broken li
 translations/fr-FR/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
 translations/fr-FR/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/fr-FR/data/reusables/scim/enterprise-account-scim.md,broken liquid tags
-translations/fr-FR/data/reusables/scim/ghes-scim-idp-table.md,broken liquid tags
 translations/fr-FR/data/reusables/scim/supported-idps.md,broken liquid tags
 translations/fr-FR/data/reusables/search/syntax_tips.md,broken liquid tags
 translations/fr-FR/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
