@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 72d8263029317783e60d8f81f45edc3dbb8b1c8b
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: e24ae7adb9f5c2efbb08be63788dae1eff501d99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180011'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192695'
 ---
 ## 关于 {% data variables.product.prodname_emus %}
 
@@ -94,7 +94,6 @@ ms.locfileid: '148180011'
 * {% data reusables.enterprise-accounts.emu-forks %}
 * 只能在 {% data variables.enterprise.prodname_emu_enterprise %} 拥有的组织中创建专用和内部存储库，具体取决于组织和企业存储库可见性设置。 
 * {% data variables.enterprise.prodname_managed_users_caps %} 在使用 {% data variables.product.prodname_pages %} 方面受到限制。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)”。
-* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## {% data variables.product.prodname_emus %} 入门
 

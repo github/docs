@@ -5,7 +5,6 @@ intro: 'IdP(ID 공급자)로 Okta를 사용하여 {% data variables.location.pro
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
-  feature: scim-for-ghes
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta
@@ -17,33 +16,40 @@ topics:
   - Identity
   - SSO
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 1655ca7f800b94c150455a077b867e7e08fa924b
-ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.openlocfilehash: 62a1436fcedc4d90f767d0c612e70810132aff58
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2022
-ms.locfileid: '148107518'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192675'
 ---
 {% data reusables.saml.okta-ae-sso-beta %}
 
 ## Okta를 사용한 인증 및 사용자 프로비저닝 정보
 
-Okta를 {% data variables.product.product_name %}에 IdP(ID 공급자)로 사용할 수 있습니다. 그러면 Okta 사용자가 Okta 자격 증명을 사용하여 {% data variables.product.product_name %}에 로그인할 수 있습니다.
+Okta를 {% data variables.product.product_name %}에 대한 IdP(ID 공급자)로 사용할 수 있습니다. 그러면 Okta 사용자가 Okta 자격 증명을 사용하여 {% data variables.product.product_name %}에 로그인할 수 있습니다.
 
 Okta를 {% data variables.product.product_name %}의 IdP로 사용하려면 Okta에 {% data variables.product.product_name %} 앱을 추가하고, {% data variables.product.product_name %}에서 Okta를 IdP로 구성하고, Okta 사용자 및 그룹에 대한 액세스를 프로비전할 수 있습니다.
 
+{% data reusables.saml.idp-saml-and-scim-explanation %}
+- "[Okta 그룹을 팀에 매핑](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)"
+
+SCIM을 사용하도록 설정하면 Okta에서 {% data variables.product.product_name %} 애플리케이션을 할당하는 모든 사용자가 다음 프로비저닝 기능을 사용할 수 있습니다.
+
 {% data reusables.scim.ghes-beta-note %}
 
-{% data variables.product.product_name %} 애플리케이션에 할당하는 모든 Okta 사용자가 다음 프로비저닝 기능을 사용할 수 있습니다.
+{% data variables.product.product_name %} 애플리케이션에 할당한 모든 Okta 사용자가 다음 프로비저닝 기능을 사용할 수 있습니다.
 
 | 기능 | 설명 |
 | --- | --- |
 | 새 사용자 푸시 | Okta에서 새 사용자를 만들면 사용자가 {% data variables.product.product_name %}에 추가됩니다. |
 | 사용자 비활성화 푸시 | Okta에서 사용자를 비활성화하면 {% data variables.product.product_name %}에서 엔터프라이즈에서 사용자를 일시 중단합니다. |
 | 프로필 업데이트 푸시 | Okta에서 사용자 프로필을 업데이트하면 {% data variables.product.product_name %}에서 엔터프라이즈의 사용자 멤버 자격에 대한 메타데이터가 업데이트됩니다. |
-| 사용자 다시 활성화 | Okta에서 사용자를 다시 활성화하면 {% data variables.product.product_name %}에서 엔터프라이즈의 사용자를 일시 중단하지 않습니다. |
+| 사용자 다시 활성화 | Okta에서 사용자를 다시 활성화하면 {% data variables.product.product_name %}에서 엔터프라이즈에서 사용자를 일시 중단하지 않습니다. |
 
-## 사전 요구 사항
+{% data variables.location.product_location %}에서 엔터프라이즈의 ID 및 액세스 관리에 대한 자세한 내용은 "[엔터프라이즈의 ID 및 액세스 관리](/admin/authentication/managing-identity-and-access-for-your-enterprise)"를 참조하세요.
+
+## 필수 구성 요소
 
 - Okta를 사용하여 {% data variables.product.product_name %}에 대한 인증 및 사용자 프로비저닝을 구성하려면 Okta 계정 및 테넌트가 있어야 합니다.
 
@@ -75,7 +81,7 @@ Okta를 {% data variables.product.product_name %}의 IdP로 사용하려면 Okta
 
 ## {% data variables.product.product_name %}에 SAML SSO 사용
 
-{% data variables.product.product_name %}에 대해 SSO(Single Sign-On)를 사용하도록 설정하려면 Okta에서 제공하는 로그온 URL, 발급자 URL 및 공용 인증서를 사용하도록 {% data variables.product.product_name %}를 구성해야 합니다. {% data variables.product.product_name %}에 대한 Okta 앱에서 이러한 세부 정보를 찾을 수 있습니다.
+{% data variables.product.product_name %}에 대해 SSO(Single Sign-On)를 사용하도록 설정하려면 Okta에서 제공하는 로그온 URL, 발급자 URL 및 공용 인증서를 사용하도록 {% data variables.product.product_name %}을 구성해야 합니다. {% data variables.product.product_name %}에 대한 Okta 앱에서 이러한 세부 정보를 찾을 수 있습니다.
 
 {% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% ifversion ghae %} {% data reusables.saml.okta-sign-on-tab %} {% data reusables.saml.okta-view-setup-instructions %}
 1. “로그온 URL”, “발급자”, “퍼블릭 인증서” 세부 정보를 기록해 둡니다. 
@@ -94,7 +100,7 @@ Okta를 {% data variables.product.product_name %}의 IdP로 사용하려면 Okta
 
 Okta 앱은 SCIM 프로비저닝을 위해 {% data variables.product.product_name %}에 REST API를 사용합니다. {% data variables.product.product_name %}에 대한 {% data variables.product.pat_generic %}를 사용하여 Okta를 구성하여 API에 대한 액세스를 사용하도록 설정하고 테스트할 수 있습니다.
 
-1. {% data variables.product.product_name %}에서 범위가 있는 {% data variables.product.pat_v1 %}을 생성합니다 `admin:enterprise` . 자세한 내용은 "[{% data variables.product.pat_generic %} 만들기"를 참조하세요](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+1. {% data variables.product.product_name %}에서 범위가 있는 {% data variables.product.pat_v1 %}을(를) 생성합니다 `admin:enterprise` . 자세한 내용은 "[{% data variables.product.pat_generic %} 만들기](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)"를 참조하세요.
 {% data reusables.saml.okta-ae-applications-menu %} {% data reusables.saml.okta-click-on-the-app %} {% data reusables.saml.okta-ae-provisioning-tab %}
 1. **API 통합 구성** 을 클릭합니다.
 
@@ -158,7 +164,7 @@ Okta 사용자가 자격 증명을 사용하여 {% data variables.product.produc
 {% ifversion ghae %}
 ### OKTA 그룹에 대한 액세스 프로비저닝
 
-{% data variables.product.product_name %}의 팀에 Okta 그룹을 매핑할 수 있습니다. 그러면 Okta 그룹의 구성원이 자동으로 매핑된 {% data variables.product.product_name %} 팀의 구성원이 됩니다. 자세한 내용은 “[팀에 OKTA 그룹 매핑](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”을 참조하세요.
+{% data variables.product.product_name %}의 팀에 Okta 그룹을 매핑할 수 있습니다. 그러면 Okta 그룹의 구성원이 매핑된 {% data variables.product.product_name %} 팀의 구성원이 됩니다. 자세한 내용은 “[팀에 OKTA 그룹 매핑](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”을 참조하세요.
 {% endif %}
 
 ## 추가 참고 자료

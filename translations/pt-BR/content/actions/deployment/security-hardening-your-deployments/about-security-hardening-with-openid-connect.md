@@ -1,6 +1,6 @@
 ---
 title: Sobre o enrijecimento de segurança com o OpenID Connect
-shortTitle: About security hardening with OpenID Connect
+shortTitle: Security hardening with OpenID Connect
 intro: O OpenID Connect permite que seus fluxos de trabalho troquem tokens de curta duração diretamente do seu provedor da nuvem.
 miniTocMaxHeadingLevel: 4
 versions:
@@ -10,12 +10,12 @@ versions:
 type: tutorial
 topics:
   - Security
-ms.openlocfilehash: 23c541fa3c99b706877fc29c52174c404d5fca3d
-ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.openlocfilehash: 90a2f8c6cb2114f060bfbd0f422cb1ef6dbca604
+ms.sourcegitcommit: 4f08a208a0d2e13dc109678750a962ea2f67e1ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2022
-ms.locfileid: '147710264'
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148192028'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -76,7 +76,7 @@ O exemplo de token OIDC a seguir usa uma entidade (`sub`) que referencia um ambi
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
   "actor_id": "12",
-  "repo_visibility": private,
+  "repository_visibility": private,
   "repository_id": "74",
   "repository_owner_id": "65",
   "run_id": "example-run-id",
@@ -131,7 +131,7 @@ O token também inclui reivindicações personalizadas fornecidas por {% data va
 | `job_workflow_ref`| Este é o caminho ref para o fluxo de trabalho reutilizável usado por este trabalho. Para obter mais informações, confira "[Como usar o OpenID Connect com fluxos de trabalho reutilizáveis"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows).                  | 
 | `ref`| _(Referência)_ A referência do Git que disparou a execução de fluxo de trabalho.                   | 
 | `ref_type`| O tipo de `ref`, por exemplo: "branch".                  | 
-| `repo_visibility` | A visibilidade do repositório em que o fluxo de trabalho está sendo executado. Aceita os seguintes valores: `internal`, `private`, ou `public`.                   | 
+| `repository_visibility` | A visibilidade do repositório em que o fluxo de trabalho está sendo executado. Aceita os seguintes valores: `internal`, `private`, ou `public`.                   | 
 | `repository`| O repositório de onde o fluxo de trabalho está sendo executado.                   | 
 | `repository_id`| A ID do repositório do qual o fluxo de trabalho está sendo executado.  |
 | `repository_owner`| O nome da organização na qual o `repository` é armazenado.                   | 
@@ -249,7 +249,7 @@ Você pode proteger a segurança da configuração do OIDC personalizando as dec
 
 {% ifversion ghec %} – Para uma camada adicional de segurança, você pode acrescentar a URL `issuer` com seu campo de dados dinâmico corporativo. Isso permite que você defina condições na declaração do emissor (`iss`), configurando-a para aceitar apenas tokens JWT de uma URL exclusiva `issuer` que deve incluir seu campo de dados dinâmico corporativo.{% endif %}
 - Você pode padronizar a configuração do OIDC definindo as condições na declaração de assunto (`sub`) que exigem que os tokens JWT sejam originados de um repositório específico, fluxo de trabalho reutilizável ou de outra origem.
-- Você pode definir políticas OIDC granulares usando declarações de token OIDC adicionais, como `repository_id` e `repo_visibility`. Para obter mais informações, confira "[Noções básicas sobre o token OIDC](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
+- Você pode definir políticas OIDC granulares usando declarações de token OIDC adicionais, como `repository_id` e `repository_visibility`. Para obter mais informações, confira "[Noções básicas sobre o token OIDC](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
 
 Para personalizar esses formatos de declaração, os administradores de organização e repositório podem usar os pontos de extremidade da API REST descritos nas seções a seguir.
 
@@ -259,7 +259,7 @@ Para personalizar esses formatos de declaração, os administradores de organiza
 
 Por padrão, o JWT é emitido pelo provedor OIDC do {% data variables.product.prodname_dotcom %} em `https://token.actions.githubusercontent.com`. Esse caminho é apresentado ao provedor de nuvem usando o valor `iss` no JWT.
 
-Os administradores corporativos podem proteger a definição de OIDC deles configurando a empresa para receber tokens de uma URL exclusiva em `https://api.github.com/enterprises/<enterpriseSlug>/actions/oidc/customization/issuer`. Substitua `<enterpriseSlug>` pelo valor de campo de dados dinâmico da sua empresa. 
+Os administradores corporativos podem proteger a definição de OIDC deles configurando a empresa para receber tokens de uma URL exclusiva em `https://token.actions.githubusercontent.com/<enterpriseSlug>`. Substitua `<enterpriseSlug>` pelo valor de campo de dados dinâmico da sua empresa. 
 
 Essa configuração significa que sua empresa receberá o token OIDC de uma URL exclusiva e você poderá configurar seu provedor de nuvem para aceitar apenas tokens dessa URL. Isso ajuda a garantir que apenas os repositórios da empresa possam acessar seus recursos de nuvem usando o OIDC.
 
@@ -273,7 +273,7 @@ Depois que essa configuração for aplicada, o JWT conterá o valor `iss` atuali
   "sub": "repo:octocat-inc/private-server:ref:refs/heads/main"
   "aud": "http://octocat-inc.example/octocat-inc"
   "enterprise": "octocat-inc"
-  "iss": "https://api.github.com/enterprises/octocat-inc/actions/oidc/customization/issuer",
+  "iss": "https://token.actions.githubusercontent.com/octocat-inc",
   "bf": 1755350653,
   "exp": 1755351553,
   "iat": 1755351253
@@ -282,21 +282,23 @@ Depois que essa configuração for aplicada, o JWT conterá o valor `iss` atuali
 
 {% endif %}
 
-### Personalizando as declarações de assunto para uma organização
+### Personalizando as declarações de assunto para uma organização ou repositório
 
-Para configurar a segurança, a conformidade e a padronização em toda a organização, você pode personalizar as declarações padrão para atender às condições de acesso necessárias. Se o provedor de nuvem der suporte a condições em declarações de assunto, você poderá criar uma condição que verifique se o valor `sub` corresponde ao caminho do fluxo de trabalho reutilizável, como `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. O formato exato variará dependendo da configuração do OIDC do provedor de nuvem. Para configurar a condição correspondente no {% data variables.product.prodname_dotcom %}, você pode usar a API REST para exigir que a declaração `sub` sempre inclua uma declaração personalizada específica, como `job_workflow_ref`. Para obter mais informações, confira "[Definir o modelo de personalização para uma declaração de entidade OIDC para uma organização](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)".
-
-Personalizar as declarações resulta em um novo formato para toda a declaração `sub`, que substitui o formato predefinido padrão `sub` no token descrito em "[Declarações de entidade de exemplo](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)".
-
-Os modelos de exemplo a seguir demonstram várias maneiras de personalizar a declaração de assunto. Para definir essas configurações no {% data variables.product.prodname_dotcom %}, os administradores da organização usam a API REST para especificar uma lista de declarações que devem ser incluídas na declaração de assunto (`sub`). {% data reusables.actions.use-request-body-api %}
-
-Para personalizar suas declarações de assunto, primeiro você deve criar uma condição correspondente na configuração OIDC do provedor de nuvem, antes de personalizar a configuração usando a API REST. Depois que a configuração for concluída, cada vez que um novo trabalho for executado, o token OIDC gerado durante esse trabalho seguirá o novo modelo de personalização. Se a condição correspondente não existir na configuração OIDC do provedor de nuvem antes da execução do trabalho, o token gerado poderá não ser aceito pelo provedor de nuvem, pois as condições de nuvem podem não ser sincronizadas.
+Para ajudar a melhorar a segurança, a conformidade e a padronização, você pode personalizar as declarações padrão para atender às condições de acesso necessárias. Se o provedor de nuvem der suporte a condições em declarações de assunto, você poderá criar uma condição que verifique se o valor `sub` corresponde ao caminho do fluxo de trabalho reutilizável, como `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. O formato exato variará dependendo da configuração do OIDC do provedor de nuvem. Para configurar a condição correspondente no {% data variables.product.prodname_dotcom %}, você pode usar a API REST para exigir que a declaração `sub` sempre inclua uma declaração personalizada específica, como `job_workflow_ref`. Você pode usar a [API REST do OIDC](/rest/actions/oidc) para aplicar um modelo de personalização à declaração de entidade do OIDC. Por exemplo, você pode exigir que a declaração `sub` dentro do token do OIDC sempre inclua uma declaração personalizada específica, como `job_workflow_ref`.
 
 {% note %}
 
-**Observação**: quando o modelo da organização é aplicado, ele não afetará nenhum repositório existente que já use o OIDC. Para repositórios existentes, bem como quaisquer novos repositórios criados após a aplicação do modelo, o proprietário do repositório precisará aceitar para receber essa configuração. Para obter mais informações, confira "[Definir o sinalizador de aceitação de uma personalização de declaração de entidade OIDC para um repositório](/rest/actions/oidc#set-the-opt-in-flag-of-an-oidc-subject-claim-customization-for-a-repository)".
+**Observação**: quando o modelo da organização é aplicado, ele não afetará nenhum fluxo de trabalho em um repositório existente que já use o OIDC. No caso de repositórios existentes, bem como quaisquer novos repositórios criados após a aplicação do modelo, seu proprietário precisará optar por receber essa configuração ou, alternativamente, aplicar uma configuração diferente específica para o repositório. Para obter mais informações, confira "[Definir o modelo de personalização para uma declaração de entidade OIDC para uma repositório](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)".
 
 {% endnote %}
+
+Personalizar as declarações resulta em um novo formato para toda a declaração `sub`, que substitui o formato predefinido padrão `sub` no token descrito em "[Declarações de entidade de exemplo](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)".
+
+Os modelos de exemplo a seguir demonstram várias maneiras de personalizar a declaração de assunto. Para definir essas configurações no {% data variables.product.prodname_dotcom %}, os administradores usam a API REST para especificar uma lista de declarações que devem ser incluídas na declaração de assunto (`sub`). 
+
+{% data reusables.actions.use-request-body-api %}
+
+Para personalizar suas declarações de assunto, primeiro você deve criar uma condição correspondente na configuração OIDC do provedor de nuvem, antes de personalizar a configuração usando a API REST. Depois que a configuração for concluída, cada vez que um novo trabalho for executado, o token OIDC gerado durante esse trabalho seguirá o novo modelo de personalização. Se a condição correspondente não existir na configuração OIDC do provedor de nuvem antes da execução do trabalho, o token gerado poderá não ser aceito pelo provedor de nuvem, pois as condições de nuvem podem não ser sincronizadas.
 
 #### Exemplo: permitir repositório com base na visibilidade e no proprietário
 
@@ -315,7 +317,9 @@ Na configuração do OIDC do provedor de nuvem, configure a `sub` condição par
 
 #### Exemplo: permitindo acesso a todos os repositórios com um proprietário específico
 
-Este modelo de exemplo permite que a declaração `sub` tenha um novo formato apenas com o valor de `repository_owner`. {% data reusables.actions.use-request-body-api %}
+Este modelo de exemplo permite que a declaração `sub` tenha um novo formato apenas com o valor de `repository_owner`. 
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
 {
@@ -346,7 +350,9 @@ Na configuração do OIDC do provedor de nuvem, configure a condição `sub` par
 
 #### Exemplo: exigir um fluxo de trabalho reutilizável e outras declarações
 
-O modelo de exemplo a seguir combina o requisito de um fluxo de trabalho reutilizável específico com declarações adicionais. {% data reusables.actions.use-request-body-api %}
+O modelo de exemplo a seguir combina o requisito de um fluxo de trabalho reutilizável específico com declarações adicionais.
+
+{% data reusables.actions.use-request-body-api %}
 
 Este exemplo também demonstra como usar `"context"` para definir suas condições. Essa é a parte que segue o repositório no [formato `sub` padrão](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). Por exemplo, quando o trabalho faz referência a um ambiente, o contexto traz: `environment:<environmentName>`.
 
@@ -382,7 +388,9 @@ Na configuração do OIDC do provedor de nuvem, configure a `sub` condição par
 
 #### Exemplo: usando GUIDs gerados pelo sistema
 
-Este modelo de exemplo permite declarações OIDC previsíveis com GUIDs gerados pelo sistema que não mudam entre renomeações de entidades (como renomear um repositório). {% data reusables.actions.use-request-body-api %}
+Este modelo de exemplo permite declarações OIDC previsíveis com GUIDs gerados pelo sistema que não mudam entre renomeações de entidades (como renomear um repositório). 
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
   {
@@ -408,7 +416,9 @@ Na configuração do OIDC do provedor de nuvem, configure a `sub` condição par
 
 #### Redefinindo suas personalizações
 
-Este modelo de exemplo redefine as declarações de assunto para o formato padrão. {% data reusables.actions.use-request-body-api %} Esse modelo aceita efetivamente qualquer política de personalização no nível da organização.
+Este modelo de exemplo redefine as declarações de assunto para o formato padrão. Esse modelo aceita efetivamente qualquer política de personalização no nível da organização.
+
+{% data reusables.actions.use-request-body-api %}
 
 ```json
 {
@@ -423,11 +433,25 @@ Na configuração do OIDC do provedor de nuvem, configure a condição `sub` par
 
 #### Como usar as declarações de entidade padrão
 
-Para repositórios que podem receber uma política de declaração de assunto da sua organização, o proprietário do repositório pode optar por recusar e, em vez disso, usar o formato de declaração padrão `sub`. Para configurar isso, o administrador do repositório deve usar o ponto de extremidade da API REST em "[Definir o sinalizador de opt-out de uma personalização de declaração de entidade OIDC para um repositório](/rest/actions/oidc#set-the-opt-out-flag-of-an-oidc-subject-claim-customization-for-a-repository)" com o seguinte corpo da solicitação:
+Para repositórios que podem receber uma política de declaração de assunto da sua organização, o proprietário do repositório pode optar por recusar e, em vez disso, usar o formato de declaração padrão `sub`. Isso significa que o repositório não usará o modelo personalizado da organização. 
+
+Para configurar o repositório de modo que ele use o formato de declaração padrão `sub`, um administrador deve usar o ponto de extremidade da API REST em "[Definir o modelo de personalização para uma declaração de assunto OIDC para um repositório](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)" com o seguinte corpo de solicitação:
 
 ```json
 {
    "use_default": true
+}
+```
+
+#### Exemplo: configurar um repositório para usar um modelo de organização
+
+Um administrador pode configurar seu repositório para usar o modelo criado pelo administrador de sua organização.
+
+Para configurar o repositório de modo que ele use o modelo da organização, um administrador de repositório deve usar o ponto de extremidade da API REST em "[Definir o modelo de personalização para uma declaração de assunto OIDC para um repositório](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)" com o seguinte corpo de solicitação:
+
+```json
+{
+   "use_default": false
 }
 ```
 

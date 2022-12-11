@@ -7,12 +7,12 @@ versions:
 shortTitle: Visual Studio Code
 topics:
   - Copilot
-ms.openlocfilehash: 0c91f9c11f98669ba6bcbf84113a629ae6d53044
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: ab043d4eeca2003deaf77aa80be46fc79acf8649
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147080601'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193571'
 ---
 ## Сведения о {% data variables.product.prodname_copilot %} в {% data variables.product.prodname_vscode %}
 
@@ -88,17 +88,16 @@ ms.locfileid: '147080601'
 
 Вы можете включить или отключить встроенные предложения для {% data variables.product.prodname_copilot %} в {% data variables.product.prodname_vscode %}. 
 
-1. В меню **Файл** перейдите к разделу **Параметры** и выберите пункт **Параметры**.
-![Снимок экрана: параметры {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/vsc-settings.png)
-1. На левой панели вкладки "Параметры" щелкните **Расширения** и выберите **Copilot**.
-1. В разделе "Встроенные предложения: включить" установите или снимите флажок, чтобы включить или отключить встроенные предложения.
+{% data reusables.copilot.vscode-settings %}
+1. На левой панели вкладки параметров щелкните **Расширения** , а затем выберите **{% data variables.product.prodname_copilot_short %}**.
+1. В разделе "Встроенное предложение:включить" установите или снимите флажок, чтобы включить или отключить встроенные предложения.
 
 ## Включение или отключение {% data variables.product.prodname_copilot %} для конкретных языков
 
 Вы можете указать языки, для которых требуется включить или отключить {% data variables.product.prodname_copilot %}.
 
 1. В {% data variables.product.prodname_vscode %} перейдите на вкладку **Расширения**, а затем перейдите к разделу **Copilot**. Дополнительные сведения см. в разделе [Включение и отключение встроенных предложений](#enabling-and-disabling-inline-suggestions).
-1. В разделе "Включить или отключить Copilot для указанных языков" нажмите кнопку **Изменить в файле settings.json**.
+1. В разделе "Включить или отключить {% data variables.product.prodname_copilot_short %} для указанных языков" щелкните **Изменить в файле settings.json**.
 1. В файле _settings.json_ добавьте или удалите языки, для которого требуется включить или отключить {% data variables.product.prodname_copilot %}. Например, чтобы включить Python в {% data variables.product.prodname_copilot %}, добавьте в список `"python": true`, убедившись, что после всех элементов списка, кроме последнего, стоит запятая.
 
     ```json
@@ -114,5 +113,23 @@ ms.locfileid: '147080601'
         }
     }
     ```
+
+## Настройка параметров прокси-сервера для {% data variables.product.prodname_copilot %}
+
+Вы можете настроить {% data variables.product.prodname_copilot %} для подключения через прокси-сервер HTTP в {% data variables.product.prodname_vscode %}. {% data variables.product.prodname_copilot %} поддерживает базовую настройку прокси-сервера HTTP с обычной проверкой подлинности или без нее. 
+
+{% data reusables.copilot.vscode-settings %}
+1. На левой панели вкладки параметров щелкните **Приложение** , а затем выберите **Прокси-сервер**.
+1. В текстовом поле в разделе "Прокси-сервер" введите адрес прокси-сервера, например `http://localhost:3128`. Кроме того, {% data variables.product.prodname_copilot %} будет использовать `http_proxy` переменные и `https_proxy` из вашей среды.
+
+   ![Снимок экрана: текстовое поле прокси-сервера Visual Studio Code](/assets/images/help/copilot/proxy-textbox.png)
+
+1. При необходимости в разделе "Http: авторизация прокси-сервера" щелкните **Изменить в файле settings.json** и добавьте необходимое значение для отправки в качестве заголовка `Proxy-Authorization` для каждого сетевого запроса.
+
+   ![Снимок экрана: текстовое поле авторизации прокси-сервера Visual Studio Code](/assets/images/help/copilot/proxy-authorization.png)
+
+1. При необходимости в разделе "Http: прокси-сервер строгий SSL" установите или снимите флажок, чтобы включить или отключить строгий SSL.
+
+   ![Снимок экрана: Visual Studio Code флажок SSL строгого прокси-сервера](/assets/images/help/copilot/proxy-strict-ssl.png)
 
 {% data reusables.copilot.dotcom-settings %}

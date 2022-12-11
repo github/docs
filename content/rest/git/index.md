@@ -1,6 +1,6 @@
 ---
 title: Git database
-intro: 'The Git Database API enables you to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update Git references (branch heads and tags).'
+intro: 'Use the REST API to interact with raw Git objects in your Git database on {% data variables.product.product_name %} and to list and update Git references (branch heads and tags).'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/git
@@ -21,4 +21,6 @@ children:
   - /trees
 ---
 
-The Git Database API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags). For more information about using the Git Database API, see "[Getting started with the Git data API](/rest/guides/getting-started-with-the-git-database-api)."
+## About Git database
+
+The REST API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags). For more information about using the REST API to interact with your Git database, see "[Getting started with the Git data API](/rest/guides/getting-started-with-the-git-database-api)."

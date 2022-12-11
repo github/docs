@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 72d8263029317783e60d8f81f45edc3dbb8b1c8b
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: e24ae7adb9f5c2efbb08be63788dae1eff501d99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180017'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192701'
 ---
 ## Acerca de {% data variables.product.prodname_emus %}
 
@@ -94,7 +94,6 @@ Los {% data variables.enterprise.prodname_managed_users_caps %} solo pueden cola
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Solo se pueden crear repositorios internos y privados en las organizaciones que pertenezcan a una {% data variables.enterprise.prodname_emu_enterprise %}, en función de la configuración de visibilidad del repositorio o la empresa. 
 * Los {% data variables.enterprise.prodname_managed_users_caps %} están limitados en su uso de {% data variables.product.prodname_pages %}. Para obtener más información, consulta [Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users).
-* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## Introducción a {% data variables.product.prodname_emus %}
 

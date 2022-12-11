@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 72d8263029317783e60d8f81f45edc3dbb8b1c8b
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: e24ae7adb9f5c2efbb08be63788dae1eff501d99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180014'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192698'
 ---
 ## {% data variables.product.prodname_emus %} について
 
@@ -94,7 +94,6 @@ Enterprise によって所有されている Organization にメンバーを追�
 * {% data reusables.enterprise-accounts.emu-forks %}
 * {% data variables.enterprise.prodname_emu_enterprise %} が所有する Organization では、Organization および Enterprise リポジトリの可視性の設定に応じて、プライベートおよび内部リポジトリのみを作成できます。 
 * {% data variables.enterprise.prodname_managed_users_caps %}は、{% data variables.product.prodname_pages %} の使用が制限されます。 詳細については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)」を参照してください。
-* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## {% data variables.product.prodname_emus %} の概要
 

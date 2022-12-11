@@ -18,17 +18,17 @@ children:
   - /delivering-deployments
   - /rendering-data-as-graphs
   - /working-with-comments
-  - /traversing-with-pagination
+  - /using-pagination-in-the-rest-api
   - /building-a-ci-server
   - /best-practices-for-integrators
   - /getting-started-with-the-git-database-api
   - /getting-started-with-the-checks-api
-ms.openlocfilehash: 6441ccaa503fd348fa67ab4c896cb5470690149a
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.openlocfilehash: 8f75067671241613268ea6cea7dd4e073f584a60
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '146200131'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193628'
 ---
 ドキュメントのこのセクションは、実際の {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API アプリケーションを稼働させるためのものです。 認証から、結果の操作や結果とその他のアプリとの統合に至るまで、知っておく必要があるすべての内容について説明します。
 チュートリアルにはそれぞれプロジェクトが含まれています。各プロジェクトは、パブリックの [platform-samples](https://github.com/github/platform-samples) リポジトリに保存され、文書化されます。

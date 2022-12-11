@@ -12,11 +12,12 @@ children:
   - /configuring-github-copilot-in-visual-studio
   - /configuring-github-copilot-in-a-jetbrains-ide
   - /configuring-github-copilot-in-neovim
-ms.openlocfilehash: e98ac2a1ac8c884776db54e3b8d2a1ea51fbebee
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+  - /configuring-github-copilot-settings-in-your-organization
+ms.openlocfilehash: cf37484dca9e85aab771f1659058018b939af469
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2022
-ms.locfileid: '147887405'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193248'
 ---
 

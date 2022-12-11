@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Packages
-intro: 'Publish to {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}.'
+title: Inicie rapidamente para o GitHub Packages
+intro: 'Pulblique em {% data variables.product.prodname_registry %} com {% data variables.product.prodname_actions %}.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -8,29 +8,34 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
+ms.openlocfilehash: 887c4ee6c5e6b3e2c391c2d5754cfcb2787e4b86
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181250'
 ---
-
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Introduction
+## Introdução
 
-In this guide, you'll create a {% data variables.product.prodname_actions %} workflow to test your code and then publish it to {% data variables.product.prodname_registry %}.
+Neste guia, você criará um fluxo de trabalho de {% data variables.product.prodname_actions %} para testar seu código e, em seguida, publicá-lo em {% data variables.product.prodname_registry %}.
 
-## Publishing your package
+## Publicar o seu pacote
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
-2. Clone the repository to your local machine.
+1. Crie um repositório no {% data variables.product.prodname_dotcom %} adicionando o `.gitignore` ao Node. Para obter mais informações, confira "[Como criar um repositório](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)".
+2. Clone o repositório em seu computador local.
     ```shell
     $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
     $ cd YOUR-REPOSITORY
     ```
-3. Create an `index.js` file and add a basic alert to say "Hello world!"
+3. Crie um arquivo `index.js` e adicione um alerta básico para dizer "Olá, mundo!"
     {% raw %}
     ```javascript{:copy}
     console.log("Hello, World!");
     ```
     {% endraw %}
-4. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
+4. Inicialize um pacote npm com `npm init`. No assistente de inicialização do pacote, insira o pacote com o nome _`@YOUR-USERNAME/YOUR-REPOSITORY`_ e defina o script de teste como `exit 0`. Isso vai gerar um arquivo `package.json` com informações sobre o pacote.
     {% raw %}
     ```shell
     $ npm init
@@ -41,15 +46,15 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       ...    
     ```
     {% endraw %}
-5. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
+5. Execute `npm install` para gerar o arquivo `package-lock.json` e faça commit e efetue push das alterações para o {% data variables.product.prodname_dotcom %}.
     ```shell
     $ npm install
     $ git add index.js package.json package-lock.json
     $ git commit -m "initialize npm package"
     $ git push
     ```
-6. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
-7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
+6. Crie um diretório `.github/workflows`. Nesse diretório, crie um arquivo chamado `release-package.yml`.
+7. Copie o conteúdo YAML a seguir para o arquivo `release-package.yml`{% ifversion ghes or ghae %}, substituindo `YOUR-HOSTNAME` pelo nome da sua empresa{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -85,22 +90,20 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
             env:
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-8. Tell NPM which scope and registry to publish packages to using one of the following methods:
-   - Add an NPM configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
-      {% raw %}
+8. Diga ao NPM quais escopos e registros publicam pacotes usando um dos seguintes métodos:
+   - Adicione um arquivo de configuração do npm ao repositório, criando um arquivo `.npmrc` no diretório raiz com o conteúdo: {% raw %}
       ```shell
       @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
       {% endraw %}
-   - Edit the `package.json` file and specify the `publishConfig` key:
-      {% raw %}
+   - Edite o arquivo `package.json` e especifique a chave `publishConfig`: {% raw %}
       ```shell
       "publishConfig": {
         "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
       }
       ```
       {% endraw %}
-9. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
+9. Faça commit e faça push das suas alterações para {% data variables.product.prodname_dotcom %}.
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
@@ -108,28 +111,26 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     $ git commit -m "workflow to publish package"
     $ git push
     ```
-10.  The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
+10.  O fluxo de trabalho que você criou será executado sempre que uma nova versão for criada no seu repositório. Se os testes passarem, o pacote será publicado em {% data variables.product.prodname_registry %}.
     
-    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
+    Para testar isso, procure a guia **Código** no repositório e crie uma versão. Para obter mais informações, confira "[Como gerenciar as versões do repositório](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)".
 
-## Viewing your published package
+## Visualizar o seu pacote publicado
 
-You can view all of the packages you have published.
+Você pode ver todos os pacotes que você publicou.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.package_registry.packages-from-code-tab %}
-{% data reusables.package_registry.navigate-to-packages %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.package_registry.packages-from-code-tab %} {% data reusables.package_registry.navigate-to-packages %}
 
-## Installing a published package
+## Instalar um pacote publicado
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
+Agora que você publicou o pacote, você vai querer usá-lo como uma dependência nos seus projetos. Para obter mais informações, confira "[Como trabalhar com o registro npm](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)".
 
-## Next steps
+## Próximas etapas
 
-The basic workflow you just added runs any time a new release is created in your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_registry %}. You can publish your package to multiple registries with a single workflow, trigger the workflow to run on different events such as a merged pull request, manage containers, and more.
+O fluxo de trabalho básico que você acabou de adicionar é executado sempre que uma nova versão for criada no seu repositório. Mas este é apenas o início do que você pode fazer com {% data variables.product.prodname_registry %}. Pode publicar o seu pacote em vários registros com um único fluxo de trabalho, acionar o fluxo de trabalho para ser executado em eventos diferentes, como um pull request mesclado, gerenciar contêineres, entre outros.
 
-Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
+Combinar {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seguir as próximas etapas com {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %}:
 
-- "[Learn {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-- "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples
+- "[Saiba como usar o {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" para ver um tutorial detalhado sobre os Pacotes do GitHub
+- "[Saiba como usar o {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para ver um tutorial detalhado sobre o GitHub Actions
+- "[Como trabalhar com um registro do {% data variables.product.prodname_registry %}](/packages/working-with-a-github-packages-registry)" para ver casos de uso e exemplos específicos

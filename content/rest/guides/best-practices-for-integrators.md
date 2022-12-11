@@ -61,7 +61,7 @@ Often, API responses contain data in the form of URLs. For example, when request
 
 For the stability of your app, you shouldn't try to parse this data or try to guess and construct the format of future URLs. Your app is liable to break if we decide to change the URL.
 
-For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. [Our guide on pagination](/guides/traversing-with-pagination) offers some safe tips on dependably following paginated results.
+For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. For more information about dependably following paginated results, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
 
 ## Check the event type and action before processing the event
 

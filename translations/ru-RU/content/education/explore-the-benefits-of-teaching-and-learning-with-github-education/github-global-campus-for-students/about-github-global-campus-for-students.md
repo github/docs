@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For students
-ms.openlocfilehash: 198f0354e63721a4763e8fa32f832a19b2dac9d9
-ms.sourcegitcommit: 3abdbdbb47a9319f20e11845e9c2d8a7fce63422
+ms.openlocfilehash: b5d1d75e8c93bc147bc5185106ecef8c00a67c05
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2022
-ms.locfileid: '148165100'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193140'
 ---
 Использование {% data variables.product.prodname_dotcom %} для учебных проектов — это практическая методика совместной работы с другими пользователями и создания портфеля достижений, который демонстрирует реальный опыт.
 
@@ -40,7 +40,7 @@ ms.locfileid: '148165100'
 - Находить созданные учащимися репозитории на GitHub Community Exchange. Дополнительные сведения см. в разделе [Сведения о GitHub Community Exchange](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange).
 
 Учащиеся{% data variables.product.prodname_global_campus %} также получают следующие преимущества {% data variables.product.prodname_dotcom %}.
-- **{% data variables.product.prodname_copilot %}**: проверенные учащиеся получают бесплатную подписку на {% data variables.product.prodname_copilot %}. Вы автоматически получите уведомление о бесплатной подписке при посещении страницы подписки {% data variables.product.prodname_copilot %} в параметрах учетной записи. Дополнительные сведения о подписке и использовании {% data variables.product.prodname_copilot %} см. в разделах [Управление подпиской на {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot) и [Сведения о {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot).
+- **{% data variables.product.prodname_copilot %}**: проверенные учащиеся получают бесплатную подписку на {% data variables.product.prodname_copilot %}. Вы автоматически получите уведомление о бесплатной подписке при посещении страницы подписки {% data variables.product.prodname_copilot %} в параметрах учетной записи. Дополнительные сведения о подписке и использовании {% data variables.product.prodname_copilot %} см. в [разделах Управление подпиской на {% data variables.product.prodname_copilot_for_individuals %}](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot) и [Сведения о {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot).
 - **{% data variables.product.prodname_github_codespaces %}**: {% data reusables.education.student-codespaces-benefit %} Дополнительные сведения о начале работы с {% data variables.product.prodname_github_codespaces %} см. в разделе Общие сведения о [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview).
 
 {% note %}

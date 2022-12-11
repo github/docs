@@ -7,12 +7,12 @@ versions:
   feature: copilot
 topics:
   - Copilot
-ms.openlocfilehash: 353095b0b0490cd12da8d853754b524431605819
-ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.openlocfilehash: 65384a5cafae1c739b52847d1a826c0138e91fd9
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148185139'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193019'
 ---
 {% data reusables.copilot.copilot-cta-button %}
 
@@ -24,7 +24,9 @@ ms.locfileid: '148185139'
 
 ## 사전 요구 사항
 
-{% data variables.product.prodname_vs %}에서 {% data variables.product.prodname_copilot %}을 사용하려면 {% data variables.product.prodname_vs %} 2022 17.2 이상이 설치되어 있어야 합니다. 자세한 내용은 [Visual Studio IDE 설명서](https://visualstudio.microsoft.com/vs/)를 참조하세요.
+{% data reusables.copilot.subscription-prerequisite %}
+
+- {% data variables.product.prodname_vs %}에서 {% data variables.product.prodname_copilot %}을 사용하려면 {% data variables.product.prodname_vs %} 2022 17.2 이상이 설치되어 있어야 합니다. 자세한 내용은 [Visual Studio IDE 설명서](https://visualstudio.microsoft.com/vs/)를 참조하세요.
 
 {% note %}
 

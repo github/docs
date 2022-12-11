@@ -17,12 +17,12 @@ topics:
   - Enterprise
   - SSO
 allowTitleToDifferFromFilename: true
-ms.openlocfilehash: 72d8263029317783e60d8f81f45edc3dbb8b1c8b
-ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.openlocfilehash: e24ae7adb9f5c2efbb08be63788dae1eff501d99
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2022
-ms.locfileid: '148180013'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192697'
 ---
 ## Informationen zu {% data variables.product.prodname_emus %}
 
@@ -94,7 +94,6 @@ Um zu ermitteln, wie ein Mitglied einer Organisation hinzugefügt wurde, kannst 
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Je nach Sichtbarkeitseinstellungen für Organisations- und Unternehmensrepositorys können nur private und interne Repositorys in Organisationen im Besitz eines {% data variables.enterprise.prodname_emu_enterprise %} erstellt werden. 
 * {% data variables.enterprise.prodname_managed_users_caps %} können {% data variables.product.prodname_pages %} nur eingeschränkt verwenden. Weitere Informationen findest du unter [Informationen zu {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users).
-* {% data reusables.copilot.emus-cannot-use-copilot %}
 
 ## Erste Schritte mit {% data variables.product.prodname_emus %}
 

@@ -1,6 +1,6 @@
 ---
 title: База данных Git
-intro: 'API базы данных Git позволяет совершать операции чтения и записи необработанных объектов Git в базе данных Git в {% data variables.product.product_name %}, а также записывать и обновлять ссылки Git (заголовки ветвей и теги).'
+intro: 'Используйте REST API для взаимодействия с необработанными объектами Git в базе данных Git в {% data variables.product.product_name %}, а также для перечисления и обновления ссылок Git (головки и теги ветвей).'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/git
@@ -19,11 +19,13 @@ children:
   - /refs
   - /tags
   - /trees
-ms.openlocfilehash: a3f498f0334712d268e80a3d25c9147b62a197da
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
+ms.openlocfilehash: 98251c33c4bf065a3df35dfb014689aae1890e69
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882282'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193603'
 ---
-API базы данных Git предоставляет доступ на чтение и запись необработанных объектов Git в базе данных Git в {% data variables.product.product_name %}, а также на перечисление и обновление ссылок (заголовки ветвей и теги). Дополнительные сведения об использовании API базы данных Git см. в статье [Начало работы с API данных Git](/rest/guides/getting-started-with-the-git-database-api).
+## Сведения о базе данных Git
+
+REST API предоставляет доступ для чтения и записи необработанных объектов Git в базе данных Git в {% data variables.product.product_name %}, а также для перечисления и обновления ссылок (головки и теги ветвей). Дополнительные сведения об использовании REST API для взаимодействия с базой данных Git см. в разделе [Начало работы с API данных Git](/rest/guides/getting-started-with-the-git-database-api).

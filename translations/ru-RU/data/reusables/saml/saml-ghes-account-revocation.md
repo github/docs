@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: d08df6f87611aec73985fd0ecd279b67079e2a1f
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
+ms.openlocfilehash: 727611615f31b6b6064340ba97757509a1834db2
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/05/2022
-ms.locfileid: "147067381"
+ms.lasthandoff: 12/09/2022
+ms.locfileid: "148193595"
 ---
 {% ifversion ghes %}
 
-При удалении пользователя из поставщика удостоверений необходимо также вручную приостановить их. В противном случае владелец учетной записи может продолжать выполнять проверку подлинности с помощью маркеров доступа или ключей SSH. Дополнительные сведения см. в разделе [Блокировка и разблокировка пользователей](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
+При JIT-подготовке при удалении пользователя из поставщика удостоверений необходимо также вручную приостановить учетную запись пользователя в {% data variables.location.product_location %}. В противном случае владелец учетной записи может продолжать выполнять проверку подлинности с помощью маркеров доступа или ключей SSH. Дополнительные сведения см. в разделе [Блокировка и разблокировка пользователей](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
 
 {% endif %}

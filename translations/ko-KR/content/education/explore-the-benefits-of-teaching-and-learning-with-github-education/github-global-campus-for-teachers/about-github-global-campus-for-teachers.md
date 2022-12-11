@@ -10,12 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: For teachers
-ms.openlocfilehash: 2a93f87df67d1694bd93888d29a582afa9c749e4
-ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.openlocfilehash: 3e7dea02ec468109fbfa865f2d84224f8381cc39
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2022
-ms.locfileid: '148158967'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192803'
 ---
 공인 교육 기관의 교직원은 {% data variables.product.prodname_global_campus %} 혜택을 신청할 수 있으며, 여기에는 {% data variables.product.prodname_education %}에 대한 액세스가 포함됩니다. 자세한 내용은 “[교사로 {% data variables.product.prodname_global_campus %}에 신청](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)”을 참조하세요.
 
@@ -34,7 +34,7 @@ ms.locfileid: '148158967'
   - 최근 [Campus TV](https://www.twitch.tv/githubeducation) 에피소드를 다시 보고 학생 커뮤니티가 관심있는 것에 대해 알아볼 수 있습니다. Campus TV는 {% data variables.product.prodname_dotcom %} 및 학생 커뮤니티 리더에 의해 생성되며 라이브 또는 주문형으로 시청할 수 있습니다.
   - 학생을 위한 교육 자료와 제품이 포함된 {% data variables.product.prodname_dotcom %} Swag 백을 요청합니다.
 
-{% data variables.product.prodname_copilot %}을(를) 사용하는 확인된 교사는 {% data variables.product.prodname_education %}에 대한 무료 구독을 사용할 수 있습니다. 계정 설정의 {% data variables.product.prodname_copilot %} 구독 페이지를 방문하면 무료 구독에 대한 알림이 자동으로 표시됩니다. {% data variables.product.prodname_copilot %}을(를) 구독하고 사용하는 방법에 대한 자세한 내용은 "[{% data variables.product.prodname_copilot %} 구독 관리](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription#setting-up-a-trial-of-github-copilot)" 및 "[{% data variables.product.prodname_copilot %} 정보"를](/copilot/overview-of-github-copilot/about-github-copilot) 참조하세요.
+{% data variables.product.prodname_copilot %}에 대한 무료 구독은 {% data variables.product.prodname_education %}를 사용하여 확인된 교사에게 제공됩니다. 계정 설정의 {% data variables.product.prodname_copilot %} 구독 페이지를 방문하면 무료 구독에 대한 알림이 자동으로 표시됩니다. {% data variables.product.prodname_copilot %}를 구독하고 사용하는 방법에 대한 자세한 내용은 "[{% data variables.product.prodname_copilot_for_individuals %} 구독 관리](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)" 및 "[{% data variables.product.prodname_copilot %} 정보"를](/copilot/overview-of-github-copilot/about-github-copilot) 참조하세요.
 
 ## 추가 참고 자료
 
