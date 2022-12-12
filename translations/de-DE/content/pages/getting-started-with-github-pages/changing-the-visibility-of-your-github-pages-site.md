@@ -11,7 +11,7 @@ shortTitle: Change visibility of site
 
 ## About access control for {% data variables.product.prodname_pages %} sites
 
-With access control for {% data variables.product.prodname_pages %}, you can restrict access to your project site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise. 
+With access control for {% data variables.product.prodname_pages %}, you can restrict access to your project site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise.
 
 {% data reusables.pages.privately-publish-ghec-only %}
 
@@ -39,8 +39,8 @@ To use a shorter and more memorable domain for your privately published site, yo
 {% data reusables.pages.sidebar-pages %}
 3. Under "{% data variables.product.prodname_pages %}", select the **{% data variables.product.prodname_pages %} visibility** drop-down menu, then click a visibility.
    ![Drop-down to choose a visibility for your site](/assets/images/help/pages/public-or-private-visibility.png)
-4. To see your published site, under "{% data variables.product.prodname_pages %}", click your site's URL.
-![URL of your privately published site](/assets/images/help/pages/click-private-pages-url-to-preview.png)
+4. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-label="The external link icon" %} Visit site**.
+   ![Screenshot of the "Visit site" button next to the URL of a privately published site](/assets/images/help/pages/click-private-pages-url-to-preview.png)
 
   {% note %}
 

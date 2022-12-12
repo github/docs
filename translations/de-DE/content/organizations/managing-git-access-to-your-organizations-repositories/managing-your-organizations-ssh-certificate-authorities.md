@@ -1,6 +1,6 @@
 ---
-title: Managing your organization's SSH certificate authorities
-intro: You can add or delete SSH certificate authorities from your organization.
+title: SSH-Zertifizierungsstellen Deiner Organisation verwalten
+intro: Du kannst SSH-Zertifizierungsstellen zu Deiner Organisation hinzufügen oder aus dieser entfernen.
 redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
@@ -13,27 +13,25 @@ topics:
   - Teams
 shortTitle: Manage SSH authorities
 permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
+ms.openlocfilehash: d2f5b946e854accd68a3e6293f8e384996a261d7
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145130689'
 ---
-
-You can allow members to access your organization's repositories using SSH certificates you provide by adding an SSH CA to your organization. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."
+Du kannst festlegen, dass Mitglieder mithilfe der von Dir bereitgestellten SSH-Zertifikate auf die Repositorys Deiner Organisation zugreifen können, indem Du Deiner Organisation eine SSH-Zertifizierungsstelle hinzufügst. {% data reusables.organizations.can-require-ssh-cert %} Weitere Informationen findest Du unter "[Informationen zu SSH-Zertifizierungsstellen](/articles/about-ssh-certificate-authorities)."
 
 {% data reusables.organizations.ssh-ca-ghec-only %}
 
 {% data reusables.organizations.add-extension-to-cert %}
 
-## Adding an SSH certificate authority
+## Eine SSH-Zertifizierungsstelle hinzufügen
 
-If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)."
+Wenn du für dein Unternehmen SSH-Zertifikate benötigst, sollten Unternehmensmitglieder eine spezielle URL für Git-Vorgänge über SSH verwenden. Weitere Informationen findest du unter [Informationen zu SSH-Zertifizierungsstellen](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates).
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-{% data reusables.organizations.new-ssh-ca %}
-{% data reusables.organizations.require-ssh-cert %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.organizations.new-ssh-ca %} {% data reusables.organizations.require-ssh-cert %}
 
-## Deleting an SSH certificate authority
+## Eine SSH-Zertifizierungsstelle löschen
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-{% data reusables.organizations.delete-ssh-ca %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %} {% data reusables.organizations.delete-ssh-ca %}

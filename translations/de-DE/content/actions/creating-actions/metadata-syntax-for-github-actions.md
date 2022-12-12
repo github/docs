@@ -1,7 +1,7 @@
 ---
-title: Metadata syntax for GitHub Actions
+title: Metadatensyntax für GitHub Actions
 shortTitle: Metadata syntax
-intro: You can create actions to perform tasks in your repository. Actions require a metadata file that uses YAML syntax.
+intro: 'Du kannst Aktionen erstellen, um Aufgaben in deinem Repository auszuführen. Für Aktionen ist eine Metadatendatei erforderlich, die die YAML-Syntax verwendet.'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -14,36 +14,40 @@ versions:
   ghec: '*'
 type: reference
 miniTocMaxHeadingLevel: 4
+ms.openlocfilehash: 9bde653dd7f8b4d04831afa38d29db7300255f57
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107413'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Informationen zur YAML-Syntax für {% data variables.product.prodname_actions %}
 
-## About YAML syntax for {% data variables.product.prodname_actions %}
+Alle Aktionen erfordern eine Metadatendatei. Der Name der Metadatendatei muss entweder `action.yml` oder `action.yaml` lauten. Die Daten in der Metadaten-Datei definieren die Eingaben, Ausgaben und Laufzeitkonfiguration für die Aktion.
 
-All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
-
-Action metadata files use YAML syntax. If you're new to YAML, you can read "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+Metadaten-Dateien der Aktionen verwenden die YAML-Syntax. Lies [YAML in fünf Minuten](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes), wenn du noch keine Erfahrung mit YAML hast.
 
 ## `name`
 
-**Required** The name of your action. {% data variables.product.prodname_dotcom %} displays the `name` in the **Actions** tab to help visually identify actions in each job.
+**Erforderlich** Der Name deiner Aktion. {% data variables.product.prodname_dotcom %} zeigt `name` auf der Registerkarte **Aktionen** an, damit Aktionen in jedem Auftrag erkennbar sind.
 
 ## `author`
 
-**Optional** The name of the action's author.
+**Optional** Der Name des Autors der Aktion
 
 ## `description`
 
-**Required** A short description of the action.
+**Erforderlich** Eine kurze Beschreibung der Aktion
 
 ## `inputs`
 
-**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommended using lowercase input ids.
+**Optional** Mit Eingabeparametern kannst du die Daten angeben, die die Aktion während der Laufzeit erwartet. {% data variables.product.prodname_dotcom %} speichert Eingabeparameter als Umgebungsvariablen. Eingabe-IDs in Großbuchstaben werden während der Laufzeit in Kleinbuchstaben umgewandelt. Du solltest Eingabe-IDs in Kleinbuchstaben verwenden.
 
-### Example: Specifying inputs
+### Beispiel: Angeben von Eingaben
 
-This example configures two inputs: numOctocats and octocatEyeColor. The numOctocats input is not required and will default to a value of '1'. The octocatEyeColor input is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for octocatEyeColor. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
+In diesem Beispiel werden zwei Eingaben konfiguriert: „numOctocats“ und „octocatEyeColor“. Die Eingabe „numOctocats“ ist nicht erforderlich und hat standardmäßig den Wert ‚1‘. Die Eingabe „octocatEyeColor“ ist erforderlich und hat keinen Standardwert. Workflowdateien, die diese Aktion nutzen, müssen das Schlüsselwort `with` verwenden, um für „octocatEyeColor“ einen Eingabewert festzulegen. Weitere Informationen zur `with`-Syntax findest du unter [Workflowsyntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith).
 
 ```yaml
 inputs:
@@ -56,43 +60,43 @@ inputs:
     required: true
 ```
 
-When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
+Wenn du eine Eingabe in einer Workflowdatei angibst oder einen Standardeingabewert verwenden, erstellt {% data variables.product.prodname_dotcom %} eine Umgebungsvariable für die Eingabe mit dem Namen `INPUT_<VARIABLE_NAME>`. Die erstellte Umgebungsvariable konvertiert Eingabenamen in Großbuchstaben und ersetzt Leerzeichen durch `_`-Zeichen.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually.
+Wenn es sich um eine [zusammengesetzte](/actions/creating-actions/creating-a-composite-action) Aktion handelt, wird `INPUT_<VARIABLE_NAME>` nicht automatisch erstellt. Wenn die Konvertierung nicht stattfindet, kannst du diese Eingaben manuell ändern.
 
-To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
+Um auf die Umgebungsvariable in einer Docker-Containeraktion zuzugreifen, musst du die Eingabe mithilfe des Schlüsselworts `args` in der Metadatendatei für die Aktion übergeben. Weitere Informationen zur Metadatendatei für Docker-Containeraktionen findest du unter [Erstellen einer Docker-Containeraktion](/articles/creating-a-docker-container-action#creating-an-action-metadata-file).
 
-For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
+Wenn ein Workflow beispielsweise die Eingaben `numOctocats` und `octocatEyeColor` definiert hat, kann der Aktionscode die Werte der Eingaben mithilfe der Umgebungsvariablen `INPUT_NUMOCTOCATS` und `INPUT_OCTOCATEYECOLOR` lesen.
 
 ### `inputs.<input_id>`
 
-**Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**Erforderlich** Ein `string`-Bezeichner, der der Eingabe zugeordnet werden soll. Der Wert von `<input_id>` entspricht einer Zuordnung der Metadaten der Eingabe. `<input_id>` muss ein eindeutiger Bezeichner innerhalb des `inputs`-Objekts sein. `<input_id>` muss mit einem Buchstaben oder `_` beginnen und darf nur alphanumerische Zeichen, `-` oder `_` enthalten.
 
 ### `inputs.<input_id>.description`
 
-**Required** A `string` description of the input parameter.
+**Erforderlich** Eine `string`-Beschreibung des Eingabeparameters
 
 ### `inputs.<input_id>.required`
 
-**Optional** A `boolean` to indicate whether the action requires the input parameter. Set to `true` when the parameter is required.
+**Optional** Ein `boolean`-Wert, der angibt, ob die Aktion den Eingabeparameter benötigt. Dieser ist auf `true` festgelegt, wenn der Parameter erforderlich ist.
 
 ### `inputs.<input_id>.default`
 
-**Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
+**Optional** Ein `string`-Wert, der den Standardwert darstellt. Der Standardwert wird verwendet, wenn ein Eingabeparameter in einer Workflow-Datei nicht angegeben ist.
 
 ### `inputs.<input_id>.deprecationMessage`
 
-**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
+**Optional** Wenn der Eingabeparameter verwendet wird, wird dieser `string`-Wert als Warnmeldung protokolliert. Du kannst diese Warnung verwenden, um Benutzer*innen darüber zu informieren, dass die Eingabe veraltet ist, und mögliche Alternativen erwähnen.
 
-## `outputs` for Docker container and JavaScript actions
+## `outputs` für Docker-Containeraktionen und JavaScript-Aktionen
 
-**Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
+**Optional** Ausgabeparameter ermöglichen es Ihnen, Daten zu deklarieren, die eine Aktion festlegt. Aktionen, die in einem Workflow später ausgeführt werden, können die Ausgabedaten der zuvor ausgeführten Aktionen verwenden.  Wenn beispielsweise eine Aktion vorliegt, die zwei Eingaben addiert hat (x + y = z), kann die Aktion die Summe (z) für andere Aktionen ausgeben, damit sie dort als Eingabe verwendet wird.
 
 {% data reusables.actions.output-limitations %}
 
-If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
+Auch wenn du in der Metadaten-Datei deiner Aktion keine Ausgabe deklarierst, kannst du dennoch Ausgaben festlegen und in einem Workflow verwenden. Weitere Informationen zum Festlegen von Ausgaben in einer Aktion findest du unter [Workflowbefehle für {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter).
 
-### Example: Declaring outputs for Docker container and JavaScript actions
+### Beispiel: Deklarieren von Ausgaben für Docker-Containeraktionen und JavaScript-Aktionen
 
 ```yaml
 outputs:
@@ -102,19 +106,19 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**Erforderlich** Ein `string`-Bezeichner, der der Ausgabe zugeordnet werden soll. Der Wert von `<output_id>` entspricht einer Zuordnung der Metadaten der Ausgabe. `<output_id>` muss ein eindeutiger Bezeichner innerhalb des `outputs`-Objekts sein. `<output_id>` muss mit einem Buchstaben oder `_` beginnen und darf nur alphanumerische Zeichen, `-` oder `_` enthalten.
 
 ### `outputs.<output_id>.description`
 
-**Required** A `string` description of the output parameter.
+**Erforderlich** Eine `string`-Beschreibung des Ausgabeparameters
 
-## `outputs` for composite actions
+## `outputs` für zusammengesetzte Aktionen
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+**Optional** `outputs` verwendet die gleichen Parameter wie `outputs.<output_id>` und `outputs.<output_id>.description` ([`outputs` für Docker-Containeraktionen und JavaScript-Aktionen](#outputs-for-docker-container-and-javascript-actions)), enthält jedoch das Token `value`.
 
 {% data reusables.actions.output-limitations %}
 
-### Example: Declaring outputs for composite actions
+### Beispiel: Deklarieren von Ausgaben für zusammengesetzte Aktionen
 
 {% raw %}
 ```yaml
@@ -137,19 +141,19 @@ runs:
 
 ### `outputs.<output_id>.value`
 
-**Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
+**Erforderlich** Der Wert, dem der Ausgabeparameter zugeordnet wird. Du kannst diesen auf `string` oder einen Ausdruck mit Kontext festlegen. Du kannst beispielsweise den `steps`-Kontext verwenden, um das `value`-Element einer Ausgabe auf den Ausgabewert eines Schritts festzulegen.
 
-For more information on how to use context syntax, see "[Contexts](/actions/learn-github-actions/contexts)."
+Weitere Informationen zur Verwendung der Kontextsyntax findest du unter [Kontexte](/actions/learn-github-actions/contexts).
 
 ## `runs`
 
-**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
+**Erforderlich** Gibt an, ob es sich um eine JavaScript-Aktion, eine zusammengesetzte Aktion oder eine Docker-Containeraktion handelt und wie die Aktion ausgeführt wird
 
-## `runs` for JavaScript actions
+## `runs` für JavaScript-Aktionen
 
-**Required** Configures the path to the action's code and the runtime used to execute the code.
+**Erforderlich** Konfiguriert den Pfad zum Code der Aktion und die Runtime, die zum Ausführen des Codes verwendet wird
 
-### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}v16{% else %}v12{% endif %}
+### Beispiel: Verwendung von Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
@@ -159,20 +163,20 @@ runs:
 
 ### `runs.using`
 
-**Required** The runtime used to execute the code specified in [`main`](#runsmain).
+**Erforderlich** Die Runtime, mit der der in [`main`](#runsmain) angegebene Code ausgeführt wird.
 
-- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-- Use `node16` for Node.js v16.{% endif %}
+- Verwende `node12` für Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+- Verwende `node16` für Node.js 16.{% endif %}
 
 ### `runs.main`
 
-**Required** The file that contains your action code. The runtime specified in [`using`](#runsusing) executes this file.
+**Erforderlich** Die Datei, die deinen Aktionscode enthält. Die in [`using`](#runsusing) angegebene Runtime führt diese Datei aus.
 
 ### `runs.pre`
 
-**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Optional** Ermöglicht es Ihnen, ein Skript am Anfang eines Auftrags auszuführen, bevor die Aktion `main:` beginnt. Du kannst beispielsweise mit `pre:` ein erforderliches Setupskript ausführen. Die mit der [`using`](#runsusing)-Syntax angegebene Runtime führt diese Datei aus. Die Aktion `pre:` wird standardmäßig immer ausgeführt. Du kannst dies jedoch mit [`runs.pre-if`](#runspre-if) außer Kraft setzen.
 
-In this example, the `pre:` action runs a script called `setup.js`:
+In diesem Beispiel führt die Aktion `pre:` ein Skript mit dem Namen `setup.js` aus:
 
 ```yaml
 runs:
@@ -184,11 +188,11 @@ runs:
 
 ### `runs.pre-if`
 
-**Optional** Allows you to define conditions for the `pre:` action execution. The `pre:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`. In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
+**Optional** Ermöglicht es Ihnen, Bedingungen für die Ausführung der Aktion `pre:` zu definieren. Die Aktion `pre:` wird nur ausgeführt, wenn die Bedingungen in `pre-if` erfüllt sind. Wenn keine festgelegt sind, wird `pre-if` standardmäßig auf `always()` festgelegt. In `pre-if` vergleichen die entsprechenden Funktionen den Status mit dem des Auftrags, nicht mit dem Status der Aktion.
 
-Note that the `step` context is unavailable, as no steps have run yet.
+Beachte, dass der `step`-Kontext nicht verfügbar ist, da noch keine Schritte ausgeführt wurden.
 
-In this example, `cleanup.js` only runs on Linux-based runners:
+In diesem Beispiel kann `cleanup.js` nur mit Linux-basierten Runnern ausgeführt werden.
 
 ```yaml
   pre: 'cleanup.js'
@@ -197,9 +201,9 @@ In this example, `cleanup.js` only runs on Linux-based runners:
 
 ### `runs.post`
 
-**Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+**Optional** Ermöglicht es Ihnen, ein Skript am Ende eines Auftrags auszuführen, sobald die Aktion `main:` abgeschlossen wurde. Du kannst beispielsweise `post:` verwenden, um bestimmte Prozesse zu beenden oder nicht benötigte Dateien zu entfernen. Die mit der [`using`](#runsusing)-Syntax angegebene Runtime führt diese Datei aus.
 
-In this example, the `post:` action runs a script called `cleanup.js`:
+In diesem Beispiel führt die Aktion `post:` ein Skript mit dem Namen `cleanup.js` aus:
 
 ```yaml
 runs:
@@ -208,34 +212,34 @@ runs:
   post: 'cleanup.js'
 ```
 
-The `post:` action always runs by default but you can override this using `post-if`.
+Die Aktion `post:` wird standardmäßig immer ausgeführt. Du kannst dies jedoch mit `post-if` außer Kraft setzen.
 
 ### `runs.post-if`
 
-**Optional** Allows you to define conditions for the `post:` action execution. The `post:` action will only run if the conditions in `post-if` are met. If not set, then `post-if` defaults to `always()`. In `post-if`, status check functions evaluate against the job's status, not the action's own status.
+**Optional** Ermöglicht es Ihnen, Bedingungen für die Ausführung der Aktion `post:` zu definieren. Die Aktion `post:` wird nur ausgeführt, wenn die Bedingungen in `post-if` erfüllt sind. Wenn keine festgelegt sind, wird `post-if` standardmäßig auf `always()` festgelegt. In `post-if` vergleichen die entsprechenden Funktionen den Status mit dem des Auftrags, nicht mit dem Status der Aktion.
 
-For example, this `cleanup.js` will only run on Linux-based runners:
+`cleanup.js` kann beispielsweise nur mit Linux-basierten Runnern ausgeführt werden:
 
 ```yaml
   post: 'cleanup.js'
   post-if: runner.os == 'linux'
 ```
 
-## `runs` for composite actions
+## `runs` für zusammengesetzte Aktionen
 
-**Required** Configures the path to the composite action.
+**Erforderlich** Konfiguriert den Pfad zur zusammengesetzten Aktion
 
 ### `runs.using`
 
-**Required** You must set this value to `'composite'`.
+**Erforderlich** Du musst diesen Wert auf `'composite'` festlegen.
 
 ### `runs.steps`
 
-**Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
+**Erforderlich** Die Schritte, die in dieser Aktion ausgeführt werden sollen. Dabei kann es sich um `run`- oder `uses`-Schritte handeln.
 
 #### `runs.steps[*].run`
 
-**Optional** The command you want to run. This can be inline or a script in your action repository:
+**Optional** Der Befehl, den du ausführen möchtest. Dieser kann inline oder mit einem Skript in deinem Aktionsrepository angegeben werden:
 
 {% raw %}
 ```yaml
@@ -247,7 +251,7 @@ runs:
 ```
 {% endraw %}
 
-Alternatively, you can use `$GITHUB_ACTION_PATH`:
+Alternativ kannst du auch `$GITHUB_ACTION_PATH` verwenden:
 
 ```yaml
 runs:
@@ -257,22 +261,22 @@ runs:
       shell: bash
 ```
 
-For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+Weitere Informationen findest du unter [`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context).
 
 #### `runs.steps[*].shell`
 
-**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+**Optional** Die Shell, in der der Befehl ausgeführt werden soll. Du kannst eine der [hier](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell) aufgeführten Shells verwenden. Erforderlich, wenn `run` festgelegt ist.
 
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 #### `runs.steps[*].if`
 
-**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
+**Optional** Du kannst die `if`-Bedingung verwenden, um zu verhindern, dass ein Schritt ausgeführt wird – es sei denn, eine Bedingung ist erfüllt. Du kannst eine Bedingung mit jedem unterstützten Kontext und Ausdruck erstellen.
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} Weitere Informationen findest du unter [Ausdrücke](/actions/learn-github-actions/expressions).
 
-**Example: Using contexts**
+**Beispiel: Verwenden von Kontexten**
 
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+ Dieser Schritt wird nur ausgeführt, wenn der Ereignistyp `pull_request` und die Ereignisaktion `unassigned` lautet.
 
  ```yaml
 steps:
@@ -280,9 +284,9 @@ steps:
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
 ```
 
-**Example: Using status check functions**
+**Beispiel: Verwenden von Funktionen zur Statusüberprüfung**
 
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
+`my backup step` wird nur ausgeführt, wenn der vorherige Schritt einer zusammengesetzten Aktion nicht erfolgreich war. Weitere Informationen findest du unter [Ausdrücke](/actions/learn-github-actions/expressions#status-check-functions).
 
 ```yaml
 steps:
@@ -296,30 +300,30 @@ steps:
 
 #### `runs.steps[*].name`
 
-**Optional** The name of the composite step.
+**Optional** Der Name des zusammengesetzten Schritts
 
 #### `runs.steps[*].id`
 
-**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+**Optional** Ein eindeutiger Bezeichner für den Schritt. Du kannst mit `id` auf den Schritt in Kontexten verweisen. Weitere Informationen findest du unter [Kontexte](/actions/learn-github-actions/contexts).
 
 #### `runs.steps[*].env`
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
+**Optional** Legt `map` für Umgebungsvariablen fest, die nur für diesen Schritt vorgesehen sind. Wenn du die im Workflow gespeicherte Umgebungsvariable ändern möchtest, verwende `echo "{name}={value}" >> $GITHUB_ENV` in einem zusammengesetzten Schritt.
 
 #### `runs.steps[*].working-directory`
 
-**Optional**  Specifies the working directory where the command is run.
+**Optional** Gibt das Arbeitsverzeichnis an, in dem der Befehl ausgeführt wird
 
 #### `runs.steps[*].uses`
 
-**Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
+**Optional** Wählt eine Aktion aus, die als Teil eines Schritts in deinem Auftrag ausgeführt werden soll. Eine Aktion ist eine wiederverwendbare Code-Einheit. Du kannst eine Aktion verwenden, die im selben Repository wie der Workflow, in einem öffentlichen Repository oder in einem [veröffentlichten Docker-Containerimage](https://hub.docker.com/) definiert ist.
 
-We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
-- Using the commit SHA of a released action version is the safest for stability and security.
-- Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
-- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+Es wird dringend empfohlen, die verwendete Version der Aktion zu nennen (Git-Ref, SHA oder Docker-Tag-Nummer angeben). Wenn du keine Version angibst, könnten damit die Workflows gestört werden, oder es wird ein unerwartetes Verhalten hervorgerufen, wenn der bzw. die Besitzer*in der Aktion eine Aktualisierung veröffentlicht.
+- Am besten in Hinblick auf Stabilität und Sicherheit ist es, die Commit-SHA einer freigegebenen Version einer Aktion zu verwenden.
+- Wenn du dich auf die Hauptversion der Aktion beziehst, kannst du kritische Fehlerbehebungen und Sicherheitspatches erhalten und gleichzeitig die Kompatibilität wahren. Außerdem ist damit sichergestellt, dass der Workflow weiterhin problemlos arbeiteten sollte.
+- Die Verwendung des Standardbranches einer Aktion ist zwar auf den ersten Blick praktisch, doch wenn eine neue Hauptversion mit einem Breaking Change veröffentlicht wird, könnte der Workflow unterbrochen werden.
 
-Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
+Einige Aktionen erfordern Eingaben, die du mit dem Schlüsselwort [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) festlegen musst. Die erforderlichen Eingaben findest du in der README-Datei der Aktion.
 
 ```yaml
 runs:
@@ -345,7 +349,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
+**Optional** Eine `map` der Eingabeparameter, die durch die Aktion definiert werden. Jeder Eingabeparameter ist ein Schlüssel-Wert-Paar. Weitere Informationen findest du unter [Beispiel: Angeben von Eingaben](#example-specifying-inputs).
 
 ```yaml
 runs:
@@ -363,15 +367,15 @@ runs:
 
 #### `runs.steps[*].continue-on-error`
 
-**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
+**Optional** Verhindert, dass bei der Aktion ein Fehler auftritt, wenn bei einem Schritt ein Fehler auftritt. Lege dies auf `true` fest, damit die Aktion erfolgreich abgeschlossen werden kann, wenn bei diesem Schritt ein Fehler auftritt.
 
 {% endif %}
 
-## `runs` for Docker container actions
+## `runs` für Docker-Containeraktionen
 
-**Required** Configures the image used for the Docker container action.
+**Erforderlich** Konfiguriert das Image, das für die Docker-Containeraktion verwendet wird
 
-### Example: Using a Dockerfile in your repository
+### Beispiel: Verwenden eines Dockerfiles in deinem Repository
 
 ```yaml
 runs:
@@ -379,7 +383,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### Example: Using public Docker registry container
+### Beispiel: Verwenden des öffentlichen Docker-Registrierungscontainers
 
 ```yaml
 runs:
@@ -389,15 +393,15 @@ runs:
 
 ### `runs.using`
 
-**Required** You must set this value to `'docker'`.
+**Erforderlich** Du musst diesen Wert auf `'docker'` festlegen.
 
 ### `runs.pre-entrypoint`
 
-**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Optional** Ermöglicht es Ihnen, ein Skript auszuführen, bevor die Aktion `entrypoint` beginnt. Du kannst beispielsweise mit `pre-entrypoint:` ein erforderliches Setupskript ausführen. {% data variables.product.prodname_actions %} verwendet `docker run`, um diese Aktion zu starten, und führt das Skript in einem neuen Container aus, der das gleiche Basisimage verwendet. Das bedeutet, dass sich der Laufzeitstatus vom `entrypoint`-Hauptcontainer unterscheidet, und auf alle benötigten Status muss entweder im Arbeitsbereich `HOME` oder als `STATE_`-Variable zugegriffen werden. Die Aktion `pre-entrypoint:` wird standardmäßig immer ausgeführt. Du kannst dies jedoch mit [`runs.pre-if`](#runspre-if) außer Kraft setzen.
 
-The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+Die mit der [`using`](#runsusing)-Syntax angegebene Runtime führt diese Datei aus.
 
-In this example, the `pre-entrypoint:` action runs a script called `setup.sh`:
+In diesem Beispiel führt die Aktion `pre-entrypoint:` ein Skript mit dem Namen `setup.sh` aus:
 
 ```yaml
 runs:
@@ -411,21 +415,21 @@ runs:
 
 ### `runs.image`
 
-**Required** The Docker image to use as the container to run the action. The value can be the Docker base image name, a local `Dockerfile` in your repository, or a public image in Docker Hub or another registry. To reference a `Dockerfile` local to your repository, the file must be named `Dockerfile` and you must use a path relative to your action metadata file. The `docker` application will execute this file.
+**Erforderlich** Docker-Image, das beim Ausführen der Aktion als Container herangezogen wird. Der Wert kann der Name des Docker-Basisimages sein, ein lokales `Dockerfile` in deinem Repository oder ein öffentliches Image in Docker Hub oder einer anderen Registrierung. Damit du lokal auf ein `Dockerfile` in deinem Repository verweisen kannst, muss die Datei `Dockerfile` heißen, und du musst einen relativen Pfad zu deiner Metadatendatei für die Aktion verwenden. Die `docker`-Anwendung führt diese Datei aus.
 
 ### `runs.env`
 
-**Optional** Specifies a key/value map of environment variables to set in the container environment.
+**Optional** Gibt eine Schlüssel-Wert-Zuordnung der Umgebungsvariablen an, die in der Containerumgebung festgelegt werden sollen.
 
 ### `runs.entrypoint`
 
-**Optional** Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction.
+**Optional** Überschreibt `ENTRYPOINT` für Docker in `Dockerfile` oder legt einen Einstiegspunkt fest, falls noch keiner vorhanden ist. Verwende `entrypoint`, wenn `ENTRYPOINT` in `Dockerfile` nicht angegeben ist oder du die `ENTRYPOINT`-Anweisung außer Kraft setzen möchtest. Wenn du `entrypoint` auslässt, werden die Befehle ausgeführt, die du in der Docker-Anweisung `ENTRYPOINT` angibst. Für die Docker-Anweisung `ENTRYPOINT` gibt es ein _Shellformat_ und ein _Ausführungsformat_. In der Docker-Dokumentation zu `ENTRYPOINT` wird das _Ausführungsformat_ der `ENTRYPOINT`-Anweisung empfohlen.
 
-For more information about how the `entrypoint` executes, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)."
+Weitere Informationen zur Ausführung von `entrypoint` findest du unter[Dockerfile-Unterstützung für {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint).
 
 ### `runs.post-entrypoint`
 
-**Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
+**Optional** Ermöglicht es Ihnen, ein Bereinigungsskript auszuführen, sobald die Aktion `runs.entrypoint` abgeschlossen ist. {% data variables.product.prodname_actions %} verwendet `docker run`, um diese Aktion zu starten. Da {% data variables.product.prodname_actions %} das Skript in einem neuen Container mit dem gleichen Basisimage ausführt, unterscheidet sich der Laufzeitstatus vom `entrypoint`-Hauptcontainer. Du kannst auf jeden benötigten Status im Arbeitsbereich `HOME` oder als `STATE_`-Variable zugreifen. Die Aktion `post-entrypoint:` wird standardmäßig immer ausgeführt. Du kannst dies jedoch mit [`runs.post-if`](#runspost-if) außer Kraft setzen.
 
 ```yaml
 runs:
@@ -439,17 +443,17 @@ runs:
 
 ### `runs.args`
 
-**Optional** An array of strings that define the inputs for a Docker container. Inputs can include hardcoded strings. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up.
+**Optional** Ein Array aus Zeichenfolgen, die die Eingaben für einen Docker-Container definieren. Eingaben können hartcodierte Strings enthalten. {% data variables.product.prodname_dotcom %} übergibt `args` beim Start des Containers an dessen `ENTRYPOINT`.
 
-The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
+Die `args`-Elemente werden anstelle der `CMD`-Anweisung in `Dockerfile` verwendet. Wenn du `CMD` in `Dockerfile` verwendest, befolge diese Hinweise (nach Präferenz sortiert):
 
 {% data reusables.actions.dockerfile-guidelines %}
 
-If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
+Wenn du Umgebungsvariablen an eine Aktion übergeben musst, stelle sicher, dass deine Aktion eine Kommando-Shell ausführt, damit die Variablen ausgewertet werden. Wenn dein `entrypoint`-Attribut beispielsweise auf `"sh -c"` festgelegt ist, wird `args` in einer Befehlsshell ausgeführt. Wenn `Dockerfile` jedoch `ENTRYPOINT` für die Ausführung dieses Befehls (`"sh -c"`) verwendet, wird `args` in einer Befehlsshell ausgeführt.
 
-For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)."
+Weitere Informationen zur Verwendung der `CMD`-Anweisung mit {% data variables.product.prodname_actions %} findest du unter [Dockerfile-Unterstützung für {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd).
 
-#### Example: Defining arguments for the Docker container
+#### Beispiel: Definieren von Argumenten für den Docker-Container
 
 {% raw %}
 ```yaml
@@ -465,9 +469,9 @@ runs:
 
 ## `branding`
 
-**Optional** You can use a color and [Feather](https://feathericons.com/) icon to create a badge to personalize and distinguish your action. Badges are shown next to your action name in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+**Optional:** Du kannst ein farbiges [Feather](https://feathericons.com/)-Symbol verwenden, um einen personalisierten Badge für deine Aktion zu erstellen. Badges werden neben dem Aktionsnamen in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) angezeigt.
 
-### Example: Configuring branding for an action
+### Beispiel: Konfigurieren des Brandings für eine Aktion
 
 ```yaml
 branding:
@@ -477,30 +481,30 @@ branding:
 
 ### `branding.color`
 
-The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, or `gray-dark`.
+Die Hintergrundfarbe des Badges Optionen: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple` oder `gray-dark`
 
 ### `branding.icon`
 
-The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
+Der Name des zu verwendenden [Feather-Symbols](https://feathericons.com/) (Version 4.28.0). Markensymbole sowie die folgenden Symbole werden ausgelassen:
 
 <table>
 <tr>
-<td>coffee</td>
-<td>columns</td>
+<td>Kaffee</td>
+<td>Spalten</td>
 <td>divide-circle</td>
 <td>divide-square</td>
 </tr>
 <tr>
 <td>divide</td>
 <td>frown</td>
-<td>hexagon</td>
-<td>key</td>
+<td>Hexagon</td>
+<td>Schlüssel</td>
 </tr>
 <tr>
 <td>meh</td>
 <td>mouse-pointer</td>
 <td>smile</td>
-<td>tool</td>
+<td>Tool</td>
 </tr>
 <tr>
 <td>x-octagon</td>
@@ -510,7 +514,7 @@ The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand 
 </tr>
 </table>
 
-Here is an exhaustive list of all currently supported icons:
+Hier findest du eine vollständige Liste aller derzeit unterstützten Symbole:
 
 <!--
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
@@ -532,7 +536,7 @@ Here is an exhaustive list of all currently supported icons:
 </tr>
 <tr>
 <td>align-right</td>
-<td>anchor</td>
+<td>Anker</td>
 <td>aperture</td>
 <td>archive</td>
 </tr>
@@ -552,7 +556,7 @@ Here is an exhaustive list of all currently supported icons:
 <td>arrow-up-circle</td>
 <td>arrow-up-left</td>
 <td>arrow-up-right</td>
-<td>arrow-up</td>
+<td>Pfeil-hoch</td>
 </tr>
 <tr>
 <td>at-sign</td>
@@ -564,29 +568,29 @@ Here is an exhaustive list of all currently supported icons:
 <td>battery-charging</td>
 <td>battery</td>
 <td>bell-off</td>
-<td>bell</td>
+<td>Glocke</td>
 </tr>
 <tr>
-<td>bluetooth</td>
-<td>bold</td>
+<td>Bluetooth</td>
+<td>fett</td>
 <td>book-open</td>
-<td>book</td>
+<td>book (Buch)</td>
 </tr>
 <tr>
-<td>bookmark</td>
+<td>Lesezeichen (bookmark)</td>
 <td>box</td>
 <td>briefcase</td>
-<td>calendar</td>
+<td>Kalender</td>
 </tr>
 <tr>
 <td>camera-off</td>
-<td>camera</td>
-<td>cast</td>
+<td>Kamera</td>
+<td>Umwandlung</td>
 <td>check-circle</td>
 </tr>
 <tr>
 <td>check-square</td>
-<td>check</td>
+<td>Häkchen</td>
 <td>chevron-down</td>
 <td>chevron-left</td>
 </tr>
@@ -600,7 +604,7 @@ Here is an exhaustive list of all currently supported icons:
 <td>chevrons-right</td>
 <td>chevrons-up</td>
 <td>circle</td>
-<td>clipboard</td>
+<td>Zwischenablage</td>
 </tr>
 <tr>
 <td>clock</td>
@@ -645,19 +649,19 @@ Here is an exhaustive list of all currently supported icons:
 <td>download-cloud</td>
 </tr>
 <tr>
-<td>download</td>
+<td>Download verfügbar ist</td>
 <td>droplet</td>
 <td>edit-2</td>
 <td>edit-3</td>
 </tr>
 <tr>
-<td>edit</td>
+<td>Bearbeiten</td>
 <td>external-link</td>
 <td>eye-off</td>
 <td>eye</td>
 </tr>
 <tr>
-<td>fast-forward</td>
+<td>Fast-Forward</td>
 <td>feather</td>
 <td>file-minus</td>
 <td>file-plus</td>
@@ -669,7 +673,7 @@ Here is an exhaustive list of all currently supported icons:
 <td>filter</td>
 </tr>
 <tr>
-<td>flag</td>
+<td>Flag</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
 <td>folder</td>
@@ -677,7 +681,7 @@ Here is an exhaustive list of all currently supported icons:
 <tr>
 <td>gift</td>
 <td>git-branch</td>
-<td>git-commit</td>
+<td>  git-commit</td>
 <td>git-merge</td>
 </tr>
 <tr>
@@ -689,7 +693,7 @@ Here is an exhaustive list of all currently supported icons:
 <tr>
 <td>hash</td>
 <td>headphones</td>
-<td>heart</td>
+<td>herzlich</td>
 <td>help-circle</td>
 </tr>
 <tr>
@@ -699,9 +703,9 @@ Here is an exhaustive list of all currently supported icons:
 <td>info</td>
 </tr>
 <tr>
-<td>italic</td>
-<td>layers</td>
-<td>layout</td>
+<td>kursiv</td>
+<td>Ebenen</td>
+<td>Layout</td>
 <td>life-buoy</td>
 </tr>
 <tr>
@@ -711,19 +715,19 @@ Here is an exhaustive list of all currently supported icons:
 <td>loader</td>
 </tr>
 <tr>
-<td>lock</td>
+<td>Sperre</td>
 <td>log-in</td>
 <td>log-out</td>
 <td>mail</td>
 </tr>
 <tr>
 <td>map-pin</td>
-<td>map</td>
+<td>Karte</td>
 <td>maximize-2</td>
 <td>maximize</td>
 </tr>
 <tr>
-<td>menu</td>
+<td>Menü</td>
 <td>message-circle</td>
 <td>message-square</td>
 <td>mic-off</td>
@@ -737,26 +741,26 @@ Here is an exhaustive list of all currently supported icons:
 <tr>
 <td>minus-square</td>
 <td>minus</td>
-<td>monitor</td>
+<td>Überwachen</td>
 <td>moon</td>
 </tr>
 <tr>
 <td>more-horizontal</td>
 <td>more-vertical</td>
-<td>move</td>
+<td>Verschieben</td>
 <td>music</td>
 </tr>
 <tr>
 <td>navigation-2</td>
 <td>navigation</td>
 <td>octagon</td>
-<td>package</td>
+<td>Paket</td>
 </tr>
 <tr>
 <td>paperclip</td>
 <td>pause-circle</td>
 <td>pause</td>
-<td>percent</td>
+<td>Prozent</td>
 </tr>
 <tr>
 <td>phone-call</td>
@@ -786,7 +790,7 @@ Here is an exhaustive list of all currently supported icons:
 <td>radio</td>
 <td>refresh-ccw</td>
 <td>refresh-cw</td>
-<td>repeat</td>
+<td>wiederholen</td>
 </tr>
 <tr>
 <td>rewind</td>
@@ -795,16 +799,16 @@ Here is an exhaustive list of all currently supported icons:
 <td>rss</td>
 </tr>
 <tr>
-<td>save</td>
+<td>Speichern</td>
 <td>scissors</td>
 <td>search</td>
-<td>send</td>
+<td>Send</td>
 </tr>
 <tr>
 <td>server</td>
 <td>settings</td>
 <td>share-2</td>
-<td>share</td>
+<td>Freigeben</td>
 </tr>
 <tr>
 <td>shield-off</td>
@@ -813,28 +817,28 @@ Here is an exhaustive list of all currently supported icons:
 <td>shopping-cart</td>
 </tr>
 <tr>
-<td>shuffle</td>
+<td>Shuffle</td>
 <td>sidebar</td>
 <td>skip-back</td>
 <td>skip-forward</td>
 </tr>
 <tr>
 <td>slash</td>
-<td>sliders</td>
+<td>Schieberegler</td>
 <td>smartphone</td>
-<td>speaker</td>
+<td>Lautsprecher</td>
 </tr>
 <tr>
 <td>square</td>
-<td>star</td>
+<td>Sternchen</td>
 <td>stop-circle</td>
 <td>sun</td>
 </tr>
 <tr>
 <td>sunrise</td>
-<td>sunset</td>
-<td>tablet</td>
-<td>tag</td>
+<td>Sonnenuntergang</td>
+<td>Tablet</td>
+<td>das Tag</td>
 </tr>
 <tr>
 <td>target</td>
@@ -852,17 +856,17 @@ Here is an exhaustive list of all currently supported icons:
 <td>trash</td>
 <td>trending-down</td>
 <td>trending-up</td>
-<td>triangle</td>
+<td>Dreieck</td>
 </tr>
 <tr>
-<td>truck</td>
+<td>LKW</td>
 <td>tv</td>
 <td>type</td>
-<td>umbrella</td>
+<td>Regenschirm</td>
 </tr>
 <tr>
-<td>underline</td>
-<td>unlock</td>
+<td>Unterstrichen</td>
+<td>Entsperren</td>
 <td>upload-cloud</td>
 <td>upload</td>
 </tr>
@@ -885,7 +889,7 @@ Here is an exhaustive list of all currently supported icons:
 <td>volume-x</td>
 </tr>
 <tr>
-<td>volume</td>
+<td>Volume</td>
 <td>watch</td>
 <td>wifi-off</td>
 <td>wifi</td>
