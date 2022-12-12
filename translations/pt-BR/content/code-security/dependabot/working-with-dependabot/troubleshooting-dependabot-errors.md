@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Dependabot errors
-intro: 'Sometimes {% data variables.product.prodname_dependabot %} is unable to raise a pull request to update your dependencies. You can review the error and unblock {% data variables.product.prodname_dependabot %}.'
+title: Solução de problemas do Dependabot
+intro: 'Às vezes, {% data variables.product.prodname_dependabot %} não consegue criar um pull request para atualizar suas dependências. Você pode revisar o erro e desbloquear {% data variables.product.prodname_dependabot %}.'
 shortTitle: Troubleshoot errors
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -22,72 +22,77 @@ topics:
   - Troubleshooting
   - Errors
   - Dependencies
+ms.openlocfilehash: 21b7c2b2e6c613d4443b54404dfc120bd8ac00e2
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108269'
 ---
-
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## About {% data variables.product.prodname_dependabot %} errors
+## Sobre os erros do {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-If anything prevents {% data variables.product.prodname_dependabot %} from raising a pull request, this is reported as an error.
+Se algo impedir o {% data variables.product.prodname_dependabot %} de criar um pull request, este será relatado como erro.
 
-## Investigating errors with {% data variables.product.prodname_dependabot_security_updates %}
+## Investigar erros com {% data variables.product.prodname_dependabot_security_updates %}
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix a {% data variables.product.prodname_dependabot %} alert, it posts the error message on the alert. The {% data variables.product.prodname_dependabot_alerts %} view shows a list of any alerts that have not been resolved yet. To access the alerts view, click **{% data variables.product.prodname_dependabot_alerts %}** on the **Security** tab for the repository. Where a pull request that will fix the vulnerable dependency has been generated, the alert includes a link to that pull request.
+Quando {% data variables.product.prodname_dependabot %} está impedido de criar um pull request para corrigir um alerta de {% data variables.product.prodname_dependabot %}, ele publica a mensagem de erro no alerta. A exibição do {% data variables.product.prodname_dependabot_alerts %} mostra uma lista de todos os alertas que ainda não foram resolvidos. Para acessar a exibição de alertas, clique em **{% data variables.product.prodname_dependabot_alerts %}** na guia **Segurança** do repositório. Quando um pull request que corrigirá a dependência vulnerável foi gerado, o alerta inclui um link para esse pull request.
 
-![{% data variables.product.prodname_dependabot_alerts %} view showing a pull request link](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
+![Vista de {% data variables.product.prodname_dependabot_alerts %} que mostra um link do pull request](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 
-There are several reasons why an alert may have no pull request link:
+Há vários motivos pelos quais um alerta pode não ter um link de solicitação de pull:
 
-1. {% data variables.product.prodname_dependabot_security_updates %} are not enabled for the repository.
+1. {% data variables.product.prodname_dependabot_security_updates %} não estão habilitadas para o repositório.
 {% ifversion GH-advisory-db-supports-malware %}
-1. The alert is for malware and there is no secure version of the package.
+1. O alerta é sobre malware e não há nenhuma versão segura do pacote.
 {% endif %}
-1. The alert is for an indirect or transitive dependency that is not explicitly defined in a lock file.
-1. An error blocked {% data variables.product.prodname_dependabot %} from creating a pull request.
+1. O alerta é para uma dependência indireta ou transitória que não está explicitamente definida em um arquivo de bloqueio.
+1. Um erro impediu {% data variables.product.prodname_dependabot %} de criar um pull request.
 
-If an error blocked {% data variables.product.prodname_dependabot %} from creating a pull request, you can display details of the error by clicking the alert.
+Se um erro impediu que {% data variables.product.prodname_dependabot %} criasse um pull request, você pode exibir os detalhes do erro clicando no alerta.
 
-## Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}
+## Investigar erros com {% data variables.product.prodname_dependabot_version_updates %}
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, it posts the error icon on the manifest file. The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
+Quando {% data variables.product.prodname_dependabot %} está impedido de criar um pull request para atualizar uma dependência em um ecossistema, ele posta o ícone de erro no arquivo de manifesto. Os arquivos de manifesto gerenciados pelo {% data variables.product.prodname_dependabot %} estão listados na guia do {% data variables.product.prodname_dependabot %}. Para acessar essa guia, na guia **Insights** do repositório, clique em **Grafo de dependência** e clique na guia **{% data variables.product.prodname_dependabot %}** .
 
-![{% data variables.product.prodname_dependabot %} view showing an error](/assets/images/help/dependabot/dependabot-tab-view-error.png)
+![vista de {% data variables.product.prodname_dependabot %} que mostra um erro](/assets/images/help/dependabot/dependabot-tab-view-error.png)
 
 {% ifversion fpt or ghec %}
 
-To see the log file for any manifest file, click the **Last checked TIME ago** link. When you display the log file for a manifest that's shown with an error symbol (for example, Maven in the screenshot above), any errors are also displayed.
+Para ver o arquivo de log de qualquer arquivo de manifesto, clique no link **HORA da última verificação**. Ao exibir o arquivo de registro para um manifesto mostrado com um símbolo de erro (por exemplo, Maven, na captura de tela acima), todos os erros também serão exibidos.
 
-![{% data variables.product.prodname_dependabot %} version update error and log ](/assets/images/help/dependabot/dependabot-version-update-error.png)
+![Erro e registro de uma atualização de versão de {% data variables.product.prodname_dependabot %} ](/assets/images/help/dependabot/dependabot-version-update-error.png)
 
 {% else %}
 
-To see the logs for any manifest file, click the **Last checked TIME ago** link, and then click **View logs**.
+Para ver os logs de qualquer arquivo de manifesto, clique no link **HORA da última verificação** e clique em **Exibir logs**.
 
-![{% data variables.product.prodname_dependabot %} version update error and log ](/assets/images/enterprise/3.3/dependabot/dependabot-version-update-error.png)
+![Erro e registro de uma atualização de versão de {% data variables.product.prodname_dependabot %} ](/assets/images/enterprise/3.3/dependabot/dependabot-version-update-error.png)
 
 {% endif %}
 
-## Understanding {% data variables.product.prodname_dependabot %} errors
+## Entender os erros de {% data variables.product.prodname_dependabot %}
 
-Pull requests for security updates act to upgrade a vulnerable dependency to the minimum version that includes a fix for the vulnerability. In contrast, pull requests for version updates act to upgrade a dependency to the latest version allowed by the package manifest and {% data variables.product.prodname_dependabot %} configuration files. Consequently, some errors are specific to one type of update.
+Pull requests para atualizações de segurança atuam para atualizar uma dependência vulnerável à versão mínima que inclui uma correção para a vulnerabilidade. Em contrapartida, os pull requests para atualizações de versão agem para atualizar uma dependência da versão mais recente permitida pelo manifesto do pacote e pelos arquivos de configuração de {% data variables.product.prodname_dependabot %}. Consequentemente, alguns erros são específicos para um tipo de atualização.
 
-### {% data variables.product.prodname_dependabot %} cannot update DEPENDENCY to a non-vulnerable version
+### {% data variables.product.prodname_dependabot %} não pode atualizar a DEPENDÊNCIA para uma versão não vulnerável
 
-**Security updates only.** {% data variables.product.prodname_dependabot %} cannot create a pull request to update the vulnerable dependency to a secure version without breaking other dependencies in the dependency graph for this repository.
+**Somente atualizações de segurança.** O {% data variables.product.prodname_dependabot %} não pode criar uma solicitação de pull para atualizar a dependência vulnerável para uma versão segura sem desfazer outras dependências no grafo de dependência desse repositório.
 
-Every application that has dependencies has a dependency graph, that is, a directed acyclic graph of every package version that the application directly or indirectly depends on. Every time a dependency is updated, this graph must resolve otherwise the application won't build. When an ecosystem has a deep and complex dependency graph, for example, npm and RubyGems, it is often impossible to upgrade a single dependency without upgrading the whole ecosystem.
+Cada aplicativo com dependências tem um gráfico de dependências, ou seja, um gráfico direcionado acíclico de cada versão de pacote da qual o aplicativo depende direta ou indiretamente. Toda vez que uma dependência é atualizada, este gráfico deve ser resolvido. Caso contrário, o aplicativo não será criado. Quando um ecossistema tem um gráfico de dependência profundo e complexo, por exemplo, npm e RubyGems, geralmente é impossível atualizar uma única dependência sem atualizar todo o ecossistema.
 
-The best way to avoid this problem is to stay up to date with the most recently released versions, for example, by enabling version updates. This increases the likelihood that a vulnerability in one dependency can be resolved by a simple upgrade that doesn't break the dependency graph. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."{% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
+A melhor maneira de evitar esse problema é manter-se atualizado com as versões mais recentes, habilitando, por exemplo, as atualizações de versões. Isso aumenta a probabilidade de que uma vulnerabilidade em uma dependência possa ser resolvida por meio de uma atualização simples que não afete o gráfico de dependência. Para obter mais informações, confira "[Configurar atualizações de versão do {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."{% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
 
-### {% data variables.product.prodname_dependabot %} tries to update dependencies without an alert
+### {% data variables.product.prodname_dependabot %} tenta atualizar dependências sem um alerta
 
-**Security updates only.** {% data variables.product.prodname_dependabot %} updates explicitly defined transitive dependencies that are vulnerable for all ecosystems. For npm, {% data variables.product.prodname_dependabot %} will raise a pull request that also updates the parent dependency if it's the only way to fix the transitive dependency.
+**Somente atualizações de segurança.** {% data variables.product.prodname_dependabot %} atualiza dependências transitivas definidas explicitamente que são vulneráveis para todos os ecossistemas. Para npm, {% data variables.product.prodname_dependabot %} gerará uma solicitação de pull que também atualizará a dependência pai se for a única maneira de corrigir a dependência transitiva.
 
-For example, a project with a dependency on `A` version `~2.0.0` which has a transitive dependency on `B` version `~1.0.0` which has resolved to `1.0.1`.
+Por exemplo, um projeto com uma dependência no `A` versão `~2.0.0` que tem uma dependência transitiva no `B` versão `~1.0.0` que foi resolvido para `1.0.1`.
 ```
 my project
 |
@@ -95,59 +100,59 @@ my project
        |
        --> B (1.0.1) [~1.0.0]
 ```       
-If a security vulnerability is released for `B` versions `<2.0.0` and a patch is available at `2.0.0` then  {% data variables.product.prodname_dependabot %} will attempt to update `B` but will find that it's not possible due to the restriction in place by `A` which only allows lower vulnerable versions. To fix the vulnerability, {% data variables.product.prodname_dependabot %} will look for updates to dependency `A` which allow the fixed version of `B` to be used. 
+Se uma vulnerabilidade de segurança for lançada para o `B` versões `<2.0.0` e um patch estiver disponível em `2.0.0`, então {% data variables.product.prodname_dependabot %} tentará atualizar `B`, mas descobrirá que não é possível, devido à restrição em vigor pelo `A`, que só permite versões vulneráveis mais baixas. Para corrigir a vulnerabilidade, {% data variables.product.prodname_dependabot %} procurará atualizações na dependência `A`, que permitem que seja usada a versão corrigida de `B`. 
 
-{% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.{% endif %}
+{% data variables.product.prodname_dependabot %} gera automaticamente uma solicitação de pull que atualiza as dependências transitivas pai e filho bloqueados.{% endif %}
 
-### {% data variables.product.prodname_dependabot %} cannot update to the required version as there is already an open pull request for the latest version
+### {% data variables.product.prodname_dependabot %} não consegue atualizar para a versão necessária, pois já existe um pull request aberto para a última versão
 
-**Security updates only.** {% data variables.product.prodname_dependabot %} will not create a pull request to update the vulnerable dependency to a secure version because there is already an open pull request to update this dependency. You will see this error when a vulnerability is detected in a single dependency and there's already an open pull request to update the dependency to the latest version.
+**Somente atualizações de segurança.** O {% data variables.product.prodname_dependabot %} não criará uma solicitação de pull para atualizar a dependência vulnerável para uma versão segura porque já há uma solicitação de pull em aberto para atualizar essa dependência. Você verá este erro quando uma vulnerabilidade for detectada em uma única dependência e já houver um pull request aberto para atualizar a dependência para a última versão.
 
-There are two options: you can review the open pull request and merge it as soon as you are confident that the change is safe, or close that pull request and trigger a new security update pull request. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
+Existem duas opções: você pode revisar o pull request aberto e fazer o merge assim que estiver confiante de que a mudança é segura, ou fechar o pull request e acionar um novo pull request de atualização de segurança. Para obter mais informações, confira "[Como disparar uma solicitação de pull do {% data variables.product.prodname_dependabot %} manualmente](#triggering-a-dependabot-pull-request-manually)".
 
-### {% data variables.product.prodname_dependabot %} timed out during its update
+### O {% data variables.product.prodname_dependabot %} esgotou o tempo durante esta atualização
 
-{% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of *package.json* files. Updates to the Composer ecosystem also take longer to assess and may time out.
+{% data variables.product.prodname_dependabot %} demorou mais do que o tempo máximo permitido para avaliar a atualização necessária e preparar um pull request. Em geral, esse erro é visto apenas em repositórios grandes com muitos arquivos de manifesto, por exemplo, projetos de repositório único do npm ou do YARN com centenas de arquivos *package.json*. As atualizações no ecossistema do Composer também levam mais tempo para ser avaliadas e podem expirar.
 
-This error is difficult to address. If a version update times out, you could specify the most important dependencies to update using the `allow` parameter or, alternatively, use the `ignore` parameter to exclude some dependencies from updates. Updating your configuration might allow {% data variables.product.prodname_dependabot %} to review the version update and generate the pull request in the time available.
+Este erro é difícil de ser corrigido. Se uma atualização de versão atingir o tempo limite, você poderá especificar as dependências mais importantes para atualização usando o parâmetro `allow` ou, como alternativa, usar o parâmetro `ignore` para excluir algumas dependências das atualizações. Atualizar sua configuração pode permitir que {% data variables.product.prodname_dependabot %} revise a atualização da versão e gere o pull request no tempo disponível.
 
-If a security update times out, you can reduce the chances of this happening by keeping the dependencies updated, for example, by enabling version updates. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+Se uma atualização de segurança expirar, você pode reduzir as chances de isso acontecer mantendo as dependências atualizadas, por exemplo, habilitando atualizações de versão. Para obter mais informações, confira "[Como configurar as atualizações de versão do {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
-### {% data variables.product.prodname_dependabot %} cannot open any more pull requests
+### {% data variables.product.prodname_dependabot %} não consegue abrir mais nenhum pull request
 
-There's a limit on the number of open pull requests {% data variables.product.prodname_dependabot %} will generate. When this limit is reached, no new pull requests are opened and this error is reported. The best way to resolve this error is to review and merge some of the open pull requests.
+Há um limite no número de pull requests abertos que {% data variables.product.prodname_dependabot %} irá gerar. Quando este limite é atingido, nenhum pull request novo será aberto e este erro será relatado. A melhor maneira de resolver este erro é revisar e fazer merge alguns dos pull requests abertos.
 
-There are separate limits for security and version update pull requests, so that open version update pull requests cannot block the creation of a security update pull request. The limit for security update pull requests is 10. By default, the limit for version updates is 5 but you can change this using the `open-pull-requests-limit` parameter in the configuration file. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)."
+Existem limites separados para solicitações de atualização de versões e segurança, para que os pull requests de atualização de versão aberta não possam bloquear a criação de uma solicitação de atualização de segurança. O limite para pull requests de atualização de segurança é 10. Por padrão, o limite para as atualizações de versão é 5, mas você pode alterá-lo usando o parâmetro `open-pull-requests-limit` no arquivo de configuração. Para obter mais informações, confira "[Opções de configuração para o arquivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)".
 
-The best way to resolve this error is to merge or close some of the existing pull requests and trigger a new pull request manually. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
+A melhor maneira de resolver este erro é fazer o merge ou fechar alguns dos pull requests existentes e acionar um novo pull request manualmente. Para obter mais informações, confira "[Como disparar uma solicitação de pull do {% data variables.product.prodname_dependabot %} manualmente](#triggering-a-dependabot-pull-request-manually)".
 
-### {% data variables.product.prodname_dependabot %} can't resolve or access your dependencies
+### {% data variables.product.prodname_dependabot %} não pode resolver ou acessar suas dependências
 
-If {% data variables.product.prodname_dependabot %} attempts to check whether dependency references need to be updated in a repository, but can't access one or more of the referenced files, the operation will fail with the error message "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files." The API error type is `git_dependencies_not_reachable`.
+Se {% data variables.product.prodname_dependabot %} tentar verificar se as referências de dependências precisam ser atualizadas em um repositório, mas não puder acessar um ou mais arquivos referenciados, a operação irá falhar com a mensagem de erro "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files." O tipo de erro da API é `git_dependencies_not_reachable`.
 
-Similarly, if {% data variables.product.prodname_dependabot %} can't access a private package registry in which a dependency is located, one of the following errors is generated:
+Da mesma forma, se {% data variables.product.prodname_dependabot %} não pode acessar um registro de pacote privado em que uma dependência está localizada, gera-se um dos erros a seguir:
 
-*	"Dependabot can't reach a dependency in a private package registry"<br>
-   (API error type: `private_source_not_reachable`)
-*	"Dependabot can't authenticate to a private package registry"<br>
-   (API error type:`private_source_authentication_failure`)
-*	"Dependabot timed out while waiting for a private package registry"<br>
-   (API error type:`private_source_timed_out`)
-*	"Dependabot couldn't validate the certificate for a private package registry"<br>
-   (API error type:`private_source_certificate_failure`)
+*   "O Dependabot não pode acessar uma dependência em um registro de pacote privado"<br>
+   (Tipo de erro da API: `private_source_not_reachable`)
+*   "O Dependabot não pode se autenticar em um registro de pacote privado"<br>
+   (Tipo de erro da API: `private_source_authentication_failure`)
+*   "O Dependabot atingiu o tempo limite enquanto aguardava um registro de pacote privado"<br>
+   (Tipo de erro da API: `private_source_timed_out`)
+*   "O Dependabot não pôde validar o certificado para um registro de pacote privado"<br>
+   (Tipo de erro da API: `private_source_certificate_failure`)
 
-To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations. 
+Para permitir que {% data variables.product.prodname_dependabot %} atualize as referências de dependências com sucesso, certifique-se de que todas as dependências referenciadas estejam hospedadas em locais acessíveis. 
 
-**Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+**Somente atualizações de versão.** {% data reusables.dependabot.private-dependencies-note %} Adicionalmente, {% data variables.product.prodname_dependabot %} não é compatível com dependências privadas {% data variables.product.prodname_dotcom %} para todos os gerenciadores de pacote. Para obter mais informações, confira "[Sobre as atualizações de versão do Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
 
-## Triggering a {% data variables.product.prodname_dependabot %} pull request manually
+## Acionar um pull request de {% data variables.product.prodname_dependabot %} manualmente
 
-If you unblock {% data variables.product.prodname_dependabot %}, you can manually trigger a fresh attempt to create a pull request.
+Se você desbloquear {% data variables.product.prodname_dependabot %}, você poderá iniciar manualmente uma nova tentativa de criar um pull request.
 
-- **Security updates**—display the {% data variables.product.prodname_dependabot %} alert that shows the error you have fixed and click **Create {% data variables.product.prodname_dependabot %} security update**.
-- **Version updates**—on the **Insights** tab for the repository click **Dependency graph**, and then click the **Dependabot** tab. Click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates. Click **Check for updates**.
+- **Atualizações de segurança** – Veja o alerta do {% data variables.product.prodname_dependabot %} que mostra o erro corrigido e clique em **Criar atualização de segurança do {% data variables.product.prodname_dependabot %}** .
+- **Atualizações de versão** – Na guia **Insights** do repositório, clique em **Grafo de dependência** e clique na guia **Dependabot**. Clique em ***HORA* da última verificação** para ver o arquivo de log gerado pelo {% data variables.product.prodname_dependabot %} durante a última verificação em busca das atualizações de versão. Clique em **Procurar atualizações**.
 
-## Further reading
+## Leitura adicional
 
-- "[Troubleshooting the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"
-- "[Troubleshooting the detection of vulnerable dependencies](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"
+- "[Solução de problemas do grafo de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"
+- "[Solução de problemas de detecção de dependências vulneráveis](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"

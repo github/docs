@@ -1,49 +1,55 @@
 ---
-title: Gerenciando faturas da sua empresa
+title: Managing invoices for your enterprise
 shortTitle: Manage invoices
-intro: 'Você pode visualizar, pagar ou fazer o download de uma fatura atual da sua empresa e poderá ver seu histórico de pagamentos.'
+intro: 'You can view, pay, or download a current invoice for your enterprise, and you can view your payment history.'
 versions:
   ghec: '*'
 type: how_to
 topics:
   - Enterprise
   - Licensing
-ms.openlocfilehash: 030d91667630445f0811db6e51d5fe33ed863182
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145083455'
 ---
-## Sobre as faturas da sua empresa
 
-{% data reusables.billing.about-invoices-for-enterprises %} Para obter mais informações, confira "[Sobre a cobrança para sua empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)".
+## About invoices for your enterprise
 
-Para obter mais informações sobre como ver a assinatura e o uso da sua conta corporativa, confira "[Como ver a assinatura e o uso da sua conta corporativa](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)".
+For invoiced {% data variables.product.prodname_enterprise %} customers, {% data variables.product.company_short %} bills through an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. Each invoice includes a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services and any {% data variables.product.prodname_ghe_server %} instances. For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+
+Only invoiced customers can view invoices on {% data variables.product.prodname_dotcom %}. If you pay automatically via credit card or PayPal, you can view receipts and payment history instead. For more information, see "[Viewing your payment history and receipts](/billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts)."
+
+For more information about viewing the subscription and usage for your enterprise account, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 {% data reusables.billing.ghes-with-no-enterprise-account %}
 
-## Visualizando sua fatura atual
+## Viewing your current invoice
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
-4. Em "Fatura Atual", clique em **Exibir fatura**.
-  ![Link de Exibir fatura](/assets/images/help/business-accounts/view-invoice-link.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+4. Under "Current Invoice", click **View invoice**.
+  ![View invoice link](/assets/images/help/business-accounts/view-invoice-link.png)
 
-## Pagando sua fatura atual
+## Paying your current invoice
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
-4. Em "Pagamento Vencido", clique em **Pagar fatura**.
-  ![Link de Pagar fatura](/assets/images/help/business-accounts/pay-invoice-link.png)
-5. Em "Pagar fatura", digite as informações do seu cartão de crédito no formulário seguro e clique em **Pagar Fatura**.
-  ![Confirmar e pagar a fatura](/assets/images/help/business-accounts/pay-invoice.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+4. Under "Payment Due", click **Pay invoice**.
+  ![Pay invoice link](/assets/images/help/business-accounts/pay-invoice-link.png)
+5. Under "Pay invoice", type your credit card information in the secure form, then click **Pay Invoice**.
+  ![Confirm and pay invoice](/assets/images/help/business-accounts/pay-invoice.png)
 
-## Baixando sua fatura atual
+## Downloading your current invoice
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
-4. Em "Ações Rápidas", clique em **Baixar a fatura atual**.
-  ![Link de Baixar a fatura atual](/assets/images/help/business-accounts/download-current-invoice.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+4. Under "Quick Actions", click **Download current invoice**.
+  ![Download current invoice link](/assets/images/help/business-accounts/download-current-invoice.png)
 
-## Visualizando seu histórico de pagamento
+## Viewing your payment history
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
-4. Para ver um resumo da sua atividade de cobrança anterior, em "Cobrança", clique na guia **Faturas Anteriores**. ![Guia Exibir histórico de pagamentos](/assets/images/help/business-accounts/view-payment-history.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+4. To see a summary of your past billing activity, under "Billing", click the **Past Invoices** tab.
+  ![View payment history tab](/assets/images/help/business-accounts/view-payment-history.png)
