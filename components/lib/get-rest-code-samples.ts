@@ -8,7 +8,6 @@ import { useMainContext } from 'components/context/MainContext'
 type CodeExamples = Record<string, any>
 /*
   Generates a curl example
-
   For example: 
   curl \
   -X POST \
@@ -23,6 +22,11 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   const defaultAcceptHeader = codeSample?.response?.contentType?.includes('+json')
     ? codeSample.response.contentType
     : 'application/vnd.github+json'
+
+  const contentTypeHeader =
+    codeSample?.request?.contentType === 'application/octet-stream'
+      ? '-H "Content-Type: application/octet-stream"'
+      : ''
 
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
@@ -46,14 +50,22 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
       'application/x-www-form-urlencoded': '--data-urlencode',
       'multipart/form-data': '--form',
+      'application/octet-stream': '--data-binary',
     }
     const contentType = codeSample.request.contentType
     if (codeSample.request.contentType in CURL_CONTENT_TYPE_MAPPING) {
       requestBodyParams = ''
-      const paramNames = Object.keys(codeSample.request.bodyParameters)
-      paramNames.forEach((elem) => {
-        requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} "${elem}=${codeSample.request.bodyParameters[elem]}"`
-      })
+      // Most of the time the example body parameters have a name and value
+      // and are included in an object. But, some cases are a single value
+      // and the type is a string.
+      if (typeof codeSample.request.bodyParameters === 'object') {
+        const paramNames = Object.keys(codeSample.request.bodyParameters)
+        paramNames.forEach((elem) => {
+          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} "${elem}=${codeSample.request.bodyParameters[elem]}"`
+        })
+      } else {
+        requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${codeSample.request.bodyParameters}"`
+      }
     }
   }
 
@@ -71,6 +83,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
     `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
+    contentTypeHeader,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
@@ -101,7 +114,10 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
   requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
 
   let requestBodyParams = ''
-  if (codeSample?.request?.bodyParameters) {
+  // Most of the time the example body parameters have a name and value
+  // and are included in an object. But, some cases are a single value
+  // and the type is a string.
+  if (typeof codeSample?.request?.bodyParameters === 'object') {
     const bodyParamValues = Object.values(codeSample.request.bodyParameters)
     // GitHub CLI does not support sending Objects and arrays using the -F or
     // -f flags. That support may be added in the future. It is possible to
@@ -120,6 +136,8 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
         }
       })
       .join('\\\n ')
+  } else {
+    requestBodyParams = `-f '${codeSample.request.bodyParameters}'`
   }
   const args = [
     operation.verb !== 'get' && `--method ${operation.verb.toUpperCase()}`,
@@ -147,9 +165,15 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
 
 */
 export function getJSExample(operation: Operation, codeSample: CodeSample) {
-  const parameters = codeSample.request
-    ? { ...codeSample.request.parameters, ...codeSample.request.bodyParameters }
-    : {}
+  const parameters =
+    // Most of the time the example body parameters have a name and value
+    // and are included in an object. But, some cases are a single value
+    // and the type is a string.
+    typeof codeSample.request.bodyParameters === 'object'
+      ? codeSample.request
+        ? { ...codeSample.request.parameters, ...codeSample.request.bodyParameters }
+        : {}
+      : { ...codeSample.request.parameters, data: codeSample.request.bodyParameters }
 
   let queryParameters = ''
 
