@@ -1,6 +1,6 @@
 ---
-title: Configuring rate limits
-intro: 'You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.'
+title: Настройка ограничений скорости
+intro: 'Для {% data variables.product.prodname_ghe_server %} можно задать ограничения скорости с помощью {% data variables.enterprise.management_console %}.'
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
@@ -12,112 +12,108 @@ topics:
   - Enterprise
   - Infrastructure
   - Performance
+ms.openlocfilehash: 2a90093f833639fa247acc7292d9897728043005
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107552'
 ---
-## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
+## Включение ограничений скорости для {% data variables.product.prodname_enterprise_api %}
 
-Enabling rate limits on the {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Включение ограничений скорости для {% data variables.product.prodname_enterprise_api %} может предотвратить чрезмерное использование ресурсов отдельными пользователями или пользователями без проверки подлинности. Дополнительные сведения см. в разделе [Ресурсы в REST API](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
-{% ifversion ghes %}
-You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
+{% ifversion ghes %} Список пользователей можно исключить из ограничений скорости API с помощью служебной программы `ghe-config` в административной оболочке. Дополнительные сведения см. в статье "[Программы командной строки](/enterprise/admin/configuration/command-line-utilities#ghe-config)".
 {% endif %}
 
 {% note %}
 
-**Note:** The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
+**Примечание.** В {% data variables.enterprise.management_console %} указан период времени (в минуту или час) для каждого ограничения скорости.
 
 {% endnote %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
-![Checkbox for enabling API rate limiting](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
-3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. В разделе "Ограничение скорости" выберите **Включить ограничение скорости API HTTP**.
+![Флажок для включения ограничения скорости API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+3. Введите ограничения для запросов, прошедших и не прошедших проверку подлинности для каждого API, или примите предварительно заполненные ограничения по умолчанию.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion enterprise-authentication-rate-limits %}
-## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
+## Настройка ограничений скорости проверки подлинности в {% data variables.enterprise.management_console %}
 
-You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}. If a user exceeds the login attempt limit, the {% data variables.enterprise.management_console %} will remain locked for the duration set by the lockout time. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
+Вы можете настроить ограничения времени блокировки и попыток входа для {% data variables.enterprise.management_console %}. Если пользователь превысит ограничение на попытки входа, {% data variables.enterprise.management_console %} будет оставаться заблокированным в течение длительности, заданной временем блокировки. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
 
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Login attempt rate limiting", configure the lockout time and login attempt rate limit or accept the pre-filled default settings.
-![Fields for configuring lockout time and login attempt rate limit](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. В разделе "Ограничение скорости попыток входа" настройте ограничение времени блокировки и частоты попыток входа или примите предварительно заполненные параметры по умолчанию.
+![Поля для настройки времени блокировки и ограничения](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png) частоты попыток входа {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
-## Enabling secondary rate limits
+## Включение дополнительных ограничений скорости
 
-Setting secondary rate limits protects the overall level of service on {% data variables.location.product_location %}.
+Установка дополнительных ограничений скорости защищает общий уровень обслуживания на {% data variables.location.product_location %}.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% ifversion ghes %}
-2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
-   ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
-{% else %}
-2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
-    ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
-{% endif %}
-3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% ifversion ghes %}
+2. В разделе "Ограничение скорости" выберите **Включить дополнительное ограничение скорости**.
+   ![Флажок для включения дополнительного ограничения скорости](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png) {% else %}
+2. В разделе "Ограничение скорости" выберите **Включить ограничение скорости нарушения**.
+    ![Флажок для включения ограничения частоты нарушений](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png) {% endif %}
+3. Введите ограничения для общего количества запросов, ограничения ЦП и ограничения ЦП для поиска или примите предварительно заполненные ограничения по умолчанию.
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Enabling rate limits for Git
+## Включение ограничений скорости для Git
 
-If a member of {% data variables.product.company_short %}'s staff has recommended it, you can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
+Если сотрудник {% data variables.product.company_short %} рекомендовал его, вы можете применить ограничения скорости Git для каждой сети репозитория или идентификатора пользователя. Ограничения скорости Git выражаются в параллельных операциях в минуту и подстраиваются под текущую загрузку ЦП.
 
 {% warning %}
 
-**Warning:** We encourage you to leave this setting disabled unless directly recommended by a member of {% data variables.product.company_short %}'s staff. Git operations are rarely the leading driver of CPU and RAM usage. Enabling this feature can make Git operations more likely to fail under high load conditions but does not address the underlying cause of those conditions.
+**Предупреждение:** Мы рекомендуем оставить этот параметр отключенным, если только не рекомендовано непосредственно сотрудником {% data variables.product.company_short %}. Операции Git редко являются ведущим драйвером использования ЦП и ОЗУ. Включение этой функции может повысить вероятность сбоя операций Git в условиях высокой нагрузки, но не решает основную причину этих условий.
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable Git Rate Limiting**.
-![Checkbox for enabling Git rate limiting](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
-3. Type limits for each repository network or user ID.
-  ![Fields for repository network and user ID limits](/assets/images/enterprise/management-console/example-git-rate-limits.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. В разделе "Ограничение скорости" выберите **Включить ограничение скорости Git**.
+![Флажок для включения ограничения скорости Git](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
+3. Введите ограничения для каждой сети репозитория или идентификатора пользователя.
+  ![Поля для сети репозитория и идентификатора пользователя ограничивают](/assets/images/enterprise/management-console/example-git-rate-limits.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes > 3.4 %}
 
-## Configuring rate limits for {% data variables.product.prodname_actions %}
+## Настройка ограничений скорости для {% data variables.product.prodname_actions %}
 
-You can apply a rate limit to {% data variables.product.prodname_actions %} workflow runs. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+Вы можете применить ограничение скорости к выполнению рабочего процесса {% data variables.product.prodname_actions %}. Дополнительные сведения о {% data variables.product.prodname_actions %} см. в разделе «[Сведения о {% data variables.product.prodname_actions %} для организаций](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)».
 
-### About rate limits for {% data variables.product.prodname_actions %}
+### Сведения об ограничениях скорости для {% data variables.product.prodname_actions %}
 
-Your {% data variables.product.product_name %} instance assigns each {% data variables.product.prodname_actions %} workflow job to a runner. If your instance cannot immediately assign a job to an available runner, the job will wait in a queue until a runner is available. If {% data variables.product.prodname_actions %} experiences sustained high load, the queue can back up, and the performance of {% data variables.location.product_location %} may degrade.
+Экземпляр {% data variables.product.product_name %} назначает каждому заданию рабочего процесса {% data variables.product.prodname_actions %} средству выполнения тестов. Если экземпляру не удается немедленно назначить задание доступному средству выполнения тестов, задание будет ожидать в очереди, пока средство выполнения тестов не освободится. Если {% data variables.product.prodname_actions %} испытывает постоянную высокую нагрузку, очередь может выполнять резервное копирование, а производительность {% data variables.location.product_location %} может снизиться.
 
-To avoid this performance degradation, you can configure a rate limit for {% data variables.product.prodname_actions %}. This rate limit is expressed in job runs per minute. {% data variables.product.product_name %} calculates and applies the rate limit for the sum total of all job runs on the instance. If runs exceed the rate limit, additional runs will fail instead of entering the queue. The following error will appear in the run's annotations.
+Чтобы избежать снижения производительности, можно настроить ограничение скорости для {% data variables.product.prodname_actions %}. Это ограничение скорости выражается в количестве запусков задания в минуту. {% data variables.product.product_name %} вычисляет и применяет ограничение скорости для суммы всех запусков заданий на экземпляре. Если запуски превышают ограничение скорости, то дополнительные запуски завершаются ошибкой вместо входа в очередь. Следующая ошибка появится в заметках запуска.
 
-> You've exceeded the rate limit for workflow run requests. Please wait before retrying the run.
+> Превышено ограничение скорости для запросов на выполнение рабочего процесса. Подождите некоторое время перед повторением запуска.
 
-An appropriate rate limit protects {% data variables.location.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+Соответствующее ограничение скорости защищает {% data variables.location.product_location %} от аномального использования {% data variables.product.prodname_actions %} без вмешательства в повседневные операции. Точное пороговое значение зависит от доступных ресурсов экземпляра и общего профиля нагрузки. Дополнительные сведения о требованиях к оборудованию {% data variables.product.prodname_actions %} см. в разделе «[Начало работы с {% data variables.product.prodname_actions %} для {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)».
 
-By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}. 
+По умолчанию ограничение скорости для {% data variables.product.prodname_actions %} отключено. Поскольку {% data variables.product.product_name %} может обрабатывать временные пики использования без снижения производительности, это ограничение скорости предназначено для защиты от устойчивой высокой нагрузки. Рекомендуется оставить ограничение скорости выключенным, пока отсутствуют проблемы с производительностью. В некоторых случаях {% data variables.contact.github_support %} рекомендуется включить ограничение скорости для {% data variables.product.prodname_actions %}. 
 
-### Enabling or disabling rate limits for {% data variables.product.prodname_actions %}
+### Включение или выключение ограничений скорости для {% data variables.product.prodname_actions %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. To enable and configure the rate limit, run the following two commands, replacing **RUNS-PER-MINUTE** with the value of your choice.
+1. Чтобы включить и настроить ограничение скорости, выполните следующие две команды, заменив **RUNS-PER-MINUTE** выбранным значением.
 
    ```shell
    ghe-config actions-rate-limiting.enabled true
    ghe-config actions-rate-limiting.queue-runs-per-minute RUNS-PER-MINUTE
    ```
-1. To disable the rate limit after it's been enabled, run the following command.
+1. Чтобы отключить ограничение скорости после включения, выполните следующую команду.
 
    ```
    ghe-config actions-rate-limiting.enabled false
    ```
-1. To apply the configuration, run the following command.
+1. Чтобы применить конфигурацию, выполните следующую команду.
 
    ```
    ghe-config-apply
    ```
-1. Wait for the configuration run to complete.
+1. Подождите завершения запуска конфигурации.
 
 {% endif %}

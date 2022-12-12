@@ -1,7 +1,7 @@
 ---
-title: Managing alerts from secret scanning
-intro: You can view and close alerts for secrets checked in to your repository.
-permissions: 'People with admin access to a repository can view and dismiss alerts.'
+title: Управление оповещениями о проверке секретов
+intro: 'Можно просматривать и закрывать оповещения о секретах, записанных в ваш репозиторий.'
+permissions: People with admin access to a repository can view and dismiss alerts.
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
@@ -17,74 +17,61 @@ topics:
   - Alerts
   - Repositories
 shortTitle: Manage secret alerts
+ms.openlocfilehash: f7c92b975d5bf8646b25d817564bff32ffc94e1c
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158672'
 ---
-
 {% data reusables.secret-scanning.beta %}
 
-## Managing {% data variables.product.prodname_secret_scanning %} alerts
+## Управление оповещениями {% data variables.product.prodname_secret_scanning %}
 
-{% ifversion ghec %}
-{% note %}
+{% ifversion ghec %} {% note %}
 
-**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_GHAS %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner%} service are reported directly to the partner, without creating an alert.
+**Примечание.** Оповещения создаются только для репозиториев с включенным {% data variables.product.prodname_secret_scanning_GHAS %}. Секреты, найденные в общедоступных репозиториях с помощью бесплатной службы {% data variables.product.prodname_secret_scanning_partner%}, передаются непосредственно партнеру без создания оповещения.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-1. In the left sidebar, click **Secret scanning alerts**.
-   {% ifversion ghes or ghec %}
-   !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
-   {% endif %}
-   {% ifversion ghae %}
-   !["Secret scanning alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
-   {% endif %}
-1. Under "Secret scanning" click the alert you want to view.
-   {% ifversion ghec %}
-   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert.png)
-   {% endif %}
-   {% ifversion ghes %}
-   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
-   {% endif %}
-   {% ifversion ghae %}
-   ![List of alerts from secret scanning](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
-   {% endif %}{% ifversion secret-scanning-dismissal-comment %}
-1. To dismiss an alert, select the "Dismiss alert" dropdown menu and click a reason for resolving an alert.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-security %}
+1. На левой боковой панели нажмите **Оповещения о проверке секретов**.
+   {% ifversion ghes or ghec %} ![" Вкладка](/assets/images/help/repository/sidebar-secrets.png) "Оповещения о сканировании секретов" {% endif %} {% ifversion ghae %} ![вкладка](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png) "Оповещения о сканировании секретов" {% endif %}
+1. В разделе "Проверка секретов" щелкните оповещение, которое вы хотите просмотреть.
+   {% ifversion ghec %} ![ Список оповещений от сканирования](/assets/images/help/repository/secret-scanning-click-alert.png) секретов {% endif %} {% ifversion ghes %} ![Список оповещений от сканирования](/assets/images/help/repository/secret-scanning-click-alert-ghe.png) секретов {% endif %} {% ifversion ghae %} ![Список оповещений от сканирования](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png) секретов {% endif %}{% ifversion secret-scanning-dismissal-comment %}
+1. Чтобы закрыть оповещение, выберите раскрывающееся меню "Закрыть оповещение" и выберите причину устранения оповещения.
 
-   ![Screenshot of the dropdown menu for dismissing an alert from secret scanning](/assets/images/help/repository/secret-scanning-dismiss-alert.png){% else %}
-1. To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert. 
+   ![Снимок экрана: раскрывающееся меню для закрытия оповещения о проверке секретов](/assets/images/help/repository/secret-scanning-dismiss-alert.png){% else %}
+1. Чтобы закрыть оповещение, выберите раскрывающееся меню "Пометить как" и выберите причину устранения оповещения. 
   
-   ![Screenshot of the dropdown menu for resolving an alert from secret scanning](/assets/images/enterprise/3.2/repository/secret-scanning-resolve-alert-ghe.png)
+   ![Снимок экрана: раскрывающееся меню для разрешения оповещения при проверке секретов](/assets/images/enterprise/3.2/repository/secret-scanning-resolve-alert-ghe.png)
 
-   {% endif %}{% ifversion secret-scanning-dismissal-comment %}
-1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
+   {% endif %} {% ifversion secret-scanning-dismissal-comment %}
+1. При необходимости добавьте комментарий о закрытии. Комментарий о закрытии будет добавлен на временную шкалу оповещений, и он может использоваться в качестве обоснования для аудита или отчетов. На временной шкале оповещений можно просмотреть журнал всех оповещений и примечаний об увольнении. Вы также можете получить или задать комментарий с помощью API {% data variables.product.prodname_secret_scanning_caps %}. Комментарий содержится в поле `resolution_comment`. Дополнительные сведения см. в разделе ["{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning#update-a-secret-scanning-alert)" документации по REST API.
 
-  ![Screenshot showing how to dismiss an alert via the "Dismiss alert" dropdown, with the option to add a dismissal comment](/assets/images/help/repository/secret-scanning-dismissal-comment.png)
+  ![Снимок экрана, показывающий, как закрыть оповещение с помощью раскрывающегося списка "Закрыть оповещение" с возможностью добавления комментария к закрытию](/assets/images/help/repository/secret-scanning-dismissal-comment.png)
 
-1. Click **Dismiss alert**.
+1. Щелкните **Закрыть оповещение**.
 {% endif %}
 
-## Securing compromised secrets
+## Защита скомпрометированных секретов
 
-Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.prodname_dotcom %} recommends the following actions for compromised secrets:
+После фиксации секрета в репозитории следует считать секрет скомпрометированным. {% data variables.product.prodname_dotcom %} рекомендует следующие действия для скомпрометированных секретов:
 
-- For a compromised {% data variables.product.prodname_dotcom %} {% data variables.product.pat_generic %}, delete the compromised token, create a new token, and update any services that use the old token. For more information, see "[Creating a {% data variables.product.pat_generic %} for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
+- Для скомпрометированного {% data variables.product.prodname_dotcom %} {% data variables.product.pat_generic %} удалите скомпрометированный маркер, создайте новый маркер и обновите все службы, использующие старый маркер. Дополнительные сведения см. в разделе [Создание {% data variables.product.pat_generic %} для командной строки](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
 {%- ifversion token-audit-log %}
-  - {% ifversion ghec %}If your organization is owned by an enterprise account, identify{% else %}Identify{% endif %} any actions taken by the compromised token on your enterprise's resources. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+  - {% ifversion ghec %} Если ваша организация принадлежит корпоративной учетной записи, определите{% else %}Определите{% endif %} все действия, выполненные скомпрометированный маркер в ресурсах предприятия. Дополнительные сведения см. в разделе [Определение событий журнала аудита, выполняемых маркером доступа](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token).
 {%- endif %}
-- For all other secrets, first verify that the secret committed to {% data variables.product.product_name %} is valid. If so, create a new secret, update any services that use the old secret, and then delete the old secret.
+- Для всех остальных секретов сначала убедитесь, что секрет, зафиксированный в {% data variables.product.product_name %}, является допустимым. Если это так, создайте новый секрет, обновите все службы, использующие старый секрет, а затем удалите старый секрет.
 
-{% ifversion ghec %}
-{% note %}
+{% ifversion ghec %} {% note %}
 
-**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+**Примечание.** Если секрет обнаружен в общедоступном репозитории на {% data variables.product.prodname_dotcom_the_website %} и он также соответствует шаблону партнера, создается оповещение, и потенциальный секрет передается поставщику службы. Дополнительные сведения о шаблонах партнеров см. в разделе [Поддерживаемые секреты для шаблонов партнеров](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns).
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-## Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
+## Настройка уведомлений для оповещений {% data variables.product.prodname_secret_scanning %}
 
-When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive an email notification if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, or are the author of the commit that contains the secret and are not ignoring the repository.
+При обнаружении нового секрета {% data variables.product.product_name %} уведомляет всех пользователей, имеющих доступ к оповещениям системы безопасности для репозитория, в соответствии с их настройками уведомлений. Вы получите уведомление по электронной почте, если следите за репозиторием, включили уведомления для оповещений системы безопасности или всех действий в репозитории, а также если являетесь автором фиксации, содержащей секрет, и не пропускаете этот репозиторий.
 
-For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+Дополнительные сведения см. в разделах [Управление параметрами безопасности и анализа для репозитория](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) и [Настройка уведомлений](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository).
