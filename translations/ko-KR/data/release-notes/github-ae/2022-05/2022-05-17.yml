@@ -1,0 +1,248 @@
+date: '2022-05-17'
+friendlyDate: '2022년 5월 17일'
+title: '2022년 5월 17일'
+currentWeek: true
+sections:
+  features:
+    - heading: 'GitHub Advanced Security 기능이 일반 공급됨'
+      notes:
+        - |코드 검사 및 비밀 검사는 이제 GitHub AE에서 일반 공급됩니다. 자세한 내용은 "[코드 검사 정보](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" 및 "[비밀 검사 정보](/code-security/secret-scanning/about-secret-scanning)"를 참조하세요.
+
+|
+        - |비밀 검사에 대한 사용자 지정 패턴은 이제 일반 공급됩니다. 자세한 내용은 "[비밀 검사에 대한 사용자 지정 패턴 정의](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)"를 참조하세요.
+
+|
+    - heading: '끌어오기 요청에 대한 모든 코드 검사 경고 보기'
+      notes:
+        - |이제 코드 검사 경고 페이지에서 새 끌어오기 요청 필터를 사용하여 끌어오기 요청과 연결된 모든 코드 검사 경고를 찾을 수 있습니다. 끌어오기 요청 확인 페이지에는 끌어오기 요청에 도입된 경고가 표시되지만 끌어오기 요청 분기에 대한 기존 경고는 표시되지 않습니다.  [검사] 페이지의 새 "모든 분기 경고 보기" 링크는 특정 끌어오기 요청 필터가 이미 적용된 코드 검사 경고 페이지로 이동하여 끌어오기 요청과 연결된 모든 경고를 볼 수 있습니다. 이는 많은 경고를 관리하고 개별 경고에 대한 자세한 정보를 확인하는 데 유용할 수 있습니다. 자세한 내용은 "[리포지토리에 대한 코드 검사 경고 관리](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)"를 참조하세요.
+
+|
+    - heading: '조직 수준 보안 개요'
+      notes:
+        - |GitHub Advanced Security는 이제 코드 검사, Dependabot 및 비밀 검사에서 검색된 애플리케이션 보안 위험에 대한 조직 수준 보기를 제공합니다. 보안 개요에는 각 리포지토리에 대한 보안 기능 사용 상태와 검색된 경고 수가 표시됩니다.
+
+
+
+또한 보안 개요에는 조직 수준의 모든 비밀 검사 경고가 나열됩니다. Dependabot 및 코드 검사 경고에 대한 비슷한 보기가 향후 릴리스에서 제공될 예정입니다. 자세한 내용은 "[보안 개요 정보](/code-security/security-overview/about-the-security-overview)"를 참조하세요.
+
+
+
+![보안 개요의 스크린샷](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+|
+    - heading: '종속성 그래프'
+      notes:
+        - |종속성 그래프는 이제 GitHub AE에서 사용할 수 있습니다. 종속성 그래프는 리포지토리에 체크 인된 종속성 매니페스트를 구문 분석하여 사용하는 오픈 소스 소프트웨어를 이해하는 데 도움이 됩니다. 자세한 내용은 "[종속성 그래프 정보](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"를 참조하세요.
+
+|
+    - heading: 'Dependabot 경고'
+      notes:
+        - |Dependabot 경고는 이제 GitHub AE에 대한 종속성의 취약성을 알릴 수 있습니다. 종속성 그래프를 사용하도록 설정하고, GitHub Connect를 사용하도록 설정하고, GitHub Advisory Database의 취약성을 동기화하여 Dependabot 경고를 사용하도록 설정할 수 있습니다. 이 기능은 베타 버전이며 변경될 수 있습니다. 자세한 내용은 "[Dependabot 경고 정보](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"를 참조하세요.
+
+
+
+Dependabot 경고를 사용하도록 설정하면 종속성에 영향을 주는 새로운 취약성이 GitHub Advisory Database에 추가되거나 취약한 종속성이 매니페스트에 추가될 때마다 조직 멤버가 알림을 받습니다. 멤버는 알림 설정을 사용자 지정할 수 있습니다. 자세한 내용은 "[% data variables.product.prodname_dependabot_alerts %}에 대한 알림 구성](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)"을 참조하세요. <!-- ⚠️ 콘텐츠 기능 플래그를 전환하면 문서를 사용할 수 있습니다. -->
+
+|
+    - heading: '조직의 보안 관리자 역할'
+      notes:
+        - |이제 조직에서는 모든 ​​리포지토리에 대한 보안 경고 및 설정을 관리할 수 있는 권한을 팀에 부여할 수 있습니다. "보안 관리자" 역할은 모든 팀에 적용할 수 있으며, 팀 멤버에게 부여하는 권한은 다음과 같습니다.
+
+
+
+- 조직의 모든 리포지토리에 대한 읽기 액세스 권한
+
+- 조직의 모든 보안 경고에 대한 쓰기 액세스 권한
+
+- 조직 수준 보안 탭에 대한 액세스 권한
+
+- 조직 수준의 보안 설정에 대한 쓰기 액세스 권한
+
+- 리포지토리 수준의 보안 설정에 대한 쓰기 액세스 권한
+
+
+
+자세한 내용은 "[조직의 보안 관리자 관리](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)"를 참조하세요. <!-- ⚠️ 콘텐츠 기능 플래그를 전환하면 문서를 사용할 수 있습니다. -->
+
+|
+    - heading: 'GitHub Actions에 대한 사용 후 삭제 실행기 및 자동 크기 조정 웹후크'
+      notes:
+        - |GitHub AE는 이제 사용 후 삭제(단일 작업) 자체 호스팅 실행기와 새 [''workflow_job''](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) 웹후크를 지원하여 자동 크기 조정 실행기를 더 쉽게 만듭니다.
+
+
+
+사용 후 삭제 실행기는 각 작업을 클린 이미지에서 실행해야 하는 자체 관리형 환경에 적합합니다. 작업이 실행되면 작업 후 관리를 수행할 수 있도록 GitHub AE에서 자동으로 사용 후 삭제 실행기를 등록 취소합니다.
+
+
+
+사용 후 삭제 실행기를 새 ''workflow_job'' 웹후크와 결합하여 GitHub Actions의 작업 요청에 응답하여 자체 호스팅 실행기를 자동으로 크기 조정할 수 있습니다.
+
+
+
+자세한 내용은 "[자체 호스팅 실행기를 사용한 자동 크기 조정](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" 및 "[웹후크 이벤트 및 페이로드](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)"를 참조하세요. <!-- ⚠️ 콘텐츠 기능 플래그를 전환하면 문서를 사용할 수 있습니다. -->
+
+|
+    - heading: 'GitHub Actions에 대한 복합 작업'
+      notes:
+        - |복합을 사용하여 다른 작업을 참조하면 워크플로의 중복을 줄일 수 있습니다. 이전에는 YAML로 작성된 작업에서 스크립트만 사용할 수 있었습니다. 자세한 내용은 "[복합 작업 만들기](/actions/creating-actions/creating-a-composite-action)"를 참조하세요.
+
+|
+    - heading: '자체 호스팅 실행기 관리에 대한 새 토큰 범위'
+      notes:
+        - |엔터프라이즈 수준에서 자체 호스팅 실행기를 관리하는 경우 더 이상 ''admin:enterprise'' 범위의 개인용 액세스 토큰을 사용할 필요가 없습니다. 대신 ''new manage_runners:enterprise'' 범위를 사용하여 토큰에 대한 권한을 제한할 수 있습니다. 이 범위의 토큰은 많은 REST API 엔드포인트에 인증하여 엔터프라이즈의 자체 호스팅 실행기를 관리할 수 있습니다.
+
+|
+    - heading: 'REST API를 통해 액세스할 수 있는 감사 로그'
+      notes:
+        - |이제 REST API를 사용하여 감사 로그와 프로그래밍 방식으로 인터페이스할 수 있습니다. 감사 로그 전달은 사용자 고유의 도구 키트를 사용하여 데이터를 유지 및 분석하고 시간이 지남에 따라 패턴을 결정할 수 있는 기능을 제공하지만, 새 REST API는 최근 기록에서 발생한 중요 이벤트에 대한 제한된 분석을 수행하는 데 도움이 됩니다. 자세한 내용은 "[조직에 대한 감사 로그 검토](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)"를 참조하세요.
+
+|
+    - heading: '개인용 액세스 토큰의 만료 날짜'
+      notes:
+        - |이제 만료 날짜를 신규 및 기존 개인용 액세스 토큰에 설정할 수 있습니다. 만료되는 토큰을 갱신할 때가 되면 GitHub AE에서 이메일을 보냅니다. 만료된 토큰은 다시 생성하여 원래 토큰과 동일한 속성이 있는 중복 토큰을 제공할 수 있습니다. GitHub AE API에서 토큰을 사용하면 토큰의 만료 날짜를 나타내는 ''GitHub-Authentication-Token-Expiration''이라는 새 헤더가 표시됩니다. 예를 들어 만료 날짜가 가까워지면 스크립트에서 이를 사용하여 경고 메시지를 로그할 수 있습니다. 자세한 내용은 "[개인용 액세스 토큰 만들기](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" 및 "[REST API 시작](/rest/guides/getting-started-with-the-rest-api#using-personal-access-tokens)"을 참조하세요.
+
+|
+    - heading: '리포지토리에 액세스할 수 있는 사용자 목록 내보내기'
+      notes:
+        - |조직 소유자는 이제 리포지토리에 액세스할 수 있는 사용자 목록을 CSV 형식으로 내보낼 수 있습니다. 자세한 내용은 "[리포지토리에 액세스할 수 있는 사용자 보기](/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository)"를 참조하세요.
+
+|
+    - heading: '향상된 코드 검토 할당 관리'
+      notes:
+        - |한두 명의 팀 멤버만 검토를 담당하지 않도록 코드 검토 할당을 관리하기 위한 새로운 설정은 팀의 끌어오기 요청 검토를 팀 멤버 전체에 배포하는 데 도움이 됩니다.
+
+
+
+- 자식 팀 멤버: 할당을 팀의 직속 멤버로만 제한합니다. 이전에는 팀 검토 요청을 팀의 직속 멤버 또는 자식 팀의 멤버에게 할당할 수 있었습니다.
+
+- 기존 요청 계산: 한 명 이상의 팀 멤버가 이미 요청된 경우에도 자동 할당을 계속합니다. 이전에는 이미 요청된 팀 멤버가 팀의 자동 검토 요청 중 하나로 계산되었습니다.
+
+- 팀 검토 요청: 한 명 이상의 멤버가 새로 할당된 경우에도 검토하도록 할당된 팀을 유지합니다.
+
+
+
+자세한 내용은 "[팀에 대한 코드 검토 설정 관리](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)"를 참조하세요.
+
+|
+    - heading: '새 테마'
+      notes:
+        - |새로운 두 가지 테마를 GitHub AE 웹 UI에 사용할 수 있습니다.
+
+
+
+- 전경 및 배경 요소 간의 대비가 더 큰 어두운 고대비 테마
+
+- 빨강, 녹색과 같은 색을 주황과 파랑으로 바꾸는 명암 색맹
+
+
+
+자세한 내용은 "[테마 설정 관리](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)"를 참조하세요.
+
+|
+    - heading: '향상된 Markdown 기능'
+      notes:
+        - |이제 Markdown 필드에서 각주 구문을 사용하여 문서의 흐름을 방해하지 않고 관련 정보를 참조할 수 있습니다. 각주는 위 첨자 링크로 표시됩니다. 각주를 클릭하면 문서 아래쪽의 새 섹션에 표시된 참조로 이동합니다. 자세한 내용은 " [기본 구문 쓰기 및 서식 지정](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)"을 참조하세요. <!-- ⚠️ 콘텐츠 기능 플래그를 전환하면 페이지 섹션을 사용할 수 있습니다. -->
+
+|
+        - |이제 Markdown 파일의 위쪽에 있는 "원본 차이 표시"에 대한 {% octicon "code" aria-label="The Code icon" %} 단추를 클릭하여 웹 UI를 통해 원본 보기와 렌더링된 Markdown 보기 간에 전환할 수 있습니다. 이전에는 Markdown 파일 원본의 특정 줄 번호에 연결하는 원인 보기를 사용해야 했습니다.
+
+|
+        - |GitHub AE는 이제 제목을 기반으로 하여 Wiki에 대한 목차를 자동으로 생성합니다.
+
+|
+  changes:
+    - heading: '성능'
+      notes:
+        - |페이지 로드 및 작업은 이제 많은 Git 참조가 있는 리포지토리에 대해 훨씬 더 빠릅니다.
+
+|
+    - heading: '관리'
+      notes:
+        - |사용자 가장 프로세스가 향상되었습니다. 가장 세션에는 이제 가장에 대한 근거가 필요하고, 작업은 가장된 사용자로 수행되는 것으로 감사 로그에 기록되며, 가장된 사용자는 엔터프라이즈 소유자에 의해 가장되었다는 이메일 알림을 받게 됩니다. 자세한 내용은 "[사용자 가장](/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)"을 참조하세요.
+
+|
+    - heading: 'GitHub 작업'
+      notes:
+        - |GitHub AE에서 GitHub.com으로 GitHub Connect를 통해 해결된 작업을 사용할 때 내부 중간자(man-in-the-middle) 공격을 완화하기 위해 GitHub AE는 사용 시 작업 네임스페이스(''OWNER/NAME'')를 사용 중지합니다. 네임스페이스를 사용 중지하면 해당 네임스페이스가 엔터프라이즈에 만들어지지 않도록 방지하고 작업을 참조하는 모든 워크플로에서 이를 GitHub.com으로부터 다운로드할 수 있습니다. 자세한 내용은 "[GitHub Connect를 사용하여 GitHub.com 작업에 대한 자동 액세스 사용](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)"을 참조하세요.
+
+|
+        - |감사 로그에는 이제 GitHub Actions에 대한 추가 이벤트가 포함됩니다. GitHub AE는 이제 다음 이벤트에 대한 감사 로그 항목을 기록합니다.
+
+
+
+- 자체 호스팅 실행기가 등록되거나 제거됩니다.
+
+- 자체 호스팅 실행기가 실행기 그룹에 추가되거나 실행기 그룹에서 제거됩니다.
+
+- 실행기 그룹이 만들어지거나 제거됩니다.
+
+- 워크플로 실행이 만들어지거나 완료됩니다.
+
+- 워크플로 작업이 준비됩니다. 중요한 사항으로 이 로그에는 실행기에 제공된 비밀 목록이 포함되어 있습니다.
+
+
+
+자세한 내용은 "[GitHub Actions에 대한 보안 강화](/actions/security-guides/security-hardening-for-github-actions)"를 참조하세요.
+
+|
+    - heading: 'GitHub Advanced Security'
+      notes:
+        - |코드 검사는 이제 가능한 경우 ''on:push'' 워크플로에서 식별된 경고를 끌어오기 요청에 표시하도록 매핑합니다.  끌어오기 요청에 표시되는 경고는 분기 헤드의 기존 분석을 병합하려는 대상 분기에 대한 분석과 비교하여 식별된 경고입니다. 끌어오기 요청의 병합 커밋이 사용되지 않는 경우 ''on:pull_request'' 트리거를 사용하는 방법과 비교할 때 경고가 비교적 정확하지 않을 수 있습니다. 자세한 내용은 "[CodeQL을 사용한 코드 검사 정보](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)"를 참조하세요.
+
+
+
+일부 다른 CI/CD 시스템은 코드가 분기에 푸시될 때 또는 모든 커밋에 대해 독점적으로 파이프라인을 트리거하도록 독점적으로 구성할 수 있습니다. 이러한 분석 파이프라인이 트리거되고 결과가 SARIF API에 업로드될 때마다 코드 검사는 분석 결과를 진행 중인 끌어오기 요청과 일치시키려고 시도합니다. 진행 중인 끌어오기 요청이 있으면 결과가 위와 같이 게시됩니다. 자세한 내용은 "[SARIF 파일을 GitHub에 업로드](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)"를 참조하세요.
+
+|
+        - |GitHub AE는 이제 추가 공급자의 비밀을 검색합니다. 자세한 내용은 "[비밀 검사 패턴](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)"을 참조하세요.
+
+|
+    - heading: '끌어오기 요청'
+      notes:
+        - |끌어오기 요청 페이지의 타임라인 및 검토자 사이드바는 이제 해당 팀이 코드 검토 할당을 사용하기 때문에 검토 요청이 한 명 이상의 팀 멤버에게 자동으로 할당되었는지 여부를 나타냅니다.
+
+
+
+![코드 검토 자동 할당 표시기 스크린샷](https://user-images.githubusercontent.com/2503052/134931920-409dea07-7a70-4557-b208-963357db7a0d.png)
+
+|
+        - |이제 **사용자의 검토를 기다리는 중**을 선택하여 직접 검토하도록 요청하는 끌어오기 요청만 포함하도록 끌어오기 요청 검색을 필터링할 수 있습니다. 자세한 내용은 "[검색 이슈 및 끌어오기 요청](https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests)"을 참조하세요.
+
+|
+        - |분기 선택기 메뉴를 사용할 때 정확한 분기 이름을 지정하면 일치하는 분기 목록의 위쪽에 결과가 표시됩니다. 이전에는 정확한 분기 이름 일치 항목이 목록의 아래쪽에 표시될 수 있었습니다.
+
+|
+        - |해당 진행 중인 끌어오기 요청이 있는 분기가 표시되면 GitHub AE에서 이제 끌어오기 요청에 직접 연결합니다. 이전에는 분기 비교를 사용하여 기여하거나 새 끌어오기 요청을 열라는 메시지가 표시되었습니다.
+
+|
+        - |이제 단추를 클릭하여 파일의 원시 콘텐츠 전체를 클립보드에 복사할 수 있습니다. 이전에는 원시 파일을 열고 모두 선택한 다음, 복사해야 했습니다. 파일의 콘텐츠를 복사하려면 파일로 이동하여 도구 모음에서 클릭합니다. 이 기능은 현재 일부 브라우저에서만 사용할 수 있습니다.
+
+|
+        - |양방향 유니코드 텍스트가 포함된 파일을 볼 때 경고가 표시됩니다. 양방향 유니코드 텍스트는 사용자 인터페이스에 표시되는 것과 다르게 해석되거나 컴파일될 수 있습니다. 예를 들어 숨겨진 양방향 유니코드 문자를 사용하여 파일의 텍스트 세그먼트를 바꿀 수 있습니다. 이러한 문자 바꾸기에 대한 자세한 내용은 [GitHub 변경 로그](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/)를 참조하세요.
+
+|
+    - heading: '리포지토리'
+      notes:
+        - |GitHub AE에는 이제 _CITATION.cff_ 파일에 대한 향상된 지원이 포함됩니다. _CITATION.cff_ 파일은 사람과 기계가 읽을 수 있는 인용 정보가 있는 일반 텍스트 파일입니다. GitHub AE는 이 정보를 다른 사용자가 복사할 수 있는 [APA](https://apastyle.apa.org) 및 [BibTeX](https://en.wikipedia.org/wiki/BibTeX)와 같은 편리한 형식으로 구문 분석합니다. 자세한 내용은 "[CITATION 파일 정보](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)"를 참조하세요.
+
+|
+        - |자동 연결은 이제 리포지토리 API의 자동 연결 엔드포인트를 통해 추가, 삭제 또는 볼 수 있습니다. 자세한 내용은 "[자동 연결된 참조 및 URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)" 및 REST API 설명서의"[리포지토리](/rest/reference/repos#autolinks)"를 참조하세요.
+
+|
+    - heading: '릴리스'
+      notes:
+
+        - |GitHub 릴리스에 대한 태그 선택 구성 요소는 이제 텍스트 필드가 아닌 드롭다운 메뉴입니다. 자세한 내용은 "[리포지토리에서 릴리스 관리](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)"를 참조하세요.
+
+|
+    - heading: 'Markdown'
+      notes:
+
+        - |이미지 및 비디오와 같은 파일을 Markdown 편집기로 끌어서 놓는 경우 GitHub AE는 이제 파일을 배치할 때 커서 위치 대신 마우스 포인터 위치를 사용합니다.
+
+|
+    - heading: 'REST API'
+      notes:
+        - |이제 REST API 미리 보기의 등급이 지정되며 이러한 미리 보기는 API의 공식적인 부분입니다. REST API 엔드포인트에는 더 이상 미리 보기 헤더가 필요하지 않지만 등급이 매겨진 미리 보기를 요청의 ''Accept'' 헤더에 계속 지정하는 경우에도 예상대로 작동합니다.
+
+|

@@ -1,7 +1,7 @@
 ---
-title: Restricting network traffic to your enterprise with an IP allow list
+title: IP 허용 목록을 사용하여 엔터프라이즈로 네트워크 트래픽 제한
 shortTitle: Restricting network traffic
-intro: You can restrict access to your enterprise and only allow access to your resources from specified IP addresses by using an IP allow list.
+intro: 엔터프라이즈에 대한 액세스를 제한하고 IP 허용 목록을 사용하여 지정된 IP 주소의 리소스에 대한 액세스만 허용할 수 있습니다.
 permissions: Enterprise owners can configure IP allow lists.
 miniTocMaxHeadingLevel: 3
 versions:
@@ -17,192 +17,154 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
+ms.openlocfilehash: 8511499e723fdeb4a2d24c2fce627bce56ad9777
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191896'
 ---
+## 네트워크 트래픽 제한 정보
 
-## About network traffic restrictions
-
-By default, authorized users can access your enterprise from any IP address. You can restrict access to resources {% ifversion ghec %}owned by organizations in an enterprise account {% endif %}by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+기본적으로 권한 있는 사용자는 모든 IP 주소에서 엔터프라이즈에 액세스할 수 있습니다. 특정 IP 주소에 대한 허용 목록을 구성하여 엔터프라이즈 계정 {% endif %}의 조직이 소유한 리소스 {% ifversion ghec %}에 대한 액세스를 제한할 수 있습니다. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% ifversion ghec %}
 
-If your enterprise uses {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature. 
+엔터프라이즈에서 Azure AD 및 OIDC와 함께 {% data variables.product.prodname_emus %}를 사용하는 경우 {% data variables.product.company_short %}의 IP 허용 목록 기능을 사용할지 아니면 IDP(ID 공급자)에 대한 허용 목록 제한을 사용할지 선택할 수 있습니다. 엔터프라이즈에서 Azure 및 OIDC에서 {% data variables.product.prodname_emus %}을(를) 사용하지 않는 경우 {% data variables.product.company_short %}의 허용 목록 기능을 사용할 수 있습니다. 
 
 {% elsif ghae %}
 
-By default, Azure network security group (NSG) rules leave all inbound traffic open on ports 22, 80, 443, and 25. You can contact {% data variables.contact.github_support %} to configure access restrictions for {% data variables.product.product_name %}.
+기본적으로 Azure NSG(네트워크 보안 그룹) 규칙은 포트 22, 80, 443, 25에서 모든 인바운드 트래픽을 열어 둡니다. {% data variables.contact.github_support %}에 문의하여 {% data variables.product.product_name %}에 대한 액세스 제한을 구성할 수 있습니다.
 
-For restrictions using Azure NSGs, contact {% data variables.contact.github_support %} with the IP addresses that should be allowed to access {% data variables.product.product_name %}. Specify address ranges using the standard CIDR (Classless Inter-Domain Routing) format. {% data variables.contact.github_support %} will configure the appropriate firewall rules to restrict network access over HTTP, SSH, HTTPS, and SMTP. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+Azure NSG를 사용하는 제한 사항은 {% data variables.contact.github_support %}에 액세스하도록 허용해야 하는 IP 주소로 {% data variables.product.product_name %}에 문의하세요. 표준 CIDR(Classless Interdomain Routing) 형식을 사용하여 주소 범위를 지정합니다. {% data variables.contact.github_support %}는 HTTP, SSH, HTTPS 및 SMTP를 통한 네트워크 액세스를 제한하도록 적절한 방화벽 규칙을 구성합니다. 자세한 내용은 “[{% data variables.contact.github_support %}에서 도움받기](/admin/enterprise-support/receiving-help-from-github-support)”를 참조하세요.
 
 {% endif %}
 
 {% ifversion ghec %}
 
-## About {% data variables.product.company_short %}'s IP allow list
+## {% data variables.product.company_short %}의 IP 허용 목록 정보
 
-You can use {% data variables.product.company_short %}'s IP allow list to control access to your enterprise and assets owned by organizations in your enterprise. 
+{% data variables.product.company_short %}의 IP 허용 목록을 사용하여 엔터프라이즈의 조직이 소유한 엔터프라이즈 및 자산에 대한 액세스를 제어할 수 있습니다. 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %} 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %} 
 
-## About your IdP's allow list
+## IdP의 허용 목록 정보
 
-If you are using {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can use your IdP's allow list.
+Azure AD 및 OIDC에서 {% data variables.product.prodname_emus %}를 사용하는 경우 IdP의 허용 목록을 사용할 수 있습니다.
 
-Using your IdP's allow list deactivates the {% data variables.product.company_short %} IP allow list configurations for all organizations in your enterprise and deactivates the GraphQL APIs for enabling and managing IP allow lists. 
+IdP의 허용 목록을 사용하면 엔터프라이즈의 모든 조직에 대한 {% data variables.product.company_short %} IP 허용 목록 구성이 비활성화되고 IP 허용 목록을 사용하도록 설정하고 관리하기 위해 GraphQL API가 비활성화됩니다. 
 
-By default, your IdP runs the CAP on the initial interactive SAML or OIDC sign-in to {% data variables.product.company_short %} for any IP allow list configuration you choose.
+기본적으로 IdP는 선택한 IP 허용 목록 구성에 대해 {% data variables.product.company_short %}에 대한 초기 대화형 SAML 또는 OIDC 로그인에서 CAP를 실행합니다.
 
-The OIDC CAP only applies for requests to the API using a user-to-server token, such as a token for an {% data variables.product.prodname_oauth_app %} or a {% data variables.product.prodname_github_app %} acting on behalf of a user. The OIDC CAP does not apply when a {% data variables.product.prodname_github_app %} uses a server-to-server token. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-an-installation)" and "[About support for your IdPs Conditional Access Policy](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps)."
+OIDC CAP는 {% data variables.product.prodname_oauth_app %}에 대한 토큰 또는 사용자를 대신하여 작동하는 {% data variables.product.prodname_github_app %}와 같은 사용자-서버 토큰을 사용하여 API에 대한 요청에만 적용됩니다. {% data variables.product.prodname_github_app %}이(가) 서버-서버 토큰을 사용하는 경우 OIDC CAP는 적용되지 않습니다. 자세한 내용은 "[{% data variables.product.prodname_github_apps %}로 인증](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-an-installation)" 및 "[IdP 조건부 액세스 정책에 대한 지원 정보](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps)"를 참조하세요.
 
-To ensure seamless use of the OIDC CAP while still applying the policy to user-to-server tokens, you must copy all of the IP ranges from each {% data variables.product.prodname_github_app %} that your enterprise uses to your IdP policy. 
+사용자-서버 토큰에 정책을 적용하는 동안 OIDC CAP를 원활하게 사용하려면 엔터프라이즈에서 IdP 정책에 사용하는 각 {% data variables.product.prodname_github_app %}의 모든 IP 범위를 복사해야 합니다. 
 
-## Using {% data variables.product.company_short %}'s IP allow list
+## {% data variables.product.company_short %}의 IP 허용 목록 사용
 
-### Enabling {% data variables.product.company_short %}'s IP allow list
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "IP allow list", enable the IP allow list. 
-   - If you are using {% data variables.product.prodname_emus %} with OIDC, select the dropdown menu and click **GitHub**.
-      ![Screenshot of dropdown menu showing three IP allow list configuration options: Disabled, Identity Provider, and GitHub](/assets/images/help/security/enable-github-ip-allow-list.png)
+### {% data variables.product.company_short %}의 IP 허용 목록 사용
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+1. "IP 허용 목록"에서 IP 허용 목록을 사용하도록 설정합니다. 
+   - OIDC에서 {% data variables.product.prodname_emus %}을(를) 사용하는 경우 드롭다운 메뉴를 선택하고 **GitHub** 를 클릭합니다.
+      ![세 가지 IP 허용 목록 구성 옵션을 보여 주는 드롭다운 메뉴의 스크린샷: 사용 안 함, ID 공급자 및 GitHub](/assets/images/help/security/enable-github-ip-allow-list.png)
    
-      Select **Enable IP allow list**.
-      ![Screenshot of checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allow-list-ghec.png)
+      **IP 허용 목록 사용을** 선택합니다.
+      ![IP 주소를 허용하는 확인란의 스크린샷](/assets/images/help/security/enable-ip-allow-list-ghec.png)
 
-   - If you are not using {% data variables.product.prodname_emus %} with OIDC, select **Enable IP allow list**.
-     ![Screenshot of checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-1. Click **Save**.
+   - OIDC에서 {% data variables.product.prodname_emus %}을(를) 사용하지 않는 경우 **IP 허용 목록 사용을** 선택합니다.
+     ![IP 주소를 허용하는 확인란의 스크린샷](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+1. **저장** 을 클릭합니다.
 
-### Adding an allowed IP address
+### 허용된 IP 주소 추가
 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %} {% data reusables.identity-and-permissions.check-ip-address %}
 
-### Allowing access by {% data variables.product.prodname_github_apps %}
+### {% data variables.product.prodname_github_apps %}으로 액세스 허용
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-### Editing an allowed IP address
+### 허용된 IP 주소 편집
 
 {% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. **업데이트** 를 클릭합니다.
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-### Checking if an IP address is permitted
+### IP 주소가 허용되는지 확인
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.check-ip-address-step %}
 
-### Deleting an allowed IP address
+### 허용되는 IP 주소 삭제
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-## Using your identity provider's allow list
+## ID 공급자의 허용 목록 사용
 
 {% note %}
 
-**Note:** Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Azure AD and OIDC. 
+**참고:** IdP의 허용 목록 사용은 Azure AD 및 OIDC를 사용하는 {% data variables.product.prodname_emus %}에 대해서만 지원됩니다. 
 
 {% endnote %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security %}
-1. Under "IP allow list", select the dropdown and click **Identity Provider**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security %}
+1. "IP 허용 목록"에서 드롭다운을 선택하고 **ID 공급자** 를 클릭합니다.
 
-   ![Screenshot of dropdown menu showing three IP allow list configuration options: Disabled, Identity Provider, and GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
-1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
+   ![세 가지 IP 허용 목록 구성 옵션을 보여 주는 드롭다운 메뉴의 스크린샷: 사용 안 함, ID 공급자 및 GitHub](/assets/images/help/security/enable-identity-provider-ip-allow-list.png)
+1. 필요에 따라 설치된 {% data variables.product.company_short %} 및 {% data variables.product.prodname_oauth_apps %}이(가) IP 주소에서 엔터프라이즈에 액세스하도록 허용하려면 **애플리케이션에 대한 IdP 검사 건너뛰기를** 선택합니다.
 
-   ![Checkbox to allow IP addresses](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
-1. Click **Save**.
+   ![IP 주소를 허용하는 확인란](/assets/images/help/security/ip-allow-list-skip-idp-check.png)
+1. **저장** 을 클릭합니다.
 
 {% endif %}
 
 {% ifversion ghae %}
 
-## Enabling allowed IP addresses
+## 허용된 IP 주소 사용
 
 {% data reusables.identity-and-permissions.about-enabling-allowed-ip-addresses %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "IP allow list", select **Enable IP allow list**.
-  ![Checkbox to allow IP addresses](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
-4. Click **Save**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
+1. “IP 허용 목록”에서 **IP 허용 목록 사용** 을 선택합니다.
+  ![IP 주소를 허용하는 확인란](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
+4. **저장** 을 클릭합니다.
 
-## Adding an allowed IP address
+## 허용된 IP 주소 추가
 
-{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
-{% data reusables.identity-and-permissions.check-ip-address %}
+{% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %} {% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-add-description %} {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %} {% data reusables.identity-and-permissions.check-ip-address %}
 
-## Allowing access by {% data variables.product.prodname_github_apps %}
+## {% data variables.product.prodname_github_apps %}으로 액세스 허용
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-## Editing an allowed IP address
+## 허용된 IP 주소 편집
 
 {% data reusables.identity-and-permissions.about-editing-ip-allow-list-entries %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
-{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %} {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
+8. **업데이트** 를 클릭합니다.
 {% data reusables.identity-and-permissions.check-ip-address %}
 
-## Checking if an IP address is permitted
+## IP 주소가 허용되는지 확인
 
 {% data reusables.identity-and-permissions.about-checking-ip-address %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.check-ip-address-step %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.check-ip-address-step %}
 
-## Deleting an allowed IP address
+## 허용되는 IP 주소 삭제
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
-{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %} {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
 {% endif %}
 
-## Using {% data variables.product.prodname_actions %} with an IP allow list
+## IP 허용 목록으로 {% data variables.product.prodname_actions %} 사용
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}

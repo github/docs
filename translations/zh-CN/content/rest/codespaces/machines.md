@@ -1,23 +1,18 @@
 ---
-title: Codespaces 计算机
+title: Codespaces machines
 allowTitleToDifferFromFilename: true
 shortTitle: Machines
-intro: Codespaces 计算机 API 允许用户确定哪些计算机类型可用于创建 codespace，无论是在给定的存储库上还是作为经过身份验证的用户。
+intro: 'Use the REST API to manage availability of machine types for a codespace.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 4ef510cd054696025d885bec854f5360cae17e96
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147067976'
 ---
-## 关于 Codespaces 计算机 API
 
-Codespaces 计算机 API 允许用户确定哪些计算机类型可用于创建 codespace，无论是在给定的存储库上还是作为经过身份验证的用户。 有关详细信息，请参阅“[有关计算机类型](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)。”
+## About {% data variables.product.prodname_codespaces %} machines
 
-还可以通过更新其 `machine` 属性来更改现有 codespace 的机器时使用此信息。 计算机更新将在下次重新启动 codespace 时进行。 有关详细信息，请参阅“[更改 codespace 的计算机类型](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)。”
+You can determine which machine types are available to create a codespace, either on a given repository or as an authenticated user. For more information, see "[About machine types](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)."
+
+You can also use this information when changing the machine of an existing codespace by updating its `machine` property. The machine update will take place the next time the codespace is restarted. For more information, see "[Changing the machine type for your codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)."

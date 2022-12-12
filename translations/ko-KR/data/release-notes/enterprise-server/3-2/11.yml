@@ -1,0 +1,44 @@
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - '보통: {% data variables.product.prodname_ghe_server %} 관리 콘솔에서 CSRF 보호 조치를 무시하는 경로 탐색 취약성이 식별되었습니다. 이 취약성은 3.5 이전의 모든 {% data variables.product.prodname_ghe_server %} 버전에 영향을 미치며, 버전 3.1.19, 3.2.11, 3.3.6, 3.4.1에서 수정되었습니다. 이 취약성은 {% data variables.product.prodname_dotcom %} 버그 장려금 프로그램을 통해 보고되었으며 CVE-2022-23732가 할당되었습니다.'
+    - '보통: `yajil`의 1.x 분기 및 2.x 분기에서 정수 오버플로 취약성이 식별되었습니다. 이로 인해 향후 대규모(~2GB) 입력 처리 시 힙 메모리가 손상될 수 있습니다. 이 취약성은 내부적으로 보고되었고 CVE-2022-24795로 할당되었습니다. '
+    - "{% data variables.product.prodname_actions %}를 사용하도록 설정한 경우 지원 번들에 중요 파일이 포함될 수 있습니다." 
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - "{% data variables.product.prodname_ghe_server %}를 업그레이드한 후 이전 구성 옵션이 있는 경우 Minio 프로세스의 CPU 사용량이 높습니다." 
+    - 이전 릴리스에서 발생한 프로토콜 버전을 제거했음에도 관리 콘솔의 프라이버시 설정에 `TLS 1.0` 및 `TLS 1.1`을 사용하도록 설정하는 옵션이 표시되었습니다. 
+    - "HA 환경에서 MSSQL 복제본을 구성하려면 {% data variables.product.prodname_actions %}를 처음 사용하도록 설정한 다음, 수동 단계가 추가로 필요할 수 있습니다."
+    - 핫패치 이후 내부 구성 파일의 하위 집합이 더 안정적으로 업데이트됩니다. 
+    - "`ghe-run-migrations` 스크립트에서 임시 인증서 이름을 올바르게 생성하지 못하는 경우가 있습니다." 
+    - 여러 웹 노드에서 내부 API 호출 실패로 인해 클러스터 환경에서 Git LFS 작업이 실패할 수 있습니다.
+    - "`syscall` 권한이 부족하여 `gpg --import`가 사용된 사전 수신 후크가 시간 초과되었습니다."
+    - 일부 클러스터 토폴로지에서 웹후크 제공 정보를 사용할 수 없습니다. 
+    - "HA 구성에서 {% data variables.product.prodname_actions %}가 이전에 사용하도록 설정된 경우 복제본 중지가 실패합니다." 
+    - Elasticsearch 상태 검사는 마이그레이션 실행 시 노란색 클러스터 상태를 허용하지 않습니다. 
+    - 사용자가 사용자 계정을 조직으로 변환한 결과로 만들어진 조직이 전역 엔터프라이즈 계정에 추가되지 않았습니다. 
+    - "`ghe-migrator`를 사용하거나 {% data variables.product.prodname_dotcom_the_website %}에서 내보낼 때 내보내기 중간에 데이터가 삭제된 경우 장기 실행 내보내기가 실패합니다." 
+    - "보류 중인 작업을 렌더링할 때 {% data variables.product.prodname_actions %} 배포 그래프에 오류가 표시됩니다." 
+    - 액세스할 수 없는 페이지에 대한 링크가 제거되었습니다. 
+    - 웹 UI에서 두 커밋의 비교에서 벗어나 탐색하면 다른 페이지에서 차이가 지속됩니다. 
+    - 끌어오기 요청에 검토자로 팀을 추가하면 해당 팀의 구성원 수가 잘못 표시될 수 있습니다. 
+    - "[사용자의 팀 멤버 자격 제거](/rest/reference/teams#remove-team-membership-for-a-user) API 엔드포인트는 SCIM 그룹에서 외부에서 관리되는 멤버를 제거하려고 할 때 오류와 함께 응답합니다." 
+    - "유휴 사용자가 대규모로 있으면 {% data variables.product.prodname_github_connect %} 구성이 실패할 수 있습니다." 
+    - 사이트 관리자 웹 UI의 “기능 및 베타 등록” 페이지가 잘못 제공되었습니다. 
+    - 사이트 바닥글의 “사이트 관리자 모드” 링크를 클릭해도 상태가 변경되지 않았습니다. 
+    - '`spokesctl cache-policy rm` 명령이 더 이상 `error: failed to delete cache policy` 메시지와 함께 실패하지 않습니다.'
+  changes:
+    - Memcached 연결 제한이 증가하여 대형 클러스터 토폴로지를 더 많이 수용했습니다. 
+    - 종속성 Graph API가 이전에 고정적으로 정의된 포트에서 실행되었습니다. 
+    - 클러스터 관련 Elasticsearch 분할 설정의 기본 분할 수가 업데이트되었습니다. 
+    - 리포지토리 마이그레이션 중에 “심사” 및 “유지 관리” 팀 역할이 유지됩니다. 
+    - 엔터프라이즈 소유자가 한 웹 요청 성능이 개선되었습니다. 
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - "{% data variables.product.prodname_github_connect %}에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 프라이빗 및 내부 리포지토리의 이슈가 {% data variables.product.prodname_dotcom_the_website %} 검색 결과에 포함되지 않습니다."
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

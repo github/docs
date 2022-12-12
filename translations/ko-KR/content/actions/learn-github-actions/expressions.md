@@ -1,35 +1,38 @@
 ---
-title: Expressions
+title: 식
 shortTitle: Expressions
-intro: You can evaluate expressions in workflows and actions.
+intro: 워크플로 및 작업에서 식을 평가할 수 있습니다.
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 1e88b76358bfb9ff7d3e9c9d965cc6b76e829bb2
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098854'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## 식 정보
 
-## About expressions
+식을 사용하여 워크플로 파일에서 환경 변수를 프로그래밍 방식으로 설정하고 컨텍스트에 액세스할 수 있습니다. 식은 리터럴 값, 컨텍스트에 대한 참조 또는 함수의 조합일 수 있습니다. 연산자를 사용하여 리터럴, 컨텍스트 참조, 함수를 결합할 수 있습니다. 컨텍스트에 대한 자세한 내용은 “[컨텍스트](/actions/learn-github-actions/contexts)”를 참조하세요.
 
-You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+식은 일반적으로 워크플로 파일에서 조건부 `if` 키워드와 함께 사용하여 단계를 실행해야 하는지 여부를 결정합니다. `if` 조건이 `true`인 경우 단계가 실행됩니다.
 
-Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
+특정 구문을 사용하여 {% data variables.product.prodname_dotcom %}에게 식을 문자열로 처리하는 대신 평가하도록 지시해야 합니다.
 
-You need to use specific syntax to tell {% data variables.product.prodname_dotcom %} to evaluate an expression rather than treat it as a string.
-
-{% raw %}
-`${{ <expression> }}`
+{% raw %} `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+{% data reusables.actions.expression-syntax-if %} 조건에 대한 `if` 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”을 참조하세요.
 
 {% data reusables.actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+#### `if` 조건의 식 예제
 
 ```yaml
 steps:
@@ -37,7 +40,7 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+#### 환경 변수 설정 예제
 
 {% raw %}
 ```yaml
@@ -46,18 +49,18 @@ env:
 ```
 {% endraw %}
 
-## Literals
+## 리터럴
 
-As part of an expression, you can use `boolean`, `null`, `number`, or `string` data types.
+식의 일부로 `boolean`, `null`, `number` 또는 `string` 데이터 형식을 사용할 수 있습니다.
 
-| Data type | Literal value |
+| 데이터 형식 | 리터럴 값 |
 |-----------|---------------|
-| `boolean` | `true` or `false` |
+| `boolean` | `true` 또는 `false` |
 | `null`    | `null` |
-| `number`  | Any number format supported by JSON. |
-| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
+| `number`  | JSON에서 지원하는 모든 숫자 형식입니다. |
+| `string`  | `{% raw %}${{{% endraw %}` 및 `{% raw %}}}{% endraw %}`에 문자열을 묶을 필요가 없습니다. 그러나 문자열을 묶는 경우 문자열 주위에 작은따옴표(`'`)를 사용해야 합니다. 리터럴 작은따옴표를 사용하려면 추가 작은따옴표(`''`)를 사용하여 리터럴 작은따옴표를 이스케이프합니다. 큰따옴표(`"`)로 래핑하면 오류가 throw됩니다. |
 
-#### Example
+#### 예제
 
 {% raw %}
 
@@ -75,105 +78,105 @@ env:
 
 {% endraw %}
 
-## Operators
+## 연산자
 
-| Operator    | Description |
+| 연산자    | 설명 |
 | ---         | ---         |
-| `( )`       | Logical grouping |
-| `[ ]`       | Index
-| `.`         | Property de-reference |
+| `( )`       | 논리적 그룹화 |
+| `[ ]`       | 인덱스
+| `.`         | 속성 참조 해제 |
 | `!`         | Not |
-| `<`         | Less than |
-| `<=`        | Less than or equal |
-| `>`         | Greater than |
-| `>=`        | Greater than or equal |
-| `==`        | Equal |
-| `!=`        | Not equal |
-| `&&`        | And |
-|  <code>\|\|</code> | Or |
+| `<`         | 보다 작음 |
+| `<=`        | 작거나 같음 |
+| `>`         | 보다 큼 |
+| `>=`        | 크거나 같음 |
+| `==`        | 같음 |
+| `!=`        | 같지 않음 |
+| `&&`        | and |
+|  <code>\|\|</code> | 또는 |
 
-{% data variables.product.prodname_dotcom %} performs loose equality comparisons.
+{% data variables.product.prodname_dotcom %}는 느슨한 동등 비교를 수행합니다.
 
-* If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
+* 형식이 일치하지 않으면 {% data variables.product.prodname_dotcom %}은 형식을 숫자로 강제 변환합니다. {% data variables.product.prodname_dotcom %}는 이러한 변환을 사용하여 데이터 형식을 숫자로 캐스팅합니다.
 
-  | Type    | Result |
+  | 형식    | 결과 |
   | ---     | ---    |
   | Null    | `0` |
-  | Boolean | `true` returns `1` <br /> `false` returns `0` |
-  | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
-  | Array   | `NaN` |
+  | 부울 | `true``1`를 반환합니다 <br /> `false``0`를 반환합니다 |
+  | String  | 모든 유효한 JSON 숫자 형식에서 구문 분석됩니다. 그렇지 않으면 `NaN`입니다. <br /> 참고: 빈 문자열이 `0`을 반환합니다. |
+  | 배열   | `NaN` |
   | Object  | `NaN` |
-* A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
-* {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
-* Objects and arrays are only considered equal when they are the same instance.
+* 하나의 `NaN`을 다른 `NaN`와 비교해도 `true`가 나오지 않습니다. 자세한 내용은 “[NaN Mozilla 문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)”를 참조하세요.
+* {% data variables.product.prodname_dotcom %}는 문자열을 비교할 때 대/소문자를 무시합니다.
+* 개체와 배열은 동일한 인스턴스일 때만 동일하게 간주됩니다.
 
 ## Functions
 
-{% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
+{% data variables.product.prodname_dotcom %}은 식에서 사용할 수 있는 기본 제공 함수 집합을 제공합니다. 일부 함수는 값을 문자열로 캐스팅하여 비교를 수행합니다. {% data variables.product.prodname_dotcom %}는 이러한 변환을 사용하여 데이터 형식을 문자열로 캐스팅합니다.
 
-| Type    | Result |
+| 형식    | 결과 |
 | ---     | ---    |
 | Null    | `''` |
-| Boolean | `'true'` or `'false'` |
-| Number  | Decimal format, exponential for large numbers |
-| Array   | Arrays are not converted to a string |
-| Object  | Objects are not converted to a string |
+| 부울 | `'true'` 또는 `'false'` |
+| 숫자  | 10진수 형식, 큰 숫자의 지수 |
+| 배열   | 배열이 문자열로 변환되지 않음 |
+| Object  | 개체가 문자열로 변환되지 않음 |
 
-### contains
+### 포함
 
 `contains( search, item )`
 
-Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a string.
+`search`에 `item`이 포함된 경우 `true`를 반환합니다. `search`가 배열이면 이 함수는 `item`이 배열의 요소인 경우 `true`를 반환합니다. `search`이 문자열이면 이 함수는 `item`이 `search`의 하위 문자열인 경우 `true`를 반환합니다. 이 함수는 대/소문자를 구분하지 않습니다. 값을 문자열로 캐스팅합니다.
 
-#### Example using a string
+#### 문자열을 사용하는 예제
 
-`contains('Hello world', 'llo')` returns `true`.
+`contains('Hello world', 'llo')`는 `true`을 반환합니다.
 
-#### Example using an object filter
+#### 개체 필터를 사용하는 예제
 
-`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+`contains(github.event.issue.labels.*.name, 'bug')`은 이벤트와 관련된 문제에 “버그” 레이블이 있는 경우 `true`를 반환합니다.
 
-For more information, see "[Object filters](#object-filters)."
+자세한 내용은 “[개체 필터](#object-filters)”를 참조하세요.
 
-#### Example matching an array of strings
+#### 문자열 배열과 일치하는 예제
 
-Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+`github.event_name == "push" || github.event_name == "pull_request"`를 쓰는 대신 `fromJson()`과 함께 `contains()`를 사용하여 문자열 배열에 `item`이 포함되어 있는지 확인할 수 있습니다.
 
-For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
+예를 들어 `contains(fromJson('["push", "pull_request"]'), github.event_name)`은 `github.event_name`이 “push” 또는 “pull_request”인 경우 `true`를 반환합니다.
 
-### startsWith
+### startswith
 
 `startsWith( searchString, searchValue )`
 
-Returns `true` when `searchString` starts with `searchValue`. This function is not case sensitive. Casts values to a string.
+`searchString`이 `searchValue`로 시작하면 `true`를 반환합니다. 이 함수는 대/소문자를 구분하지 않습니다. 값을 문자열로 캐스팅합니다.
 
-#### Example
+#### 예제
 
-`startsWith('Hello world', 'He')` returns `true`.
+`startsWith('Hello world', 'He')`는 `true`을 반환합니다.
 
 ### endsWith
 
 `endsWith( searchString, searchValue )`
 
-Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
+`true`이 `searchString`으로 끝나면 `searchValue`를 반환합니다. 이 함수는 대/소문자를 구분하지 않습니다. 값을 문자열로 캐스팅합니다.
 
-#### Example
+#### 예제
 
-`endsWith('Hello world', 'ld')` returns `true`.
+`endsWith('Hello world', 'ld')`는 `true`을 반환합니다.
 
 ### format
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
+`string`의 값을 `replaceValueN` 변수로 바꿉니다. `string`의 변수는 `{N}` 구문을 사용하여 지정됩니다. 여기서 `N`은 정수입니다. `replaceValue` 및 `string`을 하나 이상 지정해야 합니다. 사용할 수 있는 변수(`replaceValueN`)의 최대값은 없습니다. 이중 중괄호를 사용하여 중괄호를 이스케이프합니다.
 
-#### Example
+#### 예제
 
 `format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
 
-Returns 'Hello Mona the Octocat'.
+‘Hello Mona the Octocat’을 반환합니다.
 
-#### Example escaping braces
+#### 중괄호 이스케이프 예제
 
 {% raw %}
 ```js
@@ -181,37 +184,37 @@ format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 {% endraw %}
 
-Returns '{Hello Mona the Octocat!}'.
+'{Hello Mona the Octocat!}'을 반환합니다.
 
 ### join
 
 `join( array, optionalSeparator )`
 
-The value for `array` can be an array or a string. All values in `array` are concatenated into a string. If you provide `optionalSeparator`, it is inserted between the concatenated values. Otherwise, the default separator `,` is used. Casts values to a string.
+`array`의 값은 배열 또는 문자열일 수 있습니다. 모든 `array` 값이 문자열에 연결됩니다. `optionalSeparator`를 제공하면 연결된 값 사이에 삽입됩니다. 그렇지 않으면 기본 구분 기호인 `,`가 사용됩니다. 값을 문자열로 캐스팅합니다.
 
-#### Example
+#### 예제
 
-`join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
+`join(github.event.issue.labels.*.name, ', ')`은 ‘버그, 도움 요청’을 반환할 수 있습니다.
 
 ### toJSON
 
 `toJSON(value)`
 
-Returns a pretty-print JSON representation of `value`. You can use this function to debug the information provided in contexts.
+`value`의 자동 서식 지정 JSON 표현을 반환합니다. 이 함수를 사용하여 컨텍스트에 제공된 정보를 디버그할 수 있습니다.
 
-#### Example
+#### 예제
 
-`toJSON(job)` might return `{ "status": "Success" }`
+`toJSON(job)`은 `{ "status": "Success" }`를 반환할 수 있습니다.
 
 ### fromJSON
 
 `fromJSON(value)`
 
-Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
+`value`에 대한 JSON 객체 또는 JSON 데이터 형식을 반환합니다. 이 함수를 사용하여 JSON 개체를 평가된 식으로 제공하거나 문자열에서 환경 변수를 변환할 수 있습니다.
 
-#### Example returning a JSON object
+#### JSON 개체를 반환하는 예제
 
-This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
+이 워크플로는 한 작업에서 JSON 매트릭스를 설정하고 출력 및 `fromJSON`을 사용하여 다음 작업으로 전달합니다.
 
 {% raw %}
 ```yaml
@@ -239,9 +242,9 @@ jobs:
 ```
 {% endraw %}
 
-#### Example returning a JSON data type
+#### JSON 데이터 형식을 반환하는 예제
 
-This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
+이 워크플로는 `fromJSON`을 사용하여 환경 변수를 문자열에서 부울 또는 정수로 변환합니다.
 
 {% raw %}
 ```yaml
@@ -264,37 +267,37 @@ jobs:
 
 `hashFiles(path)`
 
-Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
+`path` 패턴과 일치하는 파일 세트에 대한 단일 해시를 반환합니다. 쉼표로 구분된 단일 `path` 패턴 또는 여러 `path` 패턴을 제공할 수 있습니다. `path`은 `GITHUB_WORKSPACE` 디렉터리에 상대적이며 `GITHUB_WORKSPACE` 내부의 파일만 포함할 수 있습니다. 이 함수는 일치하는 각 파일에 대한 개별 SHA-256 해시를 계산한 다음 해당 해시를 사용하여 파일 집합에 대한 최종 SHA-256 해시를 계산합니다. `path` 패턴이 파일과 일치하지 않으면 빈 문자열을 반환합니다. SHA-256에 대한 자세한 내용은 “[SHA-2](https://en.wikipedia.org/wiki/SHA-2)”를 참조하세요.
 
-You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
+패턴 일치 문자를 사용하여 파일 이름을 일치시킬 수 있습니다. 패턴 일치는 Windows에서 대/소문자를 구분하지 않습니다. 지원되는 패턴 일치 문자에 대한 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)”을 참조하세요.
 
-#### Example with a single pattern
+#### 단일 패턴을 사용하는 예제
 
-Matches any `package-lock.json` file in the repository.
+리포지토리의 모든 `package-lock.json` 파일과 일치합니다.
 
 `hashFiles('**/package-lock.json')`
 
-#### Example with multiple patterns
+#### 여러 패턴이 있는 예제
 
-Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repository.
+리포지토리에 있는 모든 `package-lock.json` 및 `Gemfile.lock` 파일에 대한 해시를 만듭니다.
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-## Status check functions
+{% ifversion fpt 또는 ghes > 3.3 또는 ghae > 3.3 또는 ghec %}
+## 상태 검사 함수
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+다음 상태 검사 함수를 `if` 조건의 식으로 사용할 수 있습니다. 이러한 함수 중 하나를 포함하지 않는 한 `success()` 기본 상태 검사가 적용됩니다. `if` 조건에 대한 자세한 내용은 “[GitHub Actions 워크플로 구문](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)” 및 “[GitHub 복합 작업에 대한 메타데이터 구문](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)”을 참조하세요.
 {% else %}
-## Check Functions
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+## 확인 함수
+다음 상태 검사 함수를 `if` 조건의 식으로 사용할 수 있습니다. 이러한 함수 중 하나를 포함하지 않는 한 `success()` 기본 상태 검사가 적용됩니다. `if` 조건에 대한 자세한 내용은 “[GitHub Actions에 대한 워크플로 구문](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”을 참조하세요.
 {% endif %}
 
-### success
+### 성공
 
-Returns `true` when none of the previous steps have failed or been canceled.
+이전 단계가 실패하거나 취소되지 않은 경우 `true`를 반환합니다.
 
-#### Example
+#### 예제
 
 ```yaml
 steps:
@@ -305,29 +308,29 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+취소된 경우에도 단계가 항상 실행되고 `true`가 반환되도록 합니다. 심각한 실패로 인해 작업이 실행되지 않을 경우 작업 또는 단계가 실행되지 않습니다. 예를 들어 원본을 가져오지 못한 경우입니다.
 
-#### Example
+#### 예제
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
 ```
 
-### cancelled
+### 취소됨
 
-Returns `true` if the workflow was canceled.
+워크플로가 취소된 경우 `true`를 반환합니다.
 
-#### Example
+#### 예제
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
 ```
 
-### failure
+### 실패
 
-Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
+작업의 이전 단계가 실패하면 `true`를 반환합니다. 종속 작업 체인이 있는 경우 상위 작업이 실패하면 `failure()`가 `true`를 반환합니다.
 
-#### Example
+#### 예제
 
 ```yaml
 steps:
@@ -336,11 +339,11 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-#### failure with conditions
+#### 조건이 있는 오류
 
-You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
+실패 후 실행할 단계에 대한 추가 조건을 포함할 수 있지만 상태 확인 기능이 포함되지 않은 `if` 조건에 자동으로 적용되는 `success()`의 기본 상태 확인을 재정의하려면 `failure()`를 계속 포함해야 합니다.
 
-##### Example
+##### 예제
 
 ```yaml
 steps:
@@ -352,11 +355,11 @@ steps:
     if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
 
-## Object filters
+## 개체 필터
 
-You can use the `*` syntax to apply a filter and select matching items in a collection.
+`*` 구문을 사용하여 필터를 적용하고 컬렉션에서 일치하는 항목을 선택할 수 있습니다.
 
-For example, consider an array of objects named `fruits`.
+예를 들어 `fruits`라는 개체의 배열을 고려합니다.
 
 ```json
 [
@@ -366,9 +369,9 @@ For example, consider an array of objects named `fruits`.
 ]
 ```
 
-The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`.
+`fruits.*.name` 필터는 `[ "apple", "orange", "pear" ]` 배열을 반환합니다.
 
-You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+개체의 `*` 구문을 사용할 수도 있습니다. 예를 들어 `vegetables`라는 개체가 있다고 가정합니다.
 
 ```json
 
@@ -391,7 +394,7 @@ You may also use the `*` syntax on an object. For example, suppose you have an o
 }
 ```
 
-The filter `vegetables.*.ediblePortions` could evaluate to:
+`vegetables.*.ediblePortions` 필터는 다음으로 계산할 수 있습니다.
 
 ```json
 
@@ -402,4 +405,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+개체는 순서를 유지하지 않으므로 출력 순서를 보장할 수 없습니다.

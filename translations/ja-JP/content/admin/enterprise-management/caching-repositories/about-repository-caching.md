@@ -1,21 +1,26 @@
 ---
-title: About repository caching
-intro: You can increase the performance of Git read operations for distributed teams and CI farms with repository caching.
+title: リポジトリのキャッシュについて
+intro: リポジトリのキャッシュを使用して、分散チームと CI ファームでの Git 読み取り操作のパフォーマンスを向上させることができます。
 versions:
   ghes: '*'
 type: overview
 topics:
   - Enterprise
+ms.openlocfilehash: e32df9becd6142f581d45784e4758cf19a8d1af0
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108857'
 ---
-
 {% data reusables.enterprise.repository-caching-release-phase %}
 
-If you have teams and CI farms located around the world, you may experience reduced performance on your primary {% data variables.product.prodname_ghe_server %} instance. While active geo-replicas can improve the performance of read requests, this comes at the cost of limiting write throughput. To reduce load on your primary instance and improve write throughput performance, you can configure a repository cache, an asynchronous read-only mirror of repositories located near these geographically-distributed clients. 
+世界中にチームと CI ファームがある場合、{% data variables.product.prodname_ghe_server %} のプライマリ インスタンスのパフォーマンスが低下する可能性があります。 アクティブ geo レプリカを使うと読み取り要求のパフォーマンスが向上しますが、書き込みスループットが制限されます。 プライマリ インスタンスの負荷を軽減し、書き込みスループットのパフォーマンスを向上させるには、これらの地理的に分散したクライアントの近くに配置されたリポジトリの非同期読み取り専用ミラーであるリポジトリ キャッシュを構成できます。 
 
-A repository cache eliminates the need for {% data variables.product.product_name %} to transmit the same Git data over a long-haul network link multiple times to serve multiple clients, by serving your repository data close to CI farms and distributed teams. For instance, if your primary instance is in North America and you also have a large presence in Asia, you will benefit from setting up the repository cache in Asia for use by CI runners there.
+リポジトリ キャッシュを使うと、CI ファームや分散チームの近くにリポジトリ データが提供されるため、{% data variables.product.product_name %} は、複数のクライアントにサービスを提供するために、同じ Git データを長距離ネットワーク リンク経由で何回も送信する必要がなくなります。 たとえば、プライマリ インスタンスが北米にあり、アジアの多くの場所でもそれを利用している場合は、アジアの CI ランナーが使用するためのリポジトリ キャッシュをアジアに設けるとメリットがあります。
 
-The repository cache listens to the primary instance, whether that's a single instance or a geo-replicated set of instances, for changes to Git data. CI farms and other read-heavy consumers clone and fetch from the repository cache instead of the primary instance. Changes are propagated across the network, at periodic intervals, once per cache instance rather than once per client. Git data will typically be visible on the repository cache within several minutes after the data is pushed to the primary instance.  {% ifversion ghes > 3.3 %}The [`cache_sync` webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) can be used by CI systems to react to data being available in the cache.{% endif %}
+リポジトリ キャッシュは、プライマリ インスタンス (単一インスタンスでも、geo レプリケートされたインスタンスのセットでも) で、Git データの変更をリッスンします。 CI ファームや他の読み取り負荷の高いコンシューマーは、プライマリ インスタンスの代わりにリポジトリ キャッシュからクローンしてフェッチします。 変更は、クライアントごとに 1 回ではなく、キャッシュ インスタンスごとに 1 回ずつ、定期的にネットワーク全体に反映されます。 通常、Git データは、データがプライマリ インスタンスにプッシュされてから数分以内に、リポジトリ キャッシュで使用できるようになります。  {% ifversion ghes > 3.3 %}CI システムは、[`cache_sync` Webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) を使うことで、キャッシュで使用可能になったデータに対応できます。{% endif %}
 
-You have fine-grained control over which repositories are allowed to sync to the repository cache. Git data will only be replicated to the locations you specify.
+リポジトリ キャッシュと同期できるようにするリポジトリを、きめ細かく制御できます。 Git データは、ユーザーが指定した場所にのみレプリケートされます。
 
-{% data reusables.enterprise.repository-caching-config-summary %} For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
+{% data reusables.enterprise.repository-caching-config-summary %}詳しくは、「[リポジトリ キャッシュを構成する](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)」をご覧ください。

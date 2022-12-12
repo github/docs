@@ -1,7 +1,7 @@
 ---
-title: Defining custom patterns for secret scanning
+title: Definieren von benutzerdefinierten Mustern für die Geheimnisüberprüfung
 shortTitle: Define custom patterns
-intro: 'You can extend {% data variables.product.prodname_secret_scanning_GHAS %} to detect secrets beyond the default patterns.'
+intro: 'Du kannst {% data variables.product.prodname_secret_scanning_GHAS %}so erweitern, dass Geheimnisse über die Standardmuster hinaus erkannt werden.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
@@ -13,59 +13,55 @@ type: how_to
 topics:
   - Advanced Security
   - Secret scanning
+ms.openlocfilehash: 1c7594329dfdc2843e38c1c2eb7b70e32b89f11b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106517'
 ---
+## Informationen zu benutzerdefinierten Mustern für {% data variables.product.prodname_secret_scanning %}
 
+Du kannst benutzerdefinierte Muster definieren, um Geheimnisse zu identifizieren, die nicht von den Standardmustern erkannt werden, die von {% data variables.product.prodname_secret_scanning %} unterstützt werden. Beispielsweise hast du möglicherweise ein geheimes Muster, das intern für deine Organisation ist. Weitere Details zu unterstützten Geheimnissen und Dienstanbietern findest du unter [{% data variables.product.prodname_secret_scanning_caps %}-Muster](/code-security/secret-scanning/secret-scanning-patterns).
 
-## About custom patterns for {% data variables.product.prodname_secret_scanning %}
+Du kannst benutzerdefinierte Muster für dein Unternehmen, deine Organisation oder dein Repository definieren. {% data variables.product.prodname_secret_scanning_caps %} unterstützt bis zu 500 benutzerdefinierte Muster für jedes Organisations- oder Unternehmenskonto und bis zu 100 benutzerdefinierte Muster pro Repository.
 
-You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+## Syntax regulärer Ausdrücke für benutzerdefinierte Muster
 
-You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
+Du kannst benutzerdefinierte Muster für {% data variables.product.prodname_secret_scanning_GHAS %} als einen oder mehrere reguläre Ausdrücke angeben.
 
-## Regular expression syntax for custom patterns
+- **Geheimnisformat:** ein Ausdruck, der das Format des Geheimnisses selbst beschreibt.
+- **Vor dem Geheimnis:** ein Ausdruck, der die Zeichen beschreibt, die vor dem Geheimnis kommen. Dies ist standardmäßig auf `\A|[^0-9A-Za-z]` festgelegt, was bedeutet, dass das Geheimnis am Anfang einer Zeile sein muss oder ihm ein nicht alphanumerisches Zeichen vorangestellt werden muss.
+- **Nach dem Geheimnis:** ein Ausdruck, der die Zeichen beschreibt, die nach dem Geheimnis kommen. Dies ist standardmäßig auf `\z|[^0-9A-Za-z]` festgelegt, was bedeutet, dass dem Geheimnis eine neue Zeile oder ein nicht alphanumerisches Zeichen folgen muss.
+- **Zusätzliche Übereinstimmungsanforderungen:** mindestens ein optionaler Ausdruck, dem das Geheimnis entsprechen muss oder nicht entsprechen darf.
 
-You can specify custom patterns for {% data variables.product.prodname_secret_scanning_GHAS %} as one or more regular expressions.
+Für einfache Token musst du normalerweise nur ein Geheimnisformat angeben. Die anderen Felder bieten Flexibilität, sodass du komplexere Geheimnisse angeben kannst, ohne komplexe reguläre Ausdrücke zu erstellen.  Ein Beispiel für ein benutzerdefiniertes Muster findest du unter [Beispiel für ein benutzerdefiniertes Muster, das mithilfe zusätzlicher Anforderungen angegeben wird](#example-of-a-custom-pattern-specified-using-additional-requirements).
 
-- **Secret format:** an expression that describes the format of the secret itself.
-- **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
-- **After secret:** an expression that describes the characters that come after the secret. By default, this is set to `\z|[^0-9A-Za-z]` which means that the secret must be followed by a new line or a non-alphanumeric character.
-- **Additional match requirements:** one or more optional expressions that the secret itself must or must not match.
+{% data variables.product.prodname_secret_scanning_caps %} verwendet die [Hyperscan-Bibliothek](https://github.com/intel/hyperscan) und unterstützt nur Hyperscan-RegEx-Konstrukte, die eine Teilmenge der PCRE-Syntax sind. Hyperscan-Optionsmodifizierer werden nicht unterstützt.  Weitere Informationen zu Hyperscan-Musterkonstrukten findest du in der Hyperscan-Dokumentation unter [Musterunterstützung](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support).
 
-For simple tokens you will usually only need to specify a secret format. The other fields provide flexibility so that you can specify more complex secrets without creating complex regular expressions.  For an example of a custom pattern, see "[Example of a custom pattern specified using additional requirements](#example-of-a-custom-pattern-specified-using-additional-requirements)" below.
+## Definieren eines benutzerdefinierten Musters für ein Repository
 
-{% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
+Bevor du ein benutzerdefiniertes Muster definierst, musst du sicherstellen, dass {% data variables.product.prodname_secret_scanning %} im Repository aktiviert ist. Weitere Informationen findest du unter [Konfigurieren von {% data variables.product.prodname_secret_scanning %} für deine Repositorys](/code-security/secret-security/configuring-secret-scanning-for-your-repositories).
 
-## Defining a custom pattern for a repository
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.navigate-to-code-security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-new-custom-pattern %} {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+1. Wenn du bereit bist, dein neues benutzerdefiniertes Muster zu testen, um Übereinstimmungen im Repository zu identifizieren, ohne Warnungen zu erstellen, klicke auf **Save and dry run** (Speichern und Probelauf).
+{% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {% endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_scanning %} is enabled on your repository. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)."
+Nachdem dein Muster erstellt wurde, {% data reusables.secret-scanning.secret-scanning-process %} Weitere Informationen zum Anzeigen von {% data variables.product.prodname_secret_scanning %}-Warnungen findest du unter [Verwalten von Warnungen aus {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning).
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{% endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+### Beispiel für ein benutzerdefiniertes Muster, das mithilfe zusätzlicher Anforderungen angegeben ist
 
-After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+Ein Unternehmen verfügt über ein internes Token mit fünf Merkmalen. Du verwendest die verschiedenen Felder, um anzugeben, wie Token wie folgt identifiziert werden:
 
-### Example of a custom pattern specified using additional requirements
-
-A company has an internal token with five characteristics. They use the different fields to specify how to identify tokens as follows:
-
-| **Characteristic** | **Field and regular expression** |
+| **Merkmal** | **Feld und regulärer Ausdruck** |
 |----------------|------------------------------|
-| Length between 5 and 10 characters | Secret format: `[$#%@AA-Za-z0-9]{5,10}` |
-| Does not end in a `.` | After secret: `[^\.]` |
-| Contains numbers and uppercase letters | Additional requirements: secret must match `[A-Z]` and `[0-9]` |
-| Does not include more than one lowercase letter in a row | Additional requirements: secret must not match `[a-z]{2,}` |
-| Contains one of `$%@!` | Additional requirements: secret must match `[$%@!]` |
+| Länge zwischen 5 und 10 Zeichen | Geheimnisformat: `[$#%@AA-Za-z0-9]{5,10}` |
+| Endet nicht mit `.` | Nach dem Geheimnis: `[^\.]` |
+| Enthält Zahlen und Großbuchstaben | Zusätzliche Anforderungen: Geheimnis muss mit `[A-Z]` und `[0-9]` übereinstimmen |
+| Enthält nicht mehr als einen Kleinbuchstaben in einer Zeile | Zusätzliche Anforderungen: Geheimnis darf nicht mit `[a-z]{2,}` übereinstimmen |
+| Enthält eines der folgenden Zeichen: `$%@!` | Zusätzliche Anforderungen: Geheimnis muss mit `[$%@!]` übereinstimmen |
 
-These tokens would match the custom pattern described above:
+Diese Token entsprechen dem oben beschriebenen benutzerdefinierten Muster:
 
 ```
 a9@AAfT!         # Secret string match: a9@AAfT
@@ -73,7 +69,7 @@ ee95GG@ZA942@aa  # Secret string match: @ZA942@a
 a9@AA!ee9        # Secret string match: a9@AA
 ```
 
-These strings would not match the custom pattern described above:
+Diese Zeichenfolgen entsprechen nicht dem oben beschriebenen benutzerdefinierten Muster:
 
 ```
 a9@AA.!
@@ -82,93 +78,70 @@ aa9@AA!ee9
 aAAAe9
 ```
 
-## Defining a custom pattern for an organization
+## Definieren eines benutzerdefinierten Musters für eine Organisation
 
-Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Bevor du ein benutzerdefiniertes Muster definierst, musst du sicherstellen, dass du {% data variables.product.prodname_secret_scanning %} für die Repositorys aktivierst, die du in deiner Organisation überprüfen möchtest. Informationen zum Aktivieren von {% data variables.product.prodname_secret_scanning %} für alle Repositorys in deiner Organisation findest du unter [Verwalten von Sicherheits- und Analyseeinstellungen für deine Organisation](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization).
 
-{% ifversion ghes < 3.5 or ghae %}
-{% note %}
+{% ifversion ghes < 3.5 or ghae %} {% note %}
 
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire organization. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
+**Hinweis:** Da es keine Probelauffunktionalität gibt, empfehlen wir, deine benutzerdefinierten Muster in einem Repository zu testen, bevor du sie für deine gesamte Organisation definierst. Auf diese Weise kannst du das Erstellen übermäßig vieler falsch positiver {% data variables.product.prodname_secret_scanning %}-Warnungen vermeiden.
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{%- endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.security-and-analysis %} {% data reusables.repositories.navigate-to-ghas-settings %} {% data reusables.advanced-security.secret-scanning-new-custom-pattern %} {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %} {%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+1. Wenn du bereit bist, dein neues benutzerdefiniertes Muster zu testen, um Übereinstimmungen in bestimmten Repositorys zu identifizieren, ohne Warnungen zu erstellen, klicke auf **Save and dry run** (Speichern und Probelauf).
+{% data reusables.advanced-security.secret-scanning-dry-run-select-repos %} {% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {%- endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+Nachdem dein Muster erstellt wurde, sucht die {% data variables.product.prodname_secret_scanning %} nach Geheimnissen in Repositorys in deiner Organisation, einschließlich ihres gesamten Git-Verlaufs auf allen Branches. Organisationsbesitzer und Repositoryadministratoren erhalten Warnungen zu allen gefundenen Geheimnissen und können die Warnung im Repository überprüfen, in dem das Geheimnis gefunden wurde. Weitere Informationen zum Anzeigen von {% data variables.product.prodname_secret_scanning %}-Warnungen findest du unter [Verwalten von Warnungen aus {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning).
 
-## Defining a custom pattern for an enterprise account
+## Definieren eines benutzerdefinierten Musters für ein Unternehmenskonto
 
 {% ifversion fpt or ghec or ghes %}
 
-Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+Bevor du ein benutzerdefiniertes Muster definierst, musst du sicherstellen, dass du die Geheimnisüberprüfung für dein Unternehmenskonto aktivierst. Weitere Informationen findest du unter [Aktivieren von {% data variables.product.prodname_GH_advanced_security %} für dein Unternehmen]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise).
 
 {% endif %}
 
 {% note %}
 
-{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-**Notes:**
-- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. 
-- Enterprise owners can only make use of dry runs on repositories that they have access to, and enterprise owners do not necessarily have access to all the organizations or repositories within the enterprise.
-{% else %}
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.product.prodname_secret_scanning %} alerts.
+{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %} **Hinweise:**
+- Auf Unternehmensebene kann nur der Ersteller eines benutzerdefinierten Musters das Muster bearbeiten und in einem Probelauf verwenden. 
+- Unternehmensbesitzer können Probeläufe nur für Repositorys verwenden, auf die sie Zugriff haben, und Unternehmensbesitzer verfügen nicht unbedingt über Zugriff auf alle Organisationen oder Repositorys innerhalb des Unternehmens.
+{% else %} **Hinweis:** Da es keine Probelauffunktionalität gibt, empfehlen wir, deine benutzerdefinierten Muster in einem Repository zu testen, bevor du sie für dein gesamtes Unternehmen definierst. Auf diese Weise kannst du das Erstellen übermäßig vieler falsch positiver {% data variables.product.prodname_secret_scanning %}-Warnungen vermeiden.
 
 {% endif %}
 
 {% endnote %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "Code security and analysis", click **Security features**.{% else %}
-{% data reusables.enterprise-accounts.advanced-security-policies %}
-{% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
-1. Under "Secret scanning custom patterns", click **New pattern**.
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
-1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.
-{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %}
-{% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
-{%- endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %} {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. Klicke unter „Codesicherheit und -analyse“ auf **Sicherheitsfeatures**.{% else %} {% data reusables.enterprise-accounts.advanced-security-policies %} {% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
+1. Klicke unter „Benutzerdefinierte Muster zur Geheimnisüberprüfung“ auf **Neues Muster**.
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %} {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
+1. Wenn du dein neues benutzerdefiniertes Muster testen möchtest, um Übereinstimmungen im Unternehmen zu identifizieren, ohne Warnungen zu erstellen, klicke auf **Speichern und Probelauf**.
+{% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %} {% data reusables.advanced-security.secret-scanning-dry-run-results %} {%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %} {%- endif %} {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+Nachdem dein Muster erstellt wurde, sucht die {% data variables.product.prodname_secret_scanning %} nach Geheimnissen in Repositorys in den Organisationen deines Unternehmens, bei denen {% data variables.product.prodname_GH_advanced_security %} aktiviert ist, einschließlich ihres gesamten Git-Verlaufs auf allen Branches. Organisationsbesitzer und Repositoryadministratoren erhalten Warnungen zu allen gefundenen Geheimnissen und können die Warnung im Repository überprüfen, in dem das Geheimnis gefunden wurde. Weitere Informationen zum Anzeigen von {% data variables.product.prodname_secret_scanning %}-Warnungen findest du unter [Verwalten von Warnungen aus {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning).
 
-## Editing a custom pattern
+## Bearbeiten eines benutzerdefinierten Musters
 
-When you save a change to a custom pattern, this closes all the {% data variables.product.prodname_secret_scanning %} alerts that were created using the previous version of the pattern.
-1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
-   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
-   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**. For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
-2. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
+Wenn du eine Änderung in einem benutzerdefinierten Muster speicherst, schließt dies alle {% data variables.product.prodname_secret_scanning %}-Warnungen, die mit der vorherigen Version des Musters erstellt wurden.
+1. Navigiere zu der Stelle, an der das benutzerdefinierte Muster erstellt wurde. Ein benutzerdefiniertes Muster kann in einem Repository, einer Organisation oder einem Unternehmenskonto erstellt werden.
+   * Zeige für ein Repository oder eine Organisation die Einstellungen unter „Sicherheit und Analyse“ für das Repository oder die Organisation an, in dem bzw. der das benutzerdefinierte Muster erstellt wurde. Weitere Informationen findest du unter [Definieren eines benutzerdefinierten Musters für ein Repository](#defining-a-custom-pattern-for-a-repository) oder [Definieren eines benutzerdefinierten Musters für eine Organisation](#defining-a-custom-pattern-for-an-organization) oben.
+   * Für ein Unternehmen zeigst du unter „Richtlinien“ den Bereich „Erweiterte Sicherheit“ an und klickst dann auf **Sicherheitsfeatures**. Weitere Informationen findest du unter [Definieren eines benutzerdefinierten Musters für ein Unternehmenskonto](#defining-a-custom-pattern-for-an-enterprise-account) oben.
+2. Klicke unter „{% data variables.product.prodname_secret_scanning_caps %}“ rechts neben dem benutzerdefinierten Muster, das du bearbeiten möchtest, auf {% octicon "pencil" aria-label="The edit icon" %}.
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
-3. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
+3. Wenn du bereit bist, dein bearbeitetes benutzerdefiniertes Muster zu testen, um Übereinstimmungen zu identifizieren, ohne Warnungen zu erstellen, klicke auf **Speichern und Probelauf**.
 {%- endif %}
-4. When you have reviewed and tested your changes, click **Save changes**.
+4. Wenn du deine Änderungen überprüft und getestet hast, klicke auf **Änderungen speichern**.
 
-## Removing a custom pattern
+## Entfernen eines benutzerdefinierten Musters
 
-1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
+1. Navigiere zu der Stelle, an der das benutzerdefinierte Muster erstellt wurde. Ein benutzerdefiniertes Muster kann in einem Repository, einer Organisation oder einem Unternehmenskonto erstellt werden.
 
-   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
-   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**.  For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
-1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
-1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
-1. Click **Yes, delete this pattern**.
+   * Zeige für ein Repository oder eine Organisation die Einstellungen unter „Sicherheit und Analyse“ für das Repository oder die Organisation an, in dem bzw. der das benutzerdefinierte Muster erstellt wurde. Weitere Informationen findest du unter [Definieren eines benutzerdefinierten Musters für ein Repository](#defining-a-custom-pattern-for-a-repository) oder [Definieren eines benutzerdefinierten Musters für eine Organisation](#defining-a-custom-pattern-for-an-organization) oben.
+   * Für ein Unternehmen zeigst du unter „Richtlinien“ den Bereich „Erweiterte Sicherheit“ an und klickst dann auf **Sicherheitsfeatures**.  Weitere Informationen findest du unter [Definieren eines benutzerdefinierten Musters für ein Unternehmenskonto](#defining-a-custom-pattern-for-an-enterprise-account) oben.
+1. Klicke rechts neben dem benutzerdefinierten Muster, das du entfernen möchtest, auf {% octicon "trash" aria-label="The trash icon" %}.
+1. Überprüfe die Bestätigung, und wähle eine Methode für den Umgang mit geöffneten Warnungen im Zusammenhang mit dem benutzerdefinierten Muster aus.
+1. Klicke auf **Ja, dieses Muster löschen**.
 
-   ![Confirming deletion of a custom {% data variables.product.prodname_secret_scanning %} pattern ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)
+   ![Bestätigen der Löschung eines benutzerdefinierten {% data variables.product.prodname_secret_scanning %}-Musters ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)

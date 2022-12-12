@@ -1,6 +1,6 @@
 ---
-title: Viewing a project's contributors
-intro: 'You can see who contributed commits to a repository{% ifversion fpt or ghec %} and its dependencies{% endif %}.'
+title: Mitwirkende eines Projekts anzeigen
+intro: 'Du kannst anzeigen, wer Commits zu einem Repository{% ifversion fpt or ghec %} und den zugehörigen Abhängigkeiten beigetragen hat{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph
   - /articles/viewing-contribution-activity-in-a-repository
@@ -16,37 +16,41 @@ versions:
 topics:
   - Repositories
 shortTitle: View project contributors
+ms.openlocfilehash: a5c3c5e1cb83039003b42a0526a49cb1db039888
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147369161'
 ---
-## About contributors
+## Informationen zu Mitarbeitern
 
-You can view the top 100 contributors to a repository{% ifversion ghes or ghae %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
+Im Mitwirkendendiagramm kannst du die Top 100 der Mitwirkenden an einem Repository anzeigen{% ifversion ghes or ghae %}, darunter auch die Commit-Co-Autoren{% endif %}. Merge- und leere Commits werden für dieses Diagramm nicht als Beiträge gezählt.
 
-{% ifversion fpt or ghec %}
-You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
+{% ifversion fpt or ghec %} Darüber hinaus kannst du eine Liste der Personen anzeigen, die Beiträge zu den Python-Abhängigkeiten des Projekts geliefert haben. Um auf diese Liste der Mitwirkenden an der Community zuzugreifen, besuche `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
 {% endif %}
 
-## Accessing the contributors graph
+## Auf das Mitarbeiterdiagramm zugreifen
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Contributors**.
-  ![Contributors tab](/assets/images/help/graphs/contributors_tab.png)
-4. Optionally, to view contributors during a specific time period, click, then drag until the time period is selected. The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday.
-  ![Selected time range in the contributors graph](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.accessing-repository-graphs %}
+3. Klicke auf der linken Randleiste auf **Mitwirkende**.
+  ![Registerkarte „Mitwirkende“](/assets/images/help/graphs/contributors_tab.png)
+4. Wenn du optional Mitarbeiter während eines bestimmten Zeitraums anzeigen möchtest, klicke und ziehe solange, bis der gewünschte Zeitraum ausgewählt ist. Im Mitwirkendendiagramm wird wöchentlich jeden Sonntag die Anzahl der Commits summiert, weshalb der Zeitraum einen Sonntag enthalten muss.
+  ![Ausgewählter Zeitraum im Mitwirkendendiagramm](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
-## Troubleshooting contributors
+## Fehlerbehebung bei Mitarbeitern
 
-If you don't appear in a repository's contributors graph, it may be because:
-- You aren't one of the top 100 contributors.
-- Your commits haven't been merged into the default branch.
-- The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
+Aus den folgenden Gründen wirst du möglicherweise im Mitarbeiterdiagramm eines Repositorys nicht angezeigt:
+- Du zählst nicht zu den Top-100-Mitarbeitern.
+- Deine Commits wurden nicht in den Standardbranch zusammengeführt.
+- Die E-Mail-Adresse, die du zum Erstellen der Commits verwendet hast, ist nicht mit deinem Konto in {% data variables.product.product_name %} verbunden.
 
 {% tip %}
 
-**Tip:** To list all commit contributors in a repository, see "[List repository contributors](/rest/repos/repos#list-repository-contributors)."
+**Tipp:** Informationen zum Auflisten aller Personen, die mit Commits zu einem Repository beigetragen haben, findest du unter [Auflisten von Mitwirkenden an einem Repository](/rest/repos/repos#list-repository-contributors).
 
 {% endtip %}
 
-If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+Wenn alle deine Commits in Nicht-Standardbranches des Repository sind, wirst du im Mitarbeiterdiagramm nicht aufgeführt. Beispielsweise sind Commits für den `gh-pages`-Branch nicht im Diagramm enthalten, sofern `gh-pages` nicht der Standardbranch des Repositorys ist. Damit deine Commits in den Standardbranch zusammengeführt werden, kannst du einen Pull Request erstellen. Weitere Informationen findest du unter [Informationen zu Pull Requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% ifversion not ghae %}" and "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."
+Wenn die E-Mail-Adresse, die du zum Erstellen der Commits verwendet hast, nicht mit deinem Konto in {% data variables.product.product_name %} verbunden ist, werden deine Commits nicht mit deinem Konto verknüpft, und du wirst im Mitwirkendendiagramm nicht angezeigt. Weitere Informationen findest du unter [E-Mail-Adresse für Commits festlegen](/articles/setting-your-commit-email-address){% ifversion not ghae %} und [Hinzufügen einer E-Mail-Adresse zu deinem {% data variables.product.prodname_dotcom %}-Konto](/articles/adding-an-email-address-to-your-github-account){% endif %}.

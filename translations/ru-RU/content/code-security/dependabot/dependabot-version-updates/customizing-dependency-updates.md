@@ -1,6 +1,6 @@
 ---
-title: Customizing dependency updates
-intro: 'You can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies.'
+title: Настройка обновлений зависимостей
+intro: 'Вы можете определить, как {% data variables.product.prodname_dependabot %} поддерживает ваши зависимости.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
@@ -20,36 +20,40 @@ topics:
   - Pull requests
   - Vulnerabilities
 shortTitle: Customize updates
+ms.openlocfilehash: 99a3869313598733493d21f8b15d46db98b1a53c
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107744'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+## Сведения о настройке обновлений зависимостей
 
-## About customizing dependency updates
+После включения обновлений версий можно настроить способ поддержки зависимостей {% data variables.product.prodname_dependabot %}, добавив дополнительные параметры в файл *dependabot.yml*. Например, можно сделать следующее:
 
-After you've enabled version updates, you can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies by adding further options to the *dependabot.yml* file. For example, you could:
+- Указать, в какой день недели следует открывать запросы на вытягивание для обновлений версий: `schedule.day`.
+- Указать рецензентов, уполномоченных и метки для каждого диспетчера пакетов: `reviewers`, `assignees` и `labels`.
+- Определить стратегию управления версиями для изменений в каждом файле манифеста: `versioning-strategy`.
+- Изменить максимальное количество открытых запросов на вытягивание для обновлений версий со значения по умолчанию (5) на другое значение: `open-pull-requests-limit`.
+- Открыть запросы на вытягивание для обновлений версий, чтобы выбрать конкретную ветвь вместо ветви по умолчанию: `target-branch`.
 
-- Specify which day of the week to open pull requests for version updates: `schedule.day`
-- Set reviewers, assignees, and labels for each package manager: `reviewers`, `assignees`, and `labels`
-- Define a versioning strategy for changes to each manifest file: `versioning-strategy`
-- Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
-- Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
+Дополнительные сведения о параметрах конфигурации см. в разделе [Параметры конфигурации для файла dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates).
 
-For more information about the configuration options, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+При обновлении файла *dependabot.yml* в репозитории {% data variables.product.prodname_dependabot %} выполняет немедленную проверку с новой конфигурацией. В течение нескольких минут вы увидите обновленный список зависимостей на вкладке **{% data variables.product.prodname_dependabot %}** . Если в репозитории большое число зависимостей, время ожидания может быть увеличено. Вы также можете просмотреть новые запросы на вытягивание для обновлений версий. Дополнительные сведения см. в разделе [Перечисление зависимостей, настроенных для обновлений версий](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates).
 
-When you update the *dependabot.yml* file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see "[Listing dependencies configured for version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)."
+## Влияние изменений конфигурации на обновления системы безопасности
 
-## Impact of configuration changes on security updates
+При модификации файла *dependabot.yml* вы можете заметить некоторые изменения в запросах на вытягивание, созданных для обновлений системы безопасности. Эти запросы на вытягивание всегда активируются советом по безопасности для зависимости, а не расписанием {% data variables.product.prodname_dependabot %}. Однако они наследуют соответствующие параметры конфигурации из файла *dependabot.yml*, если для обновлений версий не указана другая целевая ветвь.
 
-If you customize the *dependabot.yml* file, you may notice some changes to the pull requests raised for security updates. These pull requests are always triggered by a security advisory for a dependency, rather than by the {% data variables.product.prodname_dependabot %} schedule. However, they inherit relevant configuration settings from the *dependabot.yml* file unless you specify a different target branch for version updates.
+Пример см. в разделе [Настройка пользовательских меток](#setting-custom-labels) ниже.
 
-For an example, see "[Setting custom labels](#setting-custom-labels)" below.
+## Изменение расписания
 
-## Modifying scheduling
+При установке расписания обновления `daily` {% data variables.product.prodname_dependabot %} по умолчанию проверяет наличие новых версий в 05:00 (UTC). С помощью `schedule.time` можно указать альтернативное время суток для проверки наличия обновлений (формат: `hh:mm`).
 
-When you set a `daily` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions at 05:00 UTC. You can use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
-
-The example *dependabot.yml* file below expands the npm configuration to specify when {% data variables.product.prodname_dependabot %} should check for version updates to dependencies.
+В приведенном ниже примере файла *dependabot.yml* конфигурация npm расширяется, чтобы указать, когда {% data variables.product.prodname_dependabot %} должен проверять наличие обновлений версий для зависимостей.
 
 ```yaml
 # dependabot.yml file with
@@ -66,13 +70,13 @@ updates:
       time: "02:00"
 ```
 
-## Setting reviewers and assignees
+## Настройка рецензентов и уполномоченных
 
-By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
+По умолчанию {% data variables.product.prodname_dependabot %} создает запросы на вытягивание без рецензентов и уполномоченных.
 
-You can use `reviewers` and `assignees`  to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
+Вы можете использовать `reviewers` и `assignees`, чтобы указать рецензентов и уполномоченных для всех запросов на вытягивание, созданных для диспетчера пакетов. При указании команды необходимо использовать полное имя команды, как для команды @mentioning (включая организацию).
 
-The example *dependabot.yml* file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have two reviewers and one assignee.
+Приведенный ниже пример файла *dependabot.yml* изменяет конфигурацию npm, чтобы все запросы на вытягивание, открытые с помощью обновлений версии и системы безопасности для npm, имели двух рецензентов и одного уполномоченного.
 
 ```yaml
 # dependabot.yml file with
@@ -94,17 +98,17 @@ updates:
       - "user-name"
 ```
 
-## Setting custom labels
+## Настройка пользовательских меток
 
 {% data reusables.dependabot.default-labels %}
 
-You can use `labels` to override the default labels and specify alternative labels for all pull requests raised for a package manager. You can't create new labels in the *dependabot.yml* file, so the alternative labels must already exist in the repository.
+Чтобы переопределить метки по умолчанию и указать альтернативные метки для всех запросов на вытягивание, созданных для диспетчера пакетов, можно использовать `labels`. Вы не можете создавать метки в файле *dependabot.yml*, поэтому альтернативные метки уже должны существовать в репозитории.
 
-The example *dependabot.yml* file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have custom labels. It also changes the Docker configuration to check for version updates against a custom branch and to raise pull requests with custom labels against that custom branch. The changes to Docker will not affect security update pull requests because security updates are always made against the default branch.
+Приведенный ниже пример файла *dependabot.yml* изменяет конфигурацию npm,так чтобы все запросы на вытягивание, открытые с помощью обновлений версии и системы безопасности для npm, имели пользовательские метки. Он также изменяет конфигурацию Docker, чтобы проверить наличие обновлений версий в пользовательской ветви и создать запросы на вытягивание с пользовательскими метками для этой пользовательской ветви. Изменения в Docker не повлияют на запросы на вытягивание для обновлений системы безопасности, так как обновления системы безопасности всегда выполняются в ветви по умолчанию.
 
 {% note %}
 
-**Note:** The new `target-branch` must contain a Dockerfile to update, otherwise this change will have the effect of disabling version updates for Docker.
+**Примечание.** Новая ветвь `target-branch` должна содержать Dockerfile для обновления, в противном случае это изменение приведет к отключению обновлений версий для Docker.
 
 {% endnote %}
 
@@ -139,6 +143,6 @@ updates:
       - "triage-board"
 ```
 
-## More examples
+## Дополнительные примеры
 
-For more examples, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+Дополнительные примеры см. в разделе [Параметры конфигурации для файла dependabot.yml](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates).

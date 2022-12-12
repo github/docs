@@ -1,6 +1,6 @@
 ---
-title: Adding outside collaborators to repositories in your organization
-intro: You can allow people who aren't members of your organization to access repositories that your organization owns.
+title: 조직의 리포지토리에 외부 협력자 추가
+intro: 조직의 구성원이 아닌 사용자가 조직이 소유한 리포지토리에 액세스하도록 허용할 수 있습니다.
 redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
@@ -15,39 +15,35 @@ topics:
   - Teams
 shortTitle: Add outside collaborator
 permissions: People with admin access to a repository can add an outside collaborator to the repository.
+ms.openlocfilehash: 76feea4a87b06b8fdfdc7226928d03c9be082dfb
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098027'
 ---
+## 외부 협력자 정보
 
-## About outside collaborators
-
-An outside collaborator is a person who is not a member of your organization, but has access to one or more of your organization's repositories. You can choose the level of access to grant for each outside collaborator. {% data reusables.organizations.outside_collaborator_forks %}
+외부 협력자는 조직의 구성원이 아니지만 하나 이상의 조직 리포지토리에 액세스할 수 있는 사람입니다. 각 외부 협력자에게 부여할 액세스 수준을 선택할 수 있습니다. {% data reusables.organizations.outside_collaborator_forks %}
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-{% ifversion fpt %}
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-{% else %}
-An organization owner can restrict the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)."
+{% ifversion fpt %} {% data variables.product.prodname_ghe_cloud %}를 사용하는 조직은 협력자를 초대하는 기능을 제한할 수 있습니다. 자세한 내용은 {% data variables.product.prodname_ghe_cloud %} 설명서에서 "[외부 협력자를 추가하기 위한 권한 설정](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)"을 참조하세요.
+{% else %} 조직 소유자는 협력자를 초대하는 기능을 제한할 수 있습니다. 자세한 내용은 “[외부 협력자를 추가하기 위한 권한 설정](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)”을 참조하세요.
 {% endif %}
 
-{% ifversion ghes %}
-Before you can add someone as an outside collaborator on a repository, the person must have a personal account on {% data variables.location.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site administrator can create an account for the person. For more information, see "[Configuring built-in authentication](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+{% ifversion ghes %} 리포지토리에서 외부 공동 작업자로 사용자를 추가하려면 먼저 {% 데이터 variables.location.product_location %}에 개인 계정이 있어야 합니다. 엔터프라이즈에서 SAML 또는 LDAP와 같은 외부 인증 시스템을 사용하는 경우 추가하려는 사람이 해당 시스템을 통해 로그인하여 계정을 만들어야 합니다. 사용자가 인증 시스템에 액세스할 수 없으며 엔터프라이즈에서 기본 제공 인증을 사용하도록 설정한 경우 사이트 관리자는 해당 사용자의 계정을 만들 수 있습니다. 자세한 내용은 “[기본 제공 인증 구성](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)”을 참조하세요.
 {% endif %}
 
-{% ifversion not ghae %}
-If your organization requires two-factor authentication, all outside collaborators must enable two-factor authentication before accepting your invitation to collaborate on a repository. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+{% ifversion not ghae %} 조직에서 2단계 인증이 필요한 경우 모든 외부 협력자는 리포지토리에서 협업하도록 초대를 수락하기 전에 2단계 인증을 사용하도록 설정해야 합니다. 자세한 내용은 “[조직에서 2단계 인증 요구](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)”를 참조하세요.
 {% endif %}
 
-## Adding outside collaborators to a repository
+## 리포지토리에 외부 협력자 추가
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-You can give outside collaborators access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)." 
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-5. In the left sidebar, click **Collaborators & teams**.
-  ![Repository settings sidebar with Collaborators & teams highlighted](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
-6. Under "Collaborators", type the name of the person you'd like to give access to the repository, then click **Add collaborator**.
-![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/repository/org-repo-collaborators-find-name.png)
-7. Next to the new collaborator's name, use the drop-down menu and select the appropriate access level.
-![The repository permissions picker](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
-{% endif %}
+{% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %} 외부 협력자에게 리포지토리 설정의 리포지토리에 대한 액세스 권한을 부여할 수 있습니다. 자세한 내용은 “[리포지토리에 액세스할 수 있는 팀 및 사용자 관리](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)”를 참조하세요. {% else %} {% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %}
+5. 왼쪽 사이드바에서 **협력자 및 팀** 을 클릭합니다.
+  ![협력자 및 팀이 강조 표시된 리포지토리 설정 사이드바](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
+6. "협력자"에서 리포지토리에 대한 액세스 권한을 부여할 사람의 이름을 입력한 다음, **협력자 추가** 를 클릭합니다.
+![검색 필드에 Octocat의 사용자 이름이 입력된 협력자 섹션](/assets/images/help/repository/org-repo-collaborators-find-name.png)
+7. 새 협력자 이름 옆에 있는 드롭다운 메뉴를 사용하고 적절한 액세스 수준을 선택합니다.
+![리포지토리 권한 선택기](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png) {% endif %}

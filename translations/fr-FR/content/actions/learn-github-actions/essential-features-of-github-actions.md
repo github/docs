@@ -1,7 +1,7 @@
 ---
 title: Essential features of GitHub Actions
 shortTitle: Essential features
-intro: '{% data variables.product.prodname_actions %} are designed to help you build robust and dynamic automations. This guide will show you how to craft {% data variables.product.prodname_actions %} workflows that include environment variables, customized scripts, and more.'
+intro: '{% data variables.product.prodname_actions %} est conçu pour vous aider à créer des automatisations robustes et dynamiques. Ce guide vous montre comment créer des workflows {% data variables.product.prodname_actions %} qui incluent des variables d’environnement, des scripts personnalisés, etc.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,18 +10,22 @@ versions:
 type: overview
 topics:
   - Fundamentals
+ms.openlocfilehash: 46a6a33928d9ff4587707972fc26de86c59f9ac6
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145067024'
 ---
+{% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Vue d’ensemble
 
-## Overview
+{% data variables.product.prodname_actions %} vous permet de personnaliser vos workflows pour répondre aux besoins uniques de votre application et de votre équipe. Dans ce guide, nous allons aborder certaines des techniques de personnalisation essentielles, telles que l’utilisation de variables, l’exécution de scripts et le partage de données et d’artefacts entre les travaux.
 
-{% data variables.product.prodname_actions %} allow you to customize your workflows to meet the unique needs of your application and team. In this guide, we'll discuss some of the essential customization techniques such as using variables, running scripts, and sharing data and artifacts between jobs.
+##  Utilisation de variables dans vos workflows
 
-##  Using variables in your workflows
-
-{% data variables.product.prodname_actions %} include default environment variables for each workflow run. If you need to use custom environment variables, you can set these in your YAML workflow file. This example demonstrates how to create custom variables named `POSTGRES_HOST` and `POSTGRES_PORT`. These variables are then available to the `node client.js` script.
+{% data variables.product.prodname_actions %} inclut des variables d’environnement par défaut pour chaque exécution de workflow. Si vous devez utiliser des variables d’environnement personnalisées, vous pouvez les définir dans votre fichier de workflow YAML. Cet exemple montre comment créer des variables personnalisées nommées `POSTGRES_HOST` et `POSTGRES_PORT`. Ces variables sont ensuite disponibles pour le script `node client.js`.
 
 ```yaml
 jobs:
@@ -34,11 +38,11 @@ jobs:
             POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)."
+Pour en savoir plus, consultez « [Utilisation de variables d’environnement](/actions/configuring-and-managing-workflows/using-environment-variables) ».
 
-## Adding scripts to your workflow
+## Ajout de scripts à votre workflow
 
-You can use actions to run scripts and shell commands, which are then executed on the assigned runner. This example demonstrates how an action can use the `run` keyword to execute `npm install -g bats` on the runner.
+Vous pouvez utiliser des actions pour exécuter des scripts et des commandes d’interpréteur de commandes, qui sont ensuite exécutées sur l’exécuteur affecté. Cet exemple montre comment une action peut utiliser le mot clé `run` pour exécuter `npm install -g bats` sur l’exécuteur.
 
 ```yaml
 jobs:
@@ -47,7 +51,7 @@ jobs:
       - run: npm install -g bats
 ```
 
-For example, to run a script as an action, you can store the script in your repository and supply the path and shell type.
+Par exemple, pour exécuter un script en tant qu’action, vous pouvez stocker le script dans votre dépôt et fournir le chemin d’accès et le type d’interpréteur de commandes.
 
 ```yaml
 jobs:
@@ -58,13 +62,13 @@ jobs:
         shell: bash
 ```
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+Pour plus d’informations, consultez « [Syntaxe de workflow pour {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun) ».
 
-## Sharing data between jobs
+## Partage de données entre travaux
 
-If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artifacts are the files created when you build and test your code. For example, artifacts might include binary or package files, test results, screenshots, or log files. Artifacts are associated with the workflow run where they were created and can be used by another job. {% data reusables.actions.reusable-workflow-artifacts %}
+Si votre travail génère des fichiers que vous souhaitez partager avec un autre travail dans le même workflow, ou si vous souhaitez enregistrer les fichiers pour vous y référer ultérieurement, vous pouvez les stocker dans {% data variables.product.prodname_dotcom %} en tant qu’_artefacts_. Les artefacts sont les fichiers créés lorsque vous générez et testez votre code. Par exemple, les artefacts peuvent inclure des fichiers binaires ou de package, des résultats de test, des captures d’écran ou des fichiers journaux. Les artefacts sont associés à l’exécution du workflow où ils ont été créés et peuvent être utilisés par un autre travail. {% data reusables.actions.reusable-workflow-artifacts %}
 
-For example, you can create a file and then upload it as an artifact.
+Par exemple, vous pouvez créer un fichier, puis le charger en tant qu’artefact.
 
 ```yaml
 jobs:
@@ -81,7 +85,7 @@ jobs:
           path: output.log
 ```
 
-To download an artifact from a separate workflow run, you can use the `actions/download-artifact` action. For example, you can download the artifact named `output-log-file`.
+Pour télécharger un artefact à partir d’une exécution de workflow distincte, vous pouvez utiliser l’action `actions/download-artifact`. Par exemple, vous pouvez télécharger l’artefact nommé `output-log-file`.
 
 ```yaml
 jobs:
@@ -93,10 +97,10 @@ jobs:
           name: output-log-file
 ```
 
-To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
+Pour télécharger un artefact à partir de la même exécution de workflow, votre travail de téléchargement doit spécifier `needs: upload-job-name` pour ne pas commencer tant que le travail de chargement n’est pas terminé.
 
-For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+Pour plus d’informations sur les artefacts, consultez « [Rendre persistantes des données de workflow à l’aide d’artefacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts) ».
 
-## Next steps
+## Étapes suivantes
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."
+Pour continuer à découvrir {% data variables.product.prodname_actions %}, consultez « [Gestion des workflows complexes](/actions/learn-github-actions/managing-complex-workflows) ».

@@ -1,6 +1,6 @@
 ---
-title: Managing email preferences
-intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. You can also manage emails you receive from {% data variables.product.product_name %}.'
+title: 메일 기본 설정 관리
+intro: '{% ifversion ghae %}{% 데이터 variables.product.product_name %}{% else %}{% 데이터 variables.location.product_location %}{% endif %}에서 계정과 연결된 전자 메일 주소를 추가하거나 변경할 수 있습니다. {% data variables.product.product_name %}에서 받은 메일을 관리할 수도 있습니다.'
 redirect_from:
   - /categories/managing-email-preferences
   - /articles/managing-email-preferences
@@ -24,5 +24,11 @@ children:
   - /types-of-emails-github-sends
   - /managing-marketing-emails-from-github
 shortTitle: Manage email preferences
+ms.openlocfilehash: 0571ab5999fc45532870a623364e7c25d8315ffe
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098477'
 ---
 

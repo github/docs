@@ -1,6 +1,6 @@
 ---
-title: Configuring rate limits
-intro: 'You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.'
+title: Configuration des limites de débit
+intro: 'Vous pouvez définir des limites de débit pour {% data variables.product.prodname_ghe_server %} à l’aide de {% data variables.enterprise.management_console %}.'
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
@@ -12,112 +12,108 @@ topics:
   - Enterprise
   - Infrastructure
   - Performance
+ms.openlocfilehash: 2a90093f833639fa247acc7292d9897728043005
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107548'
 ---
-## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
+## Activation des limites de débit pour les {% data variables.product.prodname_enterprise_api %}
 
-Enabling rate limits on the {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+L’activation des limites de débit sur les {% data variables.product.prodname_enterprise_api %} peut empêcher une surutilisation de ressources de la part d’utilisateurs individuels ou non authentifiés. Pour plus d’informations, consultez « [Ressources dans l’API REST](/rest/overview/resources-in-the-rest-api#rate-limiting) ».
 
-{% ifversion ghes %}
-You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
+{% ifversion ghes %} Vous pouvez exempter une liste d’utilisateurs des limites de débit d’API à l’aide de l’utilitaire `ghe-config` dans l’interpréteur de commandes d’administration. Pour plus d’informations, consultez « [Utilitaires en ligne de commande](/enterprise/admin/configuration/command-line-utilities#ghe-config) ».
 {% endif %}
 
 {% note %}
 
-**Note:** The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
+**Remarque :** La {% data variables.enterprise.management_console %} indique la période (par minute ou par heure) pour chaque limite de débit.
 
 {% endnote %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
-![Checkbox for enabling API rate limiting](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
-3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Sous « Limitation de débit », sélectionnez **Activer la limitation de débit pour l’API HTTP**.
+![Case à cocher pour activer la limitation de débit pour l’API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+3. Tapez les limites pour les demandes authentifiées et non authentifiées pour chaque API ou acceptez les limites par défaut préremplies.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion enterprise-authentication-rate-limits %}
-## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
+## Configuration des limites de débit pour l’authentification auprès de la {% data variables.enterprise.management_console %}
 
-You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}. If a user exceeds the login attempt limit, the {% data variables.enterprise.management_console %} will remain locked for the duration set by the lockout time. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
+Vous pouvez configurer les limites de temps de verrouillage et de tentative de connexion pour la {% data variables.enterprise.management_console %}. Si un utilisateur dépasse la limite de tentatives de connexion, la {% data variables.enterprise.management_console %} reste verrouillée pendant la durée définie par le temps de verrouillage. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
 
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Login attempt rate limiting", configure the lockout time and login attempt rate limit or accept the pre-filled default settings.
-![Fields for configuring lockout time and login attempt rate limit](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Sous « Limitation du taux de tentatives de connexion », configurez le temps de verrouillage et la limite du taux de tentatives de connexion, ou acceptez les paramètres par défaut préremplis.
+![Champs pour configurer le temps de verrouillage et la limite du taux de tentatives de connexion](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
-## Enabling secondary rate limits
+## Activation des limites de débit secondaires
 
-Setting secondary rate limits protects the overall level of service on {% data variables.location.product_location %}.
+La définition de limites de débit secondaires permet de protéger le niveau de service global sur {% data variables.location.product_location %}.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% ifversion ghes %}
-2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
-   ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
-{% else %}
-2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
-    ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
-{% endif %}
-3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% ifversion ghes %}
+2. Sous « Limitation de débit », sélectionnez **Activer la limitation de débit secondaire**.
+   ![Case à cocher pour activer la limitation de débit secondaire](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png) {% else %}
+2. Sous « Limitation de débit », sélectionnez **Activer la limitation des abus de débit**.
+    ![Case à cocher pour activer la limitation des abus de débit](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png) {% endif %}
+3. Tapez les limites pour le nombre total de demandes, la limite de processeur et la limite de processus pour les recherches ou acceptez les limites par défaut préremplies.
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Enabling rate limits for Git
+## Activation des limites de taux pour Git
 
-If a member of {% data variables.product.company_short %}'s staff has recommended it, you can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
+Si un membre du personnel de {% data variables.product.company_short %} l’a recommandé, vous pouvez appliquer des limites de débit Git par réseau de dépôt ou par ID utilisateur. Les limites de débit Git sont exprimées en opérations simultanées par minute et peut s’adapter en fonction de la charge actuelle du processeur.
 
 {% warning %}
 
-**Warning:** We encourage you to leave this setting disabled unless directly recommended by a member of {% data variables.product.company_short %}'s staff. Git operations are rarely the leading driver of CPU and RAM usage. Enabling this feature can make Git operations more likely to fail under high load conditions but does not address the underlying cause of those conditions.
+**Avertissement :** Nous vous encourageons à laisser ce paramètre désactivé, sauf si un membre du personnel de {% data variables.product.company_short %} vous le recommande directement. Les opérations Git sont rarement l’élément principal de l’utilisation du processeur et de la RAM. L’activation de cette fonctionnalité peut augmenter les risques d’échec des opérations Git dans des conditions de charge élevée, sans pour cela remédier à la cause sous-jacente de ces conditions.
 
 {% endwarning %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable Git Rate Limiting**.
-![Checkbox for enabling Git rate limiting](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
-3. Type limits for each repository network or user ID.
-  ![Fields for repository network and user ID limits](/assets/images/enterprise/management-console/example-git-rate-limits.png)
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %}
+2. Sous « Limitation de débit », sélectionnez **Activer la limitation de débit Git**.
+![Case à cocher pour activer la limitation de débit Git](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
+3. Tapez les limites pour chaque réseau de dépôts ou ID d’utilisateur.
+  ![Champs pour le réseau de dépôts et les limites d’ID d’utilisateur](/assets/images/enterprise/management-console/example-git-rate-limits.png) {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes > 3.4 %}
 
-## Configuring rate limits for {% data variables.product.prodname_actions %}
+## Configuration des limites de débit pour {% data variables.product.prodname_actions %}
 
-You can apply a rate limit to {% data variables.product.prodname_actions %} workflow runs. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+Vous pouvez appliquer une limite de débit aux exécutions de workflow {% data variables.product.prodname_actions %}. Pour plus d’informations sur {% data variables.product.prodname_actions %}, consultez « [À propos de {% data variables.product.prodname_actions %} pour les entreprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises) ».
 
-### About rate limits for {% data variables.product.prodname_actions %}
+### À propos des limites de débit pour {% data variables.product.prodname_actions %}
 
-Your {% data variables.product.product_name %} instance assigns each {% data variables.product.prodname_actions %} workflow job to a runner. If your instance cannot immediately assign a job to an available runner, the job will wait in a queue until a runner is available. If {% data variables.product.prodname_actions %} experiences sustained high load, the queue can back up, and the performance of {% data variables.location.product_location %} may degrade.
+Votre instance {% data variables.product.product_name %} affecte chaque travail de workflow {% data variables.product.prodname_actions %} à un exécuteur. Si votre instance ne peut pas affecter immédiatement un travail à un exécuteur disponible, le travail attend dans une file d’attente jusqu’à ce qu’un exécuteur soit disponible. Si {% data variables.product.prodname_actions %} subit une charge élevée, la file d’attente peut s’allonger et les performances de {% data variables.location.product_location %} se dégrader.
 
-To avoid this performance degradation, you can configure a rate limit for {% data variables.product.prodname_actions %}. This rate limit is expressed in job runs per minute. {% data variables.product.product_name %} calculates and applies the rate limit for the sum total of all job runs on the instance. If runs exceed the rate limit, additional runs will fail instead of entering the queue. The following error will appear in the run's annotations.
+Pour éviter cette dégradation des performances, vous pouvez configurer une limite de débit pour {% data variables.product.prodname_actions %}. Cette limite de taux est exprimée en exécutions de travail par minute. {% data variables.product.product_name %} calcule et applique la limite de débit pour la somme totale de toutes les exécutions de travail sur l’instance. Si les exécutions dépassent la limite de taux, les exécutions supplémentaires échouent au lieu d’entrer dans la file d’attente. L’erreur suivante s’affiche dans les annotations de l’exécution.
 
-> You've exceeded the rate limit for workflow run requests. Please wait before retrying the run.
+> Vous avez dépassé la limite de taux pour les demandes d’exécution de workflow. Veuillez patienter avant de réessayer l’exécution.
 
-An appropriate rate limit protects {% data variables.location.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+Une limite de débit appropriée protège {% data variables.location.product_location %} contre l’utilisation anormale de {% data variables.product.prodname_actions %} sans interférer avec les opérations quotidiennes. Le seuil exact dépend des ressources disponibles de votre instance et du profil de charge global. Pour plus d’informations sur la configuration matérielle requise pour {% data variables.product.prodname_actions %}, consultez « [Prise en main de {% data variables.product.prodname_actions %} pour {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements) ».
 
-By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}. 
+Par défaut, la limite de débit pour {% data variables.product.prodname_actions %} est désactivée. Étant donné que {% data variables.product.product_name %} peut gérer des pics temporaires d’utilisation sans dégradation des performances, cette limite de débit est destinée à protéger contre une charge élevée soutenue. Nous vous recommandons de laisser la limite de taux désactivée, sauf si vous rencontrez des problèmes de performances. Dans certains cas, le {% data variables.contact.github_support %} peut vous recommander d’activer une limite de taux pour {% data variables.product.prodname_actions %}. 
 
-### Enabling or disabling rate limits for {% data variables.product.prodname_actions %}
+### Activer ou désactiver les limites de débit pour {% data variables.product.prodname_actions %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. To enable and configure the rate limit, run the following two commands, replacing **RUNS-PER-MINUTE** with the value of your choice.
+1. Pour activer et configurer la limite de taux, exécutez les deux commandes suivantes, en remplaçant **RUN-PER-MINUTE** par la valeur de votre choix.
 
    ```shell
    ghe-config actions-rate-limiting.enabled true
    ghe-config actions-rate-limiting.queue-runs-per-minute RUNS-PER-MINUTE
    ```
-1. To disable the rate limit after it's been enabled, run the following command.
+1. Pour désactiver la limite de taux après activation, exécutez la commande suivante.
 
    ```
    ghe-config actions-rate-limiting.enabled false
    ```
-1. To apply the configuration, run the following command.
+1. Pour appliquer la configuration, exécutez la commande suivante.
 
    ```
    ghe-config-apply
    ```
-1. Wait for the configuration run to complete.
+1. Attendez la fin de l’exécution de la configuration.
 
 {% endif %}

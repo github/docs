@@ -1,7 +1,7 @@
 ---
-title: Configuring SAML single sign-on for Enterprise Managed Users
+title: Konfigurieren von SAML Single Sign-On für verwaltete Enterprise-Benutzer*innen
 shortTitle: SAML for managed users
-intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring Security Assertion Markup Language (SAML) single sign-on (SSO).'
+intro: 'Du kannst durch Konfigurieren des einmaligen Anmeldens (Single Sign-On, SSO) mit SAML (Security Assertion Markup Language) den Zugriff auf dein Unternehmenskonto auf {% data variables.product.prodname_dotcom %} automatisch verwalten.'
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
@@ -15,32 +15,37 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+ms.openlocfilehash: d83c6ea74ae6a27fc5f91ebdc5dcae83e0c22eb2
+ms.sourcegitcommit: c562c85cc75ffe1eb4e9595d8adc09ec71697ab1
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 11/22/2022
+ms.locfileid: '148180053'
 ---
+## Informationen zu SAML Single Sign-On für {% data variables.product.prodname_emus %}
 
-## About SAML single sign-on for {% data variables.product.prodname_emus %}
+Mit {% data variables.product.prodname_emus %} verwendet dein Unternehmen deinen Identitätsanbieter für die Authentifizierung aller Mitglieder. Anstatt sich bei {% data variables.product.prodname_dotcom %} mit einem {% data variables.product.prodname_dotcom %}-Benutzernamen und -Kennwort anzumelden, erfolgt die Anmeldung von Unternehmensmitgliedern über deinen IdP.
 
-With {% data variables.product.prodname_emus %}, your enterprise uses your corporate identity provider to authenticate all members. Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
-
-{% data variables.product.prodname_emus %} supports the following IdPs:
+{% data variables.product.prodname_emus %} bietet Unterstützung für die folgenden IdP:
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
-After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable.
+Nach der Konfiguration von SAML SSO wird empfohlen, die Wiederherstellungscodes zu speichern, damit du den Zugriff auf dein Unternehmen wiederherstellen kannst, falls dein Identitätsanbieter nicht verfügbar ist.
 
 
 {% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 {% note %}
 
-**Note:** When SAML SSO is enabled, the only setting you can update on {% data variables.product.prodname_dotcom %} for your existing SAML configuration is the SAML certificate. If you need to update the Sign on URL or Issuer, you must first disable SAML SSO and then reconfigure SAML SSO with the new settings.
+**Hinweis:** Wenn SAML SSO aktiviert ist, ist das SAML-Zertifikat die einzige Einstellung, die du in {% data variables.product.prodname_dotcom %} für deine bestehende SAML-Konfiguration aktualisieren kannst. Wenn du die Anmelde-URL oder den Aussteller aktualisieren musst, musst du zunächst SAML SSO deaktivieren und dann mit den neuen Einstellungen neu konfigurieren.
 
 {% endnote %}
 
-## Configuring SAML single sign-on for {% data variables.product.prodname_emus %}
+## Konfigurieren von SAML Single Sign-On für {% data variables.product.prodname_emus %}
 
-To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning. 
+Du musst eine Anwendung bei deinem Identitätsanbieter und anschließend dein Unternehmen auf GitHub.com konfigurieren, um SAML-SSO für dein {% data variables.enterprise.prodname_emu_enterprise %} zu konfigurieren. Nach der Konfiguration von SAML SSO kannst du die Benutzerbereitstellung konfigurieren. 
 
-To install and configure the {% data variables.product.prodname_emu_idp_application %} application on your IdP, you must have a tenant and administrative access on a supported IdP.
+Du benötigst einen Mandanten und Administratorzugriff bei einem unterstützten IdP, um die {% data variables.product.prodname_emu_idp_application %}-Anwendung bei deinem IdP zu installieren und zu konfigurieren.
 
 {% note %}
 
@@ -48,73 +53,71 @@ To install and configure the {% data variables.product.prodname_emu_idp_applicat
 
 {% endnote %}
 
-1. [Configuring your identity provider](#configuring-your-identity-provider)
-2. [Configuring your enterprise](#configuring-your-enterprise)
-3. [Enabling provisioning](#enabling-provisioning)
+1. [Konfigurieren des Identitätsanbieters](#configuring-your-identity-provider)
+2. [Konfigurieren deines Unternehmens](#configuring-your-enterprise)
+3. [Aktivieren der Bereitstellung](#enabling-provisioning)
 
-### Configuring your identity provider
+### Konfigurieren des Identitätsanbieters
 
-To configure your IdP, follow the instructions they provide for configuring the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
+Befolge die Anweisungen zur Konfiguration der {% data variables.product.prodname_emu_idp_application %}-Anwendung bei deinem IdP, um deinen IdP zu konfigurieren.
 
-1. To install the {% data variables.product.prodname_emu_idp_application %} application, click the link for your IdP below:
+1. Klicke auf den Link für den entsprechenden IdP, um die {% data variables.product.prodname_emu_idp_application %}-Anwendung zu installieren:
 
-     - [{% data variables.product.prodname_emu_idp_application %} application on Azure Active Directory](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview)
-     - [{% data variables.product.prodname_emu_idp_application %} application on Okta](https://www.okta.com/integrations/github-enterprise-managed-user)
+     - [{% data variables.product.prodname_emu_idp_application %}-Anwendung in Azure Active Directory](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview)
+     - [{% data variables.product.prodname_emu_idp_application %}-Anwendung in Okta](https://www.okta.com/integrations/github-enterprise-managed-user)
 
-1. To configure the {% data variables.product.prodname_emu_idp_application %} application and your IdP, click the link below and follow the instructions provided by your IdP:
+1. Klicke auf den folgenden Link, und befolge die Anweisungen deines IdP, um die {% data variables.product.prodname_emu_idp_application %}-Anwendung und deinen IdP zu konfigurieren:
 
-     - [Azure Active Directory tutorial for {% data variables.product.prodname_emus %}](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial)
-     - [Okta documentation for {% data variables.product.prodname_emus %}](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html)
+     - [Azure Active Directory-Tutorial für {% data variables.product.prodname_emus %}](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial)
+     - [Okta-Dokumentation für {% data variables.product.prodname_emus %}](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html)
 
-1. So you can test and configure your enterprise, assign yourself or the user that will be configuring SAML SSO on {% data variables.product.prodname_dotcom %} to the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
+1. Damit du dein Unternehmen testen und konfigurieren kannst, musst du dir oder dem Benutzer, der SAML SSO konfiguriert, auf {% data variables.product.prodname_dotcom %} der {% data variables.product.prodname_emu_idp_application %}-Anwendung bei deinem IdP zuweisen.
 
-1. To enable you to continue configuring your enterprise on {% data variables.product.prodname_dotcom %}, locate and note the following information from the application you installed on your IdP:
+1. Damit du dein Unternehmen auch weiterhin auf {% data variables.product.prodname_dotcom %} konfigurieren kannst, musst du die folgenden Informationen in der Anwendung suchen, die du bei deinem IdP installiert hast, und diese notieren:
 
-    | Value | Other names | Description |
+    | Wert | Andere Namen | BESCHREIBUNG |
     | :- | :- | :- |
-    | IdP Sign-On URL | Login URL, IdP URL | Application's URL on your IdP |
-    | IdP Identifier URL | Issuer | IdP's identifier to service providers for SAML authentication |
-    | Signing certificate, Base64-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
+    | Anmelde-URL des IdP | Anmelde-URL, IdP-URL | Anwendungs-URL bei deinem IdP |
+    | Bezeichner-URL des IdP | Issuer (Aussteller) | Bezeichner des IdP für Dienstanbieter für die SAML-Authentifizierung |
+    | Signaturzertifikat, Base64-codiert | Öffentliches Zertifikat | Öffentliches Zertifikat, das der IdP zum Signieren von Authentifizierungsanforderungen verwendet |
 
-### Configuring your enterprise
+### Konfigurieren deines Unternehmens
 
-After you install and configure the {% data variables.product.prodname_emu_idp_application %} application on your identity provider, you can configure your enterprise. 
+Nachdem du die {% data variables.product.prodname_emu_idp_application %}-Anwendung bei deinem Identitätsanbieter installiert und konfiguriert hast, kannst du dein Unternehmen konfigurieren. 
 
-1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
+1. Melde dich auf {% data variables.product.prodname_dotcom_the_website %} als Setupbenutzer für dein neues Unternehmen mit dem Namen **@<em>KURZCODE</em>_admin** an.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %}
 
-1. Under "SAML single sign-on", select **Require SAML authentication**.
-  ![Checkbox for enabling SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+1. Wähle unter „SAML Single Sign-On“ die Option **SAML-Authentifizierung erzwingen** aus.
+  ![Kontrollkästchen zum Aktivieren von SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
 
-1. Under **Sign on URL**, type the HTTPS endpoint of your IdP for single sign-on requests that you noted while configuring your IdP.
-![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url_business.png)
+1. Gib unter **Anmelde-URL** den HTTPS-Endpunkt deines IdP für SSO-Anforderungen an, den du dir bei der Konfiguration des IdP notiert hast.
+![Feld für die URL, auf die Mitglieder bei der Anmeldung weitergeleitet werden](/assets/images/help/saml/saml_sign_on_url_business.png)
 
-1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages.
-![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
+1. Gib unter **Aussteller** die SAML-Aussteller-URL ein, die du dir bei der Konfiguration des IdP notiert hast, um die Authentizität gesendeter Nachrichten zu überprüfen.
+![Feld für den Namen des SAML-Ausstellers](/assets/images/help/saml/saml_issuer.png)
 
-1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
-![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
+1. Füge unter **Öffentliches Zertifikat** das Zertifikat ein, das du dir bei der Konfiguration des IdP notiert hast, um SAML-Antworten zu überprüfen.
+![Feld für das öffentliche Zertifikat des Identitätsanbieters](/assets/images/help/saml/saml_public_certificate.png)
 
-1. To verify the integrity of the requests from your SAML issuer, click {% octicon "pencil" aria-label="The edit icon" %}. Then, in the "Signature Method" and "Digest Method" drop-downs, choose the hashing algorithm used by your SAML issuer.
-![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
+1. Um die Integrität der Anforderungen von deinem SAML-Aussteller zu überprüfen, klicke auf {% octicon "pencil" aria-label="The edit icon" %}. Wähle dann in den Dropdownlisten „Signaturmethode“ und „Digestmethode“ den Hashalgorithmus aus, den dein SAML-Aussteller verwendet.
+![Dropdownlisten für die Hashalgorithmen der Signaturmethode und Digestmethode, die dein SAML-Aussteller verwendet](/assets/images/help/saml/saml_hashing_method.png)
 
-1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
+1. Klicke auf **SAML-Konfiguration testen**, bevor du SAML SSO für dein Unternehmen aktivierst, um dich zu vergewissern, dass die eingegebenen Informationen korrekt sind. ![Schaltfläche zum Testen der SAML-Konfiguration vor dem Erzwingen](/assets/images/help/saml/saml_test.png)
 
-1. Click **Save**.
+1. Klicke auf **Speichern**.
 
     {% note %}
 
-    **Note:** When you require SAML SSO for your enterprise, the setup user will no longer have access to the enterprise but will remain signed in to GitHub. Only {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP will have access to the enterprise.
+    **Hinweis:** Wenn du SAML SSO für dein Unternehmen erzwingst, hat der Setupbenutzer keinen Zugriff mehr auf das Unternehmen, bleibt jedoch bei GitHub angemeldet. Nur {% data variables.enterprise.prodname_managed_users %}, die von deinem Identitätsanbieter bereitgestellt wurden, haben Zugriff auf das Unternehmen.
 
     {% endnote %}
 
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 
 
-### Enabling provisioning
+### Aktivieren der Bereitstellung
 
-After you enable SAML SSO, enable provisioning. For more information, see "[Configuring SCIM provisioning for enterprise managed users](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
+Nach der SAML SSO-Aktivierung kannst du die Bereitstellung aktivieren. Weitere Informationen findest du unter [Konfigurieren der SCIM-Bereitstellung für verwaltete Unternehmensbenutzer](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users).
 

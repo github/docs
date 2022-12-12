@@ -1,6 +1,6 @@
 ---
-title: Managing a custom domain for your GitHub Pages site
-intro: 'You can set up or update certain DNS records and your repository settings to point the default domain for your {% data variables.product.prodname_pages %} site to a custom domain.'
+title: GitHub Pages 사이트의 사용자 지정 도메인 관리
+intro: '{% data variables.product.prodname_pages %} 사이트의 기본 도메인을 사용자 지정 도메인으로 가리키도록 특정 DNS 레코드 및 리포지토리 설정을 설정하거나 업데이트할 수 있습니다.'
 redirect_from:
   - /articles/quick-start-setting-up-a-custom-domain
   - /articles/setting-up-an-apex-domain
@@ -18,49 +18,51 @@ versions:
 topics:
   - Pages
 shortTitle: Manage a custom domain
+ms.openlocfilehash: d8c11f50369d27a1bf99b10ba843e1525b3d4014
+ms.sourcegitcommit: cfe91073c844cb762131b2de9fb41f7f9db792fc
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/24/2022
+ms.locfileid: '148181260'
 ---
+리포지토리에 대한 관리자 권한이 있는 사용자는 {% data variables.product.prodname_pages %} 사이트 대한 사용자 지정 도메인을 구성할 수 있습니다.
 
-People with admin permissions for a repository can configure a custom domain for a {% data variables.product.prodname_pages %} site.
+## 사용자 지정 도메인 구성 정보
 
-## About custom domain configuration
-
-Make sure you add your custom domain to your {% data variables.product.prodname_pages %} site before configuring your custom domain with your DNS provider. Configuring your custom domain with your DNS provider without adding your custom domain to {% data variables.product.product_name %} could result in someone else being able to host a site on one of your subdomains.
+DNS 공급자를 사용하여 사용자 지정 도메인을 구성하기 전에 {% data variables.product.prodname_pages %} 사이트에 사용자 지정 도메인을 추가해야 합니다. {% data variables.product.product_name %}에 사용자 지정 도메인을 추가하지 않고 DNS 공급자를 사용하여 사용자 지정 도메인을 구성하면 다른 사용자가 하위 도메인 중 하나에서 사이트를 호스트할 수 있습니다.
 
 {% windows %}
 
-The `dig` command, which can be used to verify correct configuration of DNS records, is not included in Windows. Before you can verify that your DNS records are configured correctly, you must install [BIND](https://www.isc.org/bind/).
+`dig` DNS 레코드의 올바른 구성을 확인하는 데 사용할 수 있는 명령은 Windows에 포함되지 않습니다. DNS 레코드가 올바르게 구성되었는지 확인하려면 먼저 [BIND](https://www.isc.org/bind/)를 설치해야 합니다.
 
 {% endwindows %}
 
 {% note %}
 
-**Note:** DNS changes can take up to 24 hours to propagate.
+**참고:** DNS 변경 내용을 적용하는 데 최대 24시간이 걸릴 수 있습니다.
 
 {% endnote %}
 
-## Configuring a subdomain
+## 하위 도메인 구성
 
-To set up a `www` or custom subdomain, such as `www.example.com` or `blog.example.com`, you must add your domain in the repository settings. After that, configure a CNAME record with your DNS provider.
+`www.example.com` 또는 `blog.example.com`과 같은 `www` 또는 사용자 지정 하위 도메인을 설정하려면 리포지토리 설정에서 도메인을 추가해야 합니다. 그런 다음 DNS 공급자를 사용하여 CNAME 레코드를 구성합니다.
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
-  ![Save custom domain button](/assets/images/help/pages/save-custom-subdomain.png)
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+4. “사용자 지정 도메인”에서 사용자 지정 도메인을 입력한 다음 **저장** 을 클릭합니다. 분기에서 사이트를 게시하는 경우 원본 분기의 루트에 `CNAME` 파일을 추가하는 커밋이 만들어집니다. 사용자 지정 {% data variables.product.prodname_actions %} 워크플로를 사용하여 사이트를 게시하는 경우 `CNAME` 파일이 만들어지지 않습니다. 게시 원본에 대한 자세한 내용은 “[GitHub Pages 사이트의 게시 원본 구성](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)”을 참조하세요.
+  ![사용자 지정 도메인 저장 단추](/assets/images/help/pages/save-custom-subdomain.png)
 
   {% note %}
   
-  **Note:** If your custom domain is an internationalized domain name, you must enter the Punycode encoded version.
+  **참고:** 사용자 지정 도메인이 국제화된 도메인 이름인 경우 Punycode 인코딩 버전을 입력해야 합니다.
   
-  For more information on Punycodes, see [Internationalized domain name](https://en.wikipedia.org/wiki/Internationalized_domain_name).
+  Punycodes에 대한 자세한 내용은 [국제화된 도메인 이름을 참조하세요](https://en.wikipedia.org/wiki/Internationalized_domain_name).
   
   {% endnote %}
 
-5. Navigate to your DNS provider and create a `CNAME` record that points your subdomain to the default domain for your site. For example, if you want to use the subdomain `www.example.com` for your user site, create a `CNAME` record that points `www.example.com` to `<user>.github.io`. If you want to use the subdomain `another.example.com` for your organization site, create a `CNAME` record that points `another.example.com` to `<organization>.github.io`. The `CNAME` record should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+5. DNS 공급자로 이동하여 하위 도메인을 사이트의 기본 도메인으로 가리키는 `CNAME` 레코드를 만듭니다. 예를 들어, 사용자 사이트에 하위 도메인 `www.example.com`을 사용하려는 경우 `www.example.com`이 `<user>.github.io`를 가리킨다는 `CNAME` 레코드를 만듭니다. 조직 사이트에 하위 도메인 `another.example.com`을 사용하려는 경우 `another.example.com`이 `<organization>.github.io`를 가리킨다는 `CNAME` 레코드를 만듭니다. `CNAME` 레코드는 리포지토리 이름을 제외하고 항상 `<user>.github.io` 또는 `<organization>.github.io`를 가리킵니다. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
-{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your subdomain.
+{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %} {% data reusables.command_line.open_the_multi_os_terminal %}
+6. DNS 레코드가 올바르게 구성되었는지 확인하려면 `dig` 명령을 사용하여 _WWW.EXAMPLE.COM_ 하위 도메인으로 바꿉니다.
 ```shell
     $ dig WWW.EXAMPLE.COM +nostats +nocomments +nocmd
     > ;WWW.EXAMPLE.COM.                    IN      A
@@ -68,30 +70,27 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
     > YOUR-USERNAME.github.io.      43192   IN      CNAME   GITHUB-PAGES-SERVER .
     > GITHUB-PAGES-SERVER .         22      IN      A       192.0.2.1
 ```
-{% data reusables.pages.build-locally-download-cname %}
-{% data reusables.pages.enforce-https-custom-domain %}
+{% data reusables.pages.build-locally-download-cname %} {% data reusables.pages.enforce-https-custom-domain %}
 
-## Configuring an apex domain
+## apex 도메인 구성
 
-To set up an apex domain, such as `example.com`, you must configure a custom domain in your repository settings and at least one `ALIAS`, `ANAME`, or `A` record with your DNS provider.
+Apex 도메인을 설정하려면, `example.com` 리포지토리 설정에서 사용자 지정 도메인을 구성하고 DNS 공급자와 함께 `ALIAS`, `ANAME`, 또는 `A` 레코드 중 하나 이상을 구성해야 합니다.
 
-{% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Configuring a subdomain](#configuring-a-subdomain)."
+{% data reusables.pages.www-and-apex-domain-recommendation %} 자세한 내용은 “[하위 도메인 구성](#configuring-a-subdomain)”을 참조하세요.
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
-  ![Save custom domain button](/assets/images/help/pages/save-custom-apex-domain.png)
-5. Navigate to your DNS provider and create either an `ALIAS`, `ANAME`, or `A` record. You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
-    - To create an `ALIAS` or `ANAME` record, point your apex domain to the default domain for your site. {% data reusables.pages.default-domain-information %}
-    - To create `A` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+4. “사용자 지정 도메인”에서 사용자 지정 도메인을 입력한 다음 **저장** 을 클릭합니다. 분기에서 사이트를 게시하는 경우 원본 분기의 루트에 `CNAME` 파일을 추가하는 커밋이 만들어집니다. 사용자 지정 {% data variables.product.prodname_actions %} 워크플로를 사용하여 사이트를 게시하는 경우 `CNAME` 파일이 만들어지지 않습니다. 게시 원본에 대한 자세한 내용은 “[GitHub Pages 사이트의 게시 원본 구성](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)”을 참조하세요.
+  ![사용자 지정 도메인 저장 단추](/assets/images/help/pages/save-custom-apex-domain.png)
+5. DNS 공급자로 이동하여 `ALIAS`, `ANAME` 또는 `A` 레코드를 만듭니다. IPv6 지원에 대한 `AAAA` 레코드를 만들 수도 있습니다. {% data reusables.pages.contact-dns-provider %}
+    - `ALIAS` 또는 `ANAME` 레코드를 만들도록 apex 도메인이 사이트의 기본 도메인을 가리킵니다. {% data reusables.pages.default-domain-information %}
+    - `A` 레코드를 만들도록 apex 도메인이 {% data variables.product.prodname_pages %}에 대한 IP 주소를 가리킵니다.
       ```shell
       185.199.108.153
       185.199.109.153
       185.199.110.153
       185.199.111.153
       ```
-    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+    - `AAAA` 레코드를 만들도록 apex 도메인이 {% data variables.product.prodname_pages %}에 대한 IP 주소를 가리킵니다.
       ```shell
       2606:50c0:8000::153
       2606:50c0:8001::153
@@ -99,10 +98,9 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
       2606:50c0:8003::153
       ```
 
-{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
-6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _EXAMPLE.COM_ with your apex domain. Confirm that the results match the IP addresses for {% data variables.product.prodname_pages %} above.
-   - For `A` records.
+{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %} {% data reusables.command_line.open_the_multi_os_terminal %}
+6. DNS 레코드가 올바르게 구성되었는지 확인하려면 `dig` 명령을 사용하여 _WWW.EXAMPLE.COM_ 을 하위 도메인으로 바꿉니다. 결과가 위 {% data variables.product.prodname_pages %}의 IP 주소와 일치하는지 확인합니다.
+   - `A` 레코드의 경우
     ```shell
     $ dig EXAMPLE.COM +noall +answer -t A
     > EXAMPLE.COM    3600    IN A     185.199.108.153
@@ -110,7 +108,7 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
     > EXAMPLE.COM    3600    IN A     185.199.110.153
     > EXAMPLE.COM    3600    IN A     185.199.111.153
     ```
-   - For `AAAA` records.
+   - `AAAA` 레코드의 경우
     ```shell
     $ dig EXAMPLE.COM +noall +answer -t AAAA
     > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8000::153
@@ -118,19 +116,18 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
     > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8002::153
     > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8003::153
     ```
-{% data reusables.pages.build-locally-download-cname %}
-{% data reusables.pages.enforce-https-custom-domain %}
+{% data reusables.pages.build-locally-download-cname %} {% data reusables.pages.enforce-https-custom-domain %}
 
-## Configuring an apex domain and the `www` subdomain variant
+## apex 도메인 및 `www` 하위 도메인 변형 구성
 
-When using an apex domain, we recommend configuring your {% data variables.product.prodname_pages %} site to host content at both the apex domain and that domain's `www` subdomain variant.
+apex 도메인을 사용하는 경우 {% data variables.product.prodname_pages %} 사이트를 구성하여 apex 도메인과 해당 도메인의 `www` 하위 도메인 변형 모두에서 콘텐츠를 호스트하는 것이 좋습니다.
 
-To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain by creating an `ALIAS`, `ANAME`, or `A` record with your DNS provider. For more information, see "[Configuring an apex domain](#configuring-an-apex-domain)."
+apex 도메인과 함께 `www` 하위 도메인을 설정하려면 먼저 DNS 공급자를 사용하여 `ALIAS`, `ANAME` 또는 `A` 레코드를 만들어 apex 도메인을 구성해야 합니다. 자세한 내용은 [apex 도메인 구성](#configuring-an-apex-domain)을 참조하세요.
 
-After you configure the apex domain, you must configure a CNAME record with your DNS provider.
+apex 도메인을 구성한 후에는 DNS 공급자를 사용하여 CNAME 레코드를 구성해야 합니다.
 
-1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io` or `<organization>.github.io`. Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
-2. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your `www` subdomain variant.
+1. DNS 공급자로 이동하여 `www.example.com`이 사이트 `<user>.github.io` 또는 `<organization>.github.io`의 기본 도메인을 가리키는 `CNAME` 레코드를 만듭니다. 리포지토리 이름은 포함하지 마세요. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+2. DNS 레코드가 올바르게 구성되었는지 확인하려면 `dig` 명령을 사용하여 _WWW.EXAMPLE.COM_ 을 `www` 하위 도메인으로 바꿉니다.
 ```shell
     $ dig WWW.EXAMPLE.COM +nostats +nocomments +nocmd
     > ;WWW.EXAMPLE.COM                     IN      A
@@ -138,18 +135,16 @@ After you configure the apex domain, you must configure a CNAME record with your
     > YOUR-USERNAME.github.io.      43192   IN      CNAME   GITHUB-PAGES-SERVER.
     > GITHUB-PAGES-SERVER.         22      IN      A       192.0.2.1
 ```
-## Removing a custom domain
+## 사용자 지정 도메인 제거
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain," click **Remove**.
-  ![Save custom domain button](/assets/images/help/pages/remove-custom-domain.png)
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+4. “사용자 지정 도메인”에서 **제거** 를 클릭합니다.
+  ![사용자 지정 도메인 저장 단추](/assets/images/help/pages/remove-custom-domain.png)
 
-## Securing your custom domain
+## 사용자 지정 도메인 보호
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
+{% data reusables.pages.secure-your-domain %} 자세한 내용은 “[{% data variables.product.prodname_pages %}에 대한 사용자 지정 도메인 확인](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)”을 확인하세요.
 
-## Further reading
+## 추가 참고 자료
 
-- "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"
+- “[사용자 지정 도메인 및 {% data variables.product.prodname_pages %}의 문제 해결](/articles/troubleshooting-custom-domains-and-github-pages)”을 참조하세요.

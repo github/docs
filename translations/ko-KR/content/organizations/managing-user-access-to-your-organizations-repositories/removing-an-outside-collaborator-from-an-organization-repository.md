@@ -1,6 +1,6 @@
 ---
-title: Removing an outside collaborator from an organization repository
-intro: Owners and repository admins can remove an outside collaborator's access to a repository.
+title: 조직 리포지토리에서 외부 협력자 제거
+intro: 소유자 및 리포지토리 관리자는 리포지토리에 대한 외부 협력자의 액세스를 제거할 수 있습니다.
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-repository
@@ -14,57 +14,55 @@ topics:
   - Organizations
   - Teams
 shortTitle: Remove collaborator
+ms.openlocfilehash: 4265cd0f7bdc272fbb875bfaf961fa0b2e708647
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148099134'
 ---
-
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warning:**
-- When removing an outside collaborator from a private repository, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[Downgrading your organization's paid seats](/articles/downgrading-your-organization-s-paid-seats)."
+**경고:**
+- 프라이빗 리포지토리에서 외부 협력자를 제거하는 경우 유료 라이선스 수가 자동으로 다운그레이드되지 않습니다. 조직에서 사용자를 제거한 후 더 적은 수의 라이선스 비용을 지불하려면 "[조직의 유료 시트 다운그레이드"](/articles/downgrading-your-organization-s-paid-seats)의 단계를 따릅니다.
 
-- You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+- 귀하는 리포지토리에 대한 액세스 권한을 상실한 사용자가 기밀 정보 또는 지적 재산권을 삭제하도록 할 책임이 있습니다.
 
 {% endwarning %}
 
 {% endif %}
 
-While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
+협력자를 제거하면 프라이빗 리포지토리의 포크가 삭제되는 반면, 해당 사용자는 리포지토리의 로컬 복제본을 계속 유지합니다.
 
-## Removing outside collaborators from all repositories in an organization
+## 조직의 모든 리포지토리에서 외부 협력자 제거
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.people_tab_outside_collaborators %}
-5. Select the outside collaborator or outside collaborators you'd like to remove from the organization.
-![List of outside collaborators with two outside collaborators selected](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
-6. Above the list of outside collaborators, use the drop-down menu, and click **Remove from all repositories**.
-![Drop-down menu with option to remove outside collaborators ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
-7. Review the outside collaborator or outside collaborators who will be removed from the organization, then click **Remove outside collaborators**.
-  ![List of outside collaborators who will be removed and Remove outside collaborators button](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people_tab_outside_collaborators %}
+5. 조직에서 제거하려는 외부 협력자 또는 외부 협력자를 선택합니다.
+![외부 협력자 2명이 선택된 외부 협력자 목록](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
+6. 외부 협력자 목록 위에 드롭다운 메뉴를 사용하고 **모든 리포지토리에서 제거** 를 클릭합니다.
+![외부 협력자를 제거하는 옵션이 있는 드롭다운 메뉴 ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
+7. 조직에서 제거될 외부 협력자 또는 외부 협력자를 검토한 다음, **외부 협력자 제거** 를 클릭합니다.
+  ![제거될 외부 협력자 목록 및 외부 협력자 제거 단추](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
 
-## Removing an outside collaborator from a particular repository in an organization
+## 조직의 특정 리포지토리에서 외부 협력자 제거
 
-If you only want to remove an outside collaborator from certain repositories in your organization, you can remove this person's access to one specific repository at a time.
+조직의 특정 리포지토리에서 외부 협력자만 제거하려는 경우 한 번에 하나의 특정 리포지토리에 대한 이 사용자의 액세스 권한을 제거할 수 있습니다.
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.people %}
-{% data reusables.organizations.people_tab_outside_collaborators %}
-5. To the right of the username of the person you want to remove, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.
-  ![Manage access button](/assets/images/help/organizations/member-manage-access.png)
-6. To the right of the repository that you want to remove the outside collaborator from, click **Manage access**.
-![Select manage access button next to a repository the outside collaborator has access to](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
-7. To completely remove the outside collaborator's access to the repository, in the upper right corner, click **Remove access to this repository**.
-![Remove access to this repository button](/assets/images/help/organizations/remove-access-to-this-repository.png)
-8. To confirm, click **Remove access**.
-![Confirm outside collaborator who will be removed from the repository](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.people %} {% data reusables.organizations.people_tab_outside_collaborators %}
+5. 제거하려는 사람의 사용자 이름 오른쪽에 있는 {% octicon "gear" aria-label="The Settings gear" %} 드롭다운 메뉴를 사용하고 **관리** 를 클릭합니다.
+  ![액세스 관리 단추](/assets/images/help/organizations/member-manage-access.png)
+6. 외부 협력자를 제거하려는 리포지토리의 오른쪽에서 **액세스 관리** 를 클릭합니다.
+![외부 협력자가 액세스할 수 있는 리포지토리 옆에 있는 액세스 관리 단추 선택](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
+7. 리포지토리에 대한 외부 협력자의 액세스 권한을 완전히 제거하려면 오른쪽 위 모서리에서 **이 리포지토리에 대한 액세스 권한 제거** 를 클릭합니다.
+![이 리포지토리에 대한 액세스 권한 제거 단추](/assets/images/help/organizations/remove-access-to-this-repository.png)
+8. 확인하려면 **액세스 권한 제거** 를 클릭합니다.
+![리포지토리에서 제거될 외부 협력자 확인](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-You can also remove an outside collaborator from a repository in the access overview in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)."
+{% ifversion fpt 또는 ghec 또는 ghes > 3.3 또는 ghae > 3.3 %} 리포지토리 설정의 액세스 개요에서 리포지토리에서 외부 공동 작업자를 제거할 수도 있습니다. 자세한 내용은 “[리포지토리에 액세스할 수 있는 팀 및 사용자 관리](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)”를 참조하세요.
 {% endif %}
-## Further reading
+## 추가 참고 자료
 
-- "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- “[조직의 리포지토리에 외부 협력자 추가](/articles/adding-outside-collaborators-to-repositories-in-your-organization)”
+- “[조직 멤버를 외부 협력자로 변환](/articles/converting-an-organization-member-to-an-outside-collaborator)”

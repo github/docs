@@ -1,6 +1,6 @@
 ---
-title: Reviewing proposed changes in a pull request
-intro: 'In a pull request, you can review and discuss commits, changed files, and the differences (or "diff") between the files in the base and compare branches.'
+title: Просмотр предлагаемых изменений в запросе на вытягивание
+intro: 'В запросе на вытягивание можно просматривать и обсуждать фиксации, измененные файлы и различия (diff) между файлами в базе и сравнивать ветви.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
   - /articles/reviewing-proposed-changes-in-a-pull-request
@@ -14,111 +14,107 @@ versions:
 topics:
   - Pull requests
 shortTitle: Review proposed changes
+ms.openlocfilehash: 8ea199ad1dc2f574f8820bde3e0529112645bc23
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158592'
 ---
-## About reviewing pull requests
+## Сведения о просмотре запросов на вытягивание
 
-You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
+Вы можете просматривать изменения в запросе на вытягивание по одному файлу за раз. При просмотре файлов в запросе на вытягивание можно оставлять комментарии к отдельным изменениям. Завершив проверку файла, можно пометить его как просмотренный. Файл свернется, так что вы легко сможете определить файлы, которые еще требуют проверки. Индикатор выполнения в заголовке запроса на вытягивание показывает количество просмотренных файлов. После просмотра нужных файлов можно утвердить запрос на вытягивание или запросить дополнительные изменения, отправив отзыв с кратким комментарием.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-## Starting a review
+## Начало проверки
 
 {% webui %}
 
-{% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}
-{% data reusables.repositories.changed-files %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae %}
+{% data reusables.repositories.sidebar-pr %} {% data reusables.repositories.choose-pr-review %} {% data reusables.repositories.changed-files %} {% ifversion fpt or ghec or ghes > 3.3 or ghae %}
 
-   You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
+   Чтобы изменить формат представления различий на этой вкладке, щелкните значок {% octicon "gear" aria-label="The Settings gear" %} и выберите общее или разделенное представление. Выбранное представление применится при просмотре различий для других запросов на вытягивание.
 
-   ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
+   ![Параметры представления различий](/assets/images/help/pull_requests/diff-view-settings.png)
 
-   You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
+   Вы также можете скрыть различия в пробелах. Выбранная настройка применяется только к данному запросу на вытягивание и будет сохранена при следующем посещении этой страницы.
 {% endif %}
-1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
-{% data reusables.repositories.start-line-comment %}
-{% data reusables.repositories.type-line-comment %}
-{% data reusables.repositories.suggest-changes %}
-1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
+1. При необходимости отфильтруйте файлы, которые требуется проверить{% ifversion pr-tree-view %}, или используйте дерево файлов для перехода к определенному файлу{% endif %}. Дополнительные сведения см. в разделе [Фильтрация файлов в запросе на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request).
+{% data reusables.repositories.start-line-comment %} {% data reusables.repositories.type-line-comment %} {% data reusables.repositories.suggest-changes %}
+1. По завершении нажмите кнопку **Начать проверку**. Если вы уже начали проверку, можно нажать кнопку **Добавить комментарий проверки**.
 
-   ![Start a review button](/assets/images/help/pull_requests/start-a-review-button.png)
+   ![Кнопка "Начать проверку"](/assets/images/help/pull_requests/start-a-review-button.png)
 
-Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
+До отправки отзыва ваши комментарии к строкам находятся в состоянии _ожидания_ и видны только вам. Комментарии в состоянии ожидания можно изменять в любое время до отправки отзыва. Чтобы отменить проверку в состоянии ожидания, включая все комментарии, прокрутите вниз до конца временной шкалы на вкладке "Беседа", а затем нажмите кнопку **Отмена проверки**.
 
-![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
-{% endwebui %}
+![Кнопка "Отмена проверки"](/assets/images/help/pull_requests/cancel-review-button.png) {% endwebui %}
 
 {% ifversion fpt or ghec %}
 
 {% codespaces %}
 
-You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+Для тестирования, выполнения и проверки запросов на вытягивание можно использовать [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview).
 
-1. Open the pull request in a codespace, as described in "[Opening a pull request](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)."
-1. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
+1. Откройте запрос на вытягивание в codespace, как описано в разделе [Открытие запроса на вытягивание](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces).
+1. На панели действий щелкните представление **Запрос на вытягивание GitHub**. Это представление отображается только при открытии запроса на вытягивание в codespace.
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/github-pr-view.png)
+   ![Параметр открытия запроса на вытягивание в codespace](/assets/images/help/codespaces/github-pr-view.png)
 
-1. To review a specific file, click the **Open File** icon in the Side Bar.
+1. Чтобы просмотреть определенный файл, щелкните значок **Открыть файл** на боковой панели.
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/changes-in-files.png)
+   ![Параметр открытия запроса на вытягивание в codespace](/assets/images/help/codespaces/changes-in-files.png)
 
-1. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
+1. Чтобы добавить комментарии к проверке, щелкните значок **+** рядом с номером строки. Введите комментарий к проверке и нажмите кнопку **Начать проверку**.
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/start-review.png)
+   ![Параметр открытия запроса на вытягивание в codespace](/assets/images/help/codespaces/start-review.png)
 
-1. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
+1. Завершив добавление комментариев к проверке, с боковой панели можно отправить комментарии, утвердить изменения или запросить изменения.
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/submit-review.png)
+   ![Параметр открытия запроса на вытягивание в codespace](/assets/images/help/codespaces/submit-review.png)
 
-For more information on reviewing pull requests in {% data variables.product.prodname_github_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
+Дополнительные сведения о проверке запросов на вытягивание в {% data variables.product.prodname_github_codespaces %} см. в разделе [Использование {% data variables.product.prodname_github_codespaces %} для запросов на вытягивание](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests).
 
-{% endcodespaces %}
-{% endif %}
+{% endcodespaces %} {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Reviewing dependency changes
+## Просмотр изменений в зависимостях
 
-If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
-
-{% data reusables.repositories.changed-files %}
-
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
-
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
-
-{% data reusables.repositories.return-to-source-diff %}
-{% endif %}
-
-## Marking a file as viewed
-
-After you finish reviewing a file, you can mark the file as viewed, and the file will collapse. If the file changes after you view the file, it will be unmarked as viewed.
+Если запрос на вытягивание содержит изменения зависимостей, вы можете выполнить проверку зависимостей в файле манифеста или блокировок, чтобы узнать, что изменилось, и проверить, не приводят ли изменения к уязвимостям системы безопасности. Дополнительные сведения см. в разделе [Просмотр изменений зависимостей в запросе на вытягивание](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request).
 
 {% data reusables.repositories.changed-files %}
-2. On the right of the header of the file you've finished reviewing, select **Viewed**.
 
-   ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
+1. Справа от заголовка файла манифеста или блокировок откройте проверку зависимостей, нажав кнопку расширенных различий  **{% octicon "file" aria-label="The rich diff icon" %}** .
 
-## Submitting your review
+   ![Кнопка расширенных различий](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-After you've finished reviewing all the files you want in the pull request, submit your review.
+{% data reusables.repositories.return-to-source-diff %} {% endif %}
+
+## Пометка файла как просмотренного
+
+После завершения проверки файла можно пометить его как просмотренный, и он свернется. Если файл изменится после проверки, пометка просмотренного будет снята.
 
 {% data reusables.repositories.changed-files %}
-{% data reusables.repositories.review-changes %}
-{% data reusables.repositories.review-summary-comment %}
-4. Select the type of review you'd like to leave:
+2. Справа от заголовка файла, проверка которого завершена, щелкните **Просмотрено**.
 
-   ![Radio buttons with review options](/assets/images/help/pull_requests/pull-request-review-statuses.png)
+   ![Флажок "Просмотрено"](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-    - Select **Comment** to leave general feedback without explicitly approving the changes or requesting additional changes.
-    - Select **Approve** to submit your feedback and approve merging the changes proposed in the pull request.
-    - Select **Request changes** to submit feedback that must be addressed before the pull request can be merged.
+## Отправка отзыва
+
+Завершив проверку всех нужных файлов в запросе на вытягивание, отправьте отзыв.
+
+{% data reusables.repositories.changed-files %} {% data reusables.repositories.review-changes %} {% data reusables.repositories.review-summary-comment %}
+4. Выберите тип отзыва, который нужно оставить:
+
+   ![Переключатели с параметрами отзыва](/assets/images/help/pull_requests/pull-request-review-statuses.png)
+
+    - Выберите **Комментарий**, чтобы оставить общий отзыв, не утверждая изменения явным образом и не запрашивая дополнительные изменения.
+    - Выберите **Утверждение**, чтобы отправить отзыв и утвердить слияние изменений, предложенных в запросе на вытягивание.
+    - Выберите **Запрос изменений**, чтобы отправить отзыв, который необходимо обработать перед слиянием запроса на вытягивание.
 {% data reusables.repositories.submit-review %}
 
 {% data reusables.repositories.request-changes-tips %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
-- "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"
+- [Сведения о защищенных ветвях](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)
+- [Фильтрация запросов на вытягивание по состоянию проверки](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)

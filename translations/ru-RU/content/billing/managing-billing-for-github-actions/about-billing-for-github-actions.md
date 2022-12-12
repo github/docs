@@ -1,6 +1,6 @@
 ---
-title: About billing for GitHub Actions
-intro: 'If you want to use {% data variables.product.prodname_actions %} beyond the storage or minutes included in your account, you will be billed for additional usage.'
+title: Сведения о выставлении счетов за GitHub Actions
+intro: 'Если вы хотите использовать {% data variables.product.prodname_actions %} за пределами хранилища или времени в минутах, включенном в вашу учетную запись, вам будет выставлен счет за дополнительное использование.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
@@ -13,105 +13,104 @@ topics:
   - Actions
   - Spending limits
 shortTitle: Billing for GitHub Actions
+ms.openlocfilehash: fcc8f84b8a11b214ca66e8a3851a1afc9df6213a
+ms.sourcegitcommit: 9af8891fea10039b3374c76818634e05410e349d
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/06/2022
+ms.locfileid: '148191889'
 ---
-## About billing for {% data variables.product.prodname_actions %}
+## Сведения о выставлении счетов за {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-billing %}
 
-{% data reusables.actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+{% data reusables.actions.actions-spending-limit-brief %} Дополнительные сведения см. в разделе [Сведения о предельных суммах расходов](#about-spending-limits).
 
-{% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% ifversion ghec %} Если вы приобрели {% data variables.product.prodname_enterprise %} в рамках Соглашения Enterprise Майкрософт, то вы можете подключить свой идентификатор подписки Azure к корпоративной учетной записи, чтобы включить и оплатить использование {% data variables.product.prodname_actions %} свыше объемов, включенных в вашу учетную запись. Дополнительные сведения см. в разделе [Подключение подписки Azure к организации](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise).
 {% endif %}
 
-Minutes reset every month, while storage usage does not.
+Минуты сбрасываются каждый месяц, а использование места в хранилище — нет.
 
-### Included storage and minutes
+### Включенный объем хранилища и минуты
 
-{% ifversion actions-hosted-runners %} 
-{% note %}
+{% ifversion actions-hosted-runners %} {% note %}
 
-**Note**: Entitlement minutes cannot be used for Windows and Ubuntu runners over 2-cores. These runners will always be charged for, including in public repos. For more information, see "[Per-minute rates for runners](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+**Примечание.** Минуты назначения нельзя использовать для средств выполнения Windows и Ubuntu более чем с 2 ядрами. За эти средства всегда взимается плата, в том числе в общедоступных репозиториях. Дополнительные сведения см. в разделе [Поминутные тарифы для средств выполнения](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
 
-{% endnote %}
-{% endif %}
+{% endnote %} {% endif %}
 
-|Product | Storage | Minutes (per month)|
+|Продукт | Память | Минуты (в месяц)|
 |------- | ------- | ---------|
-| {% data variables.product.prodname_free_user %} | 500 MB | 2,000 |
-| {% data variables.product.prodname_pro %} | 1 GB | 3,000 |
-| {% data variables.product.prodname_free_team %} for organizations | 500 MB | 2,000 |
-| {% data variables.product.prodname_team %} | 2 GB | 3,000 |
-| {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
+| {% data variables.product.prodname_free_user %} | 500 МБ | 2 000 |
+| {% data variables.product.prodname_pro %} | 1 ГБ | 3000 |
+| {% data variables.product.prodname_free_team %} для организаций | 500 МБ | 2 000 |
+| {% data variables.product.prodname_team %} | 2 ГБ | 3000 |
+| {% data variables.product.prodname_ghe_cloud %} | 50 ГБ | 50 000 |
 
-Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
+Задания в средствах выполнения на базе Windows и macOS в {% data variables.product.prodname_dotcom %} потребляют минуты в 2 и 10 раз быстрее, чем задания в средствах выполнения Linux. Например, при работе в течение 1000 минут в среде Windows расходуется 2000 минут, включенных в учетную запись. При работе в течение 1000 минут в среде macOS расходуется 10 000 минут, включенных в учетную запись.
 
-### Minute multipliers
+### Коэффициенты потребления минут
 
-| Operating system | Minute multiplier |
+| Операционная система | Коэффициент потребления минут |
 |------- | ---------|
 | Linux | 1 |
 | macOS| 10 |
 | Windows | 2 |
 
-The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for  {% data variables.product.prodname_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+В объем хранилища, используемый репозиторием, включается общий объем хранилища для артефактов {% data variables.product.prodname_actions %} и {% data variables.product.prodname_registry %}. Стоимость хранилища вычисляется по общему объему, используемому всеми репозиториями вашей учетной записи. Дополнительные сведения о ценах на {% data variables.product.prodname_registry %} см. в разделе [Сведения о выставлении счетов за {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
 
- If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
+ Если в учетной записи будет потрачено больше минут, чем установленные ограничения, а предельная сумма расходов имеет значение более 0 долл. США, вы будете оплачивать 0,008 долл. США за 1 ГБ хранилища в день и поминутное потребление с учетом той операционной системы, в которой работает размещенное на {% data variables.product.prodname_dotcom %} средство выполнения. {% data variables.product.prodname_dotcom %} округляет минуты и частичные минуты, которые каждое задание использует до ближайшей целой минуты.
 
 {% note %}
 
-**Note:** Minute multipliers do not apply to the per-minute rates shown below.
+**Примечание**. Коэффициенты потребления минут не применяются к поминутным тарифам, указанным ниже.
 
 {% endnote %}
 
-### Per-minute rates
+### Поминутные тарифы
 
-{% data reusables.billing.billing-standard-runners %}
-{%- ifversion actions-hosted-runners %}
-{% data reusables.billing.billing-hosted-runners %}
-{%- endif %}
+{% data reusables.billing.billing-standard-runners %} {%- ifversion actions-hosted-runners %} {% data reusables.billing.billing-hosted-runners %} {%- endif %}
 
-- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
-- {% data reusables.user-settings.context_switcher %}
-{% ifversion actions-hosted-runners %} 
-- For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
-- Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
-- The {% data variables.actions.hosted_runner %}s are not free for public repositories.
+- Количество заданий, которые могут выполняться параллельно во всех репозиториях в учетной записи пользователя или организации, зависит от плана GitHub. Дополнительные сведения см. в разделе [Ограничения и выставление счетов за использование](/actions/reference/usage-limits-billing-and-administration) для размещенных на {% data variables.product.prodname_dotcom %} средств выполнения и в разделе [Сведения о локальных средствах выполнения](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits) для локальных средств выполнения.
+- {% data reusables.user-settings.context_switcher %} {% ifversion actions-hosted-runners %} 
+- Для {% data variables.actions.hosted_runner %} отсутствует дополнительная плата за конфигурации, которые назначают общедоступные статические IP-адреса для {% data variables.actions.hosted_runner %}. Дополнительные сведения о {% data variables.actions.hosted_runner %} см. в разделе [Использование {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-larger-runners).
+- Минуты назначения нельзя использовать для {% data variables.actions.hosted_runner %}.
+- {% data variables.actions.hosted_runner %} не являются бесплатными для общедоступных репозиториев.
 {% endif %}
 
-## Calculating minute and storage spending
+## Вычисление минут и расходов на хранение
 
 {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
 
-At the end of the month, {% data variables.product.prodname_dotcom %} calculates the cost of minutes and storage used over the amount included in your account.
+В конце месяца {% data variables.product.prodname_dotcom %} вычисляет стоимость использованных минут и емкости хранилища для учетной записи.
 
-### Sample minutes cost calculation
+### Пример вычисления стоимости минут
 
-For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
+Например, если в вашей организации используется {% data variables.product.prodname_team %} и разрешены неограниченные расходы, при использовании 5000 минут общая стоимость емкости хранилища и использованных минут может составить 56 долл. США в зависимости от операционных систем, в которых выполняются задания.
 
-- 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
-  - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
-  - 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
+- 5000 минут (3000 Linux и 2000 Windows) = 56 долл. США (24 долл. США + 32 долл. США).
+  - 3000 минут Linux по 0,008 долл. США за минуту = 24 долл. США.
+  - 2000 минут Windows по 0,016 долл. США за минуту = 32 долл. США.
 
-{% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month.
+{% data variables.product.prodname_dotcom %} вычисляет потребление хранилища за каждый месяц, суммируя почасовое потребление в течение этого месяца.
 
-### Sample storage cost calculation
+### Пример вычисления затрат на хранилище
 
-For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
+Например, если в марте вы в течение 10 дней использовали 3 ГБ хранилища, а в течение остальных 21 дня — 12 ГБ, итоговый объем будет вычисляться так:
 
-- 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
-- 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
-- 720 GB-Hours + 6,048 GB-Hours = 6,768 GB-Hours
-- 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
+- 3 ГБ x 10 дней x (24 часа в день) = 720 ГБ-часов
+- 12 ГБ x 21 день x (24 часа в день) = 6,048 ГБ-часов
+- 720 ГБ-часов + 6,048 ГБ-часов = 6,768 ГБ-часов
+- 6,768 ГБ-часов / (744 часа в месяц) = 9,0967 ГБ-месяцев
 
-At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
+В конце месяца {% data variables.product.prodname_dotcom %} округляет размер хранилища до ближайшего МБ. Таким образом, за март будет зарегистрировано использование хранилища в объеме 9,097 ГБ.
 
-Your {% data variables.product.prodname_actions %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
+Данные об использовании {% data variables.product.prodname_actions %} включают существующую дату выставления счетов учетной записи, метод оплаты и квитанцию. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-## About spending limits
+## Сведения о предельных суммах расходов
 
 {% data reusables.actions.actions-spending-limit-detailed %}
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
+Сведения об изменении предельной суммы расходов и управлении ею см. в разделе [Управление предельной суммой расходов для {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions).
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

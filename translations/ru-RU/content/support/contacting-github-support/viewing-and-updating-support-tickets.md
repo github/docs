@@ -1,6 +1,6 @@
 ---
-title: Viewing and updating support tickets
-intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
+title: Просмотр и обновление запросов в службу поддержки
+intro: 'Вы можете просматривать запросы в службу поддержки{% ifversion ghes or ghec %}, совместно работать над запросами с коллегами{% endif %} и отвечать {% data variables.contact.github_support %}, используя {% data variables.contact.support_portal %}.'
 shortTitle: Managing your tickets
 versions:
   fpt: '*'
@@ -8,64 +8,67 @@ versions:
   ghes: '*'
 topics:
   - Support
+ms.openlocfilehash: b735331d90c590ff6911fed44e181563b44bfc27
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193619'
 ---
-
-## About ticket management
+## Сведения об управлении запросами в службу поддержки
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+Вы можете использовать [Портал поддержки GitHub](https://support.github.com/) для просмотра текущих и прошлых запросов в службу поддержки и ответа на {% data variables.contact.github_support %}. Через 120 дней разрешенные запросы архивируются{% ifversion ghec or ghes or ghae %}, и архивные запросы можно просматривать только для корпоративных учетных записей{% endif %}.
 
-{% ifversion ghes or ghec %}
-{% data reusables.enterprise-accounts.support-entitlements %}
-{% endif %}
+{% ifversion ghes or ghec %} {% data reusables.enterprise-accounts.support-entitlements %} {% endif %}
 
-## Viewing your recent support tickets
+## Просмотр недавних запросов в службу поддержки
 
 {% data reusables.support.view-open-tickets %}
-1. Under the text box, you can read the comment history. The most recent response is at the top.
+1. В текстовом поле можно просмотреть журнал комментариев. Последний ответ находится вверху.
 
-   ![Screenshot of support ticket comment history, with the most recent response at the top](/assets/images/help/support/support-recent-response.png)
+   ![Снимок экрана: журнал комментариев в службу поддержки с самым последним ответом вверху](/assets/images/help/support/support-recent-response.png)
 
-1. Optionally, to translate the ticket comment, click {% octicon "globe" aria-label="The globe icon" %} and choose your preferred language from the dropdown menu. You can translate your support ticket into Chinese (Simplified), French, German, Japanese, Portuguese (Brazil), or Spanish.
+1. При необходимости, чтобы перевести комментарий к запросу, щелкните {% octicon "globe" aria-label="The globe icon" %} и выберите предпочитаемый язык в раскрывающемся меню. Вы можете перевести запрос в службу поддержки на китайский (упрощенное письмо), французский, немецкий, японский, португальский (Бразилия) или испанский.
 
-   ![Screenshot of a support ticket with the dropdown menu showing the options for translation emphasized](/assets/images/help/support/support-ticket-translation-options.png)
+   ![Снимок экрана: запрос в службу поддержки с раскрывающимся меню с выделенными параметрами перевода](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 
-## Viewing your archived support tickets
+## Просмотр архивных запросов в службу поддержки
 
-You can only view archived tickets for an enterprise account.
+Вы можете просматривать архивные запросы только для корпоративной учетной записи.
 
 {% data reusables.support.navigate-to-my-tickets %}
-1. Select the **My Tickets** drop-down menu and click the name of the enterprise account. 
+1. Выберите раскрывающееся меню **Мои запросы** и щелкните имя корпоративной учетной записи. 
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
-1. Under the "My tickets" table, click **View archived tickets**.
+   ![Снимок экрана: раскрывающееся меню "Мои запросы".](/assets/images/help/support/ticket-context.png)
+1. В таблице "Мои запросы" щелкните **Просмотреть архивные запросы**.
 
 {% endif %}
 
-## Updating support tickets
+## Обновление запросов в службу поддержки.
 
 {% data reusables.support.view-open-tickets %}
-1. Optionally, if the issue is resolved, under the text box, click **Close ticket**.
-![Screenshot showing location of the "Close ticket" button.](/assets/images/help/support/close-ticket.png)
-1. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box.
-![Screenshot of the "Add a comment" text field.](/assets/images/help/support/new-comment-field.png)
-1. To add your comment to the ticket, click **Comment**.
-![Screenshot of the "Comment" button.](/assets/images/help/support/add-comment.png)
+1. При необходимости, если проблема устранена, в текстовом поле нажмите кнопку **Закрыть запрос**.
+![Снимок экрана: расположение кнопки "Закрыть запрос".](/assets/images/help/support/close-ticket.png)
+1. Чтобы ответить службе поддержки GitHub и добавить новый комментарий в запрос, введите ответ в текстовом поле.
+![Снимок экрана: текстовое поле "Добавить комментарий".](/assets/images/help/support/new-comment-field.png)
+1. Чтобы добавить комментарий к запросу, нажмите кнопку **Комментарий**.
+![Снимок экрана: кнопка "Комментарий".](/assets/images/help/support/add-comment.png)
 
 {% ifversion ghec or ghes %}
-## Collaborating on support tickets
+## Совместная работа с запросами в службу поддержки
 
-You can collaborate with your colleagues on support tickets using the support portal. Owners, billing managers, and other enterprise members with support entitlements can view tickets associated with an enterprise account or an organization managed by an enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+Вы можете совместно работать со своими коллегами над запросами в службу поддержки с помощью портала поддержки. Владельцы, менеджеры по выставлению счетов и другие участники предприятия с правами специалистов службы поддержки могут просматривать запросы, связанные с корпоративной учетной записью или организацией, которая управляется корпоративной учетной записью. Дополнительные сведения см. в разделе [Управление правами специалистов службы поддержки для вашего предприятия](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
 
-In addition to viewing tickets, you can also add comments to support tickets if your email address is copied on the ticket or if the person who opened the ticket used an email address with a domain that is verified for the enterprise account or organization managed by an enterprise account. For more information about verifying a domain, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Verifying or approving a domain for your organization](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Помимо просмотра запросов, вы также можете добавлять комментарии в запросы в службу поддержки, если ваш адрес электронной почты скопирован в запросе или если пользователь, открывший запрос, использовал адрес электронной почты с доменом, проверенным для корпоративной учетной записи или организации, которая управляется корпоративной учетной записью. Дополнительные сведения о проверке домена см. в разделе [Проверка или утверждение домена для вашего предприятия](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise) и [Проверка или утверждение домена для вашей организации](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization).
 
 {% endif %}
 
-## Further reading
+## Дополнительные материалы
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- [Сведения о поддержке GitHub](/support/learning-about-github-support/about-github-support)

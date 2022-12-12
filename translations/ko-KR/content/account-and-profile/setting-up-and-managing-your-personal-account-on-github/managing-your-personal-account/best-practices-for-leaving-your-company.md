@@ -1,6 +1,6 @@
 ---
-title: Best practices for leaving your company
-intro: 'If you use your account on {% data variables.product.product_name %} for both personal and work purposes, there are a few things to keep in mind when you leave your company or organization.'
+title: 회사를 떠나는 모범 사례
+intro: '{% data variables.product.product_name %}에서 개인용 및 업무용 계정을 모두 사용하는 경우 회사 또는 조직을 떠날 때 유의해야 할 몇 가지 사항이 있습니다.'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
@@ -13,30 +13,35 @@ versions:
 topics:
   - Accounts
 shortTitle: Leaving your company
+ms.openlocfilehash: f8fa9650680b0f37dc7a4a1bdea949e7c02f74b6
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148094123'
 ---
+회사를 떠나기 전에 개인 계정에서 다음 정보를 업데이트해야 합니다.
 
-Before you leave your company, make sure you update the following information in your personal account:
+- 회사 메일 주소를 [메일 설정에서 삭제](/articles/changing-your-primary-email-address)하여 확인을 취소합니다. 그런 다음 계정에 연결된 커밋을 유지하기 위해 확인하지 않고 다시 추가할 수 있습니다.
+- 회사 메일에서 개인 메일로 [기본 메일 주소를 변경](/articles/changing-your-primary-email-address)합니다.
+- [새 기본 메일 주소를 확인합니다](/articles/verifying-your-email-address).
+- 필요에 따라 [GitHub 사용자 이름을 변경](/articles/changing-your-github-username)하여 회사 또는 조직에 대한 참조를 제거합니다.
+- 개인 계정에 대해 2FA(2단계) 인증을 사용하도록 설정한 경우 사용자가(회사가 아님) 구성한 2FA 인증 방법을 제어해야 합니다. 자세한 내용은 “[2단계 인증 구성](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)”을 참조하세요.
 
-- Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
-- [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
-- [Verify your new primary email address](/articles/verifying-your-email-address).
-- [Change your GitHub username](/articles/changing-your-github-username) to remove any references to your company or organization, if necessary.
-- If you've enabled two-factor (2FA) authentication for your personal account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+## 조직 떠나기
 
-## Leaving organizations
+조직에 속한 리포지토리로 작업한 경우 [조직의 멤버에서 자신을 제거](/articles/removing-yourself-from-an-organization)하는 것이 좋습니다. 조직 소유자인 경우 먼저 [조직의 소유권을 다른 사람에게 이전](/articles/transferring-organization-ownership)해야 합니다.
 
-If you've been working with repositories that belong to an organization, you'll want to [remove yourself as a member of the organization](/articles/removing-yourself-from-an-organization). Note that if you are the organization owner, you should first [transfer ownership of the organization](/articles/transferring-organization-ownership) to another person.
+{% 데이터 variables.enterprise.prodname_managed_user %}을(를) 사용하지 않는 한 조직을 떠난 후에도 개인 계정에 계속 액세스할 수 있습니다. {% data variables.product.prodname_emus %}에 대한 자세한 내용은 {% data variables.product.prodname_ghe_cloud %} 설명서의 “[{% data variables.product.prodname_emus %} 정보]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}”를 참조하세요.{% else %}.”{% endif %}
 
-Unless you're using a {% data variables.enterprise.prodname_managed_user %}, you'll still be able to access your personal account, even after leaving the organization. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}]({% ifversion not ghec%}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+## 개인 리포지토리와의 직업 관련 연결 제거
 
-## Removing professional associations with personal repositories
+다른 사람의 개인 계정에 속한 리포지토리에서 직업과 관련하여 협업을 수행한 경우 해당 리포지토리에서 [자신을 협력자에서 제거](/articles/removing-yourself-from-a-collaborator-s-repository)하는 것이 좋습니다.
 
-If you've been collaborating professionally with another person on repositories that belong to their personal account, you'll want to [remove yourself as a collaborator](/articles/removing-yourself-from-a-collaborator-s-repository) from those repositories.
-
-- [Stop watching repositories](https://github.com/watching) related to your work. You won't want those notifications anymore!
-- [Transfer repositories you own](/articles/how-to-transfer-a-repository) that others may need to continue working on after you leave.
-- [Delete forks that belong to you](/articles/deleting-a-repository) that are related to the work you were doing. Don't worry, deleting a fork doesn't delete the upstream repository.
-- Delete local copies of your forks that may exist on your computer:
+- 작업과 관련된 [리포지토리 시청을 중지](https://github.com/watching)합니다. 이러한 알림을 더 이상 원하지 않습니다.
+- 떠난 후에도 다른 사람들이 계속 작업해야 할 수 있는 [자신이 소유한 리포지토리를 이전](/articles/how-to-transfer-a-repository)합니다.
+- 수행한 작업과 관련된 [자신에게 속한 포크를 삭제](/articles/deleting-a-repository)합니다. 포크를 삭제해도 업스트림 리포지토리는 삭제되지 않습니다.
+- 컴퓨터에 있을 수 있는 포크의 로컬 복사본을 삭제합니다.
 
 ```shell
 $ rm -rf WORK_DIRECTORY

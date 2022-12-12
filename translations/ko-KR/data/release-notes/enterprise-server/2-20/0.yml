@@ -1,0 +1,44 @@
+date: '2020-02-11'
+sections:
+  features:
+    - '리포지토리 분기에서 리포지토리 관리자는 [분기 보호 규칙](https://help.github.com/en/github/administering-a-repository/enabling-branch-restrictions)을 사용하여 `선형 기록 필요`를 활성화하여 병합 커밋이 포함된 모든 푸시를 거부할 수 있습니다. {% comment %} https://github.blog/changelog/2019-12-04-expanded-branch-protection-rules/ {% endcomment %}'
+    - '리포지토리 관리자는 [분기 보호 규칙](https://help.github.com/en/github/administering-a-repository/enabling-branch-restrictions)을 사용하여 `강제 푸시 허용`을 활성화하여 푸시 액세스 권한을 가진 모든 사용자에게 보호된 분기로 강제 푸시할 수 있는 기능을 부여할 수 있습니다. {% comment %} https://github.blog/changelog/2019-12-04-expanded-branch-protection-rules/, https://github.com/github/ce-oss-happiness/issues/42, https://github.com/github/github/pull/125950 {% endcomment %}'
+    - '리포지토리 관리자는 [분기 보호 규칙](https://help.github.com/en/github/administering-a-repository/enabling-branch-restrictions)을 사용하여 `삭제 허용`을 활성화하여 푸시 액세스 권한을 가진 모든 사용자에게 보호된 분기를 삭제할 수 있는 기능을 부여할 수 있습니다. {% comment %} https://github.blog/changelog/2019-12-04-expanded-branch-protection-rules/ {% endcomment %}'
+    - '관리자는 [Git LFS](https://help.github.com/en/enterprise/admin/installation/configuring-git-large-file-storage-on-github-enterprise-server)에 없는 리포지토리에 대해 [푸시 커밋의 크기 제한](https://help.github.com/en/enterprise/admin/installation/setting-git-push-limits)에 대한 `최대 개체 크기` 제한을 설정할 수 있습니다. {% comment %} https://github.com/github/babeld/pull/864, https://team.githubapp.com/posts/33519, https://github.com/githubcustomers/Slack/issues/27 {% endcomment %}'
+    - '조직 소유자는 새 리포지토리를 만들 때 기본 레이블 세트를 만들 수 있습니다.{% comment %} https://github.com/github/issues-projects/issues/237, https://github.com/github/issues-projects/issues/179 {% endcomment %}'
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - '조직의 구성원이 해당 조직의 공용 리포지토리를 보려고 할 때 SSO 프롬프트가 페이지 표시를 손상시킬 수 있습니다. {% comment %} https://github.com/github/github/issues/126677, https://github.com/github/github/pull/127501 {% endcomment %}'
+    - "사용자의 프로필을 볼 때 해당 사용자의 팀에 대한 링크가 끊어질 수 있습니다. {% comment %} https://github.com/github/github/issues/131771, https://github.com/github/github/pull/131865 {% endcomment %}"
+    - '`유지 관리` 역할을 가진 사용자는 리포지토리 항목을 편집할 수 없습니다. {% comment %} https://github.com/github/github/pull/129503, https://github.com/github/github/issues/119456 {% endcomment %}'
+    - "조직의 관리자가 아닌 사용자가 등록 페이지에 액세스하려고 하면 500 오류가 발생합니다. {% comment %} https://github.com/github/github/pull/129213, https://github.com/github/github/issues/129210, https://github.com/github/github/issues/129212 {% endcomment %}"
+    - '편집 기록 팝업이 gist 주석에 표시되지 않습니다. {% comment %} https://github.com/github/github/pull/129134, https://github.com/github/github/issues/128496 {% endcomment %}'
+    - '이미 등록된 이메일로 새 계정을 등록할 수 있습니다.  {% comment %} https://github.com/github/github/pull/127905, https://github.com/github/github/issues/127858 {% endcomment %}'
+    - '스토리지 서비스가 파일 설명자 제한에 도달하여 커널 행업 및 기타 서비스에서 오류를 기록하고 있습니다. {% comment %} https://github.com/github/enterprise2/pull/18775 {% endcomment %}'
+    - '자동 링크 참조가 URL의 일부인 경우 하이퍼링크를 제거할 수 있습니다. {% comment %} https://github.com/github/github/pull/126776 {% endcomment %}'
+    - '끌어오기 요청에 주석을 추가할 때 사이드바의 `연결된 이슈` 섹션이 사라질 수 있습니다. {% comment %} https://github.com/github/issues-projects/issues/384, https://github.com/github/github/pull/130514 {% endcomment %}'
+    - '사용자의 기존 조직 초대를 편집할 때 `팀` 테이블에 중복된 헤더가 나타날 수 있습니다. {% comment %} https://github.com/github/github/issues/120381, https://github.com/github/github/pull/128939 {% endcomment %}'
+    - '`요청된` 서비스는 대기열이 너무 커지면 이벤트 로깅을 중지할 수 있습니다. {% comment %} https://github.com/github/github/pull/130087, https://github.com/github/business-support/issues/2696 {% endcomment %}'
+    - '클러스터 및 고가용성 구성에 대해 `ghe-config-apply` 명령을 실행할 때 자체 서명된 인증서가 자동으로 생성되지 않습니다. {% comment %} https://github.com/github/enterprise2/pull/18773 {% endcomment %}'
+  changes:
+    - '항목이 업로드되지 않은 경우 항목에 대한 로고가 표시되지 않습니다. {% comment %} https://github.com/github/github/issues/130513, https://github.com/github/github/pull/130515 {% endcomment %}'
+    - '모바일 브라우저에서 이슈를 볼 때 이슈 메타데이터가 페이지 상단에 나열됩니다. {% comment %} https://github.com/github/github/pull/127560 {% endcomment %}'
+    - 'Consul의 최상위 도메인이 “.consul”에서 “.ghe.local”로 변경되었습니다. {% comment %} https://github.com/github/enterprise2/pull/17443, https://github.com/github/enterprise2/issues/17701 {% endcomment %}'
+    - '훅샷 서비스는 더 이상 ElasticSearch에 의존하지 않으며 MySQL만 데이터베이스 저장소로 사용합니다. {% comment %} https://github.com/github/enterprise2/pull/18158, https://github.com/github/hookshot/pull/1128, https://github.com/github/enterprise2/pull/15898 {% endcomment %}'
+    - '이슈, 프로젝트 및 토론 간의 개선된 시각적 구별이 프로젝트 노트 카드에 구현되었습니다. {% comment %} https://github.com/github/github/pull/132038 {% endcomment %}'
+    - '끌어오기 요청 검토 시 여러 줄 주석이 잘리면 알림이 표시됩니다. {% comment %} https://github.com/github/github/issues/125948, https://github.com/github/github/pull/128677 {% endcomment %}'
+    - '개인 설정 페이지의 `보안 로그` 탭에서 감사 로그를 볼 수 있습니다. {% comment %} https://github.com/github/github/pull/123041{% endcomment %}'
+  known_issues:
+    - '사용자 없이 새로 설정된 GitHub Enterprise Server에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - '사용자 지정 방화벽 규칙은 업그레이드 중에 유지 관리되지 않습니다. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'gist로 푸시하는 경우 사후 수신 후크 중에 예외가 트리거될 수 있습니다. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - "데이터베이스에 웹후크 항목이 중복되면 이전 버전에서 업그레이드가 실패할 수 있습니다. (2020-02-26 업데이트됨)"
+    - '백그라운드 작업자 구성이 사용자 지정된 경우 업그레이드 및 설정 업데이트가 실패합니다. {% comment %} https://github.com/github/enterprise2/issues/19119 {% endcomment %}'
+    - 'GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '이전 버전에서 업그레이드하는 경우 백그라운드 작업 작업자가 생성되지 않아 끌어오기 요청 병합과 같은 필수 기능이 차단될 수 있습니다.(2020-04-07 업데이트됨) {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - '명령줄에서 리포지토리에 푸시할 때 보안 경고가 보고되지 않습니다. (2020-06-23 업데이트됨) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '여러 Redis 노드가 있는 클러스터 구성에 배포될 때 종속성 그래프가 종속성을 검색하지 않습니다. (2020-06-30 업데이트됨) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - '고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}은 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으며 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다.'

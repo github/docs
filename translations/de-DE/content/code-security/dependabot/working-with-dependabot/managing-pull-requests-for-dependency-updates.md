@@ -1,6 +1,6 @@
 ---
-title: Managing pull requests for dependency updates
-intro: 'You manage pull requests raised by {% data variables.product.prodname_dependabot %} in much the same way as other pull requests, but there are some extra options.'
+title: Verwalten von Pull Requests für Abhängigkeitsupdates
+intro: 'Du verwaltest von {% data variables.product.prodname_dependabot %} ausgelöste Pull Requests im wesentlichen wie andere Pull Requests, aber es gibt einige zusätzliche Optionen.'
 redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
@@ -18,53 +18,55 @@ topics:
   - Dependencies
   - Vulnerabilities
 shortTitle: Manage Dependabot PRs
+ms.openlocfilehash: e33b176ced7d10ed70f4c521ce2c18be776a7f8e
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147112318'
 ---
+{% data reusables.dependabot.beta-security-and-version-updates %} {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
-
-## About {% data variables.product.prodname_dependabot %} pull requests
+## Informationen zu {% data variables.product.prodname_dependabot %}-Pull Requests
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-When {% data variables.product.prodname_dependabot %} raises a pull request, you're notified by your chosen method for the repository. Each pull request contains detailed information about the proposed change, taken from the package manager. These pull requests follow the normal checks and tests defined in your repository. 
-{% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. This may also help you decide whether or not to merge the change. For information about this score, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."{% endif %}
+Wenn {% data variables.product.prodname_dependabot %} einen Pull Request auslöst, wirst du von deiner für das Repository ausgewählten Methode benachrichtigt. Jeder Pull Request enthält detaillierte Informationen zu der vorgeschlagenen Änderung, die vom Paket-Manager abgeleitet werden. Diese Pull Requests folgen den normalen Prüfungen und Tests, die in deinem Repository definiert sind. {% ifversion fpt or ghec %}Darüber hinaus wird eine Kompatibilitätsbewertung angezeigt, wo genügend Informationen verfügbar sind. Dies kann dir auch helfen, zu entscheiden, ob die Änderung gemergt werden soll. Weitere Informationen zu dieser Bewertung findest du unter [Informationen zu {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates).{% endif %}
 
-If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
+Wenn du viele Abhängigkeiten verwalten musst, solltest du möglicherweise die Konfiguration für jeden Paket-Manager anpassen, sodass Pull Requests bestimmte Prüfer, Zuweisungen und Bezeichnungen haben. Weitere Informationen findest du unter [Anpassen von Abhängigkeitsupdates](/github/administering-a-repository/customizing-dependency-updates).
 
-## Viewing {% data variables.product.prodname_dependabot %} pull requests
+## Anzeigen von {% data variables.product.prodname_dependabot %}-Pull Requests
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-pr %}
-1. Any pull requests for security or version updates are easy to identify.
-    - The author is {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, the bot account used by {% data variables.product.prodname_dependabot %}.
-    - By default, they have the `dependencies` label.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-pr %}
+1. Alle Pull Requests für Sicherheits- oder Versionsupdates sind einfach zu identifizieren.
+    - Der Autor ist {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, das von {% data variables.product.prodname_dependabot %} verwendete Bot-Konto.
+    - Standardmäßig haben sie die Bezeichnung `dependencies`.
 
-## Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests
+## Ändern der Rebase-Strategie für {% data variables.product.prodname_dependabot %}-Pull Requests
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)."
+Standardmäßig führt {% data variables.product.prodname_dependabot %} automatisch Rebases für Pull Requests aus, um Konflikte zu lösen. Wenn du Mergekonflikte manuell behandeln möchtest, kannst du dies mithilfe der `rebase-strategy`-Option deaktivieren. Weitere Informationen findest du unter [Konfigurationsoptionen für die Datei dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy).
 
-## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
+## Ermöglichen, dass {% data variables.product.prodname_dependabot %} ein Rebase ausführt und einen Push über zusätzliche Commits erzwingt
 
-By default, {% data variables.product.prodname_dependabot %} will stop rebasing a pull request once extra commits have been pushed to it. To allow {% data variables.product.prodname_dependabot %} to force push over commits added to its branches, include any of the following strings: `[dependabot skip]` , `[skip dependabot]`, `[dependabot-skip]`, or `[skip-dependabot]`, in either lower or uppercase, to the commit message.
+Standardmäßig beendet {% data variables.product.prodname_dependabot %} ein Rebase eines Pull Requests, sobald zusätzliche Commits daran gesendet wurden. Um {% data variables.product.prodname_dependabot %} zu erlauben, einen Push über Commits zu erzwingen, die seinen Branches hinzugefügt wurden, füge eine der folgenden Zeichenfolgen ein: `[dependabot skip]`, `[skip dependabot]`, `[dependabot-skip]`, oder `[skip-dependabot]`, entweder in Klein- oder Großbuchstaben in die Commitnachricht ein.
 
-## Managing {% data variables.product.prodname_dependabot %} pull requests with comment commands
+## Verwalten von {% data variables.product.prodname_dependabot %}-Pull Requests mit Kommentarbefehlen
 
-{% data variables.product.prodname_dependabot %} responds to simple commands in comments. Each pull request contains details of the commands you can use to process the pull request (for example: to merge, squash, reopen, close, or rebase the pull request) under the "{% data variables.product.prodname_dependabot %} commands and options" section. The aim is to make it as easy as possible for you to triage these automatically generated pull requests.
+{% data variables.product.prodname_dependabot %} reagiert auf einfache Befehle in Kommentaren. Jeder Pull Request enthält Details der Befehle, die du verwenden könntest, um den Pull Request zu verarbeiten (z. B. Mergen, Squashen, erneutes Öffnen, Schließen des Pull Requests oder Ausführen eines Rebase für den Pull Request) unter dem Abschnitt „{% data variables.product.prodname_dependabot %}-Befehle und -Optionen“. Du sollst diese automatisch generierten Pull Requests so einfach wie möglich selektieren können.
 
-You can use any of the following commands on a {% data variables.product.prodname_dependabot %} pull request.
+Jeden der folgenden Befehle kannst du in einem {% data variables.product.prodname_dependabot %}-Pull Request verwenden.
 
-- `@dependabot cancel merge` cancels a previously requested merge.
-- `@dependabot close` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from recreating that pull request. You can achieve the same result by closing the pull request manually.
-- `@dependabot ignore this dependency` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this dependency (unless you reopen the pull request or upgrade to the suggested version of the dependency yourself).
-- `@dependabot ignore this major version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this major version (unless you reopen the pull request or upgrade to this major version yourself).
-- `@dependabot ignore this minor version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this minor version (unless you reopen the pull request or upgrade to this minor version yourself).
-- `@dependabot merge` merges the pull request once your CI tests have passed.
-- `@dependabot rebase` rebases the pull request.
-- `@dependabot recreate` recreates the pull request, overwriting any edits that have been made to the pull request.
-- `@dependabot reopen` reopens the pull request if the pull request is closed.
-- `@dependabot squash and merge` squashes and merges the pull request once your CI tests have passed.
+- `@dependabot cancel merge` bricht einen zuvor angeforderten Merge ab.
+- `@dependabot close` schließt den Pull Request und verhindert, dass {% data variables.product.prodname_dependabot %} diesen Pull Request erneut erstellt. Du kannst das gleiche Ergebnis erreichen, indem du den Pull Request manuell schließt.
+- `@dependabot ignore this dependency` schließt den Pull Request und verhindert, dass {% data variables.product.prodname_dependabot %} weitere Pull Requests für diese Abhängigkeit erstellt (es sei denn, du öffnest den Pull Request erneut oder aktualisierst selbst auf die vorgeschlagene Version der Abhängigkeit).
+- `@dependabot ignore this major version` schließt den Pull Request und verhindert, dass {% data variables.product.prodname_dependabot %} weitere Pull Requests für diese Hauptversion erstellt (es sei denn, du öffnest den Pull Request erneut oder aktualisierst selbst auf diese Hauptversion).
+- `@dependabot ignore this minor version` schließt den Pull Request und verhindert, dass {% data variables.product.prodname_dependabot %} weitere Pull Requests für diese Hauptversion erstellt (es sei denn, du öffnest den Pull Request erneut oder aktualisierst selbst auf diese Nebenversion).
+- `@dependabot merge` mergt den Pull Request, sobald deine CI-Tests bestanden sind.
+- `@dependabot rebase` führt ein Rebase für den Pull Request aus.
+- `@dependabot recreate` erstellt den Pull Request neu und überschreibt dabei alle Änderungen, die an dem Pull Request vorgenommen wurden.
+- `@dependabot reopen` öffnet den Pull Request erneut, wenn der Pull Request geschlossen ist.
+- `@dependabot squash and merge` squasht und mergt den Pull Request, sobald deine CI-Tests bestanden sind.
 
-{% data variables.product.prodname_dependabot %} will react with a "thumbs up" emoji to acknowledge the command, and may respond with a comment on the pull request. While {% data variables.product.prodname_dependabot %} usually responds quickly, some commands may take several minutes to complete if {% data variables.product.prodname_dependabot %} is busy processing other updates or commands.
+{% data variables.product.prodname_dependabot %} reagiert mit einem „Daumen nach oben“-Emoji, um den Befehl zu bestätigen, und kann mit einem Kommentar auf den Pull Request antworten. Während {% data variables.product.prodname_dependabot %} in der Regel schnell reagiert, können einige Befehle mehrere Minuten dauern, wenn {% data variables.product.prodname_dependabot %} andere Updates oder Befehle verarbeitet.
 
-If you run any of the commands for ignoring dependencies or versions, {% data variables.product.prodname_dependabot %} stores the preferences for the repository centrally. While this is a quick solution, for repositories with more than one contributor it is better to explicitly define the dependencies and versions to ignore in the configuration file. This makes it easy for all contributors to see why a particular dependency isn't being updated automatically. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+Wenn du einen der Befehle zum Ignorieren von Abhängigkeiten oder Versionen ausführst, speichert {% data variables.product.prodname_dependabot %} die Einstellungen für das Repository zentral. Dies ist zwar eine schnelle Lösung, aber für Repositorys mit mehr als einem Mitwirkenden ist es besser, die zu ignorierenden Abhängigkeiten und Versionen explizit in der Konfigurationsdatei zu definieren. So können alle Mitwirkenden leicht erkennen, warum eine bestimmte Abhängigkeit nicht automatisch aktualisiert wird. Weitere Informationen findest du unter [Konfigurationsoptionen für die Datei „dependabot.yml“](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore).

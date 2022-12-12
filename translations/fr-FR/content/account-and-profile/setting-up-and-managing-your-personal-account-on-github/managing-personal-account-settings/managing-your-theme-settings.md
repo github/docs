@@ -1,6 +1,6 @@
 ---
-title: Managing your theme settings
-intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
+title: Gestion de vos paramètres de thème
+intro: 'Vous pouvez gérer l’apparence de {% data variables.product.product_name %} en définissant une préférence de thème qui suit vos paramètres système, ou qui utilise toujours un mode clair ou un mode sombre.'
 versions:
   fpt: '*'
   ghae: '*'
@@ -13,51 +13,52 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
 shortTitle: Manage theme settings
+ms.openlocfilehash: 3f7d35978d3a80f7fb63cce1d054afd15b579f13
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148108384'
 ---
+Pour plus de choix et de flexibilité dans votre utilisation de {% data variables.product.product_name %}, vous pouvez configurer les paramètres de thème afin de changer l’apparence de {% data variables.product.product_name %}. Vous pouvez choisir parmi des thèmes clairs ou sombres, ou configurer {% data variables.product.product_name %} de façon à suivre vos paramètres système.
 
-For choice and flexibility in how and when you use {% data variables.product.product_name %}, you can configure theme settings to change how {% data variables.product.product_name %} looks to you. You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings.
+Vous souhaiterez peut-être utiliser un thème sombre pour réduire la consommation d’alimentation sur certains appareils, pour réduire la contrainte oculaire dans des conditions de faible lumière, ou car vous préférez l’apparence du thème.
 
-You may want to use a dark theme to reduce power consumption on certain devices, to reduce eye strain in low-light conditions, or because you prefer how the theme looks.
-
-If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% ifversion fpt or ghae or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
+Si vous n’avez pas une bonne vue, vous préférerez peut-être un thème à contraste élevé, avec un contraste plus élevé entre les éléments de premier plan et d’arrière-plan.{% ifversion fpt or ghae or ghec %} Si vous souffrez de daltonisme, vous pouvez bénéficier de nos thèmes clairs et foncés adaptés aux daltoniens.
 
 {% endif %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.appearance-settings %}
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.appearance-settings %}
 
-1. Under "Theme mode", select the drop-down menu, then click a theme preference.
+1. Sous « Mode du thème », sélectionnez le menu déroulant, puis cliquez sur une préférence de thème.
 
-   ![Drop-down menu under "Theme mode" for selection of theme preference](/assets/images/help/settings/theme-mode-drop-down-menu.png)
-1. Click the theme you'd like to use.
-    - If you chose a single theme, click a theme.
+   ![Menu déroulant sous « Mode du thème » pour la sélection de la préférence de thème](/assets/images/help/settings/theme-mode-drop-down-menu.png)
+1. Cliquez sur le thème que vous souhaitez utiliser.
+    - Si vous avez choisi un thème unique, cliquez sur un thème.
 
-      {%- ifversion ghes = 3.5 %}
-      {% note %}
+      {%- ifversion ghes = 3.5 %} {% note %}
 
-      **Note**: The light high contrast theme was unavailable in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The theme is available in 3.5.4 and later. For more information about upgrades, contact your site administrator.
+      **Remarque** : Le thème à contraste élevé clair n’était pas disponible dans {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2 et 3.5.3. Le thème est disponible dans la version 3.5.4 et ultérieure. Pour plus d’informations sur les mises à niveau, contactez votre administrateur de site.
 
-      For more information about determining the version of {% data variables.product.product_name %} you're using, see "[About versions of  {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
-      {% endnote %}
-      {%- endif %}
+      Pour plus d’informations sur la détermination de la version de {% data variables.product.product_name %} que vous utilisez, consultez « [À propos des versions de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server) ».
+      {% endnote %} {%- endif %}
 
-      ![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png)
-    - If you chose to follow your system settings, click a day theme and a night theme.
+      ![Cases d’option pour le choix d’un thème unique](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png)
+    - Si vous avez choisi de suivre vos paramètres système, cliquez sur un thème de jour et un thème de nuit.
 
-      ![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png)
-    {% ifversion fpt or ghec %}
-    - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
+      ![Boutons pour choisir un thème à synchroniser avec le paramètre système](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png) {% ifversion fpt or ghec %}
+    - Si vous souhaitez choisir un thème actuellement en version bêta publique, vous devez d’abord l’activer avec la préversion des fonctionnalités. Pour plus d’informations, consultez « [Exploration des versions d’accès anticipé avec préversion des fonctionnalités](/get-started/using-github/exploring-early-access-releases-with-feature-preview) ».{% endif %}
 
 {% ifversion command-palette %}
 
 {% note %}
 
-**Note:** You can also change your theme settings with the command palette. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".
+**Remarque :** Vous pouvez également modifier vos paramètres de thème avec la palette de commandes. Pour plus d’informations, consultez « [{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette) ».
 
 {% endnote %}
 
 {% endif %}
 
-## Further reading
+## Pour aller plus loin
 
-- "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"
+- « [Définition d’un thème pour {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop) »

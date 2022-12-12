@@ -1,7 +1,7 @@
 ---
-title: Configuring CodeQL runner in your CI system
+title: CI 시스템에서 CodeQL 실행기 구성
 shortTitle: Configure CodeQL runner
-intro: 'You can configure how the {% data variables.code-scanning.codeql_runner %} scans the code in your project and uploads the results to {% data variables.product.prodname_dotcom %}.'
+intro: '{% data variables.code-scanning.codeql_runner %}가 프로젝트의 코드를 검사하고 결과를 {% data variables.product.prodname_dotcom %}에 업로드하는 방법을 구성할 수 있습니다.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -24,33 +24,35 @@ topics:
   - C/C++
   - C#
   - Java
+ms.openlocfilehash: 64245dd9f320947510db3e108b30c886c95b89d1
+ms.sourcegitcommit: b617c4a7a1e4bf2de3987a86e0eb217d7031490f
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/11/2022
+ms.locfileid: '148161072'
 ---
+{% data reusables.code-scanning.deprecation-codeql-runner %} {% data reusables.code-scanning.beta %} {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
+## CI 시스템의 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 구성 정보
 
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-{% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
+{% data variables.product.prodname_code_scanning %}을(를) CI 시스템에 통합하려면 {% data variables.code-scanning.codeql_runner %}를 사용할 수 있습니다. 자세한 내용은 "[CI 시스템에서 {% data variables.code-scanning.codeql_runner %} 실행"을 참조하세요](/code-security/secure-coding/running-codeql-runner-in-your-ci-system).
 
-## About configuring {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
-
-To integrate {% data variables.product.prodname_code_scanning %} into your CI system, you can use the {% data variables.code-scanning.codeql_runner %}. For more information, see "[Running {% data variables.code-scanning.codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
-
-In general, you invoke the {% data variables.code-scanning.codeql_runner %} as follows.
+일반적으로 다음과 같이 {% data variables.code-scanning.codeql_runner %}를 호출합니다.
 
 ```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
-`/path/to-runner/` depends on where you've downloaded the {% data variables.code-scanning.codeql_runner %} on your CI system. `codeql-runner-OS` depends on the operating system you use.
-There are three versions of the {% data variables.code-scanning.codeql_runner %}, `codeql-runner-linux`, `codeql-runner-macos`, and `codeql-runner-win`, for Linux, macOS, and Windows systems respectively. 
+`/path/to-runner/` 는 CI 시스템에서 {% data variables.code-scanning.codeql_runner %}를 다운로드한 위치에 따라 달라집니다. `codeql-runner-OS`는 사용하는 운영 체제에 따라 달라집니다.
+각각 Linux, macOS 및 Windows 시스템의 {% data variables.code-scanning.codeql_runner %}, `codeql-runner-linux`, `codeql-runner-macos`및 `codeql-runner-win`의 세 가지 버전이 있습니다. 
 
-To customize the way the {% data variables.code-scanning.codeql_runner %} scans your code, you can use flags, such as `--languages` and `--queries`, or you can specify custom settings in a separate configuration file.
+{% data variables.code-scanning.codeql_runner %}가 코드를 검사하는 방식을 사용자 지정하려면 및 와 `--queries`같은 `--languages` 플래그를 사용하거나 별도의 구성 파일에서 사용자 지정 설정을 지정할 수 있습니다.
 
-## Scanning pull requests
+## 끌어오기 요청 검사
 
-Scanning code whenever a pull request is created prevents developers from introducing new vulnerabilities and errors into the code.
+끌어오기 요청을 만들 때마다 코드를 검사하면 개발자가 코드에 새로운 취약성 및 오류를 도입할 수 없습니다.
 
-To scan a pull request, run the `analyze` command and use the `--ref` flag to specify the pull request. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`, depending on whether you have checked out the HEAD commit of the pull request branch or a merge commit with the base branch.
+끌어오기 요청을 검사하려면 `analyze` 명령을 실행하고 `--ref` 플래그를 사용하여 끌어오기 요청을 지정합니다. 참조는 끌어오기 요청 분기의 HEAD 커밋 또는 기본 분기와의 병합 커밋을 체크 아웃했는지 여부에 따라 `refs/pull/<PR-number>/head` 또는 `refs/pull/<PR-number>/merge`입니다.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
@@ -58,50 +60,50 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% note %}
 
-**Note**: If you analyze code with a third-party tool and want the results to appear as pull request checks, you must run the `upload` command and use the `--ref` flag to specify the pull request instead of the branch. The reference is `refs/pull/<PR-number>/head` or `refs/pull/<PR-number>/merge`.
+**참고**: 타사 도구를 사용하여 코드를 분석하고 결과를 끌어오기 요청 검사로 표시하려면 `upload` 명령을 실행하고 `--ref` 플래그를 사용하여 분기 대신 끌어오기 요청을 지정해야 합니다. 참조는 `refs/pull/<PR-number>/head` 또는 `refs/pull/<PR-number>/merge`입니다.
 
 {% endnote %}
 
-## Overriding automatic language detection
+## 자동 언어 검색 재정의
 
-The {% data variables.code-scanning.codeql_runner %} automatically detects and scans code written in the supported languages.
+{% data variables.code-scanning.codeql_runner %}는 지원되는 언어로 작성된 코드를 자동으로 검색하고 검색합니다.
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-To override automatic language detection, run the `init` command with the `--languages` flag, followed by a comma-separated list of language keywords. The keywords for the supported languages are {% data reusables.code-scanning.codeql-languages-keywords %}.
+자동 언어 검색을 재정의하려면 `--languages` 플래그를 사용하여 `init` 명령을 실행하고 쉼표로 구분된 언어 키워드 목록을 실행합니다. 지원되는 언어의 키워드는 {% data reusables.code-scanning.codeql-languages-keywords %}입니다.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-## Running additional queries
+## 추가 쿼리 실행
 
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
-To add one or more queries, pass a comma-separated list of paths to the `--queries` flag of the `init` command. You can also specify additional queries in a configuration file.
+하나 이상의 쿼리를 추가하려면 쉼표로 구분된 경로 목록을 `init` 명령의 `--queries` 플래그에 전달합니다. 구성 파일에서 추가 쿼리를 지정할 수도 있습니다.
 
-If you also are using a configuration file for custom settings, and you are also specifying additional queries with the `--queries` flag, the {% data variables.code-scanning.codeql_runner %} uses the additional queries specified with the <nobr>`--queries`</nobr> flag instead of any in the configuration file.
-If you want to run the combined set of additional queries specified with the flag and in the configuration file, prefix the value passed to <nobr>`--queries`</nobr> with the `+` symbol.
-For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
+또한 사용자 지정 설정에 구성 파일을 사용하고 플래그가 있는 추가 쿼리 `--queries` 를 지정하는 경우 {% data variables.code-scanning.codeql_runner %}는 구성 파일의 쿼리 대신 플래그로 지정된 추가 쿼리를 <nobr>`--queries`</nobr> 사용합니다.
+플래그 및 구성 파일에 지정된 추가 쿼리의 결합된 집합을 실행하려면 <nobr>`--queries`</nobr>에 전달된 값 앞에 `+` 기호를 접두사로 추가합니다.
+자세한 내용은 “[사용자 지정 구성 파일 사용](#using-a-custom-configuration-file)”을 참조하세요.
 
-In the following example, the `+` symbol ensures that the {% data variables.code-scanning.codeql_runner %} uses the additional queries together with any queries specified in the referenced configuration file.
+다음 예제에서 기호는 `+` {% data variables.code-scanning.codeql_runner %}가 참조된 구성 파일에 지정된 쿼리와 함께 추가 쿼리를 사용하는지 확인합니다.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-## Using a custom configuration file
+## 사용자 지정 구성 파일 사용
 
-Instead of passing additional information to the {% data variables.code-scanning.codeql_runner %} commands, you can specify custom settings in a separate configuration file.
+{% data variables.code-scanning.codeql_runner %} 명령에 추가 정보를 전달하는 대신 별도의 구성 파일에서 사용자 지정 설정을 지정할 수 있습니다.
 
-The configuration file is a YAML file. It uses syntax similar to the workflow syntax for {% data variables.product.prodname_actions %}, as illustrated in the examples below. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)." 
+구성 파일은 YAML 파일입니다. 아래 예제와 같이 {% data variables.product.prodname_actions %}의 워크플로 구문과 유사한 구문을 사용합니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에 대한 워크플로 구문](/actions/reference/workflow-syntax-for-github-actions)”을 참조하세요. 
 
-Use the `--config-file` flag of the `init` command to specify the configuration file. The value of <nobr>`--config-file`</nobr> is the path to the configuration file that you want to use. This example loads the configuration file _.github/codeql/codeql-config.yml_.
+`init` 명령의 `--config-file` 플래그를 사용하여 구성 파일을 지정합니다. <nobr>`--config-file`</nobr> 값은 사용하려는 구성 파일의 경로입니다. 이 예제에서는 구성 파일 _.github/codeql/codeql-config.yml_ 을 로드합니다.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
@@ -109,108 +111,108 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-### Example configuration files
+### 예제 구성 파일
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
+## 컴파일된 언어에 대해 {% data variables.product.prodname_code_scanning %} 구성
 
-For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, {% data variables.product.prodname_codeql %} builds the code before analyzing it. {% data reusables.code-scanning.analyze-go %}
+컴파일된 언어 C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} 및 Java의 경우 {% data variables.product.prodname_codeql %}는 분석하기 전에 코드를 빌드합니다. {% data reusables.code-scanning.analyze-go %}
 
-For many common build systems, the {% data variables.code-scanning.codeql_runner %} can build the code automatically. To attempt to build the code automatically, run `autobuild` between the `init` and `analyze` steps. Note that if your repository requires a specific version of a build tool, you may need to install the build tool manually first. 
+많은 일반적인 빌드 시스템의 경우 {% data variables.code-scanning.codeql_runner %}는 코드를 자동으로 빌드할 수 있습니다. 코드를 자동으로 빌드하려면 `init` 단계와 `analyze` 단계 사이에 `autobuild`를 실행합니다. 리포지토리에 특정 버전의 빌드 도구가 필요한 경우 먼저 빌드 도구를 수동으로 설치해야 할 수 있습니다. 
 
-The `autobuild` process only ever attempts to build _one_ compiled language for a repository. The language automatically selected for analysis is the language with the most files. If you want to choose a language explicitly, use the `--language` flag of the `autobuild` command.
+`autobuild` 프로세스는 리포지토리에 대해 컴파일된 언어를 하나만 빌드하려고 시도합니다. 분석을 위해 자동으로 선택된 언어는 파일이 가장 많은 언어입니다. 언어를 명시적으로 선택하려면 `autobuild` 명령의 `--language` 플래그를 사용합니다.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 
-If the `autobuild` command can't build your code, you can run the build steps yourself, between the `init` and `analyze` steps. For more information, see "[Running {% data variables.code-scanning.codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system#compiled-language-example)."
+`autobuild` 명령으로 코드를 빌드할 수 없는 경우 `init` 단계와 `analyze` 단계 사이에서 빌드 단계를 직접 실행할 수 있습니다. 자세한 내용은 "[CI 시스템에서 {% data variables.code-scanning.codeql_runner %} 실행"을 참조하세요](/code-security/secure-coding/running-codeql-runner-in-your-ci-system#compiled-language-example).
 
-## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_code_scanning %} 데이터를 {% data variables.product.prodname_dotcom %}에 업로드
 
-By default, the {% data variables.code-scanning.codeql_runner %} uploads results from {% data variables.product.prodname_code_scanning %} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
+기본적으로 {% data variables.code-scanning.codeql_runner %}는 명령을 실행할 `analyze` 때 {% data variables.product.prodname_code_scanning %}의 결과를 업로드합니다. `upload` 명령을 사용하여 SARIF 파일을 별도로 업로드할 수도 있습니다.
 
-Once you've uploaded the data, {% data variables.product.prodname_dotcom %} displays the alerts in your repository. 
-- If you uploaded to a pull request, for example `--ref refs/pull/42/merge` or `--ref refs/pull/42/head`, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
-- If you uploaded to a branch, for example `--ref refs/heads/my-branch`, then the results appear in the **Security** tab for your repository. For more information, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+데이터를 업로드하면 {% data variables.product.prodname_dotcom %}이(가) 리포지토리에 경고를 표시합니다. 
+- 끌어오기 요청에 업로드한 경우(예: `--ref refs/pull/42/merge` 또는 `--ref refs/pull/42/head`) 결과는 끌어오기 요청 검사에서 결과가 경고로 표시됩니다. 자세한 내용은 “[끌어오기 요청에서 코드 검사 경고 심사](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”를 참조하세요.
+- 분기에 업로드한 경우(예: `--ref refs/heads/my-branch`) 결과는 리포지토리의 **보안** 탭에 표시됩니다. 자세한 내용은 “[리포지토리에 대한 코드 검사 경고 관리](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)를 참조하세요.
 
-## {% data variables.code-scanning.codeql_runner %} command reference
+## {% data variables.code-scanning.codeql_runner %} 명령 참조
 
-The {% data variables.code-scanning.codeql_runner %} supports the following commands and flags.
+{% data variables.code-scanning.codeql_runner %}는 다음 명령과 플래그를 지원합니다.
 
 ### `init`
 
-Initializes the {% data variables.code-scanning.codeql_runner %} and creates a {% data variables.product.prodname_codeql %} database for each language to be analyzed.
+{% data variables.code-scanning.codeql_runner %}를 초기화하고 분석할 각 언어에 대한 {% data variables.product.prodname_codeql %} 데이터베이스를 만듭니다.
 
-| Flag | Required | Input value |
+| 플래그 | 필수 | 입력 값 |
 | ---- |:--------:| ----------- |
-| `--repository` | ✓ | Name of the repository to initialize. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| `--languages` | | Comma-separated list of languages to analyze. By default, the {% data variables.code-scanning.codeql_runner %} detects and analyzes all supported languages in the repository. |
-| `--queries` | | Comma-separated list of additional queries to run, in addition to the default suite of security queries. This overrides the `queries` setting in the custom configuration file. |
-| `--config-file` | | Path to custom configuration file. |
-| `--codeql-path` | | Path to a copy of the {% data variables.product.prodname_codeql %} CLI executable to use. By default, the {% data variables.code-scanning.codeql_runner %} downloads a copy. |
-| `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--tools-dir` | | Directory where {% data variables.product.prodname_codeql %} tools and other files are stored between runs. The default is a subdirectory of the home directory. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory. | 
-| `--debug` | | None. Prints more verbose output. |
-| <nobr>`--trace-process-name`</nobr> | | Advanced, Windows only. Name of the process where a Windows tracer of this process is injected. |
-| <nobr>`--trace-process-level`</nobr> | | Advanced, Windows only. Number of levels up of the parent process where a Windows tracer of this process is injected. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--repository` | ✓ | 초기화할 리포지토리의 이름입니다. |
+| `--github-url` | ✓ | 리포지토리가 호스트되는 {% data variables.product.prodname_dotcom %} 인스턴스의 URL입니다. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | 표준 입력에서 {% data variables.product.prodname_github_apps %} 토큰 또는 {% data variables.product.pat_generic %}를 읽습니다. |
+| `--languages` | | 분석할 언어의 쉼표로 구분된 목록입니다. 기본적으로 {% data variables.code-scanning.codeql_runner %}는 리포지토리에서 지원되는 모든 언어를 검색하고 분석합니다. |
+| `--queries` | | 기본 보안 쿼리 제품군 외에도 실행할 추가 쿼리의 쉼표로 구분된 목록입니다. 그러면 사용자 지정 구성 파일의 `queries` 설정이 재정의됩니다. |
+| `--config-file` | | 사용자 지정 구성 파일의 경로입니다. |
+| `--codeql-path` | | 사용할 {% data variables.product.prodname_codeql %} CLI 실행 파일의 복사본 경로입니다. 기본적으로 {% data variables.code-scanning.codeql_runner %}는 복사본을 다운로드합니다. |
+| `--temp-dir` | | 임시 파일이 저장되는 디렉터리입니다. 기본값은 `./codeql-runner`입니다. |
+| `--tools-dir` | | {% data variables.product.prodname_codeql %} 도구 및 기타 파일이 실행 사이에 저장되는 디렉터리입니다. 기본값은 홈 디렉터리의 하위 디렉터리입니다. |
+| <nobr>`--checkout-path`</nobr> | | 리포지토리의 체크 아웃 경로입니다. 기본값은 현재 작업 디렉터리입니다. | 
+| `--debug` | | 없음 자세한 출력을 인쇄합니다. |
+| <nobr>`--trace-process-name`</nobr> | | 고급, Windows만 해당됩니다. 이 프로세스의 Windows 추적기가 삽입되는 프로세스의 이름입니다. |
+| <nobr>`--trace-process-level`</nobr> | | 고급, Windows만 해당됩니다. 이 프로세스의 Windows 추적기가 삽입되는 부모 프로세스의 수준 수입니다. |
+| `-h`, `--help` | | 없음 명령에 대한 도움말을 표시합니다. |
 
 ### `autobuild`
 
-Attempts to build the code for the compiled languages C/C++, C#, and Java. For those languages, {% data variables.product.prodname_codeql %} builds the code before analyzing it. Run `autobuild` between the `init` and `analyze` steps.
+컴파일된 언어 C/C++, C#, Java에 대한 코드를 빌드하려고 시도합니다. 해당 언어의 경우 {% data variables.product.prodname_codeql %}은(는) 코드를 분석하기 전에 작성합니다. `init` 및 `analyze` 단계 사이에 `autobuild`를 실행합니다.
 
-| Flag | Required | Input value |
+| 플래그 | 필수 | 입력 값 |
 | ---- |:--------:| ----------- |
-| `--language` | | The language to build. By default, the {% data variables.code-scanning.codeql_runner %} builds the compiled language with the most files. |
-| <nobr>`--temp-dir`</nobr> | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--debug` | | None. Prints more verbose output. |
-| <nobr> `-h`, `--help`</nobr> | | None. Displays help for the command. |
+| `--language` | | 빌드할 언어입니다. 기본적으로 {% data variables.code-scanning.codeql_runner %}는 대부분의 파일을 사용하여 컴파일된 언어를 빌드합니다. |
+| <nobr>`--temp-dir`</nobr> | | 임시 파일이 저장되는 디렉터리입니다. 기본값은 `./codeql-runner`입니다. |
+| `--debug` | | 없음 자세한 출력을 인쇄합니다. |
+| <nobr> `-h`, `--help`</nobr> | | 없음 명령에 대한 도움말을 표시합니다. |
 
 ### `analyze`
 
-Analyzes the code in the {% data variables.product.prodname_codeql %} databases and uploads results to {% data variables.product.product_name %}.
+{% data variables.product.prodname_codeql %} 데이터베이스의 코드를 분석하고 결과를 {% data variables.product.product_name %}에 업로드합니다.
 
-| Flag | Required | Input value |
+| 플래그 | 필수 | 입력 값 |
 | ---- |:--------:| ----------- |
-| `--repository` | ✓ | Name of the repository to analyze. |
-| `--commit` | ✓ | SHA of the commit to analyze. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
-| `--ref` | ✓ | Name of the reference to analyze, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
-| `--no-upload` | | None. Stops the {% data variables.code-scanning.codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
-| `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
-| `--ram` | | Amount of memory to use when running queries. The default is to use all available memory. |
-| <nobr>`--no-add-snippets`</nobr> | | None. Excludes code snippets from the SARIF output. |
-| <nobr>`--category`<nobr> | | Category to include in the SARIF results file for this analysis. A category can be used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. This value will appear in the `<run>.automationDetails.id` property in SARIF v2.1.0. |
-| `--threads` | | Number of threads to use when running queries. The default is to use all available cores. |
-| `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
-| `--debug` | | None. Prints more verbose output. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--repository` | ✓ | 분석할 리포지토리의 이름입니다. |
+| `--commit` | ✓ | 분석할 커밋의 SHA입니다. Git 및 Azure DevOps에서 이는 `git rev-parse HEAD` 값에 해당합니다. Jenkins에서 이는 `$GIT_COMMIT`에 해당합니다. |
+| `--ref` | ✓ | 분석할 참조의 이름입니다(예: `refs/heads/main` 또는 `refs/pull/42/merge`). Git 또는 Jenkins에서 이는 `git symbolic-ref HEAD` 값에 해당합니다. Azure DevOps에서 이 값은 `$(Build.SourceBranch)`에 해당합니다. |
+| `--github-url` | ✓ | 리포지토리가 호스트되는 {% data variables.product.prodname_dotcom %} 인스턴스의 URL입니다. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | 표준 입력에서 {% data variables.product.prodname_github_apps %} 토큰 또는 {% data variables.product.pat_generic %}을(를) 읽습니다. |
+| <nobr>`--checkout-path`</nobr> | | 리포지토리의 체크 아웃 경로입니다. 기본값은 현재 작업 디렉터리입니다.  |
+| `--no-upload` | | 없음 {% data variables.code-scanning.codeql_runner %}에서 {% data variables.product.product_name %}에 결과를 업로드하는 것을 중지합니다. |
+| `--output-dir` | | 출력 SARIF 파일이 저장되는 디렉터리입니다. 기본값은 임시 파일의 디렉터리에 있습니다. |
+| `--ram` | | 쿼리를 실행할 때 사용할 메모리 양입니다. 기본값은 사용 가능한 모든 메모리를 사용하는 것입니다. |
+| <nobr>`--no-add-snippets`</nobr> | | 없음 SARIF 출력에서 코드 조각을 제외합니다. |
+| <nobr>`--category`<nobr> | | 이 분석을 위해 SARIF 결과 파일에 포함할 범주입니다. 범주는 다양한 언어 또는 다양한 코드 부분에서 수행되지만 동일한 도구와 커밋을 대상으로 하는 여러 분석을 구분하는 데 사용할 수 있습니다. 이 값은 SARIF v2.1.0의 `<run>.automationDetails.id` 속성에 표시됩니다. |
+| `--threads` | | 쿼리를 실행할 때 사용할 스레드 수입니다. 기본값은 사용 가능한 모든 코어를 사용하는 것입니다. |
+| `--temp-dir` | | 임시 파일이 저장되는 디렉터리입니다. 기본값은 `./codeql-runner`입니다. |
+| `--debug` | | 없음 자세한 출력을 인쇄합니다. |
+| `-h`, `--help` | | 없음 명령에 대한 도움말을 표시합니다. |
 
 ### `upload`
 
-Uploads SARIF files to {% data variables.product.product_name %}.
+{% data variables.product.product_name %}에 SARIF 파일을 업로드합니다.
 
 {% note %}
 
-**Note**: If you analyze code with the CodeQL runner, the `analyze` command uploads SARIF results by default. You can use the `upload` command to upload SARIF results that were generated by other tools.
+**참고**: CodeQL 실행기를 사용하여 코드를 분석하는 경우 `analyze` 명령은 기본적으로 SARIF 결과를 업로드합니다. `upload` 명령을 사용하여 다른 도구에서 생성된 SARIF 결과를 업로드할 수 있습니다.
 
 {% endnote %}
 
-| Flag | Required | Input value |
+| 플래그 | 필수 | 입력 값 |
 | ---- |:--------:| ----------- |
-| `--sarif-file` | ✓ | SARIF file to upload, or a directory containing multiple SARIF files. |
-| `--repository` | ✓ | Name of the repository that was analyzed. |
-| `--commit` | ✓ | SHA of the commit that was analyzed. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
-| `--ref` | ✓ | Name of the reference that was analyzed, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} from standard input. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
-| `--debug` | | None. Prints more verbose output. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| `--sarif-file` | ✓ | 업로드할 SARIF 파일 또는 여러 SARIF 파일이 포함된 디렉터리입니다. |
+| `--repository` | ✓ | 분석된 리포지토리의 이름입니다. |
+| `--commit` | ✓ | 분석된 커밋의 SHA입니다. Git 및 Azure DevOps에서 이는 `git rev-parse HEAD` 값에 해당합니다. Jenkins에서 이는 `$GIT_COMMIT`에 해당합니다. |
+| `--ref` | ✓ | 분석된 참조의 이름입니다(예: `refs/heads/main` 또는 `refs/pull/42/merge`). Git 또는 Jenkins에서 이는 `git symbolic-ref HEAD` 값에 해당합니다. Azure DevOps에서 이 값은 `$(Build.SourceBranch)`에 해당합니다. |
+| `--github-url` | ✓ | 리포지토리가 호스트되는 {% data variables.product.prodname_dotcom %} 인스턴스의 URL입니다. |
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | 표준 입력에서 {% data variables.product.prodname_github_apps %} 토큰 또는 {% data variables.product.pat_generic %}을(를) 읽습니다. |
+| <nobr>`--checkout-path`</nobr> | | 리포지토리의 체크 아웃 경로입니다. 기본값은 현재 작업 디렉터리입니다.  |
+| `--debug` | | 없음 자세한 출력을 인쇄합니다. |
+| `-h`, `--help` | | 없음 명령에 대한 도움말을 표시합니다. |

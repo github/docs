@@ -4,12 +4,12 @@ shortTitle: API Versions
 intro: REST API를 요청할 때마다 사용할 REST API 버전을 지정해야 합니다.
 versions:
   feature: api-date-versioning
-ms.openlocfilehash: c1209120fab4c4cc26962991ad48b76638627db5
-ms.sourcegitcommit: d2f0b59ed096b9e68ef8f6fa019cd925165762ec
+ms.openlocfilehash: 6689d8c342930a44c7d243c3872cdc431007eb1c
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2022
-ms.locfileid: '148184402'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192867'
 ---
 ## API 버전 관리 정보
 
@@ -51,4 +51,4 @@ $ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 
 {% for apiVersion in allVersions[currentVersion].apiVersions %} {{ apiVersion }} {% endfor %}
 
-API 요청에서 지원되는 모든 API 버전을 가져올 수도 있습니다. 자세한 내용은 "[모든 API 버전 가져오기](/rest/meta#get-all-api-versions)"를 참조하세요.
+API 요청을 만들어 지원되는 모든 API 버전을 가져올 수도 있습니다. 자세한 내용은 "[모든 API 버전 가져오기](/rest/meta#get-all-api-versions)"를 참조하세요.

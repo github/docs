@@ -1,6 +1,6 @@
 ---
-title: Viewing the security overview
-intro: Navigate to the different views available in the security overview
+title: Ver el resumen de seguridad
+intro: Navegar a las diversas vistas disponibles en el resumen de seguridad
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 allowTitleToDifferFromFilename: true
@@ -16,57 +16,45 @@ topics:
   - Organizations
   - Teams
 shortTitle: View the security overview
+ms.openlocfilehash: bc802d290406bb4e480050ee21bb7a4687475d97
+ms.sourcegitcommit: 094dff459fcbf7d0634930e02405606dfffd7f0a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2022
+ms.locfileid: '148163223'
 ---
-
-{% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
+{% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 
 {% data reusables.security-overview.information-varies-GHAS %}
 
-## Viewing the security overview for an organization
+## Visualizar el resumen de seguridad de una organización
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
-{% ifversion security-overview-org-risk-coverage %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. Choose the overview you want to display from the options in the sidebar.
-1. Use the drop-down filters and search box to focus on the information of greatest interest. The "Security Risk" and "Security Coverage" views also have an interactive header that you can use to filter results.
+{% ifversion security-overview-org-risk-coverage %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.security-overview %}
+1. Elige la información general que deseas mostrar en las opciones de la barra lateral.
+1. Usa los filtros desplegables y el cuadro de búsqueda para centrarte en la información de mayor interés. Las vistas "Riesgo de seguridad" y "Cobertura de seguridad" también tienen un encabezado interactivo que puedes usar para filtrar los resultados.
 
-  ![Screenshot of the Security Risk view with interactive header highlighted](/assets/images/help/security-overview/security-risk-interactive-header.png)
+  ![Captura de pantalla de la vista Riesgo de seguridad con el encabezado interactivo resaltado](/assets/images/help/security-overview/security-risk-interactive-header.png)
 
 {% else %}
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. To view aggregate information about alert types, click **Show more**.
-  ![Show more button](/assets/images/help/security-overview/security-overview-show-more-button.png)
-{% data reusables.organizations.filter-security-overview %}
-{% ifversion security-overview-alert-views %}
-{% data reusables.organizations.security-overview-feature-specific-page %}
-  ![Screenshot of the code scanning-specific page](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png)
-{% endif %}
+{% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.security-overview %}
+1. Para ver información agregada sobre los tipos de alerta, haga clic en **Show more**.
+  ![Botón Mostrar más](/assets/images/help/security-overview/security-overview-show-more-button.png) {% data reusables.organizations.filter-security-overview %} {% ifversion security-overview-alert-views %} {% data reusables.organizations.security-overview-feature-specific-page %} ![Captura de pantalla de la página específica del examen de código](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png) {% endif %}
 
 {% endif %}
 
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
-## Viewing the security overview for an enterprise
+## Ver el resumen de seguridad de una empresa
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
-{% ifversion security-overview-feature-specific-alert-page %}
-{% data reusables.organizations.security-overview-feature-specific-page %}
-{% endif %}
+1. En la barra lateral izquierda, haga clic en {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
+{% ifversion security-overview-feature-specific-alert-page %} {% data reusables.organizations.security-overview-feature-specific-page %} {% endif %}
 
 {% endif %}
 
 {% ifversion ghes < 3.7 or ghae < 3.7 %}
-## Viewing the security overview for a team
+## Visualizar el resumen de seguridad de un equipo
 
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-security-overview %}
-{% data reusables.organizations.filter-security-overview %}
-{% endif %}
+{% data reusables.profile.access_org %} {% data reusables.user-settings.access_org %} {% data reusables.organizations.specific_team %} {% data reusables.organizations.team-security-overview %} {% data reusables.organizations.filter-security-overview %} {% endif %}

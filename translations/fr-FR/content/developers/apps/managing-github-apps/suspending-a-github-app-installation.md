@@ -1,5 +1,5 @@
 ---
-title: Suspending a GitHub App installation
+title: Suspension de l’installation d’une application GitHub
 intro: '{% data reusables.shortdesc.suspending_a_github_app %}'
 redirect_from:
   - /apps/managing-github-apps/suspending-a-github-app-installation
@@ -12,20 +12,23 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Suspend app installation
+ms.openlocfilehash: c87d1a82b2ccc18284ddc9ec3b28de5e1342b3cb
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145086407'
 ---
-## Suspending a GitHub App
+## Suspension d’une application GitHub
 
-The integrator who owns and maintains a GitHub app, also called a GitHub App owner, can suspend or unsuspend a GitHub App installation using REST API endpoints with a JWT. For more information, see the [GitHub Apps REST API](/rest/reference/apps).
+L’intégrateur qui possède et gère une application GitHub, également désigné sous le nom de propriétaire de l’application GitHub, peut suspendre ou annuler la suspension de l’installation d’une application GitHub à l’aide de points de terminaison d’API REST avec un JWT. Pour plus d’informations, consultez [API REST des applications GitHub](/rest/reference/apps).
 
-People who have installed a GitHub App, also called installation owners, can only suspend or unsuspend a GitHub App through their app's installation settings. Installation owners cannot use the API to suspend or unsuspend their app installation.
+Les personnes qui ont installé une application GitHub, également appelées propriétaires de l’installation, ne peuvent suspendre ou annuler la suspension de l’application GitHub que par le biais des paramètres d’installation de cette application. Un propriétaire d’installation ne peut pas utiliser l’API pour suspendre ou annuler la suspension de l’installation de leur application.
 
-If an installation has been suspended by the {% data variables.product.prodname_github_app %} owner, installation owners cannot unsuspend their installations of the {% data variables.product.prodname_github_app %}. However, installation owners can change other settings, such as repository selection, while the app is suspended.
+Si une installation a été suspendue par le propriétaire de l’{% data variables.product.prodname_github_app %}, les propriétaires d’installations ne peuvent pas annuler la suspension de leurs installations de l’{% data variables.product.prodname_github_app %}. En revanche, les propriétaires d’installations peuvent modifier d’autres paramètres, comme la sélection du référentiel, pendant que l’application est suspendue.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-1. Select the {% data variables.product.prodname_github_app %} you want to suspend.
-![App selection](/assets/images/github-apps/github_apps_select-app.png)
-{% data reusables.user-settings.github_apps_advanced %}
-6. Next to the suspension settings for the installation, click **Suspend** or **Unsuspend**.
-![Suspend a GitHub App](/assets/images/github-apps/suspend-a-github-app.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.github_apps %}
+1. Sélectionnez l’{% data variables.product.prodname_github_app %} à suspendre.
+![Sélection de l’application](/assets/images/github-apps/github_apps_select-app.png) {% data reusables.user-settings.github_apps_advanced %}
+6. En regard des paramètres de suspension de l’installation, cliquez sur **Suspendre** ou **Annuler la suspension**.
+![Suspendre une application GitHub](/assets/images/github-apps/suspend-a-github-app.png)

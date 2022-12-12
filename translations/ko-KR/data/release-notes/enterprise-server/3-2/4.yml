@@ -1,0 +1,30 @@
+date: '2021-11-23'
+intro: 여러 고객에게 영향을 주는 주요 버그로 인해 다운로드가 사용하지 않도록 설정되었습니다. 다음 패치에서 수정을 사용할 수 있습니다.
+sections:
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - GitHub Actions가 사용하도록 설정되었을 때 `ghe-repl-start` 또는 `ghe-repl-status`를 실행하면 데이터베이스 연결 오류가 반환될 수 있습니다.
+    - 정의되지 않은 `PATH`로 인해 사전 수신 후크에 실패합니다.
+    - '이전에 인스턴스가 복제본으로 구성된 경우 `ghe-repl-setup`을 실행하면 `/data/user/elasticsearch 디렉터리를 만들 수 없음: 파일이 있음`이라는 오류가 반환됩니다.'
+    - '`ghe-support-bundle`을 실행하면 `정수 식이 예상됨` 오류가 반환되었습니다.'
+    - '고가용성 복제본을 설정한 후 `ghe-repl-status`의 출력에 `명령에서 작업이 예기치 않게 종료되지 않음`이라는 오류가 포함되었습니다.'
+    - 대규모 클러스터 환경의 프런트 엔드 노드 하위 집합에서 인증 백 엔드를 사용할 수 없습니다.
+    - GHES 클러스터의 백 엔드 노드에서 일부 중요 서비스를 사용하지 못할 수 있습니다.
+    - "`/repos` API에서 반환된 사용자의 리포지토리 권한이 전체 목록을 반환하지 않습니다."
+    - GraphQL 스키마의 `Team` 개체에 있는 `childTeams` 연결이 일부 상황에서 잘못된 결과를 생성했습니다.
+    - 고가용성 구성에서는 리포지토리 유지 관리가 성공하더라도 stafftools에서 항상 실패한 것으로 표시됩니다.
+    - 사용자 정의 패턴은 `package.json` 또는 `yarn.lock`과 같은 파일에서 비밀을 검색하지 않습니다.
+  changes:
+    - "`ghe-cluster-suport-bundle`을 사용하여 클러스터 지원 번들을 만들 때 이제 `gzip` 압축의 추가 외부 레이어가 기본으로 꺼집니다. 이 외부 압축은 `ghe-cluster-suport-bundle -c` 명령줄 옵션을 통해 필요에 따라 적용할 수 있습니다."
+    - 환경 개선 목적으로 사용자에게 모바일 앱의 데이터 수집에 대해 알리기 위해 관리 콘솔에 텍스트를 추가했습니다.
+    - "{% data variables.product.prodname_github_connect %} 데이터 연결 레코드에 이제 사용하도록 설정된 {% data variables.product.prodname_github_connect %} 기능 목록이 포함됩니다. [2021-12-09 업데이트됨]"
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

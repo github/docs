@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Pages
-intro: 'You can use {% data variables.product.prodname_pages %} to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.'
+title: Schnellstartanleitung für GitHub Pages
+intro: 'Du kannst mit {% data variables.product.prodname_pages %} einige Open-Source-Projekte vorstellen, einen Blog hosten oder sogar deinen Lebenslauf freigeben. Dieser Leitfaden hilft dir bei der Erstellung deiner nächsten Website.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,36 +12,39 @@ topics:
   - Pages
 shortTitle: Quickstart
 product: '{% data reusables.gated-features.pages %}'
+ms.openlocfilehash: d82ba5899bb3b98efbd5b69672472ef0d39e2353
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147643861'
 ---
+## Einführung
 
-## Introduction
+{% data variables.product.prodname_pages %} sind über {% data variables.product.product_name %} gehostete und veröffentlichte öffentliche Webseiten. Am schnellsten geht es, wenn du den Jekyll Theme Chooser benutzt, um ein vorgefertigtes Design zu laden. Anschließend kannst du deinen {% data variables.product.prodname_pages %}-Inhalt und das Format ändern.
 
-{% data variables.product.prodname_pages %} are public webpages hosted and published through {% data variables.product.product_name %}. The quickest way to get up and running is by using the Jekyll Theme Chooser to load a pre-made theme. You can then modify your {% data variables.product.prodname_pages %}' content and style.
+Dieser Leitfaden führt dich durch das Erstellen einer Benutzerwebsite unter `username.github.io`.
 
-This guide will lead you through creating a user site at `username.github.io`.
-
-## Creating your website
+## Erstellen deiner Website
 
 {% data reusables.repositories.create_new %}
-1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`.
-   ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+1. Gib `username.github.io` als Repositorynamen ein. Ersetze `username` durch deinen {% data variables.product.prodname_dotcom %}-Benutzernamen. Wenn dein Benutzername beispielsweise `octocat` lautet, sollte der Repositoryname `octocat.github.io` sein.
+   ![Repositorynamensfeld](/assets/images/help/pages/create-repository-name-pages.png) {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+1. Wähle unter „Erstellen und Bereitstellen“ unter „Quelle“ die Option **Aus einem Branch bereitstellen** aus.
+1. Wähle unter „Erstellen und Bereitstellen“ unter „Branch“ im Dropdownmenü **Keine** oder **Branch** eine Veröffentlichungsquelle aus.
 
-   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-1. Optionally, open the `README.md` file of your repository. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-1. Visit `username.github.io` to view your new website. **Note:** It can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
+   ![Dropdownmenü zum Auswählen einer Veröffentlichungsquelle](/assets/images/help/pages/publishing-source-drop-down.png)
+1. Öffne optional die Datei `README.md` deines Repositorys. In die `README.md`-Datei schreibst du den Inhalt deiner Website. Du kannst die Datei bearbeiten oder den Standardinhalt vorerst beibehalten.
+1. Besuche auf `username.github.io` deine neue Website. **Hinweis**: Nach dem Pushen der Änderung an {% data variables.product.product_name %} kann es bis zu 10 Minuten dauern, bis die Änderungen an deiner Website veröffentlicht werden.
 
-## Changing the title and description
+## Ändern des Titels und der Beschreibung
 
-By default, the title of your site is `username.github.io`. You can change the title by editing the `_config.yml` file in your repository. You can also add a description for your site.
+Standardmäßig lautet der Titel deiner Website `username.github.io`. Du kannst den Titel ändern, indem du die `_config.yml`-Datei in deinem Repository bearbeitest. Du kannst auch eine Beschreibung für deine Website hinzufügen.
 
-1. Click the **Code** tab of your repository.
-1. In the file list, click `_config.yml` to open the file.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-1. The `_config.yml` file already contains a line that specifies the theme for your site. Add a new line with `title:` followed by the title you want. Add a new line with `description:` followed by the description you want. For example:
+1. Klicke auf die Registerkarte **Code** deines Repositorys.
+1. Klicke in der Dateiliste auf `_config.yml`, um die Datei zu öffnen.
+1. Klicke auf {% octicon "pencil" aria-label="The edit icon" %}, um die Datei zu bearbeiten.
+1. Die `_config.yml`-Datei enthält bereits eine Zeile, die das Design für deine Website angibt. Füge eine neue Zeile mit `title:` gefolgt von dem gewünschten Titel hinzu. Füge eine neue Zeile mit `description:` gefolgt von der gewünschten Beschreibung hinzu. Beispiel:
 
    ```yaml
    theme: jekyll-theme-minimal
@@ -49,10 +52,10 @@ By default, the title of your site is `username.github.io`. You can change the t
    description: Bookmark this to keep an eye on my project updates!
    ```
 
-1. When you are done editing the file, click **Commit changes**.
+1. Wenn du mit der Bearbeitung der Datei fertig bist, klicke auf **Änderungen committen**.
 
-## Next Steps
+## Nächste Schritte
 
-For more information about how to add additional pages to your site, see "[Adding content to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)."
+Weitere Informationen zum Hinzufügen zusätzlicher Seiten zu deiner Website findest du unter [Hinzufügen von Inhalten zu deiner GitHub Pages-Website mit Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites).
 
-For more information about setting up a {% data variables.product.prodname_pages %} site with Jekyll, see "[About GitHub Pages and Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)."
+Weitere Informationen zum Einrichten einer {% data variables.product.prodname_pages %}-Website mit Jekyll findest du unter [Informationen zu GitHub Pages und Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll).

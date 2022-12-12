@@ -1,7 +1,7 @@
 ---
-title: Displaying verification statuses for all of your commits
+title: Anzeigen von Überprüfungsstatus für alle deine Commits
 shortTitle: Displaying verification for all commits
-intro: You can enable vigilant mode for commit signature verification to mark all of your commits and tags with a signature verification status.
+intro: 'Du kannst den wachsamen Modus für die Überprüfung der Commitsignatur aktivieren, um alle deine Commits und Tags mit einem Signaturüberprüfungsstatus zu kennzeichnen.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,30 +12,34 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits
+ms.openlocfilehash: ce306b1275b2da8d7ad985ed0c696659798723c0
+ms.sourcegitcommit: 478f2931167988096ae6478a257f492ecaa11794
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/09/2022
+ms.locfileid: '147653346'
 ---
-
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-## About vigilant mode
+## Informationen zum wachsamen Modus
 
-When you work locally on your computer, Git allows you to set the author of your changes and the identity of the committer. This, potentially, makes it difficult for other people to be confident that commits and tags you create were actually created by you. To help solve this problem you can sign your commits and tags. For more information, see "[Signing commits](/github/authenticating-to-github/signing-commits)" and "[Signing tags](/github/authenticating-to-github/signing-tags)." {% data variables.product.prodname_dotcom %} marks signed commits and tags with a verification status. 
+Wenn du lokal auf deinem Computer arbeitest, kannst du mit Git den Autor deiner Änderungen und die Identität des Committers festlegen. Dies macht es möglicherweise anderen Personen schwierig, sicher sein zu können, dass Commits und Tags, die du erstellst, tatsächlich von dir erstellt wurden. Um dabei zu helfen, dieses Problem zu beheben, kannst du deine Commits und Tags signieren. Weitere Informationen findest du unter [Signieren von Commits](/github/authenticating-to-github/signing-commits) und [Signatur-Tags](/github/authenticating-to-github/signing-tags). {% data variables.product.prodname_dotcom %} markiert signierte Commits und Tags mit einem Überprüfungsstatus. 
 
-By default commits and tags are marked "Verified" if they are signed with a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME key that was successfully verified. If a commit or tag has a signature that can't be verified by {% data variables.product.prodname_dotcom %}, we mark the commit or tag "Unverified." In all other cases no verification status is displayed.
+Standardmäßig werden Commits und Tags als „Überprüft“ markiert, wenn sie mit einem GPG-{% ifversion ssh-commit-verification %}, SSH-{% endif %} oder S/MIME-Schlüssel signiert sind, der erfolgreich überprüft wurde. Wenn ein Commit oder Tag eine Signatur aufweist, die nicht überprüft werden kann {% data variables.product.prodname_dotcom %}, wird der Commit oder Tag als „Nicht überprüft“ gekennzeichnet. In allen anderen Fällen wird kein Überprüfungsstatus angezeigt.
 
-However, you can give other users increased confidence in the identity attributed to your commits and tags by enabling vigilant mode in your {% data variables.product.prodname_dotcom %} settings. With vigilant mode enabled, all of your commits and tags are marked with one of three verification statuses.
+Du kannst anderen Benutzern jedoch erhöhtes Vertrauen in die Identität geben, die deinen Commits und Tags zugeordnet ist, indem du den wachsamen Modus in deinen {% data variables.product.prodname_dotcom %}-Einstellungen aktivierst. Wenn der wachsame Modus aktiviert ist, werden alle deine Commits und Tags mit einem von drei Überprüfungsstatus gekennzeichnet.
 
-![Signature verification statuses](/assets/images/help/commits/signature-verification-statuses.png)
+![Überprüfungsstatus der Signatur](/assets/images/help/commits/signature-verification-statuses.png)
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
-You should only enable vigilant mode if you sign all of your commits and tags and use an email address that is verified for your account on {% data variables.product.product_name %} as your committer email address. After enabling this mode, any unsigned commits or tags that you generate locally and push to {% data variables.product.prodname_dotcom %} will be marked "Unverified."
+Du solltest nur den wachsamen Modus aktivieren, wenn du alle Commits und Tags signierst und eine E-Mail-Adresse verwendest, die für dein Konto auf {% data variables.product.product_name %} als Committer-E-Mail-Adresse überprüft wird. Nachdem du diesen Modus aktiviert hast, werden alle nicht signierten Commits oder Tags, die du lokal generiert und an {% data variables.product.prodname_dotcom %} übergeben hast, als „Nicht überprüft" markiert.
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-## Enabling vigilant mode
+## Aktivieren des wachsamen Modus
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.ssh %}
-3. On the SSH Settings page, under "Vigilant mode," select **Flag unsigned commits as unverified**.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.ssh %}
+3. Wähle auf der Seite „SSH-Einstellungen“ unter „Wachsamer Modus“ **Nicht signierte Commits als nicht bestätigt kennzeichnen** aus.
 
-   ![Flag unsigned commits as unverified checkbox](/assets/images/help/commits/vigilant-mode-checkbox.png)
+   ![Kontrollkästchen: Nicht signierte Commits als nicht bestätigt kennzeichnen](/assets/images/help/commits/vigilant-mode-checkbox.png)
