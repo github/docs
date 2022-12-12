@@ -33,9 +33,10 @@ program
   )
   .option('-d --include-deprecated', 'Includes schemas that are marked as `deprecated: true`')
   .option('-u --include-unpublished', 'Includes schemas that are marked as `published: false`')
+  .option('-n --next', 'Generate the next OpenAPI calendar-date version.')
   .parse(process.argv)
 
-const { decorateOnly, versions, includeUnpublished, includeDeprecated } = program.opts()
+const { decorateOnly, versions, includeUnpublished, includeDeprecated, next } = program.opts()
 const versionsArray = versions ? versions.split(' ') : []
 
 await validateInputParameters()
@@ -82,16 +83,10 @@ async function getBundledFiles(schemas) {
   )
   // Format the command supplied to the bundle script in `github/github`
   const bundlerOptions = await getBundlerOptions()
-
+  const bundleCommand = `bundle -v -w${next ? ' -n' : ''} -o ${TEMP_DOCS_DIR} ${bundlerOptions}`
   try {
-    console.log(`bundle -v -w -o ${TEMP_DOCS_DIR} ${bundlerOptions}`)
-    execSync(
-      `${path.join(
-        GITHUB_REP_DIR,
-        'bin/openapi'
-      )} bundle -v -w -o ${TEMP_DOCS_DIR} ${bundlerOptions}`,
-      { stdio: 'inherit' }
-    )
+    console.log(bundleCommand)
+    execSync(`${path.join(GITHUB_REP_DIR, 'bin/openapi')} ${bundleCommand}`, { stdio: 'inherit' })
   } catch (error) {
     console.error(error)
     const errorMsg =
