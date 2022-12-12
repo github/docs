@@ -1,6 +1,6 @@
 ---
-title: Audit log events for your enterprise
-intro: Learn about audit log events recorded for your enterprise.
+title: 企业的审核日志事件
+intro: 了解为企业记录的审核日志事件。
 shortTitle: Audit log events
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can interact with the audit log.'
 miniTocMaxHeadingLevel: 4
@@ -20,1478 +20,1343 @@ topics:
   - Enterprise
   - Logging
   - Security
+ms.openlocfilehash: 5a936791aff8706cd04773bb0f7428cd11f29329
+ms.sourcegitcommit: 7a74d5796695bb21c30e4031679253cbc16ceaea
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/28/2022
+ms.locfileid: '148183946'
 ---
-
 {% ifversion ghec%}
-## About audit log events for your enterprise
+## 关于企业的审核日志事件
 
-The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
+企业审核日志中显示的事件范围取决于企业是否使用 {% data variables.product.prodname_emus %}。 有关 {% data variables.product.prodname_emus %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)”。
 
-- If your enterprise does not use {% data variables.product.prodname_emus %}, the audit log only includes events related to the enterprise account and the organizations within the enterprise account, which are listed in this article.
-- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.enterprise.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %} and actions they take within their user account. For a list of these user account events, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
+- 如果企业不使用 {% data variables.product.prodname_emus %}，那么审核日志仅包含与企业帐户和企业帐户中的组织相关的事件，本文中列出了这些事件。
+- 如果企业使用 {% data variables.product.prodname_emus %}，则审核日志还包括 {% data variables.enterprise.prodname_managed_users %} 的用户事件，例如用户每次登录到 {% data variables.product.product_name %} 时以及用户在其用户帐户中采取的操作。 有关这些用户帐户事件的列表，请参阅“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)”。
 {% endif %}
 
 {%- ifversion fpt or ghec %}
-## `account` category actions
+## `account` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `account.billing_plan_change` | An organization's billing cycle changed. For more information, see "[Changing the duration of your billing cycle](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
-| `account.plan_change` | An organization's subscription changed. For more information, see "[About billing for GitHub accounts](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)."
-| `account.pending_plan_change` | An organization owner or billing manager canceled or downgraded a paid subscription. For more information, see "[How does upgrading or downgrading affect the billing process?](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
-| `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[About billing for GitHub Marketplace](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)."
+| `account.billing_plan_change` | 更改了组织的计费周期。 有关详细信息，请参阅“[更改计费周期的持续时间](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)”。
+| `account.plan_change` | 更改了组织的订阅。 有关详细信息，请参阅“[关于 GitHub 帐户的计费](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)”。
+| `account.pending_plan_change` | 取消或降级了组织所有者或计费管理员的付费订阅。 有关详细信息，请参阅“[升级或降级如何影响计费流程？](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)”。
+| `account.pending_subscription_change` | {% data variables.product.prodname_marketplace %} 免费试用已开始或已过期。 有关详细信息，请参阅“[关于 GitHub 市场的计费](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)”。
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-## `advisory_credit` category actions
+## `advisory_credit` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `advisory_credit.accept` | Someone accepted credit for a security advisory. For more information, see "[Editing a security advisory](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
-| `advisory_credit.create` | The administrator of a security advisory added someone to the credit section.
-| `advisory_credit.decline` | Someone declined credit for a security advisory.
-| `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.
+| `advisory_credit.accept` | 有人接受了安全公告的额度。 有关详细信息，请参阅“[编辑安全通告](/github/managing-security-vulnerabilities/editing-a-security-advisory)”。
+| `advisory_credit.create` | 安全公告的管理员将某人添加到了额度部分。
+| `advisory_credit.decline` | 有人拒绝了安全公告的额度。
+| `advisory_credit.destroy` | 安全公告的管理员已将某人从额度部分删除。
 {%- endif %}
 
-## `artifact` category actions
+## `artifact` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `artifact.destroy`    | A workflow run artifact was manually deleted.
+| `artifact.destroy`    | 已手动删除工作流运行工件。
 
 {%- ifversion audit-log-streaming %}
-## `audit_log_streaming` category actions
+## `audit_log_streaming` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `audit_log_streaming.check` | A manual check was performed of the endpoint configured for audit log streaming.
-| `audit_log_streaming.create` | An endpoint was added for audit log streaming.
-| `audit_log_streaming.update` | An endpoint configuration was updated for audit log streaming, such as the stream was paused, enabled, or disabled.
-| `audit_log_streaming.destroy` | An audit log streaming endpoint was deleted.
+| `audit_log_streaming.check` | 已对为审核日志流式处理配置的终结点执行手动检查。
+| `audit_log_streaming.create` | 已添加用于审核日志流式处理的终结点。
+| `audit_log_streaming.update` | 审核日志流式处理的终结点配置已更新，例如暂停、启用或禁用流。
+| `audit_log_streaming.destroy` | 审核日志流式处理终结点已被删除。
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-## `billing` category actions
+## `billing` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `billing.change_billing_type` | An organization changed how it paid for {% data variables.product.prodname_dotcom %}. For more information, see "[Adding or editing a payment method](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)."
-| `billing.change_email` | An organization's billing email address changed. For more information, see "[Setting your billing email](/billing/managing-your-github-billing-settings/setting-your-billing-email)."
+| `billing.change_billing_type` | 组织更改了 {% data variables.product.prodname_dotcom %} 的付费方式。 有关详细信息，请参阅“[添加或编辑付款方式](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)”。
+| `billing.change_email` | 更改了组织的计费电子邮件地址。 有关详细信息，请参阅“[设置计费电子邮件](/billing/managing-your-github-billing-settings/setting-your-billing-email)”。
 {%- endif %}
 
-## `business` category actions
+## `business` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `business.add_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was added to an enterprise.
-{%- ifversion ghec %}
-| `business.add_billing_manager` | A billing manager was added to an enterprise.
-{%- endif %}
-| `business.add_organization` | An organization was added to an enterprise.
-{%- ifversion ghec %}
-| `business.add_support_entitlee` | A support entitlement was added to a member of an enterprise. For more information, see "[Managing support entitlements for your enterprise](/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
-{%- endif %}
-{%- ifversion ghes or ghae %}
-| `business.advanced_security_policy_update` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} created, updated, or removed a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."
-{%- endif %}
-{%- ifversion ghec %}
-| `business.cancel_admin_invitation` | An invitation for someone to be an owner{% ifversion ghes %} or site administrator{% endif %} of an enterprise was canceled.
-| `business.cancel_billing_manager_invitation` | An invitation for someone to be an billing manager of an enterprise was canceled.
-{%- endif %}
-{%- ifversion ghes %}
-| `business.clear_actions_settings` | An enterprise owner or site administrator cleared {% data variables.product.prodname_actions %} policy settings for an enterprise. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-{%- endif %}
-| `business.clear_default_repository_permission` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the base repository permission policy setting for an enterprise. For more information, see "[Enforcing a policy for base repository permissions](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)."
-| `business.clear_members_can_create_repos`      | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
-| `business.create`                              | An enterprise was created.
-{%- ifversion ghec %}
-| `business.disable_oidc` | OIDC single sign-on was disabled for an enterprise. For more information, see "[Configuring OIDC for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
-| `business.disable_saml` | SAML single sign-on was disabled for an enterprise.
-{%- endif %}
-| `business.disable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was disabled.
-{%- ifversion ghec %}
-| `business.enable_oidc` | OIDC single sign-on was enabled for an enterprise. For more information, see "[Configuring OIDC for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
-| `business.enable_saml` | SAML single sign-on was enabled for an enterprise.
-{%- endif %}
-| `business.enable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was enabled.
-{%- ifversion ghec %}
-| `business.enterprise_server_license_download` | A {% data variables.product.prodname_ghe_server %} license was downloaded.
-| `business.import_license_usage` | License usage information was imported from a {% data variables.product.prodname_ghe_server %} instance to an enterprise account on {% data variables.product.prodname_dotcom_the_website %}.
-| `business.invite_admin` | An invitation for someone to be an enterprise owner{% ifversion ghes %} or site administrator{% endif %} of an enterprise was sent.
-| `business.invite_billing_manager` | An invitation for someone to be an billing manager of an enterprise was sent.
-{%- endif %}
-| `business.members_can_update_protected_branches.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unset a policy for whether members of an enterprise can update protected branches on repositories for individual organizations. Organization administrators can choose whether to allow updating protected branches settings.
-| `business.members_can_update_protected_branches.disable` | The ability for enterprise members to update branch protection rules was disabled. Only enterprise owners can update protected branches.
-| `business.members_can_update_protected_branches.enable` | The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches.
-| `business.remove_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was removed from an enterprise.
-{%- ifversion ghes %}
-| `business.referrer_override_enable` | An enterprise owner or site administrator enabled the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."
-| `business.referrer_override_disable` | An enterprise owner or site administrator disabled the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."
-{%- endif %}
-{%- ifversion ghec %}
-| `business.remove_billing_manager` | A billing manager was removed from an enterprise.
-| `business.remove_member` | A member was removed from an enterprise.
-{%- endif %}
-| `business.remove_organization` | An organization was removed from an enterprise.
-{%- ifversion ghec %}
-| `business.remove_support_entitlee` | A support entitlement was removed from a member of an enterprise. For more information, see "[Managing support entitlements for your enterprise](/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
-{%- endif %}
-| `business.rename_slug` | The slug for the enterprise URL was renamed.
-{%- ifversion ghec %}
-| `business.revoke_external_identity` | The external identity for a member in an enterprise was revoked.
-| `business.revoke_sso_session` | The SAML single sign-on session for a member in an enterprise was revoked.
-{%- endif %}
-{%- ifversion ghec %}
-| `business.set_actions_fork_pr_approvals_policy` | The setting for requiring approvals for workflows from public forks was changed for an enterprise. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)."
-{%- endif %}
-| `business.set_actions_retention_limit` | The retention period for {% data variables.product.prodname_actions %} artifacts and logs was changed for an enterprise. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in an enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)."
-{%- ifversion ghec or ghes %}
-| `business.set_fork_pr_workflows_policy` | The policy for workflows on private repository forks was changed. For more information, see "{% ifversion ghec %}[Enforcing policies for {% data variables.product.prodname_actions %} in an enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Enabling workflows for private repository forks](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}."
-{%- endif %}
-{%- ifversion audit-log-sso-response-events %}
-|`business.sso_response` | A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your enterprise. This event is only available via audit log streaming and the REST API.
-{%- endif %}
-{%- ifversion ghes %}
-| `business.update_actions_settings` | An enterprise owner or site administrator updated {% data variables.product.prodname_actions %} policy settings for an enterprise. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-{%- endif %}
-| `business.update_default_repository_permission` | The base repository permission setting was updated for all organizations in an enterprise. For more information, see "[Enforcing a policy for base repository permissions](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)."
-| `business.update_member_repository_creation_permission` | The repository creation setting was updated for an enterprise. For more information, see "[Enforcing a policy for repository creation](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
-| `business.update_member_repository_invitation_permission` | The policy setting for enterprise members inviting outside collaborators to repositories was updated. For more information, see "[Enforcing a policy for inviting outside collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."
-{%- ifversion ghec %}
-| `business.update_saml_provider_settings` | The SAML single sign-on provider settings for an enterprise were updated.
+| `business.add_admin` | 已将企业所有者{% ifversion ghes %}或站点管理员{% endif %}添加到企业。
+{%- ifversion ghec %} | `business.add_billing_manager` | 已将计费管理员添加到企业。
+{%- endif %} | `business.add_organization` | 已将组织添加到企业。
+{%- ifversion ghec %} | `business.add_support_entitlee` | 已将支持权利添加到企业成员。 有关详细信息，请参阅[管理企业的支持权利](/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)。
+{%- endif %} {%- ifversion ghes or ghae %} | `business.advanced_security_policy_update` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}创建、更新或删除了针对 {% data variables.product.prodname_GH_advanced_security %} 的策略。 有关详细信息，请参阅“[在企业中强制实施 {% data variables.product.prodname_advanced_security %} 策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。
+{%- endif %} {%- ifversion ghec %} | `business.cancel_admin_invitation` | 已取消邀请某人担任企业所有者{% ifversion ghes %}或站点管理员{% endif %}。
+| `business.cancel_billing_manager_invitation` | 已取消邀请某人担任企业计费管理员。
+{%- endif %} {%- ifversion ghes %} | `business.clear_actions_settings` | 企业所有者或站点管理员清除了企业的 {% data variables.product.prodname_actions %} 策略设置。 有关详细信息，请参阅“[在企业中强制实施针对 GitHub Actions 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)”。
+{%- endif %} | `business.clear_default_repository_permission` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}清除了企业的基本存储库权限策略设置。 有关详细信息，请参阅“[强制实施针对基本存储库权限的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)”。
+| `business.clear_members_can_create_repos`      | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}清除了对在企业组织中创建存储库的限制。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。
+| `business.create`                              | 企业已创建。
+{%- ifversion ghec %} | `business.disable_oidc` | 已为企业禁用 OIDC 单一登录。 有关详细信息，请参阅“[为 {% data variables.product.prodname_emus %} 配置 OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)”。
+| `business.disable_saml` | 已为企业禁用 SAML 单一登录。
+{%- endif %} | `business.disable_two_factor_requirement` | 已禁用成员必须启用双因素身份验证才能访问企业的要求。
+{%- ifversion ghec %} | `business.enable_oidc` | 已为企业启用 OIDC 单一登录。 有关详细信息，请参阅“[为 {% data variables.product.prodname_emus %} 配置 OIDC](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)”。
+| `business.enable_saml` | 已为企业启用 SAML 单一登录。
+{%- endif %} | `business.enable_two_factor_requirement` | 已启用成员必须启用双因素身份验证才能访问企业的要求。
+{%- ifversion ghec %} | `business.enterprise_server_license_download` | 已下载 {% data variables.product.prodname_ghe_server %} 许可证。
+| `business.import_license_usage` | 已将许可证使用信息从 {% data variables.product.prodname_ghe_server %} 实例导入到 {% data variables.product.prodname_dotcom_the_website %} 上的企业帐户。
+| `business.invite_admin` | 已发送请某人担任企业所有者{% ifversion ghes %}或站点管理员{% endif %}的邀请。
+| `business.invite_billing_manager` | 已发送请某人担任企业计费管理员的邀请。
+{%- endif %} | `business.members_can_update_protected_branches.clear` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}取消了针对企业成员是否可以更新各个组织的存储库上受保护分支的策略。 组织管理员可以选择是否允许更新受保护的分支设置。
+| `business.members_can_update_protected_branches.disable` | 已禁用企业成员更新分支保护规则的功能。 只有企业所有者可以更新受保护的分支。
+| `business.members_can_update_protected_branches.enable` | 已启用企业成员更新分支保护规则的功能。 企业所有者和成员可以更新受保护的分支。
+| `business.remove_admin` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}已从企业中移除。
+{%- ifversion ghes %} | `business.referrer_override_enable` | 企业所有者或站点管理员启用了引荐者策略替代。 有关详细信息，请参阅“[为企业配置引荐者策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。
+| `business.referrer_override_disable` | 企业所有者或站点管理员禁用了引荐者策略替代。 有关详细信息，请参阅“[为企业配置引荐者策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。
+{%- endif %} {%- ifversion ghec %} | `business.remove_billing_manager` | 计费管理员已从企业中移除。
+| `business.remove_member` | 成员已从企业中移除。
+{%- endif %} | `business.remove_organization` | 组织已从企业中移除。
+{%- ifversion ghec %} | `business.remove_support_entitlee` | 企业中某个成员的支持权利已被删除。 有关详细信息，请参阅[管理企业的支持权利](/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)。
+{%- endif %} | `business.rename_slug` | 企业 URL 的数据域已重命名。
+{%- ifversion ghec %} | `business.revoke_external_identity` | 已撤销企业中某个成员的外部标识。
+| `business.revoke_sso_session` | 已撤销企业中某个成员的 SAML 单一登录会话。
+{%- endif %} {%- ifversion ghec %} | `business.set_actions_fork_pr_approvals_policy` | 已为企业更改需要审批来自公共分支的工作流的设置。 有关详细信息，请参阅“[在企业中强制实施 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise)”。
+{%- endif %} | `business.set_actions_retention_limit` | {% data variables.product.prodname_actions %} 工件和日志的保持期已针对企业进行了更改。 有关详细信息，请参阅“[在企业中强制实施针对 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)”。
+{%- ifversion ghec or ghes %} | `business.set_fork_pr_workflows_policy` | 专用存储库分支上的工作流策略已更改。 有关详细信息，请参阅“{% ifversion ghec %}[在企业中强制实施针对 {% data variables.product.prodname_actions %} 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[为专用存储库分支启用工作流](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}”。
+{%- endif %} {%- ifversion audit-log-sso-response-events %} |`business.sso_response` | 当成员尝试向企业进行身份验证时，将生成 SAML 单一登录 (SSO) 响应。 此事件只能通过审核日志流式处理和 REST API 使用。
+{%- endif %} {%- ifversion ghes %} | `business.update_actions_settings` | 企业所有者或站点管理员更新了企业的 {% data variables.product.prodname_actions %} 策略设置。 有关详细信息，请参阅“[在企业中强制实施针对 GitHub Actions 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)”。
+{%- endif %} | `business.update_default_repository_permission` | 已为企业中的所有组织更新基本存储库权限设置。 有关详细信息，请参阅“[强制实施针对基本存储库权限的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)”。
+| `business.update_member_repository_creation_permission` | 已为企业更新存储库创建设置。 有关详细信息，请参阅“[强制实施用于存储库创建的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)”。
+| `business.update_member_repository_invitation_permission` | 企业成员邀请外部协作者访问存储库的策略设置已更新。 有关详细信息，请参阅“[强制实施用于邀请外部协作者访问存储库的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)”。
+{%- ifversion ghec %} | `business.update_saml_provider_settings` | 企业的 SAML 单一登录提供程序设置已更新。
 {%- endif %}
 
 {% ifversion code-security-audit-log-events %}
 
-## `business_advanced_security` category actions
+## `business_advanced_security` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `business_advanced_security.disabled` | {% data variables.product.prodname_GH_advanced_security %} was disabled for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_advanced_security.enabled` | {% data variables.product.prodname_GH_advanced_security %} was enabled for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_advanced_security.disabled_for_new_repos` | {% data variables.product.prodname_GH_advanced_security %} was disabled for new repositories in your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_advanced_security.enabled_for_new_repos` | {% data variables.product.prodname_GH_advanced_security %} was enabled for new repositories in your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+| `business_advanced_security.disabled` | 已为企业禁用 {% data variables.product.prodname_GH_advanced_security %}。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_advanced_security.enabled` | 已为企业启用 {% data variables.product.prodname_GH_advanced_security %}。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_advanced_security.disabled_for_new_repos` | 已为企业中的新存储库禁用 {% data variables.product.prodname_GH_advanced_security %}。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_advanced_security.enabled_for_new_repos` | 已为企业中的新存储库启用 {% data variables.product.prodname_GH_advanced_security %}。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
 
 {% endif %}
 
 {% ifversion code-security-audit-log-events %}
 
-## `business_secret_scanning` category actions
+## `business_secret_scanning` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `business_secret_scanning.disable` | {% data variables.product.prodname_secret_scanning_caps %} was disabled for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_secret_scanning.enable` | {% data variables.product.prodname_secret_scanning_caps %} was enabled for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_secret_scanning.disabled_for_new_repos` | {% data variables.product.prodname_secret_scanning_caps %} was disabled for new repositories in your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_secret_scanning.enabled_for_new_repos` | {% data variables.product.prodname_secret_scanning_caps %} was enabled for new repositories in your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+| `business_secret_scanning.disable` | 已为企业禁用{% data variables.product.prodname_secret_scanning_caps %}。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_secret_scanning.enable` | 已为企业启用{% data variables.product.prodname_secret_scanning_caps %}。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_secret_scanning.disabled_for_new_repos` | 已为企业中的新存储库禁用 {% data variables.product.prodname_secret_scanning_caps %}。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_secret_scanning.enabled_for_new_repos` | 已为企业中的新存储库启用{% data variables.product.prodname_secret_scanning_caps %}。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
 
 {% endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-## `business_secret_scanning_custom_pattern` category actions
+## `business_secret_scanning_custom_pattern` 类别操作
 
-Action                        | Description
+操作                        | 说明
 ----------------------------- | -----------------------------------------------
-| `business_secret_scanning_custom_pattern.create` | An enterprise-level custom pattern is published for secret scanning. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
-| `business_secret_scanning_custom_pattern.delete` | An enterprise-level custom pattern is removed from secret scanning.
-| `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern are saved for secret scanning.
+| `business_secret_scanning_custom_pattern.create` | 发布企业级自定义模式以进行机密扫描。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)”。
+| `business_secret_scanning_custom_pattern.delete` | 从机密扫描中删除了企业级自定义模式。
+| `business_secret_scanning_custom_pattern.update` | 保存了对企业级自定义模式的更改，以进行机密扫描。
 {%- endif %}
 
 {% ifversion code-security-audit-log-events %}
 
-## `business_secret_scanning_push_protection` category actions
+## `business_secret_scanning_push_protection` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `business_secret_scanning_push_protection.disable` | Push protection for {% data variables.product.prodname_secret_scanning %} was disabled for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_secret_scanning_push_protection.enable` | Push protection for {% data variables.product.prodname_secret_scanning %} was enabled for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_secret_scanning_push_protection.disabled_for_new_repos` | Push protection for {% data variables.product.prodname_secret_scanning %} was disabled for new repositories in your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_secret_scanning_push_protection.enabled_for_new_repos` | Push protection for {% data variables.product.prodname_secret_scanning %} was enabled for new repositories in your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+| `business_secret_scanning_push_protection.disable` | 已为企业禁用{% data variables.product.prodname_secret_scanning %}的推送保护。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_secret_scanning_push_protection.enable` | 已为企业启用{% data variables.product.prodname_secret_scanning %}的推送保护。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_secret_scanning_push_protection.disabled_for_new_repos` | 已为企业中的新存储库禁用{% data variables.product.prodname_secret_scanning %}的推送保护。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_secret_scanning_push_protection.enabled_for_new_repos` | 已为企业中的新存储库启用{% data variables.product.prodname_secret_scanning %}的推送保护。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
 
 {% endif %}
 
 {% ifversion code-security-audit-log-events %}
 
-## `business_secret_scanning_push_protection_custom_message` category actions
+## `business_secret_scanning_push_protection_custom_message` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `business_secret_scanning_push_protection_custom_message.disable` | The custom message triggered by an attempted push to a push-protected repository was disabled for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_secret_scanning_push_protection_custom_message.enable` | The custom message triggered by an attempted push to a push-protected repository was enabled for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-| `business_secret_scanning_push_protection_custom_message.update` | The custom message triggered by an attempted push to a push-protected repository was updated for your enterprise. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+| `business_secret_scanning_push_protection_custom_message.disable` | 已为企业禁用尝试推送到受推送保护的存储库而触发的自定义消息。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_secret_scanning_push_protection_custom_message.enable` | 已为企业启用尝试推送到受推送保护的存储库而触发的自定义消息。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
+| `business_secret_scanning_push_protection_custom_message.update` | 已为企业更新尝试推送到受推送保护的存储库而触发的自定义消息。 有关详细信息，请参阅“[管理企业的 {% data variables.product.prodname_GH_advanced_security %}功能](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)”。
 
 {% endif %}
 
-## `checks` category actions
+## `checks` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `checks.auto_trigger_disabled` | Automatic creation of check suites was disabled on a repository in the organization or enterprise. For more information, see "[Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
-| `checks.auto_trigger_enabled` | Automatic creation of check suites was enabled on a repository in the organization or enterprise. For more information, see "[Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
-{%- ifversion fpt or ghec %}
-| `checks.delete_logs` | Logs in a check suite were deleted.
+| `checks.auto_trigger_disabled` | 已在组织或企业中的存储库上禁用自动创建检查套件功能。 有关详细信息，请参阅“[更新检查套件的存储库首选项](/rest/reference/checks#update-repository-preferences-for-check-suites)”。
+| `checks.auto_trigger_enabled` | 已在组织或企业中的存储库上启用自动创建检查套件功能。 有关详细信息，请参阅“[更新检查套件的存储库首选项](/rest/reference/checks#update-repository-preferences-for-check-suites)”。
+{%- ifversion fpt or ghec %} | `checks.delete_logs` | 检查套件中的日志已被删除。
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-## `codespaces` category actions
+## `codespaces` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `codespaces.connect` | A codespace was started.
-| `codespaces.create` | A user [created a codespace](/github/developing-online-with-codespaces/creating-a-codespace).
-| `codespaces.destroy` | A user [deleted a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
-| `codespaces.allow_permissions` | A codespace using custom permissions from its `devcontainer.json` file was launched.
-| `codespaces.attempted_to_create_from_prebuild` | An attempt to create a codespace from a prebuild was made.
-| `codespaces.create_an_org_secret` | A user created an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces)
-| `codespaces.update_an_org_secret` | A user updated an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
-| `codespaces.remove_an_org_secret` | A user removed an organization-level [secret for {% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces).
-| `codespaces.manage_access_and_security` | A user updated [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
+| `codespaces.connect` | codespace 已启动。
+| `codespaces.create` | 用户[创建了 codespace](/github/developing-online-with-codespaces/creating-a-codespace)。
+| `codespaces.destroy` | 用户[删除了 codespace](/github/developing-online-with-codespaces/deleting-a-codespace)。
+| `codespaces.allow_permissions` | 使用来自其 `devcontainer.json` 文件的自定义权限的 codespace 已启动。
+| `codespaces.attempted_to_create_from_prebuild` | 尝试从预生成创建一个 codespace。
+| `codespaces.create_an_org_secret` | 用户为 [{% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces) 创建了组织级机密
+| `codespaces.update_an_org_secret` | 用户为 [{% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces) 更新了组织级机密。
+| `codespaces.remove_an_org_secret` | 用户为 [{% data variables.product.prodname_github_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces#about-encrypted-secrets-for-codespaces) 删除了组织级机密。
+| `codespaces.manage_access_and_security` | 用户更新了 [codespace 可访问的存储库](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)。
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-## `commit_comment` category actions
+## `commit_comment` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `commit_comment.destroy` | A commit comment was deleted.
-| `commit_comment.update` | A commit comment was updated.
+| `commit_comment.destroy` | 提交评论已被删除。
+| `commit_comment.update` | 提交评论已更新。
 {%- endif %}
 
 {%- ifversion ghes %}
-## `config_entry` category actions
+## `config_entry` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `config_entry.create` | A configuration setting was created. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
-| `config_entry.destroy` | A configuration setting was deleted. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
-| `config_entry.update` | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
+| `config_entry.create` | 已创建配置设置。 这些事件仅在站点管理员审核日志中可见。 记录的事件类型包括：</br>- 企业设置和策略</br>- 组织和存储库权限及设置</br>- Git、Git LFS、{% data variables.product.prodname_github_connect %}、{% data variables.product.prodname_registry %}、项目和代码安全设置。
+| `config_entry.destroy` | 配置设置已被删除。 这些事件仅在站点管理员审核日志中可见。 记录的事件类型包括：</br>- 企业设置和策略</br>- 组织和存储库权限及设置</br>- Git、Git LFS、{% data variables.product.prodname_github_connect %}、{% data variables.product.prodname_registry %}、项目和代码安全设置。
+| `config_entry.update` | 已编辑配置设置。 这些事件仅在站点管理员审核日志中可见。 记录的事件类型包括：</br>- 企业设置和策略</br>- 组织和存储库权限及设置</br>- Git、Git LFS、{% data variables.product.prodname_github_connect %}、{% data variables.product.prodname_registry %}、项目和代码安全设置。
 {%- endif %}
 
-## `dependabot_alerts` category actions
+## `dependabot_alerts` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `dependabot_alerts.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
-| `dependabot_alerts.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_alerts %} for all existing {% ifversion fpt or ghec %}private {% endif %}repositories.
+| `dependabot_alerts.disable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有现有的{% ifversion fpt or ghec %}专用{% endif %}存储库禁用了 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)。
+| `dependabot_alerts.enable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有现有的{% ifversion fpt or ghec %}专用{% endif %}存储库启用了 {% data variables.product.prodname_dependabot_alerts %}。
 
-## `dependabot_alerts_new_repos` category actions
+## `dependabot_alerts_new_repos` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `dependabot_alerts_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
-| `dependabot_alerts_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.
+| `dependabot_alerts_new_repos.disable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有新的{% ifversion fpt or ghec %}专用{% endif %}存储库禁用了 {% data variables.product.prodname_dependabot_alerts %}。 有关详细信息，请参阅[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)。
+| `dependabot_alerts_new_repos.enable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有新的{% ifversion fpt or ghec %}专用{% endif %}存储库启用了 {% data variables.product.prodname_dependabot_alerts %}。
 
-## `dependabot_repository_access`category actions
+## `dependabot_repository_access` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `dependabot_repository_access.repositories_updated` | The repositories that {% data variables.product.prodname_dependabot %} can access were updated.
+| `dependabot_repository_access.repositories_updated` | {% data variables.product.prodname_dependabot %} 可以访问的存储库已更新。
 
 {%- ifversion fpt or ghec or ghes %}
-## `dependabot_security_updates` category actions
+## `dependabot_security_updates` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `dependabot_security_updates.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
-| `dependabot_security_updates.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories.
+| `dependabot_security_updates.disable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有现有存储库禁用了 {% data variables.product.prodname_dependabot_security_updates %}。 有关详细信息，请参阅[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)。
+| `dependabot_security_updates.enable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有现有存储库启用了 {% data variables.product.prodname_dependabot_security_updates %}。
 
-## `dependabot_security_updates_new_repos` category actions
+## `dependabot_security_updates_new_repos` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `dependabot_security_updates_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled {% data variables.product.prodname_dependabot_security_updates %} for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
-| `dependabot_security_updates_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.
+| `dependabot_security_updates_new_repos.disable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有新的存储库禁用了 {% data variables.product.prodname_dependabot_security_updates %}。 有关详细信息，请参阅[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)。
+| `dependabot_security_updates_new_repos.enable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有新的存储库启用了 {% data variables.product.prodname_dependabot_security_updates %}。
 {%- endif %}
 
-## `dependency_graph` category actions
+## `dependency_graph` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `dependency_graph.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the dependency graph for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
-| `dependency_graph.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all existing repositories.
+| `dependency_graph.disable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有现有存储库禁用了依赖项关系图。 有关详细信息，请参阅[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)。
+| `dependency_graph.enable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有现有存储库启用了依赖项关系图。
 
-## `dependency_graph_new_repos` category actions
+## `dependency_graph_new_repos` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `dependency_graph_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the dependency graph for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
-| `dependency_graph_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all new repositories.
+| `dependency_graph_new_repos.disable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有新的存储库禁用了依赖项关系图。 有关详细信息，请参阅[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)。
+| `dependency_graph_new_repos.enable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}为所有新的存储库启用了依赖项关系图。
 
 {%- ifversion fpt or ghec %}
-## `discussion` category actions
+## `discussion` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `discussion.destroy` | A team discussion was deleted.
+| `discussion.destroy` | 团队讨论已被删除。
 
-## `discussion_comment` category actions
+## `discussion_comment` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `discussion_comment.destroy` | A [comment on a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment).
-| `discussion_comment.update` | A [comment on a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).
+| `discussion_comment.destroy` | [对团队讨论帖子的评论已被删除](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment)。
+| `discussion_comment.update` | [已编辑对团队讨论帖子的评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment)。
 
-## `discussion_post` category actions
+## `discussion_post` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `discussion_post.destroy` | A [team discussion post was deleted](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).
-| `discussion_post.update` | A [team discussion post was edited](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).
+| `discussion_post.destroy` | [团队讨论帖子已被删除](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)。
+| `discussion_post.update` | [已编辑团队讨论帖子](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)。
 
-## `discussion_post_reply` category actions
+## `discussion_post_reply` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `discussion_post_reply.destroy` | A [reply to a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment).
-| `discussion_post_reply.update` | A [reply to a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).
+| `discussion_post_reply.destroy` | [对团队讨论帖子的回复已被删除](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment)。
+| `discussion_post_reply.update` | [已编辑对团队讨论帖子的回复](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment)。
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
-## `dotcom_connection` category actions
+## `dotcom_connection` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `dotcom_connection.create` | A {% data variables.product.prodname_github_connect %} connection to {% data variables.product.prodname_dotcom_the_website %} was created.
-| `dotcom_connection.destroy` | A {% data variables.product.prodname_github_connect %} connection to {% data variables.product.prodname_dotcom_the_website %} was deleted.
-| `dotcom_connection.token_updated` | The {% data variables.product.prodname_github_connect %} connection token for {% data variables.product.prodname_dotcom_the_website %} was updated.
-| `dotcom_connection.upload_license_usage` | {% data variables.product.prodname_ghe_server %} license usage was manually uploaded to {% data variables.product.prodname_ghe_cloud %}.
-| `dotcom_connection.upload_usage_metrics` | {% data variables.product.prodname_ghe_server %} usage metrics were uploaded to {% data variables.product.prodname_dotcom_the_website %}.
+| `dotcom_connection.create` | 与 {% data variables.product.prodname_dotcom_the_website %} 的 {% data variables.product.prodname_github_connect %} 连接已创建。
+| `dotcom_connection.destroy` | 与 {% data variables.product.prodname_dotcom_the_website %} 的 {% data variables.product.prodname_github_connect %} 连接已被删除。
+| `dotcom_connection.token_updated` | {% data variables.product.prodname_dotcom_the_website %} 的 {% data variables.product.prodname_github_connect %} 连接令牌已更新。
+| `dotcom_connection.upload_license_usage` | {% data variables.product.prodname_ghe_server %} 许可证使用情况已手动上传到 {% data variables.product.prodname_ghe_cloud %}。
+| `dotcom_connection.upload_usage_metrics` | {% data variables.product.prodname_ghe_server %} 使用指标已上传到 {% data variables.product.prodname_dotcom_the_website %}。
 {%- endif %}
 
-## `enterprise` category actions
+## `enterprise` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `enterprise.config.disable_anonymous_git_access`   | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled anonymous Git read access for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."
-| `enterprise.config.enable_anonymous_git_access`   | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled anonymous Git read access for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."
-| `enterprise.config.lock_anonymous_git_access`   | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} locked anonymous Git read access to prevent repository admins from changing existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."
-| `enterprise.config.unlock_anonymous_git_access` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unlocked anonymous Git read access to allow repository admins to change existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."
-| `enterprise.register_self_hosted_runner` | A new {% data variables.product.prodname_actions %} self-hosted runner was registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
-| `enterprise.remove_self_hosted_runner` | A {% data variables.product.prodname_actions %} self-hosted runner was removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
-| `enterprise.runner_group_created` | A {% data variables.product.prodname_actions %} self-hosted runner group was created. For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
-| `enterprise.runner_group_removed` | A {% data variables.product.prodname_actions %} self-hosted runner group was removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
-| `enterprise.runner_group_renamed` | A {% data variables.product.prodname_actions %} self-hosted runner group was renamed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `enterprise.runner_group_updated` | The configuration of a {% data variables.product.prodname_actions %} self-hosted runner group was changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `enterprise.runner_group_runner_removed` |  The REST API was used to remove a {% data variables.product.prodname_actions %} self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
-| `enterprise.runner_group_runners_added` | A {% data variables.product.prodname_actions %} self-hosted runner was added to a group. For more information, see [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
-| `enterprise.runner_group_runners_updated`|  A {% data variables.product.prodname_actions %} runner group's list of members was updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
-{%- ifversion ghec %}
-| `enterprise.runner_group_visiblity_updated` | The visibility of a {% data variables.product.prodname_actions %} self-hosted runner group was updated via the REST API. For more information, see "[Update a self-hosted runner group for an organization](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)."
-{%- endif %}
-{%- ifversion ghec or ghes or ghae %}
-| `enterprise.self_hosted_runner_online` | The {% data variables.product.prodname_actions %} runner application was started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `enterprise.self_hosted_runner_offline` | The {% data variables.product.prodname_actions %} runner application was stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-{%- endif %}
-{%- ifversion ghec or ghes %}
-| `enterprise.self_hosted_runner_updated` | The {% data variables.product.prodname_actions %} runner application was updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
+| `enterprise.config.disable_anonymous_git_access`   | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}禁用了对企业中的存储库的匿名 Git 读取访问权限。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。
+| `enterprise.config.enable_anonymous_git_access`   | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}启用了对企业中的存储库的匿名 Git 读取访问权限。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。
+| `enterprise.config.lock_anonymous_git_access`   | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}锁定了匿名 Git 读取访问权限，以防止存储库管理员更改企业中存储库的现有匿名 Git 读取访问权限设置。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。
+| `enterprise.config.unlock_anonymous_git_access` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}解锁了匿名 Git 读取访问权限，以允许存储库管理员更改企业中存储库的现有匿名 Git 读取访问权限设置。 有关详细信息，请参阅“[在企业中实施存储库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。
+| `enterprise.register_self_hosted_runner` | 已注册新的 {% data variables.product.prodname_actions %} 自托管运行器。 有关详细信息，请参阅“[将自托管运行器添加到存储库](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)”。
+| `enterprise.remove_self_hosted_runner` | {% data variables.product.prodname_actions %} 自托管运行器已被删除。 有关详细信息，请参阅“[从存储库中删除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)”。
+| `enterprise.runner_group_created` | 已创建 {% data variables.product.prodname_actions %} 自托管运行器组。 有关详细信息，请参阅“[为组织创建自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)”。
+| `enterprise.runner_group_removed` | {% data variables.product.prodname_actions %} 自托管运行器组已被删除。 有关详细信息，请参阅“[删除自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)”。
+| `enterprise.runner_group_renamed` | 已对 {% data variables.product.prodname_actions %} 自托管运行器组进行重命名。 有关详细信息，请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。
+| `enterprise.runner_group_updated` | {% data variables.product.prodname_actions %} 自托管运行器组的配置已更改。 有关详细信息，请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。
+| `enterprise.runner_group_runner_removed` |  REST API 用于从组中删除 {% data variables.product.prodname_actions %} 自托管运行器。 有关详细信息，请参阅“[为组织从组中删除自托管运行器](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)”。
+| `enterprise.runner_group_runners_added` | 已将 {% data variables.product.prodname_actions %} 自托管运行器添加到组中。 有关详细信息，请参阅“[将自托管运行器移动到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”。
+| `enterprise.runner_group_runners_updated`|  {% data variables.product.prodname_actions %} 运行器组的成员列表已更新。 有关详细信息，请参阅“[为组织设置自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。
+{%- ifversion ghec %} | `enterprise.runner_group_visiblity_updated` | {% data variables.product.prodname_actions %} 自托管运行器组的可见性已通过 REST API 更新。 有关详细信息，请参阅“[更新组织的自托管运行器组](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)”。
+{%- endif %} {%- ifversion ghec or ghes or ghae %} | `enterprise.self_hosted_runner_online` | {% data variables.product.prodname_actions %} 运行器应用程序已启动。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 有关详细信息，请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。
+| `enterprise.self_hosted_runner_offline` | {% data variables.product.prodname_actions %} 运行器应用程序已停止。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 有关详细信息，请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。
+{%- endif %} {%- ifversion ghec or ghes %} | `enterprise.self_hosted_runner_updated` | {% data variables.product.prodname_actions %} 运行器应用程序已更新。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 有关详细信息，请参阅[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)。
 {%- endif %}
 
 {%- ifversion ghec %}
-## `enterprise_domain` category actions
+## `enterprise_domain` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `enterprise_domain.approve` | An enterprise domain was approved for an enterprise. For more information, see "[Approving a domain for your enterprise account](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#approving-a-domain-for-your-enterprise-account)."
-| `enterprise_domain.create` | An enterprise domain was added to an enterprise. For more information, see "[Verifying a domain for your enterprise account](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)."
-| `enterprise_domain.destroy` | An enterprise domain was removed from an enterprise. For more information, see "[Removing an approved or verified domain](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#removing-an-approved-or-verified-domain)."
-| `enterprise_domain.verify` | An enterprise domain was verified for an enterprise. For more information, see "[Verifying a domain for your enterprise account](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)."
+| `enterprise_domain.approve` | 企业域已获批用于企业。 有关详细信息，请参阅“[审批企业帐户的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#approving-a-domain-for-your-enterprise-account)”。
+| `enterprise_domain.create` | 已将企业域添加到企业。 有关详细信息，请参阅“[验证企业帐户的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)”。
+| `enterprise_domain.destroy` | 企业域已从企业中删除。 有关详细信息，请参阅“[删除已获批准或已验证的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#removing-an-approved-or-verified-domain)”。
+| `enterprise_domain.verify` | 已为企业验证企业域。 有关详细信息，请参阅“[验证企业帐户的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account)”。
 
-## `enterprise_installation` category actions
+## `enterprise_installation` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `enterprise_installation.create` | The {% data variables.product.prodname_github_app %} associated with an {% data variables.product.prodname_github_connect %} enterprise connection was created.
-| `enterprise_installation.destroy` | The {% data variables.product.prodname_github_app %} associated with an {% data variables.product.prodname_github_connect %} enterprise connection was deleted.
-| `enterprise_installation.token_updated` | The token belonging to {% data variables.product.prodname_github_app %} associated with an {% data variables.product.prodname_github_connect %} enterprise connection was updated.
+| `enterprise_installation.create` | 已创建与 {% data variables.product.prodname_github_connect %} 企业连接关联的 {% data variables.product.prodname_github_app %}。
+| `enterprise_installation.destroy` | 与 {% data variables.product.prodname_github_connect %} 企业连接关联的 {% data variables.product.prodname_github_app %} 已被删除。
+| `enterprise_installation.token_updated` | 属于与 {% data variables.product.prodname_github_connect %} 企业连接关联的 {% data variables.product.prodname_github_app %} 的令牌已更新。
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-## `environment` category actions
+## `environment` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `environment.add_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was created via the API. For more information, see "[Environment protection rules](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
-| `environment.create_actions_secret` | A secret was created for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.delete` | An environment was deleted via the API. For more information, see "[Deleting an environment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
-| `environment.remove_actions_secret` | A secret was deleted for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.remove_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was deleted via the API. For more information, see "[Environment protection rules](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
-| `environment.update_actions_secret` | A secret was updated for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.update_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was updated via the API. For more information, see "[Environment protection rules](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.add_protection_rule` | 通过 API 创建了 {% data variables.product.prodname_actions %} 环境保护规则。 有关详细信息，请参阅“[环境保护规则](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)”。
+| `environment.create_actions_secret` | 已通过 API 为 {% data variables.product.prodname_actions %} 环境创建机密。 有关详细信息，请参阅“[环境机密](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)”。
+| `environment.delete` | 已通过 API 删除环境。 有关详细信息，请参阅“[删除环境](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)”。
+| `environment.remove_actions_secret` | 已通过 API 删除 {% data variables.product.prodname_actions %} 环境的机密。 有关详细信息，请参阅“[环境机密](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)”。
+| `environment.remove_protection_rule` | 已通过 API 删除 {% data variables.product.prodname_actions %} 环境保护规则。 有关详细信息，请参阅“[环境保护规则](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)”。
+| `environment.update_actions_secret` | 已通过 API 更新 {% data variables.product.prodname_actions %} 环境的机密。 有关详细信息，请参阅“[环境机密](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)”。
+| `environment.update_protection_rule` | 已通过 API 更新 {% data variables.product.prodname_actions %} 环境保护规则。 有关详细信息，请参阅“[环境保护规则](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)”。
 {%- endif %}
 
 {%- ifversion ghae %}
-## `external_group` category actions
+## `external_group` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `external_group.delete` | An Okta group was deleted. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
-| `external_group.link` | An Okta group was mapped to a {% data variables.product.prodname_ghe_managed %} team. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
-| `external_group.provision` | An Okta group was mapped to a team on {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
-| `external_group.unlink` | An Okta group was unmapped from a {% data variables.product.prodname_ghe_managed %} team. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
-| `external_group.update` | An Okta group's settings were updated. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+| `external_group.delete` | Okta 组已被删除。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+| `external_group.link` | Okta 组已映射到 {% data variables.product.prodname_ghe_managed %} 团队。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+| `external_group.provision` | Okta 组已映射到 {% data variables.product.prodname_ghe_managed %} 上的团队。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+| `external_group.unlink` | Okta 组已从 {% data variables.product.prodname_ghe_managed %} 团队取消映射。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+| `external_group.update` | Okta 组的设置已更新。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
 
-## `external_identity` category actions
-| Action | Description
+## `external_identity` 类别操作
+| 操作 | 说明
 |--------|-------------
-| `external_identity.deprovision` | A user was removed from an Okta group and was subsequently deprovisioned from {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
-| `external_identity.provision` | An Okta user was added to an Okta group and was subsequently provisioned to the mapped team on {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
-| `external_identity.update` | An Okta user's settings were updated. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+| `external_identity.deprovision` | 用户已从 Okta 组中删除，随后从 {% data variables.product.prodname_ghe_managed %} 中取消了预配。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+| `external_identity.provision` | Okta 用户已添加到 Okta 组，随后在 {% data variables.product.prodname_ghe_managed %} 上预配给已映射的团队。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+| `external_identity.update` | Okta 用户的设置已更新。 有关详细信息，请参阅“[将 Okta 组映射到团队](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
 {%- endif %}
 
-## `gist` category actions
+## `gist` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `gist.create` | A gist is created.
-| `gist.destroy` | A gist is deleted.
-| `gist.visibility_change` | The visibility of a gist is changed.
+| `gist.create` | 创建了 Gist。
+| `gist.destroy` | 删除了 Gist。
+| `gist.visibility_change` | 更改了 Gist 的可见性。
 
 {% ifversion git-events-audit-log %}
-## `git` category actions
+## `git` 类别操作
 
-{% ifversion enable-git-events %}
-Before you'll see `git` category actions, you must enable Git events in the audit log. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)."
+{% ifversion enable-git-events %}必须先在审核日志中启用 Git 事件，然后才能查看 `git` 类别操作。 有关详细信息，请参阅“[为企业配置审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise#managing-git-events-in-the-audit-log)”。
 {% endif %}
 
 {% data reusables.audit_log.git-events-not-in-search-results %}
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `git.clone` | A repository was cloned.
-| `git.fetch` | Changes were fetched from a repository.
-| `git.push`  | Changes were pushed to a repository.
+| `git.clone` | 已克隆存储库。
+| `git.fetch` | 已从存储库中获取更改。
+| `git.push`  | 已将更改推送到存储库。
 {% endif %}
 
-## `hook` category actions
+## `hook` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-{%- ifversion ghes or ghae %}
-| `hook.active_changed`             | A hook's active status was updated.
-{%- endif %}
-| `hook.config_changed`             | A hook's configuration was changed.
-| `hook.create`                     | A new hook was added.
-| `hook.destroy`                    | A hook was deleted.
-| `hook.events_changed`             | A hook's configured events were changed.
+{%- ifversion ghes or ghae %} | `hook.active_changed`             | 挂钩的活动状态已更新。
+{%- endif %} | `hook.config_changed`             | 挂钩的配置已更改。
+| `hook.create`                     | 已添加新的挂钩。
+| `hook.destroy`                    | 已删除挂钩。
+| `hook.events_changed`             | 已更改挂钩的配置事件。
 
-## `integration` category actions
+## `integration` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `integration.create` | An integration was created.
-| `integration.destroy` | An integration was deleted.
-| `integration.manager_added` | A member of an enterprise or organization was added as an integration manager.
-| `integration.manager_removed` | A member of an enterprise or organization was removed from being an integration manager.
-| `integration.transfer` | Ownership of an integration was transferred to another user or organization.
-| `integration.remove_client_secret` | A client secret for an integration was removed.
-| `integration.revoke_all_tokens` | All user tokens for an integration were requested to be revoked.
-| `integration.revoke_tokens` | Token(s) for an integration were revoked.
+| `integration.create` | 已创建集成。
+| `integration.destroy` | 已删除集成。
+| `integration.manager_added` | 已将企业或组织的成员添加为集成管理员。
+| `integration.manager_removed` | 企业或组织的成员已从集成管理员中移除。
+| `integration.transfer` | 已将集成的所有权转让给其他用户或组织。
+| `integration.remove_client_secret` | 已删除集成的客户端密码。
+| `integration.revoke_all_tokens` | 已请求撤销用于集成的所有用户令牌。
+| `integration.revoke_tokens` | 用于集成的令牌已被撤销。
 
-## `integration_installation` category actions
+## `integration_installation` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `integration_installation.contact_email_changed` | A contact email for an integration was changed.
-| `integration_installation.create` | An integration was installed.
-| `integration_installation.destroy` | An integration was uninstalled.
-| `integration_installation.repositories_added` | Repositories were added to an integration.
-| `integration_installation.repositories_removed` | Repositories were removed from an integration.
-{%- ifversion fpt or ghec %}
-| `integration_installation.suspend` | An integration was suspended.
-| `integration_installation.unsuspend` | An integration was unsuspended.
-{%- endif %}
-| `integration_installation.version_updated` | Permissions for an integration were updated.
+| `integration_installation.contact_email_changed` | 集成的联系人电子邮件已更改。
+| `integration_installation.create` | 已安装集成。
+| `integration_installation.destroy` | 已卸载集成。
+| `integration_installation.repositories_added` | 存储库已添加到集成中。
+| `integration_installation.repositories_removed` | 存储库已从集成中删除。
+{%- ifversion fpt or ghec %} | `integration_installation.suspend` | 集成已暂停。
+| `integration_installation.unsuspend` | 集成已恢复访问权限。
+{%- endif %} | `integration_installation.version_updated` | 集成的权限已更新。
 
-## `integration_installation_request` category actions
+## `integration_installation_request` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `integration_installation_request.create` | An member requested that an owner install an integration for use in an enterprise or organization.
-| `integration_installation_request.close` | A request to install an integration for use in an enterprise or organization was either approved or denied by an owner, or canceled by the member who opened the request.
+| `integration_installation_request.create` | 成员请求所有者安装可在企业或组织中使用的集成。
+| `integration_installation_request.close` | 安装可在企业或组织中使用的集成的请求被所有者批准或拒绝，或被打开请求的成员取消。
 
 {%- ifversion ghec or ghae %}
-## `ip_allow_list` category actions
+## `ip_allow_list` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `ip_allow_list.enable`               | An IP allow list was enabled.
-| `ip_allow_list.enable_for_installed_apps` | An IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.
-| `ip_allow_list.disable`              | An IP allow list was disabled.
-| `ip_allow_list.disable_for_installed_apps` | An IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}.
+| `ip_allow_list.enable`               | IP 允许列表已启用。
+| `ip_allow_list.enable_for_installed_apps` | 已为安装的 {% data variables.product.prodname_github_apps %} 启用 IP 允许列表。
+| `ip_allow_list.disable`              | IP 允许列表已禁用。
+| `ip_allow_list.disable_for_installed_apps` | 已为安装的 {% data variables.product.prodname_github_apps %} 禁用 IP 允许列表。
 
-## `ip_allow_list_entry` category actions
+## `ip_allow_list_entry` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `ip_allow_list_entry.create` | An IP address was added to an IP allow list.
-| `ip_allow_list_entry.update` | An IP address or its description was changed.
-| `ip_allow_list_entry.destroy` | An IP address was deleted from an IP allow list.
+| `ip_allow_list_entry.create` | IP 地址已添加到 IP 允许列表中。
+| `ip_allow_list_entry.update` | IP 地址或描述已更改。
+| `ip_allow_list_entry.destroy` | IP 地址已从 IP 允许列表中删除。
 {%- endif %}
 
-## `issue` category actions
+## `issue` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `issue.destroy`                      | An issue was deleted from the repository. For more information, see "[Deleting an issue](/issues/tracking-your-work-with-issues/deleting-an-issue)."
-| `issue.pinned`                       | An issue was pinned to a repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."
-| `issue.transfer`                     | An issue was transferred to another repository. For more information, see "[Transferring an issue to another repository](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)."
-| `issue.unpinned`                     | An issue was unpinned from a repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."
+| `issue.destroy`                      | 已从仓库中删除问题。 有关详细信息，请参阅“[删除问题](/issues/tracking-your-work-with-issues/deleting-an-issue)”。
+| `issue.pinned`                       | 已将某个问题固定到存储库。 有关详细信息，请参阅“[将问题固定到存储库](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)”。
+| `issue.transfer`                     | 已将某个问题转移到另一个存储库。 有关详细信息，请参阅“[将问题转移到其他存储库](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)”。
+| `issue.unpinned`                     | 已从存储库中取消固定某个问题。 有关详细信息，请参阅“[将问题固定到存储库](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)”。
 
-## `issue_comment` category actions
+## `issue_comment` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `issue_comment.destroy`  | A comment on an issue was deleted from the repository.
-| `issue_comment.pinned`   | A comment on an issue was pinned to a repository.
-| `issue_comment.unpinned` | A comment on an issue was unpinned from a repository.
-| `issue_comment.update`   | A comment on an issue (other than the initial one) changed.
+| `issue_comment.destroy`  | 已从存储库中删除对某个问题的评论。
+| `issue_comment.pinned`   | 已将对某个问题的评论固定到存储库中。
+| `issue_comment.unpinned` | 已从存储库中取消固定对某个问题的评论。
+| `issue_comment.update`   | 已更改问题的正文文本（初始注释）。
 
-## `issues` category actions
+## `issues` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `issues.deletes_disabled` | The ability for enterprise members to delete issues was disabled. Members cannot delete issues in any organizations in an enterprise. For more information, see "[Enforcing a policy for deleting issues](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
-| `issues.deletes_enabled` | The ability for enterprise members to delete issues was enabled. Members can delete issues in any organizations in an enterprise. For more information, see "[Enforcing a policy for deleting issues](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
-| `issues.deletes_policy_cleared` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for allowing members to delete issues in an enterprise. For more information, see "[Enforcing a policy for deleting issues](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
+| `issues.deletes_disabled` | 已禁用企业成员删除问题的功能。 成员不能删除企业中任何组织中的问题。 有关详细信息，请参阅“[强制实施用于删除问题的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)”。
+| `issues.deletes_enabled` | 已启用企业成员删除问题的功能。 成员可以删除企业中任何组织中的问题。 有关详细信息，请参阅“[强制实施用于删除问题的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)”。
+| `issues.deletes_policy_cleared` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}清除了允许成员删除企业中问题的策略设置。 有关详细信息，请参阅“[强制实施用于删除问题的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)”。
 
 {%- ifversion fpt or ghec %}
-## `marketplace_agreement_signature` category actions
+## `marketplace_agreement_signature` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `marketplace_agreement_signature.create` | A user signed the {% data variables.product.prodname_marketplace %} Developer Agreement on behalf of an organization.
+| `marketplace_agreement_signature.create` | 用户以组织身份签署了 {% data variables.product.prodname_marketplace %} 开发人员协议。
 
-## `marketplace_listing` category actions
+## `marketplace_listing` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `marketplace_listing.approve` | A listing was approved for inclusion in {% data variables.product.prodname_marketplace %}.
-| `marketplace_listing.change_category` | A category for a listing for an app in {% data variables.product.prodname_marketplace %} was changed.
-| `marketplace_listing.create` | A listing for an app in {% data variables.product.prodname_marketplace %} was created.
-| `marketplace_listing.delist` | A listing was removed from {% data variables.product.prodname_marketplace %}.
-| `marketplace_listing.redraft` | A listing was sent back to draft state.
-| `marketplace_listing.reject` | A listing was not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
+| `marketplace_listing.approve` | 已获批准在 {% data variables.product.prodname_marketplace %} 中包含一个列表。
+| `marketplace_listing.change_category` | {% data variables.product.prodname_marketplace %} 中应用列表的类别已更改。
+| `marketplace_listing.create` | 已在 {% data variables.product.prodname_marketplace %} 中创建应用列表。
+| `marketplace_listing.delist` | 已从 {% data variables.product.prodname_marketplace %} 中删除列表。
+| `marketplace_listing.redraft` | 一个列表已被发送回草稿状态。
+| `marketplace_listing.reject` | 不接受在 {% data variables.product.prodname_marketplace %} 中包含一个列表。
 {%- endif %}
 
-## `members_can_create_pages` category actions
+## `members_can_create_pages` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `members_can_create_pages.disable` | The ability for members to publish {% data variables.product.prodname_pages %} was disabled. Members cannot publish {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
-| `members_can_create_pages.enable` | The ability for members to publish {% data variables.product.prodname_pages %} was enabled. Members can publish {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
+| `members_can_create_pages.disable` | 已禁用成员发布 {% data variables.product.prodname_pages %} 的功能。 成员不能在组织中发布 {% data variables.product.prodname_pages %}。 有关详细信息，请参阅“[管理组织的 GitHub Pages 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。
+| `members_can_create_pages.enable` | 已启用成员发布 {% data variables.product.prodname_pages %} 的功能。 成员可以在组织中发布 {% data variables.product.prodname_pages %}。 有关详细信息，请参阅“[管理组织的 GitHub Pages 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。
 
-## `members_can_create_private_pages` category actions
+## `members_can_create_private_pages` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `members_can_create_private_pages.disable` | The ability for members to publish private {% data variables.product.prodname_pages %} was disabled. Members cannot publish private {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
-| `members_can_create_private_pages.enable` |  The ability for members to publish private {% data variables.product.prodname_pages %} was enabled. Members can publish private {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
+| `members_can_create_private_pages.disable` | 已禁用成员发布专用 {% data variables.product.prodname_pages %} 的功能。 成员不能在组织中发布专用 {% data variables.product.prodname_pages %}。 有关详细信息，请参阅“[管理组织的 GitHub Pages 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。
+| `members_can_create_private_pages.enable` |  已启用成员发布专用 {% data variables.product.prodname_pages %} 的功能。 成员可以在组织中发布专用 {% data variables.product.prodname_pages %}。 有关详细信息，请参阅“[管理组织的 GitHub Pages 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。
 
-## `members_can_create_public_pages` category actions
+## `members_can_create_public_pages` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `members_can_create_public_pages.disable` |  The ability for members to publish public {% data variables.product.prodname_pages %} was disabled. Members cannot publish public {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
-| `members_can_create_public_pages.enable` |  The ability for members to publish public {% data variables.product.prodname_pages %} was enabled. Members can publish public {% data variables.product.prodname_pages %} in an organization. For more information, see "[Managing the publication of GitHub Pages sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
+| `members_can_create_public_pages.disable` |  已禁用成员发布公共 {% data variables.product.prodname_pages %} 的功能。 成员不能在组织中发布公共 {% data variables.product.prodname_pages %}。 有关详细信息，请参阅“[管理组织的 GitHub Pages 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。
+| `members_can_create_public_pages.enable` |  已启用成员发布公共 {% data variables.product.prodname_pages %} 的功能。 成员可以在组织中发布公共 {% data variables.product.prodname_pages %}。 有关详细信息，请参阅“[管理组织的 GitHub Pages 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。
 
 {%- ifversion ghec or ghes or ghae %}
-## `members_can_delete_repos` category actions
+## `members_can_delete_repos` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `members_can_delete_repos.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for deleting or transfering repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
-| `members_can_delete_repos.disable` | The ability for enterprise members to delete repositories was disabled. Members cannot delete or transfer repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
-| `members_can_delete_repos.enable` |  The ability for enterprise members to delete repositories was enabled. Members can delete or transfer repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
+| `members_can_delete_repos.clear` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}清除了用于删除或转移企业中任何组织中的存储库的策略设置。 有关详细信息，请参阅“[强制实施用于删除和转移存储库的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)”。
+| `members_can_delete_repos.disable` | 已禁用企业成员删除存储库的功能。 成员不能删除或转移企业内任何组织中的存储库。 有关详细信息，请参阅“[强制实施用于删除和转移存储库的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)”。
+| `members_can_delete_repos.enable` |  已启用企业成员删除存储库的功能。 成员可以删除或转移企业中任何组织中的存储库。 有关详细信息，请参阅“[强制实施用于删除和转移存储库的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)”。
 
-## `members_can_view_dependency_insights` category actions
+## `members_can_view_dependency_insights` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `members_can_view_dependency_insights.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for viewing dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
-| `members_can_view_dependency_insights.disable` | The ability for enterprise members to view dependency insights was disabled. Members cannot view dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
-| `members_can_view_dependency_insights.enable` |  The ability for enterprise members to view dependency insights was enabled. Members can view dependency insights in any organizations in an enterprise.{% ifversion ghec %} For more information, see "[Enforcing a policy for visibility of dependency insights](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."{% endif %}
+| `members_can_view_dependency_insights.clear` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}清除了用于查看企业中任何组织中的依赖项见解的策略设置。{% ifversion ghec %}有关详细信息，请参阅“[强制实施针对依赖项见解可见性的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)”。{% endif %}
+| `members_can_view_dependency_insights.disable` | 已禁用企业成员查看依赖项见解的功能。 成员无法查看企业中任何组织的依赖项见解。{% ifversion ghec %}有关详细信息，请参阅“[强制实施针对依赖项见解可见性的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)”。{% endif %}
+| `members_can_view_dependency_insights.enable` |  已启用企业成员查看依赖项见解的功能。 成员可以查看企业中任何组织的依赖项见解。{% ifversion ghec %}有关详细信息，请参阅“[强制实施针对依赖项见解可见性的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)”。{% endif %}
 
-## `migration` category actions
+## `migration` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `migration.create` | A migration file was created for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
-| `migration.destroy_file` | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was deleted.
-|  `migration.download` | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was downloaded.
+| `migration.create` | 已创建迁移文件，用于将数据从源位置（例如 {% data variables.product.prodname_dotcom_the_website %} 组织或 {% data variables.product.prodname_ghe_server %} 实例）传输到目标 {% data variables.product.prodname_ghe_server %} 实例 。
+| `migration.destroy_file` | 已删除迁移文件，用于将数据从源位置（例如 {% data variables.product.prodname_dotcom_the_website %} 组织或 {% data variables.product.prodname_ghe_server %} 实例）传输到目标 {% data variables.product.prodname_ghe_server %} 实例 。
+|  `migration.download` | 已下载迁移文件，用于将数据从源位置（例如 {% data variables.product.prodname_dotcom_the_website %} 组织或 {% data variables.product.prodname_ghe_server %} 实例）传输到目标 {% data variables.product.prodname_ghe_server %} 实例 。
 {%- endif %}
 
-## `oauth_access` category actions
+## `oauth_access` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-`oauth_access.create`   | An [OAuth access token][] was generated for a user account. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-`oauth_access.destroy`  | An [OAuth access token][] was deleted from a user account.
+`oauth_access.create`   | 已为用户帐户生成 [OAuth 访问令牌][]。 有关详细信息，请参阅“[创建{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+`oauth_access.destroy`  | 已从用户帐户中删除 [OAuth 访问令牌][]。
 
-  [OAuth access token]: /developers/apps/building-oauth-apps/authorizing-oauth-apps
+  [OAuth 访问令牌]: /developers/apps/building-oauth-apps/authorizing-oauth-apps
 
-## `oauth_application` category actions
+## `oauth_application` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `oauth_application.create`           | An [OAuth application][] was created for a user or organization account.
-| `oauth_application.destroy`          | An [OAuth application][] was deleted from a user or organization account.
-{%- ifversion fpt or ghec %}
-| `oauth_application.generate_client_secret`   | An [OAuth application][]'s secret key was generated.
-| `oauth_application.remove_client_secret`     | An [OAuth application][]'s secret key was deleted.
-{%- endif %}
-| `oauth_application.reset_secret`      | An [OAuth application][]'s secret key was reset.
-{%- ifversion fpt or ghec %}
-| `oauth_application.revoke_all_tokens` | All user tokens for an [OAuth application][] were requested to be revoked.
-{%- endif %}
-| `oauth_application.revoke_tokens`     | Token(s) for an [OAuth application][] were revoked.
-| `oauth_application.transfer`          | An [OAuth application][] was transferred from one user or organization account to another.
-{%- ifversion ghes or ghae %}
-| `oauth_application.unsuspend`         | An [OAuth application][] was unsuspended for a user or organization account.
+| `oauth_application.create`           | 已为用户或组织帐户创建 [OAuth 应用程序][]。
+| `oauth_application.destroy`          | 已从用户或组织帐户中删除 [OAuth 应用程序][]。
+{%- ifversion fpt or ghec %} | `oauth_application.generate_client_secret`   | 已生成 [OAuth 应用程序][]的密钥。
+| `oauth_application.remove_client_secret`     | [OAuth 应用程序][]的密钥已被删除。
+{%- endif %} | `oauth_application.reset_secret`      | [OAuth 应用程序][]的密钥已重置。
+{%- ifversion fpt or ghec %} | `oauth_application.revoke_all_tokens` | 已请求撤销 [OAuth 应用程序][]的所有用户令牌。
+{%- endif %} | `oauth_application.revoke_tokens`     | [OAuth 应用程序][]的令牌已被撤销。
+| `oauth_application.transfer`          | [OAuth 应用程序][]已从一个用户或组织帐户转移到另一个用户或组织帐户。
+{%- ifversion ghes or ghae %} | `oauth_application.unsuspend`         | 用户或组织帐户的 [OAuth 应用程序][]已恢复访问权限。
 {%- endif %}
 
-  [OAuth application]: /guides/basics-of-authentication/#registering-your-app
+  [OAuth 应用程序]: /guides/basics-of-authentication/#registering-your-app
 
 {%- ifversion fpt or ghec %}
-## `oauth_authorization` category actions
+## `oauth_authorization` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `oauth_authorization.create`          | An authorization for an OAuth application was created. For more information, see "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)."
-| `oauth_authorization.destroy`          | An authorization for an OAuth application was deleted. For more information, see "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)."
-| `oauth_authorization.update`          | An authorization for an OAuth application was updated. For more information, see "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)."
+| `oauth_authorization.create`          | 已创建 OAuth 应用程序的授权。 有关详细信息，请参阅“[授权 OAuth 应用](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)”。
+| `oauth_authorization.destroy`          | 已删除 OAuth 应用程序的授权。 有关详细信息，请参阅“[授权 OAuth 应用](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)”。
+| `oauth_authorization.update`          | 已更新 OAuth 应用程序的授权。 有关详细信息，请参阅“[授权 OAuth 应用](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)”。
 {%- endif %}
 
-## `org` category actions
+## `org` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `org.accept_business_invitation` | An invitation sent to an organization to join an enterprise was accepted. {% ifversion ghec %}For more information, see "[Inviting an organization to join your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %}
-| `org.add_billing_manager` | A billing manager was added to an organization. {% ifversion fpt or ghec %}For more information, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."{% endif %}
-| `org.add_member` | A user joined an organization.
-| `org.advanced_security_disabled_for_new_repos` | {% data variables.product.prodname_GH_advanced_security %} was disabled for new repositories in an organization.
-| `org.advanced_security_disabled_on_all_repos` | {% data variables.product.prodname_GH_advanced_security %} was disabled for all repositories in an organization.
-| `org.advanced_security_enabled_for_new_repos` | {% data variables.product.prodname_GH_advanced_security %} was enabled for new repositories in an organization.
-| `org.advanced_security_enabled_on_all_repos` | {% data variables.product.prodname_GH_advanced_security %} was enabled for all repositories in an organization.
-| `org.advanced_security_policy_selected_member_disabled` | An enterprise owner prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
-| `org.advanced_security_policy_selected_member_enabled` | An enterprise owner allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
-| `org.advanced_security_policy_update` | An organization owner updated polices for {% data variables.product.prodname_GH_advanced_security %} in an enterprise. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
-| `org.async_delete` | A user initiated a background job to delete an organization.
-{%- ifversion ghec %}
-| `org.audit_log_export` | An organization owner created an export of the organization audit log. If the export included a query, the log will list the query used and the number of audit log entries matching that query. For more information, see "[Exporting audit log activity for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)."
-{%- endif %}
-| `org.block_user` | An organization owner blocked a user from accessing the organization's repositories. {% ifversion fpt or ghec %}For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."{% endif %}
-| `org.cancel_business_invitation` | An invitation for an organization to join an enterprise was revoked. {% ifversion ghec %}For more information, see "[Inviting an organization to join your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %}
-| `org.cancel_invitation` | An invitation sent to a user to join an organization was revoked.
-| `org.clear_actions_settings` |  An organization owner cleared {% data variables.product.prodname_actions %} policy settings for an organization. For more information, see "[Managing GitHub Actions permissions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)."
-| `org.clear_default_repository_permission` | An organization owner cleared the base repository permission policy setting for an organization. For more information, see "[Setting base permissions](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)."
-| `org.clear_member_team_creation_permission` | An organization owner cleared the new teams creation setting for an organization. For more information, see "[Setting team creation permissions in your organization](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
-| `org.clear_reader_discussion_creation_permission` | An organization owner cleared the new discussion creation setting for an organization. {% ifversion fpt or ghec %}For more information, see "[Allowing or disallowing users with read access to create discussions](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}
-| `org.clear_members_can_create_repos`                 | An organization owner cleared a restriction on repository creation in an organization. For more information, see "[Restricting repository creation in your organization](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."
-| `org.clear_members_can_invite_outside_collaborators` | An organization owner cleared the outside collaborators invitation policy for an organization. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)."
-| `org.clear_new_repository_default_branch_setting`    | An organization owner cleared the default branch name for new repositories setting for an organization. For more information, see "[Setting the default branch name](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization#setting-the-default-branch-name)."
-{%- ifversion fpt or ghec %}
-| `org.codespaces_trusted_repo_access_granted`         | {% data variables.product.prodname_github_codespaces %} was granted trusted repository access to all other repositories in an organization. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
-| `org.codespaces_trusted_repo_access_revoked`         | {% data variables.product.prodname_github_codespaces %} trusted repository access to all other repositories in an organization was revoked. For more information, see "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)."
-{%- endif %}                                                                                                             |
-| `org.config.disable_collaborators_only` | The interaction limit for collaborators only for an organization was disabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
-| `org.config.disable_contributors_only` | The interaction limit for prior contributors only for an organization was disabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
-| `org.config.disable_sockpuppet_disallowed` | The interaction limit for existing users only for an organization was disabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
-| `org.config.enable_collaborators_only` | The interaction limit for collaborators only for an organization was enabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
-| `org.config.enable_contributors_only` | The interaction limit for prior contributors only for an organization was enabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
-| `org.config.enable_sockpuppet_disallowed` | The interaction limit for existing users only for an organization was enabled. {% ifversion fpt or ghec %}For more information, see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)."{% endif %}
-| `org.confirm_business_invitation` | An invitation for an organization to join an enterprise was confirmed. {% ifversion ghec %}For more information, see "[Inviting an organization to join your enterprise account](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %}
-| `org.create` | An organization was created. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
-{%- ifversion fpt or ghec or ghes %}
-| `org.create_actions_secret` | A {% data variables.product.prodname_actions %} secret was created for an organization. For more information, see "[Creating encrypted secrets for an organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."
-{%- endif %}
-| `org.create_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was created for an organization.
-| `org.delete`       | An organization was deleted by a user-initiated background job.
-| `org.disable_member_team_creation_permission` | An organization owner limited team creation to owners. For more information, see "[Setting team creation permissions in your organization](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
-| `org.disable_reader_discussion_creation_permission` | An organization owner limited discussion creation to users with at least triage permission in an organization. {% ifversion fpt or ghec %}For more information, see "[Allowing or disallowing users with read access to create discussions](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}
-{%- ifversion fpt or ghec %}
-| `org.disable_oauth_app_restrictions` | Third-party application access restrictions for an organization were disabled. For more information, see "[Disabling OAuth App access restrictions for your organization](/organizations/restricting-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization)."
-{%- endif %}
-{%- ifversion ghec %}
-| `org.disable_saml` | An organization owner disabled SAML single sign-on for an organization.
-{%- endif %}
-{%- ifversion not ghae %}
-| `org.disable_two_factor_requirement` | An organization owner disabled a two-factor authentication requirement for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.
-{%- endif %}
-| `org.display_commenter_full_name_disabled` | An organization owner disabled the display of a commenter's full name in an organization. Members cannot see a comment author's full name.
-| `org.display_commenter_full_name_enabled` | An organization owner enabled the display of a commenter's full name in an organization. Members can see a comment author's full name.
-| `org.enable_member_team_creation_permission` | An organization owner allowed members to create teams. For more information, see "[Setting team creation permissions in your organization](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
-| `org.enable_reader_discussion_creation_permission` | An organization owner allowed users with read access to create discussions in an organization. {% ifversion fpt or ghec %}For more information, see "[Allowing or disallowing users with read access to create discussions](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}
-{%- ifversion fpt or ghec %}
-| `org.enable_oauth_app_restrictions` | Third-party application access restrictions for an organization were enabled. For more information, see "[Enabling OAuth App access restrictions for your organization](/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization)."
-{%- endif %}
-{%- ifversion ghec %}
-| `org.enable_saml` | An organization owner [enabled SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.
-{%- endif %}
-{%- ifversion not ghae %}
-| `org.enable_two_factor_requirement` | An organization owner requires two-factor authentication for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.
-{%- endif %}
-| `org.integration_manager_added` | An organization owner granted a member access to manage all GitHub Apps owned by an organization.
-| `org.integration_manager_removed` | An organization owner removed access to manage all GitHub Apps owned by an organization from an organization member.
-| `org.invite_member` | A new user was invited to join an organization. {% ifversion fpt or ghec %}For more information, see "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."{% endif %}
-| `org.invite_to_business` | An organization was invited to join an enterprise.
-| `org.members_can_update_protected_branches.clear` | An organization owner unset a policy for whether members of an organization can update protected branches on repositories in an organization. Organization administrators can choose whether to allow updating protected branches settings.
-| `org.members_can_update_protected_branches.disable` | The ability for enterprise members to update protected branches was disabled. Only enterprise owners can update protected branches.
-| `org.members_can_update_protected_branches.enable` |  The ability for enterprise members to update protected branches was enabled. Members of an organization can update protected branches.
-{%- ifversion fpt or ghec %}
-| `org.oauth_app_access_approved` | An owner [granted organization access to an {% data variables.product.prodname_oauth_app %}](/organizations/restricting-access-to-your-organizations-data/approving-oauth-apps-for-your-organization).
-| `org.oauth_app_access_denied` | An owner [disabled a previously approved {% data variables.product.prodname_oauth_app %}'s access](/organizations/restricting-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to an organization.
-| `org.oauth_app_access_requested` | An organization member requested that an owner grant an {% data variables.product.prodname_oauth_app %} access to an organization.
-{%- endif %}
-| `org.recreate` | An organization was restored.
-| `org.register_self_hosted_runner` | A new self-hosted runner was registered. For more information, see "[Adding a self-hosted runner to an organization](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)."
-| `org.remove_actions_secret` | A {% data variables.product.prodname_actions %} secret was removed.
-| `org.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was removed from an organization.
-| `org.remove_billing_manager` | An owner removed a billing manager from an organization. {% ifversion fpt or ghec %}For more information, see "[Removing a billing manager from your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/removing-a-billing-manager-from-your-organization)"{% endif %}{% ifversion not ghae %} or when [two-factor authentication was required in an organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) and a billing manager didn't use 2FA or disabled 2FA.{% endif %}
-| `org.remove_member` | An [owner removed a member from an organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization){% ifversion not ghae %} or when [two-factor authentication was required in an organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) and an organization member doesn't use 2FA or disabled 2FA{% endif %}. Also an [organization member removed themselves](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization) from an organization.
-| `org.remove_outside_collaborator` | An owner removed an outside collaborator from an organization{% ifversion not ghae %} or when [two-factor authentication was required in an organization](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) and an outside collaborator didn't use 2FA or disabled 2FA{% endif %}.
-| `org.remove_self_hosted_runner` | A self-hosted runner was removed. For more information, see "[Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)."
-| `org.rename` | An organization was renamed.
-| `org.restore_member` | An organization member was restored. For more information, see "[Reinstating a former member of your organization](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."
-{%- ifversion ghec %}
-| `org.revoke_external_identity` | An organization owner revoked a member's linked identity. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
-| `org.revoke_sso_session` | An organization owner revoked a member's SAML session. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
-{%- endif %}
-| `org.runner_group_created` | A self-hosted runner group was created. For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
-| `org.runner_group_removed` | A self-hosted runner group was removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
-{%- ifversion fpt or ghec %}
-| `org.runner_group_renamed` | A self-hosted runner group was renamed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-{%- endif %}
-| `org.runner_group_updated` | The configuration of a self-hosted runner group was changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.runner_group_runner_removed` |  The REST API was used to remove a self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
-| `org.runner_group_runners_added` | A self-hosted runner was added to a group. For more information, see [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
-| `org.runner_group_runners_updated`|  A runner group's list of members was updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
-{%- ifversion fpt or ghec %}
-| `org.runner_group_visiblity_updated` | The visibility of a self-hosted runner group was updated via the REST API. For more information, see "[Update a self-hosted runner group for an organization](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)."
-{%- endif %}
-{%- ifversion code-security-audit-log-events %}
-| `org.secret_scanning_push_protection_custom_message_disabled` | The custom message triggered by an attempted push to a push-protected repository was disabled for your organization. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
-| `org.secret_scanning_push_protection_custom_message_enabled` | The custom message triggered by an attempted push to a push-protected repository was enabled for your organization. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
-| `org.secret_scanning_push_protection_custom_message_updated` | The custom message triggered by an attempted push to a push-protected repository was updated for your organization. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
-{%- endif %}
-{%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for secret scanning. For more information, see "[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for secret scanning.
-{%- endif %}
-| `org.self_hosted_runner_online` | The runner application was started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `org.self_hosted_runner_offline` | The runner application was stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-{%- ifversion fpt or ghec or ghes %}
-| `org.self_hosted_runner_updated` | The runner application was updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
-{%- endif %}
-{%- ifversion fpt or ghec %}
-| `org.set_actions_fork_pr_approvals_policy` | The setting for requiring approvals for workflows from public forks was changed for an organization. For more information, see "[Requiring approval for workflows from public forks](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks)."
-{%- endif %}
-| `org.set_actions_retention_limit` | The retention period for {% data variables.product.prodname_actions %} artifacts and logs in an organization was changed. For more information, see "[Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)."
-{%- ifversion fpt or ghec or ghes %}
-| `org.set_fork_pr_workflows_policy` | The policy for workflows on private repository forks was changed. For more information, see "[Enabling workflows for private repository forks](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks)."
-{%- endif %}
-{%- ifversion ghes or audit-log-sso-response-events %}
-| `org.sso_response` | A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is only available via audit log streaming and the REST API.
-{%- endif %}
-{%- ifversion ghec %}
-| `org.transfer` | An organization was transferred between enterprise accounts. For more information, see "[Adding organizations to your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts)."
-{%- endif %}
-{%- ifversion not ghae %}
-| `org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."
-{%- endif %}
-| `org.unblock_user` | An organization owner unblocked a user from an organization. {% ifversion fpt or ghec %}For more information, see "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)."{% endif %}
-{%- ifversion fpt or ghec or ghes %}
-| `org.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated.
-{%- endif %}
-| `org.update_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was updated for an organization.
-| `org.update_default_repository_permission` | An organization owner changed the default repository permission level for organization members.
-| `org.update_member` | An organization owner changed a person's role from owner to member or member to owner.
-| `org.update_member_repository_creation_permission` | An organization owner changed the create repository permission for organization members.
-| `org.update_member_repository_invitation_permission` | An organization owner changed the policy setting for organization members inviting outside collaborators to repositories. For more information, see "[Setting permissions for adding outside collaborators](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)."
-| `org.update_new_repository_default_branch_setting` | An organization owner changed the name of the default branch for new repositories in the organization. For more information, see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."
-{%- ifversion ghec or ghae %}
-| `org.update_saml_provider_settings` | An organization's SAML provider settings were updated.
-| `org.update_terms_of_service` | An organization changed between the Standard Terms of Service and the Corporate Terms of Service. {% ifversion ghec %}For more information, see "[Upgrading to the Corporate Terms of Service](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
-{%- endif %}
+| `org.accept_business_invitation` | 已接受发送给组织的关于加入企业的邀请。 {% ifversion ghec %}有关详细信息，请参阅“[邀请组织加入企业帐户](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)”。{% endif %}
+| `org.add_billing_manager` | 计费管理员已添加到组织中。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[为组织添加计费管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)”。{% endif %}
+| `org.add_member` | 用户已加入组织。
+| `org.advanced_security_disabled_for_new_repos` | 已为组织中的新存储库禁用 {% data variables.product.prodname_GH_advanced_security %}。
+| `org.advanced_security_disabled_on_all_repos` | 已为组织中的所有存储库禁用 {% data variables.product.prodname_GH_advanced_security %}。
+| `org.advanced_security_enabled_for_new_repos` | 已为组织中的新存储库启用 {% data variables.product.prodname_GH_advanced_security %}。
+| `org.advanced_security_enabled_on_all_repos` | 已为组织中的所有存储库启用 {% data variables.product.prodname_GH_advanced_security %}。
+| `org.advanced_security_policy_selected_member_disabled` | 企业所有者阻止为组织拥有的存储库启用 {% data variables.product.prodname_GH_advanced_security %} 功能。 {% data reusables.advanced-security.more-information-about-enforcement-policy %}
+| `org.advanced_security_policy_selected_member_enabled` | 企业所有者允许为组织拥有的存储库启用 {% data variables.product.prodname_GH_advanced_security %} 功能。 {% data reusables.advanced-security.more-information-about-enforcement-policy %}
+| `org.advanced_security_policy_update` | 组织所有者在企业中更新了 {% data variables.product.prodname_GH_advanced_security %} 策略。 {% data reusables.advanced-security.more-information-about-enforcement-policy %}
+| `org.async_delete` | 用户发起了删除组织的后台作业。
+{%- ifversion ghec %} | `org.audit_log_export` | 组织所有者创建了组织审核日志的导出。 如果导出包含查询，则日志将列出所使用的查询以及与该查询匹配的审核日志条目数量。 有关详细信息，请参阅“[企业审核日志活动](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)”。
+{%- endif %} | `org.block_user` | 组织所有者阻止了用户访问组织的存储库。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。{% endif %} | `org.cancel_business_invitation` | 组织加入企业的邀请已被撤销。 {% ifversion ghec %}有关详细信息，请参阅“[邀请组织加入企业帐户](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)”。{% endif %} | `org.cancel_invitation` | 向用户发送的加入组织的邀请已被撤销。
+| `org.clear_actions_settings` |  组织所有者清除了组织的 {% data variables.product.prodname_actions %} 策略设置。 有关详细信息，请参阅“[管理组织的 GitHub Actions 权限](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)”。
+| `org.clear_default_repository_permission` | 组织所有者清除了组织的基本存储库权限策略设置。 有关详细信息，请参阅“[设置基本权限](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)”。
+| `org.clear_member_team_creation_permission` | 组织所有者清除了组织的新团队创建设置。 有关详细信息，请参阅“[在组织中设置团队创建权限](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)”。
+| `org.clear_reader_discussion_creation_permission` | 组织所有者清除了组织的新的讨论创建设置。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[允许或禁止具有读取访问权限的用户创建讨论](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。{% endif %} | `org.clear_members_can_create_repos`                 | 组织所有者清除了对组织中存储库创建的限制。 有关详细信息，请参阅“[限制组织中的存储库创建](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)”。
+| `org.clear_members_can_invite_outside_collaborators` | 组织所有者清除了组织的外部协作者邀请策略。 有关详细信息，请参阅“[设置添加外部协作者的权限](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)”。
+| `org.clear_new_repository_default_branch_setting`    | 组织所有者清除了组织的新建存储库设置的默认分支名称。 有关详细信息，请参阅“[设置默认分支名称](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization#setting-the-default-branch-name)”。
+{%- ifversion fpt or ghec %} | `org.codespaces_trusted_repo_access_granted`         | 已授予 {% data variables.product.prodname_github_codespaces %} 对组织中所有其他存储库的受信任存储库访问权限。 有关详细信息，请参阅“[管理组织 codespace 的存储库访问](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)”。
+| `org.codespaces_trusted_repo_access_revoked`         | {% data variables.product.prodname_github_codespaces %} 对组织中所有其他存储库的受信任存储库访问权限已被撤销。 有关详细信息，请参阅“[管理组织 codespace 的存储库访问](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)”。
+{%- endif %}                                                                                                             | | `org.config.disable_collaborators_only` | 已禁用仅针对组织的协作者的交互限制。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)”。{% endif %} | `org.config.disable_contributors_only` | 已禁用仅针对组织的之前参与者的交互限制。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)”。{% endif %} | `org.config.disable_sockpuppet_disallowed` | 已禁用仅针对组织的现有用户的交互限制。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)”。{% endif %} | `org.config.enable_collaborators_only` | 已启用仅针对组织的协作者的交互限制。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)”。{% endif %} | `org.config.enable_contributors_only` | 已启用仅针对组织的之前参与者的交互限制。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)”。{% endif %} | `org.config.enable_sockpuppet_disallowed` | 已启用仅针对组织的现有用户的交互限制。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization)”。{% endif %} | `org.confirm_business_invitation` | 已确认组织加入企业的邀请。 {% ifversion ghec %}有关详细信息，请参阅“[邀请组织加入企业帐户](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)”。{% endif %} | `org.create` | 组织已创建。 有关详细信息，请参阅[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)。
+{%- ifversion fpt or ghec or ghes %} | `org.create_actions_secret` | 已为组织创建 {% data variables.product.prodname_actions %} 机密。 有关详细信息，请参阅“[为组织创建加密机密](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)”。
+{%- endif %} | `org.create_integration_secret` | 已为组织创建 {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} 或 {% data variables.product.prodname_github_codespaces %}{% endif %} 集成机密。
+| `org.delete`       | 组织已由用户发起的后台作业删除。
+| `org.disable_member_team_creation_permission` | 组织所有者将团队创建限制为所有者。 有关详细信息，请参阅“[在组织中设置团队创建权限](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)”。
+| `org.disable_reader_discussion_creation_permission` | 组织所有者将讨论创建限制为组织中至少具有会审权限的用户。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[允许或禁止具有读取访问权限的用户创建讨论](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。{% endif %} {%- ifversion fpt or ghec %} | `org.disable_oauth_app_restrictions` | 已禁用组织的第三方应用程序访问权限限制。 有关详细信息，请参阅“[为组织禁用 OAuth 应用访问权限限制](/organizations/restricting-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization)”。
+{%- endif %} {%- ifversion ghec %} | `org.disable_saml` | 组织所有者为组织禁用了 SAML 单一登录。
+{%- endif %} {%- ifversion not ghae %} | `org.disable_two_factor_requirement` | 组织所有者为组织中的所有成员{% ifversion fpt or ghec %}、计费管理员{% endif %}和外部协作者禁用了双因素身份验证要求。
+{%- endif %} | `org.display_commenter_full_name_disabled` | 组织所有者禁用了在组织中显示评论者全名的功能。 成员无法看到评论作者的全名。
+| `org.display_commenter_full_name_enabled` | 组织所有者启用了在组织中显示评论者全名的功能。 成员可以看到评论作者的全名。
+| `org.enable_member_team_creation_permission` | 组织所有者允许成员创建团队。 有关详细信息，请参阅“[在组织中设置团队创建权限](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)”。
+| `org.enable_reader_discussion_creation_permission` | 组织所有者允许具有读取访问权限的用户在组织中创建讨论。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[允许或禁止具有读取访问权限的用户创建讨论](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。{% endif %} {%- ifversion fpt or ghec %} | `org.enable_oauth_app_restrictions` | 已启用组织的第三方应用程序访问权限限制。 有关详细信息，请参阅“[为组织启用 OAuth 应用访问权限限制](/organizations/restricting-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization)”。
+{%- endif %} {%- ifversion ghec %} | `org.enable_saml` | 组织所有者为组织[启用了 SAML 单一登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)。
+{%- endif %} {%- ifversion not ghae %} | `org.enable_two_factor_requirement` | 组织所有者需要对组织中的所有成员{% ifversion fpt or ghec %}、计费管理员{% endif %}和外部协作者进行双因素身份验证。
+{%- endif %} | `org.integration_manager_added` | 组织所有者授予了成员对管理组织拥有的所有 GitHub 应用的访问权限。
+| `org.integration_manager_removed` | 组织所有者删除了组织成员对管理组织拥有的所有 GitHub 应用的访问权限。
+| `org.invite_member` | 邀请新用户加入了组织。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[邀请用户加入组织](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)”。{% endif %} | `org.invite_to_business` | 邀请组织加入了企业。
+| `org.members_can_update_protected_branches.clear` | 组织所有者取消设置针对组织成员是否可以更新组织中存储库上受保护分支的策略。 组织管理员可以选择是否允许更新受保护的分支设置。
+| `org.members_can_update_protected_branches.disable` | 已禁用企业成员更新受保护分支的功能。 只有企业所有者可以更新受保护的分支。
+| `org.members_can_update_protected_branches.enable` |  已启用企业成员更新受保护分支的功能。 组织成员可以更新受保护的分支。
+{%- ifversion fpt or ghec %} | `org.oauth_app_access_approved` | 所有者[向组织授予了对 {% data variables.product.prodname_oauth_app %} 的访问权限](/organizations/restricting-access-to-your-organizations-data/approving-oauth-apps-for-your-organization)。
+| `org.oauth_app_access_denied` | 所有者[禁用了先前批准的对组织的 {% data variables.product.prodname_oauth_app %} 访问权限](/organizations/restricting-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization)。
+| `org.oauth_app_access_requested` | 组织成员请求所有者授予对组织的 {% data variables.product.prodname_oauth_app %} 访问权限。
+{%- endif %} | `org.recreate` | 组织已还原。
+| `org.register_self_hosted_runner` | 已注册新的自托管运行器。 有关详细信息，请参阅“[将自托管运行器添加到组织](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)”。
+| `org.remove_actions_secret` | {% data variables.product.prodname_actions %} 机密已被删除。
+| `org.remove_integration_secret` | 已从组织中删除 {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} 或 {% data variables.product.prodname_github_codespaces %}{% endif %} 集成机密。
+| `org.remove_billing_manager` | 所有者从组织中删除了计费管理员。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[从组织中删除计费管理员](/organizations/managing-peoples-access-to-your-organization-with-roles/removing-a-billing-manager-from-your-organization)”{% endif %}{% ifversion not ghae %}，或当[组织中需要双因素身份验证](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)，而计费管理员未使用 2FA 或禁用了 2FA 时。{% endif %} | `org.remove_member` | [所有者从组织中删除了成员](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization){% ifversion not ghae %}，或当[组织中需要双因素身份验证](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)，而组织成员未使用 2FA 或禁用了 2FA 时{% endif %}。 [组织成员也将从组织中删除自己](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)。
+| `org.remove_outside_collaborator` | 所有者从组织中删除了外部协作者{% ifversion not ghae %}，或当[组织中需要双因素身份验证](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)，而外部协作者未使用 2FA 或禁用了 2FA 时{% endif %}。
+| `org.remove_self_hosted_runner` | 已删除自托管运行器。 有关详细信息，请参阅“[从组织中删除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)”。
+| `org.rename` | 组织已重命名。
+| `org.restore_member` | 组织成员已还原。 有关详细信息，请参阅“[恢复组织的前成员](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)”。
+{%- ifversion ghec %} | `org.revoke_external_identity` | 组织所有者撤销了成员的关联标识。 有关详细信息，请参阅“[查看和管理成员对组织的 SAML 访问权限](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)”。
+| `org.revoke_sso_session` | 组织所有者撤销了成员的 SAML 会话。 有关详细信息，请参阅“[查看和管理成员对组织的 SAML 访问权限](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)”。
+{%- endif %} | `org.runner_group_created` | 已创建自托管运行器组。 有关详细信息，请参阅“[为组织创建自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)”。
+| `org.runner_group_removed` | 已删除自托管运行器组。 有关详细信息，请参阅“[删除自托管运行器组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)”。
+{%- ifversion fpt or ghec %} | `org.runner_group_renamed` | 自托管运行器组已重命名。 有关详细信息，请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。
+{%- endif %} | `org.runner_group_updated` | 自托管运行器组的配置已更改。 有关详细信息，请参阅“[更改自托管运行器组的访问策略](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)”。
+| `org.runner_group_runner_removed` |  REST API 用于从组中删除自托管运行器。 有关详细信息，请参阅“[为组织从组中删除自托管运行器](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)”。
+| `org.runner_group_runners_added` | 将自托管运行器添加到组中。 有关详细信息，请参阅“[将自托管运行器移动到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”。
+| `org.runner_group_runners_updated`|  运行器组的成员名单已更新。 有关详细信息，请参阅“[为组织设置自托管运行器](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)”。
+{%- ifversion fpt or ghec %} | `org.runner_group_visiblity_updated` | 自托管运行器组的可见性已通过 REST API 进行更新。 有关详细信息，请参阅“[更新组织的自托管运行器组](/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization)”。
+{%- endif %} {%- ifversion code-security-audit-log-events %} | `org.secret_scanning_push_protection_custom_message_disabled` | 已为组织禁用尝试推送到受推送保护的存储库而触发的自定义消息。 有关详细信息，请参阅“[用 {% data variables.product.prodname_secret_scanning %} 保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)”。
+| `org.secret_scanning_push_protection_custom_message_enabled` | 已为组织启用尝试推送到受推送保护的存储库而触发的自定义消息。 有关详细信息，请参阅“[用 {% data variables.product.prodname_secret_scanning %} 保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)”。
+| `org.secret_scanning_push_protection_custom_message_updated` | 已为组织更新尝试推送到受推送保护的存储库而触发的自定义消息。 有关详细信息，请参阅“[用 {% data variables.product.prodname_secret_scanning %} 保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)”。
+{%- endif %} {%- ifversion secret-scanning-audit-log-custom-patterns %} | `org.secret_scanning_push_protection_disable` | 组织所有者或管理员禁用了用于机密扫描的推送保护。 有关详细信息，请参阅“[使用机密扫描保护推送](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
+| `org.secret_scanning_push_protection_enable` | 组织所有者或管理员启用了用于机密扫描的推送保护。
+{%- endif %} | `org.self_hosted_runner_online` | 运行器应用程序已启动。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 有关详细信息，请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。
+| `org.self_hosted_runner_offline` | 运行器应用程序已停止。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 有关详细信息，请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。
+{%- ifversion fpt or ghec or ghes %} | `org.self_hosted_runner_updated` | 运行器应用程序已更新。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 有关详细信息，请参阅[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)。
+{%- endif %} {%- ifversion fpt or ghec %} | `org.set_actions_fork_pr_approvals_policy` | 已为组织更改需要审批来自公共分支的工作流的设置。 有关详细信息，请参阅“[需要审批来自公共分支的工作流](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks)”。
+{%- endif %} | `org.set_actions_retention_limit` | 组织中 {% data variables.product.prodname_actions %} 工件和日志的保持期已更改。 有关详细信息，请参阅“[为组织中的 {% data variables.product.prodname_actions %} 工件和日志配置保持期](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)”。
+{%- ifversion fpt or ghec or ghes %} | `org.set_fork_pr_workflows_policy` | 专用存储库分支上的工作流策略已更改。 有关详细信息，请参阅“[为专用存储库分支启用工作流](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks)”。
+{%- endif %} {%- ifversion ghes or audit-log-sso-response-events %} | `org.sso_response` | 当成员尝试向组织进行身份验证时，将生成 SAML 单一登录 (SSO) 响应。 此事件只能通过审核日志流式处理和 REST API 使用。
+{%- endif %} {%- ifversion ghec %} | `org.transfer` | 组织在企业帐户之间转移。 有关详细信息，请参阅[将组织添加到企业](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts)。
+{%- endif %} {%- ifversion not ghae %} | `org.transform`    | 用户帐户已转换为组织。 有关详细信息，请参阅“[将用户转换为组织](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)”。
+{%- endif %} | `org.unblock_user` | 组织所有者取消阻止了用户对组织的访问。 {% ifversion fpt or ghec %}有关详细信息，请参阅“[取消阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”。{% endif %} {%- ifversion fpt or ghec or ghes %} | `org.update_actions_secret` | {% data variables.product.prodname_actions %} 机密已更新。
+{%- endif %} | `org.update_integration_secret` | 已为组织更新 {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} 或 {% data variables.product.prodname_github_codespaces %}{% endif %} 集成机密。
+| `org.update_default_repository_permission` | 组织所有者更改了组织成员的默认存储库权限级别。
+| `org.update_member` | 组织所有者将某人的角色从所有者更改为成员或从成员更改为所有者。
+| `org.update_member_repository_creation_permission` | 组织所有者更改了组织成员的创建存储库权限。
+| `org.update_member_repository_invitation_permission` | 组织所有者更改了组织成员邀请外部协作者访问存储库的策略设置。 有关详细信息，请参阅“[设置添加外部协作者的权限](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)”。
+| `org.update_new_repository_default_branch_setting` | 组织所有者更改了组织中新存储库的默认分支名称。 有关详细信息，请参阅“[管理组织中存储库的默认分支名称](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)。”
+{%- ifversion ghec or ghae %} | `org.update_saml_provider_settings` | 组织的 SAML 提供程序设置已更新。
+| `org.update_terms_of_service` | 组织在标准服务条款和公司服务条款之间进行了更改。 {% ifversion ghec %}有关详细信息，请参阅“[升级到公司服务条款](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)”。{% endif %} {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-## `org_credential_authorization` category actions
+## `org_credential_authorization` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `org_credential_authorization.deauthorized` | A member deauthorized credentials for use with SAML single sign-on. {% ifversion ghec or ghae %}For more information, see "[Authenticating with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on)."{% endif %}
-| `org_credential_authorization.grant` | A member authorized credentials for use with SAML single sign-on. {% ifversion ghec or ghae %}For more information, see "[Authenticating with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on)."{% endif %}
-| `org_credential_authorization.revoke` | An owner revoked authorized credentials. {% ifversion ghec %}For more information, see "[Viewing and managing your active SAML sessions](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)."{% endif %}
+| `org_credential_authorization.deauthorized` | 成员取消了对用于 SAML 单一登录的凭据授权。 {% ifversion ghec or ghae %}有关详细信息，请参阅“[使用 SAML 单一登录进行身份验证](/authentication/authenticating-with-saml-single-sign-on)”。{% endif %}
+| `org_credential_authorization.grant` | 成员授权了用于 SAML 单一登录的凭据。 {% ifversion ghec or ghae %}有关详细信息，请参阅“[使用 SAML 单一登录进行身份验证](/authentication/authenticating-with-saml-single-sign-on)”。{% endif %}
+| `org_credential_authorization.revoke` | 所有者撤销了授权凭据。 {% ifversion ghec %}有关详细信息，请参阅“[查看和管理活动 SAML 会话](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)”。{% endif %}
 {%- endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-## `org_secret_scanning_custom_pattern` category actions
+## `org_secret_scanning_custom_pattern` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|---------------
-| `org_secret_scanning_custom_pattern.create` | A custom pattern is published for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-| `org_secret_scanning_custom_pattern.delete` | A custom pattern is removed from secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-| `org_secret_scanning_custom_pattern.update` |Changes to a custom pattern are saved for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `org_secret_scanning_custom_pattern.create` | 在组织中发布了针对机密扫描的自定义模式。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)”。
+| `org_secret_scanning_custom_pattern.delete` | 从组织中的机密扫描中删除了自定义模式。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)”。
+| `org_secret_scanning_custom_pattern.update` |将对自定义模式所做的更改保存到组织中，以进行机密扫描。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)”。
 {%- endif %}
 
-## `organization_default_label` category actions
+## `organization_default_label` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `organization_default_label.create` | A default label for repositories in an organization was created. For more information, see "[Creating a default label](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#creating-a-default-label)."
-| `organization_default_label.update` | A default label for repositories in an organization was edited. For more information, see "[Editing a default label](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#editing-a-default-label)."
-| `organization_default_label.destroy` | A default label for repositories in an organization was deleted. For more information, see "[Deleting a default label](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#deleting-a-default-label)."
+| `organization_default_label.create` | 已在组织中创建存储库的默认标签。 有关详细信息，请参阅“[创建默认标签](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#creating-a-default-label)”。
+| `organization_default_label.update` | 已在组织中编辑存储库的默认标签。 有关详细信息，请参阅“[编辑默认标签](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#editing-a-default-label)”。
+| `organization_default_label.destroy` | 组织中存储库的默认标签已被删除。 有关详细信息，请参阅“[删除默认标签](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#deleting-a-default-label)”。
 
 {%- ifversion fpt or ghec or ghes %}
-## `organization_domain` category actions
+## `organization_domain` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `organization_domain.approve` | An enterprise domain was approved for an organization. For more information, see "[Approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#approving-a-domain-for-your-organization)."
-| `organization_domain.create` | An enterprise domain was added to an organization. For more information, see "[Verifying a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)."
-| `organization_domain.destroy` | An enterprise domain was removed from an organization. For more information, see "[Removing an approved or verified domain](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain)."
-| `organization_domain.verify` | An enterprise domain was verified for an organization. For more information, see "[Verifying a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)."
+| `organization_domain.approve` | 企业域已获批用于组织。 有关详细信息，请参阅“[审批组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#approving-a-domain-for-your-organization)”。
+| `organization_domain.create` | 企业域已添加到组织。 有关详细信息，请参阅“[验证组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)”。
+| `organization_domain.destroy` | 企业域已从组织中删除。 有关详细信息，请参阅“[删除已获批准或已验证的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain)”。
+| `organization_domain.verify` | 已为组织验证企业域。 有关详细信息，请参阅“[验证组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization)”。
 
-## `organization_projects_change` category actions
+## `organization_projects_change` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `organization_projects_change.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for organization-wide project boards in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
-| `organization_projects_change.disable` | Organization projects were disabled for all organizations in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
-| `organization_projects_change.enable` | Organization projects were enabled for all organizations in an enterprise. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
+| `organization_projects_change.clear` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}清除了企业中组织范围的项目板的策略设置。 有关详细信息，请参阅“[在企业中为项目实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)”。
+| `organization_projects_change.disable` | 已为企业中的所有组织禁用组织项目。 有关详细信息，请参阅“[在企业中为项目实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)”。
+| `organization_projects_change.enable` | 已为企业中的所有组织启用组织项目。 有关详细信息，请参阅“[在企业中为项目实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)”。
 {%- endif %}
 
-## `packages` category actions
+## `packages` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `packages.insecure_hash` | Maven published an insecure hash for a specific package version.
-| `packages.package_deleted` | A package was deleted from an organization.{% ifversion fpt or ghec or ghes %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.package_published` | A package was published or republished to an organization.
-| `packages.package_restored` | An entire package was restored.{% ifversion fpt or ghec or ghes %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.package_version_deleted` | A specific package version was deleted.{% ifversion fpt or ghec or ghes %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.package_version_published` | A specific package version was published or republished to a package.
-| `packages.package_version_restored` | A specific package version was deleted.{% ifversion fpt or ghec or ghes %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.part_upload` | A specific package version was partially uploaded to an organization.
-| `packages.upstream_package_fetched` | A specific package version was fetched from the npm upstream proxy.
-| `packages.version_download` | A specific package version was downloaded.
-| `packages.version_upload` | A specific package version was uploaded.
+| `packages.insecure_hash` | Maven 为特定包版本发布了不安全的哈希。
+| `packages.package_deleted` | 已从组织中删除包。{% ifversion fpt or ghec or ghes %}有关详细信息，请参阅“[删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。{% endif %}
+| `packages.package_published` | 包已发布或重新发布到组织。
+| `packages.package_restored` | 整个包已还原。{% ifversion fpt or ghec or ghes %}有关详细信息，请参阅“[删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。{% endif %}
+| `packages.package_version_deleted` | 特定包版本已被删除。{% ifversion fpt or ghec or ghes %}有关详细信息，请参阅“[删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。{% endif %}
+| `packages.package_version_published` | 特定包版本已发布或重新发布到包。
+| `packages.package_version_restored` | 特定包版本已被删除。{% ifversion fpt or ghec or ghes %}有关详细信息，请参阅“[删除和还原包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。{% endif %}
+| `packages.part_upload` | 特定包版本已部分上传到组织。
+| `packages.upstream_package_fetched` | 已从 npm 上游代理获取特定的包版本。
+| `packages.version_download` | 已下载特定的包版本。
+| `packages.version_upload` | 已上传特定的包版本。
 
 {%- ifversion fpt or ghec %}
-## `pages_protected_domain` category actions
+## `pages_protected_domain` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `pages_protected_domain.create` | A {% data variables.product.prodname_pages %} verified domain was created for an organization or enterprise. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
-| `pages_protected_domain.delete` | A {% data variables.product.prodname_pages %} verified domain was deleted from an organization or enterprise. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
-| `pages_protected_domain.verify`  | A {% data variables.product.prodname_pages %} domain was verified for an organization or enterprise. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
+| `pages_protected_domain.create` | 已为组织或企业创建 {% data variables.product.prodname_pages %} 验证域。 有关详细信息，请参阅“[验证 {% data variables.product.prodname_pages %} 的自定义域](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)”。
+| `pages_protected_domain.delete` | 已从组织或企业中删除 {% data variables.product.prodname_pages %} 验证域。 有关详细信息，请参阅“[验证 {% data variables.product.prodname_pages %} 的自定义域](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)”。
+| `pages_protected_domain.verify`  | 已为组织或企业验证 {% data variables.product.prodname_pages %} 域。 有关详细信息，请参阅“[验证 {% data variables.product.prodname_pages %} 的自定义域](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)”。
 
-## `payment_method` category actions
+## `payment_method` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `payment_method.create` | A new payment method was added, such as a new credit card or PayPal account.
-| `payment_method.remove` | A payment method was removed.
-| `payment_method.update` | An existing payment method was updated.
+| `payment_method.create` | 已添加新的付款方式，例如新的信用卡或 PayPal 帐户。
+| `payment_method.remove` | 付款方式已删除。
+| `payment_method.update` | 现有的付款方式已更新。
 
-## `prebuild_configuration` category actions
+## `prebuild_configuration` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `prebuild_configuration.create` | A {% data variables.product.prodname_github_codespaces %} prebuild configuration for a repository was created. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
-| `prebuild_configuration.destroy` | A {% data variables.product.prodname_github_codespaces %} prebuild configuration for a repository was deleted. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
-| `prebuild_configuration.run_triggered` | A user initiated a run of a {% data variables.product.prodname_github_codespaces %} prebuild configuration for a repository branch. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
-| `prebuild_configuration.update` | A {% data variables.product.prodname_github_codespaces %} prebuild configuration for a repository was edited. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
+| `prebuild_configuration.create` | 存储库的 {% data variables.product.prodname_github_codespaces %} 预生成配置已创建。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 预生成](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)”。
+| `prebuild_configuration.destroy` | 存储库的 {% data variables.product.prodname_github_codespaces %} 预生成配置已删除。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 预生成](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)”。
+| `prebuild_configuration.run_triggered` | 用户为存储库分支启动了 {% data variables.product.prodname_github_codespaces %} 预生成配置的运行。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 预生成](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)”。
+| `prebuild_configuration.update` | 存储库的 {% data variables.product.prodname_github_codespaces %} 预生成配置已编辑。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_github_codespaces %} 预生成](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)”。
 {%- endif %}
 
 {%- ifversion ghes %}
-## `pre_receive_environment` category actions
+## `pre_receive_environment` 类别操作
 
-| Action | Description
+| 操作 | 说明
 | ------ | -----------
-| `pre_receive_environment.create` | A pre-receive hook environment was created. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)."
-| `pre_receive_environment.destroy` | A pre-receive hook environment was deleted. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)."
-| `pre_receive_environment.download` | A pre-receive hook environment was downloaded. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)."
-| `pre_receive_environment.update` | A pre-receive hook environment was updated. For more information, see "[Creating a pre-receive hook environment](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)."
+| `pre_receive_environment.create` | 已创建预接收挂钩环境。 有关详细信息，请参阅“[创建预接收挂钩环境](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)”。
+| `pre_receive_environment.destroy` | 预接收挂钩环境已被删除。 有关详细信息，请参阅“[创建预接收挂钩环境](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)”。
+| `pre_receive_environment.download` | 已下载预接收挂钩环境。 有关详细信息，请参阅“[创建预接收挂钩环境](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)”。
+| `pre_receive_environment.update` | 预接收挂钩环境已更新。 有关详细信息，请参阅“[创建预接收挂钩环境](/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment)”。
 
-## `pre_receive_hook` category actions
+## `pre_receive_hook` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `pre_receive_hook.create` | A pre-receive hook was created. For more information, see "[Creating pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks)."
-| `pre_receive_hook.destroy` | A pre-receive hook was deleted. For more information, see "[Deleting pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#deleting-pre-receive-hooks)."
-| `pre_receive_hook.enforcement` | A pre-receive hook enforcement setting allowing repository and organization administrators to override the hook configuration was enabled or disabled. For more information, see "[Managing pre-receive hooks on the GitHub Enterprise Server appliance](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance)."
-| `pre_receive_hook.rejected_push` | A pre-receive hook rejected a push.
-| `pre_receive_hook.update` | A pre-receive hook was created. For more information, see "[Editing pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#editing-pre-receive-hooks)."
-| `pre_receive_hook.warned_push` | A pre-receive hook warned about a push.
+| `pre_receive_hook.create` | 已创建预接收挂钩。 有关详细信息，请参阅“[创建预接收挂钩](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks)”。
+| `pre_receive_hook.destroy` | 预接收挂钩已被删除。 有关详细信息，请参阅“[预接收挂钩](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#deleting-pre-receive-hooks)”。
+| `pre_receive_hook.enforcement` | 已启用或禁用允许存储库和组织管理员替代挂钩配置的预接收挂钩强制实施设置。 有关详细信息，请参阅“[管理 GitHub Enterprise Server 设备上的预接收挂钩](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance)”。
+| `pre_receive_hook.rejected_push` | 预接收挂钩拒绝了推送。
+| `pre_receive_hook.update` | 已创建预接收挂钩。 有关详细信息，请参阅“[编辑预接收挂钩](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#editing-pre-receive-hooks)”。
+| `pre_receive_hook.warned_push` | 预接收挂钩针对推送发出警告。
 {%- endif %}
 
-## `private_repository_forking` category actions
+## `private_repository_forking` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `private_repository_forking.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. For more information, see "[Managing the forking policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository), "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and for enterprises "[Enforcing a policy for forking private or internal repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
-| `private_repository_forking.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are never allowed  to be forked. For more information, see "[Managing the forking policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository), "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and for enterprises "[Enforcing a policy for forking private or internal repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
-| `private_repository_forking.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked. For more information, see "[Managing the forking policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository), "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and for enterprises "[Enforcing a policy for forking private or internal repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
+| `private_repository_forking.clear` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}清除了允许对存储库、组织或企业的专用和内部存储库创建分支的策略设置。 有关详细信息，请参阅“[管理存储库的分支策略](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)”、“[管理组织的分支策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)”和“[强制实施用于对专用或内部存储库创建分支的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)”。
+| `private_repository_forking.disable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}禁用了允许对存储库、组织或企业的专用和内部存储库创建分支的策略设置。 不允许对专用和内部存储库创建分支。 有关详细信息，请参阅“[管理存储库的分支策略](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)”、“[管理组织的分支策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)”和“[强制实施用于对专用或内部存储库创建分支的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)”。
+| `private_repository_forking.enable` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}启用了允许对存储库、组织或企业的专用和内部存储库创建分支的策略设置。 始终允许允许对专用和内部存储库创建分支。 有关详细信息，请参阅“[管理存储库的分支策略](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)”、“[管理组织的分支策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)”和“[强制实施用于对专用或内部存储库创建分支的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)”。
 
 {%- ifversion fpt or ghec %}
-## `profile_picture` category actions
+## `profile_picture` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `profile_picture.update` | A profile picture was updated.
+| `profile_picture.update` | 个人资料图片已更新。
 {%- endif %}
 
-## `project` category actions
+## `project` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `project.access` | A project board visibility was changed. For more information, see "[Changing project board visibility](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."
-| `project.close` | A project board was closed. For more information, see "[Closing a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)."
-| `project.create` | A project board was created. For more information, see "[Creating a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
-| `project.delete` | A project board was deleted. For more information, see "[Deleting a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)."
-| `project.link` | A repository was linked to a project board. For more information, see "[Linking a repository to a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
-| `project.open` | A project board was reopened. For more information, see "[Reopening a closed project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)."
-| `project.rename` | A project board was renamed. For more information, see "[Editing a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)."
-| `project.unlink` | A repository was unlinked from a project board. For more information, see "[Linking a repository to a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
-| `project.update_org_permission` | The project's base-level permission for all organization members was changed or removed. For more information, see "[Managing access to a project board for organization members](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)."
-| `project.update_team_permission` | A team's project board permission level was changed or when a team was added or removed from a project board. For more information, see "[Managing team access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)."
-| `project.update_user_permission` | An organization member or outside collaborator was added to or removed from a project board or had their permission level changed. For more information, see "[Managing an individual’s access to an organization project board](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)."
+| `project.access` | 项目板可见性已更改。 有关详细信息，请参阅“[更改项目板可见性](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)”。
+| `project.close` | 项目板已关闭。 有关详细信息，请参阅“[关闭项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)”。
+| `project.create` | 项目板已创建。 有关详细信息，请参阅“[创建项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)”。
+| `project.delete` | 项目板已被删除。 有关详细信息，请参阅“[项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)”。
+| `project.link` | 存储库已链接到项目板。 有关详细信息，请参阅“[将存储库链接到项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)”。
+| `project.open` | 项目板已重新打开。 有关详细信息，请参阅“[重新打开已关闭的项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)”。
+| `project.rename` | 项目板已重命名。 有关详细信息，请参阅“[编辑项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)”。
+| `project.unlink` | 存储库取消与项目板的链接。 有关详细信息，请参阅“[将存储库链接到项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)”。
+| `project.update_org_permission` | 所有组织成员的项目基本权限已更改或被删除。 有关详细信息，请参阅“[管理组织成员对项目板的访问权限](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)”。
+| `project.update_team_permission` | 团队的项目板权限级别已更改，或当在项目板中添加或删除了团队时。 有关详细信息，请参阅“[管理团队对组织项目板的访问权限](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)”。
+| `project.update_user_permission` | 组织成员或外部协作者已添加到项目板或从项目板中删除，或者他们的权限级别已更改。 有关详细信息，请参阅“[管理个人对组织项目板的访问权限](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)”。
 
 {%- ifversion projects-v2 %}
-## `project_field` category actions
+## `project_field` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `project_field.create` | A field was created in a project board. For more information, see "[Understanding field types](/issues/planning-and-tracking-with-projects/understanding-field-types)."
-| `project_field.delete` | A field was deleted in a project board. For more information, see "[Deleting fields](/issues/planning-and-tracking-with-projects/understanding-field-types/deleting-fields)."
+| `project_field.create` | 已在项目板中创建字段。 有关详细信息，请参阅“[了解字段类型](/issues/planning-and-tracking-with-projects/understanding-field-types)”。
+| `project_field.delete` | 已在项目板中删除字段。 有关详细信息，请参阅“[删除字段](/issues/planning-and-tracking-with-projects/understanding-field-types/deleting-fields)”。
 
-## `project_view` category actions
+## `project_view` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `project_view.create` | A view was created in a project board. For more information, see "[Managing your views](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
-| `project_view.delete` | A view was deleted in a project board. For more information, see "[Managing your views](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
+| `project_view.create` | 已在项目板中创建视图。 有关详细信息，请参阅“[管理视图](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)”。
+| `project_view.delete` | 已在项目板中删除视图。 有关详细信息，请参阅“[管理视图](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)”。
 {%- endif %}
 
-## `protected_branch` category actions
+## `protected_branch` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `protected_branch.create ` | Branch protection was enabled on a branch.
-| `protected_branch.destroy` | Branch protection was disabled on a branch.
-| `protected_branch.dismiss_stale_reviews ` | Enforcement of dismissing stale pull requests was updated on a branch.
-{%- ifversion ghes %}
-| `protected_branch.dismissal_restricted_users_teams` | Enforcement of restricting users and/or teams who can dismiss reviews was updated on a branch.
-{%- endif %}
-| `protected_branch.policy_override ` | A branch protection requirement was overridden by a repository administrator.
-| `protected_branch.rejected_ref_update ` | A branch update attempt was rejected.
-| `protected_branch.required_status_override` | The required status checks branch protection requirement was overridden by a repository administrator.
-| `protected_branch.review_policy_and_required_status_override` | The required reviews and required status checks branch protection requirements were overridden by a repository administrator.
-| `protected_branch.review_policy_override` | The required reviews branch protection requirement was overridden by a repository administrator.
-| `protected_branch.update_admin_enforced ` | Branch protection was enforced for repository administrators.
-{%- ifversion ghes %}
-| `protected_branch.update_allow_deletions_enforcement_level` | Enforcement of allowing users with push access to delete matching branches was updated on a branch.
-| `protected_branch.update_allow_force_pushes_enforcement_level` | Enforcement of allowing force pushes for all users with push access was updated on a branch.
-| `protected_branch.update_linear_history_requirement_enforcement_level` | Enforcement of requiring linear commit history was updated on a branch.
-{%- endif %}
-| `protected_branch.update_pull_request_reviews_enforcement_level ` | Enforcement of required pull request reviews was updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
-| `protected_branch.update_require_code_owner_review ` | Enforcement of required code owner review was updated on a branch.
-| `protected_branch.update_required_approving_review_count` | Enforcement of the required number of approvals before merging was updated on a branch.
-| `protected_branch.update_required_status_checks_enforcement_level ` | Enforcement of required status checks was updated on a branch.
-| `protected_branch.update_signature_requirement_enforcement_level ` | Enforcement of required commit signing was updated on a branch.
-| `protected_branch.update_strict_required_status_checks_policy` | Enforcement of required status checks was updated on a branch.
-| `protected_branch.update_name` | A branch name pattern was updated for a branch.
+| `protected_branch.create ` | 已在分支上启用分支保护。
+| `protected_branch.destroy` | 已在分支上禁用分支保护。
+| `protected_branch.dismiss_stale_reviews ` | 已在分支上更新忽略旧拉取请求的强制执行。
+{%- ifversion ghes %} | `protected_branch.dismissal_restricted_users_teams` | 已在分支上更新限制可以取消评论的用户和/或团队的强制执行。
+{%- endif %} | `protected_branch.policy_override ` | 分支保护要求已由存储库管理员替代。
+| `protected_branch.rejected_ref_update ` | 分支更新尝试已被拒绝。
+| `protected_branch.required_status_override` | 所需的状态检查分支保护要求已由存储库管理员替代。
+| `protected_branch.review_policy_and_required_status_override` | 所需的评论和所需的状态检查分支保护要求已由存储库管理员替代。
+| `protected_branch.review_policy_override` | 所需的评论分支保护要求已由存储库管理员替代。
+| `protected_branch.update_admin_enforced ` | 已为存储库管理员强制执行分支保护。
+{%- ifversion ghes %} | `protected_branch.update_allow_deletions_enforcement_level` | 已在分支上更新允许具有推送访问权限的用户删除匹配分支的强制执行。
+| `protected_branch.update_allow_force_pushes_enforcement_level` | 已在分支上更新对所有具有推送访问权限的用户允许强制实施推送的强制执行。
+| `protected_branch.update_linear_history_requirement_enforcement_level` | 已在分支上更新要求线性提交历史记录的强制执行。
+{%- endif %} | `protected_branch.update_pull_request_reviews_enforcement_level ` | 已在分支上更新所需的拉取请求审查的强制执行。 可以是 `0`（已停用）、`1`（非管理员）、`2`（所有人）之一。
+| `protected_branch.update_require_code_owner_review ` | 已在分支上更新所需的代码所有者审查的强制执行。
+| `protected_branch.update_required_approving_review_count` | 已在分支上更新在合并之前所需批准数量的强制执行。
+| `protected_branch.update_required_status_checks_enforcement_level ` | 已在分支上更新所需状态检查的强制执行。
+| `protected_branch.update_signature_requirement_enforcement_level ` | 已在分支上更新所需提交签名的强制执行。
+| `protected_branch.update_strict_required_status_checks_policy` | 已在分支上更新所需状态检查的强制执行。
+| `protected_branch.update_name` | 已为分支更新分支名称模式。
 
-## `public_key` category actions
+## `public_key` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `public_key.create` | An SSH key was [added][add key] to a user account or a [deploy key][] was added to a repository.
-| `public_key.delete` | An SSH key was removed from a user account or a [deploy key][] was removed from a repository.
-| `public_key.update` | A user account's SSH key or a repository's [deploy key][] was updated.
-| `public_key.unverification_failure` | A user account's SSH key or a repository's [deploy key][] was unable to be unverified.
-| `public_key.unverify` | A user account's SSH key or a repository's [deploy key][] was unverified.
-| `public_key.verification_failure` | A user account's SSH key or a repository's [deploy key][] was unable to be verified.
-| `public_key.verify` | A user account's SSH key or a repository's [deploy key][] was verified.
+| `public_key.create` | 已将 SSH 密钥[添加][add key]到用户帐户或将[部署密钥][]添加到存储库。
+| `public_key.delete` | 已从用户帐户中删除 SSH 密钥或从存储库中删除[部署密钥][]。
+| `public_key.update` | 用户帐户的 SSH 密钥或存储库的[部署密钥][]已更新。
+| `public_key.unverification_failure` | 无法取消验证用户帐户的 SSH 密钥或存储库的[部署密钥][]。
+| `public_key.unverify` | 用户帐户的 SSH 密钥或存储库的[部署密钥][]未经验证。
+| `public_key.verification_failure` | 无法验证用户帐户的 SSH 密钥或存储库的[部署密钥][]。
+| `public_key.verify` | 已验证用户帐户的 SSH 密钥或存储库的[部署密钥][]。
 
   [add key]: /authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-  [deploy key]: /developers/overview/managing-deploy-keys#deploy-keys
+  [部署密钥]: /developers/overview/managing-deploy-keys#deploy-keys
 
-## `pull_request` category actions
+## `pull_request` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."
-| `pull_request.converted_to_draft` | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)."
-| `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
-| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."
-| `pull_request.in_progress` | A pull request was marked as in progress.
-| `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch.
-| `pull_request.merge` | A pull request was merged. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
-| `pull_request.ready_for_review` | A pull request was marked as ready for review. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)."
-| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."
-| `pull_request.reopen` | A pull request was reopened after previously being closed.
-| `pull_request_review.delete` | A review on a pull request was deleted.
-| `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
-| `pull_request_review.submit` | A review was submitted for a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."
+| `pull_request.close` | 拉取请求在未合并的情况下关闭。 有关详细信息，请参阅“[关闭拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)”。
+| `pull_request.converted_to_draft` | 拉取请求已转换为草稿。 有关详细信息，请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)”。
+| `pull_request.create` | 已创建拉取请求。 有关详细信息，请参阅“[创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)”。
+| `pull_request.create_review_request` | 请求对拉取请求进行审查。 有关详细信息，请参阅“[关于拉取请求查看](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。
+| `pull_request.in_progress` | 拉取请求已被标记为正在进行中。
+| `pull_request.indirect_merge` | 拉取请求被视为已合并，因为拉取请求的提交已合并到目标分支中。
+| `pull_request.merge` | 拉取请求已合并。 有关详细信息，请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。
+| `pull_request.ready_for_review` | 拉取请求已被标记为可供审查。 有关详细信息，请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)”。
+| `pull_request.remove_review_request` | 已从拉取请求中删除审查请求。 有关详细信息，请参阅“[关于拉取请求查看](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。
+| `pull_request.reopen` | 拉取请求在先前关闭后重新打开。
+| `pull_request_review.delete` | 已删除对拉取请求的审查。
+| `pull_request_review.dismiss` | 已取消对拉取请求的审查。 有关详细信息，请参阅“[关闭拉取请求审阅](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
+| `pull_request_review.submit` | 已提交针对拉取请求的审查。 有关详细信息，请参阅“[关于拉取请求查看](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。
 
-## `pull_request_review` category actions
+## `pull_request_review` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `pull_request_review.delete` | A review on a pull request was deleted.
-| `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
-| `pull_request_review.submit` | A review on a pull request was submitted. For more information, see "[Submitting your review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review)."
+| `pull_request_review.delete` | 已删除对拉取请求的审查。
+| `pull_request_review.dismiss` | 已取消对拉取请求的审查。 有关详细信息，请参阅“[关闭拉取请求审阅](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
+| `pull_request_review.submit` | 已提交针对拉取请求的审查。 有关详细信息，请参阅“[提交审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review)”。
 
-## `pull_request_review_comment` category actions
+## `pull_request_review_comment` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."
-| `pull_request_review_comment.delete` | A review comment on a pull request was deleted.
-| `pull_request_review_comment.update` | A review comment on a pull request was changed.
+| `pull_request_review_comment.create` | 审查评论已添加到拉取请求中。 有关详细信息，请参阅“[关于拉取请求查看](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。
+| `pull_request_review_comment.delete` | 对拉取请求的审查评论已被删除。
+| `pull_request_review_comment.update` | 对拉取请求的审查评论已更改。
 
-## `repo` category actions
+## `repo` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repo.access`         | The visibility of a repository changed to private{%- ifversion ghes %}, public,{% endif %} or internal.
-| `repo.actions_enabled` | {% data variables.product.prodname_actions %} was enabled for a repository.
-| `repo.add_member`     | A collaborator was added to a repository.
-| `repo.add_topic`     | A topic was added to a repository.
-| `repo.advanced_security_disabled` | {% data variables.product.prodname_GH_advanced_security %} was disabled for a repository.
-| `repo.advanced_security_enabled` | {% data variables.product.prodname_GH_advanced_security %} was enabled for a repository.
-| `repo.advanced_security_policy_selected_member_disabled` | A repository administrator prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for a repository.
-| `repo.advanced_security_policy_selected_member_enabled` | A repository administrator allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for a repository.
-| `repo.archived`       | A repository was archived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."
-| `repo.code_scanning_analysis_deleted` | Code scanning analysis for a repository was deleted. For more information, see "[Delete a code scanning analysis from a repository](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."
-| `repo.change_merge_setting` | Pull request merge options were changed for a repository.
-| `repo.clear_actions_settings` | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.
-| `repo.config`         | A repository administrator blocked force pushes. For more information, see [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) to a repository.
-{%- ifversion fpt or ghec %}
-| `repo.config.disable_collaborators_only` | The interaction limit for collaborators only was disabled. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
-| `repo.config.disable_contributors_only` | The interaction limit for prior contributors only was disabled in a repository. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
-| `repo.config.disable_sockpuppet_disallowed` | The interaction limit for existing users only was disabled in a repository. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
-| `repo.config.enable_collaborators_only` | The interaction limit for collaborators only was enabled in a repository. Users that are not collaborators or organization members were unable to interact with a repository for a set duration. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
-| `repo.config.enable_contributors_only` | The interaction limit for prior contributors only was enabled in a repository. Users that are not prior contributors, collaborators or organization members were unable to interact with a repository for a set duration. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
-| `repo.config.enable_sockpuppet_disallowed` | The interaction limit for existing users was enabled in a repository. New users aren't able to interact with a repository for a set duration. Existing users of the repository, contributors, collaborators or organization members are able to interact with a repository. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
-{%- endif %}
-{%- ifversion ghes %}
-| `repo.config.disable_anonymous_git_access`| Anonymous Git read access was disabled for a repository. For more information, see "[Enabling anonymous Git read access for a repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)."
-| `repo.config.enable_anonymous_git_access` | Anonymous Git read access was enabled for a repository. For more information, see "[Enabling anonymous Git read access for a repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)."
-| `repo.config.lock_anonymous_git_access` | A repository's anonymous Git read access setting was locked, preventing repository administrators from changing (enabling or disabling) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."
-| `repo.config.unlock_anonymous_git_access` | A repository's anonymous Git read access setting was unlocked, allowing repository administrators to change (enable or disable) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."
-{%- endif %}
-| `repo.create` | A repository was created.
-| `repo.create_actions_secret` | A {% data variables.product.prodname_actions %} secret was created for a repository. For more information, see "[Creating encrypted secrets for a repository](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
-| `repo.create_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was created for a repository.
-| `repo.destroy` | A repository was deleted.
-{%- ifversion ghes %}
-| `repo.disk_archive`  | A repository was archived on disk. For more information, see "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)."
-{%- endif %}
-| `repo.download_zip` | A source code archive of a repository was downloaded as a ZIP file.
-| `repo.pages_cname` | A {% data variables.product.prodname_pages %} custom domain was modified in a repository.
-| `repo.pages_create` | A {% data variables.product.prodname_pages %} site was created.
-| `repo.pages_destroy` | A {% data variables.product.prodname_pages %} site was deleted.
-| `repo.pages_https_redirect_disabled` | HTTPS redirects were disabled for a {% data variables.product.prodname_pages %} site.
-| `repo.pages_https_redirect_enabled` | HTTPS redirects were enabled for a {% data variables.product.prodname_pages %} site.
-| `repo.pages_source` | A {% data variables.product.prodname_pages %} source was modified.
-| `repo.pages_private` | A {% data variables.product.prodname_pages %} site visibility was changed to private.
-| `repo.pages_public` | A {% data variables.product.prodname_pages %} site visibility was changed to public.
-| `repo.register_self_hosted_runner` | A new self-hosted runner was registered. For more information, see "[Adding a self-hosted runner to a repository](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
-| `repo.remove_self_hosted_runner` | A self-hosted runner was removed. For more information, see "[Removing a runner from a repository](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
-| `repo.remove_actions_secret` | A {% data variables.product.prodname_actions %} secret was deleted for a repository.
-| `repo.remove_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was deleted for a repository.
-| `repo.remove_member` | A collaborator was removed from a repository.
-| `repo.remove_topic` | A topic was removed from a repository.
-| `repo.rename` | A repository was renamed.
-{%- ifversion fpt or ghec %}
-| `repo.set_actions_fork_pr_approvals_policy` | The setting for requiring approvals for workflows from public forks was changed for a repository. For more information, see "[Configuring required approval for workflows from public forks](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)."
-{%- endif %}
-| `repo.set_actions_retention_limit` | The retention period for {% data variables.product.prodname_actions %} artifacts and logs in a repository was changed. For more information, see "[Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."
-| `repo.self_hosted_runner_online` | The runner application was started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `repo.self_hosted_runner_offline` | The runner application was stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `repo.self_hosted_runner_updated` | The runner application was updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
-| `repo.staff_unlock` | An enterprise administrator or GitHub staff (with permission from a repository administrator) temporarily unlocked the repository.
-| `repo.transfer` | A user accepted a request to receive a transferred repository.
-| `repo.transfer_outgoing` | A repository was transferred to another repository network.
-| `repo.transfer_start` | A user sent a request to transfer a repository to another user or organization.
-| `repo.unarchived` | A repository was unarchived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."
-| `repo.update_actions_settings` | A repository administrator changed {% data variables.product.prodname_actions %} policy settings for a repository.
-| `repo.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated.
-| `repo.update_actions_access_settings` | The setting to control how a repository was used by {% data variables.product.prodname_actions %} workflows in other repositories was changed.
-| `repo.update_default_branch` | The default branch for a repository was changed.
-| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_github_codespaces %} integration secret was updated for a repository.
-| `repo.update_member` | A user's permission to a repository was changed.
+| `repo.access`         | 存储库的可见性更改为专用{%- ifversion ghes %}、公共{% endif %}或内部。
+| `repo.actions_enabled` | 已为存储库启用 {% data variables.product.prodname_actions %}。
+| `repo.add_member`     | 已向仓库添加协作者。
+| `repo.add_topic`     | 已将主题添加到存储库。
+| `repo.advanced_security_disabled` | 已为存储库禁用 {% data variables.product.prodname_GH_advanced_security %}。
+| `repo.advanced_security_enabled` | 已为存储库启用 {% data variables.product.prodname_GH_advanced_security %}。
+| `repo.advanced_security_policy_selected_member_disabled` | 存储库管理员阻止为存储库启用 {% data variables.product.prodname_GH_advanced_security %} 功能。
+| `repo.advanced_security_policy_selected_member_enabled` | 存储库管理员允许为存储库启用 {% data variables.product.prodname_GH_advanced_security %} 功能。
+| `repo.archived`       | 已存档仓库。 有关详细信息，请参阅“[对 {% data variables.product.prodname_dotcom %} 存储库进行存档](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)”。
+| `repo.code_scanning_analysis_deleted` | 对存储库的代码扫描分析已被删除。 有关详细信息，请参阅“[从存储库中删除代码扫描分析](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository)”。
+| `repo.change_merge_setting` | 已为存储库更改拉取请求合并选项。
+| `repo.clear_actions_settings` | 存储库管理员清除了存储库的 {% data variables.product.prodname_actions %} 策略设置。
+| `repo.config`         | 存储库管理员阻止了强制推送。 有关详细信息，请参阅[阻止强制推送到存储库](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)。
+{%- ifversion fpt or ghec %} | `repo.config.disable_collaborators_only` | 已禁用仅限协作者的交互限制。 有关详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)。”
+| `repo.config.disable_contributors_only` | 已在存储库中禁用仅先前参与者的交互限制。 有关详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)。”
+| `repo.config.disable_sockpuppet_disallowed` | 已在存储库中禁用仅现有用户的交互限制。 有关详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)。”
+| `repo.config.enable_collaborators_only` | 已在存储库中启用仅协作者的交互限制。 不属于协作者或组织成员的用户在设定的持续时间内无法与存储库交互。 有关详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)。”
+| `repo.config.enable_contributors_only` | 已在存储库中启用仅先前参与者的交互限制。 不属于先前参与者、协作者或组织成员的用户在设定的持续时间内无法与存储库交互。 有关详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)。”
+| `repo.config.enable_sockpuppet_disallowed` | 已在存储库中启用现有用户的交互限制。 新用户在设定的持续时间内无法与存储库交互。 存储库的现有用户、参与者、协作者或组织成员能够与存储库交互。 有关详细信息，请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)。”
+{%- endif %} {%- ifversion ghes %} | `repo.config.disable_anonymous_git_access`| 已禁用存储库的匿名 Git 读取访问权限。 有关详细信息，请参阅“[为存储库启用匿名 Git 读取访问](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)”。
+| `repo.config.enable_anonymous_git_access` | 已启用存储库的匿名 Git 读取访问权限。 有关详细信息，请参阅“[为存储库启用匿名 Git 读取访问](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)”。
+| `repo.config.lock_anonymous_git_access` | 存储库的匿名 Git 读取访问权限设置已被锁定，阻止存储库管理员更改（启用或禁用）此设置。 有关详细信息，请参阅“[阻止用户更改匿名 Git 读取访问权限](/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。
+| `repo.config.unlock_anonymous_git_access` | 存储库的匿名 Git 读取访问设置已解锁，允许存储库管理员更改（启用或禁用）此设置。 有关详细信息，请参阅“[阻止用户更改匿名 Git 读取访问权限](/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。
+{%- endif %} | `repo.create` | 存储库已创建。
+| `repo.create_actions_secret` | 已为存储库创建 {% data variables.product.prodname_actions %} 机密。 有关详细信息，请参阅“[为存储库创建加密机密](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)”。
+| `repo.create_integration_secret` | 已为存储库创建 {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} 或 {% data variables.product.prodname_github_codespaces %}{% endif %} 集成密钥。
+| `repo.destroy` | 存储库已被删除。
+{%- ifversion ghes %} | `repo.disk_archive`  | 存储库已存档在磁盘上。 有关详细信息，请参阅“[归档存储库](/repositories/archiving-a-github-repository/archiving-repositories)”。
+{%- endif %} | `repo.download_zip` | 存储库的源代码存档已下载为 ZIP 文件。
+| `repo.pages_cname` | 在存储库中修改了 {% data variables.product.prodname_pages %} 自定义域。
+| `repo.pages_create` | {% data variables.product.prodname_pages %} 站点已创建。
+| `repo.pages_destroy` | {% data variables.product.prodname_pages %} 网站已被删除。
+| `repo.pages_https_redirect_disabled` | 已为 {% data variables.product.prodname_pages %} 站点禁用 HTTPS 重定向。
+| `repo.pages_https_redirect_enabled` | 已为 {% data variables.product.prodname_pages %} 站点启用 HTTPS 重定向。
+| `repo.pages_source` | 已修改 {% data variables.product.prodname_pages %} 源。
+| `repo.pages_private` | {% data variables.product.prodname_pages %} 站点可见性已更改为专用。
+| `repo.pages_public` | {% data variables.product.prodname_pages %} 站点可见性已更改为公开。
+| `repo.register_self_hosted_runner` | 已注册新的自托管运行器。 有关详细信息，请参阅“[将自托管运行器添加到存储库](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)”。
+| `repo.remove_self_hosted_runner` | 已删除自托管运行器。 有关详细信息，请参阅“[从存储库中删除运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)”。
+| `repo.remove_actions_secret` | 已删除存储库的 {% data variables.product.prodname_actions %} 机密。
+| `repo.remove_integration_secret` | 已删除存储库的 {% data variables.product.prodname_dependabot %}{% ifversion fpt or ghec %} 或 {% data variables.product.prodname_github_codespaces %}{% endif %} 集成密钥。
+| `repo.remove_member` | 已从存储库中删除协作者。
+| `repo.remove_topic` | 已从存储库中删除主题。
+| `repo.rename` | 已重命名存储库。
+{%- ifversion fpt or ghec %} | `repo.set_actions_fork_pr_approvals_policy` | 已为存储库更改需要审批来自公共分支的工作流的设置。 有关详细信息，请参阅“[为来自公共分支的工作流配置所需的审批](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks)”。
+{%- endif %} | `repo.set_actions_retention_limit` | 存储库中 {% data variables.product.prodname_actions %} 工件和日志的保持期已更改。 有关详细信息，请参阅“[为存储库中的 {% data variables.product.prodname_actions %} 工件和日志配置保持期](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)”。
+| `repo.self_hosted_runner_online` | 运行器应用程序已启动。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 有关详细信息，请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。
+| `repo.self_hosted_runner_offline` | 运行器应用程序已停止。 只能使用 REST API 查看；在 UI 或 JSON/CSV 导出中不可见。 有关详细信息，请参阅“[检查自托管运行器的状态](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)”。
+| `repo.self_hosted_runner_updated` | 运行器应用程序已更新。 可以使用 REST API 和 UI 查看；在 JSON /CSV 导出中不可见。 有关详细信息，请参阅[关于自承载运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)。
+| `repo.staff_unlock` | 企业管理员或 GitHub 工作人员（具有存储库管理员的权限）暂时解锁了存储库。
+| `repo.transfer` | 用户接受了接收已转移存储库的请求。
+| `repo.transfer_outgoing` | 一个存储库已被转移到另一个存储库网络。
+| `repo.transfer_start` | 用户发送了用于将存储库转移到另一个用户或组织的请求。
+| `repo.unarchived` | 未对存储库进行存档。 有关详细信息，请参阅“[对 {% data variables.product.prodname_dotcom %} 存储库进行存档](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)”。
+| `repo.update_actions_settings` | 存储库管理员更改了存储库的 {% data variables.product.prodname_actions %} 策略设置。
+| `repo.update_actions_secret` | {% data variables.product.prodname_actions %} 机密已更新。
+| `repo.update_actions_access_settings` | 用于控制其他存储库中 {% data variables.product.prodname_actions %} 工作流如何使用存储库的设置已更改。
+| `repo.update_default_branch` | 存储库的默认分支已更改。
+| `repo.update_integration_secret` | 已为存储库更新 {% data variables.product.prodname_dependabot %} 或 {% data variables.product.prodname_github_codespaces %} 集成密钥。
+| `repo.update_member` | 用户对存储库的权限已更改。
 
 {%- ifversion fpt or ghec %}
-## `repository_advisory` category actions
+## `repository_advisory` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_advisory.close` | Someone closed a security advisory. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-| `repository_advisory.cve_request` | Someone requested a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.
-| `repository_advisory.github_broadcast` | {% data variables.product.prodname_dotcom %} made a security advisory public in the {% data variables.product.prodname_advisory_database %}.
-| `repository_advisory.github_withdraw` | {% data variables.product.prodname_dotcom %} withdrew a security advisory that was published in error.
-| `repository_advisory.open` | Someone opened a draft security advisory.
-| `repository_advisory.publish` | Someone publishes a security advisory.
-| `repository_advisory.reopen` | Someone reopened as draft security advisory.
-| `repository_advisory.update` | Someone edited a draft or published security advisory.
+| `repository_advisory.close` | 有人关闭了安全公告。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 安全通知](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+| `repository_advisory.cve_request` | 有人请求 {% data variables.product.prodname_dotcom %} 提供 CVE（常见漏洞和风险）编号，以获取安全公告草稿。
+| `repository_advisory.github_broadcast` | {% data variables.product.prodname_dotcom %} 在 {% data variables.product.prodname_advisory_database %} 中公开了安全公告。
+| `repository_advisory.github_withdraw` | {% data variables.product.prodname_dotcom %} 撤回了错误发布的安全公告。
+| `repository_advisory.open` | 有人打开了安全公告草稿。
+| `repository_advisory.publish` | 有人发布安全公告。
+| `repository_advisory.reopen` | 有人重新打开作为安全公告草稿。
+| `repository_advisory.update` | 有人编辑了草稿或发布了安全公告。
 
-## `repository_content_analysis` category actions
+## `repository_content_analysis` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_content_analysis.enable` | An organization owner or repository administrator [enabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
-| `repository_content_analysis.disable` | An organization owner or repository administrator [disabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
+| `repository_content_analysis.enable` | 组织所有者或存储库管理员[为专用存储库启用了数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)。
+| `repository_content_analysis.disable` | 组织所有者或存储库管理员[专用存储库禁用了数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)。
 
-## `repository_dependency_graph` category actions
+## `repository_dependency_graph` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_dependency_graph.disable` | A repository owner or administrator disabled the dependency graph for a private repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
-| `repository_dependency_graph.enable` | A repository owner or administrator enabled the dependency graph for a private repository.
+| `repository_dependency_graph.disable` | 存储库所有者或管理员为专用存储库禁用了依赖项关系图。 有关详细信息，请参阅“[关于依赖项关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
+| `repository_dependency_graph.enable` | 存储库所有者或管理员为专用存储库启用了依赖项关系图。
 {%- endif %}
 
-## `repository_image` category actions
+## `repository_image` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_image.create` | An image to represent a repository was uploaded.
-| `repository_image.destroy` | An image to represent a repository was deleted.
+| `repository_image.create` | 表示存储库的图像已上传。
+| `repository_image.destroy` | 表示存储库的图像已被删除。
 
-## `repository_invitation` category actions
+## `repository_invitation` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_invitation.accept` | An invitation to join a repository was accepted.
-| `repository_invitation.create` | An invitation to join a repository was sent.
-| `repository_invitation.reject` | An invitation to join a repository was canceled.
+| `repository_invitation.accept` | 已接受加入存储库的邀请。
+| `repository_invitation.create` | 已发送加入存储库的邀请。
+| `repository_invitation.reject` | 已取消加入存储库的邀请。
 
-## `repository_projects_change` category actions
+## `repository_projects_change` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_projects_change.clear` | The repository projects policy was removed for an organization, or all organizations in the enterprise. Organization admins can now control their repository projects settings. For more information, see "[Enforcing policies for projects in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise)."
-| `repository_projects_change.disable` | Repository projects were disabled for a repository, all repositories in an organization, or all organizations in an enterprise.
-| `repository_projects_change.enable` | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.
+| `repository_projects_change.clear` | 已为企业中的某个组织或所有组织删除存储库项目策略。 组织管理员现可控制其存储库项目设置。 有关详细信息，请参阅“[在企业中为项目实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise)”。
+| `repository_projects_change.disable` | 已为存储库、组织中的所有存储库或企业中的所有组织禁用存储库项目。
+| `repository_projects_change.enable` | 已为存储库、组织中的所有存储库或企业中的所有组织启用存储库项目。
 
 {%- ifversion ghec or ghes or ghae %}
-## `repository_secret_scanning` category actions
+## `repository_secret_scanning` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_secret_scanning.disable` | A repository owner or administrator disabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `repository_secret_scanning.enable` | A repository owner or administrator enabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.
+| `repository_secret_scanning.disable` | 存储库所有者或管理员禁用了对{% ifversion ghec %}专用或内部{% endif %}存储库的机密扫描。 有关详细信息，请参阅“[关于机密扫描](/github/administering-a-repository/about-secret-scanning)”。
+| `repository_secret_scanning.enable` | 存储库所有者或管理员启用了对{% ifversion ghec %}专用或内部{% endif %}存储库的机密扫描。
 {%- endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 
-## `repository_secret_scanning_custom_pattern` category actions
+## `repository_secret_scanning_custom_pattern` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |------------------|-------------------
-| `repository_secret_scanning_custom_pattern.create` | A custom pattern is published for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
-| `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-| `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `repository_secret_scanning_custom_pattern.create` | 在存储库中发布了针对机密扫描的自定义模式。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)”。
+| `repository_secret_scanning_custom_pattern.delete` | 从存储库中的机密扫描中删除了自定义模式。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)”。
+| `repository_secret_scanning_custom_pattern.update` | 将对自定义模式所做的更改保存到存储库中，以进行机密扫描。 有关详细信息，请参阅“[为机密扫描定义自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)”。
 
-## `repository_secret_scanning_push_protection` category actions
+## `repository_secret_scanning_push_protection` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |------------------|-------------------
-| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator  disabled secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator  enabled secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.disable` | 存储库所有者或管理员禁用了对存储库的机密扫描。 有关详细信息，请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
+| `repository_secret_scanning_push_protection.enable` | 存储库所有者或管理员启用了对存储库的机密扫描。 有关详细信息，请参阅“[使用机密扫描保护推送](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)”。
 {%- endif %}
-## `repository_visibility_change` category actions
+## `repository_visibility_change` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_visibility_change.clear` | The repository visibility change setting was cleared for an organization or enterprise. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)" and "[Enforcing a policy for changes to repository visibility](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-changes-to-repository-visibility) for an enterprise."
-| `repository_visibility_change.disable` | The ability for enterprise members to update a repository's visibility was disabled. Members are unable to change repository visibilities in an organization, or all organizations in an enterprise.
-| `repository_visibility_change.enable` | The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.
+| `repository_visibility_change.clear` | 已为组织或企业清除存储库可见性更改设置。 有关详细信息，请参阅“[限制组织中的存储库可见性更改](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)”和“[对企业强制实施针对存储库可见性更改的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-changes-to-repository-visibility)”。
+| `repository_visibility_change.disable` | 已禁用企业成员更新存储库可见性的功能。 成员无法更改企业中某个组织或所有组织中的存储库可见性。
+| `repository_visibility_change.enable` | 已启用企业成员更新存储库可见性的功能。 成员能够更改企业中某个组织或所有组织中的存储库可见性。
 
-## `repository_vulnerability_alert` category actions
+## `repository_vulnerability_alert` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_vulnerability_alert.create` | {% data variables.product.product_name %} created a {% data variables.product.prodname_dependabot %} alert for a repository that uses an insecure dependency. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-| `repository_vulnerability_alert.dismiss` | An organization owner or repository administrator dismissed a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}.
-| `repository_vulnerability_alert.resolve` | Someone with write access to a repository pushed changes to update and resolve a {% data variables.product.prodname_dependabot %} alert in a project dependency.
+| `repository_vulnerability_alert.create` | {% data variables.product.product_name %} 为使用不安全的依赖项的存储库创建了 {% data variables.product.prodname_dependabot %} 警报。 有关详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)”。
+| `repository_vulnerability_alert.dismiss` | 组织所有者或存储库管理员关闭了关于易受攻击的依赖项{% ifversion GH-advisory-db-supports-malware %}或恶意软件{% endif %}的{% data variables.product.prodname_dependabot %} 警报。
+| `repository_vulnerability_alert.resolve` | 对存储库具有写入权限的某人推送更改，以更新和解决项目依赖项中的 {% data variables.product.prodname_dependabot %} 警报。
 
 {%- ifversion fpt or ghec %}
-## `repository_vulnerability_alerts` category actions
+## `repository_vulnerability_alerts` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `repository_vulnerability_alerts.authorized_users_teams` | An organization owner or repository administrator updated the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
-| `repository_vulnerability_alerts.disable` | A repository owner or repository administrator disabled {% data variables.product.prodname_dependabot_alerts %}.
-| `repository_vulnerability_alerts.enable` | A repository owner or repository administrator enabled {% data variables.product.prodname_dependabot_alerts %}.
+| `repository_vulnerability_alerts.authorized_users_teams` | 组织所有者或存储库管理员更新了存储库授权接收 {% data variables.product.prodname_dependabot_alerts %} 的人员或团队列表。 有关详细信息，请参阅“[管理存储库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
+| `repository_vulnerability_alerts.disable` | 存储库所有者或存储库管理员禁用了 {% data variables.product.prodname_dependabot_alerts %}。
+| `repository_vulnerability_alerts.enable` | 存储库所有者或存储库管理员启用了 {% data variables.product.prodname_dependabot_alerts %}。
 {%- endif %}
 
-## `required_status_check` category actions
+## `required_status_check` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `required_status_check.create` | A status check was marked as required for a protected branch. For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
-| `required_status_check.destroy` | A status check was no longer marked as required for a protected branch. For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
+| `required_status_check.create` | 状态检查已被标记为所需的受保护分支。 有关详细信息，请参阅“[合并前需要状态检查](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)”。
+| `required_status_check.destroy` | 不再将状态检查标记为所需的受保护分支。 有关详细信息，请参阅“[合并前需要状态检查](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)”。
 
 {%- ifversion ghec or ghes %}
-## `restrict_notification_delivery` category actions
+## `restrict_notification_delivery` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `restrict_notification_delivery.enable` | Email notification restrictions for an organization or enterprise were enabled. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)" and "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
-| `restrict_notification_delivery.disable` | Email notification restrictions for an organization or enterprise were disabled. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)" and "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
+| `restrict_notification_delivery.enable` | 已启用针对组织或企业的电子邮件通知限制。 有关详细信息，请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)”和“[限制企业的电子邮件通知](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)”。
+| `restrict_notification_delivery.disable` | 已禁用针对组织或企业的电子邮件通知限制。 有关详细信息，请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)”和“[限制企业的电子邮件通知](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)”。
 {%- endif %}
 
 {%- ifversion custom-repository-roles %}
-## `role` category actions
+## `role` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-|`create` | An organization owner created a new custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`destroy` | An organization owner deleted a custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`update` | An organization owner edited an existing custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`create` | 组织所有者创建了新的自定义存储库角色。 有关详细信息，请参阅“[管理组织的自定义存储库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
+|`destroy` | 组织所有者删除了自定义存储库角色。 有关详细信息，请参阅“[管理组织的自定义存储库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
+|`update` | 组织所有者编辑了现有的自定义存储库角色。 有关详细信息，请参阅“[管理组织的自定义存储库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-## `secret_scanning` category actions
+## `secret_scanning` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `secret_scanning.enable` | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
+| `secret_scanning.disable` | 组织所有者禁用了对所有现有{% ifversion ghec %}专用或内部{% endif %}存储库的机密扫描。 有关详细信息，请参阅“[关于机密扫描](/github/administering-a-repository/about-secret-scanning)”。
+| `secret_scanning.enable` | 组织所有者启用了对所有现有{% ifversion ghec %}专用或内部{% endif %}存储库的机密扫描。
 
 {% ifversion secret-scanning-alert-audit-log %}
-## `secret_scanning_alert` category actions
+## `secret_scanning_alert` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |------------------|-------------------
-| `secret_scanning_alert.create` | {% data variables.product.prodname_dotcom %} detected a secret and created a {% data variables.product.prodname_secret_scanning %} alert. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
-| `secret_scanning_alert.reopen` | A user reopened a {% data variables.product.prodname_secret_scanning %} alert.
-| `secret_scanning_alert.resolve` | A user resolved a {% data variables.product.prodname_secret_scanning %} alert.
+| `secret_scanning_alert.create` | {% data variables.product.prodname_dotcom %} 检测到机密并创建了 {% data variables.product.prodname_secret_scanning %} 警报。 有关详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-scanning/managing-alerts-from-secret-scanning)。”
+| `secret_scanning_alert.reopen` | 用户重新打开 {% data variables.product.prodname_secret_scanning %} 警报。
+| `secret_scanning_alert.resolve` | 用户解决了 {% data variables.product.prodname_secret_scanning %} 警报。
 {% endif %}
 
-## `secret_scanning_new_repos` category actions
+## `secret_scanning_new_repos` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `secret_scanning_new_repos.disable` | An organization owner disabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `secret_scanning_new_repos.enable` | An organization owner enabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories.
+| `secret_scanning_new_repos.disable` | 组织所有者禁用了对所有新的{% ifversion ghec %}专用或内部{% endif %}存储库的机密扫描。 有关详细信息，请参阅“[关于机密扫描](/github/administering-a-repository/about-secret-scanning)”。
+| `secret_scanning_new_repos.enable` | 组织所有者启用了对所有新的{% ifversion ghec %}专用或内部{% endif %}存储库的机密扫描。
 {%- endif %}
 
 {% ifversion secret-scanning-push-protection-bypasses %}
-## `secret_scanning_push_protection` category actions
+## `secret_scanning_push_protection` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `bypass` | Triggered when a user bypasses the push protection on a secret detected by secret scanning. For more information, see "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
+| `bypass` | 当用户绕过机密扫描检测到的机密的推送保护时触发。 有关详细信息，请参阅“[绕过机密的推送保护](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)”。{% endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-## `security_key` category actions
+## `security_key` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `security_key.register` | A security key was registered for an account.
-| `security_key.remove` | A security key was removed from an account.
+| `security_key.register` | 已为帐户注册安全密钥。
+| `security_key.remove` | 已从帐户中删除安全密钥。
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
-## `sponsors` category actions
+## `sponsors` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `sponsors.agreement_sign` | A {% data variables.product.prodname_sponsors %} agreement was signed on behalf of an organization.
-| `sponsors.custom_amount_settings_change` | Custom amounts for {% data variables.product.prodname_sponsors %} were enabled or disabled, or the suggested custom amount was changed. For more information, see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
-| `sponsors.fiscal_host_change` | The fiscal host for a {% data variables.product.prodname_sponsors %} listing was updated.
-| `sponsors.withdraw_agreement_signature` | A signature was withdrawn from a {% data variables.product.prodname_sponsors %} agreement that applies to an organization.
-| `sponsors.repo_funding_links_file_action` | The FUNDING file in a repository was changed. For more information, see "[Displaying a sponsor button in your repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)."
-| `sponsors.sponsor_sponsorship_cancel` | A sponsorship was canceled. For more information, see "[Downgrading a sponsorship](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)."
-| `sponsors.sponsor_sponsorship_create` | A sponsorship was created, by sponsoring an account. For more information, see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."
-| `sponsors.sponsor_sponsorship_payment_complete` | After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete. For more information, see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."
-| `sponsors.sponsor_sponsorship_preference_change` | The option to receive email updates from a sponsored account was changed. For more information, see "[Managing your sponsorship](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)."
-| `sponsors.sponsor_sponsorship_tier_change` | A sponsorship was upgraded or downgraded. For more information, see "[Upgrading a sponsorship](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)."
-| `sponsors.sponsored_developer_approve` | A {% data variables.product.prodname_sponsors %} account was approved. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
-| `sponsors.sponsored_developer_create` | A {% data variables.product.prodname_sponsors %} account was created. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
-| `sponsors.sponsored_developer_disable` | A {% data variables.product.prodname_sponsors %} account was disabled.
-| `sponsors.sponsored_developer_profile_update` | You edit a sponsored organization profile. For more information, see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)."
-| `sponsors.sponsored_developer_redraft` | A {% data variables.product.prodname_sponsors %} account was returned to draft state from approved state.
-| `sponsors.sponsored_developer_request_approval` | An application for {% data variables.product.prodname_sponsors %} was submitted for approval. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
-| `sponsors.sponsored_developer_tier_description_update` | The description for a sponsorship tier was changed. For more information, see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
-| `sponsors.update_tier_welcome_message` | The welcome message for a {% data variables.product.prodname_sponsors %} tier for an organization was updated.
-| `sponsors.update_tier_repository` | A {% data variables.product.prodname_sponsors %} tier changed access for a repository.
+| `sponsors.agreement_sign` | 以组织身份签署了 {% data variables.product.prodname_sponsors %} 协议。
+| `sponsors.custom_amount_settings_change` | 已启用或禁用 {% data variables.product.prodname_sponsors %} 的自定义金额，或者建议的自定义金额已更改。 有关详细信息，请参阅“[管理赞助层](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)”。
+| `sponsors.fiscal_host_change` | {% data variables.product.prodname_sponsors %} 列表的财务主机已更新。
+| `sponsors.withdraw_agreement_signature` | 已从适用于组织的 {% data variables.product.prodname_sponsors %} 协议中撤销签名。
+| `sponsors.repo_funding_links_file_action` | 存储库中的 FUNDING 文件已更改。 有关详细信息，请参阅“[在存储库中显示赞助按钮](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)”。
+| `sponsors.sponsor_sponsorship_cancel` | 赞助已取消。 有关详细信息，请参阅“[降级赞助](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)”。
+| `sponsors.sponsor_sponsorship_create` | 已通过赞助帐户创建赞助。 有关详细信息，请参阅“[赞助开源参与者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”。
+| `sponsors.sponsor_sponsorship_payment_complete` | 在赞助帐户并处理付款后，赞助付款已被标记为“已完成”。 有关详细信息，请参阅“[赞助开源参与者](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)”。
+| `sponsors.sponsor_sponsorship_preference_change` | 用于从赞助帐户接收电子邮件更新的选项已更改。 有关详细信息，请参阅[管理赞助](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)。
+| `sponsors.sponsor_sponsorship_tier_change` | 赞助已升级或降级。 有关详细信息，请参阅“[升级赞助](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)”和“[降级赞助](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)”。
+| `sponsors.sponsored_developer_approve` | {% data variables.product.prodname_sponsors %} 帐户已获批准。 有关详细信息，请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
+| `sponsors.sponsored_developer_create` | {% data variables.product.prodname_sponsors %} 帐户已创建。 有关详细信息，请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
+| `sponsors.sponsored_developer_disable` | 已禁用 {% data variables.product.prodname_sponsors %} 帐户。
+| `sponsors.sponsored_developer_profile_update` | 编辑赞助组织个人资料。 有关详细信息，请参阅“[编辑 {% data variables.product.prodname_sponsors %} 的个人资料详细信息](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)”。
+| `sponsors.sponsored_developer_redraft` | {% data variables.product.prodname_sponsors %} 帐户已从已批准状态恢复为草稿状态。
+| `sponsors.sponsored_developer_request_approval` | 已提交 {% data variables.product.prodname_sponsors %} 的申请以供审批。 有关详细信息，请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
+| `sponsors.sponsored_developer_tier_description_update` | 赞助层的说明已更改。 有关详细信息，请参阅“[管理赞助层](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)”。
+| `sponsors.update_tier_welcome_message` | 组织的 {% data variables.product.prodname_sponsors %} 层的欢迎消息已更新。
+| `sponsors.update_tier_repository` | {% data variables.product.prodname_sponsors %} 层更改了存储库的访问权限。
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
-## `ssh_certificate_authority` category actions
+## `ssh_certificate_authority` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `ssh_certificate_authority.create` | An SSH certificate authority for an organization or enterprise was created. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
-| `ssh_certificate_authority.destroy` | An SSH certificate authority for an organization or enterprise was deleted. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+| `ssh_certificate_authority.create` | 已创建组织或企业的 SSH 证书颁发机构。 有关详细信息，请参阅“[管理组织的 SSH 证书颁发机构](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)”和“[管理企业的 SSH 证书颁发机构](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)”。
+| `ssh_certificate_authority.destroy` | 已删除组织或企业的 SSH 证书颁发机构。 有关详细信息，请参阅“[管理组织的 SSH 证书颁发机构](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)”和“[管理企业的 SSH 证书颁发机构](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)”。
 
-## `ssh_certificate_requirement` category actions
+## `ssh_certificate_requirement` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `ssh_certificate_requirement.enable` | The requirement for members to use SSH certificates to access an organization resources was enabled. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
-| `ssh_certificate_requirement.disable` | The requirement for members to use SSH certificates to access an organization resources was disabled. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+| `ssh_certificate_requirement.enable` | 已启用成员使用 SSH 证书访问组织资源的要求。 有关详细信息，请参阅“[管理组织的 SSH 证书颁发机构](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)”和“[管理企业的 SSH 证书颁发机构](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)”。
+| `ssh_certificate_requirement.disable` | 已禁止成员使用 SSH 证书访问组织资源的要求。 有关详细信息，请参阅“[管理组织的 SSH 证书颁发机构](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)”和“[管理企业的 SSH 证书颁发机构](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)”。
 {%- endif %}
 
 {% ifversion sso-redirect %}
-## `sso_redirect` category actions
+## `sso_redirect` 类别操作
 
 {% data reusables.enterprise-managed.sso-redirect-release-phase %}
 
-| Action | Description |
+| 操作 | 描述 |
 |--------|------------ |
-`sso_redirect.enable` | Automatic redirects for users to single sign-on (SSO) was enabled. |
-`sso_redirect.disable` | Automatic redirects for users to single sign-on (SSO) was disabled. |
+`sso_redirect.enable` | 已为用户启用单一登录 (SSO) 自动重定向。 |
+`sso_redirect.disable` | 已为用户禁用单一登录 (SSO) 自动重定向。 |
 
-For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)."
+有关详细信息，请参阅“[为企业中的安全设置强制实施策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)”。
 {% endif %}
 
-## `staff` category actions
+## `staff` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `staff.disable_repo`          | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator disabled access to a repository and all of its forks.
-| `staff.enable_repo`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator re-enabled access to a repository and all of its forks.
-{%- ifversion ghes or ghae %}
-| `staff.exit_fake_login`       | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} ended an impersonation session on {% data variables.product.product_name %}.
-| `staff.fake_login`            | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} signed into {% data variables.product.product_name %} as another user.
-{%- endif %}
-| `staff.repo_lock`             | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator locked (temporarily gained full access to) a user's private repository.
-| `staff.repo_unlock`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator unlocked (ended their temporary access to) a user's private repository.
-{%- ifversion ghes %}
-| `staff.search_audit_log` | A site administrator performed a search of the site admin audit log.
-{%- endif %}
-| `staff.set_domain_token_expiration` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff set the verification code expiry time for an organization or enterprise domain. {% ifversion ghec or ghes %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
-{%- ifversion ghes %}
-| `staff.unlock`                | A site administrator unlocked (temporarily gained full access to) all of a user's private repositories.
-{%- endif %}
-| `staff.unverify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff unverified an organization or enterprise domain. {% ifversion ghec or ghes %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
-| `staff.verify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff verified an organization or enterprise domain. {% ifversion ghec or ghes %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
-{%- ifversion ghes %}
-| `staff.view_audit_log` | A site administrator viewed the site admin audit log.
+| `staff.disable_repo`          | 组织{% ifversion ghes %}、存储库或站点{% else %}或者存储库{% endif %}管理员禁用了对存储库及其所有分支的访问权限。
+| `staff.enable_repo`           | 组织{% ifversion ghes %}、存储库或站点{% else %}或者存储库{% endif %}管理员重新启用了对存储库及其所有分支的访问权限。
+{%- ifversion ghes or ghae %} | `staff.exit_fake_login`       | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}结束了 {% data variables.product.product_name %} 上的模拟会话。
+| `staff.fake_login`            | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}以其他用户身份登录到 {% data variables.product.product_name %}。
+{%- endif %} | `staff.repo_lock`             | 组织{% ifversion ghes %}、存储库或站点{% else %}或者存储库{% endif %}管理员锁定（暂时获得）了对用户专用存储库的完全访问权限。
+| `staff.repo_unlock`           | 组织{% ifversion ghes %}、存储库或站点{% else %}或存储库{% endif %}管理员解锁（终止）了对用户专用存储库的临时访问权限。
+{%- ifversion ghes %} | `staff.search_audit_log` | 站点管理员对站点管理员审核日志进行了搜索。
+{%- endif %} | `staff.set_domain_token_expiration` | {% ifversion ghes %}站点管理员或 {% endif %}GitHub 工作人员为组织或企业域设置验证码到期时间。 {% ifversion ghec or ghes %}有关详细信息，请参阅“[验证或审批组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”和“[验证或审批企业的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。{% endif %} {%- ifversion ghes %} | `staff.unlock`                | 站点管理员解锁（暂时获得）了对用户的所有专用存储库的完全访问权限。
+{%- endif %} | `staff.unverify_domain` | {% ifversion ghes %}站点管理员或 {% endif %}GitHub 员工未验证组织或企业域。 {% ifversion ghec or ghes %}有关详细信息，请参阅“[验证或审批组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”和“[验证或审批企业的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。{% endif %} | `staff.verify_domain` | {% ifversion ghes %}站点管理员或 {% endif %}GitHub 工作人员验证了组织或企业域。 {% ifversion ghec or ghes %}有关详细信息，请参阅“[验证或审批组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”和“[验证或审批企业的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。{% endif %} {%- ifversion ghes %} | `staff.view_audit_log` | 站点管理员查看了站点管理员审核日志。
 {%- endif %}
 
-## `team` category actions
+## `team` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `team.add_member` | A member of an organization was added to a team. For more information, see "[Adding organization members to a team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
-| `team.add_repository` | A team was given access and permissions to a repository.
-| `team.change_parent_team` | A child team was created or a child team's parent was changed. For more information, see "[Moving a team in your organization’s hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)."
-| `team.change_privacy` | A team's privacy level was changed. For more information, see "[Changing team visibility](/organizations/organizing-members-into-teams/changing-team-visibility)."
-| `team.create` | A user account or repository was added to a team.
-| `team.delete` | A user account or repository was removed from a team.
-| `team.destroy` | A team was deleted.
-{%- ifversion ghec or ghes or ghae %}
-| `team.demote_maintainer` | A user was demoted from a team maintainer to a team member.
-| `team.promote_maintainer` | A user was promoted from a team member to a team maintainer. For more information, see "[Promoting an organization member to team maintainer](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member#promoting-an-organization-member-to-team-maintainer)."
-{%- endif %}
-| `team.remove_member` | A member of an organization was removed from a team. For more information, see "[Removing organization members from a team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)."
-| `team.remove_repository` | A repository was no longer under a team's control.
-| `team.rename` | A team's name was changed.
-| `team.update_permission` | A team's access was changed.
-| `team.update_repository_permission` | A team's permission to a repository was changed.
+| `team.add_member` | 已将组织的成员添加到团队中。 有关详细信息，请参阅“[将组织成员添加到团队](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)”。
+| `team.add_repository` | 已授予团队对存储库的访问权限和权限。
+| `team.change_parent_team` | 已创建子团队或已更改子团队的父团队。 有关详细信息，请参阅“[在组织的层次结构中移动团队](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)”。
+| `team.change_privacy` | 团队的隐私级别已更改。 有关详细信息，请参阅“[更改团队可见性](/organizations/organizing-members-into-teams/changing-team-visibility)”。
+| `team.create` | 已向团队添加用户帐户或仓库。
+| `team.delete` | 已从团队中移除用户帐户或仓库。
+| `team.destroy` | 已删除团队。
+{%- ifversion ghec or ghes or ghae %} | `team.demote_maintainer` | 用户已从团队维护者降级为团队成员。
+| `team.promote_maintainer` | 用户已从团队成员提升为团队维护者。 有关详细信息，请参阅“[将组织成员提升为团队维护者](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member#promoting-an-organization-member-to-team-maintainer)”。
+{%- endif %} | `team.remove_member` | 组织的成员已从团队中移除。 有关详细信息，请参阅“[从团队中删除组织成员](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)”。
+| `team.remove_repository` | 存储库不再受团队控制。
+| `team.rename` | 团队的名称已更改。
+| `team.update_permission` | 团队的访问权限已更改。
+| `team.update_repository_permission` | 团队对存储库的权限已更改。
 
-## `team_discussions` category actions
+## `team_discussions` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `team_discussions.clear` | An organization owner cleared the setting to allow team discussions for an organization or enterprise.
-| `team_discussions.disable` | An organization owner disabled team discussions for an organization. For more information, see "[Disabling team discussions for your organization](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)."
-| `team_discussions.enable` | An organization owner enabled team discussions for an organization.
+| `team_discussions.clear` | 组织所有者清除了设置，以允许组织或企业进行团队讨论。
+| `team_discussions.disable` | 组织所有者为组织禁用了团队讨论。 有关详细信息，请参阅[禁用组织的团队讨论](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)。
+| `team_discussions.enable` | 组织所有者为组织启用了团队讨论。
 
 {%- ifversion ghec %}
-## `team_sync_tenant` category actions
+## `team_sync_tenant` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `team_sync_tenant.disabled` | Team synchronization with a tenant was disabled. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
-| `team_sync_tenant.enabled` | Team synchronization with a tenant was enabled. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
-| `team_sync_tenant.update_okta_credentials` | The Okta credentials for team synchronization with a tenant were changed.
+| `team_sync_tenant.disabled` | 已禁用与租户的团队同步。 有关详细信息，请参阅“[为组织管理团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”和“[为企业中的组织管理团队同步](/admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
+| `team_sync_tenant.enabled` | 已启用与租户的团队同步。 有关详细信息，请参阅“[为组织管理团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”和“[为企业中的组织管理团队同步](/admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
+| `team_sync_tenant.update_okta_credentials` | 用于团队与租户同步的 Okta 凭据已更改。
 {%- endif %}
 
 {%- ifversion fpt or ghes %}
-## `two_factor_authentication` category actions
+## `two_factor_authentication` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `two_factor_authentication.disabled` | [Two-factor authentication][2fa] was disabled for a user account.
-| `two_factor_authentication.enabled`  | [Two-factor authentication][2fa] was enabled for a user account.
-| `two_factor_authentication.password_reset_fallback_sms` | A one-time password code was sent to a user account fallback phone number.
-| `two_factor_authentication.recovery_codes_regenerated` | Two factor recovery codes were regenerated for a user account.
-| `two_factor_authentication.sign_in_fallback_sms` | A one-time password code was sent to a user account fallback phone number.
-| `two_factor_authentication.update_fallback` | The two-factor authentication fallback for a user account was changed.
+| `two_factor_authentication.disabled` | 已为用户帐户禁用双因素身份验证[][2fa]。
+| `two_factor_authentication.enabled`  | 已为用户帐户启用双因素身份验证[][2fa]。
+| `two_factor_authentication.password_reset_fallback_sms` | 一次性密码代码已发送到用户帐户备用电话号码。
+| `two_factor_authentication.recovery_codes_regenerated` | 已为用户帐户重新生成双因素恢复代码。
+| `two_factor_authentication.sign_in_fallback_sms` | 一次性密码代码已发送到用户帐户备用电话号码。
+| `two_factor_authentication.update_fallback` | 用户帐户的双因素身份验证回退已更改。
 {%- endif %}
 
   [2fa]: /authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication
 
 {%- ifversion fpt or ghes or ghae %}
-## `user` category actions
+## `user` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `user.add_email`                  | An email address was added to a user account.
-| `user.async_delete`               | An asynchronous job was started to destroy a user account, eventually triggering a `user.delete` event.
-| `user.audit_log_export` | Audit log entries were exported.
-| `user.block_user` | A user was blocked by another user{% ifversion ghes %} or a site administrator{% endif %}.
-| `user.change_password`            | A user changed his or her password.
-| `user.create`                     | A new user account was created.
-| `user.creation_rate_limit_exceeded` | The rate of creation of user accounts, applications, issues, pull requests or other resources exceeded the configured rate limits, or too many users were followed too quickly.
-| `user.delete`                     | A user account was destroyed by an asynchronous job.
-{%- ifversion ghes %} 
-| `user.demote`                     | A site administrator was demoted to an ordinary user account.
-{%- endif %}
-| `user.destroy`                    | A user deleted his or her account, triggering `user.async_delete`.
-| `user.failed_login`               | A user tries to sign in with an incorrect username, password, or two-factor authentication code.
-| `user.flag_as_large_scale_contributor` | A user account was flagged as a large scale contributor. Only contributions from public repositories the user owns will be shown in their contribution graph, in order to prevent timeouts.
-| `user.forgot_password`            | A user requested a password reset via the sign-in page.
-| `user.hide_private_contributions_count` | A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now hidden. For more information, see "[Publicizing or hiding your private contributions on your profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile)."
-| `user.lockout` | A user was locked out of their account.
-| `user.login`                      | A user signed in.
-{%- ifversion ghes or ghae %}
-| `user.mandatory_message_viewed`   | A user viewed a mandatory message. For more information see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise)" for details."
-{%- endif %}
-| `user.minimize_comment` | A comment made by a user was minimized.
-{%- ifversion ghes %} 
-| `user.promote`                    | An ordinary user account was promoted to a site administrator.
-{%- endif %}
-| `user.recreate` | A user's account was restored.
-| `user.remove_email`               | An email address was removed from a user account.
-| `user.remove_large_scale_contributor_flag` | A user account was no longer flagged as a large scale contributor.
-| `user.rename`                     | A username was changed.
-| `user.reset_password` | A user reset their account password.
-| `user.show_private_contributions_count` | A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now shown. For more information, see "[Publicizing or hiding your private contributions on your profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile)."
-| `user.sign_in_from_unrecognized_device` | A user signed in from an unrecognized device.
-| `user.sign_in_from_unrecognized_device_and_location` | A user signed in from an unrecognized device and location.
-| `user.sign_in_from_unrecognized_location` | A user signed in from an unrecognized location.
-| `user.suspend`                    | A user account was suspended by an enterprise owner {% ifversion ghes %} or site administrator{% endif %}.
-| `user.two_factor_challenge_failure` | A 2FA challenge issued for a user account failed.
-| `user.two_factor_challenge_success` | A 2FA challenge issued for a user account succeeded.
-| `user.two_factor_recover` | A user used their 2FA recovery codes.
-| `user.two_factor_recovery_codes_downloaded` | A user downloaded 2FA recovery codes for their account.
-| `user.two_factor_recovery_codes_printed` | A user printed 2FA recovery codes for their account.
-| `user.two_factor_recovery_codes_viewed` | A user viewed 2FA recovery codes for their account.
-| `user.two_factor_requested`       | A user was prompted for a two-factor authentication code.
-| `user.unblock_user` | A user was unblocked another user{% ifversion ghes %} or a site administrator{% endif %}.
-| `user.unminimize_comment` | A comment made by a user was unminimized.
-| `user.unsuspend` | A user account was unsuspended by an enterprise owner {% ifversion ghes %} or site administrator{% endif %}.
+| `user.add_email`                  | 已向用户帐户添加电子邮件地址。
+| `user.async_delete`               | 已启动异步作业以销毁用户帐户，最终触发 `user.delete` 事件。
+| `user.audit_log_export` | 审核日志条目已导出。
+| `user.block_user` | 一个用户被另一个用户{% ifversion ghes %}或站点管理员{% endif %}阻止。
+| `user.change_password`            | 用户已更改其密码。
+| `user.create`                     | 已创建新的用户帐户。
+| `user.creation_rate_limit_exceeded` | 用户帐户、应用程序、问题、拉取请求或其他资源的创建速率超过了配置的速率限制，或者关注的用户过多。
+| `user.delete`                     | 已通过异步作业销毁用户帐户。
+{%- ifversion ghes %} | `user.demote`                     | 已将站点管理员降级为普通用户帐户。
+{%- endif %} | `user.destroy`                    | 用户删除了他或她的帐户，从而触发了 `user.async_delete`。
+| `user.failed_login`               | 用户尝试使用不正确的用户名、密码或双因素身份验证码登录。
+| `user.flag_as_large_scale_contributor` | 已将用户帐户标记为大规模参与者。 只有来自用户拥有的公共存储库的贡献才会显示在他们的贡献图中，以防止超时。
+| `user.forgot_password`            | 用户通过登录页面请求了密码重置。
+| `user.hide_private_contributions_count` | 用户更改了其私人贡献的可见性。 现在将隐藏对用户配置文件上专用存储库的贡献数量。 有关详细信息，请参阅“[在配置文件中公开或隐藏私人贡献](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
+| `user.lockout` | 用户被锁定在其帐户之外。
+| `user.login`                      | 用户已登录。
+{%- ifversion ghes or ghae %} | `user.mandatory_message_viewed`   | 用户查看了必填消息。 有关详细信息，请参阅“[为企业自定义用户消息](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise)”。
+{%- endif %} | `user.minimize_comment` | 已将用户发表的评论数降至最低。
+{%- ifversion ghes %} | `user.promote`                    | 已将普通用户帐户提升为站点管理员。
+{%- endif %} | `user.recreate` | 用户的帐户已还原。
+| `user.remove_email`               | 已从用户帐户中移除电子邮件地址。
+| `user.remove_large_scale_contributor_flag` | 用户帐户不再被标记为大规模参与者。
+| `user.rename`                     | 用户名已更改。
+| `user.reset_password` | 用户重置其帐户密码。
+| `user.show_private_contributions_count` | 用户更改了其私人贡献的可见性。 现在将显示对用户配置文件上专用存储库的贡献数量。 有关详细信息，请参阅“[在配置文件中公开或隐藏私人贡献](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
+| `user.sign_in_from_unrecognized_device` | 用户从无法识别的设备登录了。
+| `user.sign_in_from_unrecognized_device_and_location` | 用户从无法识别的设备和位置登录了。
+| `user.sign_in_from_unrecognized_location` | 用户从无法识别的位置登录了。
+| `user.suspend`                    | 用户帐户已被企业所有者{% ifversion ghes %}或站点管理员{% endif %}暂停。
+| `user.two_factor_challenge_failure` | 为用户帐户发出的 2FA 质询失败。
+| `user.two_factor_challenge_success` | 为用户帐户发出的 2FA 质询成功。
+| `user.two_factor_recover` | 用户使用了其 2FA 恢复代码。
+| `user.two_factor_recovery_codes_downloaded` | 用户为其帐户下载了 2FA 恢复代码。
+| `user.two_factor_recovery_codes_printed` | 用户为其帐户打印了 2FA 恢复代码。
+| `user.two_factor_recovery_codes_viewed` | 用户查看了其帐户的 2FA 恢复代码。
+| `user.two_factor_requested`       | 已提示用户输入双因素身份验证码。
+| `user.unblock_user` | 一个用户被另一个用户{% ifversion ghes %}或站点管理员{% endif %}解锁。
+| `user.unminimize_comment` | 未将用户发表的评论数降至最低。
+| `user.unsuspend` | 企业所有者{% ifversion ghes %}或站点管理员{% endif %}已恢复对用户帐户的访问权限。
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
-## `user_license` category actions
+## `user_license` 类别操作
 
-| Action | Description
+| 操作 | 说明
 |--------|-------------
-| `user_license.create` | A seat license for a user in an enterprise was created.
-| `user_license.destroy` | A seat license for a user in an enterprise was deleted.
-| `user_license.update` | A seat license type for a user in an enterprise was changed.
+| `user_license.create` | 已为企业中的用户创建席位许可证。
+| `user_license.destroy` | 已删除企业中用户的席位许可证。
+| `user_license.update` | 企业中用户的席位许可证类型已更改。
 {%- endif %}
 
-## `workflows` category actions
+## `workflows` 类别操作
 
 {% data reusables.audit_log.audit-log-events-workflows %}

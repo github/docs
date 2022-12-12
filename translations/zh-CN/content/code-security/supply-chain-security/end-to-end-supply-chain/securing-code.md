@@ -53,7 +53,7 @@ As a first step, you want to make a complete inventory of your dependencies. The
 {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 ### Automatic detection of vulnerabilities in pull requests
 
-The {% data variables.product.prodname_dependency_review_action %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.product.prodname_dependency_review_action %} can block the pull request from merging. For more information, see "[Dependency review enforcement](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."{% endif %} 
+The {% data variables.dependency-review.action_name %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.dependency-review.action_name %} can block the pull request from merging. For more information, see "[Dependency review enforcement](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."{% endif %} 
     
 
 ### Assessment of exposure to risk from a vulnerable dependency
