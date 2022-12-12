@@ -1,6 +1,6 @@
 ---
-title: Setting permissions for deleting or transferring repositories
-intro: 'You can allow organization members with admin permissions to a repository to delete or transfer the repository, or limit the ability to delete or transfer repositories to organization owners only.'
+title: Définition des autorisations pour la suppression ou le transfert de référentiels
+intro: 'Vous pouvez autoriser les membres de l’organisation qui disposent d’autorisations d’administrateur sur un référentiel à supprimer ou à transférer le référentiel, ou autoriser uniquement les propriétaires de l’organisation à supprimer ou transférer des référentiels.'
 redirect_from:
   - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
@@ -14,13 +14,16 @@ topics:
   - Organizations
   - Teams
 shortTitle: Set repo management policy
+ms.openlocfilehash: 3d5aff7d4a06dae2d3b3bb010ecbf68e186b58d0
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145106214'
 ---
+Les propriétaires peuvent définir des autorisations pour la suppression ou le transfert de référentiels au sein d’une organisation.
 
-Owners can set permissions for deleting or transferring repositories in an organization.
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. Under "Repository deletion and transfer", select or deselect **Allow members to delete or transfer repositories for this organization**.
-![Checkbox to allow members to delete repositories](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
-6. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.member-privileges %}
+5. Sous « Suppression et transfert de référentiels », sélectionnez ou désélectionnez **Autoriser les membres à supprimer ou transférer des référentiels pour cette organisation**.
+![Case à cocher permettant d’autoriser les membres à supprimer des référentiels](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
+6. Cliquez sur **Enregistrer**.

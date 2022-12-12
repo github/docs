@@ -1,6 +1,6 @@
 ---
-title: Managing default labels for repositories in your organization
-intro: You can customize the labels that are included in every new repository in your organization.
+title: Gestion des étiquettes par défaut pour les dépôts au sein de votre organisation
+intro: Vous pouvez personnaliser les étiquettes incluses dans chaque nouveau dépôt de votre organisation.
 redirect_from:
   - /articles/managing-default-labels-for-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-default-labels-for-repositories-in-your-organization
@@ -13,46 +13,36 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage default labels
+ms.openlocfilehash: a2591c84d3844bfdadc3c7321d7ce8eec2adf293
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145109458'
 ---
+Les propriétaires d’organisation peuvent gérer des étiquettes par défaut pour les dépôts au sein de l’organisation.
 
-Organization owners can manage default labels for repositories in the organization.
+Des étiquettes par défaut sont incluses dans chaque nouveau dépôt au sein de votre organisation, mais toute personne disposant d’un accès en écriture au dépôt peut en modifier ou supprimer les étiquettes ultérieurement. L’ajout, la modification ou la suppression d’une étiquette par défaut n’a pas d’incidence sur les dépôts existants.
 
-Default labels are included in every new repository in your organization, but anyone with write access to the repository can edit or delete the labels in that repository later. Adding, editing, or deleting a default label does not add, edit, or delete the label from existing repositories.
+## Définition d’une étiquette par défaut
 
-## Creating a default label
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
+5. Sous « Étiquettes de dépôt », cliquez sur **Nouvelle étiquette**.
+  ![Bouton Nouvelle étiquette](/assets/images/help/organizations/new-label-button.png) {% data reusables.project-management.name-label %} {% data reusables.project-management.label-description %} {% data reusables.project-management.label-color-randomizer %} {% data reusables.project-management.create-label %}
 
-5. Under "Repository labels", click **New label**.
-  ![New label button](/assets/images/help/organizations/new-label-button.png)
-{% data reusables.project-management.name-label %}
-{% data reusables.project-management.label-description %}
-{% data reusables.project-management.label-color-randomizer %}
-{% data reusables.project-management.create-label %}
+## Modification d’une étiquette par défaut
 
-## Editing a default label
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
+{% data reusables.project-management.edit-label %} {% data reusables.project-management.name-label %} {% data reusables.project-management.label-description %} {% data reusables.project-management.label-color-randomizer %} {% data reusables.project-management.save-label %}
 
-{% data reusables.project-management.edit-label %}
-{% data reusables.project-management.name-label %}
-{% data reusables.project-management.label-description %}
-{% data reusables.project-management.label-color-randomizer %}
-{% data reusables.project-management.save-label %}
+## Suppression d’une étiquette par défaut
 
-## Deleting a default label
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
+{% data reusables.project-management.delete-label %} {% data reusables.project-management.confirm-label-deletion %}
 
-{% data reusables.project-management.delete-label %}
-{% data reusables.project-management.confirm-label-deletion %}
+## Pour aller plus loin
 
-## Further reading
-
-- "[About labels](/articles/about-labels)"
+- « [À propos des étiquettes](/articles/about-labels) »

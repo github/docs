@@ -1,6 +1,6 @@
 ---
-title: Transferring a repository
-intro: You can transfer repositories to other users or organization accounts.
+title: Transfert d’un dépôt
+intro: Vous pouvez transférer des référentiels vers d’autres utilisateurs ou comptes d’organisation.
 redirect_from:
   - /articles/about-repository-transfers
   - /move-a-repo
@@ -21,34 +21,40 @@ versions:
   ghec: '*'
 topics:
   - Repositories
+ms.openlocfilehash: f37ebc1492ae26998a596d90734d1d509b8f73c9
+ms.sourcegitcommit: d82f268a6f0236d1f4d2bf3d049974ada0170402
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/10/2022
+ms.locfileid: '148160679'
 ---
-## About repository transfers
+## À propos des transferts de dépôts
 
-When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, {% data variables.product.prodname_projects_v1 %}, and settings.
+Lorsque vous transférez un dépôt vers un nouveau propriétaire, il peut administrer immédiatement le contenu du dépôt, les problèmes, les demandes de tirage, les mises en production, les {% data variables.product.prodname_projects_v1 %} et les paramètres.
 
-Prerequisites for repository transfers:
-- When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
-- To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
-- The target account must not have a repository with the same name, or a fork in the same network.
-- The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 or ghae %}
-- Internal repositories can't be transferred.{% endif %}
-- Private forks can't be transferred.
+Prérequis pour les transferts de dépôts :
+- Lorsque vous transférez un dépôt dont vous être propriétaire vers un autre compte personnel, le nouveau propriétaire reçoit un e-mail de confirmation.{% ifversion fpt or ghec %} L’e-mail de confirmation inclut des instructions pour accepter le transfert. Si le nouveau propriétaire n’accepte pas le transfert dans les 24 heures, l’invitation expire.{% endif %}
+- Pour transférer un dépôt dont vous être propriétaire vers une organisation, vous devez avoir l’autorisation de créer un dépôt dans l’organisation cible.
+- Le compte cible ne doit pas avoir de dépôt portant le même nom, ou une duplication (fork) dans le même réseau.
+- Le propriétaire d’origine du dépôt est ajouté en tant que collaborateur sur le dépôt transféré. Les autres collaborateurs du dépôt transféré ne changent pas.{% ifversion ghes < 3.7 or ghae %}
+- Les dépôts internes ne peuvent pas être transférés.{% endif %}
+- Les duplications privées ne peuvent pas être transférées.
 {%- ifversion ghec %}
-- You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
+- Vous ne pouvez pas transférer un dépôt interne d’une organisation appartenant à un compte d’entreprise vers une organisation appartenant à un autre compte d’entreprise.
 {%- endif %}
 
-{% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
+{% ifversion fpt or ghec %} Si vous transférez un dépôt privé vers un compte d’utilisateur ou d’organisation {% data variables.product.prodname_free_user %}, le dépôt perd l’accès aux fonctionnalités telles que les branches protégées et les {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
 
-### What's transferred with a repository?
+### Qu’est-ce qui est transféré avec un dépôt ?
 
-When you transfer a repository, its issues, pull requests, wiki, stars, and watchers are also transferred. If the transferred repository contains webhooks, services, secrets, or deploy keys, they will remain associated after the transfer is complete. Git information about commits, including contributions, is preserved. In addition:
+Lorsque vous transférez un dépôt, ses problèmes, ses demandes de tirage, son wiki, ses étoiles et la liste des personnes qui le surveillent sont également transférés. Si le dépôt transféré contient des webhooks, des services, des secrets ou des clés de déploiement, ils restent associés une fois le transfert terminé. Les informations Git sur les commits, y compris les contributions, sont conservées. De plus :
 
-- If the transferred repository is a fork, then it remains associated with the upstream repository.
-- If the transferred repository has any forks, then those forks will remain associated with the repository after the transfer is complete.
-- If the transferred repository uses {% data variables.large_files.product_name_long %}, all {% data variables.large_files.product_name_short %} objects are automatically moved. This transfer occurs in the background, so if you have a large number of {% data variables.large_files.product_name_short %} objects or if the {% data variables.large_files.product_name_short %} objects themselves are large, it may take some time for the transfer to occur.{% ifversion fpt or ghec %} Before you transfer a repository that uses {% data variables.large_files.product_name_short %}, make sure the receiving account has enough data packs to store the {% data variables.large_files.product_name_short %} objects you'll be moving over. For more information on adding storage for personal accounts, see "[Upgrading {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)."{% endif %}
-- When a repository is transferred between two personal accounts, issue assignments are left intact. When you transfer a repository from a personal account to an organization, issues assigned to members in the organization remain intact, and all other issue assignees are cleared. Only owners in the organization are allowed to create new issue assignments. When you transfer a repository from an organization to a personal account, only issues assigned to the repository's owner are kept, and all other issue assignees are removed.
-- If the transferred repository contains a {% data variables.product.prodname_pages %} site, then links to the Git repository on the Web and through Git activity are redirected. However, we don't redirect {% data variables.product.prodname_pages %} associated with the repository.
-- All links to the previous repository location are automatically redirected to the new location. When you use `git clone`, `git fetch`, or `git push` on a transferred repository, these commands will redirect to the new repository location or URL. However, to avoid confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
+- Si le dépôt transféré est une duplication, il reste associé au dépôt en amont.
+- Si le dépôt transféré comporte des duplications, celles-ci restent associées au dépôt une fois le transfert terminé.
+- Si le dépôt transféré utilise {% data variables.large_files.product_name_long %}, tous les objets {% data variables.large_files.product_name_short %} sont automatiquement déplacés. Ce transfert se produit en arrière-plan. Par conséquent, si vous avez un grand nombre d’objets {% data variables.large_files.product_name_short %} ou si les objets {% data variables.large_files.product_name_short %} sont volumineux, le transfert peut prendre un certain temps.{% ifversion fpt or ghec %} Avant de transférer un dépôt qui utilise {% data variables.large_files.product_name_short %}, vérifiez que le compte de réception dispose de suffisamment de packs de données pour stocker les objets {% data variables.large_files.product_name_short %} que vous déplacerez. Pour plus d’informations sur l’ajout de stockage pour les comptes personnels, consultez « [Mise à niveau de {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage) ».{% endif %}
+- Lorsqu’un dépôt est transféré entre deux comptes personnels, les affectations de problème sont laissées intactes. Lorsque vous transférez un dépôt d’un compte personnel vers une organisation, les problèmes affectés aux membres de l’organisation restent intacts et tous les autres destinataires de problèmes sont effacés. Seuls les propriétaires de l’organisation sont autorisés à créer des affectations de problème. Lorsque vous transférez un dépôt d’une organisation vers un compte personnel, seuls les problèmes affectés au propriétaire du dépôt sont conservés et tous les autres destinataires de problèmes sont effacés.
+- Si le dépôt transféré contient un site {% data variables.product.prodname_pages %}, les liens vers le dépôt Git sur le web et via une activité Git sont redirigés. Toutefois, nous ne redirigeons pas les {% data variables.product.prodname_pages %} associées au dépôt.
+- Tous les liens vers l’emplacement précédent du dépôt sont automatiquement redirigés vers le nouvel emplacement. Lorsque vous utilisez `git clone`, `git fetch` ou `git push` sur un dépôt transféré, ces commandes redirigent vers le nouvel emplacement ou la nouvelle URL du dépôt. Toutefois, pour éviter toute confusion, nous vous recommandons vivement de mettre à jour tous les clones locaux existants de façon à ce qu’ils pointent vers la nouvelle URL du dépôt. Pour ce faire, vous pouvez utiliser `git remote` sur la ligne de commande :
 
   ```shell
   $ git remote set-url origin NEW_URL
@@ -56,36 +62,32 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 
   {% warning %}
 
-  **Warning**: If you create a new repository under your account in the future, do not reuse the original name of the transferred repository. If you do, redirects to the transferred repository will no longer work.
+  **Avertissement** : Si vous créez un dépôt sous votre compte, ne réutilisez pas le nom d’origine du dépôt transféré. Si vous le faites, les redirections vers le dépôt transféré ne fonctionneront plus.
 
   {% endwarning %}
 
-- When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
-- Sponsors who have access to the repository through a sponsorship tier may be affected. For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".{% endif %}
+- Lorsque vous transférez un dépôt d’une organisation vers un compte personnel, les collaborateurs en lecture seule du dépôt ne sont pas transférés. Cela est dû au fait que les collaborateurs ne peuvent pas avoir accès en lecture seule à des dépôts appartenant à un compte personnel. Pour plus d’informations sur les niveaux d’autorisation de dépôt, consultez « [Niveaux d’autorisation pour un dépôt de compte personnel](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository) » et « [Rôles de dépôt pour une organisation](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) ».{% ifversion fpt or ghec %}
+- Les commanditaires qui ont accès au dépôt par le biais d’un niveau de parrainage peuvent être affectés. Pour plus d’informations, consultez « [Ajout d’un dépôt à un niveau de parrainage](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier) ».{% endif %}
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Pour plus d’informations, consultez « [Gestion des dépôts distants](/github/getting-started-with-github/managing-remote-repositories) ».
 
-### Repository transfers and organizations
+### Transferts de dépôts et organisations
 
-To transfer repositories to an organization, you must have repository creation permissions in the receiving organization. If organization owners have disabled repository creation by organization members, only organization owners can transfer repositories out of or into the organization.
+Pour transférer des dépôts vers une organisation, vous devez disposer d’autorisations de création de dépôt dans l’organisation réceptrice. Si les propriétaires d’organisation ont désactivé la création de dépôts par les membres de l’organisation, seuls les propriétaires d’organisation peuvent transférer des dépôts hors ou dans l’organisation.
 
-Once a repository is transferred to an organization, the organization's default repository permission settings and default membership privileges will apply to the transferred repository.
+Une fois qu’un dépôt a été transféré vers une organisation, les paramètres d’autorisation de dépôt par défaut de l’organisation et les privilèges d’appartenance par défaut s’appliquent au dépôt transféré.
 
-## Transferring a repository owned by your personal account
+## Transfert d’un dépôt appartenant à votre compte personnel
 
-You can transfer your repository to any personal account that accepts your repository transfer. When a repository is transferred between two personal accounts, the original repository owner and collaborators are automatically added as collaborators to the new repository.
+Vous pouvez transférer votre dépôt vers n’importe quel compte personnel qui accepte votre transfert de dépôt. Lorsqu’un dépôt est transféré entre deux comptes personnels, le propriétaire du dépôt d’origine et les collaborateurs sont automatiquement ajoutés en tant que collaborateurs au nouveau dépôt.
 
-{% ifversion fpt or ghec %}If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, before transferring the repository, you may want to remove or update your DNS records to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
+{% ifversion fpt or ghec %}Si vous avez publié un site {% data variables.product.prodname_pages %} dans un dépôt privé et ajouté un domaine personnalisé, avant de transférer le dépôt, vous pouvez supprimer ou mettre à jour vos enregistrements DNS afin d’éviter le risque de prise de contrôle du domaine. Pour plus d’informations, consultez « [Gestion d’un domaine personnalisé pour votre site {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site) ».{% endif %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.transfer-repository-steps %}
 
-## Transferring a repository owned by your organization
+## Transfert d’un dépôt appartenant à votre organisation
 
-If you have owner permissions in an organization or admin permissions to one of its repositories, you can transfer a repository owned by your organization to your personal account or to another organization.
+Si vous disposez d’autorisations de propriétaire dans une organisation ou d’autorisations d’administrateur sur l’un de ses dépôts, vous pouvez transférer un dépôt appartenant à votre organisation vers votre compte personnel ou vers une autre organisation.
 
-1. Sign into your personal account that has admin or owner permissions in the organization that owns the repository.
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.transfer-repository-steps %}
+1. Connectez-vous à votre compte personnel disposant d’autorisations d’administrateur ou de propriétaire dans l’organisation propriétaire du dépôt.
+{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.repositories.transfer-repository-steps %}

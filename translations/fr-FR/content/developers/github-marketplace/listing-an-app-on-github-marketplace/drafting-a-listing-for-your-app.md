@@ -1,6 +1,6 @@
 ---
-title: Drafting a listing for your app
-intro: 'When you create a {% data variables.product.prodname_marketplace %} listing, GitHub saves it in draft mode until you submit the app for approval. Your listing shows customers how they can use your app.'
+title: Créer un brouillon de référencement pour votre application
+intro: 'Lorsque vous créez un référencement {% data variables.product.prodname_marketplace %}, GitHub l’enregistre en mode brouillon jusqu’à ce que vous soumettiez l’application pour approbation. Votre référencement montre aux clients comment ils peuvent utiliser votre application.'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
   - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
@@ -19,50 +19,54 @@ versions:
 topics:
   - Marketplace
 shortTitle: Draft an app listing
+ms.openlocfilehash: 9dccf5486c446c5cdd9dbef4d36650340116e044
+ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '145086367'
 ---
-## Create a new draft {% data variables.product.prodname_marketplace %} listing
+## Créer un brouillon de référencement dans {% data variables.product.prodname_marketplace %}
 
-You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
+Vous pouvez créer des brouillons de référencements uniquement pour les applications publiques. Avant de créer votre brouillon de référencement, lisez les instructions suivantes concernant l’écriture et la configuration des paramètres pour votre référencement dans {% data variables.product.prodname_marketplace %} :
 
-* [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
-* [Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
-* [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
+* [Écrire des descriptions des référencements dans {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
+* [Définir un plan tarifaire associé à un référencement dans {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
+* [Configuration du webhook pour {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
 
-To create a {% data variables.product.prodname_marketplace %} listing:
+Pour créer un référencement dans {% data variables.product.prodname_marketplace %} :
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-3. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %}
+3. Dans la barre latérale gauche, cliquez sur **OAuth Apps** ou **GitHub Apps** en fonction de l’application que vous ajoutez dans {% data variables.product.prodname_marketplace %}.
 
   {% note %}
 
-  **Note**: You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
+  **Remarque** : Vous pouvez également ajouter un référencement en accédant à https://github.com/marketplace/new, en affichant vos applications disponibles et en cliquant sur **Créer un brouillon de référencement**.
 
   {% endnote %}
 
-  ![App type selection](/assets/images/settings/apps_choose_app.png)
+  ![Sélection du type d’application](/assets/images/settings/apps_choose_app.png)
 
-4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}.
-![App selection for {% data variables.product.prodname_marketplace %} listing](/assets/images/github-apps/github_apps_select-app.png)
-{% data reusables.user-settings.edit_marketplace_listing %}
-5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
-![GitHub Marketplace listing](/assets/images/marketplace/marketplace_listing_overview.png)
+4. Sélectionnez l’application que vous souhaitez ajouter dans {% data variables.product.prodname_marketplace %}.
+![Sélection de l’application à référencer dans {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png) {% data reusables.user-settings.edit_marketplace_listing %}
+5. Une fois que vous avez créé un brouillon de référencement, vous accédez à une vue d’ensemble des sections que vous devez renseigner pour terminer votre référencement dans {% data variables.product.prodname_marketplace %}.
+![Référencement dans GitHub Marketplace](/assets/images/marketplace/marketplace_listing_overview.png)
 
 
 {% note %}
 
-**Note:** In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
+**Remarque :** Dans la section « Informations de contact » de votre référencement, nous vous recommandons d’utiliser des adresses e-mail individuelles plutôt que des adresses e-mail de groupe comme support@domain.com. GitHub utilise ces adresses e-mail pour vous informer des mises à jour de {% data variables.product.prodname_marketplace %} susceptibles d’impacter votre référencement, de la publication de nouvelles fonctionnalités, des offres marketing, des paiements ainsi que des conférences et parrainages.
 
 {% endnote %}
 
-## Editing your listing
+## Terminer votre référencement
 
-Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
+Une fois que vous avez créé un brouillon de référencement dans {% data variables.product.prodname_marketplace %}, vous pouvez à tout moment revenir dessus pour modifier les informations de votre référencement. Si votre application est déjà approuvée et référencée dans {% data variables.product.prodname_marketplace %}, vous pouvez modifier les informations et images de votre référencement, mais pas les plans tarifaires associés qui ont déjà été publiés. Consultez « [Définir un plan tarifaire associé à un référencement dans {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/) ».
 
-## Submitting your app
+## Soumission de votre application
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
+Après avoir terminé votre référencement dans {% data variables.product.prodname_marketplace %}, vous pouvez le soumettre pour examen à partir de la page **Vue d’ensemble**. Vous devez lire et accepter le « [Contrat du développeur {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/) », puis cliquer sur **Soumettre pour examen**. Une fois que vous avez soumis votre application pour examen, un expert en intégration vous contactera pour vous donner des informations supplémentaires sur le processus d’intégration.
 
-## Removing a {% data variables.product.prodname_marketplace %} listing
+## Supprimer un référencement dans {% data variables.product.prodname_marketplace %}
 
-If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.
+Si vous ne souhaitez plus référencer votre application dans {% data variables.product.prodname_marketplace %}, contactez le {% data variables.contact.contact_support %} pour demander la suppression de votre référencement.
