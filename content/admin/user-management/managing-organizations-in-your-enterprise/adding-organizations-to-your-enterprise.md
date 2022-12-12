@@ -82,6 +82,9 @@ Enterprise owners can transfer existing organizations between enterprise account
 
 {% endnote %}
 
+> **Warning**
+> If you are migrating to an enterprise that enforces 2FA requirements, non-2FA users will be removed during the migration. We recommend enabling 2FA for all accounts prior to transferring organizations. 
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Next to the organization you want to transfer, select the {% octicon "gear" width="16" aria-label="Gear" %} dropdown, and then click **Transfer organization**. 
 ![Screenshot of the transfer button](/assets/images/help/business-accounts/org-transfer-button.png)
