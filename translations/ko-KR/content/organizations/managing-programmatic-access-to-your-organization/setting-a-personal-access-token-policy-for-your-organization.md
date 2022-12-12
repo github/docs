@@ -1,57 +1,59 @@
 ---
-title: Setting a personal access token policy for your organization
-intro: 'Organization owners can control whether to allow {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}, and can require approval for {% data variables.product.pat_v2 %}s.'
+title: 조직에 대한 개인용 액세스 토큰 정책 설정
+intro: '조직 소유자는 {% data variables.product.pat_v2 %}s 및 {% data variables.product.pat_v1_plural %}을(를) 허용할지 여부를 제어할 수 있으며 {% data variables.product.pat_v2 %}s에 대한 승인을 요구할 수 있습니다.'
 versions:
   feature: pat-v2
 shortTitle: Set a token policy
+ms.openlocfilehash: 6e05b65ae6814ef9101ed91fdd4a68435e4ba291
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106471'
 ---
-
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
-## Restricting access by {% data variables.product.pat_v2 %}s
+## {% data variables.product.pat_v2 %}s에 의한 액세스 제한
 
-Organization owners can prevent {% data variables.product.pat_v2 %}s from accessing resources owned by the organization. {% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization. This setting only controls access by {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}. For more information about restricting access by {% data variables.product.pat_v1_plural %}, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page.
+조직 소유자는 {% data variables.product.pat_v2 %}s이(가) 조직 소유의 리소스에 액세스하지 못하도록 방지할 수 있습니다. {% data variables.product.pat_v2_caps %}s은(는) 여전히 조직 내에서 공용 리소스를 읽을 수 있습니다. 이 설정은 {% data variables.product.pat_v1_plural %}이 아닌 {% data variables.product.pat_v2 %}s의 액세스만 제어합니다. {% data variables.product.pat_v1_plural %}으로 액세스를 제한하는 방법에 대한 자세한 내용은 이 페이지의 "[{% data variables.product.pat_v1_plural %}으로 액세스 제한](#restricting-access-by-personal-access-tokens-classic)"을 참조하세요.
 
-{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes or ghae %} 조직이 엔터프라이즈 소유이고 엔터프라이즈 소유자가 {% data variables.product.pat_v2 %}s의 액세스를 제한한 경우 조직의 정책을 재정의할 수 없습니다. 자세한 내용은 "[엔터프라이즈에서 {% data variables.product.pat_generic %}s에 대한 정책 적용"을 참조하세요](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise). {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**.
-1. Under **{% data variables.product.pat_v2_caps %}s**, select the option that meets your needs:
-   - **Allow access via {% data variables.product.pat_v2 %}s**:  {% data variables.product.pat_v2_caps %}s can access resources owned by the organization.
-   - **Restrict access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s cannot access resources owned by the organization. SSH keys created by {% data variables.product.pat_v2 %}s will continue to work.
-1. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. 왼쪽 사이드바의 **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s** 에서 **설정을** 클릭합니다.
+1. **{% data variables.product.pat_v2_caps %}s** 에서 요구 사항에 맞는 옵션을 선택합니다.
+   - **{% data variables.product.pat_v2 %}s을(를) 통한 액세스 허용**: {% data variables.product.pat_v2_caps %}s는 조직 소유의 리소스에 액세스할 수 있습니다.
+   - **{% data variables.product.pat_v2 %}s를 통한 액세스 제한**: {% data variables.product.pat_v2_caps %}s은(는) 조직 소유의 리소스에 액세스할 수 없습니다. {% data variables.product.pat_v2 %}s에서 만든 SSH 키는 계속 작동합니다.
+1. **저장** 을 클릭합니다.
 
-## Enforcing an approval policy for {% data variables.product.pat_v2 %}s
+## {% data variables.product.pat_v2 %}s에 대한 승인 정책 적용
 
-Organization owners can require approval for each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization without approval. {% data variables.product.pat_v2_caps %}s created by organization owners will not need approval.
+조직 소유자는 조직에 액세스할 수 있는 각 {% 데이터 variables.product.pat_v2 %}에 대한 승인을 요구할 수 있습니다. {% data variables.product.pat_v2_caps %}s은(는) 승인 없이 조직 내에서 공용 리소스를 읽을 수 있습니다. 조직 소유자가 만든 {% data variables.product.pat_v2_caps %}은(는) 승인이 필요하지 않습니다.
 
-{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has set an approval policy for {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes or ghae %} 조직이 엔터프라이즈 소유이고 엔터프라이즈 소유자가 {% data variables.product.pat_v2 %}s에 대한 승인 정책을 설정한 경우 조직의 정책을 재정의할 수 없습니다. 자세한 내용은 "[엔터프라이즈에서 {% data variables.product.pat_generic %}s에 대한 정책 적용"을 참조하세요](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise). {% endif %}
 
 {% note %}
 
-**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page.
+**참고**: {% data variables.product.pat_v1_plural %}이 아닌 {% data variables.product.pat_v2 %}s만 승인될 수 있습니다. 조직에서 {% data variables.product.pat_v1_plural %}의 액세스를 제한하지 않는 한 모든 {% data variables.product.pat_v1 %}는 사전 승인 없이 조직 리소스에 액세스할 수 있습니다. 자세한 내용은 이 페이지의 "[{% data variables.product.pat_v1_plural %}으로 액세스 제한](#restricting-access-by-personal-access-tokens-classic)"을 참조하세요.
 
 {% endnote %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**.
-1. Under **Require approval of {% data variables.product.pat_v2 %}s**, select the option that meets your needs:
-   - **Require administrator approval**: An organization owner must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s created by organization owners will not need approval.
-   - **Do not require administrator approval**: {% data variables.product.pat_v2_caps %}s created by organization members can access resources in the organization without prior approval.
-1. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. 왼쪽 사이드바의 **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s** 에서 **설정을** 클릭합니다.
+1. **{% data variables.product.pat_v2 %}s의 승인 필요** 에서 요구 사항에 맞는 옵션을 선택합니다.
+   - **관리자 승인 필요**: 조직 소유자는 조직에 액세스할 수 있는 각 {% data variables.product.pat_v2 %}을 승인해야 합니다. 조직 소유자가 만든 {% data variables.product.pat_v2_caps %}은(는) 승인이 필요하지 않습니다.
+   - **관리자 승인 필요 없음**: 조직 구성원이 만든 {% data variables.product.pat_v2_caps %}s는 사전 승인 없이 조직의 리소스에 액세스할 수 있습니다.
+1. **저장** 을 클릭합니다.
 
-## Restricting access by {% data variables.product.pat_v1_plural %}
+## {% data variables.product.pat_v1_plural %}으로 액세스 제한
 
-Organization owners can prevent {% data variables.product.pat_v1_plural %} from accessing resources owned by the organization. {% data variables.product.pat_v1_caps_plural %} will still be able to read public resources within the organization. This setting only controls access by {% data variables.product.pat_v1_plural %}, not {% data variables.product.pat_v2 %}s. For more information about restricting access by {% data variables.product.pat_v2 %}s, see "[Restricting access by {% data variables.product.pat_v2 %}s](#restricting-access-by-fine-grained-personal-access-tokens)" on this page.
+조직 소유자는 {% data variables.product.pat_v1_plural %}이(가) 조직 소유의 리소스에 액세스하지 못하도록 방지할 수 있습니다. {% data variables.product.pat_v1_caps_plural %}은(는) 여전히 조직 내에서 공용 리소스를 읽을 수 있습니다. 이 설정은 {% data variables.product.pat_v2 %}s가 아니라 {% data variables.product.pat_v1_plural %}의 액세스만 제어합니다. {% data variables.product.pat_v2 %}s로 액세스를 제한하는 방법에 대한 자세한 내용은 이 페이지에서 "[{% data variables.product.pat_v2 %}s로 액세스 제한](#restricting-access-by-fine-grained-personal-access-tokens)"을 참조하세요.
 
-{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_v1_plural %}, then you cannot override the policy in your organization. For more information, see "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes or ghae %} 조직이 엔터프라이즈 소유이고 엔터프라이즈 소유자가 {% data variables.product.pat_v1_plural %}의 액세스를 제한한 경우 조직의 정책을 재정의할 수 없습니다. 자세한 내용은 "[엔터프라이즈에서 {% data variables.product.pat_generic %}s에 대한 정책 적용"을 참조하세요](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise). {% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**.
-1. Under **{% data variables.product.pat_v1_caps %}**, select the option that meets your needs:
-   - **Allow access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} can access resources owned by the organization.
-   - **Restrict access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} cannot access resources owned by the organization. SSH keys created by {% data variables.product.pat_v1_plural %} will continue to work.
-1. Click **Save**.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. 왼쪽 사이드바의 **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s** 에서 **설정을** 클릭합니다.
+1. **{% data variables.product.pat_v1_caps %}** 에서 요구 사항에 맞는 옵션을 선택합니다.
+   - **{% data variables.product.pat_v1_plural %}을(를) 통한 액세스 허용**: {% data variables.product.pat_v1_caps_plural %}는 조직 소유의 리소스에 액세스할 수 있습니다.
+   - **{% data variables.product.pat_v1_plural %}을(를) 통한 액세스 제한**: {% data variables.product.pat_v1_caps_plural %}은(는) 조직 소유의 리소스에 액세스할 수 없습니다. {% data variables.product.pat_v1_plural %}에서 만든 SSH 키는 계속 작동합니다.
+1. **저장** 을 클릭합니다.

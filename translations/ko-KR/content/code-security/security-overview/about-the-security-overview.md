@@ -1,6 +1,6 @@
 ---
-title: About the security overview
-intro: 'You can view, filter, and sort security alerts for repositories owned by your organization or team in the security overview pages.'
+title: 보안 개요 정보
+intro: '보안 개요 페이지에서 조직 또는 팀이 소유한 리포지토리에 대한 보안 경고를 보고, 필터링하고, 정렬할 수 있습니다.'
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 redirect_from:
@@ -20,114 +20,114 @@ topics:
   - Organizations
   - Teams
 shortTitle: About the security overview
+ms.openlocfilehash: 0e634bafbb699d27588312b57084b557a3c82ca1
+ms.sourcegitcommit: fdc4466e89467a7b13239e26c6042dc1428946b6
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/14/2022
+ms.locfileid: '148163754'
 ---
+{% ifversion ghes < 3.5 or ghae %} {% data reusables.security-overview.beta %} {% endif %}
 
-{% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
+## 보안 개요 정보
 
-## About the security overview
+{% data reusables.security-overview.about-the-security-overview %} {% ifversion fpt %} 자세한 내용은 [{% data variables.product.prodname_ghe_cloud %} 설명서를 참조하세요](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview). {% endif %}
 
-{% data reusables.security-overview.about-the-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
+{% ifversion ghec or ghes or ghae %} 보안 개요는 리포지토리에 사용할 수 있는 보안 기능을 보여주고 각 기능에 대한 경고를 통합합니다. 
 
-{% ifversion ghec or ghes or ghae %}
-The security overview shows which security features are enabled for repositories and consolidate alerts for each feature. 
+- {% data variables.product.prodname_dependabot %} 기능 및 경고에 대한 위험 및 적용 범위 정보는 모든 리포지토리에 대해 표시됩니다. 
+- {% data variables.product.prodname_GH_advanced_security %} 기능(예: {% data variables.product.prodname_code_scanning %} 및 {% data variables.product.prodname_secret_scanning %})에 대한 위험 및 적용 범위 정보는 {% data variables.product.prodname_GH_advanced_security %}을(를) 사용하는 기업에만 표시됩니다.
 
-- Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories. 
-- Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown only for enterprises that use {% data variables.product.prodname_GH_advanced_security %}.
+자세한 내용은 "[{% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)정보" 및 "[{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)정보"를 참조하세요.
 
-For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
+## 경고 필터링 및 정렬 정보
 
-## About filtering and sorting alerts
+보안 개요는 리포지토리 그룹의 보안을 이해하는 강력한 방법을 제공합니다. 보기는 집계된 데이터를 드릴인하고 위험 수준이 높거나 기능 범위가 낮은 원본을 식별할 수 있는 필터를 사용하여 대화형으로 제공됩니다. 여러 필터를 적용하여 더 좁은 관심 영역에 초점을 맞추면 보기 전체의 데이터가 선택 영역을 반영하도록 변경됩니다. 자세한 내용은 “[보안 개요의 경고 필터링](/code-security/security-overview/filtering-alerts-in-the-security-overview)”을 참조하세요.
 
-The security overview provides a powerful way to understand the security of a group of repositories. The views are interactive with filters that allow you to drill into the aggregated data and identify sources of high risk or low feature coverage. As you apply multiple filters to focus on narrower areas of interest, the data across the view changes to reflect your selection. For more information, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
-
-{% ifversion security-overview-alert-views %}
-There are also dedicated views for each type of security alert that you can use to limit your analysis to a specific set of alerts, and then narrow the results further with a range of filters specific to each view. For example, in the {% data variables.product.prodname_secret_scanning %} alert view, you can use the `Secret type` filter to view only {% data variables.product.prodname_secret_scanning %} alerts for a specific secret, like a GitHub {% data variables.product.pat_generic %}.
+{% ifversion security-overview-alert-views %} 또한 분석을 특정 경고 집합으로 제한한 다음 각 보기에 특정한 필터 범위로 결과를 더 좁히는 데 사용할 수 있는 각 유형의 보안 경고에 대한 전용 보기도 있습니다. 예를 들어 {% data variables.product.prodname_secret_scanning %} 경고 보기에서 필터를 사용하여 `Secret type` GitHub {% data variables.product.pat_generic %}와 같은 특정 비밀에 대한 {% data variables.product.prodname_secret_scanning %} 경고만 볼 수 있습니다.
 {% endif %}
 
 {% note %}
 
-**Note:** The security overview displays active alerts raised by security features. If there are no alerts in the security overview for a repository, undetected security vulnerabilities or code errors may still exist.
+**참고:** 보안 개요에는 보안 기능에 의해 발생한 활성 경고가 표시됩니다. 리포지토리에 대한 보안 개요에 경고가 없는 경우 검색되지 않은 보안 취약성 또는 코드 오류가 여전히 존재할 수 있습니다.
 
 {% endnote %}
 
-## About the organization-level security overview
+## 조직 수준 보안 개요 정보
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
-You can find the security overview on the **Security** tab for any organization that's owned by an enterprise. Each view shows aggregated data that you can drill down into, as you add each filter, the data is updated to reflect the repositories or alerts that you've selected.
+엔터프라이즈가 소유한 모든 조직의 보안 탭에서 **보안** 개요를 찾을 수 있습니다. 각 보기에는 각 필터를 추가할 때 드릴다운할 수 있는 집계된 데이터가 표시되며, 선택한 리포지토리 또는 경고를 반영하도록 데이터가 업데이트됩니다.
 
-The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %}For example, the team can use the "Security Coverage" page to monitor the adoption of features across your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %}, or use the "Security Risk" page to identify repositories with more than five open {% data variables.product.prodname_secret_scanning %} alerts.{% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %}
+회사의 애플리케이션 보안 팀은 조직의 보안 상태에 대한 광범위하고 구체적인 분석에 대해 서로 다른 보기를 사용할 수 있습니다. {% ifversion security-overview-org-risk-coverage %} 예를 들어 팀은 "보안 검사" 페이지를 사용하여 {% data variables.product.prodname_GH_advanced_security %}을(를) 배포할 때 조직 또는 특정 팀에서 기능 채택을 모니터링하거나 "보안 위험" 페이지를 사용하여 5개 이상의 {% 데이터 variables.product.prodname_secret_scanning %} 경고가 열려 있는 리포지토리를 식별할 수 있습니다. {% else %} 예를 들어 개요 페이지를 사용하여 {% data variables.product.prodname_GH_advanced_security %}을(를) 엔터프라이즈에 배포할 때 조직 또는 특정 팀의 기능 채택을 모니터링하거나 조직의 모든 리포지토리에서 특정 유형 및 심각도 수준의 모든 경고를 검토할 수 있습니다. {% endif %}
 
-Organization owners and security managers for organizations have access to the security overview for their organizations. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %}Organization members can also access the organization-level security overview to view results for repositories where they have admin privileges or have been granted access to security alerts. For more information on managing security alert access, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
+조직의 조직 소유자 및 보안 관리자는 조직의 보안 개요에 액세스할 수 있습니다. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %} 조직 구성원은 조직 수준 보안 개요에 액세스하여 관리자 권한이 있거나 보안 경고에 대한 액세스 권한이 부여된 리포지토리에 대한 결과를 볼 수도 있습니다. 보안 경고 액세스 관리에 대한 자세한 내용은 "[리포지토리에 대한 보안 및 분석 설정 관리"를 참조하세요](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository). {% endif %}
 
 {% ifversion security-overview-org-risk-coverage %}
-### Security Risk view
+### 보안 위험 보기
 
-This view shows data about the repositories affected by different types of security alert. 
+이 보기는 다양한 유형의 보안 경고의 영향을 받는 리포지토리에 대한 데이터를 보여줍니다. 
 
-- Use the **Type** and **Teams** drop-downs to add repository type and team filters.
-- Click **Open alerts** or **Repositories affected** to show only repositories with a specific type of security alert.
+- **유형** 및 **Teams** 드롭다운을 사용하여 리포지토리 유형 및 팀 필터를 추가합니다.
+- **경고** 열기 또는 **영향을 받는 리포지토리** 를 클릭하여 특정 유형의 보안 경고가 있는 리포지토리만 표시합니다.
 
-In addition, when you click in the search box, a list of the full set of filters available is shown.
+또한 검색 상자를 클릭하면 사용 가능한 전체 필터 집합 목록이 표시됩니다.
 
-![Screenshot of the Security Risk view for an organization](/assets/images/help/security-overview/security-risk-view.png)
+![조직의 보안 위험 보기 스크린샷](/assets/images/help/security-overview/security-risk-view.png)
 
-### Security Coverage view
+### 보안 적용 범위 보기
 
-This view shows data about which repositories are using security features. 
+이 보기는 보안 기능을 사용하는 리포지토리에 대한 데이터를 보여줍니다. 
 
-- Use the **Type** and **Teams** drop-downs to add repository type and team filters.
-- Click **Alerts enabled** and other features listed in the header to see only repositories with those features enabled.
-- Change any `FEATURE:enabled` filter to `FEATURE:not-enabled` in the search box to see repositories that haven't enabled a feature.
-- For any repository, click the ellipsis (**...**) then **Security Settings** to enable additional features.
+- **유형** 및 **Teams** 드롭다운을 사용하여 리포지토리 유형 및 팀 필터를 추가합니다.
+- **경고 사용** 및 헤더에 나열된 기타 기능을 클릭하여 해당 기능이 활성화된 리포지토리만 확인합니다.
+- `FEATURE:enabled` 검색 상자에서 필터를 로 `FEATURE:not-enabled` 변경하여 기능을 사용하도록 설정하지 않은 리포지토리를 확인합니다.
+- 리포지토리의 경우 줄임표(**...**)를 클릭한 다음 **보안 설정을** 클릭하여 추가 기능을 사용하도록 설정합니다.
 
-In addition, when you click in the search box, a list of the full set of filters available is shown.
+또한 검색 상자를 클릭하면 사용 가능한 전체 필터 집합 목록이 표시됩니다.
 
-![Screenshot of the Security Coverage view for an organization](/assets/images/help/security-overview/security-coverage-view.png)
+![조직의 보안 검사 보기 스크린샷](/assets/images/help/security-overview/security-coverage-view.png)
 
 {% else %}
 
-### Understanding the main security overview
+### 주요 보안 개요 이해
 
-![Screenshot of the security overview for an organization](/assets/images/help/security-overview/security-overview-org-legacy.png)
+![조직의 보안 개요 스크린샷](/assets/images/help/security-overview/security-overview-org-legacy.png)
 
-For each repository in the security overview, you will see icons for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the icon for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
+보안 개요의 각 리포지토리에 대해 각 유형의 보안 기능 및 각 유형의 경고 수에 대한 아이콘이 표시됩니다. 리포지토리에 대해 보안 기능을 사용하도록 설정하지 않으면 해당 기능의 아이콘이 회색으로 표시됩니다. 또한 위험 점수가 코드 검사, Dependabot 및 비밀 검사 경고를 기반으로 각 리포지토리에 대해 계산됩니다. 이 점수는 베타 상태이며 주의해서 사용해야 합니다. 알고리즘 및 접근 방식이 변경될 수 있습니다.
 
-![Icons in the security overview](/assets/images/help/security-overview/security-overview-icons.png)
+![보안 개요의 아이콘](/assets/images/help/security-overview/security-overview-icons.png)
 
-| Icon | Meaning |
+| 아이콘 | 의미 |
 | -------- | -------- |
-| {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_capc %} alerts. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)." |
-| {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} alerts. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)." |
-| {% octicon "hubot" aria-label="Dependabot alerts" %} | {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)." |
-| {% octicon "check" aria-label="Check" %} | The security feature is enabled, but does not raise alerts in this repository. |
-| {% octicon "x" aria-label="x" %} | The security feature is not supported in this repository. |
+| {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_capc %} alerts. 자세한 내용은 “[{% data variables.product.prodname_code_scanning %} 정보](/code-security/secure-coding/about-code-scanning)”를 참조하세요. |
+| {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} alerts. 자세한 내용은 “[{% data variables.product.prodname_secret_scanning %} 정보](/code-security/secret-security/about-secret-scanning)”를 참조하세요. |
+| {% octicon "hubot" aria-label="Dependabot alerts" %} | {% data variables.product.prodname_dependabot_alerts %}. 자세한 내용은 “[{% data variables.product.prodname_dependabot_alerts %} 정보](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”를 참조하세요. |
+| {% octicon "check" aria-label="Check" %} | 보안 기능이 활성화되어 있지만, 이 리포지토리에서 경고가 발생하지 않습니다. |
+| {% octicon "x" aria-label="x" %} | 이 리포지토리에서는 보안 기능이 지원되지 않습니다. |
 
 {% endif %}
 
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
-## About the enterprise-level security overview
+## 엔터프라이즈 수준 보안 개요 정보
 
-You can find the security overview on the **Code Security** tab for your enterprise. Each overview displays aggregated and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
+엔터프라이즈의 **코드 보안** 탭에서 보안 개요를 찾을 수 있습니다. 각 개요에는 엔터프라이즈에 대한 집계 및 리포지토리별 보안 정보가 표시됩니다. 보안 경고가 있는 엔터프라이즈가 소유한 리포지토리를 보고, 모든 보안 경고 또는 엔터프라이즈 전체의 보안 기능별 경고를 볼 수 있습니다.
 
-Enterprise owners can view alerts for organizations that they are an owner or a security manager of.{% ifversion ghec or ghes > 3.5 or ghae > 3.5 %} Enterprise owners can join an organization as an organization owner to see all of its alerts in the enterprise-level security overview. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
+엔터프라이즈 소유자는 조직의 소유자 또는 보안 관리자라는 경고를 볼 수 있습니다. {% ifversion ghec or ghes > 3.5 or ghae > 3.5 %} 엔터프라이즈 소유자는 조직 소유자로 조직에 가입하여 엔터프라이즈 수준 보안 개요에서 모든 경고를 볼 수 있습니다. 자세한 내용은 "[엔터프라이즈가 소유한 조직에서 역할 관리](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)"를 참조하세요. {% endif %}
 
-Organization owners and security managers for organizations in an enterprise have access to the enterprise-level security overview. They can view repositories and alerts for the organizations that they have full access to.
+엔터프라이즈 조직의 조직 소유자 및 보안 관리자는 엔터프라이즈 수준 보안 개요에 액세스할 수 있습니다. 모든 권한이 있는 조직에 대한 리포지토리 및 경고를 볼 수 있습니다.
 {% endif %}
 
 {% ifversion ghes < 3.7 or ghae < 3.7 %}
-## About the team-level security overview
+## 팀 수준 보안 개요 정보
 
-You can find the security overview on the **Security** tab for any team in an organization that's owned by an enterprise.
+엔터프라이즈가 소유한 조직의 모든 팀에 대한 보안 탭에서 **보안** 개요를 찾을 수 있습니다.
 
-At the team-level, the security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+팀 수준에서 보안 개요는 팀에 관리자 권한이 있는 리포지토리에 대한 리포지토리별 보안 정보를 표시합니다. 자세한 내용은 “[조직 리포지토리에 대한 팀 액세스 권한 관리](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)”를 참조하세요.
 {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
-- "[Securing your organization](/code-security/getting-started/securing-your-organization)"
-- "[Introduction to adopting GitHub Advanced Security at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)"
-{% endif %}
+- “[리포지토리 보안 유지](/code-security/getting-started/securing-your-repository)”
+- "[조직 보안](/code-security/getting-started/securing-your-organization)"
+- "[대규모 GitHub Advanced Security 채택 소개](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)" {% endif %}

@@ -1,78 +1,84 @@
 ---
-title: Create a group assignment
-intro: You can create a collaborative assignment for teams of students who participate in your course.
+title: 그룹 과제 만들기
+intro: 과정에 참가하는 학생 팀을 위한 공동 작업 과제를 만들 수 있습니다.
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
+ms.openlocfilehash: 71c5f5eaf97ba58e25921c1e2be6fc638550dfa8
+ms.sourcegitcommit: 82b1242de02ecc4bdec02a5b6d11568fb2deb1aa
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2022
+ms.locfileid: '148179762'
 ---
-## About group assignments
+## 그룹 과제 정보
 
-{% data reusables.classroom.assignments-group-definition %} Students can work together on a group assignment in a shared repository, like a team of professional developers.
+{% data reusables.classroom.assignments-group-definition %} 학생은 전문 개발자 팀처럼 리포지토리에서 그룹 과제를 함께 작업할 수 있습니다.
 
-When a student accepts a group assignment, the student can create a new team or join an existing team. {% data variables.product.prodname_classroom %} saves the teams for an assignment as a set. You can name the set of teams for a specific assignment when you create the assignment, and you can reuse that set of teams for a later assignment.
+그룹 과제를 수락한 학생은 새 팀을 만들거나 기존 팀에 참가할 수 있습니다. {% data variables.product.prodname_classroom %}은 과제를 수행하는 팀은 하나의 집합으로 저장합니다. 과제를 만들 때 특정 과제에 대한 팀 집합의 이름을 지정할 수 있으며, 이후 과제에서 이 팀 집합을 다시 사용할 수 있습니다.
 
 {% data reusables.classroom.classroom-creates-group-repositories %}
 
 {% data reusables.classroom.about-assignments %}
 
-You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+하나의 과제에 포함할 수 있는 팀 수와 각 팀이 가질 수 있는 구성원 수를 결정할 수 있습니다. 학생이 과제를 위해 생성하는 각 팀은 {% data variables.product.product_name %}의 조직 내 팀이 됩니다. 팀의 표시 여부는 비밀입니다. {% data variables.product.product_name %}에서 만든 팀은 {% data variables.product.prodname_classroom %}에 표시되지 않습니다. 자세한 내용은 “[팀 정보](/organizations/organizing-members-into-teams/about-teams)”를 참조하세요.
 
-For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+그룹 과제를 만드는 비디오 데모는 "[{% data variables.product.prodname_classroom %} 설정 기본 사항](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)"을 참조하세요.
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-## Prerequisites
+## 필수 조건
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
-## Creating an assignment
+## 과제 만들기
 
 {% data reusables.classroom.assignments-guide-create-the-assignment %}
 
-## Setting up the basics for an assignment
+## 과제의 기본 사항 설정
 
-Name your assignment, decide whether to assign a deadline, define teams, and choose the visibility of assignment repositories.
+과제 이름을 지정하고, 마감일 할당 여부를 결정하고, 팀을 정의하고, 과제 리포지토리의 표시 유형을 선택합니다.
 
-- [Naming an assignment](#naming-an-assignment)
-- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
-- [Defining teams for an assignment](#defining-teams-for-an-assignment)
-- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+- [과제 이름 지정](#naming-an-assignment)
+- [과제 마감일 할당](#assigning-a-deadline-for-an-assignment)
+- [과제 유형 선택](#choosing-an-assignment-type)
+- [과제를 수행할 팀 정의](#defining-teams-for-an-assignment)
+- [과제 리포지토리의 표시 유형 선택](#choosing-a-visibility-for-assignment-repositories)
 
-### Naming an assignment
+### 과제 이름 지정
 
-For a group assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the name of the team. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the team's name on {% data variables.product.product_name %} is "student-team", the name of the assignment repository for members of the team will be `assignment-1-student-team`.
+그룹 과제의 경우 {% data variables.product.prodname_classroom %}은 리포지토리 접두사 및 팀 이름을 기준으로 리포지토리의 이름을 지정합니다. 기본적으로 리포지토리 접두사는 과제 제목입니다. 예를 들어 과제 이름을 "assignment-1"로 지정했고 {% data variables.product.product_name %}에서 팀의 이름이 "student-team"이면, 팀의 구성원에 대한 과제 리포지토리의 이름은 `assignment-1-student-team`이 됩니다.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
-### Assigning a deadline for an assignment
+### 과제 마감일 할당
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
-### Choosing an assignment type
+### 과제 유형 선택
 
-Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
+"개별 또는 그룹 과제"에서 드롭다운 메뉴를 선택하고 **그룹 과제** 를 클릭합니다. 과제를 만든 후에는 과제 유형을 변경할 수 없습니다. 개별 할당을 만들고 싶다면 “[개별 할당 만들기](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”를 참조하세요.
 
-### Defining teams for an assignment
+### 과제를 수행할 팀 정의
 
-If you've already created a group assignment for the classroom, you can reuse a set of teams for the new assignment. To create a new set with the teams that your students create for the assignment, type the name for the set. Optionally, type the maximum number of team members and total teams.
+클래스룸에 대한 그룹 과제를 이미 만들었다면 새 과제에 팀 집합을 다시 사용할 수 있습니다. 학생이 과제를 위해 만든 팀을 이용해 새 집합을 만들려면 집합의 이름을 입력합니다. 필요한 경우 팀 구성원의 최대 수와 총 팀 수를 입력합니다.
 
 {% tip %}
 
-**Tips**:
+**팁**:
 
-- We recommend including details about the set of teams in the name for the set. For example, if you want to use the set of teams for one assignment, name the set after the assignment. If you want to reuse the set throughout a semester or course, name the set after the semester or course.
+- 집합 이름에 팀 집합 세부 정보를 포함하는 것이 좋습니다. 예를 들어 하나의 과제에 팀 집합을 사용하려는 경우에는 과제의 이름을 집합의 이름으로 지정하세요. 한 학기 또는 과정 전체에서 집합을 다시 사용하려면 학기 또는 과정의 이름을 집합 이름으로 지정하세요.
 
-- If you'd like to assign students to a specific team, give your students a name for the team and provide a list of members.
+- 특정 팀에 학생을 할당하려면 학생에게 팀의 이름을 지정하고 구성원 목록을 제공하세요.
 
 {% endtip %}
 
-![Parameters for the teams participating in a group assignment](/assets/images/help/classroom/assignments-define-teams.png)
+![그룹 과제에 참여하는 팀의 매개 변수](/assets/images/help/classroom/assignments-define-teams.png)
 
-### Choosing a visibility for assignment repositories
+### 과제 리포지토리의 표시 유형 선택
 
 {% data reusables.classroom.assignments-repository-visibility-and-permissions %}
 
@@ -80,22 +86,22 @@ If you've already created a group assignment for the classroom, you can reuse a 
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}
 
-## Adding starter code and configuring a development environment
+## 시작 코드 추가 및 개발 환경 구성
 
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
-- [Choosing a template repository](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [템플릿 리포지토리 선택](#choosing-a-template-repository)
+- [IDE(통합 개발 환경) 선택](#choosing-an-integrated-development-environment-ide)
 
-### Choosing a template repository
+### 템플릿 리포지토리 선택
 
-By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %} 
+기본적으로 새 과제는 학생이 만드는 각 팀에 대해 빈 리포지토리를 만듭니다. {% data reusables.classroom.you-can-choose-a-template-repository %} 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an integrated development environment (IDE)
+### IDE(통합 개발 환경) 선택
 
-{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-online-ides %} 자세한 내용은 “[IDE와 {% data variables.product.prodname_classroom %} 통합](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)”을 참조하세요.
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
@@ -103,18 +109,18 @@ By default, a new assignment will create an empty repository for each team that 
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-## Providing feedback
+## 사용자 의견 제공
 
-Optionally, you can automatically grade assignments and create a space for discussing each submission with the team.
+필요하다면 자동으로 과제를 채점하고 팀과 각 제출을 논의할 공간을 만들 수 있습니다.
 
-- [Testing assignments automatically](#testing-assignments-automatically)
-- [Creating a pull request for feedback](#creating-a-pull-request-for-feedback)
+- [자동으로 과제 테스트](#testing-assignments-automatically)
+- [피드백에 대한 끌어오기 요청 만들기](#creating-a-pull-request-for-feedback)
 
-### Testing assignments automatically
+### 자동으로 과제 테스트
 
 {% data reusables.classroom.assignments-guide-using-autograding %}
 
-### Creating a pull request for feedback
+### 피드백에 대한 끌어오기 요청 만들기
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
@@ -122,36 +128,36 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-## Inviting students to an assignment
+## 과제에 학생 초대
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see the teams that are working on or have submitted an assignment in the **Teams** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+과제에 대한 **팀** 탭에서 작업 중이거나 과제를 제출한 팀을 볼 수 있습니다. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
   <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
 </div>
 
-## Monitoring students' progress
-The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
+## 학생의 진행 상황 모니터링
+과제 개요 페이지에는 과제 수락 및 팀 진행 상황 관련 정보가 표시됩니다. 과제 구성에 따라 다른 요약 정보가 표시될 수 있습니다.
 
-- **Total teams**: The number of teams that have been created.
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
--  **Accepted teams**: The number of teams who have accepted this assignment.
--  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
+- **총 팀**: 생성된 팀의 수입니다.
+- **명단에 있는 학생**: 클래스룸 명단에 있는 학생 수입니다.
+- **팀에 없는 학생**: 클래스룸 명단에 있지만 아직 팀에 합류하지 않은 학생의 수입니다.
+-  **수락한 팀**: 이 과제를 수락한 팀의 수입니다.
+-  **과제 제출**: 과제를 제출한 팀 수입니다. 제출은 과제 마감일에 트리거됩니다.
+-  **통과한 팀**: 현재 이 과제에 대한 자동 채점 테스트를 통과한 팀 수입니다.
 
-## Next steps
+## 다음 단계
 
-- After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- 과제를 만들고 학생이 팀을 구성하면, 팀 구성원은 Git 및 {% data variables.product.product_name %}의 기능을 사용하여 과제 작업을 시작할 수 있습니다. 학생은 리포지토리를 복제하고, 커밋을 푸시하고, 분기를 관리하고, 끌어오기 요청을 만들어 검토하고, 병합 충돌을 해결하고, 이슈가 있는 변경 내용을 논의할 수 있습니다. 사용자와 팀 모두 리포지토리에 대한 커밋 기록을 검토할 수 있습니다. 자세한 내용은 "[{% data variables.product.prodname_dotcom %} 시작](/github/getting-started-with-github)", "[리포지토리](/repositories)", "[Git 사용](/github/getting-started-with-github/using-git)" 및 "[문제 및 끌어오기 요청에 대한 공동 작업](/github/collaborating-with-issues-and-pull-requests)"과 {% data variables.product.prodname_learning %}에서 제공하는 [병합 충돌 해결](https://github.com/skills/resolve-merge-conflicts)에 관한 무료 과정을 참조하세요.
 
-- When a team finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand how the team collaborated. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
+- 팀이 과제를 완료하면 리포지토리의 파일을 검토하거나 리포지토리의 기록 및 시각화를 검토하여 팀의 공동 작업 방식을 더 잘 이해할 수 있습니다. 자세한 내용은 “[그래프를 사용하여 리포지토리 데이터 시각화](/github/visualizing-repository-data-with-graphs)”를 참조하세요.
 
-- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
+- 끌어오기 요청의 개별 커밋 또는 줄에 주석을 달아 과제에 대한 피드백을 제공할 수 있습니다. 자세한 내용은 “[끌어오기 요청에 주석 달기](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)” 및 “[코드에서 이슈 열기](/github/managing-your-work-on-github/opening-an-issue-from-code)”를 참조하세요. 일반적인 오류에 대한 피드백을 제공하기 위해 저장된 회신을 만드는 방법에 대한 자세한 내용은 “[저장된 회신 정보](/github/writing-on-github/about-saved-replies)”를 참조하세요.
 
-## Further reading
+## 추가 참고 자료
 
-- [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
-- [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community
+- [교사용 {% data variables.product.prodname_global_campus %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+- "[학습 관리 시스템 과정을 교실에 연결](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
+- {% data variables.product.prodname_education %} 커뮤니티의 [그룹 과제에서 기존 팀을 사용하나요?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999)

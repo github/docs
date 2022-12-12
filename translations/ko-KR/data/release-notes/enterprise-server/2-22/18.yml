@@ -1,0 +1,16 @@
+date: '2021-07-27'
+sections:
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+  bugs:
+    - 종속성 그래프가 사용하도록 설정되지 않았고 콘텐츠 분석은 사용하도록 설정된 경우 취약성과 GitHub.com을 동기화하기 위해 예정된 작업을 실행하려고 하면 상당수의 503 오류가 생성되었습니다.
+    - HTTP 프록시를 사용하는 사용자의 경우 페이지 컨테이너 빌드의 인증되지 않은 HTTP 프록시가 지원되지 않습니다.
+  changes:
+    - ‘babeld’ 로그에는 이제 협상 요청 중에만 포함하는 것이 아니라 HTTP 참조 알림 요청을 위한 ‘cmd’ 필드가 포함됩니다.
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 업그레이드 프로세스 중에 사용자 지정 방화벽 규칙이 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가됩니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”을 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - "고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}은 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으며 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다."

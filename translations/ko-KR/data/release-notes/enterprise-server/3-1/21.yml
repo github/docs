@@ -1,0 +1,25 @@
+date: '2022-05-17'
+sections:
+  security_fixes:
+    - '**보통:** nginx 해결 프로그램에서 보안 이슈가 확인되었습니다. 여기에서 DNS 서버의 UDP 패킷을 위조할 수 있는 공격자가 1바이트 메모리 덮어쓰기를 유발하여 작업자 프로세스 충돌 또는 기타 잠재적인 손상을 일으킬 수 있습니다. 이 취약성에는 [CVE-2021-23017](https://nvd.nist.gov/vuln/detail/CVE-2021-23017)이 할당되었습니다.'
+    - "[Git 보안 적용 블로그 게시물](https://github.blog/2022-04-12-git-security-vulnerability-announced/)에 발표된 새로운 취약성을 해결하기 위해 `actions/checkout@v2` 및 `actions/checkout@v3` 작업이 업데이트되었습니다."
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다. 
+  bugs:
+    - 일부 클러스터 토폴로지에서 `ghe-cluster-status` 명령이 `/tmp`에 빈 디렉터리를 남겼습니다.
+    - "SNMP가 많은 수의 'Cannot statfs' 오류 메시지를 syslog에 잘못 로깅했습니다."
+    - "SAML 인증 및 기본 제공 대체가 사용 설정된 인스턴스의 경우 기본 제공 사용자는 로그아웃한 후 생성된 페이지에서 로그인을 시도할 때 \"로그인\" 루프에 갇히게 됩니다."
+    - SAML 암호화된 어설션을 사용할 때 일부 어설션이 SSH 키를 확인된 것으로 올바르게 표시하지 않았습니다.
+    - '리포지토리에 ASCII가 아닌 문자가 포함된 태그가 있는 경우 릴리스 페이지에서 500 오류를 반환합니다. [업데이트 날짜: 2022-06-10]'
+  changes:
+    - 고가용성 구성에서 관리 콘솔의 복제 개요 페이지는 현재 복제 상태가 아닌 현재 복제 구성만 표시한다는 점을 명시합니다.
+    - "{% data variables.product.prodname_registry %}를 사용 설정한 경우 연결 문자열로 SAS(공유 액세스 서명) 사용은 지원되지 않음을 명시합니다."
+    - 이제 지원 번들에 MySQL에 저장된 테이블의 행 수가 포함됩니다.
+  known_issues:
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - "{% data variables.product.prodname_github_connect %}에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 프라이빗 및 내부 리포지토리의 이슈가 {% data variables.product.prodname_dotcom_the_website %} 검색 결과에 포함되지 않습니다."
+    - "{% data variables.product.prodname_ghe_server %}에 대해 {% data variables.product.prodname_actions %}가 사용하도록 설정되면 `ghe-repl-teardown` 복제본 노드 해제에 성공하지만 `ERROR:Running migrations`가 반환될 수 있습니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.

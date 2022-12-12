@@ -1,0 +1,24 @@
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다. 
+  bugs:
+    - 업그레이드 패키지를 사용하여 고가용성 쌍의 노드를 업그레이드하면 Elasticsearch가 불일치 상태가 될 수 있습니다.
+    - 일부 클러스터 토폴로지에서 명령줄 유틸리티 `ghe-spokesctl` 및 `ghe-btop`가 실행되지 않습니다.
+    - 병렬로 여러 번 실행되는 `elasticsearch-upgrade` 서비스로 인해 Elasticsearch 인덱스가 패키지 업그레이드 중에 복제될 수 있습니다. 
+    - "사용자 계정을 조직으로 변환할 때 사용자 계정이 {% data variables.product.prodname_ghe_server %} 엔터프라이즈 계정의 소유자인 경우 변환된 조직이 엔터프라이즈 소유자 목록에 잘못 나타납니다." 
+    - 엔터프라이즈 관리 REST API를 사용하여 가장 OAuth 토큰을 만들면 OAuth 애플리케이션 ID와 일치하는 통합이 이미 있는 경우 잘못 작동합니다. 
+  changes:
+    - 이제 구성 적용 실행을 중지하는 구성 오류가 구성 로그뿐만 아니라 터미널에도 출력됩니다. 
+    - Memcached에서 허용되는 최댓값 이상의 값을 캐시하려는 경우 오류가 발생하지만 키는 보고되지 않습니다.
+    - "{% data variables.product.prodname_codeql %} 스타터 워크플로는 {% data variables.product.prodname_actions %}에 대한 기본 토큰 사용 권한이 사용되지 않더라도 더 이상 오류가 발생하지 않습니다." 
+    - "{% data variables.product.prodname_GH_advanced_security %} 기능이 인스턴스에서 사용되도록 설정된 경우 스토리지 기여에 대한 일괄 처리를 처리할 때 백그라운드 작업의 성능이 향상되었습니다."
+  known_issues:
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %} 인스턴스에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 프로세스 중에 제거됩니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 이슈에 동일한 리포지토리의 Blob에 대한 고정 링크가 포함되었지만 Blob의 파일 경로가 255자보다 긴 경우 해당 이슈를 종료할 수 없습니다.
+    - "{% data variables.product.prodname_github_connect %}에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 프라이빗 및 내부 리포지토리의 이슈가 {% data variables.product.prodname_dotcom_the_website %} 검색 결과에 포함되지 않습니다."
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

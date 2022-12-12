@@ -1,7 +1,7 @@
 ---
-title: Viewing your GitHub Codespaces usage
+title: GitHub Codespaces 사용량 확인
 shortTitle: Viewing your usage
-intro: 'You can view the compute hours and storage used by {% data variables.product.prodname_github_codespaces %}.'
+intro: '{% data variables.product.prodname_github_codespaces %}에서 사용하는 컴퓨팅 시간과 스토리지를 볼 수 있습니다.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,63 +11,64 @@ topics:
   - Billing
 redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
+ms.openlocfilehash: 67e29ee71b1881ee2ae6e9ca872fd7969f86afca
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: '148158743'
 ---
+## 개인 계정에 대한 {% 데이터 variables.product.prodname_github_codespaces %} 사용량 보기
 
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your personal account
+현재 월별 청구 주기에서 지금까지 사용한 개인 계정에 포함된 사용량을 확인할 수 있습니다. 결제 방법을 설정하고 지출 한도를 설정하고 포함된 모든 사용량을 사용한 경우 현재 월에 대한 청구서를 확인할 수도 있습니다.
 
-You can see how much of the usage included in your personal account you have used so far in the current monthly billing cycle. If you have set up a payment method, set a spending limit, and used all of your included usage, you can also check your bill for the current month.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.billing_plans %}
+1. "{% data variables.product.prodname_codespaces %}"에서 현재 청구 월에 지금까지 사용한 {% data variables.product.prodname_github_codespaces %} 컴퓨팅 사용량 및 GB 개월 스토리지의 핵심 시간을 확인할 수 있습니다.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-1. Under "{% data variables.product.prodname_codespaces %}," you can see how many core hours of {% data variables.product.prodname_github_codespaces %} compute usage and GB-months of storage you have used so far in the current billing month.
+   ![개인 사용의 초기 보기 스크린샷](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
-   ![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
+   "핵심 시간" 및 "GB 개월"에 대한 자세한 내용은 "[{% data variables.product.prodname_github_codespaces %}에 대한 청구 정보"를 참조하세요](/enterprise-cloud@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
-   For information about "core hours" and "GB-months," see "[About billing for {% data variables.product.prodname_github_codespaces %}](/enterprise-cloud@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+1. 필요에 따라 **사용 시간** 및 **스토리지** 를 클릭하여 자세한 내용을 확인합니다.
 
-1. Optionally, click **Usage hours** and **Storage** to see more details.
+   ![개인 사용량의 확장된 보기 스크린샷](/assets/images/help/codespaces/view-personal-usage-expanded.png)
 
-   ![Screenshot of the expanded view of personal usage](/assets/images/help/codespaces/view-personal-usage-expanded.png)
+   **포함된** 열은 계정에 무료로 포함된 컴퓨팅 사용량의 핵심 시간 또는 GB 개월의 스토리지를 보여 줍니다. 지금까지 이번 달에 사용했습니다. **유료** 열은 사용한 청구된 코어 사용 시간 또는 GB 개월의 스토리지 수를 보여 줍니다. 수치는 1시간마다 한 번씩 업데이트됩니다.
 
-   The **Included** column shows how many of the core hours of compute usage, or GB-months of storage, included free with your account, you have used so far this month. The **Paid** column shows how many billed core hours of usage, or GB-months of storage, you have used. The figures are updated once every hour.
-
-   In the screenshot above, the entire quota of included storage for the month has been used. When you've used all of either the included compute usage or storage (whichever is reached first), you must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. For more information, see "[Adding or editing a payment method](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)" and "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)."
+   위의 스크린샷에서 해당 월의 포함된 스토리지의 전체 할당량이 사용되었습니다. 포함된 컴퓨팅 사용량 또는 스토리지를 모두 사용한 경우(먼저 도달한 경우) 현재 청구 월 동안 {% data variables.product.prodname_github_codespaces %}을 계속 사용하려면 결제 방법 및 지출 한도를 설정해야 합니다. 자세한 내용은 "[결제 방법 추가 또는 편집](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)" 및 "[{% data variables.product.prodname_github_codespaces %}에 대한 지출 한도 관리"를 참조하세요](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account).
 
 {% data reusables.codespaces.usage-report-download %}
 
-## Viewing {% data variables.product.prodname_github_codespaces %} usage for your organization account
+## 조직 계정에 대한 {% 데이터 variables.product.prodname_github_codespaces %} 사용량 보기
 
-Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for the organization.
+조직 소유자 및 청구 관리자는 조직의 {% 데이터 variables.product.prodname_github_codespaces %} 사용량을 볼 수 있습니다.
 
 {% data reusables.organizations.billing-settings %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
+1. “{% data variables.product.prodname_codespaces %}”에서 이번 달에 지금까지 사용된 컴퓨팅 시간 및 스토리지의 세부 정보를 확인합니다.
 
-   ![Screenshot of compute usage and storage details](/assets/images/help/billing/codespaces-compute-storage.png)
+   ![컴퓨팅 사용량 및 스토리지 세부 정보의 스크린샷](/assets/images/help/billing/codespaces-compute-storage.png)
 
-   You can also see and update your current spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+   현재 지출 한도를 보고 업데이트할 수도 있습니다. 자세한 내용은 “[{% data variables.product.prodname_github_codespaces %}에 대한 지출 한도 관리](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)”를 참조하세요.
 
    {% note %}
 
-   **Notes**: 
-   * The costs shown here are the cumulative costs within the current monthly billing period. The metered costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each monthly billing period. Outstanding costs from previous months are not shown.
-   * The figures on this page are updated every hour.
+   **참고**: 
+   * 여기에 표시된 비용은 현재 월별 청구 기간 내의 누적 비용입니다. 이 페이지에 표시된 {% data variables.product.prodname_github_codespaces %}에 대한 요금제 비용은 매월 청구 기간이 시작될 때 0으로 다시 설정됩니다. 이전 달의 미결제 비용은 표시되지 않습니다.
+   * 이 페이지의 수치는 매시간 업데이트됩니다.
 
    {% endnote %}
 
 {% data reusables.codespaces.usage-report-download %}
 
 {% ifversion ghec %}
-## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
+## 엔터프라이즈 계정의 {% data variables.product.prodname_codespaces %} 사용량 보기
 
-Enterprise owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an enterprise account.
+엔터프라이즈 소유자 및 청구 관리자는 엔터프라이즈 계정에 대한 {% 데이터 variables.product.prodname_github_codespaces %} 사용량을 볼 수 있습니다.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_codespaces %} monthly usage", view the usage details of each organization in your enterprise account.
-{% data reusables.codespaces.usage-report-download %}
-{% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+1. "{% data variables.product.prodname_codespaces %} 월별 사용량"에서 엔터프라이즈 계정의 각 조직의 사용량 세부 정보를 확인합니다.
+{% data reusables.codespaces.usage-report-download %} {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"
+- “[조직의 codespace 나열](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)”

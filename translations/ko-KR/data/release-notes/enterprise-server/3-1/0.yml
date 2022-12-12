@@ -1,0 +1,204 @@
+date: '2021-06-03'
+intro: "최소 인프라 요구 사항은 \"[{% data variables.product.prodname_ghe_server %} 3.0 이상에 대한 최소 요구 사항 정보](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)\"를 참조하세요."
+sections:
+  features:
+    - heading: GitHub Advanced Security 비밀 검사
+      notes:
+        - |[비밀 검사](https://github.com/features/security)는 이제 {% data variables.product.prodname_ghe_server %} 3.1 이상에서 일반적으로 사용할 수 있습니다. 퍼블릭 및 프라이빗 리포지토리에서 커밋된 자격 증명을 검색하고, 비밀을 찾고, 리포지토리에 커밋되는 즉시 비밀 공급자 또는 관리자에게 알립니다.
+
+
+
+이 릴리스에는 {% data variables.product.prodname_ghe_server %}에 대한 비밀 검사 베타의 몇 가지 개선 사항이 포함되어 있습니다.
+
+
+
+- [패턴 적용 범위](/enterprise-server@3.1/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-private-repositories)를 24개 파트너에서 37개로 확장했습니다.
+
+- [API](/rest/reference/secret-scanning) 및 [webhooks](/developers/webhooks-and-events/webhook-events-and-payloads#secret_scanning_alert)가 추가되었습니다.
+
+- 비밀을 커밋할 때 [커밋 작성자에 대한 알림](https://github.blog/changelog/2021-03-05-secret-scanning-notifications-for-commit-authors-on-private-repositories/)이 추가되었습니다.
+
+- 대량으로 비밀을 쉽게 분류할 수 있도록 인덱스 보기를 업데이트함
+
+- 많은 패턴에서 가양성 비율 감소
+
+
+
+{% data variables.product.prodname_GH_advanced_security %}를 사용하는 관리자는 비밀 검사를 [활성화 및 구성](/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance) {% data variables.product.prodname_GH_advanced_security %}할 수 있습니다. {% data variables.product.prodname_GH_advanced_security %} 비밀 검사를 설정하기 전에 [업데이트된 플랫폼의 최소 요구 사항](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance)을 검토할 수 있습니다.
+
+|
+    - heading: GitHub Advanced Security 요금 청구 개선 사항
+      notes:
+        - |이 릴리스에는 {% data variables.product.prodname_ghe_server %}의 {% data variables.product.prodname_GH_advanced_security %} 청구에 대한 몇 가지 개선 사항이 포함되어 있습니다.
+
+
+
+- {% data variables.product.prodname_GH_advanced_security %} 고객은 이제 조직 또는 기업 계정의 청구 페이지에서 활성 커미터 수와 사용되지 않은 커미터 시트의 남은 수를 볼 수 있습니다. Advanced Security를 엔터프라이즈용으로 구입한 경우 관리자는 엔터프라이즈 내의 다른 조직에서 사용 중인 활성 커미터 시트도 볼 수 있습니다. 자세한 내용은 "[GitHub Advanced Security 라이선스 정보](/enterprise-server@3.1/admin/advanced-security/about-licensing-for-github-advanced-security)" 및 "[GitHub Advanced Security 사용량 보기](/enterprise-server@3.1/admin/advanced-security/viewing-your-github-advanced-security-usage)"를 참조하세요.
+
+- GitHub Advanced Security 고객은 이제 조직 또는 엔터프라이즈 계정의 청구 페이지에서 Advanced Security가 활성화된 리포지토리에 대한 활성 커미터 수를 볼 수 있습니다. 이러한 변경은 청구 관리자가 구매한 커미터 라이선스 수에 대한 사용량을 추적하는 데 도움이 됩니다. 자세한 내용은 “[조직에 대한 보안 및 분석 설정 관리](/enterprise-server@3.1/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”를 참조하세요.
+
+|
+    - heading: Dependabot 개선 사항
+      notes:
+        - |이 릴리스에는 {% data variables.product.prodname_ghe_server %}의 Dependabot 경고에 대한 개선 사항이 포함되어 있습니다.
+
+
+
+- Dependabot 경고가 활성화된 사용자는 [GitHub Advisory Database](https://github.com/advisories)의 항목으로 이동하여 지정된 취약성의 영향을 받는 리포지토리를 확인할 수 있습니다. 이 기능은 공개 베타 버전으로 사용할 수 있습니다. 자세한 내용은 "[리포지토리에서 취약한 종속성 보기](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)"를 참조하세요.
+
+- GitHub Advisory Database에 취약성이 추가되면 낮은 심각도와 중간 심각도에 대한 Dependabot 경고 [이메일 및 웹 알림](https://github.com/notifications)이 더 이상 수신되지 않습니다. 이러한 경고는 리포지토리의 보안 탭에서 계속 액세스할 수 있습니다. 자세한 내용은 "[리포지토리에서 취약한 종속성 보기](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)"를 참조하세요.
+
+- 이제 리포지토리의 `root`, `docs` 또는 `.github` 폴더에 `SECURITY.md` 파일을 추가하여 프로젝트의 보안 취약성을 책임감 있게 보고하는 방법에 대한 지침을 사람들에게 제공할 수 있습니다. 리포지토리에서 이슈를 만들면 프로젝트의 보안 정책에 대한 링크가 표시됩니다. 자세한 내용은 “[리포지토리에 보안 정책 추가](/enterprise-server@3.1/code-security/getting-started/adding-a-security-policy-to-your-repository)”를 참조하세요.
+
+|
+    - heading: GitHub Actions 워크플로 시각화 베타
+      notes:
+        - |이제 {% data variables.product.prodname_actions %}에서 실행할 때마다 워크플로의 시각적 그래프를 만듭니다. 워크플로 시각화를 통해 다음을 수행할 수 있습니다.
+
+- 복잡한 워크플로 보기 및 이해
+
+- 실시간으로 워크플로 진행률 추적
+
+- 로그 및 작업 메타데이터에 쉽게 액세스하여 신속하게 실행 문제 해결
+
+- 배포 작업의 진행률을 모니터링하고 배포 대상에 쉽게 액세스
+
+
+
+자세한 내용은 “[시각화 그래프 사용](/actions/managing-workflow-runs/using-the-visualization-graph)”을 참조하세요.
+
+|
+    - heading: OAuth 2.0 디바이스 권한 부여
+      notes:
+        - |[OAuth 2.0 디바이스 권한 부여](https://github.com/login/device)를 통해 모든 CLI 클라이언트 또는 브라우저가 있는 보조 시스템을 사용하여 인증할 수 있습니다.
+
+
+
+[OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow) 및 [GitHub Apps](/developers/apps/authorizing-oauth-apps#device-flow)를 사용하는 관리자는 기존 웹 애플리케이션 흐름 외에도 OAuth 2.0 디바이스 인증 흐름을 활성화하고 구성할 수 있습니다. OAuth 2.0 디바이스 인증 흐름을 활성화하기 전에 [플랫폼에 대한 업데이트된 최소 요구 사항](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance)을 검토할 수 있습니다.
+
+|
+    - heading: 끌어오기 요청 자동 병합
+      notes:
+        - |자동 병합을 사용하면 모든 병합 요구 사항이 충족될 때 끌어오기 요청을 자동으로 병합하도록 설정할 수 있습니다. 이렇게 하면 사용자가 병합을 위해 끌어오기 요청의 상태를 지속적으로 확인할 필요가 없습니다. 자동 병합은 병합 권한이 있는 사용자와 병합 요구 사항이 충족되지 않은 끌어오기 요청에 의해 활성화할 수 있습니다. 자세한 내용은 "[자동으로 끌어오기 요청 병합](/enterprise-server@3.1/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)"을 참조하세요.
+
+|
+    - heading: 사용자 지정 알림
+      notes:
+        - |개별 리포지토리에서 받을 알림 유형을 사용자 지정할 수 있습니다. 자세한 내용은 "[알림 구성](/enterprise-server@3.1/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)"을 참조하세요.
+
+|
+    - heading: GitHub 모바일 필터링
+      notes:
+        - |[{% data variables.product.prodname_mobile %}](https://github.com/mobile) 필터링을 통해 디바이스에서 이슈를 검색 및 찾아 끌어오기 요청 및 토론을 수행할 수 있습니다. 이슈 및 끌어오기 요청 항목에 대한 새 메타데이터를 통해 담당자, 확인 상태, 검토 상태 및 주석 수로 필터링할 수 있습니다.
+
+
+
+{% data variables.product.prodname_mobile %} 베타는 {% data variables.product.prodname_ghe_server %}에서 사용할 수 있습니다. [Android](https://play.google.com/store/apps/details?id=com.github.android) 및 [iOS](https://apps.apple.com/app/github/id1477376905) 앱으로 로그인하여 알림을 분류하고 이동 중에도 문제와 끌어오기 요청을 관리합니다. 관리자는 관리 콘솔을 사용하거나 `ghe-config app.mobile.enabled false`를 실행하여 엔터프라이즈에 대한 지원을 비활성화할 수 있습니다. 자세한 내용은 "[GitHub 모바일](/get-started/using-github/github-mobile)"을 참조하세요.
+
+|
+  changes:
+    - heading: 관리 변경 내용
+      notes:
+        - 체크섬을 미리 계산함으로써 리포지토리가 잠겨 있는 시간이 크게 줄어들어 더 많은 쓰기 작업이 즉시 성공하고 모노 리포지토리 성능이 향상됩니다.
+        - "CodeQL CLI의 최신 릴리스는 GitHub에 분석 결과 업로드를 지원합니다. 따라서 {% data variables.product.prodname_actions %} 이외의 CI/CD 시스템을 사용하려는 고객을 위해 코드 분석을 보다 쉽게 실행할 수 있습니다. 이전에는 이러한 사용자가 계속 사용할 수 있는 별도의 CodeQL 실행기를 사용해야 했습니다. 자세한 내용은 \"[CI 시스템의 CodeQL 코드 검사 정보](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)\"를 참조하세요."
+        - '{% data variables.product.prodname_actions %}는 이제 커밋 메시지에서 몇 가지 공통 키워드를 찾아 `push` 및 `pull_request` 워크플로 건너뛰기를 지원합니다.'
+        - 4개월보다 오래된 주석이 보관될 것인지 확인합니다.
+        - "백그라운드 작업에 대한 작업자 할당 스케일링이 수정되었습니다. 새 기본값이 워크로드에 적합한지 확인하는 것이 좋습니다. 사용자 지정 백그라운드 작업자 재정의는 대부분의 경우 설정 해제되어야 합니다.[업데이트 2022-03-18]"
+
+    - heading: 보안 변경 내용
+      notes:
+        - "피드백에 따라 끌어오기 요청 ID로 제출하지 않은 끌어오기 요청에 대한 코드 검사 결과 표시가 계속 지원됩니다. 자세한 내용은 \"[코드 검사 구성](/enterprise-server@3.1/code-security/secure-coding/configuring-code-scanning#scanning-pull-requests)\" 및 \"[CI 시스템의 CodeQL 코드 검사 정보](/enterprise-server@3.1/code-security/secure-coding/configuring-codeql-code-scanning-in-your-ci-system#scanning-pull-requests)\"를 참조하세요."
+        - "SARIF 업로드 지원이 업로드당 최대 5,000개 결과로 증가했습니다."
+
+    - heading: 개발자 변경 사항
+      notes:
+        - GitHub 앱을 구성하는 동안 여러 콜백 URL을 지정할 수 있습니다. 이는 여러 도메인 또는 하위 도메인이 있는 서비스에서 사용할 수 있습니다. GitHub는 요청의 콜백 URL이 권한 부여 콜백 URL 목록에 없는 경우 항상 권한 부여를 거부합니다.
+        - 앱 개발자가 앱이 액세스를 요청할 수 있는 읽기 전용 또는 읽기-쓰기 액세스에 대해 최대 10개의 파일을 지정할 수 있도록 GitHub 앱 파일 권한이 업데이트되었습니다.
+        - "이제 CodeQL은 다양한 언어([C++](https://github.com/github/codeql/tree/main/cpp), [JavaScript](https://github.com/github/codeql/tree/main/javascript), [Python](https://github.com/github/codeql/tree/main/python),[Java](https://github.com/github/codeql/tree/main/java), [Go](https://github.com/github/codeql-go/tree/main))에 대해 더 많은 [라이브러리 및 프레임워크](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)를 지원합니다. CodeQL 엔진은 이제 신뢰할 수 없는 사용자 데이터의 더 많은 원본을 탐지할 수 있으므로 코드 검색 경고의 품질과 깊이가 향상됩니다. 자세한 내용은 “[CodeQL 정보](https://codeql.github.com/docs/codeql-overview/about-codeql/)”를 참조하세요."
+        - GitHub 앱을 구성할 때 권한 부여 콜백 URL은 필수 필드입니다. 이제 개발자가 여러 콜백 URL을 지정할 수 있습니다. 이는 여러 도메인 또는 하위 도메인이 있는 서비스에서 사용할 수 있습니다. GitHub는 요청의 콜백 URL이 권한 부여 콜백 URL 목록에 없는 경우 항상 권한 부여를 거부합니다.
+        - "웹 브라우저에서 하위 디렉터리를 포함한 전체 파일 디렉터리를 삭제합니다. 자세한 내용은 \"[파일 또는 디렉터리 삭제](/enterprise-server@3.1/github/managing-files-in-a-repository/deleting-files-in-a-repository#deleting-a-directory).\"를 참조하세요."
+        - '이슈, 토론 또는 끌어오기 요청 주석에서`#` 뒤에 여러 단어를 포함하여 검색 범위를 좁힙니다.'
+        - '이슈, 끌어오기 요청 또는 토론 주석을 작성할 때 `return` 또는 `enter`를 누르면 글머리, 기호, 숫자 및 작업에 대한 목록 구문이 자동 완성됩니다.'
+
+    - heading: API 변경 내용
+      notes:
+        - "코드 검사 API를 통해 사용자는 정적 분석 보안 테스트 결과에 대한 데이터를 내보낼 수 있습니다. 자세한 내용은 [코드 검사 API 참조](/rest/reference/code-scanning)를 참조하세요."
+        - "설치 관리를 위한 [GitHub Apps API](/rest/reference/apps)가 이제 API 미리 보기에서 일반 공급 API로 전환되었습니다. [미리 보기 헤더](/rest/overview/api-previews)는 이러한 엔드포인트에 액세스하는 데 더 이상 필요하지 않습니다."
+
+  security_fixes:
+    - '**보통** 특정 상황에서 팀 또는 조직에서 제거된 사용자는 기존 끌어오기 요청을 열었던 분기에 대한 쓰기 액세스 권한을 유지할 수 있습니다.'
+    - 패키지가 최신 보안 버전으로 업데이트되었습니다.
+
+  bugs:
+    - heading: 릴리스 후보의 알려진 문제 수정
+      notes:
+        - 릴리스 후보 1의 알려진 모든 문제는 아래의 알려진 문제 섹션에 나열된 문제를 제외하고 수정되었습니다.
+    - heading: 기타 문제 수정
+      notes:
+        - "초기 설치 프로세스의 \"작업 및 패키지 구성\" 페이지에서 \"도메인 설정 테스트\" 단추를 클릭해도 테스트가 완료되지 않습니다."
+        - '`ghe-btop` 실행이 오류로 인해 실패했으며 `babeld` 컨테이너를 찾을 수 없습니다.'
+        - 자동 장애 조치(failover) 설정을 변경하면 MySQL이 다시 로드되고 가동 중지 시간이 발생할 수 있습니다.
+        - 업그레이드 후 내부 및 외부 시간 초과 값이 일치하지 않아 서비스를 사용할 수 없습니다.
+        - MSSQL에서 예상되는 복제 지연으로 인해 경고가 생성되었습니다.
+        - '관리 콘솔의 "[클러스터링 구성](/admin/enterprise-management/configuring-clustering)"에 대한 링크가 잘못되었습니다.'
+        - 사전 수신 후크를 만들거나 편집할 때 사용자 인터페이스의 경합 조건으로 인해 리포지토리를 선택한 후 리포지토리 내의 파일이 파일 드롭다운에 채워지지 않는 경우가 있습니다.
+        - "\"허용 목록 항목 만들기\" 단추를 사용하여 허용 목록에 IP 주소를 추가할 경우에도 여전히 잠긴 것으로 표시될 수 있습니다."
+        - "\"종속성 그래프\" 및 \"Dependabot 경고\" 기능에 대한 참조가 일부 리포지토리에서 비활성화된 것으로 표시되지 않았습니다."
+        - 엔터프라이즈 계정 설정에서 공지 사항을 설정하면 500 내부 서버 오류가 발생할 수 있습니다.
+        - "`/hooks` 엔드포인트에 대한 HTTP POST 요청은 잘못 구성된 `hookID`로 인해 401 응답으로 인해 실패할 수 있습니다."
+        - "`build-server` 프로세스가 프로세스를 정리하는 데 실패하여 `defunct` 상태로 남게 되었습니다."
+        - '`spokesd`가 "수정 배치 건너뛰기" 문구를 포함하여 과도한 로그 항목을 만들었습니다.'
+        - 업그레이드하는 동안 인스턴스가 구성된 호스트 이름을 통해 자체 요청을 만들 수 없는 경우 작업 업그레이드가 실패할 수 있습니다.
+        - 2.22.x에서 3.1.0.rc1로 업그레이드하면 `BackfillIntegrationApplicationCallbackUrlsTransition` 데이터 전환과 관련된 데이터베이스 마이그레이션 오류가 발생할 수 있습니다.
+
+  known_issues:
+    - "관리 셀을 통해 `ghe-repo <owner>/<reponame>`을 사용하여 리포지토리에 액세스하면 중단됩니다. 해결 방법으로 다음 버전에서 수정할 수 있을 때까지 `ghe-repo <owner>/<reponame> -c \"bash -i\"를 사용합니다."
+    - "{% data variables.product.prodname_registry %} npm 레지스트리는 더 이상 메타데이터 응답에서 시간 값을 반환하지 않습니다. 이 작업은 성능을 크게 향상시키기 위해 수행되었습니다. 메타데이터 응답의 일부로 시간 값을 반환하는 데 필요한 모든 데이터를 계속 보유하고 있으며, 기존 성능 이슈가 해결되면 이 값의 반환을 다시 시작할 예정입니다."
+    - "사용자 없이 새로 설정된 {% data variables.product.prodname_ghe_server %}에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다."
+    - 사용자 지정 방화벽 규칙은 업그레이드 중에 유지 관리되지 않습니다.
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다."
+    - 파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다.
+    - GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다.
+    - 이전에 2.13 릴리스에서 실행했지만 2.14 릴리스에서는 실행하지 않았던 인스턴스를 업그레이드한 결과 `AddRepositoryIdToCheckRuns` 데이터 전환 관련 데이터베이스 마이그레이션 오류가 발생했습니다.
+    - |3.0.x에서 3.1.x로 업그레이드하면 GitHub Actions에서 `이 워크플로 실행 시 예기치 않은 오류가 발생했습니다.`라는 오류와 함께 실패할 수 있습니다. 이 문제를 해결하려면 관리 셸(ssh)에 연결하고 다음을 실행합니다.
+
+```
+
+ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+
+```
+
+|
+    - "고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}은 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으며 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다."
+    - 사전 수신 후크 처리에만 해당되는 리소스 한도로 인해 일부 사전 수신 후크가 실패할 수 있습니다.
+
+  deprecations:
+    - heading: GitHub Enterprise Server 2.20 지원 중단
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.20은 2021년 3월 2일에 중단되었습니다**. 즉, 이 날짜 이후에는 중요한 보안 문제에 대해서도 패치 릴리스가 이루어지지 않습니다. 성능 향상, 보안 향상 및 새로운 기능을 위해 최대한 빨리 [최신 버전의 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server)로 업그레이드합니다.'
+    - heading: GitHub Enterprise Server 2.21 지원 중단
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.21은 2021년 6월 9일에 중단됩니다**. 즉, 이 날짜 이후에는 중요한 보안 문제에 대해서도 패치 릴리스가 이루어지지 않습니다. 성능 향상, 보안 향상 및 새로운 기능을 위해 최대한 빨리 [최신 버전의 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server)로 업그레이드합니다.'
+    - heading: 레거시 GitHub 앱 Webhook 이벤트 지원 중단
+      notes:
+        - '{% data variables.product.prodname_ghe_server %} 2.21.0부터 두 개의 레거시 GitHub Apps 관련 웹후크 이벤트가 더 이상 사용되지 않으며 {% data variables.product.prodname_ghe_server %} 3.2.0에서 제거됩니다. 사용되지 않는 이벤트 `integration_installation` 및 `integration_installation_repositories`에는 지원되는 동등한 이벤트가 있습니다. 자세한 내용은 [지원 중단 공지 블로그 게시물](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/)에서 확인할 수 있습니다.'
+    - heading: 레거시 GitHub 앱 엔드포인트 지원 중단
+      notes:
+        - "{% data variables.product.prodname_ghe_server %} 2.21.0부터 설치 액세스 토큰을 생성하기 위한 레거시 GitHub Apps 엔드포인트가 더 이상 사용되지 않으며 {% data variables.product.prodname_ghe_server %} 3.2.0에서 제거됩니다.  자세한 내용은 [지원 중단 공지 블로그 게시물](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)에서 확인할 수 있습니다."
+    - heading: OAuth 애플리케이션 API 지원 중단
+      notes:
+        - 'GitHub는 `access_token`을 경로 매개 변수로 포함하는 OAuth 애플리케이션 엔드포인트를 더 이상 지원하지 않습니다. `access_token`을 요청 본문으로 이동하여 OAuth 앱용 토큰을 안전하게 관리할 수 있는 새 엔드포인트를 도입했습니다. 더 이상 사용되지 않지만 이 버전에서는 엔드포인트에 계속 액세스할 수 있습니다. {% data variables.product.prodname_ghe_server %} 3.4에서 이러한 엔드포인트를 제거하려고 합니다. 자세한 내용은 [지원 중단 공지 블로그 게시물](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/)을 참조하세요.'
+    - heading: GitHub Actions의 짧은 SHA 지원 중단
+      notes:
+        - '{% data variables.product.prodname_actions %}는 git 커밋 SHA의 단축 버전을 사용하는 참조 작업에 대한 지원을 제거합니다. 이로 인해 리포지토리의 일부 워크플로가 중단될 수 있습니다. 이러한 워크플로를 수정하려면 전체 커밋 SHA를 사용하도록 작업 참조를 업데이트해야 합니다. 자세한 내용은 "[{% data variables.product.prodname_actions %}에 대한 보안 강화](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)"를 참조하세요.'
+    - heading: XenServer Hypervisor 지원 중단
+      notes:
+        - "{% data variables.product.prodname_ghe_server %} 3.1부터 Xen Hypervisor에 대한 지원이 중단됩니다. {% data variables.product.prodname_ghe_server %} 3.3에 대한 완전한 지원 중단이 1년 표준 지원 중단 기간에 따라 예정되어 있습니다."
+    - heading: 인증 토큰 형식 변경은 GitHub Connect에 영향을 줍니다.
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |GitHub 인증 토큰 형식 변경으로 인해 GitHub Enterprise Server 3.1 이하 버전을 실행하는 인스턴스에 대해 6월 3일 이후에는 GitHub Connect가 더 이상 작동하지 않습니다. GitHub Connect를 계속 사용하려면 GitHub Enterprise Server 3.2 이상으로 업그레이드하세요. 자세한 내용은 [GitHub 블로그](https://github.blog/2022-05-20-action-needed-by-github-connect-customers-using-ghes-3-1-and-older-to-adopt-new-authentication-token-format-updates/)를 참조하세요. [업데이트 날짜: 2022-06-14]
+
+|
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.1에는 [백업 및 재해 복구](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance)에 대한 [GitHub Enterprise 백업 유틸리티 3.1.0](https://github.com/github/backup-utils) 이상이 필요합니다.'

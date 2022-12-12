@@ -1,7 +1,7 @@
 ---
-title: About workflows
+title: 워크플로 정보
 shortTitle: About workflows
-intro: 'Get a high-level overview of {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
+intro: '트리거, 구문, 고급 기능을 포함하여 개략적인 개요 {% data variables.product.prodname_actions %} 워크플로를 가져옵니다.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,54 +14,59 @@ redirect_from:
 topics:
   - Workflows
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: cb0b834604d49432d34cec48b0c9f27e37161804
+ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '146180513'
 ---
-
-## About workflows
+## 워크플로 정보
 
 {% data reusables.actions.about-workflows-long %}
 
-## Workflow basics
+## 워크플로 기본 사항
 
-A workflow must contain the following basic components:
+워크플로에는 다음과 같은 기본 구성 요소가 포함되어야 합니다.
 
-1. One or more _events_ that will trigger the workflow.
-1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
-1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
+1. 워크플로를 트리거하는 하나 이상의 _이벤트_.
+1. 하나 이상의 _작업_ 이며, 각 작업은 _실행기_ 머신에서 실행되고 일련의 하나 이상의 _단계_ 를 실행합니다.
+1. 각 단계에서는 워크플로를 간소화할 수 있는 재사용 가능한 확장인 작업을 정의하거나 실행하는 스크립트를 실행할 수 있습니다.
 
-For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+이러한 기본 구성 요소에 대한 자세한 내용은 "[GitHub Actions 이해](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)"를 참조하세요.
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![워크플로 개요](/assets/images/help/images/overview-actions-simple.png)
 
-## Triggering a workflow
+## 워크플로 트리거
 
 {% data reusables.actions.about-triggers %}
 
-For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)", and for a full list of events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+자세한 내용은 "[워크플로 트리거](/actions/using-workflows/triggering-a-workflow)"를 참조하고 이벤트의 전체 목록은 "[워크플로를 트리거하는 이벤트](/actions/using-workflows/events-that-trigger-workflows)"를 참조하세요.
 
-## Workflow syntax
+## 워크플로 구문
 
-Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
+워크플로는 YAML을 사용하여 정의됩니다. 워크플로 작성에 대한 YAML 구문의 전체 참조는 "[GitHub Actions용 워크플로 구문](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)"을 참조하세요.
 
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[Managing workflow runs](/actions/managing-workflow-runs)."
+워크플로 실행 다시 실행, 취소 또는 삭제와 같은 워크플로 실행 관리에 대한 자세한 내용은 "[워크플로 실행 관리](/actions/managing-workflow-runs)"를 참조하세요.
 
-## Using starter workflows
+## 시작 워크플로 사용
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)" and "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+시작 워크플로 사용 및 생성에 대한 자세한 내용은 "[시작 워크플로 사용](/actions/using-workflows/using-starter-workflows)" 및 "[조직에 대한 시작 워크플로 만들기](/actions/using-workflows/creating-starter-workflows-for-your-organization)"를 참조하세요.
 
-## Advanced workflow features
+## 고급 워크플로 기능
 
-This section briefly describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
+이 섹션에서는 더 복잡한 워크플로를 만드는 데 도움이 되는 {% data variables.product.prodname_actions %}의 고급 기능 중 일부를 간략하게 설명합니다.
 
-### Storing secrets
+### 비밀 저장
 
-If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the workflow's YAML source.
+워크플로에서 암호 또는 인증서와 같은 중요한 데이터를 사용하는 경우 {% data variables.product.prodname_dotcom %}에 비밀로 저장한 다음 워크플로에서 환경 변수로 사용할 수 있습니다. 즉, 워크플로의 YAML 원본에 중요한 값을 직접 포함할 필요 없이 워크플로를 만들고 공유할 수 있습니다.
 
-This example job demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
+이 예제 작업은 기존 비밀을 환경 변수로 참조하고 예제 명령에 매개 변수로 보내는 방법을 보여 줍니다.
 
 {% raw %}
 ```yaml
@@ -77,13 +82,13 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+자세한 내용은 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
 
-### Creating dependent jobs
+### 종속 작업 만들기
 
-By default, the jobs in your workflow all run in parallel at the same time. If you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the `if` conditional statement.
+기본적으로 워크플로의 작업은 모두 동시에 병렬로 실행됩니다. 다른 작업이 완료된 후에만 실행해야 하는 작업이 있는 경우 `needs` 키워드를 사용하여 이 종속성을 만들 수 있습니다. 작업 중 하나가 실패하면 모든 종속 작업은 건너뜁니다. 그러나 작업을 계속해야 하는 경우 `if` 조건문을 사용하여 이를 정의할 수 있습니다.
 
-In this example, the `setup`, `build`, and `test` jobs run in series, with `build` and `test` being dependent on the successful completion of the job that precedes them:
+이 예제에서 `setup`, `build` 및 `test` 작업은 연달아 실행되며 `build`와 `test`는 그 앞 작업의 성공적인 완료에 따라 실행됩니다.
 
 ```yaml
 jobs:
@@ -103,11 +108,11 @@ jobs:
       - run: ./test_server.sh
 ```
 
-For more information, see "[Defining prerequisite jobs](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
+자세한 내용은 “[필수 구성 요소 작업 정의](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)”를 참조하세요.
 
-### Using a matrix
+### 매트릭스 사용
 
-{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
+{% data reusables.actions.jobs.about-matrix-strategy %} 매트릭스는 빌드 옵션을 배열로 수신하는 `strategy` 키워드를 사용하여 만들어집니다. 예를 들어 이 매트릭스는 여러 버전의 Node.js 사용하여 작업을 여러 번 실행합니다.
 
 ```yaml
 jobs:
@@ -122,14 +127,14 @@ jobs:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+자세한 내용은 “[작업에 매트릭스 사용](/actions/using-jobs/using-a-matrix-for-your-jobs)”을 참조하세요.
 
 {% ifversion actions-caching %}
-### Caching dependencies
+### 종속성 캐싱
 
-If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
+작업에서 종속성을 정기적으로 다시 사용하는 경우 이러한 파일을 캐싱하여 성능을 개선하는 것이 좋습니다. 캐시가 만들어지면 동일한 리포지토리의 모든 워크플로에서 사용할 수 있습니다.
 
-This example demonstrates how to cache the ` ~/.npm` directory:
+이 예제에서는 ` ~/.npm` 디렉터리를 캐싱하는 방법을 보여 줍니다.
 
 ```yaml
 jobs:
@@ -146,12 +151,12 @@ jobs:
             {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+자세한 내용은 “[워크플로 속도를 높이기 위한 종속성 캐싱](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”을 참조하세요.
 {% endif %}
 
-### Using databases and service containers
+### 데이터베이스 및 서비스 컨테이너 사용
 
-If your job requires a database or cache service, you can use the [`services`](/actions/using-jobs/running-jobs-in-a-container) keyword to create an ephemeral container to host the service; the resulting container is then available to all steps in that job and is removed when the job has completed. This example demonstrates how a job can use `services` to create a `postgres` container, and then use `node` to connect to the service.
+작업에 데이터베이스 또는 캐시 서비스가 필요한 경우 [`services`](/actions/using-jobs/running-jobs-in-a-container) 키워드를 사용하여 서비스를 호스팅하는 임시 컨테이너를 만들 수 있습니다. 그러면 해당 작업의 모든 단계에서 결과 컨테이너를 사용할 수 있으며 작업이 완료되면 제거됩니다. 이 예제에서는 작업이 `services`을 사용하여 `postgres` 컨테이너를 만든 다음 서비스에 연결하는 데 `node`을 사용할 수 있는 방법을 보여 줍니다.
 
 ```yaml
 jobs:
@@ -173,13 +178,13 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using containerized services](/actions/using-containerized-services)."
+자세한 내용은 "[컨테이너화된 서비스 사용](/actions/using-containerized-services)"을 참조하세요.
 
-### Using labels to route workflows
+### 레이블을 사용하여 워크플로 라우팅
 
-If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
+특정 유형의 실행기에서 작업을 처리하도록 하려면 레이블을 사용하여 작업이 실행되는 위치를 제어할 수 있습니다. 자체 호스팅 실행기에서 `self-hosted`의 기본 레이블 외에도 레이블을 할당할 수 있습니다. 그런 다음 YAML 워크플로에서 해당 레이블을 참조하여 작업이 예측 가능한 방식으로 라우팅되도록 할 수 있습니다.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %} 호스팅 실행기에 미리 정의된 레이블이 할당되었습니다. {% endif %}
 
-This example shows how a workflow can use labels to specify the required runner:
+이 예제에서는 다음과 같이 워크플로에서 레이블을 사용하여 필요한 실행기를 지정하는 방법을 보여 줍니다.
 
 ```yaml
 jobs:
@@ -187,19 +192,17 @@ jobs:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
+워크플로는 `runs-on` 배열에 모든 레이블이 있는 실행기에서만 실행됩니다. 작업은 우선 지정된 레이블이 있는 유휴 자체 호스팅 실행기로 이동합니다. {% ifversion fpt or ghec %} 사용할 수 없는 경우 지정된 레이블이 있는 {% data variables.product.prodname_dotcom %} 호스팅 실행기가 있으면 작업이 {% data variables.product.prodname_dotcom %} 호스팅 실행기로 이동합니다.{% endif %}
 
-To learn more about self-hosted runner labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+자체 호스팅 실행기 레이블에 대한 자세한 내용은 "[자체 호스팅 실행기가 있는 레이블 사용](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)"을 참조하세요.
 
-{% ifversion fpt or ghec %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+{% ifversion fpt or ghec %} {% data variables.product.prodname_dotcom %} 호스팅 실행기 레이블에 대한 자세한 내용은 “[지원되는 실행기 및 하드웨어 리소스](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)”를 참조하세요.
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
-### Reusing workflows
-{% data reusables.actions.reusable-workflows %}
-{% endif %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+### 워크플로 다시 사용
+{% data reusables.actions.reusable-workflows %} {% endif %}
 
-### Using environments
+### 환경 사용
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+워크플로에서 작업 실행을 제어하도록 보호 규칙 및 비밀을 사용하여 환경을 구성할 수 있습니다. 워크플로의 각 작업은 단일 환경을 참조할 수 있습니다. 환경을 참조하는 작업이 실행기에 전송되기 전에 환경에 대해 구성된 모든 보호 규칙이 전달되어야 합니다. 자세한 내용은 “[배포에 환경 사용](/actions/deployment/using-environments-for-deployment)”을 참조하세요.

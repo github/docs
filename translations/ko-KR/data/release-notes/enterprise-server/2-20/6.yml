@@ -1,0 +1,27 @@
+date: '2020-04-23'
+sections:
+  security_fixes:
+    - '**높음**: OpenSSL이 [CVE-2020-1967](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1967)을 처리하도록 업데이트되었습니다. {% comment %} https://github.com/github/enterprise2/pull/19889, https://github.com/github/enterprise2/pull/19885 {% endcomment %}'
+    - '**높음**: Git가 [CVE-2020-5260](https://github.com/git/git/security/advisories/GHSA-qm7j-c969-7j4q) 및 [CVE-2020-11008](https://github.com/git/git/security/advisories/GHSA-hjc9-x69f-jqj7)을 처리하도록 업데이트되었습니다. 새로운 제한 사항은 악의적인 리포지토리가 서버 인스턴스로 푸시되는 것을 방지하여 아직 패치되지 않은 클라이언트를 보호합니다. {% comment %} https://github.com/github/git/pull/990 {% endcomment %}'
+    - '**낮음**:  ImageMagick가 [CVE-2019-10131](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10131)을 처리하도록 업데이트되었습니다. {% comment %} https://github.com/github/enterprise2/pull/19655, https://github.com/github/enterprise2/pull/19617 {% endcomment %}'
+    - '패키지가 최신 보안 버전으로 업데이트되었습니다. {% comment %} https://github.com/github/enterprise2/pull/19809, https://github.com/github/enterprise2/pull/19792, https://github.com/github/enterprise2/pull/19899, https://github.com/github/enterprise2/pull/19882 {% endcomment %}'
+  bugs:
+    - 'git 사용자는 Subversion을 사용하여 기존 리포지토리를 v4 형식에서 v3 LRS로 변환하는 데 필요한 프로세스를 호출할 권한이 없었습니다. {% comment %} https://github.com/github/enterprise2/pull/19465, https://github.com/github/enterprise2/pull/19150 {% endcomment %}'
+    - 'MySQL 구성이 일치하지 않으면 대규모 설치에서 백업이 실패할 수 있습니다. {% comment %} https://github.com/github/enterprise2/pull/19688, https://github.com/github/enterprise2/pull/19409, https://github.com/github/enterprise2/issues/19055 {% endcomment %}'
+    - '이전 버전에서 업그레이드할 때 백그라운드 작업 작업자가 생성되지 않아 끌어오기 요청 병합과 같은 필수 기능이 차단되는 경우가 있었습니다. {% comment %} https://github.com/github/enterprise2/pull/19771, https://github.com/github/enterprise2/pull/19712 {% endcomment %}'
+    - "GitHub Enterprise Server 라이선스에 ASCII가 아닌 문자가 포함된 경우 관리 콘솔의 API `/setup/api/settings` 엔드포인트에 대한 `GET` 요청으로 인해 내부 서버 오류가 발생합니다. {% comment %} https://github.com/github/enterprise2/pull/19790 {% endcomment %}"
+    - '루트 계정이 잠겨 있더라도 복구 콘솔은 루트 암호를 묻는 메시지를 표시합니다. {% comment %} https://github.com/github/enterprise2/pull/19810, https://github.com/github/enterprise2/pull/19788, https://github.com/github/enterprise2/issues/18425 {% endcomment %}'
+    - '선행 UTF-8 바이트 순서 표시가 있는 CODEOWNERS 파일을 사용하면 모든 코드 소유자 규칙이 무시됩니다. {% comment %} https://github.com/github/github/pull/140974, https://github.com/github/github/pull/140729 {% endcomment %}'
+  changes:
+    - 'orchestrator-client cron 작업이 실패하면 여러 이메일이 루트 계정으로 전송됩니다. {% comment %} https://github.com/github/enterprise2/pull/19761, https://github.com/github/enterprise2/pull/19748 {% endcomment %}'
+    - "외부 ID 제공자가 사용자의 사이트 관리자 상태를 제어할 때 사용자는 명령줄 유틸리티를 통해 강등될 수 없습니다. {% comment %} https://github.com/github/github/pull/140522, https://github.com/github/github/pull/137807, https://github.com/github/github/issues/42727 {% endcomment %}"
+  known_issues:
+    - '사용자 없이 새로 설정된 GitHub Enterprise Server에서 공격자는 첫 번째 관리 사용자를 만들 수 있습니다. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - '사용자 지정 방화벽 규칙은 업그레이드 중에 유지 관리되지 않습니다. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가되었습니다. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'gist로 푸시하는 경우 사후 수신 후크 중에 예외가 트리거될 수 있습니다. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용하도록 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '명령줄에서 리포지토리에 푸시할 때 보안 경고가 보고되지 않습니다. (2020-06-23 업데이트됨) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '여러 Redis 노드가 있는 클러스터 구성에 배포될 때 종속성 그래프가 종속성을 검색하지 않습니다. (2020-06-30 업데이트됨) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - '고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}은 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으며 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다.'

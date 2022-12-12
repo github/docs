@@ -1,6 +1,6 @@
 ---
-title: Viewing your GitHub Copilot usage
-intro: 'You can view how many users have access to {% data variables.product.prodname_copilot %} across all the organizations in your enterprise.'
+title: GitHub Copilot 사용량 보기
+intro: '엔터프라이즈의 모든 조직에서 {% data variables.product.prodname_copilot %}에 액세스할 수 있는 사용자 수를 볼 수 있습니다.'
 product: '{% data reusables.gated-features.copilot-billing %}'
 miniTocMaxHeadingLevel: 3
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_copilot %} in their enterprise.'
@@ -10,33 +10,36 @@ type: how_to
 topics:
   - Copilot
 shortTitle: View your usage
+ms.openlocfilehash: 9b481cfd11a3c96ce98175d3b30e3b26889c4148
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193422'
 ---
+## {% data variables.product.prodname_copilot %} 사용량 정보
 
-## About your {% data variables.product.prodname_copilot %} usage
+엔터프라이즈에서 {% data variables.product.prodname_copilot %}에 대한 사용량 정보를 보고, 조직별로 세분화하거나, 조직에서 사용자 할당 상태를 세분화할 수 있습니다. 엔터프라이즈 수준에서 이 정보에는 각 조직에 할당된 사용자 수와 현재 청구 주기에 대한 각 조직과 관련된 총 지출이 포함됩니다. 조직 수준에서 이 정보에는 총 사용자 수, 이전 청구 주기에서 이월된 좌석, 현재 주기 동안 추가된 새 좌석 및 현재 주기가 끝날 때 제거할 좌석이 포함됩니다. 
 
-You can view usage information for {% data variables.product.prodname_copilot %} in your enterprise, broken down by organization, or in your organization, broken down by seat assignment status. At the enterprise level, this information includes the number of seats assigned in each organization, and the total spending associated with each organization, for the current billing cycle. At the organization level, this information includes the total number of seats, seats carried over from the previous billing cycle, new seats added during the current cycle, and seats to be removed at the end of the current cycle. 
+조직 관리자가 현재 청구 주기 동안 부분적으로 하나 이상의 사용자를 할당한 경우 엔터프라이즈 수준 정보에는 10진수의 좌석이 표시됩니다. 예를 들어 조직에서 3개의 좌석이 할당된 청구 주기를 시작한 다음, 주기 중간에 추가 좌석을 할당한 경우 좌석 사용량 정보에는 3.5개의 좌석이 표시됩니다. 주기 시작 시 할당된 좌석을 나타내는 "3"과 주기 중간에 할당된 추가 좌석을 나타내는 "0.5"입니다. 
 
-If an organization admin has assigned one or more seats partway through the current billing cycle, the enterprise-level information will display a decimal number of seats. For example, if the organization started the billing cycle with 3 seats assigned, and then assigned an additional seat half way through the cycle, the seat usage information will display 3.5 seats. The "3" representing the seats assigned at the start of the cycle, and the "0.5" representing the additional seat assigned halfway through the cycle. 
+지출 정보에는 현재 청구 주기에 대한 각 조직의 총 지출이 표시됩니다. 현재 주기에 대한 조직의 총 지출은 일반적으로 할당된 사용자 수이며, 좌석당 비용(매월 19달러)을 곱합니다. 그러나 동일한 조직 구성원에게 여러 조직의 좌석이 할당된 경우 각 조직에 해당 좌석 사용량이 반영되지만 기업은 한 번만 청구되므로 지출은 처음 좌석이 할당된 조직에만 반영됩니다.
 
-The spending information will display the total spending for each organization for the current billing cycle. The total spending for the organization for the current cycle will usually be the number of seats assigned, multiplied by the cost per seat ($19 per seat per month). However, if the same organization member is assigned a seat in multiple organizations, their seat usage will be reflected in each organization, but as the enterprise will only be charged once, their spending will only be reflected in the organization where they were first assigned a seat.
+## {% data variables.product.prodname_copilot_for_business %}에 대한 사용량 보기
 
-## Viewing your usage for {% data variables.product.prodname_copilot_for_business %}
+### 엔터프라이즈 수준
 
-### At the enterprise-level
+{% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.billing-tab %}
+1. "{% data variables.product.prodname_copilot_short %} 월별 사용량"에서 {% data variables.product.prodname_copilot %} 사용량의 분석을 확인합니다.
+    - "좌석 사용량"에서 현재 청구 주기 동안 부분적으로 할당된 좌석을 나타내는 10진수를 사용하여 조직당 현재 할당된 총 사용자 수를 볼 수 있습니다.
+    - "지출"에서 조직당 현재 청구 주기에 대한 {% data variables.product.prodname_copilot_for_business %}의 총 비용을 볼 수 있습니다.
 
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_copilot_short %} monthly usage," view the breakdown of your {% data variables.product.prodname_copilot %} usage.
-    - Under "Seat usage" you can view the total number of seats currently assigned per organization, with a decimal number representing seats assigned partway through the current billing cycle.
-    - Under "Spending" you can view the total cost of {% data variables.product.prodname_copilot_for_business %} for the current billing cycle per organization.
+   ![{% data variables.product.prodname_copilot %} 사용량 페이지의 스크린샷](/assets/images/help/copilot/monthly-usage-enterprise.png)
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} usage page](/assets/images/help/copilot/monthly-usage-enterprise.png)
+### 조직 수준
 
-### At the organization-level
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.
-1. Under "{% data variables.product.prodname_copilot_short %}", view the breakdown of your {% data variables.product.prodname_copilot %} usage and upcoming changes in your organization.
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %}
+1. 사이드바의 “액세스” 섹션에서 **{% octicon "credit-card" aria-label="The credit card icon" %} 청구 및 플랜** 을 클릭합니다.
+1. "{% data variables.product.prodname_copilot_short %}"에서 {% data variables.product.prodname_copilot %} 사용량 분석 및 조직의 향후 변경 내용을 확인합니다.
  
-   ![Screenshot of the organization-level {% data variables.product.prodname_copilot %} seat usage page](/assets/images/help/copilot/org-level-seat-view.png)
+   ![조직 수준 {% 데이터 variables.product.prodname_copilot %} 좌석 사용량 페이지의 스크린샷](/assets/images/help/copilot/org-level-seat-view.png)
