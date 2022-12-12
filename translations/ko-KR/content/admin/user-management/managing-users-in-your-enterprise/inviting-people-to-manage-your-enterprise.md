@@ -1,6 +1,6 @@
 ---
-title: Inviting people to manage your enterprise
-intro: 'You can {% ifversion ghec %}invite people to become enterprise owners or billing managers for{% elsif ghes %}add enterprise owners to{% endif %} your enterprise account. You can also remove enterprise owners {% ifversion ghec %}or billing managers {% endif %}who no longer need access to the enterprise account.'
+title: 엔터프라이즈를 관리할 사용자 초대
+intro: '{% endif %}엔터프라이즈 계정에 엔터프라이즈 소유자를 {% elsif ghes %}추가하기 위해 엔터프라이즈 소유자 또는 청구 관리자가 되도록 사람들을 {% ifversion ghec %}i초대할 수 있습니다. {% endif %}엔터프라이즈 계정에 더 이상 액세스할 필요가 없는 엔터프라이즈 소유자 {% ifversion ghec %}또는 청구 관리자를 제거할 수도 있습니다.'
 permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
@@ -17,71 +17,62 @@ topics:
   - Enterprise
   - User account
 shortTitle: Invite people to manage
+ms.openlocfilehash: 7cdbee6f1b37a8300f3523712c6e0dda4293af74
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '146180449'
 ---
+## 엔터프라이즈 계정을 관리할 수 있는 사용자 정보
 
-## About users who can manage your enterprise account
-
-{% data reusables.enterprise-accounts.enterprise-administrators %} For more information, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+{% data reusables.enterprise-accounts.enterprise-administrators %} 자세한 내용은 "[엔터프라이즈에서의 역할](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"을 참조하세요.
 
 {% ifversion ghes %}
 
-If you want to manage owners and billing managers for an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, see "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% data variables.product.prodname_dotcom_the_website %}에서 엔터프라이즈 계정의 소유자 및 청구 관리자를 관리하려면 {% data variables.product.prodname_ghe_cloud %} 설명서에서 "[엔터프라이즈를 관리할 사용자 초대](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"를 참조하세요.
 
 {% endif %}
 
 {% ifversion ghec %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, enterprise owners can only be added or removed through your identity provider. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+엔터프라이즈에서 {% data variables.product.prodname_emus %}를 사용하는 경우 엔터프라이즈 소유자는 ID 공급자를 통해서만 추가하거나 제거할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_emus %} 정보](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”를 참조하세요.
 
 {% endif %}
 
 {% tip %}
 
-**Tip:** For more information on managing users within an organization owned by your enterprise account, see "[Managing membership in your organization](/articles/managing-membership-in-your-organization)" and "[Managing people's access to your organization with roles](/articles/managing-peoples-access-to-your-organization-with-roles)."
+**팁:** 엔터프라이즈 계정이 소유한 조직 내에서 사용자를 관리하는 자세한 방법은 "[조직의 구성원 자격 관리](/articles/managing-membership-in-your-organization)" 및 "[역할을 사용하여 조직에 대한 사용자 액세스 관리](/articles/managing-peoples-access-to-your-organization-with-roles)"를 참조하세요.
 
 {% endtip %}
 
-## {% ifversion ghec %}Inviting{% elsif ghes %}Adding{% endif %} an enterprise administrator to your enterprise account
+## 엔터프라이즈 관리자를 엔터프라이즈 계정에 {% ifversion ghec %}초대{% elsif ghes %}추가{% endif %}
 
-{% ifversion ghec %}After you invite someone to join the enterprise account, they must accept the emailed invitation before they can access the enterprise account. Pending invitations will expire after 7 days.{% endif %}
+{% ifversion ghec %}엔터프라이즈 계정에 가입하도록 누군가를 초대했다면, 초대받은 사람은 이메일로 전송된 초대를 수락해야 엔터프라이즈 계정에 액세스할 수 있습니다. 보류 중인 초대는 7일 후에 만료됩니다.{% endif %}
 
-{% ifversion enterprise-membership-view-improvements %}
-You can see all pending invitations to become an administrator of your enterprise account. For more information, see "[Viewing people in your enterprise](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)."
+{% ifversion enterprise-membership-view-improvements %} 보류 중인 모든 초대를 확인하여 엔터프라이즈 계정의 관리자가 될 수 있습니다. 자세한 내용은 “[엔터프라이즈의 사용자 보기](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)”를 참조하세요.
 {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-{% data reusables.enterprise-accounts.administrators-tab %}
-1. Above the list of administrators, click {% ifversion ghec %}**Invite admin**{% elsif ghes %}**Add owner**{% endif %}.
-  {% ifversion ghec %}
-  !["Invite admin" button above the list of enterprise owners](/assets/images/help/business-accounts/invite-admin-button.png)
-  {% elsif ghes %}
-  !["Add owner" button above the list of enterprise owners](/assets/images/help/business-accounts/add-owner-button.png)
-  {% endif %}
-1. Type the username, full name, or email address of the person you want to invite to become an enterprise administrator, then select the appropriate person from the results.
-  ![Modal box with field to type a person's username, full name, or email address, and Invite button](/assets/images/help/business-accounts/invite-admins-modal-button.png){% ifversion ghec %}
-1. Select **Owner** or **Billing Manager**.
-  ![Modal box with role choices](/assets/images/help/business-accounts/invite-admins-roles.png)
-1. Click **Send Invitation**.
-  ![Send invitation button](/assets/images/help/business-accounts/invite-admins-send-invitation.png){% endif %}{% ifversion ghes %}
-1. Click **Add**.
-  !["Add" button](/assets/images/help/business-accounts/add-administrator-add-button.png){% endif %}
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %} {% data reusables.enterprise-accounts.administrators-tab %}
+1. 관리자 목록 위에서 {% ifversion ghec %}**관리자 초대**{% elsif ghes %}**소유자 추가**{% endif %}를 클릭합니다.
+  {% ifversion ghec %} ![엔터프라이즈 소유자 목록 위에 있는 "관리자 초대" 단추](/assets/images/help/business-accounts/invite-admin-button.png) {% elsif ghes %} ![엔터프라이즈 소유자 목록 위에 있는 "관리자 추가" 단추](/assets/images/help/business-accounts/add-owner-button.png) {% endif %}
+1. 엔터프라이즈 관리자가 되도록 초대할 사용자의 사용자 이름, 전체 이름 또는 전자 메일 주소를 입력한 다음 결과에서 적절한 사용자를 선택합니다.
+  ![사용자의 사용자 이름, 전체 이름 또는 전자 메일 주소를 입력할 필드가 있는 모달 상자 및 초대 단추](/assets/images/help/business-accounts/invite-admins-modal-button.png){% ifversion ghec %}
+1. **소유자** 또는 **청구 관리자** 를 선택합니다.
+  ![역할 선택지가 있는 모달 상자](/assets/images/help/business-accounts/invite-admins-roles.png)
+1. **초대 보내기** 를 클릭합니다.
+  ![초대 보내기 단추](/assets/images/help/business-accounts/invite-admins-send-invitation.png){% endif %}{% ifversion ghes %}
+1. **추가** 를 클릭합니다.
+  !["추가" 단추](/assets/images/help/business-accounts/add-administrator-add-button.png){% endif %}
 
-## Removing an enterprise administrator from your enterprise account
+## 엔터프라이즈 계정에서 엔터프라이즈 관리자 제거
 
-Only enterprise owners can remove other enterprise administrators from the enterprise account.
+엔터프라이즈 소유자만 엔터프라이즈 계정에서 다른 엔터프라이즈 관리자를 제거할 수 있습니다.
 
-{% ifversion ghec %}
-If the administrator you want to remove is a member of any organizations owned by the enterprise, you can choose **Convert to member**, which will remove their administrative role but retain their organization memberships, or **Remove from enterprise**, which will remove both their administrative role and organization memberships.
+{% ifversion ghec %} 제거하려는 관리자가 엔터프라이즈가 소유한 조직의 구성원인 경우 **구성원으로 변환** 을 선택하면 관리 역할이 제거하지만 조직 구성원 자격은 유지됩니다. **엔터프라이즈에서 제거** 를 선택하면 관리 역할과 조직 구성원 자격이 모두 제거됩니다.
 {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-{% data reusables.enterprise-accounts.administrators-tab %}
-1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member** or **Remove from enterprise**.{% endif %}.
-  {% ifversion ghec %}
-  ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/remove-admin.png)
-  {% elsif ghes %}
-  ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/ghes-remove-owner.png)
-  {% endif %}
-1. Read the confirmation, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Yes, convert USERNAME to member**{% endif %}.
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %} {% data reusables.enterprise-accounts.administrators-tab %}
+1. 제거할 사용자의 사용자 이름 옆에 있는 {% octicon "gear" aria-label="The Settings gear" %}를 클릭한 다음 {% ifversion ghes %}**소유자 제거**{% elsif ghec %}**구성원으로 변환** 이나 **엔터프라이즈에서 제거** 를 클릭합니다.{% endif %}
+  {% ifversion ghec %} ![엔터프라이즈 관리자를 제거하는 메뉴 옵션이 있는 설정 기어](/assets/images/help/business-accounts/remove-admin.png) {% elsif ghes %} ![엔터프라이즈 관리자를 제거하는 메뉴 옵션이 있는 설정 기어](/assets/images/help/business-accounts/ghes-remove-owner.png) {% endif %}
+1. 확인을 읽은 다음 {% ifversion ghes %}**소유자 제거**{% elsif ghec %}**예, USERNAME을 구성원으로 변환합니다** 를 클릭합니다{% endif %}.

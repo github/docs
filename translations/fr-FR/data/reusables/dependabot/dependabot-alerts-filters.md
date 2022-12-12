@@ -1,14 +1,22 @@
-You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by typing filters as `key:value` pairs into the search bar. 
+---
+ms.openlocfilehash: dfbf31bbfeea726bcd0c1852d881aefc8f149c0e
+ms.sourcegitcommit: e8c012864f13f9146e53fcb0699e2928c949ffa8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/09/2022
+ms.locfileid: "148159783"
+---
+Vous pouvez trier et filtrer les {% data variables.product.prodname_dependabot_alerts %} en tapant des filtres sous forme de paires `key:value` dans la barre de recherche. 
 
-| Option | Description | Example | 
+| Option | Description | Exemple | 
 |:---|:---|:---|
-| `ecosystem` | Displays alerts for the selected ecosystem | Use `ecosystem:npm` to show {% data variables.product.prodname_dependabot_alerts %} for npm |{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-| `has` | Displays alerts meeting the selected filter criteria | Use `has:patch` to show alerts related to advisories that have a patch{% ifversion dependabot-alerts-vulnerable-calls %}</br>Use `has:vulnerable-calls` to show alerts relating to calls to vulnerable functions{% endif %} |{% endif %}
-| `is` | Displays alerts based on their state | Use `is:open` to show open alerts |
-| `manifest` | Displays alerts for the selected manifest | Use `manifest:webwolf/pom.xml` to show alerts on the pom.xml file of the webwolf application |
-| `package` | Displays alerts for the selected package | Use `package:django` to show alerts for django |
-| `resolution` | Displays alerts of the selected resolution status | Use `resolution:no-bandwidth` to show alerts previously parked due to lack of resources or time to fix them |
-| `repo` |  Displays alerts based on the repository they relate to</br>Note that this filter is only available on the security overview. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)" | Use `repo:octocat-repo` to show alerts in the repository called `octocat-repo` |{%- ifversion dependabot-alerts-development-label %}
-| `scope` | Displays alerts based on the scope of the dependency they relate to | Use `scope:development` to show alerts for dependencies that are only used during development |{% endif %}
-| `severity` | Displays alerts based on their level of severity | Use `severity:high` to show alerts with a severity of High |{%- ifversion dependabot-most-important-sort-option %}
-| `sort` | Displays alerts according to the selected sort order | The default sorting option for alerts is `sort:most-important`, which ranks alerts by importance</br>Use `sort:newest` to show the latest alerts reported by {% data variables.product.prodname_dependabot %} |{% endif %}
+| `ecosystem` | Affiche des alertes pour l’écosystème sélectionné | Utiliser `ecosystem:npm` pour afficher des {% data variables.product.prodname_dependabot_alerts %} pour npm |{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+| `has` | Affiche les alertes répondant aux critères de filtre sélectionnés | Utiliser `has:patch` pour afficher les alertes liées aux avis qui comportent un correctif{% ifversion dependabot-alerts-vulnerable-calls %}</br>Utiliser `has:vulnerable-calls` pour afficher les alertes relatives aux appels aux fonctions vulnérables{% endif %} |{% endif %}
+| `is` | Affiche les alertes en fonction de leur état | Utiliser `is:open` pour afficher les alertes ouvertes |
+| `manifest` | Affiche les alertes du manifeste sélectionné | Utiliser `manifest:webwolf/pom.xml` pour afficher les alertes sur le fichier pom.xml de l’application webwolf |
+| `package` | Affiche les alertes du package sélectionné | Utiliser `package:django` pour afficher les alertes pour django |
+| `resolution` | Affiche les alertes de l’état de résolution sélectionné | Utiliser `resolution:no-bandwidth` pour afficher les alertes précédemment parquées en raison d’un manque de ressources ou d’un délai de correction |
+| `repo` |  Affiche les alertes en fonction du dépôt auquel elles sont liées</br>Notez que ce filtre est disponible uniquement sur les vues d’ensemble de la sécurité. Pour plus d’informations, consultez « [À propos des vues d’ensemble de la sécurité](/code-security/security-overview/about-the-security-overview) ». | Utiliser `repo:octocat-repo` pour afficher les alertes dans le dépôt appelé `octocat-repo` |{%- ifversion dependabot-alerts-development-label %}
+| `scope` | Affiche des alertes en fonction de l’étendue de la dépendance à laquelle elles sont liées | Utiliser `scope:development` pour afficher les alertes des dépendances utilisées uniquement pendant le développement |{% endif %}
+| `severity` | Affiche les alertes en fonction de leur niveau de gravité | Utiliser `severity:high` pour afficher les alertes dont le niveau de gravité est élevé |{%- ifversion dependabot-most-important-sort-option %}
+| `sort` | Affiche les alertes en fonction de l’ordre de tri sélectionné | L’option de tri par défaut des alertes est `sort:most-important`, qui permet de les classer par importance</br>Utiliser `sort:newest` pour afficher les dernières alertes signalées par {% data variables.product.prodname_dependabot %} |{% endif %}

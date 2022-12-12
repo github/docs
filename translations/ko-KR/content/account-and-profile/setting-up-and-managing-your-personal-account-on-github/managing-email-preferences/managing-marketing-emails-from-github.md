@@ -1,6 +1,6 @@
 ---
-title: Managing marketing emails from GitHub
-intro: 'In addition to notifications and account emails, {% data variables.product.prodname_dotcom %} occasionally sends marketing emails with news and information about our products. If you unsubscribe from existing marketing emails, you won''t be included in future campaigns unless you change your {% data variables.product.prodname_dotcom %} email settings.'
+title: GitHub 마케팅 메일 관리
+intro: '{% data variables.product.prodname_dotcom %}는 알림 및 계정 메일 외에도 제품에 대한 뉴스 및 정보가 포함된 마케팅 메일을 가끔 보냅니다. 기존 마케팅 메일 구독을 취소하는 경우 {% data variables.product.prodname_dotcom %} 메일 설정을 변경하지 않는 한 향후 캠페인에 포함되지 않습니다.'
 redirect_from:
   - /articles/managing-marketing-emails-from-github
   - /github/setting-up-and-managing-your-github-user-account/managing-marketing-emails-from-github
@@ -13,23 +13,28 @@ topics:
   - Accounts
   - Notifications
 shortTitle: Marketing emails
+ms.openlocfilehash: 07d100e59d025072e098b016bde30a23b9a7449e
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145165282'
 ---
-## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
+## {% data variables.product.prodname_dotcom %} 마케팅 메일 구독 취소
 
 {% tip %}
 
-**Tip:** If you unsubscribe from all marketing emails and then subscribe to the Explore newsletter, you'll only receive the Explore newsletter, and won't receive other marketing email.
+**팁:** 모든 마케팅 메일의 구독을 취소하고 Explore 뉴스레터를 구독하는 경우 Explore 뉴스레터만 받게 되고 다른 마케팅 메일은 받을 수 없습니다.
 
 {% endtip %}
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-3. Under *Email preferences*, select **Only receive account related emails, and those I subscribe to**.
-  ![Screenshot of opting out of marketing email](/assets/images/help/notifications/email_preferences.png)
-4. Click **Save email preferences**.
-  ![Save email preferences button](/assets/images/help/notifications/save_email_preferences.png)
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.emails %}
+3. *메일 기본 설정* 에서 **계정 관련 메일 및 구독한 메일만 받기** 를 선택합니다.
+  ![마케팅 메일 옵트아웃 스크린샷](/assets/images/help/notifications/email_preferences.png)
+4. **메일 기본 설정 저장** 을 클릭합니다.
+  ![메일 기본 설정 저장 단추](/assets/images/help/notifications/save_email_preferences.png)
 
-## Further reading
+## 추가 참고 자료
 
-- "[Types of emails GitHub sends](/articles/types-of-emails-github-sends)"
-- "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
+- “[GitHub에서 보내는 메일 유형](/articles/types-of-emails-github-sends)”
+- “[알림 구성](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)”

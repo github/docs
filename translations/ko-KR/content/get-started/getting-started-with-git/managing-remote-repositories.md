@@ -1,6 +1,6 @@
 ---
-title: Managing remote repositories
-intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.product_name %}.'
+title: 원격 리포지토리 관리
+intro: '{% data variables.product.product_name %}에서 호스트되는 컴퓨터 및 원격 리포지토리에서 로컬 리포지토리를 사용해 작업하는 방법을 알아봅니다.'
 redirect_from:
   - /categories/18/articles
   - /remotes
@@ -24,16 +24,22 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Manage remote repositories
+ms.openlocfilehash: d89a9c008128154e7de045be0de54db04168cb33
+ms.sourcegitcommit: 7fb7ec2e665856fc5f7cd209b53bd0fb1c9bbc67
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/29/2022
+ms.locfileid: '148185053'
 ---
-## Adding a remote repository
+## 원격 리포지토리 추가
 
-To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
+새 원격을 추가하려면 리포지토리가 저장된 터미널의 디렉터리에서 `git remote add` 명령을 사용합니다.
 
-The `git remote add` command takes two arguments:
-* A remote name, for example, `origin`
-* A remote URL, for example, `https://{% data variables.command_line.backticks %}/user/repo.git`
+`git remote add` 명령은 다음 두 개의 인수를 사용합니다.
+* 원격 이름(예: `origin`)
+* 원격 URL(예: `https://{% data variables.command_line.backticks %}/user/repo.git`)
 
-For example:
+예를 들면 다음과 같습니다.
 
 ```shell
 $ git remote add origin https://{% data variables.command_line.codeblock %}/USER/REPO.git
@@ -45,60 +51,60 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/USER/REPO.git (push)
 ```
 
-For more information on which URL to use, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+사용할 URL에 대한 자세한 내용은 “[원격 리포지토리 정보](/github/getting-started-with-github/about-remote-repositories)”를 참조하세요.
 
-### Troubleshooting: Remote origin already exists
+### 문제 해결: 원격 원본이 이미 있음
 
-This error means you've tried to add a remote with a name that already exists in your local repository.
+이 오류는 로컬 리포지토리에 이미 있는 이름의 원격을 추가하려고 했음을 의미합니다.
 
 ```shell
 $ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
 > fatal: remote origin already exists.
 ```
 
-To fix this, you can:
-* Use a different name for the new remote.
-* Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
-* Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
+문제를 해결하기 위해 다음을 수행할 수 있습니다.
+* 새 원격에 다른 이름을 사용합니다.
+* 새 원격을 추가하기 전에 기존 원격 리포지토리의 이름을 바꿉니다. 자세한 내용은 아래의 “[원격 리포지토리 이름 바꾸기](#renaming-a-remote-repository)”를 참조하세요.
+* 새 원격을 추가하기 전에 기존 원격 리포지토리를 삭제합니다. 자세한 내용은 아래의 “[원격 리포지토리 제거](#removing-a-remote-repository)”를 참조하세요.
 
-## Changing a remote repository's URL
+## 원격 리포지토리의 URL 변경
 
-The `git remote set-url` command changes an existing remote repository URL.
+`git remote set-url` 명령은 기존 원격 리포지토리 URL을 변경합니다.
 
 {% tip %}
 
-**Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+**팁:** HTTPS와 SSH URL 간의 차이점에 대한 자세한 내용은 “[원격 리포지토리 정보](/github/getting-started-with-github/about-remote-repositories)”를 참조하세요.
 
 {% endtip %}
 
-The `git remote set-url` command takes two arguments:
+`git remote set-url` 명령은 다음 두 개의 인수를 사용합니다.
 
-* An existing remote name. For example, `origin` or `upstream` are two common choices.
-* A new URL for the remote. For example:
-  * If you're updating to use HTTPS, your URL might look like:
+* 기존 원격 이름. 예를 들어 일반적으로 선택하는 두 가지는 `origin` 또는 `upstream`입니다.
+* 새 원격 URL. 예를 들면 다음과 같습니다.
+  * HTTPS를 사용하도록 업데이트하는 경우 URL은 다음과 같을 수 있습니다.
 ```shell
 https://{% data variables.command_line.backticks %}/USERNAME/REPOSITORY.git
 ```
-  * If you're updating to use SSH, your URL might look like:
+  * SSH를 사용하도록 업데이트하는 경우 URL은 다음과 같을 수 있습니다.
 ```shell
 git@{% data variables.command_line.codeblock %}:USERNAME/REPOSITORY.git
 ```
 
-### Switching remote URLs from SSH to HTTPS
+### 원격 URL을 SSH에서 HTTPS로 전환
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
+2. 현재 작업 디렉터리를 로컬 프로젝트로 변경합니다.
+3. 변경하려는 원격의 이름을 얻기 위해 기존 원격을 나열합니다.
   ```shell
   $ git remote -v
   > origin  git@{% data variables.command_line.codeblock %}:USERNAME/REPOSITORY.git (fetch)
   > origin  git@{% data variables.command_line.codeblock %}:USERNAME/REPOSITORY.git (push)
   ```
-4. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
+4. `git remote set-url` 명령을 사용하여 원격의 URL을 SSH에서 HTTPS로 변경합니다.
   ```shell
   $ git remote set-url origin https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
   ```
-5. Verify that the remote URL has changed.
+5. 원격 URL이 변경되었는지 확인합니다.
   ```shell
   $ git remote -v
   # Verify new remote URL
@@ -106,25 +112,25 @@ git@{% data variables.command_line.codeblock %}:USERNAME/REPOSITORY.git
   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git (push)
   ```
 
-The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user-settings.password-authentication-deprecation %}
+다음에 원격 리포지토리에 `git fetch`, `git pull` 또는 `git push`할 때 GitHub 사용자 이름 및 암호를 묻는 메시지가 표시됩니다. {% data reusables.user-settings.password-authentication-deprecation %}
 
-You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and {% data variables.product.pat_generic %} every time it talks to GitHub.
+GitHub와 대화할 때마다 GitHub 사용자 이름 및 {% data variables.product.pat_generic %}을(를) 기억할 수 있도록 [자격 증명 도우미를 사용할](/github/getting-started-with-github/caching-your-github-credentials-in-git) 수 있습니다.
 
-### Switching remote URLs from HTTPS to SSH
+### 원격 URL을 HTTPS에서 SSH로 전환
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
+2. 현재 작업 디렉터리를 로컬 프로젝트로 변경합니다.
+3. 변경하려는 원격의 이름을 얻기 위해 기존 원격을 나열합니다.
   ```shell
   $ git remote -v
   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git (fetch)
   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git (push)
   ```
-4. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
+4. `git remote set-url` 명령을 사용하여 원격의 URL을 HTTPS에서 SSH로 변경합니다.
   ```shell
   $ git remote set-url origin git@{% data variables.command_line.codeblock %}:USERNAME/REPOSITORY.git
   ```
-5. Verify that the remote URL has changed.
+5. 원격 URL이 변경되었는지 확인합니다.
   ```shell
   $ git remote -v
   # Verify new remote URL
@@ -132,28 +138,28 @@ You can [use a credential helper](/github/getting-started-with-github/caching-yo
   > origin  git@{% data variables.command_line.codeblock %}: USERNAME/REPOSITORY.git (push)
   ```
 
-### Troubleshooting: No such remote '[name]'
+### 문제 해결: ‘[name]’ 원격이 없음
 
-This error means that the remote you tried to change doesn't exist:
+이 오류는 변경하려는 원격이 없음을 의미합니다.
 
 ```shell
 $ git remote set-url sofake https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 > fatal: No such remote 'sofake'
 ```
 
-Check that you've correctly typed the remote name.
+원격 이름을 올바르게 입력했는지 확인합니다.
 
-## Renaming a remote repository
+## 원격 리포지토리 이름 바꾸기
 
-Use the `git remote rename` command to rename an existing remote.
+`git remote rename` 명령을 사용하여 기존 원격의 이름을 바꿉니다.
 
-The `git remote rename` command takes two arguments:
-* An existing remote name, for example, `origin`
-* A new name for the remote, for example, `destination`
+`git remote rename` 명령은 다음 두 개의 인수를 사용합니다.
+* 기존 원격 이름(예: `origin`)
+* 새 원격 이름(예: `destination`)
 
-## Example
+## 예제
 
-These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
+예제에서는 [HTTPS를 사용하여 복제](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)(권장)한다고 가정합니다.
 
 ```shell
 $ git remote -v
@@ -170,11 +176,11 @@ $ git remote -v
 > destination  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
 ```
 
-### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
+### 문제 해결: 구성 섹션의 이름을 ‘remote.[old name]’에서 ‘remote.[new name]’으로 바꿀 수 없음
 
-This error means that the old remote name you typed doesn't exist.
+이 오류는 입력한 이전 원격 이름이 없음을 의미합니다.
 
-You can check which remotes currently exist with the `git remote -v` command:
+`git remote -v` 명령을 사용하여 현재 있는 원격을 확인할 수 있습니다.
 
 ```shell
 $ git remote -v
@@ -183,22 +189,22 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
 ```
 
-### Troubleshooting: Remote [new name] already exists
+### 문제 해결: [new name] 원격이 이미 있음
 
-This error means that the remote name you want to use already exists. To solve this, either use a different remote name, or rename the original remote.
+이 오류는 사용하려는 원격 이름이 이미 있음을 의미합니다. 문제를 해결하려면 다른 원격 이름을 사용하거나 원래 원격의 이름을 바꿉니다.
 
-## Removing a remote repository 
+## 원격 리포지토리 제거 
 
-Use the `git remote rm` command to remove a remote URL from your repository.
+`git remote rm` 명령을 사용하여 리포지토리에서 원격 URL을 제거합니다.
 
-The `git remote rm` command takes one argument:
-* A remote name, for example, `destination`
+`git remote rm` 명령은 다음 한 개의 인수를 사용합니다.
+* 원격 이름(예: `destination`)
 
-Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
+리포지토리에서 원격 URL을 제거하는 경우 로컬 및 원격 리포지토리의 연결만 해제됩니다. 원격 리포지토리가 삭제되지는 않습니다.
 
-## Example
+## 예제
 
-These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
+예제에서는 [HTTPS를 사용하여 복제](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)(권장)한다고 가정합니다.
 
 ```shell
 $ git remote -v
@@ -218,22 +224,21 @@ $ git remote -v
 
 {% warning %}
 
-**Note**: `git remote rm` does not delete the remote repository from the server. It simply
-removes the remote and its references from your local repository.
+**참고**: `git remote rm`은 서버에서 원격 리포지토리를 삭제하지 않습니다. 로컬 리포지토리에서 원격 및 해당 참조를 제거하기만 합니다.
 
 {% endwarning %}
 
-### Troubleshooting: Could not remove config section 'remote.[name]'
+### 문제 해결: ‘remote.[name]’ 구성 섹션을 제거할 수 없음
 
-This error means that the remote you tried to delete doesn't exist:
+이 오류는 삭제하려는 원격이 없음을 의미합니다.
 
 ```shell
 $ git remote rm sofake
 > error: Could not remove config section 'remote.sofake'
 ```
 
-Check that you've correctly typed the remote name.
+원격 이름을 올바르게 입력했는지 확인합니다.
 
-## Further reading
+## 추가 참고 자료
 
-- "[Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+- [_Pro Git_ 설명서의 “원격 작업”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)

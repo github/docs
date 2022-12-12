@@ -1,6 +1,6 @@
 ---
-title: Configuring package ecosystem support for your enterprise
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.'
+title: 엔터프라이즈에 대한 패키지 에코시스템 지원 구성
+intro: '{% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker 및 npm을 포함하여 엔터프라이즈에서 개별 패키지 에코시스템을 전역적으로 사용하거나 사용하지 않도록 설정하여 엔터프라이즈에 대한 {% data variables.product.prodname_registry %}를 구성할 수 있습니다. 특정 패키지 에코시스템을 지원하기 위한 다른 구성 요구 사항에 대해 알아봅니다.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
@@ -11,44 +11,43 @@ topics:
   - Enterprise
   - Packages
 shortTitle: Configure package ecosystems
+ms.openlocfilehash: 83de80e4233f671a7a923394d2fd3f6e554bba10
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2022
+ms.locfileid: '147062548'
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-## Enabling or disabling individual package ecosystems
+## 개별 패키지 에코시스템 사용 또는 사용 안 함
 
-To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
+새 패키지가 업로드되지 않도록 하려면 기존 패키지를 다운로드하도록 허용하면서 이전에 사용했던 에코시스템을 **읽기 전용** 으로 설정할 수 있습니다.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. Under "Ecosystem Toggles", for each package type, select **Enabled**, **Read-Only**, or **Disabled**.
-   {%- ifversion ghes > 3.4 %}{% note -%}
-   **Note**: Subdomain isolation must be enabled to toggle the {% data variables.product.prodname_container_registry %} options.
-   {%- endnote %}{%- endif %}{%- ifversion ghes %}
-  ![Ecosystem toggles](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %}
-  ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_site_admin_settings.packages-tab %}
+1. "에코시스템 토글"에서 각 패키지 유형에 대해 **사용**, **읽기 전용** 또는 **사용 안 함** 을 선택합니다.
+   {%- ifversion ghes > 3.4 %}{% note -%} **참고**: {% data variables.product.prodname_container_registry %} 옵션을 전환하려면 하위 도메인 격리를 사용하도록 설정해야 합니다.
+   {%- endnote %}{%- endif %}{%- ifversion ghes %} ![에코시스템 토글](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png){% else %} ![에코시스템 토글](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %} {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes %}
-## Connecting to the official npm registry
+## 공식 npm 레지스트리에 연결
 
-If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.
+엔터프라이즈에서 npm 패키지를 사용하도록 설정하고 공식 npm 레지스트리 및 {% data variables.product.prodname_registry %} npm 레지스트리에 대한 액세스를 허용하려면 몇 가지 추가 구성을 수행해야 합니다.
 
-{% data variables.product.prodname_registry %} uses a transparent proxy for network traffic that connects to the official npm registry at `registry.npmjs.com`. The proxy is enabled by default and cannot be disabled.
+{% data variables.product.prodname_registry %}는 `registry.npmjs.com`의 공식 npm 레지스트리에 연결하는 네트워크 트래픽에 대해 투명한 프록시를 사용합니다. 프록시는 기본적으로 사용하도록 설정되어 있으며, 사용하지 않도록 설정할 수 없습니다.
 
-To allow network connections to the npm registry, you will need to configure network ACLs that allow {% data variables.product.prodname_ghe_server %} to send HTTPS traffic to `registry.npmjs.com`  over port 443:
+npm 레지스트리에 대한 네트워크 연결을 허용하려면 {% data variables.product.prodname_ghe_server %}가 포트 443을 통해 `registry.npmjs.com`에 HTTPS 트래픽을 보낼 수 있도록 네트워크 ACL을 구성해야 합니다.
 
-| Source | Destination | Port | Type |
+| 원본 | 대상 | 포트 | 형식 |
 |---|---|---|---|
 | {% data variables.product.prodname_ghe_server %} | `registry.npmjs.com` | TCP/443 | HTTPS |
 
-Note that connections to `registry.npmjs.com` traverse through the Cloudflare network, and subsequently do not connect to a single static IP address; instead, a connection is made to an IP address within the CIDR ranges listed here: https://www.cloudflare.com/ips/.
+`registry.npmjs.com`에 대한 연결은 Cloudflare 네트워크를 통과하며 이후 단일 고정 IP 주소에 연결되지 않습니다. 대신 여기에 나열되어 있는 CIDR 범위(https://www.cloudflare.com/ips/ ) 내의 IP 주소에 연결됩니다.
 
-If you wish to enable npm upstream sources, select `Enabled` for `npm upstreaming`.
+npm 업스트림 소스를 활성화하려면 `npm upstreaming`에 대해 `Enabled`를 선택합니다.
 
 {% endif %}
 
-## Next steps
+## 다음 단계
 
-As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+다음 단계로 패키지 호스트 URL에 대한 TLS 인증서를 업데이트하거나 업로드해야 하는지 확인하는 것이 좋습니다. 자세한 내용은 “[엔터프라이즈에 대한 GitHub 패키지 시작](/admin/packages/getting-started-with-github-packages-for-your-enterprise)”을 참조하세요.

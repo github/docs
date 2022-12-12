@@ -1,6 +1,6 @@
 ---
-title: Searching for repositories
-intro: 'You can search for repositories on {% data variables.product.product_name %} and narrow the results using these repository search qualifiers in any combination.'
+title: 리포지토리 검색
+intro: '{% data variables.product.product_name %}에서 리포지토리를 검색하고 이러한 리포지토리 검색 한정자를 조합하여 사용하여 결과를 좁힐 수 있습니다.'
 redirect_from:
   - /articles/searching-repositories
   - /articles/searching-for-repositories
@@ -14,193 +14,195 @@ versions:
 topics:
   - GitHub search
 shortTitle: Search for repositories
+ms.openlocfilehash: da0ba88187dc4a8f8be5a8050644aab8321f420f
+ms.sourcegitcommit: d697e0ea10dc076fd62ce73c28a2b59771174ce8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/20/2022
+ms.locfileid: '148098637'
 ---
-You can search for repositories globally across all of {% data variables.location.product_location %}, or search for repositories within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+모든 {% 데이터 variables.location.product_location %}에서 전역적으로 리포지토리를 검색하거나 특정 조직 내에서 리포지토리를 검색할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %} 검색 정보](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”를 참조하세요.
 
-To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/search-github/searching-on-github/searching-in-forks)."
+검색 결과에 포크를 포함하려면 쿼리에 `fork:true` 또는 `fork:only`를 추가해야 합니다. 자세한 내용은 “[포크에서 검색](/search-github/searching-on-github/searching-in-forks)”을 참조하세요.
 
 {% data reusables.search.syntax_tips %}
 
-## Search by repository name, description, or contents of the README file
+## README 파일의 리포지토리 이름, 설명 또는 콘텐츠로 검색
 
-With the `in` qualifier you can restrict your search to the repository name, repository description, repository topics, contents of the README file, or any combination of these. When you omit this qualifier, only the repository name, description, and topics are searched.
+`in` 한정자를 사용하면 README 파일의 리포지토리 이름, 리포지토리 설명, 리포지토리 토픽, 콘텐츠 또는 이들의 조합으로 검색을 제한할 수 있습니다. 이 한정자를 생략하면 리포지토리 이름, 설명, 토픽만 검색됩니다.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| `in:name` | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) matches repositories with "jquery" in the repository name.
-| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) matches repositories with "jquery" in the repository name or description.
-| `in:topics`  | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories) matches repositories labeled with "jquery" as a topic.
-| `in:readme` | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) matches repositories mentioning "jquery" in the repository's README file.
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) matches a specific repository name.
+| `in:name` | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories)은 리포지토리 이름에 “jquery”가 있는 리포지토리를 찾습니다.
+| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories)은 리포지토리 이름 또는 설명에 “jquery”가 있는 리포지토리를 찾습니다.
+| `in:topics`  | [**jquery in:topics**](https://github.com/search?q=jquery+in%3Atopics&type=Repositories)는 “jquery”로 레이블이 지정된 리포지토리를 토픽으로 일치시킵니다.
+| `in:readme` | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories)는 리포지토리의 README 파일에 “jquery”가 언급된 리포지토리를 찾습니다.
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world)는 특정 리포지토리 이름을 찾습니다.
 
-## Search based on the contents of a repository
+## 리포지토리 콘텐츠로 검색
 
-You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)."
+`in:readme` 한정자를 사용하여 리포지토리의 README 파일의 콘텐츠를 검색하여 리포지토리를 찾을 수 있습니다. 자세한 내용은 “[README 정보](/github/creating-cloning-and-archiving-repositories/about-readmes)”를 참조하세요.
 
-Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[Finding files on {% data variables.product.prodname_dotcom %}](/search-github/searching-on-github/finding-files-on-github)" and "[Searching code](/search-github/searching-on-github/searching-code)."
+`in:readme`를 사용하지 않으면 리포지토리 내에서 특정 콘텐츠를 검색하여 리포지토리를 찾을 수 없습니다. 리포지토리 내에서 특정 파일 또는 콘텐츠를 검색하려면 파일 찾기 또는 코드 관련 검색 한정자를 사용하면 됩니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %}에서 파일 찾기](/search-github/searching-on-github/finding-files-on-github)” 및 “[코드 검색](/search-github/searching-on-github/searching-code)”을 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) matches repositories mentioning "octocat" in the repository's README file.
+| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories)는 리포지토리의 README 파일에 “octocat”이 언급된 리포지토리를 찾습니다.
 
-## Search within a user's or organization's repositories
+## 사용자 또는 조직의 리포지토리 내에서 검색
 
-To search in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier.
+특정 사용자 또는 조직이 소유한 모든 리포지토리에서 검색하려면 `user` 또는 `org` 한정자를 사용하면 됩니다.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>user:<em>USERNAME</em></code> | [**user:defunkt forks:&gt;100**](https://github.com/search?q=user%3Adefunkt+forks%3A%3E%3D100&type=Repositories) matches repositories from @defunkt that have more than 100 forks.
-| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub&type=Repositories) matches repositories from GitHub.
+| <code>user:<em>USERNAME</em></code> | [**user:defunkt forks:&gt;100**](https://github.com/search?q=user%3Adefunkt+forks%3A%3E%3D100&type=Repositories)은 포크가 100개가 넘는 @defunkt에서 리포지토리를 찾습니다.
+| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub&type=Repositories)는 GitHub에서 리포지토리를 찾습니다.
 
-## Search by repository size
+## 리포지토리 크기로 검색
 
-The `size` qualifier finds repositories that match a certain size (in kilobytes), using greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+`size` 한정자는 보다 큼, 보다 작음 및 범위 한정자를 사용하여 특정 크기(킬로바이트 단위)와 일치하는 리포지토리를 찾습니다. 자세한 내용은 “[검색 구문 이해](/github/searching-for-information-on-github/understanding-the-search-syntax)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>size:<em>n</em></code> | [**size:1000**](https://github.com/search?q=size%3A1000&type=Repositories) matches repositories that are 1 MB exactly.
-| | [**size:&gt;=30000**](https://github.com/search?q=size%3A%3E%3D30000&type=Repositories) matches repositories that are at least 30 MB.
-| | [**size:&lt;50**](https://github.com/search?q=size%3A%3C50&type=Repositories) matches repositories that are smaller than 50 KB.
-| | [**size:50..120**](https://github.com/search?q=size%3A50..120&type=Repositories) matches repositories that are between 50 KB and 120 KB.
+| <code>size:<em>n</em></code> | [**size:1000**](https://github.com/search?q=size%3A1000&type=Repositories)은 정확히 1MB인 리포지토리를 찾습니다.
+| | [**size:&gt;=30000**](https://github.com/search?q=size%3A%3E%3D30000&type=Repositories)은 30MB 이상인 리포지토리를 찾습니다.
+| | [**size:&lt;50**](https://github.com/search?q=size%3A%3C50&type=Repositories)은 50KB 미만인 리포지토리를 찾습니다.
+| | [**size:50..120**](https://github.com/search?q=size%3A50..120&type=Repositories)은 50KB와 120KB 사이의 리포지토리를 찾습니다.
 
-## Search by number of followers
+## 팔로워 수로 검색
 
-You can filter repositories based on the number of users who follow the repositories, using the `followers` qualifier with greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+보다 큼, 보다 작음 및 범위 한정자와 함께 `followers` 한정자를 사용하여 리포지토리를 팔로우하는 사용자 수를 기준으로 리포지토리를 필터링할 수 있습니다. 자세한 내용은 “[검색 구문 이해](/github/searching-for-information-on-github/understanding-the-search-syntax)”를 참조하세요.
 
-| Qualifier        | Example
+| 한정자        | 예제
 | ------------- | -------------
-| <code>followers:<em>n</em></code> | [**node followers:>=10000**](https://github.com/search?q=node+followers%3A%3E%3D10000) matches repositories with 10,000 or more followers mentioning the word "node".
-| | [**styleguide linter followers:1..10**](https://github.com/search?q=styleguide+linter+followers%3A1..10&type=Repositories) matches repositories with between 1 and 10 followers, mentioning the word "styleguide linter."
+| <code>followers:<em>n</em></code> | [**node followers:>=10000**](https://github.com/search?q=node+followers%3A%3E%3D10000)은 팔로워가 10,000명 이상이며 “node”라는 단어가 언급된 리포지토리를 찾습니다.
+| | [**styleguide linter followers:1..10**](https://github.com/search?q=styleguide+linter+followers%3A1..10&type=Repositories)은 팔로워가 1명에서 10명 사이이며 “styleguide linter”라는 단어가 언급된 리포지토리를 찾습니다.
 
-## Search by number of forks
+## 포크 수로 검색
 
-The `forks` qualifier specifies the number of forks a repository should have, using greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+`forks` 한정자는 보다 큼, 보다 작음 및 범위 한정자를 사용하여 리포지토리에 있어야 하는 포크 수를 지정합니다. 자세한 내용은 “[검색 구문 이해](/github/searching-for-information-on-github/understanding-the-search-syntax)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>forks:<em>n</em></code> | [**forks:5**](https://github.com/search?q=forks%3A5&type=Repositories) matches repositories with only five forks.
-| | [**forks:&gt;=205**](https://github.com/search?q=forks%3A%3E%3D205&type=Repositories) matches repositories with at least 205 forks.
-| | [**forks:&lt;90**](https://github.com/search?q=forks%3A%3C90&type=Repositories) matches repositories with fewer than 90 forks.
-| | [**forks:10..20**](https://github.com/search?q=forks%3A10..20&type=Repositories) matches repositories with 10 to 20 forks.
+| <code>forks:<em>n</em></code> | [**forks:5**](https://github.com/search?q=forks%3A5&type=Repositories)는 5개의 포크만 있는 리포지토리를 찾습니다.
+| | [**forks:&gt;=205**](https://github.com/search?q=forks%3A%3E%3D205&type=Repositories)는 포크가 205개 이상인 리포지토리를 찾습니다.
+| | [**forks:&lt;90**](https://github.com/search?q=forks%3A%3C90&type=Repositories)은 포크가 90개 미만인 리포지토리를 찾습니다.
+| | [**forks:10..20**](https://github.com/search?q=forks%3A10..20&type=Repositories)은 포크가 10개에서 20개 사이인 리포지토리를 찾습니다.
 
-## Search by number of stars
+## 별 수로 검색
 
-You can search repositories based on the number of stars the repositories have, using greater than, less than, and range qualifiers. For more information, see "[Saving repositories with stars](/github/getting-started-with-github/saving-repositories-with-stars)" and "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+보다 큼, 보다 작음 및 범위 한정자를 사용하여 리포지토리에 있는 별 수를 기준으로 리포지토리를 검색할 수 있습니다. 자세한 내용은 “[별을 사용하여 리포지토리 저장](/github/getting-started-with-github/saving-repositories-with-stars)” 및 “[검색 구문 이해](/github/searching-for-information-on-github/understanding-the-search-syntax)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>stars:<em>n</em></code> | [**stars:500**](https://github.com/search?utf8=%E2%9C%93&q=stars%3A500&type=Repositories) matches repositories with exactly 500 stars.
-| | [**stars:10..20 size:<1000**](https://github.com/search?q=stars%3A10..20+size%3A%3C1000&type=Repositories) matches repositories 10 to 20 stars, that are smaller than 1000 KB.
-| | [**stars:&gt;=500 fork:true language:php**](https://github.com/search?q=stars%3A%3E%3D500+fork%3Atrue+language%3Aphp&type=Repositories) matches repositories with the at least 500 stars, including forked ones, that are written in PHP.
+| <code>stars:<em>n</em></code> | [**stars:500**](https://github.com/search?utf8=%E2%9C%93&q=stars%3A500&type=Repositories)은 정확히 별이 500개인 리포지토리를 찾습니다.
+| | [**stars:10..20 size:<1000**](https://github.com/search?q=stars%3A10..20+size%3A%3C1000&type=Repositories)은 별이 10개에서 20개 사이이며 1,000KB 미만인 리포지토리를 찾습니다.
+| | [**stars:&gt;=500 fork:true language:php**](https://github.com/search?q=stars%3A%3E%3D500+fork%3Atrue+language%3Aphp&type=Repositories)는 별이 500개 이상이며, 포크된 리포지토리를 포함하고, PHP로 작성된 리포지토리를 찾습니다.
 
-## Search by when a repository was created or last updated
+## 리포지토리 생성 시점 또는 마지막 업데이트 시점으로 검색
 
-You can filter repositories based on time of creation or time of last update. For repository creation, you can use the `created` qualifier; to find out when a repository was last updated, you'll want to use the `pushed` qualifier. The `pushed` qualifier will return a list of repositories, sorted by the most recent commit made on any branch in the repository.
+생성 시간 또는 마지막 업데이트 시간을 기준으로 리포지토리를 필터링할 수 있습니다. 리포지토리 생성의 경우 `created` 한정자를 사용할 수 있습니다. 리포지토리가 마지막으로 업데이트된 시점을 확인하려면 `pushed` 한정자를 사용해야 합니다. `pushed` 한정자는 리포지토리의 모든 분기에서 최근 커밋을 기준으로 정렬된 리포지토리 목록을 반환합니다.
 
-Both take a date as a parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
+둘 다 날짜를 매개 변수로 사용합니다. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>created:<em>YYYY-MM-DD</em></code> | [**webos created:&lt;2011-01-01**](https://github.com/search?q=webos+created%3A%3C2011-01-01&type=Repositories) matches repositories with the word "webos" that were created before 2011.
-| <code>pushed:<em>YYYY-MM-DD</em></code> | [**css pushed:&gt;2013-02-01**](https://github.com/search?utf8=%E2%9C%93&q=css+pushed%3A%3E2013-02-01&type=Repositories) matches repositories with the word "css" that were pushed to after January 2013.
-| | [**case pushed:&gt;=2013-03-06 fork:only**](https://github.com/search?q=case+pushed%3A%3E%3D2013-03-06+fork%3Aonly&type=Repositories) matches repositories with the word "case" that were pushed to on or after March 6th, 2013, and that are forks.
+| <code>created:<em>YYYY-MM-DD</em></code> | [**webos created:&lt;2011-01-01**](https://github.com/search?q=webos+created%3A%3C2011-01-01&type=Repositories)은 “webos”라는 단어가 있으며 2011년 전에 생성된 리포지토리를 찾습니다.
+| <code>pushed:<em>YYYY-MM-DD</em></code> | [**css pushed:&gt;2013-02-01**](https://github.com/search?utf8=%E2%9C%93&q=css+pushed%3A%3E2013-02-01&type=Repositories)은 “css”라는 단어가 있으며 2013년 1월 후에 푸시된 리포지토리를 찾습니다.
+| | [**case pushed:&gt;=2013-03-06 fork:only**](https://github.com/search?q=case+pushed%3A%3E%3D2013-03-06+fork%3Aonly&type=Repositories)는 “case”라는 단어가 있으며, 2013년 3월 6일 이후에 푸시되었고, 포크인 리포지토리를 찾습니다.
 
-## Search by language
+## 언어로 검색
 
-You can search repositories based on the language of the code in the repositories.
+리포지토리의 코드 언어를 기준으로 리포지토리를 검색할 수 있습니다.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>language:<em>LANGUAGE</em></code> | [**`rails language:javascript`**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) matches repositories with the word "rails" that are written in JavaScript.
+| <code>language:<em>LANGUAGE</em></code> | [ **`rails language:javascript`**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories)는 “rails”라는 단어가 있으며 JavaScript로 작성된 리포지토리를 찾습니다.
 
-## Search by topic
+## 토픽으로 검색
 
-You can find all of the repositories that are classified with a particular topic. For more information, see "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)."
+특정 토픽으로 분류된 모든 리포지토리를 찾을 수 있습니다. 자세한 내용은 “[토픽을 사용하여 리포지토리 분류](/github/administering-a-repository/classifying-your-repository-with-topics)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>topic:<em>TOPIC</em></code> | [**`topic:jekyll`**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) matches repositories that have been classified with the topic "Jekyll."
+| <code>topic:<em>TOPIC</em></code> | [ **`topic:jekyll`**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults)은 “Jekyll” 토픽으로 분류된 리포지토리를 찾습니다.
 
-## Search by number of topics
+## 토픽 수로 검색
 
-You can search repositories by the number of topics that have been applied to the repositories, using the `topics` qualifier along with greater than, less than, and range qualifiers. For more information, see "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" and "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+보다 큼, 보다 작음 및 범위 한정자와 함께 `topics` 한정자를 사용하여 리포지토리에 적용된 토픽 수로 리포지토리를 검색할 수 있습니다. 자세한 내용은 “[토픽을 사용하여 리포지토리 분류](/github/administering-a-repository/classifying-your-repository-with-topics)” 및 “[검색 구문 이해](/github/searching-for-information-on-github/understanding-the-search-syntax)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) matches repositories that have five topics.
-| | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) matches repositories that have more than three topics.
+| <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults)는 토픽이 5개인 리포지토리를 찾습니다.
+| | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults)은 토픽이 3개를 초과하는 리포지토리를 찾습니다.
 
 {% ifversion fpt or ghes or ghec %}
 
-## Search by license
+## 라이선스로 검색
 
-You can search repositories by the type of license in the repositories. You must use a license keyword to filter repositories by a particular license or license family. For more information, see "[Licensing a repository](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)."
+리포지토리의 라이선스 유형으로 리포지토리를 검색할 수 있습니다. 특정 라이선스 또는 라이선스 제품군으로 리포지토리를 필터링하려면 라이선스 키워드를 사용해야 합니다. 자세한 내용은 “[리포지토리 라이선스](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| <code>license:<em>LICENSE_KEYWORD</em></code> | [**license:apache-2.0**](https://github.com/search?utf8=%E2%9C%93&q=license%3Aapache-2.0&type=Repositories&ref=searchresults) matches repositories that are licensed under Apache License 2.0.
+| <code>license:<em>LICENSE_KEYWORD</em></code> | [**license:apache-2.0**](https://github.com/search?utf8=%E2%9C%93&q=license%3Aapache-2.0&type=Repositories&ref=searchresults)은 Apache License 2.0이 부여된 리포지토리를 찾습니다.
 
 {% endif %}
 
-## Search by repository visibility
+## 리포지토리 표시 여부로 검색
 
-You can filter your search based on the visibility of the repositories. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+리포지토리의 표시 여부를 기준으로 검색을 필터링할 수 있습니다. 자세한 내용은 “[리포지토리 정보](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”를 참조하세요.
 
-| Qualifier  | Example
-| ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec or ghae %}
-| `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test".{% endif %}
-| `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
+| 한정자  | 예제 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories)는 {% data variables.product.company_short %}에서 소유한 퍼블릭 리포지토리를 찾습니다.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories)는 사용자가 액세스할 수 있으며 “test”라는 단어가 포함된 내부 리포지토리를 찾습니다.{% endif %} | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories)는 사용자가 액세스할 수 있으며 “pages”라는 단어가 포함된 프라이빗 리포지토리를 찾습니다.
 
 {% ifversion fpt or ghec %}
 
-## Search based on whether a repository is a mirror
+## 리포지토리가 미러인지 여부를 기준으로 검색
 
-You can search repositories based on whether the repositories are mirrors and hosted elsewhere. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+리포지토리가 미러이며 다른 곳에서 호스트되는지 여부를 기준으로 리포지토리를 검색할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_dotcom %}에서 오픈 소스에 기여하는 방법 찾기](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| `mirror:true` | [**mirror:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Atrue+GNOME&type=) matches repositories that are mirrors and contain the word "GNOME."
-|  `mirror:false` | [**mirror:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Afalse+GNOME&type=) matches repositories that are not mirrors and contain the word "GNOME."
+| `mirror:true` | [**mirror:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Atrue+GNOME&type=)은 미러이며 “GNOME”이라는 단어가 포함된 리포지토리를 찾습니다.
+|  `mirror:false` | [**mirror:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Afalse+GNOME&type=)은 미러가 아니며 “GNOME”이라는 단어가 포함된 리포지토리를 찾습니다.
 
 {% endif %}
 
-## Search based on whether a repository is archived
+## 리포지토리가 보관되는지 여부를 기준으로 검색
 
-You can search repositories based on whether or not the repositories are archived. For more information, see "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)."
+리포지토리가 보관되는지 여부를 기준으로 리포지토리를 검색할 수 있습니다. 자세한 내용은 “[리포지토리 보관](/repositories/archiving-a-github-repository/archiving-repositories)”을 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| `archived:true` | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) matches repositories that are archived and contain the word "GNOME."
-|  `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) matches repositories that are not archived and contain the word "GNOME."
+| `archived:true` | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=)은 보관되며 “GNOME”이라는 단어가 포함된 리포지토리를 찾습니다.
+|  `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=)은 보관되지 않으며 “GNOME”이라는 단어가 포함된 리포지토리를 찾습니다.
 
 {% ifversion fpt or ghec %}
 
-## Search based on number of issues with `good first issue` or `help wanted` labels
+## `good first issue` 또는 `help wanted` 레이블을 사용하여 문제 수를 기준으로 검색
 
-You can search for repositories that have a minimum number of issues labeled `help-wanted` or `good-first-issue` with the qualifiers `help-wanted-issues:>n` and `good-first-issues:>n`. For more information, see "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)."
+`help-wanted-issues:>n` 및 `good-first-issues:>n` 한정자를 사용하여 `help-wanted` 또는 `good-first-issue` 레이블이 지정된 최소 문제 수가 있는 리포지토리를 검색할 수 있습니다. 자세한 내용은 “[레이블을 사용하여 프로젝트에 유용한 기여 장려](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| `good-first-issues:>n` | [**`good-first-issues:&gt;2 javascript`**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) matches repositories with more than two issues labeled `good-first-issue` and that contain the word "javascript."
-| `help-wanted-issues:>n`|[**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) matches repositories with more than four issues labeled `help-wanted` and that contain the word "React."
+| `good-first-issues:>n` | [ **`good-first-issues:&gt;2 javascript`**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=)는 `good-first-issue` 레이블이 지정된 문제가 2개를 초과하며 “javascript”라는 단어가 있는 리포지토리를 찾습니다.
+| `help-wanted-issues:>n`|[**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=)는 `help-wanted` 레이블이 지정된 문제가 4개를 초과하며 “React”라는 단어가 있는 리포지토리를 찾습니다.
 
-## Search based on ability to sponsor
+## 후원 가능 여부를 기준으로 검색
 
-You can search for repositories whose owners can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
+`is:sponsorable` 한정자를 사용하여 {% data variables.product.prodname_sponsors %}에서 소유자를 후원할 수 있는 리포지토리를 검색할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_sponsors %} 정보](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)”를 참조하세요.
 
-You can search for repositories that have a funding file using the `has:funding-file` qualifier. For more information, see "[About FUNDING files](/github/administering-a-repository/managing-repository-settings/displaying-a-sponsor-button-in-your-repository#about-funding-files)."
+`has:funding-file` 한정자를 사용하여 자금 조달 파일이 있는 리포지토리를 검색할 수 있습니다. 자세한 내용은 “[자금 조달 파일 정보](/github/administering-a-repository/managing-repository-settings/displaying-a-sponsor-button-in-your-repository#about-funding-files)”를 참조하세요.
 
-| Qualifier  | Example
+| 한정자  | 예제
 | ------------- | -------------
-| `is:sponsorable` | [**is:sponsorable**](https://github.com/search?q=is%3Asponsorable&type=Repositories) matches repositories whose owners have a {% data variables.product.prodname_sponsors %} profile.
-| `has:funding-file` | [**has:funding-file**](https://github.com/search?q=has%3Afunding-file&type=Repositories) matches repositories that have a FUNDING.yml file.
+| `is:sponsorable` | [**is:sponsorable**](https://github.com/search?q=is%3Asponsorable&type=Repositories)은 소유자에게 {% data variables.product.prodname_sponsors %} 프로필이 있는 리포지토리를 찾습니다.
+| `has:funding-file` | [**has:funding-file**](https://github.com/search?q=has%3Afunding-file&type=Repositories)은 FUNDING.yml 파일이 있는 리포지토리를 찾습니다.
 
 {% endif %}
 
-## Further reading
+## 추가 참고 자료
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
-- "[Searching in forks](/search-github/searching-on-github/searching-in-forks)"
+- “[검색 결과 정렬](/search-github/getting-started-with-searching-on-github/sorting-search-results/)”
+- “[포크에서 검색](/search-github/searching-on-github/searching-in-forks)”

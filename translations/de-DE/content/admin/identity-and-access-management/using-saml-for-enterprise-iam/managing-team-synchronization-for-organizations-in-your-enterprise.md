@@ -1,6 +1,6 @@
 ---
-title: Managing team synchronization for organizations in your enterprise
-intro: 'You can enable team synchronization between Azure AD and {% data variables.product.product_name %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
+title: Verwalten der Teamsynchronisierung für Organisationen in deinem Unternehmen
+intro: 'Du kannst die Teamsynchronisierung zwischen Azure AD und {% data variables.product.product_name %} aktivieren, sodass Organisationen im Besitz deines Unternehmenskontos Teammitgliedschaften über IdP-Gruppen verwalten können.'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'
@@ -16,13 +16,18 @@ redirect_from:
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
 shortTitle: Manage team synchronization
+ms.openlocfilehash: 1e29d70b0b8fcf78a8b03834e9436112634c636f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147076935'
 ---
-
 {% data reusables.enterprise-accounts.emu-scim-note %}
 
-## About team synchronization for enterprise accounts
+## Informationen zur Teamsynchronisierung für Unternehmenskonten
 
-If you use SAML at the enterprise level with Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.
+Wenn du SAML auf Unternehmensebene mit Azure AD als IdP verwendest, kannst du die Teamsynchronisierung für dein Unternehmenskonto aktivieren, damit Organisationsbesitzer*innen und Teambetreuer*innen Teams in den Organisationen synchronisieren können, die sich im Besitz deiner Unternehmenskonten mit IdP-Gruppen befinden.
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
@@ -30,29 +35,24 @@ If you use SAML at the enterprise level with Azure AD as your IdP, you can enabl
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-You can also configure and manage team synchronization for an individual organization. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
+Du kannst auch die Teamsynchronisation für eine einzelne Organisation konfigurieren und verwalten. Weitere Informationen findest du unter [Verwalten der Teamsynchronisierung für deine Organisation](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization).
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 
-## Prerequisites
+## Voraussetzungen
 
-You or your Azure AD administrator must be a Global administrator or a Privileged Role administrator in Azure AD.
+müssen du oder dein Azure AD-Administrator ein Global-Administrator oder ein Privileged Role-Administrator in Azure AD sein.
  
-You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+Du musst SAML-SSO für Organisationen in deinem Unternehmenskonto mit deinem unterstützten IdP erzwingen. Weitere Informationen findest du unter [Konfigurieren des einmaligen Anmeldens mit SAML für Unternehmen](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise).
 
-You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+musst du mit SAML SSO und der unterstützten IdP zu deinem Enterprise-Konto authentifizieren. Weitere Informationen findest du unter [Authentifizieren mit einmaligem Anmelden mit SAML](/articles/authenticating-with-saml-single-sign-on).
 
-## Managing team synchronization for Azure AD
+## Teamsynchronisation für Azure AD verwalten
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
-{% data reusables.identity-and-permissions.enable-team-sync-azure %}
-{% data reusables.identity-and-permissions.team-sync-confirm %}
-7. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**.
-  ![Pending request to enable team synchronization to a specific IdP tenant with option to approve or cancel request](/assets/images/help/teams/approve-team-synchronization.png)
-8. To disable team synchronization, click **Disable team synchronization**.
-  ![Disable team synchronization](/assets/images/help/teams/disable-team-synchronization.png)
+{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.settings-tab %} {% data reusables.enterprise-accounts.security-tab %} {% data reusables.identity-and-permissions.team-sync-confirm-saml %} {% data reusables.identity-and-permissions.enable-team-sync-azure %} {% data reusables.identity-and-permissions.team-sync-confirm %}
+7. Überprüfe die Details für den IdP-Mandanten, der eine Verbindung mit deinem Unternehmenskonto herstellen soll, und klicke dann auf **Genehmigen**.
+  ![Ausstehende Anforderung zum Aktivieren der Teamsynchronisierung für einen bestimmten IdP-Mandanten mit der Option zum Genehmigen oder Ablehnen der Anforderung](/assets/images/help/teams/approve-team-synchronization.png)
+8. Um die Teamsynchronisierung zu deaktivieren, klicke auf **Teamsynchronisierung deaktivieren**.
+  ![Deaktivieren von Teamsynchronisierung](/assets/images/help/teams/disable-team-synchronization.png)

@@ -1,6 +1,6 @@
 ---
-title: Viewing metrics for your listing
-intro: 'The {% data variables.product.prodname_marketplace %} Insights page displays metrics for your {% data variables.product.prodname_github_app %}. You can use the metrics to track your {% data variables.product.prodname_github_app %}''s performance and make more informed decisions about pricing, plans, free trials, and how to visualize the effects of marketing campaigns.'
+title: Anzeigen von Metriken für deinen Eintrag
+intro: 'Auf der Einblicksseite des {% data variables.product.prodname_marketplace %} werden Metriken für deine {% data variables.product.prodname_github_app %} angezeigt. Du kannst die Metriken dazu verwenden, die Leistung deiner {% data variables.product.prodname_github_app %} nachzuverfolgen und fundiertere Entscheidungen zu Preisen, Plänen und kostenlosen Testversionen zu treffen sowie darüber, wie du die Auswirkungen von Marketingkampagnen visualisieren kannst.'
 redirect_from:
   - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing
   - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing
@@ -13,44 +13,48 @@ versions:
 topics:
   - Marketplace
 shortTitle: View listing metrics
+ms.openlocfilehash: 92fde52b0edbc7c11ac22d641bc4d9c4bd02709f
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '145089748'
 ---
-You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
+Du kannst Metriken für den letzten Tag (24 Stunden), die letzte Woche, den letzten Monat oder für den gesamten Zeitraum anzeigen, in dem deine {% data variables.product.prodname_github_app %} aufgeführt war.
 
 {% note %}
 
-**Note:** Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
+**Hinweis:** Da das Aggregieren von Daten zeitaufwändig ist, wirst du eine geringfügige Verzögerung in den angezeigten Datumsangaben feststellen. Wenn du einen Zeitraum auswählst, kannst du die genauen Datumsangaben für die Metriken ganz oben auf der Seite anzeigen.
 
 {% endnote %}
 
-## Performance metrics
+## Leistungsmetriken
 
-The Insights page displays these performance metrics, for the selected time period:
+Auf der Seite mit den Erkenntnissen werden diese Leistungsmetriken für den ausgewählten Zeitraum angezeigt:
 
-* **Subscription value:** Total possible revenue (in US dollars) for subscriptions. This value represents the possible revenue if no plans or free trials are cancelled and all credit transactions are successful. The subscription value includes the full value for plans that begin with a free trial in the selected time period, even when there are no financial transactions in that time period. The subscription value also includes the full value of upgraded plans in the selected time period but does not include the prorated amount. To see and download individual transactions, see "[GitHub Marketplace transactions](/marketplace/github-marketplace-transactions/)."
-* **Visitors:** Number of people that have viewed a page in your GitHub Apps listing. This number includes both logged in and logged out visitors.
-* **Pageviews:** Number of views the pages in your GitHub App's listing received. A single visitor can generate more than one page view.
+* **Abonnementwert:** Möglicher Gesamtumsatz (in US-Dollar) für Abonnements. Dieser Wert stellt den möglichen Umsatz dar, wenn keine Pläne oder kostenlose Testversionen abgebrochen werden und alle Guthabentransaktionen erfolgreich sind. Der Abonnementwert enthält den vollständigen Wert für Pläne, die mit einer kostenlosen Testversion im ausgewählten Zeitraum beginnen, auch wenn keine finanziellen Transaktionen in diesem Zeitraum getätigt werden. Der Abonnementwert enthält auch den vollständigen Wert von Plänen im ausgewählten Zeitraum, für die ein Upgrade durchgeführt wurde. Der Wert enthält jedoch nicht den geschätzten Betrag. Informationen zum Anzeigen und Herunterladen einzelner Transaktionen findest du unter [GitHub Marketplace-Transaktionen](/marketplace/github-marketplace-transactions/).
+* **Besucher:** Anzahl der Personen, die eine Seite in deiner GitHub-Apps-Liste angezeigt haben. Diese Zahl umfasst sowohl angemeldete als auch abgemeldete Besucher.
+* **Seitenaufrufe:** Anzahl der Ansichten für die Seiten deiner Liste der GitHub-Apps. Ein einzelner Besucher kann mehrere Seitenaufrufe generieren.
 
 {% note %}
 
-**Note:**  Your estimated subscription value could be much higher than the transactions processed for this period. 
+**Hinweis:** Dein geschätzter Abonnementwert könnte viel höher liegen als die Transaktionen, die für diesen Zeitraum verarbeitet wurden. 
 
 {% endnote %}
 
-### Conversion performance
+### Konvertierungsleistung
 
-* **Unique visitors to landing page:** Number of people who viewed your GitHub App's landing page.
-* **Unique visitors to checkout page:** Number of people who viewed one of your GitHub App's checkout pages.
-* **Checkout page to new subscriptions:** Total number of paid subscriptions, free trials, and free subscriptions. See the "Breakdown of total subscriptions" for the specific number of each type of subscription.
+* **Unterschiedliche Besucher auf der Angebotsseite:** Anzahl der Personen, die deine GitHub-App-Angebotsseite besucht haben.
+* **Unterschiedliche Besucher auf der Kassenseite:** Anzahl der Personen, die eine der Kassenseiten deiner GitHub-Apps besucht haben.
+* **Kassenseite für neue Abonnements:** Gesamtzahl der kostenpflichtigen Abonnements, kostenlosen Testversionen und kostenlosen Abonnements. Weitere Informationen zur bestimmten Anzahl jedes Abonnementtyps findest du unter „Aufschlüsselung der Abonnements gesamt“.
 
-![Marketplace insights](/assets/images/marketplace/marketplace_insights.png)
+![Marketplace-Erkenntnisse](/assets/images/marketplace/marketplace_insights.png)
 
-To access {% data variables.product.prodname_marketplace %} Insights:
+So greifst du auf {% data variables.product.prodname_marketplace %}-Erkenntnisse zu:
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view Insights for.
+{% data reusables.user-settings.access_settings %} {% data reusables.user-settings.developer_settings %} {% data reusables.user-settings.marketplace_apps %}
+4. Wähle die {% data variables.product.prodname_github_app %} aus, für die du Erkenntnisse ansehen möchtest.
 {% data reusables.user-settings.edit_marketplace_listing %}
-6. Click the **Insights** tab.
-7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Insights page.
-![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)
+6. Klicke auf die Registerkarte **Erkenntnisse**.
+7. Wähle optional einen anderen Zeitraum aus, indem du auf das Dropdownmenü für den Zeitraum in der oberen rechten Ecke der Erkenntnisseite klickst.
+![Marketplace-Zeitraum](/assets/images/marketplace/marketplace_insights_time_period.png)

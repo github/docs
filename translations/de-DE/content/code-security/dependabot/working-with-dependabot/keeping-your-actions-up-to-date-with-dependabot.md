@@ -1,6 +1,6 @@
 ---
-title: Keeping your actions up to date with Dependabot
-intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the actions you use updated to the latest versions.'
+title: Deine Aktionen mit Dependabot auf dem neuesten Stand halten
+intro: 'Du kannst {% data variables.product.prodname_dependabot %} verwenden, um die Aktionen beizubehalten, die du auf die neuesten Versionen aktualisiert hast.'
 redirect_from:
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-github-dependabot
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-dependabot
@@ -17,33 +17,38 @@ topics:
   - Version updates
   - Actions
 shortTitle: Auto-update actions
+ms.openlocfilehash: 804660684230d8a0fb716b69644aab851a4c247b
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148107725'
 ---
-
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## About {% data variables.product.prodname_dependabot_version_updates %} for actions
+## Informationen zu {% data variables.product.prodname_dependabot_version_updates %} für Aktionen
 
-Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's *workflow.yml* file are kept up to date. For each action in the file, {% data variables.product.prodname_dependabot %} checks the action's reference (typically a version number or commit identifier associated with the action) against the latest version. If a more recent version of the action is available, {% data variables.product.prodname_dependabot %} will send you a pull request that updates the reference in the workflow file to the latest version. For more information about {% data variables.product.prodname_dependabot_version_updates %}, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)." For more information about configuring workflows for {% data variables.product.prodname_actions %}, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+Aktionen werden häufig mit Fehlerkorrekturen und neuen Features aktualisiert, um automatisierte Prozesse zuverlässiger, schneller und sicherer zu machen. Wenn du {% data variables.product.prodname_dependabot_version_updates %} für {% data variables.product.prodname_actions %} aktivierst, sorgt {% data variables.product.prodname_dependabot %} dafür, dass die Verweise auf Aktionen in der *workflow.yml*-Datei eines Repositorys auf dem neuesten Stand sind. Für jede Aktion in der Datei prüft {% data variables.product.prodname_dependabot %} die Referenz der Aktion (in der Regel eine Versionsnummer oder eine Commit-Kennung, die mit der Aktion verbunden ist) mit der neuesten Version. Wenn eine neuere Version der Aktion verfügbar ist, sendet {% data variables.product.prodname_dependabot %} Dir eine Pull-Anforderung, die die Referenz in der Workflow-Datei auf die neueste Version aktualisiert. Weitere Informationen zu {% data variables.product.prodname_dependabot_version_updates %} findest du unter "[Informationen zu {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)". Weitere Informationen zur Konfiguration von Workflows für {% data variables.product.prodname_actions %} findest du unter "[Lernen {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
   
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
-## Enabling {% data variables.product.prodname_dependabot_version_updates %} for actions
+## Aktivieren von {% data variables.product.prodname_dependabot_version_updates %} für Aktionen
 
-You can configure {% data variables.product.prodname_dependabot_version_updates %} to maintain your actions as well as the libraries and packages you depend on. 
+Du kannst {% data variables.product.prodname_dependabot_version_updates %} konfigurieren, um deine Aktionen sowie die Bibliotheken und Pakete zu verwalten, von denen du abhängig bist. 
 
-1. If you have already enabled {% data variables.product.prodname_dependabot_version_updates %} for other ecosystems or package managers, simply open the existing *dependabot.yml* file. Otherwise, create a *dependabot.yml* configuration file in the `.github` directory of your repository. For more information, see "[Configuring Dependabot version updates](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
-1. Specify `"github-actions"` as a `package-ecosystem` to monitor.
-1. Set the `directory` to `"/"` to check for workflow files in `.github/workflows`.
-1. Set a `schedule.interval` to specify how often to check for new versions.
-{% data reusables.dependabot.check-in-dependabot-yml %} If you have edited an existing file, save your changes.
+1. Wenn du bereits {% data variables.product.prodname_dependabot_version_updates %} für andere Ökosysteme oder Paket-Manager aktiviert hast, öffne einfach die bestehende *dependabot.yml*-Datei. Erstelle andernfalls die Konfigurationsdatei *dependabot.yml* im Verzeichnis `.github` deines Repositorys. Weitere Informationen findest du unter [Konfigurieren von Dependabot-Versionsupdates](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
+1. Gib `"github-actions"` als `package-ecosystem` zu überwachen an.
+1. Lege `directory` `"/"` Kontrollkästchen für Workflowdateien in `.github/workflows`fest.
+1. Lege mit `schedule.interval` fest, wie oft nach neuen Versionen gesucht werden soll.
+{% data reusables.dependabot.check-in-dependabot-yml %} Wenn du eine bestehende Datei bearbeitet hast, speichere deine Änderungen.
 
-You can also enable {% data variables.product.prodname_dependabot_version_updates %} on forks. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-version-updates-on-forks)."
+Du kannst auch {% data variables.product.prodname_dependabot_version_updates %} auf Forks aktivieren. Weitere Informationen findest du unter [Konfigurieren von {% data variables.product.prodname_dependabot %}-Versionsupdates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-version-updates-on-forks).
 
-### Example *dependabot.yml* file for {% data variables.product.prodname_actions %}
+### Beispiel für die Datei *dependabot.yml* für {% data variables.product.prodname_actions %}
 
-The example *dependabot.yml* file below configures version updates for {% data variables.product.prodname_actions %}. The `directory` must be set to `"/"` to check for workflow files in `.github/workflows`. The `schedule.interval` is set to `"weekly"`. After this file has been checked in or updated, {% data variables.product.prodname_dependabot %} checks for new versions of your actions. {% data variables.product.prodname_dependabot %} will raise pull requests for version updates for any outdated actions that it finds. After the initial version updates, {% data variables.product.prodname_dependabot %} will continue to check for outdated versions of actions once a week.
+Die folgende Beispieldatei *dependabot.yml* konfiguriert die Versionsaktualisierungen für {% data variables.product.prodname_actions %}. `directory` muss auf `"/"` gesetzt werden, um Workflow-Dateien in `.github/workflows` zu überprüfen. `schedule.interval` wird auf `"weekly"` festgelegt. Nachdem diese Datei eingecheckt oder aktualisiert wurde, sucht {% data variables.product.prodname_dependabot %} nach neuen Versionen deiner Aktionen. {% data variables.product.prodname_dependabot %} wird Pull-Anforderungen für Versionsaktualisierungen für alle veralteten Aktionen erstellen, die es findet. Nach den ersten Versionsaktualisierungen wird {% data variables.product.prodname_dependabot %} weiterhin einmal wöchentlich nach veralteten Versionen von Aktionen suchen.
 
 ```yaml
 # Set update schedule for GitHub Actions
@@ -58,10 +63,10 @@ updates:
       interval: "weekly"
 ```
 
-## Configuring {% data variables.product.prodname_dependabot_version_updates %} for actions
+## Konfigurieren von {% data variables.product.prodname_dependabot_version_updates %} für Aktionen
 
-When enabling {% data variables.product.prodname_dependabot_version_updates %} for actions, you must specify values for `package-ecosystem`, `directory`, and `schedule.interval`. There are many more optional properties that you can set to further customize your version updates. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+Wenn du {% data variables.product.prodname_dependabot_version_updates %} für Aktionen aktivierst, musst du Werte für `package-ecosystem`, `directory`, und `schedule.interval` angeben. Es gibt noch viele weitere optionale Eigenschaften, die du einstellen kannst, um deine Versionsaktualisierungen weiter anzupassen. Weitere Informationen findest du unter [Konfigurationsoptionen für die Datei „dependabot.yml“](/github/administering-a-repository/configuration-options-for-dependency-updates).
 
-## Further reading
+## Weitere Informationsquellen
 
-- "[About GitHub Actions](/actions/getting-started-with-github-actions/about-github-actions)"
+- "[Informationen zu GitHub Aktionen](/actions/getting-started-with-github-actions/about-github-actions)"

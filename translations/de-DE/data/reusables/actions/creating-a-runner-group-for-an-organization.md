@@ -1,38 +1,36 @@
+---
+ms.openlocfilehash: b62a0e5829c03ff7879fda2d714c4a7652d762b4
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 10/25/2022
+ms.locfileid: "148109671"
+---
 {% comment %} 
 
-Always include a security admonition above this procedure. This is either one of the following, depending on whether the context is self-hosted runners or larger runners.
+Füge immer vor diesem Verfahren eine Sicherheitswarnung ein. Dies ist eine der folgenden, je nachdem, ob der Kontext selbstgehostete Runner oder größere Runner sind.
 
-{% data reusables.actions.self-hosted-runner-security-admonition %}
-{% data reusables.actions.hosted-runner-security-admonition %}
+{% data reusables.actions.self-hosted-runner-security-admonition %} {% data reusables.actions.hosted-runner-security-admonition %}
  
 {% endcomment %}
 
-All organizations have a single default runner group. Organizations within an enterprise account can create additional groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
+Alle Organisationen verfügen über eine einzige Standardrunnergruppe. Organisationen innerhalb eines Unternehmenskontos können weitere Gruppen erstellen. Organisationsadministratoren können einzelnen Repositorys Zugriff auf eine Runnergruppe gewähren. Weitere Informationen zum Erstellen einer Runnergruppe mit der REST-API findest du unter [Selbstgehostete Runnergruppen](/rest/reference/actions#self-hosted-runner-groups).
 
-Runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
+Runner werden nach der Erstellung automatisch der Standardgruppe zugewiesen und können immer nur Mitglied einer Gruppe sein. Du kannst einen Runner aus der Standardgruppe in eine beliebige, von dir erstellte Gruppe verschieben.
 
-When creating a group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
+Beim Erstellen einer Gruppe musst du eine Richtlinie auswählen, die definiert, welche Repositorys{% ifversion restrict-groups-to-workflows %} und Workflows{% endif %} Zugriff auf die Runnergruppe erhalten.
 
-{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. In the "Runner groups" section, click **New runner group**.
-1. Enter a name for your runner group.
- {% data reusables.actions.runner-group-assign-policy-repo %}
-{% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %}
-{% data reusables.actions.create-runner-group %}
-{% elsif ghae < 3.4 or ghes < 3.4 %}
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
-1. Under {% ifversion ghes or ghae %}"Runners"{% endif %}, click **Add new**, and then **New group**.
+{% ifversion ghec or ghes > 3.3 or ghae > 3.3 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
+1. Klicke im Abschnitt „Runnergruppen“ auf **Neue Runnergruppe**.
+1. Gib einen Namen für die Runnergruppe ein.
+ {% data reusables.actions.runner-group-assign-policy-repo %} {% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Runnergruppen im Besitz einer Organisation haben keinen Zugriff auf Workflows einer anderen Organisation innerhalb des Unternehmens. Erstelle stattdessen eine Runnergruppe im Unternehmensbesitz.{% endif %} {% data reusables.actions.create-runner-group %} {% elsif ghae < 3.4 or ghes < 3.4 %} {% data reusables.organizations.navigate-to-org %} {% data reusables.organizations.org_settings %} {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
+1. Klicke unter {% ifversion ghes or ghae %}“Runners“{% endif %} auf **Neu hinzufügen** und anschließend auf **Neue Gruppe**.
 
-    ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. Enter a name for your runner group, and assign a policy for repository access.
+    ![Hinzufügen einer Runnergruppe](/assets/images/help/settings/actions-org-add-runner-group.png)
+1. Gib einen Namen für die Runnergruppe ein, und weise eine Richtlinie für den Repositoryzugriff zu.
 
-   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
+   Du kannst eine Runnergruppe so konfigurieren, dass nur eine bestimmte Liste von Repositorys oder alle Repositorys in der Organisation darauf zugreifen können.{% ifversion ghec or ghes %} Standardmäßig können nur private Repositorys auf Runner in einer Runnergruppe zugreifen. Diese Einstellung kannst du bei Bedarf überschreiben. Diese Einstellung kann nicht überschrieben werden, wenn du die von einem Unternehmen freigegebene Runnergruppe einer Organisation konfigurierst.{% endif %}
    
-   ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
-1. Click **Save group** to create the group and apply the policy.
+   ![Hinzufügen von Optionen für Runnergruppen](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+1. Klicke auf **Gruppe speichern**, um die Gruppe zu erstellen und die Richtlinie anzuwenden.
 {% endif %}

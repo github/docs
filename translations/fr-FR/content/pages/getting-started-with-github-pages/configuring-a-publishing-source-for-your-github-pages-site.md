@@ -1,6 +1,6 @@
 ---
-title: Configuring a publishing source for your GitHub Pages site
-intro: '{% ifversion pages-custom-workflow %}You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.{% else%}If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.{% endif %}'
+title: Configuration d’une source de publication pour votre site GitHub Pages
+intro: '{% ifversion pages-custom-workflow %}Vous pouvez configurer votre site {% data variables.product.prodname_pages %} à publier quand des changements sont poussés vers une branche spécifique, ou vous pouvez écrire un workflow {% data variables.product.prodname_actions %} pour publier votre site.{% else%}Si vous utilisez la source de publication par défaut pour votre site {% data variables.product.prodname_pages %}, celui-ci est publié automatiquement. Vous pouvez également choisir de publier votre site à partir d’une autre branche ou d’un autre dossier.{% endif %}'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -15,86 +15,84 @@ versions:
 topics:
   - Pages
 shortTitle: Configure publishing source
+ms.openlocfilehash: d08b5c150da5be18700312237c374059228c563d
+ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2022
+ms.locfileid: '147529638'
 ---
-
-## About publishing sources
+## À propos des sources de publication
 
 {% data reusables.pages.pages-about-publishing-source %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-## Publishing from a branch
+## Publication à partir d’une branche
 
-1. Make sure the branch you want to use as your publishing source already exists in your repository.
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-{% ifversion pages-custom-workflow %}
-1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** drop-down menu and select a publishing source.
+1. Assurez-vous que la branche que vous souhaitez utiliser comme source de publication existe déjà dans votre dépôt.
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %} {% ifversion pages-custom-workflow %}
+1. Sous « Génération et déploiement », sous « Source », sélectionnez **Déployer à partir d’une branche**.
+1. Sous « Génération et déploiement », sous « Branche », utilisez le menu déroulant **Aucune** ou **Branche** et sélectionnez une source de publication.
 
-   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% else %}
-3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source.
-  ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-{% endif %}
-4. Optionally, use the drop-down menu to select a folder for your publishing source.
-  ![Drop-down menu to select a folder for publishing source](/assets/images/help/pages/publishing-source-folder-drop-down.png)
-5. Click **Save**.
-  ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png)
+   ![Menu déroulant pour sélectionner une source de publication](/assets/images/help/pages/publishing-source-drop-down.png) {% else %}
+3. Sous « {% data variables.product.prodname_pages %} », utilisez le menu déroulant **Aucune** ou **Branche**, puis sélectionnez une source de publication.
+  ![Menu déroulant pour sélectionner une source de publication](/assets/images/help/pages/publishing-source-drop-down.png) {% endif %}
+4. Si vous le souhaitez, utilisez le menu déroulant afin de sélectionner un dossier pour votre source de publication.
+  ![Menu déroulant pour sélectionner un dossier pour la publication de la source](/assets/images/help/pages/publishing-source-folder-drop-down.png)
+5. Cliquez sur **Enregistrer**.
+  ![Bouton pour enregistrer les modifications apportées aux paramètres de source de publication](/assets/images/help/pages/publishing-source-save.png)
 
-### Troubleshooting publishing from a branch
+### Résolution des problèmes de publication à partir d’une branche
 
 {% data reusables.pages.admin-must-push %}
 
-If you choose the `docs` folder on any branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. For more information, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)."
+Si vous choisissez le dossier `docs` sur n’importe quelle branche comme source de publication, supprimez ultérieurement le dossier `/docs` de cette branche dans votre référentiel, votre site ne sera pas généré et vous recevrez un message d’erreur de génération de page en raison d’un dossier `/docs` manquant. Pour plus d’informations, consultez « [Résolution des erreurs de build Jekyll pour les sites {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder) ».
 
 {% ifversion build-pages-with-actions %}
 
-Your {% data variables.product.prodname_pages %} site will always be deployed with a {% data variables.product.prodname_actions %} workflow run, even if you've configured your {% data variables.product.prodname_pages %} site to be built using a different CI tool. Most external CI workflows "deploy" to GitHub Pages by committing the build output to the `gh-pages` branch of the repository, and typically include a `.nojekyll` file. When this happens, the {% data variables.product.prodname_actions %} workflow will detect the state that the branch does not need a build step, and will execute only the steps necessary to deploy the site to {% data variables.product.prodname_pages %} servers.
+Votre site{% data variables.product.prodname_pages %} sera toujours déployé avec une exécution d’un workflow {% data variables.product.prodname_actions %}, même si vous avez configuré votre site {% data variables.product.prodname_pages %} pour être créé à l’aide d’un autre outil CI. La plupart des workflows CI externes se « déploient » sur GitHub Pages en validant la sortie de build sur la branche `gh-pages` du référentiel, et incluent généralement un fichier `.nojekyll`. Lorsque cela se produit, le workflow {% data variables.product.prodname_actions %} détecte l’état que la branche n’a pas besoin d’une étape de build et exécute uniquement les étapes nécessaires pour déployer le site sur les serveurs {% data variables.product.prodname_pages %}.
 
-To find potential errors with either the build or deployment, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)." For more information about how to re-run the workflow in case of an error, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+Pour rechercher des erreurs potentielles avec la génération ou le déploiement, vous pouvez vérifier l’exécution du workflow pour votre site {% data variables.product.prodname_pages %} en examinant les exécutions de workflow de votre référentiel. Pour plus d’informations, consultez « [Affichage de l’historique des exécutions de workflows](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history) ». Pour plus d’informations sur la réexécutation du workflow en cas d’erreur, consultez « [Réexécution de workflows et de travaux](/actions/managing-workflow-runs/re-running-workflows-and-jobs) ».
 
 {% endif %}
 
 {% ifversion pages-custom-workflow %}
 
-## Publishing with a custom {% data variables.product.prodname_actions %} workflow
+## Publication avec un workflow {% data variables.product.prodname_actions %} personnalisé
 
 {% data reusables.pages.pages-custom-workflow-beta %}
 
-To configure your site to publish with {% data variables.product.prodname_actions %}:
+Pour configurer votre site à publier avec {% data variables.product.prodname_actions %} :
 
-{% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-1. Under "Build and deployment", under "Source", select **GitHub Actions**.
-1. {% data variables.product.product_name %} will suggest several starter workflows. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about creating your custom workflow, see "[Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site](#creating-a-custom-github-actions-workflow-to-publish-your-site)."
+{% data reusables.pages.navigate-site-repo %} {% data reusables.repositories.sidebar-settings %} {% data reusables.pages.sidebar-pages %}
+1. Sous « Génération et déploiement », sous « Source », sélectionnez **GitHub Actions**.
+1. {% data variables.product.product_name %} propose plusieurs workflows de démarrage. Si vous disposez déjà d’un workflow pour publier votre site, vous pouvez ignorer cette étape. Sinon, choisissez l’une des options permettant de créer un workflow {% data variables.product.prodname_actions %}. Pour plus d’informations sur la création de votre workflow personnalisé, consultez « [Création d’un workflow {% data variables.product.prodname_actions %} personnalisé pour publier votre site](#creating-a-custom-github-actions-workflow-to-publish-your-site) ».
 
-   {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
+   {% data variables.product.prodname_pages %} n’associe pas de workflow spécifique aux paramètres {% data variables.product.prodname_pages %}. Toutefois, les paramètres {% data variables.product.prodname_pages %} sont liés à l’exécution du workflow qui a déployé votre site le plus récemment.
 
-### Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site
+### Création d’un workflow {% data variables.product.prodname_actions %} personnalisé pour publier votre site
 
-For more information about {% data variables.product.prodname_actions %}, see "[Actions](/actions)."
+Pour plus d’informations sur {% data variables.product.prodname_actions %}, consultez « [Actions](/actions) ».
 
-When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
+Lorsque vous configurez votre site à publier avec {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} propose des workflows de démarrage pour des scénarios de publication courants. Le flux général d’un workflow est le suivant :
 
-1. Trigger whenever there is a push to the default branch of the repository or whenever the workflow is run manually from the Actions tab.
-1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
-1. If required by your site, build any static site files.
-1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.
-1. If the workflow was triggered by a push to the default branch, use the [`actions/deploy-pages`](https://github.com/actions/deploy-pages) action to deploy the artifact. This step is skipped if the workflow was triggered by a pull request.
+1. Se déclencher chaque fois qu’il y a une poussée vers la branche par défaut du dépôt ou chaque fois qu’une demande de tirage qui cible la branche par défaut est ouverte, rouverte ou mise à jour.
+1. Utiliser l’action [`actions/checkout`](https://github.com/actions/checkout) pour extraire le contenu du dépôt.
+1. Si votre site le demande, générer les fichiers de sites statiques.
+1. Utiliser l’action [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) pour charger les fichiers statiques en tant qu’artefact.
+1. Si le workflow a été déclenché par une poussée vers la branche par défaut, utilisez l’action [`actions/deploy-pages`](https://github.com/actions/deploy-pages) pour déployer l’artefact. Cette étape est ignorée si le workflow a été déclenché par une demande de tirage.
 
-The starter workflows use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add an environment protection rule so that only the default branch can deploy to this environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+Les workflows de démarrage utilisent un environnement de déploiement appelé `github-pages`. Si votre dépôt n’inclut pas déjà un environnement appelé `github-pages`, l’environnement est créé automatiquement. Nous vous recommandons d’ajouter une règle de protection de l’environnement afin que seule la branche par défaut puisse être déployée sur cet environnement. Pour plus d’informations, consultez « [Utilisation d’environnements pour le déploiement](/actions/deployment/targeting-different-environments/using-environments-for-deployment) ».
 
 {% note %}
 
-**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
+**Remarque** : Un fichier `CNAME` dans votre fichier de dépôt n’ajoute ni ne supprime automatiquement un domaine personnalisé. Au lieu de cela, vous devez configurer le domaine personnalisé via vos paramètres de dépôt ou via l’API. Pour plus d’informations, consultez « [Gestion d’un domaine personnalisé pour votre site GitHub Pages](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain) » et la [documentation de référence de l’API Pages](/rest/pages#update-information-about-a-github-pages-site).
 
 {% endnote %}
 
-### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
+### Résolution des problèmes de publication avec un workflow {% data variables.product.prodname_actions %} personnalisé
 
-For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)."
+Pour obtenir des informations sur la résolution des problèmes liés à votre workflow {% data variables.product.prodname_actions %}, consultez « [À propos de la supervision et de la résolution des problèmes](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting) ».
 
 {% endif %}

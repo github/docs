@@ -1,6 +1,6 @@
 ---
-title: Upgrading GitHub Enterprise Server
-intro: 'Upgrade {% data variables.product.prodname_ghe_server %} to get the latest features and security updates.'
+title: GitHub Enterprise 서버 업그레이드
+intro: '{% data variables.product.prodname_ghe_server %}를 업그레이드하여 최신 기능 및 보안 업데이트를 가져옵니다.'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
   - /enterprise/admin/articles/upgrading-to-the-latest-release
@@ -21,157 +21,158 @@ topics:
   - Enterprise
   - Upgrades
 shortTitle: Upgrading GHES
+ms.openlocfilehash: cbbeff601bfbbdf828ed4c5fc019c5e3bf849614
+ms.sourcegitcommit: 30b0931723b704e219c736e0de7afe0fa799da29
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/30/2022
+ms.locfileid: '148186429'
 ---
+## 업그레이드 준비
 
-
-## Preparing to upgrade
-
-1. Determine an upgrade strategy and choose a version to upgrade to. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
-1. Create a fresh backup of your primary instance with the {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see the [README.md file](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+1. 업그레이드 전략을 결정하고 업그레이드할 대상 버전을 선택합니다. 자세한 내용은 “[업그레이드 요구 사항](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”을 참조하고, [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 에서 현재 릴리스 버전의 업그레이드 경로를 찾습니다.
+1. {% data variables.product.prodname_enterprise_backup_utilities %}를 사용하여 주 인스턴스의 새 백업을 만듭니다. 자세한 내용은 {% data variables.product.prodname_enterprise_backup_utilities %} 프로젝트 설명서의 [README.md 파일](https://github.com/github/backup-utils#readme)을 참조하세요.
 
   {% note %}
 
-  **Note:** Your {% data variables.product.prodname_enterprise_backup_utilities %} version needs to be the same version as, or at most two versions ahead of, {% data variables.location.product_location %}. For more information, see "[Upgrading GitHub Enterprise Server Backup Utilities](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)."
+  **참고:** {% data variables.product.prodname_enterprise_backup_utilities %} 버전은 {% data variables.location.product_location %}와 동일한 버전이어야 합니다. 자세한 내용은 “[GitHub Enterprise 서버 백업 유틸리티 업그레이드](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#upgrading-github-enterprise-server-backup-utilities)”를 참조하세요.
 
   {% endnote %}
 
-1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run.
-1. If you are upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users. If you are using a hotpatch, maintenance mode is not required.
+1. {% data variables.location.product_location %}에서 {% data variables.product.prodname_actions %}에 임시 자체 호스팅 실행기를 사용하고 자동 업데이트를 사용하지 않도록 설정한 경우 실행기를 업그레이드된 인스턴스가 실행할 실행기 애플리케이션 버전으로 업그레이드합니다.
+1. 업그레이드 패키지를 사용하여 업그레이드하는 경우 {% data variables.product.prodname_ghe_server %} 최종 사용자를 위한 유지 관리 기간을 예약합니다. 핫패치를 사용하는 경우에는 유지 관리 모드가 필요하지 않습니다.
 
   {% note %}
 
-  **Note:** The maintenance window depends on the type of upgrade you perform. Upgrades using a hotpatch usually don't require a maintenance window. Sometimes a reboot is required, which you can perform at a later time. Following the versioning scheme of MAJOR.FEATURE.PATCH, patch releases using an upgrade package typically require less than five minutes of downtime. Feature releases that include data migrations take longer depending on storage performance and the amount of data that's migrated. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+  **참고:** 유지 관리 기간은 수행하는 업그레이드 유형에 따라 다릅니다. 핫패치를 사용한 업그레이드에는 일반적으로 유지 관리 기간이 필요하지 않습니다. 다시 부팅이 필요한 경우도 있으며, 나중에 수행할 수 있습니다. MAJOR.FEATURE.PATCH의 버전 관리 체계에 따라, 업그레이드 패키지를 사용한 패치 릴리스에는 일반적으로 5분 미만의 가동 중지 시간이 필요합니다. 데이터 마이그레이션을 포함하는 기능 릴리스는 스토리지 성능과 마이그레이션되는 데이터 양에 따라 더 오래 걸립니다. 자세한 내용은 “[유지 관리 모드 사용 및 예약](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”을 참조하세요.
 
   {% endnote %}
 
-## Taking a snapshot
+## 스냅샷 만들기
 
-A snapshot is a checkpoint of a virtual machine (VM) at a point in time. We highly recommend taking a snapshot before upgrading your virtual machine so that if an upgrade fails, you can revert your VM back to the snapshot. We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.
+스냅샷은 특정 시점의 VM(가상 머신) 검사점입니다. 업그레이드에 실패할 경우 VM을 스냅샷으로 되돌릴 수 있도록 가상 머신을 업그레이드하기 전에 스냅샷을 만드는 것이 좋습니다. 어플라이언스의 전원이 꺼졌거나 유지 관리 모드에 있고 모든 백그라운드 작업이 완료된 경우에만 VM 스냅샷을 만드는 것이 좋습니다.
 
-If you're upgrading to a new feature release, you must take a VM snapshot. If you're upgrading to a patch release, you can attach the existing data disk. 
+새 기능 릴리스로 업그레이드하는 경우 VM 스냅샷을 만들어야 합니다. 패치 릴리스로 업그레이드하는 경우 기존 데이터 디스크를 연결할 수 있습니다. 
 
-There are two types of snapshots:
+다음 두 가지 유형의 스냅샷이 있습니다.
 
-- **VM snapshots** save your entire VM state, including user data and configuration data. This snapshot method requires a large amount of disk space and is time consuming.
-- **Data disk snapshots** only save your user data.
+- **VM 스냅샷** 은 사용자 데이터와 구성 데이터를 포함하여 전체 VM 상태를 저장합니다. 이 스냅샷 방법은 많은 양의 디스크 공간이 필요하며 시간이 오래 걸립니다.
+- **데이터 디스크 스냅샷** 은 사용자 데이터만 저장합니다.
 
   {% note %}
 
-  **Notes:**
-  - Some platforms don't allow you to take a snapshot of just your data disk. For these platforms, you'll need to take a snapshot of the entire VM.
-  - If your hypervisor does not support full VM snapshots, you should take a snapshot of the root disk and data disk in quick succession.
+  **참고:**
+  - 일부 플랫폼에서는 데이터 디스크만으로 스냅샷을 만들 수 없습니다. 해당 플랫폼의 경우 전체 VM 스냅샷을 만들어야 합니다.
+  - 하이퍼바이저에서 전체 VM 스냅샷을 지원하지 않는 경우 루트 디스크와 데이터 디스크의 스냅샷을 빠르게 연속해서 만들어야 합니다.
 
   {% endnote %}
 
-| Platform | Snapshot method | Snapshot documentation URL |
+| 플랫폼 | 스냅숏 메서드 | 스냅샷 설명서 URL |
 |---|---|---|
-| Amazon AWS | Disk | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>
+| Amazon AWS | 디스크 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>
 | Azure | VM | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
 | Hyper-V | VM | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
-| Google Compute Engine | Disk | <https://cloud.google.com/compute/docs/disks/create-snapshots>
+| Google Compute Engine | 디스크 | <https://cloud.google.com/compute/docs/disks/create-snapshots>
 | VMware | VM | <https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html>
 
-## Upgrading with a hotpatch
+## 핫패치를 사용하여 업그레이드
 
 {% data reusables.enterprise_installation.hotpatching-explanation %} 
 
-Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. For more information, see "[Upgrade requirements](/enterprise/admin/guides/installation/upgrade-requirements/)."
+{% data variables.enterprise.management_console %}을 사용하여 핫패치를 즉시 설치하거나 나중에 설치되도록 예약할 수 있습니다. 관리 셸을 사용하여 `ghe-upgrade` 유틸리티로 핫패치를 설치할 수 있습니다. 자세한 내용은 “[업그레이드 요구 사항](/enterprise/admin/guides/installation/upgrade-requirements/)”을 참조하세요.
 
 {% note %}
 
-**{% ifversion ghes %}Notes{% else %}Note{% endif %}**:
+**{% ifversion ghes %}참고{% else %}참고{% endif %}** :
 
 {% ifversion ghes %}
-- If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
+- {% data variables.location.product_location %}이(가) 릴리스 후보 빌드를 실행하는 경우 핫패치로 업그레이드할 수 없습니다.
 
-- {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
+- {% endif %}클러스터형 환경에서는 {% data variables.enterprise.management_console %}을 사용하여 핫패치를 설치할 수 없습니다. 클러스터형 환경에 핫패치를 설치하려면 “[클러스터 업그레이드](/enterprise/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)”를 참조하세요.
 
 {% endnote %}
 
-### Upgrading a single appliance with a hotpatch
+### 핫패치를 사용하여 단일 어플라이언스 업그레이드
 
-#### Installing a hotpatch using the {% data variables.enterprise.management_console %}
+#### {% data variables.enterprise.management_console %}을 사용하여 핫패치 설치
 
-You can use the {% data variables.enterprise.management_console %} to upgrade with a hotpatch by enabling automatic updates. You will then be presented with the latest available version of {% data variables.product.prodname_ghe_server %} that you can upgrade to.
+{% data variables.enterprise.management_console %}에서 자동 업데이트를 사용하도록 설정하면 핫패치를 사용하여 업그레이드할 수 있습니다. 업그레이드할 수 있는 {% data variables.product.prodname_ghe_server %}의 사용 가능한 최신 버전이 표시됩니다.
 
-If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead. For more information, see "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
+표시되는 업그레이드 대상이 패치 릴리스가 아닌 기능 릴리스인 경우에는 {% data variables.enterprise.management_console %}을 사용하여 핫패치를 설치할 수 없습니다. 대신, 관리 셸을 사용하여 핫패치를 설치해야 합니다. 자세한 내용은 “[관리 셸을 사용하여 핫패치 설치](#installing-a-hotpatch-using-the-administrative-shell)”를 참조하세요.
 
-1. Enable automatic updates. For more information, see "[Enabling automatic updates](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)."
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.updates-tab %}
-4. When a new hotpatch has been downloaded, use the Install package drop-down menu:
-    - To install immediately, select **Now**:
-    - To install later, select a later date.
-  ![Hotpatch installation date dropdown](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
-5. Click **Install**.
-  ![Hotpatch install button](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
+1. 자동 업데이트를 사용하도록 설정합니다. 자세한 내용은 “[자동 업데이트 사용](/enterprise/admin/guides/installation/enabling-automatic-update-checks/)”을 참조하세요.
+{% data reusables.enterprise_site_admin_settings.access-settings %} {% data reusables.enterprise_site_admin_settings.management-console %} {% data reusables.enterprise_management_console.updates-tab %}
+4. 새 핫패치가 다운로드되면 패키지 설치 드롭다운 메뉴를 사용합니다.
+    - 즉시 설치하려면 **지금** 을 선택합니다.
+    - 나중에 설치하려면 이후 날짜를 선택합니다.
+  ![핫패치 설치 날짜 드롭다운](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
+5. **설치** 를 클릭합니다.
+  ![핫패치 설치 단추](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
-#### Installing a hotpatch using the administrative shell
+#### 관리 셸을 사용하여 핫패치 설치
 
 {% data reusables.enterprise_installation.download-note %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (*.hpkg* file).
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} 업그레이드 핫패키지( *.hpkg* 파일)의 URL을 복사합니다.
 {% data reusables.enterprise_installation.download-package %}
-4. Run the `ghe-upgrade` command using the package file name:
+4. 패키지 파일 이름을 사용하여 `ghe-upgrade` 명령을 실행합니다.
   ```shell
   admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
   *** verifying upgrade package signature...
   ```
-5. If a reboot is required for updates for kernel, MySQL, Elasticsearch or other programs, the hotpatch upgrade script notifies you.
+5. 커널, MySQL, Elasticsearch 또는 기타 프로그램의 업데이트에 다시 부팅이 필요한 경우 핫패치 업그레이드 스크립트에서 알려줍니다.
 
-### Upgrading an appliance that has replica instances using a hotpatch
-
-{% note %}
-
-**Note**: If you are installing a hotpatch, you do not need to enter maintenance mode or stop replication.
-
-{% endnote %}
-
-Appliances configured for high-availability and geo-replication use replica instances in addition to primary instances. To upgrade these appliances, you'll need to upgrade both the primary instance and all replica instances, one at a time.
-
-#### Upgrading the primary instance
-
-1. Upgrade the primary instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
-
-#### Upgrading a replica instance
+### 핫패치를 사용하여 복제본 인스턴스가 있는 어플라이언스 업그레이드
 
 {% note %}
 
-**Note:** If you're running multiple replica instances as part of geo-replication, repeat this procedure for each replica instance, one at a time.
+**참고**: 핫패치를 설치하는 경우 유지 관리 모드로 전환하거나 복제를 중지할 필요가 없습니다.
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
-{% data reusables.enterprise_installation.replica-ssh %}
-{% data reusables.enterprise_installation.replica-verify %}
+고가용성 및 지역 복제가 구성된 어플라이언스는 주 인스턴스뿐 아니라 복제본 인스턴스도 사용합니다. 해당 어플라이언스를 업그레이드하려면 주 인스턴스와 모든 복제본 인스턴스를 한 번에 하나씩 둘 다 업그레이드해야 합니다.
 
-## Upgrading with an upgrade package
+#### 주 인스턴스 업그레이드
 
-While you can use a hotpatch to upgrade to the latest patch release within a feature series, you must use an upgrade package to upgrade to a newer feature release. For example to upgrade from `2.11.10` to `2.12.4` you must use an upgrade package since these are in different feature series. For more information, see "[Upgrade requirements](/enterprise/admin/guides/installation/upgrade-requirements/)."
+1. “[관리 셸을 사용하여 핫패치 설치](#installing-a-hotpatch-using-the-administrative-shell)”의 지침에 따라 주 인스턴스를 업그레이드합니다.
 
-### Upgrading a single appliance with an upgrade package
+#### 복제본 인스턴스 업그레이드
+
+{% note %}
+
+**참고:** 지역 복제의 일부로 여러 복제본 인스턴스를 실행하는 경우 각 복제본 인스턴스에 대해 이 절차를 한 번에 하나씩 반복합니다.
+
+{% endnote %}
+
+1. “[관리 셸을 사용하여 핫패치 설치](#installing-a-hotpatch-using-the-administrative-shell)”의 지침에 따라 복제본 인스턴스를 업그레이드합니다. 지역 복제에 여러 복제본을 사용하는 경우 이 절차를 반복하여 각 복제본을 한 번에 하나씩 업그레이드해야 합니다.
+{% data reusables.enterprise_installation.replica-ssh %} {% data reusables.enterprise_installation.replica-verify %}
+
+## 업그레이드 패키지를 사용하여 업그레이드
+
+핫패치를 사용하여 기능 시리즈 내의 최신 패치 릴리스로 업그레이드할 수 있는 반면, 최신 기능 릴리스로 업그레이드하려면 업그레이드 패키지를 사용해야 합니다. 예를 들어 `2.11.10`에서 `2.12.4`로 업그레이드하려면 서로 다른 기능 시리즈에 속해 있기 때문에 업그레이드 패키지를 사용해야 합니다. 자세한 내용은 “[업그레이드 요구 사항](/enterprise/admin/guides/installation/upgrade-requirements/)”을 참조하세요.
+
+### 업그레이드 패키지를 사용하여 단일 어플라이언스 업그레이드
 
 {% data reusables.enterprise_installation.download-note %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Select the appropriate platform and copy the URL for the upgrade package (*.pkg* file).
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} 적절한 플랫폼을 선택하고 업그레이드 패키지( *.pkg* 파일)의 URL을 복사합니다.
 {% data reusables.enterprise_installation.download-package %}
-4. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+4. 유지 관리 모드를 사용하도록 설정하고 {% data variables.product.prodname_ghe_server %} 인스턴스에서 모든 활성 프로세스가 완료되기를 기다립니다. 자세한 내용은 “[유지 관리 모드 사용 및 예약](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”을 참조하세요.
 
   {% note %}
 
-  **Note**: When upgrading the primary appliance in a High Availability configuration, the appliance should already be in maintenance mode if you are following the instructions in "[Upgrading the primary instance](#upgrading-the-primary-instance)."
+  **참고**: 고가용성 구성의 주 어플라이언스를 업그레이드할 때 “[주 인스턴스 업그레이드](#upgrading-the-primary-instance)”의 지침을 따르는 경우 어플라이언스가 이미 유지 관리 모드에 있어야 합니다.
 
   {% endnote %}
 
-5. Run the `ghe-upgrade` command using the package file name:
+5. 패키지 파일 이름을 사용하여 `ghe-upgrade` 명령을 실행합니다.
   ```shell
   admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
   *** verifying upgrade package signature...
   ```
-6. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
+6. 업그레이드를 계속하고 패키지 서명이 확인된 후 다시 시작하도록 확인합니다. 새 루트 파일 시스템이 보조 파티션에 쓰고, 인스턴스가 유지 관리 모드에서 자동으로 다시 시작됩니다.
   ```shell
   *** applying update...
   This package will upgrade your installation to version VERSION-NUMBER
@@ -180,52 +181,51 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Proceed with installation? [y/N]
   ```
 {% ifversion ip-exception-list %}
-1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+1. 필요에 따라 업그레이드의 유효성을 검사하려면 지정된 IP 주소 목록에 액세스할 수 있도록 IP 예외 목록을 구성합니다. 자세한 내용은 “[IP 예외 목록을 사용하여 유지 관리 모드의 변경 내용 유효성 검사](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)”를 참조하세요.
 {% endif %}
-7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.location.product_location %}.
+7. 단일 어플라이언스 업그레이드의 경우 사용자가 {% data variables.location.product_location %}을(를) 사용할 수 있도록 유지 관리 모드를 사용하지 않도록 설정합니다.
 
   {% note %}
 
-  **Note**: When upgrading appliances in a High Availability configuration you should remain in maintenance mode until you have upgraded all of the replicas and replication is current. For more information, see "[Upgrading a replica instance](#upgrading-a-replica-instance)."
+  **참고**: 고가용성 구성의 어플라이언스를 업그레이드하는 경우 모든 복제본이 업그레이드되고 복제가 최신 상태가 될 때까지 유지 관리 모드를 유지해야 합니다. 자세한 내용은 “[복제본 인스턴스 업그레이드](#upgrading-a-replica-instance)”를 참조하세요.
 
   {% endnote %}
 
-### Upgrading an appliance that has replica instances using an upgrade package
+### 업그레이드 패키지를 사용하여 복제본 인스턴스가 있는 어플라이언스 업그레이드
 
-Appliances configured for high-availability and geo-replication use replica instances in addition to primary instances. To upgrade these appliances, you'll need to upgrade both the primary instance and all replica instances, one at a time.
+고가용성 및 지역 복제가 구성된 어플라이언스는 주 인스턴스뿐 아니라 복제본 인스턴스도 사용합니다. 해당 어플라이언스를 업그레이드하려면 주 인스턴스와 모든 복제본 인스턴스를 한 번에 하나씩 둘 다 업그레이드해야 합니다.
 
-#### Upgrading the primary instance
+#### 주 인스턴스 업그레이드
 
 {% warning %}
 
-**Warning:** When replication is stopped, if the primary fails, any work that is done before the replica is upgraded and the replication begins again will be lost.
+**경고:** 복제가 중지된 경우 주 인스턴스에서 오류가 발생하면 복제본이 업그레이드되고 복제가 다시 시작되기 전에 수행된 모든 작업이 손실됩니다.
 
 {% endwarning %}
 
-1. On the primary instance, enable maintenance mode and wait for all active processes to complete. For more information, see "[Enabling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)."
+1. 주 인스턴스에서 유지 관리 모드를 사용하도록 설정하고 모든 활성 프로세스가 완료되기를 기다립니다. 자세한 내용은 “[유지 관리 모드 사용](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”을 참조하세요.
 {% data reusables.enterprise_installation.replica-ssh %}
-3. On the replica instance, or on all replica instances if you're running multiple replica instances as part of geo-replication, run `ghe-repl-stop` to stop replication.
-4. Upgrade the primary instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)."
+3. 복제본 인스턴스 또는 지역 복제의 일부로 여러 복제본 인스턴스를 실행하는 경우 모든 복제본 인스턴스에서 `ghe-repl-stop`을 실행하여 복제를 중지합니다.
+4. “[업그레이드 패키지를 사용하여 단일 어플라이언스 업그레이드](#upgrading-a-single-appliance-with-an-upgrade-package)”의 지침에 따라 주 인스턴스를 업그레이드합니다.
 
-#### Upgrading a replica instance
+#### 복제본 인스턴스 업그레이드
 
 {% note %}
 
-**Note:** If you're running multiple replica instances as part of geo-replication, repeat this procedure for each replica instance, one at a time.
+**참고:** 지역 복제의 일부로 여러 복제본 인스턴스를 실행하는 경우 각 복제본 인스턴스에 대해 이 절차를 한 번에 하나씩 반복합니다.
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
-{% data reusables.enterprise_installation.replica-ssh %}
-{% data reusables.enterprise_installation.replica-verify %}
+1. “[업그레이드 패키지를 사용하여 단일 어플라이언스 업그레이드](#upgrading-a-single-appliance-with-an-upgrade-package)”의 지침에 따라 복제본 인스턴스를 업그레이드합니다. 지역 복제에 여러 복제본을 사용하는 경우 이 절차를 반복하여 각 복제본을 한 번에 하나씩 업그레이드해야 합니다.
+{% data reusables.enterprise_installation.replica-ssh %} {% data reusables.enterprise_installation.replica-verify %}
 
 {% data reusables.enterprise_installation.start-replication %}
 
-{% data reusables.enterprise_installation.replication-status %} If the command returns `Replication is not running`, the replication may still be starting. Wait about one minute before running `ghe-repl-status` again.
+{% data reusables.enterprise_installation.replication-status %} 명령에서 `Replication is not running`이 반환되는 경우 복제가 계속 시작되고 있을 수 있습니다. `ghe-repl-status`를 다시 실행하기 전에 1분 정도 기다립니다.
 
    {% note %}
 
-   **Note:** While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
+   **참고:** resync가 진행 중인 `ghe-repl-status` 동안 복제가 뒤처진 것을 나타낼 수 있습니다. 예를 들어 다음 메시지가 표시 될 수 있습니다.
    
    ```
    CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
@@ -234,30 +234,29 @@ Appliances configured for high-availability and geo-replication use replica inst
 
    {%- ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}
 
-   - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+   - 각 노드를 {% data variables.product.product_name %} 3.6.0 이상으로 업그레이드하고 복제를 시작했지만 `git replication is behind the primary` 45분 후에도 계속 표시되는 경우 {% data variables.contact.enterprise_support %}에 문의하세요. 자세한 내용은 “[{% data variables.contact.github_support %}에서 도움받기](/admin/enterprise-support/receiving-help-from-github-support)”를 참조하세요.
    {%- endif %}
 
-   - {% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
-6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.location.product_location %}.
+   - {% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %} 그렇지 않으면{% else %}{% endif %} `ghe-repl-status` 이(가) 반환 `OK`되지 않으면 {% data variables.contact.enterprise_support %}에 문의하세요. 자세한 내용은 “[{% data variables.contact.github_support %}에서 도움받기](/admin/enterprise-support/receiving-help-from-github-support)”를 참조하세요.
+6. 마지막 복제본 업그레이드를 완료하고 다시 동기화가 완료되면 사용자가 {% data variables.location.product_location %}을(를) 사용할 수 있도록 유지 관리 모드를 사용하지 않도록 설정합니다.
 
-## Restoring from a failed upgrade
+## 실패한 업그레이드에서 복원
 
-If an upgrade fails or is interrupted, you should revert your instance back to its previous state. The process for completing this depends on the type of upgrade.
+업그레이드가 실패하거나 중단된 경우 인스턴스를 이전 상태로 다시 되돌려야 합니다. 이 작업을 수행하는 프로세스는 업그레이드 유형에 따라 다릅니다.
 
-### Rolling back a patch release
+### 패치 릴리스 롤백
 
-To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica instances. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+패치 릴리스를 롤백하려면 `ghe-upgrade` 명령에 `--allow-patch-rollback` 스위치를 사용합니다. 롤백하기 전에 모든 복제본 인스턴스에서 `ghe-repl-stop`을 실행하여 복제를 일시적으로 중지해야 합니다. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-Once the rollback is complete, restart replication by running `ghe-repl-start` on all replicas. 
+롤백이 완료되면 모든 복제본에서 `ghe-repl-start`를 실행하여 복제를 다시 시작합니다. 
 
-For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities/#ghe-upgrade)."
+자세한 내용은 “[명령줄 유틸리티](/enterprise/admin/guides/installation/command-line-utilities/#ghe-upgrade)”를 참조하세요.
 
-### Rolling back a feature release
+### 기능 릴리스 롤백
 
-To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
+기능 릴리스에서 롤백하려면 VM 스냅샷에서 복원하여 루트 및 데이터 파티션을 일관된 상태로 유지합니다. 자세한 내용은 “[스냅샷 만들기](#taking-a-snapshot)”를 참조하세요.
 
 {% ifversion ghes %}
-## Further reading
+## 추가 참고 자료
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
-{% endif %}
+- “[새 릴리스로 업그레이드 정보](/admin/overview/about-upgrades-to-new-releases)” {% endif %}

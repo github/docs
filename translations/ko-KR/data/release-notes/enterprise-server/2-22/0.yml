@@ -1,0 +1,165 @@
+intro: GitHub는 GitHub Enterprise Server 2.22.0을 발표하게 되어 기쁩니다.
+date: '2020-09-23'
+sections:
+  features:
+    - heading: GitHub Actions 베타
+      notes:
+        - |[GitHub Actions](https://github.com/features/actions)는 CI/CD 및 워크플로 자동화를 위한 강력하고 유연한 솔루션입니다. Enterprise Server의 GitHub Actions에는 관리 콘솔의 주요 메트릭, 감사 로그, 롤아웃을 제어하는 ​​데 도움이 되는 액세스 제어를 포함하여 서비스를 관리하는 데 도움이 되는 도구가 포함되어 있습니다.
+
+
+
+GitHub Actions에 대한 자체 [스토리지](https://docs.github.com/en/enterprise/2.22/admin/github-actions/enabling-github-actions-and-configuring-storage) 및 실행기를 제공해야 합니다. AWS S3, Azure Blob Storage, MinIO가 지원됩니다. GitHub Actions를 켜기 전에 [업데이트된 플랫폼의 최소 요구 사항](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)을 검토하세요. 자세한 내용은 GitHub 영업팀에 문의하거나 [베타에 가입](https://resources.github.com/beta-signup/). {% comment %} https://github.com/github/releases/issues/775 {% endcomment %}하세요.
+
+|
+    - heading: GitHub Packages 베타
+      notes:
+        - |[GitHub Packages](https://github.com/features/packages)는 기본적으로 GitHub API, Actions, 웹후크와 통합된 패키지 호스팅 서비스입니다. 코드, 연속 통합, 배포 솔루션을 포함하는 [엔드투엔드 DevOps 워크플로](https://docs.github.com/en/enterprise/2.22/admin/packages/configuring-packages-support-for-your-enterprise)를 만듭니다.
+
+
+
+지원되는 스토리지 백 엔드에는 AWS S3 및 MinIO가 포함되고 향후 릴리스에서 Azure Blob이 지원될 예정입니다. 현재 Docker 지원이 다음 릴리스에서 새 GitHub Container Registry 베타로 대체될 것이라는 점에 유의하세요. GitHub Packages를 켜기 전에 [업데이트된 플랫폼의 최소 요구 사항](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)을 검토하세요. 자세한 내용은 GitHub 영업팀에 문의하거나 [베타에 가입](https://resources.github.com/beta-signup/). {% comment %} https://github.com/github/releases/issues/773 {% endcomment %}하세요.
+
+|
+    - heading: Advanced Security 코드 검사 베타
+      notes:
+        - |[GitHub Advanced Security 코드 검사](https://github.com/features/security)는 개발자 우선의 GitHub 네이티브 SAST(정적 애플리케이션 보안 테스트)입니다. 세계에서 가장 강력한 코드 분석 엔진인 CodeQL을 통해 프로덕션에 도달하기 전에 보안 취약점을 쉽게 찾을 수 있습니다.
+
+
+
+GitHub Advanced Security를 ​​사용하는 관리자는 GitHub Advanced Security 코드 검사 베타에 [가입](https://resources.github.com/beta-signup/) 및 [사용](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-code-scanning-for-your-appliance)할 수 있습니다. GitHub Advanced Security 코드 검사를 켜기 전에 [업데이트된 플랫폼의 최소 요구 사항](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance)을 검토하세요. {% comment %} https://github.com/github/releases/issues/768 {% endcomment %}
+
+|
+    - heading: 끌어오기 요청 대상 다시 지정
+      notes:
+        - |[끌어오기 요청의 헤드 분기](https://docs.github.com/en/enterprise/2.22/user/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)가 병합 및 삭제되는 경우 이 분기를 대상으로 하는 동일한 리포지토리의 다른 모든 열린 끌어오기 요청은 이제 병합된 끌어오기 요청의 기본 분기로 대상이 변경됩니다. 이전에는 이러한 끌어오기 요청이 종료되었습니다. {% comment %} https://github.com/github/releases/issues/801 {% endcomment %}
+
+|
+    - heading: 앱 설치 일시 중단 및 일시 중단 해제
+      notes:
+        - |관리자와 사용자는 필요한 기간 동안 [모든 GitHub 앱의 액세스를 일시 중단](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#suspend-an-app-installation)하고 설정 및 API를 통해 명령에 따라 [앱 일시 중단을 해제](https://docs.github.com/enterprise/2.22/user/rest/reference/apps#unsuspend-an-app-installation)할 수 있습니다. 일시 중단된 앱은 GitHub API 또는 웹후크 이벤트에 액세스할 수 없습니다. 애플리케이션을 제거하여 모든 사용자의 권한을 취소하는 대신 이 기능을 사용할 수 있습니다. {% comment %} https://github.com/github/github/pull/138316 https://github.com/github/github/pull/150869 {% endcomment %}''''
+
+|
+    - heading: 향상된 대규모 성능
+      notes:
+        - |대규모 모노리포지토리가 오류 상태를 피할 수 있도록 리포지토리에 대한 네트워크 유지 관리 일정을 예약하는 접근 방식을 수정했습니다. {% comment %} https://github.com/github/github/pull/146789, https://github.com/github/github/pull/147931, https://github.com/github/github/pull/146724, https://github.com/github/git-protocols/issues/94 {% endcomment %}''''
+
+
+
+수동 복제본은 이제 [GitHub Enterprise Server 클러스터 배포에서 지원되고 구성 가능](https://docs.github.com/en/enterprise/2.22/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)합니다. 이러한 변경으로 인해 장애 조치(failover)가 더 빨라지고 RTO 및 RPO가 줄어듭니다. {% comment %} https://github.com/github/releases/issues/905 {% endcomment %}
+
+|
+    - heading: 모든 사용자 보기
+      notes:
+        - |매우 큰 팀의 경우 관리자는 [사용자 목록의 기본 최댓값 1,500개를 조정](https://docs.github.com/en/enterprise/2.22/admin/configuration/command-line-utilities#ghe-config)할 수 있습니다. {% comment %} https://github.com/github/github/pull/146508 {% endcomment %}''''
+
+|
+  changes:
+    - heading: 관리 변경 내용
+      notes:
+        - "공유 작업자는 탭 간에 연결을 공유하여 라이브 업데이트를 보다 탄력적으로 만들 수 있습니다. {% comment %} https://github.com/github/releases/issues/914 {% endcomment %}"
+        - "이제 ‘50x’ 오류 페이지의 “지원팀에 문의” 링크가 관리 콘솔에 구성된 지원 메일 또는 링크로 연결됩니다. {% comment %} https://github.com/github/github/pull/142123 {% endcomment %}"
+        - "이제 [엔터프라이즈 계정 설정을 통해 글로벌 발표 및 만료 날짜 관리](https://docs.github.com/en/enterprise/2.22/admin/installation/command-line-utilities#ghe-announce)가 가능합니다. {% comment %} https://github.com/github/releases/issues/945, https://github.com/github/github/pull/148475, https://github.com/github/github/pull/148494 {% endcomment %}"
+        - "이제 필요한 경우 [관리 콘솔에 구성된 기본 API 속도 제한에서 특정 사용자를 제외](https://docs.github.com/en/enterprise/2.22/admin/configuration/configuring-rate-limits)할 수 있습니다. {% comment %} https://github.com/github/github/pull/148673 {% endcomment %}"
+        - "리포지토리 관리자는 이제 리포지토리 설정의 단일 대화 상자에서 [자신의 리포지토리를 사용 가능한 가시성 옵션으로 설정](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility)할 수 있습니다. 이전에는 퍼블릭과 프라이빗, 프라이빗과 내부 간 변경을 위해 별도의 섹션, 단추, 대화 상자를 탐색해야 했습니다. {% comment %} https://github.com/github/releases/issues/882 {% endcomment %}"
+        - "사용자 드롭다운 메뉴의 새로운 엔터프라이즈 설정 링크를 사용하면 엔터프라이즈 계정 설정으로 더 쉽게 이동할 수 있습니다. {% comment %} https://github.com/github/releases/issues/946, https://github.com/github/github/pull/150595, https://github.com/github/github/pull/150520, https://github.com/github/github/pull/151121, https://github.com/github/hydro-schemas/pull/1244 {% endcomment %}"
+        - "/stafftools 페이지의 기존 “관리 센터” 링크가 제거되었습니다. “엔터프라이즈” 링크는 이제 /stafftools 페이지에서 Enterprise 계정으로 이동하는 가장 좋은 방법입니다. {% comment %} https://github.com/github/github/pull/147633 {% endcomment %}"
+        - "엔터프라이즈 계정 설정의 옵션 하위 메뉴 항목이 설정 섹션에서 정책 섹션으로 이동되었습니다. {% comment %} https://github.com/github/releases/issues/944, https://github.com/github/github/pull/148477 {% endcomment %}"
+        - '[개인 액세스 토큰 또는 SSH 키를 사용하여 리소스에 액세스하는 것은 이제 사용자 작업으로 계산됩니다](https://docs.github.com/en/enterprise/2.22/admin/user-management/managing-dormant-users). 이를 통해 관리자는 사용자 휴면 보고서에서 특정 사용자를 필터링해야 하는 부담을 덜고 PAT(Personal Access Token) 또는 SSH 키가 있는 API를 통해 읽기 전용 방식으로 GitHub에만 액세스한 사용자를 실수로 일시 중지하지 않고 “모두 일시 중지” 단추를 더 안전하게 사용할 수 있습니다. {% comment %} https://github.com/github/github/pull/140433, https://github.com/github/help-docs/pull/14853, https://github.com/github/customer-feedback/issues/174, https://github.com/github/supportability/issues/14 {% endcomment %}'
+
+    - heading: 보안 변경 내용
+      notes:
+        - "2단계 로그인 프로세스 중에는 2단계 복구 코드를 더 이상 사용할 수 없습니다. 일회용 암호만 허용되는 값입니다. {% comment %} https://github.com/github/github/pull/145016, https://github.com/github/github/pull/140208 {% endcomment %}"
+        - "사용자가 Single Sign-On을 통해 GitHub Enterprise Server에 로그인하는 경우 [기본 리포지토리 가시성 선택은 프라이빗](https://docs.github.com/en/enterprise/2.22/user/github/administering-a-repository/setting-repository-visibility)입니다. {% comment %} https://github.com/github/releases/issues/872 {% endcomment %}"
+        - "GitHub 앱 소유자는 이제 [사용자-서버 액세스 토큰이 8시간 후에 만료됨](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps/)을 선택하여 정기적인 토큰 교체를 시행하고 손상된 토큰의 영향을 줄일 수 있습니다. {% comment %} https://github.com/github/releases/issues/966 {% endcomment %}"
+
+    - heading: 개발자 변경 내용
+      notes:
+        - '[GitHub UI가 새롭게 디자인되었습니다](https://github.blog/changelog/2020-06-23-design-updates-to-repositories-and-github-ui/). 그리고 반응형 레이아웃과 향상된 모바일 웹 환경을 포함하여 리포지토리 홈페이지가 새롭게 디자인되었습니다. {% comment %} https://github.com/github/releases/issues/886 {% endcomment %}'
+        - "“SSH로 복제” 리포지토리 드롭다운 메뉴에서 이제 사용자에게 키 설정이 없는 경우 알림이 표시됩니다. {% comment %} https://github.com/github/github/pull/149098 {% endcomment %}"
+        - "커밋은 이제 끌어오기 요청 타임라인 및 커밋 탭에서 시간순으로 정렬됩니다. 이 새로운 순서는 [“끌어오기 요청에 대한 커밋 나열”](https://docs.github.com/en/enterprise/2.22/user/rest/reference/pulls#list-commits-on-a-pull-request) REST API 및 GraphQL [“PullRequest 개체”](https://docs.github.com/en/enterprise/2.22/user/graphql/reference/objects#pullrequest) 타임라인 연결에도 반영됩니다. {% comment %} https://github.com/github/releases/issues/867 {% endcomment %}"
+        - "사용자는 이제 주석 텍스트 영역에서 [이모티콘 자동 완성 결과에 대한 스킨 톤 기본값을 설정](https://github.blog/changelog/2020-07-17-customizable-skin-tones-in-emoji-autocomplete/)할 수 있습니다. {% comment %} https://github.com/github/releases/issues/916 {% endcomment %}"
+        - '[Tree-sitter](https://github.com/tree-sitter/tree-sitter)는 구문 강조 표시를 개선했으며 이제 언어 구문 분석에 사용되는 기본 라이브러리입니다. {% comment %} https://github.com/github/releases/issues/918, https://github.com/github/windrose/issues/44 {% endcomment %}'
+
+    - heading: 사용자 및 조직은 Twitter 사용자 이름을 GitHub 프로필에 추가할 수 있습니다.
+      notes:
+        - '[개발자와 조직은 이제 프로필에 Twitter 사용자 이름을 추가할 수 있습니다](https://github.blog/changelog/2020-07-22-users-and-organizations-can-now-add-twitter-usernames-to-their-github-profiles/). {% comment %}  https://github.com/github/github/pull/145127 {% endcomment %}'
+
+    - heading: API 변경 내용
+      notes:
+        - |#### 등급별 미리 보기
+
+
+
+다음 미리 보기는 이제 API의 공식 부분입니다.
+
+* ‘performed_via_github_app’ 속성을 반환한 GitHub Apps API 및 엔드포인트에는 더 이상 [‘machine-man’](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/) 미리 보기 헤더가 필요하지 않습니다. {% comment %} https://github.com/github/releases/issues/965 {% endcomment %}
+
+* 문제에 잠금 이유를 추가하고 보기 위해 더 이상 [‘sailor-v’](https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/) 미리 보기 헤더를 사용할 필요가 없습니다. {% comment %} https://github.com/github/github/pull/143676 {% endcomment %}
+
+|
+        - |#### GraphQL 스키마 변경 내용
+
+
+
+* [GraphQL 스키마 변경 사항](https://docs.github.com/enterprise/2.22/user/graphql/overview/changelog)에는 이전 버전과 호환되는 변경 사항, 스키마 미리 보기, 예정된 주요 변경 사항이 포함됩니다.
+
+|
+    - heading: VMware 네트워크 드라이버 변경 내용
+      notes:
+        - |VMware 고객을 위한 GitHub Enterprise Server 기본 네트워크 어댑터 유형은 릴리스 2.22.0부터 E1000에서 VMXNET3으로 변경되었습니다. 이전 릴리스에서 2.22.0 이상으로 업그레이드할 때 업그레이드 사전 확인 중에 E1000 네트워크 어댑터가 감지되면 명령줄에 다음 메시지가 표시됩니다.
+
+
+
+```
+
+경고: 가상 어플라이언스는 현재 에뮬레이트된 Intel E1000 네트워크 어댑터를 사용하고 있습니다.
+
+최적의 성능을 위해 VMXNET3 드라이버를 사용하도록 VMware 호스트의 가상 머신 구성을 업데이트하세요.
+
+설치를 진행하시겠습니까? [예/아니요]
+
+```
+
+
+
+관리자는 GitHub Enterprise Server 업그레이드 전후에 네트워크 어댑터 유형을 VMXNET3으로 업데이트하도록 선택할 수 있습니다. 이 변경을 위해 가상 어플라이언스를 종료해야 합니다. 고객은 [가상 머신 네트워크 어댑터 구성 변경](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3719A0BE-4B4A-44FF-8A21-290950918FBD.html)에 대한 VMware 권장 단계를 VMXNET3으로 따라야 합니다. 가상 어플라이언스의 OS 버전이 ‘기타 Linux(64비트)’로 설정된 경우 ‘VMXNET3’은 옵션이 아닙니다. 이 경우 OS 버전을 먼저 ‘기타 Linux(64비트)’에서 ‘기타 2.6.x Linux(64비트)’ 또는 사용 가능한 경우 ‘Debian GNU/Linux 9’로 변경해야 합니다. 프로덕션 GitHub Enterprise Server에서 수행하기 전에 [인스턴스 준비](https://docs.github.com/en/enterprise-server@2.22/admin/installation/setting-up-a-staging-instance)에서 이러한 변경 사항을 테스트하는 것이 좋습니다. {% comment %} https://github.com/github/ghes-infrastructure/issues/781 {% endcomment %}
+
+|
+  bugs:
+    - "보류 중인 협력자를 보기 위한 stafftools 페이지에 보류 중인 메일 초대가 있는 경우 ‘500 내부 서버 오류’가 표시되었습니다. {% comment %} https://github.com/github/github/pull/150836 {% endcomment %}"
+    - "stafftools의 리포지토리 상태 확인은 사용량이 많은 리포지토리에서 잘못된 결과를 제공할 수 있습니다. {% comment %} https://github.com/github/github/pull/151160 {% endcomment %}"
+    - "로그인한 사용자가 메일 초대를 수락하려고 하면 ‘404 Not Found’ 오류가 발생할 수 있습니다. {% comment %} https://github.com/github/github/pull/150848 {% endcomment %}"
+    - "사용자가 이름이 “repositories.”로 시작하는 리포지토리로 이동한 경우 리포지토리 개요 페이지가 아닌 소유자의 “리포지토리” 탭으로 리디렉션되었습니다. {% comment %} https://github.com/github/github/pull/149704 {% endcomment %}"
+    - "대시보드 타임라인의 레이블에 대비가 충분하지 않았습니다. {% comment %} https://github.com/github/github/pull/146749 {% endcomment %}"
+
+  deprecations:
+    - heading: GitHub Enterprise Server 2.19의 향후 지원 중단
+      notes:
+        - '**GitHub Enterprise Server 2.19는 2020년 11월 12일부로 더 이상 사용되지 않습니다.** 즉, 이 날짜 이후에는 중요한 보안 문제에 대해서도 패치 릴리스가 이루어지지 않습니다. 성능 향상, 보안 향상, 새로운 기능을 위해 최대한 빨리 [최신 버전의 GitHub Enterprise Server로 업그레이드](https://help.github.com/enterprise/admin/guides/installation/upgrading-github-enterprise/)합니다.'
+    - heading: 레거시 GitHub 앱 Webhook 이벤트 지원 중단
+      notes:
+        - "GitHub Enterprise Server 2.21.0부터 두 개의 레거시 GitHub Apps 관련 웹후크 이벤트가 더 이상 사용되지 않으며 GitHub Enterprise Server 2.25.0에서 제거됩니다. 사용되지 않는 이벤트 ‘integration_installation’ 및 ‘integration_installation_repositories’에는 지원되는 동등한 이벤트가 있습니다. 자세한 내용은 [지원 중단 공지 블로그 게시물](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/)에서 확인할 수 있습니다. {% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}"
+    - heading: 레거시 GitHub Apps 엔드포인트 지원 중단
+      notes:
+        - "GitHub Enterprise Server 2.21.0부터 설치 액세스 토큰을 만들기 위한 레거시 GitHub Apps 엔드포인트가 더 이상 사용되지 않으며 GitHub Enterprise Server 2.25.0에서 제거됩니다.  자세한 내용은 [지원 중단 공지 블로그 게시물](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/)에서 확인할 수 있습니다. {% comment %} https://github.com/github/enterprise-web/pull/6419#issuecomment-668303461 {% endcomment %}"
+    - heading: OAuth 애플리케이션 API 지원 중단
+      notes:
+        - "GitHub는 ‘access_token’을 경로 매개 변수로 포함하는 OAuth 애플리케이션 엔드포인트를 더 이상 지원하지 않습니다. ‘access_token’을 요청 본문으로 이동하여 OAuth 앱용 토큰을 안전하게 관리할 수 있는 새 엔드포인트를 도입했습니다. 더 이상 사용되지 않지만 이 버전에서는 엔드포인트에 계속 액세스할 수 있습니다. GitHub Enterprise Server 3.4에서 이러한 엔드포인트를 제거하려고 합니다. 자세한 내용은 [지원 중단 공지 블로그 게시물](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/)을 참조하세요."
+
+  backups:
+    - "GitHub Enterprise Server 2.22에는 [백업 및 재해 복구](https://help.github.com/enterprise/2.22/admin/guides/installation/backups-and-disaster-recovery/)를 위해 [GitHub Enterprise 백업 유틸리티](https://github.com/github/backup-utils) 2.22.0 이상이 필요합니다."
+
+  known_issues:
+    - "사용자 없이 새로 설정된 GitHub Enterprise Server에서 공격자는 첫 번째 관리 사용자를 생성할 수 있습니다. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}"
+    - "업그레이드 중에는 사용자 지정 방화벽 규칙이 관리되지 않습니다. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}"
+    - "Git LFS 추적 파일[웹 인터페이스를 통해 업로드됨](https://github.com/blog/2105-upload-files-to-your-repositories)이 리포지토리에 직접 잘못 추가됩니다. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}"
+    - "파일 경로가 255자보다 긴 동일한 리포지토리의 Blob에 대한 고정 링크가 포함된 경우 이슈를 닫을 수 없습니다. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}"
+    - "GitHub Connect에서 “사용자가 GitHub.com을 검색할 수 있음”이 사용 설정되면 프라이빗 및 내부 리포지토리의 이슈가 GitHub.com 검색 결과에 포함되지 않습니다. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}"
+    - "관리 콘솔의 이름 ID 형식 드롭다운은 인스턴스를 “영구”로 설정한 후 “지정되지 않음”으로 재설정됩니다. {% comment %} https://github.com/github/enterprise2/issues/13446 {% endcomment %}"
+    - "사용자 또는 조직 GitHub Pages 사이트에 대한 리포지토리의 리포지토리 설정 페이지가 “500 내부 서버 오류”와 함께 실패합니다. {% comment %} https://github.com/github/github/issues/156183 {% endcomment %}"
+    - "사용자는 읽기가 다른 노드로 전달되기 때문에 고가용성 복제본이 있는 인스턴스에서 더 느린 Git 복제 및 가져오기 성능을 경험할 수 있습니다. {% comment %} https://github.com/github/spokesd/issues/746 {% endcomment %}"
+    - '[매니페스트에서 GitHub App 만들기](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest)가 실패합니다. 이 문제를 해결하기 위해 사용자는 [GitHub App 만들기](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app)에 대한 수동 지침을 따를 수 있습니다. {% comment %} https://github.com/github/enterprise2/issues/22849 {% endcomment %}'
+    - "GitHub 사용자 이름이 관리 콘솔의 ‘사용자 이름’ 필드에 매핑된 속성 값과 일치하지 않는 경우 SAML 인증을 사용할 때 GitHub 사용자 이름이 의도하지 않게 변경될 수 있습니다. (2020-10-08 업데이트됨) {% comment %} https://github.com/github/external-identities/issues/335 {% endcomment %}"
+    - "새로 설치된 2.22.0 인스턴스에서 또는 2.22.0으로 업그레이드한 후 조직 대시보드에 대한 활동 피드가 더 이상 업데이트되지 않습니다.(2020-10-27 업데이트됨) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}"
+    - "감사 로그가 실제 원본 IP 주소가 아닌 127.0.0.1로 표시될 수 있습니다.(2020-11-02 업데이트됨) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}"
+    - "고가용성 구성에서 복제본 노드가 오프라인일 때 {% data variables.product.product_name %}은 여전히 {% data variables.product.prodname_pages %} 요청을 오프라인 노드로 라우팅할 수 있으며 사용자의 {% data variables.product.prodname_pages %} 가용성이 감소합니다."

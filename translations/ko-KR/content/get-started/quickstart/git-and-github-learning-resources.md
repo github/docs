@@ -1,12 +1,12 @@
 ---
-title: Git and GitHub learning resources
+title: Git 및 GitHub 학습 리소스
 redirect_from:
   - /articles/good-resources-for-learning-git-and-github
   - /articles/what-are-other-good-resources-for-learning-git-and-github
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
-intro: 'There are a lot of helpful Git and {% data variables.product.product_name %} resources on the web. This is a short list of our favorites!'
+intro: '웹에는 유용한 Git 및 {% data variables.product.product_name %} 리소스가 많이 있습니다. 다음 목록은 즐겨찾기의 일부에 불과합니다.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,49 +15,55 @@ versions:
 authors:
   - GitHub
 shortTitle: Learning resources
+ms.openlocfilehash: 26a5e820b6a71cefd4eb91c9427cdefb0398728f
+ms.sourcegitcommit: 5f40f9341dd1e953f4be8d1642f219e628e00cc8
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/04/2022
+ms.locfileid: '148009260'
 ---
-## Using Git
+## Git 사용
 
-Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs).
+[공식 Git 프로젝트 사이트](https://git-scm.com)를 방문하여 [ProGit 북](http://git-scm.com/book)을 읽어 Git에 익숙해지세요. [Git 명령 목록](https://git-scm.com/docs)을 검토할 수도 있습니다.
 
-## Using {% data variables.product.product_name %}
+## {% data variables.product.product_name %} 사용
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.prodname_dotcom %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
+{% data variables.product.prodname_learning %}은 즉각적인 자동 피드백 및 지원과 함께 {% data variables.product.prodname_dotcom %}에 기본 제공되는 무료 대화형 강좌를 제공합니다. 첫 번째 끌어오기 요청을 열고, 첫 번째 오픈 소스 기여를 수행하고, {% data variables.product.prodname_pages %} 사이트 등을 만드는 방법을 알아봅니다. 과정 제공에 대한 자세한 내용은 [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})을 참조하세요.
 
 {% endif %}
 
-Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. See our [{% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow) for a process introduction. Refer to our [overview guides](https://guides.github.com) to walk through basic concepts.
+[시작](/categories/getting-started-with-github/) 문서를 통해 {% data variables.product.product_name %}에 대해 더 잘 알게 됩니다. 프로세스 소개는 [{% data variables.product.prodname_dotcom %}흐름](https://guides.github.com/introduction/flow)을 참조하세요. 기본 개념을 연습하려면 [개요 가이드](https://guides.github.com)를 참조하세요.
 
 {% data reusables.support.ask-and-answer-forum %}
 
-### Branches, forks, and pull requests
+### 분기, 포크 및 끌어오기 요청
 
-Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+대화형 도구를 사용하는 [Git 분기](http://learngitbranching.js.org/)를 알아봅니다. {% data variables.product.prodname_dotcom %}[에서 ](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)뿐만 아니라 [포크하다](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) 및 [끌어오기 요청](/articles/using-pull-requests)에 관해 자세히 알아봅니다. [명령줄](https://cli.github.com/)에서 {% data variables.product.prodname_dotcom %} 사용에 대한 참조에 액세스합니다.
 
-### Tune in
+### 튜닝
 
-Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides channel](https://youtube.com/githubguides) offers tutorials about [pull requests](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19), [forking](https://www.youtube.com/watch?v=5oJHRbqEofs), [rebase](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22), and [reset](https://www.youtube.com/watch?v=BKPjPMVB81g) functions. Each topic is covered in 5 minutes or less.
+{% data variables.product.prodname_dotcom %} [YouTube 교육 및 가이드 채널](https://youtube.com/githubguides)은 [끌어오기 요청](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19), [포크](https://www.youtube.com/watch?v=5oJHRbqEofs), [다시 지정](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22) 및 [재설정](https://www.youtube.com/watch?v=BKPjPMVB81g) 기능에 대한 자습서를 제공합니다. 각 항목의 길이는 5분 이내입니다.
 
-## Training
+## 학습
 
-### Free courses
+### 무료 과정
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %}는 [{% data variables.product.prodname_dotcom %}에 대한 소개](https://github.com/skills/introduction-to-github)를 포함하여 일련의 대화형 [주문형 교육 과정](https://skills.github.com/) 및 {% data variables.product.prodname_actions %} 같은 {% data variables.product.product_name %} 전용 도구에 대한 과정을 제공합니다.
 
-### {% data variables.product.prodname_dotcom %}'s web-based educational programs
+### {% data variables.product.prodname_dotcom %}의 웹 기반 교육 프로그램
 
-{% data variables.product.prodname_dotcom %} offers live [trainings](https://services.github.com/#upcoming-events) with a hands-on, project-based approach for those who love the command line and those who don't.
+{% data variables.product.prodname_dotcom %}는 명령줄을 선호하는 사용자와 그렇지 않은 사용자를 위한 실습 프로젝트 기반 접근 방식을 사용하여 실시간 [교육](https://services.github.com/#upcoming-events)을 제공합니다.
 
-### Training for your company
+### 회사 교육
 
-{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. [Contact us](https://services.github.com/#contact) to ask your training-related questions.
+{% data variables.product.prodname_dotcom %}은는 고도로 숙련된 교육자가 [대면 수업](https://services.github.com/#offerings)을 진행합니다. 교육 관련 질문을 하려면 [문의](https://services.github.com/#contact)하시기 바랍니다.
 
-## Extras
+## 추가 항목
 
-An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
+[Pluralsight](https://www.pluralsight.com/courses/code-school-git-real)의 대화형 [온라인 Git 과정](https://www.pluralsight.com/codeschool)에는 재미있는 게임 형식으로 수십 가지 연습이 포함된 7개의 레벨이 있습니다. 필요에 맞게 [.gitignore 템플릿](https://github.com/github/gitignore)을 자유롭게 조정할 수 있습니다.
 
-Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt or ghec %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) text editor.
+{% 데이터 variables.product.prodname_dotcom %}을(를) {% ifversion fpt 또는 ghec %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}을(를) 통해 또는 [{% 데이터 variables.product.prodname_desktop %}](https://desktop.github.com) 과(와) 강력한 [{% 데이터 variables.product.prodname_vscode %}](https://code.visualstudio.com/) 텍스트 편집기를 설치하여 확장합니다.
 
-Learn how to launch and grow your open source project with the [Open Source Guides](https://opensource.guide/).
+[오픈 소스 가이드](https://opensource.guide/)를 사용하여 오픈 소스 프로젝트를 시작하고 성장시키는 방법을 알아봅니다.

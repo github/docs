@@ -1,6 +1,6 @@
 ---
-title: Managing default labels for repositories in your organization
-intro: You can customize the labels that are included in every new repository in your organization.
+title: Standardkennzeichnungen für Repositorys in Ihrer Organisation verwalten
+intro: 'Du kannst die Kennzeichnungen anpassen, die in jedem neuen Repository deiner Organisation enthalten sind.'
 redirect_from:
   - /articles/managing-default-labels-for-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-default-labels-for-repositories-in-your-organization
@@ -13,46 +13,36 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage default labels
+ms.openlocfilehash: a2591c84d3844bfdadc3c7321d7ce8eec2adf293
+ms.sourcegitcommit: fcf3546b7cc208155fb8acdf68b81be28afc3d2d
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 09/10/2022
+ms.locfileid: '145125729'
 ---
+Organisationsinhaber können die Standardkennzeichnungen für Repositorys in der Organisation verwalten.
 
-Organization owners can manage default labels for repositories in the organization.
+Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinhaltet, aber jeder mit Schreibzugriff auf das Repository kann die Kennzeichnungen in diesem Repository später bearbeiten oder löschen. Standardkennzeichnungen hinzuzufügen, zu bearbeiten oder zu löschen wird diese Kennzeichnungen für bestehende Repositorys weder hinzufügen noch bearbeiten oder löschen.
 
-Default labels are included in every new repository in your organization, but anyone with write access to the repository can edit or delete the labels in that repository later. Adding, editing, or deleting a default label does not add, edit, or delete the label from existing repositories.
+## Eine Standardkennzeichnung erstellen
 
-## Creating a default label
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
+5. Klicke unter „Repositorybezeichnungen“ auf **Neue Bezeichnung**.
+  ![Schaltfläche „Neue Bezeichnung“](/assets/images/help/organizations/new-label-button.png) {% data reusables.project-management.name-label %} {% data reusables.project-management.label-description %} {% data reusables.project-management.label-color-randomizer %} {% data reusables.project-management.create-label %}
 
-5. Under "Repository labels", click **New label**.
-  ![New label button](/assets/images/help/organizations/new-label-button.png)
-{% data reusables.project-management.name-label %}
-{% data reusables.project-management.label-description %}
-{% data reusables.project-management.label-color-randomizer %}
-{% data reusables.project-management.create-label %}
+## Eine Standardkennzeichnung bearbeiten
 
-## Editing a default label
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
+{% data reusables.project-management.edit-label %} {% data reusables.project-management.name-label %} {% data reusables.project-management.label-description %} {% data reusables.project-management.label-color-randomizer %} {% data reusables.project-management.save-label %}
 
-{% data reusables.project-management.edit-label %}
-{% data reusables.project-management.name-label %}
-{% data reusables.project-management.label-description %}
-{% data reusables.project-management.label-color-randomizer %}
-{% data reusables.project-management.save-label %}
+## Eine Standardkennzeichnung löschen
 
-## Deleting a default label
+{% data reusables.profile.access_org %} {% data reusables.profile.org_settings %} {% data reusables.organizations.repository-defaults %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.repository-defaults %}
+{% data reusables.project-management.delete-label %} {% data reusables.project-management.confirm-label-deletion %}
 
-{% data reusables.project-management.delete-label %}
-{% data reusables.project-management.confirm-label-deletion %}
+## Weiterführende Themen
 
-## Further reading
-
-- "[About labels](/articles/about-labels)"
+- [Informationen zu Kennzeichnungen](/articles/about-labels)
