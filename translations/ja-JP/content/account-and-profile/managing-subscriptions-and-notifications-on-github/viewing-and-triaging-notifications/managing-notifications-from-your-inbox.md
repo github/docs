@@ -1,6 +1,6 @@
 ---
-title: Managing notifications from your inbox
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes or ghec %} and mobile{% endif %}.'
+title: インボックスからの通知を管理する
+intro: 'インボックスを使って、メール{% ifversion fpt or ghes or ghec %}とモバイル{% endif %}で通知をすばやくトリアージして同期します。'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -14,98 +14,102 @@ versions:
 topics:
   - Notifications
 shortTitle: Manage from your inbox
+ms.openlocfilehash: d3e0d5eb5e7cf3e544ab601651951178402e4150
+ms.sourcegitcommit: f638d569cd4f0dd6d0fb967818267992c0499110
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/25/2022
+ms.locfileid: '148106806'
 ---
+## インボックスについて
 
-## About your inbox
-
-{% ifversion fpt or ghes or ghec %}
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
+{% ifversion fpt or ghes or ghec %} {% data reusables.notifications-v2.notifications-inbox-required-setting %} 詳細については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)」を参照してください。
 {% endif %}
 
-To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
+インボックスへアクセスするには、任意のページの右上で、{% octicon "bell" aria-label="The notifications bell" %} をクリックします。
 
-  ![Notification indicating any unread message](/assets/images/help/notifications/notifications_general_existence_indicator.png)
+  ![未読メッセージを示す通知](/assets/images/help/notifications/notifications_general_existence_indicator.png)
 
-Your inbox shows all of the notifications that you haven't unsubscribed to or marked as **Done.** You can customize your inbox to best suit your workflow using filters, viewing all or just unread notifications, and grouping your notifications to get a quick overview.
+受信トレイには、サブスクライブ解除していない、または **[完了]** としてマークしていないすべての通知が表示されます。 フィルターを使用してワークフローに最適な受信トレイをカスタマイズしたり、すべての通知を表示したり、未読の通知だけを表示したり、通知をグループ化して簡単に概要を確認したりできます。
 
-  ![inbox view](/assets/images/help/notifications-v2/inbox-view.png)
+  ![インボックスビュー](/assets/images/help/notifications-v2/inbox-view.png)
 
-By default, your inbox will show read and unread notifications. To only see unread notifications, click **Unread** or use the `is:unread` query.
+デフォルトでは、インボックスに既読と未読の通知が表示されます。 未読の通知のみを表示するには、 **[未読]** をクリックするか、`is:unread` クエリを使用します。
 
-  ![unread inbox view](/assets/images/help/notifications-v2/unread-inbox-view.png)
+  ![未読のインボックスイビュー](/assets/images/help/notifications-v2/unread-inbox-view.png)
 
-## Triaging options
+## トリアージオプション
 
-You have several options for triaging notifications from your inbox.
+インボックスからの通知をトリアージする場合のオプションは次のとおりです。
 
-| Triaging option | Description |
+| トリアージオプション | 説明 |
 |-----------------|-------------|
-| Save            | Saves your notification for later review. To save a notification, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. <br> <br> Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day. |
-| Done            | Marks a notification as completed and removes the notification from your inbox. You can see all completed notifications by clicking **Done** in the sidebar or with the `is:done` query. Notifications marked as **Done** are saved for 5 months.
-| Unsubscribe     | Automatically removes the notification from your inbox and unsubscribes you from the conversation until you are @mentioned, a team you're on is @mentioned, or you're requested for review.
-| Read            | Marks a notification as read. To only view read notifications in your inbox, use the `is:read` query. This query doesn't include notifications marked as **Done**.
-| Unread          | Marks notification as unread. To only view unread notifications in your inbox, use the `is:unread` query. |
+| 保存            | 後で確認するために、通知を保存します。 通知を保存するには、通知の右側にある {% octicon "bookmark" aria-label="The bookmark icon" %} をクリックします。 <br> <br> 保存された通知は無期限に保持され、サイド バーで **[保存済み]** をクリックするか、または `is:saved` クエリを使用して表示できます。 5か月以上前に保存した通知の保存を解除すると、通知は1日以内にインボックスから消えます。 |
+| 完了            | 通知を完了済としてマークし、受信トレイから通知を削除します。 完了した通知をすべて表示するには、サイド バーで **[完了]** をクリックするか、または `is:done` クエリを使用します。 **[完了]** としてマークされた通知は、5 か月間保存されます。
+| サブスクライブ解除     | @mentioned されるか、参加している Team が @mentioned されるか、またはレビューが要求されるまで、受信トレイから通知を自動的に削除し、会話からサブスクライブ解除します。
+| Read            | 通知を既読としてマークします。 受信トレイで既読の通知のみを表示するには、`is:read` クエリを使用します。 このクエリには、 **[完了]** としてマークされている通知は含まれません。
+| Unread          | 通知を未読としてマークします。 受信トレイで未読の通知のみを表示するには、`is:unread` クエリを使用します。 |
 
-To see the available keyboard shortcuts, see "[Keyboard Shortcuts](/github/getting-started-with-github/keyboard-shortcuts#notifications)."
+使用可能なキーボード ショートカットについては、「[キーボード ショートカット](/github/getting-started-with-github/keyboard-shortcuts#notifications)」を参照してください。
 
-Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)."
+トリアージオプションを選択する前に、まず通知の詳細をプレビューして調査することができます。 詳細については、「[単一の通知をトリアージする](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)」を参照してください。
 
-## Triaging multiple notifications at the same time
+## 複数の通知を同時にトリアージする
 
-To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down to choose a triage option.
+複数の通知を同時にトリアージするには、関連する通知を選択し、{% octicon "kebab-horizontal" aria-label="The edit icon" %} ドロップダウンを使用してトリアージ オプションを選択します。
 
-![Drop-down menu with triage options and selected notifications](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
+![トリアージオプションと選択した通知を含むドロップダウンメニュー](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
-## Default notification filters
+## デフォルト通知フィルタ
 
-By default, your inbox has filters for when you are assigned, participating in a thread, requested to review a pull request, or when your username is @mentioned directly or a team you're a member of is @mentioned.
+既定では、受信トレイには、割り当てられたとき、スレッドに参加したとき、Pull Request のレビューを要求されたとき、ユーザー名が直接 @mentioned されたとき、またはメンバーになっている Team が @mentioned されたときのフィルターがあります。
 
-  ![Default custom filters](/assets/images/help/notifications-v2/default-filters.png)
+  ![デフォルトのカスタムフィルタ](/assets/images/help/notifications-v2/default-filters.png)
 
-## Customizing your inbox with custom filters
+## カスタムフィルタでインボックスをカスタマイズする
 
-You can add up to 15 of your own custom filters.
+独自のカスタムフィルタを 15 個まで追加できます。
 
 {% data reusables.notifications.access_notifications %}
-2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="The Gear icon" %}.
+2. フィルター設定を開くには、左側のサイドバーの [フィルター] の横にある {% octicon "gear" aria-label="The Gear icon" %} をクリックします。
 
   {% tip %}
 
-  **Tip:** You can quickly preview a filter's inbox results by creating a query in your inbox view and clicking **Save**, which opens the custom filter settings.
+  **ヒント:** 受信トレイ ビューでクエリを作成し、 **[保存]** をクリックすると、カスタム フィルターの設定が開き、フィルターの受信トレイの結果をすばやくプレビューできます。
 
   {% endtip %}
 
-3. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
+3. フィルタの名前とフィルタクエリを追加します。 たとえば、特定のリポジトリの通知のみを表示するには、クエリ `repo:octocat/open-source-project-name reason:participating`を使用してフィルターを作成します。 ネイティブの絵文字キーボードを使用して、絵文字を追加することもできます。 サポートされている検索クエリの一覧については、「[カスタム フィルターでサポートされているクエリ](#supported-queries-for-custom-filters)」を参照してください。
 
-  ![Custom filter example](/assets/images/help/notifications-v2/custom-filter-example.png)
+  ![カスタムフィルタの例](/assets/images/help/notifications-v2/custom-filter-example.png)
 
-4. Click **Create**.
+4. **Create** をクリックしてください。
 
-## Custom filter limitations
+## カスタムフィルタの制限
 
-Custom filters do not currently support:
-  - Full text search in your inbox, including searching for pull request or issue titles.
-  - Distinguishing between the `is:issue`, `is:pr`, and `is:pull-request` query filters. These queries will return both issues and pull requests.
-  - Creating more than 15 custom filters.
-  - Changing the default filters or their order.
-  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
+カスタムフィルタは現在、以下をサポートしていません。
+  - プルリクエストや Issue のタイトルの検索を含む、インボックスでの全文検索。
+  - `is:issue`、`is:pr`、および `is:pull-request` クエリ フィルターの区別。 これらのクエリは、Issue とプルリクエストの両方を検索結果として表示します。
+  - 15 個以上のカスタムフィルタの作成。
+  - デフォルトのフィルタまたはその順序の変更。
+  - `NOT` または `-QUALIFIER` を使用した[除外](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results)の検索。
 
-## Supported queries for custom filters
+## カスタムフィルタでサポートされているクエリ
 
-These are the types of filters that you can use:
-  - Filter by repository with `repo:`
-  - Filter by discussion type with `is:`
-  - Filter by notification reason with `reason:`{% ifversion fpt or ghec %}
-  - Filter by notification author with `author:`
-  - Filter by organization with `org:`{% endif %}
+使用できるフィルタの種類は次のとおりです。
+  - リポジトリによるフィルター (`repo:` を使用)
+  - ディスカッションの種類によるフィルター (`is:` を使用)
+  - 通知理由によるフィルター (`reason:` を使用){% ifversion fpt or ghec %}
+  - 通知作成者によるフィルター (`author:` を使用)
+  - Organization によるフィルター (`org:` を使用){% endif %}
 
-### Supported `repo:` queries
+### サポートされている `repo:` クエリ
 
-To add a `repo:` filter, you must include the owner of the repository in the query: `repo:owner/repository`. An owner is the organization or the user who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
+`repo:` フィルターを追加するには、リポジトリの所有者をクエリに含める必要があります: `repo:owner/repository`。 オーナーは、通知をトリガーする {% data variables.product.prodname_dotcom %} アセットを所有する Organization またはユーザです。 たとえば、`repo:octo-org/octo-repo` は、Organization 内の octo-repo リポジトリでトリガーされた通知を表示します。
 
-### Supported `is:` queries
+### サポートされている `is:` クエリ
 
-To filter notifications for specific activity on {% data variables.location.product_location %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
+{% data variables.location.product_location %} で特定のアクティビティについて通知をフィルター処理するには、`is` クエリを使います。 たとえば、リポジトリの招待の更新のみを表示するには、`is:repository-invitation` を使用します。{% ifversion not ghae %}また、{% data variables.product.prodname_dependabot_alerts %}のみを表示するには、`is:repository-vulnerability-alert` を使用します。{% endif %}
 
 - `is:check-suite`
 - `is:commit`
@@ -118,64 +122,63 @@ To filter notifications for specific activity on {% data variables.location.prod
 - `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
+{% data variables.product.prodname_dependabot_alerts %}の通知からノイズを減らす方法については、「[{% data variables.product.prodname_dependabot_alerts %}に対する通知の設定](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)」をご覧ください。
 
-You can also use the `is:` query to describe how the notification was triaged.
+`is:` クエリを使用して、通知がトリアージされた方法を記述することもできます。
 
 - `is:saved`
 - `is:done`
 - `is:unread`
 - `is:read`
 
-### Supported `reason:` queries
+### サポートされている `reason:` クエリ
 
-To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)."
+更新を受信した理由で通知をフィルター処理するには、`reason:` クエリを使用します。 たとえば、自分 (または自分が所属する Team) が Pull Request のレビューを要求されたときに通知を表示するには、`reason:review-requested` を使用します。 詳細については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)」を参照してください。
 
-| Query | Description |
+| クエリ | 説明 |
 |-----------------|-------------|
-| `reason:assign` | When there's an update on an issue or pull request you've been assigned to.
-| `reason:author` | When you opened a pull request or issue and there has been an update or new comment.
-| `reason:comment`| When you commented on an issue, pull request, or team discussion.
-| `reason:participating` | When you have commented on an issue, pull request, or team discussion or you have been @mentioned.
-| `reason:invitation` | When you're invited to a team, organization, or repository.
-| `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
-| `reason:mention` | You were directly @mentioned.
-| `reason:review-requested` | You or a team you're on have been requested to review a pull request.
-| `reason:security-alert` | When a security alert is issued for a repository.
-| `reason:state-change`  | When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged.
-| `reason:team-mention` | When a team you're a member of is @mentioned.
-| `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
+| `reason:assign` | 割り当てられている Issue またはプルリクエストに更新があるとき。
+| `reason:author` | プルリクエストまたは Issue を開くと、更新または新しいコメントがあったとき。
+| `reason:comment`| Issue、プルリクエスト、または Team ディスカッションにコメントしたとき。
+| `reason:participating` | Issue、Pull Request、Team ディスカッションについてコメントしたとき、または @mentioned されたとき。
+| `reason:invitation` | Team、Organization、またはリポジトリに招待されたとき。
+| `reason:manual` | まだサブスクライブしていない Issue または Pull Request で **[サブスクライブ]** をクリックしたとき。
+| `reason:mention` | 直接 @mentioned されたとき。
+| `reason:review-requested` | 自分または自分が参加している Team が、プルリクエストのレビューをリクエストされたとき。
+| `reason:security-alert` | リポジトリに対してセキュリティアラートが発行されたとき。
+| `reason:state-change`  | プルリクエストまたは Issue の状態が変更されたとき。 たとえば、Issue がクローズされたり、プルリクエストがマージされた場合です。
+| `reason:team-mention` | メンバーになっている Team が @mentioned されたとき。
+| `reason:ci-activity` | リポジトリに、新しいワークフロー実行ステータスなどの CI 更新があるとき。
 
 {% ifversion fpt or ghec %}
-### Supported `author:` queries
+### サポートされている `author:` クエリ
 
-To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
+ユーザーごとに通知をフィルター処理するには、`author:` クエリを使用します。 作者は、通知されるスレッド（Issue、プルリクエスト、Gist、ディスカッションなど）の元の作者です。 たとえば、Octocat ユーザーによって作成されたスレッドの通知を表示するには、`author:octocat` を使用します。
 
-### Supported `org:` queries
+### サポートされている `org:` クエリ
 
-To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
+Organization ごとに通知をフィルター処理するには、`org` クエリを使用します。 クエリで指定する必要のある Organization は、{% data variables.product.prodname_dotcom %} で通知されているリポジトリの Organization です。 このクエリは、複数の Organization に属していて、特定の Organization の通知を表示する場合に便利です。
 
-For example, to see notifications from the octo-org organization, use `org:octo-org`. 
+たとえば、octo-org の Organization からの通知を表示するには、`org:octo-org` を使用します。 
 
 {% endif %}
 
-## {% data variables.product.prodname_dependabot %} custom filters
+## {% data variables.product.prodname_dependabot %}カスタムフィルタ
 
-{% ifversion fpt or ghec or ghes %}
-If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
-- `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
-- `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
-- `author:app/dependabot` to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.
+{% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot %} を使って依存関係を最新の状態に保つには、次のカスタム フィルターを使って保存します。
+- `is:repository_vulnerability_alert`: {% data variables.product.prodname_dependabot_alerts %}の通知を表示します。
+- `reason:security_alert`: {% data variables.product.prodname_dependabot_alerts %}とセキュリティ更新プログラムの Pull Request の通知を表示します。
+- `author:app/dependabot`: {% data variables.product.prodname_dependabot %} によって生成される通知を表示します。 これには、{% data variables.product.prodname_dependabot_alerts %}、セキュリティアップデートのプルリクエスト、およびバージョン更新のプルリクエストが含まれます。
 
-For more information about {% data variables.product.prodname_dependabot %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+{% data variables.product.prodname_dependabot %} の詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
 {% ifversion ghae %}
 
-If you use {% data variables.product.prodname_dependabot %} to tell you about insecure dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+{% data variables.product.prodname_dependabot %} を使って安全ではない依存関係についての通知を受け取る場合は、次のカスタム フィルターを使って保存することで、{% data variables.product.prodname_dependabot_alerts %}の通知を表示できます。
 - `is:repository_vulnerability_alert` 
 - `reason:security_alert`
 
-For more information about {% data variables.product.prodname_dependabot %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+{% data variables.product.prodname_dependabot %} の詳細については、「[{% data variables.product.prodname_dependabot_alerts %}について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
