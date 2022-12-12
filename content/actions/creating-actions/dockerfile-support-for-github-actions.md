@@ -85,6 +85,7 @@ Using the example Dockerfile above, {% data variables.product.product_name %} wi
 
 # `$#` expands to the number of arguments and `$@` expands to the supplied `args`
 printf '%d args:' "$#"
+printf $' \'%s\'' "$@"
 printf ' <%s>' "$@"
 echo
 ```
