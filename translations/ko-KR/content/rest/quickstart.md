@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub REST API
-intro: 'Learn how to get started with the {% data variables.product.prodname_dotcom %} REST API.'
+title: GitHub REST API에 대한 빠른 시작
+intro: '{% data variables.product.prodname_dotcom %} REST API를 시작하는 방법을 알아봅니다.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -14,36 +14,41 @@ redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
 miniTocMaxHeadingLevel: 3
+ms.openlocfilehash: 001c4e3291e697be034579525d9f0bc6da8c0c88
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148192883'
 ---
-
-This article describes how to quickly get started with the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a more detailed guide, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api)."
+이 문서에서는 {% data variables.product.prodname_cli %}, JavaScript 또는 cURL을 사용하여 {% data variables.product.prodname_dotcom %} REST API를 빠르게 시작하는 방법을 설명합니다. 자세한 내용은 “[REST API 시작](/rest/guides/getting-started-with-the-rest-api)”을 참조하세요.
 
 {% cli %}
 
-## Getting started using {% data variables.product.prodname_cli %}
+## {% data variables.product.prodname_cli %}를 사용하여 시작
 
-### Using {% data variables.product.prodname_cli %} in the command line
+### 명령줄에서 {% data variables.product.prodname_cli %} 사용
 
-{% data variables.product.prodname_cli %} is the easiest way to use the {% data variables.product.prodname_dotcom %} REST API from the command line.
+{% data variables.product.prodname_cli %}는 명령줄에서 {% data variables.product.prodname_dotcom %} REST API를 사용하는 가장 쉬운 방법입니다.
 
-1. Install {% data variables.product.prodname_cli %} if you haven't installed it yet. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
-1. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+1. 아직 설치하지 않은 경우 {% data variables.product.prodname_cli %}를 설치합니다. 설치 지침은 [{% data variables.product.prodname_cli %} 리포지토리](https://github.com/cli/cli#installation)를 참조하세요.
+1. `auth login` 하위 명령을 사용하여 {% data variables.product.prodname_cli %}에 인증합니다. 자세한 내용은 [{% data variables.product.prodname_cli %} `auth login` 설명서](https://cli.github.com/manual/gh_auth_login)를 참조하세요.
 
    ```shell
    gh auth login
    ```
 
-1. Use the `api` subcommand to make your API request. For more information, see the [{% data variables.product.prodname_cli %} `api` documentation](https://cli.github.com/manual/gh_api).
+1. `api` 하위 명령을 사용하여 API 요청을 만듭니다. 자세한 내용은 [{% data variables.product.prodname_cli %} `api` 설명서](https://cli.github.com/manual/gh_api)를 참조하세요.
 
    ```shell
    gh api repos/octocat/Spoon-Knife/issues
    ```
 
-### Using {% data variables.product.prodname_cli %} in {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %}에서 {% data variables.product.prodname_cli %} 사용
 
-You can also use {% data variables.product.prodname_cli %} in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Using GitHub CLI in workflows](/actions/using-workflows/using-github-cli-in-workflows)."
+{% data variables.product.prodname_actions %} 워크플로에서 {% data variables.product.prodname_cli %}를 사용할 수도 있습니다. 자세한 내용은 “[워크플로에서 GitHub CLI 사용](/actions/using-workflows/using-github-cli-in-workflows)”을 참조하세요.
 
-Instead of using the `gh auth login` command, pass an access token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+`gh auth login` 명령을 사용하는 대신 액세스 토큰을 `GH_TOKEN`이라는 환경 변수로 전달합니다. {% data variables.product.prodname_dotcom %}에서는 토큰을 만드는 대신 기본 제공 `GITHUB_TOKEN`을 사용하는 것이 좋습니다. 가능하지 않은 경우 토큰을 비밀로 저장하고 아래 예제의 `GITHUB_TOKEN`을 비밀의 이름으로 바꿉니다. `GITHUB_TOKEN`에 대한 자세한 내용은 “[자동 토큰 인증](/actions/security-guides/automatic-token-authentication)”을 참조하세요. 비밀에 대한 자세한 내용은 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
 
 ```yaml
 on:
@@ -60,11 +65,11 @@ jobs:
           gh api repos/octocat/Spoon-Knife/issues
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+{% data variables.product.prodname_github_app %}을 사용하여 인증하는 경우 워크플로 내에서 설치 액세스 토큰을 만들 수 있습니다.
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. {% data variables.product.prodname_github_app %}의 ID를 비밀로 저장합니다. 다음 예에서 `APP_ID`을 비밀의 이름으로 바꿉니다. 앱의 설정 페이지 또는 API를 통해 앱 ID를 찾을 수 있습니다. 자세한 내용은 REST API 설명서의 "[앱](/rest/apps/apps#get-an-app)"을 참조하세요. 비밀에 대한 자세한 내용은 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
+1. 앱에 대한 프라이빗 키를 생성합니다. 결과 파일의 내용을 비밀로 저장합니다. (`-----BEGIN RSA PRIVATE KEY-----` 및 `-----END RSA PRIVATE KEY-----`를 포함하여 파일의 전체 내용을 저장합니다.) 다음 예에서 `APP_PEM`을 비밀의 이름으로 바꿉니다. 자세한 내용은 “[{% data variables.product.prodname_github_apps %}에서 인증](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)”을 참조하세요.
+1. 토큰을 생성하는 단계를 추가하고 `GITHUB_TOKEN` 대신 해당 토큰을 사용합니다. 이 토큰은 60분 후에 만료됩니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -93,31 +98,31 @@ jobs:
 
 {% javascript %}
 
-## Getting started using JavaScript
+## JavaScript 사용 시작
 
-You can use Octokit.js to interact with the {% data variables.product.prodname_dotcom %} REST API in your JavaScript scripts. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+Octokit.js를 사용하여 JavaScript 스크립트에서 {% data variables.product.prodname_dotcom %} REST API와 상호 작용할 수 있습니다. 자세한 내용은 [Octokit.js 추가 정보](https://github.com/octokit/octokit.js/#readme)를 참조하세요.
 
-### Using Octokit.js
+### Octokit.js 사용
 
-1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+1. 액세스 토큰을 만듭니다. 예를 들어 {% data variables.product.pat_generic %} 또는 {% data variables.product.prodname_github_app %} 사용자-서버 액세스 토큰을 만듭니다. 자세한 내용은 "[{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" 또는 "[GitHub 앱에 대한 사용자 식별 및 권한 부여](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)"를 참조하세요.
 
    {% warning %}
 
-   **Warning**: Treat your access token like a password.
+   **경고**: 액세스 토큰을 암호와 같이 취급하세요.
 
-   To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see the "[Using Octokit.js in {% data variables.product.prodname_actions %}](#using-octokitjs-in-github-actions)" section.
+   토큰을 안전하게 유지하기 위해 비밀로 저장하고 {% data variables.product.prodname_actions %}를 통해 스크립트를 실행할 수 있습니다. 자세한 내용은 “[{% data variables.product.prodname_actions %}에서 Octokit.js 사용](#using-octokitjs-in-github-actions)” 섹션을 참조하세요.
 
    {%- ifversion fpt or ghec %}
 
-   You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+   또한 토큰을 {% data variables.product.prodname_codespaces %} 비밀로 저장하고 {% data variables.product.prodname_codespaces %}에서 스크립트를 실행할 수도 있습니다. 자세한 내용은 “[codespace에 대한 암호화된 비밀 관리](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)”를 참조하세요.{% endif %}
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   이러한 옵션을 사용할 수 없는 경우 [1Password CLI](https://developer.1password.com/docs/cli/secret-references/)와 같은 다른 서비스를 사용하여 토큰을 안전하게 저장하는 것이 좋습니다.
 
    {% endwarning %}
 
-1. Install `octokit`. For example, `npm install octokit`. For other ways to install or load `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Import `octokit` in your script. For example, `import { Octokit } from "octokit";`. For other ways to import `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Create an instance of `Octokit` with your token. Replace `YOUR-TOKEN` with your token.
+1. `octokit`설치 예들 들어 `npm install octokit`입니다. `octokit`를 설치 또는 로드하는 다른 방법은 [Octokit.js 추가 정보](https://github.com/octokit/octokit.js/#readme)를 참조하세요.
+1. 스크립트로 `octokit`를 가져옵니다. 예들 들어 `import { Octokit } from "octokit";`입니다. `octokit`를 가져오는 다른 방법은 [the Octokit.js 추가 정보](https://github.com/octokit/octokit.js/#readme)를 참조하세요.
+1. 토큰을 사용하여 `Octokit`의 인스턴스를 만듭니다. `YOUR-TOKEN`을 실제 토큰으로 바꿉니다.
 
    ```javascript
    const octokit = new Octokit({
@@ -125,7 +130,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
    });
    ```
 
-1. Use `octokit.request` to execute your request. Send the HTTP method and path as the first argument. Specify any path, query, and body parameters in an object as the second argument. For example, in the following request the HTTP method is `GET`, the path is `/repos/{owner}/{repo}/issues`, and the parameters are `owner: "octocat"` and `repo: "Spoon-Knife"`.
+1. `octokit.request`를 사용하여 요청을 실행합니다. HTTP 메서드와 경로를 첫 번째 인수로 보냅니다. 개체의 경로, 쿼리 및 본문 매개 변수를 두 번째 인수로 지정합니다. 예를 들어 다음 요청에서 HTTP 메서드는 `GET`이며, 경로는 `/repos/{owner}/{repo}/issues`이고 매개 변수는 `owner: "octocat"` 및 `repo: "Spoon-Knife"`입니다.
 
    ```javascript
    await octokit.request("GET /repos/{owner}/{repo}/issues", {
@@ -134,20 +139,20 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
    });
    ```
 
-### Using Octokit.js in {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %}에서 Octokit.js 사용
 
-You can also execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+{% data variables.product.prodname_actions %} 워크플로에서 JavaScript 스크립트를 실행할 수도 있습니다. 자세한 내용은 “[GitHub Actions의 워크플로 구문](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)”을 참조하세요.
 
-{% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %}에서는 토큰을 만드는 대신 기본 제공 `GITHUB_TOKEN`을 사용하는 것이 좋습니다. 가능하지 않은 경우 토큰을 비밀로 저장하고 아래 예제의 `GITHUB_TOKEN`을 비밀의 이름으로 바꿉니다. `GITHUB_TOKEN`에 대한 자세한 내용은 “[자동 토큰 인증](/actions/security-guides/automatic-token-authentication)”을 참조하세요. 비밀에 대한 자세한 내용은 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
 
-The following example workflow:
+다음 예제 워크플로:
 
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
+1. 리포지토리 콘텐츠 체크 아웃
+1. Node.js 설정
+1. `octokit`를 설치합니다.
+1. `GITHUB_TOKEN`의 값을 `TOKEN`이라는 환경 변수로 저장하고, 이 환경 변수에 `process.env.TOKEN`으로 액세스할 수 있는 `.github/actions-scripts/use-the-api.mjs`를 실행합니다.
 
-Example workflow:
+예제 워크플로:
 
 ```yaml
 on:
@@ -177,7 +182,7 @@ jobs:
           TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
+JavaScript 스크립트 예제(파일 경로: `.github/actions-scripts/use-the-api.mjs`):
 
 ```javascript
 import { Octokit } from "octokit"
@@ -201,11 +206,11 @@ try {
 }
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+{% data variables.product.prodname_github_app %}을 사용하여 인증하는 경우 워크플로 내에서 설치 액세스 토큰을 만들 수 있습니다.
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. {% data variables.product.prodname_github_app %}의 ID를 비밀로 저장합니다. 다음 예에서 `APP_ID`을 비밀의 이름으로 바꿉니다. 앱의 설정 페이지 또는 앱 API를 통해 앱 ID를 찾을 수 있습니다. 자세한 내용은 “[앱](/rest/apps/apps#get-an-app)”을 참조하세요. 비밀에 대한 자세한 내용은 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
+1. 앱에 대한 프라이빗 키를 생성합니다. 결과 파일의 내용을 비밀로 저장합니다. (`-----BEGIN RSA PRIVATE KEY-----` 및 `-----END RSA PRIVATE KEY-----`를 포함하여 파일의 전체 내용을 저장합니다.) 다음 예에서 `APP_PEM`을 비밀의 이름으로 바꿉니다. 자세한 내용은 “[{% data variables.product.prodname_github_apps %}에서 인증](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)”을 참조하세요.
+1. 토큰을 생성하는 단계를 추가하고 `GITHUB_TOKEN` 대신 해당 토큰을 사용합니다. 이 토큰은 60분 후에 만료됩니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -246,34 +251,34 @@ jobs:
 
 {% curl %}
 
-## Getting started using cURL
+## cURL 사용 시작
 
-### Using cURL in the command line
+### 명령줄에서 cURL 사용
 
 {% note %}
 
-**Note:** If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
+**참고:** 명령줄에서 API 요청을 만들려면 {% data variables.product.prodname_dotcom %}에서 인증 및 요청을 간소화하는 {% data variables.product.prodname_cli %}를 사용하는 것이 좋습니다. {% data variables.product.prodname_cli %}를 사용하여 REST API를 시작하는 방법에 대한 자세한 내용은 이 문서의 {% data variables.product.prodname_cli %} 버전을 참조하세요.
 
 {% endnote %}
 
-1. Install cURL if cURL isn't already installed on your machine. To check if cURL is installed, execute `curl --version` in the command line. If the output is information about the cURL version, cURL is installed. If you get a message similar to `command not found: curl`, you need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
-1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+1. cURL이 컴퓨터에 아직 설치되어 있지 않은 경우 cURL을 설치합니다. cURL이 설치되어 있는지 확인하려면 명령줄에서 `curl --version`을 실행합니다. 출력이 cURL 버전에 대한 정보인 경우 cURL이 설치된 것입니다. `command not found: curl`와 유사한 메시지가 표시되면 cURL을 다운로드하여 설치해야 합니다. 자세한 내용은 [cURL 프로젝트 다운로드 페이지](https://curl.se/download.html)를 참조하세요.
+1. 액세스 토큰을 만듭니다. 예를 들어 {% data variables.product.pat_generic %} 또는 {% data variables.product.prodname_github_app %} 사용자-서버 액세스 토큰을 만듭니다. 자세한 내용은 "[{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" 또는 "[GitHub 앱에 대한 사용자 식별 및 권한 부여](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)"를 참조하세요.
 
    {% warning %}
 
-   **Warning**: Treat your access token like a password.
+   **경고**: 액세스 토큰을 암호와 같이 취급하세요.
 
    {%- ifversion fpt or ghec %}
 
-   To keep your token secure, you can store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+   토큰을 안전하게 유지하기 위해 토큰을 {% data variables.product.prodname_codespaces %} 비밀로 저장하고 {% data variables.product.prodname_codespaces %}를 통해 명령줄을 사용할 수 있습니다. 자세한 내용은 “[codespace에 대한 암호화된 비밀 관리](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)”를 참조하세요.{% endif %}
 
-   You can also use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+   cURL 대신 {% data variables.product.prodname_cli %}를 사용할 수도 있습니다. {% data variables.product.prodname_cli %}가 대신 인증을 처리합니다. 자세한 내용은 이 페이지의 {% data variables.product.prodname_cli %} 버전을 참조하세요.
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   이러한 옵션을 사용할 수 없는 경우 [1Password CLI](https://developer.1password.com/docs/cli/secret-references/)와 같은 다른 서비스를 사용하여 토큰을 안전하게 저장하는 것이 좋습니다.
 
    {% endwarning %}
 
-1. Use the `cURL` command to make your request. Pass your token in an `Authorization` header. Replace `YOUR-TOKEN` with your token.
+1. `cURL` 명령을 사용하여 요청을 수행합니다. `Authorization` 헤더로 토큰을 전달합니다. `YOUR-TOKEN`을 실제 토큰으로 바꿉니다.
 
    ```shell
    curl --request GET \
@@ -284,15 +289,15 @@ jobs:
 
    {% note %}
 
-   **Note:** {% data reusables.getting-started.bearer-vs-token %}
+   **참고:** {% data reusables.getting-started.bearer-vs-token %}
 
    {% endnote %}
 
-### Using cURL in {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %}에서 cURL 사용
 
-You can also use cURL in your {% data variables.product.prodname_actions %} workflows.
+{% data variables.product.prodname_actions %} 워크플로에서도 cURL을 사용할 수 있습니다.
 
-{% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %}에서는 토큰을 만드는 대신 기본 제공 `GITHUB_TOKEN`을 사용하는 것이 좋습니다. 가능하지 않은 경우 토큰을 비밀로 저장하고 아래 예제의 `GITHUB_TOKEN`을 비밀의 이름으로 바꿉니다. `GITHUB_TOKEN`에 대한 자세한 내용은 “[자동 토큰 인증](/actions/security-guides/automatic-token-authentication)”을 참조하세요. 비밀에 대한 자세한 내용은 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
 
 ```yaml
 on:
@@ -312,11 +317,11 @@ jobs:
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 
-If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
+{% data variables.product.prodname_github_app %}을 사용하여 인증하는 경우 워크플로 내에서 설치 액세스 토큰을 만들 수 있습니다.
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret. In the following example, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/apps/apps#get-an-app)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
-1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
+1. {% data variables.product.prodname_github_app %}의 ID를 비밀로 저장합니다. 다음 예에서 `APP_ID`을 비밀의 이름으로 바꿉니다. 앱의 설정 페이지 또는 앱 API를 통해 앱 ID를 찾을 수 있습니다. 자세한 내용은 “[앱](/rest/apps/apps#get-an-app)”을 참조하세요. 비밀에 대한 자세한 내용은 “[암호화된 비밀](/actions/security-guides/encrypted-secrets)”을 참조하세요.
+1. 앱에 대한 프라이빗 키를 생성합니다. 결과 파일의 내용을 비밀로 저장합니다. (`-----BEGIN RSA PRIVATE KEY-----` 및 `-----END RSA PRIVATE KEY-----`를 포함하여 파일의 전체 내용을 저장합니다.) 다음 예에서 `APP_PEM`을 비밀의 이름으로 바꿉니다. 자세한 내용은 “[{% data variables.product.prodname_github_apps %}에서 인증](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)”을 참조하세요.
+1. 토큰을 생성하는 단계를 추가하고 `GITHUB_TOKEN` 대신 해당 토큰을 사용합니다. 이 토큰은 60분 후에 만료됩니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -346,6 +351,6 @@ jobs:
 
 {% endcurl %}
 
-## Next steps
+## 다음 단계
 
-For a more detailed guide, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api)."
+자세한 내용은 “[REST API 시작](/rest/guides/getting-started-with-the-rest-api)”을 참조하세요.

@@ -303,54 +303,7 @@ gem:
 
 ## Pagination
 
-Requests that return multiple items will be paginated to 30 items by
-default.  You can specify further pages with the `page` parameter. For some
-resources, you can also set a custom page size up to 100 with the `per_page` parameter.
-Note that for technical reasons not all endpoints respect the `per_page` parameter,
-see [events](/rest/reference/activity#events) for example.
-
-```shell
-$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
-```
-
-Note that page numbering is 1-based and that omitting the `page`
-parameter will return the first page.
-
-Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
-With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page.
-Instead, you can traverse the results by using the `before` or `after` parameters.
-
-For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
-
-### Link header
-
-{% note %}
-
-**Note:** It's important to form calls with Link header values instead of constructing your own URLs.
-
-{% endnote %}
-
-The [Link header](https://datatracker.ietf.org/doc/html/rfc5988) includes pagination information. For example:
-
-    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
-      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
-
-_The example includes a line break for readability._
-
-Or, if the endpoint uses cursor-based pagination:
-
-    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
-
-This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](https://datatracker.ietf.org/doc/html/rfc6570).
-
-The possible `rel` values are:
-
-Name | Description
------------|-----------|
-`next` |The link relation for the immediate next page of results.
-`last` |The link relation for the last page of results.
-`first` |The link relation for the first page of results.
-`prev` |The link relation for the immediate previous page of results.
+When a response from the REST API would include many results, {% data variables.product.company_short %} will paginate the results and return a subset of the results. You can use the link header from the response to request additional pages of data. If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
 
 ## Timeouts
 
@@ -723,5 +676,3 @@ If no `Time-Zone` header is specified and you make an authenticated call to the 
 ### Defaulting to UTC without other timezone information
 
 If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
-
-[pagination-guide]: /guides/traversing-with-pagination

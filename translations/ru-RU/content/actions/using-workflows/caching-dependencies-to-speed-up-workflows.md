@@ -1,7 +1,7 @@
 ---
-title: Кэширование зависимостей для ускорения рабочих процессов
+title: Caching dependencies to speed up workflows
 shortTitle: Cache dependencies
-intro: 'Чтобы повысить скорость и эффективность рабочих процессов, можно создавать и использовать кэши для зависимостей и других часто используемых файлов.'
+intro: 'To make your workflows faster and more efficient, you can create and use caches for dependencies and other commonly reused files.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -14,22 +14,17 @@ type: tutorial
 topics:
   - Workflows
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 380fe568e950a4dc388e8f811ecebd12f242c5df
-ms.sourcegitcommit: 34d500fe45b362043b4b4685d6705a7bfb484d11
-ms.translationtype: MT
-ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2022
-ms.locfileid: '148164383'
 ---
-## Сведения о кэшировании зависимостей рабочего процесса
 
-Рабочий процесс часто повторно использует одни и те же выходные данные или скачанные зависимости из одного запуска в другом. Например, средства управления пакетами и зависимостями, такие как Maven, Gradle, npm и Yarn, хранят локальный кэш скачанных зависимостей.
+## About caching workflow dependencies
 
-{% ifversion fpt or ghec %} Задания в средствах выполнения тестов, размещенных в {% data variables.product.prodname_dotcom %}, запускаются в чистом образе средства выполнения тестов и каждый раз должны загружать зависимости, что приводит к увеличению использования сети, времени выполнения и затрат. {% endif %}Чтобы ускорить повторное создание этих файлов, как и зависимостей, {% data variables.product.prodname_dotcom %} может кэшировать файлы, которые часто используются в рабочих процессах.
+Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
 
-Чтобы кэшировать зависимости для задания, необходимо выполнить [действие `cache`](https://github.com/actions/cache) в {% data variables.product.prodname_dotcom %}. Это действие создает и восстанавливает кэш, определенный уникальным ключом. Кроме того, при кэшировании диспетчеров пакетов, перечисленных ниже, использование соответствующих действий setup-* требует минимальной конфигурации; после его выполнения будут созданы и восстановлены кэши зависимостей.
+{% ifversion fpt or ghec %} Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean runner image and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. {% endif %}To help speed up the time it takes to recreate files like dependencies, {% data variables.product.prodname_dotcom %} can cache files you frequently use in workflows.
 
-| Диспетчеры пакетов | Действие setup-* для кэширования |
+To cache dependencies for a job, you can use {% data variables.product.prodname_dotcom %}'s [`cache` action](https://github.com/actions/cache). The action creates and restores a cache identified by a unique key. Alternatively, if you are caching the package managers listed below, using their respective setup-* actions requires minimal configuration and will create and restore dependency caches for you.
+
+| Package managers | setup-* action for caching |
 |---|---|
 | npm, Yarn, pnpm | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data) |
 | pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies) |
@@ -39,44 +34,45 @@ ms.locfileid: '148164383'
 
 {% warning %}
 
-**Предупреждение**. {% ifversion fpt or ghec %}При использовании кэширования с {% data variables.product.prodname_actions %} учитывайте следующее:
+**Warning**: {% ifversion fpt or ghec %}Be mindful of the following when using caching with {% data variables.product.prodname_actions %}:
 
-* {% endif %}В кэше не рекомендуется хранить конфиденциальную информацию. Например, конфиденциальная информация может включать маркеры доступа или учетные данные для входа, хранящиеся в файле в пути к кэшу. Кроме того, программы интерфейса командной строки (CLI), такие как `docker login`, могут сохранять учетные данные для доступа в файле конфигурации. Любой пользователь с доступом на чтение может создать в репозитории запрос на вытягивание и получить доступ к содержимому кэша. Вилки репозитория также могут создавать запросы на вытягивание в базовой ветви и получить доступ к кэшу в базовой ветви.
+* {% endif %}We recommend that you don't store any sensitive information in the cache. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of a cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
 {%- ifversion fpt or ghec %}
-* При использовании локальных средств выполнения тестов кэши из рабочих процессов хранятся в облачном хранилище, принадлежащем {% data variables.product.company_short %}. Решение для принадлежащего клиенту хранилища доступно только с {% data variables.product.prodname_ghe_server %}.
+* When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
 {%- endif %}
 
 {% endwarning %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-Дополнительные сведения об артефактах выполнения рабочего процесса см. в статье [Сохранение данных рабочего процесса с помощью артефактов](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts).
+For more information on workflow run artifacts, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-## Ограничения доступа к кэшу
+## Restrictions for accessing a cache
 
-Ограничения доступа обеспечивают изоляцию кэша и защиту путем создания логической границы между разными ветвями и тегами. Запуски рабочих процессов могут восстанавливать кэши, созданные либо в текущей ветви, либо в ветви по умолчанию (обычно `main`). Если выполнение рабочего процесса запускается для запроса на вытягивание, он также может восстановить кэши, созданные в базовой ветви, включая базовые ветви разветвленных репозиториев. Например, если ветвь `feature-b` имеется базовая ветвь `feature-a`, запуск рабочего процесса, активировавшийся в запросе на вытягивание, будет иметь доступ к кэшам, созданным в ветви по умолчанию `main` , в базовой `feature-a` и текущей `feature-b` ветви.
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. 
+Workflow runs can restore caches created in either the current branch or the default branch (usually `main`). If a workflow run is triggered for a pull request, it can also restore caches created in the base branch, including base branches of forked repositories. For example, if the branch `feature-b` has the base branch `feature-a`, a workflow run triggered on a pull request would have access to caches created in the default `main` branch, the base `feature-a` branch, and the current `feature-b` branch.
 
-Запуски рабочих процессов не могут восстанавливать кэши, созданные для дочерних или одноуровневых ветвей. Например, кэш, созданный для дочерней `feature-b` ветви, не будет доступен для запуска рабочего процесса, активированного в родительской `main` ветви. Аналогичным образом кэш, созданный для ветви с базой `main` , не будет доступен для ее одноуровневой `feature-c` ветви с базовой `main`.`feature-a` Запуски рабочих процессов также не могут восстановить кэши, созданные для разных имен тегов. Например, кэш, созданный для тега `release-a` с базой `main` , не будет доступен для запуска рабочего процесса, активированного для тега `release-b` с базовым `main`значением .
+Workflow runs cannot restore caches created for child branches or sibling branches. For example, a cache created for the child `feature-b` branch would not be accessible to a workflow run triggered on the parent `main` branch. Similarly, a cache created for the `feature-a` branch with the base `main` would not be accessible to its sibling `feature-c` branch with the base `main`. Workflow runs also cannot restore caches created for different tag names. For example, a cache created for the tag `release-a` with the base `main` would not be accessible to a workflow run triggered for the tag `release-b` with the base `main`.
 
-При создании кэша с помощью запуска рабочего процесса, активированного в запросе на вытягивание, создается кэш для ссылки на слияние (`refs/pull/.../merge`). Из-за этого кэш будет иметь ограниченную область и может быть восстановлен только при повторном выполнении запроса на вытягивание. Она не может быть восстановлена базовой ветвью или другими запросами на вытягивание, предназначенными для этой базовой ветви.
+When a cache is created by a workflow run triggered on a pull request, the cache is created for the merge ref (`refs/pull/.../merge`). Because of this, the cache will have a limited scope and can only be restored by re-runs of the pull request. It cannot be restored by the base branch or other pull requests targeting that base branch.
 
-Несколько запусков рабочих процессов в репозитории могут совместно использовать кэши. Кэш, созданный для ветви в выполнении рабочего процесса, можно получить и восстановить из другого запуска рабочего процесса для того же репозитория и ветви.
+Multiple workflow runs in a repository can share caches. A cache created for a branch in a workflow run can be accessed and restored from another workflow run for the same repository and branch.
 
-## Использование действия `cache`
+## Using the `cache` action
 
-[Действие `cache`](https://github.com/actions/cache) попытается восстановить кэш на основе предоставленного вами `key`. Когда действие находит _кэш, точно_ соответствующий ключу, действие восстанавливает кэшированные файлы в настроенный `path` .
-При необходимости можно указать список для `restore-keys` использования в случае, если `key` не соответствует существующему кэшу. Список `restore-keys` полезен при восстановлении кэша из другой ветви, так как `restore-keys` может _частично_ соответствовать ключам кэша. Дополнительные сведения о сопоставлении `restore-keys` см. в разделе [Сопоставление ключа кэша](#matching-a-cache-key).
+The [`cache` action](https://github.com/actions/cache) will attempt to restore a cache based on the `key` you provide. When the action finds a cache that _exactly_ matches the key, the action restores the cached files to the `path` you configure.
+You can optionally provide a list of `restore-keys` to use in case the `key` doesn't match an existing cache. A list of `restore-keys` is useful when you are restoring a cache from another branch because `restore-keys` can _partially_ match cache keys. For more information about matching `restore-keys`, see "[Matching a cache key](#matching-a-cache-key)."
 
-Если имеется точное соответствие указанному `key`объекту , это считается попаданием в кэш. Если ни одного кэша точно не соответствует указанному `key`, это считается промахом кэша. При промахе кэша действие автоматически создает новый кэш, если задание завершается успешно. В новом кэше будет использоваться предоставленный вами `key`, а также будут содержаться файлы, указанные в `path`. Дополнительные сведения о том, как это обрабатывается, см. в разделе [Кэш попаданий и промахов](#cache-hits-and-misses).
+If there is an exact match to the provided `key`, this is considered a cache hit. If no cache exactly matches the provided `key`, this is considered a cache miss. On a cache miss, the action automatically creates a new cache if the job completes successfully. The new cache will use the `key` you provided and contains the files you specify in `path`. For more information about how this is handled, see "[Cache hits and misses](#cache-hits-and-misses)."
 
-Невозможно изменить содержимое существующего кэша. Вместо этого можно создать новый кэш с новым ключом.
+You cannot change the contents of an existing cache. Instead, you can create a new cache with a new key.
 
 
-### Входные параметры для действия `cache`
+### Input parameters for the `cache` action
 
-- `key`. **Требуется** Ключ, созданный при сохранении кэша, и ключ, используемый для поиска кэша. Это может быть любое сочетание переменных, значений контекста, статических строк и функций. Ключи имеют максимальную длину в 512 символов, а использование ключей большей длины приведет к сбою действия.
-- `path`. **Требуется (требуются)** Путь (пути) в средстве выполнения тестов для кэширования или восстановления.
-  - Вы можете указать один путь или добавить несколько путей в отдельных строках. Пример:
+- `key`: **Required** The key created when saving a cache and the key used to search for a cache. It can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
+- `path`: **Required** The path(s) on the runner to cache or restore.
+  - You can specify a single path, or you can add multiple paths on separate lines. For example:
 
     ```
     - name: Cache Gradle packages
@@ -86,9 +82,9 @@ ms.locfileid: '148164383'
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
-  - Вы можете указать либо каталоги, либо отдельные файлы. Также поддерживаются стандартные маски.
-  - Можно указать абсолютные пути или пути относительно каталога рабочей области.
-- `restore-keys`. **Необязательно** Строка, содержащая альтернативные ключи восстановления, где каждый ключ восстановления, находится в новой строке. Если для `key` не происходит попадание в кэше, эти ключи восстановления используются последовательно в указанном порядке для поиска и восстановления кэша. Пример.
+  - You can specify either directories or single files, and glob patterns are supported.
+  - You can specify absolute paths, or paths relative to the workspace directory.
+- `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurs for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. For example:
 
   {% raw %}
   ```yaml
@@ -99,28 +95,28 @@ ms.locfileid: '148164383'
   ```
   {% endraw %}
 
-### Входные параметры для действия `cache`
+### Output parameters for the `cache` action
 
-- `cache-hit`. Логическое значение, указывающее, что для ключа найдено точное совпадение.
+- `cache-hit`: A boolean value to indicate an exact match was found for the key.
 
-### Попадания и промахи кэша
-Если `key` точно соответствует существующему кэшу, это называется _попаданием в кэш_, и действие восстанавливает кэшированные файлы в `path` каталог.
+### Cache hits and misses
+When `key` exactly matches an existing cache, it's called a _cache hit_, and the action restores the cached files to the `path` directory.
 
-При отсутствии соответствия `key` существующему кэшу происходит _промах кэша_, и если задание успешно завершено, автоматически создается новый кэш.
+When `key` doesn't match an existing cache, it's called a _cache miss_, and a new cache is automatically created if the job completes successfully.
 
-При промахе кэша действие также выполняет поиск указанных `restore-keys` для любых совпадений:
+When a cache miss occurs, the action also searches your specified `restore-keys` for any matches:
 
-1. При указании `restore-keys` действие `cache` последовательно ищет все кэши, соответствующие списку `restore-keys`.
-   - При точном совпадении действие восстанавливает файлы в кэше в каталог `path`.
-   - Если точных совпадений нет, действие ищет частичные совпадения ключей восстановления. Когда действие находит частичное совпадение, в каталог `path` восстанавливается самый последний кэш.
-1. Действие `cache` завершается, и выполняется следующий шаг задания.
-1. Если задание завершено успешно, действие автоматически создает новый кэш с содержимым каталога `path`.
+1. If you provide `restore-keys`, the `cache` action sequentially searches for any caches that match the list of `restore-keys`.
+   - When there is an exact match, the action restores the files in the cache to the `path` directory.
+   - If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
+1. The `cache` action completes and the next step in the job runs.
+1. If the job completes successfully, the action automatically creates a new cache with the contents of the `path` directory.
 
-Более подробное описание процесса сопоставления кэша см. в статье [Сопоставление ключа кэша](#matching-a-cache-key).
+For a more detailed explanation of the cache matching process, see "[Matching a cache key](#matching-a-cache-key)."
 
-### Пример использования действия `cache`
+### Example using the `cache` action
 
-В этом примере создается новый кэш при изменении пакетов в файле `package-lock.json` или при изменении операционной системы средства выполнения тестов. Ключ кэша использует контексты и выражения для создания ключа, который включает операционную систему средства выполнения тестов и хэш SHA-256 файла `package-lock.json`.
+This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
 
 ```yaml{:copy}
 name: Caching with npm
@@ -160,13 +156,13 @@ jobs:
         run: npm test
 ```
 
-### Использование контекстов для создания ключей кэша
+### Using contexts to create cache keys
 
-Ключ кэша может включать любой из контекстов, функций, литералов и операторов, поддерживаемых {% data variables.product.prodname_actions %}. Дополнительные сведения см. в разделах [Контексты](/actions/learn-github-actions/contexts) и [Выражения](/actions/learn-github-actions/expressions).
+A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Contexts](/actions/learn-github-actions/contexts)" and "[Expressions](/actions/learn-github-actions/expressions)."
 
-Использование выражений для создания `key` позволяет автоматически создавать новый кэш при изменении зависимостей.
+Using expressions to create a `key` allows you to automatically create a new cache when dependencies change.
 
-Например, можно создать `key` с помощью выражения, которое вычисляет хэш файла npm `package-lock.json`. Таким образом, при изменении зависимостей, составляющих изменение файла `package-lock.json`, изменяется ключ кэша и автоматически создается новый кэш.
+For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file. So, when the dependencies that make up the `package-lock.json` file change, the cache key changes and a new cache is automatically created.
 
 {% raw %}
 ```yaml
@@ -174,17 +170,17 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{% data variables.product.prodname_dotcom %} вычисляет выражение `hash "package-lock.json"` для получения окончательного `key`.
+{% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
 
 ```yaml
 npm-d5ea0750
 ```
 
-### Использование выходных данных действия `cache`
+### Using the output of the `cache` action
 
-Выходные данные действия `cache` можно использовать для выполнения действий в зависимости от того, произошло ли попадание в кэш или произошел промах. В случае нахождения точного совпадения для кэша для указанного `key` для выходных данных `cache-hit` задается значение `true`.
+You can use the output of the `cache` action to do something based on whether a cache hit or miss occurred. When an exact match is found for a cache for the specified `key`, the `cache-hit` output is set to `true`.
 
-В приведенном выше примере рабочего процесса есть шаг, в котором перечисляется состояние модулей Node в случае сбоя кэша:
+In the example workflow above, there is a step that lists the state of the Node modules if a cache miss occurred:
 
 ```yaml
 - if: {% raw %}${{ steps.cache-npm.outputs.cache-hit != 'true' }}{% endraw %}
@@ -193,15 +189,15 @@ npm-d5ea0750
   run: npm list
 ```
 
-## Сопоставление ключа кэша
+## Matching a cache key
 
-Действие `cache` сначала ищет попадания `key` в кэш и _версию_ кэша в ветви, содержащей выполнение рабочего процесса. Если нажатие отсутствует, выполняется поиск `restore-keys` и _версия_. Если в текущей ветви по-прежнему нет совпадений, `cache` действие повторяет те же действия, что и в ветви по умолчанию. Обратите внимание, что ограничения области применяются во время поиска. Дополнительные сведения см. в разделе [Ограничения доступа к кэшу](#restrictions-for-accessing-a-cache).
+The `cache` action first searches for cache hits for `key` and the cache _version_ in the branch containing the workflow run. If there is no hit, it searches for `restore-keys` and the _version_. If there are still no hits in the current branch, the `cache` action retries same steps on the default branch. Please note that the scope restrictions apply during the search. For more information, see "[Restrictions for accessing a cache](#restrictions-for-accessing-a-cache)."
 
-Версия кэша — это способ пометить кэш метаданными `path` и средством сжатия, используемым при создании кэша. Это гарантирует уникальное соответствие выполняемого рабочего процесса кэшу, который он может фактически распаковыть и использовать. Дополнительные сведения см. в разделе [Версия кэша](https://github.com/actions/cache#cache-version) в документации по кэшу действий.
+Cache version is a way to stamp a cache with metadata of the `path` and the compression tool used while creating the cache. This ensures that the consuming workflow run uniquely matches a cache it can actually decompress and use. For more information, see [Cache Version](https://github.com/actions/cache#cache-version) in the Actions Cache documentation.
 
-`restore-keys` позволяет указать список альтернативных ключей восстановления, используемых в случае промаха кэша в `key`. Можно создать несколько ключей восстановления, упорядоченных от наиболее определенных до наименее определенных. Действие `cache` выполняет поиск `restore-keys` в последовательном порядке. Если ключ не совпадает напрямую, действие выполняет поиск ключей с префиксом ключа восстановления. При наличии нескольких частичных совпадений для ключа восстановления действие возвращает последний созданный кэш.
+`restore-keys` allows you to specify a list of alternate restore keys to use when there is a cache miss on `key`. You can create multiple restore keys ordered from the most specific to least specific. The `cache` action searches the `restore-keys` in sequential order. When a key doesn't match directly, the action searches for keys prefixed with the restore key. If there are multiple partial matches for a restore key, the action returns the most recently created cache.
 
-### Пример использования нескольких ключей восстановления
+### Example using multiple restore keys
 
 {% raw %}
 ```yaml
@@ -212,7 +208,7 @@ restore-keys: |
 ```
 {% endraw %}
 
-Средство выполнения тестов вычисляет выражения, которые разрешаются в следующие `restore-keys`:
+The runner evaluates the expressions, which resolve to these `restore-keys`:
 
 {% raw %}
 ```yaml
@@ -223,13 +219,13 @@ restore-keys: |
 ```
 {% endraw %}
 
-Ключ восстановления `npm-feature-` соответствует любому ключу, который начинается со строки `npm-feature-`. Например, оба ключа `npm-feature-fd3052de` и `npm-feature-a9b253ff` совпадают с ключом восстановления. Будет использоваться кэш с последней датой создания. Ключи в этом примере выполняются в следующем порядке:
+The restore key `npm-feature-` matches any key that starts with the string `npm-feature-`. For example, both of the keys `npm-feature-fd3052de` and `npm-feature-a9b253ff` match the restore key. The cache with the most recent creation date would be used. The keys in this example are searched in the following order:
 
-1. **`npm-feature-d5ea0750`** соответствует определенному хэшу.
-1. **`npm-feature-`** соответствует ключам кэша с префиксом `npm-feature-`.
-1. **`npm-`** соответствует любым ключам с префиксом `npm-`.
+1. **`npm-feature-d5ea0750`** matches a specific hash.
+1. **`npm-feature-`** matches cache keys prefixed with `npm-feature-`.
+1. **`npm-`** matches any keys prefixed with `npm-`.
 
-#### Пример приоритета поиска
+#### Example of search priority
 
 ```yaml
 key:
@@ -239,77 +235,132 @@ restore-keys: |
   npm-
 ```
 
-Например, если запрос на вытягивание содержит ветвь `feature` и нацелен на ветвь по умолчанию (`main`), действие выполняет поиск `key` и `restore-keys` в следующем порядке:
+For example, if a pull request contains a `feature` branch and targets the default branch (`main`), the action searches for `key` and `restore-keys` in the following order:
 
-1. Ключ `npm-feature-d5ea0750` в ветви `feature`
-1. Ключ `npm-feature-` в ветви `feature`
-1. Ключ `npm-` в ветви `feature`
-1. Ключ `npm-feature-d5ea0750` в ветви `main`
-1. Ключ `npm-feature-` в ветви `main`
-1. Ключ `npm-` в ветви `main`
+1. Key `npm-feature-d5ea0750` in the `feature` branch
+1. Key `npm-feature-` in the `feature` branch
+1. Key `npm-` in the `feature` branch
+1. Key `npm-feature-d5ea0750` in the `main` branch
+1. Key `npm-feature-` in the `main` branch
+1. Key `npm-` in the `main` branch
 
-## Ограничения использования и политика вытеснения
+## Usage limits and eviction policy
 
-{% data variables.product.prodname_dotcom %} удалит все записи кэша, к которым не удалось получить доступ в течение 7 дней. Количество кэшей, которые можно хранить, не ограничено, но общий размер всех кэшей в репозитории ограничен{% ifversion actions-cache-policy-apis %}. По умолчанию ограничение составляет 10 ГБ на репозиторий, но оно может отличаться в зависимости от политик, заданных владельцами предприятия или администраторами репозитория.{% else %} до 10 ГБ.{% endif %} 
+{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} 
 
-{% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %} Процесс вытеснения кэша может привести к обмотке кэша, при котором кэши создаются и удаляются с высокой частотой. Чтобы уменьшить это, можно просмотреть кэши для репозитория и выполнить корректирующие действия, такие как удаление кэширования из определенных рабочих процессов. Дополнительные сведения см. в разделе [Управление кэшами](#managing-caches). {% endif %} {% ifversion actions-cache-admin-ui %} Вы также можете увеличить предельный размер кэша для репозитория. Дополнительные сведения см. в разделе [Управление параметрами {% data variables.product.prodname_actions %} для репозитория](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
+{% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %}The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. For more information, see "[Managing caches](#managing-caches)."{% endif %}{% ifversion actions-cache-admin-ui %} You can also increase the cache size limit for a repository. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
 
 {% elsif actions-cache-policy-apis %}
 
-Сведения об изменении политик для ограничения размера кэша репозитория см. в разделах [Применение политик для {% data variables.product.prodname_actions %} в организации](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise) и [Управление параметрами {% data variables.product.prodname_actions %} для репозитория](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
+For information on changing the policies for the repository cache size limit, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
 
 {% endif %}
 
 {% ifversion actions-cache-management %}
 
-## Управление кэшами
+## Managing caches
 
 {% ifversion actions-cache-ui %}
 
-Для управления кэшами, созданными на основе рабочих процессов, можно:
+To manage caches created from your workflows, you can:
 
-- Просмотр списка всех записей кэша для репозитория.
-- Отфильтруйте и сортируйте список кэшей, используя определенные метаданные, такие как размер кэша, время создания или время последнего обращения.
-- Удаление записей кэша из репозитория.
-- Мониторинг совокупного использования кэша для репозиториев и организаций.
+- View a list of all cache entries for a repository.
+- Filter and sort the list of caches using specific metadata such as cache size, creation time, or last accessed time.
+- Delete cache entries from a repository.
+- Monitor aggregate cache usage for repositories and organizations.
 
-Существует несколько способов управления кэшами для репозиториев.
+There are multiple ways to manage caches for your repositories:
 
-- Использование веб-интерфейса {% data variables.product.prodname_dotcom %}, как показано ниже.
-- Использование REST API. Дополнительные сведения см. в документации по REST API [{% data variables.product.prodname_actions %}](/rest/actions/cache).
-- Установка расширения {% data variables.product.prodname_cli %} для управления кэшами из командной строки. Дополнительные сведения см. в разделе расширение [gh-actions-cache](https://github.com/actions/gh-actions-cache) .
+- Using the {% data variables.product.prodname_dotcom %} web interface, as shown below.
+- Using the REST API. For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
+- Installing a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information, see the [gh-actions-cache](https://github.com/actions/gh-actions-cache) extension.
 
 {% else %}
 
-Для управления кэшами можно использовать REST API {% data variables.product.product_name %}. {% ifversion actions-cache-list-delete-apis %} API можно использовать для перечисления и удаления записей кэша, а также просмотра использования кэша. {% elsif actions-cache-management %}В настоящее время вы можете использовать API для просмотра использования кэша, в будущих обновлениях ожидаются дополнительные функциональные возможности. {% endif %} Дополнительные сведения см. в документации к REST API по [кэшу {% data variables.product.prodname_actions %}](/rest/actions/cache).
+You can use the {% data variables.product.product_name %} REST API to manage your caches. {% ifversion actions-cache-list-delete-apis %}You can use the API to list and delete cache entries, and see your cache usage.{% elsif actions-cache-management %}At present, you can use the API to see your cache usage, with more functionality expected in future updates.{% endif %} For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
 
-Также можно установить расширение {% data variables.product.prodname_cli %} для управления кэшем из командной строки. Дополнительные сведения о расширении см. в [документации по расширению](https://github.com/actions/gh-actions-cache#readme). Дополнительные сведения о расширениях {% data variables.product.prodname_cli %} см. в статье "[Использование расширений GitHub CLI](/github-cli/github-cli/using-github-cli-extensions)".
+You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
 
 {% endif %}
 
 {% ifversion actions-cache-ui %}
 
-### Просмотр записей кэша
+### Viewing cache entries
 
-Веб-интерфейс можно использовать для просмотра списка записей кэша для репозитория. В списке кэша можно увидеть, сколько дискового пространства использует каждый кэш, когда кэш был создан и когда кэш использовался в последний раз.
+You can use the web interface to view a list of cache entries for a repository. In the cache list, you can see how much disk space each cache is using, when the cache was created, and when the cache was last used.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.actions-cache-list %}
-1. Просмотрите список записей кэша для репозитория.
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.actions-cache-list %}
+1. Review the list of cache entries for the repository.
 
-   * Чтобы найти записи кэша, используемые для определенной ветви, щелкните раскрывающееся меню **Ветвь** и выберите ветвь. В списке кэша будут отображаться все кэши, используемые для выбранной ветви.
-   * Для поиска записей кэша с определенным ключом кэша используйте синтаксис `key: key-name` в поле **Фильтр кэшей** . В списке кэша будут отображаться кэши из всех ветвей, где использовался ключ.
+   * To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
+   * To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
 
-   ![Снимок экрана: список записей кэша](/assets/images/help/repository/actions-cache-entry-list.png)
+   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-entry-list.png)
 
-### Удаление записей кэша
+### Deleting cache entries
 
-Пользователи с `write` доступом к репозиторию могут использовать веб-интерфейс {% data variables.product.prodname_dotcom %} для удаления записей кэша.
+Users with `write` access to a repository can use the {% data variables.product.prodname_dotcom %} web interface to delete cache entries.
 
-{% data reusables.repositories.navigate-to-repo %} {% data reusables.repositories.actions-tab %} {% data reusables.repositories.actions-cache-list %}
-1. Справа от записи кэша, которую вы хотите удалить, щелкните {% octicon "trash" aria-label="The trash icon" %}. 
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.actions-cache-list %}
+1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="The trash icon" %}. 
 
-   ![Снимок экрана: список записей кэша](/assets/images/help/repository/actions-cache-delete.png)
+   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-delete.png)
 
 {% endif %}
+
+{% endif %}
+
+{% ifversion actions-cache-list-delete-apis %}
+
+### Force deleting cache entries
+
+Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[Restrictions for accessing a cache](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency. 
+
+For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. Once a repository has reached its maximum cache storage, the cache eviction policy will create space by deleting the oldest caches in the repository. In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
+
+This example workflow uses `gh-actions-cache` to delete all the caches created by a branch once a pull request is closed.
+
+```yaml
+name: cleanup caches by a branch
+on:
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: {% data reusables.actions.action-checkout %}
+        
+      - name: Cleanup
+        run: |
+          gh extension install actions/gh-actions-cache
+          
+          REPO=${{ github.repository }}
+          BRANCH=${{ github.ref }}
+
+          echo "Fetching list of cache key"
+          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
+
+          ## Setting this to not fail the workflow while deleting cache keys. 
+          set +e
+          echo "Deleting caches..."
+          for cacheKey in $cacheKeysForPR
+          do
+              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+          done
+          echo "Done"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+Alternatively, you can use the API to programmatically delete caches on your own cadence. For more information, see "[Delete GitHub Actions caches for a repository](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key)."
 
 {% endif %}

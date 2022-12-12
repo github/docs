@@ -1,23 +1,18 @@
 ---
-title: Computadores codespaces
+title: Codespaces machines
 allowTitleToDifferFromFilename: true
 shortTitle: Machines
-intro: 'A API de computadores codespaces permite que um usuário determine quais tipos de computadores estão disponíveis para criar um codespace, seja em um determinado repositório ou como um usuário autenticado.'
+intro: 'Use the REST API to manage availability of machine types for a codespace.'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
-ms.openlocfilehash: 4ef510cd054696025d885bec854f5360cae17e96
-ms.sourcegitcommit: 47bd0e48c7dba1dde49baff60bc1eddc91ab10c5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2022
-ms.locfileid: '147067975'
 ---
-## Sobre a API de computadores codespaces
 
-A API de computadores codespaces permite que um usuário determine quais tipos de computadores estão disponíveis para criar um codespace, seja em um determinado repositório ou como um usuário autenticado. Para obter mais informações, confira "[Sobre os tipos de computadores](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)".
+## About {% data variables.product.prodname_codespaces %} machines
 
-Use também essas informações ao alterar o computador de um codespace existente atualizando a propriedade `machine`. A atualização da máquina ocorrerá na próxima vez que o codespace for reiniciado. Para obter mais informações, confira "[Como alterar o tipo de computador para seu codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)".
+You can determine which machine types are available to create a codespace, either on a given repository or as an authenticated user. For more information, see "[About machine types](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace#about-machine-types)."
+
+You can also use this information when changing the machine of an existing codespace by updating its `machine` property. The machine update will take place the next time the codespace is restarted. For more information, see "[Changing the machine type for your codespace](/codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace)."

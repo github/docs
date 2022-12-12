@@ -12,12 +12,12 @@ versions:
 topics:
   - API
 shortTitle: Integrator best practices
-ms.openlocfilehash: 76e0a405394529bb8b40b0a0af10d5e19fbbf3a5
-ms.sourcegitcommit: 5f9527483381cfb1e41f2322f67c80554750a47d
-ms.translationtype: HT
+ms.openlocfilehash: bdfc2449946e40b017dc028869deb7991d5a344a
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '147882273'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193525'
 ---
 GitHub 플랫폼과 통합하는 데 관심이 있으신가요? [좋은 회사에 근무하시는군요](https://github.com/integrations). 이 가이드는 사용자에게 최상의 환경을 제공 *하면서도* API와 안정적으로 상호 작용하는 앱을 빌드하는 데 도움이 됩니다. 
 
@@ -65,7 +65,7 @@ GitHub는 리소스가 이동되면 리디렉션 상태 코드를 제공하여 �
 
 앱의 안정성을 위해 이 데이터를 구문 분석하거나 향후 URL 형식을 추측해서 구성하려고 하면 안 됩니다. URL이 변경되면 앱이 중단될 수 있습니다.
 
-예를 들어 페이지를 매긴 결과를 작업할 때, 끝에 `?page=<number>`가 추가되는 URL을 생성하고 싶은 경우가 많습니다. 이 유혹을 참아야 합니다. [페이지 매김에 대한 가이드](/guides/traversing-with-pagination)를 보면 페이지를 매긴 결과를 믿고 따를 수 있는 몇 가지 안전한 팁이 설명되어 있습니다.
+예를 들어 페이지를 매긴 결과를 작업할 때, 끝에 `?page=<number>`가 추가되는 URL을 생성하고 싶은 경우가 많습니다. 이 유혹을 참아야 합니다. 페이지를 매긴 결과 다음에 대한 자세한 내용은 "[REST API에서 페이지 매김 사용"을](/rest/guides/using-pagination-in-the-rest-api) 참조하세요.
 
 ## 이벤트를 처리하기 전에 이벤트 유형 및 작업 확인
 

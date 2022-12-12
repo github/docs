@@ -15,12 +15,12 @@ topics:
   - CI
   - CD
 shortTitle: Migrate from Jenkins
-ms.openlocfilehash: 177ec8c5e7355b87bdd82dd7cff88d4ae89557e4
-ms.sourcegitcommit: fb047f9450b41b24afc43d9512a5db2a2b750a2a
+ms.openlocfilehash: a0b54ede4d19d97bf750122b72e245b7c6033ad9
+ms.sourcegitcommit: 6185352bc563024d22dee0b257e2775cadd5b797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2022
-ms.locfileid: '145096121'
+ms.lasthandoff: 12/09/2022
+ms.locfileid: '148193166'
 ---
 {% data reusables.actions.enterprise-beta %} {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -100,9 +100,9 @@ Tanto o {% data variables.product.prodname_actions %} quanto o Jenkins permitem 
 
 O Jenkins agrupa as `steps` em `stages`. Cada uma dessas etapas pode ser um script, função ou comando, entre outros. Da mesma forma, o {% data variables.product.prodname_actions %} usa `jobs` para executar grupos específicos de `steps`.
 
-| Etapas do Jenkins | {% data variables.product.prodname_actions %} |
+| Jenkins       | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
-| [`script`](https://jenkins.io/doc/book/pipeline/syntax/#script) | [`jobs.<job_id>.steps`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps) |
+| [`steps`](https://jenkins.io/doc/book/pipeline/syntax/#steps) | [`jobs.<job_id>.steps`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps) |
 
 ## Exemplos de tarefas comuns
 
